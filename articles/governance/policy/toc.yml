@@ -177,7 +177,7 @@
           href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
         - name: Principdefinitioner
           href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
-    - name: Azure SDK för Node
+    - name: Azure SDK för Java Script
       items:
         - name: Princip
           href: /javascript/api/@azure/arm-policy

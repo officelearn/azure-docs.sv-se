@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus identifiering av duplicerade meddelanden | Microsoft Docs
 description: Den här artikeln förklarar hur du kan identifiera dubbletter i Azure Service Bus meddelanden. Det duplicerade meddelandet kan ignoreras och tas bort.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: c109b9fd310a09e5eb4c6d18cc3536e4d8069c0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76760376"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337904"
 ---
 # <a name="duplicate-detection"></a>Dubblettidentifiering
 
@@ -65,7 +55,7 @@ Att hålla nere fönstret innebär att färre meddelande-ID: n måste behållas 
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 I scenarier där klient koden inte kan skicka ett meddelande igen med samma *messageid* som tidigare är det viktigt att utforma meddelanden som kan bearbetas på ett säkert sätt. Det här [blogg inlägget om idempotence](https://particular.net/blog/what-does-idempotent-mean) beskriver olika metoder för hur du gör det.

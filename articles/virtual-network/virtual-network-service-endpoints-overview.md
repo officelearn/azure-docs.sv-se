@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 9dd4bc79760dde00808358fe489f6e539c2b9a2e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3e17df2a3c92d24a7fa662fbf92f8c89b434eb0d
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220438"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338237"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
@@ -39,7 +39,7 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. Service Bus*): allmänt tillgänglig i alla Azure-regioner.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. EventHub*): allmänt tillgängliga i alla Azure-regioner.
 - **[Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureActiveDirectory*): allmänt tillgänglig i alla Azure-regioner där ADLS gen1 är tillgängligt.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)**: är allmänt tillgängliga i alla Azure-regioner där App Service är tillgängligt.
+- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft. Web*): allmänt tillgänglig i alla Azure-regioner där App Service är tillgängligt.
 
 **Offentlig för hands version**
 
@@ -88,7 +88,7 @@ Tjänstslutpunkter har följande fördelar:
 - Det virtuella nätverket där slutpunkten konfigureras kan vara i samma prenumeration som Azure-tjänstresursen eller i en annan. Mer information om vilka behörigheter som krävs för att konfigurera slutpunkter och skydda Azure-tjänster finns under [Etablering](#provisioning).
 - För tjänster som stöds kan du skydda nya eller befintliga resurser i virtuella nätverk som använder tjänstslutpunkter.
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 - När du har aktiverat en tjänst slut punkt har käll-IP-adresserna för virtuella datorer i under näts växeln. Käll-IP-adresserna växlar från att använda offentliga IPv4-adresser för att använda sin privata IPv4-adress vid kommunikation med tjänsten från det under nätet. Befintliga öppna TCP-anslutningar till tjänsten stängs under bytet. Kontrollera att inga kritiska uppgifter körs när du aktiverar eller inaktiverar en tjänstslutpunkt för en tjänst för ett undernät. Kontrollera även att dina program ansluter automatiskt till Azure-tjänster efter IP-adressbytet.
 
@@ -151,5 +151,5 @@ Vanliga frågor och svar [Virtual Network finns i vanliga frågor och svar om se
 - [Skydda en Azure SQL Data Warehouse till ett virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Azure Service integration i virtuella nätverk](virtual-network-for-azure-services.md)
 - [Virtual Network tjänst slut punkts principer](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

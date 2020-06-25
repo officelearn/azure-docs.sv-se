@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a27d8ec5aba55abcea54069b9707d766c4acc7a7
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078314"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338211"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter
 
@@ -103,13 +103,13 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 
 - Se till att inställningarna för webbplats nivå aktiverar gäst åtkomst (samma alternativ för val som tidigare i listan). Mer information finns i [Aktivera och inaktivera extern delning på en plats](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
 
-### <a name="review-your-office-365-group-sharing-settings"></a>Granska inställningarna för Office 365-grupp delning
+### <a name="review-your-microsoft-365-group-sharing-settings"></a>Granska inställningarna för delning av Microsoft 365 grupp
 
-- Om du vill inkludera Office 365-grupper i dina Access-paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Office 365-grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Om du vill inkludera Microsoft 365 grupper i dina åtkomst paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Microsoft 365 grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
-- Om du vill att externa användare ska kunna komma åt SharePoint Online-webbplatsen och resurser som är kopplade till en Office 365-grupp, se till att aktivera extern SharePoint Online-delning. Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Om du vill att externa användare ska kunna komma åt SharePoint Online-webbplatsen och resurser som är associerade med en Microsoft 365 grupp, se till att aktivera extern SharePoint Online-delning. Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Information om hur du ställer in gäst principen för Office 365-grupper på katalog nivå i PowerShell finns i [exempel: Konfigurera gäst princip för grupper på katalog nivå](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Information om hur du anger gäst principen för Microsoft 365 grupper på katalog nivå i PowerShell finns i [exempel: Konfigurera gäst princip för grupper på katalog nivå](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Granska dina team delnings inställningar
 

@@ -1,19 +1,14 @@
 ---
 title: Använd Blob Storage som kontroll punkts Arkiv på Azure Stack Hub (för hands version)
 description: Den här artikeln beskriver hur du använder Blob Storage som en kontroll punkts lagring i Event Hubs på Azure Stack hubben (för hands version).
-services: event-hubs
-documentationcenter: na
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 03/18/2020
-ms.author: spelluru
-ms.openlocfilehash: 2938099383c32eac493e4b4bb620f03c76ca5c44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 0990941191827c66cd51d70216c75e106d0448fd
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82023674"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322360"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Använd Blob Storage som kontroll punkts lager-Event Hubs på Azure Stack hubben (för hands version)
 Om du använder Azure Blob Storage som kontroll punkts Arkiv i en miljö som har stöd för en annan version av Storage BLOB SDK än de som vanligt vis är tillgängliga på Azure, måste du använda kod för att ändra Storage Service API-versionen till den version som stöds av den aktuella miljön. Om du till exempel kör [Event Hubs på en Azure Stack hubb version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagrings tjänsten version 2017-11-09. I så fall måste du använda kod för att rikta Storage Service API-versionen till 2017-11-09. Ett exempel på hur du riktar in en speciell Storage API-version finns i följande exempel på GitHub: 
@@ -34,7 +29,7 @@ The value for one of the HTTP headers is not in the correct format
 
 
 ## <a name="sample-error-message-in-python"></a>Exempel fel meddelande i python
-För python skickas ett fel `azure.core.exceptions.HttpResponseError` till fel hanteraren `on_error(partition_context, error)` för. `EventHubConsumerClient.receive()` Men metoden `receive()` utlöser inte ett undantag. `print(error)`följande undantags information skrivs ut:
+För python skickas ett fel `azure.core.exceptions.HttpResponseError` till fel hanteraren `on_error(partition_context, error)` för `EventHubConsumerClient.receive()` . Men metoden `receive()` utlöser inte ett undantag. `print(error)`följande undantags information skrivs ut:
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.

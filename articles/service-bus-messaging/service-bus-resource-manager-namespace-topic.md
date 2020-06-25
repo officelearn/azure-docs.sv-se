@@ -1,25 +1,18 @@
 ---
 title: Avsnittet Skapa Azure Service Bus namn område med hjälp av en mall
 description: 'Snabb start: skapa ett Service Bus-namnområde med ämne och prenumeration med Azure Resource Manager-mall'
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: c94b670a33f7640d2d6f428287b3ba0fab766bc5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7417b8a1d63001ae4812160b95c6c0f12da52ef6
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80384882"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336899"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Snabb start: skapa ett Service Bus-namnområde med ämnet och prenumerationen med hjälp av en Azure Resource Manager mall
 

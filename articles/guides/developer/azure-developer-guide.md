@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 38e93585c2d9fd3c9cf6e4affdfd1b0a250fedc4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695087"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321918"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Utvecklarens startguide för Azure
 
@@ -130,7 +130,7 @@ De flesta program måste lagra data, så du kan välja att vara värd för ditt 
 
   > **När du ska använda**: när ditt program kräver data lagring med referens integritet, transaktions stöd och stöd för tsql-frågor.
   >
-  > **Kom igång**: [skapa en SQL-databas på några minuter med hjälp av Azure Portal](../../sql-database/sql-database-get-started.md).
+  > **Kom igång**: [skapa en databas i Azure SQL Database på några minuter med hjälp av Azure Portal](../../sql-database/sql-database-get-started.md).
 
 
 Du kan använda [Azure Data Factory](../../data-factory/introduction.md) för att flytta befintliga lokala data till Azure. Om du inte är redo att flytta data till molnet kan [hybridanslutningar](../../app-service/app-service-hybrid-connections.md) i Azure App Service ansluta din app service värdbaserade app till lokala resurser. Du kan också ansluta till Azure data-och lagrings tjänster från dina lokala program.
@@ -268,7 +268,7 @@ Tjänster som [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-h
 
 Att köra din app på Azure innebär troligen att du arbetar med flera Azure-tjänster. Dessa tjänster följer samma livs cykel och kan betraktas som en logisk enhet. Till exempel kan en webbapp använda Web Apps, SQL Database, lagring, Azure cache för Redis och Azure Content Delivery Network-tjänster. Med [Azure Resource Manager](../../azure-resource-manager/management/overview.md) kan du arbeta med resurserna i ditt program som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i en enda, koordinerad åtgärd.
 
-Tillsammans med gruppering och hantering av relaterade resurser i logisk grupp, innehåller Azure Resource Manager distributions funktioner som gör att du kan anpassa distributionen och konfigurationen av relaterade resurser. Du kan till exempel använda Resource Manager-distribution och konfigurera ett program. Det här programmet kan bestå av flera virtuella datorer, en belastningsutjämnare och en Azure SQL-databas som en enda enhet.
+Tillsammans med gruppering och hantering av relaterade resurser i logisk grupp, innehåller Azure Resource Manager distributions funktioner som gör att du kan anpassa distributionen och konfigurationen av relaterade resurser. Du kan till exempel använda Resource Manager-distribution och konfigurera ett program. Det här programmet kan bestå av flera virtuella datorer, en belastningsutjämnare och en databas i Azure SQL Database som en enskild enhet.
 
 Du utvecklar dessa distributioner med hjälp av en Azure Resource Manager mall, som är ett JSON-formaterat dokument. Med mallar kan du definiera en distribution och hantera dina program med hjälp av deklarativ mallar i stället för skript. Dina mallar kan användas i olika miljöer, till exempel testning, mellanlagring och produktion. Du kan till exempel använda mallar för att lägga till en knapp till en GitHub-lagrings platsen som distribuerar koden i lagrings platsen till en uppsättning Azure-tjänster med ett enda klick.
 

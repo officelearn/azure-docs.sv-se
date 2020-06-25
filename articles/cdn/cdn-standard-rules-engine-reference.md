@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 06/22/2020
 ms.author: allensu
-ms.openlocfilehash: 6d4fa4451c3db3d6f2a506eabd5676d18b0219f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cb053a87293a4309a393bd9e0e76bf0d881dd71
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259909"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322188"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referens för standardregelmotor för Azure CDN
 
@@ -32,9 +32,9 @@ Ange [matchnings villkor](cdn-standard-rules-engine-match-conditions.md) och [å
 
  ![Regel struktur för Azure CDN](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Varje regel kan ha upp till fyra matchnings villkor och tre åtgärder. Varje Azure CDN slut punkt kan ha upp till fem regler. 
+Varje regel kan ha upp till tio matchnings villkor och fem åtgärder. Varje Azure CDN slut punkt kan ha upp till 25 regler. 
 
-Ingår i den aktuella fem regel gränsen för en Azure CDN-slutpunkt är en *Global standard regel*. Den globala regeln har inga matchnings villkor och åtgärder som definieras i en global regel utlöser alltid.
+Som ingår i den här gränsen är en *Global standard regel*. Den globala regeln har inga matchnings villkor. åtgärder som definieras i en global regel utlöses alltid.
 
 ## <a name="syntax"></a>Syntax
 
@@ -46,9 +46,9 @@ Hur specialtecken behandlas i en regel beror på hur olika matchnings villkor oc
 
 ### <a name="literal-values"></a>Litterala värden
 
-Text som tolkas som ett litteralt värde behandlar alla specialtecken *förutom symbolen%* som en del av värdet som måste matchas i en regel. Ett villkor för en litteral matchning `'*'` är till exempel uppfyllt endast när det exakta `'*'` värdet hittas.
+Text som tolkas som ett litteralt värde behandlar alla specialtecken *förutom symbolen%* som en del av värdet som måste matchas i en regel. Ett villkor för en litteral matchning är till exempel `'*'` uppfyllt endast när det exakta värdet `'*'` hittas.
 
-Ett procent tecken används för att indikera URL-kodning (till exempel `%20`).
+Ett procent tecken används för att indikera URL-kodning (till exempel `%20` ).
 
 ### <a name="wildcard-values"></a>Jokertecken
 
@@ -57,10 +57,10 @@ Text som tolkas som ett jokertecken tilldelar ytterligare en mening till special
 Tecken | Beskrivning
 ----------|------------
 \ | Ett omvänt snedstreck används för att undanta de tecken som anges i den här tabellen. Ett omvänt snedstreck måste anges direkt före det specialtecken som ska undantas. Följande syntax kan till exempel undanta en asterisk:`\*`
-% | Ett procent tecken används för att indikera URL-kodning (till exempel `%20`).
+% | Ett procent tecken används för att indikera URL-kodning (till exempel `%20` ).
 \* | En asterisk är ett jokertecken som representerar ett eller flera tecken.
 fält | Ett blank stegs tecken anger att ett matchnings villkor kan uppfyllas av något av de angivna värdena eller mönstren.
-enkla citat tecken | Ett enkelt citat tecken har ingen särskild betydelse. En uppsättning enkla citat tecken indikerar dock att ett värde ska behandlas som ett litteralt värde. Enkla citat tecken kan användas på följande sätt:<ul><li>Om du vill att ett matchnings villkor ska uppfyllas när det angivna värdet matchar någon del av jämförelse värdet.  `'ma'` Skulle exempelvis matcha någon av följande strängar: <ul><li>/Business/**ma**rathon/Asset.htm</li><li>**ma**p. gif</li><li>/business/template. **ma**p</li></ul><li>Om du vill tillåta att ett specialtecken anges som ett litteralt tecken. Du kan till exempel ange ett tecken för tecken avstånd genom att omsluta ett blank stegs tecken i en uppsättning enkla`' '` citat `'<sample value>'`tecken (eller).</li><li>Om du vill tillåta att ett tomt värde anges. Ange ett tomt värde genom att ange en uppsättning enkla citat tecken (**' '**).</li></ul>**Viktigt**:<br /><ul><li>Om det angivna värdet inte innehåller ett jokertecken betraktas värdet automatiskt som ett litteralt värde. Du behöver inte ange en uppsättning enkla citat tecken för ett tecken värde.</li><li>Om ett omvänt snedstreck inte används för att undvika ett annat tecken i tabellen, ignoreras omvänt snedstreck när det anges i en uppsättning enkla citat tecken.</li><li>Ett annat sätt att ange ett specialtecken som ett litteralt tecken är att kringgå det genom att använda ett`\`omvänt snedstreck ().</li></ul>
+enkla citat tecken | Ett enkelt citat tecken har ingen särskild betydelse. En uppsättning enkla citat tecken indikerar dock att ett värde ska behandlas som ett litteralt värde. Enkla citat tecken kan användas på följande sätt:<ul><li>Om du vill att ett matchnings villkor ska uppfyllas när det angivna värdet matchar någon del av jämförelse värdet.  `'ma'`Skulle exempelvis matcha någon av följande strängar: <ul><li>/Business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template. **ma**p</li></ul><li>Om du vill tillåta att ett specialtecken anges som ett litteralt tecken. Du kan till exempel ange ett tecken för tecken avstånd genom att omsluta ett blank stegs tecken i en uppsättning enkla citat tecken ( `' '` eller `'<sample value>'` ).</li><li>Om du vill tillåta att ett tomt värde anges. Ange ett tomt värde genom att ange en uppsättning enkla citat tecken (**' '**).</li></ul>**Viktigt**:<br /><ul><li>Om det angivna värdet inte innehåller ett jokertecken betraktas värdet automatiskt som ett litteralt värde. Du behöver inte ange en uppsättning enkla citat tecken för ett tecken värde.</li><li>Om ett omvänt snedstreck inte används för att undvika ett annat tecken i tabellen, ignoreras omvänt snedstreck när det anges i en uppsättning enkla citat tecken.</li><li>Ett annat sätt att ange ett specialtecken som ett litteralt tecken är att kringgå det genom att använda ett omvänt snedstreck ( `\` ).</li></ul>
 
 ## <a name="next-steps"></a>Nästa steg
 

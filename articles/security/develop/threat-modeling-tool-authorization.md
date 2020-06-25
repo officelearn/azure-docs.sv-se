@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56afed264facb6a02040cef01cd5d5d41526ec49
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68728372"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322666"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Säkerhets ram: auktorisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -136,7 +136,7 @@ Nu kan en angripare inte manipulera och ändra program åtgärden eftersom ident
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
-| **Sätt** | <p>Känsliga statiska filer och konfigurationsfiler bör inte behållas i webb roten. För att innehåll inte måste vara offentligt bör du använda lämpliga åtkomst kontroller eller ta bort själva innehållet.</p><p>Dessutom kombineras Tvingad bläddring vanligt vis med brute force-teknik för att samla in information genom att försöka få åtkomst till så många URL: er som möjligt för att räkna upp kataloger och filer på en server. Angripare kan kontrol lera alla variationer av vanliga filer. En lösen ords fils ökning skulle till exempel omfatta filer som psswd. txt, Password. htm, Password. dat och andra varianter.</p><p>För att minimera detta bör funktioner för identifiering av Brute Force-försök inkluderas.</p>|
+| **Sätt** | <p>Känsliga statiska filer och konfigurationsfiler bör inte behållas i webb roten. För att innehåll inte måste vara offentligt bör du använda lämpliga åtkomst kontroller eller ta bort själva innehållet.</p><p>Dessutom kombineras Tvingad bläddring vanligt vis med brute force-teknik för att samla in information genom att försöka få åtkomst till så många URL: er som möjligt för att räkna upp kataloger och filer på en server. Angripare kan kontrol lera alla variationer av vanliga filer. En lösen ords fils ökning omfattar till exempel filer som psswd.txt, password.htm, Password. dat och andra variationer.</p><p>För att minimera detta bör funktioner för identifiering av Brute Force-försök inkluderas.</p>|
 
 ## <a name="ensure-that-least-privileged-accounts-are-used-to-connect-to-database-server"></a><a id="privileged-server"></a>Se till att konton med lägst privilegier används för att ansluta till databas servern
 
@@ -146,7 +146,7 @@ Nu kan en angripare inte manipulera och ändra program åtgärden eftersom ident
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | Skydd bara objekt för [SQL Database behörigheter](https://msdn.microsoft.com/library/ms191465), [SQL Database-](https://msdn.microsoft.com/library/ms190401) |
+| **Referenser**              | [SQL-behörighet-hierarki](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL-skydd bara objekt](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Sätt** | Konton med minst privilegier ska användas för att ansluta till databasen. Program inloggningen bör vara begränsad i databasen och bör endast köra valda lagrade procedurer. Programmets inloggning ska inte ha någon direkt tabell åtkomst. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implementera säkerhet på radnivå för att förhindra att klienter får åtkomst till var and ras data
@@ -160,7 +160,7 @@ Nu kan en angripare inte manipulera och ändra program åtgärden eftersom ident
 | **Referenser**              | [SQL Server säkerhet på radnivå (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Sätt** | <p>Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext).</p><p>Säkerhet på radnivå (RLS) fören klar utformningen och kodningen av säkerhet i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Därmed får medarbetare endast tillgång till de datarader som är relevanta för deras avdelning, eller kunder får endast dataåtkomst till data som berör deras företag.</p><p>Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databas systemet tillämpar åtkomst begränsningar varje gång som data åtkomsten görs från vilken nivå som helst. Detta gör säkerhets systemet mer tillförlitligt och stabilt genom att minska säkerhets systemets Area.</p><p>|
 
-Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att SQL Server starta 2016 och Azure SQL Database. Om RLS-funktionen är inaktive ras, bör den säkerställa att data åtkomsten är begränsad med hjälp av vyer och procedurer
+Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att SQL Server första 2016, Azure SQL Database och SQL-hanterad instans. Om RLS-funktionen är inaktive ras, bör den säkerställa att data åtkomsten är begränsad med hjälp av vyer och procedurer
 
 ## <a name="sysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>Sysadmin-rollen bör bara ha giltiga användare
 
@@ -170,7 +170,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | Skydd bara objekt för [SQL Database behörigheter](https://msdn.microsoft.com/library/ms191465), [SQL Database-](https://msdn.microsoft.com/library/ms190401) |
+| **Referenser**              | [SQL-behörighet-hierarki](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL-skydd bara objekt](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Sätt** | Medlemmar i den fasta Server rollen SysAdmin bör vara mycket begränsade och innehåller aldrig konton som används av program.  Kontrol lera listan med användare i rollen och ta bort eventuella onödiga konton|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Ansluta till en molnbaserad Gateway med hjälp av minst privilegierade token
@@ -317,7 +317,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **Sätt** | <p>Systemet använder en svag klass referens, vilket kan göra det möjligt för en angripare att köra oauktoriserad kod. Programmet refererar till en användardefinierad klass som inte har identifierats unikt. När .NET läser in den svag identifierade klassen söker CLR-typ inläsaren efter klassen på följande platser i angiven ordning:</p><ol><li>Om sammansättningen av typen är känd söker inläsaren igenom konfigurations filens omdirigerings platser, GAC, den aktuella sammansättningen med hjälp av konfigurations information och programmets bas katalog</li><li>Om sammansättningen är okänd söker inläsaren efter den aktuella sammansättningen, mscorlib och den plats som returneras av händelse hanteraren för TypeResolve</li><li>Den här CLR-sökordningen kan ändras med krokar, till exempel mekanismen för typ vidarebefordran och händelsen AppDomain. TypeResolve</li></ol><p>Om en angripare utnyttjar CLR-sökordningen genom att skapa en alternativ klass med samma namn och placera den på en alternativ plats som CLR kommer att läsa in först, kommer CLR att oavsiktligt köra angriparen-kod som anges</p>|
 
 ### <a name="example"></a>Exempel
-`<behaviorExtensions/>` ELEMENTET i WCF-konfigurationsfilen nedan instruerar WCF att lägga till en anpassad beteende klass i ett visst WCF-tillägg.
+`<behaviorExtensions/>`Elementet i WCF-konfigurationsfilen nedan instruerar WCF att lägga till en anpassad beteende klass i ett visst WCF-tillägg.
 ```
 <system.serviceModel>
     <extensions>
@@ -327,10 +327,10 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
     </extensions>
 </system.serviceModel>
 ```
-Att använda fullständigt kvalificerade (starka) namn identifierar unikt en typ och ökar säkerheten i systemet ytterligare. Använd fullständigt kvalificerade sammansättnings namn när du registrerar typer i filerna Machine. config och app. config.
+Att använda fullständigt kvalificerade (starka) namn identifierar unikt en typ och ökar säkerheten i systemet ytterligare. Använd fullständigt kvalificerade sammansättnings namn när du registrerar typer i machine.config och app.config filer.
 
 ### <a name="example"></a>Exempel
-`<behaviorExtensions/>` ELEMENTET i WCF-konfigurationsfilen nedan instruerar WCF att lägga till en starkt refererad anpassad beteende klass till ett visst WCF-tillägg.
+`<behaviorExtensions/>`Elementet i WCF-konfigurationsfilen nedan instruerar WCF att lägga till en starkt refererad anpassad beteende klass till ett visst WCF-tillägg.
 ```
 <system.serviceModel>
     <extensions>

@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 4175214219350620ae44d0249243e23b1a25144a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196600"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321098"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -54,7 +54,7 @@ Det är snarare en EL-plattform (Extract-and-Load) och sedan en TL-plattform (Tr
 För närvarande är data som används och produceras av arbetsflöden i Azure Data Factory *tidsuppdelade* (varje timme, dagligen, varje vecka osv.). En pipeline kan till exempel läsa indata, bearbeta data och skapa utdata en gång om dagen. Du kan också köra ett arbetsflöde bara en gång.  
   
 
-## <a name="how-does-it-work"></a>Hur fungerar det? 
+## <a name="how-does-it-work"></a>Hur fungerar den? 
 Pipelines (datadrivna arbetsflöden) i Azure Data Factory utför vanligen följande tre steg:
 
 ![Tre nivåer i Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)
@@ -140,8 +140,8 @@ Du kan använda något av dessa verktyg eller API:er för att skapa datapipeline
 
 Följ de stegvisa anvisningarna i följande självstudier om du vill lära dig hur du skapar datafabriker med datapipeliner:
 
-| Självstudie | Description |
+| Självstudier | Beskrivning |
 | --- | --- |
-| [Flytta data mellan två molndatalager](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Skapa en datafabrik med en pipeline som flyttar data från Blob Storage till SQL Database. |
+| [Flytta data mellan två molndatalager](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Skapa en data fabrik med en pipeline som flyttar data från Blob Storage till SQL Database. |
 | [Omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md) |Skapa din första Azure Data Factory med en datapipeline som bearbetar data genom att köra Hive-skriptet på ett Azure HDInsight-kluster (Hadoop). |
 | [Flytta data mellan ett lokalt datalager och ett molndatalager med hjälp av Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Bygg en data fabrik med en pipeline som flyttar data från en SQL Server-databas till en Azure-blob. Som en del av den här genomgången kommer du att installera och konfigurera Data Management Gateway på din dator. |

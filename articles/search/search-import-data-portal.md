@@ -1,19 +1,19 @@
 ---
 title: Importera data till ett Sök index med hjälp av Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Lär dig hur du använder guiden Importera data i Azure Portal för att crawla Azure-data från Cosmos DB, Blob Storage, Table Storage, SQL Database och SQL Server på virtuella Azure-datorer.
+description: Lär dig hur du använder guiden Importera data i Azure Portal för att crawla Azure-data från Cosmos DB, Blob Storage, Table Storage, SQL Database, SQL-hanterad instans och SQL Server på virtuella Azure-datorer.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460696"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321389"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Guiden Importera data för Azure Kognitiv sökning
 
@@ -61,14 +61,14 @@ Du kan bara importera från en enskild tabell, databas visning eller motsvarande
 
 Du bör skapa den här enskilda tabellen eller vyn innan du kör guiden och den måste innehålla innehåll. Av uppenbara skäl är det inte klokt att köra guiden **Importera data** på en tom data källa.
 
-|  Val | Beskrivning |
+|  Urval | Beskrivning |
 | ---------- | ----------- |
 | **Befintlig datakälla** |Om du redan har definierat indexerare i Sök tjänsten kan du ha en befintlig definition av data källan som du kan återanvända. I Azure Kognitiv sökning används data käll objekt endast av indexerare. Du kan skapa ett data käll objekt program mässigt eller via guiden **Importera data** och återanvända dem efter behov.|
 | **Exempel**| Azure Kognitiv sökning innehåller två inbyggda exempel data källor som används i självstudier och snabb starter: en fastighets SQL-databas och en hotell databas som finns på Cosmos DB. En genom gång baserat på hotell exemplet finns i [skapa ett index i](search-get-started-portal.md) snabb starten för Azure Portal. |
-| [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Tjänstens namn, autentiseringsuppgifterna för en databasanvändare med läsbehörighet och ett databasnamn kan anges på sidan eller via en ADO.NET-anslutningssträng. Välj alternativet för anslutningssträngar till att visa eller anpassa egenskaperna. <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver.|
+| [**Azure SQL Database-eller SQL-hanterad instans**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Tjänstens namn, autentiseringsuppgifterna för en databasanvändare med läsbehörighet och ett databasnamn kan anges på sidan eller via en ADO.NET-anslutningssträng. Välj alternativet för anslutningssträngar till att visa eller anpassa egenskaperna. <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver.|
 | **SQL Server på virtuella Azure-datorer** |Ange ett fullständigt tjänst namn, användar-ID och lösen ord samt databas som anslutnings sträng. Om du vill använda den här datakällan måste du tidigare ha installerat ett certifikat i det lokala arkiv som krypterar anslutningen. Instruktioner finns i [SQL VM-anslutning till Azure kognitiv sökning](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att förenkla eller filtrera rad uppsättningen eller lämna frågan tom. En fråga krävs inte i den här guiden.|
-| [**Azure-Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Kraven innefattar lagringskonto och en container. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under containern. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
+| [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Kraven innefattar lagringskonto och en container. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under containern. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
 | [**Azure Table Storage**](search-howto-indexing-azure-tables.md) |Kraven innefattar lagringskontot och ett tabellnamn. Du kan också ange en fråga för att hämta en delmängd av tabellerna. Se [Indexera Table Storage](search-howto-indexing-azure-tables.md) för mer information. |
 
 ## <a name="wizard-output"></a>Guidens utdata
@@ -93,7 +93,7 @@ Guiden Importera data startas från kommando fältet på sidan tjänst översikt
 
    ![Importera data kommando i portalen](./media/search-import-data-portal/import-data-cmd2.png "Starta guiden Importera data")
 
-Du kan också starta **Importera data** från andra Azure-tjänster, inklusive Azure Cosmos DB, Azure SQL Database och Azure Blob Storage. Sök efter **Lägg till Azure-kognitiv sökning** i det vänstra navigerings fönstret på sidan tjänst översikt.
+Du kan också starta **Importera data** från andra Azure-tjänster, inklusive Azure Cosmos DB, Azure SQL Database, SQL-hanterad instans och Azure Blob Storage. Sök efter **Lägg till Azure-kognitiv sökning** i det vänstra navigerings fönstret på sidan tjänst översikt.
 
 <a name="index-definition"></a>
 
@@ -105,7 +105,7 @@ Guiden genererar ett ofullständigt index som kommer att fyllas i med dokument s
 
 1. Är data typen lämplig för inkommande data? Azure Kognitiv sökning stöder [data typerna Entity Data Model (EDM)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). För Azure SQL data finns [mappnings diagram](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) som innehåller motsvarande värden. Mer bakgrunds information finns i [fält mappningar och transformeringar](search-indexer-field-mappings.md).
 
-1. Har du ett fält som kan användas som *nyckel*? Det här fältet måste vara en EDM. String och måste identifiera ett dokument unikt. För Relations data kan den mappas till en primär nyckel. För blobbar kan det vara `metadata-storage-path`. Om fältvärdena innehåller blank steg eller tank streck, måste du ange alternativet **bas-64-kodning** i steget **skapa ett indexerare** , under **Avancerade alternativ**för att utelämna verifierings kontrollen för dessa tecken.
+1. Har du ett fält som kan användas som *nyckel*? Det här fältet måste vara en EDM. String och måste identifiera ett dokument unikt. För Relations data kan den mappas till en primär nyckel. För blobbar kan det vara `metadata-storage-path` . Om fältvärdena innehåller blank steg eller tank streck, måste du ange alternativet **bas-64-kodning** i steget **skapa ett indexerare** , under **Avancerade alternativ**för att utelämna verifierings kontrollen för dessa tecken.
 
 1. Ange attribut för att avgöra hur fältet används i ett index. 
 

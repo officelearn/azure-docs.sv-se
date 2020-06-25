@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 225414760507bb023d0a514290420fc7cb59b950
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118321"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322119"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av en lagrad procedur aktivitet i Azure Data Factory
 I den här artikeln beskrivs hur du anropar ett SSIS-paket från en Azure Data Factory pipeline med hjälp av en lagrad procedur aktivitet. 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs hur du anropar ett SSIS-paket från en Azure Data F
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [anropa SSIS-paket med lagrad procedur aktivitet i](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 I genom gången i den här artikeln används Azure SQL Database. Du kan också använda en hanterad Azure SQL-instans.
@@ -82,9 +82,9 @@ Observera följande punkter:
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Skapa en länkad Azure SQL Database-tjänst
-Skapa en länkad tjänst för att länka Azure SQL-databasen som är värd för SSIS-katalogen till din data fabrik. Data Factory använder informationen i den här länkade tjänsten för att ansluta till SSISDB-databasen och köra en lagrad procedur för att köra ett SSIS-paket. 
+Skapa en länkad tjänst för att länka databasen i Azure SQL Database som är värd för SSIS-katalogen till din data fabrik. Data Factory använder informationen i den här länkade tjänsten för att ansluta till SSISDB-databasen och köra en lagrad procedur för att köra ett SSIS-paket. 
 
-1. Skapa en JSON-fil med namnet **AzureSqlDatabaseLinkedService. JSON** i mappen **C:\ADF\RunSSISPackage** med följande innehåll: 
+1. Skapa en JSON-fil med namnet **AzureSqlDatabaseLinkedService.jspå** i **C:\ADF\RunSSISPackage** -mappen med följande innehåll: 
 
     > [!IMPORTANT]
     > Ersätt &lt; servername &gt; , &lt; användar namn &gt; @ &lt; Server namn &gt; och &lt; lösen ord &gt; med värdena för din Azure SQL Database innan du sparar filen.
@@ -110,7 +110,7 @@ Skapa en länkad tjänst för att länka Azure SQL-databasen som är värd för 
 ### <a name="create-an-output-dataset"></a>Skapa en datauppsättning för utdata
 Den här data uppsättningen är en dummy-datauppsättning som driver schemat för pipelinen. Observera att frekvensen är inställd på timme och att intervallet är inställt på 1. Därför körs pipelinen en gång i timmen i Start-och slut tiderna för pipelinen. 
 
-1. Skapa en OutputDataset. JSON-fil med följande innehåll: 
+1. Skapa en OutputDataset.jspå en fil med följande innehåll: 
     
     ```json
     {
@@ -135,7 +135,7 @@ Den här data uppsättningen är en dummy-datauppsättning som driver schemat f�
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en lagrad procedur aktivitet 
 I det här steget skapar du en pipeline med en lagrad procedur aktivitet. Aktiviteten anropar den sp_executesql lagrade proceduren för att köra ditt SSIS-paket. 
 
-1. Skapa en JSON-fil med namnet min **pipeline. JSON** i mappen **C:\ADF\RunSSISPackage** med följande innehåll:
+1. Skapa en JSON-fil med namnet **MyPipeline.js** i mappen **C:\ADF\RunSSISPackage** med följande innehåll:
 
     > [!IMPORTANT]
     > Ersätt &lt; mapp-namn &gt; , &lt; projekt &gt; namn, &lt; paket namn &gt; med namn på mapp, projekt och paket i SSIS-katalogen innan du sparar filen.

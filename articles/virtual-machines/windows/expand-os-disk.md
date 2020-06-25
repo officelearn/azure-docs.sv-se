@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: e69b041a2e4c8a0715adb6ab126a3aede42f7dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5044993e04dabc363a7a4ee49abb66285bcd7521
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869694"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338250"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Utöka operativsystemenheten för en virtuell dator
 
@@ -160,7 +160,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="resizing-data-disks"></a>Ändra storlek på data diskar
 
-Den här artikeln fokuserar främst på att utöka den virtuella datorns OS-disk, men skriptet kan också användas för att utöka data diskarna som är anslutna till den virtuella datorn. Om du exempelvis vill expandera den första disken som är ansluten till den virtuella datorn, ersätter du objektet `OSDisk` i `StorageProfile` med matrisen `DataDisks` och använder ett numeriskt index för att hämta en referens till den första anslutna disken, på följande sätt:
+Den här artikeln fokuserar främst på att utöka den virtuella datorns OS-disk, men skriptet kan också användas för att utöka data diskarna som är anslutna till den virtuella datorn. Om du bara expanderar en datadisk behöver **inte** den virtuella datorn frigöras. Om du exempelvis vill expandera den första disken som är ansluten till den virtuella datorn, ersätter du objektet `OSDisk` i `StorageProfile` med matrisen `DataDisks` och använder ett numeriskt index för att hämta en referens till den första anslutna disken, på följande sätt:
 
 **Hanterad disk**
 
@@ -201,11 +201,11 @@ När du har expanderat disken för den virtuella datorn måste du gå till opera
 
 2.  Öppna en kommando tolk och skriv **DiskPart**.
 
-2.  Skriv `list volume`i **DiskPart** -prompten. Anteckna den volym som du vill utöka.
+2.  Skriv i **DiskPart** -prompten `list volume` . Anteckna den volym som du vill utöka.
 
-3.  Skriv `select volume <volumenumber>`i **DiskPart** -prompten. Detta väljer den volym *volumenumber* som du vill utöka till ett sammanhängande, tomt utrymme på samma disk.
+3.  Skriv i **DiskPart** -prompten `select volume <volumenumber>` . Detta väljer den volym *volumenumber* som du vill utöka till ett sammanhängande, tomt utrymme på samma disk.
 
-4.  Skriv `extend [size=<size>]`i **DiskPart** -prompten. Detta utökar den valda volymen efter *storlek* i megabyte (MB).
+4.  Skriv i **DiskPart** -prompten `extend [size=<size>]` . Detta utökar den valda volymen efter *storlek* i megabyte (MB).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
-title: Azure-front dörr | Microsoft Docs
-description: Den här artikeln innehåller en översikt för Azure Front Door. Ta reda på om det är rätt val för belastnings utjämning av användar trafik för ditt program.
+title: Azure Front Door
+description: Den här artikeln innehåller en lista över de olika matchnings villkoren som är tillgängliga med motor för Azures front dörrs regler.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 77c0d68f507e09b315c912d1d91fdf9cf63db6fa
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515533"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321988"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Motor matchnings villkor för Azures frontend-dörr
 
-En regel i [AFD Rules Engine](front-door-rules-engine.md) består av noll eller flera matchnings villkor och en åtgärd. Den här artikeln innehåller detaljerade beskrivningar av de matchnings villkor som du kan använda i AFD-regel motorn. 
+En regel i [AFD Rules Engine](front-door-rules-engine.md) består av noll eller flera matchnings villkor och en åtgärd. Den här artikeln innehåller detaljerade beskrivningar av de matchnings villkor som du kan använda i AFD-regel motorn.
 
-Den första delen av en regel är ett matchnings villkor eller en uppsättning matchnings villkor. En regel kan bestå av upp till 10 matchnings villkor. Ett matchnings villkor identifierar vissa typer av begär Anden för vilka definierade åtgärder utförs. Om du använder flera matchnings villkor grupperas matchnings villkoren tillsammans med hjälp av och logik. För alla matchnings villkor som har stöd för flera värden (anges nedan som "blankstegsavgränsad") antas operatorn "OR". 
+Den första delen av en regel är ett matchnings villkor eller en uppsättning matchnings villkor. En regel kan bestå av upp till 10 matchnings villkor. Ett matchnings villkor identifierar vissa typer av begär Anden för vilka definierade åtgärder utförs. Om du använder flera matchnings villkor grupperas matchnings villkoren tillsammans med hjälp av och logik. För alla matchnings villkor som har stöd för flera värden (anges nedan som "blankstegsavgränsad") antas operatorn "OR".
 
 Du kan till exempel använda ett matchnings villkor för att:
 
@@ -82,7 +82,7 @@ Inte IP-matchning | IP-adress (blankstegsavgränsad)
 - Om du vill ange flera IP-adresser och IP-adressblock använder du ett enda blank steg mellan värdena:
   - **IPv4-exempel**: *1.2.3.4 10.20.30.40* matchar alla begär Anden som kommer från adressen 1.2.3.4 eller 10.20.30.40.
   - **IPv6-exempel**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matchar alla begär Anden som kommer från adress 1:2:3:4:5:6:7:8 eller 10:20:30:40:50:60:70:80.
-- Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Ett exempel:
+- Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Till exempel:
   - **IPv4-exempel**: *5.5.5.64/26* matchar alla begär Anden som kommer från adresser 5.5.5.64 via 5.5.5.127.
   - **IPv6-exempel**: *1:2:3:/48* matchar alla begär Anden som kommer från adresser 1:2:3:0:0:0:0:0 till och med 1:2: 3: FFFF: FFFF: FFFF: FFFF: FFFF.
 
@@ -130,19 +130,19 @@ Operator | Värden som stöds
 ---------|----------------
 Lika med, inte lika med | HTTP, HTTPS
 
-## <a name="request-url"></a>URL för begäran
+## <a name="request-url"></a>Begärans-URL
 
 Identifierar begär Anden som matchar angiven URL.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | URL för begäran | Skift läges omvandling
+Operator | Begärans-URL | Skift läges omvandling
 ---------|-------------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Gemener, versaler, trim, ta bort blank steg, URL-kod, URL-avkodning
 
 #### <a name="key-information"></a>Viktig information
 
-- När du använder det här regel villkoret ska du se till att inkludera protokoll information. Till exempel: *https://www.\<yourdomain\>.com*.
+- När du använder det här regel villkoret ska du se till att inkludera protokoll information. Exempel: * https://www . \<yourdomain\> . com*.
 
 ## <a name="request-file-extension"></a>Begär fil tillägg
 

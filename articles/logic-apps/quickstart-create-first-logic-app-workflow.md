@@ -3,16 +3,16 @@ title: Skapa ditt första automatiserade arbets flöde
 description: Snabb start – Bygg ditt första automatiserade arbets flöde med hjälp av Azure Logic Apps för system integrering och EAI-lösningar (Enterprise Application Integration)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807861"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321587"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Snabb start: skapa ditt första arbets flöde med hjälp av Azure Logic Apps-Azure Portal
 
@@ -74,13 +74,13 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Välj "när ett feed-objekt publiceras" utlösare](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Ange den här informationen för utlösaren enligt vad som visas och beskrivs här:
+1. Ange informationen för utlösaren enligt beskrivningen i tabellen:
 
    ![Konfigurera utlösare med RSS-flöde, frekvens och intervall](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **RSS-feedens webbadress** | `http://feeds.reuters.com/reuters/topNews` | Länken till det RSS-flöde som du vill övervaka |
+   | **RSS-feedens webbadress** | <*RSS-feed-URL*> | Länken för det RSS-flöde som du vill övervaka. I det här exemplet används `http://feeds.reuters.com/reuters/topNews` . |
    | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna |
    | **Frekvens** | Minut | Tidsenhet för varje intervall mellan kontroller  |
    ||||

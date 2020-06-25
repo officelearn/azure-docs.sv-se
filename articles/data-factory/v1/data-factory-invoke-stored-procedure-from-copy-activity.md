@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d05c2b03a0c498144f37c9b6205053120a596b09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f687901601ba517a50710610d4c827524b8ec565
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74924087"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320989"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Anropa lagrad procedur från kopierings aktivitet i Azure Data Factory
 > [!NOTE]
@@ -29,7 +29,7 @@ När du kopierar data till [SQL Server](data-factory-sqlserver-connector.md) ell
 Följande exempel visar hur du anropar en lagrad procedur i en SQL Server databas från en Data Factory pipeline (kopierings aktivitet):  
 
 ## <a name="output-dataset-json"></a>JSON för utgående data mängd
-I JSON för utgående data uppsättning anger du **typen** till: **SqlServerTable**. Ange att **AzureSqlTable** ska användas med en Azure SQL-databas. Värdet för egenskapen **TableName** måste matcha namnet på den första parametern för den lagrade proceduren.  
+I JSON för utgående data uppsättning anger du **typen** till: **SqlServerTable**. Ange den som **AzureSqlTable** som ska användas med Azure SQL Database. Värdet för egenskapen **TableName** måste matcha namnet på den första parametern för den lagrade proceduren.  
 
 ```json
 {

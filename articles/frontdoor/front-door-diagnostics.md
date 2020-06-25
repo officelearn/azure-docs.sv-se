@@ -6,17 +6,17 @@ documentationcenter: ''
 author: sharad4u
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 7939daf97309d5026fd24732cd922e47c2b16812
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743634"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322306"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Övervaka mått och loggar i Azures front dörr
 
@@ -88,6 +88,7 @@ Front dörren innehåller för närvarande diagnostikloggar (batch-varje timme).
 | RequestUri | URI för den mottagna begäran. |
 | ResponseBytes | Byte som skickats av backend-servern som svar.  |
 | RoutingRuleName | Namnet på den routningsregler som begäran matchade. |
+| RulesEngineMatchNames | Namnen på de regler som begäran matchade. |
 | SecurityProtocol | TLS/SSL-protokollets version som används av begäran eller null om ingen kryptering. |
 | SentToOriginShield | Booleskt fält som representerar om det fanns en cache missar i den första miljön och begäran skickades till den regionala cachen. Ignorera det här fältet om Routningsprincipen är en omdirigering eller om inte cachelagring är aktiverat. |
 | TimeTaken | Hur lång tid åtgärden tog, i millisekunder. |

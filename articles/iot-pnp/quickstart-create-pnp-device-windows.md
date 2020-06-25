@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3d0a054e587a8f067be33913b05d2962b970fb1a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700877"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321621"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play förhands gransknings enhet (Windows)
 
@@ -36,7 +36,7 @@ Använd följande steg för att installera [Azure IoT-verktyg för vs Code](http
 
 1. I VS Code väljer du fliken **tillägg** .
 1. Sök efter **Azure IoT-verktyg**.
-1. Välj **Installera**.
+1. Välj **installera**.
 
 ### <a name="install-the-azure-iot-explorer"></a>Installera Azure IoT Explorer
 
@@ -87,7 +87,7 @@ I den här snabb starten använder du en befintlig funktions modell för exempel
 
 1. Skapa en `pnp_app` mapp på den lokala enheten. Du använder den här mappen för enhets modellens filer och enhets koden stub.
 
-1. Ladda [ned exempel](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) [filen med enhets kapacitets modellen och gränssnittet](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) och spara filerna i `pnp_app` mappen.
+1. Ladda [ned exempel](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/EnvironmentalSensor.interface.json) [filen med enhets kapacitets modellen och gränssnittet](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/SampleDevice.model.json) och spara filerna i `pnp_app` mappen.
 
     > [!TIP]
     > Om du vill ladda ned en fil från GitHub navigerar du till filen, högerklickar på **RAW**och väljer sedan **Spara länk som**.
@@ -107,7 +107,7 @@ Nu när du har ett DCM och tillhör ande gränssnitt kan du generera den enhets 
     > [!NOTE]
     > Första gången du använder IoT-Plug and Play CodeGen CLI tar det några sekunder att ladda ned och installera automatiskt.
 
-1. Välj den **SampleDevice. capabilitymodel. JSON** -fil som ska användas för att generera enhets kod stub.
+1. Välj den **SampleDevice.capabilitymodel.jspå** filen som ska användas för att generera enhets kod stub.
 
 1. Ange projekt namnet **sample_device**. Detta är namnet på enhets programmet.
 

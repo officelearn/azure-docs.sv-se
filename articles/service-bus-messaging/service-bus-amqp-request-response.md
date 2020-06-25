@@ -1,24 +1,14 @@
 ---
 title: AMQP 1,0-begäran/svar-åtgärder i Azure Service Bus
 description: Den här artikeln definierar listan över AMQP-baserade åtgärder för begäran/svar i Microsoft Azure Service Bus.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: aschhab
-ms.openlocfilehash: 338b411eade35fa357f64131c64b8ef2034c92b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 82eb968cc952fab6e828c8b98f4ec2ba569b4441
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76761091"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337841"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1,0 i Microsoft Azure Service Bus: Request-Response-based Operations
 
@@ -131,16 +121,16 @@ Utökar meddelande låset vid den tid som anges i beskrivningen av entiteten.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:renew-lock`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:renew-lock`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
  Meddelande texten för begäran måste bestå av ett AMQP-Value-avsnitt som innehåller en karta med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|`lock-tokens`|matris med uuid|Ja|Meddelande lås tokens som ska förnyas.|  
+|`lock-tokens`|matris med uuid|Yes|Meddelande lås tokens som ska förnyas.|  
 
 > [!NOTE]
 > Lås tokens är `DeliveryTag` egenskapen för mottagna meddelanden. Se följande exempel i [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) som hämtar dessa. Token kan också visas i "DeliveryAnnotations" som "x-opt-lock-token", men detta är inte garanterat och `DeliveryTag` bör vara lämpligt. 
@@ -150,16 +140,16 @@ Begär ande meddelandet måste innehålla följande program egenskaper:
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 Svars meddelande texten måste bestå av ett AMQP-Value-avsnitt som innehåller en karta med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|förfallo tider|matris med tidsstämpel|Ja|Token för meddelande låset nya förfallo datum som motsvarar de Lås token för begäran.|  
+|förfallo tider|matris med tidsstämpel|Yes|Token för meddelande låset nya förfallo datum som motsvarar de Lås token för begäran.|  
   
 ### <a name="peek-message"></a>Granska meddelande  
 
@@ -169,38 +159,38 @@ Granskar meddelanden utan att låsa.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:peek-message`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|long|Ja|Serie nummer från vilket du vill starta Peek.|  
-|`message-count`|int|Ja|Maximalt antal meddelanden att granska.|  
+|`from-sequence-number`|long|Yes|Serie nummer från vilket du vill starta Peek.|  
+|`message-count`|int|Yes|Maximalt antal meddelanden att granska.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – innehåller fler meddelanden<br /><br /> 204: inget innehåll – inga fler meddelanden|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – innehåller fler meddelanden<br /><br /> 204: inget innehåll – inga fler meddelanden|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 Svars meddelande texten måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|meddelanden|lista över kartor|Ja|Lista över meddelanden där varje karta representerar ett meddelande.|  
+|meddelanden|lista över kartor|Yes|Lista över meddelanden där varje karta representerar ett meddelande.|  
   
 Kartan som representerar ett meddelande måste innehålla följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|meddelande|matris med byte|Ja|AMQP 1,0-Wired-kodat meddelande.|  
+|meddelande|matris med byte|Yes|AMQP 1,0-Wired-kodat meddelande.|  
   
 ### <a name="schedule-message"></a>Schema meddelande  
 
@@ -210,41 +200,41 @@ Schemalägger meddelanden. Den här åtgärden stöder transaktion.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:schedule-message`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:schedule-message`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|meddelanden|lista över kartor|Ja|Lista över meddelanden där varje karta representerar ett meddelande.|  
+|meddelanden|lista över kartor|Yes|Lista över meddelanden där varje karta representerar ett meddelande.|  
   
 Kartan som representerar ett meddelande måste innehålla följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|meddelande-ID|sträng|Ja|`amqpMessage.Properties.MessageId`som sträng|  
-|sessions-ID|sträng|Nej|`amqpMessage.Properties.GroupId as string`|  
-|partition – nyckel|sträng|Nej|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
-|via-partition-nyckel|sträng|Nej|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
-|meddelande|matris med byte|Ja|AMQP 1,0-Wired-kodat meddelande.|  
+|meddelande-ID|sträng|Yes|`amqpMessage.Properties.MessageId`som sträng|  
+|sessions-ID|sträng|No|`amqpMessage.Properties.GroupId as string`|  
+|partition – nyckel|sträng|No|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via-partition-nyckel|sträng|No|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
+|meddelande|matris med byte|Yes|AMQP 1,0-Wired-kodat meddelande.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 Svars meddelande texten måste bestå av ett **AMQP-Value-** avsnitt som innehåller en karta med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|sekvenser – siffror|matris med lång|Ja|Ordnings nummer för schemalagda meddelanden. Sekvensnumret används för att avbryta.|  
+|sekvenser – siffror|matris med lång|Yes|Ordnings nummer för schemalagda meddelanden. Sekvensnumret används för att avbryta.|  
   
 ### <a name="cancel-scheduled-message"></a>Avbryt schemalagt meddelande  
 
@@ -254,25 +244,25 @@ Avbryter schemalagda meddelanden.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:cancel-scheduled-message`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:cancel-scheduled-message`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|sekvenser – siffror|matris med lång|Ja|Ordnings nummer för schemalagda meddelanden som ska avbrytas.|  
+|sekvenser – siffror|matris med lång|Yes|Ordnings nummer för schemalagda meddelanden som ska avbrytas.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|statusDescription|sträng|Nej|Beskrivning av status.|   
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
+|statusDescription|sträng|No|Beskrivning av status.|   
   
 ## <a name="session-operations"></a>Session åtgärder  
   
@@ -284,31 +274,31 @@ Utökar meddelande låset vid den tid som anges i beskrivningen av entiteten.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:renew-session-lock`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:renew-session-lock`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|sessions-ID|sträng|Ja|Sessions-ID.|  
+|sessions-ID|sträng|Yes|Sessions-ID.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – innehåller fler meddelanden<br /><br /> 204: inget innehåll – inga fler meddelanden|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – innehåller fler meddelanden<br /><br /> 204: inget innehåll – inga fler meddelanden|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 Svars meddelande texten måste bestå av ett **AMQP-Value-** avsnitt som innehåller en karta med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|dag|timestamp|Ja|Ny förfallo tid.|  
+|dag|timestamp|Yes|Ny förfallo tid.|  
   
 ### <a name="peek-session-message"></a>Granska sessions meddelande  
 
@@ -318,39 +308,39 @@ Granskar sessions meddelanden utan att låsa.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:peek-message`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|från-sekvens-nummer|long|Ja|Serie nummer från vilket du vill starta Peek.|  
-|antal meddelanden|int|Ja|Maximalt antal meddelanden att granska.|  
-|sessions-ID|sträng|Ja|Sessions-ID.|  
+|från-sekvens-nummer|long|Yes|Serie nummer från vilket du vill starta Peek.|  
+|antal meddelanden|int|Yes|Maximalt antal meddelanden att granska.|  
+|sessions-ID|sträng|Yes|Sessions-ID.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – innehåller fler meddelanden<br /><br /> 204: inget innehåll – inga fler meddelanden|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – innehåller fler meddelanden<br /><br /> 204: inget innehåll – inga fler meddelanden|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 Svars meddelande texten måste bestå av ett **AMQP-Value-** avsnitt som innehåller en karta med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|meddelanden|lista över kartor|Ja|Lista över meddelanden där varje karta representerar ett meddelande.|  
+|meddelanden|lista över kartor|Yes|Lista över meddelanden där varje karta representerar ett meddelande.|  
   
  Kartan som representerar ett meddelande måste innehålla följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|meddelande|matris med byte|Ja|AMQP 1,0-Wired-kodat meddelande.|  
+|meddelande|matris med byte|Yes|AMQP 1,0-Wired-kodat meddelande.|  
   
 ### <a name="set-session-state"></a>Ange sessionstillstånd  
 
@@ -360,26 +350,26 @@ Anger status för en session.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:set-session-state`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:set-session-state`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|sessions-ID|sträng|Ja|Sessions-ID.|  
-|sessionstillstånd|byte mat ris|Ja|Täckande binära data.|  
+|sessions-ID|sträng|Yes|Sessions-ID.|  
+|sessionstillstånd|byte mat ris|Yes|Täckande binära data.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 ### <a name="get-session-state"></a>Hämta sessionstillstånd  
 
@@ -389,31 +379,31 @@ Hämtar status för en session.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:get-session-state`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:get-session-state`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|sessions-ID|sträng|Ja|Sessions-ID.|  
+|sessions-ID|sträng|Yes|Sessions-ID.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 Svars meddelande texten måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|sessionstillstånd|byte mat ris|Ja|Täckande binära data.|  
+|sessionstillstånd|byte mat ris|Yes|Täckande binära data.|  
   
 ### <a name="enumerate-sessions"></a>Räkna upp sessioner  
 
@@ -423,34 +413,34 @@ Räknar upp sessioner i en meddelande enhet.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:get-message-sessions`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:get-message-sessions`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|Senast uppdaterad – tid|timestamp|Ja|Filtrera om du bara vill inkludera sessioner som uppdateras efter en bestämd tid.|  
-|hoppa över|int|Ja|Hoppa över ett antal sessioner.|  
-|överst|int|Ja|Maximalt antal sessioner.|  
+|Senast uppdaterad – tid|timestamp|Yes|Filtrera om du bara vill inkludera sessioner som uppdateras efter en bestämd tid.|  
+|hoppa över|int|Yes|Hoppa över ett antal sessioner.|  
+|överst|int|Yes|Maximalt antal sessioner.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – innehåller fler meddelanden<br /><br /> 204: inget innehåll – inga fler meddelanden|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – innehåller fler meddelanden<br /><br /> 204: inget innehåll – inga fler meddelanden|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 Svars meddelande texten måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|hoppa över|int|Ja|Antal överhoppade sessioner om status koden är 200.|  
-|sessioner-ID: n|matris med strängar|Ja|Matris med sessions-ID: n om status koden är 200.|  
+|hoppa över|int|Yes|Antal överhoppade sessioner om status koden är 200.|  
+|sessioner-ID: n|matris med strängar|Yes|Matris med sessions-ID: n om status koden är 200.|  
   
 ## <a name="rule-operations"></a>Regel åtgärder  
   
@@ -460,60 +450,60 @@ Svars meddelande texten måste bestå av ett **AMQP-Value-** avsnitt som innehå
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:add-rule`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:add-rule`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|regel namn|sträng|Ja|Regel namn, inklusive namn på prenumeration och ämnen.|  
-|regel – Beskrivning|map|Ja|Regel Beskrivning enligt vad som anges i nästa avsnitt.|  
+|regel namn|sträng|Yes|Regel namn, inklusive namn på prenumeration och ämnen.|  
+|regel – Beskrivning|map|Yes|Regel Beskrivning enligt vad som anges i nästa avsnitt.|  
   
 Mappningen **regel-Beskrivning** måste innehålla följande poster, där **SQL-filter** och **korrelations filter** kan vara ömsesidigt uteslutande:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|SQL-filter|map|Ja|`sql-filter`, enligt vad som anges i nästa avsnitt.|  
-|korrelations filter|map|Ja|`correlation-filter`, enligt vad som anges i nästa avsnitt.|  
-|SQL-regel – åtgärd|map|Ja|`sql-rule-action`, enligt vad som anges i nästa avsnitt.|  
+|SQL-filter|map|Yes|`sql-filter`, enligt vad som anges i nästa avsnitt.|  
+|korrelations filter|map|Yes|`correlation-filter`, enligt vad som anges i nästa avsnitt.|  
+|SQL-regel – åtgärd|map|Yes|`sql-rule-action`, enligt vad som anges i nästa avsnitt.|  
   
 SQL-filtrets mappning måste innehålla följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|uttryck|sträng|Ja|SQL filter-uttryck.|  
+|uttryck|sträng|Yes|SQL filter-uttryck.|  
   
 **Korrelations filter** kartan måste innehålla minst en av följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|korrelations-id|sträng|Nej||  
-|meddelande-ID|sträng|Nej||  
-|till|sträng|Nej||  
-|svar till|sträng|Nej||  
-|etikett|sträng|Nej||  
-|sessions-ID|sträng|Nej||  
-|svar-till-session-ID|sträng|Nej||  
-|innehålls typ|sträng|Nej||  
-|properties|map|Nej|Mappar till Service Bus [BrokeredMessage. Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
+|korrelations-id|sträng|No||  
+|meddelande-ID|sträng|No||  
+|till|sträng|No||  
+|svar till|sträng|No||  
+|etikett|sträng|No||  
+|sessions-ID|sträng|No||  
+|svar-till-session-ID|sträng|No||  
+|innehålls typ|sträng|No||  
+|properties|map|No|Mappar till Service Bus [BrokeredMessage. Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
   
 **SQL-regel – åtgärds** kartan måste innehålla följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|uttryck|sträng|Ja|SQL-åtgärds uttryck.|  
+|uttryck|sträng|Yes|SQL-åtgärds uttryck.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 ### <a name="remove-rule"></a>Ta bort regel  
   
@@ -521,25 +511,25 @@ Svars meddelandet måste innehålla följande program egenskaper:
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:remove-rule`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:remove-rule`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|regel namn|sträng|Ja|Regel namn, inklusive namn på prenumeration och ämnen.|  
+|regel namn|sträng|Yes|Regel namn, inklusive namn på prenumeration och ämnen.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 ### <a name="get-rules"></a>Hämta regler
 
@@ -547,40 +537,40 @@ Svars meddelandet måste innehålla följande program egenskaper:
 
 Begär ande meddelandet måste innehålla följande program egenskaper:
 
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:enumerate-rules`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
 
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|överst|int|Ja|Antalet regler som ska hämtas på sidan.|  
-|hoppa över|int|Ja|Antalet regler som ska hoppas över. Definierar start indexet (+ 1) i listan över regler. | 
+|överst|int|Yes|Antalet regler som ska hämtas på sidan.|  
+|hoppa över|int|Yes|Antalet regler som ska hoppas över. Definierar start indexet (+ 1) i listan över regler. | 
 
 #### <a name="response"></a>Svar
 
 Svars meddelandet innehåller följande egenskaper:
 
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|regler| kartans matris|Ja|Regel mat ris. Varje regel representeras av en karta.|
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
+|regler| kartans matris|Yes|Regel mat ris. Varje regel representeras av en karta.|
 
 Varje mappnings post i matrisen innehåller följande egenskaper:
 
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|regel – Beskrivning|matris med beskrivna objekt|Ja|`com.microsoft:rule-description:list`med AMQP-kod som beskrivs 0x0000013700000004| 
+|regel – Beskrivning|matris med beskrivna objekt|Yes|`com.microsoft:rule-description:list`med AMQP-kod som beskrivs 0x0000013700000004| 
 
 `com.microsoft.rule-description:list`är en matris med beskrivna objekt. Matrisen innehåller följande:
 
-|Index|Värdetyp|Krävs|Värde innehåll|  
+|Index|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-| 0 | matris med beskrivna objekt | Ja | `filter`som anges nedan. |
-| 1 | matris med beskrivande objekt | Ja | `ruleAction`som anges nedan. |
-| 2 | sträng | Ja | regelns namn. |
+| 0 | matris med beskrivna objekt | Yes | `filter`som anges nedan. |
+| 1 | matris med beskrivande objekt | Yes | `ruleAction`som anges nedan. |
+| 2 | sträng | Yes | regelns namn. |
 
 `filter`kan vara av någon av följande typer:
 
@@ -593,9 +583,9 @@ Varje mappnings post i matrisen innehåller följande egenskaper:
 
 `com.microsoft:sql-filter:list`är en förtecknad matris som innehåller:
 
-|Index|Värdetyp|Krävs|Värde innehåll|  
+|Index|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-| 0 | sträng | Ja | SQL filter-uttryck |
+| 0 | sträng | Yes | SQL filter-uttryck |
 
 `com.microsoft:correlation-filter:list`är en förtecknad matris som innehåller:
 
@@ -605,7 +595,7 @@ Varje mappnings post i matrisen innehåller följande egenskaper:
 | 1 | sträng | Meddelande-ID |
 | 2 | sträng | Till |
 | 3 | sträng | Svara på |
-| 4 | sträng | Label (Etikett) |
+| 4 | sträng | Etikett |
 | 5 | sträng | Sessions-ID |
 | 6 | sträng | Svara på sessions-ID|
 | 7 | sträng | Innehållstyp |
@@ -630,39 +620,39 @@ Tar emot uppskjutna meddelanden efter ordnings nummer.
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:receive-by-sequence-number`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|sekvenser – siffror|matris med lång|Ja|Serie nummer.|  
-|mottagare-likvidera-läge|ubyte|Ja|**Mottagar** läge för mottagaren som anges i AMQP Core v 1.0.|  
+|sekvenser – siffror|matris med lång|Yes|Serie nummer.|  
+|mottagare-likvidera-läge|ubyte|Yes|**Mottagar** läge för mottagaren som anges i AMQP Core v 1.0.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|statusDescription|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
+|statusDescription|sträng|No|Beskrivning av status.|  
   
 Svars meddelande texten måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|meddelanden|lista över kartor|Ja|Lista över meddelanden där varje karta representerar ett meddelande.|  
+|meddelanden|lista över kartor|Yes|Lista över meddelanden där varje karta representerar ett meddelande.|  
   
 Kartan som representerar ett meddelande måste innehålla följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|Lås-token|uuid|Ja|Lås token `receiver-settle-mode` om är 1.|  
-|meddelande|matris med byte|Ja|AMQP 1,0-Wired-kodat meddelande.|  
+|Lås-token|uuid|Yes|Lås token om `receiver-settle-mode` är 1.|  
+|meddelande|matris med byte|Yes|AMQP 1,0-Wired-kodat meddelande.|  
   
 ### <a name="update-disposition-status"></a>Uppdatera dispositions status  
 
@@ -672,29 +662,29 @@ Uppdaterar dispositions statusen för uppskjutna meddelanden. Den här åtgärde
 
 Begär ande meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|reparation|sträng|Ja|`com.microsoft:update-disposition`|  
-|`com.microsoft:server-timeout`|uint|Nej|Åtgärds serverns tids gräns i millisekunder.|  
+|reparation|sträng|Yes|`com.microsoft:update-disposition`|  
+|`com.microsoft:server-timeout`|uint|No|Åtgärds serverns tids gräns i millisekunder.|  
   
 Meddelande texten för begäran måste bestå av ett **AMQP-Value-** avsnitt som innehåller en **karta** med följande poster:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|disposition-status|sträng|Ja|ATS<br /><br /> Avbryt<br /><br /> avstängd|  
-|Lås-token|matris med uuid|Ja|Meddelande lås tokens för att uppdatera dispositions status.|  
-|obeställbara meddelanden kön – orsak|sträng|Nej|Kan anges om dispositions status är **inaktive**rad.|  
-|obeställbara meddelanden kön – Beskrivning|sträng|Nej|Kan anges om dispositions status är **inaktive**rad.|  
-|egenskaper för att ändra|map|Nej|Lista över Service Bus sammanslagna meddelande egenskaper som ska ändras.|  
+|disposition-status|sträng|Yes|ATS<br /><br /> Avbryt<br /><br /> avstängd|  
+|Lås-token|matris med uuid|Yes|Meddelande lås tokens för att uppdatera dispositions status.|  
+|obeställbara meddelanden kön – orsak|sträng|No|Kan anges om dispositions status är **inaktive**rad.|  
+|obeställbara meddelanden kön – Beskrivning|sträng|No|Kan anges om dispositions status är **inaktive**rad.|  
+|egenskaper för att ändra|map|No|Lista över Service Bus sammanslagna meddelande egenskaper som ska ändras.|  
   
 #### <a name="response"></a>Svar  
 
 Svars meddelandet måste innehålla följande program egenskaper:  
   
-|Nyckel|Värdetyp|Krävs|Värde innehåll|  
+|Nyckel|Värdetyp|Obligatorisk|Värde innehåll|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|statusDescription|sträng|Nej|Beskrivning av status.|
+|statusCode|int|Yes|HTTP-svarskod [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
+|statusDescription|sträng|No|Beskrivning av status.|
 
 ## <a name="next-steps"></a>Nästa steg
 

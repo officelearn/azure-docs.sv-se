@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1b5d51eafc0cb21a02f8a750bd78b5be7aca734f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605518"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336873"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -197,7 +197,7 @@ Data Factory-teamet har angett ett [skript före och efter distribution](#script
 
    ![Bygg en egen mall](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Välj **Läs in fil**och välj sedan den genererade Resource Manager-mallen. Detta är den **arm_template. JSON** -fil som finns i. zip-filen som exporterades i steg 1.
+1. Välj **Läs in fil**och välj sedan den genererade Resource Manager-mallen. Detta är **arm_template.jspå** filen som finns i. zip-filen som exporterades i steg 1.
 
    ![Redigera mall](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -212,7 +212,7 @@ Om din utvecklings fabrik har en kopplad git-lagringsplats, kan du åsidosätta 
 * Du använder automatiserad CI/CD och du vill ändra vissa egenskaper under distributionen av Resource Manager, men egenskaperna är inte parameterstyrda som standard.
 * Fabriken är så stor att Resource Manager-standardmallen är ogiltig eftersom den har fler än det högsta tillåtna antalet parametrar (256).
 
-Om du vill åsidosätta standard mal len Parameterisering skapar du en fil med namnet **arm-Template-Parameters-definition. JSON** i rotmappen för git-grenen. Du måste använda det exakta fil namnet.
+Om du vill åsidosätta standard mal len för parameterisering skapar du en fil med namnet **arm-template-parameters-definition.jspå** i rotmappen för git-grenen. Du måste använda det exakta fil namnet.
 
    ![Fil för anpassade parametrar](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -225,7 +225,7 @@ När du exporterar en Resource Manager-mall Data Factory läser filen från den 
 
 ### <a name="custom-parameter-syntax"></a>Anpassad parameter-syntax
 
-Nedan följer några rikt linjer som du följer när du skapar anpassade parameter filen, **arm-Template-Parameters-definition. JSON**. Filen består av ett avsnitt för varje entitetstyp: utlösare, pipeline, länkad tjänst, data uppsättning, integration Runtime och data flöde.
+Nedan följer några rikt linjer som du följer när du skapar den anpassade parameter filen **arm-template-parameters-definition.jspå**. Filen består av ett avsnitt för varje entitetstyp: utlösare, pipeline, länkad tjänst, data uppsättning, integration Runtime och data flöde.
 
 * Ange sökvägen till egenskapen under den relevanta entitetstypen.
 * Om du anger ett egenskaps namn för att ange att  `*` du vill Parameterisera alla egenskaper under den (enbart till den första nivån, inte rekursivt). Du kan också ange undantag för den här konfigurationen.
@@ -317,7 +317,7 @@ Här är en förklaring av hur föregående mall skapas, uppdelat efter resurs t
 #### <a name="triggers"></a>Utlösare
 
 * Under `typeProperties` , har två egenskaper parametriserade. Det första är `maxConcurrency` , som har angetts att ha ett standardvärde och är av typen `string` . Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency` .
-* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
+* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Exempelvis `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -422,6 +422,7 @@ Nedan visas den aktuella standard Parameterisering-mallen. Om du bara behöver l
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
                     "environmentUrl": "=",
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
@@ -574,9 +575,9 @@ Om du har konfigurerat git skapas och sparas de länkade mallarna tillsammans me
 
 ![Mapp för länkade Resource Manager-mallar](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-De länkade Resource Manager-mallarna består vanligt vis av en huvud mal len och en uppsättning underordnade mallar som är länkade till huvud servern. Den överordnade mallen kallas ArmTemplate_master. JSON och underordnade mallar får namnet med mönstret ArmTemplate_0. JSON, ArmTemplate_1. JSON och så vidare. 
+De länkade Resource Manager-mallarna består vanligt vis av en huvud mal len och en uppsättning underordnade mallar som är länkade till huvud servern. Den överordnade mallen kallas ArmTemplate_master.jspå och underordnade mallar namnges med mönstret ArmTemplate_0.jspå, ArmTemplate_1.jspå och så vidare. 
 
-Om du vill använda länkade mallar i stället för den fullständiga Resource Manager-mallen uppdaterar du CI/CD-aktiviteten så att den pekar på ArmTemplate_master. json i stället för ArmTemplateForFactory. JSON (fullständig Resource Manager-mall). Resource Manager kräver också att du överför de länkade mallarna till ett lagrings konto så att Azure kan komma åt dem under distributionen. Mer information finns i [distribuera länkade Resource Manager-mallar med VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Om du vill använda länkade mallar i stället för den fullständiga Resource Manager-mallen uppdaterar du CI/CD-aktiviteten så att den pekar på ArmTemplate_master.jsi stället för ArmTemplateForFactory.jspå (fullständig Resource Manager-mall). Resource Manager kräver också att du överför de länkade mallarna till ett lagrings konto så att Azure kan komma åt dem under distributionen. Mer information finns i [distribuera länkade Resource Manager-mallar med VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Kom ihåg att lägga till Data Factory skript i CI/CD-pipeline innan och efter distributions aktiviteten.
 
@@ -726,8 +727,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }

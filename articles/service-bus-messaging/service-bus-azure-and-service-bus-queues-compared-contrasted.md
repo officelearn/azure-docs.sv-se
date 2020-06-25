@@ -1,25 +1,14 @@
 ---
-title: Jämför Azure Storage köer och Service Bus köer
+title: Jämföra Azure Storage-köer och Service Bus-köer
 description: Analyserar skillnader och likheter mellan två typer av köer som erbjuds av Azure.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 09/04/2019
-ms.author: aschhab
-ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414537"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337647"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer – jämförelser och skillnader
 I den här artikeln analyseras skillnaderna och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: lagrings köer och Service Bus köer. Med hjälp av den här informationen kan du jämföra och kontrastera respektive teknik och kunna fatta ett mer informerat beslut om vilken lösning som bäst uppfyller dina behov.
@@ -67,7 +56,7 @@ Tabellerna i följande avsnitt innehåller en logisk gruppering av köegenskaper
 ## <a name="foundational-capabilities"></a>Grundläggande funktioner
 I det här avsnittet jämförs några av de grundläggande köernas funktioner som tillhandahålls av lagrings köer och Service Bus köer.
 
-| Jämförelse villkor | Lagrings köer | Service Bus-köer |
+| Jämförelse villkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Beställ garanti |**Nej** <br/><br>Mer information finns i den första kommentaren i avsnittet "Ytterligare information".</br> |**Ja-första-först-ut (FIFO)**<br/><br>(genom att använda messaging-sessioner) |
 | Leverans garanti |**Minst en gång** |**Minst en gång** (med PeekLock Receive-läge – det här är standardinställningen) <br/><br/>**Mycket-en gång** (med ReceiveAndDelete Receive-läge) <br/> <br/> Läs mer om olika [mottagnings lägen](service-bus-queues-topics-subscriptions.md#receive-modes)  |
@@ -99,7 +88,7 @@ I det här avsnittet jämförs några av de grundläggande köernas funktioner s
 ## <a name="advanced-capabilities"></a>Avancerade funktioner
 I det här avsnittet jämförs avancerade funktioner som tillhandahålls av lagrings köer och Service Bus köer.
 
-| Jämförelse villkor | Lagrings köer | Service Bus-köer |
+| Jämförelse villkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Schemalagd leverans |**Ja** |**Ja** |
 | Automatisk obeställbara meddelanden |**Nej** |**Ja** |
@@ -130,12 +119,12 @@ I det här avsnittet jämförs avancerade funktioner som tillhandahålls av lagr
 ## <a name="capacity-and-quotas"></a>Kapacitet och kvoter
 I det här avsnittet jämförs lagrings köer och Service Bus köer från den [kapacitet och de kvoter](service-bus-quotas.md) som kan tillkomma.
 
-| Jämförelse villkor | Lagrings köer | Service Bus-köer |
+| Jämförelse villkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Maximal kös Tor lek |**500 TB**<br/><br/>(begränsat till en [enda lagrings konto kapacitet](../storage/common/storage-introduction.md#queue-storage)) |**1 GB till 80 GB**<br/><br/>(definieras när du skapar en kö och [aktiverar partitionering](service-bus-partitioning.md) – se avsnittet "Ytterligare information") |
 | Maximal meddelande storlek |**64 kB**<br/><br/>(48 KB vid användning av **base64** -kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – där du kan placera upp till 200 GB för ett enda objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, maximal sidhuvud storlek: 64 KB).<br/><br/>Är beroende av [tjänst nivån](service-bus-premium-messaging.md). |
 | Maximalt meddelande-TTL |**Oändlig** (från och med API-version 2017-07-27) |**TimeSpan. Max** |
-| Maximalt antal köer |**Obegränsat** |**10 000**<br/><br/>(namn område per tjänst) |
+| Maximalt antal köer |**Obegränsat** |**10 000**<br/><br/>(namn område per tjänst) |
 | Maximalt antal samtidiga klienter |**Obegränsat** |**Obegränsat**<br/><br/>(100 samtidiga anslutnings begränsningar gäller endast för TCP-protokoll-baserad kommunikation) |
 
 ### <a name="additional-information"></a>Ytterligare information
@@ -149,7 +138,7 @@ I det här avsnittet jämförs lagrings köer och Service Bus köer från den [k
 ## <a name="management-and-operations"></a>Hantering och åtgärder
 I det här avsnittet jämförs de hanterings funktioner som tillhandahålls av lagrings köer och Service Bus köer.
 
-| Jämförelse villkor | Lagrings köer | Service Bus-köer |
+| Jämförelse villkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Hanterings protokoll |**REST över HTTP/HTTPS** |**REST över HTTPS** |
 | Körnings protokoll |**REST över HTTP/HTTPS** |**REST över HTTPS**<br/><br/>**AMQP 1,0 standard (TCP med TLS)** |
@@ -157,7 +146,7 @@ I det här avsnittet jämförs de hanterings funktioner som tillhandahålls av l
 | Ursprunglig C++ |**Ja** |**Ja** |
 | Java-API |**Ja** |**Ja** |
 | PHP-API |**Ja** |**Ja** |
-| Node. js-API |**Ja** |**Ja** |
+| Node.js-API |**Ja** |**Ja** |
 | Stöd för godtycklig metadata |**Ja** |**Nej** |
 | Namngivnings regler för kön |**Upp till 63 tecken**<br/><br/>(Bokstäver i ett könamn måste vara i gemener.) |**Upp till 260 tecken**<br/><br/>(Kö Sök vägar och namn är Skift läges okänsliga.) |
 | Hämta Kölängd-funktion |**Ja**<br/><br/>(Ungefärligt värde om meddelanden upphör att gälla efter TTL utan att tas bort.) |**Ja**<br/><br/>(Exakt värde för tidpunkt.) |
@@ -173,7 +162,7 @@ I det här avsnittet jämförs de hanterings funktioner som tillhandahålls av l
 ## <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 I det här avsnittet beskrivs de funktioner för autentisering och auktorisering som stöds av lagrings köer och Service Bus köer.
 
-| Jämförelse villkor | Lagrings köer | Service Bus-köer |
+| Jämförelse villkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Autentisering |**Symmetrisk nyckel** |**Symmetrisk nyckel** |
 | Säkerhetsmodell |Delegerad åtkomst via SAS-token. |SÄKERHETS |
@@ -191,7 +180,7 @@ Eftersom Service Bus köer ger ett antal avancerade funktioner, till exempel ses
 ## <a name="next-steps"></a>Nästa steg
 Följande artiklar innehåller mer information om hur du använder lagrings köer eller Service Bus köer.
 
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använda tjänsten Queue Storage](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Metod tips för prestanda förbättringar med Service Bus asynkrona meddelanden](service-bus-performance-improvements.md)
 * [Introduktion till köer och ämnen i Azure Service Bus (blogg inlägg)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)

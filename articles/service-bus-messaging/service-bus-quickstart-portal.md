@@ -1,19 +1,16 @@
 ---
 title: Använd Azure Portal för att skapa en Service Bus kö
 description: I den här snabbstarten lär du dig hur du skapar en Service Bus-kö med hjälp av Azure-portalen. Sedan använder du ett exempelklientprogram för att skicka meddelanden till och ta emot meddelanden från kön.
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0753259f76c46c5df4246008f3f80ffa5bf35747
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240648"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337332"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabb start: använda Azure Portal för att skapa en Service Bus kö
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med [Azure-portalen][Azure portal] för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -40,8 +37,8 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 > Stegvisa instruktioner för att skicka och ta emot meddelanden med olika programmeringsspråk finns i följande snabb starter:
 > - [.NET](service-bus-dotnet-get-started-with-queues.md)
 > - [Java](service-bus-java-how-to-use-queues.md)
-> - [Node. js med Azure/Service-Bus-paket](service-bus-nodejs-how-to-use-queues-new-package.md)
-> - [Node. js med Azure-SB-paket](service-bus-nodejs-how-to-use-queues.md)
+> - [Node.js att använda Azure/Service-Bus-paketet](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node.js att använda Azure-SB-paket](service-bus-nodejs-how-to-use-queues.md)
 > - [PHP](service-bus-php-how-to-use-queues.md)
 > - [Python](service-bus-python-how-to-use-queues.md)
 > - [Ruby](service-bus-ruby-how-to-use-queues.md)
@@ -119,7 +116,7 @@ static void Main(string[] args)
 
 ### <a name="message-loop"></a>Meddelandeloop
 
-Metoden MainAsync () skapar en Queue-klient med kommando rads argumenten, anropar en mottagar meddelande hanterare `RegisterOnMessageHandlerAndReceiveMessages()`med namnet och skickar en uppsättning meddelanden:
+Metoden MainAsync () skapar en Queue-klient med kommando rads argumenten, anropar en mottagar meddelande hanterare med namnet `RegisterOnMessageHandlerAndReceiveMessages()` och skickar en uppsättning meddelanden:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)

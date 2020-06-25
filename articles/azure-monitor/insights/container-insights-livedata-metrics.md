@@ -4,41 +4,38 @@ description: I den här artikeln beskrivs real tids visningen av mått utan att 
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 54d751769005dabb4708eb198bcc765d830ba605
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196134"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338031"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Visa mått i real tid
 
-Med funktionen Azure Monitor för behållare Live data (för hands version) kan du visualisera mått om Node-och Pod-tillstånd i ett kluster i real tid. Den emulerar direkt åtkomst till `kubectl top nodes` kommandon, `kubectl get pods –all-namespaces` och `kubectl get nodes` för att anropa, parsa och visualisera data i prestanda diagram som ingår i den här insikten. 
+Med funktionen Azure Monitor för behållare Live data (för hands version) kan du visualisera mått om Node-och Pod-tillstånd i ett kluster i real tid. Den emulerar direkt åtkomst till `kubectl top nodes` kommandon, `kubectl get pods –all-namespaces` och `kubectl get nodes` för att anropa, parsa och visualisera data i prestanda diagram som ingår i den här insikten.
 
-Den här artikeln innehåller en detaljerad översikt och hjälper dig att förstå hur du använder den här funktionen.  
-
->[!NOTE]
->AKS-kluster som är aktiverade som [privata kluster](https://azure.microsoft.com/updates/aks-private-cluster/) stöds inte med den här funktionen. Den här funktionen använder direkt åtkomst till Kubernetes-API: et via en proxyserver från din webbläsare. Om du aktiverar nätverks säkerhet för att blockera Kubernetes-API: et från den här proxyn blockeras trafiken. 
+Den här artikeln innehåller en detaljerad översikt och hjälper dig att förstå hur du använder den här funktionen.
 
 >[!NOTE]
->Den här funktionen är tillgänglig i alla Azure-regioner, inklusive Azure Kina. Den är för närvarande inte tillgänglig i Azure amerikanska myndigheter.
+>AKS-kluster som är aktiverade som [privata kluster](https://azure.microsoft.com/updates/aks-private-cluster/) stöds inte med den här funktionen. Den här funktionen använder direkt åtkomst till Kubernetes-API: et via en proxyserver från din webbläsare. Om du aktiverar nätverks säkerhet för att blockera Kubernetes-API: et från den här proxyn blockeras trafiken.
 
 Om du vill ha hjälp med att ställa in eller felsöka funktionen Live data (för hands version) läser du vår [installations guide](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Hur det fungerar 
+## <a name="how-it-works"></a>Hur det fungerar
 
-Funktionen Live data (för hands version) har direkt åtkomst till Kubernetes-API: et och ytterligare information om Authentication Model finns [här](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+Funktionen Live data (för hands version) har direkt åtkomst till Kubernetes-API: et och ytterligare information om Authentication Model finns [här](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Den här funktionen utför en avsöknings åtgärd mot Mät slut punkter (inklusive `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` och `/api/v1/pods` ), som är var femte sekund som standard. Dessa data cachelagras i webbläsaren och ritas i de fyra prestanda diagram som ingår i Azure Monitor för behållare på fliken **kluster** genom att välja **Go Live (för hands version)**. Varje efterföljande avsökning är i ett diagram till en rullande fem minuters visualiserings period. 
+Den här funktionen utför en avsöknings åtgärd mot Mät slut punkter (inklusive `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` och `/api/v1/pods` ), som är var femte sekund som standard. Dessa data cachelagras i webbläsaren och ritas i de fyra prestanda diagram som ingår i Azure Monitor för behållare på fliken **kluster** genom att välja **Go Live (för hands version)**. Varje efterföljande avsökning är i ett diagram till en rullande fem minuters visualiserings period.
 
 ![Alternativet gå live i vyn kluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
-Avsöknings intervallet konfigureras från List rutan **uppsättnings intervall** så att du kan ställa in sökning efter nya data varje 1, 5, 15 och 30 sekunder. 
+Avsöknings intervallet konfigureras från List rutan **uppsättnings intervall** så att du kan ställa in sökning efter nya data varje 1, 5, 15 och 30 sekunder.
 
 ![Gå in i list rutan för Live-avsöknings intervall](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
->Vi rekommenderar att du ställer in avsöknings intervallet på en sekund medan du felsöker ett problem under en kort tids period. Dessa förfrågningar kan påverka tillgängligheten och begränsningen av Kubernetes-API: et i klustret. Konfigurera därefter om till ett längre avsöknings intervall. 
+>Vi rekommenderar att du ställer in avsöknings intervallet på en sekund medan du felsöker ett problem under en kort tids period. Dessa förfrågningar kan påverka tillgängligheten och begränsningen av Kubernetes-API: et i klustret. Konfigurera därefter om till ett längre avsöknings intervall.
 
 >[!IMPORTANT]
 >Inga data lagras permanent under den här funktionens funktion. All information som samlas in under den här sessionen tas genast bort när du stänger webbläsaren eller navigerar bort från funktionen. Data är bara tillgängliga för visualisering i fem minuter-fönstret. alla mått som är äldre än fem minuter tas också bort permanent.
@@ -47,9 +44,9 @@ De här diagrammen kan inte fästas på den sista Azure-instrumentpanelen som du
 
 ## <a name="metrics-captured"></a>Insamlade mått
 
-### <a name="node-cpu-utilization---node-memory-utilization-"></a>Nod-CPU-användning%/nod minnes användning% 
+### <a name="node-cpu-utilization---node-memory-utilization-"></a>Nod-CPU-användning%/nod minnes användning%
 
-Dessa två prestanda diagram mappar till en motsvarighet till att anropa `kubectl top nodes` och samla in resultaten från kolumnerna **CPU%** och **minne%** till respektive diagram. 
+Dessa två prestanda diagram mappar till en motsvarighet till att anropa `kubectl top nodes` och samla in resultaten från kolumnerna **CPU%** och **minne%** till respektive diagram.
 
 ![Exempel resultat för Kubectl översta noder](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
@@ -81,7 +78,7 @@ Det här prestanda diagrammet mappar till en motsvarighet till att anropa `kubec
 ![Diagram över antal Pod](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
->Namn på status som tolkas av `kubectl` kanske inte exakt matchar i diagrammet. 
+>Namn på status som tolkas av `kubectl` kanske inte exakt matchar i diagrammet.
 
 ## <a name="next-steps"></a>Nästa steg
 

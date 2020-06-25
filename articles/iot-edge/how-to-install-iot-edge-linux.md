@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: kgremban
-ms.openlocfilehash: 5c3c9c7a061fd4c471b1ef159388deb1a851dd57
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d73f3a37bb084533733b27b49ac171747cee814c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297162"
+ms.locfileid: "85321889"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installera Azure IoT Edge-körningen på Debian-baserade Linux-system
 
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Alternativ 2: automatisk etablering
 
-IoT Edge enheter kan tillhandahållas automatiskt med [Azure-IoT Hub Device Provisioning service (DPS)](../iot-dps/index.yml). För närvarande har IoT Edge stöd för två attesterings metoder när du använder automatisk etablering, men maskin varu kraven kan påverka dina val. Till exempel levereras inte Raspberry Pi-enheter med ett Trusted Platform Module-chip (TPM) som standard. Mer information finns i följande artiklar:
+IoT Edge enheter kan tillhandahållas automatiskt med [Azure-IoT Hub Device Provisioning service (DPS)](../iot-dps/index.yml). För närvarande har IoT Edge stöd för tre attesterings metoder när du använder automatisk etablering, men maskin varu kraven kan påverka dina val. Till exempel levereras inte Raspberry Pi-enheter med ett Trusted Platform Module-chip (TPM) som standard. Mer information finns i följande artiklar:
 
 * [Skapa och etablera en IoT Edge enhet med en virtuell TPM på en virtuell Linux-dator](how-to-auto-provision-simulated-device-linux.md)
 * [Skapa och etablera en IoT Edge-enhet med X. 509-certifikat](how-to-auto-provision-x509-certs.md)

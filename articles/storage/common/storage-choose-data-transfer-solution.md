@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: df261dbf8af8ffdb4ccb10626594626150245748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a66d2f49c2f5646faadd13662c1e798401a71c73
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176404"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338363"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Välja en Azure-lösning för dataöverföring
 
@@ -35,7 +35,7 @@ Data flytten kan vara av följande typer:
 
     - **Grafiskt gränssnitt** – om du ibland överför bara några få filer och inte behöver automatisera data överföringen kan du välja ett grafiskt gränssnitts verktyg som Azure Storage Explorer eller ett webbaserat verktyg för granskning i Azure Portal.
     - **Skriptad eller programmerings överföring** – du kan använda optimerade program varu verktyg som vi tillhandahåller eller anropar våra REST-API: er/SDK: er direkt. Tillgängliga skript bara verktyg är AzCopy, Azure PowerShell och Azure CLI. För programmerings gränssnitt använder du en av SDK: erna för .NET, Java, python, Node/JS, C++, go, PHP eller ruby.
-    - **Lokala enheter** – vi tillhandahåller en fysisk eller virtuell enhet som finns i ditt data Center och optimerar data överföringen över nätverket. Dessa enheter tillhandahåller också en lokal cache med filer som används ofta. Den fysiska enheten är Data Box Edge och den virtuella enheten är Data Box Gateway. Både körs permanent i dina lokaler och ansluta till Azure via nätverket.
+    - **Lokala enheter** – vi tillhandahåller en fysisk eller virtuell enhet som finns i ditt data Center och optimerar data överföringen över nätverket. Dessa enheter tillhandahåller också en lokal cache med filer som används ofta. Den fysiska enheten är Azure Stack gränsen och den virtuella enheten är Data Box Gateway. Både körs permanent i dina lokaler och ansluta till Azure via nätverket.
     - **Pipeline för hanterade data** – du kan konfigurera en moln pipeline för att regelbundet överföra filer mellan flera Azure-tjänster, lokalt eller en kombination av två. Använd Azure Data Factory för att konfigurera och hantera datapipelines och flytta och transformera data för analys.
 
 Följande visuella information visar rikt linjerna för att välja olika Azure Data Transfer-verktyg beroende på nätverks bandbredden som är tillgänglig för överföring, data storlek som är avsedd för överföring och överförings frekvensen.
@@ -77,7 +77,7 @@ Du kan också gå till ditt Azure Storage-konto i Azure Portal och välja funkti
 - Läs om:
 
     - [Azure Data Box, Azure Data Box disk och Azure Data Box Heavy för offline-överföringar](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box gateway och Azure Data Box Edge för online-överföringar](https://docs.microsoft.com/azure/databox-online/).
+    - [Azure Data Box gateway och Azure Stack Edge för online-överföringar](https://docs.microsoft.com/azure/databox-online/).
 - [Lär dig vad som är Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
 - Använd REST-API: er för att överföra data
 

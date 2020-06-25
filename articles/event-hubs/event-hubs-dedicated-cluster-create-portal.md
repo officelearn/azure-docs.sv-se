@@ -1,22 +1,14 @@
 ---
 title: Skapa ett Event Hubs dedikerat kluster med hjälp av Azure Portal
 description: I den här snabb starten får du lära dig hur du skapar ett Azure Event Hubs-kluster med Azure Portal.
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: ''
-ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: ad2c392fca7bf85ecf0840f6442ef8454e768f7a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: cb657619e16f7be1d633bab61625026a40a378b8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296108"
+ms.locfileid: "85323095"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Snabb start: skapa ett dedikerat Event Hubs-kluster med Azure Portal 
 Event Hubs kluster erbjuder distributioner för enskilda klienter för kunder med de mest krävande strömnings behoven. Det här erbjudandet har ett garanterat 99,99% SLA och är bara tillgängligt på vår dedikerade pris nivå. Ett [Event Hubs kluster](event-hubs-dedicated-overview.md) kan intränga miljon tals händelser per sekund med garanterad kapacitet och under sekund svars tid. Namn områden och händelse nav som skapats i ett kluster inkluderar alla funktioner i standard erbjudandet och mer, men utan några ingångs gränser. Det dedikerade erbjudandet omfattar även den populära [Event Hubs Capture](event-hubs-capture-overview.md) -funktionen utan extra kostnad, så att du automatiskt kan registrera och logga data strömmar till [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) eller [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md).

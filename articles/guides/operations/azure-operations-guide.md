@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 4f9da6cbfe8d1e6b92c39148b275de193730c8f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7ebcf39c203f9956b23ef22754b38f32e9d9352
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623567"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323014"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -186,7 +186,7 @@ Innan du kan arbeta med Azure-tjänster behöver du en prenumeration. Det finns 
 
 **Kostnads fria konton**: länken för att registrera sig för ett kostnads fritt konto finns på [Azure-webbplatsen](https://azure.microsoft.com/). Detta ger dig en kredit på över 30 dagar för att testa en kombination av resurser i Azure. Om du överskrider ditt kredit belopp pausas ditt konto. I slutet av utvärderings versionen inaktive ras tjänsterna och fungerar inte längre. Du kan när som helst uppgradera till en prenumeration där du betalar per användning.
 
-**MSDN**-prenumerationer: om du har en MSDN-prenumeration får du ett visst belopp i Azure-kredit varje månad. Om du till exempel har en prenumeration på Microsoft Visual Studio Enterprise med MSDN får \$du 150 per månad i Azure-krediten.
+**MSDN**-prenumerationer: om du har en MSDN-prenumeration får du ett visst belopp i Azure-kredit varje månad. Om du till exempel har en prenumeration på Microsoft Visual Studio Enterprise med MSDN får du \$ 150 per månad i Azure-krediten.
 
 Om du överskrider kredit beloppet inaktive ras tjänsten tills nästa månad börjar. Du kan inaktivera utgifts gränsen och lägga till ett kredit kort som ska användas för ytterligare kostnader. Några av dessa kostnader är rabatterade för MSDN-konton. Till exempel betalar du Linux-priset för virtuella datorer som kör Windows Server och det finns ingen extra kostnad för Microsoft-servrar som Microsoft SQL Server. På så sätt kan MSDN-konton vara perfekta för utveckling och test scenarier.
 
@@ -226,7 +226,7 @@ Priserna för varje tjänst i Azure är olika. Många Azure-tjänster har nivåe
 
 Azure Resource Manager är en mekanism för distribution, hantering och organisation för Azure-resurser. Med hjälp av Resource Manager kan du samla in många enskilda resurser i en resurs grupp.
 
-Resource Manager innehåller även distributions funktioner som möjliggör anpassningsbar distribution och konfiguration av relaterade resurser. Med hjälp av Resource Manager kan du till exempel distribuera ett program som består av flera virtuella datorer, en belastningsutjämnare och en SQL-databas som en enda enhet. Du utvecklar dessa distributioner med hjälp av en Resource Manager-mall.
+Resource Manager innehåller även distributions funktioner som möjliggör anpassningsbar distribution och konfiguration av relaterade resurser. Med hjälp av Resource Manager kan du till exempel distribuera ett program som består av flera virtuella datorer, en belastningsutjämnare och en databas i Azure SQL Database som en enda enhet. Du utvecklar dessa distributioner med hjälp av en Resource Manager-mall.
 
 Resource Manager har flera fördelar:
 
@@ -465,7 +465,7 @@ Du kan ansluta ett lokalt nätverk till ett virtuellt Azure-nätverk med hjälp 
 Eftersom det virtuella Azure-nätverket är anslutet till ditt lokala nätverk måste lokala virtuella nätverk använda en unik del av adress utrymmet som din organisation använder. På samma sätt som olika företags platser tilldelas ett särskilt IP-undernät blir Azure en annan plats när du utökar nätverket.
 Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
-- [Portalen](../..//virtual-network/quick-create-portal.md)
+- [Portal](../..//virtual-network/quick-create-portal.md)
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 

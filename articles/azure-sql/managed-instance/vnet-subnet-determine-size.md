@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 8d1073dbcced9532390776a23dd17c1f572cce40
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 562766ada8fb9a2620fa83875dc98d02ab752d95
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686689"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338548"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Bestäm nödvändig under näts storlek & intervall för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,23 +28,67 @@ Antalet hanterade instanser som kan distribueras i under nätet för ett VNet be
 
 När du skapar en hanterad instans allokerar Azure ett antal virtuella datorer beroende på vilken nivå du valde under etableringen. Eftersom de virtuella datorerna är associerade med ditt undernät kräver de IP-adresser. För att säkerställa hög tillgänglighet vid vanliga drift-och tjänst underhåll kan Azure allokera ytterligare virtuella datorer. Därför är antalet begärda IP-adresser i ett undernät större än antalet hanterade instanser i det under nätet.
 
-En hanterad instans kräver minst 16 IP-adresser i ett undernät och kan använda upp till 256 IP-adresser. Det innebär att du kan använda nät masker mellan/28 och/24 när du definierar IP-intervall för under nätet. En nätverks mask-bit på/28 (14 värdar per nätverk) är en lämplig storlek för en enda allmän användnings-eller verksamhets kritisk distribution. En mask bit till/27 (30 värdar per nätverk) är idealisk för flera SQL-hanterade instans distributioner inom samma VNet. Mask bit inställningar för/26 (62-värdar) och/24 (254 värdar) gör det möjligt att utöka VNet ytterligare för att stödja ytterligare hanterade instanser.
+Som en hanterad instans krävs minst 32 IP-adresser i ett undernät. Därför kan du använda den minsta under näts masken/27 när du definierar IP-intervall för under nätet. Noggrann planering av under näts storleken för dina distributioner av hanterade instanser rekommenderas. Indata som bör beaktas under planeringen är:
+
+- Antal hanterade instanser, inklusive följande instans parametrar:
+  - tjänst nivå
+  - maskin varu generering
+  - antal virtuella kärnor
+- Planerar att skala upp/ned eller ändra tjänst nivå
 
 > [!IMPORTANT]
-> En under näts storlek med 16 IP-adresser är minimalt med begränsad potential där en skalnings åtgärd som vCore storleks ändring inte stöds. Vi rekommenderar starkt att du väljer undernät med prefix/27 eller längst prefix.
+> Med en under näts storlek med 16 IP-adresser (nätmask/28) kan du distribuera hanterade instanser i den, men den bör endast användas för att distribuera en enskild instans som används för utvärdering eller i utvecklings-och test scenarier där skalnings åtgärder inte kommer att utföras.
 
 ## <a name="determine-subnet-size"></a>Bestäm under näts storlek
 
-Om du planerar att distribuera flera hanterade instanser i under nätet och behöver optimera storleken på under näts storleken, använder du följande parametrar för att skapa en beräkning:
+Ändra storlek på ditt undernät enligt framtida distribution och skalnings behov. Följande parametrar kan hjälpa dig att bilda en beräkning:
 
 - Azure använder fem IP-adresser i under nätet för sina egna behov
-- Varje instans av generell användning behöver två adresser
-- Varje verksamhets kritisk instans behöver fyra adresser
-
-**Exempel**: du planerar att ha tre allmänna syften och två verksamhets kritiska hanterade instanser. Det innebär att du behöver 5 + 3 * 2 + 2 * 4 = 19 IP-adresser. Eftersom IP-intervall definieras i potenser av 2 behöver du IP-intervallet 32 (2 ^ 5) IP-adresser. Därför måste du reservera under nätet med nät masken/27.
+- Varje virtuellt kluster allokerar ytterligare antal adresser 
+- Varje hanterad instans använder antalet adresser som är beroende av pris nivån och maskin varu generering
 
 > [!IMPORTANT]
-> Den beräkning som visas ovan kommer att bli föråldrad med ytterligare förbättringar.
+> Det går inte att ändra under nätets adress intervall om det finns en resurs i under nätet. Det går inte heller att flytta hanterade instanser från ett undernät till ett annat. När det är möjligt bör du överväga att använda större undernät i stället för mindre för att förhindra problem i framtiden.
+
+GP = generell användning; BC = affärs kritisk; VC = virtuellt kluster
+
+| **Maskin gen** | **Pris nivå** | **Azure-användning** | **VC-användning** | **Instans användning** | **Totalt*** |
+| --- | --- | --- | --- | --- | --- |
+| Gen4 | GP | 5 | 1 | 5 | 11 |
+| Gen4 | BC | 5 | 1 | 5 | 11 |
+| Gen5 | GP | 5 | 6 | 3 | 14 |
+| Gen5 | BC | 5 | 6 | 5 | 16 |
+
+  \*Kolumn summan visar antalet adresser som ska vidtas när en instans distribueras i under nätet. Varje ytterligare instans i under nätet lägger till antalet adresser som representeras med kolumnen instans användning. Adresser som representeras med Azure Usage-kolumnen delas över flera virtuella kluster, medan adresser som representeras med VC Usage-kolumnen delas mellan instanser som placeras i det virtuella klustret.
+
+Uppdaterings åtgärden kräver vanligt vis storleks ändring av virtuellt kluster. Under vissa omständigheter kräver uppdaterings åtgärden att virtuella kluster skapas (mer information om [hanterings åtgärder](sql-managed-instance-paas-overview.md#management-operations)för mer information). Om det virtuella klustret skapas, är antalet ytterligare adresser som krävs lika med antalet adresser som representeras av kolumnen VC-användning summerade med adresser som krävs för instanser som placerats i det virtuella klustret (instans användnings kolumnen).
+
+**Exempel 1**: du planerar att ha en allmän hanterad instans (Gen4 maskin vara) och en verksamhets kritisk hanterad instans (Gen5 maskin vara). Det innebär att du behöver minst 5 + 1 + 1 * 5 + 6 + 1 * 5 = 22 IP-adresser för att kunna distribuera. Eftersom IP-intervall definieras i potens av 2 kräver ditt undernät minst IP-intervallet 32 (2 ^ 5) för den här distributionen.<br><br>
+Som nämnts ovan kräver uppdaterings åtgärden att virtuella kluster skapas. Det innebär att, som ett exempel, om en uppdatering av den Gen5 affärs kritiska hanterade instansen som kräver ett virtuellt kluster skapas, måste du ha ytterligare 6 + 5 = 11 IP-adresser tillgängliga. Eftersom du redan använder 22 av 32-adresserna finns det inga tillgängliga adresser för den här åtgärden. Därför måste du reservera under nätet med nät masken/26 (64 adresser).
+
+**Exempel 2**: du planerar att ha tre generella användnings områden (Gen5 maskin vara) och två affärs kritiska hanterade instanser (Gen5 maskin vara) som placeras i samma undernät. Det innebär att du behöver 5 + 6 + 3 * 3 + 2 * 5 = 30 IP-adresser. Därför måste du reservera under nätet med nät masken/26. Om du väljer en under nät mask på/27 skulle det återstående antalet adresser vara 2 (32 – 30). Detta förhindrar uppdaterings åtgärder för alla instanser eftersom ytterligare adresser krävs i undernät för att utföra instans skalning.
+
+**Exempel 3**: du planerar att ha en hanterings instans för generell användning (Gen5 maskin vara) och utföra virtuella kärnor uppdaterings åtgärder från tid till gång. Det innebär att du behöver 5 + 6 + 1 * 3 + 3 = 17 IP-adresser. Eftersom IP-intervall definieras med 2 måste du ha IP-adresser för IP-intervallet 32 (2 ^ 5). Därför måste du reservera under nätet med nät masken/27.
+
+### <a name="address-requirements-for-update-scenarios"></a>Adress krav för uppdaterings scenarier
+
+Vid skalnings åtgärds instanser kräver tillfälligt ytterligare IP-kapacitet som är beroende av pris nivå och maskin varu generering
+
+| **Maskin gen** | **Pris nivå** | **Scenario** | **Ytterligare adresser*** |
+| --- | --- | --- | --- |
+| Gen4 | GP eller BC | Skalar virtuella kärnor | 5 |
+| Gen4 | GP eller BC | Skala lagring | 5 |
+| Gen4 | GP eller BC | Växla från GP till BC eller BC till GP | 5 |
+| Gen4 | GP | Växlar till Gen5 * | 9 |
+| Gen4 | BC | Växlar till Gen5 * | 11 |
+| Gen5 | GP | Skalar virtuella kärnor | 3 |
+| Gen5 | GP | Skala lagring | 0 |
+| Gen5 | GP | Växlar till BC | 5 |
+| Gen5 | BC | Skalar virtuella kärnor | 5 |
+| Gen5 | BC | Skala lagring | 5 |
+| Gen5 | BC | Växlar till GP | 3 |
+
+  \*Gen4-maskinvaran föråldras och är inte längre tillgänglig för nya distributioner. Uppdatera maskin varu generering från Gen4 till Gen5 för att dra nytta av de funktioner som är speciella för Gen5 maskin varu generering.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,24 +1,14 @@
 ---
 title: Skala automatiskt upp data flödes enheter – Azure Event Hubs | Microsoft Docs
 description: Aktivera automatisk ökning på ett namn område för att automatiskt skala upp data flödes enheter.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: afd28fa878651b08443f7863c16cd22c1bc96e3d
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 382d407bde61a4ca24ab5833ea51d540c8904adc
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297332"
+ms.locfileid: "85322546"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs data flödes enheter
 Azure Event Hubs är en mycket skalbar data strömnings plattform. Därför ökar Event Hubs användningen ofta när tjänsten har startats. Sådan användning kräver att fördefinierade [data flödes enheter](event-hubs-scalability.md#throughput-units) ökar för att skala Event Hubs och hantera större överföringshastigheter. Funktionen för **Automatisk** ökning i Event Hubs skalas automatiskt upp genom att öka antalet data flödes enheter för att möta användnings behoven. Ökande data flödes enheter förhindrar begränsnings scenarier där:
@@ -74,7 +64,7 @@ Du kan också aktivera funktionen för automatisk ökning och ändra dess instä
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera automatisk ökning med en Azure Resource Manager-mall
 
-Du kan aktivera automatisk ökning under en Azure Resource Manager mall-distribution. Ange till exempel `isAutoInflateEnabled` egenskapen till **Sant** och inställd `maximumThroughputUnits` på 10. Ett exempel:
+Du kan aktivera automatisk ökning under en Azure Resource Manager mall-distribution. Ange till exempel `isAutoInflateEnabled` egenskapen till **Sant** och inställd `maximumThroughputUnits` på 10. Till exempel:
 
 ```json
 "resources": [

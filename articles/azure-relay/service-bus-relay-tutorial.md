@@ -1,25 +1,14 @@
 ---
 title: Exponera en lokal WCF REST-tjänst för klienter som använder Azure Relay
 description: I den här självstudien beskrivs hur du exponerar en lokal WCF REST-tjänst för en extern klient med hjälp av Azure WCF Relay.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 551c8e662669737d9d074a69cb03d6060ab87ad5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 50628073efd7114aaacfe37177d2f5beb3be3d47
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204672"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322704"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Självstudie: exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay
 
@@ -86,7 +75,7 @@ Tjänste kontraktet anger vilka åtgärder tjänsten stöder. Åtgärder är web
 1. Ändra namnet på namnområdet från standardnamnet `EchoService` till `Microsoft.ServiceBus.Samples`.
 
    > [!IMPORTANT]
-   > I den här självstudien används C#-namn området `Microsoft.ServiceBus.Samples` som är namn området för den kontraktbaserade hanterade typen som används i konfigurations filen i avsnittet [Konfigurera WCF-klienten](#configure-the-wcf-client) . Du kan ange ett namn område som du vill ha när du skapar det här exemplet. Själv studie kursen kommer dock inte att fungera om du inte ändrar namn områdena för kontraktet och tjänsten i enlighet med detta i program konfigurations filen. Det namn område som anges i filen *app. config* måste vara samma som det namn område som anges i C#-filerna.
+   > I den här självstudien används C#-namn området `Microsoft.ServiceBus.Samples` som är namn området för den kontraktbaserade hanterade typen som används i konfigurations filen i avsnittet [Konfigurera WCF-klienten](#configure-the-wcf-client) . Du kan ange ett namn område som du vill ha när du skapar det här exemplet. Själv studie kursen kommer dock inte att fungera om du inte ändrar namn områdena för kontraktet och tjänsten i enlighet med detta i program konfigurations filen. Det namn område som anges i *App.config* -filen måste vara samma som det namn område som anges i C#-filerna.
    >
 
 1. Direkt efter `Microsoft.ServiceBus.Samples` namn områdes deklarationen, men inom namn området, definierar du ett nytt gränssnitt med namnet `IEchoContract` och tillämpar `ServiceContractAttribute` attributet på gränssnittet med ett namn områdes värde på `https://samples.microsoft.com/ServiceModel/Relay/` . Klistra in följande kod efter namn områdes deklarationen:
@@ -153,7 +142,7 @@ Nu när gränssnittet har skapats kan du implementera det.
 
 ## <a name="implement-the-wcf-contract"></a>Implementera WCF-kontraktet
 
-Om du skapar ett Azure-relä måste du först skapa kontraktet med ett gränssnitt. Mer information om hur du skapar gränssnittet finns i föregående avsnitt. Nästa procedur implementerar gränssnittet. Den här uppgiften innebär att skapa en klass med namnet `EchoService` som implementerar det användardefinierade `IEchoContract` gränssnittet. När du har implementerat gränssnittet konfigurerar du gränssnittet med hjälp av konfigurations filen *app. config* . Konfigurations filen innehåller nödvändig information för programmet. Den här informationen innehåller namnet på tjänsten, namnet på kontraktet och typen av protokoll som används för att kommunicera med relä tjänsten. Den kod som används för dessa uppgifter finns i exemplet som följer efter proceduren. En mer allmän diskussion om hur du implementerar ett tjänst kontrakt finns i [implementera Service kontrakt](/dotnet/framework/wcf/implementing-service-contracts).
+Om du skapar ett Azure-relä måste du först skapa kontraktet med ett gränssnitt. Mer information om hur du skapar gränssnittet finns i föregående avsnitt. Nästa procedur implementerar gränssnittet. Den här uppgiften innebär att skapa en klass med namnet `EchoService` som implementerar det användardefinierade `IEchoContract` gränssnittet. När du har implementerat gränssnittet konfigurerar du gränssnittet med hjälp av en *App.config* konfigurations fil. Konfigurations filen innehåller nödvändig information för programmet. Den här informationen innehåller namnet på tjänsten, namnet på kontraktet och typen av protokoll som används för att kommunicera med relä tjänsten. Den kod som används för dessa uppgifter finns i exemplet som följer efter proceduren. En mer allmän diskussion om hur du implementerar ett tjänst kontrakt finns i [implementera Service kontrakt](/dotnet/framework/wcf/implementing-service-contracts).
 
 1. Skapa en ny klass med namnet `EchoService` direkt efter definitionen av gränssnittet `IEchoContract`. Klassen `EchoService` implementerar gränssnittet `IEchoContract`.
 
@@ -190,7 +179,7 @@ Om du skapar ett Azure-relä måste du först skapa kontraktet med ett gränssni
 
 Konfigurations filen liknar en WCF-konfigurationsfil. Den innehåller tjänst namnet, slut punkten och bindningen. Slut punkten är platsen Azure Relay visar för klienter och värdar för att kommunicera med varandra. Bindningen är den typ av protokoll som används för att kommunicera. Den största skillnaden är att den här konfigurerade tjänst slut punkten refererar till en [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) -bindning, som inte är en del av .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) är en av de bindningar som definierats av tjänsten.
 
-1. I **Solution Explorer**dubbelklickar du på **app. config** för att öppna filen i Visual Studio-redigeraren.
+1. I **Solution Explorer**dubbelklickar du på **App.config** för att öppna filen i Visual Studio-redigeraren.
 1. I elementet `<appSettings>` ersätter du platshållarna med namnet på ditt namnområde för tjänsten och den SAS-nyckel som du kopierade i ett av de föregående stegen.
 1. Lägg till ett `<services>`-element inom taggarna `<system.serviceModel>`. Du kan definiera flera Relay-program i en enda konfigurations fil. I den här självstudiekursen definieras dock bara en.
 
@@ -239,7 +228,7 @@ Följande kod visar implementeringen av tjänstekontraktet.
     }
 ```
 
-Följande kod visar det grundläggande formatet för den *app. config* -fil som är associerad med tjänst värden.
+Följande kod visar det grundläggande formatet för den *App.config* -fil som är associerad med tjänst värden.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -329,7 +318,7 @@ URI är `sb://putServiceNamespaceHere.windows.net/EchoService` för den här sj�
 
     Det här steget informerar tjänsten Relay som ditt program kan hittas offentligt genom att undersöka Atom-flödet för ditt projekt. Om du anger `DiscoveryType` till kan `private` en klient fortfarande komma åt tjänsten. Tjänsten visas dock inte när den söker i `Relay` namn området. Klienten måste då i stället känna till sökvägen för slutpunkten på förhand.
 
-1. Tillämpa autentiseringsuppgifterna för tjänsten på de tjänst slut punkter som definierats i filen *app. config* :
+1. Tillämpa autentiseringsuppgifterna för tjänsten på de tjänst slut punkter som definierats i *App.config* -filen:
 
     ```csharp
     foreach (ServiceEndpoint endpoint in host.Description.Endpoints)
@@ -445,7 +434,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="create-a-wcf-client-for-the-service-contract"></a>Skapa en WCF-klient för tjänstekontraktet
 
-Nästa uppgift är att skapa ett klient program och definiera tjänst kontraktet som du implementerar senare. De här stegen liknar de steg som används för att skapa en tjänst: definiera ett kontrakt, redigera en *app. config* -fil med hjälp av autentiseringsuppgifter för att ansluta till relä tjänsten och så vidare. Den kod som används för dessa arbetsuppgifter visas in exemplet som följer efter proceduren.
+Nästa uppgift är att skapa ett klient program och definiera tjänst kontraktet som du implementerar senare. De här stegen liknar de steg som används för att skapa en tjänst: definiera ett kontrakt, redigera en *App.config* fil med autentiseringsuppgifter för att ansluta till relä tjänsten och så vidare. Den kod som används för dessa arbetsuppgifter visas in exemplet som följer efter proceduren.
 
 1. Skapa ett nytt projekt i den aktuella Visual Studio-lösningen för klienten:
 
@@ -516,9 +505,9 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="configure-the-wcf-client"></a>Konfigurera WCF-klienten
 
-I det här steget skapar du en *app. config* -fil för ett grundläggande klient program som ansluter till den tjänst som skapades tidigare i den här självstudien. Den här *app. config* -filen definierar kontrakt, bindning och namn på slut punkten. Den kod som används för dessa arbetsuppgifter visas in exemplet som följer efter proceduren.
+I det här steget skapar du en *App.config* -fil för ett grundläggande klient program som ansluter till den tjänst som du skapade tidigare i den här självstudien. I den här *App.config* -filen definieras kontrakt, bindning och namn på slut punkten. Den kod som används för dessa arbetsuppgifter visas in exemplet som följer efter proceduren.
 
-1. I **Solution Explorer**, i **EchoClient** -projektet, dubbelklickar du på **app. config** för att öppna filen i Visual Studio-redigeraren.
+1. I **Solution Explorer**, i **EchoClient** -projektet, dubbelklickar du på **App.config** för att öppna filen i Visual Studio-redigeraren.
 1. I elementet `<appSettings>` ersätter du platshållarna med namnet på ditt namnområde för tjänsten och den SAS-nyckel som du kopierade i ett av de föregående stegen.
 1. I `system.serviceModel` elementet lägger du till ett- `<client>` element.
 
@@ -546,9 +535,9 @@ I det här steget skapar du en *app. config* -fil för ett grundläggande klient
 
 1. Välj **Arkiv**  >  **Spara alla**.
 
-### <a name="example-of-the-appconfig-file"></a>Exempel på filen app. config
+### <a name="example-of-the-appconfig-file"></a>Exempel på App.config-filen
 
-Följande kod visar filen *app. config* för ECHO-klienten.
+Följande kod visar *App.config* -filen för eko klienten.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -613,7 +602,7 @@ En av de viktigaste skillnaderna är dock att klient programmet använder en kan
     sasCredential.TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", sasKey);
     ```
 
-1. Skapa den kanal fabrik som läser in konfigurationen som beskrivs i filen *app. config* .
+1. Skapa den kanal fabrik som läser in konfigurationen som beskrivs i *App.config* -filen.
 
     ```csharp
     ChannelFactory<IEchoChannel> channelFactory = new ChannelFactory<IEchoChannel>("RelayEndpoint", new EndpointAddress(serviceUri));

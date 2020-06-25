@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 391851927d03a557483afa2656e315b28c613956
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658602"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322636"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Säkerhets ram: konfigurations hantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -38,7 +38,7 @@ ms.locfileid: "83658602"
 
 ## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>Implementera en innehålls säkerhets princip (CSP) och inaktivera infogade JavaScript-skript
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -70,7 +70,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a name="enable-browsers-xss-filter"></a><a id="xss-filter"></a>Aktivera webbläsarens XSS-filter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -81,7 +81,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET-program måste inaktivera spårning och fel sökning före distribution
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -92,7 +92,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a name="access-third-party-javascripts-from-trusted-sources-only"></a><a id="js-trusted"></a>Få till gång till JavaScript-skript från tredje part från betrodda källor
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -103,7 +103,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a name="ensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-click-jacking-defenses"></a><a id="ui-defenses"></a>Se till att de autentiserade ASP.NET-sidorna innehåller försvars-eller klicknings skydd
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -113,7 +113,7 @@ Example: var str="alert(1)"; eval(str);
 | **Sätt** | <p>Klicka på-uttag, även kallat en "UI-attack", är när en angripare använder flera genomskinliga eller ogenomskinliga lager för att lura användaren att klicka på en knapp eller länk på en annan sida när han eller hon skulle klicka på sidan på den översta nivån.</p><p>Denna skiktning uppnås genom att en skadlig sida skapas med en iframe, som läser in sidan med offerter. Det innebär att angriparen är "kapa"-klickningar avsedda för sina sidor och dirigerar dem till en annan sida, som troligen ägs av ett annat program, en domän eller både och. För att förhindra klicknings uttag, anger du rätt HTTP-svarshuvuden i X-bildruta-alternativ som instruerar webbläsaren att inte tillåta ramar från andra domäner</p>|
 
 ### <a name="example"></a>Exempel
-Rubriken X-ram-alternativ kan anges via IIS Web. config. Web. config-kodfragment för webbplatser som aldrig ska vara inramade: 
+Rubriken X-ram-alternativ kan anges via IIS-web.config. Web.config kodfragment för webbplatser som aldrig ska vara inramade: 
 ```csharp
     <system.webServer>
         <httpProtocol>
@@ -125,7 +125,7 @@ Rubriken X-ram-alternativ kan anges via IIS Web. config. Web. config-kodfragment
 ```
 
 ### <a name="example"></a>Exempel
-Web. config-kod för platser som endast ska inramas av sidor i samma domän: 
+Web.config kod för platser som endast ska inramas av sidor i samma domän: 
 ```csharp
     <system.webServer>
         <httpProtocol>
@@ -138,7 +138,7 @@ Web. config-kod för platser som endast ska inramas av sidor i samma domän:
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-applications"></a><a id="cors-aspnet"></a>Se till att endast betrodda ursprung är tillåtna om CORS är aktiverat på ASP.NET-webbprogram
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -148,7 +148,7 @@ Web. config-kod för platser som endast ska inramas av sidor i samma domän:
 | **Sätt** | <p>Webbläsarskydd förhindrar att en webbsida gör AJAX-begäranden till en annan domän. Den här begränsningen kallas samma ursprungs princip och förhindrar att en skadlig webbplats läser känsliga data från en annan plats. Ibland kan det dock vara nödvändigt att exponera API: er på ett säkert sätt som andra-platser kan använda. Resurs delning mellan ursprung (CORS) är en W3C-standard som gör att en server kan öka principen för samma ursprung. Med hjälp av CORS kan en server uttryckligen tillåta vissa cross-origin-begäranden medan andra nekas.</p><p>CORS är säkrare och mer flexibel än tidigare tekniker, till exempel JSONP. På grund av detta är det möjligt att aktivera CORS översätter för att lägga till ett fåtal HTTP-svarshuvuden (Access-Control-*) till webb programmet och detta kan göras på ett par olika sätt.</p>|
 
 ### <a name="example"></a>Exempel
-Om åtkomst till Web. config är tillgänglig kan CORS läggas till via följande kod: 
+Om åtkomst till Web.config är tillgänglig kan CORS läggas till via följande kod: 
 ```XML
 <system.webServer>
     <httpProtocol>
@@ -160,7 +160,7 @@ Om åtkomst till Web. config är tillgänglig kan CORS läggas till via följand
 ```
 
 ### <a name="example"></a>Exempel
-Om åtkomst till Web. config inte är tillgänglig kan CORS konfigureras genom att lägga till följande CSharp-kod: 
+Om åtkomst till web.config inte är tillgänglig kan CORS konfigureras genom att lägga till följande CSharp-kod: 
 ```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
@@ -169,7 +169,7 @@ Observera att det är viktigt att se till att listan över ursprung i attributet
 
 ## <a name="enable-validaterequest-attribute-on-aspnet-pages"></a><a id="validate-aspnet"></a>Aktivera ValidateRequest-attribut på ASP.NET-sidor
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -195,7 +195,7 @@ Observera att verifierings funktionen för begäran inte stöds och att den inte
 
 ## <a name="use-locally-hosted-latest-versions-of-javascript-libraries"></a><a id="local-js"></a>Använd lokalt värdbaserat de senaste versionerna av JavaScript-bibliotek
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -206,7 +206,7 @@ Observera att verifierings funktionen för begäran inte stöds och att den inte
 
 ## <a name="disable-automatic-mime-sniffing"></a><a id="mime-sniff"></a>Inaktivera automatisk MIME-identifiering
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -216,7 +216,7 @@ Observera att verifierings funktionen för begäran inte stöds och att den inte
 | **Sätt** | Huvudet X-Content-Type-Options är ett HTTP-huvud som gör det möjligt för utvecklare att ange att deras innehåll inte ska vara MIME-sniffed. Den här rubriken är utformad för att minimera MIME-avlyssnings attacker. För varje sida som kan innehålla innehåll som kan vara användarvänligt måste du använda HTTP-huvudet X-Content-Type-Options: nosniffer. Om du vill aktivera nödvändigt sidhuvud globalt för alla sidor i programmet kan du göra något av följande|
 
 ### <a name="example"></a>Exempel
-Lägg till rubriken i Web. config-filen om programmet finns i Internet Information Services (IIS) 7 och senare. 
+Lägg till rubriken i web.config-filen om programmet hanteras av Internet Information Services (IIS) 7 och senare. 
 ```XML
 <system.webServer>
 <httpProtocol>
@@ -271,7 +271,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a name="remove-standard-server-headers-on-windows-azure-web-sites-to-avoid-fingerprinting"></a><a id="standard-finger"></a>Ta bort standard server rubriker på Windows Azure-webbplatser för att undvika finger avtryck
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL-fas**               | Utveckla |  
@@ -282,18 +282,18 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a name="configure-a-windows-firewall-for-database-engine-access"></a><a id="firewall-db"></a>Konfigurera en Windows-brandvägg för databas motor åtkomst
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | Ej tillämpligt, SQL-version – V12 |
-| **Referenser**              | [Konfigurera en Azure SQL Database-brandvägg](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/)genom att [Konfigurera en Windows-brandvägg för databas motor åtkomst](https://msdn.microsoft.com/library/ms175043) |
+| **Referenser**              | Konfigurera en [Azure SQL Database brand vägg](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/)genom att [Konfigurera en Windows-brandvägg för databas motor åtkomst](https://msdn.microsoft.com/library/ms175043) |
 | **Sätt** | Brandväggssystem hjälper till att förhindra obehörig åtkomst till datorresurser. För att få åtkomst till en instans av SQL Server Database Engine via en brand vägg måste du konfigurera brand väggen på datorn som kör SQL Server för att tillåta åtkomst |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>Se till att endast betrodda ursprung är tillåtna om CORS är aktiverat på ASP.NET webb-API
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL-fas**               | Utveckla |  
@@ -389,7 +389,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL-fas**               | Utveckla |  
@@ -481,18 +481,18 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="encrypt-sections-of-web-apis-configuration-files-that-contain-sensitive-data"></a><a id="config-sensitive"></a>Kryptera avsnitt i webb-API: s konfigurationsfiler som innehåller känsliga data
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Gör så [här: kryptera konfigurations avsnitt i ASP.NET 2,0 med DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Ange en skyddad Konfigurationsprovider](https://msdn.microsoft.com/library/68ze1hb2.aspx) [med hjälp av Azure Key Vault för att skydda program hemligheter](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
-| **Sätt** | Konfigurationsfiler som Web. config, appSettings. JSON används ofta för att lagra känslig information, inklusive användar namn, lösen ord, databas anslutnings strängar och krypterings nycklar. Om du inte skyddar den här informationen är ditt program sårbart för angripare eller skadliga användare som erhåller känslig information, till exempel användar namn och lösen ord för kontot, databas namn och Server namn. Med hjälp av distributions typen (Azure/on-lokal) krypterar du de känsliga delarna av config-filerna med DPAPI eller tjänster som Azure Key Vault. |
+| **Sätt** | Konfigurationsfiler som Web.config, appsettings.jspå används ofta för att lagra känslig information, inklusive användar namn, lösen ord, databas anslutnings strängar och krypterings nycklar. Om du inte skyddar den här informationen är ditt program sårbart för angripare eller skadliga användare som erhåller känslig information, till exempel användar namn och lösen ord för kontot, databas namn och Server namn. Med hjälp av distributions typen (Azure/on-lokal) krypterar du de känsliga delarna av config-filerna med DPAPI eller tjänster som Azure Key Vault. |
 
 ## <a name="ensure-that-all-admin-interfaces-are-secured-with-strong-credentials"></a><a id="admin-strong"></a>Se till att alla administratörs gränssnitt skyddas med starka autentiseringsuppgifter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
 | **SDL-fas**               | Distribution |  
@@ -503,7 +503,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="ensure-that-unknown-code-cannot-execute-on-devices"></a><a id="unknown-exe"></a>Se till att okänd kod inte kan köras på enheter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
 | **SDL-fas**               | Utveckla |  
@@ -514,7 +514,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="encrypt-os-and-additional-partitions-of-iot-device-with-bit-locker"></a><a id="partition-iot"></a>Kryptera OS och ytterligare partitioner med IoT-enheter med bit Locker
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
 | **SDL-fas**               | Utveckla |  
@@ -525,7 +525,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="ensure-that-only-the-minimum-servicesfeatures-are-enabled-on-devices"></a><a id="min-enable"></a>Se till att endast de lägsta tjänsterna/funktionerna är aktiverade på enheter
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
 | **SDL-fas**               | Distribution |  
@@ -536,7 +536,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="encrypt-os-and-additional-partitions-of-iot-field-gateway-with-bit-locker"></a><a id="field-bit-locker"></a>Kryptera operativ system och ytterligare partitioner för IoT Field Gateway med bit Locker
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-fält Gateway | 
 | **SDL-fas**               | Distribution |  
@@ -547,7 +547,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="ensure-that-the-default-login-credentials-of-the-field-gateway-are-changed-during-installation"></a><a id="default-change"></a>Kontrol lera att standard inloggnings uppgifterna för fältet Gateway ändras under installationen
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-fält Gateway | 
 | **SDL-fas**               | Distribution |  
@@ -558,7 +558,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="ensure-that-the-cloud-gateway-implements-a-process-to-keep-the-connected-devices-firmware-up-to-date"></a><a id="cloud-firmware"></a>Se till att Cloud Gateway implementerar en process för att hålla den inbyggda program varan för anslutna enheter uppdaterad
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
 | **SDL-fas**               | Utveckla |  
@@ -569,7 +569,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="ensure-that-devices-have-end-point-security-controls-configured-as-per-organizational-policies"></a><a id="controls-policies"></a>Se till att enheterna har slut punkts säkerhets kontroller som kon figurer ATS enligt organisations principer
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorns förtroende gränser | 
 | **SDL-fas**               | Distribution |  
@@ -580,7 +580,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="ensure-secure-management-of-azure-storage-access-keys"></a><a id="secure-keys"></a>Säkerställ säker hantering av åtkomst nycklar för Azure Storage
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL-fas**               | Distribution |  
@@ -591,7 +591,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-azure-storage"></a><a id="cors-storage"></a>Se till att endast betrodda ursprung är tillåtna om CORS är aktiverat i Azure Storage
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL-fas**               | Utveckla |  
@@ -602,7 +602,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 
 ## <a name="enable-wcfs-service-throttling-feature"></a><a id="throttling"></a>Aktivera WCF-funktionen för tjänst begränsning
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  
@@ -625,7 +625,7 @@ Följande är en exempel konfiguration med begränsning aktiverat:
 
 ## <a name="wcf-information-disclosure-through-metadata"></a><a id="info-metadata"></a>WCF-information avslöjas via metadata
 
-| Rubrik                   | Information      |
+| Titel                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL-fas**               | Utveckla |  

@@ -11,18 +11,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 3cc47eb3fb097b7ed88cf931ef423aa34c0d071c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 634c8b118a9d1f041e536f17cc9588f3a85fa4d6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84705737"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321820"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio (klassiska) webb tjänster som använder moduler för data import och data export
 
 När du skapar ett förutsägelse experiment lägger du vanligt vis till en webb tjänst indata och utdata. När du distribuerar experimentet kan konsumenter skicka och ta emot data från webb tjänsten via indata och utdata. För vissa program kan en konsument data vara tillgängliga från en datafeed eller finnas redan i en extern data källa, till exempel Azure Blob Storage. I dessa fall behöver de inte läsa och skriva data med hjälp av webb tjänst indata och utdata. De kan i stället använda BES (batch execution service) för att läsa data från data källan med hjälp av en modul för att importera data och skriva poängsättnings resultatet till en annan data plats med hjälp av en export data-modul.
 
-Modulerna importera data och exportera data kan läsa från och skriva till olika data platser, till exempel en webb-URL via HTTP, en Hive-fråga, en Azure SQL-databas, Azure Table Storage, Azure Blob Storage, en datafeed som tillhandahåller eller en SQL Server databas.
+Modulerna importera data och exportera data kan läsa från och skriva till olika data platser, till exempel en webb-URL via HTTP, en Hive-fråga, en databas i Azure SQL Database, Azure Table Storage, Azure Blob Storage, en datafeed eller en SQL Server-databas.
 
 I det här avsnittet används exemplet "exempel 5: träna, test, utvärdera för binär klassificering: vuxen data uppsättning" och förutsätter att data uppsättningen redan har lästs in i en Azure SQL-tabell med namnet censusdata.
 

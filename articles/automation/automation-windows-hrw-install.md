@@ -3,14 +3,14 @@ title: Distribuera en Windows-Hybrid Runbook Worker i Azure Automation
 description: Den här artikeln beskriver hur du distribuerar en Hybrid Runbook Worker som du kan använda för att köra Runbooks på Windows-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: b1cac1ed1ff92086991d405ad72950e362493619
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6141440cdb5b232145417c6051cb340e806f9352
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079190"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338011"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -190,15 +190,15 @@ Kör nu `Add-HybridRunbookWorker` cmdleten med hjälp av följande syntax.
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 ```
 
-Du kan hämta den information som krävs för den här cmdleten från sidan Hantera nycklar i Azure Portal. Öppna den här sidan genom att välja **nycklar** på sidan Inställningar i ditt Automation-konto.
+Du kan hämta den information som krävs för parametrarna `EndPoint` och `Token` från sidan **nycklar** i ditt Automation-konto. Välj **nycklar** under avsnittet **konto inställningar** på sidans vänstra sida.
 
 ![Sidan hantera nycklar](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
+* `EndPoint`Kopiera värdet för **URL**för parametern.
+
+* För `Token` parametern kopierar du värdet för **primär åtkomst nyckel**.
+
 * För `GroupName` parametern använder du namnet på Hybrid Runbook Workers gruppen. Om den här gruppen redan finns i Automation-kontot, läggs den aktuella datorn till i den. Om den här gruppen inte finns läggs den till.
-
-* För `EndPoint` parametern använder du **URL** -posten på sidan Hantera nycklar.
-
-* För `Token` parametern använder du posten **primär åtkomst nyckel** på sidan Hantera nycklar.
 
 * Om det behövs anger du `Verbose` parametern för att få information om installationen.
 

@@ -1,26 +1,19 @@
 ---
 title: Skapa Azure Service Bus namnrymd och kö med Azure-mall
 description: 'Snabb start: skapa en Service Bus namnrymd och en kö med Azure Resource Manager mall'
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 03/30/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: b08253104eeb61f6bb09fde507473d235a996494
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e382d39e10e1907c9892f03a3da64945f3049fee
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80422645"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337030"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Service Bus namnrymd och en kö med hjälp av en Azure Resource Manager-mall
 
@@ -32,13 +25,13 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
 ## <a name="prerequisites"></a>Krav
 
-Inga
+Ingen
 
 ## <a name="create-a-service-bus-namespace-and-a-queue"></a>Skapa ett Service Bus-namnområde och en kö
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
+Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
 
 :::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json" range="1-75" highlight="31-63":::
 
@@ -80,7 +73,7 @@ Om du vill köra distributionen automatiskt klickar du på följande knapp: skap
 ## <a name="cleanup-resources"></a>Rensa resurser
 
 1. I Azure Portal går du till **resurs** grupp sidan för resurs gruppen.
-2. Välj **Ta bort resursgrupp** i verktygsfältet. 
+2. Välj **Ta bort resursgrupp** från verktygsfältet. 
 3. Skriv namnet på resurs gruppen och välj **ta bort**. 
 
     ![Resurs grupp-ta bort](./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png)

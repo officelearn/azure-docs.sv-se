@@ -1,20 +1,14 @@
 ---
 title: Ge åtkomst till en signatur för delad åtkomst i Azure Event Hubs
 description: Den här artikeln innehåller information om hur du auktoriserar åtkomst till Azure Event Hubs-resurser med hjälp av signaturer för delad åtkomst (SAS).
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 0c572723c493847ed15f80948511d1cc993fa7e1
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298760"
+ms.locfileid: "85323122"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Auktorisera åtkomst till Event Hubs resurser med signaturer för delad åtkomst
 En signatur för delad åtkomst (SAS) ger dig ett sätt att bevilja begränsad åtkomst till resurser i din Event Hubs-namnrymd. SAS skyddar åtkomsten till Event Hubs resurser baserat på auktoriseringsregler. Dessa regler konfigureras antingen i ett namn område eller i en entitet (händelsehubben eller ett ämne). Den här artikeln innehåller en översikt över SAS-modellen och granskar bästa praxis för SAS.

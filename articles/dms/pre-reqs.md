@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 9aaf334b328b2e20ed94f0c7c87727add1f2baee
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8d87052ecfe85fa35c41c8b306bb48551fd06be9
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195670"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322849"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Översikt över förutsättningar för att använda Azure Database Migration Service
 
@@ -113,13 +113,13 @@ Förutom att Azure Database Migration Service krav som är gemensamma för alla 
 
 När du använder Azure Database Migration Service för att utföra SQL Server till Azure SQL Database migreringar, förutom de krav som är gemensamma för alla migreringsåtgärder, måste du ta itu med följande ytterligare krav:
 
-* Skapa en Azure SQL Database-instans, vilket du kan göra genom att följa informationen i artikeln om att [skapa Azure SQL Database i Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Skapa en instans av Azure SQL Database-instansen, som du gör genom att följa detalj i artikeln [skapa en databas i Azure SQL Database i Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * Ladda ned och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) version 3.3 eller senare.
 * Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
 * Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
 * Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för SQL Database för att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
 * Kontrollera att autentiseringsuppgifterna som används för att ansluta till SQL Server-källinstansen har [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)-behörigheter.
-* Kontrollera att autentiseringsuppgifterna som används för att ansluta Azure SQL Database-målinstansen har CONTROL DATABASE-behörighet i Azure SQL-måldatabaserna.
+* Se till att de autentiseringsuppgifter som används för att ansluta till mål databasen har behörighet att kontrol lera databasen på mål databasen.
 
    > [!NOTE]
    > En fullständig lista över de krav som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till Azure SQL Database finns i självstudien [migrera SQL Server till Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).

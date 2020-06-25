@@ -4,18 +4,18 @@ description: Lär dig hur du använder Azure CLI för att skapa och Azure Active
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: dba6590daf5c64dd1e53663e71a0cc27941b1470
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 83ba43c3b8a00325750ec935fd3a43ec7d56074c
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779951"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336528"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrera Azure Active Directory med Azure Kubernetes-tjänsten med hjälp av Azure CLI
 
 Azure Kubernetes service (AKS) kan konfigureras att använda Azure Active Directory (AD) för användarautentisering. I den här konfigurationen kan du logga in på ett AKS-kluster med en Azure AD-autentiseringstoken. Kluster operatörer kan också konfigurera Kubernetes-rollbaserad åtkomst kontroll (RBAC) baserat på användarens identitet eller katalog grupp medlemskap.
 
-Den här artikeln visar hur du skapar nödvändiga Azure AD-komponenter, sedan distribuerar ett Azure AD-aktiverat kluster och skapar en grundläggande RBAC-roll i AKS-klustret. Du kan också [utföra dessa steg med hjälp av Azure Portal][azure-ad-portal].
+Den här artikeln visar hur du skapar nödvändiga Azure AD-komponenter, sedan distribuerar ett Azure AD-aktiverat kluster och skapar en grundläggande RBAC-roll i AKS-klustret.
 
 Det fullständiga exempel skriptet som används i den här artikeln finns i [Azure CLI-exempel – AKS-integrering med Azure AD][complete-script].
 
@@ -97,7 +97,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Skapa Azure AD-klient komponent
 
-Det andra Azure AD-programmet används när en användare loggar in i AKS-klustret med Kubernetes CLI (`kubectl`). Det här klient programmet tar emot autentiseringsbegäran från användaren och verifierar sina autentiseringsuppgifter och behörigheter. Skapa Azure AD-appen för klient komponenten med hjälp av kommandot [AZ AD App Create][az-ad-app-create] :
+Det andra Azure AD-programmet används när en användare loggar in i AKS-klustret med Kubernetes CLI ( `kubectl` ). Det här klient programmet tar emot autentiseringsbegäran från användaren och verifierar sina autentiseringsuppgifter och behörigheter. Skapa Azure AD-appen för klient komponenten med hjälp av kommandot [AZ AD App Create][az-ad-app-create] :
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -171,7 +171,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Om användaren som du beviljar RBAC-bindningen för finns i samma Azure AD-klient tilldelar du behörigheter baserat på *userPrincipalName*. Om användaren finns i en annan Azure AD-klient frågar du efter och använder egenskapen *ObjectID* i stället.
 
-Skapa ett YAML-manifest `basic-azure-ad-binding.yaml` med namnet och klistra in följande innehåll. På den sista raden ersätter du *userPrincipalName_or_objectId* med UPN-eller objekt-ID-utdata från föregående kommando:
+Skapa ett YAML-manifest med namnet `basic-azure-ad-binding.yaml` och klistra in följande innehåll. På den sista raden ersätter du *userPrincipalName_or_objectId* med UPN-eller objekt-ID-utdata från föregående kommando:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -208,7 +208,7 @@ Använd nu kommandot [kubectl get poddar][kubectl-get] för att Visa poddar i al
 kubectl get pods --all-namespaces
 ```
 
-Du får en inloggnings fråga för att autentisera med Azure AD-autentiseringsuppgifter med hjälp av en webbläsare. När du har autentiserat visar `kubectl` kommandot poddar i AKS-klustret, vilket visas i följande exempel på utdata:
+Du får en inloggnings fråga för att autentisera med Azure AD-autentiseringsuppgifter med hjälp av en webbläsare. När du har autentiserat `kubectl` visar kommandot poddar i AKS-klustret, vilket visas i följande exempel på utdata:
 
 ```console
 kubectl get pods --all-namespaces

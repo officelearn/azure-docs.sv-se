@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c6fb590cbb57e8798bf65d0aa30585ae3db3691d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021542"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321413"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta data uppsättningar i stor skala med hjälp av Data Factory och batch
 > [!NOTE]
@@ -86,7 +86,7 @@ Exempel lösningen är avsiktligt enkel. Den är utformad för att visa hur du a
 
 **Tid:** Om du är van att lära dig grunderna i Azure, Data Factory och batch och har slutfört följande krav, tar den här lösningen en till två timmar att slutföra.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 #### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har någon Azure-prenumeration kan du snabbt skapa ett kostnads fritt utvärderings konto. Mer information finns i den [kostnads fria utvärderings versionen](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -134,13 +134,13 @@ Du använder [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.co
 
    Om du använder Storage Explorer, i nästa steg, laddar du upp filer med följande namn: `inputfolder/2015-11-16-00/file.txt` , `inputfolder/2015-11-16-01/file.txt` och så vidare. I det här steget skapas automatiskt mapparna.
 
-1. Skapa en textfil **. txt-fil** på datorn med innehåll som har nyckelordet **Microsoft**. Ett exempel är "testa anpassad aktivitet Microsoft-test anpassad aktivitet Microsoft".
+1. Skapa en textfil **file.txt** på datorn med innehåll som har nyckelordet **Microsoft**. Ett exempel är "testa anpassad aktivitet Microsoft-test anpassad aktivitet Microsoft".
 
 1. Överför filen till följande mappar för indata i Blob Storage:
 
    ![Mappar för indatamängd](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Om du använder Storage Explorer laddar du upp **filen. txt** -filen till en **behållare**. Välj **Kopiera** i verktygsfältet för att skapa en kopia av blobben. I dialog rutan **Kopiera BLOB** ändrar du **målets BLOB-namn** till `inputfolder/2015-11-16-00/file.txt` . Upprepa det här steget för att skapa,,, `inputfolder/2015-11-16-01/file.txt` `inputfolder/2015-11-16-02/file.txt` `inputfolder/2015-11-16-03/file.txt` `inputfolder/2015-11-16-04/file.txt` och så vidare. Den här åtgärden skapar automatiskt mapparna.
+   Om du använder Storage Explorer laddar du upp **file.txt** -filen till den här typen av **behållare**. Välj **Kopiera** i verktygsfältet för att skapa en kopia av blobben. I dialog rutan **Kopiera BLOB** ändrar du **målets BLOB-namn** till `inputfolder/2015-11-16-00/file.txt` . Upprepa det här steget för att skapa,,, `inputfolder/2015-11-16-01/file.txt` `inputfolder/2015-11-16-02/file.txt` `inputfolder/2015-11-16-03/file.txt` `inputfolder/2015-11-16-04/file.txt` och så vidare. Den här åtgärden skapar automatiskt mapparna.
 
 1. Skapa en annan behållare med namnet `customactivitycontainer` . Överför den anpassade aktivitetens zip-fil till den här behållaren.
 
@@ -398,11 +398,11 @@ Metoden har några viktiga komponenter som du behöver förstå:
 
 1. Starta Utforskaren och gå till mappen bin- ** \\ Felsökning** eller **bin- \\ bin** . Valet av mapp beror på typen av version.
 
-1. Skapa en zip-fil **MyDotNetActivity. zip** som innehåller alla binärfiler i mappen ** \\ bin- \\ Felsökning** . Du kanske vill inkludera MyDotNetActivity. **PDB** -fil så att du får ytterligare information, till exempel rad numret i käll koden som orsakade problemet när ett fel uppstår.
+1. Skapa en zip-fil **MyDotNetActivity.zip** som innehåller alla binärfiler i mappen ** \\ bin- \\ Felsökning** . Du kanske vill inkludera MyDotNetActivity. **PDB** -fil så att du får ytterligare information, till exempel rad numret i käll koden som orsakade problemet när ett fel uppstår.
 
    ![Mapplistan bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 
-1. Ladda upp **MyDotNetActivity. zip** som en blob till BLOB-behållaren `customactivitycontainer` i blob-lagringen som den länkade tjänsten StorageLinkedService i ADFTutorialDataFactory använder. Skapa BLOB-behållaren `customactivitycontainer` om den inte redan finns.
+1. Ladda upp **MyDotNetActivity.zip** som en blob till BLOB-behållaren `customactivitycontainer` i blob-lagringen som den länkade tjänsten StorageLinkedService i ADFTutorialDataFactory använder. Skapa BLOB-behållaren `customactivitycontainer` om den inte redan finns.
 
 #### <a name="execute-method"></a>Kör metod
 Det här avsnittet innehåller mer information om koden i Execute-metoden.
@@ -495,7 +495,7 @@ mycontainer -\> inputfolder
     2015-11-16-04
 ```
 
-Du kan till exempel släppa en fil (File. txt) med följande innehåll i var och en av mapparna:
+Du kan till exempel släppa en fil (file.txt) med följande innehåll i var och en av mapparna:
 
 ```
 test custom activity Microsoft test custom activity Microsoft
@@ -509,7 +509,7 @@ Du ser fem utdatafiler med samma innehåll. Till exempel har utdatafilen från b
 2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
 ```
 
-Om du tar bort flera filer (File. txt, fil2. txt, file3. txt) med samma innehåll i indatafilen visas följande innehåll i utdatafilen. Varje mapp (2015-11-16-00 osv.) motsvarar en sektor i det här exemplet även om mappen har flera indatafiler.
+Om du tar bort flera filer (file.txt, file2.txt, file3.txt) med samma innehåll i indatafilen visas följande innehåll i utdatafilen. Varje mapp (2015-11-16-00 osv.) motsvarar en sektor i det här exemplet även om mappen har flera indatafiler.
 
 ```csharp
 2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
@@ -724,13 +724,13 @@ I det här steget skapar du en annan data uppsättning av typen AzureBlob för a
 
     | **Sektor** | **Start tid**          | **Utdatafil**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16 –**00. txt** |
-    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16 –**01. txt** |
-    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02. txt** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16 –**03. txt** |
-    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04. txt** |
+    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16 –**00.txt** |
+    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16 –**01.txt** |
+    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16 –**02.txt** |
+    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16 –**03.txt** |
+    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16 –**04.txt** |
 
-    Kom ihåg att alla filer i en mapp (till exempel 2015-11-16-00) ingår i en sektor med start tiden 2015-11-16-00. När den här sektorn bearbetas genomsöker den anpassade aktiviteten igenom varje fil och skapar en rad i utdatafilen med antalet förekomster av Sök termen "Microsoft". Om det finns tre filer i mappen 2015-11-16-00 finns det tre rader i utdatafilen 2015-11-16 -00. txt.
+    Kom ihåg att alla filer i en mapp (till exempel 2015-11-16-00) ingår i en sektor med start tiden 2015-11-16-00. När den här sektorn bearbetas genomsöker den anpassade aktiviteten igenom varje fil och skapar en rad i utdatafilen med antalet förekomster av Sök termen "Microsoft". Om det finns tre filer i mappen 2015-11-16-00 finns det tre rader i utdatafilen 2015-11-16-00.txt.
 
 1. Välj **distribuera** i verktygsfältet för att skapa och distribuera **OutputDataset**.
 
@@ -738,7 +738,7 @@ I det här steget skapar du en annan data uppsättning av typen AzureBlob för a
 I det här steget skapar du en pipeline med en aktivitet, den anpassade aktivitet som du skapade tidigare.
 
 > [!IMPORTANT]
-> Om du inte har laddat upp **File. txt** för att mata in mappar i BLOB-behållaren gör du det innan du skapar pipelinen. **IsPaused** -egenskapen har angetts till false i pipeline-JSON, så att pipelinen körs omedelbart eftersom **Start** datumet redan har passerat.
+> Om du inte har laddat upp **file.txt** för in-mappar i BLOB-behållaren gör du det innan du skapar pipelinen. **IsPaused** -egenskapen har angetts till false i pipeline-JSON, så att pipelinen körs omedelbart eftersom **Start** datumet redan har passerat.
 >
 >
 
@@ -792,10 +792,10 @@ I det här steget skapar du en pipeline med en aktivitet, den anpassade aktivite
    Observera följande punkter:
 
    * Endast en aktivitet finns i pipelinen och är av typen **DotNetActivity**.
-   * **AssemblyName** har angetts till namnet på dll- **MyDotNetActivity. dll**.
+   * **AssemblyName** har angetts till namnet på DLL- **MyDotNetActivity.dll**.
    * **EntryPoint** är inställd på **MyDotNetActivityNS. MyDotNetActivity**. Det är i princip \<namespace\> .\<classname\> i din kod.
    * **PackageLinkedService** är inställt på **StorageLinkedService**, som pekar på blob-lagringen som innehåller den anpassade aktivitetens zip-fil. Om du använder olika lagrings konton för in-och utdatafiler och den anpassade aktivitetens zip-fil måste du skapa en annan länkad lagrings tjänst. I den här artikeln förutsätter vi att du använder samma lagrings konto.
-   * **PackageFile** har angetts till **customactivitycontainer/MyDotNetActivity. zip**. Formatet är i formatet \<containerforthezip\> / \<nameofthezip.zip\> .
+   * **PackageFile** har angetts till **customactivitycontainer/MyDotNetActivity.zip**. Formatet är i formatet \<containerforthezip\> / \<nameofthezip.zip\> .
    * Den anpassade aktiviteten tar **InputDataset** som indata och **OutputDataset** som utdata.
    * Egenskapen **linkedServiceName** för den anpassade aktiviteten pekar på **AzureBatchLinkedService**, som talar om för Data Factory att den anpassade aktiviteten måste köras i batch.
    * **Samtidighets** inställningen är viktig. Om du använder standardvärdet, vilket är 1, även om du har två eller fler Compute-noder i batch-poolen bearbetas sektorerna ett efter ett annat. Därför drar du inte nytta av den parallella bearbetnings funktionen i batch. Om du ställer in **samtidighet** till ett högre värde innebär det att två sektorer (motsvarar två aktiviteter i batch) kan bearbetas på samma gång. I det här fallet används båda de virtuella datorerna i batch-poolen. Ställ in samtidighets egenskapen på rätt sätt.
@@ -841,15 +841,15 @@ I det här steget ska du testa pipelinen genom att släppa filer i inmapparna. B
 
    ![Diagram över segment mappning](./media/data-factory-data-processing-using-batch/image16.png)
 
-1. Prova nu med flera filer i en mapp. Skapa filerna **fil2. txt**, **file3. txt**, **file4. txt**och **file5. txt** med samma innehåll som i File. txt i mappen **2015-11-06-01**.
+1. Prova nu med flera filer i en mapp. Skapa filerna **file2.txt**, **file3.txt**, **file4.txt**och **file5.txt** med samma innehåll som i file.txt i mappen **2015-11-06-01**.
 
-1. I mappen utdata tar du bort utdatafilen **2015-11-16 01. txt**.
+1. I mappen utdata tar du bort utdatafilen **2015-11-16-01.txt**.
 
 1. På bladet **OutputDataset** högerklickar du på sektorn med **sektor start tid** inställd på **11/16/2015 01:00:00**. Välj **Kör** för att köra om eller ombearbeta sektorn. Sektorn har nu fem filer i stället för en fil.
 
     ![Kör](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. När sektorn har körts och statusen är **klar**kontrollerar du innehållet i utdatafilen för den här sektorn (**2015-11-16 01. txt**). Utdatafilen visas under `mycontainer` i i `outputfolder` Blob Storage. Det ska finnas en rad för varje fil i sektorn.
+1. När sektorn har körts och statusen är **klar**kontrollerar du innehållet i utdatafilen för den här sektorn (**2015-11-16-01.txt**). Utdatafilen visas under `mycontainer` i i `outputfolder` Blob Storage. Det ska finnas en rad för varje fil i sektorn.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -860,7 +860,7 @@ I det här steget ska du testa pipelinen genom att släppa filer i inmapparna. B
     ```
 
 > [!NOTE]
-> Om du inte har tagit bort utdatafilen 2015-11-16 01. txt innan du försökte med fem indatafiler, visas en rad från den föregående sektor körningen och fem rader från den aktuella sektor körningen. Som standard läggs innehållet till i utdatafilen om det redan finns.
+> Om du inte har tagit bort utdatafilen 2015-11-16-01.txt innan du försökte med fem indatafiler, kan du se en rad från den föregående sektor körningen och fem rader från den aktuella sektor körningen. Som standard läggs innehållet till i utdatafilen om det redan finns.
 >
 >
 
@@ -880,7 +880,7 @@ Använd portalen för att Visa batch-jobbet och de uppgifter som är associerade
 ### <a name="debug-the-pipeline"></a>Felsöka pipeline
 Fel sökning består av några grundläggande tekniker.
 
-1. Om indataområdet inte är inställt på **klar**, kontrollerar du att strukturen för indata-mappstrukturen är korrekt och att filen. txt finns i indata-mapparna.
+1. Om Indataporten inte är inställd på **klar**, kontrollerar du att strukturen för inmappen är korrekt och att file.txt finns i inmapparna.
 
    ![Struktur för inmatade mappar](./media/data-factory-data-processing-using-batch/image3.png)
 
@@ -913,7 +913,7 @@ Fel sökning består av några grundläggande tekniker.
 
    ![Lista över zip-filer för anpassad aktivitet](./media/data-factory-data-processing-using-batch/image20.png)
 
-1. Se till att **assemblyName** (MyDotNetActivity. dll), **entryPoint** (MyDotNetActivityNS. MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity. zip) och **packageLinkedService** (ska peka på blob-lagringen som innehåller zip-filen) har angetts till rätt värden.
+1. Se till att **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS. MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) och **packageLinkedService** (ska peka på blob-lagringen som innehåller zip-filen) har angetts till rätt värden.
 
 1. Om du har åtgärdat ett fel och vill bearbeta om sektorn högerklickar du på sektorn i bladet **OutputDataset** och väljer **Kör**.
 
@@ -923,9 +923,9 @@ Fel sökning består av några grundläggande tekniker.
    > En behållare finns i blob-lagringen med namnet `adfjobs` . Den här behållaren tas inte bort automatiskt, men du kan ta bort den på ett säkert sätt när du har testat lösningen. På samma sätt skapar Data Factory-lösningen ett batch-jobb med namnet `adf-\<pool ID/name\>:job-0000000001` . Du kan ta bort det här jobbet när du har testat lösningen om du vill.
    >
    >
-1. Den anpassade aktiviteten använder inte **app. config** -filen från ditt paket. Om din kod läser eventuella anslutnings strängar från konfigurations filen fungerar det därför inte vid körning. Den bästa metoden när du använder batch är att lagra alla hemligheter i Azure Key Vault. Använd sedan ett certifikat baserat tjänstens huvud namn för att skydda nyckel valvet och distribuera certifikatet till batch-poolen. Den anpassade .NET-aktiviteten kan komma åt hemligheter från nyckel valvet vid körning. Denna generiska lösning kan skalas till vilken typ av hemlighet som helst, inte bara en anslutnings sträng.
+1. Den anpassade aktiviteten använder inte **app.config** -filen från ditt paket. Om din kod läser eventuella anslutnings strängar från konfigurations filen fungerar det därför inte vid körning. Den bästa metoden när du använder batch är att lagra alla hemligheter i Azure Key Vault. Använd sedan ett certifikat baserat tjänstens huvud namn för att skydda nyckel valvet och distribuera certifikatet till batch-poolen. Den anpassade .NET-aktiviteten kan komma åt hemligheter från nyckel valvet vid körning. Denna generiska lösning kan skalas till vilken typ av hemlighet som helst, inte bara en anslutnings sträng.
 
-    Det finns en enklare lösning, men det är inte en bra metod. Du kan skapa en länkad SQL Database-tjänst med anslutnings Strängs inställningar. Sedan kan du skapa en data uppsättning som använder den länkade tjänsten och kedja data uppsättningen som en exempel data data uppsättning till den anpassade .NET-aktiviteten. Du kan sedan komma åt den länkade tjänstens anslutnings sträng i den anpassade aktivitets koden. Den bör fungera bra vid körning.  
+    Det finns en enklare lösning, men det är inte en bra metod. Du kan skapa en SQL Database länkad tjänst med inställningar för anslutnings strängen. Sedan kan du skapa en data uppsättning som använder den länkade tjänsten och kedja data uppsättningen som en exempel data data uppsättning till den anpassade .NET-aktiviteten. Du kan sedan komma åt den länkade tjänstens anslutnings sträng i den anpassade aktivitets koden. Den bör fungera bra vid körning.  
 
 #### <a name="extend-the-sample"></a>Utöka exemplet
 Du kan utöka det här exemplet för att lära dig mer om Data Factory-och batch-funktioner. För att till exempel bearbeta sektorer i ett annat tidsintervall, utför följande steg:

@@ -3,12 +3,12 @@ title: Så här aktiverar du Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar och konfigurerar Azure Monitor för behållare så att du kan förstå hur din behållare presterar och vilka prestandarelaterade problem som har identifierats.
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: a765c601682eb594d40ba98b8b4ef1853f35fb37
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: e17a346418bc5d38470168339f2078a0a187fe4e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886015"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338267"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Aktivera Azure Monitor för behållare
 
@@ -57,7 +57,7 @@ Kontrol lera att du har följande innan du börjar:
 Följande stöds officiellt i Azure Monitor for containers.
 
 - Miljöer: Azure Red Hat OpenShift, Kubernetes on-premises och AKS Engine på Azure och Azure Stack. Mer information finns i [AKS-motorn på Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Versioner av Kubernetes och support policy är samma som versioner av [AKS som stöds](../../aks/supported-kubernetes-versions.md). 
+- Versioner av Kubernetes och support policy är samma som versioner av [AKS som stöds](../../aks/supported-kubernetes-versions.md).
 
 ## <a name="network-firewall-requirements"></a>Krav för nätverks brand vägg
 
@@ -65,7 +65,7 @@ Informationen i följande tabell visar den konfigurations information för proxy
 
 |Agentresurs|Portar |
 |--------------|------|
-| `*.ods.opinsights.azure.com` | 443 |  
+| `*.ods.opinsights.azure.com` | 443 |
 | `*.oms.opinsights.azure.com` | 443 |
 | `dc.services.visualstudio.com` | 443 |
 | `*.monitoring.azure.com` | 443 |
@@ -73,7 +73,7 @@ Informationen i följande tabell visar den konfigurations information för proxy
 
 Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure Kina 21Vianet.
 
-|Agentresurs|Portar |Beskrivning | 
+|Agentresurs|Portar |Beskrivning |
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.cn` | 443 | Datainhämtning |
 | `*.oms.opinsights.azure.cn` | 443 | OMS-onboarding |
@@ -81,7 +81,7 @@ Informationen i följande tabell visar konfigurations information för proxy och
 
 Informationen i följande tabell visar konfigurations information för proxy och brand vägg för Azure amerikanska myndigheter.
 
-|Agentresurs|Portar |Beskrivning | 
+|Agentresurs|Portar |Beskrivning |
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | 443 | Datainhämtning |
 | `*.oms.opinsights.azure.us` | 443 | OMS-onboarding |
@@ -92,7 +92,7 @@ Informationen i följande tabell visar konfigurations information för proxy och
 Din möjlighet att övervaka prestanda är beroende av en container Log Analytics-agent för Linux som är särskilt utvecklad för Azure Monitor för behållare. Den här specialiserade agenten samlar in prestanda-och händelse data från alla noder i klustret och agenten distribueras automatiskt och registreras med den angivna Log Analytics arbets ytan under distributionen. Agent versionen är Microsoft/OMS: ciprod04202018 eller senare, och representeras av ett datum i följande format: *mmddyyyy*.
 
 >[!NOTE]
->I för hands versionen av Windows Server-stöd för AKS har ett AKS-kluster med Windows Server-noder inte någon agent installerad för att samla in data och vidarebefordra till Azure Monitor. I stället distribueras en Linux-nod automatiskt i klustret som en del av standard distributionen för att samla in och vidarebefordra data till Azure Monitor å alla Windows-noder i klustret.  
+>Med den allmänna tillgängligheten för Windows Server-stöd för AKS, har ett AKS-kluster med Windows Server-noder en för hands version installerad som en daemonset-Pod på varje enskild Windows Server-nod för att samla in loggar och vidarebefordra den till Log Analytics. För prestanda mått distribueras en Linux-nod automatiskt i klustret som en del av standard distributionen, och data vidarebefordras till Azure Monitor å alla Windows-noder i klustret.
 >
 
 När en ny version av agenten släpps, uppgraderas den automatiskt i hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS). Information om hur du följer de versioner som lanseras finns i [agent release-meddelanden](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).

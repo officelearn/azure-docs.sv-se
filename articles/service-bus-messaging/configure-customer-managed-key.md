@@ -1,19 +1,14 @@
 ---
 title: Konfigurera din egen nyckel för att kryptera Azure Service Bus data i vila
 description: Den här artikeln innehåller information om hur du konfigurerar din egen nyckel för att kryptera Azure Service Bus data rest.
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: aschhab
-ms.openlocfilehash: 82a5fbef8c307d60d82b147f04a2a687b8b0433e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 9bc48d82d1e63f08ab68e8f9c6a63e781c14c675
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459074"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338089"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal
 Azure Service Bus Premium tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Service Bus Premium är beroende av Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -117,7 +112,7 @@ I det här avsnittet visas hur du utför följande uppgifter med hjälp av **Azu
 ### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Skapa ett Premium Service Bus-namnområde med hanterad tjänst identitet
 I det här avsnittet visas hur du skapar ett Azure Service Bus-namnområde med hanterad tjänst identitet med hjälp av en Azure Resource Manager mall och PowerShell. 
 
-1. Skapa en Azure Resource Manager-mall för att skapa ett namn område för en Service Bus Premium-nivå med en hanterad tjänst identitet. Ge filen namnet: **CreateServiceBusPremiumNamespace. JSON**: 
+1. Skapa en Azure Resource Manager-mall för att skapa ett namn område för en Service Bus Premium-nivå med en hanterad tjänst identitet. Ge filen namnet: **CreateServiceBusPremiumNamespace.jspå**: 
 
     ```json
     {
@@ -165,7 +160,7 @@ I det här avsnittet visas hur du skapar ett Azure Service Bus-namnområde med h
        }
     }
     ```
-2. Skapa en mall med namnet: **CreateServiceBusPremiumNamespaceParams. JSON**. 
+2. Skapa en mall med namnet: **CreateServiceBusPremiumNamespaceParams.jspå**. 
 
     > [!NOTE]
     > Ersätt följande värden: 
@@ -225,7 +220,7 @@ Du har utfört följande steg:
 
 I det här steget ska du uppdatera Service Bus-namnrymden med Key Vault-information. 
 
-1. Skapa en JSON-fil med namnet **UpdateServiceBusNamespaceWithEncryption. JSON** med följande innehåll: 
+1. Skapa en JSON-fil med namnet **UpdateServiceBusNamespaceWithEncryption.jspå** med följande innehåll: 
 
     ```json
     {
@@ -288,7 +283,7 @@ I det här steget ska du uppdatera Service Bus-namnrymden med Key Vault-informat
     }
     ``` 
 
-2. Skapa en mallparameter: **UpdateServiceBusNamespaceWithEncryptionParams. JSON**.
+2. Skapa en mall för mallparameter: **UpdateServiceBusNamespaceWithEncryptionParams.jspå**.
 
     > [!NOTE]
     > Ersätt följande värden: 

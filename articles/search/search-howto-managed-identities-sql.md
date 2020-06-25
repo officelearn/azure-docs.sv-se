@@ -1,7 +1,7 @@
 ---
-title: Konfigurera en anslutning till en Azure SQL-databas med hjälp av en hanterad identitet (förhands granskning)
+title: Konfigurera en anslutning till Azure SQL Database med hjälp av en hanterad identitet (förhands granskning)
 titleSuffix: Azure Cognitive Search
-description: Lär dig hur du konfigurerar en Indexer-anslutning till en Azure SQL-databas med hjälp av en hanterad identitet (förhands granskning)
+description: Lär dig hur du konfigurerar en Indexer-anslutning till Azure SQL Database med hjälp av en hanterad identitet (förhands granskning)
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -9,22 +9,23 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 87389651707a3bdcc18ae7eb03b88681b5303c4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3e58bdafce6746d7f83dfbceeff529c6d4b5075a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664804"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321351"
 ---
-# <a name="set-up-an-indexer-connection-to-an-azure-sql-database-using-a-managed-identity-preview"></a>Konfigurera en indexerare-anslutning till en Azure SQL-databas med hjälp av en hanterad identitet (förhands granskning)
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Konfigurera en Indexer-anslutning till Azure SQL Database med hjälp av en hanterad identitet (förhands granskning)
 
 > [!IMPORTANT] 
 > Stöd för att konfigurera en anslutning till en data källa med hjälp av en hanterad identitet är för närvarande en offentlig för hands version av en gated. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
 > Du kan begära åtkomst till förhands granskningen genom att fylla i [det här formuläret](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-Den här sidan beskriver hur du konfigurerar en Indexer-anslutning till en Azure SQL-databas med hjälp av en hanterad identitet i stället för att ange autentiseringsuppgifter i anslutnings strängen för data käll objekt.
+På den här sidan beskrivs hur du konfigurerar en Indexer-anslutning till Azure SQL Database med hjälp av en hanterad identitet i stället för att ange autentiseringsuppgifter i anslutnings strängen för data käll objekt.
 
 Innan du lär dig mer om den här funktionen rekommenderar vi att du har en förståelse för vad en indexerare är och hur du konfigurerar en indexerare för din data källa. Mer information finns på följande länkar:
+
 * [Översikt över indexeraren](search-indexer-overview.md)
 * [Azure SQL-indexeraren](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -39,7 +40,7 @@ När en systemtilldelad hanterad identitet är aktive rad skapar Azure en identi
 När du har valt **Spara** visas ett objekt-ID som har tilldelats till din Sök tjänst.
 
 ![Objekt-ID](./media/search-managed-identities/system-assigned-identity-object-id.png "Objekt-ID")
- 
+
 ### <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2-etablera Azure Active Directory administratör för SQL Server
 
 När du ansluter till databasen i nästa steg måste du ansluta till ett Azure Active Directory (Azure AD)-konto som har administratörs åtkomst till databasen för att ge din Sök tjänst behörighet att komma åt databasen.
@@ -102,7 +103,7 @@ När du indexerar från en SQL-databas måste data källan ha följande obligato
 * **Name** är det unika namnet på data källan i Sök tjänsten.
 * **typ** är`azuresql`
 * **klientautentiseringsuppgifter**
-    * När du använder en hanterad identitet för att autentisera, skiljer sig formatet på **autentiseringsuppgifter** till om du inte använder en hanterade-identitet. Här anger du en initial katalog eller ett databas namn och ett ResourceId som inte har någon konto nyckel eller lösen ord. ResourceId måste innehålla prenumerations-ID: t för Azure SQL Database, resurs gruppen för SQL-databasen och namnet på SQL-databasen. 
+    * När du använder en hanterad identitet för att autentisera, skiljer sig formatet på **autentiseringsuppgifter** till om du inte använder en hanterade-identitet. Här anger du en initial katalog eller ett databas namn och ett ResourceId som inte har någon konto nyckel eller lösen ord. ResourceId måste innehålla prenumerations-ID: t för Azure SQL Database, resurs gruppen för SQL Database och namnet på SQL-databasen. 
     * Format för anslutnings sträng för hanterad identitet:
         * *Initial katalog | Databas =**databas namn**; ResourceId =/Subscriptions/**ditt prenumerations-ID**/resourceGroups/**resurs gruppens namn**/providers/Microsoft.SQL/Servers/**ditt SQL Server namn**/; Timeout för anslutning =**anslutningens timeout-längd**;*
 * **container** anger namnet på den tabell eller vy som du vill indexera.

@@ -1,24 +1,14 @@
 ---
 title: Vad är Azure Relay? | Microsoft Docs
 description: Den här artikeln innehåller en översikt över Azure Relay-tjänsten, där du kan utveckla molnprogram som använder lokala tjänster som körs i företagets nätverk utan att öppna en brandväggsanslutning eller göra störande ändringar i din nätverksinfrastruktur.
-services: service-bus-relay
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus-relay
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: spelluru
-ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211637"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322649"
 ---
 # <a name="what-is-azure-relay"></a>Vad är Azure Relay?
 Med Azure Relay-tjänsten kan du på ett säkert sätt visa tjänster som körs i företagets nätverk för det offentliga molnet. Du kan göra det utan att behöva öppna en port i brandväggen eller göra störande ändringar i företagets nätverksinfrastruktur. 

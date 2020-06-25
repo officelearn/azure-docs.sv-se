@@ -1,25 +1,14 @@
 ---
 title: AMQP 1,0 i Azure Service Bus-och Event Hubss protokoll guide | Microsoft Docs
 description: Protokoll guide till uttryck och beskrivning av AMQP 1,0 i Azure Service Bus och Event Hubs
-services: service-bus-messaging,event-hubs
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086144"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337892"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 i Azure Service Bus-och Event Hubs-protokoll guide
 
@@ -35,7 +24,7 @@ Målet är för alla utvecklare som använder en befintlig AMQP 1,0-klients tack
 
 Vanliga AMQP 1,0-stackar, till exempel Apache Proton eller AMQP.NET lite, har redan implementerat alla kärn AMQP 1,0-protokoll. Dessa grundläggande gester omsluts ibland med ett API på en högre nivå. Apache Proton erbjuder även två, det tvingande Messenger API och det omaktiva reaktor-API: et.
 
-I följande diskussion förutsätter vi att hanteringen av AMQP-anslutningar, sessioner och länkar samt hantering av ram överföringar och flödes kontroll hanteras av respektive stack (t. ex. apache Proton-C) och inte kräver mycket särskild uppmärksamhet från programutvecklare. Vi är abstrakta över förekomsten av några API-primitiver som möjligheten att ansluta, och för att skapa någon form av *avsändare* *och abstraktions* objekt, som sedan har någon form `send()` av `receive()` respektive verksamhet.
+I följande diskussion förutsätter vi att hanteringen av AMQP-anslutningar, sessioner och länkar samt hantering av ram överföringar och flödes kontroll hanteras av respektive stack (t. ex. apache Proton-C) och inte kräver mycket särskild uppmärksamhet från programutvecklare. Vi är abstrakta över förekomsten av några API-primitiver som möjligheten att ansluta, och för att skapa någon form av *avsändare* *och abstraktions* objekt, som sedan har någon form av respektive `send()` `receive()` verksamhet.
 
 När du diskuterar avancerade funktioner i Azure Service Bus, till exempel meddelande visning eller hantering av sessioner, förklaras dessa funktioner i AMQP-termer, men också som en överordnad pseudo-implementering ovanpå denna förmodade API-abstraktion.
 
@@ -88,7 +77,7 @@ Klienter som använder AMQP-anslutningar via TCP kräver portarna 5671 och 5672 
 
 ![Lista över mål portar][4]
 
-En .NET-klient skulle Miss lyckas med en SocketException ("ett försök gjordes att få åtkomst till en socket på ett sätt som tillåts av dess åtkomst behörigheter") om dessa portar blockeras av brand väggen. Funktionen kan inaktive ras genom `EnableAmqpLinkRedirect=false` att ställa in i rapporteringstjänsten-strängen, som tvingar klienterna att kommunicera med fjärrtjänsten via port 5671.
+En .NET-klient skulle Miss lyckas med en SocketException ("ett försök gjordes att få åtkomst till en socket på ett sätt som tillåts av dess åtkomst behörigheter") om dessa portar blockeras av brand väggen. Funktionen kan inaktive ras genom att ställa in `EnableAmqpLinkRedirect=false` i rapporteringstjänsten-strängen, som tvingar klienterna att kommunicera med fjärrtjänsten via port 5671.
 
 
 ### <a name="links"></a>Länkar
@@ -103,7 +92,7 @@ Behållaren för att initiera den sammanlänkade behållaren ber den motsatta be
 
 Länkar har namnet och associeras med noder. Som anges i början är noderna de kommunicerande enheterna i en behållare.
 
-I Service Bus motsvarar en nod direkt till en kö, ett ämne, en prenumeration eller en obeställbara meddelanden kön-underkö i en kö eller prenumeration. Det nodnamn som används i AMQP är därför det relativa namnet på entiteten i namn området Service Bus. Om en kö har namnet `myqueue`, det är även dess AMQP-nodnamn. En ämnes prenumeration följer HTTP API-konventionen genom att sorteras i en resurs samling med prenumerationer och **därför har** en **prenumeration på ett ämne i ämnet** AMQP Node-namn ( **ämne/prenumerationer/sub**).
+I Service Bus motsvarar en nod direkt till en kö, ett ämne, en prenumeration eller en obeställbara meddelanden kön-underkö i en kö eller prenumeration. Det nodnamn som används i AMQP är därför det relativa namnet på entiteten i namn området Service Bus. Om en kö har namnet `myqueue` , det är även dess AMQP-nodnamn. En ämnes prenumeration följer HTTP API-konventionen genom att sorteras i en resurs samling med prenumerationer och **därför har** en **prenumeration på ett ämne i ämnet** AMQP Node-namn ( **ämne/prenumerationer/sub**).
 
 Den anslutande klienten måste också använda ett lokalt nodnamn för att skapa länkar. Service Bus är inte förvarad om dessa nodnamn och tolkar dem inte. AMQP 1,0-klient stackar använder vanligt vis ett schema för att säkerställa att dessa tillfälliga nodnamn är unika i klientens omfattning.
 
@@ -127,7 +116,7 @@ I sådana fall, Service Bus och Event Hubs support "minst en gång", där avsän
 
 För att kompensera för eventuella dubbla sändningar kan Service Bus stödja dubblettidentifiering som en valfri funktion i köer och ämnen. Dubblettidentifiering registrerar meddelande-ID för alla inkommande meddelanden under en användardefinierad tids period och släpper sedan tyst alla meddelanden som skickas med samma meddelande-ID under samma fönster.
 
-### <a name="flow-control"></a>Flödes kontroll
+### <a name="flow-control"></a>Flödeskontroll
 
 Förutom den flödes kontroll modell på sessionshantering som tidigare diskuterats, har varje länk sin egen flödes kontroll modell. Flödes kontroll på sessions nivå skyddar behållaren från att behöva hantera för många ramar samtidigt, flödes kontroll på länknivå ger programmet en kostnad för hur många meddelanden den vill hantera från en länk och när.
 
@@ -153,49 +142,49 @@ Pilarna i följande tabell visar Performative flödes riktning.
 
 #### <a name="create-message-receiver"></a>Skapa meddelande mottagare
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> Anslut (<br/>namn = {Link Name},<br/>referens = {numerisk referens},<br/>roll =**mottagare**,<br/>Källa = {entitetsnamn},<br/>Target = {klient länk-ID}<br/>) |Klienten ansluter till entiteten som mottagare |
 | Service Bus svar med kopplingens slut |<--attach (<br/>namn = {Link Name},<br/>referens = {numerisk referens},<br/>roll =**avsändare**,<br/>Källa = {entitetsnamn},<br/>Target = {klient länk-ID}<br/>) |
 
 #### <a name="create-message-sender"></a>Skapa meddelande avsändare
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> Anslut (<br/>namn = {Link Name},<br/>referens = {numerisk referens},<br/>roll =**avsändare**,<br/>Källa = {klient länk-ID},<br/>Target = {entitetsnamn}<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--attach (<br/>namn = {Link Name},<br/>referens = {numerisk referens},<br/>roll =**mottagare**,<br/>Källa = {klient länk-ID},<br/>Target = {entitetsnamn}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Skapa meddelande avsändare (fel)
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> Anslut (<br/>namn = {Link Name},<br/>referens = {numerisk referens},<br/>roll =**avsändare**,<br/>Källa = {klient länk-ID},<br/>Target = {entitetsnamn}<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--attach (<br/>namn = {Link Name},<br/>referens = {numerisk referens},<br/>roll =**mottagare**,<br/>Källa = null,<br/>Target = null<br/>)<br/><br/><--loss (<br/>referens = {numerisk referens},<br/>Closed =**True**,<br/>fel = {Error info}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Stäng meddelande mottagare/avsändare
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> koppla från (<br/>referens = {numerisk referens},<br/>stängt =**Sant**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--loss (<br/>referens = {numerisk referens},<br/>stängt =**Sant**<br/>) |
 
 #### <a name="send-success"></a>Skicka (lyckades)
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> överföring (<br/>leverans-ID = {numerisk referens},<br/>leverans-tag = {binär referens},<br/>Kvittat =**falskt**,, mer =**falskt**,<br/>State =**Null**,<br/>Resume =**false**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--disposition (<br/>roll = mottagare,<br/>första = {Delivery ID},<br/>senaste = {Delivery ID},<br/>Kvittat =**Sant**,<br/>State =**accepterad**<br/>) |
 
 #### <a name="send-error"></a>Skicka (fel)
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> överföring (<br/>leverans-ID = {numerisk referens},<br/>leverans-tag = {binär referens},<br/>Kvittat =**falskt**,, mer =**falskt**,<br/>State =**Null**,<br/>Resume =**false**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--disposition (<br/>roll = mottagare,<br/>första = {Delivery ID},<br/>senaste = {Delivery ID},<br/>Kvittat =**Sant**,<br/>State =**nekad**(<br/>fel = {Error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Ta emot
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> flöde (<br/>länk – kredit = 1<br/>) |Ingen åtgärd |
 | Ingen åtgärd |< överföring (<br/>leverans-ID = {numerisk referens},<br/>leverans-tag = {binär referens},<br/>Kvittat =**falskt**,<br/>More =**false**,<br/>State =**Null**,<br/>Resume =**false**<br/>) |
@@ -203,7 +192,7 @@ Pilarna i följande tabell visar Performative flödes riktning.
 
 #### <a name="multi-message-receive"></a>Mottagning av flera meddelanden
 
-| Client | Service Bus |
+| Klient | Service Bus |
 | --- | --- |
 | --> flöde (<br/>länk – kredit = 3<br/>) |Ingen åtgärd |
 | Ingen åtgärd |< överföring (<br/>leverans-ID = {numerisk referens},<br/>leverans-tag = {binär referens},<br/>Kvittat =**falskt**,<br/>More =**false**,<br/>State =**Null**,<br/>Resume =**false**<br/>) |
@@ -247,7 +236,7 @@ Alla egenskaper som programmet måste definiera ska mappas till AMQP- `applicati
 
 #### <a name="message-annotations"></a>Meddelande anteckningar
 
-Det finns några andra egenskaper för Service Bus-meddelanden, som inte är en del av egenskaperna för AMQP-meddelanden och `MessageAnnotations` skickas tillsammans som i meddelandet.
+Det finns några andra egenskaper för Service Bus-meddelanden, som inte är en del av egenskaperna för AMQP-meddelanden och skickas tillsammans som `MessageAnnotations` i meddelandet.
 
 | Antecknings kart nyckel | Användning | API-namn |
 | --- | --- | --- |
@@ -263,17 +252,17 @@ Det finns några andra egenskaper för Service Bus-meddelanden, som inte är en 
 ### <a name="transaction-capability"></a>Transaktions kapacitet
 
 En transaktion grupperar två eller flera åtgärder tillsammans i en körning. En sådan transaktion måste efter beskaffenhet säkerställa att alla åtgärder som hör till en specifik grupp av åtgärder antingen lyckas eller Miss lyckas gemensamt.
-Åtgärderna grupperas efter en identifierare `txn-id`.
+Åtgärderna grupperas efter en identifierare `txn-id` .
 
-Vid transaktionell interaktion fungerar klienten som en `transaction controller` , som styr vilka åtgärder som ska grupperas tillsammans. Service Bus-tjänsten fungerar som `transactional resource` en och utför arbete som begärt av `transaction controller`.
+Vid transaktionell interaktion fungerar klienten som en `transaction controller` , som styr vilka åtgärder som ska grupperas tillsammans. Service Bus-tjänsten fungerar som en `transactional resource` och utför arbete som begärt av `transaction controller` .
 
-Klienten och tjänsten kommunicerar via en `control link` , som upprättas av-klienten. - `declare` Och `discharge` -meddelandena skickas av kontrollanten över kontroll länken för att allokera och slutföra transaktioner (de representerar inte avgränsningen av transaktions arbetet). Själva skicka/ta emot utförs inte på den här länken. Varje transaktions åtgärd som begärs identifieras explicit med det önskade `txn-id` och kan därför uppstå på en länk i anslutningen. Om kontroll länken stängs samtidigt som det finns icke-avladdade transaktioner som skapas, återställs alla sådana transaktioner omedelbart och försök att utföra ytterligare transaktions arbete på dem leder till ett haveri. Meddelanden på kontroll länken får inte förlösas.
+Klienten och tjänsten kommunicerar via en `control link` , som upprättas av-klienten. `declare`-Och `discharge` -meddelandena skickas av kontrollanten över kontroll länken för att allokera och slutföra transaktioner (de representerar inte avgränsningen av transaktions arbetet). Själva skicka/ta emot utförs inte på den här länken. Varje transaktions åtgärd som begärs identifieras explicit med det önskade `txn-id` och kan därför uppstå på en länk i anslutningen. Om kontroll länken stängs samtidigt som det finns icke-avladdade transaktioner som skapas, återställs alla sådana transaktioner omedelbart och försök att utföra ytterligare transaktions arbete på dem leder till ett haveri. Meddelanden på kontroll länken får inte förlösas.
 
-Varje anslutning måste initiera en egen kontroll länk för att kunna starta och avsluta transaktioner. Tjänsten definierar ett särskilt mål som fungerar som en `coordinator`. Klienten/styrenheten upprättar en kontroll länk till målet. Kontroll länken är utanför gränserna för en entitet, det vill säga samma kontroll länk kan användas för att initiera och avsluta transaktioner för flera entiteter.
+Varje anslutning måste initiera en egen kontroll länk för att kunna starta och avsluta transaktioner. Tjänsten definierar ett särskilt mål som fungerar som en `coordinator` . Klienten/styrenheten upprättar en kontroll länk till målet. Kontroll länken är utanför gränserna för en entitet, det vill säga samma kontroll länk kan användas för att initiera och avsluta transaktioner för flera entiteter.
 
 #### <a name="starting-a-transaction"></a>Starta en transaktion
 
-För att starta transaktions arbetet. kontrollanten måste hämta en `txn-id` från koordinatorn. Det gör detta genom att skicka `declare` ett typ meddelande. Om deklarationen lyckas svarar koordinatorn med ett dispositions resultat som har tilldelats `txn-id`.
+För att starta transaktions arbetet. kontrollanten måste hämta en `txn-id` från koordinatorn. Det gör detta genom att skicka ett `declare` typ meddelande. Om deklarationen lyckas svarar koordinatorn med ett dispositions resultat som har tilldelats `txn-id` .
 
 | Klient (Controller) | | Service Bus (koordinator) |
 | --- | --- | --- |
@@ -284,7 +273,7 @@ För att starta transaktions arbetet. kontrollanten måste hämta en `txn-id` fr
 
 #### <a name="discharging-a-transaction"></a>Avladda en transaktion
 
-Styrenheten avslutar transaktions arbetet genom att skicka ett `discharge` meddelande till koordinatorn. Kontrollanten anger att det vill spara eller återställa transaktions arbetet genom att ange `fail` flaggan på ansvars texten. Om koordinatorn inte kan slutföra ansvaret, avvisas meddelandet med det här resultatet som `transaction-error`bär.
+Styrenheten avslutar transaktions arbetet genom att skicka ett `discharge` meddelande till koordinatorn. Kontrollanten anger att det vill spara eller återställa transaktions arbetet genom att ange `fail` flaggan på ansvars texten. Om koordinatorn inte kan slutföra ansvaret, avvisas meddelandet med det här resultatet som bär `transaction-error` .
 
 > Obs!: misslyckande = sant refererar till återställning av en transaktion och redundansväxla = falskt refererar till genomför.
 
@@ -293,7 +282,7 @@ Styrenheten avslutar transaktions arbetet genom att skicka ett `discharge` medde
 | Gireringsblankett<br/>leverans-ID = 0,...)<br/>{AmqpValue (declare ())}| ------> |  |
 |  | <------ | disposition <br/> första = 0, senaste = 0, <br/>State = deklarerad (<br/>TXN-ID = {transaktions-ID}<br/>))|
 | | . . . <br/>Transaktions arbete<br/>på andra länkar<br/> . . . |
-| Gireringsblankett<br/>leverans-ID = 57,...)<br/>{ AmqpValue (<br/>**Urladdning (TXN-ID = 0,<br/>misslyckande = falskt)**)}| ------> |  |
+| Gireringsblankett<br/>leverans-ID = 57,...)<br/>{ AmqpValue (<br/>**Urladdning (TXN-ID = 0, <br/> misslyckande = falskt)**)}| ------> |  |
 | | <------ | disposition <br/> första = 57, sista = 57, <br/>State =**Accepted ()**)|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Skicka ett meddelande i en transaktion
@@ -304,19 +293,19 @@ Alla transaktions arbeten görs med det transaktions leverans tillstånd `transa
 | --- | --- | --- |
 | Gireringsblankett<br/>leverans-ID = 0,...)<br/>{AmqpValue (declare ())}| ------> |  |
 |  | <------ | disposition <br/> första = 0, senaste = 0, <br/>State = deklarerad (<br/>TXN-ID = {transaktions-ID}<br/>))|
-| Gireringsblankett<br/>Referens = 1,<br/>leverans-ID = 1, <br/>**State =<br/>TransactionalState (<br/>TXN-ID = 0)**)<br/>innehållet| ------> |  |
-| | <------ | disposition <br/> första = 1, senaste = 1, <br/>State =**TransactionalState (<br/>TXN-ID = 0,<br/>utfall = Accepted ()**))|
+| Gireringsblankett<br/>Referens = 1,<br/>leverans-ID = 1, <br/>**tillstånd = <br/> TransactionalState ( <br/> TXN-ID = 0)**)<br/>innehållet| ------> |  |
+| | <------ | disposition <br/> första = 1, senaste = 1, <br/>State =**TransactionalState ( <br/> TXN-ID = 0, <br/> utfall = Accepted ()**))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Att avyttra ett meddelande i en transaktion
 
-Meddelande dispositionen innehåller åtgärder `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer`som. Om du vill utföra dessa åtgärder i en transaktion måste `transactional-state` du skicka med dispositionen.
+Meddelande dispositionen innehåller åtgärder som `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer` . Om du vill utföra dessa åtgärder i en transaktion måste du skicka `transactional-state` med dispositionen.
 
 | Klient (Controller) | | Service Bus (koordinator) |
 | --- | --- | --- |
 | Gireringsblankett<br/>leverans-ID = 0,...)<br/>{AmqpValue (declare ())}| ------> |  |
 |  | <------ | disposition <br/> första = 0, senaste = 0, <br/>State = deklarerad (<br/>TXN-ID = {transaktions-ID}<br/>))|
 | | <------ |Gireringsblankett<br/>referens = 2,<br/>leverans-ID = 11, <br/>State = null)<br/>innehållet|  
-| disposition <br/> första = 11, senaste = 11, <br/>State =**TransactionalState (<br/>TXN-ID = 0,<br/>utfall = Accepted ()**))| ------> |
+| disposition <br/> första = 11, senaste = 11, <br/>State =**TransactionalState ( <br/> TXN-ID = 0, <br/> utfall = Accepted ()**))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Avancerade Service Bus funktioner
@@ -334,12 +323,12 @@ Hanterings specifikationen för AMQP är den första av de utkast tillägg som b
 
 Alla dessa gester kräver en förfrågan/svar-interaktion mellan klienten och meddelande infrastrukturen, och därför definierar specifikationen hur interaktions mönstret ska modelleras över AMQP: klienten ansluter till meddelande infrastrukturen, initierar en session och skapar sedan ett länkat länk. På en länk fungerar klienten som avsändare och på den andra fungerar den som mottagare, vilket skapar ett länk par som kan fungera som en dubbelriktad kanal.
 
-| Logisk åtgärd | Client | Service Bus |
+| Logisk åtgärd | Klient | Service Bus |
 | --- | --- | --- |
 | Skapa sökväg för svar på begäran |--> Anslut (<br/>namn = {*Link Name*},<br/>referens = {*numerisk referens*},<br/>roll =**avsändare**,<br/>källa =**Null**,<br/>Target = "min entitet/$management"<br/>) |Ingen åtgärd |
-| Skapa sökväg för svar på begäran |Ingen åtgärd |\<--Anslut (<br/>namn = {*Link Name*},<br/>referens = {*numerisk referens*},<br/>roll =**mottagare**,<br/>Källa = null,<br/>Target = "min entitet"<br/>) |
+| Skapa sökväg för svar på begäran |Ingen åtgärd |\<-- attach(<br/>namn = {*Link Name*},<br/>referens = {*numerisk referens*},<br/>roll =**mottagare**,<br/>Källa = null,<br/>Target = "min entitet"<br/>) |
 | Skapa sökväg för svar på begäran |--> Anslut (<br/>namn = {*Link Name*},<br/>referens = {*numerisk referens*},<br/>roll =**mottagare**,<br/>källa = "min entitet/$management",<br/>Target = "klientens $ ID"<br/>) | |
-| Skapa sökväg för svar på begäran |Ingen åtgärd |\<--Anslut (<br/>namn = {*Link Name*},<br/>referens = {*numerisk referens*},<br/>roll =**avsändare**,<br/>källa = "min entitet",<br/>Target = "klientens $ ID"<br/>) |
+| Skapa sökväg för svar på begäran |Ingen åtgärd |\<-- attach(<br/>namn = {*Link Name*},<br/>referens = {*numerisk referens*},<br/>roll =**avsändare**,<br/>källa = "min entitet",<br/>Target = "klientens $ ID"<br/>) |
 
 Med det här paret länkar kan implementeringen av begäran/svar vara enkel: en begäran är ett meddelande som skickas till en entitet inuti meddelande infrastrukturen som förstår det här mönstret. I det här meddelandet är *svars* fältet i avsnittet *Egenskaper* inställt på *mål* -ID: t för den länk som svaret ska skickas till. Hanterings enheten bearbetar begäran och levererar sedan svaret över länken vars *mål* -ID matchar den angivna *svars* identifieraren.
 
@@ -368,16 +357,16 @@ Protokoll-gesten är ett fråge-/svars utbyte som definieras av hanterings speci
 
 Begär ande meddelandet har följande program egenskaper:
 
-| Nyckel | Valfri | Värdetyp | Värde innehåll |
+| Nyckel | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| reparation |Nej |sträng |**Skicka token** |
-| typ |Nej |sträng |Typ av token som ska beställas. |
-| name |Nej |sträng |Mål gruppen som token gäller. |
-| dag |Ja |timestamp |Utgångs tiden för token. |
+| reparation |No |sträng |**Skicka token** |
+| typ |No |sträng |Typ av token som ska beställas. |
+| name |No |sträng |Mål gruppen som token gäller. |
+| dag |Yes |timestamp |Utgångs tiden för token. |
 
 Egenskapen *Name* identifierar den entitet som token ska associeras med. I Service Bus är det sökvägen till kön, eller ämnet/prenumerationen. *Typ* egenskapen identifierar tokentypen:
 
-| Tokentyp | Beskrivning av token | Typ av brödtext | Obs! |
+| Tokentyp | Beskrivning av token | Typ av brödtext | Kommentarer |
 | --- | --- | --- | --- |
 | AMQP: JWT |JSON Web Token (JWT) |AMQP-värde (sträng) |Ännu inte tillgängligt. |
 | AMQP: SWT |Enkel webb-token (SWT) |AMQP-värde (sträng) |Stöds endast för SWT-token som utfärdats av AAD/ACS |
@@ -387,10 +376,10 @@ Tokens ger behörighet. Service Bus vet om tre grundläggande rättigheter: "Ski
 
 Svarsmeddelandet har följande *program egenskaps* värden
 
-| Nyckel | Valfri | Värdetyp | Värde innehåll |
+| Nyckel | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| status kod |Nej |int |HTTP-svarskod **[RFC2616]**. |
-| status-Beskrivning |Ja |sträng |Beskrivning av status. |
+| status kod |No |int |HTTP-svarskod **[RFC2616]**. |
+| status-Beskrivning |Yes |sträng |Beskrivning av status. |
 
 Klienten kan anropa in *-token* upprepade gånger och för alla entiteter i meddelande infrastrukturen. Token är begränsade till den aktuella klienten och fästs på den aktuella anslutningen, vilket innebär att servern släpper alla kvarhållna token när anslutningen uppkommer.
 
@@ -406,13 +395,13 @@ Klienten ansvarar sedan för att hålla reda på förfallo datum för token. Nä
 
 [Skicka via/överför sändare](service-bus-transactions.md#transfers-and-send-via) är en funktion som gör det möjligt för Service Bus att vidarebefordra ett angivet meddelande till en målentitet via en annan entitet. Den här funktionen används för att utföra åtgärder mellan entiteter i en enskild transaktion.
 
-Med den här funktionen skapar du en avsändare och upprättar `via-entity`länken till. När du upprättar länken skickas ytterligare information för att fastställa det sanna målet för meddelandena/överföringarna på den här länken. När kopplingen har slutförts vidarebefordras alla meddelanden som skickas på den här länken automatiskt till *mål-entiteten* via *-entiteten*. 
+Med den här funktionen skapar du en avsändare och upprättar länken till `via-entity` . När du upprättar länken skickas ytterligare information för att fastställa det sanna målet för meddelandena/överföringarna på den här länken. När kopplingen har slutförts vidarebefordras alla meddelanden som skickas på den här länken automatiskt till *mål-entiteten* via *-entiteten*. 
 
 > Obs! autentisering måste utföras för både *via-och-* målentiteten *innan* den här länken upprättas.
 
-| Client | | Service Bus |
+| Klient | | Service Bus |
 | --- | --- | --- |
-| Fäst<br/>namn = {Link Name},<br/>roll = avsändare,<br/>Källa = {klient länk-ID},<br/>mål =**{via-Entity}**,<br/>**Egenskaper = mappa [(<br/>com. Microsoft: Transfer-Address-address =<br/>{destination-entitet})]** ) | ------> | |
+| Fäst<br/>namn = {Link Name},<br/>roll = avsändare,<br/>Källa = {klient länk-ID},<br/>mål =**{via-Entity}**,<br/>**Egenskaper = mappa [( <br/> com. Microsoft: Transfer-Address-address = <br/> {destination-entitet})]** ) | ------> | |
 | | <------ | Fäst<br/>namn = {Link Name},<br/>roll = mottagare,<br/>Källa = {klient länk-ID},<br/>mål = {via-Entity},<br/>egenskaper = Map [(<br/>com. Microsoft: Transfer-destination-Address =<br/>{destination – entitet})] ) |
 
 ## <a name="next-steps"></a>Nästa steg

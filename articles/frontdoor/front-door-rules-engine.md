@@ -1,6 +1,6 @@
 ---
-title: Azure-front dörr | Microsoft Docs
-description: Den här artikeln innehåller en översikt för Azure Front Door. Ta reda på om det är rätt val för belastnings utjämning av användar trafik för ditt program.
+title: Azure Front Door
+description: Den här artikeln innehåller en översikt över funktionen för motor funktioner i Azures frontend-dörr.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,27 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 19deb763c8e750490854892c90d0293d3e209c09
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515554"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322011"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>Vad är regel motor för Azures frontend-dörr? 
 
 Med regel motorn kan du anpassa hur HTTP-begäranden hanteras i gränsen och ger mer kontroll över hur ditt webb program fungerar. Regel motorn för Azures front dörr består av flera viktiga funktioner, inklusive:
 
-- Huvudbaserad routning – dirigera förfrågningar baserat på mönster i innehållet i begärandehuvuden, cookies och frågesträngar.
-- Parameter-baserad routning – dra nytta av en serie matchnings villkor, inklusive post argument, frågesträngar, cookies och metoder för begäran, för att dirigera begär Anden baserat på HTTP-parametrarna för begäran. 
-- Route-konfigurationer åsidosätter: 
-    - Använd omdirigerings funktioner för att returnera 301/302/307/308 omdirigerar till klienten för att omdirigera till nya värdnamn, sökvägar och protokoll. 
-    - Använd vidarebefordrande funktioner för att skriva om URL: en för begäran utan att göra en traditionell omdirigering och vidarebefordra begäran till lämplig server del i den konfigurerade backend-poolen. 
-    - Anpassa konfigurationen för cachelagring och ändra en väg dynamiskt från vidarebefordran till cachelagring baserat på matchnings villkor. 
-
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+- Använd HTTPS, se till att alla dina slutanvändare interagerar med ditt innehåll via en säker anslutning.
+- Implementera säkerhets rubriker för att förhindra webbläsarbaserade sårbarheter som HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options och Access-Control-Allow-Origin för cross-origin Resource Sharing (CORS)-scenarier. Säkerhetsbaserade attribut kan också definieras med cookies.
+- Dirigera begär anden till mobila eller Station ära versioner av programmet baserat på mönster i innehåll i begärandehuvuden, cookies eller frågesträngar.
+- Använd omdirigerings funktioner för att returnera 301, 302, 307 och 308 omdirigeras till klienten för att omdirigera till nya värdnamn, sökvägar eller protokoll.
+- Ändra konfigurationen för cachelagring för din väg dynamiskt baserat på inkommande begär Anden.
+- Skriv sökvägen till URL: en för begäran och vidarebefordra begäran till lämplig server del i den konfigurerade backend-poolen.
 
 ## <a name="architecture"></a>Arkitektur 
 
@@ -52,7 +48,7 @@ I båda dessa exempel, när inget av matchnings villkoren uppfylls, är den angi
 
 Med AFD-regel motor kan du skapa en serie med regler för motor konfiguration, som var och en består av en uppsättning regler. Här följer en del av en praktisk terminologi som du kommer att komma åt när du konfigurerar din regel motor. 
 
-- *Regel motor konfiguration*: en uppsättning regler som tillämpas på en regel för en enda väg. Varje konfiguration är begränsad till 5 regler. Du kan skapa upp till 10 konfigurationer. 
+- *Regel motor konfiguration*: en uppsättning regler som tillämpas på en regel för en enda väg. Varje konfiguration är begränsad till 25 regler. Du kan skapa upp till 10 konfigurationer. 
 - Regel *motor regel*: en regel som består av upp till 10 matchnings villkor och 5 åtgärder.
 - *Matchnings villkor*: det finns flera matchnings villkor som kan användas för att analysera inkommande begär Anden. En regel kan innehålla upp till 10 matchnings villkor. Matchnings villkor utvärderas med operatorn **och** . Du hittar en fullständig lista över matchnings villkor [här](front-door-rules-engine-match-conditions.md). 
 - *Åtgärd*: åtgärder styr vad som händer i dina inkommande begär Anden – åtgärder för begäran/svars huvud, vidarebefordran, omdirigering och omskrivning är alla tillgängliga idag. En regel kan innehålla upp till 5 åtgärder. en regel får dock bara innehålla en åsidosättning av Route-konfigurationen.  Du hittar en fullständig lista över åtgärder [här](front-door-rules-engine-actions.md).

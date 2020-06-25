@@ -7,12 +7,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76964234"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322041"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Felsök vanliga problem i Azure Data Share 
 
@@ -64,7 +64,7 @@ SQL-baserad delning kräver ytterligare behörigheter. Mer information finns i f
 
 "Användaren x finns inte i SQL Database"
 
-Om du får det här felet när du lägger till en data uppsättning från en SQL-baserad källa kan det bero på att du inte har skapat någon användare för den hanterade Azure Data Share-identiteten på din SQL Server.  Lös problemet genom att köra följande skript:
+Om du får det här felet när du lägger till en data uppsättning från en SQL-baserad källa kan det bero på att du inte har skapat någon användare för den hanterade Azure Data Share-identiteten i SQL Database.  Lös problemet genom att köra följande skript:
 
 ```sql
     create user "<share_acct_name>" from external provider; 

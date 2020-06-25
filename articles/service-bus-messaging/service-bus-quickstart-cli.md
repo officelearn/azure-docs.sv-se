@@ -1,20 +1,17 @@
 ---
 title: Snabbstart – Använda Azure CLI för att skapa en Service Bus-kö | Microsoft Docs
 description: I den här snabbstarten lär du dig hur du använder Azure CLI för att skapa en Service Bus-kö. Sedan använder du ett Java-exempelprogram för att skicka meddelanden till och ta emot meddelanden från kön.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed09a72fd5eed72e7a07fefed53bf010a543b658
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66400250"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337397"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Snabb start: Använd Azure CLI för att skapa en Service Bus kö
 Den här snabbstarten beskriver hur du skickar och tar emot meddelanden med Service Bus med hjälp av Azure CLI och Service Bus Java-biblioteket. Slutligen, om du är intresserad av mer teknisk information, kan du [läsa en förklaring](#understand-the-sample-code) av de viktigaste beståndsdelarna i exempelkoden.

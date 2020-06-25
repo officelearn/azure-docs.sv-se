@@ -8,12 +8,12 @@ ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: ebac7fb6cf4addaa43367d27a4926a85770dd595
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 9ed482a5d6619960a50a409b08aa8c6d9725ab9e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296142"
+ms.locfileid: "85321604"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -258,13 +258,13 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 
 ## <a name="general-apisdk-usage-notes"></a>Allmän information om API/SDK-användning
 
-Det här avsnittet innehåller allmän information om och rikt linjer för att använda API: er och SDK: er.
-
 > [!NOTE]
 > Tänk på att under för hands versionen stöder inte Azure Digitals dubbla, **resurs delning över ursprung (CORS)**. Det innebär att om du anropar en REST API från en webbapp, ett [API Management (APIM)](../api-management/api-management-key-concepts.md) -gränssnitt eller en [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) -anslutning kan du se ett princip fel.
 > För att lösa det här felet kan du göra något av följande:
 > * Remsans CORS-rubrik `Access-Control-Allow-Origin` från meddelandet. Den här rubriken anger om svaret kan delas. 
 > * Du kan också skapa en CORS-proxy och göra Azures digitala dubblare REST API begäran via den. 
+
+Följande lista innehåller ytterligare information och allmänna rikt linjer för att använda API: er och SDK: er.
 
 * Om du vill använda SDK instansierar du `DigitalTwinsClient` klassen. Konstruktorn kräver autentiseringsuppgifter som kan erhållas med en rad autentiseringsmetoder i `Azure.Identity` paketet. Mer `Azure.Identity` information finns i dokumentationen för [namn området](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). 
 * Du kan `InteractiveBrowserCredential` komma igång med att komma igång, men det finns flera andra alternativ, inklusive autentiseringsuppgifter för [hanterad identitet](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), som du kommer att använda för att autentisera [Azure Functions som är inställda med MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) mot digitala Azure-dubbla. Mer information `InteractiveBrowserCredential` finns i [klass dokumentationen](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).

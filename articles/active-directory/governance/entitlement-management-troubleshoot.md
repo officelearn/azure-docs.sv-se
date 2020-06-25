@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c29305fe6a5b4ff33652720d87a2a9c447888472
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077857"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338186"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Felsöka hantering av Azure AD-berättigande
 
@@ -45,7 +45,7 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
 * Om det finns användare som redan har tilldelats till en resurs som du vill hantera med ett åtkomstpaket, måste du se till att användarna har tilldelats till åtkomstpaketet med en lämplig princip. Du kanske till exempel vill inkludera en grupp i ett åtkomstpaket som redan har användare i gruppen. Om användarna i gruppen behöver fortsatt åtkomst, måste de ha en lämplig princip för åtkomstpaketen så att de inte förlorar åtkomsten till gruppen. Du kan tilldela åtkomstpaketet genom att antingen be användarna att begära åtkomstpaketet som innehåller resursen, eller genom att tilldela dem direkt till åtkomstpaketet. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
 
-* När du tar bort medlemmar från ett team tas de även bort från Office 365-gruppen. Borttagningen från teamets chattfunktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* När du tar bort en medlem i ett team tas de även bort från gruppen Microsoft 365. Borttagningen från teamets chattfunktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
 * Kontrollera att katalogen inte är konfigurerad för Multi-Geo. Berättigandehanteringen stöder för närvarande inte Multi-Geo-platser i SharePoint Online. SharePoint Online-webbplatser måste finns på en geografisk standardplats för att kunna styras med berättigandehanteringen. Mer information finns i [multi-geo-funktioner i OneDrive och SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 

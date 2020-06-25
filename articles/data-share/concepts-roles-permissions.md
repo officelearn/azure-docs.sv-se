@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 96a5d3d5c894dda4270c5a8832f188ead56a1ce4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020905"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322059"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roller och krav för Azure Data Share 
 
@@ -37,10 +37,10 @@ Nedan visas en sammanfattning av de roller som tilldelats till data resursen res
 |Azure Data Lake gen1 | Ägare | Stöds inte
 |Azure Data Lake Gen2 | Storage BLOB data Reader | Storage BLOB data-deltagare
 |Azure SQL-server | SQL DB-deltagare | SQL DB-deltagare
-|Azure Datautforskaren-kluster | Deltagare | Deltagare
+|Azure Data Explorer-kluster | Deltagare | Deltagare
 |
 
-För SQL-baserad delning måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som Azure Data Resource-resursen. Nedan visas en sammanfattning av den behörighet som krävs av SQL-användaren.
+För SQL-baserad delning måste en SQL-användare skapas från en extern provider i Azure SQL Database med samma namn som data resurs resursen i Azure. Nedan visas en sammanfattning av den behörighet som krävs av SQL-användaren.
 
 | |  |  |
 |---|---|---|
@@ -66,7 +66,7 @@ Följ stegen nedan om du vill skapa en roll tilldelning för data resurs resurse
 1. Under *Välj*anger du namnet på din Azure Data Resource-resurs.
 1. Klicka på *Spara*.
 
-Förutom stegen ovan i SQL-baserade källor måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som data resurs resursen i Azure. Den här användaren måste beviljas *db_datareader* -behörighet. Ett exempel skript tillsammans med andra krav för SQL-baserad delning finns i själv studie kursen [Dela dina data](share-your-data.md) . 
+Förutom stegen ovan i SQL-baserade källor måste en SQL-användare skapas från en extern provider i SQL Database med samma namn som Azure Data Resource-resursen. Den här användaren måste beviljas *db_datareader* -behörighet. Ett exempel skript tillsammans med andra krav för SQL-baserad delning finns i själv studie kursen [Dela dina data](share-your-data.md) . 
 
 ### <a name="data-consumer"></a>Data konsument
 För att kunna ta emot data måste klient organisationens hanterade identitet beviljas åtkomst till Azure Data Store-målet. Om lagrings kontot till exempel är beviljat, beviljas rollen Storage BLOB data Contributor av data resursens hanterade identitet. 
@@ -84,7 +84,7 @@ Om du vill skapa en roll tilldelning för data resurs resursens hanterade identi
 1. Under *Välj*anger du namnet på din Azure Data Resource-resurs.
 1. Klicka på *Spara*.
 
-För SQL-baserat mål måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som Azure Data Resource-resursen, förutom stegen ovan. Den här användaren måste beviljas *db_datareader db_datawriter db_ddladmin* behörighet. Ett exempel skript tillsammans med andra krav för SQL-baserad delning finns i själv studie kursen [Godkänn och ta emot data](subscribe-to-data-share.md) . 
+För SQL-baserat mål måste en SQL-användare skapas från en extern provider i SQL Database med samma namn som Azure Data Resource-resursen, förutom stegen ovan. Den här användaren måste beviljas *db_datareader db_datawriter db_ddladmin* behörighet. Ett exempel skript tillsammans med andra krav för SQL-baserad delning finns i själv studie kursen [Godkänn och ta emot data](subscribe-to-data-share.md) . 
 
 Om du delar data med hjälp av REST API: er måste du skapa roll tilldelningarna manuellt. 
 

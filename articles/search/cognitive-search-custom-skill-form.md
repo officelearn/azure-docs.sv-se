@@ -6,14 +6,14 @@ manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792011"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321314"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exempel: skapa en anpassad färdighet för formulär igenkänning
 
@@ -43,9 +43,9 @@ Lägg först till miljövariabler på projekt nivå. Leta upp projektet **Analyz
 * `FORMS_RECOGNIZER_RETRY_DELAY`med värdet inställt på 1000. Det här värdet är den tid i millisekunder som programmet väntar innan den försöker köra frågan igen.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS`med värdet inställt på 100. Det här värdet är antalet gånger som programmet kommer att fråga tjänsten vid försök att få ett lyckat svar.
 
-Öppna sedan _AnalyzeForm.cs_ och hitta `fieldMappings` variabeln som refererar till filen *Field-Mapping. JSON* . Den här filen (och variabeln som refererar till den) definierar listan över nycklar som du vill extrahera från formulären och en anpassad etikett för varje nyckel. Ett värde på `{ "Address:", "address" }, { "Invoice For:", "recipient" }` innebär till exempel att skriptet bara sparar värdena för fälten identifierad `Address:` och `Invoice For:` som kommer att märka dessa värden med `"address"` `"recipient"`respektive.
+Öppna sedan _AnalyzeForm.cs_ och hitta `fieldMappings` variabeln som refererar till *field-mappings.jspå* filen. Den här filen (och variabeln som refererar till den) definierar listan över nycklar som du vill extrahera från formulären och en anpassad etikett för varje nyckel. Ett värde på innebär till exempel att `{ "Address:", "address" }, { "Invoice For:", "recipient" }` skriptet bara sparar värdena för fälten identifierad och som `Address:` `Invoice For:` kommer att märka dessa värden med respektive `"address"` `"recipient"` .
 
-Observera slutligen `contentType` variabeln. Det här skriptet kör den angivna formulär tolknings modellen på fjärrdokument som refereras till av webb adressen, så innehålls typen `application/json`är. Om du vill analysera lokala filer genom att inkludera sina byte-strömmar i HTTP-begärandena måste du ändra `contentType` till rätt MIME- [typ](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) för filen.
+Observera slutligen `contentType` variabeln. Det här skriptet kör den angivna formulär tolknings modellen på fjärrdokument som refereras till av webb adressen, så innehålls typen är `application/json` . Om du vill analysera lokala filer genom att inkludera sina byte-strömmar i HTTP-begärandena måste du ändra `contentType` till rätt [MIME-typ](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) för filen.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testa funktionen från Visual Studio
 
@@ -82,7 +82,7 @@ Här måste du ange URL: en för ett formulär som har samma typ som de formulä
 > [!div class="mx-imgBorder"]
 > ![Azure Storage Explorer; ett PDF-dokument har marker ATS](media/cognitive-search-skill-form/form-sas.png)
 
-Om du vill analysera ett fjärrdokument som inte finns i Azure Blob Storage klistrar du in dess URL `"formUrl"` i fältet och lämnar `"formSasToken"` fältet tomt.
+Om du vill analysera ett fjärrdokument som inte finns i Azure Blob Storage klistrar du in dess URL i `"formUrl"` fältet och lämnar `"formSasToken"` fältet tomt.
 
 > [!NOTE]
 > När kunskapen är integrerad i en färdigheter, kommer URL: en och token att tillhandahållas av Kognitiv sökning.
@@ -111,7 +111,7 @@ Du bör se ett svar som liknar följande exempel:
 
 När du är nöjd med funktions beteendet kan du publicera den.
 
-1. I **Solution Explorer** i Visual Studio högerklickar du på projektet och väljer **publicera**. Välj **Skapa ny** > **publicera**.
+1. I **Solution Explorer** i Visual Studio högerklickar du på projektet och väljer **publicera**. Välj **Skapa ny**  >  **publicera**.
 1. Om du inte redan har anslutit Visual Studio till ditt Azure-konto väljer du **Lägg till ett konto....**
 1. Följ anvisningarna på skärmen. Ange ett unikt namn för din app service, Azure-prenumerationen, resurs gruppen, värd planen och det lagrings konto som du vill använda. Du kan skapa en ny resurs grupp, en ny värd plan och ett nytt lagrings konto om du inte redan har dessa. När du är klar väljer du **skapa**.
 1. När distributionen är klar, Lägg märke till webbplatsens URL. Den här URL: en är adressen till din Function-app i Azure. Spara den på en tillfällig plats.

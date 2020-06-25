@@ -1,25 +1,18 @@
 ---
 title: Skapa ett Azure Service Bus-namnområde med mall
 description: Använd Azure Resource Manager mall för att skapa ett namn område för Service Bus meddelanden
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 06/21/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 5febdd63ab6f854ca3244f8449f6f715a75e735f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264483"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336833"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med hjälp av en Azure Resource Manager mall
 
@@ -103,5 +96,5 @@ Write-Host "Press [ENTER] to continue ..."
 
 I den här artikeln har du skapat ett Service Bus-namnområde. Se de andra snabb starterna för att lära dig hur du skapar köer, ämnen/prenumerationer och använder dem:
 
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Kom igång med Service Bus-ämnen](service-bus-dotnet-how-to-use-topics-subscriptions.md)

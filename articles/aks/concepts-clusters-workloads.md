@@ -4,12 +4,12 @@ description: Lär dig mer om de grundläggande kluster-och arbets belastnings ko
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ddf6543ff0e4313b28c183718b6ac3b2395e0dbf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729979"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336626"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
@@ -105,9 +105,9 @@ För att upprätthålla prestanda och funktioner för noden reserveras resurser 
 
 Reglerna ovan för minne och PROCESSORALLOKERING används för att hålla agent-noderna felfria, inklusive vissa värd system poddar som är viktiga för kluster hälsan. Dessa allokeringsregler ger också noden att rapportera mindre allocatable minne och CPU än om den inte var en del av ett Kubernetes-kluster. Det går inte att ändra resurs reservationerna ovan.
 
-Om en nod till exempel erbjuder 7 GB, kommer den att rapportera 34% av minnet som inte allocatable ovanpå 750Mi.
+Om en nod till exempel erbjuder 7 GB, kommer den att rapportera 34% av minnet som inte allocatable, inklusive 750Mi för hård borttagning.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 Förutom reservationer för Kubernetes, reserverar den underliggande noden också en mängd processor-och minnes resurser för att underhålla OS-funktioner.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2020
 ms.author: nicolela
-ms.openlocfilehash: adac35bd3f59870f0c164b69548375610e9733b1
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 0d42d3292c894aec1deff5da548383499ca50db9
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897343"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338302"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurera ett labb med virtuella GPU-datorer
 
@@ -26,7 +26,6 @@ Den här artikeln visar hur du utför följande uppgifter:
 
 - Välj mellan *visualisering* och GPU ( *Compute* Graphics Processing Unit).
 - Kontrol lera att rätt GPU-drivrutiner är installerade.
-- Konfigurera inställningar för Remote Desktop Protocol (RDP) för att ansluta till en virtuell GPU-dator (VM).
 
 ## <a name="choose-between-visualization-and-compute-gpu-sizes"></a>Välj mellan visualiserings-och beräknings-GPU-storlekar
 På den första sidan i guiden för att skapa labb i guiden **vilken virtuell dator storlek du behöver?** väljer du storleken på de virtuella datorer som behövs för klassen.  
@@ -56,9 +55,6 @@ För att dra nytta av GPU-funktionerna i dina virtuella labb datorer, se till at
 Som du ser i föregående bild är det här alternativet aktiverat som standard, vilket säkerställer att de *senaste* driv rutinerna är installerade för den typ av GPU och avbildning som du har valt.
 - När du väljer en *beräknings* -GPU-storlek drivs dina virtuella labb datorer av GPU för [NVIDIA-Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  I det här fallet installeras de senaste [CUDA-drivrutinerna (Compute Unified Device Architecture)](https://www.nvidia.com/object/io_69526.html) , vilket möjliggör data behandling med höga prestanda.
 - När du väljer en GPU-storlek för *visualiseringen* drivs dina virtuella labb datorer av teknik för [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU och [Grid](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  I det här fallet installeras de senaste RUTNÄTs driv rutinerna, vilket möjliggör användning av grafik intensiva program.
-
-> [!IMPORTANT]
-> För att få den bästa användar upplevelsen med *visualiserings* -GPU: er, se till att *båda* driv rutinerna är installerade *och* att GPU är aktiverat via RDP-anslutningar Mer information finns i avsnittet [Aktivera GPU över RDP-anslutning till virtuella Windows-datorer](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) i den här artikeln.
 
 ### <a name="install-the-drivers-manually"></a>Installera driv rutinerna manuellt
 Du kan behöva installera en annan driv rutins version än den senaste versionen.  Det här avsnittet visar hur du installerar lämpliga driv rutiner manuellt, beroende på om du använder en *beräknings* -GPU eller en *visualiserings* -GPU.
@@ -99,7 +95,6 @@ Så här installerar du driv rutiner för GPU-storleken för visualiseringen man
   
 1. Starta om mallen VM.
 1. Kontrol lera att driv rutinerna har installerats korrekt genom att följa anvisningarna i avsnittet [validera installerade driv rutiner](how-to-setup-lab-gpu.md#validate-the-installed-drivers) .
-1. Konfigurera RDP-inställningar för att aktivera GPU-anslutningen genom att följa anvisningarna i avsnittet [Aktivera GPU över RDP-anslutning till virtuella Windows-datorer](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) .
 1. När du har installerat driv rutinerna och annan program vara som krävs för din klass väljer du **publicera** för att skapa dina studenters virtuella datorer.
 
 ### <a name="validate-the-installed-drivers"></a>Validera installerade driv rutiner
@@ -121,25 +116,6 @@ I det här avsnittet beskrivs hur du verifierar att GPU-drivrutinerna är korrek
 
 #### <a name="linux-images"></a>Linux-avbildningar
 Följ anvisningarna i avsnittet "verifiera driv rutins installation" i [Installera nVidia GPU-drivrutiner på virtuella datorer i N-serien som kör Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
-
-## <a name="enable-gpu-over-rdp-connection-to-windows-vms"></a>Aktivera GPU över RDP-anslutning till virtuella Windows-datorer
-När du använder RDP för att ansluta till en virtuell Windows-dator som drivs av en *visualiserings* -GPU måste du göra en extra konfiguration så att GPU: n används för att återge grafik. Annars används processorn för att återge grafik.
-
-Gör följande på mallen VM:
-
-1. Konfigurera RDP-inställningar för användning av GPU: n.
-
-   a. Följ anvisningarna i [Konfigurera GPU-accelererad app rendering](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#configure-gpu-accelerated-app-rendering).  
-   b. Följ instruktionerna i [Konfigurera GPU-accelererad ram kodning](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#configure-gpu-accelerated-frame-encoding).
-
-1. Verifiera konfigurationen. 
-
-   a. Följ instruktionerna i [kontrol lera åter givning av GPU-accelererade appar](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#verify-gpu-accelerated-app-rendering).  
-   b. Följ instruktionerna i [kontrol lera en GPU-accelererad ram kodning](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#verify-gpu-accelerated-frame-encoding).
-
-1. Du har nu installerat driv rutinerna och RDP-inställningarna som kon figurer ATS för att använda din GPU.  När du har installerat den andra program varan som krävs för din klass kan du välja **publicera** för att skapa dina studenters virtuella datorer.  
-
-När dina studenter ansluter till sina virtuella datorer med hjälp av RDP, kommer deras skriv bord att återges enligt deras GPU för virtuella datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 40ca1dbf981c5a9025cf5a0bac6b007709d69a77
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a90b37b197e25a8db79a87761d94dfded53acf50
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76934580"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323221"
 ---
 # <a name="specify-a-face-detection-model"></a>Ange en ansiktsavkänningsmodell
 
@@ -47,11 +47,11 @@ En fråge-URL för [ansikts igenkännings] REST API ser ut så här:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
-Om du använder klient biblioteket kan du tilldela värdet för `detectionModel` genom att skicka i en lämplig sträng. Om du lämnar den otilldelad, används standard modell versionen (`detection_01`) för API: et. Se följande kod exempel för .NET-klient biblioteket.
+Om du använder klient biblioteket kan du tilldela värdet för `detectionModel` genom att skicka i en lämplig sträng. Om du lämnar den otilldelad, används standard modell versionen () för API: et `detection_01` . Se följande kod exempel för .NET-klient biblioteket.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Lägg till ansikte till person med angiven modell
@@ -63,7 +63,7 @@ Se följande kod exempel för .NET-klient biblioteket.
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_02" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
@@ -71,7 +71,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-Den här koden skapar en **PersonGroup** med `mypersongroupid` ID och lägger till en **person** till den. Sedan lägger den till en ansikte till **Person** den här personen `detection_02` med hjälp av modellen. Om du inte anger parametern *detectionModel* använder API: n standard modellen `detection_01`.
+Den här koden skapar en **PersonGroup** med ID `mypersongroupid` och lägger till en **person** till den. Sedan lägger den till en ansikte till den här **personen** med hjälp av `detection_02` modellen. Om du inte anger parametern *detectionModel* använder API: n standard modellen `detection_01` .
 
 > [!NOTE]
 > Du behöver inte använda samma identifierings modell för alla ansikten i ett **person** objekt, och du behöver inte använda samma identifierings modell när du identifierar nya ytor som ska jämföras med ett **person** objekt (till exempel i API: t för [ansikts] igenkänning).
@@ -81,13 +81,13 @@ Den här koden skapar en **PersonGroup** med `mypersongroupid` ID och lägger ti
 Du kan också ange en identifierings modell när du lägger till ett ansikte i ett befintligt **FaceList** -objekt. Se följande kod exempel för .NET-klient biblioteket.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
 ```
 
-Den här koden skapar **FaceList** en FaceList `My face collection` som anropas och lägger till en ansikte `detection_02` till den med modellen. Om du inte anger parametern *detectionModel* använder API: n standard modellen `detection_01`.
+Den här koden skapar en **FaceList** som anropas `My face collection` och lägger till en ansikte till den med `detection_02` modellen. Om du inte anger parametern *detectionModel* använder API: n standard modellen `detection_01` .
 
 > [!NOTE]
 > Du behöver inte använda samma identifierings modell för alla ansikten i ett **FaceList** -objekt, och du behöver inte använda samma identifierings modell när du identifierar nya ytor som ska jämföras med ett **FaceList** -objekt.
@@ -103,7 +103,7 @@ Olika ansikts identifierings modeller är optimerade för olika uppgifter. I fö
 |Returnerar ansikts attribut (Head-attityd, ålder, känslo och så vidare) om de anges i identifiera anropet. |  Returnerar inte ansikts-attribut.     |
 |Returnerar ansikts landmärken om de anges i identifiera anropet.   | Returnerar inte ansikts landmärken.  |
 
-Det bästa sättet att jämföra prestanda för- `detection_01` och `detection_02` -modeller är att använda dem i en exempel data uppsättning. Vi rekommenderar att du anropar API: t för [ansikts igenkänning] på olika avbildningar, särskilt bilder av många ansikten eller ansikten som är svåra att se, med varje identifierings modell. Var uppmärksam på antalet ansikten som varje modell returnerar.
+Det bästa sättet att jämföra prestanda för- `detection_01` och- `detection_02` modeller är att använda dem i en exempel data uppsättning. Vi rekommenderar att du anropar API: t för [ansikts igenkänning] på olika avbildningar, särskilt bilder av många ansikten eller ansikten som är svåra att se, med varje identifierings modell. Var uppmärksam på antalet ansikten som varje modell returnerar.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 06/23/2020
 tags: connectors
-ms.openlocfilehash: 557e162d9d7f0238d5554c32cb3ae96885877dbe
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 01c1a2b3f9455f19877f1b16b7fff5a7c2e77c76
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220504"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323154"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
@@ -39,7 +39,7 @@ Den här artikeln visar hur du skapar exempel på Logic Apps som integreras med 
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa med i den här artikeln behöver du följande objekt:
 
@@ -49,9 +49,12 @@ Om du vill följa med i den här artikeln behöver du följande objekt:
 
 * Din [SAP-Programserver](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) eller [SAP-meddelande Server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* Meddelande innehåll som du kan skicka till din SAP-server, till exempel en IDoc-fil, måste vara i XML-format och innehålla namn området för den SAP-åtgärd som du vill använda.
+* Meddelande innehåll som du skickar till din SAP-server, till exempel en IDoc-fil, måste vara i XML-format och innehålla namn området för den SAP-åtgärd som du vill använda.
 
 * Om du vill använda **när ett meddelande tas emot från SAP** -utlösaren, måste du också utföra dessa installations steg:
+  
+  > [!NOTE]
+  > Den här utlösaren använder samma URI-plats för att både förnya och avbryta prenumerationen på en webhook-prenumeration. Vid förnyelse-åtgärden används HTTP- `PATCH` metoden, medan den avbrutna prenumerationen använder HTTP- `DELETE` metoden. Detta kan göra att en förnyelse åtgärd visas som en avställnings åtgärd i utlösarens historik, men åtgärden är fortfarande en förnyelse eftersom utlösaren använder `PATCH` som HTTP-metod `DELETE` .
 
   * Konfigurera dina säkerhets behörigheter för SAP Gateway med den här inställningen:
 
@@ -90,10 +93,10 @@ Dessa krav gäller när dina Logi Kap par körs på en Premium-nivå (inte i [in
 
 1. [Hämta och installera det senaste SAP-klient biblioteket](#sap-client-library-prerequisites) på den lokala datorn. Du bör ha följande Assembly-filer:
 
-   * libicudecnumber. dll
-   * rscp4n. dll
-   * sapnco. dll
-   * sapnco_utils. dll
+   * libicudecnumber.dll
+   * rscp4n.dll
+   * sapnco.dll
+   * sapnco_utils.dll
 
 1. Skapa en zip-fil som innehåller dessa sammansättningar och ladda upp det här paketet till BLOB-behållaren i Azure Storage.
 
@@ -360,9 +363,9 @@ I det här exemplet används en Logic-app som utlöses när appen tar emot ett m
 
       Logic Apps konfigurerar och testar anslutningen för att kontrol lera att anslutningen fungerar korrekt.
 
-1. Ange de [parametrar som krävs](#parameters) baserat på din konfiguration av SAP-systemet.
+1. Ange de [parametrar som krävs](#parameters) baserat på din konfiguration av SAP-systemet. 
 
-   Du kan också ange en eller flera SAP-åtgärder. Den här listan med åtgärder anger de meddelanden som utlösaren tar emot från din SAP-server. En tom lista anger att utlösaren tar emot alla meddelanden. Om listan innehåller fler än ett meddelande, tar utlösaren bara emot de meddelanden som anges i listan. Alla andra meddelanden som skickas från din SAP-server avvisas.
+   Du kan [filtrera meddelandena som du tar emot från SAP-servern genom att ange en lista över SAP-åtgärder](#filter-with-sap-actions).
 
    Du kan välja en SAP-åtgärd från fil väljaren:
 
@@ -395,6 +398,56 @@ Tillsammans med enkla sträng-och siffer inmatningar accepterar SAP-kopplingen f
 * Ändra parametrar, som ersätter tabell riktnings parametrarna för nyare SAP-versioner.
 * Parametrar för hierarkisk tabell
 
+<a name="filter-with-sap-actions"></a>
+
+#### <a name="filter-with-sap-actions"></a>Filtrera med SAP-åtgärder
+
+Du kan välja att filtrera meddelanden som din Logic app tar emot från din SAP-server genom att tillhandahålla en lista, eller matris, med en eller flera SAP-åtgärder. Som standard är den här matrisen tom, vilket innebär att din Logic app tar emot alla meddelanden från din SAP-server utan att filtrera. 
+
+När du ställer in mat ris filtret tar utlösaren bara emot meddelanden från de angivna SAP-åtgärds typerna och avvisar alla andra meddelanden från SAP-servern. Filtret påverkar dock inte om inmatningen av den mottagna nytto lasten är svag eller stark.
+
+Alla SAP-åtgärds filtrering sker på SAP-kortets nivå för din lokala datagateway. Mer information finns i [Skicka test-idocs till Logic Apps från SAP](#send-idocs-from-sap).
+
+Om du inte kan skicka IDoc-paket från SAP till din Logic Apps utlösare, se meddelandet transaktionell RFC (tRFC)-anrop för avvisning i dialog rutan SAP tRFC (T-Code SM58). I SAP-gränssnittet kan du få följande fel meddelanden, som klipps ut på grund av de underordnade sträng gränserna i text fältet **status** .
+
+* `The RequestContext on the IReplyChannel was closed without a reply being`: Oväntade fel inträffar när en catch-all-hanterare för kanalen avslutar kanalen på grund av ett fel och återkonstruerar kanalen för att bearbeta andra meddelanden.
+
+  * [Lägg till en svars åtgärd](../connectors/connectors-native-reqres.md#add-a-response-action) som returnerar en status kod för att bekräfta att din Logic app tog emot iDOC `200 OK` . IDoc transporteras via tRFC, vilket inte tillåter en nytto last för svar.
+
+  * Om du behöver avvisa IDoc i stället svarar du med HTTP-statuskod förutom `200 OK` så att SAP-kortet returnerar ett undantag tillbaka till SAP för din räkning. 
+
+* `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Förväntade fel inträffar med andra fel, till exempel att det inte gick att generera en IDoc XML-nyttolast eftersom dess segment inte släpps av SAP, så segment typen metadata som krävs för konvertering saknas. 
+
+  * Kontakta ABAP-teknikern för ditt SAP-system om du vill att dessa segment ska lanseras av SAP.
+
+<a name="find-extended-error-logs"></a>
+
+#### <a name="find-extended-error-logs"></a>Hitta utökade fel loggar
+
+För fullständiga fel meddelanden kontrollerar du SAP-kortets utökade loggar. 
+
+För lokala data Gateway-versioner från juni 2020 och senare kan du [Aktivera Gateway-loggar i appinställningar](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+
+För lokala data Gateway-versioner från april 2020 och tidigare inaktive ras loggar som standard. Följ dessa steg om du vill hämta utökade loggar:
+
+1. I installationsmappen för din lokala datagateway öppnar du `Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config` filen. 
+
+1. Ändra värdet från **falskt** till **Sant**för inställningen **SapExtendedTracing** .
+
+1. Om du vill ha färre händelser ändrar du **SapTracingLevel** -värdet från **information** (standard) till **fel** eller **Varning**. Eller, för fler händelser, ändra **information** till **verbose**.
+
+1. Spara konfigurationsfilen.
+
+1. Starta om din data Gateway. Öppna den lokala datagatewayens installations program och gå till menyn **tjänst inställningar** . Under **starta om gatewayen väljer du** **starta om nu**.
+
+1. Återskapa problemet.
+
+1. Exportera dina gateway-loggar. I appen för data Gateway-installationsprogrammet går du till **diagnostik** -menyn. Under **Gateway-loggar**väljer du **Exportera loggar**. Dessa filer innehåller SAP-loggar sorterade efter datum. Beroende på logg storleken kan det finnas flera loggfiler för ett enda datum.
+
+1. I konfigurations filen återställer du **SapExtendedTracing** -inställningen till **false**.
+
+1. Starta om gateway-tjänsten.
+
 ### <a name="test-your-logic-app"></a>Testa din Logic app
 
 1. Skicka ett meddelande från SAP-systemet för att utlösa din Logic app.
@@ -403,9 +456,148 @@ Tillsammans med enkla sträng-och siffer inmatningar accepterar SAP-kopplingen f
 
 1. Öppna den senaste körningen, som visar meddelandet som skickas från ditt SAP-system i avsnittet Utlös utmatningar.
 
+<a name="send-idocs-from-sap"></a>
+
+### <a name="test-sending-idocs-from-sap"></a>Testa att skicka IDocs från SAP
+
+Om du vill skicka IDocs från SAP till din Logic app behöver du följande minsta konfiguration:
+
+> [!IMPORTANT]
+> Använd bara de här stegen när du testar din SAP-konfiguration med din Logic app. Produktions miljöer kräver ytterligare konfiguration.
+
+1. [Konfigurera ett RFC-mål i SAP](#create-rfc-destination)
+
+1. [Skapa en ABAP-anslutning till ditt RFC-mål](#create-abap-connection)
+
+1. [Skapa en mottagar port](#create-receiver-port)
+
+1. [Skapa en avsändar port](#create-sender-port)
+
+1. [Skapa en logisk system partner](#create-logical-system-partner)
+
+1. [Skapa en partner profil](#create-partner-profiles)
+
+1. [Testa att skicka meddelanden](#test-sending-messages)
+
+#### <a name="create-rfc-destination"></a>Skapa en RFC-destination
+
+1. Om du vill öppna **konfigurationen av inställningarna för RFC-anslutningar** går du till SAP-gränssnittet och använder **sm59** transaktions kod (T. ex. kod) med prefixet **/n** .
+
+1. Välj **TCP/IP-anslutningar**  >  **skapa**.
+
+1. Skapa ett nytt RFC-mål med följande inställningar:
+    
+    * Ange ett namn för ditt **RFC-mål**.
+    
+    * På fliken **tekniska inställningar** väljer du **registrerade Server program**för **aktiverings typ**. Ange ett värde för ditt **program-ID**. I SAP registreras din Logic Apps-utlösare genom att använda den här identifieraren.
+    
+    * På fliken **Unicode** , för **kommunikations typ med mål system**, väljer du **Unicode**.
+
+1. Spara ändringarna.
+
+1. Registrera ditt nya **program-ID** med Azure Logic Apps.
+
+1. Om du vill testa anslutningen går du till SAP-gränssnittet och väljer **anslutnings test**under ditt nya **RFC-mål**.
+
+#### <a name="create-abap-connection"></a>Skapa ABAP-anslutning
+
+1. Om du vill öppna **konfigurationen av inställningarna för RFC-anslutningar** går du till SAP-gränssnittet och använder **sm59*** Transaction Code (T-kod) med kommandot **/n** .
+
+1. Välj **ABAP-anslutningar**  >  **skapa**.
+
+1. För **RFC-mål**anger du ID: t för [ditt test-SAP-system](#create-rfc-destination).
+
+1. Spara ändringarna.
+
+1. Om du vill testa anslutningen väljer du **anslutnings test** .
+
+#### <a name="create-receiver-port"></a>Skapa mottagar port
+
+1. Om du vill öppna **portarna i iDOC bearbetnings** inställningar, i SAP-gränssnittet, använder du **we21** transaktions kod (T) med kommandot **/n** .
+
+1. Välj de **portar**som  >  **transaktions-RFC**  >  **skapa**.
+
+1. I rutan inställningar som öppnas väljer du **eget port namn**. Ange ett **namn**för test porten. Spara ändringarna.
+
+1. I inställningarna för den nya mottagar porten, för **RFC-mål**, anger du identifieraren för [ditt test-RFC-mål](#create-rfc-destination).
+
+1. Spara ändringarna.
+
+#### <a name="create-sender-port"></a>Skapa avsändar port
+
+1.  Om du vill öppna **portarna i iDOC bearbetnings** inställningar, i SAP-gränssnittet, använder du **we21** transaktions kod (T) med kommandot **/n** .
+
+1. Välj de **portar**som  >  **transaktions-RFC**  >  **skapa**.
+
+1. I rutan inställningar som öppnas väljer du **eget port namn**. För test porten anger du ett **namn** som börjar med **SAP**. Alla avsändar port namn måste börja med bokstäverna **SAP**, till exempel **SAPTEST**. Spara ändringarna.
+
+1. I inställningarna för den nya avsändar porten för RFC- **mål**anger du identifieraren för [din ABAP-anslutning](#create-abap-connection).
+
+1. Spara ändringarna.
+
+#### <a name="create-logical-system-partner"></a>Skapa logisk system partner
+
+1. Om du vill öppna **vyn ändra logiska system: översikts** inställningar i SAP-gränssnittet använder du transaktions koden **bd54** (T. ex. kod).
+
+1. Godkänn varnings meddelandet som visas: varning **: tabellen är mellan klient**
+
+1. Välj **nya poster**ovanför listan som visar dina befintliga logiska system.
+
+1. För det nya logiska systemet anger du en **Log.System** -identifierare och en beskrivning av kort **namn** . Spara ändringarna.
+
+1. När **meddelandet om Workbench** visas skapar du en ny begäran genom att ange en beskrivning eller om du redan har skapat en begäran, hoppa över det här steget.
+
+1. När du har skapat Workbench-begäran länkar du den till begäran till tabellen uppdaterings förfrågan. Bekräfta att tabellen har uppdaterats genom att spara ändringarna.
+
+#### <a name="create-partner-profiles"></a>Skapa partner profiler
+
+För produktions miljöer måste du skapa två partner profiler. Den första profilen är för avsändaren, som är din organisation och SAP-system. Den andra profilen gäller för mottagaren, som är din Logic-app.
+
+1. Öppna inställningarna för **partner profiler** genom att använda **we20** transaktions kod (T. ex. kod) i SAP-gränssnittet med prefixet **/n** .
+
+1. Under **partner profiler**väljer du **partner typ LS**  >  **create**.
+
+1. Skapa en ny partner profil med följande inställningar:
+
+    * För **partner nr.** ange [ID för din logiska system partner](#create-logical-system-partner).
+
+    * För **en del. Skriv**, ange **ls**.
+
+    * För **agent**anger du identifieraren för det SAP-användarkonto som ska användas när du registrerar program identifierare för Azure Logic Apps eller andra icke-SAP-system.
+
+1. Spara ändringarna. Om du inte har [skapat den logiska system partnern](#create-logical-system-partner)får du felet genom att **Ange ett giltigt partner nummer**.
+
+1. I partner profilens inställningar, under **utgående parmtrs**, väljer du **Skapa utgående parameter**.
+
+1. Skapa en ny utgående parameter med följande inställningar:
+
+    * Ange din **meddelande typ**, till exempel **CREMAS**.
+
+    * Ange [mottagarens Port-ID](#create-receiver-port).
+
+    * Ange en IDoc storlek för **paketet. Storlek**. Eller om du vill [Skicka idocs en i taget från SAP](#receive-idoc-packets-from-sap)väljer du **passe iDOC omedelbart**.
+
+1. Spara ändringarna.
+
+#### <a name="test-sending-messages"></a>Testa att skicka meddelanden
+
+1. För att öppna **test verktyget för iDOC bearbetnings** inställningar, i SAP-gränssnittet, använder du **we19** -transaktions koden (T. ex. kod) med **/n** -prefixet.
+
+1. Under **mall för test**väljer du **via meddelande typ**och anger din meddelande typ, till exempel **CREMAS**. Välj **Skapa**.
+
+1. Bekräfta **vilken iDOC-typ?** meddelande genom att välja **Fortsätt**.
+
+1. Välj noden **EDIDC** . Ange lämpliga värden för mottagaren och avsändar portarna. Välj **Fortsätt**.
+
+1. Välj **standard utgående bearbetning**.
+
+1. Om du vill starta utgående IDoc-bearbetning väljer du **Fortsätt**. När bearbetningen är klar visas **iDOC som skickas till SAP-systemet eller det externa program** meddelandet.
+
+1.  Om du vill söka efter bearbetnings fel använder du **SM58** transaktions kod (T. ex. kod) med **/n** -prefixet.
+
 ## <a name="receive-idoc-packets-from-sap"></a>Ta emot IDoc-paket från SAP
 
-Du kan konfigurera SAP för att [Skicka idocs i paket](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), som är batchar eller grupper med IDocs. För att ta emot IDoc-paket behöver SAP-anslutaren och särskilt utlösaren ingen extra konfiguration. Men för att bearbeta varje objekt i ett IDoc-paket när utlösaren tar emot paketet, krävs ytterligare steg för att dela paketet i enskilda IDocs.
+Du kan konfigurera SAP för att [Skicka idocs i paket](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html), som är batchar eller grupper med IDocs. För att ta emot IDoc-paket behöver SAP-anslutaren och särskilt utlösaren ingen extra konfiguration. Men för att bearbeta varje objekt i ett IDoc-paket när utlösaren tar emot paketet, krävs ytterligare steg för att dela paketet i enskilda IDocs.
 
 Här är ett exempel som visar hur du extraherar enskilda IDocs från ett paket med hjälp av [ `xpath()` funktionen](./workflow-definition-language-functions-reference.md#xpath):
 
@@ -439,7 +631,14 @@ Du kan använda snabb starts mal len för det här mönstret genom att välja de
 
 ## <a name="generate-schemas-for-artifacts-in-sap"></a>Generera scheman för artefakter i SAP
 
-I det här exemplet används en Logic-app som du kan utlösa med en HTTP-begäran. SAP-åtgärden skickar en begäran till ett SAP-system för att generera scheman för angivet IDoc och BAPI. Scheman som returneras i svaret överförs till ett integrations konto med hjälp av Azure Resource Manager anslutningen.
+I det här exemplet används en Logic-app som du kan utlösa med en HTTP-begäran. För att generera scheman för den angivna IDoc och BAPI skickar SAP-åtgärden **generate schema** en begäran till ett SAP-system.
+
+Denna SAP-åtgärd returnerar ett XML-schema, inte innehållet eller data i själva XML-dokumentet. Scheman som returneras i svaret överförs till ett integrations konto med hjälp av Azure Resource Manager anslutningen. Scheman innehåller följande delar:
+
+* Begär ande meddelandets struktur. Använd den här informationen för att skapa en BAPI- `get` lista.
+* Svars meddelandets struktur. Använd den här informationen för att parsa svaret. 
+
+Om du vill skicka begär ande meddelandet använder du den allmänna SAP-åtgärden **Skicka meddelande till SAP**, eller målet för målets **BAPI** -åtgärd.
 
 ### <a name="add-an-http-request-trigger"></a>Lägg till en HTTP-begäran-utlösare
 
@@ -639,9 +838,23 @@ När meddelanden skickas med **säker inmatning** aktive rad ser dats och Tims-s
 
 ## <a name="advanced-scenarios"></a>Avancerade scenarier
 
+### <a name="change-language-headers"></a>Ändra språk rubriker
+
+När du ansluter till SAP från Logic Apps är standard språket för anslutningen engelska. Du kan ställa in språket för din anslutning med hjälp av [standard-HTTP `Accept-Language` -huvud](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) med dina inkommande begär Anden.
+
+> [!TIP]
+> De flesta webbläsare lägger till en `Accept-Language` rubrik baserat på användarens inställningar. Webbläsaren använder den här rubriken när du skapar en ny SAP-anslutning i Logic Apps designer. Om du inte vill skapa SAP-anslutningar i webbläsarens språk, uppdaterar du webbläsarens inställningar så att de använder det språk du föredrar, eller så skapar du en SAP-anslutning med Azure Resource Manager i stället för Logic Apps designer. 
+
+Du kan till exempel skicka en begäran med `Accept-Language` sidhuvudet till din Logic-app genom att använda **http-begäran** utlösare. Alla åtgärder i din Logic app får rubriken. Sedan använder SAP de angivna språken i system meddelanden, t. ex. BAPI-felmeddelanden.
+
+SAP-anslutnings parametrarna för en Logic app har ingen språk egenskap. Så om du använder `Accept-Language` rubriken kan du få följande fel meddelande: **kontrol lera konto information och/eller behörigheter och försök igen.** I det här fallet kontrollerar du SAP-komponentens fel loggar i stället. Felet inträffar faktiskt i SAP-komponenten som använder rubriken, så du kan få ett av följande fel meddelanden:
+
+* `"SAP.Middleware.Connector.RfcLogonException: Select one of the installed languages"`
+* `"SAP.Middleware.Connector.RfcAbapMessageException: Select one of the installed languages"`
+
 ### <a name="confirm-transaction-explicitly"></a>Bekräfta transaktionen explicit
 
-När du skickar transaktioner till SAP från Logic Apps sker detta Exchange i två steg enligt beskrivningen i SAP-dokumentet, [TRANSAKTIONELLA RFC Server-program](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). Som standard hanterar åtgärden **Skicka till SAP** både stegen för funktions överföringen och för transaktions bekräftelsen i ett enda anrop. Med SAP Connector får du möjlighet att koppla från de här stegen. Du kan skicka en IDoc och i stället för att automatiskt bekräfta transaktionen, kan du använda åtgärden explicit **Bekräfta transaktions-ID** .
+När du skickar transaktioner till SAP från Logic Apps sker detta Exchange i två steg enligt beskrivningen i SAP-dokumentet, [TRANSAKTIONELLA RFC Server-program](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). Som standard hanterar åtgärden **Skicka till SAP** både stegen för funktions överföringen och för transaktions bekräftelsen i ett enda anrop. Med SAP Connector får du möjlighet att koppla från de här stegen. Du kan skicka en IDoc och i stället för att automatiskt bekräfta transaktionen, kan du använda åtgärden explicit **Bekräfta transaktions-ID** .
 
 Den här funktionen för att ta del av transaktions-ID-bekräftelsen är användbar när du inte vill duplicera transaktioner i SAP, till exempel i scenarier där fel kan uppstå på grund av orsaker till nätverks problem. Genom att bekräfta transaktions-ID: t separat slutförs transaktionen bara en tid i SAP-systemet.
 

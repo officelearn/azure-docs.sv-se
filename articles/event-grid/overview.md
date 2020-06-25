@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: femila
 ms.custom: seodec18
-ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 4ae40c37d42848cc2ac726694e32df621996df03
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560310"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321333"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -103,7 +103,7 @@ Event Grid kopplar samman datakällor och händelsehanterare. Använd till exemp
 
 ![Automatisering av åtgärder](./media/overview/Ops_automation.png)
 
-Event Grid ger snabbare automatisering och enklare principtillämpning. Använd till exempel Event Grid för att meddela Azure Automation när en virtuell dator eller SQL-databas skapas. Använd de här händelserna för att automatiskt kontrollera att tjänstkonfigurationer följer standard, placera metadata i åtgärdsverktyg, tagga virtuella datorer eller arkivera arbetsobjekt.
+Event Grid ger snabbare automatisering och enklare principtillämpning. Använd till exempel Event Grid för att meddela Azure Automation när en virtuell dator eller databas i Azure SQL skapas. Använd de här händelserna för att automatiskt kontrollera att tjänstkonfigurationer följer standard, placera metadata i åtgärdsverktyg, tagga virtuella datorer eller arkivera arbetsobjekt.
 
 ### <a name="application-integration"></a>Integrering av program
 

@@ -3,12 +3,12 @@ title: Övervaka ett Azure Kubernetes service (AKS)-kluster distribuerat | Micro
 description: Lär dig hur du aktiverar övervakning av ett Azure Kubernetes service-kluster (AKS) med Azure Monitor för behållare som redan har distribuerats i din prenumeration.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 5b7450f5eb132dab9961de712d8cddb33bd2c521
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 2dabbe7a5c0e183363fe05bc4e75da0b6a346e6b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84264219"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337978"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Aktivera övervakning av AKS-kluster (Azure Kubernetes service) redan distribuerat
 
@@ -27,10 +27,10 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Aktivera med hjälp av Azure CLI
 
-Följande steg aktiverar övervakning av ditt AKS-kluster med hjälp av Azure CLI. I det här exemplet behöver du inte per-skapa eller ange en befintlig arbets yta. Med det här kommandot kan du förenkla processen åt dig genom att skapa en standard arbets yta i standard resurs gruppen för AKS-kluster prenumerationen om en sådan inte redan finns i regionen.  Standard arbets ytan som skapats liknar formatet *DefaultWorkspace- \<GUID> - \<Region> *.  
+Följande steg aktiverar övervakning av ditt AKS-kluster med hjälp av Azure CLI. I det här exemplet behöver du inte per-skapa eller ange en befintlig arbets yta. Med det här kommandot kan du förenkla processen åt dig genom att skapa en standard arbets yta i standard resurs gruppen för AKS-kluster prenumerationen om en sådan inte redan finns i regionen.  Standard arbets ytan som skapats liknar formatet *DefaultWorkspace- \<GUID> - \<Region> *.
 
 ```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
 Utdata ser ut ungefär så här:
@@ -41,7 +41,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>Integrera med en befintlig arbets yta
 
-Om du hellre vill integrera med en befintlig arbets yta utför du följande steg för att först identifiera det fullständiga resurs-ID: t för din Log Analytics arbets yta som krävs för `--workspace-resource-id` parametern och kör sedan kommandot för att aktivera övervaknings tillägget mot den angivna arbets ytan.  
+Om du hellre vill integrera med en befintlig arbets yta utför du följande steg för att först identifiera det fullständiga resurs-ID: t för din Log Analytics arbets yta som krävs för `--workspace-resource-id` parametern och kör sedan kommandot för att aktivera övervaknings tillägget mot den angivna arbets ytan.
 
 1. Lista alla prenumerationer som du har åtkomst till med hjälp av följande kommando:
 
@@ -112,7 +112,7 @@ Om du vill aktivera övervakning av ditt AKS-kluster i Azure Portal från Azure 
 
 4. I listan med oövervakade kluster letar du reda på behållaren i listan och klickar på **Aktivera**.
 
-5. På sidan **onboarding to Azure Monitor for containers** , om du har en befintlig Log Analytics arbets yta i samma prenumeration som klustret, väljer du den i list rutan.  
+5. På sidan **onboarding to Azure Monitor for containers** , om du har en befintlig Log Analytics arbets yta i samma prenumeration som klustret, väljer du den i list rutan.
     I listan förväljs standard arbets ytan och platsen som AKS-behållaren distribueras till i prenumerationen.
 
     ![Aktivera övervakning av AKS container Insights](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -130,15 +130,15 @@ Gör så här för att aktivera övervakning direkt från ett av dina AKS-kluste
 
 2. Börja skriva **behållare**i listan över resurser.  List filtren baserat på dina inaktuella inaktuella.
 
-3. Välj **Kubernetes-tjänster**.  
+3. Välj **Kubernetes-tjänster**.
 
     ![Kubernetes Services-länken](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. Välj en behållare i listan över behållare.
 
-5. På sidan behållar översikt väljer du **övervaka behållare**.  
+5. På sidan behållar översikt väljer du **övervaka behållare**.
 
-6. På sidan **onboarding to Azure Monitor for containers** , om du har en befintlig Log Analytics arbets yta i samma prenumeration som klustret, väljer du den i list rutan.  
+6. På sidan **onboarding to Azure Monitor for containers** , om du har en befintlig Log Analytics arbets yta i samma prenumeration som klustret, väljer du den i list rutan.
     I listan förväljs standard arbets ytan och platsen som AKS-behållaren distribueras till i prenumerationen.
 
     ![Aktivera övervakning av hälso tillstånd för AKS-behållare](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -227,7 +227,7 @@ Om du väljer att använda Azure CLI måste du först installera och använda CL
     }
     ```
 
-2. Spara filen som **existingClusterOnboarding. JSON** i en lokal mapp.
+2. Spara den här filen som **existingClusterOnboarding.jspå** en lokal mapp.
 
 3. Klistra in följande JSON-syntax i filen:
 
@@ -260,7 +260,7 @@ Om du väljer att använda Azure CLI måste du först installera och använda CL
 
     Redigera värdena för **aksResourceTagValues** så att de matchar de befintliga taggvärde som angetts för AKS-klustret.
 
-5. Spara filen som **existingClusterParam. JSON** i en lokal mapp.
+5. Spara den här filen som **existingClusterParam.jspå** en lokal mapp.
 
 6. Nu är det dags att distribuera den här mallen.
 
@@ -310,7 +310,21 @@ Utdata bör likna följande, som anger att den har distribuerats korrekt:
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
+
+Om det finns Windows Server-noder i klustret kan du köra följande kommando för att kontrol lera att agenten har distribuerats.
+
+```
+kubectl get ds omsagent-win --namespace=kube-system
+```
+
+Utdata bör likna följande, som anger att den har distribuerats korrekt:
+
+```output
+User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+```
 
 Kör följande kommando för att kontrol lera distributionen av lösningen:
 
@@ -328,23 +342,23 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Agent version tidigare än 06072018
 
-Kör följande kommando för att kontrol lera att den Log Analytics agent version som släpptes innan *06072018* distribueras korrekt:  
+Kör följande kommando för att kontrol lera att den Log Analytics agent version som släpptes innan *06072018* distribueras korrekt:
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-Utdata bör likna följande, som anger att den har distribuerats korrekt:  
+Utdata bör likna följande, som anger att den har distribuerats korrekt:
 
 ```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
 
 ## <a name="view-configuration-with-cli"></a>Visa konfiguration med CLI
 
-Använd `aks show` kommandot för att få information om t. ex. om lösningen är aktive rad eller inte, vad är resourceID för Log Analytics-arbetsytan och sammanfattnings information om klustret.  
+Använd `aks show` kommandot för att få information om t. ex. om lösningen är aktive rad eller inte, vad är resourceID för Log Analytics-arbetsytan och sammanfattnings information om klustret.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>

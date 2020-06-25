@@ -1,25 +1,15 @@
 ---
 title: Komma igång med Azure Service Bus-köer | Microsoft Docs
 description: I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 5718106aee0e60d111398efdb839945c2c7a8a06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 477d9d5a23e50d9b303d560b5530cbc22104c5cb
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471745"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337547"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -55,7 +45,7 @@ Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt 
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Skriva kod för att skicka meddelanden till kön
 
-1. I *program.cs*lägger du till följande `using` -instruktioner överst i namn områdes definitionen, före klass deklarationen:
+1. I *program.cs*lägger du till följande- `using` instruktioner överst i namn områdes definitionen, före klass deklarationen:
 
     ```csharp
     using System.Text;
@@ -64,7 +54,7 @@ Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt 
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. I- `Program` klassen deklarerar du följande variabler:
+1. I `Program` -klassen deklarerar du följande variabler:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -74,7 +64,7 @@ Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt 
 
     Ange din anslutnings sträng för namn området som `ServiceBusConnectionString` variabel. Ange namnet på kön.
 
-1. Ersätt `Main()` metoden med följande **async** `Main` -metod. Den anropar `SendMessagesAsync()` den metod som du ska lägga till i nästa steg för att skicka meddelanden till kön. 
+1. Ersätt `Main()` metoden med följande async- **async** `Main` metod. Den anropar den `SendMessagesAsync()` metod som du ska lägga till i nästa steg för att skicka meddelanden till kön. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -94,7 +84,7 @@ Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt 
         await queueClient.CloseAsync();
     }
     ```
-1. Direkt efter- `MainAsync()` metoden lägger du till följande `SendMessagesAsync()` metod som utför arbetet med att skicka antalet meddelanden som anges av `numberOfMessagesToSend` (för närvarande är inställt på 10):
+1. Direkt efter `MainAsync()` -metoden lägger du till följande `SendMessagesAsync()` metod som utför arbetet med att skicka antalet meddelanden som anges av `numberOfMessagesToSend` (för närvarande är inställt på 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -201,7 +191,7 @@ Om du vill ta emot de meddelanden som du har skickat skapar du ett annat **konso
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Skriva kod för att ta emot meddelanden från kön
 
-1. I *program.cs*lägger du till följande `using` -instruktioner överst i namn områdes definitionen, före klass deklarationen:
+1. I *program.cs*lägger du till följande- `using` instruktioner överst i namn områdes definitionen, före klass deklarationen:
 
     ```csharp
     using System;
@@ -211,7 +201,7 @@ Om du vill ta emot de meddelanden som du har skickat skapar du ett annat **konso
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. I- `Program` klassen deklarerar du följande variabler:
+1. I `Program` -klassen deklarerar du följande variabler:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -246,7 +236,7 @@ Om du vill ta emot de meddelanden som du har skickat skapar du ett annat **konso
     }
     ```
 
-1. Direkt efter- `MainAsync()` metoden lägger du till följande metod, som registrerar meddelande hanteraren och tar emot meddelanden som skickas av avsändar programmet:
+1. Direkt efter `MainAsync()` -metoden lägger du till följande metod, som registrerar meddelande hanteraren och tar emot meddelanden som skickas av avsändar programmet:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()

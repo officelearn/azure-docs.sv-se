@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816190"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338288"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
 
@@ -109,7 +109,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 
         ![aviserings logik](./media/directory-emergency-access/alert-image2.png)
 
-    1. Välj **Done** (Klar). Nu kan du Visa den uppskattade månads kostnaden för den här aviseringen.
+    1. Välj **Klar**. Nu kan du Visa den uppskattade månads kostnaden för den här aviseringen.
 1. Välj en åtgärds grupp användare som ska meddelas via aviseringen. Om du vill skapa ett, se [skapa en åtgärds grupp](#create-an-action-group).
 1. Om du vill anpassa e-postmeddelandet som skickas till medlemmarna i åtgärds gruppen väljer du åtgärder under **Anpassa åtgärder**.
 1. Under **aviserings information**anger du namnet på varnings regeln och lägger till en valfri beskrivning.
@@ -156,5 +156,5 @@ De här stegen bör utföras med jämna mellanrum och för viktiga ändringar:
 - [Lägg till användare med hjälp av Azure AD](../fundamentals/add-users-azure-active-directory.md) och [tilldela den nya användaren rollen som global administratör](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [Registrera dig för Azure AD Premium](../fundamentals/active-directory-get-started-premium.md)om du inte redan har registrerat dig
 - [Så här kräver du tvåstegsverifiering för en användare](../authentication/howto-mfa-userstates.md)
-- [Konfigurera ytterligare skydd för globala administratörer i office 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts)om du använder Office 365
+- [Konfigurera ytterligare skydd för globala administratörer i Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts)om du använder Microsoft 365
 - [Starta en åtkomst granskning av globala administratörer](../privileged-identity-management/pim-how-to-start-security-review.md) och [över gång av befintliga globala administratörer till mer detaljerade administratörs roller](directory-assign-admin-roles.md)

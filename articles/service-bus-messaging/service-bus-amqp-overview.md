@@ -1,25 +1,14 @@
 ---
 title: Översikt över AMQP 1,0 i Azure Service Bus
 description: Lär dig hur Azure Service Bus stöder Advanced Message Queueing Protocol (AMQP), ett öppet standard protokoll.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759320"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338058"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>AMQP 1,0-stöd i Service Bus
 Både Azure Service Bus moln tjänst och lokala [Service Bus för Windows Server (Service Bus 1,1)](https://msdn.microsoft.com/library/dn282144.aspx) stöder Advanced Message Queueing Protocol (AMQP) 1,0. Med AMQP kan du skapa hybrid program mellan plattformar med ett öppet standard protokoll. Du kan skapa program med hjälp av komponenter som har skapats med olika språk och ramverk och som körs på olika operativ system. Alla dessa komponenter kan ansluta till Service Bus och sömlöst utbyta strukturerade affärs meddelanden effektivt och med full kvalitet.

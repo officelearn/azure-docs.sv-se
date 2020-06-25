@@ -1,25 +1,18 @@
 ---
 title: Skapa Azure Service Bus-resurser med hjälp av mallar
 description: Använd Azure Resource Manager mallar för att automatisera skapandet av Service Bus resurser
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 09/11/2018
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 9bc784ee57b9bde393408cbefa9a197aebc59b08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fd6a42d9624d7a95e66b88e004e1f5203a738a1
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264466"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336612"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Skapa Service Bus resurser med Azure Resource Manager-mallar
 
@@ -181,7 +174,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Ange resurs grupp
 
-Om du inte har en befintlig resurs grupp skapar du en ny resurs grupp med kommandot **New-AzResourceGroup** . Ange namnet på den resurs grupp och plats som du vill använda. Ett exempel:
+Om du inte har en befintlig resurs grupp skapar du en ny resurs grupp med kommandot **New-AzResourceGroup** . Ange namnet på den resurs grupp och plats som du vill använda. Till exempel:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -199,7 +192,7 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Testa distributionen
 
-Verifiera distributionen genom att `Test-AzResourceGroupDeployment` köra cmdleten. När du testar distributionen ska du ange parametrar exakt som du skulle göra när du utför distributionen.
+Verifiera distributionen genom att köra `Test-AzResourceGroupDeployment` cmdleten. När du testar distributionen ska du ange parametrar exakt som du skulle göra när du utför distributionen.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

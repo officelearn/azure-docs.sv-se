@@ -1,23 +1,23 @@
 ---
 title: C#-självstudie indexera Azure SQL-data
 titleSuffix: Azure Cognitive Search
-description: I den här C#-själv studie kursen kan du ansluta till Azure SQL Database, extrahera sökbara data och läsa in den i ett Azure Kognitiv sökning-index.
+description: I den här C#-själv studie kursen ansluter du till Azure SQL Database, extraherar sökbara data och läser in den i ett Azure Kognitiv sökning-index.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: c2972d13b25d167c2144c4f66e36822e85e29690
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261026"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321006"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Självstudie: indexera Azure SQL-data med .NET SDK
 
-Konfigurera en [indexerare](search-indexer-overview.md) för att extrahera sökbara data från Azure SQL Database och skicka dem till ett Sök index i Azure kognitiv sökning. 
+Konfigurera en [indexerare](search-indexer-overview.md) för att extrahera sökbara data från Azure SQL Database och skicka den till ett Sök index i Azure kognitiv sökning. 
 
 I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
 
@@ -144,7 +144,7 @@ Ett schema kan även innehålla andra element, till exempel poängprofiler för 
 
 Huvud programmet innehåller logik för att skapa en klient, ett index, en data källa och en indexerare. Koden söker efter och tar bort befintliga resurser med samma namn, under förutsättning att du kan köra det här programmet flera gånger.
 
-Datakällobjektet konfigureras med inställningar som är speciella för Azure SQL Database-resurser, inklusive [delvis eller stegvis indexering](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) för att använda inbyggda [funktioner för ändrings identifiering](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) i Azure SQL. Demon hotell-databasen i Azure SQL har en "mjuk borttagning"-kolumn med namnet **IsDeleted**. När den här kolumnen har angetts till sant i databasen, tar indexeraren bort motsvarande dokument från Azure Kognitiv sökning-indexet.
+Objektet datakällobjektet konfigureras med inställningar som är speciella för Azure SQL Database resurser, inklusive [delvis eller stegvis indexering](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) för att utnyttja de inbyggda [funktionerna för ändrings identifiering](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) i Azure SQL. Demon hotell-databasen i Azure SQL har en "mjuk borttagning"-kolumn med namnet **IsDeleted**. När den här kolumnen har angetts till sant i databasen, tar indexeraren bort motsvarande dokument från Azure Kognitiv sökning-indexet.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -253,4 +253,4 @@ Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser
 Nu när du har lärt dig grunderna i SQL Database indexering, tar vi en närmare titt på indexerings konfigurationen.
 
 > [!div class="nextstepaction"]
-> [Konfigurera en Azure SQL Database-indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Konfigurera en SQL Database-indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

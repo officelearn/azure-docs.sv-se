@@ -6,20 +6,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 06/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4cb96e1299010636e0bce3cb99fbba9862822564
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e92b0679111a6d5c6173da04c5061c95956125b8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022273"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322951"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Konfigurera HDInsight-kluster med en anpassad Ambari-databas
 
 Apache Ambari fören klar hanteringen och övervakningen av ett Apache Hadoop-kluster. Ambari är ett enkelt sätt att använda webb gränssnitt och REST API. Ambari ingår i HDInsight-kluster och används för att övervaka klustret och göra konfigurations ändringar.
 
-I det normala klustret skapas, som beskrivs i andra artiklar, till exempel [Konfigurera kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari distribueras i en [S0 Azure SQL-databas](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) som hanteras av HDInsight och inte är tillgänglig för användarna.
+I det normala klustret skapas, som beskrivs i andra artiklar, till exempel [Konfigurera kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari distribueras i en [S0 Azure SQL Database](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) som hanteras av HDInsight och inte är tillgänglig för användarna.
 
 Med den anpassade Ambari DB-funktionen kan du distribuera ett nytt kluster och konfigurera Ambari i en extern databas som du hanterar. Distributionen görs med en Azure Resource Manager-mall. Den här funktionen har följande fördelar:
 
@@ -38,6 +38,7 @@ Du kan distribuera en anpassad Ambari-databas med alla kluster typer och-version
 
 Den anpassade Ambari DB har följande andra krav:
 
+- Namnet på databasen får inte innehålla bindestreck eller blank steg
 - Du måste ha en befintlig Azure SQL DB-server och-databas.
 - Den databas som du anger för Ambari-installationen måste vara tom. Det ska inte finnas några tabeller i standardvärdet för dbo-schemat.
 - Den användare som används för att ansluta till databasen ska ha behörigheterna Välj, CREATE TABLE och infoga för databasen.

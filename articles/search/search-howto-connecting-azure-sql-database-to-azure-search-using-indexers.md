@@ -1,7 +1,7 @@
 ---
 title: Sök över Azure SQL-data
 titleSuffix: Azure Cognitive Search
-description: Importera data från Azure SQL Database med hjälp av indexerare för full texts ökning i Azure Kognitiv sökning. Den här artikeln beskriver anslutningar, indexerings konfiguration och data inmatning.
+description: Importera data från Azure SQL Database-eller SQL-hanterad instans med hjälp av indexerare för full texts ökning i Azure Kognitiv sökning. Den här artikeln beskriver anslutningar, indexerings konfiguration och data inmatning.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,20 +9,20 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9279622ee54a9fdaa6617cfe2758cfb563fdbffa
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 1afe92720997ede327f098b9a435d00842ae201e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080597"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322146"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL Database innehåll med hjälp av en Azure Kognitiv sökning-indexerare
+# <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL-innehåll med hjälp av Azure Kognitiv sökning-indexeraren
 
-Innan du kan skicka frågor till ett [Azure kognitiv sökning-index](search-what-is-an-index.md)måste du fylla i det med dina data. Om data finns i en Azure SQL-databas, kan en **azure kognitiv sökning-indexerare för Azure SQL Database** (eller **Azure SQL-indexeraren** för kort) automatisera indexerings processen, vilket innebär att mindre kod kan skriva och mindre infrastruktur för att vara försiktig.
+Innan du kan skicka frågor till ett [Azure kognitiv sökning-index](search-what-is-an-index.md)måste du fylla i det med dina data. Om data finns i Azure SQL Database-eller SQL-hanterad instans kan en **azure kognitiv sökning-indexerare för Azure SQL Database** (eller **Azure SQL-indexeraren** för kort) automatisera indexerings processen, vilket innebär att mindre kod kan skriva och mindre infrastruktur för att vara försiktig.
 
-Den här artikeln beskriver Mechanics för användning av [indexerare](search-indexer-overview.md), men beskriver även funktioner som endast är tillgängliga med Azure SQL-databaser (till exempel integrerad ändrings spårning). 
+Den här artikeln beskriver Mechanics för användning av [indexerare](search-indexer-overview.md), men beskriver även funktioner som endast är tillgängliga med Azure SQL Database eller SQL-hanterad instans (till exempel integrerad ändrings spårning). 
 
-Förutom Azure SQL-databaser tillhandahåller Azure Kognitiv sökning indexerare för [Azure Cosmos DB](search-howto-index-cosmosdb.md) [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)och [Azure Table Storage](search-howto-indexing-azure-tables.md). Om du vill begära support för andra data källor anger du din feedback i [Azure kognitiv sökning feedback-forumet](https://feedback.azure.com/forums/263029-azure-search/).
+Förutom Azure SQL Database-och SQL-hanterad instans tillhandahåller Azure Kognitiv sökning indexerare för [Azure Cosmos DB](search-howto-index-cosmosdb.md) [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)och [Azure Table Storage](search-howto-indexing-azure-tables.md). Om du vill begära support för andra data källor anger du din feedback i [Azure kognitiv sökning feedback-forumet](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexerare och data källor
 
@@ -172,7 +172,7 @@ Om SQL-databasen stöder [ändrings spårning](https://docs.microsoft.com/sql/re
 
 + Versions krav för databas:
   * SQL Server 2012 SP3 och senare, om du använder SQL Server på virtuella Azure-datorer.
-  * Om du använder Azure SQL Database Azure SQL Database V12.
+  * Azure SQL Database-eller SQL-hanterad instans.
 + Endast tabeller (inga vyer). 
 + [Aktivera ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) för tabellen på-databasen. 
 + Ingen sammansatt primär nyckel (en primär nyckel som innehåller mer än en kolumn) i tabellen.  
@@ -354,7 +354,7 @@ För stegvis indexering stöder Azure Kognitiv sökning två principer för änd
 
 SQL Database stöder inte integrerad ändrings spårning på skrivskyddade repliker. Därför måste du använda en hög vatten märknings princip. 
 
-Vår standard rekommendation är att använda data typen ROWVERSION för den övre vatten märkes kolumnen. Men att använda ROWVERSION förlitar sig på SQL Databases `MIN_ACTIVE_ROWVERSION` funktion som inte stöds på skrivskyddade repliker. Därför måste du peka indexeraren till en primär replik om du använder ROWVERSION.
+Vår standard rekommendation är att använda data typen ROWVERSION för den övre vatten märkes kolumnen. Men att använda ROWVERSION förlitar sig på `MIN_ACTIVE_ROWVERSION` funktionen, vilket inte stöds på skrivskyddade repliker. Därför måste du peka indexeraren till en primär replik om du använder ROWVERSION.
 
 Om du försöker använda ROWVERSION på en skrivskyddad replik visas följande fel: 
 

@@ -1,26 +1,16 @@
 ---
 title: Använda Azure Service Bus köer med Java
 description: I den här självstudien får du lära dig hur du skapar Java-program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus kö.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f701439c-553e-402c-94a7-64400f997d59
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 224a5ce0a2c8a7fc031f1ad3314e4d8889966433
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 86097603b8b17b0e474cef4b57171bb51d5a1420
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788305"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338075"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Snabb start: använda Azure Service Bus köer med Java för att skicka och ta emot meddelanden
 
@@ -48,7 +38,7 @@ Om du använder Sol förmörkelse kan du installera [Azure Toolkit for Eclipse][
 ![Lägg till Microsoft Azure bibliotek för java i ditt Sol förmörkelse-projekt](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 
-Lägg till följande `import` -instruktioner överst i Java-filen:
+Lägg till följande- `import` instruktioner överst i Java-filen:
 
 ```java
 // Include the following imports to use Service Bus APIs
@@ -129,7 +119,7 @@ Eftersom Service Bus har markerat meddelandet som förbrukat, när programmet st
 
 I **PeekLock** -läge blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Complete ()** för det mottagna meddelandet. När Service Bus ser det **fullständiga anropet ()** , markeras meddelandet som förbrukat och tas bort från kön. 
 
-Följande exempel visar hur meddelanden kan tas emot och bearbetas med **PeekLock** -läge (inte standard läget). Exemplet nedan använder callback-modellen med en registrerad meddelande hanterare och bearbetar meddelanden när de anländer till vår `TestQueue`. Det här läget anropar **Complete ()** automatiskt när återanropet returnerar normalt och anropar **överge ()** om motringningen genererar ett undantag. 
+Följande exempel visar hur meddelanden kan tas emot och bearbetas med **PeekLock** -läge (inte standard läget). Exemplet nedan använder callback-modellen med en registrerad meddelande hanterare och bearbetar meddelanden när de anländer till vår `TestQueue` . Det här läget anropar **Complete ()** automatiskt när återanropet returnerar normalt och anropar **överge ()** om motringningen genererar ett undantag. 
 
 ```java
     public void run() throws Exception {
@@ -191,7 +181,7 @@ I händelse av att programmet kraschar när meddelandet har bearbetats men innan
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Nu när du har lärt dig grunderna i Service Bus köer, se [köer, ämnen och prenumerationer][Queues, topics, and subscriptions] för mer information.
 
 Mer information finns på [Java Developer Center](https://azure.microsoft.com/develop/java/).

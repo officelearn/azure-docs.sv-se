@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879130"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322289"
 ---
 # <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
-Med Azures front dörr kan du definiera, hantera och övervaka den globala routningen för din webb trafik genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet. Med front dörren kan du omvandla din globala (flera regioner) konsument-och företags program till robusta, anpassade moderna program med höga prestanda, API: er och innehåll som når en global publik med Azure.
+Med Azures front dörr kan du definiera, hantera och övervaka den globala routningen för din webb trafik genom att optimera för bästa prestanda och snabb global redundans för hög tillgänglighet. Med front dörren kan du omvandla din globala (flera regioner) konsument-och företags program till robusta, anpassade moderna program med höga prestanda, API: er och innehåll som når en global publik med Azure.
 
 Front Door fungerar i Layer 7- eller HTTP/HTTPS-lagret och använder anycast-protokoll med delad TCP och Microsofts globala nätverk för att förbättra globala anslutningar. Så om du väljer routningsmetod i konfigurationen kan du vara säker på att Front Door dirigerar dina klientbegäranden till den snabbaste och mest tillgängliga programserverdelen. En programserverdel är en Internetansluten tjänst i eller utanför Azure. Front Door innehåller en uppsättning [trafikroutningsmetoder](front-door-routing-methods.md) och [alternativ för hälsoövervakning av serverdelen](front-door-health-probes.md) som passar olika programbehov och modeller för automatisk redundans. Precis som [Traffic Manager](../traffic-manager/traffic-manager-overview.md) är Front Door motståndskraftigt mot fel, inklusive fel som påverkar en hel Azure-region.
 
@@ -36,7 +36,7 @@ Om du använder ett delat TCP-baserat anycast-protokoll, säkerställer Front Do
 
 ## <a name="increase-application-availability-with-smart-health-probes"></a>Öka programmets tillgänglighet med smarta hälsokontroller
 
-Front Door ger hög tillgänglighet för dina viktiga program med hjälp av dess smarta hälsokontroller, där dina serverdelar övervakas för både svarstid och tillgänglighet och du får omedelbar automatisk redundans om en serverdel kraschar. Det innebär att du kan köra planerat underhåll för dina program utan någon stilleståndstid. Front Door dirigerar trafiken till alternativa serverdelar när underhållet pågår.
+Front dörren ger hög tillgänglighet för dina kritiska program med hjälp av sina smarta hälso avsökningar, övervakning av dina Server delar för både svars tid och tillgänglighet och att tillhandahålla snabb automatisk redundans när en server del slutar fungera. Det innebär att du kan köra planerat underhåll för dina program utan någon stilleståndstid. Front Door dirigerar trafiken till alternativa serverdelar när underhållet pågår.
 
 ## <a name="url-based-routing"></a>URL-baserad routning
 Med URL-sökvägsbaserad routning kan du dirigera trafik till serverdelspooler som baseras på URL-sökvägen till begärandet. Ett av scenarierna är att dirigera begäranden för olika innehållstyper till olika serverdelspooler.

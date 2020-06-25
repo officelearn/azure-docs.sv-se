@@ -1,25 +1,14 @@
 ---
 title: Azure Service Bus Resource Manager-undantag | Microsoft Docs
 description: Lista över Service Bus undantag som har inAzure Resource Manager och föreslagna åtgärder.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: darosa
-editor: spelluru
-ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/26/2019
-ms.author: aschhab
-ms.openlocfilehash: 0f328651ac4422226071d2de12e9cbc787ef64be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: a0b0338da0f002c7b667748ffd2bf5a40c91c580
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978263"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336968"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Undantag för Service Bus Resource Manager
 

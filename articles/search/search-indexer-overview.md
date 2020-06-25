@@ -1,7 +1,7 @@
 ---
 title: Indexerare för crawlning av data under import
 titleSuffix: Azure Cognitive Search
-description: Crawla Azure SQL Database, Azure Cosmos DB eller Azure Storage för att extrahera sökbara data och fylla ett Azure Kognitiv sökning-index.
+description: Crawla Azure SQL Database, SQL-hanterad instans, Azure Cosmos DB eller Azure-lagring för att extrahera sökbara data och fylla ett Azure Kognitiv sökning-index.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2faadc962b31560e9e2eb10372493a483bf06905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 28f5bac80529306fc11eb7eb059b6f25071efd41
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203893"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320972"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexerare i Azure Cognitive Search
 
@@ -50,7 +50,7 @@ Indexerare söker efter data lager i Azure.
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (för hands version)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database-och SQL-hanterad instans](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server på Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [SQL-hanterad instans](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
@@ -128,7 +128,7 @@ Körnings historiken innehåller upp till 50 senaste slutförda körningar, som 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lagt grunden är nästa steg att granska krav och uppgifter som är specifika för varje typ av datakälla.
 
-* [Azure SQL Database (eller SQL Server på en virtuell Azure-dator)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database, SQL-hanterad instans eller SQL Server på en virtuell Azure-dator](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)

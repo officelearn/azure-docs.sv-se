@@ -3,19 +3,19 @@ title: Schemalägg aktiviteter för att hantera sammanhängande data
 description: Skapa och kör återkommande uppgifter som hanterar sammanhängande data med hjälp av glidande fönster i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004625"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322112"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Schemalägg och kör aktiviteter för sammanhängande data med hjälp av den glidande fönster utlösaren i Azure Logic Apps
 
-För att regelbundet köra aktiviteter, processer eller jobb som måste hantera data i intilliggande segment, kan du starta ditt Logic app-arbetsflöde med den **glidande fönster** utlösaren. Du kan ange datum och tid samt en tidszon för att starta arbets flödet och en upprepning för att upprepa det arbets flödet. Om återkommande orsaker saknas, bearbetar den här utlösaren de missade upprepningarna. Om du till exempel synkroniserar data mellan databasen och lagringen av säkerhets kopior använder du utlösaren för Glidnings fönster så att data synkroniseras utan att det uppstår luckor. Mer information om inbyggda schema utlösare och åtgärder finns i [schemalägga och köra återkommande automatiserade uppgifter och arbets flöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+För att regelbundet köra aktiviteter, processer eller jobb som måste hantera data i intilliggande segment, kan du starta ditt Logic app-arbetsflöde med den **glidande fönster** utlösaren. Du kan ange datum och tid samt en tidszon för att starta arbets flödet och en upprepning för att upprepa det arbets flödet. Om upprepningar missas av någon anledning, till exempel på grund av avbrott eller inaktiverade arbets flöden, bearbetar den här utlösaren de missade upprepningarna. Om du till exempel synkroniserar data mellan databasen och lagringen av säkerhets kopior använder du utlösaren för Glidnings fönster så att data synkroniseras utan att det uppstår luckor. Mer information om inbyggda schema utlösare och åtgärder finns i [schemalägga och köra återkommande automatiserade uppgifter och arbets flöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Här följer några mönster som denna utlösare stöder:
 
@@ -50,8 +50,8 @@ Skillnader mellan den här utlösaren och upprepnings utlösaren eller mer infor
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
-   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
-   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
+   | **Intervall** | `interval` | Yes | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Yes | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
    ||||||
 
    ![Avancerade alternativ för upprepning](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
@@ -60,9 +60,9 @@ Skillnader mellan den här utlösaren och upprepnings utlösaren eller mer infor
 
    | Egenskap | Krävs | JSON-namn | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
-   | **Fördröjning** | Inga | förskjutning | Sträng | Varaktigheten för att fördröja varje upprepning med hjälp av [ISO 8601 datum/tid-specifikation](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
-   | **Tidszon** | Inga | Tidszon | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
-   | **Starttid** | Inga | startTime | Sträng | Ange start datum och-tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill ha 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden måste följa [ISO 8601-datum/tid-specifikationen](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman, är start tiden den första förekomsten, men för avancerade upprepningar utlöses inte utlösaren tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Fördröjning** | No | förskjutning | Sträng | Varaktigheten för att fördröja varje upprepning med hjälp av [ISO 8601 datum/tid-specifikation](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
+   | **Tidszon** | No | Tidszon | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
+   | **Start tid** | No | startTime | Sträng | Ange start datum och-tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>\- eller - <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill ha 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden måste följa [ISO 8601-datum/tid-specifikationen](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman, är start tiden den första förekomsten, men för avancerade upprepningar utlöses inte utlösaren tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
 1. Nu ska du bygga ditt återstående arbets flöde med andra åtgärder. Fler åtgärder som du kan lägga till finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md).

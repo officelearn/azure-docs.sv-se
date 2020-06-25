@@ -1,25 +1,15 @@
 ---
 title: Kom igång med ämnen och prenumerationer i Azure Service Bus | Microsoft Docs
 description: Skriv ett C# .NET Core-konsolprogram som använder meddelandeämnen och prenumerationer i Service Bus.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 11/27/2019
-ms.author: aschhab
-ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 7b2b8382c11f447237a8f49ee5be1f4989e3f906
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74560099"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337515"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -75,7 +65,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)**.
     static ITopicClient topicClient;
     ``` 
 
-3. Ersätt `Main()` metoden med följande **async** `Main` -metod som skickar meddelanden asynkront med SendMessagesAsync-metoden som du ska lägga till i nästa steg. 
+3. Ersätt `Main()` metoden med följande async- **async** `Main` metod som skickar meddelanden asynkront med SendMessagesAsync-metoden som du ska lägga till i nästa steg. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -210,7 +200,7 @@ Om du vill ta emot meddelanden som du har skickat skapar du ett annat .NET Core-
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Ersätt `Main()` metoden med följande **async** `Main` -metod. Den anropar `RegisterOnMessageHandlerAndReceiveMessages()` den metod som du ska lägga till i nästa steg. 
+3. Ersätt `Main()` metoden med följande async- **async** `Main` metod. Den anropar den `RegisterOnMessageHandlerAndReceiveMessages()` metod som du ska lägga till i nästa steg. 
 
     ```csharp
     public static async Task Main(string[] args)

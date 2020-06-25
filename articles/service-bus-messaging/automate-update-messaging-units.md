@@ -1,19 +1,14 @@
 ---
 title: Azure Service Bus – uppdatera meddelande enheter automatiskt
 description: Den här artikeln visar hur du kan använda en Azure Automation Runbook för att automatiskt uppdatera meddelande enheter i ett Service Bus namn område.
-services: service-bus-messaging
-ms.service: service-bus-messaging
-documentationcenter: ''
-author: spelluru
 ms.topic: how-to
-ms.date: 05/14/2020
-ms.author: spelluru
-ms.openlocfilehash: db86f22247b757ed2f1cc2c168421346ad90a1fc
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/23/2020
+ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657653"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341501"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Uppdatera meddelande enheter automatiskt i ett Azure Service Bus namn område 
 Den här artikeln visar hur du automatiskt kan uppdatera [meddelande enheter](service-bus-premium-messaging.md) för en Service Bus namnrymd baserat på resurs (CPU eller minne) användning. 

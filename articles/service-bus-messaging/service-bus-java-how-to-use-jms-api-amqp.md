@@ -1,25 +1,15 @@
 ---
 title: Använda AMQP med Java Message Service API & Azure Service Bus
 description: Så här använder du JMS (Java Message Service) med Azure Service Bus och Advanced Message Queueing Protocol (AMQP) 1,0.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-editor: spelluru
-ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: Java
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ccea6175d0baec56b609538d15c32892bb2edff0
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371265"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341730"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Använda Java Message Service (JMS) med Azure Service Bus och AMQP 1,0
 Den här artikeln förklarar hur du använder Azure Service Bus meddelande funktioner (köer och publicera/prenumerera ämnen) från Java-program med hjälp av den populära API-standarden Java Message Service (JMS). Det finns en [medföljande artikel](service-bus-amqp-dotnet.md) som förklarar hur du gör detta med hjälp av Azure Service Bus .NET API. Du kan använda dessa två guider tillsammans för att lära dig mer om plattforms oberoende meddelanden med AMQP 1,0.
@@ -29,7 +19,7 @@ Advanced Message Queueing Protocol (AMQP) 1,0 är ett effektivt, tillförlitligt
 Stöd för AMQP 1,0 i Azure Service Bus innebär att du kan använda funktionerna för kö-och publicerings-och prenumerations tjänster från en uppsättning plattformar med hjälp av ett effektivt binärt protokoll. Dessutom kan du skapa program som består av komponenter som skapats med en blandning av språk, ramverk och operativ system.
 
 ## <a name="get-started-with-service-bus"></a>Kom igång med Service Bus
-Den här guiden förutsätter att du redan har ett Service Bus namnrum som `basicqueue`innehåller en kö med namnet. Om du inte gör det kan du [skapa namn området och kön](service-bus-create-namespace-portal.md) med hjälp av [Azure Portal](https://portal.azure.com). Mer information om hur du skapar Service Bus namnrymder och köer finns i [komma igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md).
+Den här guiden förutsätter att du redan har ett Service Bus namnrum som innehåller en kö med namnet `basicqueue` . Om du inte gör det kan du [skapa namn området och kön](service-bus-create-namespace-portal.md) med hjälp av [Azure Portal](https://portal.azure.com). Mer information om hur du skapar Service Bus namnrymder och köer finns i [komma igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Partitionerade köer och ämnen stöder också AMQP. Mer information finns i [partitionerade meddelande enheter](service-bus-partitioning.md) och [AMQP 1,0-stöd för Service Bus partitionerade köer och ämnen](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -37,11 +27,11 @@ Den här guiden förutsätter att du redan har ett Service Bus namnrum som `basi
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Hämta klient biblioteket AMQP 1,0 JMS
-Information om var du hämtar den senaste versionen av Apache qpid JMS AMQP 1,0-klient biblioteket finns på [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+Information om var du hämtar den senaste versionen av Apache qpid JMS AMQP 1,0-klient biblioteket finns på [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html) .
 
 Du måste lägga till följande fyra JAR-filer från Apache qpid JMS AMQP 1,0 distribution Archive till Java-CLASSPATH när du skapar och kör JMS-program med Service Bus:
 
-* Geronimo-JMS\_1,1\_spec-1.0. jar
+* Geronimo-JMS \_ 1,1 \_ spec-1.0. jar
 * qpid-JMS-client-[version]. jar
 
 > [!NOTE]
@@ -121,7 +111,7 @@ MessageConsumer consumer = session.createConsumer(queue);
 Det finns inga särskilda API: er eller alternativ som krävs när du använder JMS med Service Bus. Det finns dock några begränsningar som kommer att täckas senare. Precis som med alla JMS-program är det första som krävs konfiguration av JNDI-miljön för att kunna matcha en **ConnectionFactory** och mål.
 
 #### <a name="configure-the-jndi-initialcontext"></a>Konfigurera JNDI-InitialContext
-JNDI-miljön konfigureras genom att skicka en hash av konfigurations information till konstruktorn för klassen javax. Naming. InitialContext. De två nödvändiga elementen i hash-tabellen är klass namnet för den inledande kontext fabriken och providerns URL. Följande kod visar hur du konfigurerar JNDI-miljön så att den använder qpid Properties-JNDI providern med en egenskaps fil med namnet **Service Bus. Properties**.
+JNDI-miljön konfigureras genom att skicka en hash av konfigurations information till konstruktorn för klassen javax.naming.InitialContext. De två nödvändiga elementen i hash-tabellen är klass namnet för den inledande kontext fabriken och providerns URL. Följande kod visar hur du konfigurerar JNDI-miljön så att den använder qpid Properties-JNDI providern med en egenskaps fil med namnet **Service Bus. Properties**.
 
 ```java
 // set up JNDI context
@@ -297,7 +287,7 @@ public class JmsQueueQuickstart {
 }
 ```
 
-### <a name="run-the-application"></a>Köra appen
+### <a name="run-the-application"></a>Kör programmet
 Skicka **anslutnings strängen** från principerna för delad åtkomst för att köra programmet.
 Nedan visas utdata från formuläret genom att köra programmet:
 
@@ -385,6 +375,6 @@ Du kan också använda Service Bus AMQP 1,0 från andra språk, inklusive .NET, 
 * [AMQP 1,0-stöd i Azure Service Bus](service-bus-amqp-overview.md)
 * [Använda AMQP 1,0 med Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Service Bus AMQP 1,0 Developer ' s guide](service-bus-amqp-dotnet.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Java-utvecklingscenter](https://azure.microsoft.com/develop/java/)
 

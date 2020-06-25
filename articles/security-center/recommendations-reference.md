@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 647d0b13930109b093532ce0b330e9b3eb6d439b
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 92df0a7919a7d01b062356bfa4d32cc701e1e6f4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260958"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341288"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
 
@@ -153,7 +153,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |**transparent datakryptering på SQL-databaser ska aktive ras**|Aktivera transparent data kryptering för att skydda data i vila och uppfylla kraven på efterlevnad.<br>(Relaterad princip: transparent datakryptering på SQL-databaser ska vara aktive rad)|Låg|**J**|SQL|
 |**Sårbarhets bedömning ska vara aktiverat på SQL Database**|En sårbarhets bedömning kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter.<br>(Relaterad princip: sårbarhets bedömning ska vara aktive rad på dina SQL-servrar)|Hög|**J**|SQL|
 |**Sårbarhets bedömning ska vara aktiverat på SQL-hanterad instans**|En sårbarhets bedömning kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter.<br>(Relaterad princip: sårbarhets bedömning ska vara aktive rad på SQL-hanterad instans)|Hög|**J**|SQL|
-|**Säkerhets risker i SQL-databaser i virtuella datorer bör åtgärdas**|SQL sårbarhet Assessment söker igenom din databas efter säkerhets problem och exponerar eventuella avvikelser från bästa praxis, till exempel felkonfigurationer, överdriven behörighet och oskyddade känsliga data. Att lösa de problem som upptäcks kan avsevärt förbättra din databas säkerhets datasekretesstandarder.|Hög|N|SQL|
+|**Säkerhets risker på dina SQL-servrar på datorer bör åtgärdas**|SQL sårbarhet Assessment söker igenom din databas efter säkerhets problem och exponerar eventuella avvikelser från bästa praxis, till exempel felkonfigurationer, överdriven behörighet och oskyddade känsliga data. Att lösa de problem som upptäcks kan avsevärt förbättra din databas säkerhets datasekretesstandarder.|Hög|N|SQL|
 |**Säkerhets risker i SQL-databaser bör åtgärdas**|SQL sårbarhet Assessment söker igenom din databas efter säkerhets risker och exponerar eventuella avvikelser från bästa praxis, till exempel felkonfigurationer, överdriven behörighet och oskyddade känsliga data. Att lösa de problem som upptäcks kan avsevärt förbättra din databas säkerhets datasekretesstandarder.<br>(Relaterad princip: sårbarheter på SQL-databaser bör åtgärdas)|Hög|N|SQL|
 ||||||
 

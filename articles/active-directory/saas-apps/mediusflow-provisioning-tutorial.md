@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: cd2217046a725f0bb0a05f1eb0afc5434bf3b6fa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3b194755e96e8b8dec2bd0325417950ffe96241c
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664286"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339316"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera MediusFlow för automatisk användar etablering
 
@@ -52,11 +52,11 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-2-configure-mediusflow-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera MediusFlow för att ge stöd för etablering med Azure AD
 
-### <a name="activate-the-office-365-app-within-mediusflow"></a>Aktivera Office 365-appen i MediusFlow
+### <a name="activate-the-microsoft-365-app-within-mediusflow"></a>Aktivera Microsoft 365-appen i MediusFlow
 Börja med att aktivera åtkomst till Azure AD-inloggningen och Azure AD-konfigurationsverktyget i MediusFlow genom att utföra följande steg:
 
 #### <a name="user-login"></a>Användar inloggning
-Till aktiverar du inloggnings flödet till Office 365/Azure AD jfr [den här] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artikeln.
+Till aktiverar du inloggnings flödet till Microsoft 365/Azure AD jfr [den här] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artikeln.
 
 #### <a name="user-transfer-configuration"></a>Konfiguration av användar överföring
 Om du vill aktivera konfigurations portalen för användarna för etablering från Azure AD kan du läsa [den här](

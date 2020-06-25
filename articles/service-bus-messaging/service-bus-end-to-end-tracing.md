@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus slut punkt till slut punkt för spårning och diagnostik | Microsoft Docs
 description: Översikt över Service Bus-klientautentisering och spårning från slut punkt till slut punkt (klient genom alla tjänster som ingår i bearbetningen.)
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 7c2efc9c736097873201505f280af5d47bed4847
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294182"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340727"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation genom Service Bus meddelanden
 
@@ -81,7 +71,7 @@ async Task ProcessAsync(Message message)
 ```
 
 I det här exemplet `RequestTelemetry` rapporteras för varje bearbetat meddelande, med en tidsstämpel, varaktighet och resultat (lyckades). Telemetri har också en uppsättning korrelations egenskaper.
-Kapslade spår och undantag som rapporteras vid meddelande bearbetning stämplas också med korrelations egenskaper som representerar dem som underordnade `RequestTelemetry`till.
+Kapslade spår och undantag som rapporteras vid meddelande bearbetning stämplas också med korrelations egenskaper som representerar dem som underordnade till `RequestTelemetry` .
 
 Om du gör anrop till stödda externa komponenter under meddelande bearbetningen spåras de också automatiskt och korreleras. Se [spåra anpassade åtgärder med Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md) för manuell spårning och korrelation.
 
@@ -96,7 +86,7 @@ Om spårnings systemet inte stöder automatisk Service Bus samtals spårning kan
 
 Service Bus .NET-klienten instrumenteras med hjälp av .NET tracing primitiver [system. Diagnostics. Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) och [system. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
-`Activity`fungerar som en spårnings kontext `DiagnosticSource` medan är en meddelande funktion. 
+`Activity`fungerar som en spårnings kontext medan `DiagnosticSource` är en meddelande funktion. 
 
 Om det inte finns någon lyssnare för DiagnosticSource-händelserna, är instrumentering inaktiverat, och behåller inga instrument kostnader. DiagnosticSource ger all kontroll till lyssnaren:
 - lyssnare styr vilka källor och händelser som ska bevakas
@@ -155,7 +145,7 @@ Alla händelser har även egenskaperna "entity" och "slut punkt", de utelämnas 
   * `string Entity`--Namn på entiteten (kö, ämne osv.)
   * `Uri Endpoint`-Service Bus slut punkts-URL
 
-Varje "stopp"-händelse `Status` har en `TaskStatus` egenskap med en asynkron åtgärd slutfördes med, vilket också utelämnas i följande tabell för enkelhetens skull.
+Varje "stopp"-händelse har en `Status` egenskap med en `TaskStatus` asynkron åtgärd slutfördes med, vilket också utelämnas i följande tabell för enkelhetens skull.
 
 Här är en fullständig lista över instrumenterade åtgärder:
 
@@ -188,9 +178,9 @@ I varje händelse kan du komma åt `Activity.Current` som innehåller aktuell å
 #### <a name="logging-additional-properties"></a>Loggar ytterligare egenskaper
 
 `Activity.Current`innehåller en detaljerad kontext för den aktuella åtgärden och dess överordnade. Mer information finns i [aktivitets dokumentationen](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) .
-Service Bus Instrumentation innehåller ytterligare information som `Activity.Current.Tags` de innehåller `MessageId` och `SessionId` när de är tillgängliga.
+Service Bus Instrumentation innehåller ytterligare information som de `Activity.Current.Tags` innehåller `MessageId` och `SessionId` när de är tillgängliga.
 
-Aktiviteter som spårar "Receive", "Peek" och "ReceiveDeferred"-händelsen `RelatedTo` kan också ha tagg. Den innehåller en distinkt lista `Diagnostic-Id`över meddelanden som tagits emot som ett resultat.
+Aktiviteter som spårar "Receive", "Peek" och "ReceiveDeferred"-händelsen kan också ha `RelatedTo` tagg. Den innehåller en distinkt lista över `Diagnostic-Id` meddelanden som tagits emot som ett resultat.
 Sådan åtgärd kan leda till att flera orelaterade meddelanden tas emot. Det `Diagnostic-Id` är inte heller känt när åtgärden startar, så att Receive-åtgärder kan korreleras till process åtgärder med endast den här taggen. Det är användbart när du analyserar prestanda problem för att kontrol lera hur lång tid det tog att ta emot meddelandet.
 
 Effektivt sätt att logga taggar är att iterera över dem, så att lägga till taggar i föregående exempel ser ut så här 
@@ -211,17 +201,17 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 #### <a name="filtering-and-sampling"></a>Filtrering och sampling
 
 I vissa fall är det önskvärt att endast logga en del av händelserna för att minska prestanda och lagrings förbrukning. Du kan endast logga "stoppa"-händelser (som i föregående exempel) eller en procentuell sampling av händelserna. 
-`DiagnosticSource`Ange ett sätt att åstadkomma det `IsEnabled` med predikatet. Mer information finns i [Sammanhangs beroende filtrering i DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
+`DiagnosticSource`Ange ett sätt att åstadkomma det med `IsEnabled` predikatet. Mer information finns i [Sammanhangs beroende filtrering i DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
 
 `IsEnabled`kan anropas flera gånger för en enskild åtgärd för att minimera prestanda påverkan.
 
 `IsEnabled`anropas i följande ordning:
 
-1. `IsEnabled(<OperationName>, string entity, null)`till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Observera att det inte finns någon start eller stoppa i slutet. Använd den för att filtrera bort specifika åtgärder eller köer. Om motringningen `false`returnerar skickas inte händelser för åtgärden
+1. `IsEnabled(<OperationName>, string entity, null)`till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . Observera att det inte finns någon start eller stoppa i slutet. Använd den för att filtrera bort specifika åtgärder eller köer. Om motringningen returnerar `false` skickas inte händelser för åtgärden
 
-   * För åtgärderna "process" och "ProcessSession" får `IsEnabled(<OperationName>, string entity, Activity activity)` du också motringning. Använd den för att filtrera händelser baserat `activity.Id` på eller Taggar egenskaper.
+   * För åtgärderna "process" och "ProcessSession" får du också `IsEnabled(<OperationName>, string entity, Activity activity)` motringning. Använd den för att filtrera händelser baserat på `activity.Id` eller Taggar egenskaper.
   
-2. `IsEnabled(<OperationName>.Start)`till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Kontrollerar om start händelsen ska utlösas. Resultatet påverkar endast händelsen "starta", men ytterligare Instrumentation är inte beroende av det.
+2. `IsEnabled(<OperationName>.Start)`till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")` . Kontrollerar om start händelsen ska utlösas. Resultatet påverkar endast händelsen "starta", men ytterligare Instrumentation är inte beroende av det.
 
 Det finns inget `IsEnabled` för "stopp"-händelse.
 
@@ -229,7 +219,7 @@ Om åtgärds resultatet är ett undantag `IsEnabled("Microsoft.Azure.ServiceBus.
 
 Du kan `IsEnabled` även implementera provtagnings strategier. Sampling baserat på `Activity.Id` eller `Activity.RootId` säkerställer konsekvent provtagning över alla däck (så länge som det sprids av spårnings systemet eller med din egen kod).
 
-I närvaro av flera `DiagnosticSource` lyssnare för samma källa är det tillräckligt att bara en lyssnare accepterar händelsen, så `IsEnabled` det är inte säkert att den kan anropas.
+I närvaro av flera `DiagnosticSource` lyssnare för samma källa är det tillräckligt att bara en lyssnare accepterar händelsen, så det `IsEnabled` är inte säkert att den kan anropas.
 
 ## <a name="next-steps"></a>Nästa steg
 

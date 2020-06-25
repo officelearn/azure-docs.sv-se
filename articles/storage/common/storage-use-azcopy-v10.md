@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bf1303c6bb13677fdea73b2a1a707c655c58b7c1
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2cff9a427cf395414c5b0778f51f4587c8578478
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945672"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340916"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -300,7 +300,7 @@ Om du planerar att använda [Jenkins](https://jenkins.io/) för att köra skript
 
 ## <a name="use-azcopy-in-azure-storage-explorer"></a>Använd AzCopy i Azure Storage Explorer
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) använder AzCopy för att utföra alla data överförings åtgärder. Du kan använda [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om du vill dra nytta av prestanda fördelarna med AZCopy, men du föredrar att använda ett grafiskt användar gränssnitt i stället för kommando raden för att interagera med dina filer.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) använder AzCopy för att utföra alla dess data överförings åtgärder. Du kan använda [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om du vill dra nytta av prestanda fördelarna med AZCopy, men du föredrar att använda ett grafiskt användar gränssnitt i stället för kommando raden för att interagera med dina filer.
 
 Storage Explorer använder din konto nyckel för att utföra åtgärder, så när du har loggat in på Storage Explorer behöver du inte ange ytterligare autentiseringsuppgifter för auktorisering.
 

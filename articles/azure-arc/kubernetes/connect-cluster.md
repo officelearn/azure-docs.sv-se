@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 232d5e5a5f6efd6ddbd6124f78de4f4b8c1cd639
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676428"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341400"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -64,7 +64,7 @@ Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er funge
 * TCP på port 443-->`https://:443`
 * TCP på port 9418-->`git://:9418`
 
-| Slut punkt (DNS)                                                                                               | Description                                                                                                                 |
+| Slut punkt (DNS)                                                                                               | Beskrivning                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Krävs för att agenten ska kunna ansluta till Azure och registrera klustret                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data planens slut punkt för agenten för att push-överföra status och hämta konfigurations information                                      |
@@ -77,10 +77,8 @@ Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er funge
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 Registreringen är en asynkron process. Registreringen kan ta ungefär 10 minuter. Du kan övervaka registrerings processen med följande kommandon:

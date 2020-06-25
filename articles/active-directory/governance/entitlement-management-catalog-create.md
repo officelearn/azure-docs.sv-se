@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253d0dc945e0351b5c017739d081c567a139f5d1
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078445"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339571"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Skapa och hantera en katalog med resurser i hantering av Azure AD-rättigheter
 
@@ -57,7 +57,7 @@ Du kan också skapa en katalog med hjälp av Microsoft Graph.  En användare i e
 
 ## <a name="add-resources-to-a-catalog"></a>Lägga till resurser i en katalog
 
-Om du vill inkludera resurser i ett Access-paket måste resurserna finnas i en katalog. De typer av resurser som du kan lägga till är grupper, program och SharePoint Online-webbplatser. Grupperna kan vara molnbaserade Office 365-grupper eller molnbaserade Azure AD-säkerhetsgrupper. Programmen kan vara Azure AD Enterprise-program, inklusive både SaaS-program och dina egna program federerade till Azure AD. Platserna kan vara SharePoint Online-webbplatser eller SharePoint Online-webbplats samlingar.
+Om du vill inkludera resurser i ett Access-paket måste resurserna finnas i en katalog. De typer av resurser som du kan lägga till är grupper, program och SharePoint Online-webbplatser. Grupperna kan vara molnbaserad Microsoft 365 grupper eller molnbaserade Azure AD-säkerhetsgrupper. Programmen kan vara Azure AD Enterprise-program, inklusive både SaaS-program och dina egna program federerade till Azure AD. Platserna kan vara SharePoint Online-webbplatser eller SharePoint Online-webbplats samlingar.
 
 **Nödvändig roll:** Se de [roller som krävs för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 

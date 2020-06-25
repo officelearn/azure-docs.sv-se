@@ -1,25 +1,14 @@
 ---
 title: Använd PowerShell för att hantera Azure Service Bus-resurser | Microsoft Docs
 description: Den här artikeln förklarar hur du använder Azure PowerShell modul för att skapa och hantera Service Bus entiteter (namn områden, köer, ämnen, prenumerationer).
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 8605e269f09e4fedf7a61817a3634e75081593ca
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/23/2020
+ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890245"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341744"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Använd PowerShell för att hantera Service Bus-resurser
 
@@ -45,7 +34,7 @@ Det första steget är att använda PowerShell för att logga in på ditt Azure-
 
 När du arbetar med Service Bus-namnområden kan du använda cmdletarna [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)och [set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) .
 
-I det här exemplet skapas några lokala variabler i skriptet. `$Namespace` och `$Location`.
+I det här exemplet skapas några lokala variabler i skriptet. `$Namespace`och `$Location` .
 
 * `$Namespace`är namnet på Service Bus namn området som vi vill arbeta med.
 * `$Location`identifierar data centret där vi etablerar namn området.

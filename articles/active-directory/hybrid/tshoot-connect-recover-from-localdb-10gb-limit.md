@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: d6a61a4a26176ee353d1f182579e1f8d80a95aab
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60386932"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356006"
 ---
-# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från en LocalDB med en gräns på 10 GB
+# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB med en gräns på 10 GB
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller återställnings stegen.
 
 ## <a name="symptoms"></a>Symtom
@@ -66,15 +66,15 @@ Namnet på databasen som skapades för Azure AD Connect är **ADSync**. Om du vi
 * Det Sync Service-konto som används som kontext för Azure AD Connect-synkroniseringstjänsten.
 * Den lokala gruppen ADSyncAdmins som skapades under installationen.
 
-1. Säkerhetskopiera databasen genom `%ProgramFiles%\Microsoft Azure AD Sync\Data` att kopiera **AdSync. mdf** -och **ADSync_log. ldf** -filer som finns på en säker plats.
+1. Säkerhetskopiera databasen genom att kopiera **AdSync. mdf** -och **ADSync_log. ldf** -filer som finns på `%ProgramFiles%\Microsoft Azure AD Sync\Data` en säker plats.
 
 2. Starta en ny PowerShell-session.
 
-3. Navigera till mapp `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
+3. Navigera till mapp `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn` .
 
-4. Starta **SQLCMD** -verktyget genom att köra `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`kommandot med autentiseringsuppgifterna för en sysadmin eller databasen dbo.
+4. Starta **SQLCMD** -verktyget genom att köra kommandot `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>` med autentiseringsuppgifterna för en sysadmin eller databasen dbo.
 
-5. För att krympa databasen går du till SQLCMD-prompten (1> `DBCC Shrinkdatabase(ADSync,1);`) och anger `GO` , följt av nästa rad.
+5. För att krympa databasen går du till SQLCMD-prompten (1>) och anger `DBCC Shrinkdatabase(ADSync,1);` , följt av `GO` Nästa rad.
 
 6. Försök att starta synkroniseringstjänsten igen om åtgärden lyckas. Om du kan starta synkroniseringstjänsten går du till steget [ta bort körnings historik data](#delete-run-history-data) . Annars kontaktar du supporten.
 
@@ -87,7 +87,7 @@ Som standard behåller Azure AD Connect upp till sju dagar till att köra histor
 
 3. Under **åtgärder**väljer du **Rensa körningar**...
 
-4. Du kan antingen välja **Rensa alla körningar** eller **Rensa körningar innan... alternativet \<>s datum** . Vi rekommenderar att du börjar genom att rensa körnings historik data som är äldre än två dagar. Om du fortsätter att köra fel i DB-storlek väljer du alternativet **Rensa alla körningar** .
+4. Du kan antingen välja **Rensa alla körningar** eller **Rensa körningar före. \<date> ..** alternativet. Vi rekommenderar att du börjar genom att rensa körnings historik data som är äldre än två dagar. Om du fortsätter att köra fel i DB-storlek väljer du alternativet **Rensa alla körningar** .
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Förkorta kvarhållningsperioden för körning av historik data
 Det här steget är att minska sannolikheten för att det ska gå att köra problem med 10 GB-gränsen efter flera cykler.

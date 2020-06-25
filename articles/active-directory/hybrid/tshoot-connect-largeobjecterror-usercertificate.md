@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "62095497"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356176"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect synkronisering: hantera LargeObject-fel som orsakas av userCertificate-attribut
 
@@ -108,7 +108,7 @@ Det bör finnas en befintlig Synkroniseringsregel som är aktive rad och konfigu
     | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | SKEPPNINGSKVANTITETEN | Användare |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | Sant |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Steg 3. Skapa regeln för utgående synkronisering krävs
 Den nya synkroniseringsregeln måste ha samma **omfattnings filter** och **högre prioritet** än den befintliga synkroniseringsregeln. Detta säkerställer att den nya synkroniseringsregeln gäller för samma uppsättning objekt som den befintliga synkroniseringsregeln och åsidosätter den befintliga synkroniseringsregeln för attributet userCertificate. Så här skapar du en Synkroniseringsregel:
@@ -117,7 +117,7 @@ Den nya synkroniseringsregeln måste ha samma **omfattnings filter** och **högr
 
     | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Name | *Ange ett namn* | T. ex. *"ut till AAD – anpassad åsidosättning för userCertificate"* |
+    | Namn | *Ange ett namn* | T. ex. *"ut till AAD – anpassad åsidosättning för userCertificate"* |
     | Beskrivning | *Ange en beskrivning* | T. ex. *"If userCertificate-attribut har fler än 15 värden, exportera null".* |
     | Anslutet system | *Välj Azure AD-anslutning* |
     | Ansluten system objekt typ | **användarvänlig** | |

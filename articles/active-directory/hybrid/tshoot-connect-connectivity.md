@@ -11,32 +11,32 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a329ec32e241d88a56fc7031904777888ac194ae
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610453"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356414"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Felsöka Azure AD-anslutning
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker anslutnings problem. De här problemen visas förmodligen i en miljö med en proxyserver.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Felsöka anslutnings problem i installations guiden
-Azure AD Connect använder modern autentisering (med ADAL-biblioteket) för autentisering. Installations guiden och Synkroniseringsmotorn kräver att Machine. config är korrekt konfigurerad eftersom dessa två är .NET-program.
+Azure AD Connect använder modern autentisering (med ADAL-biblioteket) för autentisering. Installations guiden och Synkroniseringsmotorn kräver att machine.config konfigureras korrekt eftersom dessa två är .NET-program.
 
 I den här artikeln visar vi hur Fabrikam ansluter till Azure AD via dess proxy. Proxyservern heter fabrikamproxy och använder port 8080.
 
-Först måste vi kontrol lera att [**Machine. config**](how-to-connect-install-prerequisites.md#connectivity) är korrekt konfigurerad.
+Först måste vi kontrol lera att [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) har kon figurer ATS korrekt.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
-> I vissa andra Bloggar än Microsoft är det dokumenterat att ändringar ska göras i MIIServer. exe. config i stället. Den här filen skrivs dock över vid varje uppgradering, så även om den fungerar under den första installationen slutar systemet att fungera vid första uppgraderingen. Av den anledningen är rekommendationen att uppdatera Machine. config i stället.
+> I vissa andra Bloggar än Microsoft är det dokumenterat att ändringar ska göras i miiserver.exe.config i stället. Den här filen skrivs dock över vid varje uppgradering, så även om den fungerar under den första installationen slutar systemet att fungera vid första uppgraderingen. Av den anledningen är rekommendationen att uppdatera machine.config i stället.
 >
 >
 
@@ -62,7 +62,7 @@ Följande problem är de vanligaste felen som du stöter på i installations gui
 Det här felet visas när själva guiden inte kan komma åt proxyn.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
-* Om det här felet visas kontrollerar du att [Machine. config](how-to-connect-install-prerequisites.md#connectivity) har kon figurer ATS korrekt.
+* Om det här felet visas kontrollerar du att [machine.config](how-to-connect-install-prerequisites.md#connectivity) har kon figurer ATS korrekt.
 * Om det ser korrekt ut följer du stegen i [Verifiera proxyanslutningar](#verify-proxy-connectivity) för att se om problemet finns utanför guiden.
 
 ### <a name="a-microsoft-account-is-used"></a>En Microsoft-konto används
@@ -76,27 +76,27 @@ Det här felet visas om det **https://secure.aadcdn.microsoftonline-p.com** inte
 * Om det här felet visas kontrollerar du att slut punkts **Secure.aadcdn.microsoftonline-p.com** har lagts till i proxyn.
 
 ### <a name="the-password-cannot-be-verified"></a>Det går inte att verifiera lösen ordet
-Om installations guiden lyckas ansluta till Azure AD, men själva lösen ordet inte kan verifieras visas det här felet: ![felaktigt lösen ord.](./media/tshoot-connect-connectivity/badpassword.png)
+Om installations guiden lyckas ansluta till Azure AD, men själva lösen ordet inte kan verifieras visas det här felet: ![ felaktigt lösen ord.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * Är lösen ordet ett tillfälligt lösen ord och måste ändras? Är det faktiskt rätt lösen ord? Försök att logga in på `https://login.microsoftonline.com` (på en annan dator än den Azure AD Connect servern) och kontrol lera att kontot är användbart.
 
 ### <a name="verify-proxy-connectivity"></a>Verifiera proxy-anslutning
-Du kan kontrol lera om den Azure AD Connect servern har faktisk anslutning till proxyn och Internet genom att använda en PowerShell för att se om proxyn tillåter webb förfrågningar eller inte. Kör `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`i PowerShell-prompten. (Tekniskt det första anropet är `https://login.microsoftonline.com` till och denna URI fungerar också, men den andra URI: n är snabbare att svara.)
+Du kan kontrol lera om den Azure AD Connect servern har faktisk anslutning till proxyn och Internet genom att använda en PowerShell för att se om proxyn tillåter webb förfrågningar eller inte. Kör i PowerShell-prompten `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc` . (Tekniskt det första anropet är till `https://login.microsoftonline.com` och denna URI fungerar också, men den andra URI: n är snabbare att svara.)
 
-PowerShell använder konfigurationen i Machine. config för att kontakta proxyn. Inställningarna i WinHTTP/netsh bör inte påverka dessa cmdletar.
+PowerShell använder konfigurationen i machine.config för att kontakta proxyn. Inställningarna i WinHTTP/netsh bör inte påverka dessa cmdletar.
 
-Om proxyservern har kon figurer ATS korrekt ska du få statusen lyckades: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Om proxyservern har kon figurer ATS korrekt ska du få statusen lyckades: ![ proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Om du **inte kan ansluta till fjärrservern**försöker PowerShell att göra ett direkt anrop utan att använda proxyn eller så är DNS inte korrekt konfigurerat. Kontrol lera att **Machine. config** -filen är korrekt konfigurerad.
+Om du **inte kan ansluta till fjärrservern**försöker PowerShell att göra ett direkt anrop utan att använda proxyn eller så är DNS inte korrekt konfigurerat. Kontrol lera att **machine.config** -filen är korrekt konfigurerad.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
-Om proxyservern inte är korrekt konfigurerad får du ett fel meddelande: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
-![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
+Om proxyservern inte är korrekt konfigurerad får du ett fel meddelande: ![ proxy200 ](./media/tshoot-connect-connectivity/invokewebrequest403.png)
+ ![ proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
 | Fel | Feltext | Kommentar |
 | --- | --- | --- |
 | 403 |Förbjudet |Proxyn har inte öppnats för den begärda URL: en. Gå tillbaka till proxykonfigurationen och kontrol lera att [webb adresserna](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) har öppnats. |
-| 407 |Proxyautentisering krävs |Proxyservern krävde inloggning och inget har angetts. Om proxyservern kräver autentisering måste du se till att den här inställningen är konfigurerad i Machine. config. Kontrol lera också att du använder domän konton för användaren som kör guiden och för tjänst kontot. |
+| 407 |Proxyautentisering krävs |Proxyservern krävde inloggning och inget har angetts. Om proxyservern kräver autentisering måste du se till att den här inställningen är konfigurerad i machine.config. Kontrol lera också att du använder domän konton för användaren som kör guiden och för tjänst kontot. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Timeout-inställning för proxy inaktivitet
 När Azure AD Connect skickar en begäran om export till Azure AD kan Azure AD ta upp till 5 minuter att bearbeta begäran innan du genererar ett svar. Detta kan inträffa särskilt om det finns ett antal grupp objekt med stora grupp medlemskap som ingår i samma export förfrågan. Se till att tids gränsen för proxyns inaktivitet är större än 5 minuter. Annars kan ett tillfälligt anslutnings problem med Azure AD observeras på den Azure AD Connect servern.
@@ -104,7 +104,7 @@ När Azure AD Connect skickar en begäran om export till Azure AD kan Azure AD t
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Kommunikations mönstret mellan Azure AD Connect och Azure AD
 Om du har följt alla dessa föregående steg och fortfarande inte kan ansluta kan du nu börja titta på nätverks loggar. Det här avsnittet används för att dokumentera ett mönster för normal och lyckad anslutning. Den visar också vanliga röda sill som kan ignoreras när du läser nätverks loggarna.
 
-* Det finns anrop till `https://dc.services.visualstudio.com`. Du måste inte ha denna URL öppen i proxyn för att installationen ska lyckas och dessa anrop kan ignoreras.
+* Det finns anrop till `https://dc.services.visualstudio.com` . Du måste inte ha denna URL öppen i proxyn för att installationen ska lyckas och dessa anrop kan ignoreras.
 * Du ser att DNS-matchningen listar de faktiska värdarna i DNS-namnområdet nsatc.net och andra namn områden som inte är under microsoftonline.com. Det finns dock inga webb tjänst begär Anden på de faktiska Server namnen och du behöver inte lägga till dessa URL: er i proxyn.
 * Slut punkterna adminwebservice och provisioningapi är identifierings slut punkter och används för att hitta den faktiska slut punkten som ska användas. Dessa slut punkter skiljer sig åt beroende på din region.
 
@@ -122,7 +122,7 @@ Här är en dumpning från en faktisk proxy-logg och sidan installations guide f
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-Relay*. microsoftonline.com:443 |
 
-**Konfigurera**
+**I**
 
 | Tid | URL |
 | --- | --- |

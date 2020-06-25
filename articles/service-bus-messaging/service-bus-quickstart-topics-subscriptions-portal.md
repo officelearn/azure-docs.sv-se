@@ -1,19 +1,16 @@
 ---
 title: Använd Azure Portal för att skapa Service Bus ämnen och prenumerationer
 description: 'Snabb start: i den här snabb starten får du lära dig hur du skapar ett Service Bus ämne och prenumerationer på det avsnittet med hjälp av Azure Portal.'
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: a1e330a62a58daaa3fb2a2e8758d14791a3208c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc84b9ec9cc71d35e31a5c11ae0dd0d2228621da
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76260828"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341076"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Snabb start: Använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på ämnet
 I den här snabb starten använder du Azure Portal för att skapa ett Service Bus ämne och sedan skapa prenumerationer på det avsnittet. 

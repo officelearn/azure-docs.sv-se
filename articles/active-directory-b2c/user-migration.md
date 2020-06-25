@@ -1,7 +1,7 @@
 ---
 title: Metoder för användarmigrering
 titleSuffix: Azure AD B2C
-description: Migrera användar konton från en annan identitetsprovider till Azure AD B2C med hjälp av Mass import eller sömlösa metoder för migrering.
+description: Migrera användar konton från en annan identitetsprovider till Azure AD B2C med hjälp av metoderna för migrering eller sömlös migrering.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a606335a17a9c8f4796b1ce813a1fd891963e0f
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332339"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355394"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrera användare till Azure AD B2C
 
-Att migrera från en annan identitetsprovider till Azure Active Directory B2C (Azure AD B2C) kan också kräva att befintliga användar konton migreras. Två metoder för migrering beskrivs här, *Mass import* och *sömlös migrering*. Med båda metoderna måste du skriva ett program eller skript som använder [Microsoft Graph-API: et](manage-user-accounts-graph-api.md) för att skapa användar konton i Azure AD B2C.
+Att migrera från en annan identitetsprovider till Azure Active Directory B2C (Azure AD B2C) kan också kräva att befintliga användar konton migreras. Två metoder för migrering beskrivs här, *för migrering* och *sömlös migrering*. Med båda metoderna måste du skriva ett program eller skript som använder [Microsoft Graph-API: et](manage-user-accounts-graph-api.md) för att skapa användar konton i Azure AD B2C.
 
-## <a name="bulk-import"></a>Mass import
+## <a name="pre-migration"></a>Före migrering
 
-I Mass import flödet utför ditt migreringsjobb följande steg för varje användar konto:
+I flödet för migrering utför migreringen följande steg för varje användar konto:
 
 1. Läs användar kontot från den gamla identitets leverantören, inklusive dess aktuella autentiseringsuppgifter (användar namn och lösen ord).
 1. Skapa ett motsvarande konto i din Azure AD B2C katalog med de aktuella autentiseringsuppgifterna.
 
-Använd Mass import flödet i någon av dessa två situationer:
+Använd för inmigrerings flödet i någon av dessa två situationer:
 
 - Du har åtkomst till en användares autentiseringsuppgifter för oformaterad text (användar namn och lösen ord).
 - Autentiseringsuppgifterna är krypterade, men du kan dekryptera dem.
@@ -43,25 +43,25 @@ Använd det sömlösa migreringsjobbet om lösen ord för klartext i den gamla i
 - Lösen ordet lagras i ett enkelriktat krypterat format, t. ex. med en hash-funktion.
 - Lösen ordet lagras av den äldre identitets leverantören på ett sätt som du inte kan komma åt. Till exempel när identitets leverantören verifierar autentiseringsuppgifter genom att anropa en webb tjänst.
 
-Det sömlösa migreringsjobbet kräver fortfarande Mass migrering av användar konton, men använder sedan en [anpassad princip](custom-policy-get-started.md) för att fråga en [REST API](custom-policy-rest-api-intro.md) (som du skapar) för att ange varje användares lösen ord vid första inloggningen.
+Det sömlösa migreringsjobbet kräver fortfarande för migrering av användar konton, men använder sedan en [anpassad princip](custom-policy-get-started.md) för att fråga en [REST API](custom-policy-rest-api-intro.md) (som du skapar) för att ange varje användares lösen ord vid första inloggningen.
 
-Det sömlösa migreringsjobbet har därför två faser: *Mass import* och *ange autentiseringsuppgifter*.
+Det sömlösa migreringsjobbet har därför två faser: *för migrering* och *ange autentiseringsuppgifter*.
 
-### <a name="phase-1-bulk-import"></a>Fas 1: Mass import
+### <a name="phase-1-pre-migration"></a>Fas 1: för migrering
 
 1. Ditt program för migrering läser användar kontona från den gamla identitets leverantören.
 1. Programmet för migrering skapar motsvarande användar konton i din Azure AD B2C katalog, men *anger inte lösen ord*.
 
 ### <a name="phase-2-set-credentials"></a>Fas 2: ange autentiseringsuppgifter
 
-När Mass migrering av kontona har slutförts, den anpassade principen och REST API sedan utföra följande när en användare loggar in:
+När du har migrerat kontona är det en anpassad princip och REST API sedan utföra följande när en användare loggar in:
 
 1. Läs Azure AD B2C användar kontot som motsvarar den angivna e-postadressen.
 1. Kontrol lera om kontot är flaggat för migrering genom att utvärdera ett booleskt tilläggs attribut.
-    - Om attributet för tillägg returnerar `True`, anropar du REST API för att verifiera lösen ordet mot den äldre identitets leverantören.
+    - Om attributet för tillägg returnerar `True` , anropar du REST API för att verifiera lösen ordet mot den äldre identitets leverantören.
       - Om REST API anger att lösen ordet är felaktigt, returnerar du ett eget fel för användaren.
-      - Om REST API anger att lösen ordet är korrekt skriver du lösen ordet till Azure AD B2C-kontot och ändrar attributet Boolean-tillägg till `False`.
-    - Om attributet Boolean-tillägg returnerar `False`, Fortsätt inloggnings processen som vanligt.
+      - Om REST API anger att lösen ordet är korrekt skriver du lösen ordet till Azure AD B2C-kontot och ändrar attributet Boolean-tillägg till `False` .
+    - Om attributet Boolean-tillägg returnerar `False` , Fortsätt inloggnings processen som vanligt.
 
 Om du vill se ett exempel på en anpassad princip och REST API går du till [exemplet på sömlös](https://aka.ms/b2c-account-seamless-migration) användarmigrering på GitHub.
 

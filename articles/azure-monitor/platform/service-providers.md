@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: b23cc2f69e78135998dcaa8a182f3d3ccc0eba82
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190416"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340884"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Azure Monitor loggar för tjänst leverantörer
 
@@ -64,7 +64,7 @@ Fördelarna med den centraliserade arkitekturen är:
 Nack delarna med den centraliserade arkitekturen är:
 
 * Den här arkitekturen kan bara användas för agentbaserade VM-data. den kommer inte att använda PaaS, SaaS och Azures infrastruktur data källor.
-* Det kan vara svårt att separera data mellan kunderna när de slås samman till en enda arbets yta. Det enda bästa sättet att göra detta är att använda datorns fullständigt kvalificerade domän namn (FQDN) eller via Azures prenumerations-ID. 
+* Det kan vara svårt att separera data mellan kunderna när de slås samman till en enda arbets yta. Det enda bästa sättet att göra detta är att använda datorns fullständigt kvalificerade domän namn (FQDN) eller via Azures prenumerations-ID.
 * Alla data från alla kunder kommer att lagras i samma region med en enda faktura och samma inställningar för kvarhållning och konfiguration.
 * Azure Fabric-och PaaS-tjänster som Azure-diagnostik och Azures gransknings loggar kräver att arbets ytan finns i samma klient organisation som resursen, och kan därför inte skicka loggarna till den centrala arbets ytan.
 * Alla VM-agenter från alla kunder kommer att autentiseras till den centrala arbets ytan med samma arbetsyte-ID och nyckel. Det finns ingen metod för att blockera loggar från en specifik kund utan att avbryta andra kunder.
@@ -77,13 +77,13 @@ Det finns två alternativ för att implementera loggar på en central plats:
 
 1. Central arbets yta: tjänste leverantören kan skapa en arbets yta i sin klient och använda ett skript som använder [fråge-API](https://dev.loganalytics.io/) [: t med data insamlings-API: et](../../azure-monitor/platform/data-collector-api.md) för att hämta data från de olika arbets ytorna till den här centrala platsen. Ett annat alternativ än ett skript är att använda [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI som en central plats: Power BI kan fungera som den centrala platsen när de olika arbets ytorna exporterar data till den med hjälp av integreringen mellan arbets ytan Log Analytics och [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI som en central plats: Power BI kan fungera som den centrala platsen när de olika arbets ytorna exporterar data till den med hjälp av integreringen mellan arbets ytan Log Analytics och [Power BI](../../azure-monitor/platform/powerbi.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Automatisera skapandet och konfigurationen av arbets ytor med [Resource Manager-mallar](template-workspace-configuration.md)
 
-* Automatisera skapandet av arbets ytor med [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+* Automatisera skapandet av arbets ytor med [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
 
 * Använd [aviseringar](../../azure-monitor/platform/alerts-overview.md) för att integrera med befintliga system
 

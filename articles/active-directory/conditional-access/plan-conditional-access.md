@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff25cb15257302ac806aa9480d6d7b911eb36d06
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253298"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339729"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
 
@@ -216,7 +216,7 @@ Med ramverket för villkorlig åtkomst får du en bra flexibel konfiguration. Me
 
 ### <a name="minimize-the-number-of-ca-policies"></a>Minimera antalet CA-principer
 
-Att skapa en princip för varje app är inte effektivt och leder till svårt administration. Villkorlig åtkomst tillämpar bara de första 195 principerna per användare. Vi rekommenderar att du analyserar dina appar och grupperar dem till program som har samma resurs krav för samma användare. Till exempel, om alla Office 365-appar eller alla HR-appar har samma krav för samma användare, skapar du en enskild princip och inkluderar alla appar som den gäller för. 
+Att skapa en princip för varje app är inte effektivt och leder till svårt administration. Villkorlig åtkomst tillämpar bara de första 195 principerna per användare. Vi rekommenderar att du analyserar dina appar och grupperar dem till program som har samma resurs krav för samma användare. Om till exempel alla Microsoft 365 appar eller alla HR-appar har samma krav för samma användare, skapar du en enskild princip och inkluderar alla appar som den gäller för. 
 
 ### <a name="set-up-emergency-access-accounts"></a>Konfigurera åtkomst konton för nöd situationer
 
@@ -380,7 +380,7 @@ Vissa organisationer har test klienter för detta ändamål. Det kan dock vara s
 
 Test planen är viktig för att få en jämförelse mellan de förväntade resultaten och de faktiska resultaten. Du bör alltid ha en förväntad händelse innan du testar något. I följande tabell visas exempel test fall. Justera scenarier och förväntade resultat baserat på hur dina CA-principer är konfigurerade.
 
-| Policy| Scenario| Förväntat resultat |
+| Princip| Scenario| Förväntat resultat |
 | - | - | - |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen på en betrodd plats/ett arbete| Användaren uppmanas inte att MFA |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen men inte på en betrodd plats/arbete| Användaren uppmanas att MFA och kan logga in |

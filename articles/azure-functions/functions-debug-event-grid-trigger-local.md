@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74227071"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340863"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Lokal felsökning av Event Grid-utlösare i Azure Functions
 
@@ -34,7 +34,7 @@ När funktionen har skapats öppnar du kod filen och kopierar URL: en som är ko
 
 ![Kopierings plats](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-copy-location.png)
 
-Ange sedan en Bryt punkt på raden som börjar med `log.LogInformation`.
+Ange sedan en Bryt punkt på raden som börjar med `log.LogInformation` .
 
 ![Ange Bryt punkt](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
 
@@ -62,7 +62,7 @@ Kopiera **https** -URL: en som genererades när *ngrok* körs. Det här värdet 
 
 ![Lägg till lagrings konto händelse](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-I fönstret *händelser* klickar du på knappen **händelse prenumeration** . I fönstret *jämn prenumeration* klickar du på list rutan *slut punkts typ* och väljer **Web Hook**.
+I fönstret *händelser* klickar du på knappen **händelse prenumeration** . I fönstret *händelse prenumeration* klickar du på list rutan *slut punkts typ* och väljer **Web Hook**.
 
 ![Välj prenumerations typ](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
@@ -70,7 +70,7 @@ När du har konfigurerat slut punkts typen klickar du på **Välj en slut punkt*
 
 ![Välj typ av slut punkt](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
 
-Värdet för *prenumerantens slut punkt* består av tre olika värden. Prefixet är HTTPS-URL: en som genereras av *ngrok*. Resten av URL: en kommer från den URL som finns i funktions kod filen, med funktions namnet tillagt i slutet. Från och med URL: en från funktions kod filen ersätts `http://localhost:7071` *ngrok* URL och funktions namnet ersätts `{functionname}`.
+Värdet för *prenumerantens slut punkt* består av tre olika värden. Prefixet är HTTPS-URL: en som genereras av *ngrok*. Resten av URL: en kommer från den URL som finns i funktions kod filen, med funktions namnet tillagt i slutet. Från och med URL: en från funktions kod filen ersätts *ngrok* URL `http://localhost:7071` och funktions namnet ersätts `{functionname}` .
 
 Följande skärm bild visar hur den sista URL: en ska se ut:
 

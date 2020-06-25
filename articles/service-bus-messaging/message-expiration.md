@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus-förfallo datum för meddelande
 description: I den här artikeln beskrivs förfallo datum och tid för Azure Service Bus meddelanden. Efter en sådan deadline levereras meddelandet inte längre.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: e86c92fa1cfb13929d5617502224f479709efdd3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ca789be91e835576ec06a422bdbbbf25eb775dac
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76756342"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341207"
 ---
 # <a name="message-expiration-time-to-live"></a>Förfallodatum för meddelanden (Time to Live)
 
@@ -26,7 +16,7 @@ Nytto lasten i ett meddelande, eller ett kommando eller en fråga om att ett med
 
 För utvecklings-och test miljöer där köer och ämnen ofta används i samband med partiella körningar av program eller program delar, är det också önskvärt att insamlade test meddelanden automatiskt samlas in automatiskt så att nästa test körning kan starta ren.
 
-Förfallo datum för enskilda meddelanden kan styras genom att ange system egenskapen [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) , som anger en relativ varaktighet. Förfallo datumet blir en absolut omedelbarhet när meddelandet är i kö i entiteten. Vid detta tillfälle tar egenskapen [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) med värdet [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). TTL-inställningen (Time-to-Live) på ett Service Broker-meddelande är inte tvingande när det inte finns några klienter aktivt som lyssnar.
+Förfallo datum för enskilda meddelanden kan styras genom att ange system egenskapen [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) , som anger en relativ varaktighet. Förfallo datumet blir en absolut omedelbarhet när meddelandet är i kö i entiteten. Vid detta tillfälle tar egenskapen [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) med värdet [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc)  +  [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). TTL-inställningen (Time-to-Live) på ett Service Broker-meddelande är inte tvingande när det inte finns några klienter aktivt som lyssnar.
 
 Tidigare **ExpiresAtUtc** -meddelanden blir inkompatibla för hämtning. Förfallo tiden påverkar inte meddelanden som för närvarande är låsta för leverans. dessa meddelanden hanteras fortfarande som vanligt. Om låset går ut eller meddelandet överges, börjar giltighets tiden att gälla omedelbart.
 
@@ -74,7 +64,7 @@ Det här är vad som anses vara inaktivitet i entiteter (köer, ämnen och prenu
     - Inga sändningar  
     - Inga uppdateringar av ämnet  
     - Inga schemalagda meddelanden 
-- Subscriptions
+- Prenumerationer
     - Inga mottagningar  
     - Inga uppdateringar av prenumerationen  
     - Inga nya regler har lagts till i prenumerationen  
@@ -87,5 +77,5 @@ Det här är vad som anses vara inaktivitet i entiteter (köer, ämnen och prenu
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

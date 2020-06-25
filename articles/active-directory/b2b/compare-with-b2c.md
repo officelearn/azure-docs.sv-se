@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9006a70ae941abb700412a7c596627939c994028
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c45aae35c7c1cf2fbde436303a2ac000dfdd5ec
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587518"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339613"
 ---
 # <a name="compare-solutions-for-external-identities-in-azure-active-directory"></a>Jämför lösningar för externa identiteter i Azure Active Directory
 
@@ -36,11 +36,11 @@ Tabellen nedan innehåller en detaljerad jämförelse av de olika scenarier som 
 
 | Program för flera innehavare  | Samarbete mellan externa användare (B2B) | Appar för konsumenter eller kunder (B2C)  |
 | ---- | --- | --- |
-| Primärt scenario: Enterprise-program vara som en tjänst (SaaS) | Primärt scenario: samarbete med Microsoft-program (Office 365, teams,...) eller din egen samarbets program vara.  | Primärt scenario: transaktionella program som använder anpassade program som har utvecklats.   |
+| Primärt scenario: Enterprise-program vara som en tjänst (SaaS) | Primärt scenario: samarbete med Microsoft-program (Microsoft 365, teams,...) eller din egen samarbets program vara.  | Primärt scenario: transaktionella program som använder anpassade program som har utvecklats.   |
 | Avsett för: organisationer som vill ge program vara till många företags kunder.    | Avsedd för: organisationer som vill kunna autentisera användare från en partnerorganisation oavsett identitetsprovider.    | Avsett för: bjuda in kunder i dina mobil-och webbappar, oavsett om de är individer, institutionella eller organisatoriska kunder till en Azure AD-katalog separat från din organisations katalog. |
 | Identiteter som stöds: anställda med Azure AD-konton. | Identiteter som stöds: anställda med arbets- eller skolkonton, partners med arbets- eller skolkonton eller valfria e-postadresser. Stödjer snart direkt federation.      | Identiteter som stöds: konsumentanvändare med lokala programkonton (e-postadresser eller användarnamn) eller någon social identitet med direkt federation som stöds.       |
 | Externa användare hanteras i sin egen katalog, isolerade från katalogen där programmet registrerades.    | Externa användare hanteras i samma katalog som anställda, men kommenteras särskilt. De kan hanteras på samma sätt som anställda, de kan läggas till i samma grupper och så vidare.    | Externa användare hanteras i programkatalogen. De hanteras separat från organisationens anställde och partner katalog (om det finns några).  |
-| Enkel inloggning: SSO till alla Azure AD-anslutna appar stöds.          | Enkel inloggning: SSO till alla Azure AD-anslutna appar stöds. Du kan till exempel ge åtkomst till Office 365 eller lokala appar och till andra SaaS-appar som Salesforce eller Workday.    | Enkel inloggning: SSO till kundägda appar inom Azure AD B2C-klienter stöds. SSO till Office 365 eller andra Microsoft SaaS-appar stöds inte.    |
+| Enkel inloggning: SSO till alla Azure AD-anslutna appar stöds.          | Enkel inloggning: SSO till alla Azure AD-anslutna appar stöds. Du kan till exempel ge åtkomst till Microsoft 365 eller lokala appar och till andra SaaS-appar som Salesforce eller Workday.    | Enkel inloggning: SSO till kundägda appar inom Azure AD B2C-klienter stöds. SSO till Microsoft 365 eller till andra Microsoft SaaS-appar stöds inte.    |
 | Kund livs cykel: hanteras av användarens hem organisation.      | Livscykel för partner: hanteras av värden/den inbjudande organisationen.    | Livscykel för kunden: självbetjäning eller hanteras av programmet.      |
 | Säkerhets princip och efterlevnad: hanteras av värd/bjuda in organisation (till exempel med [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).           | Säkerhets princip och efterlevnad: hanteras av värd/bjuda in organisation (till exempel med [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)). | Säkerhetsprincip och efterlevnad: hanteras av programmet.        |
 | Varumärke: värd/Bjud in organisationens varumärke används.   | Varumärke: värd/Bjud in organisationens varumärke används.    | Anpassning: hanteras av programmet. Brukar vanligtvis vara produktanpassad med organisationens varumärke intonat i bakgrunden.   |

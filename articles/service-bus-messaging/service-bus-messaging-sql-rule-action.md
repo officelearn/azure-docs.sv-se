@@ -1,25 +1,14 @@
 ---
 title: SQLRuleAction syntax-referens i Azure Service Bus
 description: Den här artikeln innehåller en referens för SQLRuleAction-syntax. Åtgärderna skrivs i SQL-språkbaserad syntax som utförs mot ett Broker-meddelande.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759636"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341583"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referens för SQLRuleAction-syntax för Azure Service Bus
 
@@ -65,9 +54,9 @@ Den här artikeln innehåller information om grammatik i SQL-regel.
   
 ## <a name="arguments"></a>Argument  
   
--   `<scope>`är en valfri sträng som anger omfånget för `<property_name>`. Giltiga värden är `sys` eller `user`. `sys` Värdet anger systemets omfattning där `<property_name>` är ett offentligt egenskaps namn för [klassen BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`anger användar omfång där `<property_name>` är en nyckel för [BrokeredMessage-klass](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) ord listan. `user`omfånget är standard omfånget om `<scope>` inget värde anges.  
+-   `<scope>`är en valfri sträng som anger omfånget för `<property_name>` . Giltiga värden är `sys` eller `user` . `sys`Värdet anger systemets omfattning där `<property_name>` är ett offentligt egenskaps namn för [klassen BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`anger användar omfång där `<property_name>` är en nyckel för [BrokeredMessage-klass](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) ord listan. `user`omfånget är standard omfånget om `<scope>` inget värde anges.  
   
-### <a name="remarks"></a>Anmärkningar  
+### <a name="remarks"></a>Kommentarer  
 
 Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan ett försök att få åtkomst till en icke-befintlig användar egenskap inte är ett fel. I stället utvärderas en icke-befintlig användar egenskap internt som ett okänt värde. Ett okänt värde behandlas särskilt under utvärderingen av operatorn.  
   
@@ -98,7 +87,7 @@ Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan 
   
  En `<regular_identifier>` får inte vara ett reserverat nyckelord.  
   
- `<delimited_identifier>`är en sträng som omges av vänster/höger hak paren tes ([]). En höger hak paren tes visas som två höger hak paren tes. Följande är exempel på `<delimited_identifier>`:  
+ `<delimited_identifier>`är en sträng som omges av vänster/höger hak paren tes ([]). En höger hak paren tes visas som två höger hak paren tes. Följande är exempel på `<delimited_identifier>` :  
   
 ```  
 [Property With Space]  
@@ -106,7 +95,7 @@ Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan 
   
 ```  
   
- `<quoted_identifier>`är en sträng som omges av dubbla citat tecken. Ett dubbelt citat tecken i identifierare representeras som två dubbla citat tecken. Du bör inte använda citerade identifierare eftersom det enkelt kan förväxlas med en strängkonstant. Använd en avgränsad identifierare om möjligt. Följande är ett exempel på `<quoted_identifier>`:  
+ `<quoted_identifier>`är en sträng som omges av dubbla citat tecken. Ett dubbelt citat tecken i identifierare representeras som två dubbla citat tecken. Du bör inte använda citerade identifierare eftersom det enkelt kan förväxlas med en strängkonstant. Använd en avgränsad identifierare om möjligt. Följande är ett exempel på `<quoted_identifier>` :  
   
 ```  
 "Contoso & Northwind"  
@@ -119,7 +108,7 @@ Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan 
       <expression>  
 ```  
   
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
   
  `<pattern>`måste vara ett uttryck som utvärderas som en sträng. Den används som ett mönster för operatorn LIKE.      Den kan innehålla följande jokertecken:  
   
@@ -134,11 +123,11 @@ Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan 
       <expression>  
 ```  
   
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
   
  `<escape_char>`måste vara ett uttryck som utvärderas som en sträng med längden 1. Det används som ett escape-tecken för operatorn LIKE.  
   
- Till exempel `property LIKE 'ABC\%' ESCAPE '\'` matchningar `ABC%` i stället för en sträng som börjar `ABC`med.  
+ Till exempel `property LIKE 'ABC\%' ESCAPE '\'` matchningar `ABC%` i stället för en sträng som börjar med `ABC` .  
   
 ## <a name="constant"></a>konstant  
   
@@ -160,7 +149,7 @@ Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan 
   
 -   `<decimal_constant>`är en sträng med tal som inte omges av citat tecken och som innehåller ett decimal tecken. Värdena lagras som `System.Double` internt och följer samma omfång/precision.  
   
-     I en framtida version kan det här numret lagras i en annan datatyp för att stödja exakta semantiska tal, så du bör inte förlita dig på det faktum att den underliggande data `System.Double` typen `<decimal_constant>`är för.  
+     I en framtida version kan det här numret lagras i en annan datatyp för att stödja exakta semantiska tal, så du bör inte förlita dig på det faktum att den underliggande data typen är `System.Double` för `<decimal_constant>` .  
   
      Följande är exempel på Decimal konstanter:  
   
@@ -183,9 +172,9 @@ Ett försök att komma åt en icke-befintlig system egenskap är ett fel, medan 
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
   
-Booleska konstanter representeras av `TRUE` nyckelorden `FALSE`eller. Värdena lagras som `System.Boolean`.  
+Booleska konstanter representeras av nyckelorden `TRUE` eller `FALSE` . Värdena lagras som `System.Boolean` .  
   
 ## <a name="string_constant"></a>string_constant  
   
@@ -193,7 +182,7 @@ Booleska konstanter representeras av `TRUE` nyckelorden `FALSE`eller. Värdena l
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
   
 Sträng konstanter omges av enkla citat tecken och innehåller alla giltiga Unicode-tecken. Ett enkelt citat tecken som är inbäddat i en strängkonstant representeras som två enkla citat tecken.  
   
@@ -205,11 +194,11 @@ Sträng konstanter omges av enkla citat tecken och innehåller alla giltiga Unic
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Anmärkningar  
+### <a name="remarks"></a>Kommentarer  
 
-Funktionen returnerar ett **system. GUID** som genereras av `System.Guid.NewGuid()` metoden. `newid()`  
+`newid()`Funktionen returnerar ett **system. GUID** som genereras av `System.Guid.NewGuid()` metoden.  
   
-`property(name)` Funktionen returnerar värdet för den egenskap som refereras till av `name`. `name` Värdet kan vara ett giltigt uttryck som returnerar ett sträng värde.  
+`property(name)`Funktionen returnerar värdet för den egenskap som refereras till av `name` . `name`Värdet kan vara ett giltigt uttryck som returnerar ett sträng värde.  
   
 ## <a name="considerations"></a>Överväganden
 

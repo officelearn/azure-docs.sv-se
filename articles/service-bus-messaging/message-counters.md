@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus-antal meddelanden
 description: 'Hämta antalet meddelanden som lagras i köer och prenumerationer med hjälp av Azure Resource Manager och Azure Service Bus NamespaceManager-API: er.'
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2020
-ms.author: aschhab
-ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: d0e1a7a5c6eb0b281b4e6ac08135f41f28ecbec8
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891772"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341270"
 ---
 # <a name="message-counters"></a>Meddelanderäknare
 
@@ -54,5 +44,5 @@ Om du tittar på prenumerationerna skulle de ha antal meddelanden som inte är n
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

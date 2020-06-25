@@ -1,24 +1,14 @@
 ---
 title: Översikt över transaktions bearbetning i Azure Service Bus
 description: Den här artikeln innehåller en översikt över transaktions bearbetning och funktionen Skicka via i Azure Service Bus.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: f79d0e917ba741e72e2bbecd4a1f94a4c99e5393
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 06/23/2020
+ms.openlocfilehash: 90ee3e4f7cd6465d6297406d1d28d4ea34f88ac4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996065"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340510"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Översikt över Service Bus transaktions bearbetning
 
@@ -51,7 +41,7 @@ Kraften i denna transaktions funktion blir tydlig när själva överförings kö
 
 ### <a name="see-it-in-code"></a>Se det i kod
 
-Om du vill konfigurera sådana överföringar skapar du en meddelande avsändare som är riktad mot målkön via överförings kön. Du har också en mottagare som hämtar meddelanden från samma kö. Ett exempel:
+Om du vill konfigurera sådana överföringar skapar du en meddelande avsändare som är riktad mot målkön via överförings kön. Du har också en mottagare som hämtar meddelanden från samma kö. Till exempel:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);
@@ -97,7 +87,7 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 }
 ```
 
-## <a name="timeout"></a>Timeout
+## <a name="timeout"></a>Tidsgräns
 En transaktions tids gräns efter 2 minuter. Timern för transaktioner startar när den första åtgärden i transaktionen börjar. 
 
 ## <a name="next-steps"></a>Nästa steg

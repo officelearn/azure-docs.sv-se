@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus sekvenser och tidsstämpel för meddelanden | Microsoft Docs
 description: Den här artikeln förklarar hur du bevarar sekvenseringen och ordningen (med tidsstämplar) för Azure Service Bus meddelanden.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 06/23/2020
+ms.openlocfilehash: fdb18802e576ad114fd3f783d5efd7bb826a5f94
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84699047"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341170"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Ordningsföljd och tidsstämplar för meddelanden
 

@@ -5,12 +5,12 @@ description: Läs om kända begränsningar när du kör Windows Server-nodkonfig
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: e03343bc0bf8d2b49d2322573e75fe76cc853e32
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976616"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339876"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -85,7 +85,7 @@ Du måste ha ett namn på högst 6 tecken (sex). Detta är en aktuell begränsni
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Stöds alla funktioner med Windows-noder?
 
-Nätverks principer och Kubernetes stöds för närvarande inte med Windows-noder. 
+Nätverks principer och Kubernetes stöds för närvarande inte med Windows-noder.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Kan jag köra ingångs styrenheter på Windows-noder?
 
@@ -101,7 +101,7 @@ GMSA-stöd (Group Managed Service accounts) är för närvarande inte tillgängl
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Kan jag använda Azure Monitor för behållare med Windows-noder och behållare?
 
-Ja, men Azure Monitor har en uppsättning [begränsningar][azure-monitor] för Windows-supporten.
+Ja du kan dock Azure Monitor finns i en offentlig för hands version för att samla in loggar (STDOUT, STDERR) och mått från Windows-behållare. Du kan också ansluta till den aktiva strömmen av STDOUT-loggar från en Windows-behållare.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Vad händer om jag behöver en funktion som inte stöds?
 

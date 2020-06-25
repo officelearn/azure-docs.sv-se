@@ -3,14 +3,14 @@ title: Säkerhetskopiera Azure-filresurser i Azure Portal
 description: Lär dig hur du använder Azure Portal för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a78760e793704d9ec4580e21ea86e0ba573b3949
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978036"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340716"
 ---
-# <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Säkerhetskopiera Azure-filresurser i ett Recovery Services valv
+# <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser 
 
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera [Azure-filresurser](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -148,7 +148,7 @@ Ibland kanske du vill skapa en ögonblicks bild av en säkerhets kopia eller åt
 
 1. Välj **OK** för att bekräfta säkerhets kopierings jobbet på begäran som körs.
 
-1. Övervaka Portal meddelanden för att hålla reda på hur du slutför körningen av säkerhets kopierings jobb. Du kan övervaka jobb förloppet i valv-instrumentpanelen. Välj**pågående** **säkerhets kopierings jobb** > .
+1. Övervaka Portal meddelanden för att hålla reda på hur du slutför körningen av säkerhets kopierings jobb. Du kan övervaka jobb förloppet i valv-instrumentpanelen. Välj **pågående säkerhets kopierings jobb**  >  **In progress**.
 
 >[!NOTE]
 >Azure Backup låser lagrings kontot när du konfigurerar skydd för alla fil resurser i motsvarande konto. Detta ger skydd mot oavsiktlig borttagning av ett lagrings konto med säkerhetskopierade fil resurser.

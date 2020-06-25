@@ -1,25 +1,17 @@
 ---
 title: Använda Azure Service Bus ämnen med Azure/Service-Bus Node.js-paketet
 description: Lär dig hur du använder Service Bus ämnen och prenumerationer i Azure från en Node.js-app med hjälp av Azure/Service-Bus-paketet.
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/16/2020
-ms.author: aschhab
-ms.openlocfilehash: 91fae982f53af8da359baaff685996c0d1cb57c2
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: d4b382a0cf857f9cfe1065815e9b07b8260023a8
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976565"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339800"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node.js och Azure-SB-paketet
 I den här självstudien får du lära dig hur du skapar Node.js program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus prenumeration med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder Node.js [Azure-modulen](https://www.npmjs.com/package/azure) som använder `azure-sb` paketet internt.

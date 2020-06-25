@@ -1,21 +1,14 @@
 ---
 title: Konfigurera tjänst slut punkter för virtuella nätverk för Azure Service Bus
 description: Den här artikeln innehåller information om hur du lägger till en tjänst slut punkt för Microsoft. Service Bus i ett virtuellt nätverk.
-services: service-bus
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
-ms.author: aschhab
-ms.openlocfilehash: d1766ffb579bb1a86da91ac73a396ce0d008f89e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117632"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340987"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Konfigurera tjänst slut punkter för virtuella nätverk för Azure Service Bus
 

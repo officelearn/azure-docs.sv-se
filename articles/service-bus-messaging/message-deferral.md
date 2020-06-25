@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus-meddelande uppskjutande
 description: I den här artikeln förklaras hur du uppskjuta leverans av Azure Service Bus meddelanden. Meddelandet finns kvar i kön eller prenumerationen, men det ställs åt sidan.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77538404"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341221"
 ---
 # <a name="message-deferral"></a>Skjut upp meddelanden
 
@@ -36,7 +26,7 @@ API: et är [BrokeredMessage. Överlåt](/dotnet/api/microsoft.servicebus.messag
 
 Uppskjutna meddelanden finns kvar i huvud kön tillsammans med alla andra aktiva meddelanden (till skillnad från meddelanden med obeställbara meddelanden som bor i en underkö), men de kan inte längre tas emot med hjälp av de vanliga Receive-/ReceiveAsync-funktionerna. Uppskjutna meddelanden kan upptäckas via [meddelande bläddring](message-browsing.md) om ett program förlorar sitt spår.
 
-För att hämta ett uppskjutet meddelande ansvarar dess ägare för att komma ihåg [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) när den skjuts upp. Alla mottagare som känner till sekvensnumret i ett uppskjutet meddelande kan senare ta emot meddelandet som uttryckligen medföljer `Receive(sequenceNumber)`.
+För att hämta ett uppskjutet meddelande ansvarar dess ägare för att komma ihåg [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) när den skjuts upp. Alla mottagare som känner till sekvensnumret i ett uppskjutet meddelande kan senare ta emot meddelandet som uttryckligen medföljer `Receive(sequenceNumber)` .
 
 Om ett meddelande inte kan bearbetas på grund av att en viss resurs för hantering av meddelandet inte är tillgänglig för tillfället, men meddelande bearbetningen inte ska göras sammanfattas, är ett sätt att lägga till meddelandet på sidan i några minuter att komma ihåg att **SequenceNumber** i ett [schemalagt meddelande](message-sequencing.md) som ska publiceras på några minuter och sedan hämta det uppskjutna meddelandet när det schemalagda meddelandet anländer. Om en meddelande hanterare är beroende av en databas för alla åtgärder och databasen är tillfälligt otillgänglig, bör den inte använda uppskjutningen, utan att i stället pausa att ta emot meddelanden helt tills databasen är tillgänglig igen.
 
@@ -46,5 +36,5 @@ Om ett meddelande inte kan bearbetas på grund av att en viss resurs för hanter
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

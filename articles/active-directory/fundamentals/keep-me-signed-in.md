@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4b253a3017f1a836ac989bb897065a6a7d8337
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a82f81888828cb5edd42c37a6e8b2c2ee51fe603
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739954"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339560"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Konfigurera "hållet inloggat?" prompt för Azure AD-konton
 
@@ -28,7 +28,7 @@ Följande diagram visar användar inloggnings flödet för en hanterad klient or
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="Diagram som visar användar inloggnings flödet för en hanterad eller federerad klient":::
 
 > [!NOTE]
-> Om du konfigurerar alternativet för att förbli inloggad måste du använda Azure Active Directory (Azure AD) Premium 1, Premium 2 eller Basic-versioner, eller ha en Office 365-licens. Mer information om licenser och versioner finns i [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium-och Basic-versioner är tillgängliga för kunder i Kina med den globala instansen av Azure AD. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kan du kontakta oss med [Azure AD-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Om du konfigurerar alternativet för att förbli inloggad måste du använda Azure Active Directory (Azure AD) Premium 1, Premium 2 eller Basic-versioner, eller ha en Microsoft 365 licens. Mer information om licenser och versioner finns i [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium-och Basic-versioner är tillgängliga för kunder i Kina med den globala instansen av Azure AD. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kan du kontakta oss med [Azure AD-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="configure-kmsi"></a>Konfigurera KMSI avgör
 
@@ -61,6 +61,6 @@ Du kan hindra användare från att se avbrottet genom att ställa in **alternati
 
 Läs om andra inställningar som påverkar timeout för inloggnings sessioner:
 
-* Office 365 – [tids gräns för inaktiv session](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
+* Microsoft 365 – [tids gräns för inaktiv session](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
 * Villkorlig åtkomst för Azure AD – [användar inloggnings frekvens](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
 * Azure Portal – [tids gräns för inaktivitet på katalog nivå](https://docs.microsoft.com/azure/azure-portal/admin-timeout)

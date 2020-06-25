@@ -2,24 +2,15 @@
 title: Använda Azure Service Bus köer med PHP
 description: I den här självstudien får du lära dig hur du skapar PHP-program för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö.
 services: service-bus-messaging
-documentationcenter: php
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: fcb735d81cac587c75a133ad582f2a839551dcfa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: a7e0d1fa321f1b7c1295b5a640fe78b46adf1c72
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76760699"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341120"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Snabb start: så här använder du Service Bus köer med PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -54,7 +45,7 @@ Gör så här om du vill använda API: erna för Service Bus queue:
 1. Referera till den automatiska inläsnings filen med instruktionen [require_once][require_once] .
 2. Referera till alla klasser som du kan använda.
 
-I följande exempel visas hur du tar med den automatiska inläsnings filen och `ServicesBuilder` refererar till klassen.
+I följande exempel visas hur du tar med den automatiska inläsnings filen och refererar till `ServicesBuilder` klassen.
 
 > [!NOTE]
 > Det här exemplet (och andra exempel i den här artikeln) förutsätter att du har installerat PHP-klientprogrammet för Azure via Composer. Om du har installerat biblioteken manuellt eller som ett päron paket måste du referera till filen **windowsazure. php** autoloader.
@@ -66,7 +57,7 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-I exemplen nedan visas `require_once` instruktionen alltid, men endast de klasser som krävs för att exemplet ska kunna köras refereras till.
+I exemplen nedan `require_once` visas instruktionen alltid, men endast de klasser som krävs för att exemplet ska kunna köras refereras till.
 
 ## <a name="set-up-a-service-bus-connection"></a>Konfigurera en Service Bus anslutning
 Om du vill instansiera en Service Bus-klient måste du först ha en giltig anslutnings sträng i det här formatet:
@@ -75,14 +66,14 @@ Om du vill instansiera en Service Bus-klient måste du först ha en giltig anslu
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-Där `Endpoint` är vanligt vis formatet `[yourNamespace].servicebus.windows.net`.
+Där `Endpoint` är vanligt vis formatet `[yourNamespace].servicebus.windows.net` .
 
-Du måste använda- `ServicesBuilder` klassen för att skapa en Azure-tjänst-klient. Du kan:
+Du måste använda-klassen för att skapa en Azure-tjänst-klient `ServicesBuilder` . Du kan:
 
 * Skicka anslutnings strängen direkt till den.
 * Använd **CloudConfigurationManager (CCM)** om du vill kontrol lera flera externa källor för anslutnings strängen:
   * Som standard levereras den med stöd för en extern källa – miljövariabler
-  * Du kan lägga till nya källor genom att `ConnectionStringSource` utöka klassen
+  * Du kan lägga till nya källor genom att utöka `ConnectionStringSource` klassen
 
 I exemplen som beskrivs här anges anslutningssträngen direkt.
 
@@ -97,9 +88,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 ```
 
 ## <a name="create-a-queue"></a>Skapa en kö
-Du kan utföra hanterings åtgärder för Service Bus köer via `ServiceBusRestProxy` -klassen. Ett `ServiceBusRestProxy` objekt konstrueras via `ServicesBuilder::createServiceBusService` fabriks metoden med en lämplig anslutnings sträng som kapslar in token-behörigheterna för att hantera det.
+Du kan utföra hanterings åtgärder för Service Bus köer via- `ServiceBusRestProxy` klassen. Ett `ServiceBusRestProxy` objekt konstrueras via `ServicesBuilder::createServiceBusService` fabriks metoden med en lämplig anslutnings sträng som kapslar in token-behörigheterna för att hantera det.
 
-I följande exempel visas hur du instansierar `ServiceBusRestProxy` ett och `ServiceBusRestProxy->createQueue` anropar för att skapa `myqueue` en kö `MySBNamespace` med namnet i ett namn område för tjänsten:
+I följande exempel visas hur du instansierar ett `ServiceBusRestProxy` och anropar `ServiceBusRestProxy->createQueue` för att skapa en kö med namnet `myqueue` i ett `MySBNamespace` namn område för tjänsten:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -133,7 +124,7 @@ catch(ServiceException $e){
 > 
 
 ## <a name="send-messages-to-a-queue"></a>Skicka meddelanden till en kö
-Om du vill skicka ett meddelande till en Service Bus kö anropar programmet `ServiceBusRestProxy->sendQueueMessage` metoden. Följande kod visar hur du skickar ett meddelande till `myqueue` kön som tidigare skapats i namn området `MySBNamespace` för tjänsten.
+Om du vill skicka ett meddelande till en Service Bus kö anropar programmet `ServiceBusRestProxy->sendQueueMessage` metoden. Följande kod visar hur du skickar ett meddelande till kön som `myqueue` tidigare skapats i `MySBNamespace` namn området för tjänsten.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -169,11 +160,11 @@ Service Bus-köerna stöder en maximal meddelandestorlek på 256 kB på [standar
 
 ## <a name="receive-messages-from-a-queue"></a>Ta emot meddelanden från en kö
 
-Det bästa sättet att ta emot meddelanden från en kö är att använda `ServiceBusRestProxy->receiveQueueMessage` en metod. Meddelanden kan tas emot i två olika lägen: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) och [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** är standard.
+Det bästa sättet att ta emot meddelanden från en kö är att använda en `ServiceBusRestProxy->receiveQueueMessage` metod. Meddelanden kan tas emot i två olika lägen: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) och [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** är standard.
 
 När du använder [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) -läge är ta emot en enda bild. det vill säga när Service Bus får en läsbegäran för ett meddelande i en kö, markerar det meddelandet som förbrukat och returnerar det till programmet. Läget [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran. Eftersom Service Bus har markerat meddelandet som förbrukat, och när programmet startas om och börjar förbruka meddelanden igen, kommer det att ha missat meddelandet som förbrukades innan kraschen.
 
-I standard läget för [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) blir det möjligt att ta emot ett meddelande en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran hittar den nästa meddelande som ska förbrukas, låser det för att hindra andra användare från att ta emot det och returnerar det sedan till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att skicka det mottagna `ServiceBusRestProxy->deleteMessage`meddelandet till. När Service Bus ser `deleteMessage` anropet markeras meddelandet som förbrukat och tas bort från kön.
+I standard läget för [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) blir det möjligt att ta emot ett meddelande en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran hittar den nästa meddelande som ska förbrukas, låser det för att hindra andra användare från att ta emot det och returnerar det sedan till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att skicka det mottagna meddelandet till `ServiceBusRestProxy->deleteMessage` . När Service Bus ser `deleteMessage` anropet markeras meddelandet som förbrukat och tas bort från kön.
 
 I följande exempel visas hur du tar emot och bearbetar ett meddelande med [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) -läge (standard läget).
 

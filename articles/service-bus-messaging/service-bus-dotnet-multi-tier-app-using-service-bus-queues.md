@@ -1,22 +1,15 @@
 ---
 title: .NET-flernivåprogram med hjälp av Azure Service Bus | Microsoft Docs
 description: En .NET-självstudiekurs som hjälper dig att utveckla en flernivåapp i Azure som använder Service Bus-köer för att kommunicera mellan nivåerna.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.date: 06/23/2020
+ms.openlocfilehash: c7a64e708d860fe9e5832ad3f1375f41f9b86724
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60403371"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340309"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 

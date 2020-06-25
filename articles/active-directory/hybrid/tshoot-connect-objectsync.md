@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73d4239dd34f2a64aa7b3edbf88bad4348e01291
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81407021"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356210"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objektsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller steg för fel sökning av problem med synkronisering av objekt med hjälp av fel söknings aktiviteten. Titta på [den här korta videon](https://aka.ms/AADCTSVideo)om du vill se hur fel sökning fungerar i Azure Active Directory (Azure AD) Connect.
@@ -32,7 +32,7 @@ För Azure AD Connect-distribution med version 1.1.749.0 eller högreanvänder d
 Kör fel söknings aktiviteten i guiden genom att utföra följande steg:
 
 1.  Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet Kör som administratör.
-2.  Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
+2.  Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted` .
 3.  Starta guiden Azure AD Connect.
 4.  Gå till sidan Ytterligare aktiviteter, Välj Felsök och klicka på Nästa.
 5.  På sidan fel sökning klickar du på Starta för att starta fel söknings menyn i PowerShell.
@@ -43,7 +43,7 @@ Kör fel söknings aktiviteten i guiden genom att utföra följande steg:
 Följande indataparametrar krävs av fel söknings aktiviteten:
 1.  **Unikt objekt namn** – det här är det unika namnet på det objekt som behöver fel sökning
 2.  **Namn på AD-koppling** – det här är namnet på den AD-skog där ovanstående objekt finns.
-3.  Autentiseringsuppgifter ![för global administratör för Azure AD-klientens globala administratör](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Autentiseringsuppgifter för global administratör för Azure AD-klientens globala administratör ![](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Förstå resultaten av fel söknings aktiviteten
 Fel söknings aktiviteten utför följande kontroller:

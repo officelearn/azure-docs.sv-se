@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 170901f3410c85ab53a306529053e611b36fa8ec
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 7798151d0aeaa553c21db0fd8e71f4ac674a9a56
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298403"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355717"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Koda med Azure Digitals dubbla API: er
 
@@ -566,5 +566,5 @@ Fortsätt till nästa självstudie för att utforska de saker du kan göra med e
 > [Självstudie: utforska grunderna med en exempel klient program](tutorial-command-line-app.md)
 
 Du kan också lägga till koden som du skrev i den här självstudien genom att lära dig mer om hanterings åtgärder i instruktions artiklarna eller börja titta på begrepps dokumentationen för att lära dig mer om element som du har arbetat med i självstudien.
-* [Anvisningar: hantera en dubbel modell](how-to-manage-model.md)
+* [Anvisningar: Hantera anpassade modeller](how-to-manage-model.md)
 * [Begrepp: anpassade modeller](concepts-models.md)

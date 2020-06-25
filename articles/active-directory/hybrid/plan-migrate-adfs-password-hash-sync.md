@@ -7,17 +7,17 @@ manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57e4451f67a75e9101f21d449152d9c6f42aaf02
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 6fe9fe10b66aa6eb5fcdaafbf8e0132918e9645c
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216606"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356687"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från Federation till hash-synkronisering för lösen ord för Azure Active Directory
 
@@ -143,7 +143,7 @@ Innan du konverterar från federerad identitet till hanterad identitet bör du t
 | Om | Dra |
 |-|-|
 | Du planerar att fortsätta använda AD FS med andra program (förutom Azure AD och Office 365). | När du har konverterat dina domäner använder du både AD FS och Azure AD. Överväg användar upplevelsen. I vissa fall kan användare behöva autentisera två gånger: en gång till Azure AD (där en användare får SSO-åtkomst till andra program, t. ex. Office 365) och igen för program som fortfarande är kopplade till AD FS som ett förlitande parts förtroende. |
-| AD FS-instansen är mycket anpassad och förlitar sig på särskilda anpassnings inställningar i filen onload. js (till exempel om du har ändrat inloggnings upplevelsen så att användarna endast använder ett **sAMAccountName** -format för sitt användar namn i stället för ett UPN-format eller om din organisation har stor varumärkes inloggnings upplevelsen). Onload. js-filen kan inte dupliceras i Azure AD. | Innan du fortsätter måste du kontrol lera att Azure AD kan uppfylla dina aktuella anpassnings krav. Mer information och anvisningar finns i avsnitten om AD FS anpassning och AD FS anpassning.|
+| AD FS-instansen är kraftigt anpassad och förlitar sig på särskilda anpassnings inställningar i onload.js-filen (till exempel om du ändrade inloggnings upplevelsen så att användarna endast använder ett **sAMAccountName** -format för sitt användar namn i stället för ett UPN-format eller om din organisation har stor varumärkes inloggnings upplevelsen). onload.js-filen kan inte dupliceras i Azure AD. | Innan du fortsätter måste du kontrol lera att Azure AD kan uppfylla dina aktuella anpassnings krav. Mer information och anvisningar finns i avsnitten om AD FS anpassning och AD FS anpassning.|
 | Du använder AD FS för att blockera tidigare versioner av autentiseringsbegäranden.| Överväg att ersätta AD FS kontroller som blockerar tidigare versioner av autentiseringsbegäranden genom att använda en kombination av [villkorliga åtkomst kontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR). |
 | Du kräver att användare utför Multi-Factor Authentication mot en lokal Multi-Factor Authentication Server-lösning när användare autentiserar till AD FS.| I en hanterad identitets domän kan du inte mata in en Multi-Factor Authentication-utmaning via den lokala Multi-Factor Authentication-lösningen i autentiseringsschemat. Du kan dock använda Azure Multi-Factor Authentication-tjänsten för Multi-Factor Authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure Multi-Factor Authentication krävs ett registrerings steg för databasmigrering-användare. Du måste förbereda för och förmedla den planerade registreringen till dina användare. |
 | Du använder för närvarande principer för åtkomst kontroll (AuthZ-regler) i AD FS för att kontrol lera åtkomsten till Office 365.| Överväg att ersätta principerna med motsvarande [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) för Azure AD och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR).|
@@ -168,7 +168,7 @@ När du ansluter en enhet till Azure AD kan du skapa regler för villkorlig åtk
 
 För att säkerställa att hybrid kopplingen fortsätter att fungera för alla enheter som är anslutna till domänen efter att domänerna har konverterats till hash-synkronisering för lösen ord, för Windows 10-klienter, måste du använda Azure AD Connect enhets alternativ för att synkronisera Active Directory dator konton till Azure AD. 
 
-För Windows 8-och Windows 7-dator konton använder hybrid anslutning sömlös SSO för att registrera datorn i Azure AD. Du behöver inte synkronisera Windows 8-och Windows 7-dator konton som du gör för Windows 10-enheter. Du måste dock distribuera en uppdaterad workplacejoin. exe-fil (via en MSI-fil) till Windows 8-och Windows 7-klienter så att de kan registrera sig med sömlös SSO. [Ladda ned MSI-filen](https://www.microsoft.com/download/details.aspx?id=53554).
+För Windows 8-och Windows 7-dator konton använder hybrid anslutning sömlös SSO för att registrera datorn i Azure AD. Du behöver inte synkronisera Windows 8-och Windows 7-dator konton som du gör för Windows 10-enheter. Du måste dock distribuera en uppdaterad workplacejoin.exe-fil (via en MSI-fil) till Windows 8-och Windows 7-klienter så att de kan registrera sig själva med hjälp av sömlös SSO. [Ladda ned MSI-filen](https://www.microsoft.com/download/details.aspx?id=53554).
 
 Mer information finns i [Konfigurera hybrid Azure AD-anslutna enheter](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 

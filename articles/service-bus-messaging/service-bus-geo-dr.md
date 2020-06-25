@@ -1,20 +1,14 @@
 ---
 title: Azure Service Bus geo-haveri beredskap | Microsoft Docs
 description: Hur du använder geografiska regioner för att redundansväxla och utföra haveri beredskap i Azure Service Bus
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: aschhab
-ms.openlocfilehash: a5a1e7a7ef73825b4b13d2f36c1c8554fdc2a9b6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/23/2020
+ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647845"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341476"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geo-haveri beredskap
 
@@ -174,7 +168,7 @@ Anta att du har två virtuella nätverk: VNET-1, VNET-2 och dessa primära och a
 ![Privata slut punkter och virtuella nätverk](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
 
 
-Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Service Bus namn område. Fundera över följande scenarier: 
+Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Service Bus namn område. Beakta följande scenarier: 
 
 **Redundans för program:** Här finns programmet inte i VNET-1, men kommer att flyttas till VNET-2. Eftersom både privata slut punkter har kon figurer ATS på både VNET-1 och VNET-2 för både primär och sekundär namnrymd, fungerar programmet bara. 
 

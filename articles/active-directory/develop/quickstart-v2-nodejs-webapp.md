@@ -1,6 +1,6 @@
 ---
-title: Lägg till OIDC-inloggning till en Node. js-webbapp – Microsoft Identity Platform | Azure
-description: Lär dig hur du implementerar autentisering i ett Node. js-webbprogram med OpenID Connect.
+title: Lägg till OIDC-inloggning i en Node.js webbapp – Microsoft Identity Platform | Azure
+description: Lär dig hur du implementerar autentisering i ett Node.js-webbprogram med OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,24 +11,24 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5522d35faf1888c862e0c42328f08067e7b9be26
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536071"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339898"
 ---
-# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabb start: lägga till inloggning med OpenID Anslut till en Node. js-webbapp
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabb start: lägga till inloggning med OpenID Anslut till en Node.js webbapp
 
-I den här snabb starten får du lära dig hur du konfigurerar OpenID Connect-autentisering i ett webb program som skapats med Node. js med Express. Exemplet är utformat för att köras på vilken plattform som helst.
+I den här snabb starten får du lära dig hur du konfigurerar OpenID Connect-autentisering i ett webb program som skapats med hjälp av Node.js med Express. Exemplet är utformat för att köras på vilken plattform som helst.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill köra det här exemplet behöver du:
 
-* Installera Node. js frånhttp://nodejs.org/
+* Installera Node.js frånhttp://nodejs.org/
 
-* Antingen ett [Microsoft-konto](https://www.outlook.com) -eller [Office 365-program för utvecklare](/office/developer-program/office-365-developer-program)
+* Antingen ett [Microsoft-konto](https://www.outlook.com) -eller [Microsoft 365 Developer-program](/office/developer-program/office-365-developer-program)
 
 ## <a name="register-your-application"></a>Registrera ditt program
 1. Logga in på [Azure Portal](https://portal.azure.com/) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
@@ -82,23 +82,23 @@ Kör kommandot från projektets rot Katalog:
 
 ## <a name="configure-the-application"></a>Konfigurera programmet
 
-Ange parametrarna i `exports.creds` i config. js enligt anvisningarna.
+Ange parametrarna i `exports.creds` config.js enligt anvisningarna.
 
-* Uppdatera `<tenant_name>` i `exports.identityMetadata` med Azure AD-klient namnet för formatet \*. onmicrosoft.com.
+* Uppdatera `<tenant_name>` i `exports.identityMetadata` med Azure AD-klient namnet för formatet \* . onmicrosoft.com.
 * Uppdatera `exports.clientID` med det program-ID som du antecknade från App Registration.
 * Uppdatera `exports.clientSecret` med program hemligheten noterad från App Registration.
 * Uppdatera `exports.redirectUrl` med omdirigerings-URI: n noterad från App Registration.
 
 **Valfri konfiguration för produktions program:**
 
-* Uppdatera `exports.destroySessionUrl` i config. js om du vill använda en annan `post_logout_redirect_uri`.
+* Uppdatera `exports.destroySessionUrl` i config.js om du vill använda en annan `post_logout_redirect_uri` .
 
-* Ange `exports.useMongoDBSessionStore` i config. js till true om du vill använda [mongoDB](https://www.mongodb.com) eller andra [kompatibla sessioner](https://github.com/expressjs/session#compatible-session-stores).
-Standardlagringsplatsen i det här exemplet är `express-session`. Standardsessions-lagringsplatsen är inte lämplig för produktion.
+* Ange `exports.useMongoDBSessionStore` i config.js till true, om du vill använda [mongoDB](https://www.mongodb.com) eller andra [kompatibla sessioner](https://github.com/expressjs/session#compatible-session-stores).
+Standardlagringsplatsen i det här exemplet är `express-session` . Standardsessions-lagringsplatsen är inte lämplig för produktion.
 
-* Uppdatera `exports.databaseUri`om du vill använda mongoDB och en annan databas-URI.
+* Uppdatera `exports.databaseUri` om du vill använda mongoDB och en annan databas-URI.
 
-* Uppdatera `exports.mongoDBSessionMaxAge`. Här kan du ange hur länge du vill behålla en session i mongoDB. Enheten är sekund (er).
+* Uppdatera `exports.mongoDBSessionMaxAge` . Här kan du ange hur länge du vill behålla en session i mongoDB. Enheten är sekund (er).
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
@@ -120,7 +120,7 @@ $ node app.js | bunyan
 
 ### <a name="youre-done"></a>Du är klar!
 
-Du kommer att ha en server igång `http://localhost:3000`.
+Du kommer att ha en server igång `http://localhost:3000` .
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

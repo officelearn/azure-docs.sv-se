@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e379b81fafb156b1ea71a8992abfdc060065b8b2
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 59502e01a96b603067bd80b92bcf49136f8cef4e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763184"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339171"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Använda rapporten AD FS program aktivitet (för hands version) för att migrera program till Azure AD
 
@@ -36,8 +36,9 @@ AD FS programmets aktivitets data är tillgängliga för användare som har till
 
 * Din organisation måste för närvarande använda AD FS för att få åtkomst till program.
 * Azure AD Connect Health måste vara aktiverat i din Azure AD-klient.
+* Azure AD Connect Health för AD FS agent måste vara installerad.
    * [Läs mer om Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
-   * [Kom igång med att konfigurera Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+   * [Kom igång med att konfigurera Azure AD Connect Health och installera AD FS-agenten](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Identifiera AD FS program som kan migreras 
 

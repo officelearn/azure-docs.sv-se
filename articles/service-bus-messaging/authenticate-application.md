@@ -1,19 +1,14 @@
 ---
 title: Autentisera ett program för att få åtkomst till Azure Service Bus entiteter
 description: Den här artikeln innehåller information om att autentisera ett program med Azure Active Directory åtkomst till Azure Service Bus entiteter (köer, ämnen osv.)
-services: service-bus-messaging
-ms.service: event-hubs
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: aschhab
-ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 707fbec4317b4c34349e04895f9c6a0bdf4f1b47
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259297"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341507"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autentisera och auktorisera ett program med Azure Active Directory åtkomst till Azure Service Bus entiteter
 Azure Service Bus stöder användning av Azure Active Directory (Azure AD) för att auktorisera begär anden till Service Bus entiteter (köer, ämnen, prenumerationer eller filter). Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, grupp eller ett program tjänst objekt. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -21,7 +16,7 @@ Azure Service Bus stöder användning av Azure Active Directory (Azure AD) för 
 ## <a name="overview"></a>Översikt
 När ett säkerhets objekt (en användare, grupp eller ett program) försöker få åtkomst till en Service Bus entitet måste begäran vara auktoriserad. Med Azure AD är åtkomst till en resurs en två stegs process. 
 
- 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. Resurs namnet för att begära en token `https://servicebus.azure.net`är.
+ 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. Resurs namnet för att begära en token är `https://servicebus.azure.net` .
  1. Därefter skickas token som en del av en begäran till tjänsten Service Bus för att ge åtkomst till den angivna resursen.
 
 Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs i en Azure-entitet, till exempel en virtuell Azure-dator, en skalnings uppsättning för virtuella datorer eller en Azure Function-app, kan den använda en hanterad identitet för att få åtkomst till resurserna. Information om hur du autentiserar begär Anden som görs av en hanterad identitet i Service Bus-tjänsten finns i [autentisera åtkomst till Azure Service Bus resurser med Azure Active Directory och hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md). 
@@ -43,7 +38,7 @@ För Azure Service Bus är hanteringen av namn rymder och alla relaterade resurs
 - [Azure Service Bus data avsändare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Använd den här rollen för att ge Send access till Service Bus namnrymd och dess entiteter.
 - [Azure Service Bus data mottagare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Använd den här rollen för att ge åtkomst till Service Bus namnrymd och dess entiteter. 
 
-## <a name="resource-scope"></a>Resurs omfång 
+## <a name="resource-scope"></a>Resursomfång 
 Innan du tilldelar en RBAC-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.
 
 I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Service Bus resurser, från och med det smala omfång:
@@ -142,12 +137,12 @@ Använd **inloggnings alternativet för klient hemlighet** , inte alternativet *
 
 ### <a name="run-the-sample"></a>Kör exemplet
 
-Innan du kan köra exemplet redigerar du filen **app. config** och anger följande värden, beroende på ditt scenario:
+Innan du kan köra exemplet redigerar du **app.config** -filen och, beroende på ditt scenario, anger du följande värden:
 
 - `tenantId`: Ange till **TenantId** -värde.
 - `clientId`: Ange som **ApplicationId** -värde.
 - `clientSecret`: Om du vill logga in med hjälp av klient hemligheten skapar du den i Azure AD. Använd också en webbapp eller ett API i stället för en inbyggd app. Lägg också till appen under **Access Control (IAM)** i namn området som du skapade tidigare.
-- `serviceBusNamespaceFQDN`: Ange till det fullständiga DNS-namnet för den nyligen skapade Service Bus namn området; till exempel `example.servicebus.windows.net`.
+- `serviceBusNamespaceFQDN`: Ange till det fullständiga DNS-namnet för den nyligen skapade Service Bus namn området; till exempel `example.servicebus.windows.net` .
 - `queueName`: Ange till namnet på kön som du skapade.
 - Den omdirigerings-URI som du angav i din app i föregående steg.
 
@@ -166,5 +161,5 @@ I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
 
 - [Service Bus RBAC-exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
 - [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-- [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+- [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 - [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

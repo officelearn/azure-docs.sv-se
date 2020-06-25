@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus åtkomst kontroll med signaturer för delad åtkomst
 description: 'Översikt över Service Bus åtkomst kontroll med signaturer för delad åtkomst: översikt, information om SAS-auktorisering med Azure Service Bus.'
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2019
-ms.author: aschhab
-ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259479"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340973"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 
@@ -45,7 +35,7 @@ Token för [signaturen för delad åtkomst](/dotnet/api/microsoft.servicebus.sha
 
 Varje Service Bus-namnrymd och varje Service Bus entitet har en princip för delad åtkomst som består av regler. Principen på namn områdes nivån gäller för alla entiteter i namn området, oavsett deras enskilda princip konfiguration.
 
-För varje auktoriseringsregel bestämmer du om tre delar av information: **namn**, **omfattning**och **rättigheter**. **Namnet** är bara det. ett unikt namn inom det omfånget. Omfånget är tillräckligt enkelt: det är URI: n för den aktuella resursen. För ett Service Bus-namnområde är omfånget det fullständigt kvalificerade domän namnet (FQDN), till `https://<yournamespace>.servicebus.windows.net/`exempel.
+För varje auktoriseringsregel bestämmer du om tre delar av information: **namn**, **omfattning**och **rättigheter**. **Namnet** är bara det. ett unikt namn inom det omfånget. Omfånget är tillräckligt enkelt: det är URI: n för den aktuella resursen. För ett Service Bus-namnområde är omfånget det fullständigt kvalificerade domän namnet (FQDN), till exempel `https://<yournamespace>.servicebus.windows.net/` .
 
 Rättigheterna som tilldelas av princip regeln kan vara en kombination av:
 
@@ -82,7 +72,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`**-URI för resursen som används.
 * **`sig`** Signatur.
 
-`signature-string` Är SHA-256-hashen som beräknats över resurs-URI: n (**omfånget** enligt beskrivningen i föregående avsnitt) och sträng representationen av token som upphör att gälla, avgränsade med LF.
+`signature-string`Är SHA-256-hashen som beräknats över resurs-URI: n (**omfånget** enligt beskrivningen i föregående avsnitt) och sträng representationen av token som upphör att gälla, avgränsade med LF.
 
 Hash-beräkningen ser ut ungefär som följande pseudo-kod och returnerar ett hash-värde på 256 bitar/32 byte.
 
@@ -92,13 +82,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Token innehåller de värden som inte är hash-kodade, så att mottagaren kan beräkna hashen på samma parametrar och kontrol lera att utfärdaren har en giltig signerings nyckel.
 
-Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>`; det vill säga `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>` ; det vill säga `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3` . 
 
 **URI: n måste vara i [procent kodad](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 Den auktoriseringsregler för delad åtkomst som används för signering måste konfigureras på den entitet som anges av denna URI, eller av en av dess hierarkiska överordnade. Till exempel `http://contoso.servicebus.windows.net/contosoTopics/T1` eller `http://contoso.servicebus.windows.net` i föregående exempel.
 
-En SAS-token är giltig för alla resurser som har `<resourceURI>` prefixet som `signature-string`används i.
+En SAS-token är giltig för alla resurser som har prefixet som `<resourceURI>` används i `signature-string` .
 
 ## <a name="regenerating-keys"></a>Återskapar nycklar
 
@@ -191,7 +181,7 @@ I föregående avsnitt fick du lära dig hur du använder SAS-token med en HTTP 
 
 Innan du börjar skicka data till Service Bus måste utgivaren skicka SAS-token i ett AMQP-meddelande till en väldefinierad AMQP-nod med namnet **$CBS** (du kan se den som en "speciell" kö som används av tjänsten för att hämta och validera alla SAS-token). Utgivaren måste ange **ReplyTo** -fältet i AMQP-meddelandet. Detta är den nod där tjänsten svarar på utgivaren med resultatet av verifieringen av token (ett enkelt fråge-/svars mönster mellan utgivare och tjänst). Denna Reply-nod skapas "i farten", "tala om" dynamisk generering av fjärrnod "enligt beskrivningen i AMQP 1,0-specifikationen. När du har kontrollerat att SAS-token är giltig kan utgivaren gå framåt och börja skicka data till tjänsten.
 
-Följande steg visar hur du skickar SAS-token med AMQP-protokollet med hjälp av [AMQP.net lite](https://github.com/Azure/amqpnetlite) -biblioteket. Detta är användbart om du inte kan använda den officiella Service Bus SDK (till exempel på WinRT, .NET Compact Framework, .NET Micro Framework och mono) som utvecklas\#i C. Det här biblioteket är självklart användbart för att hjälpa dig att förstå hur anspråksbaserad säkerhet fungerar på AMQP nivå, eftersom du såg hur det fungerar på HTTP-nivå (med en HTTP POST-begäran och SAS-token som skickas i "Authorization"-rubriken). Om du inte behöver sådana djupgående kunskaper om AMQP kan du använda den officiella Service Bus SDK: n med .NET Framework program som gör det åt dig.
+Följande steg visar hur du skickar SAS-token med AMQP-protokollet med hjälp av [AMQP.net lite](https://github.com/Azure/amqpnetlite) -biblioteket. Detta är användbart om du inte kan använda den officiella Service Bus SDK (till exempel på WinRT, .NET Compact Framework, .NET Micro Framework och mono) som utvecklas i C \# . Det här biblioteket är självklart användbart för att hjälpa dig att förstå hur anspråksbaserad säkerhet fungerar på AMQP nivå, eftersom du såg hur det fungerar på HTTP-nivå (med en HTTP POST-begäran och SAS-token som skickas i "Authorization"-rubriken). Om du inte behöver sådana djupgående kunskaper om AMQP kan du använda den officiella Service Bus SDK: n med .NET Framework program som gör det åt dig.
 
 ### <a name="c35"></a>C&#35;
 
@@ -244,7 +234,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-Metoden tar emot *anslutningen* (AMQP Connection Class-instansen som anges [av AMQP .net lite-biblioteket](https://github.com/Azure/amqpnetlite)) som representerar TCP-anslutningen till tjänsten och den sasToken-parameter som är den SAS-token som ska skickas. *sasToken* `PutCbsToken()`
+`PutCbsToken()`Metoden tar emot *anslutningen* (AMQP Connection Class-instansen som anges av [AMQP .net lite-biblioteket](https://github.com/Azure/amqpnetlite)) som representerar TCP-anslutningen till tjänsten och den *SASTOKEN* -parameter som är den SAS-token som ska skickas.
 
 > [!NOTE]
 > Det är viktigt att anslutningen skapas med **sasl inställt på anonym** (och inte standardvärdet Plain med användar namn och lösen ord som används när du inte behöver skicka SAS-token).
@@ -253,7 +243,7 @@ Metoden tar emot *anslutningen* (AMQP Connection Class-instansen som anges [av A
 
 Sedan skapar utgivaren två AMQP-Länkar för att skicka SAS-token och ta emot svaret (verifierings resultatet för token) från tjänsten.
 
-AMQP-meddelandet innehåller en uppsättning egenskaper och mer information än ett enkelt meddelande. SAS-token är bröd texten i meddelandet (med hjälp av konstruktorn). Värdet **"ReplyTo"** är inställt på nodnamn för att ta emot verifierings resultatet på mottagar länken (du kan ändra dess namn om du vill och det kommer att skapas dynamiskt av tjänsten). De sista tre programmen/anpassade egenskaperna används av tjänsten för att ange vilken typ av åtgärd som ska utföras. Som det beskrivs i CBS-utkastet, måste de vara ett **Åtgärds namn** ("placering-token"), **typ av token** (i det `servicebus.windows.net:sastoken`här fallet a) och **"namn" för den mål grupp** som token gäller (hela entiteten).
+AMQP-meddelandet innehåller en uppsättning egenskaper och mer information än ett enkelt meddelande. SAS-token är bröd texten i meddelandet (med hjälp av konstruktorn). Värdet **"ReplyTo"** är inställt på nodnamn för att ta emot verifierings resultatet på mottagar länken (du kan ändra dess namn om du vill och det kommer att skapas dynamiskt av tjänsten). De sista tre programmen/anpassade egenskaperna används av tjänsten för att ange vilken typ av åtgärd som ska utföras. Som det beskrivs i CBS-utkastet, måste de vara ett **Åtgärds namn** ("placering-token"), **typ av token** (i det här fallet a `servicebus.windows.net:sastoken` ) och **"namn" för den mål grupp** som token gäller (hela entiteten).
 
 När du har skickat SAS-token på avsändaren måste utgivaren läsa svaret på mottagar länken. Svaret är ett enkelt AMQP-meddelande med en program egenskap med namnet **"status kod"** som kan innehålla samma värden som en HTTP-statuskod.
 
@@ -263,7 +253,7 @@ Följande tabell visar de åtkomst behörigheter som krävs för olika åtgärde
 
 | Åtgärd | Anspråk krävs | Anspråks omfång |
 | --- | --- | --- |
-| **Namn område** | | |
+| **Namnområde** | | |
 | Konfigurera auktoriseringsregeln i ett namn område |Hantera |Alla namn områdes adresser |
 | **Tjänst register** | | |
 | Räkna upp privata principer |Hantera |Alla namn områdes adresser |

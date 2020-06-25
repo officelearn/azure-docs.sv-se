@@ -1,25 +1,14 @@
 ---
 title: Azure Service Bus – undantag för meddelanden | Microsoft Docs
 description: Den här artikeln innehåller en lista över Azure Service Bus meddelande undantag och föreslagna åtgärder som vidtas när undantaget inträffar.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: aschhab
-ms.openlocfilehash: f1a4caf6ffd5740b4227aff2f38d9cb709c77b48
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.date: 06/23/2020
+ms.openlocfilehash: dd57938c24565257aefebc89a8b070865e6791af
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739355"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341648"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus meddelande undantag
 Den här artikeln innehåller de .NET-undantag som har genererats av .NET Framework API: er. 
@@ -74,9 +63,9 @@ Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xx
 
 Meddelandet anger att avsnittet överskrider storleks gränsen, i det här fallet 1 GB (standard storleks gränsen). 
 
-### <a name="namespaces"></a>Namnområden
+### <a name="namespaces"></a>Namnrymder
 
-[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) kan ange att ett program har överskridit det maximala antalet anslutningar till ett namn område. Exempel:
+[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) kan ange att ett program har överskridit det maximala antalet anslutningar till ett namn område. Till exempel:
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -149,7 +138,7 @@ En **SocketException** genereras i nedanstående fall –
 
 ### <a name="resolution"></a>Lösning
 
-**SocketException** -felen indikerar att den virtuella datorn som är värd för programmen inte kan konvertera `<mynamespace>.servicebus.windows.net` namnet till motsvarande IP-adress. 
+**SocketException** -felen indikerar att den virtuella datorn som är värd för programmen inte kan konvertera namnet `<mynamespace>.servicebus.windows.net` till motsvarande IP-adress. 
 
 Kontrol lera om nedanstående kommando har slutförts i mappning till en IP-adress.
 

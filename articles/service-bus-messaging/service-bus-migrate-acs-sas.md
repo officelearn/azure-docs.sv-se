@@ -1,23 +1,14 @@
 ---
 title: Azure Service Bus-migrera till signaturen för delad åtkomst
 description: Lär dig mer om att migrera från Azure Active Directory Access Control Service till signaturen för delad åtkomst.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 532bbaf0b983b2d4310780686777cbe895afebe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76774608"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340114"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus-migrera från Azure Active Directory Access Control Service till signaturen för delad åtkomst
 
@@ -29,11 +20,11 @@ SAS har fördelen att den inte är direkt beroende av en annan tjänst, men kan 
 
 För alla befintliga program som är beroende av ACS uppmanar vi kunderna att migrera sina program så att de förlitar sig på SAS i stället.
 
-## <a name="migration-scenarios"></a> Migreringsscenarier
+## <a name="migration-scenarios"></a>Migreringsscenarier
 
 ACS och Service Bus integreras genom delade kunskaper om en *signerings nyckel*. Signerings nyckeln används av ett ACS-namnområde för att signera tokens och den används av Service Bus för att kontrol lera att token har utfärdats av det kopplade ACS-namnutrymmet. ACS-namnrymden innehåller tjänst identiteter och auktoriseringsregler. Auktoriseringsregler definierar vilken tjänst identitet eller vilken token som utfärdats av en extern identitetsprovider som hämtar vilken typ av åtkomst till en del av diagrammet för Service Bus namnrymd, i form av en längsta prefix-matchning.
 
-En ACS-regel kan till exempel ge **send** -anspråk på Path-prefixet `/` en tjänst identitet, vilket innebär att en token som utfärdats av ACS baserat på regeln ger klienten rättigheter att skicka till alla entiteter i namn området. Om prefixet Path är `/abc`är identiteten begränsad till att skicka till entiteter `abc` som heter eller ordnas under det prefixet. Det förutsätts att läsarna av den här vägledningen för migrering redan är bekant med dessa begrepp.
+En ACS-regel kan till exempel ge **send** -anspråk på Path-prefixet `/` en tjänst identitet, vilket innebär att en token som utfärdats av ACS baserat på regeln ger klienten rättigheter att skicka till alla entiteter i namn området. Om prefixet Path är är `/abc` identiteten begränsad till att skicka till entiteter som heter `abc` eller ordnas under det prefixet. Det förutsätts att läsarna av den här vägledningen för migrering redan är bekant med dessa begrepp.
 
 Migreringen hamnar i tre olika kategorier:
 

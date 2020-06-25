@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus meddelanden, nytto laster och serialisering | Microsoft Docs
 description: Den här artikeln innehåller en översikt över Azure Service Bus meddelanden, nytto laster, meddelanderoutning och serialisering.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 11e56ae2483a254fb00e3593da7841f3f3d844f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759405"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341680"
 ---
 # <a name="messages-payloads-and-serialization"></a>Meddelanden, nyttolaster och serialisering
 
@@ -34,7 +24,7 @@ Motsvarande namn som används på AMQP-protokoll nivån visas inom parentes.
 
 | Egenskapsnamn                         | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (innehålls typ)           | Beskriver alternativt meddelandets nytto Last, med en beskrivning som följer formatet på RFC2045, avsnitt 5; till exempel `application/json`.                                                                                                                                                                                                                                                                                             |
+|  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (innehålls typ)           | Beskriver alternativt meddelandets nytto Last, med en beskrivning som följer formatet på RFC2045, avsnitt 5; till exempel `application/json` .                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (korrelations-ID)       | Gör det möjligt för ett program att ange en kontext för meddelandet i samband med korrelation. till exempel återspeglar **messageid** för ett meddelande som besvaras.                                                                                                                                                                                                                                                                  |
 | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | Anges endast i meddelanden som har avsänts och sedan automatiskt vidarebefordrats från kön för obeställbara meddelanden till en annan entitet. Anger den entitet där meddelandet har avvisats. Den här egenskapen är skrivskyddad.                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | Antal leveranser som har gjorts för det här meddelandet. Antalet ökar när ett meddelande lås upphör att gälla, eller så överges meddelandet explicit av mottagaren. Den här egenskapen är skrivskyddad.                                                                                                                                                                                                                                                  |
@@ -73,11 +63,11 @@ Routning i ett Service Bus namn område kan realiseras med hjälp av kedja och �
 
 ## <a name="payload-serialization"></a>Serialisering av nytto Last
 
-Vid överföring eller lagring inuti Service Bus är nytto lasten alltid ett täckande, binärt block. Egenskapen [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) gör det möjligt för program att beskriva nytto lasten, med det föreslagna formatet för egenskaps värden som en MIME Content-Type-Beskrivning enligt IETF-RFC2045; till exempel `application/json;charset=utf-8`.
+Vid överföring eller lagring inuti Service Bus är nytto lasten alltid ett täckande, binärt block. Egenskapen [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) gör det möjligt för program att beskriva nytto lasten, med det föreslagna formatet för egenskaps värden som en MIME Content-Type-Beskrivning enligt IETF-RFC2045; till exempel `application/json;charset=utf-8` .
 
 Till skillnad från Java-eller .NET-standardvarianterna stöder .NET Framework versionen av Service Bus-API: et stöd för att skapa **BrokeredMessage** -instanser genom att skicka godtyckliga .net-objekt till konstruktorn. 
 
-När du använder det äldre SBMP-protokollet serialiseras dessa objekt sedan med den förvalda binära serialiseraren, eller med en serialiserare som är externt angiven. När du använder AMQP-protokollet serialiseras objektet till ett AMQP-objekt. Mottagaren kan hämta dessa objekt med metoden [GetBody\<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) och ange den förväntade typen. Med AMQP serialiseras objekten till ett AMQP-diagram med **ArrayList** -och **IDictionary<-sträng, objekt>** objekt och eventuella AMQP-klienter kan avkoda dem. 
+När du använder det äldre SBMP-protokollet serialiseras dessa objekt sedan med den förvalda binära serialiseraren, eller med en serialiserare som är externt angiven. När du använder AMQP-protokollet serialiseras objektet till ett AMQP-objekt. Mottagaren kan hämta dessa objekt med metoden [GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) genom att ange den förväntade typen. Med AMQP serialiseras objekten till ett AMQP-diagram med **ArrayList** -och **IDictionary<-sträng, objekt>** objekt och eventuella AMQP-klienter kan avkoda dem. 
 
 Även om det här dolda serialiserings trollet är bekvämt, bör programmen ta explicit kontroll över objekt serialiseringen och omvandla objekt till strömmar innan de inkluderas i ett meddelande, och du kan göra det baklänges på mottagar sidan. Detta ger driftskompatibla resultat. Det bör även noteras att även om AMQP har en kraftfull binär kodnings modell, är den knuten till AMQP Messaging-eko systemet och HTTP-klienterna har problem med att avkoda sådana nytto laster. 
 
@@ -90,5 +80,5 @@ API-variantarna .NET standard och Java accepterar bara byte-matriser, vilket inn
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

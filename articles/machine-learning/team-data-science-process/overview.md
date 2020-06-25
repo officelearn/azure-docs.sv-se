@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ffe00c3df4abd924fca202d2bcdd0ec458dd3eb
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79088082"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355343"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är team data science-processen?
 
@@ -26,12 +26,12 @@ Den här artikeln innehåller en översikt över TDSP och dess huvud komponenter
 
 ## <a name="key-components-of-the-tdsp"></a>Viktiga komponenter i TDSP
 
-TDSP består av följande viktiga komponenter:
+TDSP Hads följande viktiga komponenter:
 
 - En **livs cykel definition för data vetenskap**
 - En **standardiserad projekt struktur**
-- **Infrastruktur och resurser** för data vetenskaps projekt
-- **Verktyg och verktyg** för projekt körning
+- **Infrastruktur och resurser** som rekommenderas för data vetenskaps projekt
+- **Verktyg och verktyg som** rekommenderas för projekt körning
 
 
 ## <a name="data-science-lifecycle"></a>Data vetenskaps livs cykel
@@ -48,7 +48,6 @@ Livs cykeln beskriver de viktigaste faserna som projekt vanligt vis körs, ofta 
 * **Data hämtning och förståelse**
 * **Modellering**
 * **Distribution**
-* **Kund godkännande**
 
 Här är en visuell representation av **livs cykeln för team data science process**. 
 
@@ -58,7 +57,9 @@ De mål, uppgifter och dokumentations artefakter för varje steg i livs cykeln i
 
 - Lösnings arkitekt
 - Projektledare
+- Datatekniker
 - Data Scientist
+- Programutvecklare
 - Projektledare 
 
 Följande diagram innehåller en rutnätsvy över de aktiviteter (i blått) och artefakter (i grönt) som är associerade med varje stadium i livs cykeln (på den vågräta axeln) för dessa roller (på den lodräta axeln). 
@@ -69,7 +70,7 @@ Följande diagram innehåller en rutnätsvy över de aktiviteter (i blått) och 
 
 Om du har alla projekt som delar en katalog struktur och använder mallar för projekt dokument blir det enklare för grupp medlemmarna att hitta information om sina projekt. All kod och alla dokument lagras i ett versions kontroll system (VCS) som git, TFS eller Subversion för att ge grupp samarbete. Spårning av aktiviteter och funktioner i ett flexibelt projekt spårnings system, till exempel JIRA, rally och Azure DevOps, gör det möjligt att spåra koden för enskilda funktioner. Sådan spårning gör det också möjligt för team att få bättre kostnads uppskattningar. TDSP rekommenderar att du skapar en separat lagrings plats för varje projekt i VCS för versions hantering, informations säkerhet och samarbete. Den standardiserade strukturen för alla projekt hjälper till att bygga institutionella kunskaper i organisationen.
 
-Vi tillhandahåller mallar för mappstrukturen och de dokument som krävs på standard platserna. Den här mappstrukturen ordnar filerna som innehåller kod för data utforskning och funktions extrahering och den post modellen iterationer. Dessa mallar gör det enklare för grupp medlemmar att förstå arbete som har utförts av andra och lägga till nya medlemmar i team. Det är enkelt att visa och uppdatera dokumentmallar i markdown-format. Använd mallar för att tillhandahålla check listor med viktiga frågor för varje projekt för att se till att problemet är väl definierat och att slut produkten uppfyller den förväntade kvaliteten. Exempel på rekommendationer:
+Vi tillhandahåller mallar för mappstrukturen och de dokument som krävs på standard platserna. Den här mappstrukturen ordnar filerna som innehåller kod för data utforskning och funktions extrahering och den post modellen iterationer. Dessa mallar gör det enklare för grupp medlemmar att förstå arbete som har utförts av andra och lägga till nya medlemmar i team. Det är enkelt att visa och uppdatera dokumentmallar i markdown-format. Använd mallar för att tillhandahålla check listor med viktiga frågor för varje projekt för att se till att problemet är väl definierat och att slut produkten uppfyller den förväntade kvaliteten. Exempel:
 
 - en projekt stadga för att dokumentera affärs problem och projektets omfattning
 - data rapporter för att dokumentera strukturen och statistiken för rå data
@@ -87,7 +88,7 @@ TDSP ger rekommendationer för att hantera infrastruktur för delad analys och l
 
 - moln fil system för lagring av data uppsättningar 
 - databaser
-- Big data-kluster (Hadoop eller Spark) 
+- Big data (SQL-eller Spark)-kluster 
 - Machine Learning-tjänsten 
 
 Analys-och lagrings infrastrukturen, där obehandlade och bearbetade data uppsättningar lagras, kan finnas i molnet eller lokalt. Den här infrastrukturen möjliggör reproducerbar analys. Dessutom undviks duplicering, vilket kan leda till inkonsekvenser och onödiga infrastruktur kostnader. Det finns verktyg för att etablera delade resurser, spåra dem och tillåta varje grupp medlem att ansluta till dessa resurser på ett säkert sätt. Det är också en bra idé att låta projekt medlemmar skapa en konsekvent beräknings miljö. Olika team medlemmar kan sedan replikera och validera experiment.

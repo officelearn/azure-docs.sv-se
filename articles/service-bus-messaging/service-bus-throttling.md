@@ -1,19 +1,14 @@
 ---
 title: Översikt över Azure Service Bus begränsning | Microsoft Docs
 description: Översikt över Service Bus begränsning – standard-och Premium-nivåer.
-services: service-bus-messaging
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: aschhab
-ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598297"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340944"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Begränsnings åtgärder på Azure Service Bus
 

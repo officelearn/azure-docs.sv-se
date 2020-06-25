@@ -1,21 +1,14 @@
 ---
 title: Metod tips för att förbättra prestanda med hjälp av Azure Service Bus
 description: Beskriver hur du använder Service Bus för att optimera prestanda vid utbyte av asynkrona meddelanden.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 03/12/2020
-ms.author: aschhab
-ms.openlocfilehash: 40dfa48c9c154aefa68947aa65aa6511a40d7562
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.date: 06/23/2020
+ms.openlocfilehash: e0a6e54c1e941d7b7ff244ac40066a564e2ebbc4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84803614"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341101"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Bra metoder för att öka prestanda med hjälp av meddelanden i Service Bus
 
@@ -187,7 +180,7 @@ Batching-funktionen för .NET standard SDK, visar ännu inte en egenskap för at
 
 Som standard använder en klient ett batch-intervall på 20 MS. Du kan ändra batch-intervallet genom att ange egenskapen [BatchFlushInterval][BatchFlushInterval] innan du skapar meddelande fabriken. Den här inställningen påverkar alla klienter som skapas av den här fabriken.
 
-Om du vill inaktivera batchbearbetning ställer du in egenskapen [BatchFlushInterval][BatchFlushInterval] på **TimeSpan. Zero**. Ett exempel:
+Om du vill inaktivera batchbearbetning ställer du in egenskapen [BatchFlushInterval][BatchFlushInterval] på **TimeSpan. Zero**. Till exempel:
 
 ```csharp
 var settings = new MessagingFactorySettings

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c72abf79f0a420309ebe229673be9439fd99b74c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57e52a35fba6a375e52d4061d3bd16c0b571485d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188264"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355377"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med OpenID Connect med Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ ms.locfileid: "78188264"
 
 ## <a name="configure-the-identity-provider"></a>Konfigurera identitets leverantören
 
-Varje OpenID Connect Identity Provider beskriver ett Metadatadokumentet som innehåller merparten av den information som krävs för att utföra inloggning. Detta omfattar information som webb adresserna som ska användas och platsen för tjänstens offentliga signerings nycklar. OpenID Connect-Metadatadokumentet finns alltid i en slut punkt som slutar med `.well-known\openid-configuration`. För den OpenID Connect Identity-Provider som du vill lägga till anger du dess URL för metadata.
+Varje OpenID Connect Identity Provider beskriver ett Metadatadokumentet som innehåller merparten av den information som krävs för att utföra inloggning. Detta omfattar information som webb adresserna som ska användas och platsen för tjänstens offentliga signerings nycklar. OpenID Connect-Metadatadokumentet finns alltid i en slut punkt som slutar med `.well-known/openid-configuration` . För den OpenID Connect Identity-Provider som du vill lägga till anger du dess URL för metadata.
 
 ## <a name="client-id-and-secret"></a>Klient-ID och hemlighet
 
@@ -46,7 +46,7 @@ Omfattning definierar den information och de behörigheter som du vill samla in 
 
 ## <a name="response-type"></a>Svarstyp
 
-Svars typen beskriver vilken typ av information som skickas tillbaka i det första anropet till `authorization_endpoint` den anpassade identitets leverantören. Följande svars typer kan användas:
+Svars typen beskriver vilken typ av information som skickas tillbaka i det första anropet till den `authorization_endpoint` anpassade identitets leverantören. Följande svars typer kan användas:
 
 * `code`: Enligt [flödets auktoriseringskod](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)returneras en kod tillbaka till Azure AD B2C. Azure AD B2C fortsätter att anropa för `token_endpoint` att skicka koden för token.
 * `id_token`: En ID-token returneras tillbaka till Azure AD B2C från den anpassade identitets leverantören.
@@ -60,7 +60,7 @@ Svars läget definierar metoden som ska användas för att skicka tillbaka data 
 
 ## <a name="domain-hint"></a>Domän tips
 
-Du kan använda domän tipset för att hoppa direkt till inloggnings sidan för den angivna identitets leverantören, i stället för att låta användaren göra ett val bland listan över tillgängliga identitets leverantörer. Ange ett värde för domän tipset för att tillåta den här typen av beteende. Om du vill gå till den anpassade identitets leverantören lägger du `domain_hint=<domain hint value>` till parametern i slutet av din begäran när du anropar Azure AD B2C för inloggning.
+Du kan använda domän tipset för att hoppa direkt till inloggnings sidan för den angivna identitets leverantören, i stället för att låta användaren göra ett val bland listan över tillgängliga identitets leverantörer. Ange ett värde för domän tipset för att tillåta den här typen av beteende. Om du vill gå till den anpassade identitets leverantören lägger du till parametern `domain_hint=<domain hint value>` i slutet av din begäran när du anropar Azure AD B2C för inloggning.
 
 ## <a name="claims-mapping"></a>Anspråks mappning
 

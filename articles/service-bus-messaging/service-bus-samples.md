@@ -1,24 +1,16 @@
 ---
 title: Översikt över Azure Service Bus meddelande exempel
 description: Service Bus meddelande exempel demonstrerar viktiga funktioner i Azure Service Bus meddelande hantering. Innehåller länkar till exempel på GitHub.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
-ms.service: service-bus-messaging
-ms.devlang: na
+author: spelluru
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: ccaca451ac4fb7b4301aca429a42baea91e5ed10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: beafd0d49e8fccaef4ccc043d198875b9f1b1ebd
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773453"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341025"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus meddelande exempel
 Service Bus meddelande exempel demonstrerar viktiga funktioner i [Service Bus meddelande hantering](https://azure.microsoft.com/services/service-bus/). För närvarande kan du hitta exemplen på följande platser:

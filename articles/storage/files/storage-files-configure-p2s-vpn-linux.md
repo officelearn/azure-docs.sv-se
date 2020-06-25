@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41feacf180bbe21fdd3d04cabaaf3e3fbaacd20e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061051"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355479"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Konfigurera en punkt-till-plats (P2S) VPN på Linux som ska användas med Azure Files
 Du kan använda en punkt-till-plats (P2S) VPN-anslutning för att montera dina Azure-filresurser över SMB utanför Azure, utan att öppna port 445. En punkt-till-plats-VPN-anslutning är en VPN-anslutning mellan Azure och en enskild klient. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. Om du har många klienter som behöver ansluta till dina Azure-filresurser från ditt lokala nätverk kan du använda en plats-till-plats (S2S) VPN-anslutning i stället för en punkt-till-plats-anslutning för varje klient. Mer information finns i [Konfigurera en plats-till-plats-VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
@@ -44,7 +44,7 @@ För att få åtkomst till Azure-filresursen och andra Azure-resurser från loka
 
 Följande skript skapar ett virtuellt Azure-nätverk med tre undernät: ett för lagrings kontots tjänst slut punkt, ett för lagrings kontots privata slut punkt, vilket krävs för att komma åt lagrings kontot lokalt utan att skapa en anpassad routning för den offentliga IP-adressen för det lagrings konto som kan ändras, och ett för din virtuella nätverksgateway som tillhandahåller VPN-tjänsten. 
 
-Kom ihåg att `<region>`ersätta `<resource-group>`, och `<desired-vnet-name>` med lämpliga värden för din miljö.
+Kom ihåg att ersätta `<region>` , `<resource-group>` och `<desired-vnet-name>` med lämpliga värden för din miljö.
 
 ```bash
 region="<region>"
@@ -114,10 +114,12 @@ openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pe
 ## <a name="deploy-virtual-network-gateway"></a>Distribuera virtuell nätverksgateway
 Den virtuella Azure-Nätverksgatewayen är den tjänst som dina lokala Linux-datorer kommer att ansluta till. Att distribuera den här tjänsten kräver två grundläggande komponenter: en offentlig IP-adress som identifierar gatewayen för dina klienter oavsett var de finns i världen och ett rot certifikat som du skapade tidigare och som ska användas för att autentisera dina klienter.
 
-Kom ihåg att `<desired-vpn-name-here>` ersätta med det namn som du vill ha för dessa resurser.
+Kom ihåg att ersätta `<desired-vpn-name-here>` med det namn som du vill ha för dessa resurser.
 
 > [!Note]  
-> Det kan ta upp till 45 minuter att distribuera den virtuella Azure-Nätverksgatewayen. När den här resursen distribueras blockerar det här bash-skript skriptet för att distributionen ska slutföras. Detta är förväntat.
+> Det kan ta upp till 45 minuter att distribuera den virtuella Azure-Nätverksgatewayen. När den här resursen distribueras blockerar det här bash-skript skriptet för att distributionen ska slutföras.
+>
+> P2S IKEv2/OpenVPN-anslutningar stöds inte med **Basic** SKU. Det här skriptet använder **VpnGw1** SKU: n för den virtuella Nätverksgatewayen.
 
 ```bash
 vpnName="<desired-vpn-name-here>"

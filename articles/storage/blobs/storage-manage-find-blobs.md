@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 083b130d1bb02ccc922c834c09a0d16fab004ae9
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433572"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355666"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Hantera och hitta data på Azure Blob Storage med BLOB-index (förhands granskning)
 
@@ -36,11 +36,11 @@ Prefix för behållare och blob-namn är en dimensionell kategorisering för din
 
 Överväg följande fem blobbar i ditt lagrings konto:
 >
-> container1/Transaction. csv  
-> container2/Campaign. docx  
-> foton/bannerphoto. png  
-> Arkiv/slutfört/2019review. pdf  
-> loggar/2020/01/01/logfile. txt  
+> container1/transaction.csv  
+> container2/campaign.docx  
+> foton/bannerphoto.png  
+> Arkiv/slutfört/2019review.pdf  
+> loggar/2020/01/01/logfile.txt  
 >
 
 Dessa blobbar är för närvarande separerade med ett prefix för behållare/virtuell mapp/BLOB-namn. Med BLOB-index kan du ange ett index tag-attribut för `Project = Contoso` på dessa fem blobbar för att kategorisera dem tillsammans samtidigt som du behåller sin aktuella prefix organisation. Detta eliminerar behovet av att flytta data genom att exponera möjligheten att filtrera och söka efter data med hjälp av lagrings plattformens multi-dimensionella index.
@@ -63,7 +63,7 @@ Du kan använda flera taggar i blobben för att vara mer beskrivande data.
 > "Prioritet" = ' 01 ' 
 >
 
-Om du vill ändra de befintliga attributen för index tag gen måste du först hämta befintliga taggattribut, ändra taggattribut och ersätta med SetBlobTags-åtgärden. Om du vill ta bort alla index taggar från blobben anropar du åtgärden SetBlobTags utan att ange några taggattribut. Eftersom BLOB index-taggar är en under resurs till BLOB-datainnehållet, ändrar SetBlobTags inte något underliggande innehåll och ändrar inte blobens senaste ändrings tid.
+Om du vill ändra de befintliga attributen för index tag gen måste du först hämta befintliga taggattribut, ändra taggattribut och ersätta med SetBlobTags-åtgärden. Om du vill ta bort alla index taggar från blobben anropar du åtgärden SetBlobTags utan att ange några taggattribut. Eftersom BLOB index-taggar är en under resurs till BLOB-datainnehållet, ändrar SetBlobTags inte något underliggande innehåll och ändrar inte blobens senaste ändrings tid eller ETag (Entity tag). Du kan skapa eller ändra index taggar för alla aktuella bas-blobar och tidigare versioner. Det går dock inte att ändra taggar för ögonblicks bilder eller mjuk borttagna blobbar. 
 
 Följande begränsningar gäller för BLOB-index Taggar:
 - Varje Blob kan ha upp till 10 BLOB-Taggar

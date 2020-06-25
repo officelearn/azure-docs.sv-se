@@ -1,24 +1,14 @@
 ---
 title: Hanterade identiteter för Azure-resurser med Service Bus
 description: Den här artikeln beskriver hur du använder hanterade identiteter för att få åtkomst till Azure Service Bus entiteter (köer, ämnen och prenumerationer).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 62c00c92ddd8265b1174cc195bfa83d533ec20d0
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461624"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341404"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en funktion i Azure som gör att du kan skapa en säker identitet som är kopplad till den distribution som program koden körs under. Du kan sedan associera identiteten med åtkomst kontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
@@ -28,7 +18,7 @@ Med hanterade identiteter hanterar Azure-plattformen den här körnings identite
 ## <a name="overview"></a>Översikt
 När ett säkerhets objekt (en användare, grupp eller ett program) försöker få åtkomst till en Service Bus entitet måste begäran vara auktoriserad. Med Azure AD är åtkomst till en resurs en två stegs process. 
 
- 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. Resurs namnet för att begära en token `https://servicebus.azure.net`är.
+ 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. Resurs namnet för att begära en token är `https://servicebus.azure.net` .
  1. Därefter skickas token som en del av en begäran till tjänsten Service Bus för att ge åtkomst till den angivna resursen.
 
 Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs i en Azure-entitet, till exempel en virtuell Azure-dator, en skalnings uppsättning för virtuella datorer eller en Azure Function-app, kan den använda en hanterad identitet för att få åtkomst till resurserna. 
@@ -50,7 +40,7 @@ För Azure Service Bus är hanteringen av namn rymder och alla relaterade resurs
 - [Azure Service Bus data avsändare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Använd den här rollen för att ge Send access till Service Bus namnrymd och dess entiteter.
 - [Azure Service Bus data mottagare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Använd den här rollen för att ge åtkomst till Service Bus namnrymd och dess entiteter. 
 
-## <a name="resource-scope"></a>Resurs omfång 
+## <a name="resource-scope"></a>Resursomfång 
 Innan du tilldelar en RBAC-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.
 
 I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Service Bus resurser, från och med det smala omfång:
@@ -78,7 +68,7 @@ Innan du kan använda hanterade identiteter för Azure-resurser för att auktori
 - [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager-mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager klient bibliotek](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Bevilja behörighet till en hanterad identitet i Azure AD
@@ -130,7 +120,7 @@ När du har tilldelat rollen får webb programmet åtkomst till Service Bus enti
 
 Sidan default. aspx är din landnings sida. Du hittar koden i Default.aspx.cs-filen. Resultatet är ett minimalt webb program med några fält och med knapparna **Skicka** och **ta emot** som ansluter till Service Bus för att antingen skicka eller ta emot meddelanden.
 
-Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -objektet initieras. I stället för att använda token Provider för delad åtkomst (SAS) skapar koden en token-Provider för den hanterade `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` identiteten med anropet. Det finns därför inga hemligheter att kvarhålla och använda. Flödet av den hanterade identitets kontexten till Service Bus och handskakningen för auktoriseringen hanteras automatiskt av token-providern. Det är en enklare modell än att använda SAS.
+Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -objektet initieras. I stället för att använda token Provider för delad åtkomst (SAS) skapar koden en token-Provider för den hanterade identiteten med `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` anropet. Det finns därför inga hemligheter att kvarhålla och använda. Flödet av den hanterade identitets kontexten till Service Bus och handskakningen för auktoriseringen hanteras automatiskt av token-providern. Det är en enklare modell än att använda SAS.
 
 När du har gjort dessa ändringar ska du publicera och köra programmet. Du kan enkelt få rätt publicerings data genom att ladda ned och importera en publicerings profil i Visual Studio:
 
@@ -149,5 +139,5 @@ Om du vill skicka eller ta emot meddelanden anger du namnet på namn området oc
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

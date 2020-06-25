@@ -1,20 +1,14 @@
 ---
 title: Azure Service Bus mått i Azure Monitor | Microsoft Docs
 description: Den här artikeln förklarar hur du använder Azure Monitor för att övervaka Service Bus entiteter (köer, ämnen och prenumerationer).
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/20/2020
-ms.author: aschhab
-ms.openlocfilehash: f2f3c8113fb89a41b1a22567b4e5ca0085353689
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/23/2020
+ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736049"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340283"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
 
@@ -60,7 +54,7 @@ Alla mått värden skickas till Azure Monitor varje minut. Tids kornig het defin
 
 Räknar antalet data-och hanterings åtgärder som begärs.
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 | Inkommande begär Anden| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Lyckade förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
@@ -78,7 +72,7 @@ Följande två typer av fel klassificeras som användar fel:
 
 ## <a name="message-metrics"></a>Meddelande mått
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |Inkommande meddelanden|Antalet händelser eller meddelanden som skickats till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Utgående meddelanden|Antalet händelser eller meddelanden som har tagits emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
@@ -96,7 +90,7 @@ Följande två typer av fel klassificeras som användar fel:
 
 ## <a name="connection-metrics"></a>Anslutnings mått
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |ActiveConnections|Antalet aktiva anslutningar i ett namn område samt på en entitet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Öppna anslutningar |Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
@@ -111,7 +105,7 @@ Följande två typer av fel klassificeras som användar fel:
 > 
 > Det andra måttet du kan övervaka är: **begränsade begär Anden**. Det får inte vara ett problem, så länge namn området ligger inom gränserna för minne, CPU och Brokered Connections. Mer information finns i [begränsning i Azure Service Bus Premium-nivån](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |CPU-användning per namnrymd|Procent andel CPU-användning för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: EntityName|
 |Minnes storleks användning per namnrymd|Den procentuella minnes användningen för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: EntityName|
@@ -133,7 +127,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
     1. Välj **Service Bus namnrum** för fältet **Filtrera efter resurs typ** . 
     2. Välj din prenumeration för fältet **Filtrera efter prenumeration** .
     3. Välj **Service Bus-namnområdet** i listan. 
-    4. Välj **Done** (Klar). 
+    4. Välj **Klar**. 
     
         ![Välj namnrymd](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Välj **Lägg till kriterier**och utför följande åtgärder på sidan **Konfigurera signal logik** :
@@ -144,7 +138,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
     1. Välj **större än** för **villkor**.
     2. Välj **Total** för **tids agg regering**. 
     3. Ange **5** som **tröskelvärde**. 
-    4. Välj **Done** (Klar).    
+    4. Välj **Klar**.    
 
         ![Ange villkor](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
 1. På sidan **Skapa regel** expanderar du **definiera aviserings information**och utför följande åtgärder:

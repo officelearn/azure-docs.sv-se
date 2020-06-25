@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 77c464f51bd17921052b3ae1e9fefb49e777d6c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7621867aad6baf517462983e35afb0b28223756
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181913"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341307"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure CLI
 
@@ -54,16 +54,16 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
 
 1. Det finns två sätt att hämta den hanterade identiteten för Azure Database for PostgreSQL enskild server.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Skapa en ny Azure Database for MySQL-server med en hanterad identitet.
+    ### <a name="create-an-new-azure-database-for-postgresql-server-with-a-managed-identity"></a>Skapa en ny Azure Database for PostgreSQL-server med en hanterad identitet.
 
     ```azurecli-interactive
-    az postgres server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
+    az postgres server create --name <server_name> -g <resource_group> --location <location> --storage-size <size>  -u <user> -p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled> --assign-identity
     ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Uppdatera en befintlig Azure Database for MySQL-server för att få en hanterad identitet.
+    ### <a name="update-an-existing-the-azure-database-for-postgresql-server-to-get-a-managed-identity"></a>Uppdatera en befintlig Azure Database for PostgreSQL-Server för att få en hanterad identitet.
 
     ```azurecli-interactive
-    az postgres server update –name <server name>  -g <resoure_group> --assign-identity
+    az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
 2. Ange **nyckel behörigheter** (**Get** **, wrapping**, **unwrap**) för **huvud kontot**, som är namnet på postgresql-servern.
@@ -77,7 +77,7 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
 1. Aktivera data kryptering för Azure Database for PostgreSQL enskild server med den nyckel som skapats i Azure Key Vault.
 
     ```azurecli-interactive
-    az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key create --name <server_name> -g <resource_group> --kid <key_url>
     ```
 
     Nyckel-URL:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
@@ -102,7 +102,7 @@ När Azure Database for PostgreSQL enskild server har krypterats med en kunds ha
 ### <a name="get-the-key-used"></a>Hämta nyckeln som används
 
     ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
     ```
 
     Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
@@ -131,7 +131,7 @@ Den här Azure Resource Manager-mallen skapar en Azure Database for PostgreSQL e
 ### <a name="for-an-existing-server"></a>För en befintlig server
 Du kan också använda Azure Resource Manager mallar för att aktivera data kryptering på dina befintliga Azure Database for PostgreSQL-servrar.
 
-* Skicka resurs-ID: t för den Azure Key Vault nyckel som du kopierade `Uri` tidigare under egenskapen i objektet egenskaper.
+* Skicka resurs-ID: t för den Azure Key Vault nyckel som du kopierade tidigare under `Uri` egenskapen i objektet egenskaper.
 
 * Använd *2020-01-01 – för hands* version som API-version.
 

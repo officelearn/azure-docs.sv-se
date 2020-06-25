@@ -1,32 +1,22 @@
 ---
 title: Azure Service Bus-meddelande bläddring
 description: Bläddra och granska Service Bus meddelanden gör det möjligt för en Azure Service Bus klient att räkna upp alla meddelanden som finns i en kö eller prenumeration.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77539373"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341243"
 ---
 # <a name="message-browsing"></a>Bläddra i meddelanden
 
 Genom att söka efter meddelanden eller granska, kan en Service Bus-klient räkna upp alla meddelanden som finns i en kö eller prenumeration, vanligt vis för diagnostik-och fel söknings syfte.
 
-Gransknings åtgärderna returnerar alla meddelanden som finns i kön eller prenumerations meddelande loggen, inte bara de som är tillgängliga för `Receive()` omedelbar förvärv `OnMessage()` med eller-slingan. `State` Egenskapen för varje meddelande anger om meddelandet är aktivt (tillgängligt för mottagning), [uppskjutet](message-deferral.md)eller [schemalagt](message-sequencing.md).
+Gransknings åtgärderna returnerar alla meddelanden som finns i kön eller prenumerations meddelande loggen, inte bara de som är tillgängliga för omedelbar förvärv med `Receive()` eller- `OnMessage()` slingan. `State`Egenskapen för varje meddelande anger om meddelandet är aktivt (tillgängligt för mottagning), [uppskjutet](message-deferral.md)eller [schemalagt](message-sequencing.md).
 
-Förbrukade och utgångna meddelanden rensas upp av en asynkron "skräp insamling" som körs och inte nödvändigt vis exakt när meddelanden upphör `Peek` att gälla, och därför kan de faktiskt returnera meddelanden som redan har gått ut och tas bort eller tas bort från kön när en mottagnings åtgärd startas nästa gång i kön eller prenumerationen.
+Förbrukade och utgångna meddelanden rensas upp av en asynkron "skräp insamling" som körs och inte nödvändigt vis exakt när meddelanden upphör att gälla, och därför `Peek` kan de faktiskt returnera meddelanden som redan har gått ut och tas bort eller tas bort från kön när en mottagnings åtgärd startas nästa gång i kön eller prenumerationen.
 
 Detta är särskilt viktigt att tänka på när du försöker återställa uppskjutna meddelanden från kön. Ett meddelande om att [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) Instant har passerat är inte längre tillgängligt för vanlig hämtning på något annat sätt, även när det returneras av Peek. Att returnera dessa meddelanden är avsiktligt eftersom Peek är ett diagnos verktyg som återspeglar loggens aktuella status.
 
@@ -47,5 +37,5 @@ Du kan också dirigera en överlagring av metoden med en [SequenceNumber](/dotne
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

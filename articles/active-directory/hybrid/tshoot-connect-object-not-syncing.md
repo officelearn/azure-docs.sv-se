@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253538"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356482"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Felsöka ett objekt som inte synkroniseras med Azure Active Directory
 
@@ -77,8 +77,8 @@ Kolumnen **status** innehåller den viktigaste informationen och visar det allva
 | --- | --- |
 | stoppad-* |Det gick inte att slutföra körningen. Detta kan inträffa, till exempel om fjärrdatorn inte är tillgänglig och inte kan kontaktas. |
 | stoppat-fel-gräns |Det finns fler än 5 000 fel. Körningen stoppades automatiskt på grund av det stora antalet fel. |
-| slutförd\*--fel |Körningen är färdig, men det finns fel (mindre än 5 000) som bör undersökas. |
-| slutförd\*--varningar |Körningen är färdig, men vissa data är inte i förväntat tillstånd. Om du har fel är det här meddelandet vanligt vis bara ett problem. Undersök inte varningar förrän du har åtgärdat fel. |
+| slutförd- \* -fel |Körningen är färdig, men det finns fel (mindre än 5 000) som bör undersökas. |
+| slutförd- \* -varningar |Körningen är färdig, men vissa data är inte i förväntat tillstånd. Om du har fel är det här meddelandet vanligt vis bara ett problem. Undersök inte varningar förrän du har åtgärdat fel. |
 | lyckades |Inga problem. |
 
 När du väljer en rad uppdateras slutet av fliken **åtgärder** för att visa information om den här körningen. Längst till vänster i det här fältet kan du ha en lista med namnet **steg #**. Den här listan visas bara om du har flera domäner i din skog och varje domän representeras av ett steg. Du kan hitta domän namnet under Heading- **partitionen**. Under rubriken **synkroniserings statistik** hittar du mer information om antalet ändringar som har bearbetats. Välj Länkar för att hämta en lista över de ändrade objekten. Om du har objekt med fel visas dessa fel under rubriken **synkroniseringsfel** .
@@ -142,7 +142,7 @@ I föregående bild kan du också se i kolumnen **PasswordSync** att det inkomma
 
 På fliken **härkomst** kan du gå till metaversum genom att välja [**metaversum objekt egenskaper**](#mv-attributes).
 
-### <a name="preview"></a>Förhandsversion
+### <a name="preview"></a>Förhandsgranskning
 I det nedre vänstra hörnet av objekt fönstret **Egenskaper för kopplings utrymme** är knappen **Förhandsgranska** . Välj den här knappen för att öppna **förhands gransknings** sidan där du kan synkronisera ett enskilt objekt. Den här sidan är användbar om du felsöker vissa anpassade regler för synkronisering och vill se resultatet av en ändring på ett enskilt objekt. Du kan välja en **fullständig synkronisering** eller en **delta-synkronisering**. Du kan också välja **generera förhands granskning**, som endast behåller ändringen i minnet. Eller Välj **Förhandsgranskning av incheckning**, som uppdaterar metaversum och steg alla ändringar i mål kopplings utrymmen.  
 
 ![Skärm bild av sidan för förhands granskning med starta förhands granskning valt](./media/tshoot-connect-object-not-syncing/preview.png)  

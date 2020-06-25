@@ -4,25 +4,29 @@ description: Så här anropar du dirigeringar från dirigering i Durable Functio
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d4d599063f727510cbf504ea3d121bdabfe001c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5625bc2ddfa4b6f527ca16f19f33d257a1834d4b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76261525"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340809"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Under dirigering i Durable Functions (Azure Functions)
 
 Förutom att anropa aktivitets funktioner kan Orchestrator-funktioner anropa andra Orchestrator-funktioner. Du kan till exempel bygga ett större dirigering av ett bibliotek med mindre Orchestrator-funktioner. Du kan också köra flera instanser av en Orchestrator-funktion parallellt.
 
-En Orchestrator-funktion kan anropa en annan Orchestrator- `CallSubOrchestratorAsync` funktion med `CallSubOrchestratorWithRetryAsync` hjälp av-eller-metoderna `callSubOrchestrator` i `callSubOrchestratorWithRetry` .net, eller eller-metoderna i Java Script. Artikeln [fel hantering &s kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) innehåller mer information om automatiskt återförsök.
+En Orchestrator-funktion kan anropa en annan Orchestrator-funktion med hjälp av- `CallSubOrchestratorAsync` eller `CallSubOrchestratorWithRetryAsync` -metoderna i .net, eller `callSubOrchestrator` eller- `callSubOrchestratorWithRetry` metoderna i Java Script. Artikeln [fel hantering &s kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) innehåller mer information om automatiskt återförsök.
 
 Under Orchestrator-funktioner fungerar precis som aktivitets funktioner från anroparens perspektiv. De kan returnera ett värde, utlösa ett undantag och kan förväntas av den överordnade Orchestrator-funktionen. 
+
+> [!NOTE]
+> Under dirigering stöds för närvarande i .NET och Java Script.
+
 ## <a name="example"></a>Exempel
 
 I följande exempel illustreras ett IoT-scenario ("Sakernas Internet") där det finns flera enheter som måste tillhandahållas. Följande funktion representerar det etablerings arbets flöde som måste utföras för varje enhet:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -66,11 +70,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Den här Orchestrator-funktionen kan användas som-är för en-off-enhets etablering eller kan ingå i ett större Dirigerings steg. I det senare fallet kan den överordnade Orchestrator-funktionen schemalägga instanser `DeviceProvisioningOrchestration` av med `CallSubOrchestratorAsync` hjälp av (.net `callSubOrchestrator` ) eller (Java Script) API.
+Den här Orchestrator-funktionen kan användas som-är för en-off-enhets etablering eller kan ingå i ett större Dirigerings steg. I det senare fallet kan den överordnade Orchestrator-funktionen schemalägga instanser av `DeviceProvisioningOrchestration` med hjälp av `CallSubOrchestratorAsync` (.net) eller `callSubOrchestrator` (Java Script) API.
 
 Här är ett exempel som visar hur du kör flera Orchestrator-funktioner parallellt.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -94,7 +98,7 @@ public static async Task ProvisionNewDevices(
 ```
 
 > [!NOTE]
-> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

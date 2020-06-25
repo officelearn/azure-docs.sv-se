@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus för hämtnings meddelanden | Microsoft Docs
 description: Förbättra prestanda genom att för hämtning Azure Service Bus meddelanden. Meddelanden är lätt att komma åt för lokal hämtning innan program begärs.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 80717ab940d27e9bf108b3740309bcd7d71668fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76760665"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341049"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>För hämtning Azure Service Bus meddelanden
 
@@ -32,7 +22,7 @@ Med .NET aktiverar du för hämtnings funktionen genom att ange egenskapen [Pref
 
 Du kan enkelt lägga till den här inställningen till mottagnings sidan av inställningarna för [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) eller [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) -exempel för att se effekterna i dessa sammanhang.
 
-Även om meddelanden är tillgängliga i prefetch-bufferten uppfylls **alla efterföljande**/**ReceiveAsync** -anrop direkt från bufferten och bufferten fylls i bakgrunden när utrymmet blir tillgängligt. Om det inte finns några meddelanden tillgängliga för leverans tömmer Receive-åtgärden bufferten och väntar sedan eller blockerar dem som förväntat.
+Även om meddelanden är tillgängliga i prefetch-bufferten uppfylls **alla efterföljande** / **ReceiveAsync** -anrop direkt från bufferten och bufferten fylls i bakgrunden när utrymmet blir tillgängligt. Om det inte finns några meddelanden tillgängliga för leverans tömmer Receive-åtgärden bufferten och väntar sedan eller blockerar dem som förväntat.
 
 För hämtning fungerar också på samma sätt med API: erna [motringningen OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) och [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync) .
 
@@ -40,7 +30,7 @@ För hämtning fungerar också på samma sätt med API: erna [motringningen OnMe
 
 För hämtning påskyndar meddelande flödet genom att ha ett meddelande som är lättillgängligt för lokal hämtning när och innan programmet begär ett. Den här data flödes vinsten är resultatet av en kompromiss som program författaren måste göra uttryckligen:
 
-Med [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) Receive-läge är alla meddelanden som förvärvas i för hämtnings bufferten inte längre tillgängliga i kön och endast finns i den förhämtade bufferten för InMemory tills de tas emot i programmet via **Receive**/**-ReceiveAsync** eller **motringningen OnMessage**/**OnMessageAsync** -API: er. Om programmet avslutas innan meddelandena tas emot i programmet, försvinner dessa meddelanden oåterkalleligt.
+Med [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) Receive-läge är alla meddelanden som förvärvas i för hämtnings bufferten inte längre tillgängliga i kön och endast finns i den förhämtade bufferten för InMemory tills de tas emot i programmet via **Receive**- / **ReceiveAsync** eller **motringningen OnMessage** / **OnMessageAsync** -API: er. Om programmet avslutas innan meddelandena tas emot i programmet, försvinner dessa meddelanden oåterkalleligt.
 
 I [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) Receive-läge, hämtas meddelanden som hämtats till den förhämtade bufferten i bufferten i låst tillstånd och tids gränsen för låset för lås skalning. Om för hämtnings bufferten är stor, och bearbetningen tar så lång att meddelandets lås upphör att gälla när den finns i prefetch-bufferten eller även om programmet bearbetar meddelandet, kan det finnas några förvirrande händelser som programmet kan hantera.
 
@@ -59,5 +49,5 @@ Det maximala antalet för hämtningar och den lås varaktighet som kon figurer A
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

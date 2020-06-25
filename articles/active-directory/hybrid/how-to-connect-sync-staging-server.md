@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690633"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356958"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: mellanlagrings Server och haveri beredskap
 Med en server i mellanlagrings läge kan du göra ändringar i konfigurationen och förhandsgranska ändringarna innan du gör servern aktiv. Du kan också köra fullständig import och fullständig synkronisering för att kontrol lera att alla ändringar förväntas innan du gör dessa ändringar i produktions miljön.

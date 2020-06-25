@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder lokala datorer för migrering med Azure
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: d5ac4ded59a69e57de02779b0ba8ade9d7b48b26
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 01e4a0652d575efd1c40612153be1742cd8e8927
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106368"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341326"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
@@ -35,7 +35,7 @@ Tabellen sammanfattar identifierings-, utvärderings-och migrations gränser fö
 --- | --- | --- | ---
 **VMwares virtuella datorer** | Identifiera och utvärdera upp till 35 000 virtuella datorer i ett enda Azure Migrate projekt. | Identifiera upp till 10 000 virtuella VMware-datorer med en enda [Azure Migrate-apparat](common-questions-appliance.md) för VMware. | **Migrering utan agent**: du kan samtidigt replikera högst 300 virtuella datorer. För bästa prestanda rekommenderar vi att du skapar flera batchar av virtuella datorer om du har mer än 50.<br/><br/> **Agent-baserad migrering**: du kan [skala ut](./agent-based-migration-architecture.md#performance-and-scaling) [replikeringen](migrate-replication-appliance.md) för att replikera ett stort antal virtuella datorer.<br/><br/> I portalen kan du välja upp till 10 datorer på en gång för replikering. Om du vill replikera fler datorer lägger du till i batchar med 10.
 **Hyper-V:s virtuella datorer** | Identifiera och utvärdera upp till 35 000 virtuella datorer i ett enda Azure Migrate projekt. | Identifiera upp till 5 000 virtuella Hyper-V-datorer med en enda Azure Migrate-apparat | En apparat används inte för Hyper-V-migrering. I stället körs Hyper-V-Replikeringsprovidern på varje Hyper-V-värd.<br/><br/> Replikeringens kapacitet påverkas av prestanda faktorer som VM-omsättning och uppladdning av bandbredd för replikeringsdata.<br/><br/> I portalen kan du välja upp till 10 datorer på en gång för replikering. Om du vill replikera fler datorer lägger du till i batchar med 10.
-**Fysiska datorer** | Identifiera och utvärdera upp till 35 000 datorer i ett enda Azure Migrate projekt. | Identifiera upp till 250 fysiska servrar med en enda Azure Migrate-apparat för fysiska servrar. | Du kan [skala ut](/agent-based-migration-architecture.md#performance-and-scaling) [replikeringen](migrate-replication-appliance.md) för att replikera ett stort antal servrar.<br/><br/> I portalen kan du välja upp till 10 datorer på en gång för replikering. Om du vill replikera fler datorer lägger du till i batchar med 10.
+**Fysiska datorer** | Identifiera och utvärdera upp till 35 000 datorer i ett enda Azure Migrate projekt. | Identifiera upp till 250 fysiska servrar med en enda Azure Migrate-apparat för fysiska servrar. | Du kan [skala ut](./agent-based-migration-architecture.md#performance-and-scaling) [replikeringen](migrate-replication-appliance.md) för att replikera ett stort antal servrar.<br/><br/> I portalen kan du välja upp till 10 datorer på en gång för replikering. Om du vill replikera fler datorer lägger du till i batchar med 10.
 
 ## <a name="select-a-vmware-migration-method"></a>Välj en VMware-migrations metod
 

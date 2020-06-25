@@ -3,14 +3,14 @@ title: Distribuera ett Linux-Hybrid Runbook Worker i Azure Automation
 description: Den här artikeln beskriver hur du installerar en Azure Automation Hybrid Runbook Worker för att köra Runbooks på Linux-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: a8679c189e77fe7b191a645b07c68b6101604644
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c569c83ed0bc5d78f0e5670c802188ee9fd8fd53
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079159"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340792"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -120,13 +120,25 @@ Utför följande steg för att installera och konfigurera en Linux-Hybrid Runboo
 
     I Sök resultaten bör du se pulsslags poster för datorn, vilket indikerar att den är ansluten och rapporterar till tjänsten. Som standard vidarebefordrar varje agent en pulsslags post till den tilldelade arbets ytan.
 
-3. Kör följande kommando för att lägga till datorn i en Hybrid Runbook Worker grupp och ändra värdena för parametrarna *-w*, *-k*, *-g*och *-e*. För parametern *-g* ersätter du värdet med namnet på den hybrid Runbook Worker grupp som den nya Linux-hybrid Runbook Worker ska ansluta till. Om namnet inte finns i ditt Automation-konto skapas en ny Hybrid Runbook Worker grupp med det namnet.
+3. Kör följande kommando för att lägga till datorn i en hybrid Runbook Worker grupp och ange värden för parametrarna `-w` , `-k` , `-g` , och `-e` .
+
+    Du kan hämta den information som krävs för parametrar `-k` och `-e` från sidan **nycklar** i ditt Automation-konto. Välj **nycklar** under avsnittet **konto inställningar** på sidans vänstra sida.
+
+    ![Sidan hantera nycklar](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+
+    * `-e`Kopiera värdet för **URL**för parametern.
+
+    * För `-k` parametern kopierar du värdet för **primär åtkomst nyckel**.
+
+    * För `-g` parametern anger du namnet på den hybrid Runbook Worker grupp som den nya Linux hybrid Runbook Work ska ansluta till. Om den här gruppen redan finns i Automation-kontot, läggs den aktuella datorn till i den. Om den här gruppen inte finns skapas den med det namnet.
+
+    * För `-w` parametern anger du Log Analytics arbetsyte-ID.
 
    ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <logAnalyticsworkspaceId> -k <automationSharedKey> -g <hybridGroupName> -e <automationEndpoint>
    ```
 
-4. När kommandot har slutförts visar sidan Hybrid Worker grupper i Azure Portal den nya gruppen och antalet medlemmar. Om det här är en befintlig grupp ökar antalet medlemmar. Du kan välja gruppen i listan på sidan Hybrid Worker grupper och sedan välja panelen **hybrid personal** . På sidan hybrid Worker visas varje medlem i gruppen i listan.
+4. När kommandot har slutförts visar sidan Hybrid Worker grupper i ditt Automation-konto den nya gruppen och antalet medlemmar. Om det här är en befintlig grupp ökar antalet medlemmar. Du kan välja gruppen i listan på sidan Hybrid Worker grupper och sedan välja panelen **hybrid personal** . På sidan hybrid Worker visas varje medlem i gruppen i listan.
 
     > [!NOTE]
     > Om du använder tillägget Log Analytics virtuell dator för Linux för en virtuell Azure-dator rekommenderar vi att du ställer in `autoUpgradeMinorVersion` till `false` as-versioner för automatisk uppgradering kan orsaka problem med hybrid Runbook Worker. Information om hur du uppgraderar tillägget manuellt finns i [Azure CLI-distribution](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).

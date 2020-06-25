@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus Message-sessioner | Microsoft Docs
 description: Den här artikeln förklarar hur du använder sessioner för att aktivera gemensam och ordnad hantering av icke-bundna sekvenser av relaterade meddelanden.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2020
-ms.author: aschhab
-ms.openlocfilehash: 9cedf3678fc73b004c142380b4ba69c10ca72ebf
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 06/23/2020
+ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727003"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341186"
 ---
 # <a name="message-sessions"></a>Meddelandesessioner
 Microsoft Azure Service Bus-sessioner möjliggör gemensam och ordnad hantering av icke-bundna sekvenser av relaterade meddelanden. Sessioner kan användas i de mönster som **först in, först ut (FIFO)** och **begär ande svar** . Den här artikeln visar hur du använder sessioner för att implementera dessa mönster när du använder Service Bus. 
@@ -88,8 +78,8 @@ Definitionen av leverans antal per meddelande i samband med sessioner skiljer si
 
 | Scenario | Är meddelandets leverans antal ökas |
 |----------|---------------------------------------------|
-| Sessionen godkänns, men sessions låset upphör att gälla (på grund av tids gräns) | Ja |
-| Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | Nej |
+| Sessionen godkänns, men sessions låset upphör att gälla (på grund av tids gräns) | Yes |
+| Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | No |
 | Sessionen godkänns, meddelanden slutförs och sedan stängs sessionen explicit | Ej tillämpligt (det är standard flödet. Meddelanden tas bort från sessionen) |
 
 ## <a name="request-response-pattern"></a>Mönster för begäran-svar

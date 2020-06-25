@@ -1,25 +1,19 @@
 ---
 title: 'Snabb start: använda Azure Service Bus ämnen och prenumerationer med python'
 description: Den här artikeln visar hur du skapar ett Azure Service Bus ämne, prenumeration, skickar meddelanden till ett ämne och tar emot meddelanden från prenumerationen.
-services: service-bus-messaging
 documentationcenter: python
-author: axisc
-editor: spelluru
-ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
+ms.date: 06/23/2020
+ms.author: spelluru
 ms.custom: tracking-python
-ms.openlocfilehash: ed2bf757762beafda3d4b2958438672c03d8d234
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 4c490d252fa1153324df62a6119ae6bdc548c331
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560050"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341031"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Snabb start: använda Service Bus ämnen och prenumerationer med python
 
@@ -33,7 +27,7 @@ Den här artikeln beskriver hur du använder python med Azure Service Bus ämnen
 - Ta emot meddelanden från prenumerationer
 - Ta bort ämnen och prenumerationer
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - En Azure-prenumeration. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Ett Service Bus namn område som skapats genom att följa stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md). Kopiera namn områdets namn, namnet på den delade åtkomst nyckeln och värdet för primär nyckel från skärmen **principer för delad åtkomst** för senare användning i den här snabb starten. 
 - Python 3.4 x eller senare, med [Azure python SDK][Azure Python package] -paketet installerat. Mer information finns i [installations guiden för python](/azure/developer/python/azure-sdk-install).

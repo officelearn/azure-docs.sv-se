@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5585f0cd04dca4145f0322db9d625e35372b24b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78298351"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356890"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Återhämtning av duplicerat attribut är en funktion i Azure Active Directory som eliminerar friktion som orsakas av **userPrincipalName** och SMTP- **proxyAddress** konflikter vid körning av ett av Microsofts verktyg för synkronisering.
@@ -40,7 +40,7 @@ Om det finns ett försök att etablera ett nytt objekt med ett UPN-eller ProxyAd
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Beteende med duplicerat attribut återhämtning
 I stället för att helt sluta att etablera eller uppdatera ett objekt med ett duplicerat attribut Azure Active Directory "karantäner" det duplicerade attributet som skulle bryta mot unikhetsvillkoret. Om det här attributet krävs för etablering, till exempel UserPrincipalName, tilldelar tjänsten ett plats hållare-värde. Formatet för dessa tillfälliga värden är  
-_** \@ \<OriginalPrefix>+\<4DigitNumber>InitialTenantDomain>. onmicrosoft.com. \<**_
+_** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.com**_.
 
 Återhämtnings processen för attribut hanterar endast UPN-och SMTP- **proxyAddress** -värden.
 
@@ -116,7 +116,7 @@ Om du vill göra en bred Strängs sökning använder du flaggan **-searchString*
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>I en begränsad kvantitet eller alla
-1. **MaxResults \<int->** kan användas för att begränsa frågan till ett angivet antal värden.
+1. **MaxResults \<Int> ** kan användas för att begränsa frågan till ett angivet antal värden.
 2. **Alla** kan användas för att se till att alla resultat hämtas i händelse av att det finns ett stort antal fel.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
@@ -145,11 +145,11 @@ Inga av dessa kända problem medför data förlust eller tjänst försämring. F
 **Core-beteende:**
 
 1. Objekt med Specific Attribute-konfigurationer fortsätter att ta emot export fel i stället för de duplicerade attributen i karantän.  
-   Ett exempel:
+   Till exempel:
    
-    a. En ny användare skapas i AD med ett UPN för **Joe\@contoso.com** och ProxyAddress **SMTP: Johan\@contoso.com**
+    a. En ny användare skapas i AD med ett UPN för **Joe \@ contoso.com** och proxyAddress **SMTP: Johan \@ contoso.com**
    
-    b. Egenskaperna för det här objektet är i konflikt med en befintlig grupp, där ProxyAddress är **SMTP\@: Johan contoso.com**.
+    b. Egenskaperna för det här objektet är i konflikt med en befintlig grupp, där ProxyAddress är **SMTP: johan \@ contoso.com**.
    
     c. Vid export genereras ett **konflikt** fel i proxyAddress i stället för att de hamnar i konflikt i karantän. Åtgärden provas på nytt vid varje efterföljande synkronisering, eftersom den skulle ha varit innan återhämtnings funktionen var aktive rad.
 2. Om två grupper skapas lokalt med samma SMTP-adress, går det inte att etablera vid det första försöket med ett duplicerat standard **proxyAddress** -fel. Det duplicerade värdet är dock i karantän vid nästa synkronisering.
@@ -157,22 +157,22 @@ Inga av dessa kända problem medför data förlust eller tjänst försämring. F
 **Office-Portal-rapport**:
 
 1. Det detaljerade fel meddelandet för två objekt i en UPN-konflikt har angetts. Detta anger att de båda har ändrat UPN-värde/i karantän, om bara en av dem hade ändrats.
-2. Det detaljerade fel meddelandet för en UPN-konflikt visar fel displayName för en användare som har ändrat UPN-namnet/i karantän. Ett exempel:
+2. Det detaljerade fel meddelandet för en UPN-konflikt visar fel displayName för en användare som har ändrat UPN-namnet/i karantän. Till exempel:
    
-    a. **Användare A** synkroniseras först med **UPN =\@user contoso.com**.
+    a. **Användare A** synkroniseras först med **UPN = User \@ contoso.com**.
    
-    b. **Användaren B** försökte synkroniseras härnäst med **UPN =\@user contoso.com**.
+    b. **Användaren B** försökte synkroniseras härnäst med **UPN = User \@ contoso.com**.
    
-    c. **Användare b:s** UPN har ändrats till **User1234\@contoso.onmicrosoft.com** och **användar\@contoso.com** läggs till i **DirSyncProvisioningErrors**.
+    c. **Användare b:s** UPN har ändrats till **User1234 \@ contoso.onmicrosoft.com** och **användar \@ contoso.com** läggs till i **DirSyncProvisioningErrors**.
    
-    d. Fel meddelandet för **användare B** bör ange att **användaren** redan har **\@contoso.com** som ett UPN, men det visar **användarens** eget DisplayName.
+    d. Fel meddelandet för **användare B** bör ange att **användaren** redan har ** \@ contoso.com** som ett UPN, men det visar **användarens** eget DisplayName.
 
 **Identitetssynkronisering fel rapport**:
 
 Länken för *steg om hur du löser det här problemet* är felaktigt:  
     ![Aktiva användare](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktiva användare")  
 
-Den ska peka på [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
+Den ska peka på [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) .
 
 ## <a name="see-also"></a>Se även
 * [Azure AD Connect synkronisering](how-to-connect-sync-whatis.md)

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4f45ac40e7df865bdb4722d086325096c377cd59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877550"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341569"
 ---
 # <a name="entity-functions"></a>Enhets funktioner
 
@@ -18,7 +18,7 @@ Entitets funktioner definierar åtgärder för att läsa och uppdatera små dela
 Entiteter ger ett sätt att skala ut program genom att distribuera arbetet över flera entiteter, var och en med ett mycket stort tillstånd.
 
 > [!NOTE]
-> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare.
+> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare. De stöds för närvarande i .NET och Java Script.
 
 ## <a name="general-concepts"></a>Allmänna begrepp
 
@@ -32,14 +32,14 @@ Entiteter nås via en unik identifierare, *entitets-ID: t*. Ett entitets-ID är 
 * **Entitetsnamn**, som är ett namn som identifierar typen för entiteten. Ett exempel är "Counter". Namnet måste matcha namnet på den enhets funktion som implementerar entiteten. Det är inte känsligt för fall.
 * **Enhets nyckel**, som är en sträng som unikt identifierar entiteten bland alla andra entiteter med samma namn. Ett exempel är ett GUID.
 
-En `Counter` entitets funktion kan till exempel användas för att hålla poängen i ett online-spel. Varje instans av spelet har ett unikt entitets-ID, till `@Counter@Game1` exempel `@Counter@Game2`och. Alla åtgärder som är riktade till en viss entitet kräver att du anger ett entitets-ID som en parameter.
+En `Counter` entitets funktion kan till exempel användas för att hålla poängen i ett online-spel. Varje instans av spelet har ett unikt entitets-ID, till exempel `@Counter@Game1` och `@Counter@Game2` . Alla åtgärder som är riktade till en viss entitet kräver att du anger ett entitets-ID som en parameter.
 
 ### <a name="entity-operations"></a>Entitetsåtgärder ###
 
 Om du vill anropa en åtgärd på en entitet anger du:
 
 * **Entitets-ID** för målentiteten.
-* **Åtgärds namn**, som är en sträng som anger vilken åtgärd som ska utföras. `Counter` Entiteten kan till exempel stödja `add`-, `get`-eller `reset` -åtgärder.
+* **Åtgärds namn**, som är en sträng som anger vilken åtgärd som ska utföras. `Counter`Entiteten kan till exempel stödja `add` -, `get` -eller- `reset` åtgärder.
 * **Åtgärds information**, vilket är en valfri indataparameter för åtgärden. Till exempel kan åtgärden Lägg till ta ett heltal som inmatat värde.
 * **Schemalagd tid**, vilket är en valfri parameter för att ange leverans tiden för åtgärden. En åtgärd kan till exempel vara en tillförlitlig schemaläggning att köra flera dagar i framtiden.
 
@@ -55,11 +55,11 @@ För närvarande är de två distinkta API: erna för att definiera entiteter:
 
 **Klass-baserad syntax (endast .net)**, där entiteter och åtgärder representeras av klasser och metoder. Den här syntaxen ger enklare läsbar kod och gör att åtgärder kan anropas på ett typ säkert sätt. Den klassbaserade syntaxen är ett tunt lager ovanpå den Function-baserade syntaxen, så att båda variantarna kan användas i samma program.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Exempel: Function-baserad syntax-C #
 
-Följande kod är ett exempel på en enkel `Counter` entitet som implementeras som en varaktig funktion. Den här funktionen definierar tre åtgärder `add`, `reset`,, `get`och, som körs på ett heltals tillstånd.
+Följande kod är ett exempel på en enkel `Counter` entitet som implementeras som en varaktig funktion. Den här funktionen definierar tre åtgärder, `add` , `reset` , och `get` , som körs på ett heltals tillstånd.
 
 ```csharp
 [FunctionName("Counter")]
@@ -105,7 +105,7 @@ public class Counter
 }
 ```
 
-Status för den här entiteten är ett objekt av `Counter`typen, som innehåller ett fält som lagrar räknarens aktuella värde. För att spara objektet i lagret serialiseras det och deserialiseras av [JSON.net](https://www.newtonsoft.com/json) -biblioteket. 
+Status för den här entiteten är ett objekt av typen `Counter` , som innehåller ett fält som lagrar räknarens aktuella värde. För att spara objektet i lagret serialiseras det och deserialiseras av [JSON.net](https://www.newtonsoft.com/json) -biblioteket. 
 
 Mer information om den klassbaserade syntaxen och hur du använder den finns i [definiera enhets klasser](durable-functions-dotnet-entities.md#defining-entity-classes).
 
@@ -113,9 +113,9 @@ Mer information om den klassbaserade syntaxen och hur du använder den finns i [
 
 ### <a name="example-javascript-entity"></a>Exempel: JavaScript-entitet
 
-Varaktiga entiteter är tillgängliga i Java Script **1.3.0** från och med `durable-functions` version 1.3.0 av NPM-paketet. Följande kod är `Counter` entiteten som implementeras som en varaktig funktion som skrivits i Java Script.
+Varaktiga entiteter är tillgängliga i Java Script från och med version **1.3.0** av `durable-functions` NPM-paketet. Följande kod är `Counter` entiteten som implementeras som en varaktig funktion som skrivits i Java Script.
 
-**Counter/function. JSON**
+**Räknare/function.jspå**
 ```json
 {
   "bindings": [
@@ -129,7 +129,7 @@ Varaktiga entiteter är tillgängliga i Java Script **1.3.0** från och med `dur
 }
 ```
 
-**Counter/index. js**
+**Räknare/index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -171,7 +171,7 @@ Följande exempel illustrerar dessa olika sätt att komma åt entiteter.
 
 Om du vill komma åt entiteter från en vanlig Azure Function, som även kallas en klient funktion, använder du [enhets klient bindningen](durable-functions-bindings.md#entity-client). I följande exempel visas en köade funktion som signalerar en entitet som använder den här bindningen.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 > [!NOTE]
 > För enkelhetens skull visar följande exempel den strikt skrivna syntaxen för åtkomst till entiteter. I allmänhet rekommenderar vi att du [kommer åt entiteter via gränssnitt](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) eftersom det ger mer typ kontroll.
@@ -209,7 +209,7 @@ Termen *signal* innebär att entitets-API-anropet är enkelriktat och asynkront.
 
 Klient funktioner kan också fråga efter status för en entitet, som visas i följande exempel:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -244,7 +244,7 @@ Frågor för enhets tillstånd skickas till lagrings platsen för beständig sp�
 
 Orchestrator-funktioner har åtkomst till entiteter med hjälp av API: er på [bindningen för Orchestration-utlösaren](durable-functions-bindings.md#orchestration-trigger) Följande exempel kod visar en Orchestrator-funktion som anropar och signalerar en `Counter` entitet.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -291,7 +291,7 @@ Endast dirigering kan anropa entiteter och få svar, vilket kan vara antingen et
 En entitets funktion kan skicka signaler till andra entiteter, eller till och med sig själv, medan en åtgärd körs.
 Vi kan till exempel ändra föregående `Counter` entitet-exempel så att den skickar en "mil stolpe-nådd"-signal till en övervaknings enhet när räknaren når värdet 100.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -327,10 +327,10 @@ Det kan finnas tillfällen när du behöver koordinera åtgärder över flera en
 
 ### <a name="example-transfer-funds-c"></a>Exempel: Transfer Funds (C#)
 
-I följande exempel kod överförs fonder mellan två konto enheter med hjälp av en Orchestrator-funktion. Koordinerande enhets uppdateringar kräver att `LockAsync` du använder metoden för att skapa ett _kritiskt avsnitt_ i dirigeringen.
+I följande exempel kod överförs fonder mellan två konto enheter med hjälp av en Orchestrator-funktion. Koordinerande enhets uppdateringar kräver att du använder `LockAsync` metoden för att skapa ett _kritiskt avsnitt_ i dirigeringen.
 
 > [!NOTE]
-> För enkelhetens skull återanvänder det `Counter` här exemplet den entitet som definierats tidigare. I ett verkligt program är det bättre att definiera en mer detaljerad `BankAccount` entitet.
+> För enkelhetens skull återanvänder det här exemplet den `Counter` entitet som definierats tidigare. I ett verkligt program är det bättre att definiera en mer detaljerad `BankAccount` entitet.
 
 ```csharp
 // This is a method called by an orchestrator function
@@ -372,21 +372,21 @@ public static async Task<bool> TransferFundsAsync(
 }
 ```
 
-I .NET `LockAsync` returneras `IDisposable`, som avslutar det kritiska avsnittet när det tas bort. Det `IDisposable` här resultatet kan användas tillsammans med ett `using` block för att få en syntaktisk representation av det kritiska avsnittet.
+I .NET `LockAsync` returneras `IDisposable` , som avslutar det kritiska avsnittet när det tas bort. Det här `IDisposable` resultatet kan användas tillsammans med ett `using` block för att få en syntaktisk representation av det kritiska avsnittet.
 
-I föregående exempel har en Orchestrator-funktion överfört fonder från en källentiteten till en målentitet. `LockAsync` Metoden låser både käll-och mål kontots entiteter. Den här låsningen säkerställer att ingen annan klient kan fråga eller ändra status för något av kontona tills Orchestration-logiken avbröt det kritiska avsnittet i slutet av `using` instruktionen. Det här beteendet förhindrar möjlighet att förhindra att käll kontot bearbetas.
+I föregående exempel har en Orchestrator-funktion överfört fonder från en källentiteten till en målentitet. `LockAsync`Metoden låser både käll-och mål kontots entiteter. Den här låsningen säkerställer att ingen annan klient kan fråga eller ändra status för något av kontona tills Orchestration-logiken avbröt det kritiska avsnittet i slutet av `using` instruktionen. Det här beteendet förhindrar möjlighet att förhindra att käll kontot bearbetas.
 
 > [!NOTE] 
 > När en dirigering avslutas, antingen normalt eller med ett fel, avslutas alla kritiska delar som pågår implicit och alla Lås släpps.
 
 ### <a name="critical-section-behavior"></a>Beteende för kritiskt avsnitt
 
-`LockAsync` Metoden skapar ett kritiskt avsnitt i en dirigering. Dessa kritiska avsnitt förhindrar andra dirigeringar från att göra överlappande ändringar till en angiven uppsättning entiteter. Internt skickar `LockAsync` API: et för att skicka "lås"-åtgärder till entiteterna och returnerar när de får ett meddelande om "Lås förvärvad" från var och en av dessa entiteter. Både lås och upplåsning är inbyggda åtgärder som stöds av alla entiteter.
+`LockAsync`Metoden skapar ett kritiskt avsnitt i en dirigering. Dessa kritiska avsnitt förhindrar andra dirigeringar från att göra överlappande ändringar till en angiven uppsättning entiteter. Internt `LockAsync` skickar API: et för att skicka "lås"-åtgärder till entiteterna och returnerar när de får ett meddelande om "Lås förvärvad" från var och en av dessa entiteter. Både lås och upplåsning är inbyggda åtgärder som stöds av alla entiteter.
 
 Inga åtgärder från andra klienter tillåts för en entitet medan den är låst. Det här beteendet säkerställer att endast en Dirigerings instans kan låsa en entitet i taget. Om en anropare försöker anropa en åtgärd på en entitet när den har låsts av ett dirigering, placeras den åtgärden i en kö för väntande åtgärder. Väntande åtgärder bearbetas inte förrän innehavaren har låst det.
 
 > [!NOTE] 
-> Det här beteendet skiljer sig något från primitiva primitiver som används i de flesta programmeringsspråk `lock` , t. ex. instruktionen i C#. I C# måste exempelvis `lock` instruktionen användas av alla trådar för att säkerställa korrekt synkronisering över flera trådar. Entiteter kräver dock inte att alla anropare uttryckligen låser en entitet. Om någon anropare låser en entitet, blockeras alla andra åtgärder på den entiteten och placeras bakom det låset.
+> Det här beteendet skiljer sig något från primitiva primitiver som används i de flesta programmeringsspråk, t `lock` . ex. instruktionen i C#. I C# `lock` måste exempelvis instruktionen användas av alla trådar för att säkerställa korrekt synkronisering över flera trådar. Entiteter kräver dock inte att alla anropare uttryckligen låser en entitet. Om någon anropare låser en entitet, blockeras alla andra åtgärder på den entiteten och placeras bakom det låset.
 
 Lås på entiteter är varaktiga, så de kvarstår även om processen som körs återvinns. Lås är internt bestående som en del av en enhets varaktiga tillstånd.
 
@@ -402,11 +402,11 @@ Till skillnad från primitiva primitiver på låg nivå i de flesta programmerin
 * Kritiska avsnitt kan inte anropa samma entitet med flera parallella anrop.
 * Kritiska avsnitt kan bara signalera de entiteter de inte är låsta.
 
-Överträdelser av dessa regler orsakar ett körnings fel, t. `LockingRulesViolationException` ex. i .net, som innehåller ett meddelande som förklarar vilken regel som har brutits.
+Överträdelser av dessa regler orsakar ett körnings fel, t. ex. `LockingRulesViolationException` i .net, som innehåller ett meddelande som förklarar vilken regel som har brutits.
 
 ## <a name="comparison-with-virtual-actors"></a>Jämförelse med virtuella aktörer
 
-Många av de varaktiga entiteternas funktioner inspireras av [aktörs modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med aktörer kan du känna igen många av de begrepp som beskrivs i den här artikeln. Varaktiga enheter är särskilt likartade för [virtuella aktörer](https://research.microsoft.com/projects/orleans/), eller kärnor, som är populärt av [Orleans-projektet](http://dotnet.github.io/orleans/). Ett exempel:
+Många av de varaktiga entiteternas funktioner inspireras av [aktörs modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med aktörer kan du känna igen många av de begrepp som beskrivs i den här artikeln. Varaktiga enheter är särskilt likartade för [virtuella aktörer](https://research.microsoft.com/projects/orleans/), eller kärnor, som är populärt av [Orleans-projektet](http://dotnet.github.io/orleans/). Till exempel:
 
 * Varaktiga entiteter kan adresseras via ett entitets-ID.
 * Varaktiga enhets åtgärder körs seriellt, en i taget, för att förhindra tävlings förhållanden.

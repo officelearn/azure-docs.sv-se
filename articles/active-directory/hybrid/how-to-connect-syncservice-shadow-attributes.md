@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60384719"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356669"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect Shadow-attribut för synkroniseringstjänst
 De flesta attributen visas på samma sätt i Azure AD som i din lokala Active Directory. Men vissa attribut har viss specifik hantering och attributvärdet i Azure AD kan skilja sig från vad som Azure AD Connect synkroniseras.
@@ -32,7 +32,7 @@ Vissa attribut har två representationer i Azure AD. Både det lokala värdet oc
 Du kan inte se Shadow-attributen med hjälp av Azure Portal eller med PowerShell. Men om du förstår konceptet kan du felsöka vissa scenarier där attributet har olika värden lokalt och i molnet.
 
 För att bättre förstå beteendet kan du titta på det här exemplet från Fabrikam:  
-![Domäner](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![Domains](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 De har flera UPN-suffix i sina lokala Active Directory, men de har bara verifierat ett.
 
 ### <a name="userprincipalname"></a>userPrincipalName
@@ -58,7 +58,7 @@ För en Mailbox-användare, antingen lokalt eller i Exchange Online visas bara v
 | lokala proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online-proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-I det här fallet har **SMTP: Abbie\@. Spencer-fabrikam.com** tagits bort eftersom domänen inte har verifierats. Men Exchange har även lagt till **SIP: Abbie\@. Spencer fabrikamonline.com**. Fabrikam har inte använt Lync/Skype lokalt, men Azure AD och Exchange Online Förbered dig för det.
+I det här fallet har **SMTP: Abbie. Spencer- \@ fabrikam.com** tagits bort eftersom domänen inte har verifierats. Men Exchange har även lagt till **SIP: Abbie. spencer \@ fabrikamonline.com**. Fabrikam har inte använt Lync/Skype lokalt, men Azure AD och Exchange Online Förbered dig för det.
 
 Den här logiken för proxyAddresses kallas **ProxyCalc**. ProxyCalc anropas med varje ändring av en användare när:
 

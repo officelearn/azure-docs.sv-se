@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använd Azure Policy för att tillämpa klusterkonfigurationer i stor skala
 keywords: Kubernetes, båge, Azure, K8s, behållare
-ms.openlocfilehash: 80ffd70b830483c548f29a029d448bb6b480a8d4
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 4c013fe562d89bff4d1ce9c9f3e832e1b51c70f1
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676207"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341377"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Använd Azure Policy om du vill använda klusterkonfigurationer i skala (för hands version)
 
@@ -26,7 +26,7 @@ Om du använder flera git-databaser som källor till sanningen för varje kluste
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
 1. I Azure Portal navigerar du till princip och i avsnittet **redigering** på sid panelen väljer du **definitioner**.
-2. Välj den inbyggda principen "distribuera GitOps till Kubernetes-kluster" i kategorin "Kubernetes" och klicka på **Välj**.
+2. Välj den inbyggda principen "distribuera GitOps till Kubernetes-kluster" i kategorin "Kubernetes" och klicka på **tilldela**.
 3. Ange **omfattningen** för hanterings gruppen, prenumerationen eller resurs gruppen där princip tilldelningen ska gälla.
 4. Ange **undantag**om du vill undanta resurser från princip omfånget.
 5. Ge princip tilldelningen ett **namn** och en **Beskrivning** som du kan använda för att identifiera det enkelt.

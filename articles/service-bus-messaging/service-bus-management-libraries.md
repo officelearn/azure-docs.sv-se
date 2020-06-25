@@ -1,25 +1,15 @@
 ---
 title: Bibliotek för Azure Service Bus hantering | Microsoft Docs
 description: Den här artikeln förklarar hur du använder Azure Service Bus hanterings bibliotek för att dynamiskt etablera Service Bus namn områden och entiteter.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: e1531d9b70860f498a3e38305f26eb862c9513f3
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.date: 06/23/2020
+ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901502"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341710"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus-hanteringsbibliotek
 
@@ -40,7 +30,7 @@ För att komma igång med Service Bus hanterings bibliotek måste du autentisera
 * [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Använd Azure CLI för att skapa tjänstens huvudnamn för att få åtkomst till resurser](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-De här självstudierna ger `AppId` dig ett (klient- `TenantId`ID) `ClientSecret` , och (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha minst [**Azure Service Bus data ägare**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) eller [**deltagar**](/azure/role-based-access-control/built-in-roles#contributor) behörighet för resurs gruppen som du vill köra.
+De här självstudierna ger dig ett `AppId` (klient-ID), `TenantId` och `ClientSecret` (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha minst [**Azure Service Bus data ägare**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) eller [**deltagar**](/azure/role-based-access-control/built-in-roles#contributor) behörighet för resurs gruppen som du vill köra.
 
 ## <a name="programming-pattern"></a>Programmerings mönster
 

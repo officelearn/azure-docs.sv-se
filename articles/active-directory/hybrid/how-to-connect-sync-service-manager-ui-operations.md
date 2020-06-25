@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474000d1d4d7e1358682d1421125d482e3782049
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 64ab5901ad54e37fc05d7da757ce7f31d42fe3b6
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60381423"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357111"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Använda fliken Synkronisera Service Manager åtgärder
 
@@ -39,8 +39,8 @@ Kolumnen **status** är den viktigaste informationen och visar det allvarligaste
 | --- | --- |
 | stoppats\* |Det gick inte att slutföra körningen. Om fjärrsystemet till exempel är nere och inte kan kontaktas. |
 | stoppat-fel-gräns |Det finns fler än 5 000 fel. Körningen stoppades automatiskt på grund av det stora antalet fel. |
-| slutförd\*--fel |Körningen slutfördes, men det finns fel (mindre än 5 000) som bör undersökas. |
-| slutförd\*--varningar |Körningen slutfördes, men vissa data är inte i förväntat tillstånd. Om du har fel är det här meddelandet vanligt vis bara ett problem. Du bör inte undersöka varningar förrän du har åtgärdat fel. |
+| slutförd- \* -fel |Körningen slutfördes, men det finns fel (mindre än 5 000) som bör undersökas. |
+| slutförd- \* -varningar |Körningen slutfördes, men vissa data är inte i förväntat tillstånd. Om du har fel är det här meddelandet vanligt vis bara ett problem. Du bör inte undersöka varningar förrän du har åtgärdat fel. |
 | lyckades |Inga problem. |
 
 När du väljer en rad uppdateras de nedersta uppdateringarna för att visa information om den här körningen. Längst till vänster längst ned kan du ha en lista som säger **steg #**. Den här listan visas bara om du har flera domäner i din skog där varje domän representeras av ett steg. Du kan hitta domän namnet under Heading- **partitionen**. Under **synkroniserings statistik**kan du hitta mer information om antalet ändringar som har bearbetats. Du kan klicka på länkarna för att hämta en lista över de ändrade objekten. Om du har objekt med fel visas dessa fel under **synkroniseringsfel**.

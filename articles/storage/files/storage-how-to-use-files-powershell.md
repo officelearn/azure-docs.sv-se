@@ -7,17 +7,17 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77598555"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340836"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snabbstart: Skapa och hantera en Azure-filresurs med Azure PowerShell 
 Den här guiden går igenom grunderna med att arbeta med [Azure-filresurser](storage-files-introduction.md) med PowerShell. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Ett lagrings konto är en delad pool av lagrings utrymme som du kan använda för att distribuera Azure-filresurser. Ett lagringskonto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagringskontots kapacitetsgräns. I det här exemplet skapas en generell användnings version 2 (GPv2 lagrings konto), som kan lagra standard-Azure-filresurser eller andra lagrings resurser, till exempel blobbar eller köer, på hård diskens (HDD) rotations medium. Azure Files stöder också Premium solid-state disk-enheter (SSD). Premium Azure-filresurser kan skapas i FileStorage-lagrings konton.
 
-I det här exemplet skapas ett lagringskonto med cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Lagrings kontot har namnet *mystorageaccount\<Random Number>* och en referens till lagrings kontot lagras i variabeln **$storageAcct**. Lagringskontonamn måste vara unika så använd `Get-Random` för att lägga till ett tal till namnet som gör det unikt. 
+I det här exemplet skapas ett lagringskonto med cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Lagringskontot har namnet *mystorageaccount\<random number>* och en referens till det lagringskontot lagras i variabeln **$storageAcct**. Lagringskontonamn måste vara unika så använd `Get-Random` för att lägga till ett tal till namnet som gör det unikt. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"
@@ -55,7 +55,7 @@ $storageAcct = New-AzStorageAccount `
 ```
 
 > [!Note]  
-> Resurser som är större än 5 TiB (upp till högst 100 TiB per resurs) är bara tillgängliga i lagrings konton lokalt redundant (LRS) och zon redundant (ZRS). Ta bort `-EnableLargeFileShare` parametern om du vill skapa ett geo-REDUNDANT (GRS) eller Geo-redundant lagrings konto (GZRS).
+> Resurser som är större än 5 TiB (upp till högst 100 TiB per resurs) är bara tillgängliga i lagrings konton lokalt redundant (LRS) och zon redundant (ZRS). Ta bort parametern om du vill skapa ett Geo-redundant (GRS) eller Geo-redundant lagrings konto (GZRS) `-EnableLargeFileShare` .
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 Nu kan du skapa din första Azure-filresurs. Du kan skapa en fil resurs med cmdleten [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) . I det här exemplet skapar vi en resurs som heter `myshare`.
@@ -88,7 +88,7 @@ I de flesta fall använder du Azure-filresursen via SMB-protokollet, eftersom du
 - Du utnyttjar serverlösa resurser såsom [Azure Functions](../../azure-functions/functions-overview.md). 
 - Du skapar en tjänst för värde tillägg som interagerar med många Azure-filresurser, till exempel säkerhets kopierings-eller antivirus genomsökningar.
 
-I följande exempel visas hur du använder Azure PowerShell-modulen till att ändra din Azure-filresurs med fil-REST-protokollet. `-Context` Parametern används för att hämta lagrings konto nyckeln för att utföra de angivna åtgärderna mot fil resursen. För att hämta lagrings konto nyckeln måste du ha RBAC-rollen för `Owner` på lagrings kontot.
+I följande exempel visas hur du använder Azure PowerShell-modulen till att ändra din Azure-filresurs med fil-REST-protokollet. `-Context`Parametern används för att hämta lagrings konto nyckeln för att utföra de angivna åtgärderna mot fil resursen. För att hämta lagrings konto nyckeln måste du ha RBAC-rollen för `Owner` på lagrings kontot.
 
 #### <a name="create-directory"></a>Skapa katalog
 Om du vill skapa en ny katalog med namnet *myDirectory* i roten av din Azure-filresurs, använder du cmdleten [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).
@@ -186,7 +186,7 @@ Get-AzStorageFile `
     -Path "myDirectory2" 
 ```
 
-Även om `Start-AzStorageFileCopy` cmdleten är bekväm för ad hoc-filflyttningar mellan Azure-filresurser, för migrering och större data förflyttning `robocopy` , rekommenderar vi `rsync` att du använder Windows och MacOS och Linux. `robocopy`och `rsync` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
+Även om `Start-AzStorageFileCopy` cmdleten är bekväm för ad hoc-filflyttningar mellan Azure-filresurser, för migrering och större data förflyttning, rekommenderar vi att du använder `robocopy` Windows och `rsync` MacOS och Linux. `robocopy`och `rsync` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
 
 ## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera ögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en tidpunkt för en Azure-filresurs. Ögonblicksbilder av resurser liknar de operativsystemtekniker som du kanske redan är bekant med såsom:
@@ -199,7 +199,7 @@ Du kan skapa en ögonblicksbild av en resurs genom att använda metoden `Snapsho
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name $shareName
-$snapshot = $share.Snapshot()
+$snapshot = $share.CloudFileShare.Snapshot()
 ```
 
 ### <a name="browse-share-snapshots"></a>Bläddra resursögonblicksbilder

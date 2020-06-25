@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: jgao
-ms.openlocfilehash: 3d9ab41fdb05eca3b39bf1ad222f6d42a3311b77
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 6cf10ea9693f922ee8edfb6bab5d1a7cde681fcb
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193743"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339426"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -190,7 +190,7 @@ De utdata som returneras ser ut så här:
 
 ## <a name="use-external-scripts"></a>Använd externa skript
 
-Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Ett exempel:
+Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Till exempel:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -275,7 +275,7 @@ Om du vill ange ett befintligt lagrings konto lägger du till följande JSON til
 ```
 
 - **storageAccountName**: Ange namnet på lagrings kontot.
-- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Ett exempel:
+- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Till exempel:
 
     ```json
     "storageAccountSettings": {
@@ -362,10 +362,10 @@ Timeout             : PT1H
 
 Med Azure CLI kan du hantera distributions skript på prenumerations-eller resurs grupps omfång:
 
-- [AZ distribution-skript ta bort](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): ta bort ett distributions skript.
-- [AZ distribution – skript lista](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): visar alla distributions skript.
-- [AZ distribution – skript Visa](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): Hämta ett distributions skript.
-- [AZ distribution – skript Visa-logg](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): Visa distributions skript loggar.
+- [AZ distribution-skript ta bort](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): ta bort ett distributions skript.
+- [AZ distribution – skript lista](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): visar alla distributions skript.
+- [AZ distribution – skript Visa](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): Hämta ett distributions skript.
+- [AZ distribution – skript Visa-logg](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): Visa distributions skript loggar.
 
 Utdata för list kommandot liknar:
 

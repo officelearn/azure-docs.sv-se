@@ -10,22 +10,30 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 06/05/2020
-ms.openlocfilehash: 7238e2d7cbcb26a7b45ae9d7db52a0826abe0754
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897984"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361650"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Viktig information om Azure SQL Edge 
 
 I den här artikeln beskrivs vad som är nytt och vad som har ändrats med varje ny version av Azure SQL Edge.
 
+## <a name="ctp-21"></a>CTP 2,1 
+### <a name="sql-engine-build-number---15020001545"></a>SQL-motor versions nummer – 15.0.2000.1545
+### <a name="fixes"></a>Korrigeringar
+1. Åtgärda problemet med ONNX-modeller för att hantera CPUID-problem i ARM 
+2. Korrigera för att förbättra hanteringen av en felsökväg vid start av TSQL streaming 
+3. Åtgärda det felaktiga värdet för fördröjning av vattenstämpel i jobb mått när det inte finns några data. 
+4. Åtgärda problemet med utmatnings kort när kortet har ett variabelt schema mellan batchar.  
+
 ## <a name="ctp-20"></a>CTP 2,0 
 ### <a name="sql-engine-build-number---15020001401"></a>SQL-motor versions nummer – 15.0.2000.1401
 ### <a name="whats-new"></a>Nyheter
 1.  Produkt namnet har uppdaterats till Azure SQL Edge
-2.  Date_bucket funktion
+1.  Date_bucket funktion
 
     i.  Stöd för datum, tid, DateTime-typ
 3.  FÖRUTSÄG med ONNX

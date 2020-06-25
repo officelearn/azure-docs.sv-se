@@ -5,15 +5,15 @@ author: billmath
 ms.author: billmath
 manager: daveba
 ms.date: 12/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e41be4b76245f2567015eb0ede317830120ee61a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75549493"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360800"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Fel sökning av moln etablering
 
@@ -44,7 +44,7 @@ Dessa objekt kan verifieras i Azure Portal och på den lokala server som kör-ag
 Följ dessa steg för att kontrol lera att agenten visas av Azure och är felfri.
 
 1. Logga in på Azure Portal.
-1. Välj **Azure Active Directory** > **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
+1. Välj **Azure Active Directory**  >  **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
 1. På skärmen **Azure AD Provisioning (för hands version)** väljer du **Granska alla agenter**.
 
    ![Granska alla agenter](media/how-to-install/install7.png)</br>
@@ -67,7 +67,7 @@ Det här testet kontrollerar att dina agenter kan kommunicera med Azure via port
 
 Kontrol lera att agenten körs genom att följa dessa steg.
 
-1. På servern där agenten är installerad öppnar du **tjänster** genom att antingen navigera till den eller **Starta** > **köra** > **Services. msc**.
+1. På servern där agenten är installerad öppnar du **tjänster** genom att antingen navigera till den eller **Starta**  >  **köra**  >  **Services. msc**.
 1. Under **tjänster**kontrollerar du att **Microsoft Azure AD ansluter agent uppdaterings** **agenten och Microsoft Azure AD ansluta etablerings agenten** är där och att deras status är *igång*.
 
    ![Sidan tjänster](media/how-to-troubleshoot/troubleshoot1.png)
@@ -87,7 +87,7 @@ Det här problemet orsakas vanligt vis av en grup princip som förhindrade att b
 Följ dessa steg för att lösa problemet.
 
 1. Logga in på servern med ett administratörs konto.
-1. Öppna **tjänster** genom att antingen navigera till den eller genom att **Starta** > **köra** > **Services. msc**.
+1. Öppna **tjänster** genom att antingen navigera till den eller genom att **Starta**  >  **köra**  >  **Services. msc**.
 1. Under **tjänster**dubbelklickar du på **Microsoft Azure AD ansluta etablerings agent**.
 1. På fliken **Logga in** ändrar du **det här kontot** till en domän administratör. Starta sedan om tjänsten. 
 
@@ -99,9 +99,9 @@ Du kan få följande fel meddelande när du försöker registrera agenten.
 
 ![Fel meddelande vid timeout](media/how-to-troubleshoot/troubleshoot4.png)
 
-Det här problemet orsakas vanligt vis av att agenten inte kan ansluta till hybrid identitets tjänsten och kräver att du konfigurerar en HTTP-proxy. Lös problemet genom att konfigurera en utgående proxy. 
+Det här problemet orsakas normalt av att agenten inte kan ansluta till hybrididentitetstjänsten och kräver att du konfigurerar en HTTP-proxy. Du kan lösa problemet genom att konfigurera en utgående proxy. 
 
-Etablerings agenten stöder användning av en utgående proxy. Du kan konfigurera den genom att redigera agentens konfigurations fil *C:\Program Files\Microsoft Azure AD Connect etablering Agent\AADConnectProvisioningAgent.exe.config*. Lägg till följande rader i den i slutet av filen precis innan den avslutande `</configuration>` taggen.
+Etablerings agenten stöder användning av en utgående proxy. Du kan konfigurera den genom att redigera agentens konfigurations fil *C:\Program Files\Microsoft Azure AD Connect etablerings Agent\AADConnectProvisioningAgent.exe.config*. Lägg till följande rader i den i slutet av filen precis innan den avslutande `</configuration>` taggen.
 Ersätt variablerna `[proxy-server]` och `[proxy-port]` med proxyserverns namn och port värden.
 
 ```xml
@@ -126,12 +126,12 @@ Lös problemet genom att ändra körnings principerna för PowerShell på-server
 
 ### <a name="log-files"></a>Loggfiler
 
-Som standard avger agenten minimala fel meddelanden och stack spårnings information. Du hittar dessa spårnings loggar i mappen *C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect-etablering Agent\Trace*.
+Som standard avger agenten minimala felmeddelanden och stackspårningsinformation. Du hittar dessa spårnings loggar i mappen *C:\PROGRAMDATA\MICROSOFT\AZURE AD Connect-etablering Agent\Trace*.
 
 Följ dessa steg om du vill samla in ytterligare information om fel sökning av Agent-relaterade problem.
 
 1. Stoppa tjänsten **Microsoft Azure AD ansluta etablerings agenten**.
-1. Skapa en kopia av den ursprungliga konfigurations filen: *C:\Program Files\Microsoft Azure AD Connect etablering Agent\AADConnectProvisioningAgent.exe.config*.
+1. Skapa en kopia av den ursprungliga konfigurations filen: *C:\Program Files\Microsoft Azure AD Connect etablerings Agent\AADConnectProvisioningAgent.exe.config*.
 1. Ersätt det befintliga `<system.diagnostics>` avsnittet med följande och alla spårnings meddelanden skickas till filen *ProvAgentTrace. log*.
 
    ```xml

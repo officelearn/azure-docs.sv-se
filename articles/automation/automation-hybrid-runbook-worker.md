@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Hybrid Runbook Worker
 description: Den här artikeln innehåller en översikt över Hybrid Runbook Worker som du kan använda för att köra Runbooks på datorer i ditt lokala data Center eller en moln leverantör.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/22/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: bad64d030f3a5fd6c32ab82702ecd861fe4049a4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d921ecc390ae9361c9b36b4738e73a499aa2e8a4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206843"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361820"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -20,13 +20,13 @@ Följande bild visar den här funktionen:
 
 ![Översikt över Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation.png)
 
-En Hybrid Runbook Worker kan köra antingen Windows eller Linux-operativsystemet. För övervakning kräver det att Azure Monitor och en Log Analytics-Agent används för det operativ system som stöds. Mer information finns i [Azure Monitor](automation-runbook-execution.md#azure-monitor).
+En Hybrid Runbook Worker kan köras antingen på Windows eller Linux-operativsystemet. Det beror på [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) som rapporteras till en Azure Monitor [Log Analytics-arbetsyta](../azure-monitor/platform/design-logs-deployment.md). Arbets ytan kan inte bara övervaka datorn för det operativ system som stöds, utan även för att ladda ned de komponenter som krävs för Hybrid Runbook Worker.
 
 Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet. Varje dator kan vara värd för en hybrid Worker-rapportering till ett Automation-konto.
 
-När du startar en Runbook på en Hybrid Runbook Worker anger du den grupp som den körs på. Varje anställd i gruppen avsöker Azure Automation för att se om några jobb är tillgängliga. Om ett jobb är tillgängligt tar den första arbets tagaren att hämta jobbet. Bearbetnings tiden för jobb kön beror på maskin varu profilen för Hybrid Worker och belastningen. Du kan inte ange en viss arbetare. 
+När du startar en Runbook på en Hybrid Runbook Worker anger du den grupp som den körs på. Varje anställd i gruppen avsöker Azure Automation för att se om några jobb är tillgängliga. Om ett jobb är tillgängligt tar den första arbets tagaren att hämta jobbet. Bearbetnings tiden för jobb kön beror på maskin varu profilen för Hybrid Worker och belastningen. Du kan inte ange en viss arbetare.
 
-Använd en Hybrid Runbook Worker i stället för ett [Azure-sandbox](automation-runbook-execution.md#runbook-execution-environment) eftersom det inte har många av de begränsade [begränsningarna](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) för disk utrymme, minne eller nätverks platser. Gränserna för en hybrid arbetare är bara relaterade till arbetarnas egna resurser. 
+Använd en Hybrid Runbook Worker i stället för ett [Azure-sandbox](automation-runbook-execution.md#runbook-execution-environment) eftersom det inte har många av de begränsade [begränsningarna](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) för disk utrymme, minne eller nätverks platser. Gränserna för en hybrid arbetare är bara relaterade till arbetarnas egna resurser.
 
 > [!NOTE]
 > Hybrid Runbook Worker begränsas inte av den [verkliga delnings](automation-runbook-execution.md#fair-share) tiden som Azure-sandbox har.
@@ -40,7 +40,7 @@ Processen för att installera en Hybrid Runbook Worker är beroende av operativ 
 |Windows     | [Automatiserad](automation-windows-hrw-install.md#automated-deployment)<br>[Manuell](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker)        |
 
-Den rekommenderade installations metoden är att använda en Azure Automation Runbook för att helt automatisera processen med att konfigurera en Windows-dator. Den andra metoden är att följa en steg-för-steg-procedur för att manuellt installera och konfigurera rollen. För Linux-datorer kör du ett Python-skript för att installera agenten på datorn.
+Den rekommenderade installations metoden är att använda en Azure Automation Runbook för att helt automatisera processen med att konfigurera en Windows-dator. Om det inte är möjligt kan du följa en steg-för-steg-procedur för att manuellt installera och konfigurera rollen. För Linux-datorer kör du ett Python-skript för att installera agenten på datorn.
 
 ## <a name="network-planning"></a><a name="network-planning"></a>Planera för nätverk
 
@@ -65,11 +65,23 @@ Om du använder en proxyserver för kommunikation mellan Azure Automation och da
 
 Om du använder en brand vägg för att begränsa åtkomsten till Internet, måste du konfigurera brand väggen för att tillåta åtkomst. Om du använder Log Analytics gateway som proxy kontrollerar du att den har kon figurer ATS för Hybrid Runbook Worker. Se [konfigurera Log Analytics Gateway för Automation hybrid Worker](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
+### <a name="service-tags"></a>Tjänsttaggar
+
+Azure Automation stöder service tag-Taggar i Azure Virtual Network, från och med service tag- [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement** i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
+
+Service Tag-numret för Azure Automation-tjänsten tillhandahåller endast IP-adresser som används för följande scenarier:
+
+* Utlös webhookar inifrån ditt virtuella nätverk
+* Tillåt hybrid Runbook-arbetare eller tillstånds konfigurations agenter på ditt VNet för att kommunicera med Automation-tjänsten
+
+>[!NOTE]
+>Service tag- **GuestAndHybridManagement** har för närvarande inte stöd för körning av Runbook-jobb i en Azure-sandbox, bara direkt på en hybrid Runbook Worker.
+
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Uppdateringshantering på Hybrid Runbook Worker
 
 När Azure Automation [uppdateringshantering](automation-update-management.md) är aktive rad konfigureras alla datorer som är anslutna till din Log Analytics-arbetsyta automatiskt som en hybrid Runbook Worker. Varje arbets tagare kan stödja Runbooks riktade mot hantering av uppdateringar.
 
-En dator som kon figurer ATS på det här sättet är inte registrerad med några Hybrid Runbook Worker grupper som redan har definierats i ditt Automation-konto. Du kan lägga till datorn i en Hybrid Runbook Worker grupp, men du måste använda samma konto för både Uppdateringshantering och Hybrid Runbook Worker grupp medlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
+En dator som har kon figurer ATS på det här sättet är inte registrerad med Hybrid Runbook Worker grupper som redan har definierats i ditt Automation-konto. Du kan lägga till datorn i en Hybrid Runbook Worker grupp, men du måste använda samma konto för både Uppdateringshantering och Hybrid Runbook Worker grupp medlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Uppdateringshantering adresser för Hybrid Runbook Worker
 

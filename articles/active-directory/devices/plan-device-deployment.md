@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f716c52443abedb0fb838fa95b421033f5e93408
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 97ddc91b5e49cafa87b90113f0160d8aec9c699a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85218051"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360324"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
 
@@ -118,9 +118,8 @@ iOS-och Android-enheter kanske bara är registrerade i Azure AD. I följande tab
 |**De viktigaste funktionerna**| | |  |
 | SSO till moln resurser| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | Enkel inloggning till lokala resurser| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Villkorlig åtkomst| ![markering](./media/plan-device-deployment/check.png) 
-Kompatibla enheter| ![markering](./media/plan-device-deployment/check.png)
-Kompatibel enhet| ![markering](./media/plan-device-deployment/check.png) |
+| Villkorlig åtkomst <br> (Kräv att enheter markeras som kompatibla) <br> (Måste hanteras av MDM)| ![markering](./media/plan-device-deployment/check.png) | ![markering](./media/plan-device-deployment/check.png)|![markering](./media/plan-device-deployment/check.png) |
+Villkorlig åtkomst <br>(Kräv hybrid Azure AD-anslutna enheter)| | | ![markering](./media/plan-device-deployment/check.png)
 | Lösen ords återställning via självbetjäning från Windows inloggnings skärm| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | PIN-återställning för Windows Hello| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | Företags tillstånd för nätverks växling mellan enheter| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |

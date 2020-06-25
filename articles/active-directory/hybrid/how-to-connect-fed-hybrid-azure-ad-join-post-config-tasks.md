@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb8243041bb93ba8be6a65bb83df6f84affaee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 491a8f00de2fcd4c977a1856005b4358a4b62bd6
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049668"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359797"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Uppgifter efter konfiguration för Hybrid Azure AD-anslutning
 
@@ -52,7 +52,7 @@ Om din organisation har åtkomst till Internet via en utgående proxy implemente
 
 ## <a name="4-configure-the-scp-in-any-forests-that-were-not-configured-by-azure-ad-connect"></a>4. Konfigurera SCP i alla skogar som inte har kon figurer ATS av Azure AD Connect 
 
-Tjänst anslutnings punkten (SCP) innehåller din Azure AD-klient information som används av enheterna för automatisk registrering.  Kör PowerShell-skriptet, ConfigureSCP. ps1, som du laddade ned från Azure AD Connect.
+Tjänst anslutnings punkten (SCP) innehåller din Azure AD-klient information som används av enheterna för automatisk registrering.  Kör PowerShell-skriptet ConfigureSCP.ps1, som du laddade ned från Azure AD Connect.
 
 ## <a name="5-configure-any-federation-service-that-was-not-configured-by-azure-ad-connect"></a>5. Konfigurera en Federations tjänst som inte har kon figurer ATS av Azure AD Connect
 
@@ -63,7 +63,7 @@ Om din organisation använder en Federations tjänst för att logga in på Azure
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Aktivera Azure AD sömlös SSO för Windows-enheter på äldre nivå
 
-Om din organisation använder hash-synkronisering av lösen ord eller direktautentisering för att logga in på Azure AD, aktiverar du Azure AD sömlös SSO med denna inloggnings metod för att autentisera Windows-enheter på https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ssoden äldre nivån:. 
+Om din organisation använder hash-synkronisering av lösen ord eller direktautentisering för att logga in på Azure AD, aktiverar du Azure AD sömlös SSO med denna inloggnings metod för att autentisera Windows-enheter på den äldre nivån: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Ange Azure AD-princip för Windows-enheter på äldre nivå
 
@@ -82,7 +82,7 @@ Om du använder [sömlös SSO](how-to-connect-sso.md)aktiverar du även Tillåt 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installera Microsoft Workplace Join på Windows-enheter på nivån
 
-Det här installations programmet skapar en schemalagd aktivitet på enhets systemet som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in i Windows. Uppgiften ansluter tyst till enheten med Azure AD med användarautentiseringsuppgifterna efter autentisering med integrerad Windows-autentisering. Download Center finns på https://www.microsoft.com/download/details.aspx?id=53554. 
+Det här installations programmet skapar en schemalagd aktivitet på enhets systemet som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in i Windows. Uppgiften ansluter tyst till enheten med Azure AD med användarautentiseringsuppgifterna efter autentisering med integrerad Windows-autentisering. Download Center finns på https://www.microsoft.com/download/details.aspx?id=53554 . 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Konfigurera grup princip för att tillåta enhets registrering
 

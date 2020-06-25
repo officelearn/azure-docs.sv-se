@@ -8,17 +8,17 @@ editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036983"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359763"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Korrigera ändrade standard regler i Azure AD Connect
 
@@ -49,7 +49,7 @@ Följande är vanliga anpassningar av standard reglerna:
 
 Innan du ändrar några regler:
 
-- Inaktivera synkroniseringsschemat. Scheduler körs var 30: e minut som standard. Kontrol lera att det inte startar när du gör ändringar och felsöka dina nya regler. För att tillfälligt inaktivera Scheduler, starta PowerShell och kör `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+- Inaktivera synkroniseringsschemat. Scheduler körs var 30: e minut som standard. Kontrol lera att det inte startar när du gör ändringar och felsöka dina nya regler. För att tillfälligt inaktivera Scheduler, starta PowerShell och kör `Set-ADSyncScheduler -SyncCycleEnabled $false` .
  ![PowerShell-kommandon för att inaktivera synkroniseringsschemat](media/how-to-connect-fix-default-rules/default3.png)
 
 - Filtret ändra i omfånget kan resultera i att objekt i mål katalogen tas bort. Var försiktig innan du gör några ändringar i objektets omfattning. Vi rekommenderar att du gör ändringar i en fristående server innan du gör ändringar på den aktiva servern.
@@ -105,10 +105,10 @@ Behåll **omfångs filter** och **Anslut till regler** tomma. Fyll i omvandlinge
 Nu vet du hur du gör ett nytt attribut för ett användar objekt flöde från Active Directory till Azure Active Directory. Du kan använda de här stegen för att mappa alla attribut från alla objekt till källa och mål. Mer information finns i [skapa anpassade regler för synkronisering](how-to-connect-create-custom-sync-rule.md) och [förbereda för att etablera användare](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Åsidosätt värdet för ett befintligt attribut
-Du kanske vill åsidosätta värdet för ett attribut som redan har mappats. Om du till exempel alltid vill ange ett null-värde för ett attribut i Azure AD skapar du bara en regel för inkommande trafik. Gör värdet konstant, `AuthoritativeNull`och flöda till målattributet. 
+Du kanske vill åsidosätta värdet för ett attribut som redan har mappats. Om du till exempel alltid vill ange ett null-värde för ett attribut i Azure AD skapar du bara en regel för inkommande trafik. Gör värdet konstant, `AuthoritativeNull` och flöda till målattributet. 
 
 >[!NOTE] 
-> Använd `AuthoritativeNull` i stället `Null` för i det här fallet. Detta beror på att värdet som inte är null ersätter null-värdet, även om det har lägre prioritet (ett högre värde i regeln). `AuthoritativeNull`, å andra sidan, ersätts inte med ett värde som inte är null av andra regler. 
+> Använd i `AuthoritativeNull` stället för `Null` i det här fallet. Detta beror på att värdet som inte är null ersätter null-värdet, även om det har lägre prioritet (ett högre värde i regeln). `AuthoritativeNull`, å andra sidan, ersätts inte med ett värde som inte är null av andra regler. 
 
 ### <a name="dont-sync-existing-attribute"></a>Synkronisera inte befintligt attribut
 Om du vill undanta ett attribut från synkronisering använder du funktionen Filtrera attribut som finns i Azure AD Connect. Starta **Azure AD Connect** från Skriv bords ikonen och välj sedan **Anpassa alternativ för synkronisering**.
@@ -141,7 +141,7 @@ Du kan inte ange det här attributet i Active Directory. Ange värdet för det h
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-Vi konverterade först avdelningen från källan (Active Directory) till gemener. Sedan tog vi bara `Left` de första tre tecknen och jämför det med `hrd`med hjälp av funktionen. Om den matchas anges värdet till `True`, annars. `NULL` Vid inställning av värdet till null, kan en annan regel med lägre prioritet (ett högre värde) skriva till den med ett annat villkor. Kör förhands granskning på ett objekt för att validera synkroniseringsregeln, enligt vad som anges i avsnittet [Verifiera synkroniseringsstatus](#validate-sync-rule) .
+Vi konverterade först avdelningen från källan (Active Directory) till gemener. Sedan `Left` tog vi bara de första tre tecknen och jämför det med med hjälp av funktionen `hrd` . Om den matchas anges värdet till `True` , annars `NULL` . Vid inställning av värdet till null, kan en annan regel med lägre prioritet (ett högre värde) skriva till den med ett annat villkor. Kör förhands granskning på ett objekt för att validera synkroniseringsregeln, enligt vad som anges i avsnittet [Verifiera synkroniseringsstatus](#validate-sync-rule) .
 
 ![Skapa regel alternativ för inkommande synkronisering](media/how-to-connect-fix-default-rules/default7a.png)
 
@@ -176,15 +176,15 @@ Välj för **hands version...**
 
 I förhands gransknings fönstret väljer du **generera förhands granskning** och **Importera attributarkiv** i det vänstra fönstret.
 
-![Förhandsversion](media/how-to-connect-fix-default-rules/default14.png)
+![Förhandsgranskning](media/how-to-connect-fix-default-rules/default14.png)
  
 Lägg märke till att den nyligen tillagda regeln körs på objektet och har ange `cloudFiltered` attributet till sant.
 
-![Förhandsversion](media/how-to-connect-fix-default-rules/default15a.png)
+![Förhandsgranskning](media/how-to-connect-fix-default-rules/default15a.png)
  
 Om du vill jämföra den ändrade regeln med standard regeln exporterar du båda reglerna separat som textfiler. Dessa regler exporteras som en PowerShell-skriptfil. Du kan jämföra dem med hjälp av valfritt verktyg för fil jämförelse (till exempel Windiff) för att se ändringarna. 
  
-Observera att `msExchMailboxGuid` attributet i den ändrade regeln ändras till **uttrycks** typen, i stället för **direkt**. Värdet ändras också till **Null** och alternativet **ExecuteOnce** . Du kan ignorera identifierade skillnader och prioriteter. 
+Observera att attributet i den ändrade regeln `msExchMailboxGuid` ändras till **uttrycks** typen, i stället för **direkt**. Värdet ändras också till **Null** och alternativet **ExecuteOnce** . Du kan ignorera identifierade skillnader och prioriteter. 
 
 ![utdata för Windiff-verktyget](media/how-to-connect-fix-default-rules/default17.png)
  

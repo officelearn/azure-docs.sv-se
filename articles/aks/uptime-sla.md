@@ -3,14 +3,14 @@ title: Azure Kubernetes service (AKS) med SLA för drift tid
 description: Lär dig mer om SLA-erbjudandet (tillval) för API-servern för Azure Kubernetes service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: b360f36dfc80033ac95e4face438b66eed33cec4
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945519"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361582"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA för Azure Kubernetes service (AKS) drift tid
 
@@ -30,29 +30,38 @@ SLA för drift tid är tillgängligt i offentliga regioner där [AKS stöds](htt
 * Azure Government stöds inte för närvarande.
 * Azure Kina 21Vianet stöds inte för närvarande.
 
+## <a name="limitations"></a>Begränsningar
+
+* Privata kluster stöds inte för närvarande.
+
 ## <a name="sla-terms-and-conditions"></a>Villkor för SLA
 
 SLA för drift tid är en betald funktion och aktive rad per kluster. SLA-priser för drift tid bestäms av antalet diskreta kluster och inte av storleken på de enskilda klustren. Du kan visa [SLA pris information för drift tid](https://azure.microsoft.com/pricing/details/kubernetes-service/) för mer information.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.7.0 eller senare
+* Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 eller senare
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Skapa ett kluster med SLA för drift tid
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Skapa ett nytt kluster med SLA för drift tid
+
+> [!NOTE]
+> För närvarande finns det inget sätt att ta bort det från ett kluster om du aktiverar SLA för drift tid.
 
 Om du vill skapa ett nytt kluster med SLA för drift tid använder du Azure CLI.
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurecli-interactive
+# Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Använd kommandot [az aks create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Azure Monitor för containrar aktiveras också med hjälp av parametern *--enable-addons monitoring*.  Den här åtgärden tar flera minuter att slutföra.
+Använd [`az aks create`][az-aks-create] kommandot för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Den här åtgärden tar flera minuter att slutföra:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
+# Create an AKS cluster with uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Efter några minuter slutförs kommandot och returnerar JSON-formaterad information om klustret. Följande JSON-kodfragment visar den betalda nivån för SKU: n, vilket anger att ditt kluster har Aktiver ATS med SLA för drift tid.
+Efter några minuter slutförs kommandot och returnerar JSON-formaterad information om klustret. Följande JSON-kodfragment visar den betalda nivån för SKU: n, vilket anger att ditt kluster är aktiverat med SLA för drift tid:
 
 ```output
   },
@@ -62,15 +71,61 @@ Efter några minuter slutförs kommandot och returnerar JSON-formaterad informat
   },
 ```
 
-## <a name="limitations"></a>Begränsningar
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Ändra ett befintligt kluster för att använda SLA för drift tid
 
-* För närvarande går det inte att konvertera som befintligt kluster för att aktivera SLA för drift tid.
-* Det finns för närvarande inget sätt att ta bort service avtal för drift tid från ett AKS-kluster när du har skapat det med aktiverat.  
-* Privata kluster stöds inte för närvarande.
+Du kan också uppdatera befintliga kluster för att använda SLA för drift tid.
+
+Om du har skapat ett AKS-kluster med föregående steg tar du bort resurs gruppen:
+
+```azurecli-interactive
+# Delete the existing cluster by deleting the resource group 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+Skapa en ny resurs grupp:
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+```
+
+Skapa ett nytt kluster och Använd inte SLA för drift tid:
+
+```azurecli-interactive
+# Create a new cluster without uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+```
+
+Använd [`az aks update`][az-aks-nodepool-update] kommandot för att uppdatera det befintliga klustret:
+
+```azurecli-interactive
+# Update an existing cluster to use Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+ ```
+
+ Följande JSON-kodfragment visar den betalda nivån för SKU: n, vilket anger att ditt kluster är aktiverat med SLA för drift tid:
+
+ ```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  ```
+
+## <a name="clean-up"></a>Rensa
+
+Ta bort alla resurser som du har skapat för att undvika avgifter. Ta bort klustret genom att använda [`az group delete`][az-group-delete] kommandot för att ta bort resurs gruppen AKS:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 
 Använd [Tillgänglighetszoner][availability-zones] för att öka hög tillgänglighet med AKS-klustrets arbets belastningar.
+
 Konfigurera klustret för att [begränsa utgående trafik](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
@@ -86,3 +141,5 @@ Konfigurera klustret för att [begränsa utgående trafik](limit-egress-traffic.
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-group-delete]: /cli/azure/group#az-group-delete

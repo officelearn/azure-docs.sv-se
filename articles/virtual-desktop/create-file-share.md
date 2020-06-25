@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7fca57bd517296711ada2f714d523bfa0709337c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: eea6f901a7228d7ed411d27296e1fb44a41d9f72
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208390"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361344"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
@@ -31,7 +31,7 @@ Först måste du konfigurera ett Azure Files lagrings konto.
 
 Så här konfigurerar du ett lagrings konto:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Sök efter **lagrings konto** i Sök fältet.
 
@@ -74,7 +74,8 @@ Därefter måste du aktivera autentisering med Active Directory (AD). Om du vill
 
 3.  Öppna Azure Portal, öppna ditt lagrings konto, Välj **konfiguration**och bekräfta **Active Directory (AD)** är inställt på **aktive rad**.
 
-     ![En skärm bild av konfigurations sidan med Azure Active Directory (AD) aktive rad.](media/active-directory-enabled.png)
+     > [!div class="mx-imgBorder"]
+     > ![En skärm bild av konfigurations sidan med Azure Active Directory (AD) aktive rad.](media/active-directory-enabled.png)
 
 ## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Tilldela Azure RBAC-behörigheter till virtuella Windows-skrivbordet användare
 
@@ -178,7 +179,7 @@ Så här konfigurerar du NTFS-behörigheter:
      - Ersätt <monterade enhets brev> med bokstaven för den enhet som du använde för att mappa enheten.
      - Ersätt <användar-e-> med UPN för den användare eller Active Directory grupp som innehåller de användare som behöver åtkomst till resursen.
 
-     Ett exempel:
+     Till exempel:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)

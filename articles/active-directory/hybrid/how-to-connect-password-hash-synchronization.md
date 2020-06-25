@@ -8,19 +8,19 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e37095a964e656160edbbbc4a325feceb1e48e74
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84749631"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358570"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implement password hash synchronization with Azure AD Connect sync (Implementera synkronisering av lösenordshash med Azure AD Connect-synkronisering)
 Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
@@ -122,7 +122,6 @@ Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Den här funktionen finns nu i offentlig för hands version.
 > PowerShell-kommandot Set-MsolPasswordPolicy fungerar inte på federerade domäner. 
 
 #### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Synkronisera tillfälliga lösen ord och "tvinga lösen ords ändring vid nästa inloggning"
@@ -140,9 +139,6 @@ Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade 
 
 > [!CAUTION]
 > Du bör endast använda den här funktionen när tillbakaskrivning av SSPR och lösen ord är aktiverade på klienten.  Detta är så att om en användare ändrar sitt lösen ord via SSPR, kommer den att synkroniseras till Active Directory.
-
-> [!NOTE]
-> Den här funktionen finns nu i offentlig för hands version.
 
 #### <a name="account-expiration"></a>Kontots förfallo datum
 

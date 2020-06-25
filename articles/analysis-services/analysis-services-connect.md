@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1b4e56dfeae2d4b7826f3ad30bc5eb4b8672b85
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676651"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361480"
 ---
 # <a name="connecting-to-servers"></a>Ansluta till servrar
 
@@ -20,14 +20,14 @@ Den här artikeln beskriver hur du ansluter till en server med hjälp av data mo
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
-[Hämta de senaste klient biblioteken](analysis-services-data-providers.md)
+[Hämta de senaste klient biblioteken](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET-och OLEDB-klientcertifikat för att ansluta till och gränssnitt med en Analysis Services-server. För SSMS, Visual Studio, Excel 2016 och senare och Power BI, installeras eller uppdateras de senaste klient biblioteken med månads versioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer skjuter uppdateringar eller uppdateringar av Office 365 finns på den uppskjutna kanalen.
 
 > [!NOTE]
 > Klient biblioteken kan inte ansluta till Azure Analysis Services via proxyservrar som kräver ett användar namn och lösen ord. 
 
-## <a name="server-name"></a>servernamn
+## <a name="server-name"></a>Servernamn
 
 När du skapar en Analysis Services-server i Azure anger du ett unikt namn och den region där-servern ska skapas. När du anger Server namnet i en anslutning är Server namngivnings schema:
 
@@ -38,7 +38,7 @@ När du skapar en Analysis Services-server i Azure anger du ett unikt namn och d
 
 ### <a name="get-the-server-name"></a>Hämta Server namnet
 
-I **Azure Portal** > Server > **Översikt** > **Server namn**, kopierar du hela Server namnet. Om andra användare i din organisation också ansluter till den här servern kan du dela detta Server namn med dem. När du anger ett server namn måste hela sökvägen användas.
+I **Azure Portal** > Server > **Översikt**  >  **Server namn**, kopierar du hela Server namnet. Om andra användare i din organisation också ansluter till den här servern kan du dela detta Server namn med dem. När du anger ett server namn måste hela sökvägen användas.
 
 ![Hämta servernamnet i Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 

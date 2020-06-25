@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db7c0595d109efddb092f5e96babda17038e5e9e
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635823"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359015"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
 Den här funktionen introducerades med build- [1.1.105.0 (lanserades februari 2016)](reference-connect-version-history.md#111050).  Funktionen uppdaterades i [build-1.1.561](reference-connect-version-history.md#115610) och stöder nu ytterligare scenarier som tidigare inte stöds.
@@ -37,7 +37,7 @@ Automatisk uppgradering är aktiverat som standard för följande:
 
 Det aktuella läget för automatisk uppgradering kan visas med PowerShell-cmdleten `Get-ADSyncAutoUpgrade` . Det har följande tillstånd:
 
-| Stat | Kommentar |
+| Status | Kommentar |
 | --- | --- |
 | Enabled |Automatisk uppgradering har Aktiver ATS. |
 | Inaktiverad |Anges endast av systemet. Systemet är **för närvarande inte** behörigt att ta emot automatiska uppgraderingar. |

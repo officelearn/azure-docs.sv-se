@@ -3,14 +3,14 @@ title: Starta en Azure Automation Runbook från en webhook
 description: Den här artikeln beskriver hur du använder en webhook för att starta en Runbook i Azure Automation från ett HTTP-anrop.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/03/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 78ce1e46b7ea2cc82a0c478b0c81abbf701f68a9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342977"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361684"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Starta ett Runbook-flöde från en webhook
 
@@ -83,9 +83,13 @@ Nu skickar vi följande JSON-objekt i användar gränssnittet för- `WebhookData
 
 Säkerheten för en webhook är beroende av sekretessen för dess URL, som innehåller en säkerhetstoken som gör att webhooken kan anropas. Azure Automation utför ingen autentisering för en begäran så länge den har gjorts till rätt URL. Därför bör dina klienter inte använda Webhooks för Runbooks som utför mycket känsliga åtgärder utan att använda alternativa metoder för att verifiera begäran.
 
-Du kan inkludera logik i en Runbook för att avgöra om den anropas av en webhook. Ange att runbooken ska kontrol lera `WebhookName` egenskapen för `WebhookData` parametern. Runbooken kan utföra ytterligare verifiering genom att söka efter viss information i `RequestHeader` egenskaperna och `RequestBody` .
+Tänk på följande strategier:
 
-En annan strategi är att låta Runbook utföra en del validering av ett externt villkor när den får en webhook-begäran. Anta till exempel att en Runbook som anropas av GitHub när som helst är en ny incheckning av en GitHub-lagringsplats. Runbooken kan ansluta till GitHub för att kontrol lera att ett nytt genomförande har skett innan du fortsätter.
+* Du kan inkludera logik i en Runbook för att avgöra om den anropas av en webhook. Ange att runbooken ska kontrol lera `WebhookName` egenskapen för `WebhookData` parametern. Runbooken kan utföra ytterligare verifiering genom att söka efter viss information i `RequestHeader` egenskaperna och `RequestBody` .
+
+* Låt runbooken utföra en validering av ett externt villkor när den får en webhook-begäran. Anta till exempel att en Runbook som anropas av GitHub när som helst är en ny incheckning av en GitHub-lagringsplats. Runbooken kan ansluta till GitHub för att kontrol lera att ett nytt genomförande har skett innan du fortsätter.
+
+* Azure Automation stöder Azure Virtual Network Service-taggar, särskilt [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md) och utlösa Webhooks från det virtuella nätverket. Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement** i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
 
 ## <a name="create-a-webhook"></a>Skapa en webhook
 
@@ -116,7 +120,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 Klienten får en av följande retur koder från `POST` begäran.
 
-| Kod | Text | Description |
+| Kod | Text | Beskrivning |
 |:--- |:--- |:--- |
 | 202 |Har godkänts |Begäran accepterades och Runbook har placerats i kö. |
 | 400 |Felaktig begäran |Begäran godtogs inte av någon av följande orsaker: <ul> <li>Webhooken har upphört att gälla.</li> <li>Webhooken är inaktive rad.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |

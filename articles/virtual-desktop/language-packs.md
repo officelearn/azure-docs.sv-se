@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7d05c1222ff43537ab8dad34588b80fe537fd0a1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85200417"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361310"
 ---
 # <a name="install-language-packs"></a>Installera språkpaket
 
@@ -36,7 +36,8 @@ Installera språk paket:
 4. Under **land eller region**väljer du önskat land eller region i den nedrullningsbara menyn.
     I det här exemplet ska vi välja **Frankrike**, som du ser i följande skärm bild:
 
-    ![En skärm bild av sidan region. Den region som valts är Frankrike.](media/region-page-france.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av sidan region. Den region som valts är Frankrike.](media/region-page-france.png)
 
 5. Sedan väljer du **språk**och sedan **Lägg till ett språk**. Välj det språk som du vill installera i listan och välj sedan **Nästa**.
 6. När fönstret **Installera språk funktioner** öppnas markerar du kryss rutan **Installera språk paket och anger som mitt visnings språk för Windows**.
@@ -45,15 +46,19 @@ Installera språk paket:
 
     Vi går igenom en snabb visuell demonstration. Följande bilder visar hur du installerar de franska och nederländska språk paketen och anger franska som visnings språk.
 
-    ![En skärm bild av språk sidan i början av processen. Det valda visnings språket i Windows är engelska.](media/language-page-default.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av språk sidan i början av processen. Det valda visnings språket i Windows är engelska.](media/language-page-default.png)
 
-    ![En skärm bild av fönstret för val av språk. Användaren har angett "franska" i Sök fältet för att hitta de franska språk paketen.](media/select-language-french.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av fönstret för val av språk. Användaren har angett "franska" i Sök fältet för att hitta de franska språk paketen.](media/select-language-french.png)
 
-    ![En skärm bild av sidan installations språk funktioner. Franska väljs som önskat språk. De valda alternativen är "ange mitt visnings språk", "installera språk paket", "tal igenkänning" och "hand skrift".](media/install-language-features.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av sidan installations språk funktioner. Franska väljs som önskat språk. De valda alternativen är "ange mitt visnings språk", "installera språk paket", "tal igenkänning" och "hand skrift".](media/install-language-features.png)
 
     När språk paketen har installerats bör du se namnen på dina språk paket i listan över språk.
 
-    ![En skärm bild av språk sidan med nya språk paket installerade. De franska och nederländska språk paketen visas under "prioriterade språk".](media/language-page-complete.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av språk sidan med nya språk paket installerade. De franska och nederländska språk paketen visas under "prioriterade språk".](media/language-page-complete.png)
 
 9. Om ett fönster visas där du uppmanas att logga ut från din session. Logga ut och logga sedan in igen. Ditt visnings språk bör nu vara det språk som du har valt.
 
@@ -113,7 +118,8 @@ Om du ser ett fel meddelande under Sysprep-processen gör du följande:
 
    Texten i felfilen meddelar dig att du måste avinstallera ett särskilt språk paket, som du ser i följande bild. Kopiera språk paket namnet för nästa steg.
 
-   ![En skärm bild av Setuperr-filen. Texten med paket namnet är markerad med mörkt blått.](media/setuperr-package-name.png)
+   > [!div class="mx-imgBorder"]
+   > ![En skärm bild av Setuperr-filen. Texten med paket namnet är markerad med mörkt blått.](media/setuperr-package-name.png)
 
 2. Öppna ett nytt PowerShell-fönster och kör följande cmdlet med det paket namn som du kopierade i steg 2 för att ta bort språk paketet:
 
@@ -137,7 +143,8 @@ Så här avbildar du en avbildning:
 
 3. Ange ett namn för avbildningen i fältet **namn** och tilldela den till resurs gruppen med hjälp av den nedrullningsbara menyn **resurs grupp** , som du ser i följande bild.
 
-   ![En skärm bild av fönstret Skapa bild. Namnet som användaren har gett till den här test avbildningen är "vmwvd-image-fr" och de har tilldelat till resurs gruppen "testwvdimagerg".](media/create-image.png)
+   > [!div class="mx-imgBorder"]
+   > ![En skärm bild av fönstret Skapa bild. Namnet som användaren har gett till den här test avbildningen är "vmwvd-image-fr" och de har tilldelat till resurs gruppen "testwvdimagerg".](media/create-image.png)
 
 4. Välj **Skapa**.
 

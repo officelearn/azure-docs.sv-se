@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b2a0d0b77b6db481b13785907a1359d2bbe3e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfb6e0608609a3940affd83a0aa235a2ef7c041c
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984512"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357570"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Ändra lösen ordet för ADSync-tjänstkontot
 Om du ändrar lösen ordet för ADSync-tjänstkontot kan inte synkroniseringstjänsten starta korrekt förrän du har övergivit krypterings nyckeln och initierat om lösen ordet för ADSync-tjänstkontot. 
@@ -107,7 +107,7 @@ Eftersom befintliga lösen ord som lagras i databasen inte längre kan dekrypter
 Du kan inte ange lösen ordet för Azure AD-tjänstkontot direkt till synkroniseringstjänsten. I stället måste du använda cmdlet **Add-ADSyncAADServiceAccount** för att initiera om Azure AD-tjänstkontot. -Cmdleten återställer konto lösen ordet och gör det tillgängligt för synkroniseringstjänsten:
 
 1. Starta en ny PowerShell-session på Azure AD Connect servern.
-2. Kör cmdlet `Add-ADSyncAADServiceAccount`.
+2. Kör cmdlet `Add-ADSyncAADServiceAccount` .
 3. I popup-dialog rutan anger du Azure AD global admin-autentiseringsuppgifter för din Azure AD-klient.
 ![Verktyget Azure AD Connect Sync Encryption Key](./media/how-to-connect-sync-change-serviceacct-pass/key7.png)
 4. Om det lyckas visas PowerShell-Kommandotolken.

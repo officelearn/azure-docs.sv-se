@@ -5,15 +5,15 @@ author: billmath
 ms.author: billmath
 manager: davba
 ms.date: 12/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ec12927b40096b7ff04fae6b7cbc69a7bc11e8f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a15a25ce4fbe1a43c2a5065bf88f5c40c5865721
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75549303"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360698"
 ---
 # <a name="transformations"></a>Transformationer
 
@@ -62,7 +62,7 @@ Följ dessa steg om du vill lägga till en anpassad attributmappning.
                                 }
                             },
     ```
-1. Redigera koden så att attributet Company mappas till `ExtensionAttribute3`.
+1. Redigera koden så att attributet Company mappas till `ExtensionAttribute3` .
 
    ```
                                     {
@@ -98,7 +98,7 @@ Följ dessa steg om du vill lägga till en anpassad attributmappning.
 
     ![Starta om etablering](media/how-to-transformation/transform3.png)
 
- 1. Efter en liten stund kontrollerar du att attributen fylls genom att köra följande fråga i Graph Explorer: `https://graph.microsoft.com/beta/users/{Azure AD user UPN}`.
+ 1. Efter en liten stund kontrollerar du att attributen fylls genom att köra följande fråga i Graph Explorer: `https://graph.microsoft.com/beta/users/{Azure AD user UPN}` .
  1. Du bör nu se värdet.
 
     ![Värdet visas](media/how-to-transformation/transform4.png)

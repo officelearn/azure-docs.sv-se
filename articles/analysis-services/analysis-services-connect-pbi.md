@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6205c4189abfefc2ee9c4a273ebfd6773ea609b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411367"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361531"
 ---
 # <a name="connect-with-power-bi"></a>Anslut med Power BI
 
@@ -25,7 +25,7 @@ När du har skapat en server i Azure och distribuerat en tabell modell till den,
   
 ## <a name="connect-in-power-bi-desktop"></a>Ansluta i Power BI Desktop
 
-1. I Power BI Desktop klickar du på **Hämta data** > **Azure** > **Azure Analysis Services Database**.
+1. I Power BI Desktop klickar du på **Hämta data**  >  **Azure**  >  **Azure Analysis Services Database**.
 
 2. I **Server**anger du Server namnet. Se till att ta med den fullständiga URL: en. till exempel asazure://westcentralus.asazure.windows.net/advworks.
 
@@ -44,9 +44,9 @@ När du har skapat en server i Azure och distribuerat en tabell modell till den,
 ## <a name="connect-in-power-bi-service"></a>Anslut i Power BI (tjänst)
 
 1. Skapa en Power BI Desktop-fil som har en Live-anslutning till din modell på servern.
-2. I [Power BI](https://powerbi.microsoft.com)klickar du på **Hämta** > **datafiler**och letar upp och väljer din. pbix-fil.
+2. I [Power BI](https://powerbi.microsoft.com)klickar du på **Hämta**  >  **datafiler**och letar upp och väljer din. pbix-fil.
 
 ## <a name="see-also"></a>Se även
 [Anslut till Azure Analysis Services](analysis-services-connect.md)   
-[Klientbibliotek](analysis-services-data-providers.md)
+[Klientbibliotek](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 

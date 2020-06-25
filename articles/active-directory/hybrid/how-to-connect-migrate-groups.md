@@ -5,18 +5,18 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/02/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2328674fd601f2e04684e8a9af1ae242ff6106
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229807"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358590"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Migrera grupper från en skog till en annan för Azure AD Connect
 
@@ -29,13 +29,13 @@ I den här artikeln beskrivs hur du migrerar grupper från en skog till en annan
 
 ## <a name="migrate-groups"></a>Migrera grupper
 
-Från och med version 1.5.18.0 stöder Azure AD Connect användningen av `mS-DS-ConsistencyGuid` attributet för grupper. Om du väljer `mS-DS-ConsistencyGuid` som käll-Anchor-attribut och värdet fylls i Active Directory, använder Azure AD Connect värdet `mS-DS-ConsistencyGuid` som. `immutableId` Annars går den tillbaka till att använda `objectGUID`. Observera dock att Azure AD Connect inte skriver värdet tillbaka till `mS-DS-ConsistencyGuid` attributet i Active Directory.
+Från och med version 1.5.18.0 stöder Azure AD Connect användningen av `mS-DS-ConsistencyGuid` attributet för grupper. Om du väljer `mS-DS-ConsistencyGuid` som käll-Anchor-attribut och värdet fylls i Active Directory, använder Azure AD Connect värdet `mS-DS-ConsistencyGuid` som `immutableId` . Annars går den tillbaka till att använda `objectGUID` . Observera dock att Azure AD Connect inte skriver värdet tillbaka till `mS-DS-ConsistencyGuid` attributet i Active Directory.
 
 När ett grupp objekt flyttas från en skog (t. ex. F1) till en annan skog (säg F2) måste du kopiera antingen `mS-DS-ConsistencyGuid` värdet (om det finns) eller `objectGUID` värdet från objektet i skogen F1 till `mS-DS-ConsistencyGuid` attributet för objektet i F2.
 
 Använd följande skript som vägledning för att lära dig hur du migrerar en enskild grupp från en skog till en annan. Du kan också använda dessa skript som en guide för migreringen av flera grupper. Skripten använder skogs namnet F1 för käll skogen och F2 för mål skogen.
 
-Först hämtar vi `objectGUID` och `mS-DS-ConsistencyGuid` -grupp-objektet i skogen F1. De här attributen exporteras till en CSV-fil.
+Först hämtar vi och- `objectGUID` `mS-DS-ConsistencyGuid` grupp-objektet i skogen F1. De här attributen exporteras till en CSV-fil.
 ```
 <#
 DESCRIPTION

@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: overview
+ms.topic: reference
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 74e1dc68aba4ba294bccca6da278d3e30e51f056
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78298623"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360461"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriver uttryck för mappningar av attribut i Azure Active Directory
 När du konfigurerar moln etablering, är en av de typer av mappningar av attribut som du kan ange en uttrycks mappning. 
@@ -29,14 +29,14 @@ Följande dokument tar upp de skript-liknande uttryck som används för att tran
 Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for Applications (VBA)-funktioner.
 
 * Hela uttrycket måste definieras i termer av functions, som består av ett namn följt av argument inom parentes: <br>
-  *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
-* Du kan kapsla funktioner i varandra. Ett exempel: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
+  *FunctionName ( `<<argument 1>>` , `<<argument N>>` )*
+* Du kan kapsla funktioner i varandra. Till exempel: <br> *FunctionOne (FunctionTwo ( `<<argument1>>` ))*
 * Du kan skicka tre olika typer av argument till funktioner:
   
   1. Attribut, som måste omges av hakparenteser. Exempel: [attributeName]
   2. Strängkonstant, som måste omges av dubbla citat tecken. Till exempel: "USA"
-  3. Andra funktioner. Till exempel: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
-* Om du behöver ett omvänt snedstreck (\) eller citat tecken (") i strängen för sträng konstanter måste det föregås av ett omvänt snedstreck (\). Exempel: "företags namn: \\" contoso "\\
+  3. Andra funktioner. Till exempel: FunctionOne ( `<<argument1>>` , FunctionTwo ( `<<argument2>>` ))
+* Om du behöver ett omvänt snedstreck (\) eller citat tecken (") i strängen för sträng konstanter måste det föregås av ett omvänt snedstreck (\). Exempel: "företags namn: \\ " contoso \\ "
 
 ## <a name="list-of-functions"></a>Lista över funktioner
 | Lista över funktioner | Beskrivning |
@@ -47,7 +47,7 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 |[ConvertFromBase64](#convertfrombase64)|Funktionen ConvertFromBase64 konverterar det angivna base64-kodade värdet till en vanlig sträng.|
 |[ConvertToBase64](#converttobase64)|Funktionen ConvertToBase64 konverterar en sträng till en Unicode base64-sträng. |
 |[ConvertToUTF8Hex](#converttoutf8hex)|Funktionen ConvertToUTF8Hex konverterar en sträng till ett hexadecimalt värde för UTF8-kodning.|
-|[Antal](#count)|Funktionen COUNT returnerar antalet element i ett multi-värde-attribut|
+|[Reparationer](#count)|Funktionen COUNT returnerar antalet element i ett multi-värde-attribut|
 |[Cstr](#cstr)|Funktionen CStr konverterar till en sträng data typ.|
 |[DateFromNum](#datefromnum)|Funktionen DateFromNum konverterar ett värde i ADs datum format till en DateTime-typ.|
 |[DNComponent](#dncomponent)|Funktionen DNComponent returnerar värdet för en angiven DN-komponent som går från vänster.|
@@ -87,10 +87,10 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-   | **huvudnamnssuffix** |Krävs |Sträng |Strängen som du vill lägga till i slutet av source-värdet. |
+   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
+   | **huvudnamnssuffix** |Obligatorisk |Sträng |Strängen som du vill lägga till i slutet av source-värdet. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -250,11 +250,11 @@ Om attributet accountName inte finns genererar du ett fel på objektet.
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-   | **inputFormat** |Krävs |Sträng |Förväntat format för Source-värdet. För format som stöds, [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)se. |
-   | **outputFormat** |Krävs |Sträng |Formatet för datum för utdata. |
+   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
+   | **inputFormat** |Obligatorisk |Sträng |Förväntat format för Source-värdet. För format som stöds, se [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) . |
+   | **outputFormat** |Obligatorisk |Sträng |Formatet för datum för utdata. |
 
 ---
 ### <a name="guid"></a>GUID
@@ -392,9 +392,9 @@ Om ett av käll värdena är ett flervärdesattribut, kopplas alla värden i det
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **brytning** |Krävs |Sträng |Sträng som används för att avgränsa käll värden när de sammanfogas till en sträng. Kan vara "" om ingen avgränsare krävs. |
+   | **brytning** |Obligatorisk |Sträng |Sträng som används för att avgränsa käll värden när de sammanfogas till en sträng. Kan vara "" om ingen avgränsare krävs. |
    | **source1 ... Källa** |Obligatoriskt, variabel antal gånger |Sträng |Sträng värden som ska sammanfogas tillsammans. |
 
 ---
@@ -419,7 +419,7 @@ Om strängen innehåller färre tecken än det tal som anges i numChars returner
 
 **Exempel:**  
 `Left("John Doe", 3)`  
-Returnerar `Joh`.
+Returnerar `Joh` .
 
 ---
 ### <a name="mid"></a>Mellan
@@ -429,11 +429,11 @@ Returnerar `Joh`.
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet. |
-   | **start** |Krävs |heltal |Index i **käll** strängen där under strängen ska starta. Det första alfabetet i strängen kommer att ha indexet 1, andra tecken kommer att ha index 2 och så vidare. |
-   | **krävande** |Krävs |heltal |Del strängens längd. Om längden slutar utanför **käll** strängen returnerar funktionen del sträng från **Start** index till slutet av **käll** strängen. |
+   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet. |
+   | **har** |Obligatorisk |heltal |Index i **käll** strängen där under strängen ska starta. Det första alfabetet i strängen kommer att ha indexet 1, andra tecken kommer att ha index 2 och så vidare. |
+   | **krävande** |Obligatorisk |heltal |Del strängens längd. Om längden slutar utanför **käll** strängen returnerar funktionen del sträng från **Start** index till slutet av **käll** strängen. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -443,9 +443,9 @@ Returnerar `Joh`.
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng | Vanligt vis attributet förnamn eller efter namn. |
+   | **källicensservern** |Obligatorisk |Sträng | Vanligt vis attributet förnamn eller efter namn. |
 
 ---
 ### <a name="not"></a>Inte
@@ -455,9 +455,9 @@ Returnerar `Joh`.
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Boolesk sträng |Förväntade **käll** värden är "true" eller "false". |
+   | **källicensservern** |Obligatorisk |Boolesk sträng |Förväntade **käll** värden är "true" eller "false". |
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
@@ -497,15 +497,15 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från **källobjektet** . |
-   | **Gammalt** |Valfri |Sträng |Värdet som ska ersättas i **källa** eller **mall**. |
-   | **regexPattern** |Valfri |Sträng |Regex-mönster för värdet som ska ersättas i **källan**. Eller, när **replacementPropertyName** används, mönster för att extrahera värdet från **replacementPropertyName**. |
-   | **regexGroupName** |Valfri |Sträng |Namnet på gruppen inuti **regexPattern**. Endast när **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
-   | **replacementValue** |Valfri |Sträng |Nytt värde som ersätter det gamla ett med. |
-   | **replacementAttributeName** |Valfri |Sträng |Namnet på attributet som ska användas för ersättnings värde |
-   | **webbplatsmall** |Valfri |Sträng |När ett **mallnamn** anges söker vi efter **OldValue** i mallen och ersätter det med **käll** värde. |
+   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från **källobjektet** . |
+   | **Gammalt** |Valfritt |Sträng |Värdet som ska ersättas i **källa** eller **mall**. |
+   | **regexPattern** |Valfritt |Sträng |Regex-mönster för värdet som ska ersättas i **källan**. Eller, när **replacementPropertyName** används, mönster för att extrahera värdet från **replacementPropertyName**. |
+   | **regexGroupName** |Valfritt |Sträng |Namnet på gruppen inuti **regexPattern**. Endast när **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
+   | **replacementValue** |Valfritt |Sträng |Nytt värde som ersätter det gamla ett med. |
+   | **replacementAttributeName** |Valfritt |Sträng |Namnet på attributet som ska användas för ersättnings värde |
+   | **webbplatsmall** |Valfritt |Sträng |När ett **mallnamn** anges söker vi efter **OldValue** i mallen och ersätter det med **käll** värde. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -522,7 +522,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
    | **uniqueValueRule1 ... uniqueValueRuleN** |Minst 2 krävs, ingen övre bindning |Sträng | Lista med regler för generering av unika värden som ska utvärderas. |
 
@@ -535,9 +535,9 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-  | Name | Krävs/upprepas | Typ | Obs! |
+  | Namn | Krävs/upprepas | Typ | Kommentarer |
   |--- | --- | --- | --- |
-  | **AppRoleAssignments** |Krävs |Sträng |**[appRoleAssignments]** -objekt. |
+  | **AppRoleAssignments** |Obligatorisk |Sträng |**[appRoleAssignments]** -objekt. |
 
 ---
 ### <a name="split"></a>Dela
@@ -547,10 +547,10 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
-   | **avgränsare** |Krävs |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
+   | **källicensservern** |Obligatorisk |Sträng |**käll** värde att uppdatera. |
+   | **avgränsare** |Obligatorisk |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -568,9 +568,9 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
+   | **källicensservern** |Obligatorisk |Sträng |**käll** värde att uppdatera. |
 
 ---
 ### <a name="switch"></a>Växel
@@ -580,12 +580,12 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |**Käll** värde att kontrol lera. |
-   | **Standar** |Valfri |Sträng |Standardvärdet som ska användas när källan inte matchar några nycklar. Kan vara en tom sträng (""). |
-   | **key** |Krävs |Sträng |**Nyckel** att jämföra **käll** värde med. |
-   | **värde** |Krävs |Sträng |Ersättnings värde för den **källa** som matchar nyckeln. |
+   | **källicensservern** |Obligatorisk |Sträng |**Käll** värde att kontrol lera. |
+   | **Standar** |Valfritt |Sträng |Standardvärdet som ska användas när källan inte matchar några nycklar. Kan vara en tom sträng (""). |
+   | **knapp** |Obligatorisk |Sträng |**Nyckel** att jämföra **käll** värde med. |
+   | **värde** |Obligatorisk |Sträng |Ersättnings värde för den **källa** som matchar nyckeln. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -595,10 +595,10 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Obs! |
+   | Namn | Krävs/upprepas | Typ | Kommentarer |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet |
-   | **substrat** |Valfri |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
+   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet |
+   | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
 
@@ -609,10 +609,10 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-  | Name | Krävs/upprepas | Typ | Obs! |
+  | Namn | Krävs/upprepas | Typ | Kommentarer |
   | --- | --- | --- | --- |
-  | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-  | **substrat** |Valfri |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
+  | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
+  | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
 
@@ -667,7 +667,7 @@ Om domänen till exempel är "contoso.com" kan du använda följande uttryck:
 
 **Exempel på indata/utdata:** <br>
 
-* **Inmatad** (e-john.doe@contoso.compost): ""
+* **Inmatad** (e-post): " john.doe@contoso.com "
 * **Utdata**: "John. berg"
 
 ### <a name="append-constant-suffix-to-user-name"></a>Lägg till konstant suffix i användar namn
@@ -678,8 +678,8 @@ Om du använder en Salesforce-Sandbox kan du behöva lägga till ytterligare ett
 
 **Exempel på indata/utdata:** <br>
 
-* **Inmatade**: (userPrincipalName)John.Doe@contoso.com: ""
-* **Utdata**: "John.Doe@contoso.com.test"
+* **Inmatade**: (userPrincipalName): " John.Doe@contoso.com "
+* **Utdata**: " John.Doe@contoso.com.test "
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generera användaralias genom att sammanfoga delar av för-och efter namn
 Du måste generera ett användaralias genom att göra de första 3 bokstäverna för användarens förnamn och de första fem bokstäverna i användarens efter namn.
@@ -762,7 +762,7 @@ I exemplet nedan genereras UPN-värdet genom att sammanfoga PreferredFirstName-o
 
 * **Inmatade** (PreferredFirstName): "John"
 * **Inmatade** (PreferredLastName): "Svensson"
-* **Utdata**: "john.smith@contoso.com"
+* **Utdata**: " john.smith@contoso.com "
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generera ett unikt värde för userPrincipalName-attributet (UPN)
 Baserat på användarens förnamn, mellan namn och efter namn, måste du generera ett värde för attributet UPN och kontrol lera att det är unikt i mål-AD-katalogen innan du tilldelar värdet till UPN-attributet.
@@ -779,9 +779,9 @@ Baserat på användarens förnamn, mellan namn och efter namn, måste du generer
 
 * **Inmatade** (PreferredFirstName): "John"
 * **Inmatade** (PreferredLastName): "Svensson"
-* **Utdata**: "John.Smith@contoso.com" om UPN-värdet John.Smith@contoso.com inte redan finns i katalogen
-* **Utdata**: "J.Smith@contoso.com" om UPN-värdet John.Smith@contoso.com redan finns i katalogen
-* **Utdata**: "Jo.Smith@contoso.com" om ovanstående två UPN-värden redan finns i katalogen
+* **Utdata**: " John.Smith@contoso.com " om UPN-värdet John.Smith@contoso.com inte redan finns i katalogen
+* **Utdata**: " J.Smith@contoso.com " om UPN-värdet John.Smith@contoso.com redan finns i katalogen
+* **Utdata**: " Jo.Smith@contoso.com " om ovanstående två UPN-värden redan finns i katalogen
 
 
 ## <a name="next-steps"></a>Nästa steg 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b5c46c8b85af59efaf611300e2ab7129b3ef3cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411372"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361565"
 ---
 # <a name="connect-with-excel"></a>Anslut med Excel
 
@@ -26,9 +26,9 @@ Det konto som du loggar in med måste tillhöra en modell databas roll med minst
 
 Att ansluta till en server i Excel stöds med hämta data i Excel 2016 och senare. Att ansluta med hjälp av guiden Importera tabell i Power Pivot stöds inte. 
 
-1. I Excel, i menyfliksområdet för **data** , klickar du på **Hämta externa data** > **från andra källor** > **från Analysis Services**.
+1. I Excel, i menyfliksområdet för **data** , klickar du på **Hämta externa data**  >  **från andra källor**  >  **från Analysis Services**.
 
-2. I guiden data anslutning, i **Server namn**, anger du Server namnet inklusive protokoll och URI. Till exempel asazure://westcentralus.asazure.windows.net/advworks. I **inloggnings uppgifter**väljer du sedan **Använd följande användar namn och lösen ord**och anger sedan organisationens användar namn, till exempel nancy@adventureworks.comoch lösen ord.
+2. I guiden data anslutning, i **Server namn**, anger du Server namnet inklusive protokoll och URI. Till exempel asazure://westcentralus.asazure.windows.net/advworks. I **inloggnings uppgifter**väljer du sedan **Använd följande användar namn och lösen ord**och anger sedan organisationens användar namn, till exempel nancy@adventureworks.com och lösen ord.
 
     > [!IMPORTANT]
     > Om du loggar in med ett Microsoft-konto, Live ID, Yahoo, Gmail osv. eller om du behöver logga in med Multi-Factor Authentication lämnar du fältet lösen ord tomt. Du uppmanas att ange ett lösen ord när du klickar på Nästa. 
@@ -42,7 +42,7 @@ Att ansluta till en server i Excel stöds med hämta data i Excel 2016 och senar
 
 ## <a name="see-also"></a>Se även
 
-[Klient bibliotek](analysis-services-data-providers.md)   
+[Klient bibliotek](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Hantera servern](analysis-services-manage.md)     
 
 

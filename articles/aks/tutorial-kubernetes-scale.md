@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.custom: mvc
-ms.openlocfilehash: f830d42ef09a60b1f9ced43250b24a68003d1e87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ab9217229a64605273537fc65cf3a29dcecd20c3
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82129002"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361599"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Skala program i Azure Kubernetes Service (AKS)
 
@@ -97,7 +97,7 @@ I följande exempel används kommandot [kubectl autoscale][kubectl-autoscale] f�
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Du kan också skapa en manifest fil för att definiera beteendet för autoskalning och resurs gränser. Följande är ett exempel på en manifest fil med namnet `azure-vote-hpa.yaml`.
+Du kan också skapa en manifest fil för att definiera beteendet för autoskalning och resurs gränser. Följande är ett exempel på en manifest fil med namnet `azure-vote-hpa.yaml` .
 
 ```yaml
 apiVersion: autoscaling/v1
@@ -113,6 +113,7 @@ spec:
     name: azure-vote-back
   targetCPUUtilizationPercentage: 50 # target CPU utilization
 
+---
 
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -128,7 +129,7 @@ spec:
   targetCPUUtilizationPercentage: 50 # target CPU utilization
 ```
 
-Använd `kubectl apply` för att tillämpa autoskalning som definierats `azure-vote-hpa.yaml` i manifest filen.
+Använd `kubectl apply` för att tillämpa autoskalning som definierats i `azure-vote-hpa.yaml` manifest filen.
 
 ```
 kubectl apply -f azure-vote-hpa.yaml

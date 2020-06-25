@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eaeece4b44c0804774a15194e19c34ce200bc80
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 23bcb63b6b499e72cb43089659e513d276bd8306
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558513"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358981"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
 Azure AD Connect kräver en SQL Server databas för att lagra data. Du kan antingen använda standard SQL Server 2012 Express-LocalDB som installerats med Azure AD Connect eller använda din egen fullständiga version av SQL. Tidigare skapades en ny databas med namnet ADSync alltid när du installerade Azure AD Connect. Med Azure AD Connect version 1.1.613.0 (eller senare) har du möjlighet att installera Azure AD Connect genom att peka den på en befintlig ADSync-databas.
@@ -56,7 +56,7 @@ Viktiga anteckningar för att anteckna innan du fortsätter:
 - Du kan inte ha flera Azure AD Connect-servrar delar samma ADSync-databas. Med metoden Använd befintlig databas kan du återanvända en befintlig ADSync-databas med en ny Azure AD Connect-Server. Den stöder inte delning.
 
 ## <a name="steps-to-install-azure-ad-connect-with-use-existing-database-mode"></a>Steg för att installera Azure AD Connect med läget "Använd befintlig databas"
-1.  Ladda ned Azure AD Connect Installer (AzureADConnect. MSI) till Windows Server. Dubbelklicka på installations programmet för Azure AD Connect för att börja installera Azure AD Connect.
+1.  Ladda ned Azure AD Connect Installer (AzureADConnect.MSI) till Windows Server. Dubbelklicka på installations programmet för Azure AD Connect för att börja installera Azure AD Connect.
 2.  När MSI-installationen är klar startar Azure AD Connect-guiden med installationsläget Express. Stäng fönstret genom att klicka på ikonen Avsluta.
 ![Välkommen](./media/how-to-connect-install-existing-database/db1.png)
 3.  Starta en ny kommandotolk eller PowerShell-session. Navigera till mappen C:\Program\Microsoft Azure Active Directory Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
@@ -67,7 +67,7 @@ Viktiga anteckningar för att anteckna innan du fortsätter:
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 1. Du välkomnas med Välkommen till Azure AD Connect-skärmen. När du godkänt licensvillkoren och sekretesspolicyn klickar du på **Fortsätt**.
    ![Välkommen](./media/how-to-connect-install-existing-database/db3.png)
-1. På skärmen **Installera nödvändiga komponenter** är alternativet **Använd en befintlig SQL-server** aktiverat. Ange namnet på den SQL-server som är värd för ADSync-databasen. Om SQL-motorinstansen som används som värd för ADSync-databasen inte är standardinstansen på SQL-servern, måste du ange instansnamnet för SQL-motorn. Om SQL-surfning inte är aktiverat, måste du dessutom också ange portnumret för SQL-motorinstansen. Ett exempel:         
+1. På skärmen **Installera nödvändiga komponenter** är alternativet **Använd en befintlig SQL-server** aktiverat. Ange namnet på den SQL-server som är värd för ADSync-databasen. Om SQL-motorinstansen som används som värd för ADSync-databasen inte är standardinstansen på SQL-servern, måste du ange instansnamnet för SQL-motorn. Om SQL-surfning inte är aktiverat, måste du dessutom också ange portnumret för SQL-motorinstansen. Till exempel:         
    ![Välkommen](./media/how-to-connect-install-existing-database/db4.png)           
 
 1. På skärmen **Anslut till Azure AD**, måste du ange autentiseringsuppgifter för en global administratör i Azure AD-katalogen. Det rekommenderas att använda ett konto i standarddomänen onmicrosoft.com. Det här kontot används bara för att skapa ett tjänstkonto i Azure AD och används inte när guiden har slutförts.

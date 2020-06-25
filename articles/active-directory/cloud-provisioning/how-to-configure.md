@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c086227d23901cb7904d8cc0a768e9f4b5ad43db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50f02ea42bb792320da6e2523b733f09afd412a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77620977"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360970"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Skapa en ny konfiguration för Azure AD Connect molnbaserad etablering
 
@@ -25,7 +25,7 @@ När du har installerat agenten måste du logga in på Azure Portal och konfigur
 ## <a name="configure-provisioning"></a>Konfigurera etablering
 Följ dessa steg om du vill konfigurera etableringen.
 
-1.  Välj **Azure Active Directory** i Azure Portal.
+1.  I Azure Portal väljer du **Azure Active Directory**.
 1.  Välj **Azure AD Connect**.
 1.  Välj **Hantera etablering (för hands version)**.
 
@@ -41,7 +41,7 @@ Följ dessa steg om du vill konfigurera etableringen.
 ## <a name="scope-provisioning-to-specific-users-and-groups"></a>Omfattnings etablering för vissa användare och grupper
 Du kan begränsa agenten till att synkronisera vissa användare och grupper genom att använda lokala Active Directory grupper eller organisationsenheter. Du kan inte konfigurera grupper och organisationsenheter i en konfiguration. 
 
-1.  Välj **Azure Active Directory** i Azure Portal.
+1.  I Azure Portal väljer du **Azure Active Directory**.
 1.  Välj **Azure AD Connect**.
 1.  Välj **Hantera etablering (för hands version)**.
 1.  Under **konfiguration**väljer du din konfiguration.
@@ -64,7 +64,7 @@ Du kan begränsa agenten till att synkronisera vissa användare och grupper geno
 
 ## <a name="restart-provisioning"></a>Starta om etablering 
 Om du inte vill vänta på nästa schemalagda körning utlöser du etablerings körningen med hjälp av knappen **starta om etablering** . 
-1.  Välj **Azure Active Directory** i Azure Portal.
+1.  I Azure Portal väljer du **Azure Active Directory**.
 1.  Välj **Azure AD Connect**.
 1.  Välj **Hantera etablering (för hands version)**.
 1.  Under **konfiguration**väljer du din konfiguration.
@@ -76,7 +76,7 @@ Om du inte vill vänta på nästa schemalagda körning utlöser du etablerings k
 ## <a name="remove-a-configuration"></a>Ta bort en konfiguration
 Följ dessa steg om du vill ta bort en konfiguration.
 
-1.  Välj **Azure Active Directory** i Azure Portal.
+1.  I Azure Portal väljer du **Azure Active Directory**.
 1.  Välj **Azure AD Connect**.
 1.  Välj **Hantera etablering (för hands version)**.
 1.  Under **konfiguration**väljer du din konfiguration.

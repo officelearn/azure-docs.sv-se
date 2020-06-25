@@ -1,7 +1,7 @@
 ---
 title: Dokumentations översikt över Microsoft Security code Analysis
 description: Den här artikeln är en översikt över tillägget Microsoft Security code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42ea5c6863e769f6d2664b3bcd48d15f00b6b5e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74851476"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361327"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Om Microsofts säkerhets kod analys
 
@@ -65,15 +65,11 @@ Den program vara som skapas av program vara mot skadlig kod ingår nu i tillägg
 
 ### <a name="binskim"></a>BinSkim
 
-BinSkim är en förenklad körbar fil (PE) som validerar kompilator inställningar, länkar inställningar och andra säkerhetsrelaterade egenskaper för binära filer. Den här build-uppgiften tillhandahåller ett kommando rads gränssnitt runt konsol programmet binskim. exe. BinSkim är ett verktyg med öppen källkod. Mer information finns i [BinSkim på GitHub](https://github.com/Microsoft/binskim).
+BinSkim är en förenklad körbar fil (PE) som validerar kompilator inställningar, länkar inställningar och andra säkerhetsrelaterade egenskaper för binära filer. Den här bygg aktiviteten innehåller ett kommando rads gränssnitt runt binskim.exe-konsolprogram. BinSkim är ett verktyg med öppen källkod. Mer information finns i [BinSkim på GitHub](https://github.com/Microsoft/binskim).
 
 ### <a name="credential-scanner"></a>Skanner för autentiseringsuppgifter
 
 Lösen ord och andra hemligheter lagrade i käll koden är ett betydande problem. Autentisering av autentiseringsuppgifter är ett eget statiskt analys verktyg som hjälper dig att lösa det här problemet. Verktyget identifierar autentiseringsuppgifter, hemligheter, certifikat och annat känsligt innehåll i din käll kod och dina build-utdata.
-
-### <a name="microsoft-security-risk-detection"></a>Microsofts säkerhets risk identifiering
-
-Microsofts säkerhets risk identifiering (MSRD) är en molnbaserad tjänst för fuzz-tester. Den identifierar säkerhets buggar som går att utnyttja i program varan. Den här tjänsten kräver en separat prenumeration och aktivering. Mer information finns i [MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Roslyn-analysverktyg
 

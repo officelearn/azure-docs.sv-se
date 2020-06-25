@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9e602f9ed6a9132c78dbdf0ea3246cbeae80671
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4f62a94c8ed8baa9979aa1469e785d26781af7f0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832358"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361633"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -43,7 +43,7 @@ Du kan också använda en [hybrid Runbook Worker](automation-hybrid-runbook-work
 
 I följande tabell visas några aktiviteter för Runbook-körningar med den rekommenderade körnings miljön som visas för var och en.
 
-|Uppgift|Rekommendation|Anteckningar|
+|Uppgift|Rekommendation|Kommentarer|
 |---|---|---|
 |Integrera med Azure-resurser|Sand box för Azure|Azure är värd för Azure och det är enklare att autentisera. Om du använder en Hybrid Runbook Worker på en virtuell Azure-dator kan du [använda Runbook-autentisering med hanterade identiteter](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Få optimala prestanda för att hantera Azure-resurser|Sand box för Azure|Skriptet körs i samma miljö, vilket har mindre latens.|
@@ -53,7 +53,7 @@ I följande tabell visas några aktiviteter för Runbook-körningar med den reko
 |Kräv program vara från tredje part och körbara filer|Hybrid Runbook Worker|Du hanterar operativ systemet och kan installera program vara.|
 |Övervaka en fil eller mapp med en Runbook|Hybrid Runbook Worker|Använd en [bevakare-aktivitet](automation-watchers-tutorial.md) på en hybrid Runbook Worker.|
 |Köra ett resurs intensivt skript|Hybrid Runbook Worker| Azure-sandboxs har [resurs gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Använda moduler med särskilda krav| Hybrid Runbook Worker|Några exempel är:</br> WinSCP – beroende av WinSCP. exe </br> IIS-administration – beroende av att aktivera eller hantera IIS|
+|Använda moduler med särskilda krav| Hybrid Runbook Worker|Några exempel är:</br> WinSCP – beroende av winscp.exe </br> IIS-administration – beroende av att aktivera eller hantera IIS|
 |Installera en modul med ett installations program|Hybrid Runbook Worker|Moduler för sandbox måste ha stöd för kopiering.|
 |Använd Runbooks eller moduler som kräver .NET Framework version som skiljer sig från 4.7.2|Hybrid Runbook Worker|Azure-sandbox stöder .NET Framework 4.7.2 och uppgradering till en annan version stöds inte.|
 |Kör skript som kräver höjning|Hybrid Runbook Worker|Sand boxar tillåter inte utökade privilegier. Med en Hybrid Runbook Worker kan du inaktivera UAC och använda [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) när du kör kommandot som kräver utökade privilegier.|
@@ -131,7 +131,7 @@ I följande tabell beskrivs de status värden som är möjliga för ett jobb. Du
 
 | Status | Beskrivning |
 |:--- |:--- |
-| Slutförd |Jobbet har slutförts. |
+| Slutfört |Jobbet har slutförts. |
 | Misslyckades |Det gick inte att kompilera en grafisk eller PowerShell-arbetsflöde Runbook. Det gick inte att starta PowerShell-runbooken eller så innehöll jobbet ett undantag. Se [Azure Automation Runbook-typer](automation-runbook-types.md).|
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom det nådde den [verkliga delnings](#fair-share) gränsen tre gånger och startade från samma kontroll punkt eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på att resurser i en automatiserings arbets uppgift ska bli tillgängliga så att de kan startas. |

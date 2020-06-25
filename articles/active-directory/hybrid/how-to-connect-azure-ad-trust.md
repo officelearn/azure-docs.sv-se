@@ -12,18 +12,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331723"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360103"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Hantera AD FS-förtroende med Azure AD med hjälp av Azure AD Connect
 
@@ -39,7 +39,7 @@ Azure AD Connect kan hantera federation mellan lokala Active Directory Federatio
 
 Azure AD Connect hanterar **endast** inställningar som rör Azure AD-förtroende. Azure AD Connect ändrar inte några inställningar på andra förlitande parters förtroenden i AD FS. Följande tabell visar inställningar som styrs av Azure AD Connect.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 | :--- | :--- |
 | Token signerings certifikat | Azure AD Connect kan användas för att återställa och återskapa förtroendet med Azure AD. Azure AD Connect sker en omedelbar förnyelse av token signerings certifikat för AD FS och uppdaterar Azure AD-domänens Federations inställningar.|
 | Algoritm för tokensignering | Microsoft rekommenderar att du använder SHA-256 som algoritm för Token-signering. Azure AD Connect kan identifiera om algoritmen för tokensignering har angetts till ett värde som är mindre säkert än SHA-256. Inställningen uppdateras till SHA-256 i nästa möjliga konfigurations åtgärd. Andra förlitande parters förtroende måste uppdateras för att använda det nya token signerings certifikatet. |
@@ -103,14 +103,14 @@ Azure AD Connect ser till att Azure AD-förtroendet alltid är konfigurerat med 
 
 ## <a name="restore-issuance-transform-rules"></a>Återställ regler för utfärdande av utfärdande
 
-Azure AD Connect version 1.1.873.0 eller senare gör en säkerhets kopia av inställningarna för Azure AD-förtroende när en uppdatering görs i förtroende inställningarna för Azure AD. Inställningarna för Azure AD-förtroende säkerhets kopie ras på **%programdata%\AADConnect\ADFS**. Fil namnet har följande format AadTrust-&lt;date&gt;-&lt;-Time&gt;. txt, till exempel-AadTrust-20180710-150216. txt
+Azure AD Connect version 1.1.873.0 eller senare gör en säkerhets kopia av inställningarna för Azure AD-förtroende när en uppdatering görs i förtroende inställningarna för Azure AD. Inställningarna för Azure AD-förtroende säkerhets kopie ras på **%programdata%\AADConnect\ADFS**. Fil namnet har följande format AadTrust- &lt; date- &gt; - &lt; Time &gt; . txt, till exempel-AadTrust-20180710-150216.txt
 
 ![En skärm bild av exempel på säkerhets kopiering av Azure AD-förtroende](./media/how-to-connect-azure-ad-trust/backup.png)
 
 Du kan återställa reglerna för omvandling av utfärdande med hjälp av de föreslagna stegen nedan
 
 1. Öppna användar gränssnittet för AD FS hantering i Serverhanteraren
-2. Öppna egenskaperna för Azure AD-förtroendet genom att gå **AD FS &gt; förlitande &gt; part förtroenden &gt; Microsoft Office 365 identitets plattform redigera anspråk utgivnings princip**
+2. Öppna egenskaperna för Azure AD-förtroendet genom att gå **AD FS &gt; förlitande part förtroenden &gt; Microsoft Office 365 identitets plattform &gt; Redigera anspråk utgivnings princip**
 3. Klicka på **Lägg till regel**
 4. I mallen för anspråks regel väljer du skicka anspråk med en anpassad regel och klickar på **Nästa**
 5. Kopiera namnet på anspråks regeln från säkerhets kopian och klistra in den i fält **anspråks regelns namn**

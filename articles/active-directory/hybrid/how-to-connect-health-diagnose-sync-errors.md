@@ -11,16 +11,16 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897188"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359100"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel med duplicerade attribut
 
@@ -32,9 +32,9 @@ Diagnos funktionen har följande fördelar:
 - Det krävs ingen uppgradering eller konfiguration för att aktivera den här funktionen.
 Mer information om Azure AD finns i [Identitetssynkronisering och duplicerat attribut återhämtning](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="problems"></a>Formulärcachen
+## <a name="problems"></a>Problem
 ### <a name="a-common-scenario"></a>Ett vanligt scenario
-När **QuarantinedAttributeValueMustBeUnique** -och **AttributeValueMustBeUnique** -Synkroniseringsfel inträffar är det vanligt att se en konflikt i en **userPrincipalName** -eller **proxy-adress** i Azure AD. Du kan lösa synkroniseringsfel genom att uppdatera det motstridiga källobjektet från den lokala sidan. Synkroniseringsfel kommer att lösas efter nästa synkronisering. Den här bilden visar till exempel att två användare har en konflikt mellan **userPrincipalName**. Båda är **Joe. J\@contoso.com**. Objekt som är i konflikt i karantän i Azure AD.
+När **QuarantinedAttributeValueMustBeUnique** -och **AttributeValueMustBeUnique** -Synkroniseringsfel inträffar är det vanligt att se en konflikt i en **userPrincipalName** -eller **proxy-adress** i Azure AD. Du kan lösa synkroniseringsfel genom att uppdatera det motstridiga källobjektet från den lokala sidan. Synkroniseringsfel kommer att lösas efter nästa synkronisering. Den här bilden visar till exempel att två användare har en konflikt mellan **userPrincipalName**. Båda är **Joe. J \@ contoso.com**. Objekt som är i konflikt i karantän i Azure AD.
 
 ![Felsöka vanliga scenarion vid synkroniseringsfel](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 

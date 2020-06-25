@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e248e7af5fc9ed2bc144a4b302577be56524d7d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612625"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361175"
 ---
-# <a name="host-pool-creation"></a>Skapa värd för pool
+# <a name="host-pool-creation"></a>Skapa värdpool
 
 >[!IMPORTANT]
 >Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
@@ -31,13 +31,14 @@ Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.co
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Hämtar Windows 10 Enterprise-avbildningen för flera sessioner
 
-Om du vill använda Windows 10 Enterprise multi-session-avbildningen går du till Azure Marketplace, väljer **Kom igång** > **Microsoft Windows 10** > och [Windows 10 Enterprise multi-session, version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Om du vill använda Windows 10 Enterprise multi-session-avbildningen går du till Azure Marketplace, väljer **Kom igång**  >  **Microsoft Windows 10** > och [Windows 10 Enterprise multi-session, version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problem med att använda Azure Portal för att skapa värdar för pooler
 
 ### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Fel: "skapa ett kostnads fritt konto" visas vid åtkomst till tjänsten
 
-![En bild som visar Azure Portal som visar meddelandet "skapa ett kostnads fritt konto"](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![En bild som visar Azure Portal som visar meddelandet "skapa ett kostnads fritt konto"](media/create-new-account.png)
 
 **Orsak**: det finns inga aktiva prenumerationer på det konto som du loggade in på Azure med, eller så har inte kontot behörighet att Visa prenumerationerna. 
 
@@ -60,9 +61,10 @@ Följ dessa anvisningar för att felsöka misslyckade distributioner av Azure Re
 3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) för att åtgärda problemet.
 4. Ta bort alla resurser som har skapats under den tidigare distributionen och försök att distribuera mallen igen.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades....\<hostname>/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades.... \<hostname> /JoinDomain
 
-![Det gick inte att distribuera skärm bilden.](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![Det gick inte att distribuera skärm bilden.](media/failure-joindomain.png)
 
 Exempel på RAW-fel:
 
@@ -103,7 +105,8 @@ Exempel på RAW-fel:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Fel: VMExtensionProvisioningError
 
-![Skärm bilden av distributionen misslyckades, det gick inte att etablerings status för terminalen.](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bilden av distributionen misslyckades, det gick inte att etablerings status för terminalen.](media/failure-vmextensionprovisioning.png)
 
 **Orsak 1:** Tillfälligt fel i Windows-miljön för virtuella datorer.
 
@@ -113,7 +116,8 @@ Exempel på RAW-fel:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: det angivna administratörs användar namnet är inte tillåtet
 
-![Skärm bild av distributionen misslyckades i vilken en angiven administratör inte tillåts.](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av distributionen misslyckades i vilken en angiven administratör inte tillåts.](media/failure-username.png)
 
 Exempel på RAW-fel:
 
@@ -130,7 +134,8 @@ Exempel på RAW-fel:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fel: den virtuella datorn har rapporterat ett fel vid bearbetning av tillägget
 
-![Skärm bild av resurs åtgärden slutfördes med etablerings statusen för terminalen i distributionen misslyckades.](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av resurs åtgärden slutfördes med etablerings statusen för terminalen i distributionen misslyckades.](media/failure-processing.png)
 
 Exempel på RAW-fel:
 
@@ -149,7 +154,8 @@ Exempel på RAW-fel:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Fel: DeploymentFailed – PowerShell DSC-konfigurationen ' FirstSessionHost ' slutfördes med fel
 
-![Skärm bild av distributionen fungerar inte med PowerShell DSC-konfigurationen FirstSessionHost slutfördes med fel.](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av distributionen fungerar inte med PowerShell DSC-konfigurationen FirstSessionHost slutfördes med fel.](media/failure-dsc.png)
 
 Exempel på RAW-fel:
 

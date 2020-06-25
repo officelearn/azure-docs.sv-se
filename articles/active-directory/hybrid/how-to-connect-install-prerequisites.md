@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6446b039d90e04c9fe7fca28b361f620183a0292
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bcf7b5b8791b813a28133d8a662d1736aacf35a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875749"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358726"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 I det här avsnittet beskrivs krav och maskin varu krav för Azure AD Connect.
@@ -81,7 +81,7 @@ Du kan läsa mer här:
 * Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Som standard är en SQL Server 2012 Express-LocalDB (en låg version av SQL Server Express) installerad. SQL Server Express har en storleks gräns på 10 GB som gör att du kan hantera cirka 100 000 objekt. Om du behöver hantera en större mängd katalog objekt måste du peka installations guiden till en annan installation av SQL Server. SQL Server-installationens typ kan påverka [prestandan för Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
 * Om du använder en annan installation av SQL Server gäller dessa krav:
   * Azure AD Connect stöder alla versioner av Microsoft SQL Server från 2012 (med senaste Service Pack) till SQL Server 2019. Microsoft Azure SQL Database **stöds inte** som en databas.
-  * Du måste använda en Skift läges okänslig SQL-sortering. Dessa sorteringar identifieras med ett \_CI_ i sitt namn. Det finns **inte stöd** för att använda en Skift läges känslig sortering som identifieras \_av CS_ i sitt namn.
+  * Du måste använda en Skift läges okänslig SQL-sortering. Dessa sorteringar identifieras med ett \_ CI_ i sitt namn. Det finns **inte stöd** för att använda en Skift läges känslig sortering som identifieras av \_ CS_ i sitt namn.
   * Du kan bara ha en Sync-motor per SQL-instans. Det finns **inte stöd** för att dela en SQL-instans med FIM/MIM Sync, DirSync eller Azure AD Sync.
 
 ### <a name="accounts"></a>Konton
@@ -89,14 +89,14 @@ Du kan läsa mer här:
 * Om du använder [Express inställningar](reference-connect-accounts-permissions.md#express-settings-installation) eller uppgraderar från DirSync måste du ha ett företags administratörs konto för din lokala Active Directory.
 * Om du använder installations Sök vägen för anpassade inställningar har du fler alternativ. Mer information finns i [anpassade installations inställningar](reference-connect-accounts-permissions.md#custom-installation-settings).
 
-### <a name="connectivity"></a>Anslutningar
+### <a name="connectivity"></a>Anslutning
 * Den Azure AD Connect servern behöver DNS-matchning för både intranätet och Internet. DNS-servern måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
 * Om du har brand väggar i intranätet och du behöver öppna portar mellan Azure AD Connect-servrar och domän kontrol Lanterna, kan du se [Azure AD Connect portar](reference-connect-ports.md) för mer information.
 * Om proxyn eller brand väggen begränsar vilka URL: er som kan nås måste URL: erna som dokumenteras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) öppnas.
   * Om du använder Microsoft Cloud i Tyskland eller Microsoft Azure Government molnet kan du läsa mer om att [tänka på Azure AD Connect Sync service-instanser](reference-connect-instances.md) för URL: er.
 * Azure AD Connect (version 1.1.614.0 och efter) som standard använder TLS 1,2 för kryptering av kommunikation mellan Synkroniseringsmotorn och Azure AD. Om TLS 1,2 inte är tillgängligt i det underliggande operativ systemet går Azure AD Connect stegvis tillbaka till äldre protokoll (TLS 1,1 och TLS 1,0).
 * Före version 1.1.614.0 använder Azure AD Connect som standard TLS 1,0 för kryptering av kommunikation mellan Synkroniseringsmotorn och Azure AD. Om du vill ändra till TLS 1,2 följer du stegen i [Aktivera tls 1,2 för Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Om du använder en utgående proxy för att ansluta till Internet måste följande inställning i **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** -filen läggas till för installations guiden och Azure AD Connect Sync för att kunna ansluta till Internet och Azure AD. Texten måste anges längst ned i filen. I den här koden &lt;representerar&gt; PROXYADDRESS den faktiska proxy-IP-adressen eller värd namnet.
+* Om du använder en utgående proxy för att ansluta till Internet måste följande inställning i **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** -filen läggas till för installations guiden och Azure AD Connect synkronisering för att kunna ansluta till Internet och Azure AD. Texten måste anges längst ned i filen. I den här koden &lt; &gt; representerar PROXYADDRESS den faktiska proxy-IP-adressen eller värd namnet.
 
 ```
     <system.net>
@@ -110,7 +110,7 @@ Du kan läsa mer här:
     </system.net>
 ```
 
-* Om proxyservern kräver autentisering måste [tjänst kontot](reference-connect-accounts-permissions.md#adsync-service-account) finnas i domänen och du måste använda installations Sök vägen för anpassade inställningar för att ange ett [anpassat tjänst konto](how-to-connect-install-custom.md#install-required-components). Du behöver också en annan ändring av Machine. config. Med den här ändringen i Machine. config, svarar installations guiden och synkroniseringen av autentiseringsbegäranden från proxyservern. I alla installations guide sidor, förutom sidan **Konfigurera** , används den inloggade användarens autentiseringsuppgifter. På sidan **Konfigurera** i slutet av installations guiden växlas kontexten till det [tjänst konto](reference-connect-accounts-permissions.md#adsync-service-account) som skapades av dig. Avsnittet Machine. config bör se ut så här.
+* Om proxyservern kräver autentisering måste [tjänst kontot](reference-connect-accounts-permissions.md#adsync-service-account) finnas i domänen och du måste använda installations Sök vägen för anpassade inställningar för att ange ett [anpassat tjänst konto](how-to-connect-install-custom.md#install-required-components). Du behöver också en annan ändring i machine.config. Med den här ändringen i machine.config svarar installations guiden och synkroniseringen av autentiseringsbegäranden från proxyservern. I alla installations guide sidor, förutom sidan **Konfigurera** , används den inloggade användarens autentiseringsuppgifter. På sidan **Konfigurera** i slutet av installations guiden växlas kontexten till det [tjänst konto](reference-connect-accounts-permissions.md#adsync-service-account) som skapades av dig. Avsnittet machine.config bör se ut så här.
 
 ```
     <system.net>
@@ -129,7 +129,7 @@ Du kan läsa mer här:
 Mer information finns i MSDN om [default proxy-elementet](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Mer information om problem med anslutningen finns i [Felsöka anslutnings problem](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 * Valfritt: ett test användar konto för att verifiera synkroniseringen.
 
 ## <a name="component-prerequisites"></a>Komponent krav
@@ -151,7 +151,7 @@ Före version 1.1.614.0 använder Azure AD Connect som standard TLS 1,0 för kry
     ```
 2. For all operating systems, set this registry key and restart the server.
     ```
-    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "SchUseStrongCrypto" = DWORD: 00000001
+    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \. NETFramework\v4.0.30319 "SchUseStrongCrypto" = DWORD: 00000001
     ```
 4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 

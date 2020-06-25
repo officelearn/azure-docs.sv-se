@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f5cf9487f6f10ce661009e5e504be51a098b7e6
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261078"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357400"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect sync: Scheduler
 I det här avsnittet beskrivs den inbyggda Schemaläggaren i Azure AD Connect Sync (Synkroniseringsmotorn).
@@ -41,7 +41,7 @@ Scheduler ansvarar för två uppgifter:
 Själva Scheduler körs alltid, men den kan konfigureras för att bara köra en eller inga av dessa uppgifter. Om du till exempel behöver ha en egen process för synkronisering, kan du inaktivera den här uppgiften i Schemaläggaren men fortfarande köra underhålls aktiviteten.
 
 ## <a name="scheduler-configuration"></a>Scheduler-konfiguration
-Om du vill se dina aktuella konfigurations inställningar går du till `Get-ADSyncScheduler`PowerShell och kör. Du ser något som liknar den här bilden:
+Om du vill se dina aktuella konfigurations inställningar går du till PowerShell och kör `Get-ADSyncScheduler` . Du ser något som liknar den här bilden:
 
 ![GetSyncScheduler](./media/how-to-connect-sync-feature-scheduler/getsynccyclesettings2016.png)
 
@@ -58,7 +58,7 @@ Om du ser **Sync-kommandot eller om cmdleten inte är tillgänglig** när du kö
 * **StagingModeEnabled**. Visar om [mellanlagrings läge](how-to-connect-sync-staging-server.md) är aktiverat. Om den här inställningen är aktive rad förhindras exporten från att köras men fortfarande körning av import och synkronisering.
 * **SchedulerSuspended**. Ange per anslutning under en uppgradering för att tillfälligt blockera Schemaläggaren från att köras.
 
-Du kan ändra några av de här inställningarna `Set-ADSyncScheduler`med. Följande parametrar kan ändras:
+Du kan ändra några av de här inställningarna med `Set-ADSyncScheduler` . Följande parametrar kan ändras:
 
 * CustomizedSyncCycleInterval
 * NextSyncCyclePolicyType
@@ -83,11 +83,11 @@ Exempel: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`
 ### <a name="disable-the-scheduler"></a>Inaktivera Scheduler  
 Om du behöver göra konfigurations ändringar vill du inaktivera Scheduler. Till exempel när du [konfigurerar filtrering](how-to-connect-sync-configure-filtering.md) eller [gör ändringar i regler för synkronisering](how-to-connect-sync-change-the-configuration.md).
 
-Om du vill inaktivera Scheduler kör `Set-ADSyncScheduler -SyncCycleEnabled $false`du.
+Om du vill inaktivera Scheduler kör du `Set-ADSyncScheduler -SyncCycleEnabled $false` .
 
 ![Inaktivera Scheduler](./media/how-to-connect-sync-feature-scheduler/schedulerdisable.png)
 
-När du har gjort ändringarna ska du inte glömma att aktivera Scheduler igen med `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+När du har gjort ändringarna ska du inte glömma att aktivera Scheduler igen med `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 ## <a name="start-the-scheduler"></a>Starta Scheduler
 Scheduler körs som standard var 30: e minut. I vissa fall kanske du vill köra en synkronisering mellan schemalagda cykler eller så måste du köra en annan typ.
@@ -109,9 +109,9 @@ En fullständig synkronisering innehåller följande steg:
 
 Det kan bero på att du har en brådskande ändring som måste synkroniseras direkt, vilket är anledningen till att du måste köra en cykel manuellt. 
 
-Om du behöver köra en Sync-cykel manuellt kör du PowerShell-körningen `Start-ADSyncSyncCycle -PolicyType Delta`.
+Om du behöver köra en Sync-cykel manuellt kör du PowerShell-körningen `Start-ADSyncSyncCycle -PolicyType Delta` .
 
-Om du vill starta en fullständig synkronisering kör `Start-ADSyncSyncCycle -PolicyType Initial` du från en PowerShell-prompt.   
+Om du vill starta en fullständig synkronisering kör du `Start-ADSyncSyncCycle -PolicyType Initial` från en PowerShell-prompt.   
 
 Det kan ta lång tid att köra en fullständig synkronisering, Läs nästa avsnitt för att läsa mer om hur du optimerar den här processen.
 
@@ -156,8 +156,8 @@ Om Scheduler för närvarande kör en cykel för synkronisering kan du behöva s
 
 När en synkroniseringsanslutning körs kan du inte göra konfigurations ändringar. Du kan vänta tills Scheduler har avslutat processen, men du kan även stoppa den så att du kan göra ändringarna direkt. Att stoppa den aktuella cykeln är inte skadlig och väntande ändringar bearbetas med nästa körning.
 
-1. Börja med att instruera Scheduler att stoppa den aktuella cykeln med PowerShell-cmdleten `Stop-ADSyncSyncCycle`.
-2. Om du använder en version före 1.1.281 stoppar Scheduler inte den aktuella anslutningen från den aktuella aktiviteten. Utför följande åtgärder för att tvinga kopplingen att stoppa: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+1. Börja med att instruera Scheduler att stoppa den aktuella cykeln med PowerShell-cmdleten `Stop-ADSyncSyncCycle` .
+2. Om du använder en version före 1.1.281 stoppar Scheduler inte den aktuella anslutningen från den aktuella aktiviteten. Utför följande åtgärder för att tvinga kopplingen att stoppa: ![ StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Starta **synkroniseringstjänsten** från Start-menyn. Gå till **kopplingar**, markera kopplingen med det tillstånd som **körs**och välj **stoppa** från åtgärderna.
 
 Scheduler är fortfarande aktiv och startar igen vid nästa tillfälle.
@@ -178,7 +178,7 @@ De namn som ska användas för [anslutnings namn](how-to-connect-sync-service-ma
 
 ![Anropa körnings profil](./media/how-to-connect-sync-feature-scheduler/invokerunprofile.png)  
 
-`Invoke-ADSyncRunProfile` Cmdleten är synkron, det vill säga den returnerar inte kontrollen förrän anslutningen har slutfört åtgärden, antingen korrekt eller med ett fel.
+`Invoke-ADSyncRunProfile`Cmdleten är synkron, det vill säga den returnerar inte kontrollen förrän anslutningen har slutfört åtgärden, antingen korrekt eller med ett fel.
 
 När du schemalägger dina anslutningar är rekommendationen att schemalägga dem i följande ordning:
 

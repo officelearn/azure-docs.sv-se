@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: dc2763fd3c203a5b0443299d9824b6ebf61bdc78
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791086"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361912"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Lägg till eller ta bort Azure Role-tilldelningar för externa gäst användare med hjälp av Azure Portal
 
@@ -89,7 +89,9 @@ I Azure RBAC, för att bevilja åtkomst, tilldelar du en roll. Om du vill lägga
 
     Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
-    ![Menyn Lägg till](./media/role-assignments-external-users/add-menu.png)
+    ![Menyn Lägg till roll tilldelning](./media/shared/add-role-assignment-menu.png)
+
+    Fönstret Lägg till rolltilldelning öppnas.
 
 1. I listrutan **Roll** väljer du en roll, till exempel **Virtuell datordeltagare**.
 
@@ -119,7 +121,9 @@ Om gäst användaren inte finns i din katalog än kan du bjuda in användaren di
 
 1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönstret Lägg till rolltilldelning.
 
-    ![Menyn Lägg till](./media/role-assignments-external-users/add-menu.png)
+    ![Menyn Lägg till roll tilldelning](./media/shared/add-role-assignment-menu.png)
+
+    Fönstret Lägg till rolltilldelning öppnas.
 
 1. I listrutan **Roll** väljer du en roll, till exempel **Virtuell datordeltagare**.
 

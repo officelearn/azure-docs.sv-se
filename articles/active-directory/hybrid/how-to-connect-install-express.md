@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 714fe5d1bdaddac2873194ab066f304e72bdde67
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60244509"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358879"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
 **Expressinställningar** för Azure AD Connect används om du har en topologi med en enda skog och om du använder [synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md) för autentisering. **Standardinställningar** är standardalternativet och används i de vanligaste distributionsscenarierna. Du är bara några få klick bort från att utöka din lokala katalog till molnet.
@@ -71,7 +71,7 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 
 ## <a name="related-documentation"></a>Relaterad dokumentation
 
-| Hjälpavsnitt | Länk |
+| Ämne | Länk |
 | --- | --- |
 | Översikt över Azure AD Connect | [Integrerar dina lokala kataloger med Azure Active Directory](whatis-hybrid-identity.md)
 | Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](how-to-connect-install-custom.md) |

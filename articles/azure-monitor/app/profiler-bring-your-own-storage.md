@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2f928ac2f8772942eb748d68a65662938b1405ed
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84882515"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361946"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Konfigurera ta med din egen lagring (BYOS) för Application Insights Profiler och Snapshot Debugger
 
@@ -21,9 +21,9 @@ När du använder Application Insights Profiler eller Snapshot Debugger överfö
 Med ta med din egen lagring laddas dessa artefakter upp i ett lagrings konto som du styr. Det innebär att du styr principen för kryptering vid vila, livs längds hanterings principen och nätverks åtkomst. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot.
 
 > [!NOTE]
-> Om du aktiverar privat länk är det nödvändigt att ta med din egen lagring. Mer information om privat länk [finns i dokumentationen](https://docs.microsoft.com/azure/private-link/private-link-overview).
+> Om du aktiverar privat länk är det nödvändigt att ta med din egen lagring. Mer information om privat länk för Application Insights [finns i dokumentationen.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
 >
-> Om du aktiverar Kundhanterade nycklar är det nödvändigt att ta med din egen lagring. Mer information om Kundhanterade nycklar [finns i dokumentationen](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
+> Om du aktiverar Kundhanterade nycklar är det nödvändigt att ta med din egen lagring. Mer information om kund hanterade nycklar för Application Insights [finns i dokumentationen.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Hur används mitt lagrings konto?
 1. Agenter som körs i Virtual Machines eller App Service överför artefakter (profiler, ögonblicks bilder och symboler) till BLOB-behållare i ditt konto. Den här processen innebär att kontakta Application Insights Profiler-eller Snapshot Debuggers tjänsten för att få en SAS-token (signatur för delad åtkomst) till en ny BLOB i ditt lagrings konto.

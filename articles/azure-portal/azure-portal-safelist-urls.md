@@ -1,5 +1,5 @@
 ---
-title: SAFELIST Azure Portal webb adresser på din brand vägg eller proxyserver
+title: Lägga till Azure-portalens URL:er i listan över säkra URL:er i brandväggen eller proxyservern
 description: 'Lägg till dessa URL: er till proxyservern kringgå för kommunikation med Azure Portal och dess tjänster'
 services: azure-portal
 keywords: ''
@@ -9,14 +9,14 @@ ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67ccf6e2f113c0ec72cfcbccedf88017e452ec4b
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255057"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361667"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>SAFELIST Azure Portal webb adresser på din brand vägg eller proxyserver
+# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Lägga till Azure-portalens URL:er i listan över säkra URL:er i brandväggen eller proxyservern
 
 Du kan konfigurera lokala säkerhets enheter för att kringgå säkerhets begränsningar för Azure Portal-URL: er. Den här konfigurationen kan förbättra prestandan och anslutningen mellan ditt lokala nätverk och ditt lokala nätverk och Azure-molnet.
 
@@ -53,6 +53,7 @@ URL-slutpunkterna till SAFELIST för Azure Portal är bara för det Azure-moln d
 #### <a name="us-government-cloud"></a>[Amerikanskt myndighets moln](#tab/us-government-cloud)
 
 ```
+*.applicationinsights.us
 *.azure.us
 *.loganalytics.us
 *.microsoft.us

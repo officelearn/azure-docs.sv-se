@@ -183,7 +183,7 @@
               href: directory-admin-roles-secure.md
             - name: Skapa nödkonton
               href: directory-emergency-access.md
-        - name: Administratörsenhet
+        - name: Administrativa enheter
           items:
             - name: Administrativa enheter – översikt
               href: directory-administrative-units.md

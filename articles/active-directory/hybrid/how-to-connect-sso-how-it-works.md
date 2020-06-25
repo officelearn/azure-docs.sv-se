@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71176668"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357927"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: tekniskt djup
 
@@ -39,12 +39,12 @@ Det här avsnittet innehåller tre delar:
 
 Sömlös SSO aktive ras med Azure AD Connect som visas [här](how-to-connect-sso-quick-start.md). När funktionen aktive ras inträffar följande steg:
 
-- Ett dator konto (`AZUREADSSOACC`) skapas i din lokala Active Directory (AD) i varje AD-skog som du synkroniserar med Azure AD (med Azure AD Connect).
+- Ett dator konto ( `AZUREADSSOACC` ) skapas i din lokala Active Directory (AD) i varje AD-skog som du synkroniserar med Azure AD (med Azure AD Connect).
 - Dessutom skapas ett antal SPN-namn (Service Principal Name) som ska användas under inloggnings processen i Azure AD.
 - Dator kontots Kerberos-dekrypterings nyckel delas på ett säkert sätt med Azure AD. Om det finns flera AD-skogar kommer varje dator konto ha sin egen unika Kerberos-dekrypterings nyckel.
 
 >[!IMPORTANT]
-> `AZUREADSSOACC` Dator kontot måste vara starkt skyddat av säkerhets skäl. Endast domän administratörer bör kunna hantera dator kontot. Se till att Kerberos-delegering på dator kontot är inaktiverat och att inget annat konto i Active Directory har Delegerings behörighet för `AZUREADSSOACC` dator kontot. Lagra dator kontot i en organisationsenhet (OU) där de är säkra från oavsiktliga borttagningar och där endast domän administratörer har åtkomst. Krypterings nyckeln för Kerberos på dator kontot bör också behandlas som känslig. Vi rekommenderar starkt att du [rullar igenom Kerberos-dekrypterings nyckeln](how-to-connect-sso-faq.md) för `AZUREADSSOACC` dator kontot minst var 30: e dag.
+> `AZUREADSSOACC`Dator kontot måste vara starkt skyddat av säkerhets skäl. Endast domän administratörer bör kunna hantera dator kontot. Se till att Kerberos-delegering på dator kontot är inaktiverat och att inget annat konto i Active Directory har Delegerings behörighet för `AZUREADSSOACC` dator kontot. Lagra dator kontot i en organisationsenhet (OU) där de är säkra från oavsiktliga borttagningar och där endast domän administratörer har åtkomst. Krypterings nyckeln för Kerberos på dator kontot bör också behandlas som känslig. Vi rekommenderar starkt att du [rullar igenom Kerberos-dekrypterings nyckeln](how-to-connect-sso-faq.md) för `AZUREADSSOACC` dator kontot minst var 30: e dag.
 
 När installationen är klar fungerar sömlös enkel inloggning på samma sätt som andra inloggningar som använder integrerad Windows-autentisering (IWA).
 

@@ -7,29 +7,29 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a4e2dc09c54b39d58b0193e7ac9f585236886722
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 36031006f155f1651845dbce48b6c6ec84397e93
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572674"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361429"
 ---
 # <a name="create-an-office-data-connection-file"></a>Skapa en fil för Office-dataanslutning
 
-Informationen i den här artikeln beskriver hur du kan skapa en Office-dataanslutnings fil för att ansluta till en Azure Analysis Services-server från Excel 2016 version Number 16.0.7369.2117 eller tidigare, eller Excel 2013. Du måste också ha en uppdaterad [MSOLAP. 7-Provider](analysis-services-data-providers.md) .
+Informationen i den här artikeln beskriver hur du kan skapa en Office-dataanslutnings fil för att ansluta till en Azure Analysis Services-server från Excel 2016 version Number 16.0.7369.2117 eller tidigare, eller Excel 2013. Du måste också ha en uppdaterad [MSOLAP. 7-Provider](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) .
 
 
 1. Kopiera exempel anslutnings filen nedan och klistra in den i en text redigerare. 
 
-2. I `odc:ConnectionString`ändrar du följande egenskaper:
+2. I `odc:ConnectionString` ändrar du följande egenskaper:
 
-    *   Ändras till regionen för Analysis Services-servern och `<servername>` namnet på servern. `<region>` `Data Source=asazure://<region>.asazure.windows.net/<servername>;`
+    *   `Data Source=asazure://<region>.asazure.windows.net/<servername>;`Ändras `<region>` till regionen för Analysis Services-servern och `<servername>` namnet på servern.
 
     *   I `Initial Catalog=<database>;` ändra `<database>` till namnet på din databas.
 
 3. I `<odc:CommandText>Model</odc:CommandText>` ändra `Model` till namnet på din modell eller ditt perspektiv. 
 
-4. Spara filen med ett `.odc` tillägg i mappen C:\Users\\*användar namn*\Documents\My data källor.
+4. Spara filen med ett `.odc` tillägg i mappen C:\Users \\ *användar namn*\Documents\My data källor.
 
 5. Högerklicka på filen och klicka sedan på **Öppna i Excel**. I Excel, i menyfliksområdet **data** , klickar du på **befintliga anslutningar**, väljer filen och klickar sedan på **Öppna**.
 

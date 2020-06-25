@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 47c504d9359779294c4690059d1958614d863e58
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: b0cdff2ce71fb63194933bdfed26da16fdebcca7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260890"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361929"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
 
@@ -168,9 +168,8 @@ Att begränsa åtkomsten på det här sättet gäller endast för data i Applica
 
 > [!NOTE]
 > För att helt skydda arbets ytans baserade Application Insights måste du låsa både åtkomst till Application Insights resurs och den underliggande Log Analytics arbets ytan.
-
-> [!NOTE]
-> Kod på kod nivå (profiler/fel sökare) stöder för närvarande inte privat länk.
+>
+> Kod på kod nivå (profilerings-/fel sökning) behöver du ange ditt eget lagrings konto för att stödja privat länk. Här är en [dokumentation](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) om hur du gör detta.
 
 ## <a name="use-apis-and-command-line"></a>Använda API: er och kommando rad
 
@@ -226,7 +225,7 @@ Om du vill tillåta att Log Analytics agent laddar ned lösnings paket lägger d
 
 | Moln miljö | Agentresurs | Portar | Riktning |
 |:--|:--|:--|:--|
-|Azure, offentlig     | scadvisor.blob.core.windows.net         | 443 | Utgående
+|Azure, offentlig     | scadvisorcontent.blob.core.windows.net         | 443 | Utgående
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Utgående
 |Azure Kina 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Utgående
 

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983270"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357417"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect synkronisering: konfigurera önskad data plats för Office 365-resurser
 Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Office 365 använder du det här attributet för att ange geo-platsen för användarens Office 365-data. ( *Regions region* och *geo* används utbytbart.)
@@ -91,8 +91,8 @@ I följande avsnitt beskrivs stegen för att aktivera synkronisering av **prefer
 För att undvika oönskade ändringar som exporteras till Azure AD kontrollerar du att ingen synkronisering sker när du är i mitten av uppdateringen av regler för synkronisering. Så här inaktiverar du den inbyggda Sync Scheduler:
 
 1. Starta en PowerShell-session på Azure AD Connect servern.
-2. Inaktivera schemalagd synkronisering genom att köra denna cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false`:.
-3. Starta **Synchronization Service Manageren** genom att gå till **Starta** > **synkroniseringstjänsten**.
+2. Inaktivera schemalagd synkronisering genom att köra denna cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false` .
+3. Starta **Synchronization Service Manageren** genom att gå till **Starta**  >  **synkroniseringstjänsten**.
 4. Välj fliken **åtgärder** och bekräfta att det inte finns någon åtgärd *med statusen*pågår.
 
 ![Skärm bild av Synchronization Service Manager](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
@@ -135,14 +135,14 @@ Som standard importeras inte attributet **preferredDataLocation** till Azure AD 
 ## <a name="step-5-create-an-inbound-synchronization-rule"></a>Steg 5: skapa en regel för inkommande synkronisering
 Regeln för inkommande synkronisering tillåter att attributvärdet flödar från källattributet i lokala Active Directory till metaversum.
 
-1. Starta **Redigeraren för regler för synkronisering** genom att gå till **Starta** > **Redigeraren för regler för synkronisering**.
+1. Starta **Redigeraren för regler för synkronisering** genom att gå till **Starta**  >  **Redigeraren för regler för synkronisering**.
 2. Ange att Sök filter **riktningen** ska vara **inkommande**.
 3. Om du vill skapa en ny regel för inkommande trafik väljer du **Lägg till ny regel**.
 4. Ange följande konfiguration på fliken **Beskrivning** :
 
     | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Name | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
+    | Namn | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
     | Beskrivning | *Ange en anpassad Beskrivning* |  |
     | Anslutet system | *Välj lokal Active Directory-anslutning* |  |
     | Ansluten system objekt typ | **Användare** |  |
@@ -171,7 +171,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
     | Attribut | Värde | Information |
     | ----- | ------ | --- |
-    | Name | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
+    | Namn | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj Azure AD-anslutning* ||
     | Ansluten system objekt typ | **Användare** ||
@@ -184,7 +184,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | SKEPPNINGSKVANTITETEN | Användare |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | Sant |
 
     Omfångs filtret bestämmer vilka Azure AD-objekt den här utgående synkroniseringsregeln tillämpas på. I det här exemplet använder vi samma omfångs filter från "ut till Azure AD – användar identitet" OOB (out-of-Box) synkroniseringsregeln. Det förhindrar att synkroniseringsregeln tillämpas på **användar** objekt som inte synkroniseras från en lokal Active Directory. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
 

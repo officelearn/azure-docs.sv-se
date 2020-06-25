@@ -2,24 +2,20 @@
 title: Visa en lista med Azures roll tilldelningar med Azure Portal – Azure RBAC
 description: Lär dig hur du avgör vilka resurser användare, grupper, tjänstens huvud namn eller hanterade identiteter har åtkomst till med hjälp av Azure Portal och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/18/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4315b6ded8824fb119cd9c05a760b4269bcfd12d
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791069"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361887"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal
 
@@ -30,7 +26,7 @@ ms.locfileid: "84791069"
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Lista roll tilldelningar för en användare eller grupp
 
-Det enklaste sättet att se de roller som har tilldelats en användare eller grupp i en prenumeration är att använda fönstret **Azure-resurser** .
+Det enklaste sättet att se de roller som har tilldelats en användare eller grupp i en prenumeration är att använda fönstret **roll tilldelningar i Azure** .
 
 1. I Azure Portal väljer du **alla tjänster** på Azure Portal-menyn.
 
@@ -38,11 +34,11 @@ Det enklaste sättet att se de roller som har tilldelats en användare eller gru
 
 1. Klicka på den användare eller grupp som du vill visa en lista över roll tilldelningarna för.
 
-1. Klicka på **Azure-resurser**.
+1. Klicka på **roll tilldelningar för Azure**.
 
     Du ser en lista över roller som har tilldelats den valda användaren eller gruppen vid olika omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
 
-    ![Rolltilldelningar för en användare](./media/role-assignments-list-portal/azure-resources-user.png)    
+    ![Rolltilldelningar för en användare](./media/role-assignments-list-portal/azure-role-assignments-user.png)    
 
 1. Klicka på listan **prenumerationer** om du vill ändra prenumerationen.
 
@@ -102,31 +98,37 @@ Om du vill visa en lista över åtkomsten för en användare, grupp, tjänstens 
 
     I den här fönsterrutan kan du se de roller som tilldelats till den valda säkerhetsprincipen och omfånget. Om det finns några nekande tilldelningar i det här omfånget eller som ärvts till det här omfånget visas de.
 
-## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Lista roll tilldelningar för en systemtilldelad hanterad identitet
+## <a name="list-role-assignments-for-a-managed-identity"></a>Lista roll tilldelningar för en hanterad identitet
+
+Du kan lista roll tilldelningar för systemtilldelade och användarspecifika hanterade identiteter i ett visst omfång genom att använda bladet **åtkomst kontroll (IAM)** enligt beskrivningen ovan. I det här avsnittet beskrivs hur du visar roll tilldelningar för bara den hanterade identiteten.
+
+### <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
 
 1. I Azure Portal öppnar du en systemtilldelad hanterad identitet.
 
 1. Klicka på **identitet**i den vänstra menyn.
 
-    ![Systemtilldelad hanterad identitet](./media/role-assignments-list-portal/identity-system-assigned.png)
+    ![Systemtilldelad hanterad identitet](./media/shared/identity-system-assigned.png)
 
-1. Under **roll tilldelningar**klickar du på **Visa de Azure RBAC-roller som tilldelats den här hanterade identiteten**.
+1. Under **behörigheter**klickar du på **roll tilldelningar för Azure**.
 
     Du ser en lista över roller som har tilldelats den valda systemtilldelade hanterade identiteten vid olika omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
 
-    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/shared/role-assignments-system-assigned.png)
 
-## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Lista roll tilldelningar för en användardefinierad hanterad identitet
+1. Klicka på **prenumerations** listan om du vill ändra prenumerationen.
+
+### <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
 1. Öppna en användardefinierad hanterad identitet i Azure Portal.
 
-1. Klicka på **Azure-resurser**.
+1. Klicka på **roll tilldelningar för Azure**.
 
     Du ser en lista över roller som har tilldelats den valda användarspecifika hanterade identiteten vid olika omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
 
-    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/shared/role-assignments-user-assigned.png)
 
-1. Klicka på listan **prenumerationer** om du vill ändra prenumerationen.
+1. Klicka på **prenumerations** listan om du vill ändra prenumerationen.
 
 ## <a name="list-number-of-role-assignments"></a>Lista antal roll tilldelningar
 
@@ -137,6 +139,51 @@ Du kan ha upp till **2000** roll tilldelningar i varje prenumeration. Den här g
 Om du får nära det högsta antalet och du försöker lägga till fler roll tilldelningar visas en varning i fönstret **Lägg till roll tilldelning** . Information om hur du kan minska antalet roll tilldelningar finns i [Felsöka Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
 
 ![Åtkomst kontroll – Lägg till Roll tilldelnings varning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
+
+## <a name="download-role-assignments-preview"></a>Hämta roll tilldelningar (för hands version)
+
+Du kan hämta roll tilldelningar i ett omfång i CSV-eller JSON-format. Detta kan vara användbart om du behöver granska listan i ett kalkyl blad eller göra en inventering när du migrerar en prenumeration.
+
+> [!IMPORTANT]
+> Hämta roll tilldelningar är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+När du hämtar roll tilldelningar bör du tänka på följande kriterier:
+
+- Om du inte har behörighet att läsa katalogen, till exempel katalog läsar rollen, kommer kolumnerna DisplayName, SignInName och ObjectType att vara tomma.
+- Roll tilldelningar vars säkerhets objekt har tagits bort ingår inte.
+- Åtkomst beviljas till klassiska administratörer ingår inte.
+
+Följ dessa steg om du vill hämta roll tilldelningar i ett omfång.
+
+1. I Azure Portal klickar du på **alla tjänster** och väljer sedan det omfång där du vill hämta roll tilldelningarna. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
+
+1. Klicka på den aktuella resursen.
+
+1. Klicka på **Åtkomstkontroll (IAM)** .
+
+1. Klicka på **Hämta roll tilldelningar (för hands version)** för att öppna fönstret Hämta roll tilldelningar.
+
+    ![Åtkomst kontroll – Hämta roll tilldelningar](./media/role-assignments-list-portal/download-role-assignments.png)
+
+1. Använd kryss rutorna för att välja de roll tilldelningar som du vill ta med i den nedladdade filen.
+
+    - **Ärvd** – ta med ärvda roll tilldelningar för det aktuella omfånget.
+    - **I aktuellt omfång** – inkludera roll tilldelningar för det aktuella omfånget.
+    - **Underordnade** – inkludera roll tilldelningar på nivåer under det aktuella omfånget. Den här kryss rutan är inaktive rad för hanterings grupp omfånget.
+
+1. Välj fil formatet, som kan vara kommaavgränsade värden (CSV) eller JavaScript Object Notation (JSON).
+
+1. Ange fil namnet.
+
+1. Starta nedladdningen genom att klicka på **Starta** .
+
+    Följande visar exempel på utdata för varje fil format.
+
+    ![Hämta roll tilldelningar som CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
+
+    ![Hämta roll tilldelningar som CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

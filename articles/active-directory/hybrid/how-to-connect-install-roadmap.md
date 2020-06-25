@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9ed613972f166f1f9955fc34e9bb640d87da6b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bee5ba92f6795df6635dc98a19cabaeb9692a470
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331428"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358743"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
 
@@ -132,7 +132,7 @@ Använd följande steg för att komma igång med Azure AD Connect Health:
 
 1. [Hämta Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) eller [starta en utvärderings version](https://azure.microsoft.com/trial/get-started-active-directory/).
 2. [Hämta och installera Azure AD Connect Health agenter](#download-and-install-azure-ad-connect-health-agent) på dina identitets servrar.
-3. Visa Azure AD Connect Health instrument panelen på [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth).
+3. Visa Azure AD Connect Health instrument panelen på [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth) .
 
 > [!NOTE]
 > Kom ihåg att innan du ser några data på Azure AD Connect Health-instrumentpanelen så måste du installera Azure AD Connect Health-agenterna på dina målservrar.
@@ -169,7 +169,7 @@ På Azure AD Connect Health-portalen kan du visa varningar, övervaka prestanda 
    - **Åtkomst till data** från Azure AD-katalogen integritet endast av Microsoft i fel söknings syfte: om det här alternativet är aktiverat kan Microsoft komma åt samma data som visas av användaren. Den här informationen kan vara användbar för fel sökning och för att ge nödvändig hjälp. Det här alternativet är inaktiverat som standard
 * **Role based access control (IAM)** (Rollbaserad åtkomstkontroll) är avsnittet för att hantera åtkomst till Connect Health-data i rollbasen. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)

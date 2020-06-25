@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31a2bcdcf7b21999ddf17170b024589204c0e9e5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b8d0bcff79b6101047545614538dc1d58a854a6d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212793"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361259"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -37,11 +37,13 @@ Så här skapar du en virtuell dator med den kopierade virtuella hård disken:
 
 2. På sidan Ange generation väljer du **generation 1**.
 
-    ![En skärm bild av sidan Ange generation. Alternativet "generation 1" är markerat.](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av sidan Ange generation. Alternativet "generation 1" är markerat.](media/a41174fd41302a181e46385e1e701975.png)
 
 3. Under kontroll punkts typ inaktiverar du kontroll punkter genom att avmarkera kryss rutan.
 
-    ![En skärm bild av avsnittet kontroll punkts typ på sidan kontroll punkter.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av avsnittet kontroll punkts typ på sidan kontroll punkter.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 Du kan också köra följande cmdlet i PowerShell för att inaktivera kontroll punkter.
 
@@ -53,7 +55,8 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 Om du skapar en virtuell dator från en befintlig virtuell hård disk skapas en dynamisk disk som standard. Den kan ändras till en fast disk genom att välja **Redigera disk...** som visas i följande bild. Mer detaljerad information finns i [förbereda en virtuell Windows-VHD eller VHDX att ladda upp till Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![En skärm bild av alternativet Redigera disk.](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![En skärm bild av alternativet Redigera disk.](media/35772414b5a0f81f06f54065561d1414.png)
 
 Du kan också köra följande PowerShell-cmdlet för att ändra disken till en fast disk.
 
@@ -126,7 +129,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 Vi rekommenderar att du inaktiverar Storage Sense för Windows Virtual Desktop-fjärrskrivbordssession som använder Windows 10 Enterprise eller Windows 10 Enterprise multi-session. Du kan inaktivera Storage Sense i menyn Inställningar under **lagring**, som du ser på följande skärm bild:
 
-![En skärm bild av lagrings menyn under Inställningar. Alternativet "Storage Sense" är inaktiverat.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![En skärm bild av lagrings menyn under Inställningar. Alternativet "Storage Sense" är inaktiverat.](media/storagesense.png)
 
 Du kan också ändra inställningen med registret genom att köra följande kommando:
 
@@ -189,15 +193,18 @@ Följande anvisningar visar hur du överför huvud avbildningen till ett Azure S
 
 2. Ladda upp den virtuella hård disken till en BLOB-behållare i ditt lagrings konto. Du kan ladda upp snabbt med [Storage Explorer-verktyget](https://azure.microsoft.com/features/storage-explorer/). Mer information om Storage Explorer-verktyget finns i [den här artikeln](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![En skärm bild av Microsoft Azure Storage Explorer verktygs fönstret Sök. Kryss rutan "Ladda upp VHD-eller VHDX-filer som Page blobbar (rekommenderas)" är markerad.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av Microsoft Azure Storage Explorer verktygs fönstret Sök. Kryss rutan "Ladda upp VHD-eller VHDX-filer som Page blobbar (rekommenderas)" är markerad.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Gå sedan till Azure Portal i webbläsaren och Sök efter "images". Din sökning ska leda dig till sidan **Skapa avbildning** , som du ser på följande skärm bild:
 
-    ![En skärm bild av sidan Skapa avbildning i Azure Portal, fyllt med exempel värden för bilden.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av sidan Skapa avbildning i Azure Portal, fyllt med exempel värden för bilden.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. När du har skapat avbildningen bör du se ett meddelande som liknar det i följande skärm bild:
 
-    ![En skärm bild av meddelandet "en avbildning har skapats".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av meddelandet "en avbildning har skapats".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

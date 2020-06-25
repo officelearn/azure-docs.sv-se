@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/23/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76931014"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358131"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Användarsekretess och Azure Active Directory-direktautentisering
 
@@ -46,10 +46,10 @@ Vi rekommenderar starkt det andra alternativet eftersom det är enklare att impl
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Ta bort Azure AD Connect spåra loggfiler
 
-Kontrol lera innehållet i **%programdata%\AADConnect** -mappen och ta bort spårnings logg innehållet (**spår-\*. loggfiler** ) för den här mappen inom 48 timmar efter installation eller uppgradering av Azure AD Connect eller ändra konfigurationen för vidarekoppling, eftersom den här åtgärden kan skapa data som omfattas av GDPR.
+Kontrol lera innehållet i **%programdata%\AADConnect** -mappen och ta bort spårnings logg innehållet (**spår- \* . loggfiler** ) för den här mappen inom 48 timmar efter installation eller uppgradering av Azure AD Connect eller ändra konfigurationen för vidarekoppling, eftersom den här åtgärden kan skapa data som omfattas av GDPR.
 
 >[!IMPORTANT]
->Ta inte bort filen **PersistedState. XML** i den här mappen, eftersom den här filen används för att underhålla status för den tidigare installationen av Azure AD Connect och används när en uppgraderings installation görs. Den här filen kommer aldrig att innehålla data om en person och ska aldrig tas bort.
+>Ta inte bort **PersistedState.xml** filen i den här mappen eftersom den här filen används för att underhålla den tidigare installationen av Azure AD Connect och används när en uppgraderings installation görs. Den här filen kommer aldrig att innehålla data om en person och ska aldrig tas bort.
 
 Du kan antingen granska och ta bort dessa spårnings loggar med hjälp av Utforskaren i Windows, eller så kan du använda följande PowerShell-skript för att utföra nödvändiga åtgärder:
 

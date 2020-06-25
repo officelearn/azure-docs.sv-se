@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe2d0a16aeacfc551a6a07a72b58b5f461f93433
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793903"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360528"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Självstudie: grundläggande Active Directory miljö
 
@@ -201,16 +201,16 @@ Nu måste du skapa en Azure AD-klient så att du kan synkronisera våra använda
 3. Välj **Azure Active Directory** i sökresultatet.
 4. Välj **Skapa**.</br>
 ![Skapa](media/tutorial-single-forest/create1.png)</br>
-5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **skapa**. Detta skapar din katalog.
+5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **Skapa**. Detta skapar din katalog.
 6. När det här har slutförts klickar du på den **här** länken för att hantera katalogen.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Skapa en global administratör i Azure AD
 Nu när du har en Azure AD-klient kommer du att skapa ett globalt administratörs konto.  Skapa kontot för den globala administratören genom att göra följande.
 
-1.  Under **Hantera** väljer du **Användare**.</br>
+1.  Under **Hantera** väljer du **Användare**.</br>
 ![Skapa](media/tutorial-single-forest/administrator1.png)</br>
 2.  Välj **Alla användare** och sedan **+ Ny användare**.
-3.  Ange ett namn och användarnamn för den här användaren. Det här är din globala administratör för klientorganisationen. Du bör även ändra **katalogrollen** till **Global administratör.** Du kan även visa det tillfälliga lösenordet. När du är klar väljer du **Skapa**.</br>
+3.  Ange ett namn och användarnamn för den här användaren. Det här är din globala administratör för klientorganisationen. Du bör även ändra **katalogrollen** till **Global administratör.** Du kan dessutom visa det tillfälliga lösenordet. När du är klar väljer du **Skapa**.</br>
 ![Skapa](media/tutorial-single-forest/administrator2.png)</br>
 4. När det här har slutförts öppnar du en ny webbläsare och loggar in på myapps.microsoft.com med hjälp av det nya globala administratörskontot och det tillfälliga lösenordet.
 5. Ändra lösenordet för den globala administratören till något som du kommer ihåg.

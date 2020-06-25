@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca425c7c5739785f3463086d89b4796f09bf45b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61e772d7a55577c263edc83ccface31932f5b2dd
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229824"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358369"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory direktautentisering: snabb start
 
@@ -72,9 +72,9 @@ Se till att följande krav är uppfyllda.
      | **8080** (valfritt) | Authentication agents rapporterar status var tionde minut via port 8080, om port 443 inte är tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 används _inte_ för användar inloggningar. |
      
      Om brand väggen tillämpar regler enligt de ursprungliga användarna öppnar du portarna för trafik från Windows-tjänster som körs som en nätverks tjänst.
-   - Om din brand vägg eller proxy tillåter DNS-vit listning, lägger du till anslutningar till ** \*. msappproxy.net** och ** \*. ServiceBus.Windows.net**. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.
+   - Om din brand vägg eller proxy tillåter DNS-vit listning, lägger du till anslutningar till ** \* . msappproxy.net** och ** \* . ServiceBus.Windows.net**. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.
    - Dina autentiserings agenter behöver åtkomst till **login.Windows.net** och **login.microsoftonline.com** för inledande registrering. Öppna brand väggen för dessa URL: er även.
-   - För certifikat validering, avblockera följande URL: er: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**och **www\.Microsoft.com:80**. Eftersom dessa URL: er används för certifikat validering med andra Microsoft-produkter kan dessa URL: er vara avblockerade.
+   - För certifikat validering, avblockera följande URL: er: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**och **www \. Microsoft.com:80**. Eftersom dessa URL: er används för certifikat validering med andra Microsoft-produkter kan dessa URL: er vara avblockerade.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Förutsättning för Azure Government moln
 Innan du aktiverar direktautentisering genom Azure AD Connect med steg 2 laddar du ned den senaste versionen av PTA-agenten från Azure Portal.  Du måste se till att agenten är versions **1.5.1742.0.** eller senare.  För att verifiera agenten se [Upgrade Authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)
@@ -150,8 +150,8 @@ Först kan du göra det interaktivt genom att köra den hämtade körbara autent
 
 Sedan kan du skapa och köra ett obevakat distributions skript. Detta är användbart när du vill distribuera flera autentiseringsförsök samtidigt eller installera autentiseringsprinciper på Windows-servrar som inte har användar gränssnitt aktiverat eller som du inte kan komma åt med fjärr skrivbord. Här följer instruktioner för hur du använder den här metoden:
 
-1. Kör följande kommando för att installera en agent för autentisering `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`:.
-2. Du kan registrera Autentiseringstjänsten med tjänsten med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter `$cred` som innehåller ett globalt administratörs användar namn och lösen ord för din klient. Kör följande kommando och Ersätt * \<användar namn\> * och * \<lösen\>ord*:
+1. Kör följande kommando för att installera en agent för autentisering: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q` .
+2. Du kan registrera Autentiseringstjänsten med tjänsten med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter `$cred` som innehåller ett globalt administratörs användar namn och lösen ord för din klient. Kör följande kommando och Ersätt *\<username\>* och *\<password\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cd52dbdf6c13900cde592aeb52d8bf9abf850f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60347792"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358335"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory direktautentisering: teknisk djupgående
 Den här artikeln är en översikt över hur Azure Active Directory (Azure AD) passerar autentisering fungerar. Detaljerad teknisk information och säkerhets information finns i artikeln om [säkerhets djupet](how-to-connect-pta-security-deep-dive.md) .
@@ -40,7 +40,7 @@ När en användare försöker logga in i ett program som skyddas av Azure AD, oc
 5. Azure AD, som tar emot en begäran om att logga in, placerar användar namn och lösen ord (krypteras med hjälp av den offentliga nyckeln för autentiserings agenter) i en kö.
 6. En lokal autentiseringsnyckel hämtar användar namnet och det krypterade lösen ordet från kön. Observera att agenten inte ofta söker efter begär Anden från kön, men hämtar begär Anden via en företablerad permanent anslutning.
 7. Agenten dekrypterar lösen ordet med hjälp av dess privata nyckel.
-8. Agenten verifierar användar namnet och lösen ordet mot Active Directory med hjälp av vanliga Windows-API: er, vilket är en liknande mekanism som Active Directory Federation Services (AD FS) (AD FS) använder. Användar namnet kan antingen vara det lokala standard användar namnet, vanligt vis `userPrincipalName`eller något annat attribut som kon figurer ats i Azure AD Connect `Alternate ID`(kallas).
+8. Agenten verifierar användar namnet och lösen ordet mot Active Directory med hjälp av vanliga Windows-API: er, vilket är en liknande mekanism som Active Directory Federation Services (AD FS) (AD FS) använder. Användar namnet kan antingen vara det lokala standard användar namnet, vanligt vis `userPrincipalName` eller något annat attribut som kon figurer ATS i Azure AD Connect (kallas `Alternate ID` ).
 9. Den lokala Active Directory domänkontrollanten (DC) utvärderar begäran och returnerar lämpligt svar (lyckades, misslyckat, lösen ordet har upphört att gälla eller användaren utelåst) till agenten.
 10. Authentication-agenten returnerar i sin tur det här svaret tillbaka till Azure AD.
 11. Azure AD utvärderar svaret och svarar på användaren efter behov. Azure AD signerar till exempel antingen användaren direkt eller begär Anden om Azure Multi-Factor Authentication.

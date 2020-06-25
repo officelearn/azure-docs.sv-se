@@ -167,6 +167,8 @@
                   href: ./optimize-hive-ambari.md
                 - name: Optimera Apache Pig
                   href: ./optimize-pig-ambari.md
+            - name: Starta om klusternoder
+              href: ./cluster-reboot-vm.md
             - name: Använda Apache Ambari REST API
               href: ./hdinsight-hadoop-manage-ambari-rest-api.md
             - name: Ta bort ett kluster
@@ -410,7 +412,7 @@
               items:
                 - name: Använda med Data Lake Storage
                   href: ./spark/apache-spark-use-with-data-lake-store.md
-                - name: Ansluta till Azure SQL-databas
+                - name: Ansluta till Azure SQL Database
                   href: ./spark/apache-spark-connect-to-sql-database.md
                 - name: Implementera en lambda-arkitektur med Apache Spark och Cosmos DB
                   href: ../cosmos-db/lambda-architecture.md

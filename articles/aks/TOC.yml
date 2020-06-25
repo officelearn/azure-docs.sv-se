@@ -132,6 +132,8 @@
           href: upgrade-cluster.md
         - name: Använda serviceavtal för drifttid
           href: uptime-sla.md
+        - name: Använda närhetsplaceringsgrupper (förhandsversion)
+          href: reduce-latency-ppg.md
         - name: Uppgradera nodavbildningen (förhandsversion)
           href: node-image-upgrade.md
         - name: Bearbeta OS-noduppdateringar

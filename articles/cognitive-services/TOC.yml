@@ -17,11 +17,11 @@
       href: cognitive-services-apis-create-account.md
     - name: Skapa en ny resurs med Azure CLI
       href: cognitive-services-apis-create-account-cli.md
-    - name: Diagnostikloggning
-      href: diagnostic-logging.md
-    - name: ARM-mall
+    - name: Skapa en ny resurs med en ARM-mall
       displayName: Resource Manager
       href: resource-manager-template.md
+    - name: Diagnostikloggning
+      href: diagnostic-logging.md
 - name: Exempel
   items:
     - name: Inbyggda Azure Policy-program

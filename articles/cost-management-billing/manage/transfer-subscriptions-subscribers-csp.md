@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791161"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106428"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Överför Azure-prenumerationer mellan prenumeranter och molnlösningsleverantörer
 
-Den här artikeln innehåller enkla steg för att överföra Azure-prenumerationer mellan molnlösningsleverantörer (CSP) och deras kunder.
+Den här artikeln innehåller enkla steg för att överföra Azure-prenumerationer till och från molnlösningsleverantörer (CSP) och deras kunder.
 
-## <a name="transfer-ea-subscriptions"></a>Överföra EA-prenumerationer
+## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Överföra EA-prenumerationer till en CSP-partner
 
 CSP-partner som är certifierade som [Azure Expert-leverantörer av hanterade tjänster (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) kan begära överföring av Azure-prenumerationer för kunder som har ett direkt Enterprise-avtal (EA). Prenumerationsöverföringar tillåts bara för kunder som har godkänt ett Microsoft-kundavtal (MCA) och köpt en Azure-plan.
 
@@ -44,7 +44,7 @@ För att kunna överföra andra Azure-prenumerationer till en CSP-partner måste
     > [!IMPORTANT]
     >  - När du flyttar Azure-resurser mellan prenumerationer kan det uppstå avbrott i tjänsten, beroende på vilka resurser som ingår i prenumerationerna.
 
-## <a name="all-subscription-transfers-from-a-csp-partner"></a>Alla prenumerationsöverföringar från en CSP-partner
+## <a name="transfer-csp-subscription-to-other-offer"></a>Överföra CSP-prenumeration till ett annat erbjudande
 
 För att kunna överföra andra Azure-prenumerationer till en CSP-partner måste prenumeranten flytta resurser mellan källprenumerationer och målprenumerationer.
 

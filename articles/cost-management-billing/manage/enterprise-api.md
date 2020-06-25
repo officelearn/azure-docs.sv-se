@@ -5,16 +5,20 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: bf1acd8bce53801c7c241121db2079e9b8a01851
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383170"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253714"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över rapporterings-API:er för Enterprise-kunder
+
+> [!Note]
+> Microsoft uppdaterar inte längre Azures fakturerings-API:er för Azure-rapportering. I stället bör du använda API:er för [Azures Consumption](/rest/api/consumption).
+
 Med rapporterings-API:erna kan Enterprise-kunder hämta förbruknings- och faktureringsdata till önskade dataanalysverktyg. Enterprise-kunder har signerat [ett Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) med Azure om särskilda betalningsåtaganden som berättigar till anpassade priser för Azure-resurser.
 
 Alla datum- och tidsparametrar som krävs för API:er måste anges som kombinerade UTC-värden (Coordinated Universal Time). Värden som returneras av API:er visas i UTC-format.
@@ -27,7 +31,7 @@ Alla datum- och tidsparametrar som krävs för API:er måste anges som kombinera
 |-|-|
 |Auktorisering| Ange värdet i det här formatet: **bearer {API_KEY}** <br/> Exempel: bearer eyr....09|
 
-## <a name="consumption-apis"></a>Förbruknings-API:er
+## <a name="consumption-based-apis"></a>Förbrukningsbaserade API:er
 En Swagger-slutpunkt [finns här](https://consumption.azure.com/swagger/ui/index) för API:erna som beskrivs nedan och bör underlätta introspektion av API:et och möjligheten att generera klient-SDK:er med hjälp av [AutoRest](https://github.com/Azure/AutoRest) eller [Swagger CodeGen](https://swagger.io/swagger-codegen/). Data från den 1 maj 2014 är tillgängliga via det här API:et.
 
 * **Saldo och sammanfattning** – [API:et för saldon och sammanfattningar](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) ger tillgång till en månatlig sammanställning av information om saldon, nya inköp, kostnader för Azure Marketplace-tjänster, justeringar och kostnader för överförbrukning.

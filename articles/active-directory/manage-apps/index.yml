@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation om programhantering
-summary: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Office 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
+summary: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Microsoft 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
 metadata:
   title: Dokumentation om programhantering
-  description: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Office 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
+  description: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Microsoft 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
+  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77063480"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85339196"
 landingContent:
 - title: Om programhantering
   linkLists:

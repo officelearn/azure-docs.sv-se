@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 12ad1f09c988171b0d6212d79ca61d93acf92d80
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8552b6732736d1d10711479639fa45114f8b039b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199610"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298012"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Betala för din Azure-prenumeration med faktura
 
@@ -113,10 +113,19 @@ Följ stegen nedan om du vill byta faktureringsprofil till check/banköverförin
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+*Varför har jag fått en förfrågan om ett juridiskt dokument?*
+
+Ibland behöver Microsoft juridisk dokumentation om den information du har angett är ofullständig eller inte går att verifiera. Exempel:
+
+* Namnet på kontonamn och företagsnamn är olika
+* Ändrat namn
+
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
 Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om det behövs uppdaterar du dina kontaktuppgifter för fakturering i [Azure-kontocenter](https://account.azure.com/Profile).
+* Om det behövs uppdaterar du dina kontaktuppgifter för fakturering i [Azure-kontocenter](https://account.azure.com/Profile).

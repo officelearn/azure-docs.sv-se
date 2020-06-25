@@ -581,6 +581,9 @@
         - name: Introduktionsanteckningsböcker
           href: /azure/databricks/delta/intro-notebooks
           maintainContext: true
+        - name: Mata in data i Delta Lake
+          href: /azure/databricks/delta/delta-ingest
+          maintainContext: true
         - name: Batchåtgärder för läsning och skrivning i tabell
           href: /azure/databricks/delta/delta-batch
           maintainContext: true
@@ -593,68 +596,65 @@
         - name: Kommandon för tabellverktyg
           href: /azure/databricks/delta/delta-utility
           maintainContext: true
-        - name: Delta Lake API-referens
+        - name: API-referens
           href: /azure/databricks/delta/delta-apidoc
           maintainContext: true
         - name: Samtidighetskontroll
           href: /azure/databricks/delta/concurrency-control
           maintainContext: true
-        - name: Optimeringar
-          items:
-            - name: Översikt över optimeringar
-              href: /azure/databricks/delta/optimizations/index
-              maintainContext: true
-            - name: Optimera prestanda med filhantering
-              href: /azure/databricks/delta/optimizations/file-mgmt
-              maintainContext: true
-            - name: Automatisk optimering
-              href: /azure/databricks/delta/optimizations/auto-optimize
-              maintainContext: true
-            - name: Optimera prestanda med cachelagring
-              href: /azure/databricks/delta/optimizations/delta-cache
-              maintainContext: true
-            - name: Isoleringsnivåer
-              href: /azure/databricks/delta/optimizations/isolation-level
-              maintainContext: true
-            - name: Replikera MySQL-tabeller till delta Lake-tabeller
-              href: /azure/databricks/delta/optimizations/mysql-delta
-              maintainContext: true
-            - name: Optimera kopplingsprestanda
-              items:
-                - name: Optimera kopplingsprestanda – översikt
-                  href: /azure/databricks/delta/join-performance/index
-                  maintainContext: true
-                - name: Optimering av intervallkoppling
-                  href: /azure/databricks/delta/join-performance/range-join
-                  maintainContext: true
-                - name: Optimering av förvrängd koppling
-                  href: /azure/databricks/delta/join-performance/skew-join
-                  maintainContext: true
-            - name: Optimerad dataomvandling
-              items:
-                - name: Optimerad dataomvandling – översikt
-                  href: /azure/databricks/delta/data-transformation/index
-                  maintainContext: true
-                - name: Funktioner med högre ordning
-                  href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
-                  maintainContext: true
-                - name: Omvandla komplexa datatyper
-                  href: /azure/databricks/delta/data-transformation/complex-types
-                  maintainContext: true
-            - name: Bästa praxis
-              href: /azure/databricks/delta/best-practices
-              maintainContext: true
-            - name: Versionshantering för tabell
-              href: /azure/databricks/delta/optimizations/versioning
-              maintainContext: true
-            - name: Optimeringsexempel
-              href: /azure/databricks/delta/optimizations/optimization-examples
-              maintainContext: true
+        - name: Bästa praxis
+          href: /azure/databricks/delta/best-practices
+          maintainContext: true
         - name: Vanliga frågor och svar
           href: /azure/databricks/delta/delta-faq
           maintainContext: true
-        - name: Ytterligare Delta-resurser
+        - name: Resurser
           href: /azure/databricks/delta/delta-resources
+          maintainContext: true
+    - name: Delta Engine
+      items:
+        - name: Översikt över Delta Engine
+          href: /azure/databricks/delta/optimizations/index
+          maintainContext: true
+        - name: Optimera prestanda med filhantering
+          href: /azure/databricks/delta/optimizations/file-mgmt
+          maintainContext: true
+        - name: Automatisk optimering
+          href: /azure/databricks/delta/optimizations/auto-optimize
+          maintainContext: true
+        - name: Optimera prestanda med cachelagring
+          href: /azure/databricks/delta/optimizations/delta-cache
+          maintainContext: true
+        - name: Isoleringsnivåer
+          href: /azure/databricks/delta/optimizations/isolation-level
+          maintainContext: true
+        - name: Optimera kopplingsprestanda
+          items:
+            - name: Optimera kopplingsprestanda – översikt
+              href: /azure/databricks/delta/join-performance/index
+              maintainContext: true
+            - name: Optimering av intervallkoppling
+              href: /azure/databricks/delta/join-performance/range-join
+              maintainContext: true
+            - name: Optimering av förvrängd koppling
+              href: /azure/databricks/delta/join-performance/skew-join
+              maintainContext: true
+        - name: Optimerad dataomvandling
+          items:
+            - name: Optimerad dataomvandling – översikt
+              href: /azure/databricks/delta/data-transformation/index
+              maintainContext: true
+            - name: Funktioner med högre ordning
+              href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
+              maintainContext: true
+            - name: Omvandla komplexa datatyper
+              href: /azure/databricks/delta/data-transformation/complex-types
+              maintainContext: true
+        - name: Versionshantering för tabell
+          href: /azure/databricks/delta/optimizations/versioning
+          maintainContext: true
+        - name: Optimeringsexempel
+          href: /azure/databricks/delta/optimizations/optimization-examples
           maintainContext: true
     - name: DataFrames och datauppsättningar
       items:
@@ -1899,7 +1899,7 @@
                 - name: Databricks Runtime 7.0
                   href: /azure/databricks/release-notes/runtime/7.0
                   maintainContext: true
-                - name: Databricks Runtime 7.0 ML (Beta)
+                - name: Databricks Runtime 7.0 ML
                   href: /azure/databricks/release-notes/runtime/7.0ml
                   maintainContext: true
                 - name: Databricks Runtime 7.0 Genomics

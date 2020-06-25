@@ -21,6 +21,8 @@
       href: front-door-tutorial-geo-filtering.md
     - name: Konfigurera en regelmotor
       href: front-door-tutorial-rules-engine.md
+    - name: Lägga till säkerhetsrubriker med regelmotor
+      href: front-door-security-headers.md
     - name: Brandvägg för webbaserade program och Front Door
       href: front-door-waf.md
 - name: Exempel

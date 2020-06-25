@@ -1,21 +1,14 @@
 ---
 title: 'Snabb start: skicka och ta emot händelser med go-Azure Event Hubs'
 description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett Go-program som skickar händelser från Azure Event Hubs.'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: kamalb
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73720582"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320360"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Snabb start: skicka händelser till eller ta emot händelser från Event Hubs med go
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
@@ -30,7 +23,7 @@ I den här självstudien beskrivs hur du skriver Go-program för att skicka hän
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 - Go installeras lokalt. Följ [dessa anvisningar](https://golang.org/doc/install) om det behövs.
-- Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][] konto innan du börjar.
+- Ett aktivt Azure-konto. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][] innan du börjar.
 - **Skapa ett Event Hubs-namnområde och en Event Hub**. Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md).
 
 ## <a name="send-events"></a>Skicka händelser
@@ -38,7 +31,7 @@ Det här avsnittet visar hur du skapar ett Go-program för att skicka händelser
 
 ### <a name="install-go-package"></a>Installera go-paket
 
-Hämta go-paketet för Event Hubs med `go get` eller `dep`. Ett exempel:
+Hämta go-paketet för Event Hubs med `go get` eller `dep` . Till exempel:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go
@@ -139,7 +132,7 @@ Exempel på hur du skapar lagrings artefakter med go SDK finns i [exemplen lagri
 
 ### <a name="go-packages"></a>Go-paket
 
-Om du vill ta emot meddelanden hämtar du Go-paketen `go get` för `dep`Event Hubs med eller:
+Om du vill ta emot meddelanden hämtar du Go-paketen för Event Hubs med `go get` eller `dep` :
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go/...
@@ -269,9 +262,9 @@ if err != nil {
 
 ### <a name="write-code-to-receive-messages"></a>Skriv kod för att ta emot meddelanden
 
-Med allt som har kon figurer ATS kan du starta värddatorn för `Start(context)` händelse bearbetning med och fortsätta att köra den `StartNonBlocking(context)` permanent, eller bara köra så länge meddelanden är tillgängliga.
+Med allt som har kon figurer ATS kan du starta värddatorn för händelse bearbetning med `Start(context)` och fortsätta att köra den permanent, eller `StartNonBlocking(context)` bara köra så länge meddelanden är tillgängliga.
 
-Den här självstudien startar och körs enligt följande. Se exempel på GitHub med `StartNonBlocking`:
+Den här självstudien startar och körs enligt följande. Se exempel på GitHub med `StartNonBlocking` :
 
 ```go
 ctx := context.Background()

@@ -1,20 +1,14 @@
 ---
 title: Azure Event Hubs – visualisera data avvikelser i real tids händelser
 description: 'Självstudie: visualisera data avvikelser i real tids händelser som skickas till Microsoft Azure Event Hubs'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.author: shvija
 ms.topic: tutorial
-ms.service: event-hubs
-ms.custom: seodec18
-ms.date: 01/15/2020
-ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77163185"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315615"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
@@ -159,8 +153,8 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 Event Hubs [exemplen på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) innehåller en app för avvikelse detektor som producerar test data åt dig. Appen simulerar användning av kreditkort genom att skriva kreditkortstransaktioner till händelsehubben, och ibland skrivs flera transaktioner för samma kreditkort på flera platser så att de blir märkta som avvikelser. Följ dessa steg om du vill köra den här appen: 
 
 1. Ladda ned [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) (Azure Event Hubs-exempel) från GitHub och packa upp filen lokalt.
-2. Navigera till mappen **\azure-Event-Hubs-master\samples\DotNet\\ ** -mappen. 
-3. Växla till **Azure. Messaging. EventHubs\AnomalyDetector\\ ** -mappen och dubbelklicka på **AnomalyDetector. SLN** för att öppna lösningen i Visual Studio. 
+2. Navigera till mappen **\azure-Event-Hubs-master\samples\DotNet \\ ** -mappen. 
+3. Växla till **Azure. Messaging. EventHubs\AnomalyDetector \\ ** -mappen och dubbelklicka på **AnomalyDetector. SLN** för att öppna lösningen i Visual Studio. 
 
     Om du vill använda den gamla versionen av exemplet som använder det gamla Microsoft. Azure. EventHubs-paketet öppnar du lösningen från mappen **Microsoft. Azure. EventHubs\AnomalyDetector** . 
 3. Öppna Program.cs och ersätt **Event Hubs-anslutningssträngen** med den anslutningssträng som du sparade när du körde skriptet. 

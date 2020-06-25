@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: ETL-åtgärder med interaktiv fråga – Azure HDInsight'
-description: Självstudie – lär dig hur du extraherar data från en rå CSV-datauppsättning. Transformera den med interaktiv fråga i HDInsight. Läs sedan in transformerade data i Azure SQL Database med hjälp av Apache Sqoop.
+description: Självstudie – lär dig hur du extraherar data från en rå CSV-datauppsättning. Transformera den med interaktiv fråga i HDInsight. Läs sedan in transformerade data i Azure SQL Database med Apache Sqoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021746"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319199"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av interaktiv fråga i Azure HDInsight
 
-I den här självstudien hämtar du en rå CSV-datafil med offentligt tillgängliga flyg data. Importera den till HDInsight-kluster lagring och omvandla sedan data med hjälp av interaktiv fråga i Azure HDInsight. När dessa data har transformerats läser du in dem till en Azure SQL-databas med hjälp av [Apache Sqoop](https://sqoop.apache.org/).
+I den här självstudien hämtar du en rå CSV-datafil med offentligt tillgängliga flyg data. Importera den till HDInsight-kluster lagring och omvandla sedan data med hjälp av interaktiv fråga i Azure HDInsight. När data har omvandlats läser du in dessa data i en databas i Azure SQL Database med [Apache Sqoop](https://sqoop.apache.org/).
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -25,14 +25,14 @@ Den här självstudien omfattar följande uppgifter:
 > * Ladda ned exempelflygdata
 > * Ladda upp data till ett HDInsight-kluster
 > * Transformera data med interaktiv fråga
-> * Skapa en tabell i en Azure SQL-databas
-> * Använda Sqoop för att exportera data till en Azure SQL-databas
+> * Skapa en tabell i en databas i Azure SQL Database
+> * Använd Sqoop för att exportera data till en databas i Azure SQL Database
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett interaktivt Query-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **interaktiv fråga** för **kluster typ**.
 
-* En Azure SQL Database. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](/azure/sql-database/sql-database-single-database-get-started).
+* En databas i Azure SQL Database. Du använder databasen som mål data lager. Om du inte har en databas i Azure SQL Database kan du läsa [skapa en databas i Azure SQL Database i Azure Portal](/azure/sql-database/sql-database-single-database-get-started).
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -250,9 +250,9 @@ Det finns många sätt att ansluta till SQL Database och skapa en tabell. Följa
 
 4. Skriv `exit` vid uppmaningen `1>` för att avsluta tsql-verktyget.
 
-## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exportera data till SQL-databas med hjälp av Apache Sqoop
+## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exportera data till SQL Database med Apache Sqoop
 
-I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `/tutorials/flightdelays/output` till tabellen du skapade i Azure SQL Database.
+I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `/tutorials/flightdelays/output` till tabellen som du skapade i Azure SQL Database.
 
 1. Kontrol lera att Sqoop kan se din SQL-databas genom att ange kommandot nedan:
 

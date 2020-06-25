@@ -1,21 +1,14 @@
 ---
 title: Ta emot händelser med hjälp av händelse processor värden – Azure Event Hubs | Microsoft Docs
 description: I den här artikeln beskrivs händelse bearbetnings värden i Azure Event Hubs, vilket fören klar hanteringen av kontroll punkter, leasing och läsning av händelser Jon parallellt.
-services: event-hubs
-documentationcenter: .net
-author: spelluru
-ms.service: event-hubs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: f3d6a5e77c3c1c5e8b8dceb44e5bcbe9cb5f93ec
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299304"
+ms.locfileid: "85320646"
 ---
 # <a name="event-processor-host"></a>Värd för händelsebearbetning
 > [!NOTE]

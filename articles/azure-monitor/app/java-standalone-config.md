@@ -3,12 +3,12 @@ title: Övervaka Java-program var som helst Azure Monitor Application Insights
 description: Kod för program prestanda övervakning för Java-program som körs i en miljö utan att du instrumenterar appen. Hitta rotor saken till problemen d med hjälp av Distributed tracing och program karta.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509218"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319694"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurations alternativ – Java fristående agent för Azure Monitor Application Insights
 
@@ -33,14 +33,14 @@ Du hittar mer information och ytterligare konfigurations alternativ nedan för m
 
 ## <a name="configuration-file-path"></a>Sökväg till konfigurations fil
 
-Application Insights Java 3,0 Preview förväntar sig som standard konfigurations filen som ska `ApplicationInsights.json`namnges och placeras i samma katalog som `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
+Application Insights Java 3,0 Preview förväntar sig som standard konfigurations filen som ska namnges `ApplicationInsights.json` och placeras i samma katalog som `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
 
 Du kan ange en egen sökväg för konfigurations filen med antingen
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE`miljö variabel eller
 * `applicationinsights.configurationFile`Java system egenskap
 
-Om du anger en relativ sökväg kommer den att matchas i förhållande till den katalog `applicationinsights-agent-3.0.0-PREVIEW.4.jar` där finns.
+Om du anger en relativ sökväg kommer den att matchas i förhållande till den katalog där `applicationinsights-agent-3.0.0-PREVIEW.5.jar` finns.
 
 ## <a name="connection-string"></a>Anslutningssträng
 
@@ -48,7 +48,7 @@ Detta är obligatoriskt. Du kan hitta din anslutnings sträng i Application Insi
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights anslutnings sträng":::
 
-Du kan också ange anslutnings strängen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+Du kan också ange anslutnings strängen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_CONNECTION_STRING` .
 
 ## <a name="cloud-role-name"></a>Namn på moln roll
 
@@ -68,7 +68,7 @@ Om du vill ange namnet på moln rollen:
 
 Om du inte anger namnet på moln rollen används Application Insights resursens namn för att märka komponenten på program kartan.
 
-Du kan också ange namnet på moln rollen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_ROLE_NAME`.
+Du kan också ange namnet på moln rollen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_ROLE_NAME` .
 
 ## <a name="cloud-role-instance"></a>Moln roll instans
 
@@ -86,13 +86,13 @@ Om du vill ställa in en annan moln roll instans i stället för namnet på dato
 }
 ```
 
-Du kan också ställa in moln Rolls instansen med `APPLICATIONINSIGHTS_ROLE_INSTANCE`hjälp av miljövariabeln.
+Du kan också ställa in moln Rolls instansen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
 
 ## <a name="application-log-capture"></a>Samla in program logg
 
 Application Insights Java 3,0 Preview samlar automatiskt in program loggning via log4j, logback och Java. util. logging.
 
-Som standard kommer den att fånga all loggning som `WARN` utförs på nivån eller över.
+Som standard kommer den att fånga all loggning som utförs på `WARN` nivån eller över.
 
 Om du vill ändra detta tröskelvärde:
 
@@ -237,7 +237,7 @@ Om ditt program ligger bakom en brand vägg och inte kan ansluta direkt till App
 
 Detta kan vara användbart för att upptäcka och diagnostisera problem med Application Insights sig själv.
 
-Som standard loggar den till-konsolen med nivån `warn`, som motsvarar den här konfigurationen:
+Som standard loggar den till-konsolen med nivån `warn` , som motsvarar den här konfigurationen:
 
 ```json
 {
@@ -252,7 +252,7 @@ Som standard loggar den till-konsolen med nivån `warn`, som motsvarar den här 
 }
 ```
 
-Giltiga nivåer är `OFF`, `ERROR` `WARN` `INFO` `DEBUG`,,, och `TRACE`.
+Giltiga nivåer är,,,, `OFF` `ERROR` `WARN` `INFO` `DEBUG` och `TRACE` .
 
 Om du vill logga till en fil i stället för att logga in på konsolen:
 
@@ -271,4 +271,4 @@ Om du vill logga till en fil i stället för att logga in på konsolen:
 }
 ```
 
-När fil träffar `maxSizeMB`används när fil loggen används, kommer den att förnyas så att bara den senast slutförda logg filen visas, utöver den aktuella logg filen.
+När fil träffar används när fil loggen används, `maxSizeMB` kommer den att förnyas så att bara den senast slutförda logg filen visas, utöver den aktuella logg filen.

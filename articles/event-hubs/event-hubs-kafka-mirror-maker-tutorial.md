@@ -1,20 +1,14 @@
 ---
 title: Använd Apache Kafka MirrorMaker – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du använder Kafka-MirrorMaker för att spegla ett Kafka-kluster i AzureEvent-hubbar.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: fb041ec0d3cd474cca12d5ad55b733337566b9cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: aea8ebcfa65d5f4c90aa1908d03f0fcde8906bba
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632789"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320198"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd Kafka-MirrorMaker med Event Hubs för Apache Kafka
 
@@ -59,7 +53,7 @@ En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjän
 
 ## <a name="clone-the-example-project"></a>Klona exempelprojektet
 
-Nu när du har en Event Hubs anslutnings sträng klonar du Azure-Event Hubs för Kafka-lagringsplatsen och `mirror-maker` navigerar till undermappen:
+Nu när du har en Event Hubs anslutnings sträng klonar du Azure-Event Hubs för Kafka-lagringsplatsen och navigerar till `mirror-maker` undermappen:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -80,9 +74,9 @@ Om du vill konfigurera Kafka MirrorMaker ger du det ett Kafka-kluster som dess k
 
 #### <a name="consumer-configuration"></a>Konsument konfiguration
 
-Uppdatera konsument konfigurations filen `source-kafka.config`, som talar om för MirrorMaker egenskaperna för käll Kafka-klustret.
+Uppdatera konsument konfigurations filen `source-kafka.config` , som talar om för MirrorMaker egenskaperna för käll Kafka-klustret.
 
-##### <a name="source-kafkaconfig"></a>Källa – Kafka. config
+##### <a name="source-kafkaconfig"></a>source-kafka.config
 
 ```
 bootstrap.servers={SOURCE.KAFKA.IP.ADDRESS1}:{SOURCE.KAFKA.PORT1},{SOURCE.KAFKA.IP.ADDRESS2}:{SOURCE.KAFKA.PORT2},etc
@@ -93,9 +87,9 @@ client.id=mirror_maker_consumer
 
 #### <a name="producer-configuration"></a>Producer-konfiguration
 
-Uppdatera nu konfigurations filen `mirror-eventhub.config`för producenten, som talar om för MirrorMaker att de duplicerade (eller "speglade") data ska skickas till Event Hubs tjänsten. Mer specifikt, `bootstrap.servers` ändra `sasl.jaas.config` och för att peka på Event Hubs Kafka-slutpunkten. Den Event Hubs tjänsten kräver säker kommunikation (SASL), som uppnås genom att ställa in de sista tre egenskaperna i följande konfiguration: 
+Uppdatera nu konfigurations filen för producenten `mirror-eventhub.config` , som talar om för MirrorMaker att de duplicerade (eller "speglade") data ska skickas till Event Hubs tjänsten. Mer specifikt, ändra `bootstrap.servers` och `sasl.jaas.config` för att peka på Event Hubs Kafka-slutpunkten. Den Event Hubs tjänsten kräver säker kommunikation (SASL), som uppnås genom att ställa in de sista tre egenskaperna i följande konfiguration: 
 
-##### <a name="mirror-eventhubconfig"></a>Mirror-eventhub. config
+##### <a name="mirror-eventhubconfig"></a>mirror-eventhub.config
 
 ```
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093

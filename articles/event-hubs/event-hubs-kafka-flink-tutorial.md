@@ -1,20 +1,14 @@
 ---
 title: Använda Apache Flink för Apache Kafka-Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du ansluter Apache Flink till en Azure Event Hub
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 2e5a2924cdc00c1cc057d71c40645085df4bae6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 43cbf99a6ba2c0384ceffc10b01916f6ad22b26a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632818"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320146"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Använda Apache Flink med Azure Event Hubs för Apache Kafka
 Den här självstudien visar hur du ansluter Apache Flink till en Event Hub utan att ändra protokoll klienter eller köra egna kluster. Azure Event Hubs stöder [Apache Kafka version 1,0.](https://kafka.apache.org/10/documentation.html).
@@ -64,9 +58,9 @@ Med hjälp av det angivna Flink Producer-exemplet skickar du meddelanden till tj
 
 ### <a name="provide-an-event-hubs-kafka-endpoint"></a>Ange en Event Hubs Kafka-slutpunkt
 
-#### <a name="producerconfig"></a>Producer. config
+#### <a name="producerconfig"></a>producer.config
 
-Uppdatera värdena `bootstrap.servers` och `sasl.jaas.config` för `producer/src/main/resources/producer.config` att dirigera producenten till den Event Hubs Kafka-slutpunkten med rätt autentisering.
+Uppdatera `bootstrap.servers` värdena och för `sasl.jaas.config` `producer/src/main/resources/producer.config` att dirigera producenten till den Event Hubs Kafka-slutpunkten med rätt autentisering.
 
 ```xml
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -95,9 +89,9 @@ Med hjälp av det tillhandahållna konsument exemplet tar du emot meddelanden fr
 
 ### <a name="provide-an-event-hubs-kafka-endpoint"></a>Ange en Event Hubs Kafka-slutpunkt
 
-#### <a name="consumerconfig"></a>konsument. config
+#### <a name="consumerconfig"></a>consumer.config
 
-Uppdatera värdena `bootstrap.servers` och `sasl.jaas.config` för `consumer/src/main/resources/consumer.config` att dirigera konsumenten till den Event Hubs Kafka-slutpunkten med rätt autentisering.
+Uppdatera `bootstrap.servers` värdena och för `sasl.jaas.config` `consumer/src/main/resources/consumer.config` att dirigera konsumenten till den Event Hubs Kafka-slutpunkten med rätt autentisering.
 
 ```xml
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -118,7 +112,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ```
 
-Om händelsehubben har händelser (till exempel om din producent också körs) börjar konsumenten nu ta emot händelser från ämnet `test`.
+Om händelsehubben har händelser (till exempel om din producent också körs) börjar konsumenten nu ta emot händelser från ämnet `test` .
 
 Mer detaljerad information om hur du ansluter Flink till Kafka finns i [Flink Kafka Connector guide](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) .
 

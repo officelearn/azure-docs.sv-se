@@ -1,24 +1,14 @@
 ---
 title: Azure Event Hubs process Apache Kafka händelser
 description: 'Självstudie: den här artikeln visar hur du bearbetar Kafka-händelser som matas in via Event Hub med hjälp av Azure Stream Analytics'
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 04/02/2020
-ms.author: spelluru
-ms.openlocfilehash: 9c678a91b88b87acb438311b4968be4cae46733b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80632790"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313264"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Självstudie: bearbeta Apache Kafka för Event Hubs händelser med Stream Analytics 
 Den här artikeln visar hur du strömmar data till Event Hubs och bearbetar dem med Azure Stream Analytics. Det vägleder dig genom följande steg: 
@@ -50,8 +40,8 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Skicka meddelanden med Kafka i Event Hubs
 
 1. Klona [Azure-Event Hubs för Kafka-lagringsplatsen](https://github.com/Azure/azure-event-hubs-for-kafka) till din dator.
-2. Navigera till mappen: `azure-event-hubs-for-kafka/quickstart/java/producer`. 
-4. Uppdatera konfigurations informationen för producenten i `src/main/resources/producer.config`. Ange **namn** och **anslutnings sträng** för **Event Hub-namnområdet**. 
+2. Navigera till mappen: `azure-event-hubs-for-kafka/quickstart/java/producer` . 
+4. Uppdatera konfigurations informationen för producenten i `src/main/resources/producer.config` . Ange **namn** och **anslutnings sträng** för **Event Hub-namnområdet**. 
 
     ```xml
     bootstrap.servers={EVENT HUB NAMESPACE}.servicebus.windows.net:9093
@@ -60,7 +50,7 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Gå till `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/`och öppna **TestDataReporter. java** -fil i valfritt redigerings program. 
+5. Gå till `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/` och öppna **TestDataReporter. java** -fil i valfritt redigerings program. 
 6. Kommentera ut följande kodrad:
 
     ```java
@@ -73,7 +63,7 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
     ```
 
     Den här koden skickar händelse data i **JSON** -format. När du konfigurerar indata för ett Stream Analytics jobb anger du JSON som format för indata. 
-7. **Kör producenten** och strömma till Event Hubs. När du använder en **Node. js-kommandotolk**på en Windows-dator växlar du till `azure-event-hubs-for-kafka/quickstart/java/producer` mappen innan du kör kommandona. 
+7. **Kör producenten** och strömma till Event Hubs. När du använder en **Node.js kommando tolk**på en Windows-dator växlar du till `azure-event-hubs-for-kafka/quickstart/java/producer` mappen innan du kör kommandona. 
    
     ```shell
     mvn clean package

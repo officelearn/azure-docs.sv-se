@@ -1,25 +1,14 @@
 ---
 title: 'Självstudie: REST-självstudie med Azure Relay'
 description: 'Självstudie: Bygg ett Azure Relay värd program som visar ett REST-baserat gränssnitt.'
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/05/2019
-ms.author: spelluru
-ms.openlocfilehash: a9c2837315bde2684cbcefa5a603268a450bfba9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0d42bd664be0881ee0c1f036231acc67e49b6f8a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204702"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316630"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Självstudie: självstudie om Azure WCF Relay REST
 
@@ -71,7 +60,7 @@ Den främsta skillnaden mellan ett WCF-kontrakt och ett REST-format-kontrakt är
 1. I **Solution Explorer**högerklickar du på projektet **ImageListener** och väljer sedan **Hantera NuGet-paket**.
 1. Välj **Bläddra**, leta upp och välj **windowsazure. Service Bus**. Välj **Installera**och godkänn användnings villkoren.
 
-    Det här steget lägger till referenser till Service Bus och *system. ServiceModel. dll*. Det här paketet lägger automatiskt till referenser till Service Bus bibliotek och WCF `System.ServiceModel` .
+    Det här steget lägger till referenser till Service Bus och *System.ServiceModel.dll*. Det här paketet lägger automatiskt till referenser till Service Bus bibliotek och WCF `System.ServiceModel` .
 
 1. Lägg uttryckligen till en referens till `System.ServiceModel.Web.dll` i projektet. I **Solution Explorer**högerklickar du på **referenser** under projektmappen och väljer **Lägg till referens**.
 1. I **Lägg till referens**väljer du **ramverk** och anger *system. ServiceModel. Web* i **search**. Markera kryssrutan **System.ServiceModel.Web** och klicka sedan på **OK**.
@@ -179,7 +168,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="implement-the-rest-based-wcf-service-contract"></a>Implementera REST-baserade WCF Service-kontrakt
 
-Om du vill skapa en REST-typ WCF Relay tjänst skapar du först kontraktet med ett gränssnitt. Nästa steg är att implementera gränssnittet. Den här proceduren förutsätter att du skapar en klass `ImageService` som heter och som implementerar det användardefinierade `IImageContract` gränssnittet. När du har implementerat kontraktet konfigurerar du gränssnittet med hjälp av en *app. config* -fil. Konfigurations filen innehåller nödvändig information för programmet. Den här informationen innehåller namnet på tjänsten, namnet på kontraktet och typen av protokoll som används för att kommunicera med relä tjänsten. Koden som används för dessa aktiviteter visas i exemplet enligt proceduren.
+Om du vill skapa en REST-typ WCF Relay tjänst skapar du först kontraktet med ett gränssnitt. Nästa steg är att implementera gränssnittet. Den här proceduren förutsätter att du skapar en klass `ImageService` som heter och som implementerar det användardefinierade `IImageContract` gränssnittet. När du har implementerat kontraktet konfigurerar du gränssnittet med hjälp av en *App.config* -fil. Konfigurations filen innehåller nödvändig information för programmet. Den här informationen innehåller namnet på tjänsten, namnet på kontraktet och typen av protokoll som används för att kommunicera med relä tjänsten. Koden som används för dessa aktiviteter visas i exemplet enligt proceduren.
 
 Precis som i föregående steg är det mycket skillnad mellan att implementera ett REST-format-kontrakt och ett WCF Relay kontrakt.
 
@@ -212,11 +201,11 @@ Precis som i föregående steg är det mycket skillnad mellan att implementera e
    1. Välj sedan **befintligt objekt**.
    1. Använd **Lägg till befintligt objekt** för att bläddra till en lämplig. jpg och välj sedan **Lägg till**. När du lägger till filen väljer du **alla filer** i list rutan bredvid **fil namn**.
 
-   Resten av den här självstudien förutsätter att namnet på avbildningen är *image. jpg*. Om du har en annan fil måste du byta namn på avbildningen eller ändra din kod för att kompensera.
+   Resten av den här självstudien förutsätter att namnet på avbildningen är *image.jpg*. Om du har en annan fil måste du byta namn på avbildningen eller ändra din kod för att kompensera.
 
 1. För att se till att den aktiva tjänsten kan hitta avbildnings filen i **Solution Explorer** högerklickar du på avbildnings filen och väljer sedan **Egenskaper**. I **Egenskaper**, anger du **Kopiera till utdatakatalogen** för att **Kopiera om nyare**.
 
-1. Använd proceduren i [om du vill skapa ett kontrakt med ett gränssnitt](#to-create-a-contract-with-an-interface) för att lägga till en referens i sammansättningen *system. Drawing. dll* till projektet.
+1. Använd proceduren i [om du vill skapa ett kontrakt med ett gränssnitt](#to-create-a-contract-with-an-interface) för att lägga till en referens till *System.Drawing.dll* Assembly i projektet.
 
 1. Lägg till följande associerade `using` instruktioner:
 
@@ -264,9 +253,9 @@ Precis som i föregående steg är det mycket skillnad mellan att implementera e
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Definiera konfigurationen för att köra webbtjänsten på Service Bus
 
-1. I **Solution Explorer**dubbelklickar du på **app. config** för att öppna filen i Visual Studio-redigeraren.
+1. I **Solution Explorer**dubbelklickar du på **App.config** för att öppna filen i Visual Studio-redigeraren.
 
-    Filen *app. config* innehåller tjänst namnet, slut punkten och bindningen. Slut punkten är platsen Azure Relay visar för klienter och värdar för att kommunicera med varandra. Bindningen är den typ av protokoll som används för att kommunicera. Den största skillnaden här är att den konfigurerade tjänst slut punkten refererar till en [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) -bindning.
+    *App.config* -filen innehåller tjänst namnet, slut punkten och bindningen. Slut punkten är platsen Azure Relay visar för klienter och värdar för att kommunicera med varandra. Bindningen är den typ av protokoll som används för att kommunicera. Den största skillnaden här är att den konfigurerade tjänst slut punkten refererar till en [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) -bindning.
 
 1. XML-elementet `<system.serviceModel>` är ett WCF-element som definierar en eller flera tjänster. Här används den för att definiera namn och slut punkt för tjänsten. Längst ned i `<system.serviceModel>` elementet, men fortfarande i `<system.serviceModel>` , lägger du till ett `<bindings>` element som har följande innehåll:
 
@@ -325,7 +314,7 @@ Precis som i föregående steg är det mycket skillnad mellan att implementera e
     </behaviors>
     ```
 
-1. I filen *app. config*, i- `<appSettings>` elementet, ersätter du hela värdet för anslutnings strängen med den anslutnings sträng som du tidigare hämtade från portalen.
+1. Om du fortfarande *App.config*, i- `<appSettings>` elementet, ersätter du hela värdet för anslutnings strängen med den anslutnings sträng som du tidigare hämtade från portalen.
 
     ```xml
     <appSettings>
@@ -401,7 +390,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-I följande exempel visas den *app. config* -fil som är associerad med tjänsten.
+I följande exempel visas den *App.config* -fil som är associerad med tjänsten.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -552,7 +541,7 @@ Tjänstevärden är det WCF-objekt som instantierar värdprogrammet. I det här 
 
 ### <a name="example-of-the-service-contract-and-implementation"></a>Exempel på tjänst kontrakt och implementering
 
-Följande exempel innehåller tjänstekontraktet och implementeringen från föregående steg i självstudiekursen och fungerar som värd för tjänsten i ett konsolprogram. Kompilera följande kod till en körbar fil med namnet *ImageListener. exe*.
+Följande exempel innehåller tjänstekontraktet och implementeringen från föregående steg i självstudiekursen och fungerar som värd för tjänsten i ett konsolprogram. Kompilera följande kod till en körbar fil med namnet *ImageListener.exe*.
 
 ```csharp
 using System;

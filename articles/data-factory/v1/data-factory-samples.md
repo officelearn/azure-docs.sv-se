@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2b0238d8026bff435fce9c03b6517efb6a55311d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019919"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318917"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory-exempel
 > [!NOTE]
@@ -31,12 +31,12 @@ ms.locfileid: "84019919"
 | [Genom gång av ADF](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Det här exemplet innehåller en slut punkt till slut punkts genom gång för bearbetning av loggfiler med Azure Data Factory för att omvandla data från loggfiler till insikter. <br/><br/>I den här genom gången samlar Data Factory pipelinen ut exempel loggar, bearbetar och berikar data från loggar med referens data och transformerar data för att utvärdera effektiviteten hos en marknadsförings kampanj som nyligen har startats. |
 | [JSON-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Det här exemplet innehåller JSON-exempel för vanliga scenarier. |
 | [Exempel på http-datahämtare](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |I det här exemplet demonstreras hämtning av data från en HTTP-slutpunkt till Azure Blob Storage med hjälp av anpassad .NET-aktivitet. |
-| [Exempel på punkt net-aktivitet i Cross AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Med det här exemplet kan du skapa en anpassad .NET-aktivitet som inte är begränsad till sammansättnings versioner som används av ADF-Start programmet (till exempel WindowsAzure. Storage v 4.3.0, Newtonsoft. JSON v. x osv.). |
-| [Kör R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Det här exemplet innehåller Data Factory anpassad aktivitet som kan användas för att anropa RScript. exe. Det här exemplet fungerar bara med ditt eget HDInsight-kluster (inte på begäran) som redan har R installerat på det. |
+| [Exempel på punkt net-aktivitet i Cross AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Med det här exemplet kan du skapa en anpassad .NET-aktivitet som inte är begränsad till sammansättnings versioner som används av ADF-Start programmet (till exempel WindowsAzure. Storage v 4.3.0, Newtonsoft.Jspå v 6.0. x osv.). |
+| [Kör R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Det här exemplet innehåller Data Factory anpassad aktivitet som kan användas för att anropa RScript.exe. Det här exemplet fungerar bara med ditt eget HDInsight-kluster (inte på begäran) som redan har R installerat på det. |
 | [Anropa Spark-jobb på HDInsight Hadoop-kluster](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Det här exemplet visar hur du använder MapReduce-aktivitet för att anropa ett Spark-program. Spark-programmet kopierar bara data från en Azure Blob-behållare till en annan. |
 | [Twitter-analys med Azure Machine Learning batch-bedömnings aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Det här exemplet visar hur du använder AzureMLBatchScoringActivity för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |
 | [Twitter-analys med anpassad aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Det här exemplet visar hur du använder en anpassad .NET-aktivitet för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |
-| [Parameterstyrda pipelines för Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Exemplet innehåller en kod från slut punkt till slut punkt för att distribuera N pipelines för att kunna ta del av och träna om var och en med en annan region parameter där listan över regioner kommer från en Parameters. txt-fil som ingår i det här exemplet. |
+| [Parameterstyrda pipelines för Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Exemplet innehåller en kod från slut punkt till slut punkt för att distribuera N pipelines för att kunna ta del av och träna om var och en med en annan region parameter där listan över regioner kommer från en parameters.txt-fil som ingår i det här exemplet. |
 | [Referens data uppdatering för Azure Stream Analytics jobb](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Det här exemplet visar hur du använder Azure Data Factory och Azure Stream Analytics tillsammans för att köra frågorna med referens data och konfigurera uppdatering av referens data enligt ett schema. |
 | [Hybrid pipelines med lokal Hortonworks Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HybridPipelineWithOnPremisesHortonworksHadoop) |Exemplet använder ett lokalt Hadoop-kluster som ett beräknings mål för jobb som körs i Data Factory precis som du skulle lägga till andra beräknings mål som ett HDInsight-baserat Hadoop-kluster i molnet. |
 | [JSON Conversion Tool](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSONConversionTool) |Med det här verktyget kan du konvertera JSON-objekt från tidigare versioner än 2015-07-01 – för hands version till senaste eller 2015-07-01 – för hands version (standard). |
@@ -75,7 +75,7 @@ Du kan använda panelen **exempel pipelines** på Start sidan för din data fabr
     ![Bladet Datafabrik](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Exempel i Visual Studio
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Du måste ha följande installerat på datorn:
 
 * Visual Studio 2013 eller Visual Studio 2015
@@ -104,7 +104,7 @@ Du måste ha följande installerat på datorn:
    4. Välj **resurs grupp** för data fabriken.
    5. Välj **västra USA**, **östra USA**eller **norra Europa** för **regionen**.
    6. Klicka på **Nästa**.
-6. På sidan **Konfigurera data lager** anger du en befintlig **Azure SQL-databas** och **Azure Storage-konto** (eller) skapa databas/lagring och klickar på Nästa.
+6. På sidan **Konfigurera data lager** anger du en befintlig **databas i Azure SQL Database** och **Azure Storage-konto** (eller) skapa databas/lagring och klickar på Nästa.
 7. På sidan **Konfigurera beräkning** väljer du standardvärden och klickar på **Nästa**.
 8. Granska alla inställningar på sidan **Sammanfattning** och klicka på **Nästa**.
 9. På sidan **distributions status** väntar du tills distributionen är klar och klickar på **Slutför**.

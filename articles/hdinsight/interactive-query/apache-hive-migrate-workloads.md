@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 003ee13220e9e8aae252e1a976d579beac870052
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4f1154b994e512521edf22a3b8dc5819a93a5249
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015020"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319216"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3,6 Hive-arbetsbelastningar till HDInsight 4,0
 
@@ -34,7 +34,7 @@ En fördel med Hive är möjligheten att exportera metadata till en extern datab
 HDInsight 3,6-och HDInsight 4,0 sur-tabeller förstår sur delta på olika sätt. Den enda åtgärd som krävs innan migrering är att köra "MAJOR"-komprimering mot varje sur tabell i 3,6-klustret. Mer information om komprimering finns i [hand boken för Hive-språket](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) .
 
 ### <a name="2-copy-sql-database"></a>2. Kopiera SQL-databas
-Skapa en ny kopia av din externa metaarkiv. Om du använder en extern metaarkiv är ett av de säkraste och enkla sätten att göra en kopia av metaarkiv att [återställa databasen](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) med ett annat namn med hjälp av funktionen för återställning av SQL Database.  Mer information om hur du kopplar en extern metaarkiv till ett HDInsight-kluster finns i [använda externa metadata butiker i Azure HDInsight](../hdinsight-use-external-metadata-stores.md) .
+Skapa en ny kopia av din externa metaarkiv. Om du använder en extern metaarkiv är ett av de säkraste och enkla sätten att göra en kopia av metaarkiv att [återställa databasen](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) med ett annat namn med hjälp av `RESTORE` funktionen.  Mer information om hur du kopplar en extern metaarkiv till ett HDInsight-kluster finns i [använda externa metadata butiker i Azure HDInsight](../hdinsight-use-external-metadata-stores.md) .
 
 ### <a name="3-upgrade-metastore-schema"></a>3. uppgradera metaarkiv-schemat
 När metaarkiv- **kopieringen** är klar kör du ett skript för schema uppgradering i [skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) på det befintliga HDInsight 3,6-klustret för att uppgradera det nya metaarkiv till Hive 3-schemat. (Det här steget kräver inte att den nya metaarkiv är ansluten till ett kluster.) Detta gör att databasen kan anslutas som HDInsight 4,0 metaarkiv.
@@ -44,7 +44,7 @@ Använd värdena i tabellen nedan. Ersätt `SQLSERVERNAME DATABASENAME USERNAME 
 |Egenskap | Värde |
 |---|---|
 |Skript typ|– Anpassad|
-|Name|Hive-uppgradering|
+|Namn|Hive-uppgradering|
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |Node-typ (er)|Head|
 |Parametrar|LÖSEN ORD FÖR SQLSERVERNAME DATABASENAME USERNAME|
@@ -217,7 +217,7 @@ I HDInsight 3,6 är GUI-klienten för att interagera med Hive-Server den Ambari 
 |Egenskap | Värde |
 |---|---|
 |Skript typ|– Anpassad|
-|Name|DAS|
+|Namn|DAS|
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Node-typ (er)|Head|
 

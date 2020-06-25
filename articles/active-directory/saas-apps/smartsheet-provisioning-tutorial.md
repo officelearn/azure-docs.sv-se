@@ -15,51 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9fbdf8a1c4b1881fc6dfd9d7b95a4103761e9ce7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 699eb37176d6737744fb0ba01f9f3f4a2d4e55b1
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063211"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318755"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Smartsheet för automatisk användar etablering
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i Smartsheet och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Smartsheet.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i Smartsheet och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till [Smartsheet](https://www.smartsheet.com/pricing). Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+
+
+## <a name="capabilities-supported"></a>Funktioner som stöds
+> [!div class="checklist"]
+> * Skapa användare i Smartsheet
+> * Ta bort användare i Smartsheet när de inte behöver åtkomst längre
+> * Behåll användarattribut synkroniserade mellan Azure AD och Smartsheet
+> * Enkel inloggning till Smartsheet (rekommenderas)
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
->
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-* En Azure AD-klient
-* [En Smartsheet-klient](https://www.smartsheet.com/pricing)
+* [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör).
+* [En Smartsheet-klient](https://www.smartsheet.com/pricing).
 * Ett användar konto i ett Smartsheet Enterprise-eller Enterprise Premier-plan med system administratörs behörighet.
 
-## <a name="assign-users-to-smartsheet"></a>Tilldela användare till Smartsheet
+## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
+1. Läs om [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Ta reda på vem som kommer att vara inom [omfånget för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och Smartsheet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
-
-Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Smartsheet. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Smartsheet genom att följa anvisningarna här:
-
-* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
-
-### <a name="important-tips-for-assigning-users-to-smartsheet"></a>Viktiga tips för att tilldela användare till Smartsheet
-
-* Vi rekommenderar att en enda Azure AD-användare tilldelas Smartsheet för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
-
-* När du tilldelar en användare till Smartsheet måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
-
-* För att säkerställa paritet i användar roll tilldelningar mellan Smartsheet och Azure AD, rekommenderar vi att du använder samma roll tilldelningar som är ifyllda i listan med fullständiga Smartsheet-användare. Om du vill hämta användar listan från Smartsheet navigerar du till **konto administratör > användar hantering > fler åtgärder > Ladda ned användar listan (CSV)**.
-
-* För att få åtkomst till vissa funktioner i appen kräver Smartsheet att en användare har flera roller. Om du vill veta mer om användar typer och behörigheter i Smartsheet går du till [användar typer och behörigheter](https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions).
-
-*  Om en användare har flera roller tilldelade i Smartsheet, **måste** du se till att roll tilldelningarna replikeras i Azure AD för att undvika ett scenario där användare kan förlora åtkomsten till Smartsheet-objekt permanent. Varje unik roll i Smartsheet **måste** tilldelas en annan grupp i Azure AD. Användaren **måste** sedan läggas till i var och en av de grupper som motsvarar de roller som önskas. 
-
-## <a name="set-up-smartsheet-for-provisioning"></a>Konfigurera Smartsheet för etablering
+## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Smartsheet för att ge stöd för etablering med Azure AD
 
 Innan du konfigurerar Smartsheet för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på Smartsheet.
 
@@ -95,39 +87,25 @@ Innan du konfigurerar Smartsheet för automatisk användar etablering med Azure 
 
     ![Smartsheet-token](media/smartsheet-provisioning-tutorial/Smartsheet08.png)
 
-## <a name="add-smartsheet-from-the-gallery"></a>Lägg till Smartsheet från galleriet
+## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Smartsheet från Azure AD-programgalleriet
 
-Om du vill konfigurera Smartsheet för automatisk användar etablering med Azure AD måste du lägga till Smartsheet från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Lägg till Smartsheet från Azure AD-programgalleriet för att börja hantera etablering till Smartsheet. Om du tidigare har konfigurerat Smartsheet för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen från början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas inom omfånget för etablering 
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på attribut för användaren eller gruppen kan du använda ett omfångs filter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. Gå till **företags program**och välj sedan **alla program**.
+* När du tilldelar användare och grupper till Smartsheet måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+* För att säkerställa paritet i användar roll tilldelningar mellan Smartsheet och Azure AD, rekommenderar vi att du använder samma roll tilldelningar som är ifyllda i listan med fullständiga Smartsheet-användare. Om du vill hämta användar listan från Smartsheet navigerar du till **konto administratör > användar hantering > fler åtgärder > Ladda ned användar listan (CSV)**.
 
-3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
+* För att få åtkomst till vissa funktioner i appen kräver Smartsheet att en användare har flera roller. Om du vill veta mer om användar typer och behörigheter i Smartsheet går du till [användar typer och behörigheter](https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions).
 
-    ![Knappen Nytt program](common/add-new-app.png)
+*  Om en användare har flera roller tilldelade i Smartsheet, **måste** du se till att roll tilldelningarna replikeras i Azure AD för att undvika ett scenario där användare kan förlora åtkomsten till Smartsheet-objekt permanent. Varje unik roll i Smartsheet **måste** tilldelas en annan grupp i Azure AD. Användaren **måste** sedan läggas till i var och en av de grupper som motsvarar de roller som önskas. 
 
-4. I sökrutan anger du **Smartsheet**och väljer **Smartsheet** i panelen resultat. 
+* Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![Smartsheet i resultat listan](common/search-new-app.png)
-
-5. Välj knappen **Registrera dig för Smartsheet** som kommer att omdirigera dig till inloggnings sidan för Smartsheet. 
-
-    ![Smartsheet OIDC Lägg till](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-add.png)
-
-6. Som Smartsheet är en OpenIDConnect-app väljer du att logga in på Smartsheet med ditt Microsoft Work-konto.
-
-    ![Smartsheet OIDC-inloggning](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-login.png)
-
-7. När autentiseringen är klar godkänner du frågan om medgivande för sidan medgivande. Programmet läggs sedan till automatiskt i din klient organisation och du omdirigeras till ditt Smartsheet-konto.
-
-    ![Smartsheet OIDc-medgivande](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-consent.png)
-
-## <a name="configure-automatic-user-provisioning-to-smartsheet"></a>Konfigurera automatisk användar etablering till Smartsheet 
+## <a name="step-5-configure-automatic-user-provisioning-to-smartsheet"></a>Steg 5. Konfigurera automatisk användar etablering till Smartsheet 
 
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Smartsheet baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
@@ -149,7 +127,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://scim.smartsheet.com/v2/` i **klient-URL**. Mata in det värde som du hämtade och sparade tidigare från Smartsheet i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Smartsheet. Om anslutningen Miss lyckas kontrollerar du att ditt Smartsheet-konto har SysAdmin-behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in **scim 2,0-bas-URL: en och få åtkomsttoken** som hämtades tidigare från Smartsheet i **klient-URL: en** och den **hemliga token** .. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Smartsheet. Om anslutningen Miss lyckas kontrollerar du att ditt Smartsheet-konto har SysAdmin-behörighet och försöker igen.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -161,11 +139,28 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Smartsheet**.
 
-    ![Smartsheet användar mappningar](media/smartsheet-provisioning-tutorial/smartsheet-user-mappings.png)
-
 9. Granska de användarattribut som synkroniseras från Azure AD till Smartsheet i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Smartsheet för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Smartsheet-användarattribut](media/smartsheet-provisioning-tutorial/smartsheet-user-attributes.png)
+   |Attribut|Typ|
+   |---|---|
+   |aktiv|Boolesk|
+   |rubrik|Sträng|
+   |userName|Sträng|
+   |Name. givenName|Sträng|
+   |Name. familyName|Sträng|
+   |phoneNumbers [typ EQ "Work"]. värde|Sträng|
+   |phoneNumbers [Type EQ "Mobile"]. värde|Sträng|
+   |phoneNumbers [Type EQ "fax"]. värde|Sträng|
+   |externalId|Sträng|
+   |roller [Primary EQ "true"]. Visa|Sträng|
+   |roller [Primary EQ "true"]. typ|Sträng|
+   |roller [Primary EQ "true"]. värde|Sträng|
+   |roles|Sträng|
+   urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Division|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: costCenter|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Sträng|
+
 
 10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -181,13 +176,22 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Smartsheet.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. 
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
+När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
+
+1. Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
+2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
+3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
 * Smartsheet stöder inte mjuka borttagningar. När en användares **aktiva** attribut är inställt på false, tar Smartsheet bort användaren permanent.
+
+## <a name="change-log"></a>Ändringslogg
+
+* 06/16/2020 – stöd för företags tilläggets attribut "cost center", "Division", "chef" och "Department" för användare har lagts till.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

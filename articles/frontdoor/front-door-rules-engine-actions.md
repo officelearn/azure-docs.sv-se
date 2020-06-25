@@ -1,6 +1,6 @@
 ---
-title: Azure-front dörr | Microsoft Docs
-description: Den här artikeln innehåller en översikt för Azure Front Door. Ta reda på om det är rätt val för belastnings utjämning av användar trafik för ditt program.
+title: Azure Front Door
+description: Den här artikeln innehåller en lista över de olika åtgärder som du kan utföra med Azures motor för front dörrs regler.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 3e7c9606a17736ea45b09a4d6981b4d55fa6dee6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515561"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313995"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Motor åtgärder för Azures frontend-dörr
 
 En regel i [AFD Rules Engine](front-door-rules-engine.md) består av noll eller flera matchnings villkor och åtgärder. Den här artikeln innehåller detaljerade beskrivningar av de åtgärder som du kan använda i AFD-regel motorn.
 
-En åtgärd definierar det beteende som används för den typ av begäran som ett matchnings villkor eller en uppsättning matchnings villkor identifierar. I AFD-regel motor kan en regel innehålla upp till fem åtgärder, endast en som kan vara en åsidosättning av väg konfigurations åtgärder (vidarebefordra eller omdirigera). 
+En åtgärd definierar det beteende som används för den typ av begäran som ett matchnings villkor eller en uppsättning matchnings villkor identifierar. I AFD-regel motor kan en regel innehålla upp till fem åtgärder, endast en som kan vara en åsidosättning av väg konfigurations åtgärder (vidarebefordra eller omdirigera).
 
 Följande åtgärder är tillgängliga för användning i Azures motor för front dörrs regler.  
 
@@ -33,7 +33,7 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Action | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
@@ -45,7 +45,7 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Action | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
@@ -59,7 +59,7 @@ Använd den här åtgärden för att omdirigera klienter till en ny URL.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Field | Beskrivning 
+Fält | Beskrivning 
 ------|------------
 Omdirigera typ | Välj den svarstyp som ska returneras till begär ande: hittas (302), flyttad (301), tillfällig omdirigering (307) och permanent omdirigering (308).
 Omdirigera protokoll | Matcha begäran, HTTP, HTTPS.
@@ -73,22 +73,22 @@ Målcachen | Definiera det fragment som ska användas i omdirigeringen. Lämna t
 
 Använd den här åtgärden för att vidarebefordra klienter till en ny URL. Den här åtgärden innehåller även under åtgärder för URL-omskrivning och cachelagring. 
 
-Field | Beskrivning 
+Fält | Beskrivning 
 ------|------------
 Serverdelspool | Välj den backend-pool som du vill åsidosätta och hantera begär Anden från. Då visas alla dina förkonfigurerade Server dels grupper i din profil för din klient del. 
 Protokoll för vidarebefordran | Matcha begäran, HTTP, HTTPS.
 URL-omskrivning | Använd den här åtgärden för att skriva om sökvägen för en begäran som är en väg till ditt ursprung. Om aktive rad, se nedan för ytterligare fält som krävs
-Cachelagring | Aktiverad, inaktiverad. Se nedan för ytterligare fält som krävs om det är aktiverat. 
+Caching | Aktiverad, inaktiverad. Se nedan för ytterligare fält som krävs om det är aktiverat. 
 
 #### <a name="url-rewrite"></a>URL-omskrivning
 
 Använd den här inställningen om du vill konfigurera en valfri **anpassad vidarebefordrings Sök väg** som ska användas för att skapa begäran att vidarebefordra till Server delen.
 
-Field | Beskrivning 
+Fält | Beskrivning 
 ------|------------
 Anpassad vidarebefordrings Sök väg | Definiera sökvägen för att vidarebefordra begär anden till. 
 
-#### <a name="caching"></a>Cachelagring
+#### <a name="caching"></a>Caching
 
 Använd de här inställningarna för att styra hur filer cachelagras för förfrågningar som innehåller frågesträngar och om innehållet ska cachelagras baserat på alla parametrar eller på valda parametrar. Du kan använda ytterligare inställningar för att skriva över TTL-värdet (Time to Live) för att styra hur lång tid innehållet stannar i cacheminnet för begär Anden som regler matchar villkoren anger. Om du vill framtvinga cachelagring som åtgärd anger du fältet cachelagring till "Enabled". När du gör detta visas följande alternativ: 
 

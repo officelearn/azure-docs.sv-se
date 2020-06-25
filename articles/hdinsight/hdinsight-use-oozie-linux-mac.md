@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 27cc1052a2f35382b2d6a93482b7af219a9a187a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 35835e1508311bd31008a2335a8c543e558686c2
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015173"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319386"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Azure HDInsight som körs på Linux
 
@@ -29,13 +29,13 @@ Du kan också använda Oozie för att schemalägga jobb som är speciella för e
 > [!NOTE]  
 > Ett annat alternativ för att definiera arbets flöden med HDInsight är att använda Azure Data Factory. Läs mer om Data Factory i [använda Apache gris och Apache Hive med Data Factory](../data-factory/transform-data.md). Om du vill använda Oozie i kluster med Enterprise Security Package kan du läsa [köra apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Ett Hadoop-kluster i HDInsight**. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * **En SSH-klient**. Se [ansluta till HDInsight (Apache Hadoop) med SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **En Azure SQL Database**.  Se [skapa en Azure SQL-databas i Azure Portal](../sql-database/sql-database-get-started.md).  I den här artikeln används en databas med namnet **oozietest**.
+* **En Azure SQL Database**.  Se [skapa en databas i Azure SQL Database i Azure Portal](../sql-database/sql-database-get-started.md).  I den här artikeln används en databas med namnet **oozietest**.
 
 * URI-schemat för klustrets primära lagring. `wasb://`för Azure Storage för `abfs://` Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` . Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
@@ -126,7 +126,7 @@ Använd följande steg för att skapa ett HiveQL-skript (Hive Query Language) so
 
    * `${hiveDataFolder}`: Innehåller den plats där datafilerna för tabellen ska lagras.
 
-     Arbets flödes definitions filen, Workflow. xml i den här artikeln, skickar dessa värden till det här HiveQL-skriptet vid körning.
+     Arbets flödes definitions filen workflow.xml i den här artikeln skickar dessa värden till det här HiveQL-skriptet vid körning.
 
 1. Om du vill spara filen väljer du **CTRL + X**, anger **Y**och väljer sedan **RETUR**.  
 
@@ -275,7 +275,7 @@ Oozie för arbets flödes definitioner skrivs i hPDL (Hadoop process Definition 
 
 ## <a name="create-the-job-definition"></a>Skapa jobb definitionen
 
-Jobb definitionen beskriver var du hittar Workflow. xml. Den beskriver också var du hittar andra filer som används av arbets flödet, till exempel `useooziewf.hql` . Den definierar också värdena för egenskaper som används i arbets flödet och associerade filer.
+Jobb definitionen beskriver var du hittar workflow.xml. Den beskriver också var du hittar andra filer som används av arbets flödet, till exempel `useooziewf.hql` . Den definierar också värdena för egenskaper som används i arbets flödet och associerade filer.
 
 1. Använd följande kommando för att få en fullständig adress till standard lagrings utrymmet. Den här adressen används i konfigurations filen som du skapar i nästa steg.
 
@@ -366,7 +366,7 @@ Jobb definitionen beskriver var du hittar Workflow. xml. Den beskriver också va
     </configuration>
     ```
 
-    Merparten av informationen i den här filen används för att fylla i de värden som används i ooziewf. XML-eller. HQL-filer, till exempel `${nameNode}` .  Om sökvägen är en `wasbs` sökväg måste du använda den fullständiga sökvägen. Förkorta det inte till bara `wasbs:///` . `oozie.wf.application.path`Posten definierar var du hittar filen Workflow. xml. Den här filen innehåller det arbets flöde som kördes av det här jobbet.
+    Merparten av informationen i den här filen används för att fylla i de värden som används i workflow.xml-eller ooziewf. HQL-filer, till exempel `${nameNode}` .  Om sökvägen är en `wasbs` sökväg måste du använda den fullständiga sökvägen. Förkorta det inte till bara `wasbs:///` . `oozie.wf.application.path`Posten definierar var du hittar workflow.xmls filen. Den här filen innehåller det arbets flöde som kördes av det här jobbet.
 
 3. Om du vill skapa jobb definitions konfigurationen för Oozie använder du följande kommando:
 
@@ -481,7 +481,7 @@ Med Oozie-REST API kan du bygga egna verktyg som fungerar med Oozie. Följande H
 
 * **URI**: du kan komma åt REST API utanför klustret på `https://CLUSTERNAME.azurehdinsight.net/oozie` .
 
-* **Autentisering**: Använd API: t för klustrets kluster-http-konto (admin) och lösen ord för att autentisera. Ett exempel:
+* **Autentisering**: Använd API: t för klustrets kluster-http-konto (admin) och lösen ord för att autentisera. Till exempel:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -539,7 +539,7 @@ Utför följande steg för att få åtkomst till Oozie-webbgränssnittet:
 
 Du kan använda koordinatorn för att ange en start, en slut punkt och förekomst frekvens för jobb. Utför följande steg för att definiera ett schema för arbets flödet:
 
-1. Använd följande kommando för att skapa en fil med namnet **koordinator. XML**:
+1. Använd följande kommando för att skapa en fil med namnet **coordinator.xml**:
 
     ```bash
     nano coordinator.xml
@@ -564,7 +564,7 @@ Du kan använda koordinatorn för att ange en start, en slut punkt och förekoms
     > * `${coordStart}`: Jobbets start tid.
     > * `${coordEnd}`: Jobbets slut tid.
     > * `${coordTimezone}`: Koordinator jobb finns i en fast tidszon utan sommar tid, vanligt vis representeras med hjälp av UTC. Den här tids zonen kallas för den *Oozie bearbetnings tids zonen.*
-    > * `${wfPath}`: Sökvägen till arbets flödes. xml.
+    > * `${wfPath}`: Sökvägen till workflow.xml.
 
 2. Om du vill spara filen väljer du **CTRL + X**, anger **Y**och väljer sedan **RETUR**.
 
@@ -593,7 +593,7 @@ Du kan använda koordinatorn för att ange en start, en slut punkt och förekoms
         </property>
         ```
 
-       Ersätt `wasbs://mycontainer@mystorageaccount.blob.core.windows` texten med det värde som används i de andra posterna i Job. XML-filen.
+       Ersätt `wasbs://mycontainer@mystorageaccount.blob.core.windows` texten med det värde som används i de andra posterna i job.xml-filen.
 
    * Om du vill definiera Start, slut och frekvens för koordinatorn lägger du till följande XML:
 

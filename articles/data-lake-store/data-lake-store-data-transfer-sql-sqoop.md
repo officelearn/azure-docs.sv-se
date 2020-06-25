@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: 154f8f1923874a3221597f1c0017fe99b5d31844
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d240a212f898c917fd9c55b837210191eab704e5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015938"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319572"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiera data mellan Data Lake Storage Gen1 och Azure SQL Database med Sqoop
 
@@ -22,20 +22,20 @@ Lär dig hur du använder Apache Sqoop för att importera och exportera data mel
 
 Big data program är ett naturligt val för bearbetning av ostrukturerade och delvis strukturerade data, till exempel loggar och filer. Du kan dock också ha ett behov av att bearbeta strukturerade data som lagras i Relations databaser.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) är ett verktyg som utformats för att överföra data mellan Relations databaser och en stor data lagrings plats, till exempel data Lake Storage gen1. Du kan använda den för att importera data från ett relationellt databas hanterings system (RDBMS) som Azure SQL Database till Data Lake Storage Gen1. Du kan sedan omvandla och analysera data med hjälp av Big data-arbetsbelastningar och sedan exportera data tillbaka till en RDBMS. I den här artikeln använder du en Azure SQL-databas som Relations databas för att importera/exportera från.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) är ett verktyg som utformats för att överföra data mellan Relations databaser och en stor data lagrings plats, till exempel data Lake Storage gen1. Du kan använda den för att importera data från ett relationellt databas hanterings system (RDBMS) som Azure SQL Database till Data Lake Storage Gen1. Du kan sedan omvandla och analysera data med hjälp av Big data-arbetsbelastningar och sedan exportera data tillbaka till en RDBMS. I den här artikeln använder du en databas i Azure SQL Database som Relations databas för att importera/exportera från.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha följande:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Storage gen1 konto**. Instruktioner för hur du skapar kontot finns i [Kom igång med Azure Data Lake Storage gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage gen1-konto. Se [skapa ett HDInsight-kluster med data Lake Storage gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Den här artikeln förutsätter att du har ett HDInsight Linux-kluster med Data Lake Storage Gen1 åtkomst.
-* **Azure SQL Database**. Anvisningar om hur du skapar ett finns i [skapa en Azure SQL-databas](../sql-database/sql-database-get-started.md)
+* **Azure SQL Database**. Instruktioner för hur du skapar en databas i Azure SQL Database finns i [skapa en databas i Azure SQL Database](../sql-database/sql-database-get-started.md)
 
-## <a name="create-sample-tables-in-the-azure-sql-database"></a>Skapa exempel tabeller i Azure SQL-databasen
+## <a name="create-sample-tables-in-the-database"></a>Skapa exempel tabeller i databasen
 
-1. Starta genom att skapa två exempel tabeller i Azure SQL-databasen. Använd [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) eller Visual Studio för att ansluta till databasen och kör sedan följande frågor.
+1. Starta genom att skapa två exempel tabeller i databasen. Använd [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) eller Visual Studio för att ansluta till databasen och kör sedan följande frågor.
 
     **Skapa Table1**
 
@@ -87,7 +87,7 @@ Det finns redan Sqoop-paket tillgängliga för det An-HDInsight klustret. Om du 
 
        sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-   Plats hållaren **SQL-Database-Server-Name** representerar namnet på den server där Azure SQL-databasen körs. **SQL-databasens namn** plats hållare representerar det faktiska databas namnet.
+   Plats hållaren **SQL-Database-Server-Name** representerar namnet på den server där databasen körs. **SQL-databasens namn** plats hållare representerar det faktiska databas namnet.
 
    Exempel:
 

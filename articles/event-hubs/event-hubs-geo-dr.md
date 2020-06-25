@@ -1,24 +1,14 @@
 ---
 title: Geo-haveri beredskap – Azure Event Hubs | Microsoft Docs
 description: Använda geografiska regioner för att redundansväxla och utföra haveri beredskap i Azure Event Hubs
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2020
-ms.author: shvija
-ms.openlocfilehash: 47e3a27ba9c0b7995f45f38ae4e19941cb4f8c01
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/23/2020
+ms.openlocfilehash: 142e2b99376bef24a6477f7b40394ca2b67f292b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659710"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320554"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs-geo-haveri beredskap 
 När hela Azure-regioner eller data Center (om inga [tillgänglighets zoner](../availability-zones/az-overview.md) används) upplever drift stopp, är det viktigt att data bearbetningen fortsätter att fungera i en annan region eller data Center. Därför är *geo-haveri beredskap* och *geo-replikering* viktiga funktioner för alla företag. Azure Event Hubs stöder både geo-haveri återställning och geo-replikering på namn områdes nivå. 
@@ -55,10 +45,10 @@ Följande kombinationer av primära och sekundära namn rymder stöds:
 
 | Primär namnrymd | Sekundär namnrymd | Stöds | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | Ja | 
-| Standard | Dedikerad | Ja | 
-| Dedikerad | Dedikerad | Ja | 
-| Dedikerad | Standard | Inga | 
+| Standard | Standard | Yes | 
+| Standard | Dedikerad | Yes | 
+| Dedikerad | Dedikerad | Yes | 
+| Dedikerad | Standard | No | 
 
 > [!NOTE]
 > Det går inte att para ihop namn områden som finns i samma dedicerade kluster. Du kan para ihop namn områden som finns i separata kluster. 
@@ -160,7 +150,7 @@ Anta att du har två virtuella nätverk: VNET-1, VNET-2 och dessa primära och s
 
 ![Privata slut punkter och virtuella nätverk](./media/event-hubs-geo-dr/private-endpoints-virtual-networks.png)
 
-Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Event Hubs namn område. Fundera över följande scenarier: 
+Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Event Hubs namn område. Beakta följande scenarier: 
 
 **Redundans för program:** Här finns programmet inte i VNET-1, men kommer att flyttas till VNET-2. Eftersom både privata slut punkter har kon figurer ATS på både VNET-1 och VNET-2 för både primär och sekundär namnrymd, fungerar programmet bara. 
 

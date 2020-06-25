@@ -1,26 +1,14 @@
 ---
 title: 'Snabb start: skicka händelser med hjälp av C-Azure Event Hubs'
 description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett C-program som skickar händelser till Azure Event Hubs.'
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: c
-ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: seodec18
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 6bb4e6d754c091b57399a6154d491e93becad57e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bfe1ca1a45f7b33d7431aed13446d8d72f79fb90
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299321"
+ms.locfileid: "85315662"
 ---
 # <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Snabb start: skicka händelser till Azure Event Hubs med C
 

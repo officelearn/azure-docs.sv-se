@@ -4,12 +4,12 @@ description: 'Lär dig hur du kommer åt filer, REST-API: er, databaser och andr
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 2c7133e9c258c77aa9c242dd7276076625153703
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a7e242c000b57cbbfafebc1e11191199a7a4b95f
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554373"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319143"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Komma åt molndata i en notebook-fil
 
@@ -42,11 +42,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Azure SQL-databaser
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database-och SQL-hanterad instans
 
-Du kan komma åt SQL Server-databaser med hjälp av pyodbc-eller pymssql-biblioteken.
+Du kan komma åt databaser i SQL Database eller SQL-hanterad instans med hjälp av pyodbc-eller pymssql-biblioteken.
 
-[Använd python för att fråga en Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) ger dig instruktioner om hur du skapar en databas som innehåller AdventureWorks-data och hur du frågar efter data. Samma kod visas i exempel antecknings boken för den här artikeln.
+[Använd python för att fråga en Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) ger dig instruktioner om hur du skapar en databas i SQL Database som innehåller AdventureWorks data och hur du frågar efter data. Samma kod visas i exempel antecknings boken för den här artikeln.
 
 ## <a name="azure-storage"></a>Azure Storage
 

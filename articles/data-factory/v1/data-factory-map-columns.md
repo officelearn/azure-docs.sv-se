@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74923874"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318883"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mappa käll data uppsättnings kolumner till kolumner med mål data uppsättningar
 > [!NOTE]
@@ -39,7 +39,7 @@ Följande är fel villkor som resulterar i ett undantag:
 > Följande exempel gäller för Azure SQL och Azure Blob, men de gäller för alla data lager som stöder rektangulära data uppsättningar. Justera data uppsättningen och de länkade tjänst definitionerna i exempel för att peka på data i den relevanta data källan.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exempel 1 – kolumn mappning från Azure SQL till Azure-Blob
-I det här exemplet har indata-tabellen en struktur och den pekar på en SQL-tabell i en Azure SQL-databas.
+I det här exemplet har indatacellen en struktur och den pekar på en SQL-tabell i Azure SQL Database.
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 390cddf557905e95e313896f9f172e30b81352b9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195932"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319075"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
 Den här artikeln innehåller information om fel sökning av problem med att använda Data Management Gateway.
@@ -224,7 +224,7 @@ Detta kan inträffa av olika orsaker och minskningen varierar.
 #### <a name="resolution"></a>Lösning
 Tillåt utgående TCP-anslutningar via port TCP/1433 på den Data Management Gateway klient sidan innan du ansluter till en SQL-databas.
 
-Om mål databasen är en Azure SQL-databas kontrollerar du även SQL Server brand Väggs inställningar för Azure.
+Om mål databasen finns Azure SQL Database kontrollerar du SQL Server brand Väggs inställningar för Azure.
 
 Se följande avsnitt för att testa anslutningen till det lokala data lagret.
 

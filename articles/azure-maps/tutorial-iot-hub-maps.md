@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cfea9aa7bfcc9a9698bb93bdf54797481b8539ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333969"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318934"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -36,7 +36,7 @@ I den här självstudien kommer du att:
 
 Den här lösningen visar ett scenario där en bil hyr företag planerar att övervaka och logga händelser för sina hyr bilar. Bil uthyrnings företag hyr vanligt vis bilar till en bestämd geografisk region. De måste spåra bilarnas till mig när de hyrs. Instanser av en bil som lämnar vald geografisk region måste loggas. Loggnings data garanterar att principer, avgifter och andra affärs aspekter hanteras korrekt.
 
-I vårt användnings fall är hyr bilar utrustade med IoT-enheter som regelbundet skickar telemetridata till Azure IoT Hub. Telemetrin innehåller den aktuella platsen och anger om bilens motor körs. Schemat för enhets platsen följer IoT Plug and Play- [schemat för geospatiala data](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). Schemat för hyr bils enhets telemetri ser ut så här:
+I vårt användnings fall är hyr bilar utrustade med IoT-enheter som regelbundet skickar telemetridata till Azure IoT Hub. Telemetrin innehåller den aktuella platsen och anger om bilens motor körs. Schemat för enhets platsen följer IoT Plug and Play- [schemat för geospatiala data](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md). Schemat för hyr bils enhets telemetri ser ut så här:
 
 ```JSON
 {
@@ -191,13 +191,13 @@ Vi använder [Postman-programmet](https://www.getpostman.com) för att [överfö
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Kopiera din status-URI och Lägg `subscription-key` till en parameter till den. Tilldela värdet för din Azure Maps konto prenumerations nyckel till `subscription-key` parametern. Status-URI-formatet bör likna det som anges nedan och `{Subscription-key}` ersättas med din prenumerations nyckel.
+6. Kopiera din status-URI och Lägg till en `subscription-key` parameter till den. Tilldela värdet för din Azure Maps konto prenumerations nyckel till `subscription-key` parametern. Status-URI-formatet bör likna det som anges nedan och `{Subscription-key}` ersättas med din prenumerations nyckel.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. För att hämta `udId` öppnar du en ny flik i Postman-appen och väljer Hämta http-metod på fliken Builder och gör en get-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId för senare användning.
+7. För att hämta `udId` öppnar du en ny flik i Postman-appen och väljer Hämta HTTP-metod på fliken Builder och gör en get-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId för senare användning.
 
    ```JSON
    {

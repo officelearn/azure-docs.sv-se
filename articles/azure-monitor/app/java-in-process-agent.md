@@ -3,12 +3,12 @@ title: Övervaka Java-program på valfri miljö – Azure Monitor Application In
 description: Övervakning av program prestanda för Java-program som körs i en miljö utan att behöva instrumentera appen. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508079"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319711"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java-kodad program övervakning Azure Monitor Application Insights – offentlig för hands version
 
@@ -24,13 +24,13 @@ Du kan fortfarande skicka anpassad telemetri från ditt program. 3,0-agenten sp�
 
 **1. Ladda ned agenten**
 
-Ladda ned [applicationinsights-agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+Ladda ned [applicationinsights-agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
 **2. peka JVM till agenten**
 
-Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` till i programmets JVM-argument
+Lägg till `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` i programmets JVM-argument
 
-Typiska JVM-argument `-Xmx512m` inkluderar `-XX:+UseG1GC`och. Så om du vet var du vill lägga till dessa, vet du redan var du ska lägga till det.
+Typiska JVM-argument inkluderar `-Xmx512m` och `-XX:+UseG1GC` . Så om du vet var du vill lägga till dessa, vet du redan var du ska lägga till det.
 
 Mer hjälp om hur du konfigurerar programmets JVM-argument finns i [3,0 Preview: tips för att uppdatera dina JVM-argument](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
 
@@ -44,7 +44,7 @@ Peka agenten till Application Insights resurs, antingen genom att ange en miljö
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Eller genom att skapa en konfigurations `ApplicationInsights.json`fil med namnet och placera den i samma katalog `applicationinsights-agent-3.0.0-PREVIEW.4.jar`som, med följande innehåll:
+Eller genom att skapa en konfigurations fil med namnet `ApplicationInsights.json` och placera den i samma katalog som `applicationinsights-agent-3.0.0-PREVIEW.5.jar` , med följande innehåll:
 
 ```json
 {
@@ -132,7 +132,7 @@ Application Insights Java 3,0 lyssnar redan efter telemetri som skickas till App
 
 ## <a name="sending-custom-telemetry-using-application-insights-java-sdk-2x"></a>Skicka anpassad telemetri med Application Insights Java SDK 2. x
 
-Lägg `applicationinsights-core-2.6.0.jar` till i ditt program (alla 2. x-versioner stöds av Application Insights Java 3,0, men det är värt att använda det senaste om du har ett val):
+Lägg till `applicationinsights-core-2.6.0.jar` i ditt program (alla 2. x-versioner stöds av Application Insights Java 3,0, men det är värt att använda det senaste om du har ett val):
 
 ```xml
   <dependency>

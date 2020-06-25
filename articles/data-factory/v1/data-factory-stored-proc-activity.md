@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 3f9f4db0119b10a2df3a1007f9e5fa710e31f0e2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b348f3f3684d580ca84eed9b9a094717c12cf849
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113702"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319092"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server lagrad procedur aktivitet
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -49,7 +49,7 @@ Du kan använda den lagrade procedur aktiviteten för att anropa en lagrad proce
 >
 > När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av egenskapen **sqlReaderStoredProcedureName** . Mer information finns i följande artiklar om koppling: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties) [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties) [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
-I följande genom gång används den lagrade procedur aktiviteten i en pipeline för att anropa en lagrad procedur i en Azure SQL-databas.
+I följande genom gång används den lagrade procedur aktiviteten i en pipeline för att anropa en lagrad procedur i Azure SQL Database.
 
 ## <a name="walkthrough"></a>Genomgång
 ### <a name="sample-table-and-stored-procedure"></a>Exempel tabell och lagrad procedur
@@ -106,7 +106,7 @@ I följande genom gång används den lagrade procedur aktiviteten i en pipeline 
    ![Data Factory start sida](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Skapa en länkad Azure SQL-tjänst
-När du har skapat data fabriken skapar du en länkad Azure SQL-tjänst som länkar din Azure SQL-databas, som innehåller sampletable-tabellen och usp_sample lagrade proceduren, till din data fabrik.
+När du har skapat data fabriken skapar du en länkad Azure SQL-tjänst som länkar din databas i Azure SQL Database, som innehåller tabellen sampletable och usp_sample lagrade proceduren, till din data fabrik.
 
 1. Klicka på **författare och distribuera** på bladet **Data Factory** för **SProcDF** för att starta Data Factory redigeraren.
 2. Klicka på **nytt data lager** i kommando fältet och välj **Azure SQL Database**. Du bör se JSON-skriptet för att skapa en länkad Azure SQL-tjänst i redigeraren.
@@ -207,7 +207,7 @@ Observera följande egenskaper:
 3. I diagramvyn dubbelklickar du på data uppsättningen `sprocsampleout` . Du ser sektorerna i klart läge. Det bör finnas fem segment eftersom en sektor skapas för varje timme mellan start tiden och slut tiden från JSON.
 
     ![diagram panel](media/data-factory-stored-proc-activity/data-factory-slices.png)
-4. När en sektor har statusen **klar** kör du en `select * from sampletable` fråga mot Azure SQL-databasen för att kontrol lera att data har infogats i tabellen med den lagrade proceduren.
+4. När en sektor har statusen **klar** kör du en `select * from sampletable` fråga mot databasen för att kontrol lera att data har infogats i tabellen med den lagrade proceduren.
 
    ![Utdata](./media/data-factory-stored-proc-activity/output.png)
 
@@ -305,13 +305,13 @@ Följande tabell beskriver de här JSON-egenskaperna:
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| name | Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Nej |
-| typ | Måste vara inställt på: **SqlServerStoredProcedure** | Ja |
-| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |Nej |
-| utdata | Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet. Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). <br/><br/>Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server databas där du vill att den lagrade proceduren ska köras. <br/><br/>Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. <br/><br/>I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten. |Ja |
-| storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL-databasen eller Azure SQL Data Warehouse eller SQL Server databasen som representeras av den länkade tjänsten som används i utdatatabellen. |Ja |
-| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |Nej |
+| name | Namn på aktiviteten |Yes |
+| description |Text som beskriver vad aktiviteten används för |No |
+| typ | Måste vara inställt på: **SqlServerStoredProcedure** | Yes |
+| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |No |
+| utdata | Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet. Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). <br/><br/>Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server databas där du vill att den lagrade proceduren ska köras. <br/><br/>Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. <br/><br/>I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten. |Yes |
+| storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL Database, Azure SQL Data Warehouse eller SQL Server som representeras av den länkade tjänsten som används i utdatatabellen. |Yes |
+| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |No |
 
 ## <a name="passing-a-static-value"></a>Överför ett statiskt värde
 Nu ska vi överväga att lägga till en annan kolumn med namnet "scenario" i tabellen som innehåller ett statiskt värde med namnet "Document Sample".

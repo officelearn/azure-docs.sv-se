@@ -1,26 +1,14 @@
 ---
 title: 'Snabb start: ta emot händelser med Apache Storm-Azure Event Hubs'
 description: 'Snabb start: den här artikeln innehåller information om hur du tar emot händelser från Azure Event Hubs att använda Apache Storm.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73717605"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315353"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Snabb start: ta emot händelser från Event Hubs med Apache Storm
 
@@ -48,7 +36,7 @@ I den här självstudien används en [HDInsight Storm][HDInsight Storm] -install
 5. Välj **Använd standard plats för arbets yta**och klicka sedan på **Nästa**
 6. Välj **maven-archetype-snabb start** archetype och klicka sedan på **Nästa**
 7. Infoga ett **GroupId** **ArtifactId**och klicka sedan på **Slutför**
-8. I **Pom. XML**lägger du till följande beroenden i `<dependency>` noden.
+8. I **pom.xml**lägger du till följande beroenden i `<dependency>` noden.
 
     ```xml  
     <dependency>
@@ -80,7 +68,7 @@ I den här självstudien används en [HDInsight Storm][HDInsight Storm] -install
     </dependency>
     ```
 
-9. I mappen **src** skapar du en fil med namnet **config. Properties** och kopierar följande innehåll och ersätter värdena `receive rule key` och. `event hub name`
+9. I mappen **src** skapar du en fil med namnet **config. Properties** och kopierar följande innehåll och ersätter `receive rule key` `event hub name` värdena och.
 
     ```java
     eventhubspout.username = ReceiveRule

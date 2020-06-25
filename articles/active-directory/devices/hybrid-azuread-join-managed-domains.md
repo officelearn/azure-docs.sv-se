@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d631143b839e052316490d3b3b89ca10469cb1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 2f3ea5f1810b5ca80e096b19e1dcf230e21eabcc
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778840"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317638"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera Azure Active Directory Join-hybrid för hanterade domäner
 
@@ -34,7 +34,7 @@ Genom att överföra dina enheter till Azure AD kan du maximera användar produk
 
 Du kan distribuera en hanterad miljö med hjälp av [PHS (Password hash Sync)](../hybrid/whatis-phs.md) eller [direktautentisering (PTA)](../hybrid/how-to-connect-pta.md) med [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md). De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera Hybrid Azure Active Directory-anslutning
@@ -70,9 +70,9 @@ Hybrid Azure AD-anslutning kräver att enheter har åtkomst till följande Micro
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`(Om du använder eller planerar att använda sömlös enkel inloggning)
 
-Om din organisation kräver åtkomst till Internet via en utgående proxy rekommenderar vi att du [implementerar Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) för att aktivera Windows 10-datorer för enhets registrering med Azure AD. Information om hur du löser problem med att konfigurera och hantera WPAD finns i [Felsöka automatisk identifiering](/previous-versions/tn-archive/cc302643(v=technet.10)).
+Om din organisation kräver åtkomst till Internet via en utgående proxy kan du använda [implementera WPAD (Web Proxy Auto-Discovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) för att aktivera Windows 10-datorer för enhets registrering med Azure AD. Information om hur du löser problem med att konfigurera och hantera WPAD finns i [Felsöka automatisk identifiering](/previous-versions/tn-archive/cc302643(v=technet.10)). I Windows 10-enheter före 1709-uppdateringen är WPAD det enda tillgängliga alternativet för att konfigurera en proxy så att den fungerar med hybrid Azure AD-anslutning. 
 
-Om du inte använder WPAD kan du konfigurera proxyinställningar på datorn som börjar med Windows 10 1709. Mer information finns i [Inställningar för WinHTTP-proxy som distribueras av GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Om du inte använder WPAD kan du konfigurera inställningar för WinHTTP-proxy på datorn som börjar med Windows 10 1709. Mer information finns i [Inställningar för WinHTTP-proxy som distribueras av GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
 > [!NOTE]
 > Om du konfigurerar proxyinställningar på datorn med hjälp av WinHTTP-inställningar kommer alla datorer som inte kan ansluta till den konfigurerade proxyn inte att kunna ansluta till Internet.
@@ -222,7 +222,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 Om du får problem med att slutföra hybrid Azure AD Join för domänanslutna Windows-enheter, se:
 
 - [Felsöka enheter med kommandot dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
-- [Felsöka hybrid Azure Active Directory anslutna enheter](troubleshoot-hybrid-join-windows-current.md)
+- [Felsöka Azure Active Directory-hybridanslutna enheter](troubleshoot-hybrid-join-windows-current.md)
 - [Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Nästa steg

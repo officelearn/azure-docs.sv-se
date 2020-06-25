@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 901e15994b8a51a5fd45d57ca7a4db7778d968e1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 33f67e1bfa27f4314f64cbcc4d472905fcb15099
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707046"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318772"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Fil-och komprimerings format som stöds av Azure Data Factory
 *Det här avsnittet gäller för följande anslutningar: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [File System](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [http](data-factory-http-connector.md)och [SFTP](data-factory-sftp-connector.md).*
@@ -219,7 +219,7 @@ I det här exemplet mappas ett JSON-rotobjekt till en enskild post i tabellforma
 ```
 och du vill kopiera den till en Azure SQL-tabell i följande format, genom att extrahera data från både objekten och matrisen:
 
-| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -349,7 +349,7 @@ Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 
 Om du har följande tabell i SQL Database:
 
-| id | order_date | order_price | order_by |
+| ID | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |
@@ -497,7 +497,7 @@ Anta att exempel data uppsättningen används som utdata för en kopierings akti
 
 När du anger `compression` en egenskap i en JSON för indata-datauppsättning kan pipelinen läsa komprimerade data från källan. När du anger egenskapen i en datauppsättnings-JSON för utdata kan kopierings aktiviteten skriva komprimerade data till målet. Här följer några exempel scenarier:
 
-* Läs GZIP-komprimerade data från en Azure-Blob, expandera den och skriv resultat data till en Azure SQL-databas. Du definierar indata för Azure Blob-datauppsättningen med `compression` `type` JSON-egenskapen som gzip.
+* Läs GZIP-komprimerade data från en Azure-Blob, expandera den och skriv resultat data till Azure SQL Database. Du definierar indata för Azure Blob-datauppsättningen med `compression` `type` JSON-egenskapen som gzip.
 * Läs data från en oformaterad textfil från det lokala fil systemet, komprimera den med GZip-format och skriv komprimerade data till en Azure-blob. Du definierar en data uppsättning för Azure Blob-utdata med `compression` `type` JSON-egenskapen som gzip.
 * Läs. zip-fil från FTP-server, expandera den för att hämta filerna i och landa filerna i Azure Data Lake Store. Du definierar en inkommande FTP-datauppsättning med `compression` `type` JSON-egenskapen som ZipDeflate.
 * Läs en GZIP-komprimerad data från en Azure-Blob, komprimera den, komprimera den med BZIP2 och skriv resultat data till en Azure-blob. Du definierar indata-Azure Blob-datauppsättningen med `compression` `type` inställningen gzip och data uppsättningen för utdata med `compression` `type` värdet bzip2 i det här fallet.   

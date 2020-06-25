@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Virtual Network
 description: Visar Azure Policy inbyggda princip definitioner för Azure Virtual Network. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-samples
-ms.openlocfilehash: f7ccab3d8aab9720de0abcdd5665d5f859c7c0c4
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 9b248b1e35025e2f05422a51efaac5ab9506b790
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84884027"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317729"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Azure Policy inbyggda definitioner för Azure Virtual Network
 

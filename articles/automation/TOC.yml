@@ -41,6 +41,10 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Datasäkerhet
       items:
         - name: Kryptering av säkra resurser
@@ -63,6 +67,8 @@
           href: how-to/automation-region-dns-records.md
         - name: Hantera ett Kör som-konto för Automation
           href: manage-runas-account.md
+        - name: Ansluta privat till ett Automation-konto
+          href: how-to/private-link-security.md
         - name: Hantera rollbehörigheter och säkerhet
           href: automation-role-based-access-control.md
         - name: Flytta ett Automation-konto till en annan prenumeration

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 89b2b7b993ef9613740dd777546cc15a12203e62
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 23ecfc96c8f75dbae4cfb02cc16f5e5de359c4f6
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210736"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362184"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -274,8 +274,8 @@ API: et för **tal översättning** stöder olika språk för översättning av 
 | Japanska                | `ja`          |
 | Kannada                 | `kn`          |
 | Swahili               | `sw`          |
-| Klingon                 | `tlh`         |
-| Klingon (plqaD)         | `tlh-Qaak`    |
+| Klingon                 | `tlh-Latn`    |
+| Klingon (plqaD)         | `tlh-Piqd`    |
 | Koreanska                  | `ko`          |
 | Lettiska                 | `lv`          |
 | Litauiska              | `lt`          |

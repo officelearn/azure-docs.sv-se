@@ -12,14 +12,14 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147667"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362065"
 ---
-# <a name="onboarding-and-installing"></a>Onboarding och installation
+# <a name="onboarding-and-installing"></a>Registrering och installation
 
 Krav för att komma igång med Microsofts säkerhets kod analys:
 
@@ -48,8 +48,9 @@ Om du uppfyller ovanstående krav kontaktar du en partner i listan nedan för at
 
 >**Partner**
 
-- Zoner – kontakt uppgifter:cloudsupport@zones.com
+- Zoner – kontakt information:cloudsupport@zones.com
 - Wortell – kontakt information:info@wortell.nl
+- Logisk kontakt – kontakt uppgifter:Matthew.Curtis@us.logicalis.com 
 
 ### <a name="become-a-partner"></a>Bli en partner
 
@@ -57,12 +58,12 @@ Microsoft Security code Analysis-teamet kommer att titta på partners med en Pre
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Installera tillägget Microsoft Security code Analysis
 
-1. När tillägget har delats med din Azure DevOps-organisation går du till din Azure DevOps-organisations sida. En exempel-URL för en sådan sida `https://dev.azure.com/contoso`är.
+1. När tillägget har delats med din Azure DevOps-organisation går du till din Azure DevOps-organisations sida. En exempel-URL för en sådan sida är `https://dev.azure.com/contoso` .
 1. Välj shopping bag-ikonen i det övre högra hörnet bredvid ditt namn och välj sedan **Hantera tillägg**.
 1. Välj **delad**.
 1. Välj tillägget Microsoft säkerhets kod analys och välj **Installera**.
 1. I list rutan väljer du Azure DevOps-organisationen för att installera tillägget på.
-1. Välj **Installera**. När installationen är klar kan du börja använda tillägget.
+1. Välj **installera**. När installationen är klar kan du börja använda tillägget.
 
 >[!NOTE]
 > Även om du inte har åtkomst för att installera tillägget fortsätter du med installations stegen. Du kan begära åtkomst från din Azure DevOps-organisations administratör under installations processen.
@@ -72,7 +73,7 @@ När du har installerat tillägget visas de säkra utvecklings uppgifterna och d
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Lägga till specifika bygg uppgifter till din Azure DevOps-pipeline
 
 1. Öppna ditt team projekt från din Azure DevOps-organisation.
-1. Välj **pipeline** > -**versioner**.
+1. Välj **pipeline**-  >  **versioner**.
 1. Välj den pipeline som du vill lägga till tillägg för build-uppgifter för:
    - Ny pipeline: Välj **ny** och följ stegen som beskrivs för att skapa en ny pipeline.
    - Redigera pipeline: Välj en befintlig pipeline och välj sedan **Redigera** för att börja redigera pipelinen.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0660947907b26e1a86bbd68bb32d1ac5d211b20e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206061"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362347"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -195,7 +195,8 @@ Ange omdirigerings-URI: n:
 6. Välj **webbplats** under typ på den nedrullningsbara menyn.
 7. Ange URL: en från sidan Översikt över appen och Lägg till **/Security/signin-callback** i slutet av den. Exempel: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![Sidan omdirigerings-URI](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![Sidan omdirigerings-URI](../media/redirect-uri-page.png)
 
 8. Gå nu till dina Azure-resurser, Välj resursen Azure App tjänster med det namn som du angav i mallen och navigera till den URL som är kopplad till den. (Till exempel om namnet på appen som du använde i mallen var `contosoapp45` , är din associerade URL <https://contosoapp45.azurewebsites.net> ).
 9. Logga in med lämpligt Azure Active Directory användar konto.

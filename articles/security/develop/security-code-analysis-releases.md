@@ -12,18 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d4281d3b6132e551283a71cd1801ef462fbfc68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146128"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362048"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Microsoft Security code Analysis-versioner och-översikt
 
-Microsoft Security code Analysis team i partnerskap med Developer Support är stolt över att meddela nya och kommande förbättringar i vårt MSCA-tillägg. Se översikt nedan.
+Microsoft Security code Analysis team i partnerskap med Developer Support är stolt över att meddela nya och kommande förbättringar i vårt MSCA-tillägg.
 
-![Versioner](./media/security-code-analysis-releases/releases.png)
 
 ## <a name="credential-scanner-v20-released-in-april-2020"></a>Credential Scanner v 2.0: lanserades i april 2020
 
@@ -54,18 +53,25 @@ Microsoft Security code Analysis team i partnerskap med Developer Support är st
 
 ### <a name="improvements"></a>Bättre
 
-- FUNKTION: uppdatera till final SARIF v2 (version 2.1.16). Detta möjliggör cachelagring av resultat när du skickar--hash-värden på kommando raden, en betydande prestanda förbättring vid rekursiv analys av kataloger med flera kopior av Sök mål.
+- FUNKTION: uppdatera till final SARIF v2 (version 2.1.16). Den här uppdateringen möjliggör cachelagring av resultat vid överföring av--hash-värden på kommando raden, en betydande prestanda förbättring vid rekursiv analys av kataloger med flera kopior av Sök mål.
 - FEL korrigering: korrigera skrivfel i BA2021. DoNotMarkWritableSectionsAsExecutable-utdata.
 - PRESTANDA: eliminerar PDB-inläsning för alla icke-blandade läge för hanterade sammansättningar, inklusive IL-bibliotek (i förväg kompilerade) binärfiler.
 - FELAKTIG negativ korrigering: kontrol lera att en PDB som placeras bredvid en binär faktiskt matchar binärfilen under analys
 - FUNKTION: Ange--Local-symbol-katalog argument om du vill ange ytterligare (lokala, icke-symbol-Server) PDB-sökplatser
 - FELAKTIG positiv korrigering: hoppa över PDB-driven analys för den genererade .NET Core Native bootstrap-exe (som inte är en användar kod).
 
-## <a name="whats-next-in-fy20"></a>Vad är härnäst i FY20?
+## <a name="whats-next-in-q3-cy20"></a>Vad är nästa i Q3 CY20?
 
 - Java Security Analysis-verktyg
 - Säkerhets analys verktyg för python
 - ES luddfri för att ersätta TS luddfri för TypeScript och Java Script
+- Analys verktyg för Resource Manager-mallar
+
+## <a name="tool-deprecation-notification"></a>Meddelande om föråldrat verktyg
+
+### <a name="microsoft-security-risk-detection-msrd-is-deprecated-on-june-26-2020"></a>Microsofts säkerhets risk identifiering (MSRD) är föråldrad den 26 2020 juni.
+
+Den föråldrade MSRD-tjänsten kommer att ersättas med en lokal källa med egen värd för utvecklare som är suddig för Azure. Den här plattformen håller på att utvecklas och testas i partnerskap med många av Microsofts kärn produkt team. Den här suddiga plattformen integrerar sanerare och möjliggör anpassningsbara, inlärnings fuzz-tester som är inbyggda i CI/CD-pipeliner som växer med tiden för program varu projekt. Den här plattformens version av öppen källkod har schemalagts för den senare hälften av 2020.
 
 ## <a name="next-steps"></a>Nästa steg
 

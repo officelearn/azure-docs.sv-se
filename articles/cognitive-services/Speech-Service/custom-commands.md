@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 9954e4fe739c055a00c2e3bc52b73200a7824a43
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 0800a287b747a8a421958d20f0b1ce56247d6d01
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299117"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362167"
 ---
 # <a name="what-is-custom-commands"></a>Vad är anpassade kommandon?
 
-Röst program, till exempel [röst assistenter](voice-assistants.md) , lyssnar på användare och vidtar en åtgärd som svar, och talar ofta tillbaka. De använder [tal-till-text](speech-to-text.md) för att skriva över användarens tal och sedan vidta åtgärder för textens naturliga språk förståelse. Den här åtgärden innehåller ofta talade utdata från assistenten som genererades med [text till tal](text-to-speech.md). Enheter ansluter till assistenter med tal SDK: s `DialogServiceConnector` objekt.
+Program som [röst assistenter](voice-assistants.md) lyssnar på användare och vidtar en åtgärd som svar, vilket ofta talar tillbaka. De använder [tal-till-text](speech-to-text.md) för att skriva över användarens tal och sedan vidta åtgärder för textens naturliga språk förståelse. Den här åtgärden innehåller ofta talade utdata från assistenten som genererades med [text till tal](text-to-speech.md). Enheter ansluter till assistenter med tal SDK: s `DialogServiceConnector` objekt.
 
 Med **anpassade kommandon** kan du enkelt bygga avancerade röst kommando program som är optimerade för röst-och första interaktions upplevelser. Det ger en enhetlig redigerings upplevelse, en automatisk värd modell och relativt lägre komplexitet, vilket hjälper dig att fokusera på att skapa den bästa lösningen för röst kommando scenarier.
 

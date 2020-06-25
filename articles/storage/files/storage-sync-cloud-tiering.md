@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ad222c5fb5554698b6166b0b10a52221a31b360
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 5b54f87635e1ea972778b0039dc34170c5b7ab8a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886215"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362296"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
 Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync.sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.
@@ -31,7 +31,11 @@ När en användare öppnar en skiktad fil, återkallar Azure File Sync sömlöst
 ### <a name="how-does-cloud-tiering-work"></a>Hur fungerar moln nivån?
 Azure File Sync system filter skapar ett "termisk karta" för ditt namn område på varje server slut punkt. Den övervakar åtkomst (Läs-och skriv åtgärder) över tid och sedan, baserat på både frekvensen och recency, tilldelar en värme poäng till varje fil. En fil med ofta åtkomst som nyligen har öppnats kommer att anses vara frekvent, medan en fil som är knappt touchd och inte har använts under en viss tid anses vara sval. När fil volymen på en server överskrider tröskelvärdet för ledigt utrymme på volymen, kommer den att ange de häftigaste filerna som ska Azure Files tills din procent andel av det lediga utrymmet är uppfyllt.
 
-I version 4,0 och senare av Azure File Sync agenten kan du lägga till en datum princip på varje server slut punkt som kommer att ange alla filer som inte har öppnats eller ändrats inom ett angivet antal dagar.
+Dessutom kan du ange en datum princip för varje server slut punkt som kommer att lagra alla filer som inte används inom ett angivet antal dagar, oavsett tillgänglig lokal lagrings kapacitet. Det här är ett bra alternativ för att proaktivt frigöra lokalt disk utrymme om du vet att filer på den server slut punkten inte behöver behållas lokalt efter en viss ålder. Det frigör värdefull lokal disk kapacitet för andra slut punkter på samma volym, för att cachelagra fler filer.
+
+Termisk karta i molnet är i stort sett en sorterad lista över alla filer som synkroniseras och finns på en plats där moln skiktning är aktiverat. För att fastställa den relativa placeringen av en enskild fil i den termisk karta använder systemet det maximala värdet för någon av följande tidsstämplar i den ordningen: MAX (senaste åtkomst tid, senast ändrad tid, skapande tid). Normalt spåras senaste åtkomst tid och är tillgänglig. Men när en ny server slut punkt skapas, med moln nivå aktive rad, är det inte tillräckligt med tid för att observera fil åtkomsten. Om det inte finns någon senaste åtkomst tid används den senaste ändrings tiden för att utvärdera den relativa positionen i termisk karta. Samma återställning gäller för datum policyn. Utan senaste åtkomst tid kommer datum policyn att vidtas på den senaste ändrings tiden. Om det inte är tillgängligt kommer det att återgå till skapande tiden för en fil. Med tiden kommer systemet att observera fler och fler fil åtkomst begär Anden och pivotera till att huvudsakligen använda den senast spårade senaste åtkomst tiden.
+
+Moln nivåer är inte beroende av NTFS-funktionen för att spåra senaste åtkomst tid. Den här NTFS-funktionen är inaktive rad som standard och på grund av prestanda överväganden rekommenderar vi inte att du aktiverar den här funktionen manuellt. Moln nivåer spårar senaste åtkomst tid separat och mycket effektivt.
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Vilken är den minsta fil storleken för en fil till-nivån?

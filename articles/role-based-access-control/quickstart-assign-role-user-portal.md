@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: e70a3a1eedbc56754ad46fd99dddc0c7a3a6cf2f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735852"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362030"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av Azure Portal
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Bevilja åtkomst för en användare i ett resursgruppomfång
 > * Tar bort åtkomst
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -62,17 +62,19 @@ I Azure RBAC för att bevilja åtkomst skapar du en roll tilldelning.
 
 1. I listan över **Resursgrupper** klicka du på den nya resursgruppen **rbac-resource-group**.
 
-1. Klicka på **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
 1. Klicka på fliken **Rolltilldelningar** för att visa den aktuella listan med rolltilldelningar.
 
    ![Bladet Åtkomstkontroll (IAM) för resursgruppen](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Klicka på **Lägg** > till**Lägg till roll tilldelning** för att öppna fönstret Lägg till roll tilldelning.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönstret Lägg till rolltilldelning.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
-   ![Menyn Lägg till](./media/role-assignments-portal/add-menu.png)
+   ![Menyn Lägg till roll tilldelning](./media/shared/add-role-assignment-menu.png)
+
+    Fönstret Lägg till rolltilldelning öppnas.
 
    ![Fönsterrutan Lägg till rolltilldelning](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 

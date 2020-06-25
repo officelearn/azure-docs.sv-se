@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 1d74bf089f3e5bc1fd04232b58ce95c649a170e1
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307876"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362381"
 ---
 # <a name="add-parameters-to-commands"></a>Lägga till parametrar till kommandon
 
@@ -60,9 +60,10 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
        | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | För strängar begränsar detta indata till en uppsättning möjliga värden |
        | Fördefinierade indatavärden     | `on`, `off`           | Uppsättning möjliga värden och deras alias         |
        
-        > [!div class="mx-imgBorder"]
+        
+   1. Om du vill lägga till fördefinierade indatavärden väljer du **Lägg till ett fördefinierat indata** och i fönstret **nytt objekt** , skriver in **namnet** enligt vad som anges i tabellen ovan. I det här fallet använder vi inte alias, så du kan lämna det tomt. 
+    > [!div class="mx-imgBorder"]
         > ![Skapa parameter](media/custom-commands/create-on-off-parameter.png)
-
    1. Välj **Spara** för att spara alla konfigurationer för parametern.
  
  ### <a name="add-subjectdevice-parameter"></a>Lägg till SubjectDevice-parameter 
@@ -72,7 +73,7 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
 
        | Inställningen            | Föreslaget värde       |
        | ------------------ | --------------------- |
-       | Name               | `SubjectDevice`         |
+       | Namn               | `SubjectDevice`         |
        | Är global          | avmarkerat             |
        | Obligatorisk           | analysera               |
        | Svar för obligatorisk parameter     | Enkel redigerare >`Which device do you want to control?`    | 
@@ -85,7 +86,7 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
 
 ### <a name="modify-example-sentences"></a>Ändra exempel meningar
 
-För kommandon med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Ett exempel:
+För kommandon med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Till exempel:
 
 * Fullständig parameter information –`turn {OnOff} the {SubjectDevice}`
 * Partiell parameter information –`turn it {OnOff}`
@@ -145,7 +146,7 @@ Lägg till ny parameter **temperatur** med följande konfiguration
 
 | Konfiguration      | Föreslaget värde     |
 | ------------------ | ----------------|
-| Name               | `Temperature`           |
+| Namn               | `Temperature`           |
 | Obligatorisk           | analysera         |
 | Svar för obligatorisk parameter      | Enkel redigerare >`What temperature would you like?`
 | Typ               | Antal          |
@@ -182,7 +183,7 @@ Lägg till en parameter med namnet **datetime** med följande konfiguration.
 
    | Inställningen                           | Föreslaget värde                     | 
    | --------------------------------- | ----------------------------------------|
-   | Name                              | `DateTime`                               |
+   | Namn                              | `DateTime`                               |
    | Obligatorisk                          | analysera                                 |
    | Svar för obligatorisk parameter   | Enkel redigerare >`For what time?`            | 
    | Typ                              | DateTime                                |

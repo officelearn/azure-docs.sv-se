@@ -1,7 +1,7 @@
 ---
 title: Vanliga frågor om dokumentation om Microsoft Security code Analysis
 description: Den här artikeln innehåller vanliga frågor och svar om tillägget Microsoft Security code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,17 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7a888d95a97e30e7d663b528e8d9941aec1f51e9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015853"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362082"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 Har du några frågor? Läs följande vanliga frågor och svar om du vill ha mer information.
 
-## <a name="general-faq"></a>Vanliga frågor och svar
+## <a name="general-faq"></a>Allmänna vanliga frågor och svar
 
 ### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>Kan jag installera tillägget på min Visual Studio Team Foundation Server-instans i stället för på en Azure DevOps-instans?
 
@@ -123,7 +123,7 @@ Hash-nyckeln för hemligheten från CredScan-utdatafilen krävs på det sätt so
 
 Fil uttrycket kan vara ett fil namn. Det kan också vara basename delen av en fullständig fil Sök väg eller ett fil namn. Jokertecken stöds inte.
 
-I följande exempel visas hur du döljer filen \<InputPath> \src\JS\lib\angular.js
+I följande exempel visas hur du döljer filen \<InputPath>\src\JS\lib\angular.js
 
 Exempel på giltiga undertrycks regler:
 
@@ -131,7 +131,7 @@ Exempel på giltiga undertrycks regler:
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
-- vinkel. js-ignorerar alla filer med samma namn
+- angular.js-undertrycker en fil med samma namn
 
         {
             "tool": "Credential Scanner",
@@ -166,7 +166,7 @@ Mer information finns i blogg inlägget [Hantera hemligheter på ett säkert sä
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>Kan jag skriva egna anpassade sökre?
 
-Den här typen av autentiseringsuppgifter förlitar sig på en uppsättning innehålls sökre som är vanligt definierade i filen buildsearchers. xml. Filen innehåller en matris med serialiserade XML-objekt som representerar ett **ContentSearcher** -objekt. Programmet distribueras med en uppsättning vältestade sökverktyg. Men du kan även implementera egna anpassade sökverktyg.
+Genomsökning av autentiseringsuppgifter är beroende av en uppsättning innehålls sökre som definieras vanligt vis i buildsearchers.xml-filen. Filen innehåller en matris med serialiserade XML-objekt som representerar ett **ContentSearcher** -objekt. Programmet distribueras med en uppsättning vältestade sökverktyg. Men du kan även implementera egna anpassade sökverktyg.
 
 En innehålls sökre definieras enligt följande:
 
@@ -196,23 +196,23 @@ Det fullständiga fel meddelandet:
 
 Eftersom Roslyn-uppgifter körs som en del av kompileringen måste käll trädet på Build-datorn vara i ett build-tillstånd.
 
-Ett steg mellan dina huvud steg för bygge och Roslyn kan ha gjort att käll trädet har försatts i ett tillstånd som förhindrar att de skapas. Det här extra steget är förmodligen **dotNet. exe Publish**. Försök att duplicera det steg som gör en NuGet återställning precis innan steget Roslyn analys verktyg. Det här dubblerade steget kan sätta tillbaka käll trädet i ett buildable-tillstånd.
+Ett steg mellan dina huvud steg för bygge och Roslyn kan ha gjort att käll trädet har försatts i ett tillstånd som förhindrar att de skapas. Det här extra steget är förmodligen **dotnet.exe publicera**. Försök att duplicera det steg som gör en NuGet återställning precis innan steget Roslyn analys verktyg. Det här dubblerade steget kan sätta tillbaka käll trädet i ett buildable-tillstånd.
 
-##### <a name="cscexe-cant-create-an-analyzer-instance"></a>CSC. exe kan inte skapa en analys instans
+##### <a name="cscexe-cant-create-an-analyzer-instance"></a>csc.exe kan inte skapa en analys instans
 
 Det fullständiga fel meddelandet:
 
-"CSC. exe" avslutades med felkod 1 – det går inte att skapa en instans av Analyzer *AAAA* från C: \\ *bbbb*. dll: det gick inte att läsa in filen eller sammansättningen "Microsoft. CodeAnalysis, version =*X. x*. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen i systemet. "
+"" csc.exe avslutades med felkod 1--en instans av Analyzer *AAAA* kan inte skapas från C: \\ *bbbb*. dll: det gick inte att läsa in filen eller sammansättningen "Microsoft. CodeAnalysis, version =*X.* x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen i systemet. "
 
-Se till att din kompilator stöder Roslyn-analyser. Om du kör kommandot **CSC. exe/version** ska du rapportera version svärdet 2,6 eller senare.
+Se till att din kompilator stöder Roslyn-analyser. Om du kör kommandot **csc.exe/version** ska du rapportera version svärdet 2,6 eller senare.
 
 Ibland kan en. CSPROJ-fil åsidosätta build-datorns Visual Studio-installation genom att referera till ett paket från Microsoft.Net. compilers. Om du inte tänker använda en angiven version av kompilatorn tar du bort referenser till Microsoft.Net. compilers. Annars kontrollerar du att versionen av det refererade paketet är 2,6 eller senare.
 
-Försök att hämta fel logg Sök vägen, som anges i alternativet **CSC. exe/Errorlog** . Alternativet och sökvägen visas i loggen för build-uppgiften Roslyn-analyser. De kan se ut ungefär som **/Errorlog: f:\ts-services-123 \_ work\456\s\Some\Project\Code\Code.CSPROJ.sarif**
+Försök att hämta fel logg Sök vägen, som anges i alternativet **csc.exe/Errorlog** . Alternativet och sökvägen visas i loggen för build-uppgiften Roslyn-analyser. De kan se ut ungefär som **/Errorlog: f:\ts-services-123 \_ work\456\s\Some\Project\Code\Code.CSPROJ.sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C#-kompilator versionen är inte tillräckligt aktuell
 
-Om du vill hämta de senaste versionerna av C#-kompilatorn går du till [Microsoft.net. compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Hämta den installerade versionen genom att köra **CSC. exe/version** i en kommando tolk. Se till att referera till ett Microsoft.Net. compilers NuGet-paket som är version 2,6 eller senare.
+Om du vill hämta de senaste versionerna av C#-kompilatorn går du till [Microsoft.net. compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Kör **csc.exe/version** i kommando tolken för att hämta den installerade versionen. Se till att referera till ett Microsoft.Net. compilers NuGet-paket som är version 2,6 eller senare.
 
 ##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>MSBuild-och VSBuild-loggar hittas inte
 

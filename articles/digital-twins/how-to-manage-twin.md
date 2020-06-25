@@ -1,5 +1,5 @@
 ---
-title: Hantera en digital tvilling
+title: Hantera digitala dubbla
 titleSuffix: Azure Digital Twins
 description: Se hur du hämtar, uppdaterar och tar bort enskilda dubbla och relationer.
 author: baanders
@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 9acea128313fc440834626dd3a99b117e4b25a8f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 07c77f3cf149fdd6533a070b29f709758be23ce5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735905"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362738"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala dubbla
 
@@ -21,7 +21,7 @@ ms.locfileid: "84735905"
 
 Entiteter i din miljö representeras av [digitala dubbla](concepts-twins-graph.md). Att hantera digitala dubbla, kan vara att skapa, ändra och ta bort. Om du vill utföra dessa åtgärder kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
 
-Den här artikeln fokuserar på att hantera digitala dubbla, information om hur du arbetar med relationer och det [dubbla diagrammet](concepts-twins-graph.md) som helhet finns i [How-to: Manage a graf with Relations](how-to-manage-graph.md).
+Den här artikeln fokuserar på att hantera digitala dubbla, information om hur du arbetar med relationer och det [dubbla diagrammet](concepts-twins-graph.md) som helhet finns i [instruktion: hantera den dubbla grafen med relationer](how-to-manage-graph.md).
 
 > [!TIP]
 > Alla SDK-funktioner ingår i synkrona och asynkrona versioner.
@@ -347,4 +347,4 @@ Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommand
 ## <a name="next-steps"></a>Nästa steg
 
 Se hur du skapar och hanterar relationer mellan digitala dubbla:
-* [Anvisningar: hantera en dubbel graf med relationer](how-to-manage-graph.md)
+* [Anvisningar: hantera den dubbla grafen med relationer](how-to-manage-graph.md)

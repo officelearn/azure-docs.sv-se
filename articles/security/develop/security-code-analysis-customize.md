@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871886"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362099"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurera och anpassa Bygg aktiviteterna
 
@@ -61,15 +61,15 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 - I **mål**anger du en eller flera specificerare för en fil, en katalog eller ett filter mönster. Dessa specificerare matchar en eller flera binärfiler som ska analyseras:
     - Flera angivna mål måste avgränsas med ett semikolon (;).
     - En specificerare kan vara en enskild fil eller innehålla jokertecken.
-    - Directory-specifikationer måste alltid avslutas \\med *.
+    - Directory-specifikationer måste alltid avslutas med \\ *.
     - Exempel:
 
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
 
-- Om du väljer **kommando rad** i listan **typ** måste du köra binskim. exe:
-     - Kontrol lera att de första argumenten för binskim. exe är verbet som **analyseras** följt av en eller flera Sök vägs specifikationer. Varje sökväg kan antingen vara en fullständig sökväg eller en sökväg i förhållande till käll katalogen.
+- Om du väljer **kommando rad** i listan **typ** måste du köra binskim.exe:
+     - Kontrol lera att de första argumenten binskim.exe är verbet som **analyseras** följt av en eller flera Sök vägs specifikationer. Varje sökväg kan antingen vara en fullständig sökväg eller en sökväg i förhållande till käll katalogen.
      - Flera mål Sök vägar måste avgränsas med blank steg.
      - Du kan utelämna alternativet **/o** eller **/output** . Värdet för utdata läggs till för dig eller ersätts.
      - Standard kommando rads konfigurationerna visas på följande sätt.
@@ -78,7 +78,7 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
            analyze *.dll *.exe --recurse --verbose
 
           > [!NOTE]
-          > Efterföljande \\* är viktigt om du anger kataloger för målet.
+          > Efterföljande \\ * är viktigt om du anger kataloger för målet.
 
 Mer information om kommando rads argument för BinSkim, regler per ID eller avslutnings koder finns i [användar handboken för BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
@@ -103,40 +103,10 @@ Tillgängliga alternativ inkluderar:
   - **Matchnings-timeout**: hur lång tid i sekunder det tar att försöka lägga till en Sök funktion innan kontrollen avbryts.
   - **Fil genomsökningens Läs buffertstorlek**: storleken i byte på den buffert som används när innehållet läses. Standardvärdet är 524 288.  
   - **Maximal läsning av fil läsnings byte**: det maximala antalet byte som ska läsas från en fil under innehålls analysen. Standardvärdet är 104 857 600.
-  - **Kontroll alternativ** > **kör den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
+  - **Kontroll alternativ**  >  **Kör den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
   - **Version**: Bygg uppgifts versionen i Azure DevOps. Det här alternativet används inte ofta.
 
 Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du [alternativen för yaml för autentiseringsuppgifter](yaml-configuration.md#credential-scanner-task)
-
-## <a name="microsoft-security-risk-detection-task"></a>Uppgift om Microsofts säkerhets risk identifiering
-
-> [!NOTE]
-> Du måste skapa och konfigurera ett konto med Microsofts tjänst för säkerhets risk identifiering (MSRD) innan du använder MSRD-aktiviteten. Den här tjänsten kräver en separat onboarding-process. Till skillnad från de flesta andra aktiviteter i det här tillägget kräver den här uppgiften en separat prenumeration med MSRD.
->
-> Se [Microsofts säkerhets risk identifiering](https://aka.ms/msrddocs) och [Microsofts säkerhets risk identifiering: så här hittar du](https://docs.microsoft.com/security-risk-detection/how-to/) instruktioner.
-
-Information om hur du konfigurerar den här uppgiften visas i följande lista. För alla UI-element kan du hovra över det elementet för att få hjälp.
-
-   - **Namn på Azure DevOps-tjänstens slut punkt för MSRD**: en generisk typ av Azure DevOps-tjänstens slut punkt lagrar din inbyggda MSRD-instansen URL och din REST API åtkomsttoken. Om du har skapat en sådan slut punkt kan du ange den här. Annars väljer du länken **Hantera** för att skapa och konfigurera en ny tjänst slut punkt för den här MSRD-aktiviteten.
-   - **Konto-ID**: ett GUID som kan hämtas från MSRD-kontots URL.
-   - **URL: er till binärfiler**: en semikolonavgränsad lista med offentligt tillgängliga URL: er. Den suddiga datorn använder dessa URL: er för att ladda ned binärfilerna.
-   - **URL: er för startfilerna**: en semikolonavgränsad lista med offentligt tillgängliga URL: er. Den suddiga datorn använder dessa URL: er för att hämta frön. Att ange det här värdet är valfritt om startfilerna laddas ned tillsammans med binärfilerna.
-   - **Typ av operativ system plattform**: operativ systemets plattform (OS) för datorer som kör det suddiga jobbet. Tillgängliga värden är **Windows** och **Linux**.
-   - **Windows-utgåva/Linux-** utgåva: den OS-version av datorer som kör det suddiga jobbet. Du kan skriva över standardvärdet om datorerna har en annan operativ system version.
-   - **Paket installations skript**: ditt skript som ska köras på en test dator. Det här skriptet installerar test mål programmet och dess beroenden innan det suddiga jobbet skickas.
-   - **Jobb överförings parametrar**:
-       - **Dirigerings katalog**: sökvägen till katalogen på den suddiga datorn som innehåller frön.
-       - **Seed-tillägg**: fil namns tillägget för frön.
-       - **Test driv rutin körbar**fil: sökvägen till den körbara filens målfil på den suddiga datorn.
-       - **Test driv Rutinens körbara arkitektur**: den körbara filens arkitektur. Tillgängliga värden är **x86** och **amd64**.
-       - **Argument för test driv rutin**: kommando rads argumenten som skickas till den körbara filen för test. Argumentet "% testfile%", inklusive citat tecknen, ersätts automatiskt med den fullständiga sökvägen till mål filen. Den här filen parsas av test driv rutinen och krävs.
-       - **Test driv rutins processen avslutas när testet slutförs**: Markera den här kryss rutan om test driv rutinen ska avslutas när den har slutförts. Avmarkera den om test driv rutinen måste tvingas stängas.
-       - **Maximal varaktighet (i sekunder)**: en uppskattning av den längsta förväntade förväntade tiden som mål programmet kräver för att parsa en indatafil. Den mer exakta uppskattningen, desto mer effektiv är den suddiga appen att köras.
-       - **Test driv rutinen kan köras flera gånger**: Markera den här kryss rutan om test driv rutinen kan köras upprepade gånger utan att beroende på ett beständigt eller delat globalt tillstånd.
-       - **Test driv rutin kan byta namn**: Markera den här kryss rutan om du kan byta namn på test driv Rutinens körbara fil och fortfarande fungera korrekt.
-       - **Fuzzing-programmet körs som en enda operativ system process**: Markera den här kryss rutan om test driv rutinen körs under en enda operativ system process. Avmarkera det om test driv rutinen skapar ytterligare processer.
-
-Information om YAML-konfigurationen för den här uppgiften finns i följande [yaml-alternativ för Microsofts säkerhets risk](yaml-configuration.md#microsoft-security-risk-detection-task)
 
 ## <a name="roslyn-analyzers-task"></a>Roslyn för analys uppgifter
 
@@ -153,11 +123,11 @@ Tillgängliga alternativ inkluderar:
 - **Ruleset**: värden är **sdl krävs**, **sdl rekommenderas**eller din egen anpassade regel uppsättning.
 - **Versions analys**: Vi rekommenderar att du väljer **senaste**.
 - **Kompilator varningar ignorerar fil**: en textfil med en lista över varnings-ID: n som ignoreras.
-- **Kontroll alternativ** > **kör den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
+- **Kontroll alternativ**  >  **Kör den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
 
 > [!NOTE]
 >
-> - Roslyn-analyser är integrerade med kompilatorn och kan endast köras som en del av CSC. exe-kompileringen. Den här uppgiften kräver därför kommandot compile som kördes tidigare i versionen för att kunna spelas upp eller köras igen. Den här omuppspelningen eller körningen görs genom att fråga Visual Studio Team Services (VSTS) för de MSBuild-skapa uppgifts loggarna.
+> - Roslyn-analyser är integrerade med kompilatorn och kan endast köras som en del av csc.exe kompilering. Den här uppgiften kräver därför kommandot compile som kördes tidigare i versionen för att kunna spelas upp eller köras igen. Den här omuppspelningen eller körningen görs genom att fråga Visual Studio Team Services (VSTS) för de MSBuild-skapa uppgifts loggarna.
 >
 >   Det finns inget annat sätt för uppgiften att på ett tillförlitligt sätt Hämta kommando raden för MSBuild-kompilering från build-definitionen. Vi ansåg att du lägger till en text ruta för fri hands text så att användarna kan ange sina kommando rader. Men det skulle vara svårt att hålla dessa kommando rader aktuella och synkroniserade med huvud versionen.
 >

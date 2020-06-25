@@ -8,18 +8,18 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cc6451d9be6c125d1b01bc5bb33fd553ce789f31
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 753fa7afb49ca58aa2eceb309beb8316024b41bc
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263202"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362721"
 ---
 # <a name="dtdl-client-side-parser-library"></a>DTDL-bibliotek på klient Sidan
 
 [!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
-[Modeller](concepts-models.md) i digitala Azure-dubblaer definieras med hjälp av JSON-baserade digitala ensamt definitions språk (DTDL). I de fall där det är användbart att parsa dina modeller, finns ett DTDL-parsningsfel på NuGet.org som ett bibliotek på klient sidan: [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
+[Modeller](concepts-models.md) i digitala Azure-dubbla grupper definieras med hjälp av DTDL (JSON-LD-baserade) digitala dubbla definitions språk. I de fall där det är användbart att parsa dina modeller, finns ett DTDL-parsningsfel på NuGet.org som ett bibliotek på klient sidan: [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 
 Det här biblioteket ger modell åtkomst till DTDL-definitionerna, som fungerar som motsvarigheten till C#-reflektion för DTDL. Det här biblioteket kan användas oberoende av [Azures digitala](how-to-use-apis-sdks.md)multimängds SDK, särskilt för DTDL-verifiering i ett visuellt objekt eller en text redigerare. Det är användbart för att se till att dina modell definitions filer är giltiga innan du försöker överföra dem till tjänsten.
 
@@ -70,7 +70,7 @@ Mer information om det här exemplet finns i käll koden eller kör `DTDLValidat
 
 ## <a name="use-the-parser-library-in-code"></a>Använda parsar biblioteket i kod
 
-Du kan också använda parsar biblioteket direkt för att validera modeller själv.
+Du kan också använda parsar biblioteket direkt, för saker som att validera modeller i ditt eget program eller för att generera dynamiskt, modell drivna gränssnitt, instrument paneler och rapporter.
 
 För att stödja tolknings kod exemplet nedan, bör du överväga flera modeller som definierats i en Azure Digitals-instans:
 
@@ -172,4 +172,4 @@ void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEnt
 ## <a name="next-steps"></a>Nästa steg
 
 När du är klar med att skriva dina modeller kan du läsa så här laddar du upp dem (och utför andra hanterings åtgärder) med DigitalTwinsModels-API: erna:
-* [Anvisningar: hantera en dubbel modell](how-to-manage-model.md)
+* [Anvisningar: Hantera anpassade modeller](how-to-manage-model.md)

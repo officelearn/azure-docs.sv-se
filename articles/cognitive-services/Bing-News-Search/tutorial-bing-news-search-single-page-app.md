@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d50eafd8464a315cb4e619a0c34b6a173d6ca638
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943122"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362201"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: skapa en webbapp med en sida
 
@@ -352,7 +352,7 @@ En funktion för rendering kan acceptera följande parametrar:
 
 Parametrarna `index` och `count` kan användas till att numrera resultat, för att generera särskilda HTML-filer för början eller slutet av en samling, för att infoga radbrytningar efter ett visst antal objekt och så vidare. Om en renderare inte behöver den här funktionen behöver den inte godkänna dessa två parametrar.
 
-Renderaren `news` visas i följande javascript-utdrag:
+`news`Åter givningen visas i följande JavaScript-utdrag:
 ```javascript
     // render news story
     news: function (item) {

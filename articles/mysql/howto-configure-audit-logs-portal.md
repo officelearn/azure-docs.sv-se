@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/18/2020
-ms.openlocfilehash: d6d037f3d45216b81d2c5fdcb67ea48b4252a889
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.date: 6/24/2020
+ms.openlocfilehash: 1c48c16666305e9b9c342869e52aa04cfd4dac07
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100998"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362976"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Konfigurera och få åtkomst till gransknings loggar för Azure Database for MySQL i Azure Portal
 
 Du kan konfigurera [Azure Database for MySQL gransknings loggar](concepts-audit-logs.md) och diagnostikinställningar från Azure Portal.
-
-> [!IMPORTANT]
-> Gransknings logg funktionen är för närvarande en för hands version.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -28,7 +25,7 @@ För att gå igenom den här instruktions guiden behöver du:
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
 
->[!NOTE]
+>[!IMPORTANT]
 > Vi rekommenderar att du bara loggar de händelse typer och användare som krävs för gransknings syfte för att säkerställa att serverns prestanda inte påverkas kraftigt.
 
 Aktivera och konfigurera gransknings loggning.

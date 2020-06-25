@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 7f98b2c94659c083f5dbd2c43fd9015f8b60a9db
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307884"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362415"
 ---
 # <a name="create-application-with-simple-commands"></a>Skapa program med enkla kommandon
 
@@ -27,6 +27,10 @@ I den här artikeln kan du se hur du:
 ## <a name="create-empty-application"></a>Skapa ett tomt program
 Skapa ett tomt program för anpassade kommandon. Mer information finns i [snabb](quickstart-custom-commands-application.md)starten. Den här gången skapar du ett tomt projekt i stället för att importera ett projekt.
 
+1. I rutan **namn** anger du projekt namnet som `Smart-Room-Lite` (eller något annat alternativ).
+1. I listan **språk** väljer du **engelska (USA)**.
+1. Välj eller skapa en valfri LUIS-resurs.
+
    > [!div class="mx-imgBorder"]
    > ![Skapa ett projekt](media/custom-commands/create-new-project.png)
 
@@ -36,7 +40,7 @@ Du kan uppdatera den redigerings resurs som du har valt i fönstret **nytt proje
 
 ## <a name="add-turnon-command"></a>Lägg till TurnOn-kommando
 
-I programmet **Smart Room-lite** anpassade kommandon lägger du till ett enkelt kommando som bearbetar en uttryck, `turn on the tv` och svarar på meddelandet `Ok, turning the tv on` .
+I det tomma programmet för **Smart-Room-lite** anpassade kommandon som du nyss skapade, lägger du till ett enkelt kommando som bearbetar en uttryck, `turn on the tv` och svarar på meddelandet `Ok, turning the tv on` .
 
 1. Skapa ett nytt kommando genom att välja **nytt kommando** längst upp i det vänstra fönstret. Det **nya kommando** fönstret öppnas.
 1. Ange ett värde för fältet **namn** som **TurnON**.
@@ -74,23 +78,17 @@ För tillfället har vi inga parametrar, så vi kan gå vidare till avsnittet **
 
 Sedan måste kommandot ha en regel för slut för ande. Den här regeln anger användaren att en uppfyllelse åtgärd utförs. Om du vill läsa mer om regler och regler för slut för ande går du till [referenser](./custom-commands-references.md).
 
-1. Välj standard regel för slut för **ande slutförd** och redigera den på följande sätt: 
+1. Välj standard regel för slut för **ande slutförd** och redigera den på följande sätt:
 
     
     | Inställningen    | Föreslaget värde                          | Beskrivning                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Namn**       | ConfirmationResponse                  | Ett namn som beskriver syftet med regeln          |
-    | **Villkor** | Inga                                     | Villkor som avgör när regeln kan köras    |
+    | **Villkor** | Ingen                                     | Villkor som avgör när regeln kan köras    |
     | **Åtgärder**    | Skicka tal svar > enkel redigerare > första variationen >`Ok, turning the tv on` | Den åtgärd som ska vidtas när regel villkoret är sant |
     
 
-1. Du kan också ta bort den befintliga regeln för standard slut för ande och skapa en ny genom att välja **Lägg till** överst i den mellersta rutan.
-1. Ange värde i avsnittet **Name** .
-1. Lägg till en åtgärd.
-   1. Skapa en åtgärd genom att välja **Lägg till en åtgärd** i avsnittet **åtgärder** .
-   1. I fönstret **ny åtgärd** väljer du **Skicka tal svar**i listan **typ** .
-   1. Under **svar**väljer du **enkel redigerare**.
-   1. Ange ett värde för svar som i det **första** fältet `Ok, turning the tv on` .
+
 
    > [!div class="mx-imgBorder"]
    > ![Skapa ett tal svar](media/custom-commands/create-speech-response-action.png)
@@ -98,6 +96,9 @@ Sedan måste kommandot ha en regel för slut för ande. Den här regeln anger an
 1. Spara åtgärden genom att välja **Spara** .
 1. Gå tillbaka till avsnittet **regler för slut för ande** och välj **Spara** för att spara alla ändringar. 
 
+
+ > [!NOTE]
+    > Du behöver inte använda standard regeln för slut för ande som medföljer kommandot. Om det behövs kan du ta bort den befintliga regeln för standard slut för ande och lägga till en egen regel.
 
 ### <a name="try-it-out"></a>Prova nu
 
@@ -124,8 +125,8 @@ Redigera sedan **de befintliga reglerna för färdig komplettering** enligt föl
 
 | Inställningen    | Föreslaget värde                          |
 | ---------- | ---------------------------------------- |
-| Name  | ConfirmationResponse                  |
-| Villkor | Inga                                     |
+| Namn  | ConfirmationResponse                  |
+| Villkor | Ingen                                     |
 | Åtgärder    | Skicka tal svar > enkel redigerare > första variationen >`Ok, setting temperature to 40 degrees` |
 
 Välj **Spara** för att spara alla ändringar i kommandot.
@@ -136,7 +137,7 @@ Skapa ett nytt kommando **SetAlarm** med hjälp av exempel meningen "**Ange ett 
 | Inställningen    | Föreslaget värde                          |
 | ---------- | ---------------------------------------- |
 | Regelnamn  | ConfirmationResponse                  |
-| Villkor | Inga                                     |
+| Villkor | Ingen                                     |
 | Åtgärder    | Skicka tal svar > enkel redigerare > första variationen >`Ok, setting an alarm for 9 am tomorrow` |
 
 Välj **Spara** för att spara alla ändringar i kommandot.

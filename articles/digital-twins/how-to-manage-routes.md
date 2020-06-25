@@ -2,18 +2,18 @@
 title: Hantera slutpunkter och vägar
 titleSuffix: Azure Digital Twins
 description: Se hur du konfigurerar och hanterar slut punkter och händelse vägar för Azure Digitals dubbla data.
-author: cschormann
-ms.author: cschorm
-ms.date: 3/17/2020
+author: alexkarcher-msft
+ms.author: alkarche
+ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cf18d8ef391115da5e1c8fcab235c30e96287f5b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b6f5765f51983e3b1ca9c182849b64258476a2ce
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725689"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362772"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Hantera slut punkter och vägar i digitala Azure-dubbla
 
@@ -74,17 +74,19 @@ I exemplen i den här artikeln används C# SDK.
 
 Händelse vägar definieras med hjälp av data Plans-API: er. En flödes definition kan innehålla följande element:
 * Det väg-ID som du vill använda
-* ID för den slut punkt som du vill använda
+* Namnet på den slut punkt som du vill använda
 * Ett filter som definierar vilka händelser som skickas till slut punkten 
 
-Om det inte finns något väg-ID dirigeras inga meddelanden utanför Azures digitala dubbla. Om det finns ett väg-ID och filtret är `null` , dirigeras alla meddelanden till slut punkten. Om det finns ett väg-ID och ett filter läggs till filtreras meddelandena baserat på filtret.
+Om det inte finns något väg-ID dirigeras inga meddelanden utanför Azures digitala dubbla. Om det finns ett väg-ID och filtret är `true` , dirigeras alla meddelanden till slut punkten. Om ett väg-ID och ett annat filter läggs till filtreras meddelandena baserat på filtret.
 
 En väg bör tillåta att flera meddelanden och händelse typer väljs. 
 
-Här är anropet till SDK: n som används för att lägga till en händelse väg:
+`CreateEventRoute`är SDK-anropet som används för att lägga till en händelse väg. Här är ett exempel på användningen:
 
 ```csharp
-await client.CreateEventRoute("routeName", new EventRoute("endpointID"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
 > [!TIP]
@@ -130,11 +132,11 @@ Utan filtrering tar slut punkter emot flera olika händelser från Azures digita
 
 Du kan begränsa vilka händelser som ska skickas genom att lägga till ett filter till en slut punkt.
 
-Om du vill lägga till ett filter kan du använda en skicka-begäran till *https://{YourHost}/EventRoutes/myNewRoute? API-version = 2020-03 01-Preview* med följande text:
+Om du vill lägga till ett filter kan du använda en skicka-begäran till *https://{YourHost}/EventRoutes/myNewRoute? API-version = 2020-05 -31-Preview* med följande text:
 
 ```json  
 {
-    "endpointId": "<endpoint-ID>",
+    "endpointName": "<endpoint-name>",
     "filter": "<filter-text>"
 }
 ``` 
@@ -143,9 +145,10 @@ Här följer de väg filter som stöds.
 
 | Filternamn | Beskrivning | Filter schema | Värden som stöds | 
 | --- | --- | --- | --- |
-| Typ | Den [typ av händelse](./concepts-route-events.md#types-of-event-messages) som flödar genom den digitala dubbla instansen | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br> `Microsoft.DigitalTwins.Edge.Delete` <br> `microsoft.iot.telemetry`  |
-| Källa | Namn på Azure Digitals dubbla instanser | `"filter" : "source = '<hostname>'"`|  **För meddelanden:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **För telemetri:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
-| Subjekt | En beskrivning av händelsen i kontexten för händelse källan ovan | `"filter": " subject = '<subject>'"` | **För meddelanden**är ämnet`<twinid>` <br> eller ett URI-format för ämnen som identifieras unikt av flera delar eller ID:<br>`<twinid>/relationships/<relationship>/<edgeid>`<br> **För telemetri**är ämnet komponent Sök väg (om telemetri skickas från en dubbel komponent), till exempel `comp1.comp2` . Om telemetri inte genereras från en komponent är dess ämnes fält tomt. |
+| Typ | Den [typ av händelse](./concepts-route-events.md#types-of-event-messages) som flödar genom den digitala dubbla instansen | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Källa | Namn på Azure Digitals dubbla instanser | `"filter" : "source = '<hostname>'"`|  **För meddelanden**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **För telemetri**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
+| Subjekt | En beskrivning av händelsen i kontexten för händelse källan ovan | `"filter": " subject = '<subject>'"` | **För meddelanden**: ämnet är`<twinid>` <br> eller ett URI-format för ämnen som identifieras unikt av flera delar eller ID:<br>`<twinid>/relationships/<relationshipid>`<br> **För telemetri**: ämnet är komponent Sök vägen (om telemetri skickas från en dubbel komponent), till exempel `comp1.comp2` . Om telemetri inte genereras från en komponent är dess ämnes fält tomt. |
+| Data schema | DTDL modell-ID | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **För telemetri**: dataschemat är modell-ID: t för den dubbla eller komponenten som utvärderar Telemetrin <br>**För meddelanden**: data schema stöds inte|
 | Innehållstyp | Innehålls typ för data värde | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
 | Specifikations version | Den version av händelse schemat som du använder | `"filter": "specversion = '<version>'"` | Måste vara `1.0` . Detta anger CloudEvents-schema version 1,0 |
 | True/false | Tillåter att du skapar en väg utan filtrering eller inaktiverar en väg | `"filter" : "<true/false>"` | `true`= Route är aktiverat utan filtrering <br> `false`= vägen är inaktive rad |

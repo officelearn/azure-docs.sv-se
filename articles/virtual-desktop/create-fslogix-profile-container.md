@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 968e753cb8bf4376d2082d5238004c291b8f0938
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211949"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362993"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Skapa en profil behållare med Azure NetApp Files och AD DS
 
@@ -53,7 +53,8 @@ För att komma igång måste du konfigurera ett Azure NetApp Files-konto.
 
 4. Om det här är första gången du använder Azure Cloud Shell skapar du ett lagrings konto i samma prenumeration som du behåller Azure NetApp Files och det virtuella Windows-skrivbordet.
 
-   ![I fönstret lagrings konto med knappen Skapa lagring längst ned i fönstret markerat i rött.](media/create-storage-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![I fönstret lagrings konto med knappen Skapa lagring längst ned i fönstret markerat i rött.](media/create-storage-button.png)
 
 5. Kör följande två cmdlets när Azure Cloud Shell har lästs in.
 
@@ -67,7 +68,8 @@ För att komma igång måste du konfigurera ett Azure NetApp Files-konto.
 
 6. Välj **alla tjänster**på vänster sida i fönstret. Ange **Azure NetApp Files** i sökrutan som visas överst på menyn.
 
-   ![En skärm bild av en användare som anger "Azure NetApp Files" i sökrutan alla tjänster. Sök resultatet visar Azure NetApp Files resursen.](media/azure-netapp-files-search-box.png)
+   > [!div class="mx-imgBorder"]
+   > ![En skärm bild av en användare som anger "Azure NetApp Files" i sökrutan alla tjänster. Sök resultatet visar Azure NetApp Files resursen.](media/azure-netapp-files-search-box.png)
 
 
 7. Välj **Azure NetApp Files** i Sök resultaten och välj sedan **skapa**.
@@ -108,7 +110,8 @@ Därefter måste du ansluta till en Active Directory-anslutning.
 
 1. Välj **Active Directory anslutningar** på menyn till vänster på sidan och välj sedan knappen **Anslut** för att öppna sidan **Anslut Active Directory** .
 
-   ![En skärm bild av menyn Anslut till Active Directory anslutningar.](media/active-directory-connections-menu.png)
+   > [!div class="mx-imgBorder"]
+   > ![En skärm bild av menyn Anslut till Active Directory anslutningar.](media/active-directory-connections-menu.png)
 
 2. Ange följande värden på sidan **anslut Active Directory** för att ansluta till en anslutning:
 
@@ -148,7 +151,8 @@ När du har skapat volymen konfigurerar du parametrarna för volym åtkomst.
 
 6.  Om du vill se monterings Sök vägen väljer du **gå till resurs** och letar efter den på fliken Översikt.
 
-    ![En skärm bild av översikts skärmen med en röd pil som pekar på monterings banan.](media/overview-mount-path.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av översikts skärmen med en röd pil som pekar på monterings banan.](media/overview-mount-path.png)
 
 ## <a name="configure-fslogix-on-session-host-virtual-machines-vms"></a>Konfigurera FSLogix på sessioner som är värdar för virtuella datorer (VM)
 
@@ -218,7 +222,8 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 4. Öppna **Azure NetApp Files**, välj ditt Azure NetApp Files-konto och välj sedan **volymer**. När menyn volymer öppnas väljer du motsvarande volym.
 
-   ![En skärm bild av NetApp-kontot som du ställer in tidigare i Azure Portal med knappen volymer valt.](media/netapp-account.png)
+   > [!div class="mx-imgBorder"]
+   > ![En skärm bild av NetApp-kontot som du ställer in tidigare i Azure Portal med knappen volymer valt.](media/netapp-account.png)
 
 5. Gå till fliken **Översikt** och bekräfta att FSLogix profil container använder utrymme.
 
@@ -226,7 +231,8 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
    I den här mappen bör det finnas en profil-VHD (eller VHDX) som den som finns i följande exempel.
 
-   ![En skärm bild av innehållet i mappen i monterings Sök vägen. Inuti är en enda VHD-fil med namnet "Profile_ssbb".](media/mount-path-folder.png)
+   > [!div class="mx-imgBorder"]
+   > ![En skärm bild av innehållet i mappen i monterings Sök vägen. Inuti är en enda VHD-fil med namnet "Profile_ssbb".](media/mount-path-folder.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

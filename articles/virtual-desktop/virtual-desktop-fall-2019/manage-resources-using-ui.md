@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b2680a463bd0150a92dc587eb2f233ef58a58f6d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 307fe6cd287d7a58435f745cd066be8308293267
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214170"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362116"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg med en Azure Resource Manager mall
 
@@ -71,11 +71,13 @@ När GitHub Azure Resource Manager-mallen har slutförts hittar du en resurs gru
 
 Innan du loggar in och använder hanterings verktyget måste du ange ett godkännande för det nya Azure AD-programmet som är associerat med hanterings verktyget. Genom att tillhandahålla medgivande kan hanterings verktyget göra Windows-hantering för virtuella skriv bord åt den användare som för närvarande har loggat in till verktyget.
 
-![En skärm bild som visar de behörigheter som tillhandahålls när du godkänner användar gränssnitts hanterings verktyget.](../media/management-ui-delegated-permissions.png)
+> [!div class="mx-imgBorder"]
+> ![En skärm bild som visar de behörigheter som tillhandahålls när du godkänner användar gränssnitts hanterings verktyget.](../media/management-ui-delegated-permissions.png)
 
 För att avgöra vilken användare du kan använda för att logga in på verktyget går du till [sidan Azure Active Directory användar inställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) och noterar värdet för **användarna kan godkänna att appar får åtkomst till företags data för deras räkning**.
 
-![En skärm bild som visar om användarna kan ge tillåtelse till program enbart för användare.](../media/management-ui-user-consent-allowed.png)
+> [!div class="mx-imgBorder"]
+> ![En skärm bild som visar om användarna kan ge tillåtelse till program enbart för användare.](../media/management-ui-user-consent-allowed.png)
 
 - Om värdet är inställt på **Ja**kan du logga in med ett användar konto i Azure Active Directory och bara ge användaren tillåtelse. Men om du loggar in på hanterings verktyget med en annan användare senare, måste du utföra samma medgivande igen.
 - Om värdet är inställt på **Nej**, måste du logga in som global administratör i Azure Active Directory och ge administratörs tillåtelse för alla användare i katalogen. Inga andra användare får ett medgivande.
@@ -87,7 +89,8 @@ När du har bestämt vilken användare du ska använda för att ge sitt medgivan
 2. Logga in med lämpligt Azure Active Directory användar konto.
 3. Om du har autentiserats med en global administratör kan du nu Markera kryss rutan för **din organisations räkning**. Välj **acceptera** för att ge medgivande.
 
-   ![En skärm bild som visar sidan för fullständigt godkännande som användaren eller administratören ser.](../media/management-ui-consent-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![En skärm bild som visar sidan för fullständigt godkännande som användaren eller administratören ser.](../media/management-ui-consent-page.png)
 
 Nu ska du gå till hanterings verktyget.
 

@@ -1,5 +1,5 @@
 ---
-title: Hantera ett tvillingdiagram med relationer
+title: Hantera den dubbla grafen med relationer
 titleSuffix: Azure Digital Twins
 description: Se hur du hanterar en graf med digitala dubbla, genom att ansluta dem till relationer.
 author: baanders
@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e332936543cc36e20b88da4ce5cc9115d0890967
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 13ceed847b3946b47fb3389145843ad085391dc5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725706"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362806"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Hantera en graf med digitala dubbla med relationer
 
@@ -23,7 +23,7 @@ Hjärtat i Azure Digitals flätas är det [dubbla diagrammet](concepts-twins-gra
 
 När du har en fungerande [Azure Digital-instans](how-to-set-up-instance.md) och har konfigurerat [autentisering](how-to-authenticate-client.md) för din klient app, kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md) för att skapa, ändra och ta bort digitala dubbla och deras relationer i en Azure Digital-instans. Du kan också använda [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätat CLI](how-to-use-cli.md).
 
-Den här artikeln fokuserar på att hantera relationer och diagrammet som helhet. information om hur du arbetar med enskilda digitala dubbla, finns i [så här gör du: hantera en digital, dubbel](how-to-manage-twin.md).
+Den här artikeln fokuserar på att hantera relationer och diagrammet som helhet. information om hur du arbetar med enskilda digitala dubbla, finns i [så här gör du: hantera digitala dubbla](how-to-manage-twin.md).
 
 ## <a name="create-relationships"></a>Skapa relationer
 

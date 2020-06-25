@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 14bf43375e2ebe37d496a7343c5f85c41f55bc29
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307860"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362150"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Skapa en röstassistent med Anpassade kommandon
 
@@ -24,7 +24,7 @@ I den här snabb starten skapar du och testar ett grundläggande anpassat komman
 ## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs i en region som stöder anpassade kommandon.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Ladda ned exempel filen [Smart Room lite](https://aka.ms/speech/cc-quickstart) JSON.
 > * Ladda ned den senaste versionen av [Windows Voice Assistant-klienten](https://aka.ms/speech/va-samples-wvac).
 
@@ -82,7 +82,8 @@ Nu bör du se Översikt över dina nya anpassade kommandon.
     - Aktivera TV
     - Ange temperatur till 80 grader
     - Stäng av den
-    - Ange ett larm
+    - TV
+    - Ange ett larm för 5 PM
 
 ## <a name="integrate-custom-commands-application-in-an-assistant"></a>Integrera program för anpassade kommandon i en assistent
 Innan du kan komma åt det här programmet från externa tal Studio måste du publicera programmet. För att publicera ett program måste du konfigurera en förutsägelse LUIS-resurs.  
@@ -110,7 +111,7 @@ Du kan också hämta dessa värden genom att välja allmänna **Inställningar**
 
 I den här artikeln kommer vi att använda Windows Voice Assistant-klienten som du laddade ned som en del av kraven. Zippa upp mappen.
 1. Starta **VoiceAssistantClient.exe**.
-1. Skapa en ny publicerings profil och ange ett värde för **anslutnings profilen**. I avsnittet **allmänna inställningar** anger du värden **prenumerations nyckel**, **prenumerations nyckel region** och **anpassade kommandon app-ID**.
+1. Skapa en ny publicerings profil och ange ett värde för **anslutnings profilen**. I avsnittet **allmänna inställningar** anger du **prenumerations nyckel** för värden (detta är samma som det **tal resurs nyckel** värde som du sparade vid publicering av programmet), **prenumerations nyckel region** och **anpassade kommandon app-ID**.
     > [!div class="mx-imgBorder"]
     > ![Skapa profil för WVAC](media/custom-commands/create-profile.png)
 1. Välj **Spara och Använd profil**.

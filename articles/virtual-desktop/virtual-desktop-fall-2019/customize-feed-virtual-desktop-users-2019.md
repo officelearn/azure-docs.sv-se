@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f6b956981269bca83140e4d1d08067b2d0db0d1d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 58f05b2f9f15166e161b31578b47cf06afcb13a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204786"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362585"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Anpassa feed för Windows Virtual Desktop-användare
 
@@ -37,14 +37,18 @@ Om du vill hämta en lista över publicerade RemoteApp-program för en app-grupp
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](../media/get-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](../media/get-rdsremoteapp.png)
 
 Om du vill tilldela ett eget namn till en RemoteApp kör du följande PowerShell-cmdlet:
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![En skärm bild av PowerShell-cmdleten Set-RDSRemoteApp med namnet och nytt FriendlyName har marker ATS.](../media/set-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![En skärm bild av PowerShell-cmdleten Set-RDSRemoteApp med namnet och nytt FriendlyName har marker ATS.](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Anpassa visnings namnet för ett fjärr skrivbord
 
@@ -55,14 +59,18 @@ Kör följande PowerShell-cmdlet för att hämta fjärr skrivbords resursen:
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](../media/get-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](../media/get-rdsremotedesktop.png)
 
 Om du vill tilldela fjärr skrivbords resursen ett eget namn kör du följande PowerShell-cmdlet:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![En skärm bild av PowerShell-cmdleten Set-RDSRemoteApp med namnet och nytt FriendlyName har marker ATS.](../media/set-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![En skärm bild av PowerShell-cmdleten Set-RDSRemoteApp med namnet och nytt FriendlyName har marker ATS.](../media/set-rdsremotedesktop.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

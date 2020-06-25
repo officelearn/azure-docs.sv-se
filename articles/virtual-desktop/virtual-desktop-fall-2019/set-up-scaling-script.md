@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3a82665f197301fe81c448dd18181f0602bdbef
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209801"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362551"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
 
@@ -106,7 +106,8 @@ Först behöver du ett Azure Automation-konto för att köra PowerShell-runbooke
 
 6. När du har konfigurerat ditt Azure Automation-konto loggar du in på din Azure-prenumeration och kontrollerar att ditt Azure Automation-konto och att den relevanta runbooken har visats i den angivna resurs gruppen, som du ser i följande bild:
 
-![En bild av sidan för Azure-översikten visar det nyligen skapade Automation-kontot och runbooken.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![En bild av sidan för Azure-översikten visar det nyligen skapade Automation-kontot och runbooken.](../media/automation-account.png)
 
   Markera namnet på din Runbook för att kontrol lera om din webhook är där det ska vara. Gå sedan till avsnittet resurser för Runbook och välj **Webhooks**.
 
@@ -236,11 +237,13 @@ Slutligen måste du skapa Azure Logic-appen och konfigurera ett körnings schema
 
      När du har kört skriptet ska den logiska appen visas i en resurs grupp, som du ser i följande bild.
 
-     ![En bild av översikts sidan för ett exempel på en Azure Logic-app.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![En bild av översikts sidan för ett exempel på en Azure Logic-app.](../media/logic-app.png)
 
 Om du vill göra ändringar i körnings schemat, till exempel ändra intervallet eller tids zonen för upprepning, går du till autoskalning Scheduler och väljer **Redigera** för att gå till Logic Apps designer.
 
-![En bild av Logic Apps designer. De upprepnings-och webhook-menyer som låter användaren redigera upprepnings tider och webhook-filen är öppen.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![En bild av Logic Apps designer. De upprepnings-och webhook-menyer som låter användaren redigera upprepnings tider och webhook-filen är öppen.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>Hantera skalnings verktyget
 
@@ -252,7 +255,8 @@ Du kan visa en sammanfattnings status för alla Runbook-jobb eller Visa en mer d
 
 Till höger om det valda Automation-kontot under "jobb statistik" kan du Visa en lista över sammanfattningar av alla Runbook-jobb. Om du öppnar sidan **jobb** till vänster i fönstret visas aktuella jobb status, start tider och slut för ande tider.
 
-![En skärm bild av sidan jobb status.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![En skärm bild av sidan jobb status.](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>Visa utdata för loggar och skalnings verktyg
 
@@ -260,5 +264,6 @@ Du kan visa loggarna för skalnings-och skalnings åtgärder genom att öppna di
 
 Navigera till runbooken (standard namnet är WVDAutoScaleRunbook) i resurs gruppen som är värd för Azure Automation konto och välj **Översikt**. På sidan Översikt väljer du ett jobb under senaste jobb för att Visa skalnings verktygets utdata, som du ser i följande bild.
 
-![En bild av utdatafönstret för skalnings verktyget.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![En bild av utdatafönstret för skalnings verktyget.](../media/tool-output.png)
 

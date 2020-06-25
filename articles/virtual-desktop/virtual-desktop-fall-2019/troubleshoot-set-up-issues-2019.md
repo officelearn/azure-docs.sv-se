@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 195668886a0c1ba9f96939a7e5e3960a6932dee5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 124d81651cd937dc9671f725f54826b1ff9a42a5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235897"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362330"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -30,7 +30,8 @@ Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.co
 
 Om du vill använda Windows 10 Enterprise-avbildningen av flera sessioner går du till Azure Marketplace, väljer **Kom igång**  >  **Microsoft Windows 10** > och [Windows 10 Enterprise för virtuella skriv bord, version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![En skärm bild av att välja Windows 10 Enterprise för virtuella skriv bord, version 1809.](../media/AzureMarketPlace.png)
+> [!div class="mx-imgBorder"]
+> ![En skärm bild av att välja Windows 10 Enterprise för virtuella skriv bord, version 1809.](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Skapar Windows Virtual Desktop-klient
 
@@ -54,7 +55,8 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: användaren har inte behörighet att fråga hanterings tjänsten
 
-![Skärm bild av PowerShell-fönstret där en användare inte har behörighet att fråga hanterings tjänsten.](../media/UserNotAuthorizedNewTenant.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av PowerShell-fönstret där en användare inte har behörighet att fråga hanterings tjänsten.](../media/UserNotAuthorizedNewTenant.png)
 
 Exempel på RAW-fel:
 
@@ -75,7 +77,8 @@ Exempel på RAW-fel:
 
 **KORRIGERA:** Följ instruktionerna i [tilldela program rollen TenantCreator till en användare i din Azure Active Directory-klient](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). När du har följt anvisningarna får du en användare som tilldelats rollen TenantCreator.
 
-![Skärm bild av TenantCreator-rollen har tilldelats.](../media/TenantCreatorRoleAssigned.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av TenantCreator-rollen har tilldelats.](../media/TenantCreatorRoleAssigned.png)
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Skapar virtuella Windows-datorer för fjärrskrivbordssessioner
 
@@ -87,7 +90,8 @@ Den virtuella Windows-datorn – etablera en mall för värd pool är tillgängl
 
 ### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Fel: när du använder länken från GitHub visas meddelandet "skapa ett kostnads fritt konto"
 
-![Skärm bild för att skapa ett kostnads fritt konto.](../media/be615904ace9832754f0669de28abd94.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild för att skapa ett kostnads fritt konto.](../media/be615904ace9832754f0669de28abd94.png)
 
 **Orsak 1:** Det finns inga aktiva prenumerationer i kontot som används för att logga in på Azure, eller så har det konto som används inte behörighet att Visa prenumerationerna.
 
@@ -110,7 +114,8 @@ Den virtuella Windows-datorn – etablera en mall för värd pool är tillgängl
 
 ### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Fel: fel meddelandet "mall distributionen är inte giltig"
 
-![Skärm bild av "mall distribution... är inte giltigt "fel](../media/troubleshooting-marketplace-validation-error-generic.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av "mall distribution... är inte giltigt "fel](../media/troubleshooting-marketplace-validation-error-generic.png)
 
 Innan du vidtar särskilda åtgärder måste du kontrol lera aktivitets loggen för att se det detaljerade felet för den misslyckade distributions verifieringen.
 
@@ -119,10 +124,14 @@ Så här visar du felet i aktivitets loggen:
 1. Avsluta det aktuella distributions erbjudandet för Azure Marketplace.
 2. I det övre Sök fältet söker du efter och väljer **aktivitets logg**.
 3. Hitta en aktivitet med namnet **validate Deployment** som har statusen **misslyckad** och välj aktiviteten.
-   ![Skärm bild av enskild * * verifiera distribution * * aktivitet med en * * misslyckad * *-status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Skärm bild av enskild * * verifiera distribution * * aktivitet med en * * misslyckad * *-status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Välj JSON och bläddra sedan ned längst ned på skärmen tills du ser fältet "statusMessage".
-   ![Skärm bild av misslyckad aktivitet, med en röd ruta runt statusMessage-egenskapen för JSON-texten.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Skärm bild av misslyckad aktivitet, med en röd ruta runt statusMessage-egenskapen för JSON-texten.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 Om din åtgärds mal len går över kvot gränsen kan du göra något av följande för att åtgärda problemet:
 
@@ -140,7 +149,8 @@ Följ dessa anvisningar för att felsöka misslyckade distributioner av Azure Re
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades.... \<hostname> /JoinDomain
 
-![Det gick inte att distribuera skärm bilden.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
+> [!div class="mx-imgBorder"]
+> ![Det gick inte att distribuera skärm bilden.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 Exempel på RAW-fel:
 
@@ -181,7 +191,8 @@ Exempel på RAW-fel:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Fel: VMExtensionProvisioningError
 
-![Skärm bilden av distributionen misslyckades, det gick inte att etablerings status för terminalen.](../media/7aaf15615309c18a984673be73ac969a.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bilden av distributionen misslyckades, det gick inte att etablerings status för terminalen.](../media/7aaf15615309c18a984673be73ac969a.png)
 
 **Orsak 1:** Tillfälligt fel i Windows-miljön för virtuella datorer.
 
@@ -191,7 +202,8 @@ Exempel på RAW-fel:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: det angivna administratörs användar namnet är inte tillåtet
 
-![Skärm bild av distributionen misslyckades i vilken en angiven administratör inte tillåts.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av distributionen misslyckades i vilken en angiven administratör inte tillåts.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 Exempel på RAW-fel:
 
@@ -210,7 +222,8 @@ Exempel på RAW-fel:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fel: den virtuella datorn har rapporterat ett fel vid bearbetning av tillägget
 
-![Skärm bild av resurs åtgärden slutfördes med etablerings statusen för terminalen i distributionen misslyckades.](../media/49c4a1836a55d91cd65125cf227f411f.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av resurs åtgärden slutfördes med etablerings statusen för terminalen i distributionen misslyckades.](../media/49c4a1836a55d91cd65125cf227f411f.png)
 
 Exempel på RAW-fel:
 
@@ -236,7 +249,8 @@ Exempel på RAW-fel:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Fel: DeploymentFailed – PowerShell DSC-konfigurationen ' FirstSessionHost ' slutfördes med fel
 
-![Skärm bild av distributionen fungerar inte med PowerShell DSC-konfigurationen FirstSessionHost slutfördes med fel.](../media/64870370bcbe1286906f34cf0a8646ab.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av distributionen fungerar inte med PowerShell DSC-konfigurationen FirstSessionHost slutfördes med fel.](../media/64870370bcbe1286906f34cf0a8646ab.png)
 
 Exempel på RAW-fel:
 
@@ -365,7 +379,8 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Fel: användaren måste använda Azure Multi-Factor Authentication (MFA)
 
-![Skärm bild av distributionen misslyckades på grund av brist på Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av distributionen misslyckades på grund av brist på Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
 
 Exempel på RAW-fel:
 

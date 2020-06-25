@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Se hur du tolkar olika händelse typer och deras olika meddelanden.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e194c046cde623e0fcdd4c73ac24f2bf0755945c
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: e8a1bb19a18f43bae4639d2ca9d9b9941bd29324
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299440"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362838"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
 
@@ -39,7 +39,11 @@ Vissa meddelanden uppfyller CloudEvents-standarden. CloudEvents-överensstämmel
 * Meddelanden som släpps från [digitala garn](concepts-twins-graph.md) med en [modell](concepts-models.md) som överensstämmer med CloudEvents
 * Meddelanden som bearbetas och genereras av Azure Digitals dubblare följer CloudEvents
 
-Tjänster måste lägga till ett sekvensnummer i alla meddelanden för att indikera deras ordning eller upprätthålla sin egen ordning på något annat sätt. Meddelanden som skickas av digitala Digital-meddelanden i Azure till Event Grid formateras i Event Grid schemat tills Event Grid har stöd för CloudEvents. Tilläggets attribut för rubriker läggs till som egenskaper i Event Grid-schemat i nytto lasten. 
+Tjänster måste lägga till ett sekvensnummer i alla meddelanden för att indikera deras ordning eller upprätthålla sin egen ordning på något annat sätt. 
+
+Meddelanden som skickas av digitala Digital-meddelanden till Event Grid automatiskt formateras till antingen CloudEvents-schemat eller EventGridEvent-schemat, beroende på vilken schema typ som definierats i avsnittet Event Grid. 
+
+Tilläggets attribut för rubriker läggs till som egenskaper i Event Grid-schemat i nytto lasten. 
 
 ### <a name="event-notification-bodies"></a>Händelse meddelande texter
 
@@ -50,43 +54,39 @@ Uppsättningen fält som texten innehåller varierar beroende på olika meddelan
 Telemetri-meddelande:
 
 ```json
-{ 
-    "specversion": "1.0", 
-    "type": "microsoft.iot.telemetry", 
-    "source": "myhub.westus2.azuredigitaltwins.net", 
-    "subject": "thermostat.vav-123", 
-    "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a",
-    "dataschema": "dtmi:com:contoso:DigitalTwins:VAV;1",
-    "time": "2018-04-05T17:31:00Z", 
-    "datacontenttype" : "application/json", 
-    "data":  
-      {
-          "temp": 70,
-          "humidity": 40 
-      }
+{
+  "specversion": "1.0",
+  "id": "df5a5992-817b-4e8a-b12c-e0b18d4bf8fb",
+  "type": "microsoft.iot.telemetry",
+  "source": "contoso-adt.api.wus2.digitaltwins.azure.net/digitaltwins/room1",
+  "data": {
+    "Temperature": 10
+  },
+  "dataschema": "dtmi:example:com:floor4;2",
+  "datacontenttype": "application/json",
+  "traceparent": "00-7e3081c6d3edfb4eaf7d3244b2036baa-23d762f4d9f81741-01"
 }
 ```
 
 Meddelande om livs cykel meddelande:
 
 ```json
-{ 
-    "specversion": "1.0", 
-    "type": "microsoft.digitaltwins.twin.create", 
-    "source": "mydigitaltwins.westus2.azuredigitaltwins.net", 
-    "subject": "device-123", 
-    "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a", 
-    "time": "2018-04-05T17:31:00Z", 
-    "datacontenttype" : "application/json", 
-    "dataschema": "dtmi:com:contoso:DigitalTwins:Device;1",           
-    "data":  
-      { 
-        "$dtId": "room-123", 
-        "property": "value",
-        "$metadata": { 
-                //...
-        } 
-      } 
+{
+  "specversion": "1.0",
+  "id": "d047e992-dddc-4a5a-b0af-fa79832235f8",
+  "type": "Microsoft.DigitalTwins.Twin.Create",
+  "source": "contoso-adt.api.wus2.digitaltwins.azure.net",
+  "data": {
+    "$dtId": "floor1",
+    "$etag": "W/\"e398dbf4-8214-4483-9d52-880b61e491ec\"",
+    "$metadata": {
+      "$model": "dtmi:example:Floor;1"
+    }
+  },
+  "subject": "floor1",
+  "time": "2020-06-23T19:03:48.9700792Z",
+  "datacontenttype": "application/json",
+  "traceparent": "00-18f4e34b3e4a784aadf5913917537e7d-691a71e0a220d642-01"
 }
 ```
 
@@ -111,12 +111,11 @@ Här är fälten i bröd texten i ett meddelande om livs cykel.
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse. |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Create`<br>`Microsoft.DigitalTwins.TwinProxy.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Attach`<br>`Microsoft.DigitalTwins.TwinProxy.Detach` |
-| `datacontenttype` | application/json |
+| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
+| `datacontenttype` | `application/json` |
 | `subject` | ID för den digitala dubbla |
 | `time` | Tidsstämpel för när åtgärden utfördes på den dubbla |
-| `sequence` | Värde som uttrycker händelsens position i den större sorterade sekvensen av händelser. Tjänster måste lägga till ett sekvensnummer i alla meddelanden för att indikera deras ordning eller upprätthålla sin egen ordning på något annat sätt. Serie numret ökar med varje meddelande. Det kommer att återställas till 1 om objektet tas bort och återskapas med samma ID. |
-| `sequencetype` | Mer information om hur fältet Sequence används. Den här egenskapen kan till exempel ange att värdet måste vara ett signerat 32-bitars heltal som börjar vid 1 och ökar med 1 varje tillfälle. |
+| `traceparent` | En W3C-spårnings kontext för händelsen |
 
 #### <a name="body-details"></a>Information om brödtext
 
@@ -165,7 +164,6 @@ Här är ett annat exempel på en digital, dubbel. Den här baseras på en [mode
   "comfortIndex": 85,
   "$metadata": {
     "$model": "dtmi:com:contoso:Building;1",
-    "$kind": "DigitalTwin",
     "avgTemperature": {
       "desiredValue": 72,
       "desiredVersion": 5,
@@ -197,11 +195,11 @@ Här är fälten i bröd texten för en Edge Change-avisering.
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id`är unikt för varje distinkt händelse |
 | `source` | Namnet på den digitala Azure-instansen, till exempel *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`<br>`datacontenttype    application/json for Relationship.Create`<br>`application/json-patch+json for Relationship.Update` |
-| `subject` | ID för relationen, t. ex.`<twinID>/relationships/<relationshipName>/<edgeID>` |
+| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
+|`datacontenttype`| `application/json` |
+| `subject` | ID för relationen, t. ex.`<twinID>/relationships/<relationshipName>` |
 | `time` | Tidsstämpel för när åtgärden utfördes för relationen |
-| `sequence` | Värde som uttrycker händelsens position i den större sorterade sekvensen av händelser. Tjänster måste lägga till ett sekvensnummer i alla meddelanden för att indikera deras ordning eller upprätthålla sin egen ordning på något annat sätt. Serie numret ökar med varje meddelande. Det kommer att återställas till 1 om objektet tas bort och återskapas med samma ID. |
-| `sequencetype` | Mer information om hur fältet Sequence används. Den här egenskapen kan till exempel ange att värdet måste vara ett signerat 32-bitars heltal som börjar vid 1 och ökar med 1 varje tillfälle. |
+| `traceparent` | En W3C-spårnings kontext för händelsen |
 
 #### <a name="body-details"></a>Information om brödtext
 
@@ -212,13 +210,16 @@ Texten är nytto lasten i en relation, även i JSON-format. Den använder samma 
 Här är ett exempel på ett uppdaterings Relations meddelande för att uppdatera en egenskap:
 
 ```json
-[
-  {
-    "op": "replace",
-    "path": "ownershipUser",
-    "value": "user3"
+{
+    "modelId": "dtmi:example:Floor;1",
+    "patch": [
+      {
+        "value": "user3",
+        "path": "/ownershipUser",
+        "op": "replace"
+      }
+    ]
   }
-]
 ```
 
 För `Relationship.Delete` är texten samma som `GET` begäran, och den hämtar det senaste läget innan det tas bort.
@@ -227,7 +228,7 @@ Här är ett exempel på ett meddelande om att skapa eller ta bort relationer:
 
 ```json
 {
-    "$relationshipId": "EdgeId1",
+    "$relationshipName": "RelationshipName1",
     "$sourceId": "building11",
     "$relationshipName": "Contains",
     "$targetId": "floor11",
@@ -235,6 +236,7 @@ Här är ett exempel på ett meddelande om att skapa eller ta bort relationer:
     "ownershipDepartment": "Operations"
 }
 ```
+
 
 ### <a name="digital-twin-change-notifications"></a>Digitala dubbla ändrings meddelanden
 
@@ -252,11 +254,10 @@ Här är fälten i bröd texten i ett digitalt meddelande om ändring av dubbla 
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net*
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
-| `datacontenttype` | Application/JSON-patch + JSON |
+| `datacontenttype` | `application/json` |
 | `subject` | ID för den digitala dubbla |
 | `time` | Tidsstämpel för när åtgärden utfördes på den digitala, dubbla |
-| `sequence` | Värde som uttrycker händelsens position i den större sorterade sekvensen av händelser. Tjänster måste lägga till ett sekvensnummer i alla meddelanden för att indikera deras ordning eller upprätthålla sin egen ordning på något annat sätt. Serie numret ökar med varje meddelande. Det kommer att återställas till 1 om objektet tas bort och återskapas med samma ID. |
-| `sequencetype` | Mer information om hur fältet Sequence används. Den här egenskapen kan till exempel ange att värdet måste vara ett signerat 32-bitars heltal som börjar vid 1 och ökar med 1 varje tillfälle. |
+| `traceparent` | En W3C-spårnings kontext för händelsen |
 
 #### <a name="body-details"></a>Information om brödtext
 
@@ -266,28 +267,37 @@ Anta till exempel att en digital, dubbel har uppdaterats med följande korrigeri
 
 ```json
 [
-  {
-    "op": "replace",
-    "path": "/mycomp/prop1",
-    "value": {"a":3}
-  }
+    {
+        "op": "replace",
+        "value": 40,
+        "path": "/Temperature"
+    },
+    {
+        "op": "add",
+        "value": 30,
+        "path": "/comp1/prop1"
+    }
 ]
 ```
 
 Motsvarande meddelande (om synkront utförd av tjänsten, t. ex. Azure Digitals, som uppdaterar en digital enhet), har en brödtext som:
 
 ```json
-[
-    { "op": "replace", "path": "/myComp/prop1", "value": {"a": 3}},
-    { "op": "replace", "path": "/myComp/$metadata/prop1",
-        "value": {
-            "desiredValue": { "a": 3 },
-            "desiredVersion": 2,
-                "ackCode": 200,
-            "ackVersion": 2 
-        }
-    }
-]
+{
+    "modelId": "dtmi:example:com:floor4;2",
+    "patch": [
+      {
+        "value": 40,
+        "path": "/Temperature",
+        "op": "replace"
+      },
+      {
+        "value": 30,
+        "path": "/comp1/prop1",
+        "op": "add"
+      }
+    ]
+  }
 ```
 
 ## <a name="next-steps"></a>Nästa steg

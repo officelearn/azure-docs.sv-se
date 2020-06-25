@@ -2,24 +2,20 @@
 title: Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal – Azure RBAC
 description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av Azure Portal och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3e4d2dca6817951f2f06a86c4338106f194b7751
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 76f4f39e7def192b8cb97c37aefc9f67d82ad4be
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790967"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362258"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal
 
@@ -35,11 +31,11 @@ Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
 ## <a name="access-control-iam"></a>Åtkomstkontroll (IAM)
 
-**Åtkomst kontroll (IAM)** är det blad som du använder för att tilldela roller för att bevilja åtkomst till Azure-resurser. Det kallas även identitets-och åtkomst hantering och visas på flera platser i Azure Portal. Följande visar ett exempel på bladet åtkomst kontroll (IAM) för en prenumeration.
+**Åtkomst kontroll (IAM)** är den sida som du vanligt vis använder för att tilldela roller för att bevilja åtkomst till Azure-resurser. Det kallas även identitets-och åtkomst hantering och visas på flera platser i Azure Portal. Följande visar ett exempel på sidan åtkomst kontroll (IAM) för en prenumeration.
 
-![Åtkomst kontroll (IAM) bladet för en prenumeration](./media/role-assignments-portal/access-control-subscription.png)
+![Sidan åtkomst kontroll (IAM) för en prenumeration](./media/role-assignments-portal/access-control-subscription.png)
 
-För att bli mest effektiv med åtkomst kontroll bladet (IAM), hjälper det om du kan besvara följande tre frågor när du försöker tilldela en roll:
+För att bli mest effektiv med åtkomst kontroll (IAM)-sidan, hjälper det om du kan svara på följande tre frågor när du försöker tilldela en roll:
 
 1. **Vem behöver åtkomst?**
 
@@ -71,7 +67,7 @@ Du lägger till en roll tilldelning i Azure RBAC för att bevilja åtkomst till 
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
-   ![Menyn Lägg till](./media/role-assignments-portal/add-menu.png)
+   ![Menyn Lägg till roll tilldelning](./media/shared/add-role-assignment-menu.png)
 
     Fönstret Lägg till rolltilldelning öppnas.
 
@@ -105,7 +101,7 @@ Om du vill göra en användare till en administratör för en Azure-prenumeratio
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
-   ![Menyn Lägg till](./media/role-assignments-portal/add-menu.png)
+   ![Menyn Lägg till roll tilldelning](./media/shared/add-role-assignment-menu.png)
 
     Fönstret Lägg till rolltilldelning öppnas.
 
@@ -118,6 +114,75 @@ Om du vill göra en användare till en administratör för en Azure-prenumeratio
 1. Klicka på **Spara** för att tilldela rollen.
 
    Efter en stund tilldelas rollen Ägare till användaren i prenumerationsomfånget.
+
+## <a name="add-a-role-assignment-for-a-managed-identity-preview"></a>Lägg till en roll tilldelning för en hanterad identitet (förhands granskning)
+
+Du kan lägga till roll tilldelningar för en hanterad identitet med hjälp av sidan **åtkomst kontroll (IAM)** enligt beskrivningen ovan i den här artikeln. När du använder sidan åtkomst kontroll (IAM) börjar du med omfånget och väljer sedan den hanterade identiteten och rollen. I det här avsnittet beskrivs ett alternativt sätt att lägga till roll tilldelningar för en hanterad identitet. Med de här stegen börjar du med den hanterade identiteten och väljer sedan omfattning och roll.
+
+> [!IMPORTANT]
+> Att lägga till en roll tilldelning för en hanterad identitet med de här alternativa stegen är för närvarande en för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
+
+Följ dessa steg om du vill tilldela en roll till en systemtilldelad hanterad identitet genom att börja med den hanterade identiteten.
+
+1. I Azure Portal öppnar du en systemtilldelad hanterad identitet.
+
+1. Klicka på **identitet**i den vänstra menyn.
+
+    ![Systemtilldelad hanterad identitet](./media/shared/identity-system-assigned.png)
+
+1. Under **behörigheter**klickar du på **roll tilldelningar för Azure**.
+
+    Om roller redan har tilldelats den valda systemtilldelade hanterade identiteten visas en lista över roll tilldelningar. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
+
+    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/shared/role-assignments-system-assigned.png)
+
+1. Klicka på **prenumerations** listan om du vill ändra prenumerationen.
+
+1. Klicka på **Lägg till roll tilldelning (för hands version)**.
+
+1. Använd List rutorna för att välja den uppsättning resurser som roll tilldelningen avser, till exempel **prenumeration**, **resurs grupp**eller resurs.
+
+    Om du inte har Skriv behörighet för roll tilldelning för det valda omfånget visas ett infogat meddelande. 
+
+1. I listrutan **Roll** väljer du en roll, till exempel **Virtuell datordeltagare**.
+
+   ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Klicka på **Spara** för att tilldela rollen.
+
+   Efter en liten stund tilldelas den hanterade identiteten rollen i det valda omfånget.
+
+### <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
+
+Följ dessa steg om du vill tilldela en roll till en användardefinierad hanterad identitet genom att börja med den hanterade identiteten.
+
+1. Öppna en användardefinierad hanterad identitet i Azure Portal.
+
+1. Klicka på **roll tilldelningar för Azure**i den vänstra menyn.
+
+    Om roller redan har tilldelats den valda användarspecifika hanterade identiteten visas listan över roll tilldelningar. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
+
+    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/shared/role-assignments-user-assigned.png)
+
+1. Klicka på **prenumerations** listan om du vill ändra prenumerationen.
+
+1. Klicka på **Lägg till roll tilldelning (för hands version)**.
+
+1. Använd List rutorna för att välja den uppsättning resurser som roll tilldelningen avser, till exempel **prenumeration**, **resurs grupp**eller resurs.
+
+    Om du inte har Skriv behörighet för roll tilldelning för det valda omfånget visas ett infogat meddelande. 
+
+1. I listrutan **Roll** väljer du en roll, till exempel **Virtuell datordeltagare**.
+
+   ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Klicka på **Spara** för att tilldela rollen.
+
+   Efter en liten stund tilldelas den hanterade identiteten rollen i det valda omfånget.
 
 ## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
 

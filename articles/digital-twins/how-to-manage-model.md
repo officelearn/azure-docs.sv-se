@@ -1,5 +1,5 @@
 ---
-title: Hantera en tvillingmodell
+title: Hantera anpassade modeller
 titleSuffix: Azure Digital Twins
 description: Se hur du skapar, redigerar och tar bort en modell i Azures digitala dubbla.
 author: baanders
@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 6c023ff8419a41353e0c8aff70d04c5b9fcb27a4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 7d9fd0386f13f6c3e6df7b9d8bcf120b55c6446d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725655"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362789"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -112,7 +112,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Ett exempel:
+Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Till exempel:
 
 ```json
 [
@@ -255,4 +255,4 @@ Modeller kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommando
 ## <a name="next-steps"></a>Nästa steg
 
 Se hur du skapar och hanterar digitala dubbla, baserade på dina modeller:
-* [Anvisningar: hantera en digital, dubbel](how-to-manage-twin.md)
+* [Anvisningar: hantera digitala dubbla](how-to-manage-twin.md)

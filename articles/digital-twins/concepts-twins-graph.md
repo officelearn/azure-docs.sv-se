@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 4e2b223337bbe5d46f314a8d2126ab562b937445
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 79035a2fa2f7f3bed4890faa749661f025cea312
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726089"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362874"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
 
@@ -187,8 +187,8 @@ Här är ett exempel på en relation som är formaterad som ett JSON-objekt:
 ## <a name="next-steps"></a>Nästa steg
 
 Se Hantera diagram element med Azures digitala dubbla API: er:
-* [Anvisningar: hantera en digital, dubbel](how-to-manage-twin.md)
-* [Anvisningar: hantera en dubbel graf med relationer](how-to-manage-graph.md)
+* [Anvisningar: hantera digitala dubbla](how-to-manage-twin.md)
+* [Anvisningar: hantera den dubbla grafen med relationer](how-to-manage-graph.md)
 
 Eller Lär dig mer om att skicka frågor till Azure Digitals dubbla grafer för information:
 * [Begrepp: frågespråk](concepts-query-language.md)

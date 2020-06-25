@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 81a3d8e08486f76fc23a489acd3138d7b9fe8134
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711637"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362364"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -121,7 +121,8 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 
 ### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: statusen som har arkiverats i get-AzWvdSessionHost-cmdlet: en visar status som otillgänglig
 
-![Get-AzWvdSessionHost-cmdlet: en visar status som ej tillgänglig.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Get-AzWvdSessionHost-cmdlet: en visar status som ej tillgänglig.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Orsak:** Agenten kan inte uppdatera sig själv till en ny version.
 
@@ -194,7 +195,8 @@ Om du har problem med den virtuella Windows-skrivbordet sida vid sida, skriver d
 
 Utdata från **Qwinsta** visar **RDP-SXS** i utdata om stacken sida vid sida är installerad och aktive rad.
 
-![Staplad sida vid sida installeras eller aktive ras med Qwinsta listad som RDP-SXS i utdata.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Staplad sida vid sida installeras eller aktive ras med Qwinsta listad som RDP-SXS i utdata.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Granska register posterna i listan nedan och bekräfta att värdena stämmer överens. Om register nycklar saknas eller om värdena inte överensstämmer, följer du anvisningarna i [skapa en adresspool med PowerShell](create-host-pools-powershell.md) om hur du installerar om stacken sida vid sida.
 
@@ -208,7 +210,8 @@ Granska register posterna i listan nedan och bekräfta att värdena stämmer öv
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Fel: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE fel kod.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O_REVERSE_CONNECT_STACK_FAILURE fel kod.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Orsak:** Stacken sida vid sida är inte installerad på den virtuella datorn för sessionen.
 
@@ -244,19 +247,21 @@ Följ de här anvisningarna för att köra reparationen från samma undernät oc
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname är dator namnet på den virtuella datorn med den felaktiga stacken sida vid sida.
 
 7. Godkänn licens avtalet PsExec genom att klicka på Godkänn.
 
-    ![Skärm bild för program varu licens avtal.](media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild för program varu licens avtal.](media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >I den här dialog rutan visas endast den första gången PsExec körs.
 
 8. När kommando tolken har öppnats på den virtuella datorn med fel sida-vid-sida-stack kör du Qwinsta och bekräftar att en post med namnet RDP-SXS är tillgänglig. Om inte, finns inte en sida-vid-sida-stack på den virtuella datorn, så problemet är inte kopplat till stacken sida vid sida.
 
-    ![Administratörs kommando tolk](media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Administratörs kommando tolk](media/AdministratorCommandPrompt.png)
 
 9. Kör följande kommando, som visar en lista över Microsoft-komponenter som är installerade på den virtuella datorn med den felaktiga stacken sida vid sida.
 
@@ -324,7 +329,8 @@ För att kontrol lera vilken version av Windows 10 Enterprise multi-session du h
 3. Välj **om din dator**.
 4. Kontrol lera numret bredvid "version". Talet ska vara antingen "1809" eller "1903", som du ser i följande bild.
 
-    ![En skärm bild av fönstret Windows-specifikationer. Versions numret är markerat i blått.](media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av fönstret Windows-specifikationer. Versions numret är markerat i blått.](media/windows-specifications.png)
 
 Nu när du vet versions numret kan du gå vidare till relevant avsnitt.
 

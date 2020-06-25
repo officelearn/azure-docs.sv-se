@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: be5709c8ccf8626ac3a48fdf7cad1c61dbfbf628
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 87d57470ffbe1d65bb646c51387e15e58ab6fa30
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729529"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362925"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -59,7 +59,7 @@ För att definiera en händelse väg måste utvecklare först definiera slut pun
 * Service Bus
 
 Slut punkter konfigureras med hjälp av API: er för kontroll plan (stöds av [Azure Digitals flätat CLI](how-to-use-cli.md)eller via Azure Portal. En slut punkts definition ger:
-* Slut punktens ID (eller eget namn)
+* Slut punktens namn
 * Slut punkts typ (Event Grid, Händelsehubben eller Service Bus)
 * Den primära anslutnings strängen och den sekundära anslutnings strängen som ska autentiseras 
 * Avsnitts Sök vägen för slut punkten, till exempel *Your-topic.westus2.eventgrid.Azure.net*
@@ -67,18 +67,18 @@ Slut punkter konfigureras med hjälp av API: er för kontroll plan (stöds av [A
 Slut punkts-API: erna som är tillgängliga i kontroll planet är:
 * Skapa slut punkt
 * Hämta lista över slut punkter
-* Hämta slut punkt efter ID (pass i slut punkts-ID)
-* Ta bort slut punkt per ID (pass i slut punkt ID)
+* Hämta slut punkt efter namn
+* Ta bort slut punkt efter namn
 
 ## <a name="create-an-event-route"></a>Skapa en händelse väg
  
 Händelse vägar skapas i ett klient program med följande [.net (C#) SDK-](how-to-use-apis-sdks.md) anrop: 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-ID>"));
+await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
 ```
 
-* `endpoint-ID`Identifierar en slut punkt, till exempel en händelsehubben, Event Grid eller Service Bus. De här slut punkterna måste skapas i din prenumeration och anslutas till Azure Digital-dubbla med kontroll Plans-API: er innan det här registrerings anropet görs.
+* `endpoint-name`Identifierar en slut punkt, till exempel en händelsehubben, Event Grid eller Service Bus. De här slut punkterna måste skapas i din prenumeration och anslutas till Azure Digital-dubbla med kontroll Plans-API: er innan det här registrerings anropet görs.
 
 Händelse vägen som skickas till `EventRoutes.Add` tar också en [ **filter** parameter](./how-to-manage-routes.md#filter-events)som kan användas för att begränsa vilka typer av händelser som följer den här vägen.
 

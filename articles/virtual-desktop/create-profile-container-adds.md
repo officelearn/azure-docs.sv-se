@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3348920260b6c256b25d0ff2419cdfd2a00dea35
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207319"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362449"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Skapa en profil behållare med Azure Files och Azure AD DS
 
@@ -93,7 +93,8 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
 
     En RDP-fil laddas ned så att du kan logga in på den virtuella datorn med sina egna autentiseringsuppgifter.
 
-    ![En skärm bild av fliken RDP i fönstret Anslut till virtuell dator.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av fliken RDP i fönstret Anslut till virtuell dator.](media/rdp-tab.png)
 
 6. När du har loggat in på den virtuella datorn kör du en kommando tolk som administratör.
 
@@ -108,7 +109,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<share-name>` med namnet på resursen som du skapade tidigare.
     - Ersätt `<storage-account-key>` med lagrings konto nyckeln från Azure.
 
-    Ett exempel:
+    Till exempel:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -123,7 +124,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<mounted-drive-letter>` med bokstaven för den enhet som du vill att användaren ska använda.
     - Ersätt `<user-email>` med UPN för den användare som ska använda profilen för att få åtkomst till de virtuella datorerna i sessionen.
 
-    Ett exempel:
+    Till exempel:
 
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
@@ -156,11 +157,13 @@ Så här konfigurerar du en FSLogix profil behållare:
 
 9.  Högerklicka på **profiler**, Välj **ny**och välj sedan **DWORD (32-bitars) värde.** Ge värdet värdet **aktiverat** och ange värdet **1**för **datavärdet** .
 
-    ![En skärm bild av profil nyckeln. REG_DWORD-filen markeras och dess data värde är inställt på 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av profil nyckeln. REG_DWORD-filen markeras och dess data värde är inställt på 1.](media/dword-value.png)
 
 10. Högerklicka på **profiler**, Välj **ny**och sedan **Multiple String-värde**. Namnge värdet **VHDLocations** och ange en URI för Azure Files-resursen `\\fsprofile.file.core.windows.net\share` som datavärdet.
 
-    ![En skärm bild av profil nyckeln som visar VHDLocations-filen. Dess data värde visar URI för den Azure Files resursen.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av profil nyckeln som visar VHDLocations-filen. Dess data värde visar URI för den Azure Files resursen.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Tilldela användare till en session-värd
 
@@ -199,7 +202,7 @@ Så här tilldelar du användare:
 
     Precis som de tidigare cmdletarna, se till att ersätta `<your-wvd-tenant>` , `<wvd-pool>` och `<user-principal>` med relevanta värden.
 
-    Ett exempel:
+    Till exempel:
 
      ```powershell
      $pool1 = "contoso"

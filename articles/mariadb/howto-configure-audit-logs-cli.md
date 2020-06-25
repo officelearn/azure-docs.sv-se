@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/18/2020
-ms.openlocfilehash: 670fd7f34b75ae05726053decdab7c15cdcdecc8
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.date: 6/24/2020
+ms.openlocfilehash: 1dcad61ed94926aa2aa2237ea735287cd9c9f137
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100839"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362704"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Konfigurera och få åtkomst till gransknings loggar i Azure CLI
 
 Du kan konfigurera [gransknings loggarna för Azure Database for MariaDB](concepts-audit-logs.md) från Azure CLI.
-
-> [!IMPORTANT]
-> Gransknings logg funktionen är för närvarande en för hands version.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,7 +30,7 @@ För att gå igenom den här instruktions guiden behöver du:
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
 
->[!NOTE]
+>[!IMPORTANT]
 > Vi rekommenderar att du bara loggar de händelse typer och användare som krävs för gransknings syfte för att säkerställa att serverns prestanda inte påverkas kraftigt.
 
 Aktivera och konfigurera gransknings loggning med följande steg: 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 04/15/2020
+ms.date: 06/23/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: b26527321cf7fc5ca7fc4b061f11b86f8830ec29
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: ae79a4f7264224f29db4ede0944ae079130b6394
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552322"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362619"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig följande uppgifter:
 > * Skapa en [pipeline för maskin inlärning](concept-ml-pipelines.md) som innehåller ParallelRunStep och kör batch-härledning på MNIST-testavbildningar. 
 > * Skicka en ny körnings härledning igen med nya indata och parametrar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -51,7 +51,7 @@ Följande åtgärder konfigurerar de Machine Learning-resurser som du behöver f
 
 ### <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. `Workspace.from_config()`läser filen config. JSON och läser in informationen i ett objekt med namnet ws.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. `Workspace.from_config()`läser config.jspå filen och läser in informationen i ett objekt med namnet ws.
 
 ```python
 from azureml.core import Workspace
@@ -210,7 +210,7 @@ Skriptet *måste innehålla* två funktioner:
 - `init()`: Använd den här funktionen för eventuell kostsam eller vanlig förberedelse för senare härledning. Använd till exempel den för att läsa in modellen i ett globalt objekt. Den här funktionen kommer endast att anropas en gång i början av processen.
 -  `run(mini_batch)`: Funktionen kommer att köras för varje `mini_batch` instans.
     -  `mini_batch`: ParallelRunStep kommer att anropa Run-metoden och skicka antingen en lista eller Pandas DataFrame som ett argument till metoden. Varje post i mini_batch blir en fil Sök väg om indata är en FileDataset, en Pandas DataFrame om indata är en TabularDataset.
-    -  `response`: Run ()-metoden ska returnera en Pandas-DataFrame eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdata-åtgärder anger varje returnerat utdata en lyckad körning av indata-element i mini-batch för indata. Du bör se till att tillräckligt med data inkluderas i körnings resultatet för att mappa indata till att köra resultatet av utdata. Kör utdata skrivs i utdatafilen och är inte garanterat i ordning, du bör använda vissa nycklar i utdata för att mappa den till indata.
+    -  `response`: Run ()-metoden ska returnera en Pandas-DataFrame eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdata-åtgärder anger varje returnerat utdata en lyckad körning av indata-element i mini-batch för indata. Se till att tillräckligt med data inkluderas i körnings resultatet för att mappa indata till att köra resultatet av utdata. Kör utdata skrivs i utdatafilen och är inte garanterat i ordning, du bör använda vissa nycklar i utdata för att mappa den till indata.
 
 ```python
 # Snippets from a sample script.
@@ -266,11 +266,11 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ## <a name="build-and-run-the-pipeline-containing-parallelrunstep"></a>Skapa och kör pipelinen som innehåller ParallelRunStep
 
-Nu har du allt du behöver: data inmatningarna, modellen, utdata och ditt härlednings skript. Nu ska vi bygga pipelinen för batch-härledning som innehåller ParallelRunStep.
+Nu har du allt du behöver: data inmatningar, modell, utdata och ditt skript för härledning. Nu ska vi bygga pipelinen för batch-härledning som innehåller ParallelRunStep.
 
 ### <a name="prepare-the-environment"></a>Förbereda miljön
 
-Börja med att ange beroenden för skriptet. På så sätt kan du installera pip-paket samt konfigurera miljön. Använd alltid **azureml-Core-** och **azureml-nu [Pandas, säkring]-** paket.
+Börja med att ange beroenden för skriptet. På så sätt kan du installera pip-paket samt konfigurera miljön. Ta alltid med **azureml-Core-** och **azureml-nu [Pandas, säkring]-** paket.
 
 Om du använder en anpassad Docker-avbildning (user_managed_dependencies = true) bör du även ha Conda installerat.
 
@@ -309,7 +309,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: `run()` Tids gränsen för metod anrop i sekunder. (valfritt; standardvärdet är `60` )
 - `run_max_try`: Maximalt antal försök `run()` för en mini-batch. A `run()` Miss lyckas om ett undantag genereras eller om inget returneras när `run_invocation_timeout` nås (valfritt `3` ). 
 
-Du kan ange `mini_batch_size` ,,, `node_count` `process_count_per_node` `logging_level` `run_invocation_timeout` och `run_max_try` som `PipelineParameter` , så när du skickar om en pipeline-körning kan du finjustera parametervärdena. I det här exemplet använder du PipelineParameter för `mini_batch_size` och `Process_count_per_node` och du kommer att ändra dessa värden när du skickar om en körning senare. 
+Du kan ange `mini_batch_size` , `node_count` ,,, `process_count_per_node` `logging_level` `run_invocation_timeout` och `run_max_try` som `PipelineParameter` , så att du kan finjustera parametervärdena när du skickar om en pipeline-körning. I det här exemplet använder du PipelineParameter för `mini_batch_size` och `Process_count_per_node` och du kommer att ändra dessa värden när du skickar om en körning senare. 
 
 ```python
 from azureml.pipeline.core import PipelineParameter

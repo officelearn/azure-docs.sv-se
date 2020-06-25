@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 49c23774fe16c24ba90daa02cdda1688b79b12d3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 97b13118eb0299f042bdadfebecbc1a23d1ce59f
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683040"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362602"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -45,9 +45,9 @@ Arbets flödet för Machine Learning-modellen följer i allmänhet den här ordn
 Använd följande verktyg för Azure Machine Learning:
 
 +  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R (för](https://azure.github.io/azureml-sdk-for-r/reference/index.html) hands version).
 + Automatisera dina Machine Learning-aktiviteter med [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
-+ Använd [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes stegen utan att skriva kod.
++ Använd [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes stegen utan att skriva kod. (En [företags arbets yta](concept-workspace.md#upgrade)) krävs för att kunna använda designer.)
 + [Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör det möjligt att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Använd följande verktyg för Azure Machine Learning:
         * [Miljöer](#environments)
         * [Tränings skript](#training-scripts)
         * [Kostnadsberäknare](#estimators)
-    * [Slutpunkter](#endpoints)
+    * [Slut punkter](#endpoints)
         * [Webb tjänst](#web-service-endpoint)
         * [IoT-moduler](#iot-module-endpoints)
     * [Data uppsättningar & data lager](#datasets-and-datastores)

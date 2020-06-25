@@ -5,24 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/18/2020
-ms.openlocfilehash: 9b577b12250f1a600c91776e64ecaf65be5d8476
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.date: 6/24/2020
+ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100897"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362432"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Gransknings loggar i Azure Database for MariaDB
 
 I Azure Database for MariaDB är gransknings loggen tillgänglig för användare. Gransknings loggen kan användas för att spåra aktivitet på databas nivå och används ofta för efterlevnad.
 
-> [!IMPORTANT]
-> Gransknings logg funktionen är för närvarande en för hands version.
-
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
 
->[!NOTE]
+>[!IMPORTANT]
 > Vi rekommenderar att du bara loggar de händelse typer och användare som krävs för gransknings syfte för att säkerställa att serverns prestanda inte påverkas kraftigt.
 
 Som standard är gransknings loggen inaktive rad. Om du vill aktivera det anger `audit_log_enabled` du till på.

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117435"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362517"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -118,7 +118,8 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 
 ### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: statusen som har arkiverats i get-RdsSessionHost-cmdlet: en visar status som otillgänglig
 
-![Get-RdsSessionHost-cmdlet: en visar status som ej tillgänglig.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Get-RdsSessionHost-cmdlet: en visar status som ej tillgänglig.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Orsak:** Agenten kan inte uppdatera sig själv till en ny version.
 
@@ -179,7 +180,7 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 
 ## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Fel sökning av problem med Windows Virtual Desktop sida vid sida
 
-Windows Virtual Desktop sida-vid-sida-stacken installeras automatiskt med Windows Server 2019. Använd Microsoft Installer (MSI) för att installera stacken sida vid sida på Microsoft Windows Server 2016 eller Windows Server 2012 R2. För Microsoft Windows 10 är stacken för Windows Virtual Desktop sida vid sida aktive rad med **enablesxstackrs. ps1**.
+Windows Virtual Desktop sida-vid-sida-stacken installeras automatiskt med Windows Server 2019. Använd Microsoft Installer (MSI) för att installera stacken sida vid sida på Microsoft Windows Server 2016 eller Windows Server 2012 R2. För Microsoft Windows 10 är Windows Virtual Desktop sida vid sida aktive rad med **enablesxstackrs.ps1**.
 
 Det finns tre sätt att placera stacken sida vid sida som är installerad eller aktive rad på virtuella datorer för fjärrskrivbordssessioner:
 
@@ -191,7 +192,8 @@ Om du har problem med den virtuella Windows-skrivbordet sida vid sida, skriver d
 
 Utdata från **Qwinsta** visar **RDP-SXS** i utdata om stacken sida vid sida är installerad och aktive rad.
 
-![Staplad sida vid sida installeras eller aktive ras med Qwinsta listad som RDP-SXS i utdata.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Staplad sida vid sida installeras eller aktive ras med Qwinsta listad som RDP-SXS i utdata.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Granska register posterna i listan nedan och bekräfta att värdena stämmer överens. Om register nycklar saknas eller om värdena inte överensstämmer, följer du anvisningarna i [skapa en adresspool med PowerShell](create-host-pools-powershell-2019.md) om hur du installerar om stacken sida vid sida.
 
@@ -205,7 +207,8 @@ Granska register posterna i listan nedan och bekräfta att värdena stämmer öv
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Fel: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE fel kod.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O_REVERSE_CONNECT_STACK_FAILURE fel kod.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Orsak:** Stacken sida vid sida är inte installerad på den virtuella datorn för sessionen.
 
@@ -227,8 +230,8 @@ Det finns kända omständigheter som kan orsaka att stacken sida vid sida inte f
 - Följer inte rätt ordning på stegen för att aktivera stack sida vid sida
 - Automatisk uppdatering till Windows 10 Enhanced mångsidig disk (EVD)
 - RDSH-rollen värd för fjärrskrivbordssession saknas
-- Kör enablesxsstackrc. ps1 flera gånger
-- Kör enablesxsstackrc. ps1 i ett konto som inte har lokal administratörs behörighet
+- Köra enablesxsstackrc.ps1 flera gånger
+- Köra enablesxsstackrc.ps1 i ett konto som inte har lokal administratörs behörighet
 
 Anvisningarna i det här avsnittet kan hjälpa dig att avinstallera Windows Virtual Desktop sida vid sida-stack. När du har avinstallerat stacken sida vid sida går du till "registrera den virtuella datorn med Windows-adresspoolen för virtuella skriv bord" i [skapa en adresspool med PowerShell](create-host-pools-powershell-2019.md) för att installera om stacken sida vid sida.
 
@@ -247,19 +250,21 @@ Följ de här anvisningarna för att köra reparationen från samma undernät oc
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname är dator namnet på den virtuella datorn med den felaktiga stacken sida vid sida.
 
 7. Godkänn licens avtalet PsExec genom att klicka på Godkänn.
 
-    ![Skärm bild för program varu licens avtal.](../media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild för program varu licens avtal.](../media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >I den här dialog rutan visas endast den första gången PsExec körs.
 
 8. När kommando tolken har öppnats på den virtuella datorn med fel sida-vid-sida-stack kör du Qwinsta och bekräftar att en post med namnet RDP-SXS är tillgänglig. Om inte, finns inte en sida-vid-sida-stack på den virtuella datorn, så problemet är inte kopplat till stacken sida vid sida.
 
-    ![Administratörs kommando tolk](../media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Administratörs kommando tolk](../media/AdministratorCommandPrompt.png)
 
 9. Kör följande kommando, som visar en lista över Microsoft-komponenter som är installerade på den virtuella datorn med den felaktiga stacken sida vid sida.
 
@@ -281,7 +286,7 @@ Följ de här anvisningarna för att köra reparationen från samma undernät oc
 
 Om operativ systemet är Microsoft Windows 10 fortsätter du med instruktionerna nedan:
 
-14. Från den virtuella datorn som kör PsExec öppnar du Utforskaren och kopierar disablesxsstackrc. ps1 till den virtuella datorns systemen het med fel sida vid sida-stack.
+14. Från den virtuella datorn som kör PsExec öppnar du Utforskaren och kopierar disablesxsstackrc.ps1 till den virtuella datorns systemen het med fel staplad sida vid sida.
 
     ```cmd
         \\<VMname>\c$\
@@ -290,7 +295,7 @@ Om operativ systemet är Microsoft Windows 10 fortsätter du med instruktionerna
     >[!NOTE]
     >VMname är dator namnet på den virtuella datorn med den felaktiga stacken sida vid sida.
 
-15. Den rekommenderade processen: starta PowerShell i PsExec-verktyget och navigera till mappen från föregående steg och kör disablesxsstackrc. ps1. Du kan också köra följande cmdlets:
+15. Den rekommenderade processen: starta PowerShell i PsExec-verktyget och navigera till mappen från föregående steg och kör disablesxsstackrc.ps1. Du kan också köra följande cmdlets:
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
@@ -327,7 +332,8 @@ För att kontrol lera vilken version av Windows 10 Enterprise multi-session du h
 3. Välj **om din dator**.
 4. Kontrol lera numret bredvid "version". Talet ska vara antingen "1809" eller "1903", som du ser i följande bild.
 
-    ![En skärm bild av fönstret Windows-specifikationer. Versions numret är markerat i blått.](../media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av fönstret Windows-specifikationer. Versions numret är markerat i blått.](../media/windows-specifications.png)
 
 Nu när du vet versions numret kan du gå vidare till relevant avsnitt.
 

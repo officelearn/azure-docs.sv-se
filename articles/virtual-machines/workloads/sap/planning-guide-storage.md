@@ -13,17 +13,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3997ae5aa95423841a918a3b5ed1fb0a01d3602e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 1e64624865a314a7487a7ce474c1e5e56e3d9277
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85218063"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85363010"
 ---
-# <a name="azure-storage-types-for-sap-workload"></a>Azure Storage typer för SAP-arbetsbelastning
+# <a name="azure-storage-types-for-sap-workload"></a>Azure Storage-typer för SAP-arbetsbelastning
 Azure har flera olika lagrings typer som skiljer sig mycket i funktioner, data flöde, svars tid och priser. Några av lagrings typerna är inte eller av begränsad användning för SAP-scenarier. Flera typer av Azure-lagring är väl lämpade eller optimerade för vissa SAP-arbetsbelastnings scenarier. I synnerhet för SAP HANA fick vissa Azure Storage-typer certifierade för användning med SAP HANA. I det här dokumentet ska vi gå igenom de olika typerna av lagring och beskriva deras kapacitet och användbarhet med SAP-arbetsbelastningar och SAP-komponenter.
 
 Markera om enheterna som används i den här artikeln. Leverantörer av offentliga moln flyttade till att använda GiB ([gibibyte](https://en.wikipedia.org/wiki/Gibibyte)) eller TIB ([Tebibyte](https://en.wikipedia.org/wiki/Tebibyte) som storleks enheter, i stället för gigabyte eller terabyte). Därför använder all Azure-dokumentation och priser dessa enheter.  I hela dokumentet refererar vi bara till dessa storleks enheter för MiB, GiB och TiB-enheter. Du kan behöva planera med MB, GB och TB. Därför bör du vara medveten om några små skillnader i beräkningarna om du behöver ändra storlek på ett data flöde på 400 MiB/s, i stället för ett data flöde på 250 MiB/s.
@@ -34,7 +34,23 @@ Microsoft Azure lagring av Standard HDD, Standard SSD, Azure Premium-lagring och
 
 Det finns flera olika typer av redundans, som beskrivs i artikeln [Azure Storage replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) som gäller för vissa av de olika lagrings typerna Azure måste erbjuda. 
 
-Hur dessa återhämtnings alternativ används för Azure Storage-typer som används för SAP beskrivs i följande avsnitt.
+### <a name="azure-managed-disks"></a>Azure Managed disks
+
+Managed disks är en resurs typ i Azure Resource Manager som kan användas i stället för virtuella hård diskar som lagras i Azure Storage-konton. Managed Disks automatiskt justera med [tillgänglighets uppsättningen] [virtuella-Machines-Manage-Availability] för den virtuella datorn som de är kopplade till och därför öka tillgängligheten för den virtuella datorn och de tjänster som körs på den virtuella datorn. Mer information finns i [översikts artikeln](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+
+I det här exemplet visas fördelarna med de hanterade diskarna som är relaterade till återhämtning:
+
+- Du distribuerar dina två DBMS-VM för ditt SAP-system i en Azures tillgänglighets uppsättning 
+- När Azure distribuerar de virtuella datorerna kommer disken med operativ system avbildningen att placeras i ett annat lagrings kluster. Detta förhindrar att de virtuella datorerna påverkas av ett problem med ett enda Azure Storage-kluster
+- När du skapar nya hanterade diskar som du tilldelar till dessa virtuella datorer för att lagra data och loggfiler i databasen, distribueras även dessa nya diskar för de två virtuella datorerna i separata lagrings kluster, så att ingen av diskarna i den första virtuella datorn delar lagrings kluster med diskarna för den andra virtuella datorn
+
+Om du distribuerar utan hanterade diskar i kunddefinierade lagrings konton är diskallokering godtyckligt och har ingen medvetenhet om det faktum att virtuella datorer distribueras i en AvSet i återhämtnings syfte.
+
+> [!NOTE]
+> Av den anledningen och flera andra förbättringar som endast är tillgängliga via hanterade diskar, kräver vi att nya distributioner av virtuella datorer som använder Azure block Storage för sina diskar (all Azure-lagring förutom Azure NetApp Files) behöver använda Azure Managed disks för de virtuella hård diskarna/OS-diskarna, data diskar som innehåller SAP-databasfiler. Oberoende av om du distribuerar de virtuella datorerna via tillgänglighets uppsättning, i Tillgänglighetszoner eller oberoende av uppsättningarna och zonerna. Diskar som används för att lagra säkerhets kopior behöver inte nödvändigt vis vara hanterade diskar.
+
+> [!NOTE]
+> Azure Managed disks tillhandahåller endast lokal redundans (LRS). 
 
 
 ## <a name="storage-scenarios-with-sap-workloads"></a>Lagrings scenarier med SAP-arbetsbelastningar
@@ -67,6 +83,7 @@ Innan du går in på detaljerna presenterar vi sammanfattningen och rekommendati
 | DBMS logg volym icke-HANA M/Mv2 VM-familjer | stöds inte | begränsad lämplig (icke-Prod) | rekommenderas<sup>1</sup> | rekommenderas | stöds inte |
 | DBMS-logg volym icke-HANA icke-Mv2 VM-familjer | stöds inte | begränsad lämplig (icke-Prod) | lämpligt för upp till medel stora arbets belastningar | rekommenderas | stöds inte |
 
+
 <sup>1</sup> med användning av [Azure-Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) för virtuella datorer i M/Mv2 för logg/gör om logg volymer <sup>2</sup> med ANF krävs/Hana/data såväl som/Hana/log för ANF 
 
 De egenskaper du kan förväntar dig från listan med olika lagrings typer som:
@@ -78,11 +95,25 @@ De egenskaper du kan förväntar dig från listan med olika lagrings typer som:
 | Svars tider skrivningar | hög | medel till hög  | låg (under millisekunder<sup>1</sup>) | under-millisekund | under-millisekund |
 | HANA stöds | nej | nej | Ja<sup>1</sup> | ja | ja |
 | Möjliga disk ögonblicks bilder | ja | ja | ja | nej | ja |
+| Allokering av diskar i olika lagrings kluster när du använder tillgänglighets uppsättningar | via Managed disks | via Managed disks | via Managed disks | disk typen stöds inte för virtuella datorer som distribuerats via tillgänglighets uppsättningar | nr<sup>3</sup> |
+| Justerat med Tillgänglighetszoner | ja | ja | ja | ja | kräver engagemang för Microsoft |
+| Zonindelade-redundans | inte för hanterade diskar | inte för hanterade diskar | inte för hanterade diskar | nej | nej |
+| GEO-redundans | inte för hanterade diskar | inte för hanterade diskar | nej | nej | nej |
 
 
 <sup>1</sup> med användning av [Azure Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) för virtuella datorer i M/Mv2 för logg/gör om-logg volymer
 
 <sup>2</sup> kostnader är beroende av etablerad IOPS och data flöde
+
+<sup>3</sup> skapandet av olika ANF kapacitets grupper garanterar inte distribution av kapacitets grupper till olika lagrings enheter
+
+
+> [!IMPORTANT]
+> För att uppnå mindre än 1 millisekund I/O-latens med hjälp av Azure NetApp Files (ANF), måste du arbeta med Microsoft för att ordna rätt placering mellan dina virtuella datorer och NFS-resurserna baserat på ANF. Så långt finns det ingen mekanism på plats som ger ett automatiskt närhet mellan en virtuell dator som distribuerats och de NFS-volymer som finns på ANF. Med hänsyn till den olika konfigurationen av olika Azure-regioner kan den tillagda nätverks fördröjningen skicka i/O-svars tiden utöver 1 millisekund om den virtuella datorn och NFS-resursen inte allokeras i närheten.
+
+
+> [!IMPORTANT]
+> Ingen av de för närvarande tillgängliga Azure block Storage-baserade hanterade diskarna, eller Azure NetApp Files erbjuder zonindelade eller geografisk redundans. Därför måste du kontrol lera att dina hög tillgänglighets-och haveri beredskaps arkitekturer inte förlitar sig på någon typ av Azures interna lagrings replikering för dessa hanterade diskar, NFS-eller SMB-resurser.
 
 
 ## <a name="azure-premium-storage"></a>Azure Premium-lagring
@@ -95,8 +126,7 @@ Azure Premium SSD-lagring introducerades med målet att tillhandahålla:
 Den här typen av lagring är riktad mot DBMS-arbetsbelastningar, lagrings trafik som kräver låg engångs fördröjning i millisekunder och service avtal för IOPS och data flödes kostnad för Azure Premium Storage är inte den faktiska data volym som lagras på sådana diskar, men storleken på en sådan disk, oberoende av mängden data som lagras på disken. Du kan också skapa diskar i Premium Storage som inte är direkt mappar till de storleks kategorier som visas i artikel [Premium SSD](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#premium-ssd). Slut satser från den här artikeln är:
 
 - Lagringen är ordnad i intervall. Till exempel, en disk i intervallet 513 GiB till 1024 GiB-kapacitet delar samma funktioner och samma månads kostnader
-- IOPS per GiB spåras inte
--  linjärt över storleks kategorierna. Mindre diskar under 32 GiB har högre IOPS-priser per GiB. För diskar utöver 32 GiB till 1024 GiB är IOPS-priset per GiB mellan 4-5 IOPS per GiB. För större diskar upp till 32 767 GiB pågår IOPS-priset per GiB under 1
+- IOPS per GiB spårar inte linjärt över storleks kategorierna. Mindre diskar under 32 GiB har högre IOPS-priser per GiB. För diskar utöver 32 GiB till 1024 GiB är IOPS-priset per GiB mellan 4-5 IOPS per GiB. För större diskar upp till 32 767 GiB pågår IOPS-priset per GiB under 1
 - I/O-dataflödet för den här lagringen är inte linjärt med storleken på disk kategorin. För mindre diskar, som kategorin mellan 65 GiB och 128 GiB, är data flödet runt 780KB/GiB. För de extremt stora diskarna som en 32 767 GiB-disk är data flödet runt 28KB/GiB
 - IOPS-och data flödes service avtal kan inte ändras utan att diskens kapacitet ändras
 
@@ -322,7 +352,7 @@ När du konfigurerar virtuella Azure-datorer i livs cykeln för ett SAP-system b
 
 
 ## <a name="striping-or-not-striping"></a>Randning eller not randning
-Genom att skapa en stripe-uppsättning av flera Azure-diskar i en större volym kan du samla IOPS och data flöde för de enskilda diskarna till en volym. Den används endast för Azure standard Storage och Azure Premium Storage. Azure Ultra disk där du kan konfigurera genomflödet och IOPS oberoende av kapaciteten för en disk, kräver inte att stripe-uppsättningar används. Delade volymer baserade på NFS eller SMB kan inte stripas. På grund av den icke-linjära typen av data flöde i Azure Premium Storage och IOPS kan du etablera mindre kapacitet med samma IOPS och data flöde än stora enskilda Azure Premium Storage-diskar. Det är metoden för att uppnå högre genomflöde eller IOPS med lägre kostnad med hjälp av Azure Premium Storage. Ett exempel:
+Genom att skapa en stripe-uppsättning av flera Azure-diskar i en större volym kan du samla IOPS och data flöde för de enskilda diskarna till en volym. Den används endast för Azure standard Storage och Azure Premium Storage. Azure Ultra disk där du kan konfigurera genomflödet och IOPS oberoende av kapaciteten för en disk, kräver inte att stripe-uppsättningar används. Delade volymer baserade på NFS eller SMB kan inte stripas. På grund av den icke-linjära typen av data flöde i Azure Premium Storage och IOPS kan du etablera mindre kapacitet med samma IOPS och data flöde än stora enskilda Azure Premium Storage-diskar. Det är metoden för att uppnå högre genomflöde eller IOPS med lägre kostnad med hjälp av Azure Premium Storage. Till exempel:
 
 - Randning över två p15 Premium Storage-diskar ger dig till gång till ett data flöde av 
 - 250 MiB/s. En sådan volym kommer att ha 512 GiB-kapacitet. Om du vill ha en enda disk som ger dig 250 MiB-genomflöde per sekund måste du välja en P40-disk med 2 TiB-kapacitet. 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100853"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362942"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
@@ -67,20 +67,23 @@ För att börja skapa den nya poolen:
    
    Azure-geografin som är associerad med de regioner som du har valt är där metadata för den här poolen och dess relaterade objekt kommer att lagras. Se till att du väljer de regioner i geografin som du vill att tjänstens metadata ska lagras i.
 
-     ![En skärm bild av Azure Portal som visar fältet plats med platsen östra USA vald. Bredvid fältet är texten "metadata kommer att lagras i USA, östra".](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![En skärm bild av Azure Portal som visar fältet plats med platsen östra USA vald. Bredvid fältet är texten "metadata kommer att lagras i USA, östra".](media/portal-location-field.png)
 
 8. Under typ av värdstat väljer du om din värddator ska vara **personlig** eller **pool**.
 
     - Om du väljer **privat**väljer du antingen **Automatisk** eller **direkt** i fältet tilldelnings typ.
 
-      ![En skärm bild av list rutan tilldelnings typ fält. Användaren har valt automatisk.](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![En skärm bild av list rutan tilldelnings typ fält. Användaren har valt automatisk.](media/assignment-type-field.png)
 
 9. Om du väljer **pool**, anger du följande information:
 
      - För **högsta antal sessioner**anger du det maximala antalet användare som du vill belastningsutjämna till en värd för en enda session.
      - För **belastnings Utjämnings algoritm**väljer du antingen bredd-första eller djup-först, baserat på ditt användnings mönster.
 
-       ![En skärm bild av tilldelnings typ fältet med "pooled" valt. Användaren håller mus pekaren över bredden – först på den nedrullningsbara menyn för belastnings utjämning.](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > ![En skärm bild av tilldelnings typ fältet med "pooled" valt. Användaren håller mus pekaren över bredden – först på den nedrullningsbara menyn för belastnings utjämning.](media/pooled-assignment-type.png)
 
 10. Välj **Nästa: information om virtuell dator**.
 
@@ -117,11 +120,13 @@ Så här konfigurerar du den virtuella datorn i konfigurationen av poolen för v
 
      Om du inte ser den avbildning som du vill använda väljer du **Bläddra bland alla avbildningar och diskar**, vilket gör att du kan välja antingen en annan bild i galleriet eller en avbildning som tillhandahålls av Microsoft och andra utgivare.
 
-     ![En skärm bild av Marketplace med en lista över bilder från Microsoft som visas.](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![En skärm bild av Marketplace med en lista över bilder från Microsoft som visas.](media/marketplace-images.png)
 
      Du kan också gå till **Mina objekt** och välja en anpassad avbildning som du redan har laddat upp.
 
-     ![En skärm bild av fliken Mina objekt.](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![En skärm bild av fliken Mina objekt.](media/my-items.png)
 
     - Om du väljer **Storage BLOB**kan du använda en egen avbildning som bygger på Hyper-V eller på en virtuell Azure-dator. Allt du behöver göra är att ange platsen för avbildningen i Storage-blobben som en URI.
 
@@ -136,7 +141,8 @@ Så här konfigurerar du den virtuella datorn i konfigurationen av poolen för v
     >[!NOTE]
     >För större säkerhet rekommenderar vi att du inte öppnar offentliga inkommande portar.
 
-    ![En skärm bild av sidan säkerhets grupp som visar en lista över tillgängliga portar i en nedrullningsbar meny.](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av sidan säkerhets grupp som visar en lista över tillgängliga portar i en nedrullningsbar meny.](media/available-ports.png)
     
     Om du väljer **Avancerat**väljer du en befintlig nätverks säkerhets grupp som du redan har konfigurerat.
 

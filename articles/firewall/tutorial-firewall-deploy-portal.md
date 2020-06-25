@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/21/2020
+ms.date: 06/24/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 151e7d286dac91ddd0e988027968f2e44a83e35e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687199"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362653"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -26,7 +26,9 @@ Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från e
 
 Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebefordrar den till brandväggen som standardgateway för undernätet.
 
-I den här självstudien skapar du ett förenklat virtuellt nätverk med tre undernät för enkel distribution. För produktions distributioner rekommenderas en [nav-och ekrars modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
+I den här självstudien skapar du ett förenklat virtuellt nätverk med tre undernät för enkel distribution.
+
+För produktions distributioner rekommenderas en [nav-och eker-modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , där brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
 
 * **AzureFirewallSubnet** – brandväggen ligger i det här undernätet.
 * **Workload-SN** – arbetsbelastningsservern ligger i det här undernätet. Det här undernätets nätverkstrafik går genom brandväggen.
@@ -34,7 +36,7 @@ I den här självstudien skapar du ett förenklat virtuellt nätverk med tre und
 
 ![Självstudie om nätverksinfrastruktur](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
@@ -142,7 +144,7 @@ Distribuera brandväggen till det virtuella nätverket.
    |---------|---------|
    |Prenumeration     |\<your subscription\>|
    |Resursgrupp     |**Test-VB-RG** |
-   |Name     |**Test-FW01**|
+   |Namn     |**Test-FW01**|
    |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: **test-VB-VN**|
    |Offentlig IP-adress     |**Lägg till ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|

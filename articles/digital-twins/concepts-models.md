@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cacf4c21e92b434aeb73cd76e6dda26508f41d77
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5aef0c9a9b0f3dbfb5ad2f4c827b1a11190e097a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261366"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362891"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
@@ -23,7 +23,7 @@ En viktig egenskap för Azure Digitals dubbla är möjligheten att definiera en 
 
 En modell liknar en **klass** i ett objektorienterad programmeringsspråk som definierar en data form för ett visst koncept i din verkliga arbets miljö. Modeller har namn (t. ex. *rum* eller *TemperatureSensor*) och innehåller element som egenskaper, telemetri/händelser och kommandon som beskriver vad den här typen av entitet i din miljö kan göra. Senare kommer du att använda dessa modeller för att skapa [**digitala**](concepts-twins-graph.md) delar som representerar vissa entiteter som uppfyller den här typen beskrivning.
 
-Modeller skrivs med det JSON-baserade **digitala definitions språket (DTDL)**.  
+Modeller skrivs med hjälp av ett JSON-LD-baserat **digitalt definitions språk (DTDL)**.  
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Digitalt DTDL (Digital Definition Language) för att skriva modeller
 
@@ -207,7 +207,7 @@ Om du vill ha mer information om parsar biblioteket, inklusive ett exempel på h
 ## <a name="next-steps"></a>Nästa steg
 
 Se Hantera modeller med DigitalTwinsModels-API: er:
-* [Anvisningar: hantera en dubbel modell](how-to-manage-model.md)
+* [Anvisningar: Hantera anpassade modeller](how-to-manage-model.md)
 
 Du kan också läsa mer om hur digitala dubbla modeller skapas baserat på modeller:
 * [Koncept: digitala och dubbla grafer](concepts-twins-graph.md)

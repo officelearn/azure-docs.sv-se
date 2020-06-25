@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 89de2e86e425e2c585f9a1243f6666a0ae077c10
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: ddbe49f34bbdbf0f9c461a25f23d6f7cbd8600d9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726164"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362959"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Autentisera ett klient program med Azure Digitals dubbla
 
@@ -175,7 +175,7 @@ Om du vill autentisera en .NET-app med Azure-tjänster kan du använda följande
 Du behöver ditt *program (klient) ID* och *katalog (klient) ID* från tidigare, samt URL: en för din Azure Digital-instansen.
 
 > [!TIP]
-> URL: en för Azure Digitals dubbla instanser görs genom att lägga till *https://* i början av *värd namnet*för Azure Digital-instansen. Om du vill se värd namnet, tillsammans med alla egenskaper för din instans, kan du köra `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> URL: en för Azure Digitals dubbla instanser görs genom att lägga till *https://* i början av *värd namnet*för Azure Digital-instansen. Om du vill se *värd namnet*, tillsammans med alla egenskaper för din instans, kan du köra `az dt show --dt-name <your-Azure-Digital-Twins-instance>` . Du kan använda `az account show --query tenantId` kommandot för att se din *katalog (klient)-ID*. 
 
 ```javascript
 import * as Msal from "msal";
@@ -259,4 +259,4 @@ Läs mer om hur säkerheten fungerar i Azure Digitals:
 * [Koncept: säkerhet för Azure Digitals dubbla lösningar](concepts-security.md)
 
 Eller, nu när autentiseringen har kon figurer ATS, går du vidare till att skapa modeller i din instans:
-* [Anvisningar: hantera en dubbel modell](how-to-manage-model.md)
+* [Anvisningar: Hantera anpassade modeller](how-to-manage-model.md)

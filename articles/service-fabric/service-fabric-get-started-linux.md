@@ -3,12 +3,12 @@ title: Konfigurera utvecklings miljön i Linux
 description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När den här installationen är klar kan du börja bygga program.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 38ea94e14a182671b3540a87c3bf90e861479fe5
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 346230c0363bf58926cc46cb8bac2de61b81d68b
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338472"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361980"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ Stegen i den här artikeln förutsätter att du installerar internt på Linux el
 Det stöds inte att installera Service Fabric runtime och SDK på Windows-undersystem för Linux. Du kan hantera Service Fabric-entiteter som finns någon annanstans i molnet eller i den lokala infrastrukturen med kommandoradsgränssnittet (CLI) för Azure Service Fabric, som stöds. Information om hur du installerar kommandoradsgränssnittet finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande operativsystemversioner stöds för utveckling:
 
@@ -61,40 +61,45 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
 
 1. Öppna en terminal.
 
-2. Lägg till `dotnet`-repon i listan med källor.
+2. Lägg till `dotnet` lagrings platsen i listan över källor som motsvarar din distribution.
 
     ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
 3. Lägg till den nya Gnu Privacy Guard-nyckeln (GnuPG eller GPG) i APT-nyckelringen.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 4. Lägg till den officiella Docker GPG-nyckeln i din APT-nyckelring.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-5. Ställ in Docker-databasen.
+5. Lägg till GPG-nyckeln för MS Open i din APT-nyckelring.
+
+    ```bash
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add -
+    ```
+
+6. Ställ in Docker-databasen.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-6. Lägg till Azul JDK-nyckeln i APT-nyckelringen och konfigurera dess lagrings plats.
+7. Lägg till Azul JDK-nyckeln i APT-nyckelringen och konfigurera dess lagrings plats.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-7. Uppdatera paketlistor baserat på nyligen tillagda lagringsplatser.
+8. Uppdatera paketlistor baserat på nyligen tillagda lagringsplatser.
 
     ```bash
     sudo apt-get update

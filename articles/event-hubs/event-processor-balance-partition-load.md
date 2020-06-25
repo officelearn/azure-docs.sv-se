@@ -1,23 +1,14 @@
 ---
 title: Balansera partition belastning över flera instanser – Azure Event Hubs | Microsoft Docs
 description: Beskriver hur du balanserar partition belastningen över flera instanser av ditt program med hjälp av en händelse processor och Azure Event Hubs SDK.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-editor: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/28/2020
-ms.author: shvija
-ms.openlocfilehash: 4851a3edad9726230a8fc0dd3085caa172c8d5f3
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 06/23/2020
+ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147876"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314980"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Utjämna belastningen på partitionen över flera instanser av programmet
 Om du vill skala ditt händelse bearbetnings program kan du köra flera instanser av programmet och utjämna belastningen sinsemellan. I de äldre versionerna har [EventProcessorHost](event-hubs-event-processor-host.md) gett dig möjlighet att balansera belastningen mellan flera instanser av ditt program och kontroll punkts händelser när de tar emot. I de nyare versionerna (5,0 och senare), **EventProcessorClient** (.net och Java) eller **EventHubConsumerClient** (python och Java Script) kan du göra samma sak. Utvecklings modellen blir enklare med hjälp av händelser. Du prenumererar på de händelser som du är intresse rad av genom att registrera en händelse hanterare.

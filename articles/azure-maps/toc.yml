@@ -244,7 +244,7 @@
           href: schema-stateset-stylesobject.md
         - name: Förbrukningsmodell för fordon
           href: consumption-model.md
-        - name: Utöka GeoJSON-format
+        - name: Utökat GeoJSON-format
           href: extend-geojson.md
         - name: GeoJSON-format för Geofence
           href: geofence-geojson.md

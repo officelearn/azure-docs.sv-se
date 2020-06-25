@@ -8,12 +8,12 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
-ms.openlocfilehash: 6e570c100a30f18a843f50cb8dc93572bb62d0f7
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: b645945cc082b321e63e9d02e0bb6a799e82364d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080740"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317304"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda Azure-roller
 
@@ -87,6 +87,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [AcrQuarantineWriter](#acrquarantinewriter) | ACR karantän data skrivare | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | [Administratörs roll för Azure Kubernetes service Cluster](#azure-kubernetes-service-cluster-admin-role) | Visa lista med autentiseringsuppgifter för kluster administratör. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Användar roll för Azure Kubernetes service-kluster](#azure-kubernetes-service-cluster-user-role) | Visa lista över autentiseringsuppgifter för kluster användare. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | [Rollen Azure Kubernetes service Contributor](#azure-kubernetes-service-contributor-role) | Ger åtkomst till läsa och skriva Azure Kubernetes service-kluster | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
 > | **Databaser** |  |  |
 > | [Cosmos DB konto läsar roll](#cosmos-db-account-reader-role) | Kan läsa Azure Cosmos DB konto data. Se [DocumentDB Account Contributor](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Cosmos DB operatör](#cosmos-db-operator) | Låter dig hantera Azure Cosmos DB konton, men inte komma åt data i dem. Förhindrar åtkomst till konto nycklar och anslutnings strängar. | 230815da-be43-4aae-9cb4-875f7bd000aa |
@@ -2814,7 +2815,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -3138,6 +3139,50 @@ Visa lista över autentiseringsuppgifter för kluster användare. [Läs mer](../
     }
   ],
   "roleName": "Azure Kubernetes Service Cluster User Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-kubernetes-service-contributor-role"></a>Rollen Azure Kubernetes service Contributor
+
+Ger åtkomst till läsa och skriva Azure Kubernetes service-kluster
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Åtgärder** |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Read | Hämta ett hanterat kluster |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Write | Skapar ett nytt hanterat kluster eller uppdaterar ett befintligt |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | *inget* |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to read and write Azure Kubernetes Service clusters",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+  "name": "ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/managedClusters/read",
+        "Microsoft.ContainerService/managedClusters/write",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

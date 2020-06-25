@@ -12,17 +12,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: fc8f79221a5923dea9f767e62566c716bbdcad50
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 9548168e15522a8fb21cfd33c0cf475841a5d52b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344840"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318240"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor Authentication för SQL Server Management Studio och Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Den här artikeln visar hur du använder Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) med SQL Server Management Studio (SSMS). Azure AD MFA kan användas när du ansluter SSMS eller SqlPackage. exe till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) och [Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt över Multi-Factor Authentication finns i [Universal Authentication with SQL Database, SQL-hanterad instans och Azure Synapse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md).
+Den här artikeln visar hur du använder Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) med SQL Server Management Studio (SSMS). Azure AD MFA kan användas när du ansluter SSMS eller SqlPackage.exe till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) och [azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt över Multi-Factor Authentication finns i [Universal Authentication with SQL Database, SQL-hanterad instans och Azure Synapse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md).
 
 > [!IMPORTANT]
 > Databaser i Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse (tidigare Azure SQL Data Warehouse) kallas kollektivt i resten av den här artikeln som databaser, och servern refererar till den [Server](logical-servers.md) som är värd för databaser för Azure SQL Database och Azure Synapse.
@@ -77,5 +77,5 @@ När verifieringen är klar, antas SSMS-anslutningar normalt giltiga autentiseri
 
 - En översikt över Multi-Factor Authentication finns i [Universal Authentication with SQL Database, SQL-hanterad instans och Azure Synapse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Ge andra åtkomst till databasen: [SQL Database autentisering och auktorisering: bevilja åtkomst](logins-create-manage.md)  
-- Se till att andra kan ansluta genom brand väggen: [Konfigurera en brand Väggs regel på server nivå med hjälp av Azure Portal](/database/firewall-configure.md)  
+- Se till att andra kan ansluta genom brand väggen: [Konfigurera en brand Väggs regel på server nivå med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure)  
 - När du använder **Active Directory-universell med MFA-** autentisering, är ADAL-spårning tillgängligt från och med [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Av som standard kan du aktivera ADAL-spårning genom att använda menyn **verktyg**, **alternativ** , under Azure- **tjänster**, **Azure Cloud**, **ADAL fönstret utmatning spårnings nivå**, och sedan aktivera **utdata** i menyn **Visa** . Spårningarna är tillgängliga i fönstret utdata när du väljer **Azure Active Directory alternativ**.

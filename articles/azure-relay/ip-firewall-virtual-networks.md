@@ -1,21 +1,14 @@
 ---
 title: Congigure IP-brandvägg för Azure Relay namnrymd
 description: Den här artikeln beskriver hur du använder brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Relay namn områden.
-services: service-bus-relay
-documentationcenter: ''
-author: spelluru
-ms.service: service-bus-relay
-ms.devlang: na
-ms.custom: seodec18
 ms.topic: article
-ms.date: 05/13/2020
-ms.author: spelluru
-ms.openlocfilehash: 88eb7acf1e72084a83d6d8631c0ea5d740988640
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/23/2020
+ms.openlocfilehash: f5fca44c56982e368b762a0b9b3418f1175f7de0
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653413"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314847"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Konfigurera IP-brandvägg för ett Azure Relay-namnområde
 Som standard är relä namn rymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .

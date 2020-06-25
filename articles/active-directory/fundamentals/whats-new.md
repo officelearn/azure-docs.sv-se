@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b0f0ed5a36af0890577fcc6fd097698c147c0d6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1c4e2b4d046490500fceb7a1bee09559790fd433
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298114"
+ms.locfileid: "85317517"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -96,7 +96,7 @@ För närvarande kan användare som finns i domäner federerade i Azure AD, men 
 **Tjänste kategori:** Suveräna moln  
 **Produkt kapacitet:** Användarautentisering
  
-Från och med juni börjar OIDC identifierings dokument [Microsoft Identity Platform och OpenID Connect-protokollet](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) på [Azure Government moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) slut punkten (login.microsoftonline.us) att returnera rätt [nationell moln](https://docs.microsoft.com/graph/deployments) slut punkt ( https://graph.microsoft.us eller https://dod-graph.microsoft.us0) , baserat på den klient som tillhandahölls).  Den ger för närvarande den felaktiga graph.microsoft.com msgraph_host-fältet (graf endpoint).  
+Från och med juni börjar OIDC identifierings dokument [Microsoft Identity Platform och OpenID Connect-protokollet](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) på [Azure Government moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) slut punkten (login.microsoftonline.us) att returnera rätt [nationell moln](https://docs.microsoft.com/graph/deployments) slut punkt ( https://graph.microsoft.us eller https://dod-graph.microsoft.us) , baserat på den klient som tillhandahölls).  Den ger för närvarande den felaktiga graph.microsoft.com msgraph_host-fältet (graf endpoint).  
 
 Den här fel korrigeringen distribueras gradvis över cirka 2 månader.  
 

@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b7139c458d2cc2a59f4202e9cbc7d48433514f34
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: d054ff893e1bfdc0f48ede2e2aaa6050885ccc0a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792104"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314032"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub slut punkter
 
@@ -38,11 +38,11 @@ I följande lista beskrivs slut punkterna:
 
 * **Hantering av enhets identitet**. Varje IoT-hubb exponerar en uppsättning HTTPS REST-slutpunkter för att hantera enhets identiteter (skapa, Hämta, uppdatera och ta bort). [Enhets identiteter](iot-hub-devguide-identity-registry.md) används för enhetsautentisering och åtkomst kontroll.
 
-* **Enhetens dubbla hantering**. Varje IoT-hubb exponerar en uppsättning service Facing HTTPS REST-slutpunkt för att fråga och uppdatera [enhetens dubbla](iot-hub-devguide-device-twins.md) (uppdatera Taggar och egenskaper).
+* **Enhetens dubbla hantering**. Varje IoT-hubb exponerar en uppsättning service Facing HTTPS REST-slutpunkt för att fråga och uppdatera [enhetens dubbla](iot-hub-devguide-device-twins.md) (uppdatera Taggar och egenskaper). 
 
 * **Jobb hantering**. Varje IoT-hubb exponerar en uppsättning service Facing HTTPS REST-slutpunkt för att fråga och hantera [jobb](iot-hub-devguide-jobs.md).
 
-* **Enhets slut punkter**. För varje enhet i identitetsregistret exponerar IoT Hub en uppsättning slutpunkter:
+* **Enhets slut punkter**. För varje enhet i identitets registret visar IoT Hub en uppsättning slut punkter. Förutom vad som anges visas dessa slut punkter med [MQTT v 3.1.1](https://mqtt.org/)-, https 1,1-och [AMQP 1,0](https://www.amqp.org/) -protokoll. AMQP och MQTT är också tillgängliga via [WebSockets](https://tools.ietf.org/html/rfc6455) på port 443.
 
   * *Skicka meddelanden från enheten till molnet*. En enhet använder slut punkten för att [skicka meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md).
 
@@ -50,11 +50,9 @@ I följande lista beskrivs slut punkterna:
 
   * *Initiera fil överföringar*. En enhet använder den här slut punkten för att ta emot en Azure Storage SAS-URI från IoT Hub för att [Ladda upp en fil](iot-hub-devguide-file-upload.md).
 
-  * *Hämta och uppdatera enhetens dubbla egenskaper*. En enhet använder den här slut punkten för att få åtkomst till [enhetens dubbla](iot-hub-devguide-device-twins.md)egenskaper.
+  * *Hämta och uppdatera enhetens dubbla egenskaper*. En enhet använder den här slut punkten för att få åtkomst till [enhetens dubbla](iot-hub-devguide-device-twins.md)egenskaper. HTTPS stöds inte.
 
-  * *Ta emot begär Anden om direkta metoder*. En enhet använder slut punkten för att lyssna efter [direkta metod](iot-hub-devguide-direct-methods.md)begär Anden.
-
-    Dessa slut punkter exponeras med hjälp av [MQTT v 3.1.1](https://mqtt.org/)-, https 1,1-och [AMQP 1,0](https://www.amqp.org/) -protokoll. AMQP och MQTT är också tillgängliga via [WebSockets](https://tools.ietf.org/html/rfc6455) på port 443.
+  * *Ta emot begär Anden om direkta metoder*. En enhet använder slut punkten för att lyssna efter [direkta metod](iot-hub-devguide-direct-methods.md)begär Anden. HTTPS stöds inte.
 
 * **Tjänst slut punkter**. Varje IoT-hubb exponerar en uppsättning slut punkter för lösningens Server del för att kommunicera med dina enheter. Med ett undantag exponeras dessa slut punkter endast med hjälp av protokollen [AMQP](https://www.amqp.org/) och AMQP över WebSockets. Anrops slut punkten för direkt metoden exponeras via HTTPS-protokollet.
   

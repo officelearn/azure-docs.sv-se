@@ -1,25 +1,14 @@
 ---
 title: 'Översikt över Azure Relay .NET standard-API: er | Microsoft Docs'
 description: I den här artikeln sammanfattas några av de viktigaste en översikt över Azure Relay Hybridanslutningar .NET standard-API.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2018
-ms.author: spelluru
-ms.openlocfilehash: 18eaf2d2daae817107be6cdb0da9359bb5f9b4e9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 578d0fd2bbf8b9bb897a79e88399dee3711f5990
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211962"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316836"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Översikt över Azure Relay Hybridanslutningar .NET standard API
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 1599fe76f3542717bebe63228d8c46f7e5de97c3
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457175"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316079"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider av ASP.NET-sessionstillstånd för Azure Cache for Redis
 
@@ -42,7 +42,7 @@ Redis NuGet-paketet för sessionstillstånd har ett beroende av paketet StackExc
 >
 >
 
-NuGet-paketet hämtar och lägger till de nödvändiga sammansättnings referenserna och lägger till följande avsnitt i din Web. config-fil. Det här avsnittet innehåller den konfiguration som krävs för ditt ASP.NET-program för att använda Azure-cache för Redis-providern för sessionstillstånd.
+NuGet-paketet hämtar och lägger till de sammansättnings referenser som krävs och lägger till följande avsnitt i web.config-filen. Det här avsnittet innehåller den konfiguration som krävs för ditt ASP.NET-program för att använda Azure-cache för Redis-providern för sessionstillstånd.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -94,9 +94,9 @@ Konfigurera attributen med värdena från ditt cache-blad i Microsoft Azure-port
 * **operationTimeoutInMilliseconds** – med den här inställningen kan du åsidosätta inställningen SyncTimeout i stackexchange. Redis-klienten. Om inget värde anges används standard syncTimeout-inställningen 1000. Mer information finns i [konfigurations modellen för stackexchange. Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** – med den här inställningen kan du ange anpassad serialisering av sessionens innehåll som skickas till Redis. Den typ som anges måste implementera `Microsoft.Web.Redis.ISerializer` och måste deklarera en offentlig parameter lös konstruktor. Som standard `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` används.
 
-Mer information om dessa egenskaper finns i det ursprungliga blogg inlägget för att [presentera ASP.net-providern för Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Mer information om dessa egenskaper finns i det ursprungliga blogg inlägget för att [presentera ASP.net-providern för Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 
-Glöm inte att kommentera ut avsnittet standard InProc session State Provider i Web. config.
+Glöm inte att kommentera ut avsnittet standard InProc-Provider för sessionstillstånd i din web.config.
 
 ```xml
 <!-- <sessionState mode="InProc"

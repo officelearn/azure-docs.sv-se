@@ -1,18 +1,14 @@
 ---
 title: Integrera Azure Relay med Azure Private Link service
 description: Lär dig hur du integrerar Azure Relay med Azure Private Link service
-services: service-bus-relay
-author: spelluru
-ms.author: spelluru
-ms.date: 05/13/2020
-ms.service: service-bus-relay
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 3c2426b65e16d8d6bcdd9733280c8f97f4aa79d6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657535"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317317"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrera Azure Relay med en privat Azure-länk (förhands granskning)
 Azure **Private Link service** ger dig åtkomst till Azure-tjänster (till exempel Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage och Azure Cosmos dB) och Azure-värdbaserade kund-/partner tjänster via en privat slut punkt i det virtuella nätverket. Mer information finns i [Vad är Azure Private Link (för hands version)?](../private-link/private-link-overview.md)
@@ -162,11 +158,11 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om resursen 
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från Azure Relay namn områdes ägare. |
+| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från Azure Relay namn områdes ägare. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
-| Avvisa | Avvisad | Anslutningen avvisades av Azure Relay namn områdes ägare. |
+| Avvisa | Avslagen | Anslutningen avvisades av Azure Relay namn områdes ägare. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av Azure Relay namn områdets ägare, den privata slut punkten blir informativ och bör tas bort för rensning. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänn, avvisa eller ta bort en privat slut punkts anslutning
@@ -248,7 +244,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 - Maximalt antal Azure Relay namn rymder med privata slut punkter per prenumeration: 64.
 - Regler för nätverks säkerhets grupper (NSG) och användardefinierade vägar gäller inte för privat slut punkt. Mer information finns i [Azure Private Link service: begränsningar](../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Lär dig mer om [Azure Private Link (för hands version)](../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Relay](relay-what-is-it.md)

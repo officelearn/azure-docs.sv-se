@@ -1,20 +1,14 @@
 ---
 title: Flytta ett Azure Event Hubs-namnområde till en annan region | Microsoft Docs
 description: Den här artikeln visar hur du flyttar ett Azure Event Hubs-namnområde från den aktuella regionen till en annan region.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 06/23/2020
+ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690492"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312958"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Flytta ett Azure Event Hubs-namnområde till en annan region
 Det finns olika scenarier där du vill flytta ditt befintliga Event Hubs-namnområde från en region till en annan. Du kanske till exempel vill skapa ett namn område med samma konfiguration för testning. Du kanske också vill skapa ett sekundärt namn område i en annan region som en del av [Disaster Recovery-planeringen](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -36,7 +30,7 @@ Kom igång genom att exportera en Resource Manager-mall. Den här mallen innehå
 
 2. Välj **alla resurser** och välj sedan din Event Hubs namn område.
 
-3. Välj**Exportera mall**för > **Inställningar** > .
+3. Välj **Settings**  >  **Exportera mall**för > inställningar.
 
 4. Välj **Hämta** på sidan **Exportera mall** .
 
@@ -62,7 +56,7 @@ Distribuera mallen för att skapa ett Event Hubs-namnområde i mål regionen.
 
 5. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
 
-6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in filen **Template. JSON** som du laddade ned i det sista avsnittet.
+6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
 
 7. Spara mallen genom att välja **Spara** . 
 
@@ -85,7 +79,7 @@ Distribuera mallen för att skapa ett Event Hubs-namnområde i mål regionen.
               ```
               /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
               ```   
-        3. Om händelsehubben i namn rymden använder ett lagrings konto för att fånga händelser anger du resurs gruppens namn och lagrings kontot `StorageAccounts_<original storage account name>_external` för fältet. 
+        3. Om händelsehubben i namn rymden använder ett lagrings konto för att fånga händelser anger du resurs gruppens namn och lagrings kontot för `StorageAccounts_<original storage account name>_external` fältet. 
             
             ```
             /subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/<STORAGE'S RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>

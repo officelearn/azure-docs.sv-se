@@ -48,6 +48,10 @@
           href: tutorial-assess-physical.md
         - name: Migrera fysiska servrar
           href: tutorial-migrate-physical-virtual-machines.md
+    - name: Utvärdera och migrera virtuella AWS-datorer
+      items:
+        - name: 'Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure'
+          href: tutorial-migrate-aws-virtual-machines.md
     - name: Utvärdera importerade servrar för migrering
       items:
         - name: Utvärdera importerade servrar för migrering

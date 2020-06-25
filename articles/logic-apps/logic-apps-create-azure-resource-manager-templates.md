@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 1fdee9a5d90fc065e198d880f9d0dea10804b881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972635"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317771"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager mallar för att automatisera distributionen av Azure Logic Apps
 
@@ -45,7 +45,7 @@ Genom att hämta din Logic app får du en mall som innehåller definitionerna f�
 
 Du kan skapa Resource Manager-mallar med hjälp av Azure PowerShell med [LogicAppTemplate-modulen](https://github.com/jeffhollan/LogicAppTemplateCreator). Den här modulen för öppen källkod utvärderar först din Logic app och eventuella anslutningar som används av Logic Apps. Modulen genererar sedan mal Lav resurser med de nödvändiga parametrarna för distribution.
 
-Anta till exempel att du har en Logic-app som tar emot ett meddelande från en Azure Service Bus kö och laddar upp data till en Azure SQL-databas. Modulen bevarar all Orchestration-logik och parameterizes SQL-och Service Bus anslutnings strängar så att du kan ange och ändra dessa värden utifrån dina distributions behov.
+Anta till exempel att du har en Logic-app som tar emot ett meddelande från en Azure Service Bus kö och laddar upp data till Azure SQL Database. Modulen bevarar all Orchestration-logik och parameterizes SQL-och Service Bus anslutnings strängar så att du kan ange och ändra dessa värden utifrån dina distributions behov.
 
 De här exemplen visar hur du skapar och distribuerar Logi Kap par med hjälp av Azure Resource Manager mallar, Azure-pipelines i Azure DevOps och Azure PowerShell:
 
@@ -86,7 +86,7 @@ Om du vill skapa din mall efter att ha installerat LogicAppTemplate-modulen och 
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
-Om du vill följa rekommendationen för rörledningar i en token från [Azure Resource Manager klient verktyget](https://github.com/projectkudu/ARMClient)kör du det `$SubscriptionId` här kommandot i stället för ditt Azure-prenumerations-ID:
+Om du vill följa rekommendationen för rörledningar i en token från [Azure Resource Manager klient verktyget](https://github.com/projectkudu/ARMClient)kör du det här kommandot i stället för `$SubscriptionId` ditt Azure-prenumerations-ID:
 
 ```text
 PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -106,8 +106,8 @@ PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $f
 
 | Parametrar | Krävs | Beskrivning |
 |------------|----------|-------------|
-| TemplateFile | Ja | Fil Sök vägen till mallfilen |
-| KeyVault | Inga | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |
+| TemplateFile | Yes | Fil Sök vägen till mallfilen |
+| KeyVault | No | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |
 ||||
 
 ## <a name="next-steps"></a>Nästa steg

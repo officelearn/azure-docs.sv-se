@@ -1,25 +1,14 @@
 ---
 title: Azure Relay Hybridanslutningar-WebSockets i noden
 description: Skriv ett Node.js-konsolprogram för Azure Relay-hybridanslutningar med Websockets
-services: service-bus-relay
-documentationcenter: node
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
-ms.service: service-bus-relay
-ms.devlang: tbd
 ms.topic: conceptual
-ms.tgt_pltfrm: node
-ms.workload: na
-ms.date: 11/01/2018
-ms.author: spelluru
-ms.openlocfilehash: 818db4db082a441877b573fd52361e63becce374
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 86897c0a752e4203537135dbac68cc0b4c1da44c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211897"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316928"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Komma igång med Azure Relay-hybridanslutningar med WebSockets i Node.js
 
@@ -37,7 +26,7 @@ I den här snabbstarten gör du följande:
 
 ## <a name="prerequisites"></a>Krav
 
-- [Node. js](https://nodejs.org/en/).
+- [Node.js](https://nodejs.org/en/).
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde

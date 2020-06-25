@@ -14,6 +14,10 @@
       items:
         - name: AI och Azure Machine Learning
           items:
+            - name: Kognitiv sökning
+              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Cognitive Services
+              href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Virtuell dator för datavetenskap
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Machine Learning
@@ -40,6 +44,8 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Synapse Analytics
+              href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Blockkedja
           items:
             - name: Blockkedja
@@ -130,8 +136,6 @@
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Webb
           items:
-            - name: Kognitiv sökning
-              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Notification Hubs
               href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Självstudier
@@ -293,6 +297,14 @@
           href: export-template-portal.md
         - name: Identifiera resurser
           href: view-resources.md
+    - name: Validera mallar
+      items:
+        - name: Konsekvensdistribution
+          href: template-deploy-what-if.md
+        - name: Testverktygssats
+          href: test-toolkit.md
+        - name: Testfall
+          href: test-cases.md
     - name: Distribuera mallar
       items:
         - name: Distribuera – portalen
@@ -309,8 +321,6 @@
           href: deploy-rest.md
         - name: Distribuera från GitHub
           href: deploy-to-azure-button.md
-        - name: Konsekvensdistribution
-          href: template-deploy-what-if.md
         - name: Omdistribuera vid fel
           displayName: rollback
           href: rollback-on-error.md

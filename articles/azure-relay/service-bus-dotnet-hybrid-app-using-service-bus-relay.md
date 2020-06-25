@@ -1,25 +1,14 @@
 ---
 title: Azure Windows Communication Foundation (WCF) Relay hybrid lokalt/moln program (.NET) | Microsoft Docs
 description: Lär dig att göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet med Azure Relay
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus-relay
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: spelluru
-ms.openlocfilehash: b86d535e4cbc275b3ee777d7c70146f7711c502c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211598"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314411"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet med Azure Relay
 
@@ -197,7 +186,7 @@ Gör följande kod ändringar i din lösning:
     }
     ```
 
-1. I **Solution Explorer**dubbelklickar du på **app. config** för att öppna filen i Visual Studio-redigeraren. `<system.ServiceModel>` `<system.ServiceModel>` Lägg till följande XML-kod längst ned i elementet, men fortfarande i. Se till att ersätta `yourServiceNamespace` med namnet på ditt namn område och `yourKey` med SAS-nyckeln som du hämtade tidigare från portalen:
+1. I **Solution Explorer**dubbelklickar du på **App.config** för att öppna filen i Visual Studio-redigeraren. `<system.ServiceModel>` `<system.ServiceModel>` Lägg till följande XML-kod längst ned i elementet, men fortfarande i. Se till att ersätta `yourServiceNamespace` med namnet på ditt namn område och `yourKey` med SAS-nyckeln som du hämtade tidigare från portalen:
 
     ```xml
     <system.serviceModel>
@@ -224,7 +213,7 @@ Gör följande kod ändringar i din lösning:
     > [!NOTE]
     > Felet som orsakas av `transportClientEndpointBehavior` är bara en varning och är inte ett spärrnings problem i det här exemplet.
 
-1. I filen *app. config*, i- `<appSettings>` elementet, ersätter du värdet för anslutnings strängen med den anslutnings sträng som du tidigare hämtade från portalen.
+1. Om du fortfarande *App.config*, i `<appSettings>` elementet, ersätter du värdet för anslutnings strängen med den anslutnings sträng som du tidigare hämtade från portalen.
 
     ```xml
     <appSettings>
@@ -460,7 +449,7 @@ Nästa steg är att publicera om Azure Web App **ProductsPortal** -klient delen:
 1. Välj **Arkiv**  >  **Spara alla**.
 1. Välj **build**  >  **Rebuild-lösning**.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Välj F5 för att skapa och köra programmet. Den lokala servern, som är **ProductsServer** -konsol programmet, bör starta först och sedan bör **ProductsPortal** -programmet starta i ett webbläsarfönster, som du ser här:
 

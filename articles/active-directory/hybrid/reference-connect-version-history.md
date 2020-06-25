@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53ac540950dc6f64107ee20448b2c24981837b05
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1f54eae8c57d3317c6d654b4a019501410239bf9
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558511"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317505"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -108,10 +108,10 @@ Den här snabb korrigeringen åtgärdar ett problem i build-1.5.20.0 om du har k
 - Attributet mS-DS-ConsistencyGuid anges automatiskt för alla synkroniserade grupper och du behöver inte göra något för att aktivera den här funktionen. 
 - Get-ADSyncRunProfile har tagits bort eftersom den inte längre används. 
 - Ändrade varningen som visas när du försöker att använda ett företags administratörs konto eller ett domän administratörs konto för AD DS-anslutningsprogrammet för att tillhandahålla mer kontext. 
-- En ny cmdlet har lagts till för att ta bort objekt från kopplings utrymmet. det gamla CSDelete. exe-verktyget tas bort och ersätts med den nya cmdleten Remove-ADSyncCSObject. Cmdlet: en Remove-ADSyncCSObject använder en CsObject som indatamängd. Det här objektet kan hämtas med hjälp av cmdleten Get-ADSyncCSObject.
+- En ny cmdlet har lagts till för att ta bort objekt från anslutnings området det gamla CSDelete.exe verktyget tas bort och ersätts med den nya cmdleten Remove-ADSyncCSObject. Cmdlet: en Remove-ADSyncCSObject använder en CsObject som indatamängd. Det här objektet kan hämtas med hjälp av cmdleten Get-ADSyncCSObject.
 
 >[!NOTE]
->Det gamla verktyget CSDelete. exe har tagits bort och ersatts med den nya cmdleten Remove-ADSyncCSObject 
+>Det gamla CSDelete.exes verktyget har tagits bort och ersatts med den nya cmdleten Remove-ADSyncCSObject 
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 
@@ -501,7 +501,7 @@ Status: släpps för utvalda kunder
 
 * Ett fel har åtgärd ATS där certifikat med SAN-jokertecken misslyckades med en krav kontroll.
 
-* En bugg har åtgärd ATS som gör att MIIServer. exe kraschar under en Azure AD Connector-export.
+* En bugg har åtgärd ATS som gör att miiserver.exe kraschar under en Azure AD Connector-export.
 
 * Ett fel har åtgärd ATS som felaktig lösen ords försök har loggat in på DOMÄNKONTROLLANTen när guiden Azure AD Connect kördes för att ändra konfigurationen.
 
@@ -569,7 +569,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Name                          | Access               | Gäller för
+Typ     | Namn                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig kontroll         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig kontroll         | Det här objektet  |
@@ -851,11 +851,11 @@ Problemet som uppstår är att **alternativet Synkronisera alla domäner och org
 * Ett problem har åtgärd ATS med tillbakaskrivning av lösen ord som gör det möjligt för en Azure AD-administratör att återställa lösen ordet för ett lokalt AD-privilegierat användar konto. Problemet uppstår när Azure AD Connect beviljas behörighet att återställa lösen ordet över det privilegierade kontot. Problemet behandlas i den här versionen av Azure AD Connect genom att inte tillåta att en Azure AD-administratör återställer lösen ordet för ett godtyckligt lokalt AD-privilegierat användar konto, om inte administratören är ägare till kontot. Mer information finns i [säkerhets meddelande 4033453](https://technet.microsoft.com/library/security/4033453).
 
 * Åtgärdat ett problem som rör funktionen [MS-DS-ConsistencyGuid som käll ankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) där Azure AD Connect inte ändrar till ett lokalt AD ms-DS-ConsistencyGuid-attribut. Problemet uppstår när flera lokala AD-skogar läggs till Azure AD Connect och *användar identiteter finns över flera kataloger* är markerat. När en sådan konfiguration används fyller inte de resulterande reglerna för synkronisering i sourceAnchorBinary-attributet i metaversum. Attributet sourceAnchorBinary används som source-attribut för ms-DS-ConsistencyGuid-attributet. Därför sker inte tillbakaskrivning av MS-DSConsistencyGuid-attributet. För att åtgärda problemet har följande regler för synkronisering uppdaterats för att säkerställa att attributet sourceAnchorBinary i metaversum alltid är ifyllt:
-  * I från AD-InetOrgPerson AccountEnabled. XML
-  * I från AD-InetOrgPerson common. XML
-  * I från AD-User AccountEnabled. XML
-  * I från AD-User common. XML
-  * I från AD-User Join SOAInAAD. XML
+  * I från AD-InetOrgPerson AccountEnabled.xml
+  * I från AD-InetOrgPerson Common.xml
+  * I från AD-User AccountEnabled.xml
+  * I från AD-User Common.xml
+  * I från AD-User Join SOAInAAD.xml
 
 * Även om [MS-DS-ConsistencyGuid som käll fäst punkt](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) inte är aktive rad, läggs fortfarande synkroniseringsregeln till Azure AD Connect. Påverkan är oskadlig och gör inte att tillbakaskrivning av ms-DS-ConsistencyGuid-attribut inträffar. För att undvika förvirring har logik lagts till för att säkerställa att synkroniseringsregeln bara läggs till när funktionen är aktive rad.
 
@@ -990,7 +990,7 @@ Azure AD Connect-synkronisering
 
 * Azure AD Connect aktiverar nu automatiskt attributet ConsistencyGuid som källans Anchor-attribut för lokala AD-objekt. Vidare fyller Azure AD Connect attributet ConsistencyGuid med värdet objectGuid om det är tomt. Den här funktionen gäller endast för nya distributioner. Mer information om den här funktionen finns i artikel avsnitt [Azure AD Connect: utforma koncept – använda MS-DS-ConsistencyGuid som sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 * New Troubleshooting cmdlet Invoke-ADSyncDiagnostics har lagts till för att hjälpa till att diagnostisera problem med hash-synkronisering för lösen ord. Information om hur du använder-cmdleten finns i artikeln [Felsöka Lösenordssynkronisering med Azure AD Connect Sync](tshoot-connect-password-hash-synchronization.md).
-* Azure AD Connect stöder nu synkronisering av e-postaktiverade objekt i offentliga mappar från lokala AD till Azure AD. Du kan aktivera funktionen med Azure AD Connect guiden under valfria funktioner. Mer information om den här funktionen finns i artikeln [Office 365 Directory-baserad Edge-blockering för lokala e-postmappar med lokala e-postfunktioner](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
+* Azure AD Connect stöder nu synkronisering av e-postaktiverade objekt i offentliga mappar från lokala AD till Azure AD. Du kan aktivera funktionen med Azure AD Connect guiden under valfria funktioner. Mer information om den här funktionen finns i artikeln [Office 365 Directory-baserad Edge-blockering för lokala e-postmappar med lokala e-postfunktioner](https://techcommunity.microsoft.com/t5/exchange/office-365-directory-based-edge-blocking-support-for-on-premises/m-p/74218).
 * Azure AD Connect kräver ett AD DS-konto för att synkronisera från lokal AD. Om du tidigare har installerat Azure AD Connect med Express läget kan du ange autentiseringsuppgifterna för ett företags administratörs konto och Azure AD Connect skapa det AD DS-konto som krävs. Men för en anpassad installation och för att lägga till skogar i en befintlig distribution, var du tvungen att ange AD DS-kontot i stället. Nu kan du också välja att ange autentiseringsuppgifterna för ett företags administratörs konto under en anpassad installation och låta Azure AD Connect skapa det AD DS-konto som krävs.
 * Azure AD Connect stöder nu SQL-AOA. Du måste aktivera SQL-AOA innan du installerar Azure AD Connect. Under installationen identifierar Azure AD Connect om den angivna SQL-instansen är aktive rad för SQL-AOA eller inte. Om SQL-AOA är aktive rad kan Azure AD Connect ytterligare siffror om SQL-AOA har kon figurer ATS för att använda synkron replikering eller asynkron replikering. När du konfigurerar tillgänglighets gruppens lyssnare rekommenderar vi att du ställer in egenskapen RegisterAllProvidersIP på 0. Den här rekommendationen beror på att Azure AD Connect för närvarande använder SQL Native Client för att ansluta till SQL och SQL Native Client inte stöder användning av egenskapen MultiSubNetFailover.
 * Om du använder LocalDB som databas för din Azure AD Connect Server och har nått gränsen på 10 GB, startar inte längre synkroniseringstjänsten. Tidigare var du tvungen att utföra ShrinkDatabase-åtgärden på LocalDB för att frigöra tillräckligt med DB-utrymme för att synkroniseringstjänsten ska starta. Sedan kan du använda Synchronization Service Manager för att ta bort körnings historiken för att frigöra mer databas utrymme. Nu kan du använda cmdleten Start-ADSyncPurgeRunHistory för att rensa körnings historik data från LocalDB för att frigöra databas utrymme. Dessutom stöder denna cmdlet ett offline-läge (genom att ange parametern-offline) som kan användas när synkroniseringstjänsten inte körs. Obs: offline-läget kan bara användas om synkroniseringstjänsten inte körs och databasen som används är LocalDB.
@@ -1050,7 +1050,7 @@ Azure AD Connect-synkronisering
 * På din Azure AD-klient finns det en tjänst konfiguration som anger om funktionen för Lösenordssynkronisering är aktive rad för din klient organisation eller inte. Tidigare är det enkelt att konfigurera tjänst konfigurationen på ett felaktigt sätt genom att Azure AD Connect när du har en aktiv och en fristående server. Azure AD Connect försöker nu att behålla tjänst konfigurationen som är konsekvent med din aktiva Azure AD Connect-Server.
 * Azure AD Connects guiden identifierar och returnerar nu en varning om AD-pappers korgen inte är aktive rad på den lokala AD-platsen.
 * Exporterades tidigare till Azure AD-timeout och Miss lyckas om den kombinerade storleken på objekten i batchen överskrider vissa tröskelvärden. Nu försöker synkroniseringstjänsten igen att skicka om objekten i separata, mindre batchar om problemet uppstår.
-* Key Management-programmet för synkroniseringstjänsten har tagits bort från Start-menyn i Windows. Hantering av krypterings nyckel fortsätter att stödjas via kommando rads gränssnittet med hjälp av miiskmu. exe. Information om hur du hanterar krypterings nyckeln finns i artikeln om [att överge Azure AD Connect krypterings nyckel för synkronisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
+* Key Management-programmet för synkroniseringstjänsten har tagits bort från Start-menyn i Windows. Hantering av krypterings nyckel fortsätter att stödjas via kommando rads gränssnittet med hjälp av miiskmu.exe. Information om hur du hanterar krypterings nyckeln finns i artikeln om [att överge Azure AD Connect krypterings nyckel för synkronisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
 * Tidigare, om du ändrar lösen ordet för Azure AD Connect Sync-tjänstkontot, kan inte synkroniseringstjänsten starta korrekt förrän du har övergivit krypterings nyckeln och initierat lösen ordet för Azure AD Connect Sync-tjänstkontot. Nu krävs inte längre den här processen.
 
 Enkel inloggning på Skriv bordet

@@ -8,19 +8,19 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 93b150d47f1703662ebda5b017e1824cf74b7ab0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233711"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318632"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Självstudie: Distribuera ASP.NET-appen och Azure SQL Database kod med hjälp av Azure DevOps starter
 
 Med Azure DevOps starter får du en förenklad upplevelse där du kan ta med din befintliga kod och git-lagrings platsen eller välja ett exempel program för att skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) till Azure. 
 
 DevOps Starter är också:
-* Skapar automatiskt Azure-resurser, till exempel en Azure SQL-databas.
+* Skapar automatiskt Azure-resurser, till exempel en databas i Azure SQL Database.
 * Skapar och konfigurerar en versionspipeline i Azure Pipelines som innehåller en bygg-pipeline för CI.
 * Konfigurerar en versionspipeline för CD. 
 * Skapar en Azure Application Insights-resurs för övervakning.
@@ -33,16 +33,16 @@ I de här självstudierna får du:
 > * Granska CI-pipelinen
 > * Granska CD-pipelinen
 > * Genomföra ändringar av Azure Repos och distribuera dem automatiskt till Azure
-> * Ansluta till Azure SQL-databasen 
+> * Anslut till Azure SQL Database 
 > * Rensa resurser
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Skapa ett projekt i DevOps Projects för en ASP.NET-app och en Azure SQL-databas
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-azure-sql-database"></a>Skapa ett projekt i DevOps Projects för en ASP.NET-app och Azure SQL Database
 
-DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps starter skapar också Azure-resurser, till exempel en Azure SQL-databas, i Azure-prenumerationen som du väljer.
+DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps starter skapar också Azure-resurser, till exempel Azure SQL Database, i den Azure-prenumeration du väljer.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -140,11 +140,11 @@ Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som a
 
 1. När versionen har slutförts kan du uppdatera ditt program för att verifiera dina ändringar.
 
-## <a name="connect-to-the-azure-sql-database"></a>Ansluta till Azure SQL-databasen
+## <a name="connect-to-azure-sql-database"></a>Anslut till Azure SQL Database
 
-Du behöver rätt behörigheter för att ansluta till Azure SQL-databasen.
+Du måste ha rätt behörighet för att kunna ansluta till Azure SQL Database.
 
-1. På instrument panelen för DevOps starter väljer du **SQL Database** för att gå till hanterings sidan för SQL-databasen.
+1. På instrument panelen för DevOps starter väljer du **SQL Database** för att gå till hanterings sidan för SQL Database.
    
 1. Välj **Konfigurera serverbrandvägg** och välj **Lägg till klientens IP-adress**. 
 
@@ -156,16 +156,16 @@ Du behöver rätt behörigheter för att ansluta till Azure SQL-databasen.
 
 1. Välj **Återställ lösenord**, ange ett lösenord för inloggning för SQL Server och välj sedan **Spara**. Tänk på att behålla det här lösenordet för att använda det senare i den här självstudien.
 
-    Du kan nu även använda klientverktyg som SQL Server Management Studio eller Visual Studio för att ansluta till SQL Server och Azure SQL-databasen. Använd egenskapen **servernamn** för att ansluta.
+    Du kan nu välja att använda klient verktyg som SQL Server Management Studio eller Visual Studio för att ansluta till SQL Server och Azure SQL Database. Använd egenskapen **servernamn** för att ansluta.
 
-    Om du inte ändrade databasanvändarnamnet när du först konfigurerade projektet i DevOps Projects är ditt användarnamn den lokala delen av din e-postadress. Om din e-postadress till exempel är *johndoe\@Microsoft.com*, är ditt användar namn *johndoe*.
+    Om du inte ändrade databasanvändarnamnet när du först konfigurerade projektet i DevOps Projects är ditt användarnamn den lokala delen av din e-postadress. Om din e-postadress till exempel är *johndoe \@ Microsoft.com*, är ditt användar namn *johndoe*.
 
    > [!NOTE]
    > Om du ändrar lösen ordet för SQL-inloggningen måste du ändra lösen ordet i pipeline-variabeln release enligt beskrivningen i avsnittet [Undersök CD-pipeline](#examine-the-cd-pipeline) .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du testar kan du rensa bland resurserna för att undvika att behöva betala fler avgifter. När de inte längre behövs kan du ta bort Azure SQL-databasen och relaterade resurser som du skapade i den här självstudien. Det gör du genom att använda **borttagnings** funktionen på DevOps starter-instrumentpanelen.
+Om du testar kan du rensa bland resurserna för att undvika att behöva betala fler avgifter. När de inte längre behövs kan du ta bort Azure SQL Database och relaterade resurser som du har skapat i den här självstudien. Det gör du genom att använda **borttagnings** funktionen på DevOps starter-instrumentpanelen.
 
 > [!IMPORTANT]
 > Följande procedur tar permanent bort resurser. *Borttagnings* funktionen förstör data som skapats av projektet i DevOps starter i både Azure-och Azure-DevOps och du kan inte hämta det. Använd den här proceduren först när du har läst anvisningarna noga.
@@ -184,7 +184,7 @@ Du kan även ändra dessa bygg- och versionspipelines för att tillgodose ditt t
 > * Granska CI-pipelinen
 > * Granska CD-pipelinen
 > * Genomföra ändringar av Azure Repos och distribuera dem automatiskt till Azure
-> * Ansluta till Azure SQL-databasen 
+> * Anslut till Azure SQL Database 
 > * Rensa resurser
 
 Mer information om CI/CD-pipelinen finns i:

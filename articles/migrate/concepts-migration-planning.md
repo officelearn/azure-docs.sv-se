@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: 377085a98214d5fa92d08dd78d37635364295c46
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 81132f0a6f8b57d8798a9a5c4f0a2b9c1ac736d4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85269148"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317398"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Bygg migrerings plan med Azure Migrate
 
@@ -70,7 +70,7 @@ När du har identifierat dina servrar använder du en agent lös beroende mappni
 
 Eftersom Azure ger flexibilitet att ändra storlek på moln kapaciteten med tiden, är migrering en möjlighet att optimera de processor-och minnes resurser som allokeras till dina servrar. Skapa en utvärdering på den grupp som har identifierats innan du förstår arbets Belastningens prestanda historik, vilket kommer att vara mycket viktigt i rightsd VM SKU: er och disk rekommendationer på Azure.
 
-## <a name="asses-your-readiness-for-migration"></a>Asses din beredskap för migrering
+## <a name="assess-your-readiness-for-migration"></a>Utvärdera din beredskap för migrering
 
 ### <a name="readiness-and-suitability-analysis-for-azure"></a>Beredskap och lämplighet analys för Azure
 Exportera utvärderings rapporten för Azure VM och filtrera efter följande beredskaps kategorier för att förstå VM-beredskap för Azure:

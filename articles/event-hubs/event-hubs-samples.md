@@ -1,26 +1,14 @@
 ---
 title: Exempel – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista över exempel för Azure Event Hubs som finns på GitHub.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.custom: seodec18
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/15/2020
-ms.author: shvija
-ms.openlocfilehash: da950c2219d3faf679953690d207372b64913ba8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 9529b11d15460c713a0ae14f3bccfa1c2684a3ad
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162066"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315519"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Git-databaser med exempel för Azure Event Hubs 
 Du kan hitta Event Hubs exempel på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Dessa exempel demonstrerar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). I den här artikeln kategoriseras och beskrivs de tillgängliga exemplen, med länkar till var och en.

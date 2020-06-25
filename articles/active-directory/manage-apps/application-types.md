@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1878004f51a66ba414c3e74be97c7135a51295bc
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 97eef1f331d8e6965e378d6a76cfa7a0c50feb9a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763711"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317474"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Oväntat program i listan Mina program
 
@@ -66,7 +66,7 @@ När de filtreras till **alla program**, visar **listan** **alla program** alla 
 
 5. När du lägger till en ny program registrering genom att skapa ett anpassat program som har utvecklats med [v 2.0-program registrerings portalen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
-6. När du lägger till ett program som du utvecklar med hjälp av Visual Studios [ASP.net-verifieringsmetoder](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [anslutna tjänster](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6. När du lägger till ett program som du utvecklar med hjälp av Visual Studios [ASP.net-verifieringsmetoder](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [anslutna tjänster](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
 
 7. När du skapar ett huvud namns objekt för tjänsten med hjälp av [Azure AD PowerShell-modulen](/powershell/azure/install-adv2?view=azureadps-2.0)
 

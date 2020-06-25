@@ -1,20 +1,14 @@
 ---
 title: Programmerings guide för .NET – Azure Event Hubs (bakåtkompatibelt) | Microsoft Docs
 description: Den här artikeln innehåller information om hur du skriver kod för Azure Event Hubs med hjälp av Azure .NET SDK.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-ms.service: event-hubs
-ms.custom: seodec18
 ms.topic: article
-ms.date: 01/15/2020
-ms.author: shvija
-ms.openlocfilehash: d958c2d32c16874676f46bb216067fe2d7bbe784
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: de731d591c367e386fe8ef1eef03f1b90e0fa126
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280981"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314544"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Programmerings guide för .NET för Azure Event Hubs (äldre Microsoft. Azure. EventHubs-paket)
 I den här artikeln beskrivs några vanliga scenarier när du skriver kod med hjälp av Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).
@@ -62,7 +56,7 @@ Du skickar händelser till en Event Hub genom att skapa en [EventHubClient][] -i
 
 ## <a name="event-serialization"></a>Händelseserialisering
 
-Klassen [EventData][] har [två överbelastade konstruktorer](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) som tar en rad olika parametrar, byte eller en byte mat ris som representerar händelse data nytto lasten. När du använder JSON med [EventData][] kan du använda **Encoding.UTF8.GetBytes()** för att hämta bytematrisen för en JSON-kodad sträng. Ett exempel:
+Klassen [EventData][] har [två överbelastade konstruktorer](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) som tar en rad olika parametrar, byte eller en byte mat ris som representerar händelse data nytto lasten. När du använder JSON med [EventData][] kan du använda **Encoding.UTF8.GetBytes()** för att hämta bytematrisen för en JSON-kodad sträng. Till exempel:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -114,10 +108,10 @@ Om du vill använda klassen [EventProcessorHost][] kan du implementera [IEventPr
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Starta händelse bearbetningen genom att instansiera [EventProcessorHost][], med lämpliga parametrar för händelsehubben. Ett exempel:
+Starta händelse bearbetningen genom att instansiera [EventProcessorHost][], med lämpliga parametrar för händelsehubben. Till exempel:
 
 > [!NOTE]
-> EventProcessorHost och dess relaterade klasser finns i paketet **Microsoft. Azure. EventHubs. processor** . Lägg till paketet i Visual Studio-projektet genom att följa anvisningarna i [den här artikeln](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) eller genom att utfärda följande kommando i fönstret [Package Manager](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) -`Install-Package Microsoft.Azure.EventHubs.Processor`konsol:.
+> EventProcessorHost och dess relaterade klasser finns i paketet **Microsoft. Azure. EventHubs. processor** . Lägg till paketet i Visual Studio-projektet genom att följa anvisningarna i [den här artikeln](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) eller genom att utfärda följande kommando i fönstret [Package Manager-konsol](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) : `Install-Package Microsoft.Azure.EventHubs.Processor` .
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

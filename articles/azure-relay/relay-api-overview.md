@@ -1,25 +1,14 @@
 ---
 title: Översikt över Azure Relay API | Microsoft Docs
-description: 'Den här artikeln innehåller en översikt över tillgängliga Azure Relay-API: er (.NET standard, .NET Framework, Node. js osv.)'
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: fdaa1d2b-bd80-4e75-abb9-0c3d0773af2d
-ms.service: service-bus-relay
-ms.devlang: na
+description: 'Den här artikeln innehåller en översikt över tillgängliga Azure Relay-API: er (.NET standard, .NET Framework, Node.js osv.)'
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: ad7226b5c5badfddf9f436a1229a48f729485821
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210598"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316958"
 ---
 # <a name="available-relay-apis"></a>Tillgängliga relä-API: er
 
@@ -32,7 +21,7 @@ Avsnittet [Ytterligare information](#additional-information) innehåller mer inf
 | Språk/plattform | Tillgänglig funktion | Klientpaketet | Lagringsplats |
 | --- | --- | --- | --- |
 | .NET Standard | Hybridanslutningar | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
-| .NET Framework | WCF-relä | [WindowsAzure. Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | E.t. |
+| .NET Framework | WCF-relä | [WindowsAzure. Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | Ej tillämpligt |
 | Node | Hybridanslutningar | [WebSockets`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP-förfrågningar:`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Ytterligare information
@@ -47,11 +36,11 @@ Avsnittet [Ytterligare information](#additional-information) innehåller mer inf
 
 #### <a name="nodejs"></a>Node.js
 
-De Hybridanslutningar modulerna som anges i tabellen ovan ersätter eller ändrar befintliga Node. js-moduler med alternativa implementeringar som lyssnar på tjänsten Azure Relay i stället för den lokala nätverks stacken.
+De Hybridanslutningar modulerna som anges i tabellen ovan Ersätt eller ändra befintliga Node.js-moduler med alternativa implementeringar som lyssnar på Azure Relay-tjänsten i stället för den lokala nätverks stacken.
 
-`hyco-https`Modulen ändrar och delvis åsidosätter modulerna Core Node. js `http` och `https` tillhandahåller en https-lyssnare som är kompatibel med många befintliga Node. js-moduler och program som är beroende av dessa grundläggande moduler.
+`hyco-https`Modulen ändrar och delvis åsidosätter kärnan Node.js moduler `http` och `https` tillhandahåller en https-lyssnare som är kompatibel med många befintliga Node.js moduler och program som är beroende av dessa huvud moduler.
 
-`hyco-ws` `hyco-websocket` Modulerna och ändrar de populära `ws` och `websocket` modulerna för Node. js och ger alternativa lyssnar implementeringar som gör att moduler och program som förlitar sig på någon av modulerna fungerar bakom hybridanslutningar reläet.
+`hyco-ws` `hyco-websocket` Modulerna och ändrar de populära `ws` och `websocket` modulerna för Node.js, vilket ger alternativa lyssnar implementeringar som gör att moduler och program som förlitar sig på någon av modulerna fungerar bakom hybridanslutningar reläet.
 
 Information om dessa moduler finns i [Azure-relä-Node GitHub-](https://github.com/Azure/azure-relay-node) lagringsplatsen.
 

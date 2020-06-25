@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar (FAQ)
+title: Vanliga frågor och svar
 titleSuffix: Azure Cognitive Search
 description: Få svar på vanliga frågor om Microsoft Azure Kognitiv sökning service, en tjänst som är värd för värd tjänster på Microsoft Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3c5a998db5e76118b0c5a73b6df8bdedadc6dfb
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618029"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317237"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure-Kognitiv sökning
 
@@ -53,7 +53,7 @@ Om du vill skapa ett index igen måste du indexera om data från externa källor
 
 Alternativt kan du använda exempel koden **index-Backup-Restore** i den här [Azure kognitiv sökning .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples) för att säkerhetskopiera en index definition och en index ögonblicks bild till en serie JSON-filer. Senare kan du använda verktyget och filerna för att återställa indexet, om det behövs.  
 
-### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Kan jag indexera från SQL Database-repliker (gäller [Azure SQL Database indexerare](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
+### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Kan jag indexera från SQL Database repliker (gäller [Azure SQL Database indexerare](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
 Det finns inga begränsningar för användningen av primära eller sekundära repliker som data källa när du skapar ett index från grunden. Att uppdatera ett index med stegvisa uppdateringar (baserat på ändrade poster) kräver dock den primära repliken. Detta krav kommer från SQL Database, som endast garanterar ändrings spårning på primära repliker. Om du försöker använda sekundära repliker för att uppdatera arbets belastningen för index uppdatering finns det ingen garanti för att du får alla data.
 
@@ -75,7 +75,7 @@ Jokertecken, fuzzy och regexfrågor analyseras dock inte som vanliga term-eller 
 
 ### <a name="my-wildcard-searches-are-slow"></a>Mina sökningar i jokertecken är långsamma.
 
-De flesta Sök frågor för jokertecken, t. ex. prefix, fuzzy och regex, skrivs om internt med matchande termer i Sök indexet. Den här extra bearbetningen av genomsökningen av Sök indexet lägger till i svars tid. Dessutom kan breda Sök frågor, t `a*` . ex. som sannolikt kommer att skrivas över med många villkor, vara mycket långsamt. För att genomföra jokertecken kan du definiera en [anpassad analys](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
+De flesta Sök frågor för jokertecken, t. ex. prefix, fuzzy och regex, skrivs om internt med matchande termer i Sök indexet. Den här extra bearbetningen av genomsökningen av Sök indexet lägger till i svars tid. Dessutom kan breda Sök frågor, t. `a*` ex. som sannolikt kommer att skrivas över med många villkor, vara mycket långsamt. För att genomföra jokertecken kan du definiera en [anpassad analys](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>Varför är sökningen ranka en konstant eller samma poäng på 1,0 för varje träff?
 

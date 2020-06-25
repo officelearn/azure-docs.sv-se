@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: fc19f247a9a915bfafde68f652784c42285928ca
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 00b4306340e9888ea5a794c7940a021674060e05
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974933"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316126"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache för Redis.
@@ -196,7 +196,7 @@ Vanligt vis räcker standardvärdena för-klienten. Du kan finjustera alternativ
   * Använd en enda ConnectionMultiplexer-instans för programmet. Du kan använda en LazyConnection för att skapa en enda instans som returneras av en anslutnings egenskap, som du ser i [Anslut till cachen med klassen ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Ange `ConnectionMultiplexer.ClientName` egenskapen till ett unikt namn för App-instansen.
   * Använd flera `ConnectionMultiplexer` instanser för anpassade arbets belastningar.
-      * Du kan följa den här modellen om du har varierande belastning i ditt program. Ett exempel:
+      * Du kan följa den här modellen om du har varierande belastning i ditt program. Till exempel:
       * Du kan ha en multiplexor för att hantera stora nycklar.
       * Du kan ha en multiplexor för att hantera små nycklar.
       * Du kan ange olika värden för timeout för anslutningar och omprövnings logik för varje ConnectionMultiplexer som du använder.
@@ -289,7 +289,7 @@ Redis-servern har inte inbyggt stöd för TLS, men Azure cache för Redis gör d
 >
 >
 
-Redis-verktyg som `redis-cli` inte fungerar med TLS-porten, men du kan använda ett verktyg för `stunnel` att på ett säkert sätt ansluta verktygen till TLS-porten genom att följa anvisningarna i avsnittet [presentera ASP.net för Redis för för hands version](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) .
+Redis-verktyg som `redis-cli` inte fungerar med TLS-porten, men du kan använda ett verktyg för `stunnel` att på ett säkert sätt ansluta verktygen till TLS-porten genom att följa anvisningarna i avsnittet [presentera ASP.net för Redis för för hands version](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/) .
 
 Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag köra Redis-kommandon?](#cache-commands) .
 
@@ -381,7 +381,7 @@ Med hänsyn till den här informationen rekommenderar vi starkt att kunderna ang
 
 Så här konfigurerar du den här inställningen:
 
-* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs` . Ett exempel:
+* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs` . Till exempel:
 
 ```cs
 private readonly int minThreads = 200;

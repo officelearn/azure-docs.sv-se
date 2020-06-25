@@ -1,20 +1,14 @@
 ---
 title: 'Azure-Event Hubs – klient-SDK: er | Microsoft Docs'
 description: 'Den här artikeln innehåller information om klient-SDK: er för Azure Event Hubs.'
-services: event-hubs
-documentationcenter: na
-author: spelluru
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2020
-ms.author: spelluru
-ms.openlocfilehash: ffa0663f392c4dbf290a244e2c95422a8855debf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/23/2020
+ms.openlocfilehash: 4c3557556500f2a536e20331bd3d05d84f608f0b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267947"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312562"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure-Event Hubs – klient-SDK: er
 Den här artikeln innehåller följande information för SDK: er som stöds av Azure Event Hubs: 

@@ -1,25 +1,14 @@
 ---
 title: Azure Relay Hybridanslutningar protokoll guide | Microsoft Docs
 description: I den här artikeln beskrivs interaktionen på klient sidan med Hybridanslutningar relä för att ansluta klienterna i lyssnings-och avsändarens roller.
-services: service-bus-relay
-documentationcenter: na
-author: clemensv
-manager: timlt
-editor: ''
-ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: clemensv
-ms.openlocfilehash: 68668452152064584d1c419a3053ccb642b103f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211819"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316652"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay Hybridanslutningar protokoll
 
@@ -146,10 +135,10 @@ Parameter alternativen för frågesträng är följande.
 
 | Parameter        | Krävs | Beskrivning
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Ja      | Parametern måste vara **SB-HC-Action = avlyssna** för Listener-rollen
-| `{path}`         | Ja      | Den URL-kodade namn områdets sökväg för den förkonfigurerade hybrid anslutningen för att registrera lyssnaren på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
+| `sb-hc-action`   | Yes      | Parametern måste vara **SB-HC-Action = avlyssna** för Listener-rollen
+| `{path}`         | Yes      | Den URL-kodade namn områdets sökväg för den förkonfigurerade hybrid anslutningen för att registrera lyssnaren på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
 | `sb-hc-token`    | Ja\*    | Lyssnaren måste ange en giltig URL-kodad Service Bus-token för delad åtkomst för namn området eller hybrid anslutningen som ger **lyssnings** rättigheten.
-| `sb-hc-id`       | Inga       | Det här tillhandahållna valfria ID: t för klienten möjliggör diagnostisk spårning från slut punkt till slut punkt.
+| `sb-hc-id`       | No       | Det här tillhandahållna valfria ID: t för klienten möjliggör diagnostisk spårning från slut punkt till slut punkt.
 
 Om WebSocket-anslutningen Miss lyckas på grund av att hybrid anslutnings Sök vägen inte är registrerad, eller om en token är ogiltig eller saknas, eller om något annat fel inträffar, så anges fel återkopplings modellen med vanlig HTTP 1,1-status feedback. Status beskrivningen innehåller ett fel spårnings-ID som kan förmedlas till support personal för Azure:
 
@@ -206,9 +195,9 @@ URL: en måste användas för att upprätta en socket för godkännande, men inn
 
 | Parameter      | Krävs | Beskrivning
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Ja      | För att acceptera en socket måste parametern vara`sb-hc-action=accept`
-| `{path}`       | Ja      | (se följande stycke)
-| `sb-hc-id`     | Inga       | Se tidigare beskrivning av **ID**.
+| `sb-hc-action` | Yes      | För att acceptera en socket måste parametern vara`sb-hc-action=accept`
+| `{path}`       | Yes      | (se följande stycke)
+| `sb-hc-id`     | No       | Se tidigare beskrivning av **ID**.
 
 `{path}`är sökvägen till URL-kodad namnrymd för den förkonfigurerade hybrid anslutning som den här lyssnaren ska registreras på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
 
@@ -243,8 +232,8 @@ Om det uppstår ett fel kan tjänsten svara på följande sätt:
 
 | Param                   | Krävs | Beskrivning                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| SB-HC-statusCode        | Ja      | Numerisk HTTP-statuskod.                |
-| SB-HC-statusDescription | Ja      | Läslig anledning för avvisningen. |
+| SB-HC-statusCode        | Yes      | Numerisk HTTP-statuskod.                |
+| SB-HC-statusDescription | Yes      | Läslig anledning för avvisningen. |
 
 Den resulterande URI: n används sedan för att upprätta en WebSocket-anslutning.
 
@@ -378,7 +367,7 @@ För svar som överstiger 64 kB måste svaret levereras via en Rendezvous-socket
 
 | Parameter      | Krävs | Beskrivning
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Ja      | För att acceptera en socket måste parametern vara`sb-hc-action=request`
+| `sb-hc-action` | Yes      | För att acceptera en socket måste parametern vara`sb-hc-action=request`
 
 Om det uppstår ett fel kan tjänsten svara på följande sätt:
 
@@ -436,10 +425,10 @@ Parameter alternativen för frågesträngen är följande:
 
 | Param          | Obligatoriskt? | Beskrivning
 | -------------- | --------- | -------------------------- |
-| `sb-hc-action` | Ja       | Parametern måste vara för avsändarens roll `sb-hc-action=connect` .
-| `{path}`       | Ja       | (se följande stycke)
+| `sb-hc-action` | Yes       | Parametern måste vara för avsändarens roll `sb-hc-action=connect` .
+| `{path}`       | Yes       | (se följande stycke)
 | `sb-hc-token`  | Ja\*     | Lyssnaren måste ange en giltig URL-kodad Service Bus delad åtkomsttoken för namn området eller hybrid anslutningen som ger **send** -rättigheten.
-| `sb-hc-id`     | Inga        | Ett valfritt ID som möjliggör diagnostisk spårning från slut punkt till slut punkt och görs tillgängligt för lyssnaren under godkännande hand skakningen.
+| `sb-hc-id`     | No        | Ett valfritt ID som möjliggör diagnostisk spårning från slut punkt till slut punkt och görs tillgängligt för lyssnaren under godkännande hand skakningen.
 
  `{path}`Är sökvägen till URL-kodad namnrymd för den förkonfigurerade hybrid anslutning som den här lyssnaren ska registreras på. `path`Uttrycket kan utökas med ett suffix och ett frågeuttryck för att kommunicera vidare. Om hybrid anslutningen är registrerad under sökvägen `hyco` `path` kan uttrycket `hyco/suffix?param=value&...` följas av de parametrar för frågesträng som definierats här. Ett fullständigt uttryck kan sedan vara följande:
 
@@ -494,7 +483,7 @@ Tjänsten lägger till relä namn områdets värdnamn i `Via` .
 | Kod | Meddelande  | Beskrivning                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | Begäran har hanterats av minst en lyssnare.  |
-| 202  | Accepterad | Begäran har accepterats av minst en lyssnare. |
+| 202  | Har godkänts | Begäran har accepterats av minst en lyssnare. |
 
 Om det uppstår ett fel kan tjänsten svara på följande sätt. Huruvida svaret kommer från tjänsten eller från lyssnaren kan identifieras genom närvaron av `Via` huvudet. Om rubriken finns är svaret från lyssnaren.
 

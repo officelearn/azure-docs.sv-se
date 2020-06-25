@@ -1,23 +1,14 @@
 ---
 title: Vanliga frågor och svar – Azure Event Hubs för Apache Kafka
 description: Den här artikeln visar hur konsumenter och producenter som använder olika protokoll (AMQP, Apache Kafka och HTTPS) kan utbyta händelser när de använder Azure Event Hubs.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/23/2020
-ms.author: shvija
-ms.openlocfilehash: cd4306fd4a3b6dd308b0d62945ae264dfb6ce8ff
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 066024f657e011aac1449106ec32689f145c5534
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298335"
+ms.locfileid: "85314179"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Vanliga frågor och svar – Event Hubs för Apache Kafka 
 Den här artikeln innehåller svar på några vanliga frågor om att migrera till Event Hubs för Apache Kafka.

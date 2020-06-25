@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 838835cf44b5ca5048ea6cb7bc1bba582b2a0926
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cabb1a7d45906c9e60e1defd7d3d99286cdd39fb
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647978"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318257"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -119,14 +119,14 @@ Följande tabell innehåller egenskaper och beskrivningar för vanliga parametra
 
 | Parameter | Beskrivning | Standard |
 | --- | --- | --- |
-| Name |Namn på cacheminnet | |
-| Plats |Plats för cachen | |
+| Namn |Namn på cacheminnet | |
+| Location |Plats för cachen | |
 | ResourceGroupName |Resurs grupp namn som cachen ska skapas i | |
 | Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 GB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |MINNE |
 | ShardCount |Antalet Shards som ska skapas när du skapar en Premium-cache med klustrad aktive rad. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Anger SKU för cacheminnet. Giltiga värden är: Basic, standard, Premium |Standard |
 | RedisConfiguration |Anger konfigurations inställningar för Redis. Mer information om varje inställning finns i följande [RedisConfiguration Properties](#redisconfiguration-properties) -tabell. | |
-| EnableNonSslPort |Anger om icke-SSL-porten är aktive rad. |False |
+| EnableNonSslPort |Anger om icke-SSL-porten är aktive rad. |Falskt |
 | MaxMemoryPolicy |Den här parametern är inaktuell, Använd RedisConfiguration i stället. | |
 | StaticIP |När du är värd för din cache i ett VNET, anger en unik IP-adress i under nätet för cachen. Om detta inte anges väljs en för dig från under nätet. | |
 | Undernät |När du är värd för din cache i ett VNET anger namnet på det undernät som cachen ska distribueras till. | |
@@ -134,7 +134,7 @@ Följande tabell innehåller egenskaper och beskrivningar för vanliga parametra
 | KeyType |Anger vilken åtkomst nyckel som ska återskapas när åtkomst nycklar förnyas. Giltiga värden är: primär, sekundär | |
 
 ### <a name="redisconfiguration-properties"></a>Egenskaper för RedisConfiguration
-| Egenskap | Description | Prisnivåer |
+| Egenskap | Beskrivning | Prisnivåer |
 | --- | --- | --- |
 | RDB – säkerhets kopiering har Aktiver ATS |Huruvida [Redis data persistes](cache-how-to-premium-persistence.md) är aktiverat |Endast Premium |
 | RDB-lagring – anslutnings sträng |Anslutnings strängen till lagrings kontot för [Redis data persistes](cache-how-to-premium-persistence.md) |Endast Premium |
@@ -779,5 +779,5 @@ Mer information om hur du använder Windows PowerShell med Azure finns i följan
 * [Använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/templates/deploy-portal.md): Lär dig hur du skapar och hanterar resurs grupper i Azure Portal.
 * [Azure-blogg](https://azure.microsoft.com/blog/): Lär dig om nya funktioner i Azure.
 * [Windows PowerShell-blogg](https://devblogs.microsoft.com/powershell/): Lär dig om nya funktioner i Windows PowerShell.
-* ["Hej, Scripting Guy!" Blogg](https://blogs.technet.com/b/heyscriptingguy/): få tips och knep från Windows PowerShell-communityn.
+* ["Hej, Scripting Guy!" Blogg](https://devblogs.microsoft.com/scripting/author/the-scripting-guys/): få tips och knep från Windows PowerShell-communityn.
 

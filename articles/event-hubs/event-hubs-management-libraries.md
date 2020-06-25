@@ -1,21 +1,14 @@
 ---
 title: Hanterings bibliotek – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om biblioteket som du kan använda för att hantera Azure-Event Hubs namn områden och entiteter från .NET.
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: dotnet
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 431fe04461f422274697d1e91c4b56e914ce2d4e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.date: 06/23/2020
+ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60746666"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312979"
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs-hanteringsbibliotek
 
@@ -35,13 +28,13 @@ För att komma igång med Event Hubs hanterings bibliotek måste du autentisera 
 * [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Använd Azure CLI för att skapa tjänstens huvudnamn för att få åtkomst till resurser](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-De här självstudierna ger `AppId` dig ett (klient- `TenantId`ID) `ClientSecret` , och (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha **ägar** behörigheter för den resurs grupp som du vill köra.
+De här självstudierna ger dig ett `AppId` (klient-ID), `TenantId` och `ClientSecret` (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha **ägar** behörigheter för den resurs grupp som du vill köra.
 
 ## <a name="programming-pattern"></a>Programmerings mönster
 
 Mönstret för att manipulera eventuella Event Hubs resurser följer ett gemensamt protokoll:
 
-1. Hämta en token från AAD med `Microsoft.IdentityModel.Clients.ActiveDirectory` hjälp av biblioteket.
+1. Hämta en token från AAD med hjälp av `Microsoft.IdentityModel.Clients.ActiveDirectory` biblioteket.
     ```csharp
     var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 

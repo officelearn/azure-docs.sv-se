@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/07/2019
+ms.date: 06/24/2020
 ms.author: abnarain
-ms.openlocfilehash: f27132eb21d245d0d26de910abba088ba3b8efde
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170984"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315038"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -22,7 +22,9 @@ Den här artikeln utforskar vanliga fel söknings metoder för integration runti
 
 ## <a name="common-errors-and-resolutions"></a>Vanliga fel och lösningar
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Fel meddelande: integration runtime med egen värd kan inte ansluta till moln tjänsten
+### <a name="error-message"></a>Felmeddelande: 
+
+`Self-hosted integration runtime can't connect to cloud service`
 
 ![Problem med IR-anslutning via egen värd](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -86,7 +88,8 @@ Följande är det förväntade svaret:
 > *    Kontrol lera om TLS/SSL-certifikatet "wu2.frontend.clouddatahub.net/" är betrott på proxyservern.
 > *    Om du använder Active Directory autentisering på proxyn ändrar du tjänst kontot till det användar konto som har åtkomst till proxyn som "Integration Runtime tjänst".
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Fel meddelande: egen värd för integration runtime-noden/logiska SHIR är i ett inaktivt/"kör (begränsat)" tillstånd
+### <a name="error-message"></a>Felmeddelande: 
+`Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state`
 
 #### <a name="cause"></a>Orsak 
 
@@ -130,6 +133,146 @@ Det här problemet uppstår när noder inte kan kommunicera med varandra.
 1. Lös problemet genom att prova en eller båda av följande metoder:
     - Lägg till alla noder i samma domän.
     - Lägg till IP-adressen som värd mappning i alla värdar för den värdbaserade virtuella datorn.
+
+
+## <a name="troubleshoot-connectivity-issue"></a>Felsök anslutnings problem
+
+### <a name="troubleshoot-connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Felsök anslutnings problem mellan IR och Data Factory med egen värd eller IR och data källa/mottagare
+
+För att felsöka problem med nätverks anslutningen bör du veta hur du [samlar in nätverks spårningen](#how-to-collect-netmon-trace), förstår hur du använder det och [analyserar Netmon-spårningen](#how-to-analyze-netmon-trace) innan du använder Netmon-verktygen i reala fall från egen värd-IR.
+
+Ibland kan vi vid fel sökning av anslutnings problem, till exempel under en mellan egen värd-IR och Data Factory: 
+
+![HTTP-begäran misslyckades](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
+
+Eller en mellan egen värd-IR och data källa/mottagare kommer vi att stöta på följande fel:
+
+**Fel meddelande:**
+`Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’`
+
+**Fel meddelande:**
+`One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.`
+
+**Lösning:** När du påträffar ovanstående problem kan du läsa följande instruktioner för att felsöka ytterligare:
+
+Ta Netmon-spårningen och analysera vidare.
+- För det första kan du ange filtret för att se eventuell återställning där från servern till klient sidan. I följande exempel kan du se server sidan Data Factory-Server.
+
+    ![Data Factory-Server](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
+
+- När du hämtar återställnings paketet kan du hitta konversationen genom att följa TCP.
+
+    ![Hitta konversation](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+
+- Sedan kan du hämta konverteringen mellan klienten och Data Factory servern nedan genom att ta bort filtret.
+
+    ![Hämta konversation](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
+- Baserat på den insamlade Netmon-spårningen kan vi se att det totala TTL-värdet (TimeToLive) är 64. Enligt standard- **TTL-och hopp gräns värden** som anges i [den här artikeln](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) (som extraheras nedan) kan vi se att det är det Linux-system som återställer paketet och orsakar från koppling.
+
+    Standardvärden för TTL och hopp varierar mellan olika operativ system, här är standardinställningarna för några få:
+    - Linux kernel 2,4 (circa 2001): 255 för TCP, UDP och ICMP
+    - Linux kernel 4,10 (2015): 64 för TCP, UDP och ICMP
+    - Windows XP (2001): 128 för TCP, UDP och ICMP
+    - Windows 10 (2015): 128 för TCP, UDP och ICMP
+    - Windows Server 2008:128 för TCP, UDP och ICMP
+    - Windows Server 2019 (2018): 128 för TCP, UDP och ICMP
+    - macOS (2001): 64 för TCP, UDP och ICMP
+
+    ![TTL 61](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
+    
+    Den visas dock som 61 i stället för 64 i exemplet ovan, eftersom när nätverks paketet når målet måste det gå igenom olika hopp som routrar/nätverks enheter. Antalet routrar/nätverks enheter kommer att dras av i det slutliga TTL-värdet.
+    I det här fallet kan vi se att återställningen kan skickas från Linux-systemet med TTL 64.
+
+- Vi måste kontrol lera det fjärde hoppet från egen värd-IR för att kontrol lera var återställnings enheten kan komma från.
+ 
+    *Nätverks paket från Linux system A med TTL 64-> B TTL 64 minus 1 = 63-> C TTL 63 minus 1 = 62-> TTL 62 minus 1 = 61 lokal IR*
+
+- I ideal fallet är TTL 128, vilket innebär att Windows system kör vår Data Factory. Som du ser i exemplet nedan, *128 – 107 = 21 hopp*, vilket innebär att 21 hopp för paketet har skickats från Data Factory till IR med egen värd under TCP 3-handskakningen.
+ 
+    ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
+
+    Därför måste du engagera nätverks teamet för att kontrol lera vad det fjärde hoppet är från IR med egen värd. Om det är en brand vägg som Linux-system kan du kontrol lera eventuella loggar på varför enheten återställer paketet efter TCP 3-handskakningen. Men om du inte är säker på var du ska göra undersökningen kan du försöka hämta Netmon-spårningen från IR och brand vägg med egen värd under den problematiska tiden för att ta reda på vilken enhet som kan återställa det här paketet och orsaka från koppling. I så fall måste du också engagera ditt nätverks team för att gå vidare.
+
+### <a name="how-to-collect-netmon-trace"></a>Samla in Netmon-spårning
+
+1.  Hämta Netmon-verktygen från [den här webbplatsen](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)och installera det på serverdatorn (vilken server som har problem) och klienten (till exempel lokal IR-överföring).
+
+2.  Skapa en mapp, till exempel, i följande sökväg: *D:\netmon*. Se till att det finns tillräckligt med utrymme för att spara loggen.
+
+3.  Avbilda IP-och portinformation. 
+    1. Starta en kommando tolk.
+    2. Välj Kör som administratör och kör följande kommando:
+       
+        ```
+        Ipconfig /all >D:\netmon\IP.txt
+        netstat -abno > D:\netmon\ServerNetstat.txt
+        ```
+
+4.  Avbilda Netmon-spårningen (nätverks paket).
+    1. Starta en kommando tolk.
+    2. Välj Kör som administratör och kör följande kommando:
+        
+        ```
+        cd C:\Program Files\Microsoft Network Monitor 3
+        ```
+    3. Du kan använda tre olika kommandon för att avbilda nätverks sidan:
+        - Alternativ A: RoundRobin File Command (detta fångar bara en fil och skriver över gamla loggar).
+
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
+            ```         
+        - Alternativ B: kommandot kedjad fil (Detta skapar en ny fil om 200 MB har nåtts).
+        
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
+            ```          
+        - Alternativ C: schemalagt fil kommando.
+
+            ```
+            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
+            ```  
+
+5.  Tryck på **CTRL + C** för att stoppa avbilden av NetMon-spårningen.
+ 
+> [!NOTE]
+> Om du bara kan samla in Netmon-spåret på klient datorn kan du hämta serverns IP-adress så att du kan analysera spårningen.
+
+### <a name="how-to-analyze-netmon-trace"></a>Analysera Netmon-spårning
+
+När du försöker använda Telnet **8.8.8.8 888** med ovanstående Netmon-spårning, kommer du att se spårningen nedan:
+
+![Netmon-spårning 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
+
+![Netmon spårning 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
+ 
+
+Det innebär att du inte kan göra TCP-anslutning till **8.8.8.8** -Server sidan baserat på port **888**, så att du ser två **SynReTransmit** ytterligare paket där. Eftersom källan **Self-HOST2** inte kunde ansluta till **8.8.8.8** i det första paketet, kommer den att fortsätta att upprätta anslutningen.
+
+> [!TIP]
+> - Du kan klicka på **load filter**  ->  **standard filter**  ->  **adresser**  ->  **IPv4-adresser**.
+> - Ange **IPv4. address = = 8.8.8.8** som filter och klicka på **tillämpa**. Därefter kan du bara se kommunikationen från den lokala datorn till mål- **8.8.8.8**.
+
+![Filtrera adresser 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+        
+![Filtrera adresser 2](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+
+Nedan visas ett exempel på hur ett bra scenario skulle se ut. 
+
+- Om Telnet **8.8.8.8 53** fungerar utan problem kan du se att TCP 3 hand skakning sker och att sessionen slutförs med TCP 4-handskakningen.
+
+    ![Bästa scenario exempel 1](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+     
+    ![exempel på bästa scenario 2](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
+
+- Baserat på ovanstående TCP 3-handskakning kan du se arbets flödet nedan:
+
+    ![Arbets flöde för TCP 3 hand skakning](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png)
+ 
+- TCP 4-handskakningen för att avsluta sessionen och arbets flödet visas enligt följande:
+
+    ![TCP 4-handskakning](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
+
+    ![Arbets flöde för TCP 4 hand skakning](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
 
 ## <a name="next-steps"></a>Nästa steg

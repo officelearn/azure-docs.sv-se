@@ -1,19 +1,14 @@
 ---
 title: Bearbeta data från Event Hubs Azure med Stream Analytics | Microsoft Docs
 description: Den här artikeln visar hur du bearbetar data från Azure Event Hub med ett Azure Stream Analytics-jobb.
-services: event-hubs
-author: spelluru
-manager: ''
-ms.author: spelluru
-ms.date: 07/09/2019
+ms.date: 06/23/2020
 ms.topic: article
-ms.service: event-hubs
-ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69991949"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312902"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Bearbeta data från händelsehubben med hjälp av Azure Stream Analytics 
 Med tjänsten Azure Stream Analytics kan du enkelt mata in, bearbeta och analysera strömmande data från Azure Event Hubs, vilket möjliggör kraftfulla insikter för att köra real tids åtgärder. Med den här integreringen kan du snabbt skapa en pipeline för snabb Sök väg analys. Du kan använda Azure Portal för att visualisera inkommande data och skriva en Stream Analytics fråga. När din fråga är klar kan du flytta den till produktion på bara några få klick. 
@@ -49,7 +44,7 @@ Här är de viktigaste fördelarna med Azure Event Hubs och Azure Stream Analyti
     - Du kan förhandsgranska inkommande data i tabell format eller RAW-format. 
     - Om data som visas inte är aktuella väljer du **Uppdatera** för att se de senaste händelserna. 
 
-        Här är ett exempel på data i **tabell format**: ![resultat i tabell format](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        Här är ett exempel på data i **tabell format**: ![ resultat i tabell format](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
         Här är ett exempel på data i **RAW-format**: 
 

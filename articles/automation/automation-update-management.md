@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Uppdateringshantering
 description: Den här artikeln innehåller en översikt över den Uppdateringshantering funktionen som implementerar uppdateringar för dina Windows-och Linux-datorer.
 services: automation
 ms.subservice: update-management
-ms.date: 06/16/2020
+ms.date: 06/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 85b724cacc9c878f39de62e91e18713a1817933d
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 86116e4aa76b376331e25719d128fc733c3257ae
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817236"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316393"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -225,13 +225,20 @@ Nästa tabell definierar de klassificeringar som stöds för Linux-uppdateringar
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett enskilt problem eller ett produktspecifik, säkerhetsrelaterat problem.         |
 |Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska eller som inte är av säkerhets uppdateringar.        |
 
+>[!NOTE]
+>Uppdaterings klassificering för Linux-datorer är bara tillgänglig när de används i de Azures offentliga moln regioner som stöds. När du använder Uppdateringshantering i följande nationella moln regioner:
+>* Azure US Government
+>* 21Vianet i Kina
+>
+> Det finns ingen klassificering av Linux-uppdateringar och rapporteras i kategorin **andra uppdateringar** . Uppdateringshantering använder data som publicerats av de distributioner som stöds, särskilt deras publicerade [oval](https://oval.mitre.org/) (öppna sårbarhets-och utvärderings språk) filer. Eftersom Internet åtkomst är begränsat från dessa nationella moln kan Uppdateringshantering inte komma åt och använda filerna.
+
 För Linux kan Uppdateringshantering skilja mellan kritiska uppdateringar och säkerhets uppdateringar i molnet och Visa utvärderings data på grund av data berikning i molnet. Vid uppdatering Uppdateringshantering förlitar sig på klassificerings data som är tillgängliga på datorn. Till skillnad från andra distributioner har CentOS inte den här informationen tillgänglig i RTM-versionen. Om du har CentOS-datorer som har kon figurer ATS för att returnera säkerhets data för följande kommando kan Uppdateringshantering korrigeras baserat på klassificeringar.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Det finns för närvarande ingen metod som stöds för att aktivera intern klassificerings data tillgänglighet på CentOS. För närvarande tillhandahålls kunder som kanske har aktiverat den här funktionen på egen hand. 
+Det finns för närvarande ingen metod som stöds för att aktivera intern klassificerings data tillgänglighet på CentOS. För närvarande tillhandahålls kunder som kanske har aktiverat den här funktionen på egen hand.
 
 Om du vill klassificera uppdateringar i Red Hat Enterprise version 6 måste du installera plugin-programmet yum-Security. På Red Hat Enterprise Linux 7 är plugin-programmet redan en del av yum och det finns inget behov av att installera något. Mer information finns i följande artiklar om Red Hat- [kunskap](https://access.redhat.com/solutions/10021).
 

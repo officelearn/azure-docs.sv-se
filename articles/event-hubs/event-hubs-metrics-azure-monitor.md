@@ -1,26 +1,14 @@
 ---
 title: Mått i Azure Monitor Azure-Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du använder Azure Monitor för att övervaka Azure Event Hubs
-services: event-hubs
-documentationcenter: .NET
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 09/18/2019
-ms.author: shvija
-ms.openlocfilehash: 96c346f4359740fda5638dfdbe5735c5bdfce8c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 76df9920c517e8370409bca26e5a6533c7253c1e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162658"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314592"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Event Hubs-mått i Azure Monitor
 
@@ -62,7 +50,7 @@ Alla mått värden skickas till Azure Monitor varje minut. Tids kornig het defin
 
 Räknar antalet data-och hanterings åtgärder som begärs.
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 | Inkommande begär Anden  | Antalet förfrågningar som gjorts till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName |
 | Lyckade förfrågningar    | Antalet lyckade förfrågningar som gjorts till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName |
@@ -72,13 +60,13 @@ Räknar antalet data-och hanterings åtgärder som begärs.
 
 ## <a name="throughput-metrics"></a>Data flödes mått
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |Begränsade begär Anden |antalet begäranden som har begränsats på grund av att användningen av dataflödesenheten överskreds.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 
 ## <a name="message-metrics"></a>Meddelande mått
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |Inkommande meddelanden |Antalet händelser eller meddelanden som skickats till Event Hubs under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Utgående meddelanden |Antalet händelser eller meddelanden som hämtats från Event Hubs under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
@@ -87,7 +75,7 @@ Räknar antalet data-och hanterings åtgärder som begärs.
 
 ## <a name="connection-metrics"></a>Anslutnings mått
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |ActiveConnections |Antalet aktiva anslutningar i ett namn område samt på en entitet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Öppna anslutningar |Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
@@ -97,7 +85,7 @@ Räknar antalet data-och hanterings åtgärder som begärs.
 
 Du kan övervaka Event Hubs Infångnings mått när du aktiverar insamlings funktionen för dina Event Hub. Följande mått beskriver vad du kan övervaka med Capture aktiverat.
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |Samla in efter släpning |Antalet byte som ännu inte har registrerats till det valda målet.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Fångade meddelanden |Antalet meddelanden eller händelser som har fångats till det valda målet under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
@@ -107,7 +95,7 @@ Du kan övervaka Event Hubs Infångnings mått när du aktiverar insamlings funk
 
 Azure Event Hubs stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i måtten. Om du inte lägger till dimensioner anges måtten på namn områdes nivå. 
 
-| Mått namn | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |Entitetsnamnet| Event Hubs stöder Event Hub-entiteter under namn området.|
 

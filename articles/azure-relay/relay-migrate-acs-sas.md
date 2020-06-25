@@ -1,24 +1,14 @@
 ---
 title: Azure Relay-migrera till signaturen för delad åtkomst
 description: Beskriver hur du migrerar Azure Relay-program från att använda Azure Active Directory Access Control Service till autentisering med delad åtkomst till signaturer.
-services: service-bus-relay
-documentationcenter: ''
-author: clemensv
-manager: timlt
-editor: ''
-ms.service: service-bus-relay
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 59b9e734526c56016e2ddf59c2afb5b8f7b4ad09
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 300a7eb5bb69db878b208be8c1e2b404717a6265
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211780"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314310"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay-migrera från Azure Active Directory Access Control Service till signaturen för delad åtkomst
 
@@ -30,7 +20,7 @@ SAS har fördelen att den inte är direkt beroende av en annan tjänst, men kan 
 
 För alla befintliga program som är beroende av ACS uppmanar vi kunderna att migrera sina program så att de förlitar sig på SAS i stället.
 
-## <a name="migration-scenarios"></a> Migreringsscenarier
+## <a name="migration-scenarios"></a>Migreringsscenarier
 
 ACS och reläet integreras genom delade kunskaper om en *signerings nyckel*. Signerings nyckeln används av ett ACS-namnområde för att signera tokens och den används av Azure Relay för att kontrol lera att token har utfärdats av det kopplade ACS-namnutrymmet. ACS-namnrymden innehåller tjänst identiteter och auktoriseringsregler. Auktoriseringsregler definierar vilken tjänst identitet eller vilken token som utfärdats av en extern identitetsprovider som hämtar vilken typ av åtkomst till en del av ett relä namn områdes diagram i form av en längsta prefix-matchning.
 

@@ -3,12 +3,12 @@ title: Säkerhetskopiera en Azure-filresurs med hjälp av PowerShell
 description: I den här artikeln får du lära dig hur du säkerhetskopierar en Azure Files fil resurs med hjälp av Azure Backup tjänsten och PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 53187152802908e94ee4a8a231d3b7874cf42422
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2d391c661363a1a2bc4238cd7a976b7e13c4f0b8
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199343"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391085"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Säkerhetskopiera en Azure-filresurs med hjälp av PowerShell
 
@@ -60,7 +60,7 @@ Konfigurera PowerShell på följande sätt:
 5. På webb sidan som visas uppmanas du att ange dina autentiseringsuppgifter för kontot.
 
     Du kan också inkludera dina kontoautentiseringsuppgifter som en parameter i cmdleten **Connect-AzAccount** med hjälp av **-Credential**.
-   
+
     Om du är en CSP-partner som arbetar för en klients räkning anger du kunden som en klient. Använd klient-ID eller klientens primära domän namn. Ett exempel är **Connect-AzAccount-Tenant "fabrikam.com"**.
 
 6. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
@@ -95,20 +95,11 @@ Följ de här stegen för att skapa ett Recovery Services-valv:
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Använd cmdleten [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) för att skapa valvet. Ange samma plats för valvet som du använde för resurs gruppen.
+1. Använd cmdleten [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) för att skapa valvet. Ange samma plats för valvet som du använde för resurs gruppen.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-
-3. Ange vilken typ av redundans som ska användas för valv lagringen. Du kan använda [Lokalt Redundant lagring](../storage/common/storage-redundancy-lrs.md) eller [Geo-redundant lagring](../storage/common/storage-redundancy-grs.md).
-   
-   I följande exempel anges alternativet **-BackupStorageRedundancy** för cmdleten [set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) för **testvault** som är inställt på **polyredundant**:
-
-   ```powershell
-   $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-   Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-   ```
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Visa valv i en prenumeration
 
@@ -250,16 +241,16 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 I det här avsnittet beskrivs viktiga förändringar i säkerhets kopiering av Azure-filresurser i förberedelser inför allmän tillgänglighet.
 
-När du aktiverar en säkerhets kopia för Azure-filresurser får användaren ett fil resurs namn som entitetsnamnet och ett säkerhets kopierings objekt skapas. Säkerhetsobjektets namn är en unik identifierare som Azure Backups tjänsten skapar. Vanligt vis är identifieraren ett användarvänligt namn. Men för att hantera scenariot med mjuk borttagning, där en fil resurs kan tas bort och en annan fil resurs kan skapas med samma namn, är den unika identiteten för en Azure-filresurs nu ett ID. 
+När du aktiverar en säkerhets kopia för Azure-filresurser får användaren ett fil resurs namn som entitetsnamnet och ett säkerhets kopierings objekt skapas. Säkerhetsobjektets namn är en unik identifierare som Azure Backups tjänsten skapar. Vanligt vis är identifieraren ett användarvänligt namn. Men för att hantera scenariot med mjuk borttagning, där en fil resurs kan tas bort och en annan fil resurs kan skapas med samma namn, är den unika identiteten för en Azure-filresurs nu ett ID.
 
-Om du vill veta det unika ID: t för varje objekt kör du kommandot **Get-AzRecoveryServicesBackupItem** med relevanta filter för **backupManagementType** och **WorkloadType** för att hämta alla relevanta objekt. Observera sedan fältet namn i det returnerade PowerShell-objektet/svaret. 
+Om du vill veta det unika ID: t för varje objekt kör du kommandot **Get-AzRecoveryServicesBackupItem** med relevanta filter för **backupManagementType** och **WorkloadType** för att hämta alla relevanta objekt. Observera sedan fältet namn i det returnerade PowerShell-objektet/svaret.
 
 Vi rekommenderar att du listar objekt och sedan hämtar deras unika namn från fältet namn i svaret. Använd det här värdet för att filtrera objekten med parametern *Name* . Annars kan du använda *FriendlyName* -parametern för att hämta objektet med dess ID.
 
 > [!IMPORTANT]
-> Se till att PowerShell uppgraderas till den lägsta versionen (AZ. RecoveryServices 2.6.0) för säkerhets kopiering av Azure-filresurser. Med den här versionen är *FriendlyName* -filtret tillgängligt för kommandot **Get-AzRecoveryServicesBackupItem** . 
+> Se till att PowerShell uppgraderas till den lägsta versionen (AZ. RecoveryServices 2.6.0) för säkerhets kopiering av Azure-filresurser. Med den här versionen är *FriendlyName* -filtret tillgängligt för kommandot **Get-AzRecoveryServicesBackupItem** .
 >
-> Skicka namnet på Azure-filresursen till *FriendlyName* -parametern. Om du skickar namnet på fil resursen till parametern *Name* , genererar den här versionen en varning för att skicka namnet till *FriendlyName* -parametern. 
+> Skicka namnet på Azure-filresursen till *FriendlyName* -parametern. Om du skickar namnet på fil resursen till parametern *Name* , genererar den här versionen en varning för att skicka namnet till *FriendlyName* -parametern.
 >
 > Om du inte installerar den lägsta versionen kan det leda till att befintliga skript inte fungerar. Installera den lägsta versionen av PowerShell med hjälp av följande kommando:
 >
@@ -295,5 +286,5 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [att säkerhetskopiera Azure Files i Azure Portal](backup-afs.md).
-- Se [exempel skriptet på GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) för att använda en Azure Automation Runbook för att schemalägga säkerhets kopieringar.
+* Lär dig mer om [att säkerhetskopiera Azure Files i Azure Portal](backup-afs.md).
+* Se [exempel skriptet på GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) för att använda en Azure Automation Runbook för att schemalägga säkerhets kopieringar.

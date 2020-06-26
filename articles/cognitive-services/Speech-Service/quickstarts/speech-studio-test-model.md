@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d696c0f6d1cdab8175af77c265435c48824f3e15
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346116"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391544"
 ---
 # <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>Snabb start: testa en modell med en ljudfil i tal Studio
 
 I den här snabb starten använder du tal Studio för att konvertera tal från en ljudfil till text. Med tal Studio kan du testa, jämföra, förbättra och distribuera tal igenkännings modeller med relaterad text, ljud med medmärkta avskrifter och vägledning som du anger.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du använder tal portalen [följer du de här anvisningarna för att skapa ett Azure-konto och prenumerera på tal tjänsten](../how-to-custom-speech.md#set-up-your-azure-account). Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och Custom Speech-portalen.
 

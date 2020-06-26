@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e8a1bb19a18f43bae4639d2ca9d9b9941bd29324
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 1af98e6ecbe9b5951d94dd22be8a47c1b13691d3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362838"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390626"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Olika händelser i digitala Azure-meddelanden genererar **aviseringar**, vilket gör att lösningens Server del kan vara medveten när olika åtgärder sker. De [dirigeras](concepts-route-events.md) sedan till olika platser inuti och utanför Azures digitala dubbla, som kan använda den här informationen för att vidta åtgärder.
 

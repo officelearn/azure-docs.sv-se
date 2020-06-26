@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/23/2019
+ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: c1246b19670a18f8dadc0c5e1c64dd5af4c1b210
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c355071c4bbaff5ddb22b2db5fc4a3a0fdb561d4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75380787"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391561"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Snabb start: identifiera tal i mål-C på iOS med hjälp av tal-SDK
 
@@ -40,7 +40,7 @@ Den kan hämtas från [den här webbplatsen](https://aka.ms/csspeech/iosbinary).
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
-Starta Xcode och starta ett nytt projekt genom att välja **Arkiv** > **nytt** > **projekt**.
+Starta Xcode och starta ett nytt projekt genom att välja **Arkiv**  >  **nytt**  >  **projekt**.
 I dialog rutan Mallval väljer du app-mallen för **iOS-enkel vy** .
 
 Gör följande val i dialog rutorna som följer.
@@ -57,7 +57,7 @@ Gör följande val i dialog rutorna som följer.
    1. Välj arbetskatalogen och spara projektet där. Det här steget skapar en HelloWorld-katalog i din arbets katalog som innehåller alla filer för Xcode-projektet.
    1. Inaktivera skapandet av en Git-lagringsplats för det här exempelprojektet.
    1. Justera Sök vägarna till SDK: n på skärmen projekt inställningar.
-      1. På fliken **Allmänt** under rubriken **inbäddade binärfiler** lägger du till SDK-biblioteket som ett ramverk genom att välja **Lägg till inbäddade binärfiler** > **Lägg till annan**. Gå till din Hem Katalog och välj filen `MicrosoftCognitiveServicesSpeech.framework`. Den här åtgärden lägger till SDK-biblioteket i sidhuvudet **och biblioteken som länkas** automatiskt.
+      1. På fliken **Allmänt** under rubriken **inbäddade binärfiler** lägger du till SDK-biblioteket som ett ramverk genom att välja **Lägg till inbäddade binärfiler**  >  **Lägg till annan**. Gå till din Hem Katalog och välj filen `MicrosoftCognitiveServicesSpeech.framework` . Den här åtgärden lägger till SDK-biblioteket i sidhuvudet **och biblioteken som länkas** automatiskt.
          ![Ramverk har lagts till](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-framework.png)
       1. Gå till fliken **versions inställningar** och välj inställningen **alla** .
       1. Lägg till katalogen $ (SRCROOT)/.. till **ramverk Sök vägar** under rubriken **Sök sökvägar** .
@@ -66,7 +66,7 @@ Gör följande val i dialog rutorna som följer.
 
 ## <a name="set-up-the-ui"></a>Konfigurera användargränssnittet
 
-Exempel appen har ett väldigt enkelt användar gränssnitt. Det finns två knappar för att starta tal igenkänning från en fil eller från mikrofon indata och en text etikett för att visa resultatet. Användargränssnittet konfigureras i `Main.storyboard`-delen av projektet. Öppna XML-vyn för storyboard genom att `Main.storyboard` Högerklicka på posten i projekt trädet och välja **öppna som** > **källkod**.
+Exempel appen har ett väldigt enkelt användar gränssnitt. Det finns två knappar för att starta tal igenkänning från en fil eller från mikrofon indata och en text etikett för att visa resultatet. Användargränssnittet konfigureras i `Main.storyboard`-delen av projektet. Öppna XML-vyn för storyboard genom att högerklicka på `Main.storyboard` posten i projekt trädet och välja **öppna som**  >  **källkod**.
 
 Ersätt den automatiskt genererade XML:en med följande kod:
 
@@ -81,8 +81,8 @@ Ersätt den automatiskt genererade XML:en med följande kod:
 
    [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/ios/from-microphone/helloworld/helloworld/ViewController.m#code)]
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Använd `westus` till exempel för den kostnads fria utvärderings prenumerationen.
-1. Lägg till begäran om åtkomst till mikrofonen. Högerklicka på `Info.plist` posten i projekt trädet och välj **öppna som** > **källkod**. Lägg till följande rader i `<dict>` avsnittet och spara sedan filen.
+1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria utvärderings prenumerationen.
+1. Lägg till begäran om åtkomst till mikrofonen. Högerklicka på `Info.plist` posten i projekt trädet och välj **öppna som**  >  **källkod**. Lägg till följande rader i `<dict>` avsnittet och spara sedan filen.
 
     ```xml
     <key>NSMicrophoneUsageDescription</key>
@@ -91,9 +91,9 @@ Ersätt den automatiskt genererade XML:en med följande kod:
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. Gör fel söknings resultatet synligt genom att välja **Visa** > **fel söknings yta** > **Aktivera konsol**.
-1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på menyn **produkt** > **mål** .
-1. Skapa och kör exempel koden i iOS-simulatorn genom att välja **produkt** > **körning** på menyn. Du kan också välja knappen **spela upp** .
+1. Gör fel söknings resultatet synligt genom att välja **Visa**  >  **fel söknings yta**  >  **Aktivera konsol**.
+1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på menyn **produkt**  >  **mål** .
+1. Skapa och kör exempel koden i iOS-simulatorn genom att välja **produkt**  >  **körning** på menyn. Du kan också välja knappen **spela upp** .
 1. När du har valt knappen **identifiera (fil)** i appen bör du se innehållet i ljud filen "Vad är väder som?" på den nedre delen av skärmen.
 
    ![Simulerad iOS-app](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-simulated-app.png)

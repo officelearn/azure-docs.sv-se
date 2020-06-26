@@ -3,14 +3,14 @@ title: Säkerhetskopiera Azure-filresurser i Azure Portal
 description: Lär dig hur du använder Azure Portal för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a78760e793704d9ec4580e21ea86e0ba573b3949
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340716"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391169"
 ---
-# <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser 
+# <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera [Azure-filresurser](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -26,27 +26,6 @@ I den här artikeln får du lära dig att:
 * Se till att fil resursen finns i någon av de [typer av lagrings konton som stöds](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="modify-storage-replication"></a>Ändra Storage Replication
-
-Som standard använder valven [Geo-redundant lagring (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-* Om valvet är din primära mekanism för säkerhets kopiering rekommenderar vi att du använder GRS.
-* Du kan använda [Lokalt Redundant lagring (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) som ett alternativ med låg kostnad.
-
-Så här ändrar du typen av lagrings replikering:
-
-1. I det nya valvet väljer du **Egenskaper** under avsnittet **Inställningar** .
-
-1. På sidan **Egenskaper** under **säkerhets kopierings konfiguration**väljer du **Uppdatera**.
-
-1. Välj typ av lagrings replikering och välj **Spara**.
-
-    ![Uppdatera säkerhets kopierings konfiguration](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> Du kan inte ändra typen av lagringsprovider när valvet har kon figurer ATS och innehåller säkerhets kopierings objekt. Om du vill göra det måste du återskapa valvet.
->
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Identifiera fil resurser och konfigurera säkerhets kopiering
 

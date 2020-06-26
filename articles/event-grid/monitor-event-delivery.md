@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: spelluru
-ms.openlocfilehash: e74d2d8982cac961aa65d6576c80a92cb53ce387
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 75311675ae24f4836ed8f1adb8a7d9802b4d7f0d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100597"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390609"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Övervaka Event Grid meddelande leverans 
 Den här artikeln beskriver hur du använder portalen för att se mått för Event Grid ämnen och prenumerationer och hur du skapar aviseringar. 
@@ -99,59 +99,8 @@ Du kan skapa diagram med mått som stöds med hjälp av fliken **mått** på sid
 Mer information om mått finns [i mått i Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
 
 
-## <a name="set-alerts"></a>Ställa in avisering
-Du kan ställa in aviseringar för mått för ämnen och domäner i Azure Portal. 
-
-Följande procedur visar hur du skapar en avisering om mått för **obeställbara händelser** för ett anpassat ämne. I det här exemplet skickas ett e-postmeddelande till Azures resurs grupps ägare när antalet förlorade händelser för ett ämne hamnar ovanför 10. 
-
-1. På sidan **Event Grid ämne** för ditt ämne väljer du **aviseringar** på den vänstra menyn och väljer sedan **+ ny varnings regel**. 
-
-    :::image type="content" source="./media/monitor-event-delivery/new-alert-button.png" alt-text="Sidan aviseringar – knappen Ny varnings regel":::
-    
-    
-    Du kan också skapa aviseringar med hjälp av sidan **mått** . Stegen är liknande. 
-
-    :::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" alt-text="Sidan mått – knappen Skapa avisering":::   
-    
-2. På sidan **skapa aviserings regel** kontrollerar du att ditt ämne är markerat för resursen. Klicka sedan på **Välj villkor**. 
-
-    :::image type="content" source="./media/monitor-event-delivery/alert-select-condition.png" alt-text="Sidan aviseringar – Välj villkor":::    
-3. Följ dessa steg på sidan **Konfigurera signal logik** :
-    1. Välj ett mått eller en aktivitets logg post. I det här exemplet är inloggade **brevade händelser** markerade. 
-
-        :::image type="content" source="./media/monitor-event-delivery/select-dead-lettered-events.png" alt-text="Välj händelser för obeställbara meddelanden":::        
-    2. Välj dimensioner (valfritt). 
-        
-        :::image type="content" source="./media/monitor-event-delivery/configure-signal-logic.png" alt-text="Konfigurera signallogiken":::        
-    3. Rulla nedåt. I avsnittet **aviserings logik** väljer du en **operator**, **sammansättnings typ**och anger ett **tröskelvärde**och väljer **klar**. I det här exemplet utlöses en avisering när det totala antalet död antalet förlorade händelser är större än 10. 
-    
-        :::image type="content" source="./media/monitor-event-delivery/alert-logic.png" alt-text="Aviserings logik":::                
-4. Gå tillbaka till sidan **skapa aviserings regel** och klicka på **Välj åtgärds grupp**.
-
-    :::image type="content" source="./media/monitor-event-delivery/select-action-group-button.png" alt-text="Knappen Välj åtgärds grupp":::
-5. Välj **skapa åtgärds grupp** i verktygsfältet för att skapa en ny åtgärds grupp. Du kan också välja en befintlig åtgärds grupp.        
-6. Följ dessa steg på sidan **Lägg till åtgärds grupp** :
-    1. Ange ett **namn på åtgärds gruppen**.
-    1. Ange ett **kort namn** för åtgärds gruppen.
-    1. Välj en **Azure-prenumeration** där du vill skapa åtgärds gruppen.
-    1. Välj den **Azure-resurs grupp** där du vill skapa åtgärds gruppen.
-    1. Ange ett **namn för åtgärden**. 
-    1. Välj **Åtgärds typ**. I det här exemplet är **e-postAzure Resource Manager rollen** markerad, särskilt rollen **ägare** . 
-    1. Välj **OK** för att stänga sidan. 
-    
-        :::image type="content" source="./media/monitor-event-delivery/add-action-group-page.png" alt-text="Sidan Lägg till åtgärds grupp":::                   
-7. Gå tillbaka till sidan **skapa aviserings regel** , ange ett namn för aviserings regeln och välj sedan **skapa aviserings regel**.
-
-    :::image type="content" source="./media/monitor-event-delivery/alert-rule-name.png" alt-text="Namn på aviseringsregel":::  
-8. På sidan **aviseringar** i avsnittet ser du nu en länk för att hantera aviserings regler om det inte finns några aviseringar än. Om det finns aviseringar väljer du **chefs aviserings regler** i verktygsfältet.  
-
-    :::image type="content" source="./media/monitor-event-delivery/manage-alert-rules.png" alt-text="Hantera aviseringar":::
-
-    > [!NOTE]
-    > Den här artikeln beskriver inte alla de olika stegen och kombinationerna som du kan använda för att skapa en avisering. En översikt över aviseringar finns i [Översikt över aviseringar](../azure-monitor/platform/alerts-overview.md).
-
 ## <a name="next-steps"></a>Nästa steg
+Se följande artiklar:
 
-* Om du vill ha information om händelse leverans och försök kan du [Event Grid meddelande leverans och försöka igen](delivery-and-retry.md).
-* En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+- Information om hur du skapar aviseringar för mått och aktivitets logg åtgärder finns i [Ange aviseringar](set-alerts.md).
+- Om du vill ha information om händelse leverans och försök kan du [Event Grid meddelande leverans och försöka igen](delivery-and-retry.md).

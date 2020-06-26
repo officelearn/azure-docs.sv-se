@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: cdf901ca56c150cfed6ba3d462ce493d40bd2488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81dfac2a1623253a110833a96fddd1b41bd11b26
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81757988"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390235"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Använda SSH-nycklar med Windows på Azure
 
@@ -41,7 +41,7 @@ Du kan också använda SSH-verktygen som är tillgängliga i bash i [Azure Cloud
 * Kom åt Cloud Shell som en Terminal i Visual Studio Code genom att installera [tillägget för Azure-kontot](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
-I följande avsnitt beskrivs två alternativ för att skapa ett SSH-nyckelpar i Windows. Du kan använda ett Shell-kommando`ssh-keygen`() eller ett gui-verktyg (PuTTYgen). Observera också när du använder PowerShell för att skapa en nyckel, överför den offentliga nyckeln som SSH. com (SECSH)-format. När du använder CLI konverterar du nyckeln till OpenSSH-format innan du överför. 
+I följande avsnitt beskrivs två alternativ för att skapa ett SSH-nyckelpar i Windows. Du kan använda ett Shell-kommando ( `ssh-keygen` ) eller ett gui-verktyg (PuTTYgen). Observera också när du använder PowerShell för att skapa en nyckel, överför den offentliga nyckeln som SSH. com (SECSH)-format. När du använder CLI konverterar du nyckeln till OpenSSH-format innan du överför. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Skapa SSH-nycklar med ssh-keygen
 
@@ -51,7 +51,7 @@ Om du kör ett kommando gränssnitt i Windows som stöder SSH-klientinställning
 ssh-keygen -t rsa -b 2048
 ```
 
-Mer bakgrund och information finns i [snabb](mac-create-ssh-keys.md) eller [detaljerade](create-ssh-keys-detailed.md) steg för att skapa SSH-nycklar med `ssh-keygen`.
+Mer bakgrund och information finns i [snabb](mac-create-ssh-keys.md) eller [detaljerade](create-ssh-keys-detailed.md) steg för att skapa SSH-nycklar med `ssh-keygen` .
 
 ### <a name="create-ssh-keys-with-puttygen"></a>Skapa SSH-nycklar med PuTTYgen
 
@@ -63,19 +63,19 @@ Så här skapar du ett SSH RSA-nyckelpar med PuTTYgen:
 
 2. Klicka på **Generera**. Som standard genererar PuTTYgen en 2048-bitars SSH-2 RSA-nyckel.
 
-4. Flytta musen runt i det tomma utrymmet för att ge dig slumpmässighet för nyckeln.
+3. Flytta musen runt i det tomma utrymmet för att ge dig slumpmässighet för nyckeln.
 
-5. När den offentliga nyckeln har genererats kan du välja att ange och bekräfta en lösen fras. Du kommer att uppmanas att ange lösen frasen när du autentiserar till den virtuella datorn med din privata SSH-nyckel. Om någon hämtar din privata nyckel utan lösen fras kan de logga in på en virtuell dator eller tjänst som använder den nyckeln. Vi rekommenderar att du skapar en lösen fras. Men om du glömmer bort lösenfrasen går det inte att återställa den.
+4. När den offentliga nyckeln har genererats kan du välja att ange och bekräfta en lösen fras. Du kommer att uppmanas att ange lösen frasen när du autentiserar till den virtuella datorn med din privata SSH-nyckel. Om någon hämtar din privata nyckel utan lösen fras kan de logga in på en virtuell dator eller tjänst som använder den nyckeln. Vi rekommenderar att du skapar en lösen fras. Men om du glömmer bort lösenfrasen går det inte att återställa den.
 
-6. Den offentliga nyckeln visas överst i fönstret. Du kan kopiera hela den offentliga nyckeln och klistra in den i Azure Portal eller en Azure Resource Manager mall när du skapar en virtuell Linux-dator. Du kan också välja **Spara offentlig nyckel** för att spara en kopia på datorn:
+5. Den offentliga nyckeln visas överst i fönstret. Du kan kopiera hela den offentliga nyckeln och klistra in den i Azure Portal eller i en Azure Resource Manager mall när du skapar en virtuell Linux-dator. Du kan också välja **Spara offentlig nyckel** för att spara en kopia på din dator. Observera att när du sparar till en fil, konverterar SparaTillFil den offentliga nyckeln till ett annat format, [RFC4716](https://tools.ietf.org/html/rfc4716). RFC4716-formatet kanske inte är kompatibelt med alla API: er. Om du vill använda i Azure Portal rekommenderar vi att du kopierar den offentliga nyckeln som visas i fönstret SparaTillFil.
 
     ![Spara filen med fil för fil-offentlig nyckel](./media/ssh-from-windows/save-public-key.png)
 
-7. Om du vill spara den privata nyckeln i filen med formatet för en fil med formatet SparaTillFil (. PPK) väljer du **Spara privat nyckel**. Du kommer att behöva. PPK-filen senare för att kunna använda SparaTillFil för att skapa en SSH-anslutning till den virtuella datorn.
+6. Om du vill spara den privata nyckeln i filen med formatet för en fil med formatet SparaTillFil (. PPK) väljer du **Spara privat nyckel**. Du kommer att behöva. PPK-filen senare för att kunna använda SparaTillFil för att skapa en SSH-anslutning till den virtuella datorn.
 
     ![Spara filen med den privata nyckeln för filen](./media/ssh-from-windows/save-ppk-file.png)
 
-    Om du vill spara den privata nyckeln i openssh-formatet, det privata nyckel formatet som används av många SSH-klienter, väljer du **konverteringar** > **Exportera openssh nyckel**.
+    Om du vill spara den privata nyckeln i openssh-formatet, det privata nyckel formatet som används av många SSH-klienter, väljer du **konverteringar**  >  **Exportera openssh nyckel**.
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Ange en offentlig SSH-nyckel när du distribuerar en virtuell dator
 
@@ -111,7 +111,7 @@ Om du har installerat det [hämtade hämtnings paketet](https://www.chiark.green
 
     ![Öppna ny SparaTillFil-anslutning](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Välj kategorin för att **ansluta** > **SSH** > -**autentisering** . Bläddra till och välj din PPK-privata nyckel (.-fil):
+3. Välj kategorin för att **ansluta**  >  **SSH**-  >  **autentisering** . Bläddra till och välj din PPK-privata nyckel (.-fil):
 
     ![Välj din aktuella SparaTillFil-privata nyckel för autentisering](./media/ssh-from-windows/putty-auth-dialog.png)
 

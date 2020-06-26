@@ -3,19 +3,19 @@ title: Använd förutsägelseslutpunkt för att programmatiskt testa bilder med 
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du använder API:et för att programmatiskt testa bilder med din klassificerare för Custom Vision Service.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.author: anroth
-ms.openlocfilehash: 88aaa3d54ea44a15f7900aba093bf28c70c19695
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: pafarley
+ms.openlocfilehash: 0766ad38265368a00272eb8abbe974ce94f5dd72
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82129862"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391697"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägelse-API: et
 
@@ -113,7 +113,7 @@ I den här guiden ska du använda en lokal avbildning, så kopiera URL: en under
    * Ersätt plats hållaren `<Your prediction key>` med det nyckel värde som du hämtade tidigare.
    * Ersätt plats hållaren `<Your prediction URL>` med URL: en som du hämtade tidigare.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 När du kör programmet uppmanas du att ange en sökväg till en avbildnings fil i-konsolen. Avbildningen skickas sedan till förutsägelse-API: et och förutsägelse resultatet returneras som en JSON-formaterad sträng. Följande är ett exempel på ett svar.
 

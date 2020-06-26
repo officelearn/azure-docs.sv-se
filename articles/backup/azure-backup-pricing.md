@@ -3,12 +3,12 @@ title: Priser för Azure Backup
 description: Lär dig hur du beräknar kostnader för budgetering Azure Backup prissättning.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: d88587cfdbb4f60d0da8641fc0362b8f763779ad
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84908167"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391119"
 ---
 # <a name="azure-backup-pricing"></a>Priser för Azure Backup
 
@@ -56,7 +56,7 @@ För att beräkna kostnaderna för att säkerhetskopiera virtuella Azure-datorer
 
   - Hur lång tid förväntar du dig att spara "årliga" säkerhets kopior? (i år)
 
-  - Hur lång tid kommer du att behålla "omedelbar Restore-ögonblicksbilder"? (1-7 dagar)
+  - Hur lång tid kommer du att behålla "omedelbar Restore-ögonblicksbilder"? (1-5 dagar)
 
     - Med det här alternativet kan du återställa från så långt tillbaka till sju dagar på ett snabbt sätt med hjälp av ögonblicks bilder som lagras på diskar
 
@@ -66,7 +66,7 @@ För att beräkna kostnaderna för att säkerhetskopiera virtuella Azure-datorer
 
 - **Valfritt** – redundans för lagring av säkerhets kopior
 
-  - Detta anger redundansen för lagrings kontot som dina säkerhets kopierings data hamnar i. Vi rekommenderar att du använder **GRS** för högsta tillgänglighet. Eftersom det säkerställer att en kopia av dina säkerhetskopierade data behålls i en annan region, hjälper det dig att uppfylla flera krav för efterlevnad. Ändra redundansen till **LRS** om du säkerhetskopierar utvecklings-eller test miljöer som inte behöver en säkerhets kopia på företags nivå. Välj **RAGRS** om du vill aktivera **återställning mellan regioner** för dina säkerhets kopior
+  - Detta anger redundansen för lagrings kontot som dina säkerhets kopierings data hamnar i. Vi rekommenderar att du använder **GRS** för högsta tillgänglighet. Eftersom det säkerställer att en kopia av dina säkerhetskopierade data behålls i en annan region, hjälper det dig att uppfylla flera krav för efterlevnad. Ändra redundansen till **LRS** om du säkerhetskopierar utvecklings-eller test miljöer som inte behöver en säkerhets kopia på företags nivå. Välj alternativet **RAGRS** i bladet om du vill förstå kostnaderna när [återställning mellan regioner](backup-azure-arm-restore-vms.md#cross-region-restore) har Aktiver ATS för dina säkerhets kopieringar.
 
 - **Valfritt** – ändra regional prissättning eller Använd rabatterade kostnader
 
@@ -104,7 +104,7 @@ För att beräkna kostnaderna för att säkerhetskopiera SQL-servrar som körs p
 
     - Du kan också välja att ha en princip med en daglig/veckovis/per månads fullständig säkerhets kopiering. Det här alternativet kommer att förbruka lite mer lagrings utrymme än det första alternativet.
 
-  - Hur lång tid förväntar du dig att spara "logg"-säkerhets kopieringar? (i dagar) [1-35]
+  - Hur lång tid förväntar du dig att spara "logg"-säkerhets kopieringar? (i dagar) [7-35]
 
   - Hur länge förväntar du dig att behålla "dagliga" säkerhets kopieringar? (i dagar)
 
@@ -124,7 +124,29 @@ För att beräkna kostnaderna för att säkerhetskopiera SQL-servrar som körs p
 
 ## <a name="estimate-costs-for-backing-up-sap-hana-servers-in-azure-vms"></a>Beräkna kostnaderna för att säkerhetskopiera SAP HANA-servrar i virtuella Azure-datorer
 
-Att beräkna kostnaderna för att säkerhetskopiera SAP HANA-servrar i virtuella Azure-datorer är som att uppskatta för SQL-servrar. Du kan använda samma variabler som anges i föregående avsnitt, förutom SQL-komprimeringen.
+För att beräkna kostnaderna för att säkerhetskopiera SAP HANA servrar som körs på virtuella Azure-datorer med Azure Backup behöver du följande parametrar:
+
+- Total storlek för de SAP HANA-databaser som du försöker säkerhetskopiera. Detta bör vara summan av den fullständiga säkerhets kopierings storleken för varje databas, som rapporteras av SAP HANA.
+- Antal SAP HANA-servrar med ovanstående storlek
+- Vilken är den förväntade storleken på logg säkerhets kopior?
+  - Den genomsnittliga logg storleken per dag i procent är en% av den totala storleken på SAP HANA databaser som du säkerhetskopierar på SAP HANA-servern
+- Vad är den förväntade mängden daglig data omsättning på dessa servrar?
+  - Den genomsnittliga omsättnings storleken per dag i procent är en% av den totala storleken på SAP HANA databaser som du säkerhetskopierar på SAP HANA-servern
+  - Vanligt vis har databaser "hög" omsättning
+  - Om du vet din **omsättning%** kan du använda alternativet **Ange ditt eget%**
+- Välj säkerhets kopierings princip
+  - Typ av säkerhetskopiering
+    - Den mest effektiva principen du kan välja är **daglig differentiellhet** med en **veckovis/månatlig/årlig** fullständig säkerhets kopiering. Azure Backup kan återställas från differentiella med enkel klickning också.
+    - Du kan också välja att ha en princip med en daglig/veckovis/per **månads** fullständig säkerhets kopiering. Det här alternativet kommer att förbruka lite mer lagrings utrymme än det första alternativet.
+  - Hur lång tid förväntar du dig att spara "logg"-säkerhets kopieringar? (i dagar) [7-35]
+  - Hur länge förväntar du dig att behålla "dagliga" säkerhets kopieringar? (i dagar)
+  - Hur länge förväntar du dig att behålla "veckovis" säkerhets kopieringar? (i veckor)
+  - Hur länge förväntar du dig att behålla "månatliga" säkerhets kopior? (i månader)
+  - Hur lång tid förväntar du dig att spara "årliga" säkerhets kopior? (i år)
+- **Valfritt** – redundans för lagring av säkerhets kopior
+  - Detta anger redundansen för lagrings kontot som dina säkerhets kopierings data hamnar i. Vi rekommenderar att du använder **GRS** för högsta tillgänglighet. Eftersom det säkerställer att en kopia av dina säkerhetskopierade data behålls i en annan region, hjälper det dig att uppfylla flera krav för efterlevnad. Ändra redundansen till **LRS** om du säkerhetskopierar utvecklings-eller test miljöer som inte behöver en säkerhets kopia på företags nivå.
+- **Valfritt** – ändra regional prissättning eller Använd rabatterade kostnader
+  - Om du vill kontrol lera dina uppskattningar för en annan region eller rabatterad taxa väljer du **Ja** för alternativet **testa uppskattningar för en annan region?** och anger de priser som du vill köra uppskattningarna med.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: erhopf
-ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77469025"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391221"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Självstudie: skapa en klient modell (förhands granskning)
 
@@ -24,7 +24,7 @@ Klient organisations modell (Custom Speech med Office 365-data) är en valbar tj
 > [!IMPORTANT]
 > Om din organisation registrerar sig genom att använda klient modell tjänsten kan tal tjänsten komma åt din organisations språk modell. Modellen genereras från e-post och dokument i Office 365 offentliga grupper som kan ses av alla i din organisation. Organisationens Office 365-administratör kan aktivera eller inaktivera användningen av den organisatoriska språk modellen från administrations portalen för Office 365.
 
-I den här självstudien får du lära dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Registrera i klient organisations modellen med hjälp av Microsoft 365 administrations Center
@@ -291,7 +291,7 @@ Sedan måste du återskapa och köra projektet från kommando raden. Innan du k�
 
 1. Ersätt `<Username>` och `<Password>` med värdena för en giltig klient användare.
 1. Ersätt `<Subscription-Key>` med prenumerations nyckeln för din tal resurs. Det här värdet är tillgängligt i **översikts** avsnittet för din tal resurs i [Azure Portal](https://aka.ms/azureportal).
-1. Ersätt `<Endpoint-Uri>` med följande slut punkt. Se till att du ersätter `{your region}` den region där din tal resurs skapades. Dessa regioner stöds: `westus`, `westus2`och. `eastus` Din regions information finns i avsnittet **Översikt** i din tal resurs i [Azure Portal](https://aka.ms/azureportal).
+1. Ersätt `<Endpoint-Uri>` med följande slut punkt. Se till att du ersätter `{your region}` den region där din tal resurs skapades. Dessa regioner stöds: `westus` , `westus2` och `eastus` . Din regions information finns i avsnittet **Översikt** i din tal resurs i [Azure Portal](https://aka.ms/azureportal).
    ```
    "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
@@ -305,5 +305,5 @@ I den här självstudien har du lärt dig hur du använder Office 365-data för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tal Studio](https://speech.microsoft.com/)
+* [Speech Studio](https://speech.microsoft.com/)
 * [Speech SDK](speech-sdk.md)

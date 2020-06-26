@@ -2,20 +2,20 @@
 title: Distributions kvoten överskreds
 description: Beskriver hur du löser problemet med fler än 800 distributioner i resurs grupps historiken.
 ms.topic: troubleshooting
-ms.date: 05/26/2020
-ms.openlocfilehash: 0fec8fa91ec79822115d83b15e8c8a839dc7fd69
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/25/2020
+ms.openlocfilehash: 1b0c3de6007964b487a13e71cd43bd984cd970f1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117811"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391187"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Lös fel när antalet distributioner överskrider 800
 
 Varje resurs grupp är begränsad till 800 distributioner i distributions historiken. I den här artikeln beskrivs det fel som du får när en distribution Miss lyckas eftersom den skulle överskrida de tillåtna 800-distributionerna. Lös problemet genom att ta bort distributioner från resurs grupps historiken. Att ta bort en distribution från historiken påverkar inte några av de distribuerade resurserna.
 
 > [!NOTE]
-> Från och med juni 2020 tar Azure Resource Manager automatiskt bort distributioner från historiken när du närmar dig gränsen. Du kanske fortfarande ser det här felet om du har valt att inte ta bort dem automatiskt. Mer information finns i [automatiska borttagningar från distributions historiken](deployment-history-deletions.md).
+> Azure Resource Manager börjar snart att automatiskt ta bort distributioner från historiken när du nära gränsen. Du kanske fortfarande ser det här felet om du har valt att inte ta bort dem automatiskt. Mer information finns i [automatiska borttagningar från distributions historiken](deployment-history-deletions.md).
 
 ## <a name="symptom"></a>Symptom
 

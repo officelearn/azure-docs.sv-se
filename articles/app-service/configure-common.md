@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811114"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389791"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -25,11 +25,11 @@ I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan di
 
 ![Sök efter App Services](./media/configure-common/search-for-app-services.png)
 
-I appens vänstra meny väljer du **konfigurations** > **program inställningar**.
+I appens vänstra meny väljer du **konfigurations**  >  **program inställningar**.
 
 ![Programinställningar](./media/configure-common/open-ui.png)
 
-För ASP.NET-och ASP.NET Core-utvecklare ställer du in appinställningar i App Service som att ställa `<appSettings>` in dem i *Web. config* eller *appSettings. json*, men värdena i App Service åsidosätter dem i *Web. config* eller *appSettings. JSON*. Du kan behålla utvecklings inställningarna (till exempel lokalt MySQL-lösenord) i *Web. config* eller *appSettings. JSON*, men produktions hemligheter (till exempel Azure MySQL-databasens lösen ord) är säkert i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
+För ASP.NET-och ASP.NET Core-utvecklare ställer du in appinställningar i App Service som att ställa in dem i `<appSettings>` *Web.config* eller *appsettings.jspå*, men värdena i App Service åsidosätter dem i *Web.config* eller *appsettings.jspå*. Du kan behålla utvecklings inställningarna (till exempel lokalt MySQL-lösenord) i *Web.config* eller *appsettings.jspå*, men produktions hemligheter (till exempel Azure MySQL-databasens lösen ord) är säkert i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
 
 Andra språk stackar, på samma sätt, får också appens inställningar som miljövariabler vid körning. För språkspecifika steg, se:
 
@@ -59,7 +59,7 @@ Om du vill redigera en inställning klickar du på knappen **Redigera** på hög
 Klicka på **Uppdatera**när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
 
 > [!NOTE]
-> I en standard-Linux-behållare eller en anpassad Linux-behållare, som en kapslad JSON-nyckel struktur `ApplicationInsights:InstrumentationKey` i inställnings namnet för appen, `ApplicationInsights__InstrumentationKey` som måste konfigureras i App Service som för nyckel namnet. Med andra ord ska alla `:` ersättas av `__` (dubbla under streck).
+> I en standard-Linux-behållare eller en anpassad Linux-behållare, som en kapslad JSON-nyckel struktur i inställnings namnet för appen, som `ApplicationInsights:InstrumentationKey` måste konfigureras i App Service som `ApplicationInsights__InstrumentationKey` för nyckel namnet. Med andra ord ska alla `:` ersättas av `__` (dubbla under streck).
 >
 
 ### <a name="edit-in-bulk"></a>Redigera i bulk
@@ -86,11 +86,11 @@ Appinställningar har följande JSON-formatering:
 
 ## <a name="configure-connection-strings"></a>Konfigurera anslutningssträngar
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfigurations** > **program inställningar**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfigurations**  >  **program inställningar**.
 
 ![Programinställningar](./media/configure-common/open-ui.png)
 
-För ASP.NET-och ASP.NET Core-utvecklare ställer du in anslutnings strängar i App Service som att `<connectionStrings>` ställa in dem i *Web. config*, men värdena som du anger i App Service åsidosätter dem i *Web. config*. Du kan behålla utvecklings inställningarna (till exempel en databas fil) i *Web. config* och produktions hemligheter (till exempel SQL Database autentiseringsuppgifter) på ett säkert sätt i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
+För ASP.NET-och ASP.NET Core-utvecklare ställer du in anslutnings strängar i App Service som att ställa in dem i `<connectionStrings>` i *Web.config*, men värdena som du anger i App Service åsidosätter de i *Web.config*. Du kan behålla utvecklings inställningarna (till exempel en databas fil) i *Web.config* och produktions hemligheter (till exempel SQL Database autentiseringsuppgifter) på ett säkert sätt i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
 
 För andra språk stackar är det bättre att använda [appinställningar](#configure-app-settings) istället, eftersom anslutnings strängar kräver speciell formatering i variabel nycklar för att få åtkomst till värdena. Här är ett undantag, men vissa Azure Database-typer säkerhets kopie ras tillsammans med appen om du konfigurerar anslutnings strängar i appen. Mer information finns i [vad säkerhets kopie ras](manage-backup.md#what-gets-backed-up). Om du inte behöver denna automatiserade säkerhets kopiering ska du använda inställningarna för appen.
 
@@ -102,7 +102,7 @@ Vid körning är anslutnings strängar tillgängliga som miljövariabler, som ha
 * Bild`CUSTOMCONNSTR_`
 * PostgreSQL`POSTGRESQLCONNSTR_`  
 
-Till exempel kan en MySql-anslutningssträng med namnet *connectionstring1* nås som miljö variabel `MYSQLCONNSTR_connectionString1`. För språkspecifika steg, se:
+Till exempel kan en MySql-anslutningssträng med namnet *connectionstring1* nås som miljö variabel `MYSQLCONNSTR_connectionString1` . För språkspecifika steg, se:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
@@ -158,7 +158,7 @@ Anslutnings strängar har följande JSON-formatering:
 
 ## <a name="configure-general-settings"></a>Konfigurera allmänna inställningar
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **allmänna inställningar**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration**  >  **allmänna inställningar**.
 
 ![Allmänna inställningar](./media/configure-common/open-general.png)
 
@@ -168,22 +168,22 @@ Här kan du konfigurera några vanliga inställningar för appen. Vissa inställ
 - **Plattforms inställningar**: gör att du kan konfigurera inställningar för värd plattformen, inklusive:
     - **Bitness**: 32-bitars eller 64-bitars.
     - **WebSocket-protokoll**: för [ASP.net-signalerare] eller [socket.io](https://socket.io/), till exempel.
-    - **Always on**: Håll appen inläst även när det inte finns någon trafik. Det krävs för kontinuerliga WebJobs eller för WebJobs som utlöses med ett CRON-uttryck.
+    - **Always on**: håller appen inläst även när det inte finns någon trafik. Det krävs för kontinuerliga WebJobs eller för WebJobs som utlöses med ett CRON-uttryck.
       > [!NOTE]
-      > Med funktionen Always on kan du inte styra slut punkten. Den skickar alltid en begäran till program roten.
+      > Med funktionen Always on skickar klient delens belastningsutjämnare en begäran till program roten. Det går inte att konfigurera den här program slut punkten för App Service.
     - **Hanterad pipeline-version**: läge för IIS- [pipeline]. Ange den som **klassisk** om du har en äldre app som kräver en äldre version av IIS.
     - **Http-version**: ange till **2,0** för att aktivera stöd för [https/2-](https://wikipedia.org/wiki/HTTP/2) protokoll.
     > [!NOTE]
     > De flesta moderna webbläsare stöder HTTP/2-protokoll över TLS, medan icke-krypterad trafik fortsätter att använda HTTP/1.1. För att säkerställa att klient webbläsare ansluter till din app med HTTP/2 skyddar du ditt anpassade DNS-namn. Mer information finns i [skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
     - **Arr-tillhörighet**: i en distribution med flera instanser kontrollerar du att klienten dirigeras till samma instans under sessionens livs längd. Du kan ställa in det här alternativet på **av** för tillstånds lösa program.
-- **Fel sökning**: Aktivera fjärrfelsökning för [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)-, [ASP.net Core](/visualstudio/debugger/remote-debugging-azure)-eller [Node. js](containers/configure-language-nodejs.md#debug-remotely) -appar. Det här alternativet stängs av automatiskt efter 48 timmar.
+- **Fel sökning**: Aktivera fjärrfelsökning för [ASP.net](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.net Core](/visualstudio/debugger/remote-debugging-azure)eller [Node.js](containers/configure-language-nodejs.md#debug-remotely) appar. Det här alternativet stängs av automatiskt efter 48 timmar.
 - **Inkommande klient certifikat**: Kräv klient certifikat i [ömsesidig autentisering](app-service-web-configure-tls-mutual-auth.md).
 
 ## <a name="configure-default-documents"></a>Konfigurera standard dokument
 
 Den här inställningen gäller endast för Windows-appar.
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > av**standard dokument**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration**av  >  **standard dokument**.
 
 ![Standard dokument](./media/configure-common/open-documents.png)
 
@@ -193,7 +193,7 @@ Om appen använder moduler som dirigerar baserat på URL i stället för att bet
 
 ## <a name="configure-path-mappings"></a>Konfigurera Sök vägs mappningar
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **Sök vägs mappningar**.
+I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration**  >  **Sök vägs mappningar**.
 
 ![Sök vägs mappningar](./media/configure-common/open-path.png)
 
@@ -205,13 +205,13 @@ För Windows-appar kan du anpassa mappningar för IIS-hanteraren och virtuella p
 
 Med mappningar för hanterare kan du lägga till anpassade skript processorer för att hantera begär Anden för vissa fil namns tillägg. Om du vill lägga till en anpassad hanterare klickar du på **ny hanterare**. Konfigurera hanteraren på följande sätt:
 
-- **Tillägg**. Det fil namns tillägg som du vill hantera, till exempel * \*. php* eller *hanterare. FCGI*.
+- **Tillägg**. Det fil namns tillägg som du vill hantera, till exempel * \* . php* eller *hanterare. FCGI*.
 - **Skript processor**. Den absoluta sökvägen till skript processorn till dig. Begär anden till filer som matchar fil namns tillägget bearbetas av skript processorn. Använd sökvägen `D:\home\site\wwwroot` för att referera till appens rot Katalog.
 - **Argument**. Valfria kommando rads argument för skript processorn.
 
-Varje app har standard rot Sök vägen (`/`) mappad `D:\home\site\wwwroot`till, där din kod distribueras som standard. Om din app-rot finns i en annan mapp, eller om din lagrings plats har fler än ett program, kan du redigera eller lägga till virtuella program och kataloger här. Klicka på **nytt virtuellt program eller katalog**.
+Varje app har standard rot Sök vägen ( `/` ) mappad till `D:\home\site\wwwroot` , där din kod distribueras som standard. Om din app-rot finns i en annan mapp, eller om din lagrings plats har fler än ett program, kan du redigera eller lägga till virtuella program och kataloger här. Klicka på **nytt virtuellt program eller katalog**.
 
-Om du vill konfigurera virtuella program och kataloger anger du varje virtuell katalog och dess motsvarande fysiska sökväg i förhållande till webbplatsens rot (`D:\home`). Du kan också markera kryss rutan **program** för att markera en virtuell katalog som ett program.
+Om du vill konfigurera virtuella program och kataloger anger du varje virtuell katalog och dess motsvarande fysiska sökväg i förhållande till webbplatsens rot ( `D:\home` ). Du kan också markera kryss rutan **program** för att markera en virtuell katalog som ett program.
 
 ### <a name="containerized-apps"></a>Appar i behållare
 
@@ -253,7 +253,7 @@ Se [Konfigurera en anpassad Linux-behållare för Azure App Service](containers/
 - [Aktivera diagnostikloggar](troubleshoot-diagnostic-logs.md)
 - [Skala en app i Azure App Service]
 - [Grundläggande övervakning i Azure App Service]
-- [Ändra inställningarna för applicationHost. config med applicationHost. XDT](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
+- [Ändra applicationHost.config inställningar med applicationHost. XDT](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 

@@ -7,12 +7,12 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: 735c68a3aec4d7bbb5626497de445f61e375b34b
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 157f0a710a0b3aed25455600bbf19d4ae84ed848
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263406"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391952"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
@@ -46,7 +46,7 @@ I följande avsnitt beskrivs vanliga scenarier där du kan använda Azure Cosmos
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Förstå hur många begär Anden som lyckas eller orsakar fel
 
-Kom igång genom att gå till [Azure Portal](https://portal.azure.com) och navigera till **mått** bladet. På bladet hittar du * *-antalet begär Anden överskred kapaciteten per 1 minut diagram. Det här diagrammet visar antalet minuter per minut som har segmenterats av status koden. Mer information om HTTP-statuskod finns i [http status Codes för Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Kom igång genom att gå till [Azure Portal](https://portal.azure.com) och navigera till **mått** bladet. På bladet hittar du * *-antalet begär Anden överskred kapaciteten per 1 minut diagram. Det här diagrammet visar antalet minuter per minut som har segmenterats av status koden. Mer information om HTTP-statuskod finns i [http status Codes för Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 Den vanligaste fel status koden är 429 (hastighets begränsning/begränsning). Det här felet innebär att begär anden till Azure Cosmos DB är mer än det etablerade data flödet. Den vanligaste lösningen på det här problemet är att [skala upp ru: er](./set-throughput.md) för den aktuella samlingen.
 

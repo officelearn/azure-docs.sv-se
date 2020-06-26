@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 147fc33d068909fa892023ec00cfc2827203607f
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402466"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389946"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -53,7 +53,7 @@ Microsoft tillhandahåller teknisk support för följande:
 
 * Anslutning till alla Kubernetes-komponenter som Kubernetes-tjänsten tillhandahåller och stöder, t. ex. API-servern.
 * Hantering, drift tid, QoS och drift av Kubernetes Control plan-tjänster (Kubernetes Master Nodes, API-Server, etcd och Kube-DNS, till exempel).
-* Etcd. Support omfattar automatiserade, transparenta säkerhets kopieringar av alla etcd-data var 30: e minut för katastrof planering och återställning av kluster tillstånd. Dessa säkerhets kopior är inte direkt tillgängliga för kunder eller användare. De säkerställer data tillförlitlighet och konsekvens.
+* Etcd. Support omfattar automatiserade, transparenta säkerhets kopieringar av alla etcd-data var 30: e minut för katastrof planering och återställning av kluster tillstånd. Dessa säkerhets kopior är inte direkt tillgängliga för kunder eller användare. De säkerställer data tillförlitlighet och konsekvens. Etcd. återställning på begäran eller återställning stöds inte som en funktion.
 * Alla integrerings platser i Azure Cloud Provider-drivrutinen för Kubernetes. Detta inkluderar integreringar i andra Azure-tjänster, till exempel belastningsutjämnare, beständiga volymer eller nätverk (Kubernetes och Azure CNI).
 * Frågor eller problem med anpassning av kontroll Plans komponenter som Kubernetes API-Server, etcd och Kube-DNS.
 * Problem med nätverk, till exempel Azure CNI, Kubernetes eller andra problem med nätverks åtkomst och funktioner. Problem kan vara DNS-matchning, paket förlust, Routning och så vidare. Microsoft har stöd för olika nätverks scenarier:

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/23/2019
+ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: 31f5339c70d52019400ca5f1fe873de4790a3bd6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 95c69aad24ff10b49bdc09411553e6ed43bfdccd
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75380532"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391442"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Snabb start: identifiera tal i SWIFT på iOS med hjälp av tal-SDK
 
@@ -40,7 +40,7 @@ Cognitive Services Speech SDK för iOS distribueras som ett Ramverks paket. Den 
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
-Starta Xcode och starta ett nytt projekt genom att välja **Arkiv** > **nytt** > **projekt**.
+Starta Xcode och starta ett nytt projekt genom att välja **Arkiv**  >  **nytt**  >  **projekt**.
 I dialog rutan Mallval väljer du app-mallen för **iOS-enkel vy** .
 
 Gör följande val i dialog rutorna som följer.
@@ -66,7 +66,7 @@ Gör följande val i dialog rutorna som följer.
 
    [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/swift/ios/from-microphone/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 
-1. Lägg till den relativa `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` sökvägen till interimskontot för överbryggning i Swift-projektfilen för målet HelloWorld i **huvud fältet mål-C-bryggning** .
+1. Lägg till den relativa sökvägen `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` till interimskontot för överbryggning i Swift-projektfilen för målet HelloWorld i **huvud fältet mål-C-bryggning** .
 
    ![Rubrik egenskaper](~/articles/cognitive-services/Speech-Service/media/sdk/qs-swift-ios-bridging-header.png)
 
@@ -76,8 +76,8 @@ Gör följande val i dialog rutorna som följer.
 1. Ersätt innehållet i den automatiskt genererade `ViewController.swift` filen med följande kod:
 
    [!code-swift[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/swift/ios/from-microphone/helloworld/helloworld/ViewController.swift#code)]
-1. I `ViewController.swift`ersätter du strängen `YourSubscriptionKey` med din prenumerations nyckel.
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Använd `westus` till exempel för den kostnads fria utvärderings prenumerationen.
+1. I `ViewController.swift` ersätter du strängen `YourSubscriptionKey` med din prenumerations nyckel.
+1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria utvärderings prenumerationen.
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installera SDK som en CocoaPod
 
@@ -85,14 +85,14 @@ Gör följande val i dialog rutorna som följer.
 1. Gå till katalogen för din exempel app, som är HelloWorld. Placera en textfil med namnet *Podfile* och följande innehåll i den katalogen:
 
    [!code-ruby[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/swift/ios/from-microphone/helloworld/Podfile)]
-1. Gå till katalogen HelloWorld i en Terminal och kör kommandot `pod install`. Det här kommandot skapar `helloworld.xcworkspace` en Xcode-arbetsyta som innehåller både exempel-appen och tal-SDK som ett beroende. Den här arbets ytan används i följande steg.
+1. Gå till katalogen HelloWorld i en Terminal och kör kommandot `pod install` . Det här kommandot skapar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempel-appen och tal-SDK som ett beroende. Den här arbets ytan används i följande steg.
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
 1. Öppna arbets ytan `helloworld.xcworkspace` i Xcode.
-1. Gör fel söknings resultatet synligt genom att välja **Visa** > **fel söknings yta** > **Aktivera konsol**.
-1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på menyn **produkt** > **mål** .
-1. Skapa och kör exempel koden i iOS-simulatorn genom att välja **produkt** > **körning** på menyn. Du kan också välja knappen **spela upp** .
+1. Gör fel söknings resultatet synligt genom att välja **Visa**  >  **fel söknings yta**  >  **Aktivera konsol**.
+1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på menyn **produkt**  >  **mål** .
+1. Skapa och kör exempel koden i iOS-simulatorn genom att välja **produkt**  >  **körning** på menyn. Du kan också välja knappen **spela upp** .
 1. När du har valt knappen **identifiera** i appen och sagt några ord bör du se texten du har talat om i den nedre delen av skärmen.
 
 ## <a name="next-steps"></a>Nästa steg

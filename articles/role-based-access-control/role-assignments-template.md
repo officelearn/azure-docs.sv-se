@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: beb6b5666be0d3264720c5bc7a3c9516c1bd18f4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790882"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392462"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Lägg till Azure-roll tilldelningar med Azure Resource Manager mallar
 
@@ -68,7 +68,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 
-### <a name="resource-group-without-parameters"></a>Resurs grupp (utan parametrar)
+### <a name="resource-group-scope-without-parameters"></a>Resurs grupps omfång (utan parametrar)
 
 Följande mall visar ett enkelt sätt att lägga till en roll tilldelning. Vissa värden anges i mallen. Följande mall visar:
 
@@ -111,7 +111,7 @@ Följande visar ett exempel på roll tilldelningen för en användare för en re
 
 ![Roll tilldelning i resurs gruppens omfång](./media/role-assignments-template/role-assignment-template.png)
 
-### <a name="resource-group-or-subscription"></a>Resurs grupp eller prenumeration
+### <a name="resource-group-or-subscription-scope"></a>Resurs grupp eller prenumerations omfång
 
 Den tidigare mallen är inte mycket flexibel. Följande mall använder parametrar och kan användas i olika omfång. Följande mall visar:
 
@@ -195,7 +195,7 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-### <a name="resource"></a>Resurs
+### <a name="resource-scope"></a>Resursomfång
 
 Om du behöver lägga till en roll tilldelning på nivån för en resurs, är formatet för roll tilldelningen annorlunda. Du anger resurs leverantörens namn område och resurs typ för den resurs som rollen ska tilldelas till. Du inkluderar också namnet på resursen i namnet på roll tilldelningen.
 

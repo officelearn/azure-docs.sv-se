@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636421"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389606"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure AD B2C
 
@@ -50,9 +50,9 @@ ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentis
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
 Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka ditt användar flöde. Skapa ett anrop som detta med informationen i följande tabell som brödtext i POST-begäran:
-- Ersätt * \< klient organisations namnet>. onmicrosoft.com* med namnet på din B2C-klient.
-- Ersätt * \< B2C_1A_ROPC_Auth>* med det fullständiga namnet på din resurs ägar lösen ord princip för autentiseringsuppgifter.
-- Ersätt * \< bef2222d56-552f-4a5b-b90a-1988a7d634c3->* med program-ID: t från registreringen.
+- Replace * \<tenant-name> . onmicrosoft.com* med namnet på din B2C-klient.
+- Ersätt *\<B2C_1A_ROPC_Auth>* med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
+- Ersätt *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* med program-ID: t från registreringen.
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
@@ -61,7 +61,7 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 | användarnamn | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| omfång | OpenID \< bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| omfång | OpenID \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 

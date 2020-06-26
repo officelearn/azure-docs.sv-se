@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9845780eaeaa42dc38f97344f86b7e9af3d37180
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 574e2e1647ecf33fb05600407163c96247b6ce41
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669396"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391051"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Självstudie: Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines manuellt
 
@@ -39,7 +39,7 @@ Självstudien förutsätter att du har en grundläggande förståelse för SQL S
 
 I följande tabell visas de krav som du måste utföra innan du påbörjar den här självstudien:
 
-|  |Krav |Description |
+|  |Krav |Beskrivning |
 |----- |----- |----- |
 |![Square](./media/availability-group-manually-configure-tutorial/square.png) | Två SQL Server instanser | – I en Azures tillgänglighets uppsättning <br/> -I en enda domän <br/> – När funktionen kluster för växling vid fel har installerats |
 |![Square](./media/availability-group-manually-configure-tutorial/square.png)| Windows Server | Fil resurs för kluster vittne |  
@@ -199,7 +199,7 @@ Aktivera sedan **AlwaysOn-tillgänglighetsgrupper** funktionen. Utför de här s
 
     ![Aktivera AlwaysOn-tillgänglighetsgrupper](./media/availability-group-manually-configure-tutorial/54-enableAlwaysOn.png)
 
-4. Välj **Tillämpa**. Välj **OK** i popup-dialogrutan.
+4. Välj **Använd**. Välj **OK** i popup-dialogrutan.
 
 5. Starta om SQL Server-tjänsten.
 
@@ -360,7 +360,7 @@ Nu har du en tillgänglighets grupp med repliker på två instanser av SQL Serve
 
 På Azure Virtual Machines kräver en belastnings utjämning för en SQL Server tillgänglighets grupp. Belastningsutjämnaren innehåller IP-adresserna för tillgänglighets gruppens lyssnare och Windows Server-redundansklustret. I det här avsnittet sammanfattas hur du skapar belastningsutjämnaren i Azure Portal.
 
-En belastningsutjämnare n Azure kan vara antingen en Standard Load Balancer eller en grundläggande Load Balancer. Standard Load Balancer har fler funktioner än de grundläggande Load Balancer. För en tillgänglighets grupp krävs Standard Load Balancer om du använder en tillgänglighets zon (i stället för en tillgänglighets uppsättning). Mer information om skillnaden mellan belastningsutjämnarens SKU: er finns i [load BALANCER SKU-jämförelse](../../../load-balancer/skus.md).
+En belastningsutjämnare i Azure kan vara antingen en Standard Load Balancer eller en grundläggande Load Balancer. Standard Load Balancer har fler funktioner än de grundläggande Load Balancer. För en tillgänglighets grupp krävs Standard Load Balancer om du använder en tillgänglighets zon (i stället för en tillgänglighets uppsättning). Mer information om skillnaden mellan belastningsutjämnarens SKU: er finns i [load BALANCER SKU-jämförelse](../../../load-balancer/skus.md).
 
 1. I Azure Portal går du till resurs gruppen där dina SQL-servrar finns och väljer **+ Lägg till**.
 1. Sök efter **Load Balancer**. Välj belastningsutjämnaren som publicerats av Microsoft.
@@ -370,7 +370,7 @@ En belastningsutjämnare n Azure kan vara antingen en Standard Load Balancer ell
 1. Välj **Skapa**.
 1. Konfigurera följande parametrar för belastningsutjämnaren.
 
-   | Inställningen | Fält |
+   | Inställningen | Field |
    | --- | --- |
    | **Namn** |Använd ett text namn för belastningsutjämnaren, till exempel **sqlLB**. |
    | **Typ** |Intern |

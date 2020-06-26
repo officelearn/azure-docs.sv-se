@@ -1,22 +1,22 @@
 ---
 title: 'Snabb start: syntetisera tal till en talare-tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: 'I den här snabb starten ska du använda tal-SDK: n för att konvertera text till syntetiskt tal och spela upp utdata på en talare.'
+description: I den här snabb starten använder du tal-SDK för att konvertera text till syntetiskt tal och spela upp utdata på en talare.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 03d564242748fa52c176aaaa5341ede4449477fb
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 45822c431725ea5ef900f5f1ff39beae76699fbb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715262"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391408"
 ---
 # <a name="quickstart-synthesize-speech-to-a-speaker"></a>Snabb start: syntetisera tal till en talare
 

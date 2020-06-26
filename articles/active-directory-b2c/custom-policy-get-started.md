@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcc1affb953a737c12ca5bdb70ba7eadee20cd97
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295532"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389300"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "84295532"
 
 [Anpassade principer](custom-policy-overview.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory B2C (Azure AD B2C)-klient. I den här artikeln skapar du en anpassad princip som stöder registrering av lokalt konto eller inloggning med hjälp av en e-postadress och ett lösen ord. Du förbereder också din miljö för att lägga till identitets leverantörer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte redan har en, [skapar du en Azure AD B2C klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klient organisationen som du skapade så att den kan kommunicera med Azure AD B2C.
@@ -138,9 +138,9 @@ Anpassade principer är en uppsättning XML-filer som du överför till din Azur
 
 Varje start paket innehåller:
 
-- **Grundläggande fil** – några ändringar krävs för basen. Exempel: *TrustFrameworkBase. XML*
-- **Tilläggs fil** – den här filen är den plats där de flesta konfigurations ändringar görs. Exempel: *TrustFrameworkExtensions. XML*
-- **Förlitande part-filer** – verksamhetsspecifika filer som anropas av ditt program. Exempel: *SignUpOrSignin. XML*, *ProfileEdit. XML*, *PasswordReset original. XML*
+- **Grundläggande fil** – några ändringar krävs för basen. Exempel: *TrustFrameworkBase.xml*
+- **Tilläggs fil** – den här filen är den plats där de flesta konfigurations ändringar görs. Exempel: *TrustFrameworkExtensions.xml*
+- **Förlitande part-filer** – verksamhetsspecifika filer som anropas av ditt program. Exempel: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
 I den här artikeln redigerar du anpassade XML-principfiler i **SocialAndLocalAccounts** -startpaketet. Om du behöver en XML-redigerare kan du prova [Visual Studio Code](https://code.visualstudio.com/download), en förenklad plattforms oberoende redigerare.
 
@@ -160,7 +160,7 @@ Hämta start paketen för anpassad princip från GitHub och uppdatera sedan XML-
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Lägga till program-ID: n i den anpassade principen
 
-Lägg till program-ID: na i tillägg filen *TrustFrameworkExtensions. XML*.
+Lägg till program-ID: n i fil namns filen *TrustFrameworkExtensions.xml*.
 
 1. Öppna `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** och hitta elementet `<TechnicalProfile Id="login-NonInteractive">` .
 1. Ersätt båda instanserna av `IdentityExperienceFrameworkAppId` med program-ID: t för det IdentityExperienceFramework-program som du skapade tidigare.
@@ -172,11 +172,11 @@ Lägg till program-ID: na i tillägg filen *TrustFrameworkExtensions. XML*.
 1. Välj meny alternativet för **identitets miljö** i B2C-klienten i Azure Portal.
 1. Välj **överför anpassad princip**.
 1. I den här ordningen laddar du upp principfiler:
-    1. *TrustFrameworkBase. XML*
-    1. *TrustFrameworkExtensions. XML*
-    1. *SignUpOrSignin. XML*
-    1. *ProfileEdit. XML*
-    1. *PasswordReset original. XML*
+    1. *TrustFrameworkBase.xml*
+    1. *TrustFrameworkExtensions.xml*
+    1. *SignUpOrSignin.xml*
+    1. *ProfileEdit.xml*
+    1. *PasswordReset.xml*
 
 När du överför filerna lägger Azure till prefixet `B2C_1A_` i varje.
 
@@ -206,7 +206,7 @@ Som nämnts i [förutsättningar](#prerequisites)krävs *inte* Facebook för att
        <Item Key="client_id">00000000000000</Item>
    ```
 
-1. Ladda upp filen *TrustFrameworkExtensions. XML* till din klient organisation.
+1. Ladda upp *TrustFrameworkExtensions.xml* -filen till din klient organisation.
 1. Under **anpassade principer**väljer du **B2C_1A_signup_signin**.
 1. Välj **Kör nu** och välj Facebook för att logga in med Facebook och testa den anpassade principen.
 

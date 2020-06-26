@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697561"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391850"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -117,7 +117,7 @@ Det finns inga begränsningar för objektets nytto laster som antalet egenskaper
 
 ## <a name="per-request-limits"></a>Begränsningar per begäran
 
-Azure Cosmos DB stöder [CRUD-och Query-åtgärder](https://docs.microsoft.com/rest/api/cosmos-db/) mot resurser som behållare, objekt och databaser. Det stöder också [transaktionella batch-begäranden](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) mot flera objekt med samma partitionsnyckel i en behållare.
+Azure Cosmos DB stöder [CRUD-och Query-åtgärder](/rest/api/cosmos-db/) mot resurser som behållare, objekt och databaser. Det stöder också [transaktionella batch-begäranden](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) mot flera objekt med samma partitionsnyckel i en behållare.
 
 | Resurs | Standardgräns |
 | --- | --- |

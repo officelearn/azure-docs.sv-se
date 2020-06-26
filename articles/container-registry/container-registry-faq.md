@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 0a455ef911d28306b30bed2fbb00edea198181dd
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205432"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390371"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -269,6 +269,7 @@ Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkom
 - [Varför visar Azure Portal inte alla mina databaser eller Taggar?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Varför kan Azure Portal inte hämta databaser eller Taggar?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Varför Miss tar pull-eller push-begäran med otillåten åtgärd?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [Databas formatet är ogiltigt eller stöds inte](#repository-format-is-invalid-or-unsupported)
 - [Hur gör jag för att samla in http-spårningar i Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Kontrol lera hälsa med`az acr check-health`
@@ -313,7 +314,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Ett exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Till exempel:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -439,6 +440,12 @@ Här följer några scenarier där åtgärder kan vara otillåtna:
 * Avbildningen eller databasen kanske är låst så att den inte kan tas bort eller uppdateras. Du kan använda kommandot [AZ ACR show databas](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) för att visa aktuella attribut.
 * Vissa åtgärder är inte tillåtna om bilden är i karantän. Lär dig mer om [karantän](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Registret kan ha nått sin [lagrings gräns](container-registry-skus.md#service-tier-features-and-limits).
+
+### <a name="repository-format-is-invalid-or-unsupported"></a>Databas formatet är ogiltigt eller stöds inte
+
+Om du ser ett fel som "inte stödda databas format", "ogiltigt format" eller "de begärda data finns inte" när du anger ett databas namn i databas åtgärder, kontrollerar du stavningen och fallet för namnet. Giltiga lagrings namn får bara innehålla gemena alfanumeriska tecken, punkter, bindestreck, under streck och snedstreck. 
+
+För fullständiga namngivnings regler för databaser, se [distributions specifikationen Open container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 

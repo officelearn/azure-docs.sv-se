@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du skapar Recovery Services val
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 410ef023898cc57847b8e2f7a5153d50731e2d4c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: ac30a57dcbceb4616961c9d100e6ac8639ef2172
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764408"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391068"
 ---
 # <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -58,6 +58,9 @@ Så här skapar du ett Recovery Services-valv:
 ## <a name="set-storage-redundancy"></a>Ange redundans för lagring
 
 Azure Backup hanterar automatiskt lagring för valvet. Du måste ange hur lagringen ska replikeras.
+
+>[!NOTE]
+>Inställningarna för lagrings replikering för valvet är inte relevanta för säkerhets kopiering av Azure-filresurs eftersom den aktuella lösningen är ögonblicks bild och det finns inga data som överförs till valvet. Ögonblicks bilder lagras i samma lagrings konto som den säkerhetskopierade fil resursen.
 
 1. På bladet **Recovery Services-valv** klickar du på det nya valvet. Under avsnittet **Inställningar** klickar du på **Egenskaper**.
 2. I **Egenskaper**, under **säkerhets kopierings konfiguration**, klickar du på **Uppdatera**.

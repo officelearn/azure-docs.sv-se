@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 1f5a569f9c3bfa91b78c836e37a22642238674be
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7a1cc2c45988e0c5a8c757e4d280b48dbbe56daa
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74975949"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391391"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabb start: syntetisera tal i mål-C på iOS med hjälp av talet SDK
 
@@ -40,7 +40,7 @@ Den kan användas i Xcode-projekt som en [CocoaPod](https://cocoapods.org/)eller
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
-Starta Xcode och starta ett nytt projekt genom att klicka på **Arkiv** > **nytt** > **projekt**.
+Starta Xcode och starta ett nytt projekt genom att klicka på **Arkiv**  >  **nytt**  >  **projekt**.
 I dialogrutan för mallval väljer du mallen ”iOS Single View App”.
 
 I dialogrutorna som följer gör du följande val:
@@ -58,9 +58,9 @@ I dialogrutorna som följer gör du följande val:
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installera SDK som en CocoaPod
 
 1. Installera CocoaPod-beroende hanteraren enligt beskrivningen i [installations anvisningarna](https://guides.cocoapods.org/using/getting-started.html).
-1. Navigera till katalogen för din exempel App (`helloworld`). Placera en textfil med namnet `Podfile` och följande innehåll i katalogen:  
+1. Navigera till katalogen för din exempel App ( `helloworld` ). Placera en textfil med namnet `Podfile` och följande innehåll i katalogen:  
    [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/ios/text-to-speech/helloworld/Podfile)]
-1. Navigera till `helloworld` katalogen i en Terminal och kör kommandot `pod install`. Detta skapar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempel appen och tal-SDK som ett beroende. Den här arbets ytan kommer att användas i följande.
+1. Navigera till `helloworld` katalogen i en Terminal och kör kommandot `pod install` . Detta skapar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempel appen och tal-SDK som ett beroende. Den här arbets ytan kommer att användas i följande.
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
@@ -74,9 +74,9 @@ I dialogrutorna som följer gör du följande val:
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. Gör fel söknings resultatet synligt (**Visa** > **fel söknings ytan** > **Aktivera konsol**).
-1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på menyn **produkt** > **mål** .
-1. Skapa och kör exempel koden i iOS-simulatorn genom att välja **produkt** > **körning** på menyn eller genom att klicka på **uppspelnings** knappen.
+1. Gör fel söknings resultatet synligt (**Visa**  >  **fel söknings ytan**  >  **Aktivera konsol**).
+1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på menyn **produkt**  >  **mål** .
+1. Skapa och kör exempel koden i iOS-simulatorn genom att välja **produkt**  >  **körning** på menyn eller genom att klicka på **uppspelnings** knappen.
 
    ![Simulerad iOS-app](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-simulated-app-tts.png)
 

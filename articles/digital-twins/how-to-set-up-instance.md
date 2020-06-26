@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 792b3894bf051298250ea8f402086c1edf297842
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c9489b9e1afe5e42121f61a3b0b50b28b2401bd3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362755"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392292"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Konfigurera en digital Azure-instans
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Den här artikeln vägleder dig genom de grundläggande stegen för att skapa en ny Azure Digital-instansen. Detta innefattar att skapa instansen och tilldela [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) behörigheter till instansen själv.
 
@@ -58,7 +55,9 @@ För att kunna använda Azure Digitals dubbla med ett klient program måste du o
 
 #### <a name="assign-yourself-a-role"></a>Tilldela dig själv en roll
 
-Skapa en roll tilldelning själv med hjälp av din e-postadress som är kopplad till AAD-klienten i din Azure-prenumeration. Kontrol lera först att du är klassificerad som ägare i din Azure-prenumeration. Du kan kontrol lera detta genom `az role assignment list --assignee <your-Azure-email>` att använda kommandot för att verifiera att *RoleDefinitionName* är *ägare*. Sedan kan du använda följande kommando för att tilldela användaren en ägar roll för din Azure Digital-instansen:
+Skapa en roll tilldelning själv med hjälp av din e-postadress som är kopplad till AAD-klienten i din Azure-prenumeration. 
+
+Kontrol lera först att du är klassificerad som ägare i din Azure-prenumeration. Du kan kontrol lera detta genom att använda `az role assignment list --assignee <your-Azure-email>` kommandot och kontrol lera att *roleDefinitionName* -värdet är *Owner*. Som ägare till prenumerationen kan du använda följande kommando för att tilldela användaren till en ägar roll för din Azure Digital-instansen:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"

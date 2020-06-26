@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/23/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b984b75b3a12606aa0d82c7e7b399d5dce59df33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e44e2e1eb37e808e60134a6fba5051552e84029
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189522"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389351"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Cookies-definitioner för Azure AD B2C
 
@@ -28,7 +28,7 @@ Tjänsten Microsoft Azure AD B2C är kompatibel med SameSite Browser-konfigurati
 
 För att skydda åtkomsten till webbplatser kommer webbläsare att införa en ny säker modell som förutsätter att alla cookies bör skyddas från extern åtkomst om inget annat anges. Chrome-webbläsaren är den första att implementera den här ändringen, från och med [Chrome 80 i februari 2020](https://www.chromium.org/updates/same-site). Mer information om hur du förbereder ändringen av Chrome finns i [utvecklare: bli redo för nya SameSite = none; Inställningar för säker cookie](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html) på krom-bloggen.
 
-Utvecklare måste använda den nya cookie- `SameSite=None`inställningen för att ange cookies för åtkomst över platser. När `SameSite=None` attributet finns måste ett ytterligare `Secure` attribut användas så att cookies från flera platser bara kan nås via HTTPS-anslutningar. Validera och testa alla dina program, inklusive de program som använder Azure AD B2C.
+Utvecklare måste använda den nya cookie-inställningen för `SameSite=None` att ange cookies för åtkomst över platser. När `SameSite=None` attributet finns måste ett ytterligare `Secure` attribut användas så att cookies från flera platser bara kan nås via HTTPS-anslutningar. Validera och testa alla dina program, inklusive de program som använder Azure AD B2C.
 
 Mer information finns i:
 
@@ -39,7 +39,7 @@ Mer information finns i:
 
 I följande tabell visas de cookies som används i Azure AD B2C.
 
-| Name | Domain | Förfallodatum | Syfte |
+| Namn | Domain | Förfallodatum | Syfte |
 | ----------- | ------ | -------------------------- | --------- |
 | `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | Avsluta [webbläsarsessionen](session-behavior.md) | Innehåller användar medlemskaps data mellan klienter. Klienterna som en användare är medlem av och medlemskaps nivån (administratör eller användare). |
 | `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, anpassad domän | Avsluta [webbläsarsessionen](session-behavior.md) | Används för att dirigera begär anden till lämplig produktions instans. |

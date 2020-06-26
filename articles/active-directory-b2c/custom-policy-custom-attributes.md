@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15623d622a40fa80889a8704e0b7f19d358a052c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295413"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389334"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Aktivera anpassade attribut i en anpassad profil princip
 
@@ -24,7 +24,7 @@ I artikeln [Lägg till anspråk och anpassa användarindata med hjälp av anpass
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följ stegen i artikeln [Azure Active Directory B2C: kom igång med anpassade principer](custom-policy-get-started.md).
 
@@ -85,7 +85,7 @@ Om du vill aktivera anpassade attribut i principen anger du **program-ID** och p
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller Azure AD B2C klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 4. Välj **ramverk för identitets upplevelse**.
-5. Välj **överför anpassad princip**och ladda upp de TrustFrameworkExtensions. XML-principfiler som du har ändrat.
+5. Välj **överför anpassad princip**och ladda upp de TrustFrameworkExtensions.xml principfiler som du har ändrat.
 
 > [!NOTE]
 > Första gången som den tekniska profilen i Azure AD behåller anspråk till katalogen, kontrollerar den om det anpassade attributet finns. Om inte, skapas det anpassade attributet.  
@@ -96,7 +96,7 @@ Samma attribut för tillägg delas mellan inbyggda och anpassade principer. När
 
 Du kan skapa de här attributen med hjälp av portalens användar gränssnitt innan du använder dem i dina anpassade principer. Följ anvisningarna för hur du [definierar anpassade attribut i Azure Active Directory B2C](user-flow-custom-attributes.md). När du skapar ett attribut **loyaltyId** i portalen måste du referera till det enligt följande:
 
-|Name     |Används i |
+|Namn     |Används i |
 |---------|---------|
 |`extension_loyaltyId`  | Anpassad princip|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|

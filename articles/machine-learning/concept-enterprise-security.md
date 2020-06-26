@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: e030bd1124a93c667070a2b58f2f0e1c10c7d3a6
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718565"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392241"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -176,6 +176,11 @@ Mer information om kund hanterade nycklar med Cosmos DB finns i [Konfigurera Kun
 Alla behållar avbildningar i registret (Azure Container Registry) är krypterade i vila. Azure krypterar automatiskt en avbildning innan den lagras och dekrypterar den när Azure Machine Learning hämtar avbildningen.
 
 Om du vill använda dina egna (Kundhanterade) nycklar för att kryptera din Azure Container Registry måste du skapa en egen ACR och koppla den medan du konfigurerar arbets ytan eller kryptera standard instansen som skapas vid tidpunkten för etablering av arbets ytor.
+
+> [!IMPORTANT]
+> Azure Machine Learning kräver att administratörs kontot är aktiverat på din Azure Container Registry. Som standard är den här inställningen inaktive rad när du skapar ett behållar register. Information om hur du aktiverar administratörs kontot finns i [administratörs konto](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> När en Azure Container Registry har skapats för en arbets yta ska du inte ta bort den. Om du gör det bryts Azure Machine Learning arbets ytan.
 
 Ett exempel på hur du skapar en arbets yta med en befintlig Azure Container Registry finns i följande artiklar:
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 4be2f61cb0a45f30f0201d1ecca0efc2d8cbd9ae
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 05a7af9bcedd84f53e020bec57fc58854861af3e
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836234"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392360"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Vanliga frågor och svar om Tabell-API i Azure Cosmos DB
 
@@ -45,10 +45,10 @@ Det finns vissa beteende skillnader som användare kommer från Azure Table Stor
 
   | Rest-metod (er) | REST-slutpunkt/frågealternativ | Dokument-URL: er | Förklaring |
   | ------------| ------------- | ---------- | ----------- |
-  | HÄMTA, PLACERA | `/?restype=service@comp=properties`| [Ange tabell tjänst egenskaper](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) och [Hämta Table service-egenskaper](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Den här slut punkten används för att ange CORS-regler, Storage Analytics-konfiguration och loggnings inställningar. CORS stöds för närvarande inte och analys och loggning hanteras på ett annat sätt i Azure Cosmos DB än Azure Storage tabeller |
-  | SÄTT | `/<table-resource-name>` | [CORS-begäran för CORS-tabellen](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB för närvarande inte stöder. |
-  | HÄMTA | `/?restype=service@comp=stats` | [Hämta Table service stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information om hur snabbt data replikeras mellan primär och sekundär. Detta behövs inte i Cosmos DB eftersom replikeringen är en del av skrivningar. |
-  | HÄMTA, PLACERA | `/mytable?comp=acl` | [Hämta tabell-ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) och [Ange tabell-ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomst principerna som används för att hantera signaturer för delad åtkomst (SAS). Även om SAS stöds, är de inställda och hanterade på olika sätt. |
+  | HÄMTA, PLACERA | `/?restype=service@comp=properties`| [Ange tabell tjänst egenskaper](/rest/api/storageservices/set-table-service-properties) och [Hämta Table service-egenskaper](/rest/api/storageservices/get-table-service-properties) | Den här slut punkten används för att ange CORS-regler, Storage Analytics-konfiguration och loggnings inställningar. CORS stöds för närvarande inte och analys och loggning hanteras på ett annat sätt i Azure Cosmos DB än Azure Storage tabeller |
+  | SÄTT | `/<table-resource-name>` | [CORS-begäran för CORS-tabellen](/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB för närvarande inte stöder. |
+  | HÄMTA | `/?restype=service@comp=stats` | [Hämta Table service stats](/rest/api/storageservices/get-table-service-stats) | Innehåller information om hur snabbt data replikeras mellan primär och sekundär. Detta behövs inte i Cosmos DB eftersom replikeringen är en del av skrivningar. |
+  | HÄMTA, PLACERA | `/mytable?comp=acl` | [Hämta tabell-ACL](/rest/api/storageservices/get-table-acl) och [Ange tabell-ACL](/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomst principerna som används för att hantera signaturer för delad åtkomst (SAS). Även om SAS stöds, är de inställda och hanterade på olika sätt. |
 
 * Azure Cosmos DB Tabell-API stöder bara JSON-formatet, inte ATOM.
 
@@ -85,7 +85,7 @@ Du kan hämta anslutnings strängen från sidan anslutnings sträng i Azure Port
 
 ### <a name="how-do-i-override-the-config-settings-for-the-request-options-in-the-net-sdk-for-the-table-api"></a>Hur gör jag för att Åsidosätt konfigurations inställningarna för begär ande alternativen i .NET SDK för Tabell-API?
 
-Vissa inställningar hanteras på CreateCloudTableClient-metoden och andra via app. config i avsnittet appSettings i klient programmet. Information om konfigurations inställningar finns i [Azure Cosmos DB funktioner](tutorial-develop-table-dotnet.md).
+Vissa inställningar hanteras på CreateCloudTableClient-metoden och andra via app.config i avsnittet appSettings i klient programmet. Information om konfigurations inställningar finns i [Azure Cosmos DB funktioner](tutorial-develop-table-dotnet.md).
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Finns det några ändringar för kunder som använder befintliga SDK: er för Azure Table Storage?
 
@@ -151,7 +151,7 @@ Du kan använda fönstret Azure Cosmos DB global replikeringsprovider för att l
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>Hur gör jag för att konfigurera mina önskade Läs regioner för låg latens när jag distribuerar mina data?
 
-Använd nyckeln PreferredLocation i filen app. config för att läsa från den lokala platsen. För befintliga program genererar Tabell-API ett fel om LocationMode har angetts. Ta bort koden eftersom Tabell-API hämtar informationen från app. config-filen. 
+Använd nyckeln PreferredLocation i app.config-filen för att läsa från den lokala platsen. För befintliga program genererar Tabell-API ett fel om LocationMode har angetts. Ta bort koden eftersom Tabell-API hämtar informationen från app.configs filen. 
 
 ### <a name="how-should-i-think-about-consistency-levels-in-the-table-api"></a>Hur ska jag tänka på konsekvens nivåer i Tabell-API?
 
@@ -171,7 +171,7 @@ Azure Cosmos DB allokerar data varaktigt i den lokala regionen och skickar data 
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>Kan konsekvens nivån för läsning av begäran ändras?
 
-Med Azure Cosmos DB kan du ange konsekvens nivån på behållar nivån (i tabellen). Med hjälp av .NET SDK kan du ändra nivån genom att ange värdet för TableConsistencyLevel-nyckeln i filen app. config. Möjliga värden är: stark, begränsad föråldrad, session, konsekvent prefix och eventuell. Mer information finns i [justerbara data konsekvens nivåer i Azure Cosmos DB](consistency-levels.md). Den viktiga idén är att du inte kan ställa in konsekvens nivån för begäran på mer än inställningen för tabellen. Du kan till exempel inte ange konsekvens nivån för tabellen vid fel och konsekvens nivån för begäran på stark nivå.
+Med Azure Cosmos DB kan du ange konsekvens nivån på behållar nivån (i tabellen). Med hjälp av .NET SDK kan du ändra nivån genom att ange värdet för TableConsistencyLevel-nyckeln i app.config-filen. Möjliga värden är: stark, begränsad föråldrad, session, konsekvent prefix och eventuell. Mer information finns i [justerbara data konsekvens nivåer i Azure Cosmos DB](consistency-levels.md). Den viktiga idén är att du inte kan ställa in konsekvens nivån för begäran på mer än inställningen för tabellen. Du kan till exempel inte ange konsekvens nivån för tabellen vid fel och konsekvens nivån för begäran på stark nivå.
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>Hur hanterar Tabell-API redundans om en region kraschar?
 
@@ -197,7 +197,7 @@ Ja, du kan ändra indexerings principen genom att tillhandahålla index definiti
 
 För non-.NET SDK: er kan indexerings principen bara ställas in i portalen på **datautforskaren**, navigera till den speciella tabell som du vill ändra och sedan gå till **skalnings & inställningar**->indexerings princip, göra önskade ändringar och sedan **Spara**.
 
-Du kan skicka in .NET SDK i filen app. config:
+I .NET SDK kan den skickas i app.config-filen:
 
 ```JSON
 {
@@ -246,7 +246,7 @@ Ja, du kan använda den Azure Cosmos DB portalens skalnings fönster för att sk
 
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>Är en standard uppsättning TableThroughput för nyligen etablerade tabeller?
 
-Ja, om du inte åsidosätter TableThroughput via app. config och inte använder en i förväg skapade behållare i Azure Cosmos DB, skapar tjänsten en tabell med data flödet på 400.
+Ja, om du inte åsidosätter TableThroughput via app.config och inte använder en i förväg skapad behållare i Azure Cosmos DB, skapar tjänsten en tabell med data flödet på 400.
 
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Finns det någon förändring av prissättningen för befintliga kunder i Azure Table Storage-tjänsten?
 
@@ -262,7 +262,7 @@ Om begär ande frekvensen är större än kapaciteten för det etablerade data f
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Varför måste jag välja ett data flöde förutom PartitionKey och RowKey för att kunna dra nytta av Tabell-API Azure Cosmos DB?
 
-Azure Cosmos DB anger ett standard flöde för din behållare om du inte anger en i filen app. config eller via portalen.
+Azure Cosmos DB anger ett standard flöde för din behållare om du inte anger någon i app.config-filen eller via portalen.
 
 Azure Cosmos DB ger garantier för prestanda och latens, med övre gränser för åtgärd. Den här säkerheten är möjlig när motorn kan genomdriva styrning på klientens verksamhet. Genom att ange TableThroughput ser du till att du får garanterat data flöde och svars tid, eftersom plattformen reserverar den här kapaciteten och garanterar driften.
 

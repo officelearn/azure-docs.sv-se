@@ -2,13 +2,13 @@
 title: Om databaser & avbildningar
 description: Introduktion till viktiga begrepp för Azure Container register,-databaser och behållar avbildningar.
 ms.topic: article
-ms.date: 09/10/2019
-ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 06/16/2020
+ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711994"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390456"
 ---
 # <a name="about-registries-repositories-and-images"></a>Om register, databaser och avbildningar
 
@@ -24,13 +24,11 @@ Förutom Docker-behållar avbildningar stöder Azure Container Registry relatera
 
 Adressen till en artefakt i ett Azure Container Registry innehåller följande element. 
 
-`[loginUrl]/[namespace]/[artifact:][tag]`
+`[loginUrl]/[repository:][tag]`
 
 * **loginUrl** – det fullständigt kvalificerade namnet på register värden. Register värden i ett Azure Container Registry har formatet *register*. azurecr.IO (alla gemener). Du måste ange loginUrl när du använder Docker eller andra klient verktyg för att hämta eller push-artefakter till ett Azure Container Registry. 
-* **namnrymd** -avgränsad logisk gruppering av relaterade bilder eller artefakter – till exempel för en arbets grupp eller app
-* **artefakt** – namnet på en lagrings plats för en viss bild eller artefakt
-* **tagga** – en angiven version av en bild eller artefakt som lagras i en lagrings plats
-
+* **databas** namn för en logisk gruppering av en eller flera relaterade bilder eller artefakter, till exempel bilder för ett program eller ett bas operativ system. Kan innehålla sökväg till *namn område* . 
+* **tagga** -ID för en angiven version av en bild eller artefakt som lagras i en lagrings plats.
 
 Till exempel kan det fullständiga namnet på en avbildning i ett Azure Container Registry se ut så här:
 
@@ -40,20 +38,24 @@ I följande avsnitt finns mer information om de här elementen.
 
 ## <a name="repository-name"></a>Namn på databas
 
-Behållar register hanterar *databaser*, samlingar med behållar avbildningar eller andra artefakter med samma namn, men olika taggar. Följande tre avbildningar finns till exempel i databasen "ACR-HelloWorld":
+En *lagrings plats* är en samling behållar avbildningar eller andra artefakter med samma namn, men olika taggar. Följande tre avbildningar finns till exempel i databasen "ACR-HelloWorld":
 
 
 - *ACR-HelloWorld: senaste*
 - *ACR-HelloWorld: v1*
 - *ACR-HelloWorld: v2*
 
-Namn på databaser kan även innehålla [namn områden](container-registry-best-practices.md#repository-namespaces). Med namn rymder kan du gruppera bilder med hjälp av snedstreck-avgränsade lagrings namn, till exempel:
+Namn på databaser kan även innehålla [namn områden](container-registry-best-practices.md#repository-namespaces). Med namn områden kan du identifiera relaterade databaser och artefakt ägarskap i organisationen med hjälp av snedstreck-avgränsade namn. Registret hanterar dock alla databaser oberoende av varandra, inte som en hierarki. Exempel:
 
 - *Marketing/campaign10-18/webb: v2*
 - *Marketing/campaign10-18/API: v3*
 - *Marketing/campaign10-18/e-post-Sender: v2*
 - *produkt returer/webb sändning: 20180604*
 - *produkt retur/Legacy-Integrator: 20180715*
+
+Namn på databaser får bara innehålla gemena alfanumeriska tecken, punkter, bindestreck, under streck och snedstreck. 
+
+För fullständiga namngivnings regler för databaser, se [distributions specifikationen Open container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ## <a name="image"></a>Bild
 
@@ -63,9 +65,11 @@ En behållar avbildning eller en annan artefakt i ett register är kopplad till 
 
 *Taggen* för en bild eller en annan artefakt anger dess version. En enda artefakt i en lagrings plats kan tilldelas en eller flera taggar, och kan också vara "omärkt". Det innebär att du kan ta bort alla Taggar från en bild, medan bildens data (dess lager) finns kvar i registret.
 
-Lagrings platsen (eller lagrings platsen och namn området) plus en tagg definierar namnet på en avbildning. Du kan push-överföra och hämta en avbildning genom att ange dess namn i push-eller pull-åtgärden.
+Lagrings platsen (eller lagrings platsen och namn området) plus en tagg definierar namnet på en avbildning. Du kan push-överföra och hämta en avbildning genom att ange dess namn i push-eller pull-åtgärden. Taggen `latest` används som standard om du inte anger någon i Docker-kommandona.
 
 Hur du taggar behållar avbildningar vägleds av dina scenarier för att utveckla eller distribuera dem. Till exempel rekommenderas stabila taggar för att underhålla dina bas avbildningar och unika taggar för att distribuera avbildningar. Mer information finns i [rekommendationer för taggning och versions behållar avbildningar](container-registry-image-tag-version.md).
+
+För namngivnings regler för taggar, se [Docker-dokumentationen](https://docs.docker.com/engine/reference/commandline/tag/).
 
 ### <a name="layer"></a>Lager
 

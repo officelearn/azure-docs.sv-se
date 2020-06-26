@@ -7,17 +7,14 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 753fa7afb49ca58aa2eceb309beb8316024b41bc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: b6d6e16b079f1423fd1ea812e384546ae5d84067
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362721"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392207"
 ---
 # <a name="dtdl-client-side-parser-library"></a>DTDL-bibliotek på klient Sidan
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 [Modeller](concepts-models.md) i digitala Azure-dubbla grupper definieras med hjälp av DTDL (JSON-LD-baserade) digitala dubbla definitions språk. I de fall där det är användbart att parsa dina modeller, finns ett DTDL-parsningsfel på NuGet.org som ett bibliotek på klient sidan: [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 

@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure-filresurser med Azure CLI
 description: Lär dig hur du använder Azure CLI för att säkerhetskopiera Azure-filresurser i Recovery Services valvet
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844049"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391102"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Säkerhetskopiera Azure-filresurser med CLI
 
@@ -22,7 +22,7 @@ I slutet av den här självstudien får du lära dig hur du utför följande åt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du vill installera och använda CLI lokalt måste du köra Azure CLI version 2.0.18 eller senare. För att hitta CLI-versionen `run az --version`,. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du vill installera och använda CLI lokalt måste du köra Azure CLI version 2.0.18 eller senare. För att hitta CLI-versionen, `run az --version` . Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
@@ -42,7 +42,7 @@ Följ de här stegen för att skapa ett Recovery Services-valv:
     eastus      AzureFiles
     ```
 
-2. Använd [AZ Backup Vault Create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet för att skapa valvet. Ange samma plats för valvet som användes för resurs gruppen.
+1. Använd [AZ Backup Vault Create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet för att skapa valvet. Ange samma plats för valvet som användes för resurs gruppen.
 
     I följande exempel skapas ett Recovery Services-valv med namnet *azurefilesvault* i regionen USA, östra.
 
@@ -54,28 +54,6 @@ Följ de här stegen för att skapa ett Recovery Services-valv:
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. Ange vilken typ av redundans som ska användas för valv lagringen. Du kan använda [Lokalt Redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) eller [Geo-redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-    I följande exempel anges ett alternativ för redundans för *azurefilesvault* till **ett** interaktivt med [AZ Backup Vault backup-Properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    Du kan kontrol lera om valvet har skapats genom att använda [AZ Backup Vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) cmdlet för att få information om valvet. I följande exempel visas information om *azurefilesvault* som vi skapade i stegen ovan.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    Utdata kommer att likna följande svar:
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## <a name="enable-backup-for-azure-file-shares"></a>Aktivera säkerhets kopiering för Azure-filresurser
@@ -108,7 +86,7 @@ Du måste definiera följande parametrar för att utlösa en säkerhets kopierin
 * **--objekt-Name** är namnet på den fil resurs som du vill aktivera en säkerhets kopiering på begäran för. Om du vill hämta **namnet** eller det **egna namnet** på det säkerhetskopierade objektet använder du kommandot [AZ backup item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 * **--Behåll-tills** anger det datum då du vill behålla återställnings punkten. Värdet ska anges i UTC-timmarsformat (dd-mm-åååå).
 
-I följande exempel utlöses en säkerhets kopiering på begäran för *azuresfiles* -fileshare i *afsaccount* Storage-kontot med kvarhållning till *20-01-2020*.
+I följande exempel utlöses en säkerhets kopiering på begäran för *migreringsåtgärden* -fileshare i *afsaccount* Storage-kontot med kvarhållning till *20-01-2020*.
 
 ```azurecli-interactive
 az backup protection backup-now --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --retain-until 20-01-2020 --output table
@@ -125,4 +103,4 @@ Namnattributet **i** utdata motsvarar namnet på det jobb som skapas av säkerhe
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [återställer Azure-filresurser med CLI](restore-afs-cli.md)
-* Lär dig hur du [hanterar Azure File Share-ackups med CLI](manage-afs-backup-cli.md)
+* Lär dig hur du [hanterar säkerhets kopior av Azure-filresurser med CLI](manage-afs-backup-cli.md)

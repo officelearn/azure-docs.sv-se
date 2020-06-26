@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
-ms.openlocfilehash: 07ccfaf842af0959388e4a3c49e7ae30c029e3c1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677624"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391918"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB python SDK för SQL API: viktig information och resurser
 
@@ -28,8 +28,8 @@ ms.locfileid: "84677624"
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
@@ -96,7 +96,7 @@ ms.locfileid: "84677624"
 
 * Version 4.0.0 B2 är den andra iterationen i våra ansträngningar för att bygga ett klient bibliotek som passar Best Practices för python-språk.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 * Klient anslutningen har anpassats till att använda HTTP-pipeline som definierats i `azure.core.pipeline` .
 
@@ -306,7 +306,7 @@ Alla förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK av
 > [!WARNING]
 > Alla versioner av python SDK för SQL API före version **1.0.0** drogs tillbaka den **29 februari 2016**. Och alla version 1. x och 2. x av python SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**.
 
-| Version | Lanserings datum | Datum för indragning |
+| Version | Lanserings datum | Förfallodatum |
 | --- | --- | --- |
 | [4.0.0](#400) |20 maj, 2020 |--- |
 | [3.0.2](#302) |Den 15 november 2018 |--- |

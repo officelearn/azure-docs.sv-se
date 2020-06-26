@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 14a6d2b448bb943356ae1738c3d53d9c6fee1a98
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484677"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391901"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av tabell-API
 
-Azure Cosmos DB [Table-API](table-introduction.md) stöder OData- och [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)-frågor mot nyckel-/värdedata (tabell).  
+Azure Cosmos DB [Table-API](table-introduction.md) stöder OData- och [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)-frågor mot nyckel-/värdedata (tabell).  
 
 Den här artikeln beskriver följande uppgifter:
 
@@ -32,7 +32,7 @@ Frågorna i den här artikeln använder följande `People`-exempeltabell:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 |
 
-I [Fråga tabeller och entiteter](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) finns mer information om hur du frågar med tabell-API.
+I [Fråga tabeller och entiteter](/rest/api/storageservices/fileservices/querying-tables-and-entities) finns mer information om hur du frågar med tabell-API.
 
 Mer information om de förstklassiga funktioner som Azure Cosmos DB erbjuder finns i [Azure Cosmos DB Table API](table-introduction.md) och [Utveckla med tabell-API:t i .NET](tutorial-develop-table-dotnet.md).
 
@@ -50,7 +50,7 @@ Eftersom egenskaperna PartitionKey och RowKey utformar en entitets primärnyckel
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
 ```
 
-**Gör**
+**Resultat**
 
 | PartitionKey | RowKey | E-post | PhoneNumber |
 | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ När du skapar en filtersträng ska du tänka på följande regler:
 * Använd de logiska operatorerna som definieras av OData-protokollspecifikationen för att jämföra en egenskap med ett värde. Observera att det inte går att jämföra en egenskap med ett dynamiskt värde. En sida av uttrycket måste vara en konstant.
 * Egenskapsnamnet, operatorn och det konstanta värdet måste separeras av URL-kodade blanksteg. Ett blanksteg är URL-kodat som `%20`.
 * Alla delar av filtersträngen är skiftlägeskänsliga.
-* Det konstanta värdet måste vara av samma datatyp som egenskapen för filtret för att returnera giltiga resultat. Mer information om egenskapstyper som stöds finns i [Förstå Tabelltjänst-datamodellen](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model).
+* Det konstanta värdet måste vara av samma datatyp som egenskapen för filtret för att returnera giltiga resultat. Mer information om egenskapstyper som stöds finns i [Förstå Tabelltjänst-datamodellen](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 Här är en exempelfråga som visar hur du filtrerar via PartitionKey och e-postegenskaperna med ett OData-`$filter`.
 
@@ -75,9 +75,9 @@ Här är en exempelfråga som visar hur du filtrerar via PartitionKey och e-post
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Mer information om hur du skapar filteruttryck för olika datatyper finns i [Fråga tabeller och entiteter](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Mer information om hur du skapar filteruttryck för olika datatyper finns i [Fråga tabeller och entiteter](/rest/api/storageservices/querying-tables-and-entities).
 
-**Gör**
+**Resultat**
 
 | PartitionKey | RowKey | E-post | PhoneNumber |
 | --- | --- | --- | --- |

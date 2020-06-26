@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 40d171101c5d99cd33c90ee8751092a3ceebf12e
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906738"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391506"
 ---
 | Resurs |[Förbruknings plan](../articles/azure-functions/functions-scale.md#consumption-plan)|[Premiumplan](../articles/azure-functions/functions-scale.md#premium-plan)|[Dedikerad plan](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ ms.locfileid: "84906738"
 | Maximalt minne (GB per instans) | 1.5 | 3.5-14 | 1,75-14 | 3,5 – 14 | Alla noder stöds |
 | Function-appar per plan |100 |100 |obegränsat<sup>4</sup> | unbounded | unbounded |
 | [App Service-planer](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resurs grupp |100 per resurs grupp | - | - |
-| Lagring<sup>5</sup> |1 GB |250 GB |50-1000 GB | 1 TB | saknas |
+| Lagring<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | saknas |
 | Anpassade domäner per app</a> |500<sup>6</sup> |500 |500 | 500 | saknas |
 | Stöd för anpassad domän- [SSL](../articles/app-service/configure-ssl-bindings.md) |en obunden SNI SSL anslutning ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår |obegränsade SNI SSL och 1 IP SSL anslutningar ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår | saknas |
 

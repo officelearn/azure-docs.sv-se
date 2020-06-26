@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 2c74783ea8246232cb5c4270691daf3f83fe9a30
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2509bdae01fc9de5511dcd67eb95bf0d13d5cf39
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204573"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391168"
 ---
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-Ett Recovery Services-valv är en lagrings enhet som lagrar återställnings punkterna som skapats med tiden. Den innehåller också de säkerhets kopierings principer som är associerade med skyddade objekt.
+Ett Recovery Services valv är en hanterings enhet som lagrar återställnings punkter som skapats med tiden och som tillhandahåller ett gränssnitt för att utföra säkerhets kopierings åtgärder. Dessa inkluderar säkerhets kopieringar på begäran, återställning och skapande av säkerhets kopierings principer.
 
 Följ dessa steg om du vill skapa ett Recovery Services valv.
 

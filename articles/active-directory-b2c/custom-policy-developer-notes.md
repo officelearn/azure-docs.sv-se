@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90d9c6a2ebf445ba492f2e1634e57910cd235aed
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7defc33f8e3e2daca60fa5c15c41c62333ffc2d7
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679248"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389266"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Developer-kommentarer för anpassade principer i Azure Active Directory B2C
 
@@ -62,7 +62,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="protocols-and-authorization-flows"></a>Protokoll och auktoriseringsarkiv
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 auktoriseringskod](authorization-code-flow.md) |  |  | X |  |
 | OAuth2-auktoriseringskod med PKCE |  |  | X | Endast mobil program  |
@@ -75,7 +75,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="identify-providers-federation"></a>Identifiera Provider Federation 
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Till exempel Google +.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Till exempel Facebook.  |
@@ -86,7 +86,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="rest-api-integration"></a>REST API-integrering
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [REST API med Basic auth](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [REST API med klient certifikats-auth](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
@@ -94,14 +94,14 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="component-support"></a>Komponent stöd
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Autentisering av mobil faktor](phone-factor-technical-profile.md) |  |  | X |  |
 | [Azure MFA-autentisering](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [Engångslösenord](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) som lokal katalog |  |  | X |  |
 | Azure e-mail Subsystem för e-postverifiering |  |  | X |  |
-| [E-postleverantörer från tredje part](custom-email.md) |  |X  |  |  |
+| [E-postleverantörer från tredje part](custom-email-mailjet.md) |  |X  |  |  |
 | [Stöd för flera språk](localization.md)|  |  | X |  |
 | [Predikat-validering](predicates.md) |  |  | X | Till exempel komplexitet av lösen ord. |
 | [Visa kontroller](display-controls.md) |  |X  |  |  |
@@ -109,7 +109,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="page-layout-versions"></a>Sidlayoutversioner
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [2.0.0](page-layout.md#200) |  | X |  |  |
 | [1.2.0](page-layout.md#120) |  | X |  |  |
@@ -119,7 +119,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="app-ief-integration"></a>App-IEF-integrering
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Frågesträngparametern`domain_hint` |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
 | Frågesträngparametern`login_hint` |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
@@ -129,7 +129,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="session-management"></a>Sessionshantering
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Standardprovider för SSO-session](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Provider för extern inloggningssession](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
@@ -139,7 +139,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="security"></a>Säkerhet
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Princip nycklar – generera, manuell, uppladdning |  |  | X |  |
 | Princip nycklar – RSA/cert, hemligheter |  |  | X |  |
@@ -147,7 +147,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="developer-interface"></a>Gränssnittet för utvecklare
 
-| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal – IEF UX |  |  | X |  |
 | Princip uppladdning |  |  | X |  |

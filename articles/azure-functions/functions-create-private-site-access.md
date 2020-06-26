@@ -1,17 +1,17 @@
 ---
 title: Aktivera åtkomst till privat plats till Azure Functions
 description: Lär dig hur du konfigurerar åtkomst till Azure Virtual Network-webbplatser för Azure Functions.
-author: mcollier
-ms.author: mcollier
+author: craigshoemaker
+ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 930b691019d5cb56e487c58e3ca01c4f7ee4ef98
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8e37876e0e9666097c3cf16589e64929c670b14a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261173"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390286"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Självstudie: upprätta Azure Functions åtkomst till privat webbplats
 
@@ -68,7 +68,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     | [_Resursgrupp_](../azure-resource-manager/management/overview.md) | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Med samma resurs grupp blir det enklare att rensa resurser när du är klar med den här självstudien. |
     | _Namn på virtuell dator_ | myVM | Det virtuella dator namnet måste vara unikt i resurs gruppen |
     | [_Region_](https://azure.microsoft.com/regions/) | USA Norra centrala USA | Välj en region nära dig eller nära de funktioner som ska nås. |
-    | _Offentliga inkommande portar_ | Inga | Välj **ingen** för att se till att det inte finns någon inkommande anslutning till den virtuella datorn från Internet. Fjärråtkomst till den virtuella datorn kommer att konfigureras via Azure skydds-tjänsten. |
+    | _Offentliga inkommande portar_ | Ingen | Välj **ingen** för att se till att det inte finns någon inkommande anslutning till den virtuella datorn från Internet. Fjärråtkomst till den virtuella datorn kommer att konfigureras via Azure skydds-tjänsten. |
 
 1. Välj fliken _nätverk_ och välj **Skapa ny** för att konfigurera ett nytt virtuellt nätverk.
 
@@ -194,7 +194,7 @@ Nästa steg i den här självstudien är att skapa en HTTP-utlöst Azure-funktio
 
 1. Följ någon av följande snabb starter för att skapa och distribuera din Azure Functions-app.
 
-    * [Visuell Studio-kod](./functions-create-first-function-vs-code.md)
+    * [Visual Studio-koden](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Kommandorad](./functions-create-first-azure-function-azure-cli.md)
     * [Maven (Java)](./functions-create-first-java-maven.md)

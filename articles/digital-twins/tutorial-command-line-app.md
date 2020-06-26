@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 18f7657cdaf3eb1fef76ca65856fde3b29b714a7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355887"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391833"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Utforska digitala Azure-enheter med ett exempel på en klient
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 I den här självstudien introduceras ett exempel program som implementerar ett kommando rads klient program för att interagera med en digital Azure-instans. Klient programmet liknar den som skrevs i [Självstudier: koda en klient app](tutorial-code.md).
 

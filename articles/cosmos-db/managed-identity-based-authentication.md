@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: b277ae91dbdd747aba012d6e7302ed6cba61d938
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d5aef82fe29ec544e29d7c65950e719110ad276a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262275"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391867"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Använd systemtilldelade hanterade identiteter för att få åtkomst till Azure Cosmos DB data
 
@@ -75,10 +75,10 @@ I det här scenariot läser Function-appen temperaturen i Aquarium och skriver s
 
 Nu har vi en Function-app med en systemtilldelad hanterad identitet med rollen **DocumentDB Account Contributor** i Azure Cosmos DB behörigheter. Följande kod för Function-appen hämtar Azure Cosmos DB nycklar, skapar ett CosmosClient-objekt, hämtar temperaturen för Aquarium och sparar sedan detta till Azure Cosmos DB.
 
-I det här exemplet används [API: erna List nycklar](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) för att komma åt dina Azure Cosmos DB konto nycklar.
+I det här exemplet används [API: erna List nycklar](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) för att komma åt dina Azure Cosmos DB konto nycklar.
 
 > [!IMPORTANT] 
-> Om du vill [tilldela rollen som Cosmos DB konto läsare](#grant-access-to-your-azure-cosmos-account) måste du använda [API: et för skrivskyddade nycklar](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Detta fyller bara på skrivskyddade nycklar.
+> Om du vill [tilldela rollen som Cosmos DB konto läsare](#grant-access-to-your-azure-cosmos-account) måste du använda [API: et för skrivskyddade nycklar](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Detta fyller bara på skrivskyddade nycklar.
 
 API: erna för List nycklar returnerar `DatabaseAccountListKeysResult` objektet. Den här typen är inte definierad i C#-biblioteken. Följande kod visar implementeringen av den här klassen:  
 

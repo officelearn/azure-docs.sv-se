@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473684"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389368"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körn
 - **UserHelpText** – hjälper användaren att förstå vad som krävs.
 - [UserInputType](claimsschema.md#userinputtype) – typ av inmatnings kontroll, till exempel text ruta, val av alternativ, list Rute lista eller flera val.
 
-Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
 1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
 1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
@@ -172,7 +172,7 @@ Använd `PersistedClaims` för att skriva data till användar profilen och `Outp
 
 ## <a name="include-a-claim-in-the-token"></a>Inkludera ett anspråk i token 
 
-Om du vill lämna tillbaka tillbaka till det förlitande part-programmet lägger du till ett utgående <em> `SocialAndLocalAccounts/` </em> anspråk i filen. Utgående anspråk kommer att läggas till i token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part för att lägga till staden som ett utgående anspråk.
+Om du vill lämna tillbaka tillbaka till det förlitande part-programmet lägger du till ett utgående anspråk i <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> filen. Utgående anspråk kommer att läggas till i token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part för att lägga till staden som ett utgående anspråk.
  
 ```xml
 <RelyingParty>

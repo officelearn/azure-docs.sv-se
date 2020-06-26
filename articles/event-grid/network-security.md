@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: 073878d6dfb0637b8d0fb7fdf5c7f6d77d2b2c8d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ba3bc14c9b4a9d5d866dbb1b9369557b948078d0
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672654"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390201"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Nätverks säkerhet för Azure Event Grid resurser
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Grid: 
@@ -29,7 +29,7 @@ Du kan använda service märken för att definiera nätverks åtkomst kontroller
 
 | Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. | Båda | Nej | Nej |
+| AzureEventGrid | Azure Event Grid. | Båda | Inga | Inga |
 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
@@ -58,7 +58,7 @@ När du skapar en privat slut punkt uppdateras DNS CNAME-posten för resursen ti
 
 När du löser ämnet eller domänens slut punkts-URL från utanför det virtuella nätverket med den privata slut punkten matchas den offentliga slut punkten för tjänsten. DNS-resursposterna för ",", när de matchas från **utanför det virtuella** nätverket som är värd för den privata slut punkten, blir:
 
-| Name                                          | Typ      | Värde                                         |
+| Namn                                          | Typ      | Värde                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -67,7 +67,7 @@ Du kan neka eller kontrol lera åtkomsten för en klient utanför VNet via den o
 
 Vid matchning från det VNet som är värd för den privata slut punkten matchas ämnet eller domänens slut punkts-URL till den privata slut punktens IP-adress. DNS-resursposterna för ämnet "ämnea", när de löses in i **det virtuella nätverk** som är värd för den privata slut punkten, kommer att vara:
 
-| Name                                          | Typ      | Värde                                         |
+| Namn                                          | Typ      | Värde                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
@@ -100,3 +100,5 @@ Funktionen **IP-brandvägg** finns på både Basic-och Premium-nivån för Event
 Du kan konfigurera IP-brandväggen för din Event Grid resurs för att begränsa åtkomsten via det offentliga Internet från endast en Välj uppsättning IP-adresser eller IP-adressintervall. Stegvisa instruktioner finns i [Konfigurera IP-brandvägg](configure-firewall.md).
 
 Du kan konfigurera privata slut punkter för att begränsa åtkomsten från enbart från valda virtuella nätverk. Stegvisa instruktioner finns i [Konfigurera privata slut punkter](configure-private-endpoints.md).
+
+Information om hur du felsöker problem med nätverks anslutningen finns i [Felsöka problem med nätverks anslutningen](troubleshoot-network-connectivity.md)

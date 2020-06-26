@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/23/2019
+ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: c2f0fbe66b26c6eca6e0c0b2530efacba9bae958
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8f94f2ed810204d739dfd2e6d5e88ef0977ad9a4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75380600"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391527"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>Snabb start: identifiera tal i mål-C på macOS med hjälp av tal-SDK
 
@@ -38,7 +38,7 @@ Cognitive Services Speech SDK för Mac distribueras som ett Ramverks paket. Den 
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
-Starta Xcode och starta ett nytt projekt genom att välja **Arkiv** > **nytt** > **projekt**. I dialog rutan Val av mall väljer du mallen för **kakao-app** .
+Starta Xcode och starta ett nytt projekt genom att välja **Arkiv**  >  **nytt**  >  **projekt**. I dialog rutan Val av mall väljer du mallen för **kakao-app** .
 
 Gör följande val i dialog rutorna som följer.
 
@@ -72,7 +72,7 @@ Gör följande val i dialog rutorna som följer.
 1. Gå till katalogen för din exempel app, som är HelloWorld. Placera en textfil med namnet *Podfile* och följande innehåll i den katalogen:
 
    [!code-ruby[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/macos/from-microphone/helloworld/Podfile)]
-1. Gå till katalogen HelloWorld i en Terminal och kör kommandot `pod install`. Det här kommandot skapar `helloworld.xcworkspace` en Xcode-arbetsyta som innehåller både exempel-appen och tal-SDK som ett beroende. Den här arbets ytan används i följande steg.
+1. Gå till katalogen HelloWorld i en Terminal och kör kommandot `pod install` . Det här kommandot skapar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempel-appen och tal-SDK som ett beroende. Den här arbets ytan används i följande steg.
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
@@ -81,12 +81,12 @@ Gör följande val i dialog rutorna som följer.
 
    [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/macos/from-microphone/helloworld/helloworld/AppDelegate.m#code)]
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Använd `westus` till exempel för den kostnads fria utvärderings prenumerationen.
+1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria utvärderings prenumerationen.
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. Gör fel söknings resultatet synligt genom att välja **Visa** > **fel söknings yta** > **Aktivera konsol**.
-1. Skapa och kör exempel koden genom att välja **produkt** > **körning** på menyn. Du kan också välja **Play**.
+1. Gör fel söknings resultatet synligt genom att välja **Visa**  >  **fel söknings yta**  >  **Aktivera konsol**.
+1. Skapa och kör exempel koden genom att välja **produkt**  >  **körning** på menyn. Du kan också välja **Play**.
 1. När du har valt knappen och sagt några ord bör du se texten du har talat om i den nedre delen av skärmen. När du kör appen för första gången ska du uppmanas att ge appen åtkomst till datorns mikrofon.
 
 ## <a name="next-steps"></a>Nästa steg

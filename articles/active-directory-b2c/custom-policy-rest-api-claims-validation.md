@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4902e96cd41a02953b6686b5d52d7912b27809f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330825"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85388926"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa för att verifiera användarindata
 
@@ -55,7 +55,7 @@ När REST API verifierar data måste den returnera en HTTP 200 (OK), med följan
 }
 ```
 
-Om verifieringen misslyckades måste REST API returnera en HTTP 409 (konflikt) med `userMessage` JSON-elementet. IEF förväntar sig `userMessage` det anspråk som REST API returnerar. Detta anspråk visas som en sträng för användaren om valideringen Miss lyckas.
+Om verifieringen misslyckades måste REST API returnera en HTTP 409 (konflikt) med `userMessage` JSON-elementet. IEF förväntar sig det `userMessage` anspråk som REST API returnerar. Detta anspråk visas som en sträng för användaren om valideringen Miss lyckas.
 
 ```json
 {
@@ -71,7 +71,7 @@ Installationen av REST API slut punkten ligger utanför omfånget för den här 
 
 Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körning. Du kan deklarera anspråk i avsnittet [anspråks schema](claimsschema.md) . 
 
-1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+1. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
 1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
 1. Lägg till följande anspråk i **ClaimsSchema** -elementet.  
@@ -95,7 +95,7 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körn
 
 ## <a name="configure-the-restful-api-technical-profile"></a>Konfigurera teknisk profil för RESTful-API 
 
-En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för att rikta in dig mot din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i en `InputClaims` samling och tar emot data tillbaka i `OutputClaims` en samling. Hitta **ClaimsProviders** -elementet och Lägg till en ny anspråks leverantör enligt följande:
+En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för att rikta in dig mot din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i en `InputClaims` samling och tar emot data tillbaka i en `OutputClaims` samling. Hitta **ClaimsProviders** -elementet och Lägg till en ny anspråks leverantör enligt följande:
 
 ```xml
 <ClaimsProvider>
@@ -134,9 +134,9 @@ Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` ange
 
 ## <a name="validate-the-user-input"></a>Verifiera användarindata
 
-Om du vill hämta användarens lojalitets nummer under registreringen måste du tillåta att användaren anger dessa data på skärmen. Lägg till **loyaltyId** utgående anspråk på registrerings sidan genom att lägga till den i det befintliga avsnittet `OutputClaims` för registrering av tekniska profiler. Ange hela listan med utgående anspråk för att kontrol lera i vilken ordning anspråken visas på skärmen.  
+Om du vill hämta användarens lojalitets nummer under registreringen måste du tillåta att användaren anger dessa data på skärmen. Lägg till **loyaltyId** utgående anspråk på registrerings sidan genom att lägga till den i det befintliga avsnittet för registrering av tekniska profiler `OutputClaims` . Ange hela listan med utgående anspråk för att kontrol lera i vilken ordning anspråken visas på skärmen.  
 
-Lägg till den tekniska referensen för verifiering i den tekniska profilen för registrering, som anropar `REST-ValidateProfile`. Den nya verifierings tekniska profilen läggs till överst i `<ValidationTechnicalProfiles>` samlingen som definieras i bas principen. Det här beteendet innebär att endast efter lyckad verifiering, Azure AD B2C flyttar till för att skapa kontot i katalogen.   
+Lägg till den tekniska referensen för verifiering i den tekniska profilen för registrering, som anropar `REST-ValidateProfile` . Den nya verifierings tekniska profilen läggs till överst i `<ValidationTechnicalProfiles>` samlingen som definieras i bas principen. Det här beteendet innebär att endast efter lyckad verifiering, Azure AD B2C flyttar till för att skapa kontot i katalogen.   
 
 1. Hitta **ClaimsProviders** -elementet. Lägg till en ny anspråks leverantör enligt följande:
 
@@ -192,7 +192,7 @@ Lägg till den tekniska referensen för verifiering i den tekniska profilen för
 
 ## <a name="include-a-claim-in-the-token"></a>Inkludera ett anspråk i token 
 
-Om du vill returnera kampanj koden anspråk tillbaka till den förlitande parten, lägger du till ett utgående <em> `SocialAndLocalAccounts/` </em> anspråk till filen. Utgående anspråk gör att anspråk läggs till i token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part för att lägga `promoCode` till som ett utgående anspråk.
+Om du vill returnera kampanj koden anspråk tillbaka till den förlitande parten, lägger du till ett utgående anspråk till <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> filen. Utgående anspråk gör att anspråk läggs till i token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part för att lägga till `promoCode` som ett utgående anspråk.
  
 ```xml
 <RelyingParty>
@@ -221,7 +221,7 @@ Om du vill returnera kampanj koden anspråk tillbaka till den förlitande parten
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ramverk för identitets upplevelse**.
-1. Välj **överför anpassad princip**och överför sedan de principfiler som du ändrade: *TrustFrameworkExtensions. XML*och *SignUpOrSignin. XML*. 
+1. Välj **överför anpassad princip**och överför sedan de principfiler som du ändrade: *TrustFrameworkExtensions.xml*och *SignUpOrSignin.xml*. 
 1. Välj den registrerings-eller inloggnings princip som du laddade upp och klicka på knappen **Kör nu** .
 1. Du bör kunna registrera dig med en e-postadress.
 1. Klicka på länken **Registrera dig nu** .

@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 0f5911711d08902b573f3919df144aeb10af07f2
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 5f7b923cf9d4a07004d5c59a7afcdeb4b8f5ae54
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338479"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392224"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digitals dubbla är utrustade med både **kontroll Plans-API: er** och **data Plans-API: er** för att hantera din instans och dess element. Den här artikeln ger en översikt över de API: er som är tillgängliga och metoderna för att interagera med dem. Du kan antingen använda REST-API: er direkt med deras associerade swaggers eller via en SDK.
 

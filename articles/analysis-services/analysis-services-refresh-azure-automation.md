@@ -6,31 +6,27 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926569"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389980"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
 Med hjälp av Azure Automation-och PowerShell-Runbooks kan du utföra automatiserade data uppdaterings åtgärder på tabell modeller i Azure Analysis.  
 
-Exemplet i den här artikeln använder [PowerShell SQLServer-modulerna](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
-
-En PowerShell-PowerShell-Runbook som visar hur du uppdaterar en modell finns längre fram i den här artikeln.  
+Exemplet i den här artikeln använder [SQLServer PowerShell-modulen](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). En PowerShell-PowerShell-Runbook som visar hur du uppdaterar en modell finns längre fram i den här artikeln.  
 
 ## <a name="authentication"></a>Autentisering
 
-Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2).  Exemplet i den här artikeln använder ett tjänst huvud namn (SPN) för att autentisera till Azure Analysis Services.
-
-Mer information om hur du skapar ett huvud namn för tjänsten finns i [skapa ett tjänst objekt med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2).  Exemplet i den här artikeln använder ett huvud namn för tjänsten (SPN) för att autentisera till Azure Analysis Services. Läs mer i [skapa ett tjänst huvud namn med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Krav
 
 > [!IMPORTANT]
-> I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i brand väggen.
+> I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om en brand vägg är aktive rad måste den offentliga IP-adressen för begär ande initieraren ingå i en brand Väggs regel.
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>Installera SqlServer-moduler från PowerShell-galleriet.
 
@@ -68,7 +64,7 @@ Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet
 
     ![Importera Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Bläddra till filen **Refresh-Model. ps1** , ange ett **namn** och en **Beskrivning**och klicka sedan på **skapa**.
+4. Bläddra till **Refresh-Model.ps1** -filen, ange ett **namn** och en **Beskrivning**och klicka sedan på **skapa**.
 
     ![Importera Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -101,7 +97,7 @@ Detta kan konfigureras på följande sätt:
  
     ![Skapa schema](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Klicka på **Schemalägg** > **skapa ett nytt schema**och fyll sedan i informationen.
+2. Klicka på **Schemalägg**  >  **skapa ett nytt schema**och fyll sedan i informationen.
 
     ![Konfigurera schema](./media/analysis-services-refresh-azure-automation/15.png)
 
@@ -147,7 +143,7 @@ Om du vill använda runbooken genom att använda Azure Data Factory måste du f�
 |Egenskap  |Värde  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Namnet på Azure Analysis Services databasen <br/> Exempel: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Namnet på Azure Analysis Services servern. <br/> Exempel: https:\//westus.asazure.Windows.net/servers/myserver/Models/AdventureWorks/         |
+|**AnalysisServicesServer**     |Namnet på Azure Analysis Services servern. <br/> Exempel: https: \/ /westus.asazure.Windows.net/servers/myserver/Models/AdventureWorks/         |
 |**DatabaseRefreshType**     |Typ av uppdatering som ska utföras. <br/> Exempel: fullständig         |
 
 Exempel på JSON-brödtext:
@@ -175,7 +171,7 @@ En virtuell Azure-dator med en statisk offentlig IP-adress kan användas som en 
 >
 >Mer information om hur du konfigurerar Azure Automation hybrid Worker finns i [hybrid Runbook Worker installation](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
-När en Hybrid Worker har kon figurer ATS skapar du en webhook enligt beskrivningen i avsnittet [förbruka med Data Factory](#consume-with-data-factory).  Den enda skillnaden är att välja alternativet **kör på** > **hybrid Worker** när du konfigurerar webhooken.
+När en Hybrid Worker har kon figurer ATS skapar du en webhook enligt beskrivningen i avsnittet [förbruka med Data Factory](#consume-with-data-factory).  Den enda skillnaden är att välja alternativet **kör på**  >  **hybrid Worker** när du konfigurerar webhooken.
 
 Exempel-webhook med Hybrid Worker:
 

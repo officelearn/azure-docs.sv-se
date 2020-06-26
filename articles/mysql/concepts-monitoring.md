@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: ee9fe44844cd7263075c9dfe0acea8558f325525
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/25/2020
+ms.openlocfilehash: 803437cc45fce9ab850682cf4725c0bf0d21bed6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267680"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414121"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MySQL tillhandahåller olika mått som ger inblick i serverns beteende.
@@ -22,11 +22,11 @@ Alla Azure-mått har en frekvens på en minut och varje mått ger 30 dagars hist
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for MySQL:
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Description|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
-|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används.|
+|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används. (Gäller inte för Basic-nivå servrar.)|
 |storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
 |storage_used|Använt lagrings utrymme|Byte|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
 |serverlog_storage_percent|Server logg lagrings procent|Procent|Procent andelen Server logg lagring som används av serverns maximala Server logg lagring.|

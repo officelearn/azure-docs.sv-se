@@ -4,15 +4,15 @@ description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure A
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: how-to
-ms.date: 02/19/2020
+ms.topic: conceptual
+ms.date: 06/25/2020
 ms.author: alzam
-ms.openlocfilehash: 2fc329bd77bafb2e11575b75be102314df98131f
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 0ef0c7d3a269753067e53a69b9da680db969e25d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987204"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414442"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klientorganisation för P2S-anslutningar med OpenVPN-protokoll
 
@@ -26,34 +26,22 @@ När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering 
 
 ## <a name="6-enable-authentication-on-the-gateway"></a><a name="enable-authentication"></a>6. Aktivera autentisering på gatewayen
 
-I det här steget aktiverar du Azure AD-autentisering på VPN-gatewayen.
+I det här steget ska du aktivera Azure AD-autentisering på VPN-gatewayen.
 
-1. Aktivera Azure AD-autentisering på VPN-gatewayen genom att köra följande kommandon. Se till att ändra kommandona så att de motsvarar din egen miljö:
+1. Aktivera Azure AD-autentisering på VPN-gatewayen genom att gå till **punkt-till-plats-konfiguration** och plocknings- **OpenVPN (SSL)** som **tunnel typ**. Välj **Azure Active Directory** som **Autentiseringstyp** och fyll i informationen i avsnittet **Azure Active Directory** .
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "application ID from previous section" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24
-    ```
+    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+
     > [!NOTE]
-    > Använd inte Azure VPN-klientens program-ID i kommandona ovan: det ger alla användare åtkomst till VPN-gatewayen. Använd ID: t för det/de program som du har registrerat.
+    > Använd inte Azure VPN-klientens program-ID: det ger alla användare åtkomst till VPN-gatewayen. Använd ID: t för det/de program som du har registrerat.
 
-2. Skapa och ladda ned profilen genom att köra följande kommandon. Ändra värdena-ResourcGroupName och-Name så att de matchar dina egna.
+2. Skapa och ladda ned profilen genom att klicka på länken **Ladda ned VPN-klient** .
 
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
+3. Extrahera den hämtade ZIP-filen.
 
-3. När du har kört kommandona visas ett resultat som liknar det som visas nedan. Kopiera resultat-URL: en till webbläsaren för att ladda ned profil zip-filen.
+4. Bläddra till mappen unzippad "AzureVPN".
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/profile.png)
-
-4. Extrahera den hämtade ZIP-filen.
-
-5. Bläddra till mappen unzippad "AzureVPN".
-
-6. Anteckna platsen för filen "azurevpnconfig.xml". azurevpnconfig.xml innehåller inställningen för VPN-anslutningen och kan importeras direkt till Azure VPN-klientprogrammet. Du kan också distribuera filen till alla användare som behöver ansluta via e-post eller på annat sätt. Användaren måste ha giltiga autentiseringsuppgifter för Azure AD för att kunna ansluta.
+5. Anteckna platsen för filen "azurevpnconfig.xml". azurevpnconfig.xml innehåller inställningen för VPN-anslutningen och kan importeras direkt till Azure VPN-klientprogrammet. Du kan också distribuera filen till alla användare som behöver ansluta via e-post eller på annat sätt. Användaren måste ha giltiga autentiseringsuppgifter för Azure AD för att kunna ansluta.
 
 ## <a name="next-steps"></a>Nästa steg
 

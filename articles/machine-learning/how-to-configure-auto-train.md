@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 6759f7769d106e9adca5fcd01a454195a758634f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f00946c4c0a9abe343448266128c682f2376cf7a
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204467"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412608"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Klassificering | Regression | Prognostisering för tidsserier
 [Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [Genomsnittlig Perceptron-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)|[Brantaste modellerings regressor för online-gradient](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest) |[ARIMA automatiskt](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* ||[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast linjär modellerings regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
 [Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
 |[Linjär SVM-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)*||
 
@@ -199,7 +199,7 @@ I varje automatiserad maskin inlärnings experiment [skalas dina data automatisk
 
 När du konfigurerar experiment i `AutoMLConfig` objektet kan du aktivera/inaktivera inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-|Funktionalisering-konfiguration | Beskrivning |
+|Funktionalisering-konfiguration | Description |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-configure-auto-features.md#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**|
 |`"featurization": 'off'`| Anger att funktionalisering-steget inte ska göras automatiskt.|

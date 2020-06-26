@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 46f86c3aa730b5222a6c6e36bdb392a0ae891c6c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0f2bcb78b1a998c1b335a5757b832fbb1d3fc7fb
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84689426"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412506"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa en virtuell nätverks-peering-olika distributions modeller och prenumerationer
 
@@ -34,7 +34,7 @@ Stegen för att skapa en virtuell nätverks-peering skiljer sig beroende på om 
 
 Det går inte att skapa en virtuell nätverks-peering mellan två virtuella nätverk som distribueras via den klassiska distributions modellen. I den här självstudien används virtuella nätverk som finns i samma region. Den här självstudien peererar virtuella nätverk i samma region. Du kan också peer-virtuella nätverk i olika [regioner som stöds](virtual-network-manage-peering.md#cross-region). Vi rekommenderar att du bekantar dig med [peering-kraven och begränsningarna](virtual-network-manage-peering.md#requirements-and-constraints) innan du peer-koppla virtuella nätverk.
 
-När du skapar en virtuell nätverks-peering mellan virtuella nätverk som finns i olika prenumerationer måste prenumerationerna båda vara kopplade till samma Azure Active Directory-klient. Om du inte redan har en Azure Active Directory klient kan du snabbt [skapa en](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Du kan ansluta virtuella nätverk i olika prenumerationer och olika Azure Active Directory klienter med hjälp av en Azure- [VPN gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+När du skapar en virtuell nätverks-peering mellan virtuella nätverk som finns i olika prenumerationer, kan prenumerationerna associeras med samma Azure Active Directory-klient. Om du inte redan har en Azure Active Directory klient kan du snabbt [skapa en](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant).
 
 Du kan använda [Azure Portal](#portal), Azures [kommando rads gränssnitt](#cli) (CLI) eller Azure [PowerShell](#powershell) för att skapa en virtuell nätverks-peering. Klicka på något av länkarna ovan om du vill gå direkt till stegen för att skapa en virtuell nätverks-peering med ditt eget verktyg.
 

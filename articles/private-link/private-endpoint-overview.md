@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 40b3ebf9193ad2d167cb36792900746201605298
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106465"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414155"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -76,7 +76,7 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |**Azure Relay** | Microsoft. Relay/namnrymder | namnområde |
 |**Azure Event Grid** | Microsoft. EventGrid/ämnen    | ämne |
 |**Azure Event Grid** | Microsoft. EventGrid/Domains    | domän |
-|**Azure-Webbappar** | Microsoft. Web/Sites    | webbplats |
+|**Azure-Webbappar** | Microsoft. Web/Sites    | webbplatser |
 |**Azure Machine Learning** | Microsoft. MachineLearningServices/arbets ytor    | arbetsyta |
   
  

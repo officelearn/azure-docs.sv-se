@@ -8,12 +8,12 @@ ms.date: 04/07/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: c83c97aab43b6978922202cc96ff92e1e046a7e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f23a91a278b81c1583d88db2ede265ba2ad2d415
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811623"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414238"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Exportera IoT-data till destinationer i Azure
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du använder funktionen för data export i Azure
 > [!Note]
 > När du aktiverar data export får du bara data från dessa tidpunkter. För närvarande går det inte att hämta data under en tid då data exporten var avstängd. Aktivera data export tidigt om du vill behålla mer historiska data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste vara administratör i IoT Central programmet eller ha behörighet för data export.
 
@@ -88,21 +88,27 @@ Nu när du har ett mål att exportera data till, följer du dessa steg för att 
 
 4. I list rutan väljer du **Event Hubs namnrymd**, **Service Bus namnrymd**, **lagrings konto namnrum**eller **anger en anslutnings sträng**.
 
-    - Du ser bara lagrings konton, Event Hubs namnrymder och Service Bus namnrum i samma prenumeration som ditt IoT Central-program. Om du vill exportera till ett mål utanför den här prenumerationen väljer du **Ange en anslutnings sträng** och går till nästa steg.
+    - Du ser bara lagrings konton, Event Hubs namnrymder och Service Bus namnrum i samma prenumeration som ditt IoT Central-program. Om du vill exportera till ett mål utanför den här prenumerationen väljer du **Ange en anslutnings sträng** och se steg 6.
     - För appar som har skapats med den kostnads fria pris Planen är det enda sättet att konfigurera data exporten via en anslutnings sträng. Appar i den kostnads fria pris Planen har ingen tillhör ande Azure-prenumeration.
 
     ![Skapa ny händelsehubben](media/howto-export-data/export-event-hub.png)
 
-5. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
-    - Event Hubs eller Service Bus går du till namn området i Azure Portal:
-        - Under **Inställningar**väljer du **principer för delad åtkomst**
-        - Välj standard- **RootManageSharedAccessKey** eller skapa en ny
-        - Kopiera antingen den primära eller sekundära anslutnings strängen
-    - Lagrings konto går du till lagrings kontot i Azure Portal:
-        - Under **Inställningar**väljer du **åtkomst nycklar**
-        - Kopiera antingen anslutnings strängen KEY1 eller key2-anslutningssträngen
+5. Välj en händelsehubben, en kö, ett ämne eller en behållare i list rutan.
 
-6. Välj en händelsehubben, en kö, ett ämne eller en behållare i list rutan.
+6. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
+
+    - Event Hubs eller Service Bus går du till namn området i Azure Portal:
+        - Så här använder du en anslutnings sträng för hela namn området:
+            1. Under **Inställningar**väljer du **principer för delad åtkomst**
+            2. Skapa en ny nyckel eller Välj en befintlig nyckel som har **send** -behörighet.
+            3. Kopiera antingen den primära eller sekundära anslutnings strängen
+        - Om du vill använda anslutnings strängen för en speciell instans av Event Hub eller Service Bus kö eller ämne går du till **entiteter > Event Hubs** eller **entiteter > köer** eller **entiteter > ämnen**. Välj en angiven instans och följ stegen ovan för att få en anslutnings sträng.
+    - Lagrings konto går du till lagrings kontot i Azure Portal:
+        - Det finns bara stöd för anslutnings strängar för hela lagrings kontot. Anslutnings strängar som är begränsade till en enda behållare stöds inte.
+          1. Under **Inställningar**väljer du **åtkomst nycklar**
+          2. Kopiera antingen anslutnings strängen KEY1 eller key2-anslutningssträngen
+
+    Klistra in i anslutnings strängen. Skriv in namnet på instansen eller behållaren, Tänk på att detta är Skift läges känsligt.
 
 7. Under **data som ska exporteras**väljer du de typer av data som ska exporteras genom att ange typen till **på**.
 
@@ -131,7 +137,7 @@ För Event Hubs och Service Bus exporterar IoT Central ett nytt meddelande snabb
 För Blob Storage grupperas och exporteras meddelanden en gång per minut. De exporterade filerna använder samma format som de meddelandefiler som exporteras av [IoT Hub](../../iot-hub/tutorial-routing.md) meddelanderoutning till Blob Storage.
 
 > [!NOTE]
-> För Blob Storage kontrollerar du att enheterna skickar meddelanden som `contentType: application/JSON` har och `contentEncoding:utf-8` (eller `utf-16` `utf-32`). Se [IoT Hub-dokumentationen](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) för ett exempel.
+> För Blob Storage kontrollerar du att enheterna skickar meddelanden som har `contentType: application/JSON` och `contentEncoding:utf-8` (eller `utf-16` `utf-32` ). Se [IoT Hub-dokumentationen](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) för ett exempel.
 
 Enheten som skickade telemetri representeras av enhets-ID: t (se följande avsnitt). För att hämta namnen på enheterna, exportera enhets data och korrelera varje meddelande med hjälp av **connectionDeviceId** som matchar enhets meddelandets **deviceId** .
 
@@ -295,9 +301,9 @@ Den här ögonblicks bilden är ett exempel meddelande som visar enheter och ege
 
 Varje meddelande-eller ögonblicks bild post representerar en eller flera ändringar i en publicerad enhets mall sedan det senaste exporterade meddelandet. Information som skickas i varje meddelande eller post innehåller:
 
-- `id`för den enhets mall som matchar `instanceOf` enhets strömmen ovan
+- `id`för den enhets mall som matchar enhets `instanceOf` strömmen ovan
 - `displayName`av enhets mal len
-- Enheten `capabilityModel` , inklusive dess `interfaces`, och definitioner av telemetri, egenskaper och kommandon
+- Enheten `capabilityModel` , inklusive dess `interfaces` , och definitioner av telemetri, egenskaper och kommandon
 - `cloudProperties`definieras
 - Åsidosättningar och initiala värden, infogade i`capabilityModel`
 
@@ -561,7 +567,7 @@ För **enheter**är viktiga skillnader mellan det gamla data formatet och det ny
 Viktiga skillnader mellan det gamla data formatet och det nya data **formatet är:**
 
 - `@id`för enhets mal len byter namn till`id`
-- `@type`för enhets mal len byter namn till `types`, och är nu en matris
+- `@type`för enhets mal len byter namn till `types` , och är nu en matris
 
 ### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Enheter (format föråldrat från och med 3 februari 2020)
 

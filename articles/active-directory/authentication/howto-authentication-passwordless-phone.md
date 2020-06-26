@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 100e4b88589f3731d127ccb1060e556c1f3a2f39
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450980"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413254"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -29,7 +29,7 @@ I stället för att se en uppmaning om att ange ett lösen ord när du har anget
 > [!NOTE]
 > Den här funktionen har funnits i Microsoft Authenticator app sedan mars 2017, så det finns en risk att när principen är aktive rad för en katalog kan användarna stöta på det här flödet omedelbart och se ett fel meddelande om de inte har Aktiver ATS av en princip. Tänk på och Förbered dina användare för den här ändringen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure Multi-Factor Authentication, med push-meddelanden som är tillåtna som en verifieringsmetod 
 - Den senaste versionen av Microsoft Authenticator installerad på enheter som kör iOS 8,0 eller senare, eller Android 6,0 eller senare.
@@ -46,7 +46,7 @@ Registrerings funktioner för metoder för lösen ords skydd förlitar sig på d
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Aktivera autentiseringsmetoder för inloggning med lösen ord
 
 1. Logga in på [Azure Portal](https://portal.azure.com)
-1. Sök efter och välj *Azure Active Directory*. Välj autentiseringsmetod för **säkerhets** > **metoder** > **(för hands version)**
+1. Sök efter och välj *Azure Active Directory*. Välj autentiseringsmetod för **säkerhets**  >  **metoder**  >  **(för hands version)**
 1. Under **lösen ords telefon inloggning**väljer du följande alternativ
    1. **Aktivera** – Ja eller Nej
    1. **Mål** – alla användare eller Välj användare
@@ -82,9 +82,9 @@ Administratören kan välja att göra det möjligt för användaren att använda
 
 ### <a name="ad-fs-integration"></a>AD FS-integrering
 
-När en användare har aktiverat Microsoft Authenticator lösen ords lös autentiseringsuppgifter kommer autentiseringen för användaren alltid att vara standard att skicka ett meddelande för godkännande. Den här logiken förhindrar att användare i en hybrid klient dirigeras till ADFS för inloggnings verifiering utan att användaren vidtar ytterligare steg för att klicka på Använd lösen ordet i stället. Den här processen kringgår också alla lokala principer för villkorlig åtkomst och genom strömnings flöden. 
+När en användare har aktiverat Microsoft Authenticator lösen ords lös autentiseringsuppgifter kommer autentiseringen för användaren alltid att vara standard att skicka ett meddelande för godkännande. Den här logiken förhindrar att användare i en hybrid klient dirigeras till AD FS för inloggnings verifiering utan att användaren vidtar ytterligare steg för att klicka på Använd lösen ordet i stället. Den här processen kringgår också alla lokala principer för villkorlig åtkomst och genom strömnings flöden. 
 
-Om en användare har en svars lös inloggnings verifiering som väntar på lösen ord och försöker logga in igen, kan det hända att användaren går till AD FS för att ange ett lösen ord i stället.  
+Om en användare har en svars lös inloggnings verifiering som väntar på lösen ord och försöker logga in igen, kan det hända att användaren AD FS ange ett lösen ord i stället.  
 
 ### <a name="azure-mfa-server"></a>Azure MFA-Server
 

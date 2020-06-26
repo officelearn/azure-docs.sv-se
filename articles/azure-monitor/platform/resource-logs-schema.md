@@ -3,26 +3,27 @@ title: Tjänster och scheman som stöds av Azure-resurs loggar
 description: Förstå tjänster och händelse schema som stöds för Azures resurs loggar.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 10/22/2019
-ms.openlocfilehash: 04f89f53eb8ee0f5205b77ff65d14380c1b68144
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.date: 06/15/2020
+ms.openlocfilehash: 37c4093e52caf091489c60a8cdf497cffeffe9ac
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418759"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413866"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Gemensamt och tjänstspecifikt schema för Azure-resurs loggar
 
 > [!NOTE]
-> Resurs loggar kallades tidigare för diagnostikloggar. Namnet ändrades i oktober 2019 när de typer av loggar som samlats in av Azure Monitor flyttas för att inkludera mer än bara Azure-resursen.
+> Resurs loggar kallades tidigare för diagnostikloggar. Namnet ändrades i oktober 2019 när de typer av loggar som samlats in av Azure Monitor flyttas för att inkludera mer än bara Azure-resursen. Listan över resurs logg kategorier som du kan samla in används också i den här artikeln. De har flyttats till [resurs logg kategorier](resource-logs-categories.md). 
 
 [Azure Monitor resurs loggar](../../azure-monitor/platform/platform-logs-overview.md) genereras av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla resurs loggar som är tillgängliga via Azure Monitor dela ett gemensamt schema på högsta nivå, med flexibilitet för varje tjänst för att generera unika egenskaper för sina egna händelser.
 
 En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `category` unikt identifiera ett schema. Den här artikeln beskriver schemat på högsta nivån för resurs loggar och länkar till scheman för varje tjänst.
 
+
 ## <a name="top-level-common-schema"></a>Gemensamt schema på översta nivån
 
-| Name | Obligatorisk/valfri | Beskrivning |
+| Name | Obligatorisk/valfri | Description |
 |---|---|---|
 | time | Obligatorisk | Tids stämplingen (UTC) för händelsen. |
 | resourceId | Obligatorisk | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
@@ -69,7 +70,7 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | IoT Hub | [IoT Hub åtgärder](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault loggning](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes-loggning](../../aks/view-master-logs.md#log-event-schema) |
-| Lastbalanserare |[Log Analytics för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log Analytics för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Anpassat Logic Apps B2B-spårningsschema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |

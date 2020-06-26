@@ -6,16 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit, tracking-python
-ms.openlocfilehash: 891eda49e11d9a9252cfcb5a0677eb47551135bc
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 2eaa2202ac6c2f0fac0f53c6eeb2f5d08c764f1e
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561806"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413356"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Event Grid utgående bindning för Azure Functions
 
-Använd Event Grid utgående bindning för att skriva händelser till ett anpassat ämne. Du måste ha en giltig [åtkomst nyckel för det anpassade ämnet](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
+Använd Event Grid utgående bindning för att skriva händelser till ett anpassat ämne. Du måste ha en giltig [åtkomst nyckel för det anpassade ämnet](../event-grid/security-authenticate-publishing-clients.md).
 
 Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-event-grid.md).
 
@@ -59,7 +59,7 @@ public static async Task Run(
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas Event Grid utgående bindnings data i *Function. JSON* -filen.
+I följande exempel visas Event Grid utgående bindnings data i *function.jspå* filen.
 
 ```json
 {
@@ -102,7 +102,7 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas Event Grid utgående bindnings data i *Function. JSON* -filen.
+I följande exempel visas Event Grid utgående bindnings data i *function.jspå* filen.
 
 ```json
 {
@@ -162,9 +162,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Den skickar sedan en händelse till det anpassade Event Grid ämnet, enligt vad som anges i `topicEndpointUri` .
+I följande exempel visas en trigger-bindning i en *function.jsi* filen och en [python-funktion](functions-reference-python.md) som använder bindningen. Den skickar sedan en händelse till det anpassade ämnet, enligt vad som anges i `topicEndpointUri` .
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -187,7 +187,7 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-Här är python-exemplet för att skicka en händelse till ett anpassat Event Grid-ämne genom att ange `EventGridOutputEvent` :
+Här är python-exemplet för att skicka en händelse till ett anpassat ämne genom att ange `EventGridOutputEvent` :
 
 ```python
 import logging
@@ -255,9 +255,9 @@ Den Event Grid utgående bindningen är inte tillgänglig för Java.
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `EventGrid` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `EventGrid` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på "eventGrid". |
 |**position** | saknas | Måste anges till "out". Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
@@ -278,11 +278,11 @@ Skicka meddelanden med hjälp av en metod parameter, till exempel `out EventGrid
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Skicka meddelanden med hjälp av en metod parameter, till exempel `out EventGridEvent paramName` . I C#-skript `paramName` är värdet som anges i `name` egenskapen för *Function. JSON*. Om du vill skriva flera meddelanden kan du använda `ICollector<EventGridEvent>` eller `IAsyncCollector<EventGridEvent>` i stället för `out EventGridEvent` .
+Skicka meddelanden med hjälp av en metod parameter, till exempel `out EventGridEvent paramName` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. Om du vill skriva flera meddelanden kan du använda `ICollector<EventGridEvent>` eller `IAsyncCollector<EventGridEvent>` i stället för `out EventGridEvent` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Få åtkomst till utdata-händelsen med hjälp av `context.bindings.<name>` WHERE `<name>` är värdet som anges i `name` egenskapen för *Function. JSON*.
+Få åtkomst till utdata-händelsen `context.bindings.<name>` genom `<name>` att använda WHERE är värdet som anges i `name` egenskapen för *function.jspå*.
 
 # <a name="python"></a>[Python](#tab/python)
 

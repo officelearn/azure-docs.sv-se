@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 174279e4bd241ee9b336fc1ce7e0af389d2297a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f31ee7f7d60a3bf0ab56b9ed8aa7fd25774e06c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667008"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412557"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
 
@@ -21,9 +21,9 @@ Förutom de grundläggande typerna behöver många program DateTime-typen för a
 
 ## <a name="storing-datetimes"></a>Lagra datum/tid
 
-Azure Cosmos DB stöder JSON-typer som-String, Number, Boolean, null, matris, Object. Det stöder inte direkt en DateTime-typ. För närvarande stöder Azure Cosmos DB inte lokalisering av datum. Så du måste lagra datum och tid som strängar. Det rekommenderade formatet för DateTime-strängar i Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.fffffffZ` är som följer ISO 8601 UTC-standarden. Vi rekommenderar att du lagrar alla datum i Azure Cosmos DB som UTC. Om du konverterar datum strängarna till det här formatet kan sorterings datumen lexicographically. Om icke-UTC-datum lagras måste logiken hanteras på klient sidan. Om du vill konvertera en lokal datum-DateTime till UTC måste förskjutningen vara känd/lagrad som en egenskap i JSON och klienten kan använda förskjutningen för att beräkna UTC-slutdatum svärdet.
+Azure Cosmos DB stöder JSON-typer som-String, Number, Boolean, null, matris, Object. Det stöder inte direkt en DateTime-typ. För närvarande stöder Azure Cosmos DB inte lokalisering av datum. Så du måste lagra datum och tid som strängar. Det rekommenderade formatet för DateTime-strängar i Azure Cosmos DB är `yyyy-MM-ddTHH:mm:ss.fffffffZ` som följer ISO 8601 UTC-standarden. Vi rekommenderar att du lagrar alla datum i Azure Cosmos DB som UTC. Om du konverterar datum strängarna till det här formatet kan sorterings datumen lexicographically. Om icke-UTC-datum lagras måste logiken hanteras på klient sidan. Om du vill konvertera en lokal datum-DateTime till UTC måste förskjutningen vara känd/lagrad som en egenskap i JSON och klienten kan använda förskjutningen för att beräkna UTC-slutdatum svärdet.
 
-Intervall frågor med DateTime-strängar som filter stöds bara om DateTime-strängarna är alla i UTC och samma längd. I Azure Cosmos DB Returnerar system funktionen [GetCurrentDateTime](sql-query-getcurrentdatetime.md) det aktuella UTC-datumet och tiden, ISO 8601-strängvärdet i formatet: `YYYY-MM-DDThh:mm:ss.fffffffZ`.
+Intervall frågor med DateTime-strängar som filter stöds bara om DateTime-strängarna är alla i UTC och samma längd. I Azure Cosmos DB Returnerar system funktionen [GetCurrentDateTime](sql-query-getcurrentdatetime.md) det aktuella UTC-datumet och tiden, ISO 8601-strängvärdet i formatet: `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 De flesta program kan använda standard sträng representationen för DateTime av följande anledningar:
 
@@ -32,7 +32,7 @@ De flesta program kan använda standard sträng representationen för DateTime a
 * Datumen som lagras i JSON är läsliga.
 * Den här metoden kan dra nytta av Azure Cosmos DBs index för snabba frågor.
 
-Följande fragment lagrar till exempel ett `Order` -objekt som innehåller två datetime-egenskaper `ShipDate` – `OrderDate` och som ett dokument med hjälp av .NET SDK:
+Följande fragment lagrar till exempel ett- `Order` objekt som innehåller två datetime-egenskaper – `ShipDate` och `OrderDate` som ett dokument med hjälp av .NET SDK:
 
 ```csharp
     public class Order
@@ -65,7 +65,7 @@ Det här dokumentet lagras i Azure Cosmos DB på följande sätt:
     }
 ```  
 
-Du kan också lagra datum och tid som UNIX-tidsstämplar, det vill säga ett tal som representerar antalet förflutna sekunder sedan den 1 januari 1970. Azure Cosmos DB s interna timestamp (`_ts`)-egenskap följer den här metoden. Du kan använda klassen [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) för att serialisera datetime-värden som tal.
+Du kan också lagra datum och tid som UNIX-tidsstämplar, det vill säga ett tal som representerar antalet förflutna sekunder sedan den 1 januari 1970. Azure Cosmos DB s interna timestamp ( `_ts` )-egenskap följer den här metoden. Du kan använda klassen [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) för att serialisera datetime-värden som tal.
 
 ## <a name="querying-datetimes-in-linq"></a>Fråga DateTimes i LINQ
 
@@ -89,7 +89,7 @@ Frågor är vanliga med DateTime-värden. Om du vill köra dessa frågor effekti
 
 Du kan lära dig mer om hur du konfigurerar indexerings principer på [Azure Cosmos DB indexerings principer](index-policy.md). 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Hämta och kör [kod exemplen på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Läs mer om [SQL-frågor](sql-query-getting-started.md)

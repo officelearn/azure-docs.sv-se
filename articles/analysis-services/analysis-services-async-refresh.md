@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8381e391afa0f8866f511d3d85e02467c6d9ba5d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406293"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413390"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
@@ -30,7 +30,7 @@ Bas-URL: en följer detta format:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Överväg till exempel en modell med namnet AdventureWorks på en server med `myserver`namnet, som finns i Azure-regionen USA, västra. Server namnet är:
+Överväg till exempel en modell med namnet AdventureWorks på en server med namnet `myserver` , som finns i Azure-regionen USA, västra. Server namnet är:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -61,7 +61,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2) i Authorization-huvudet och måste uppfylla följande krav:
 
 - Token måste antingen vara en användartoken eller ett huvud namn för program tjänsten.
-- Token måste ha rätt mål grupp inställt på `https://*.asazure.windows.net`.
+- Token måste ha rätt mål grupp inställt på `https://*.asazure.windows.net` .
 - Användaren eller programmet måste ha tillräcklig behörighet på servern eller modellen för att kunna göra det begärda anropet. Behörighets nivån bestäms av roller i modellen eller administratörs gruppen på servern.
 
     > [!IMPORTANT]
@@ -97,7 +97,7 @@ Bröd texten kan likna följande:
 
 Du behöver inte ange parametrar. Standardvärdet används.
 
-| Name             | Typ  | Beskrivning  |Standardvärde  |
+| Name             | Typ  | Description  |Standard  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   automatiskt      |
 | `CommitMode`     | Enum  | Anger om objekt ska allokeras i batchar eller bara när de är slutförda. Lägena är: standard, transaktionell, partialBatch.  |  transaktions       |
@@ -112,7 +112,7 @@ CommitMode är lika med partialBatch. Den används när du gör en första belas
 
 ### <a name="status-values"></a>Status värden
 
-|Statusvärde  |Beskrivning  |
+|Statusvärde  |Description  |
 |---------|---------|
 |`notStarted`    |   Åtgärden har inte startats ännu.      |
 |`inProgress`     |   Åtgärd pågår.      |
@@ -158,20 +158,20 @@ Om du vill hämta en lista över historiska uppdaterings åtgärder för en mode
 [
     {
         "refreshId": "1344a272-7893-4afa-a4b3-3fb87222fdac",
-        "startTime": "2017-12-09T01:58:04.76",
-        "endTime": "2017-12-09T01:58:12.607",
+        "startTime": "2017-12-07T02:06:57.1838734Z",
+        "endTime": "2017-12-07T02:07:00.4929675Z",
         "status": "succeeded"
     },
     {
         "refreshId": "474fc5a0-3d69-4c5d-adb4-8a846fa5580b",
-        "startTime": "2017-12-07T02:05:48.32",
-        "endTime": "2017-12-07T02:05:54.913",
+        "startTime": "2017-12-07T01:05:54.157324Z",
+        "endTime": "2017-12-07T01:05:57.353371Z",
         "status": "succeeded"
     }
 ]
 ```
 
-## <a name="delete-refreshesrefreshid"></a>TA bort\</refreshes/refreshId>
+## <a name="delete-refreshesrefreshid"></a>TA bort/refreshes/\<refreshId>
 
 Om du vill avbryta en pågående uppdatering använder du DELETE-verbet på uppdaterings-ID: t.
 
@@ -194,7 +194,7 @@ Om du vill kontrol lera statusen för en Sync-åtgärd använder du GET-verbet s
 }
 ```
 
-Värden för `syncstate`:
+Värden för `syncstate` :
 
 - 0: replikerar. Databasfiler replikeras till en målmapp.
 - 1: återuppväcks. Databasen reserveras på skrivskyddade Server instanser.
@@ -218,7 +218,7 @@ Kod exemplet använder autentisering av [tjänstens huvud namn](#service-princip
 Se [skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) och [lägga till ett huvud namn för tjänsten i rollen Server administratör](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett huvud namn för tjänsten och tilldelar de nödvändiga behörigheterna i Azure som. När du har slutfört stegen utför du följande steg:
 
 1.    I kod exemplet letar du reda på **sträng auktoritet =...**, ersätter **common** med organisationens klient-ID.
-2.    Kommentera/ta bort kommentaren så att ClientCredential-klassen används för att instansiera objektet cred. Se till \<att app-ID \<> och app Key> värden används på ett säkert sätt eller Använd certifikatbaserad autentisering för tjänstens huvud namn.
+2.    Kommentera/ta bort kommentaren så att ClientCredential-klassen används för att instansiera objektet cred. Se till \<App ID> att \<App Key> värdena och är tillgängliga på ett säkert sätt eller Använd certifikatbaserad autentisering för tjänstens huvud namn.
 3.    Kör exemplet.
 
 

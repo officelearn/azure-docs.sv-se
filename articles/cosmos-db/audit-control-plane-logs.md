@@ -4,14 +4,14 @@ description: Lär dig hur du granskar kontroll Plans åtgärder som att lägga t
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/23/2020
+ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: cb6a27c0f03b7c0c41d8f323609df612363cfd9e
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262658"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414202"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Granska Azure Cosmos DB kontroll Plans åtgärder
 
@@ -71,7 +71,7 @@ Följande skärm bilder fångar loggar när en konsekvens nivå ändras för ett
 
 :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Kontroll Plans loggar när ett VNet läggs till":::
 
-Följande skärm bilder fångar in loggar när data flödet i en Cassandra-tabell uppdateras:
+Följande skärm dum par fångar loggar när ett tecken utrymme eller en tabell med ett Cassandra-konto skapas och när data flödet uppdateras. Kontroll planet loggar för att skapa och uppdatera-åtgärder på databasen och behållaren loggas separat, som visas på följande skärm bild:
 
 :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Kontrol lera plan loggar när data flödet uppdateras":::
 
@@ -101,30 +101,39 @@ Följande är de kontroll Plans åtgärder som finns tillgängliga på konto niv
 
 Följande är de kontroll Plans åtgärder som finns tillgängliga på databas-och behållar nivån. Dessa åtgärder är tillgängliga som mått i Azure Monitor:
 
+* SQL Database skapats
 * SQL Database uppdaterad
-* SQL-behållare har uppdaterats
 * SQL Database data flöde uppdaterat
-* SQL container data flöde uppdaterat
 * SQL Database borttagen
+* SQL-behållare har skapats
+* SQL-behållare har uppdaterats
+* SQL container data flöde uppdaterat
 * SQL-behållare borttagen
+* Cassandra-tecken avstånd har skapats
 * Cassandra-disk utrymme uppdaterat
-* Cassandra-tabellen har uppdaterats
 * Cassandra-dataflöde har uppdaterats
-* Cassandra tabell data flöde har uppdaterats
 * Cassandra-tecken utrymme borttaget
+* Cassandra-tabellen har skapats
+* Cassandra-tabellen har uppdaterats
+* Cassandra tabell data flöde har uppdaterats
 * Cassandra-tabellen har tagits bort
+* Gremlin-databas har skapats
 * Gremlin-databasen har uppdaterats
-* Gremlin-diagrammet har uppdaterats
 * Gremlin Database-genomflöde har uppdaterats
-* Gremlin Graph-genomflöde har uppdaterats
 * Gremlin-databasen har tagits bort
+* Gremlin graf har skapats
+* Gremlin-diagrammet har uppdaterats
+* Gremlin Graph-genomflöde har uppdaterats
 * Gremlin Graph borttagen
+* Mongo-databas har skapats
 * Mongo-databasen har uppdaterats
-* Mongo-samlingen har uppdaterats
 * Mongo Database-genomflöde har uppdaterats
-* Mongo Collection-genomflöde har uppdaterats
 * Mongo-databasen har tagits bort
+* Mongo-samling har skapats
+* Mongo-samlingen har uppdaterats
+* Mongo Collection-genomflöde har uppdaterats
 * Mongo-samlingen har tagits bort
+* AzureTable-tabellen har skapats
 * AzureTable-tabellen har uppdaterats
 * AzureTable tabell data flöde har uppdaterats
 * AzureTable-tabellen har tagits bort
@@ -144,14 +153,15 @@ Följande är åtgärds namnen i diagnostikloggar för olika åtgärder:
 
 För API-speciella åtgärder heter åtgärden med följande format:
 
-* ApiKind + ApiKindResourceType + OperationType + start/Complete
-* ApiKind + ApiKindResourceType + "data flöde" + operationType + start/Complete
+* ApiKind + ApiKindResourceType + OperationType
+* ApiKind + ApiKindResourceType + "data flöde" + operationType
 
 **Exempel** 
 
-* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
-* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
-* SqlContainersUpdateStart, SqlContainersUpdateComplete
+* CassandraKeyspacesCreate
+* CassandraKeyspacesUpdate
+* CassandraKeyspacesThroughputUpdate
+* SqlContainersUpdate
 
 Egenskapen *ResourceDetails* innehåller hela resurs bröd texten som en begäran om nytto last och innehåller alla egenskaper som begärs för uppdatering
 
@@ -161,14 +171,28 @@ Här följer några exempel på hur du kan hämta diagnostikloggar för kontroll
 
 ```kusto
 AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdateStart"
+| where Category startswith "ControlPlane"
+| where OperationName contains "Update"
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+| where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

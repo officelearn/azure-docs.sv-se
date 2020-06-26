@@ -4,15 +4,15 @@ description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure A
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: how-to
-ms.date: 04/07/2020
+ms.topic: conceptual
+ms.date: 06/25/2020
 ms.author: alzam
-ms.openlocfilehash: b16ee1e55d0b3fa22f348c10d0dd7bfb06ec500c
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 868bcfc898fc6bc804f36516f2cc01a52ad2db47
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987728"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414342"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokollanslutningar: Azure AD-autentisering
 
@@ -154,7 +154,7 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
     ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
 

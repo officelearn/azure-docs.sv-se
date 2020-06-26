@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c2dc73038151297952dc208031b4a3b6dbcf146
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 68dc90cdb096849df17bc25ac185b1239b46ec72
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759325"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413152"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem med att logga in på ett program som inte är ett galleriprogram och som konfigurerats för federerad enkel inloggning
 
@@ -241,7 +241,7 @@ Programmet måste skicka SAML-begäran kodad till plats rubriken med hjälp av H
 
 **Möjlig orsak**
 
-Om inloggnings förfrågan inte innehåller en explicit svars-URL (intygs-URL) under enkel inloggning, kommer Azure AD att välja någon av de konfigurerade förlitande URL: erna för programmet. Även om programmet har en explicit svars-URL konfigurerad, kan användaren vara Omdirigerad https://127.0.0.1:444 . 
+Om inloggnings förfrågan inte innehåller en explicit svars-URL (intygs-URL) under enkel inloggning, kommer Azure AD att välja någon av de konfigurerade svars-URL: erna för programmet. Även om programmet har en explicit svars-URL konfigurerad, kan användaren vara Omdirigerad https://127.0.0.1:444 . 
 
 När programmet lades till som en icke-galleriapp skapade Azure Active Directory den här svars-URL:en som ett standardvärde. Det här beteendet har ändrats och Azure Active Directory lägger inte längre till den här URL:en som standard. 
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 0573456e6f7c5adc2b1efbce8dd12611fae788cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/25/2020
+ms.openlocfilehash: 708b243d9db16ee8454b4bc0f5c136b9f4399916
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266278"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413203"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure Database for MariaDB
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i serverns beteende.
@@ -24,11 +24,11 @@ Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for MariaDB:
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Description|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
-|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används.|
+|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används. (Gäller inte för Basic-nivå servrar.)|
 |storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
 |storage_used|Använt lagrings utrymme|Byte|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
 |serverlog_storage_percent|Server logg lagrings procent|Procent|Procent andelen Server logg lagring som används av serverns maximala Server logg lagring.|

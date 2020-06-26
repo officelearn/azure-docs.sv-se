@@ -1,88 +1,21 @@
 ---
-title: Azure Event Grid säkerhet och autentisering
-description: I den här artikeln beskrivs olika sätt att autentisera åtkomst till dina Event Grid-resurser (webhook, prenumerationer, anpassade ämnen)
+title: Autentisera händelse leverans till händelse hanterare (Azure Event Grid)
+description: I den här artikeln beskrivs olika sätt att autentisera leverans till händelse hanterare i Azure Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 06/25/2020
 ms.author: spelluru
-ms.openlocfilehash: d028367b82e8529d5260c086f2e4afa609582b00
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 46b1aa500f00046dd4d6e318b270982e8b747a79
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100223"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412829"
 ---
-# <a name="authenticating-access-to-azure-event-grid-resources"></a>Autentisera åtkomst till Azure Event Grid resurser
-Den här artikeln innehåller information om följande scenarier:  
-
-- Autentisera klienter som publicerar händelser till Azure Event Grid ämnen med hjälp av signaturen för delad åtkomst (SAS) eller nyckel. 
-- Skydda webhook-slutpunkten som används för att ta emot händelser från Event Grid att använda Azure Active Directory (Azure AD) eller en delad hemlighet.
-
-## <a name="authenticate-publishing-clients-using-sas-or-key"></a>Autentisera publicerings klienter med SAS eller nyckel
-I anpassade avsnitt används antingen signatur för delad åtkomst (SAS) eller nyckel-autentisering. Vi rekommenderar SAS, men Key Authentication tillhandahåller enkel programmering och är kompatibel med många befintliga webhook-utgivare.
-
-Du inkluderar Authentication-värdet i HTTP-huvudet. För SAS använder du **AEG-SAS-token** för Head-värdet. För Key Authentication använder du **AEG-SAS-Key** för huvudets värde.
-
-### <a name="key-authentication"></a>Nyckel autentisering
-
-Nyckel autentisering är den enklaste formen av autentisering. Använd formatet: `aeg-sas-key: <your key>` i meddelande rubriken.
-
-Du kan till exempel skicka en nyckel med:
-
-```
-aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
-```
-
-Du kan också ange `aeg-sas-key` som frågeparameter. 
-
-```
-https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
-```
-
-### <a name="sas-tokens"></a>SAS-token
-
-SAS-token för Event Grid inkluderar resursen, en förfallo tid och en signatur. Formatet på SAS-token är: `r={resource}&e={expiration}&s={signature}` .
-
-Resursen är sökvägen till det event Grid-ämne som du skickar händelser till. Till exempel är en giltig resurs Sök väg: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01` . Alla API-versioner som stöds finns i [resurs typer för Microsoft. EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
-
-Du genererar signaturen från en nyckel.
-
-Till exempel är ett giltigt **AEG-SAS-Toke-** värde:
-
-```http
-aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
-```
-
-I följande exempel skapas en SAS-token för användning med Event Grid:
-
-```cs
-static string BuildSharedAccessSignature(string resource, DateTime expirationUtc, string key)
-{
-    const char Resource = 'r';
-    const char Expiration = 'e';
-    const char Signature = 's';
-
-    string encodedResource = HttpUtility.UrlEncode(resource);
-    var culture = CultureInfo.CreateSpecificCulture("en-US");
-    var encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString(culture));
-
-    string unsignedSas = $"{Resource}={encodedResource}&{Expiration}={encodedExpirationUtc}";
-    using (var hmac = new HMACSHA256(Convert.FromBase64String(key)))
-    {
-        string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(unsignedSas)));
-        string encodedSignature = HttpUtility.UrlEncode(signature);
-        string signedSas = $"{unsignedSas}&{Signature}={encodedSignature}";
-
-        return signedSas;
-    }
-}
-```
-
-### <a name="encryption-at-rest"></a>Vilande kryptering
-
-Alla händelser eller data som skrivs till disk av tjänsten Event Grid krypteras av en Microsoft-hanterad nyckel som garanterar att den är krypterad i vila. Dessutom är den längsta tids perioden som händelser eller data kvarhålls vara 24 timmar i enlighet med principen för [Event Grid återförsök](delivery-and-retry.md). Event Grid tar automatiskt bort alla händelser eller data efter 24 timmar, eller händelsens tids till Live, beroende på vilket som är mindre.
+# <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autentisera händelse leverans till händelse hanterare (Azure Event Grid)
+Den här artikeln innehåller information om hur du autentiserar händelse leverans till händelse hanterare. Den visar också hur du skyddar webhook-slutpunkter som används för att ta emot händelser från Event Grid med Azure Active Directory (Azure AD) eller en delad hemlighet.
 
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Använd systemtilldelade identiteter för händelse leverans
 Du kan aktivera en systemtilldelad hanterad identitet för ett ämne eller en domän och använda identiteten för att vidarebefordra händelser till destinationer som stöds, till exempel Service Bus köer och ämnen, Event Hub och lagrings konton.
@@ -113,6 +46,6 @@ Mer information om att leverera händelser till Webhooks finns i avsnittet om [l
 > [!IMPORTANT]
 Azure Event Grid stöder endast **https** webhook-slutpunkter. 
 
-## <a name="next-steps"></a>Nästa steg
 
-- En introduktion till Event Grid finns i [About Event Grid](overview.md)
+## <a name="next-steps"></a>Nästa steg
+Se [autentisera publicerings klienter](security-authenticate-publishing-clients.md) för att lära dig mer om att autentisera klienter som publicerar händelser till ämnen eller domäner. 

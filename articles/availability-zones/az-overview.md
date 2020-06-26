@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 124aac96550b5d462c0794053452ed28dba27452
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013222"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413169"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regioner och Tillgänglighetszoner i Azure
 
@@ -22,7 +22,7 @@ Microsoft Azure-tjänster är tillgängliga globalt för att driva moln åtgärd
 
 För att bättre förstå regioner och Tillgänglighetszoner i Azure, hjälper det till att förstå viktiga termer eller begrepp.
 
-| Term eller begrepp | Beskrivning |
+| Term eller begrepp | Description |
 | --- | --- |
 | regionen | En uppsättning data Center som distribueras inom en latens-definierad perimeter och är anslutna via ett dedikerat regionalt nätverk med låg latens. |
 | geography | Ett område i världen som innehåller minst en Azure-region. Geografiska områden definierar en diskret marknad som bevarar data placering och kontroll gränser. Geografiska områden hjälper kunder med specifika behov kring dataplacering och regelefterlevnad att hålla sina data och program nära. De geografiska områdena är feltoleranta för att motstå ett fullständigt fel i regionen via anslutningen till vår dedikerade nätverks infrastruktur med hög kapacitet. |
@@ -43,7 +43,7 @@ En region är en uppsättning data Center som distribueras inom en latens-defini
 
 En tillgänglighets zon är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över Tillgänglighetszoner för att skydda från enskilda platser. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
-En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du skapar tre eller flera virtuella datorer över tre zoner i en Azure-region distribueras i praktiken dina virtuella datorer mellan tre feldomäner och tre uppdateringsdomäner. Azure-plattformen identifierar den här distributionen mellan uppdateringsdomänerna så att inte virtuella datorer i olika zoner uppdateras på samma gång.
+En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du skapar tre eller flera virtuella datorer över tre zoner i en Azure-region distribueras i praktiken dina virtuella datorer mellan tre feldomäner och tre uppdateringsdomäner. Azure-plattformen känner igen distributionen över uppdaterings domäner för att se till att virtuella datorer i olika zoner inte är schemalagda att uppdateras samtidigt.
 
 Bygg hög tillgänglighet i din program arkitektur genom att samplacera din beräkning, lagring, nätverk och data resurser inom en zon och replikera i andra zoner. Azure-tjänster som har stöd för tillgänglighetszoner är indelade i två kategorier:
 
@@ -79,7 +79,7 @@ Om ett tjänst erbjudande inte är tillgängligt i en speciell region kan du del
 | Regions typ | Icke-regional | Grundläggande | Konventionell | Specialiserade | Tillgänglighetszoner | Dataplacering |
 | --- | --- | --- | --- | --- | --- | --- |
 | Rekommenderas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | :heavy_check_mark: | :heavy_check_mark: |
-| Alternativa | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | Saknas | :heavy_check_mark: |
+| Alternativa | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | Ej tillämpligt | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>Tjänster efter kategori
 
@@ -119,7 +119,7 @@ Som tidigare nämnts klassificerar Azure tjänster i tre kategorier: grundlägga
 > | Virtual Machines: DSv3-serien | Azure Red Hat OpenShift | Spatial Anchors |
 > | Virtual Machines: Dv2-serien | Azure Site Recovery | StorSimple |
 > | Virtual Machines: dv3-serien | Azure våren Cloud service | Video Indexer |
-> | Virtual Machines: ESv3-serien | Azure Stack hubb | Virtual Machines: A8-A11 (beräknings intensiv) |
+> | Virtual Machines: ESv3-serien | Azure Stack Hub | Virtual Machines: A8-A11 (beräknings intensiv) |
 > | Virtual Machines: Ev3-serien | Azure Stream Analytics | Virtual Machines: DASv4-serien |
 > | Virtual Machines: F-serien | Azure Synapse Analytics | Virtual Machines: DAv4-serien |
 > | Virtual Machines: FS-serien | Azure SignalR Service | Virtual Machines: DCsv2-serien |
@@ -148,7 +148,7 @@ Som tidigare nämnts klassificerar Azure tjänster i tre kategorier: grundlägga
 > |  | Ultra Disklagring |  |
 > |  | Virtual Machines: Fsv2-serien |  |
 > |  | Virtual Machines: M-serien |  |
-> |  | Virtuellt WAN |  |
+> |  | Virtual WAN |  |
 
 ###  <a name="services-resiliency"></a>Tjänste återhämtning
 

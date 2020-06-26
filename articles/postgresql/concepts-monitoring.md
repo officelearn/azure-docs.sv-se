@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: 935fba3869367bff971e6067b22b05b3a0d9119f
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/25/2020
+ms.openlocfilehash: a8f76be741ee3407ef4393b2e806889a7e494a15
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266890"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414597"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Övervaka och finjustera Azure Database for PostgreSQL-enskild server
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for PostgreSQL innehåller olika övervaknings alternativ för att ge inblick i serverns beteende.
@@ -22,11 +22,11 @@ Azure Database for PostgreSQL tillhandahåller olika mått som ger inblick i fun
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for PostgreSQL:
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Description|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
-|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används.|
+|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används. (Gäller inte för Basic-nivå servrar.)|
 |storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
 |storage_used|Använt lagrings utrymme|Byte|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
 |storage_limit|Lagrings gräns|Byte|Det maximala lagrings utrymmet för den här servern.|

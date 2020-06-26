@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 56416b540072359169e4eb6da67f15588fc4daf4
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 041767474fbc56ee7a53bcbd54f27873d17dab77
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298692"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413645"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
@@ -67,6 +67,22 @@ Du kan aktivera routnings tillägget för HTTP-program genom Azure Portal när d
 När klustret har distribuerats bläddrar du till resurs gruppen automatiskt skapade AKS och väljer DNS-zonen. Anteckna DNS-zonens namn. Det här namnet krävs för att distribuera program till AKS-klustret.
 
 ![Hämta DNS-zonens namn](media/http-routing/dns.png)
+
+## <a name="connect-to-your-aks-cluster"></a>Anslut till ditt AKS-kluster
+
+När du ska ansluta till Kubernetes-klustret från din lokala dator använder du [kubectl][kubectl], Kubernetes kommandoradsklient.
+
+Om du använder Azure Cloud Shell är `kubectl` redan installerat. Du kan även installera det lokalt med hjälp av kommandot [az aks install-cli][]:
+
+```azurecli
+az aks install-cli
+```
+
+För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][]. I följande exempel hämtas autentiseringsuppgifter för AKS-klustret med namnet *MyAKSCluster* i *MyResourceGroup*:
+
+```azurecli
+az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+```
 
 ## <a name="use-http-routing"></a>Använd HTTP-routning
 
@@ -293,11 +309,13 @@ Information om hur du installerar en HTTPS-skyddad ingångs styrenhet i AKS finn
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-
+[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete

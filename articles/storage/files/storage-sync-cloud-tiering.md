@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 869614c2e3fe11c289ab6eb7f6c1407f666de2b0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368149"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413985"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
 Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync.sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.
@@ -39,7 +39,30 @@ Moln nivåer är inte beroende av NTFS-funktionen för att spåra senaste åtkom
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Vilken är den minsta fil storleken för en fil till-nivån?
-För agent versioner 9. x och senare baseras den minsta fil storleken för en fil på nivån på fil systemets kluster storlek (dubblerat fil systemets kluster storlek). Om till exempel fil systemets NTFS-storlek är 4KB är den resulterande minsta fil storleken för en fil till nivån 8 KB. För agent versioner 8. x och äldre är den minsta fil storleken för en fil till nivån 64 kB.
+
+För agent versioner 9 och senare baseras den minsta fil storleken för en fil på nivån på fil systemets kluster storlek. I följande tabell visas de minsta fil storlekarna som kan vara i nivå, baserat på volym kluster storleken:
+
+|Volym kluster storlek (byte) |Filer av den här storleken eller större kan skiktas  |
+|----------------------------|---------|
+|4 KB (4096)                 | 8 kB    |
+|8 KB (8192)                 | 16 kB   |
+|16 KB (16384)               | 32 KB   |
+|32 KB (32768) och större    | 64 kB   |
+
+Alla fil system som används i Windows ordnar din hård disk baserat på kluster storlek (även kallat storlek på allokeringsenhet). Kluster storleken representerar den minsta mängd disk utrymme som kan användas för att lagra en fil. Om fil storlekar inte kommer ut till en till följd av kluster storleken, måste ytterligare utrymme användas för att lagra filen (upp till nästa multipel av kluster storleken).
+
+Azure File Sync stöds på NTFS-volymer med Windows Server 2012 R2 och senare. I följande tabell beskrivs standard storlekarna för klustret när du skapar en ny NTFS-volym. 
+
+|Volym storlek    |Windows Server 2012R2 och senare |
+|---------------|---------------|
+|7 MB – 16 TB   | 4 kB          |
+|16TB – 32 TB   | 8 kB          |
+|32 TB – 64 TB   | 16 kB         |
+|64 TB – 128 TB  | 32 KB         |
+|128TB – 256 TB | 64 kB         |
+|> 256 TB       | Stöds inte |
+
+När volymen har skapats har du kanske formaterat volymen manuellt med en annan storlek för klustret (allokeringsenhet). Om volymen härrör från en äldre version av Windows kan standard kluster storlekarna också vara olika. [Den här artikeln innehåller mer information om standard kluster storlekar.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Hur fungerar nivåprincipen för ledigt utrymme på volymen?

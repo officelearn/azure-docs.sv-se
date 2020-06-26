@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 69c7c7f361a930ab1dc2e0437365d2f4457b57e2
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 4d81845ab61d8a84b9bad47ede4a027cd772c499
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101063"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412947"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Händelse leverans med en hanterad identitet
 I den här artikeln beskrivs hur du aktiverar en [hanterad tjänst identitet](../active-directory/managed-identities-azure-resources/overview.md) för Azure Event Grid-ämnen eller-domäner. Använd den för att vidarebefordra händelser till stödda destinationer som Service Bus köer och ämnen, Event Hub och lagrings konton.
@@ -44,6 +44,8 @@ På samma sätt kan du använda `az eventgrid domain create` kommandot för att 
 I föregående avsnitt har du lärt dig hur du aktiverar en Systemhanterad identitet när du skapade ett ämne eller en domän. I det här avsnittet får du lära dig hur du aktiverar en Systemhanterad identitet för ett befintligt ämne eller en befintlig domän. 
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
+Följande procedur visar hur du aktiverar Systemhanterad identitet för ett ämne. Stegen för att aktivera en identitet för en domän är liknande. 
+
 1. Gå till [Azure Portal](https://portal.azure.com).
 2. Sök efter **händelse rutnäts ämnen** i Sök fältet högst upp.
 3. Välj det **avsnitt** som du vill aktivera den hanterade identiteten för. 

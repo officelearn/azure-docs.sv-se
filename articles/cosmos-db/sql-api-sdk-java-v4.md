@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: bb2e6256a3272bea74ac1176c859fcbfefe46b10
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392003"
+ms.locfileid: "85412642"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -61,6 +61,16 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 | **Azure Cosmos DB workshops och labb** |[Start sida för Cosmos DB workshops](https://aka.ms/cosmosworkshop)
 
 ## <a name="release-history"></a>Versions historik
+
+### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
+#### <a name="new-features"></a>Nya funktioner
+* Stöd har lagts till för `GROUP BY` frågan.
+* Ökat standardvärdet för maxConnectionsPerEndpoint till 130 i DirectConnectionConfig.
+* Ökat standardvärdet för maxRequestsPerConnection till 30 i DirectConnectionConfig.
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Fasta problem med order by-fråga returnerar dubbla resultat när de återupptas med hjälp av fortsättnings-token. 
+* Korrigerade problem med värde fråga returnerar null-värden för nästlat objekt.
+* Åtgärdat undantag för null-pekare i Request Manager i RntbdClientChannelPool.
 
 ### <a name="401-2020-06-10"></a>4.0.1 (2020-06-10)
 #### <a name="new-features"></a>Nya funktioner
@@ -125,7 +135,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 * `ChangeFeedProcessor`fel korrigering vid synkronisering av låne uppdateringar mellan olika trådar.
 * Fast konkurrens tillstånd `ArrayIndexOutOfBound` som orsakar undantag i StoreReader
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

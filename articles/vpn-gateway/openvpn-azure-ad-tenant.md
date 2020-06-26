@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/17/2020
 ms.author: alzam
-ms.openlocfilehash: 8658556c152c815b2846f93235e4049c66a7e354
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 2dda6cb84fc881b4ca628ff1cecdec7c00555e8b
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987193"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414323"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klientorganisation för P2S-anslutningar med OpenVPN-protokoll
 
@@ -91,38 +91,26 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
     ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
-8. Om du inte redan har en fungerande punkt-till-plats-miljö, följer du anvisningarna för att skapa en. Se [skapa en punkt-till-plats-VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) för att skapa och konfigurera en punkt-till-plats-VPN-gateway med intern Azure-certifikatautentisering. 
+8. Om du inte redan har en fungerande punkt-till-plats-miljö, följer du anvisningarna för att skapa en. Se [skapa en punkt-till-plats-VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) för att skapa och konfigurera en punkt-till-plats-VPN-gateway. 
 
     > [!IMPORTANT]
     > Bas-SKU: n stöds inte för OpenVPN.
 
-9. Aktivera Azure AD-autentisering på VPN-gatewayen genom att köra följande kommandon, och se till att ändra kommandot så att det motsvarar din egen miljö:
+9. Aktivera Azure AD-autentisering på VPN-gatewayen genom att gå till **punkt-till-plats-konfiguration** och plocknings- **OpenVPN (SSL)** som **tunnel typ**. Välj **Azure Active Directory** som **Autentiseringstyp** och fyll i informationen i avsnittet **Azure Active Directory** .
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>/" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
-    ```
+    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png)
+
 
    > [!NOTE]
-   > Se till att du inkluderar ett avslutande snedstreck i slutet av `AadIssuerUri` värdet. Annars fungerar inte kommandot.
+   > Se till att du inkluderar ett avslutande snedstreck i slutet av `AadIssuerUri` värdet. Annars kan anslutningen Miss lyckas.
 
-10. Skapa och ladda ned profilen genom att köra följande kommandon. Ändra värdena-ResourceGroupName och-Name så att de matchar dina egna.
+10. Skapa och ladda ned profilen genom att klicka på länken **Ladda ned VPN-klient** .
 
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
+11. Extrahera den hämtade ZIP-filen.
 
-11. När du har kört kommandona visas ett resultat som liknar det som visas nedan. Kopiera resultat-URL: en till webbläsaren för att ladda ned profil zip-filen.
+12. Bläddra till mappen unzippad "AzureVPN".
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/profile.png)
-
-12. Extrahera den hämtade ZIP-filen.
-
-13. Bläddra till mappen unzippad "AzureVPN".
-
-14. Anteckna platsen för filen "azurevpnconfig.xml". azurevpnconfig.xml innehåller inställningen för VPN-anslutningen och kan importeras direkt till Azure VPN-klientprogrammet. Du kan också distribuera filen till alla användare som behöver ansluta via e-post eller på annat sätt. Användaren måste ha giltiga autentiseringsuppgifter för Azure AD för att kunna ansluta.
+13. Anteckna platsen för filen "azurevpnconfig.xml". azurevpnconfig.xml innehåller inställningen för VPN-anslutningen och kan importeras direkt till Azure VPN-klientprogrammet. Du kan också distribuera filen till alla användare som behöver ansluta via e-post eller på annat sätt. Användaren måste ha giltiga autentiseringsuppgifter för Azure AD för att kunna ansluta.
 
 ## <a name="next-steps"></a>Nästa steg
 

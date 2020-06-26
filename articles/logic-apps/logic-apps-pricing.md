@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.openlocfilehash: f47c7412bdd5ada1e50d1005b8e740e3f46ffd8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: df9d1989253bd1e6b168aa00dad941917ca2dfd3
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536241"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412489"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -116,13 +116,13 @@ Inaktiverade Logic Apps debiteras inte eftersom de inte kan skapa nya instanser 
 
 En [fast pris modell](https://azure.microsoft.com/pricing/details/logic-apps) gäller för [integrations konton](logic-apps-enterprise-integration-create-integration-account.md) där du kan utforska, utveckla och testa funktionerna [B2B och EDI](logic-apps-enterprise-integration-b2b.md) och [XML-bearbetning](logic-apps-enterprise-integration-xml.md) i Azure Logic Apps utan extra kostnad. Varje Azure-prenumeration kan ha upp till en [angiven gräns för integrations konton](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Varje integrations konto kan lagra upp till en begränsad [gräns för artefakter](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)som omfattar handels partner, avtal, kartor, scheman, sammansättningar, certifikat, batch-konfigurationer och så vidare.
 
-Azure Logic Apps erbjuder integrations konton kostnads fritt, Basic och standard. Nivån Basic och standard stöds av Logic Apps service avtal (SLA), medan den kostnads fria nivån inte stöds av ett service nivå avtal och har gränser för data flöde och användning. Förutom för integrations konton på kostnads fri nivå kan du ha fler än ett integrations konto i varje Azure-region. Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/).
+Azure Logic Apps erbjuder integrations konton kostnads fritt, Basic och standard. Nivån Basic och standard stöds av Logic Apps service avtal (SLA), medan den kostnads fria nivån inte stöds av ett service avtal och har gränser för regions tillgänglighet, data flöde och användning. Förutom för integrations konton på kostnads fri nivå kan du ha fler än ett integrations konto i varje Azure-region. Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 Om du har en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), antingen [Premium eller Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), kan din ISE ha 5 totala integrations konton. Information om hur den fasta pris modellen fungerar för en ISE finns i avsnittet föregående [fast pris modell](#fixed-pricing) i det här avsnittet. Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Om du vill välja mellan ett kostnads fritt, Basic-eller standard integrations konto granskar du följande användnings Falls beskrivningar:
 
-* **Kostnads fri**: för när du vill testa exempel scenarier, inte produktions scenarier
+* **Kostnads fri**: när du vill testa exempel scenarier, inte produktions scenarier. Den här nivån är endast tillgänglig för offentliga regioner i Azure, till exempel västra USA eller Sydostasien, men inte för [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) eller [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **Basic**: när du vill att endast meddelande hantering eller ska fungera som en liten affärs partner som har en handels partner relation med en större affär senhet
 

@@ -11,17 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9b491c4f0cc99395c44d989bf19fa2a7b03da696
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417168"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414614"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om villkors aktivitet i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
+If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Den kör en uppsättning aktiviteter när villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false` . 
 
 ## <a name="syntax"></a>Syntax
 
@@ -65,13 +65,13 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | Namnet på IF-condition-aktiviteten. | Sträng | Ja
-typ | Måste anges till **IfCondition** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Ja
-ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true`. | Matris | Ja
-ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false`. | Matris | Ja
+name | Namnet på IF-condition-aktiviteten. | Sträng | Yes
+typ | Måste anges till **IfCondition** | Sträng | Yes
+uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Yes
+ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true` . | Matris | Yes
+ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false` . | Matris | Yes
 
 ## <a name="example"></a>Exempel
 Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Mappen utdata bestäms av värdet för pipeline-parametern: routeSelection. Om värdet för routeSelection är sant kopieras data till outputPath1. Om värdet för routeSelection är false kopieras data till outputPath2. 
@@ -79,7 +79,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
 > [!NOTE]
 > Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med IF-condition-aktivitet (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med IF-condition-aktivitet (Adfv2QuickStartPipeline.jspå)
 
 ```json
 {
@@ -190,7 +190,7 @@ Ett annat exempel på uttrycket är:
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService.jspå)
 
 ```json
 {
@@ -204,7 +204,7 @@ Ett annat exempel på uttrycket är:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset. JSON)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset.jspå)
 Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller **outputPath2** -parametern för pipelinen. 
 
 ```json
@@ -231,7 +231,7 @@ Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters.jspå)
 
 ```json
 {

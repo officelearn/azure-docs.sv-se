@@ -6,16 +6,16 @@ author: mlearned
 ms.topic: article
 ms.date: 06/04/2020
 ms.author: mlearned
-ms.openlocfilehash: d512cb94e9a6cef131433880703f8f5150da5a3c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 1a5069259e631d1cc33aeebc56164d8407b9ca6c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249699"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413594"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes-tjänsten
 
-För närvarande kräver ett Azure Kubernetes service (AKS)-kluster (specifikt Kubernetes Cloud Provider) en identitet för att skapa ytterligare resurser som belastningsutjämnare och hanterade diskar i Azure, den här identiteten kan antingen vara en *hanterad identitet* eller ett *huvud namn för tjänsten*. Om du använder ett [huvud namn för tjänsten](kubernetes-service-principal.md)måste du antingen ange ett eller AKS skapar ett för din räkning. Om du använder hanterad identitet skapas detta automatiskt åt dig av AKS. Kluster som använder tjänstens huvud namn når till sist ett tillstånd där tjänstens huvud namn måste förnyas för att hålla klustret igång. Hantering av tjänstens huvud namn ökar komplexiteten, vilket innebär att det är lättare att använda hanterade identiteter i stället. Samma behörighets krav gäller för både tjänstens huvud namn och hanterade identiteter.
+För närvarande kräver ett Azure Kubernetes service (AKS)-kluster (specifikt Kubernetes Cloud Provider) en identitet för att skapa ytterligare resurser som belastningsutjämnare och hanterade diskar i Azure. Den här identiteten kan vara antingen en *hanterad identitet* eller ett *huvud namn för tjänsten*. Om du använder ett [huvud namn för tjänsten](kubernetes-service-principal.md)måste du antingen ange ett eller AKS skapar ett för din räkning. Om du använder hanterad identitet skapas detta automatiskt åt dig av AKS. Kluster som använder tjänstens huvud namn når till sist ett tillstånd där tjänstens huvud namn måste förnyas för att hålla klustret igång. Hantering av tjänstens huvud namn ökar komplexiteten, vilket innebär att det är lättare att använda hanterade identiteter i stället. Samma behörighets krav gäller för både tjänstens huvud namn och hanterade identiteter.
 
 *Hanterade identiteter* är i grunden en omslutning av tjänstens huvud namn och gör hanteringen enklare. Rotation av autentiseringsuppgifter för MI sker automatiskt var 46: e dag enligt Azure Active Directory standard. AKS använder både systemtilldelade och användarspecifika hanterade identitets typer. Dessa identiteter är för närvarande oföränderliga. Läs mer om [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 

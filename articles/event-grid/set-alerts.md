@@ -7,15 +7,15 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: spelluru
-ms.openlocfilehash: 488d3025f279916cb98e75f3f8db56fdc9d6d1de
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392969"
+ms.locfileid: "85412846"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Ange aviseringar för Azure Event Grid mått och aktivitets loggar
-Den här artikeln beskriver hur du skapar aviseringar för Azure Event Grid mått och aktivitets logg åtgärder. 
+Den här artikeln beskriver hur du skapar aviseringar för Azure Event Grid mått och aktivitets logg åtgärder. Du kan skapa aviseringar för både publicerings-och leverans mått för Azure Event Grid resurser (ämnen och domäner). För system ämnen [skapar du aviseringar med hjälp av sidan **mått** ](#create-alerts-using-the-metrics-page).
 
 ## <a name="create-alerts-on-dead-lettered-events"></a>Skapa aviseringar för händelser med obeställbara meddelanden
 Följande procedur visar hur du skapar en avisering om mått för **obeställbara händelser** för ett anpassat ämne. I det här exemplet skickas ett e-postmeddelande till Azures resurs grupps ägare när antalet förlorade händelser för ett ämne hamnar ovanför 10. 
@@ -33,6 +33,9 @@ Följande procedur visar hur du skapar en avisering om mått för **obeställbar
     2. Välj dimensioner (valfritt). 
         
         :::image type="content" source="./media/monitor-event-delivery/configure-signal-logic.png" alt-text="Konfigurera signallogiken":::        
+
+        > [!NOTE]
+        > Du kan välja **+** knapp för **EventSubscriptionName** för att ange ett namn på en händelse prenumeration för att filtrera händelser. 
     3. Rulla nedåt. I avsnittet **aviserings logik** väljer du en **operator**, **sammansättnings typ**och anger ett **tröskelvärde**och väljer **klar**. I det här exemplet utlöses en avisering när det totala antalet död antalet förlorade händelser är större än 10. 
     
         :::image type="content" source="./media/monitor-event-delivery/alert-logic.png" alt-text="Aviserings logik":::                
@@ -66,7 +69,7 @@ Om du till exempel vill skapa en avisering för en leverans fel händelse välje
 
 
 ## <a name="create-alerts-using-the-metrics-page"></a>Skapa aviseringar med hjälp av sidan mått
-Du kan också skapa aviseringar med hjälp av sidan **mått** . Stegen är liknande. 
+Du kan också skapa aviseringar med hjälp av sidan **mått** . Stegen är liknande. I system avsnitt kan du bara använda sidan **mått** för att skapa aviseringar eftersom sidan **aviseringar** inte är tillgänglig. 
 
 :::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" alt-text="Sidan mått – knappen Skapa avisering":::   
     

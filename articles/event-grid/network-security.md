@@ -5,14 +5,14 @@ services: event-grid
 author: VidyaKukke
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/25/2020
 ms.author: vkukke
-ms.openlocfilehash: ba3bc14c9b4a9d5d866dbb1b9369557b948078d0
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390201"
+ms.locfileid: "85414257"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Nätverks säkerhet för Azure Event Grid resurser
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Grid: 
@@ -37,6 +37,7 @@ Azure Event Grid stöder IP-baserade åtkomst kontroller för publicering till �
 
 Som standard är ämne och domän tillgängligt från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till en uppsättning IP-adresser eller IP-adressintervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Utgivare som härstammar från andra IP-adresser avvisas och får ett 403-svar (förbjuden).
 
+Steg-för-steg-instruktioner för att konfigurera IP-brandvägg för ämnen och domäner finns i [Konfigurera IP-brandvägg](configure-firewall.md).
 
 ## <a name="private-endpoints"></a>Privata slut punkter
 Du kan använda [privata slut punkter](../private-link/private-endpoint-overview.md) för att tillåta ingress av händelser direkt från ditt virtuella nätverk till dina ämnen och domäner på ett säkert sätt över en [privat länk](../private-link/private-link-overview.md) utan att gå via det offentliga Internet. En privat slut punkt är ett särskilt nätverks gränssnitt för en Azure-tjänst i ditt VNet. När du skapar en privat slut punkt för ditt ämne eller din domän ger den säker anslutning mellan klienter i ditt VNet och din Event Grid-resurs. Den privata slut punkten tilldelas en IP-adress från det virtuella nätverkets IP-adressintervall. Anslutningen mellan den privata slut punkten och Event Grid tjänsten använder en säker privat länk.
@@ -58,7 +59,7 @@ När du skapar en privat slut punkt uppdateras DNS CNAME-posten för resursen ti
 
 När du löser ämnet eller domänens slut punkts-URL från utanför det virtuella nätverket med den privata slut punkten matchas den offentliga slut punkten för tjänsten. DNS-resursposterna för ",", när de matchas från **utanför det virtuella** nätverket som är värd för den privata slut punkten, blir:
 
-| Namn                                          | Typ      | Värde                                         |
+| Name                                          | Typ      | Värde                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -67,7 +68,7 @@ Du kan neka eller kontrol lera åtkomsten för en klient utanför VNet via den o
 
 Vid matchning från det VNet som är värd för den privata slut punkten matchas ämnet eller domänens slut punkts-URL till den privata slut punktens IP-adress. DNS-resursposterna för ämnet "ämnea", när de löses in i **det virtuella nätverk** som är värd för den privata slut punkten, kommer att vara:
 
-| Namn                                          | Typ      | Värde                                         |
+| Name                                          | Typ      | Värde                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5

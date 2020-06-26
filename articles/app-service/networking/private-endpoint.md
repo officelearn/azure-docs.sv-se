@@ -4,17 +4,17 @@ description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 06/26/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bc9cd134e4c83aea94ae0049158b3054c602cce8
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: b9cf0467829425003a33ef806d8e7028e7f27add
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374431"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413407"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
 
@@ -65,22 +65,52 @@ I webb-HTTP-loggfilerna för din webbapp hittar du klientens käll-IP. Den här 
 
 ## <a name="dns"></a>DNS
 
+När du använder en privat slut punkt för webbappen måste den begärda URL: en matcha namnet på din webbapp. Som standard mywebappname.azurewebsites.net.
+
 Som standard, utan privat slut punkt, är det offentliga namnet på din webbapp ett kanoniskt namn för klustret.
-Namn matchningen blir till exempel: mywebapp.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+Namn matchningen är till exempel:
 
-När du distribuerar en privat slut punkt ändrar vi DNS-posten så att den pekar på det kanoniska namnet mywebapp.privatelink.azurewebsites.net.
-Namn matchningen blir till exempel: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+|Name |Typ |Värde |
+|-----|-----|------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154| 
 
-Om du har en privat DNS-server eller en Azure DNS privat zon måste du konfigurera en zon med namnet privatelink.azurewebsites.net. Registrera posten för din webbapp med en A-post och den privata slut punktens IP-adress.
-Namn matchningen är till exempel: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net A 10.10.10.8 
+
+När du distribuerar en privat slut punkt uppdaterar vi DNS-posten så att den pekar på det kanoniska namnet mywebapp.privatelink.azurewebsites.net.
+Namn matchningen är till exempel:
+
+|Name |Typ |Värde |Markera om |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154|< – den offentliga IP-adressen är inte din privata slut punkt, du får ett 503-fel|
+
+Du måste konfigurera en privat DNS-server eller en Azure DNS privat zon för att testa att du kan ändra värd posten för test datorn.
+Den DNS-zon som du behöver skapa är: **privatelink.azurewebsites.net**. Registrera posten för din webbapp med en A-post och den privata slut punktens IP-adress.
+Namn matchningen är till exempel:
+
+|Name |Typ |Värde |Markera om |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|< – du hanterar den här posten i ditt DNS-system för att peka på din privata slut punkts IP-adress|
+
+Efter den här DNS-konfigurationen kan du komma åt din webbapp privat med standard namnet mywebappname.azurewebsites.net.
+
 
 Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassade namnet i din webbapp. Under för hands versionen måste det anpassade namnet verifieras som valfritt anpassat namn med hjälp av offentlig DNS-matchning. Mer information finns i [anpassad DNS-validering][dnsvalidation].
 
-Om du behöver använda kudu-konsolen eller kudu REST API (distribution med Azure DevOps-anpassade agenter till exempel), måste du skapa två poster i din Azure DNS privata zon eller på din anpassade DNS-server. 
-- PrivateEndpointIP yourwebappname.azurewebsites.net 
-- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+För kudu-konsolen, eller kudu REST API (distribution med Azure DevOpss lokala agenter till exempel), måste du skapa två poster i din Azure DNS privata zon eller på din anpassade DNS-server. 
 
-Dessa två poster fylls i automatiskt om du har en privat zon med namnet privatelink.azurewebsites.net länkad till det virtuella nätverk där du skapar den privata slut punkten.
+| Name | Typ | Värde |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+
+> [!TIP]
+> Dessa två poster fylls i automatiskt om du har en privat DNS-zon med namnet privatelink.azurewebsites.net länkad till det virtuella nätverk där du skapar den privata slut punkten.
+
 
 ## <a name="pricing"></a>Prissättning
 

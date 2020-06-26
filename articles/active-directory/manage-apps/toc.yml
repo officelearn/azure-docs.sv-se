@@ -303,8 +303,6 @@
               href: application-proxy-page-load-speed-problem.md
             - name: Länkar på programsidan fungerar inte
               href: application-proxy-page-links-broken-problem.md
-            - name: Vilka portar ska jag öppna för min app?
-              href: application-proxy-connectivity-ports-how-to.md
             - name: Ingen fungerande anslutning i en grupp med anslutningar för min app
               href: application-proxy-connectivity-no-working-connector.md
             - name: Konfigurera i administratörsportalen

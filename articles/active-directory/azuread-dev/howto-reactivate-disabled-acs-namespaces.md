@@ -7,18 +7,18 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff0ce05b13fea8409475e3415c5d810d7c79769a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154873"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383725"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Gör så här: återaktivera inaktiverade Access Control Service namn områden
 
@@ -67,7 +67,7 @@ Du kan använda ACS PowerShell för att visa en lista över alla ACS-namnområde
     Du kan behöva ändra körnings principen genom att köra **set-ExecutionPolicy** innan du kan köra kommandot.
 1. Lista dina tillgängliga Azure-prenumerationer med hjälp av cmdleten **Get-AcsSubscription** .
 1. Visa en lista med ACS-namnområden med cmdleten **Get-AcsNamespace** .
-1. Bekräfta att namn områdena är inaktiverade genom att bekräfta `State` det `Disabled`.
+1. Bekräfta att namn områdena är inaktiverade genom att bekräfta `State` det `Disabled` .
 
     [![Bekräfta att namn områdena är inaktiverade](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
@@ -99,7 +99,7 @@ Ytterligare tillägg kommer inte längre att godkännas automatiskt. Om du behö
     | **Tjänst** | `All services` |
     | **Resurs** | `General question/Resource not available` |
     | **Problem typ** | `ACS to SAS Migration` |
-    | **Subjekt** | Beskriv problemet |
+    | **Ämne** | Beskriv problemet |
 
    ![Visar ett exempel på en ny begäran om teknisk support](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
@@ -122,7 +122,7 @@ Ytterligare tillägg kommer inte längre att godkännas automatiskt. Om du behö
 ## <a name="help-and-support"></a>Hjälp och support
 
 - Kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)om du stöter på problem efter följande:
-- Om du har frågor eller feedback om ACS-pensionen kan du kontakta acsfeedback@microsoft.comoss på.
+- Om du har frågor eller feedback om ACS-pensionen kan du kontakta oss på acsfeedback@microsoft.com .
 
 ## <a name="next-steps"></a>Nästa steg
 

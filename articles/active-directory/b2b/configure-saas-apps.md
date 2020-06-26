@@ -4,7 +4,7 @@ description: Kod- och PowerShell-exempel för Azure Active Directory B2B-samarbe
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272958"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387358"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurera SaaS-appar för B2B-samarbete
 
@@ -81,7 +81,7 @@ Du kan göra det möjligt för användare att autentisera Box gäst användare m
 
    ![Skärm bild som visar konfigurations inställningar för enkel inloggning](media/configure-saas-apps/configure-box-sso.png)
 
-   a. I rutan **inloggnings-URL** kontrollerar du att inloggnings-URL: en har angetts korrekt för box i Azure Portal. URL: en är URL: en för din Box.com-klient. Den bör följa namngivnings konventionen *https://.box.com*.  
+   a. I rutan **inloggnings-URL** kontrollerar du att inloggnings-URL: en har angetts korrekt för box i Azure Portal. URL: en är URL: en för din Box.com-klient. Den bör följa namngivnings konventionen *https://.box.com* .  
    **Identifieraren** gäller inte för den här appen, men den visas fortfarande som ett obligatoriskt fält.
 
    b. I rutan **användar identifierare** anger du **User. mail** (för SSO för gäst konton).

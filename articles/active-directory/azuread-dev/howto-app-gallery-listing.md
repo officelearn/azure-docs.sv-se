@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666927"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383877"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -51,7 +51,7 @@ Du kan få ett kostnads fritt test konto med alla Premium Azure AD-funktioner �
 
 När du har testat att program integrationen fungerar med Azure AD skickar du din programbegäran i [Microsoft-programmets nätverks Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Om följande sida visas när du har loggat in, kontaktar du [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Ange det e-postkonto som du vill använda för att skicka begäran. En e-postadress till företaget [name@yourbusiness.com](mailto:name@yourbusiness.com) , till exempel föredra. Azure AD-teamet kommer att lägga till kontot i Microsoft-programmets nätverks Portal.
+Om följande sida visas när du har loggat in, kontaktar du [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Ange det e-postkonto som du vill använda för att skicka begäran. En e-postadress till företaget, till exempel [name@yourbusiness.com](mailto:name@yourbusiness.com) föredra. Azure AD-teamet kommer att lägga till kontot i Microsoft-programmets nätverks Portal.
 
 ![Åtkomstbegäran på SharePoint-portalen](./media/howto-app-gallery-listing/errorimage.png)
 
@@ -79,7 +79,7 @@ Gäst användaren är federerad till en hem klient, som också är en Azure AD. 
  
 **Säkra lösningar:**
 
-* MFA-registrerade gäst användare reparerar sina egna användar risker. Detta kan göras av gäst användaren som utför en säker ändring eller återställning av lösen ordhttps://aka.ms/sspr) (på hem klient organisationen (Detta kräver MFA och SSPR på hem klienten). Den skyddade lösen ords ändringen eller återställningen måste initieras på Azure AD och inte på lokal.
+* MFA-registrerade gäst användare reparerar sina egna användar risker. Detta kan göras av gäst användaren som utför en säker ändring eller återställning av lösen ord ( https://aka.ms/sspr) på hem klient organisationen (Detta kräver MFA och SSPR på hem klienten). Den skyddade lösen ords ändringen eller återställningen måste initieras på Azure AD och inte på lokal.
 
 * Gäst användare får sina administratörer att reparera sina risker. I det här fallet utför administratören en lösen ords återställning (tillfälliga lösen ords generering). Detta kräver inte identitets skydd. Gäst användarens administratör kan gå till https://aka.ms/RiskyUsers och klicka på Återställ lösen ord.
 
@@ -136,7 +136,7 @@ Om du vill uppdatera eller ta bort ett befintligt program i Azure AD App-galleri
 
 ## <a name="list-requests-by-customers"></a>Lista begär Anden från kunder
 
-Kunder kan skicka en begäran om att lista ett program genom att välja **app-begäranden av kunder** > som**skickar en ny begäran**.
+Kunder kan skicka en begäran om att lista ett program genom att välja **app-begäranden av kunder som**  >  **skickar en ny begäran**.
 
 ![Visar panelen kund begärda appar](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -156,4 +156,4 @@ Tids linjen för processen med att ange ett OpenID Connect-program i galleriet �
 
 ## <a name="escalations"></a>Förfrågningar
 
-För alla eskaleringar skickar du e-post till [Azure AD SSO integration](mailto:SaaSApplicationIntegrations@service.microsoft.com) - SaaSApplicationIntegrations@service.microsoft.comteamet på och vi svarar så snart som möjligt.
+För alla eskaleringar skickar du e-post till [Azure AD SSO integration-teamet](mailto:SaaSApplicationIntegrations@service.microsoft.com) på SaaSApplicationIntegrations@service.microsoft.com och vi svarar så snart som möjligt.

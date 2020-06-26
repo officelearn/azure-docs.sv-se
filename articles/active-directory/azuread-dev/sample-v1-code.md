@@ -7,19 +7,19 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: sample
 ms.workload: identity
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ae283529abb3b71ee50fc710dd1ebe0d17a12be0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 822390200b7a94f2bbf8aac56d26812f36b5f12a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154839"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387617"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory kod exempel (v 1.0-slut punkt)
 
@@ -100,13 +100,13 @@ ASP.NET-webbapp  | ![Den här bilden visar .NET-logo typen](media/sample-v2-code
 
 ### <a name="web-api-protected-by-azure-active-directory"></a>Webb-API som skyddas av Azure Active Directory
 
-Följande exempel visar hur du skyddar ett Node. js-webb-API med Azure AD.
+Följande exempel visar hur du skyddar ett node.js webb-API med Azure AD.
 
 I föregående avsnitt i den här artikeln kan du också hitta andra exempel som illustrerar ett klient program som **anropar** ett ASP.net **-eller ASP.net Core-webb-API**. Dessa exempel nämns inte igen i det här avsnittet, men du hittar dem i den sista kolumnen i tabellerna ovan eller nedanför
 
 | Plattform | Exempel |
 |--------|-------------------|
-| ![Den här bilden visar Node. js-logotypen](media/sample-v2-code/logo-nodejs.png)  | [Node-WebAPI](https://github.com/Azure-Samples/active-directory-node-webapi) |
+| ![Den här bilden visar Node.js logo typ](media/sample-v2-code/logo-nodejs.png)  | [Node-WebAPI](https://github.com/Azure-Samples/active-directory-node-webapi) |
 
 ### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>Webb-API som anropar Microsoft Graph eller något annat webb-API
 

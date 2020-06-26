@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 2dc65c2e1b87c50ad2400b8ffb5d4c548e860c91
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85201301"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386223"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
@@ -74,7 +74,7 @@ För att förenkla hanteringen rekommenderar vi att du använder Azure AD-använ
 
 Om du vill publicera din Azure AD-klient ( **kunden**) skapar du en [Azure Resource Manager mall](../lighthouse/how-to/onboard-customer.md) för ditt erbjudande med följande information. `mspOfferName`Värdena och `mspOfferDescription` visas när du visar erbjudande information på [sidan tjänst leverantörer](../lighthouse/how-to/view-manage-service-providers.md) i Azure Portal.
 
-| Fält   | Definition |
+| Field   | Definition |
 |---------|------------|
 | `mspOfferName`                     | Ett namn som beskriver den här definitionen. Till exempel *Azure AD B2C hanterade tjänster*. Det här värdet visas för kunden som titeln på erbjudandet. |
 | `mspOfferDescription`              | En kort beskrivning av ditt erbjudande. Till exempel kan *Azure Monitor i Azure AD B2C*.|

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 64b440054795670b99a22e37dec7188f3e1cd74c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4297ee64742b81e86eb8b85c0a6c405fac07d67f
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189998"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386172"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigerings-URL: er till b2clogin.com för Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Det finns flera ändringar som du kan behöva göra för att migrera dina progra
 
 ## <a name="change-identity-provider-redirect-urls"></a>Ändra omdirigerings-URL: er för identitetsprovider
 
-På varje identitets leverantörs webbplats där du har skapat ett program, ändra alla betrodda URL: er som ska `your-tenant-name.b2clogin.com` omdirigeras till i stället för *login.microsoftonline.com*.
+På varje identitets leverantörs webbplats där du har skapat ett program, ändra alla betrodda URL: er som ska omdirigeras till `your-tenant-name.b2clogin.com` i stället för *login.microsoftonline.com*.
 
 Det finns två format som du kan använda för dina b2clogin.com-omdirigerings-URL: er. Det första ger fördelen att du inte har "Microsoft" visas var som helst i URL: en genom att använda klient-ID: t (en GUID) i stället för domän namnet för din klient organisation:
 
@@ -58,7 +58,7 @@ Det finns två format som du kan använda för dina b2clogin.com-omdirigerings-U
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com`. Ett exempel:
+Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com` . Till exempel:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
@@ -67,11 +67,11 @@ https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth
 För båda formaten:
 
 * Ersätt `{your-tenant-name}` med namnet på din Azure AD B2C-klient.
-* Ta `/te` bort om den finns i URL: en.
+* Ta bort `/te` om den finns i URL: en.
 
 ## <a name="update-your-applications-and-apis"></a>Uppdatera dina program och API: er
 
-Koden i dina Azure AD B2C-aktiverade program och API: er kan referera `login.microsoftonline.com` till på flera platser. Din kod kan till exempel innehålla referenser till användar flöden och token-slutpunkter. Uppdatera följande referens `your-tenant-name.b2clogin.com`till i stället:
+Koden i dina Azure AD B2C-aktiverade program och API: er kan referera till `login.microsoftonline.com` på flera platser. Din kod kan till exempel innehålla referenser till användar flöden och token-slutpunkter. Uppdatera följande referens till i stället `your-tenant-name.b2clogin.com` :
 
 * Behörighets slut punkt
 * Token-slutpunkt

@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/21/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3ad4efa3b8126a9b9c6557822f61e3bfff3fe120
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 163087461dbbcfd036b348f69362f0ad0010e791
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154890"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383860"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här skaffar du AppSource Certified för Azure Active Directory
 
@@ -38,7 +38,7 @@ Ett *program med flera innehavare* är ett program som godkänner inloggningar f
 
 Följ dessa steg om du vill aktivera flera innehavare av ditt program:
 1. Ange `Multi-Tenanted` egenskapen till `Yes` för program registreringens information i [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Som standard konfigureras program som skapats i Azure Portal som *[en enda klient](#single-tenant-applications)*.
-1. Uppdatera din kod för att skicka begär Anden `common` till slut punkten. Det gör du genom att uppdatera slut punkten `https://login.microsoftonline.com/{yourtenant}` från `https://login.microsoftonline.com/common*`till.
+1. Uppdatera din kod för att skicka begär anden till `common` slut punkten. Det gör du genom att uppdatera slut punkten från `https://login.microsoftonline.com/{yourtenant}` till `https://login.microsoftonline.com/common*` .
 1. För vissa plattformar, t. ex. ASP .NET, behöver du också uppdatera koden för att godkänna flera utfärdare.
 
 Mer information om flera innehavare finns i [så här loggar du in en Azure Active Directory (Azure AD)-användare med program mönstret för flera innehavare](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

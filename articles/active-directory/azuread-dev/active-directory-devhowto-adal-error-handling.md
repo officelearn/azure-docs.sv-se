@@ -8,16 +8,16 @@ ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8973412b2d6575d524874ba05b34af7661655e19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981077"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383742"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fel hantering av metod tips för ADAL-klienter (Azure Active Directory Authentication Library)
 
@@ -365,9 +365,9 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Fel och åtgärds bara steg: program med en sida (ADAL. js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Fel och åtgärds bara steg: program med en sida (adal.js)
 
-Om du skapar ett program med en enda sida med ADAL. js med AcquireToken, liknar fel hanterings koden samma som för ett typiskt tyst anrop. Särskilt i ADAL. js visar AcquireToken aldrig ett användar gränssnitt. 
+Om du skapar ett program med en enda sida med hjälp av adal.js med AcquireToken, liknar fel hanterings koden samma som för ett typiskt tyst anrop. Särskilt i adal.js visar AcquireToken aldrig ett användar gränssnitt. 
 
 En misslyckad AcquireToken har följande fall:
 
@@ -579,7 +579,7 @@ window.Logging = {
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-* [Azure AD-autentiseringsbibliotek][AAD-Auth-Libraries]
+* [Azure AD-autentiseringspaket][AAD-Auth-Libraries]
 * [Azure AD-autentiserings scenarier][AAD-Auth-Scenarios]
 * [Integrera program med Azure Active Directory][AAD-Integrating-Apps]
 

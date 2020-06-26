@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7a596454a48a1d6fcee77634363dd38f34a4d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c439bbded7fe55f1edd5eb1597f98b339e340956
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603358"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386342"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
@@ -63,15 +63,16 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 | -| -|
 | [Multifaktorautentisering](../authentication/howto-mfa-getstarted.md)| Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med hjälp av godkända autentiseringsmetoder bidrar Azure MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process. |
 | [Villkorlig åtkomst](../conditional-access/plan-conditional-access.md)| Med villkorlig åtkomst kan du implementera automatiska åtkomst kontroll beslut för vilka som kan komma åt dina molnappar, baserat på villkor. |
-| [Självbetjäning av lösenordsåterställning](../authentication/howto-sspr-deployment.md)| Lösen ords återställning via självbetjäning hjälper dina användare att återställa sina lösen ord utan att administratören behöver göra det, när och var de behöver. |
+| [Återställning av lösenord för självbetjäning](../authentication/howto-sspr-deployment.md)| Lösen ords återställning via självbetjäning hjälper dina användare att återställa sina lösen ord utan att administratören behöver göra det, när och var de behöver. |
 | [Lösenordsfri](../authentication/howto-authentication-passwordless-deployment.md) | Implementera lösenordsbaserad autentisering med hjälp av Microsoft Authenticator-appen eller FIDO2 säkerhets nycklar i din organisation |
 
-## <a name="deploy-application-management"></a>Distribuera program hantering
+## <a name="deploy-application-and-device-management"></a>Distribuera hantering av program och enheter
 
 | Funktion | Beskrivning|
 | -| - |
 | [Enkel inloggning](../manage-apps/plan-sso-deployment.md)| Enkel inloggning hjälper dina användare att komma åt de appar och resurser som de behöver för att göra affärer medan de bara loggar in en gång. När de har loggat in kan de gå från Microsoft Office till SalesForce till Box till interna program utan att behöva ange autentiseringsuppgifterna en andra gång. |
 | [Åtkomst panel](../manage-apps/access-panel-deployment-plan.md)| Erbjud dina användare en enkel hubb för att upptäcka och komma åt alla sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning. |
+| [Egenskaper](../devices/plan-device-deployment.md) | Den här artikeln hjälper dig att utvärdera metoder för att integrera din enhet med Azure AD, välja implementerings plan och innehåller viktiga länkar till enhets hanterings verktyg som stöds. |
 
 
 ## <a name="deploy-hybrid-scenarios"></a>Distribuera hybrid scenarier

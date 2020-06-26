@@ -7,18 +7,18 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3168d36bf4c2d3c696173725f669b12dc168dcc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a7c6966c439bd69f809a26e0f3a7781d95619ad
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80155009"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383843"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Gör så här: Migrera från Azure-Access Control Service
 
@@ -55,9 +55,9 @@ Om du vill använda dessa komponenter måste du skapa en eller flera Access Cont
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-All kommunikation med STS-och Management-åtgärderna görs på denna URL. Du använder olika sökvägar för olika syfte. För att avgöra om dina program eller tjänster använder Access Control övervaka för all trafik till https://&lt;namespace&gt;. AccessControl.Windows.net. All trafik till denna URL hanteras av Access Control och måste avbrytas. 
+All kommunikation med STS-och Management-åtgärderna görs på denna URL. Du använder olika sökvägar för olika syfte. För att avgöra om dina program eller tjänster använder Access Control övervaka för all trafik till https:// &lt; namespace &gt; . AccessControl.Windows.net. All trafik till denna URL hanteras av Access Control och måste avbrytas. 
 
-Undantaget till detta är all trafik till `https://accounts.accesscontrol.windows.net`. Trafik till denna URL hanteras redan av en annan tjänst och påverkas **inte** av Access Control-utfasningen. 
+Undantaget till detta är all trafik till `https://accounts.accesscontrol.windows.net` . Trafik till denna URL hanteras redan av en annan tjänst och påverkas **inte** av Access Control-utfasningen. 
 
 Mer information om Access Control finns i [Access Control Service 2,0 (arkiverad)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -112,9 +112,9 @@ Från och med november 2017 stöds alla Access Control-komponenter fullständigt
 
 Här är schemat för inaktuella Access Control-komponenter:
 
-- **2017 november**: Azure AD-administrationskonsolen i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu finns namn områdes hantering för Access Control på en ny, dedikerad URL: `https://manage.windowsazure.com?restoreClassic=true`. Använd den här URl: en för att visa befintliga namn områden, aktivera och inaktivera namn områden och ta bort namnrum om du väljer att.
-- **2 April 2018**: den klassiska Azure-portalen är helt tillbakadragen, vilket innebär att Access Control namn områdes hantering inte längre är tillgängligt via någon URL. I det här läget kan du inte inaktivera eller aktivera, ta bort eller räkna upp Access Control namnrum. Access Control hanterings portalen är dock helt funktionell och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i Access Control fortsätta att arbeta normalt.
-- **7 November 2018**: alla Access Control-komponenter stängs av permanent. Detta inkluderar Access Control hanterings Portal, hanterings tjänst, STS och token för token för omvandling av token. I det här läget går det inte att skicka förfrågningar som skickats \<till\>Access Control (finns på namespace. AccessControl.Windows.net). Du bör ha migrerat alla befintliga appar och tjänster till andra tekniker precis innan den här gången.
+- **2017 november**: Azure AD-administrationskonsolen i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu finns namn områdes hantering för Access Control på en ny, dedikerad URL: `https://manage.windowsazure.com?restoreClassic=true` . Använd den här URl: en för att visa befintliga namn områden, aktivera och inaktivera namn områden och ta bort namnrum om du väljer att.
+- **2 April 2018**: den klassiska Azure-portalen är helt tillbakadragen, vilket innebär att Access Control namn områdes hantering inte längre är tillgängligt via någon URL. I det här läget kan du inte inaktivera eller aktivera, ta bort eller räkna upp Access Control namnrum. Access Control hanterings portalen är dock helt funktionell och finns på `https://\<namespace\>.accesscontrol.windows.net` . Alla andra komponenter i Access Control fortsätta att arbeta normalt.
+- **7 November 2018**: alla Access Control-komponenter stängs av permanent. Detta inkluderar Access Control hanterings Portal, hanterings tjänst, STS och token för token för omvandling av token. I det här läget fungerar inga förfrågningar som skickats till Access Control (finns på \<namespace\> . AccessControl.Windows.net). Du bör ha migrerat alla befintliga appar och tjänster till andra tekniker precis innan den här gången.
 
 > [!NOTE]
 > En princip inaktiverar namn rymder som inte har begärt en token under en viss tids period. Från och med den tidigaste september 2018 är denna tids period för närvarande 14 dagar av inaktivitet, men detta kommer att kortas till 7 dagars inaktivitet under de kommande veckorna. Om du har Access Control namn områden som för närvarande är inaktiverade kan du [Hämta och installera ACS PowerShell](#download-and-install-acs-powershell) för att återaktivera namn områdena.
@@ -202,7 +202,7 @@ På hög nivå *är Azure Active Directory förmodligen det bästa valet för di
 | WS-Trust | Stöds | Stöds inte |
 | **Token-format** | | |
 | JWT | Stöds i beta | Stöds |
-| SAML 1,1 | Stöds | Förhandsversion |
+| SAML 1,1 | Stöds | Förhandsgranskning |
 | SAML 2.0 | Stöds | Stöds |
 | SWT | Stöds | Stöds inte |
 | **Anpassningar** | | |

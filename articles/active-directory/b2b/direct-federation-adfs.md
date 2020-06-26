@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar AD FS som identitets leverantör för 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e350d6338b6ca589ab18d068ef6a314363fe205c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fbf9b92b868e8707a0e20531f5738146d833c301
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272832"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387090"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exempel: direkt Federation med Active Directory Federation Services (AD FS) (AD FS) (för hands version)
 |     |
@@ -33,7 +33,7 @@ I den här artikeln beskrivs hur du konfigurerar [direkt Federation](direct-fede
 ## <a name="configure-ad-fs-for-saml-20-direct-federation"></a>Konfigurera AD FS för SAML 2,0 direkt Federation
 Azure AD B2B kan konfigureras för att federera med identitets leverantörer som använder SAML-protokollet med särskilda krav som anges nedan. I det här avsnittet visas hur du konfigurerar AD FS för SAML 2,0 för att illustrera stegen i SAML-konfigurationen. 
 
-Om du vill konfigurera direkt Federation måste följande attribut tas emot i SAML 2,0-svaret från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS slut punkter eller hur du skapar din metadata-URL, till `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`exempel. 
+Om du vill konfigurera direkt Federation måste följande attribut tas emot i SAML 2,0-svaret från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS slut punkter eller hur du skapar din metadata-URL, till exempel `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml` . 
 
 |Attribut  |Värde  |
 |---------|---------|
@@ -58,8 +58,8 @@ En AD FS server måste redan vara konfigurerad och fungerande innan du påbörja
 
 ### <a name="add-the-claim-description"></a>Lägg till anspråks beskrivningen
 
-1. På AD FS-servern väljer du **verktyg** > **AD FS hantering**.
-2. I navigerings fönstret väljer du beskrivningar av **service** > **anspråks beskrivningar**.
+1. På AD FS-servern väljer du **verktyg**  >  **AD FS hantering**.
+2. I navigerings fönstret väljer du beskrivningar av **service**  >  **anspråks beskrivningar**.
 3. Under **åtgärder**väljer du **Lägg till anspråks Beskrivning**.
 4. I fönstret **Lägg till en anspråks Beskrivning** anger du följande värden:
 
@@ -72,10 +72,10 @@ En AD FS server måste redan vara konfigurerad och fungerande innan du påbörja
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Lägg till förtroende för förlitande part och anspråks regler
 
-1. På AD FS-servern går du till **verktyg** > **AD FS hantering**.
-2. I navigerings fönstret väljer du **förtroende relationer** > **förlitande part förtroenden**.
+1. På AD FS-servern går du till **verktyg**  >  **AD FS hantering**.
+2. I navigerings fönstret väljer du **förtroende relationer**  >  **förlitande part förtroenden**.
 3. Under **åtgärder**väljer du **Lägg till förtroende för förlitande part**. 
-4. I guiden Lägg till förlitande part förtroende för **Välj data källa**använder du alternativet **Importera data om den förlitande parten som publicerats online eller i ett lokalt nätverk**. Ange URL för federationsmetadata – https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml. Lämna andra standard val. Välj **Stäng**.
+4. I guiden Lägg till förlitande part förtroende för **Välj data källa**använder du alternativet **Importera data om den förlitande parten som publicerats online eller i ett lokalt nätverk**. Ange URL för federationsmetadata – https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml . Lämna andra standard val. Välj **Stäng**.
 5. Guiden **Redigera anspråks regler** öppnas.
 6. I guiden **Redigera anspråks regler** väljer du **Lägg till regel**. I **Välj regeltyp**väljer du **Skicka LDAP-attribut som anspråk**. Välj **Nästa**.
 7. I **Konfigurera anspråks regel**anger du följande värden: 
@@ -106,7 +106,7 @@ En AD FS server måste redan vara konfigurerad och fungerande innan du påbörja
 ## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>Konfigurera AD FS för WS-utfodras direkt Federation 
 Azure AD B2B kan konfigureras för att federera med identitets leverantörer som använder WS-utfodras protokoll med de särskilda krav som anges nedan. För närvarande har två WS-utfodras-leverantörer testats för kompatibilitet med Azure AD inkluderar AD FS-och Shibboleth. Här använder vi Active Directory Federation Services (AD FS) (AD FS) som exempel på WS-utfodras identitets leverantören. Om du vill ha mer information om hur du etablerar ett förlitande part förtroende mellan en WS-utfodras-kompatibel Provider med Azure AD kan du hämta Compatibility-dokumenten för Azure AD Identity Provider.
 
-Om du vill konfigurera direkt Federation måste följande attribut tas emot i det WS-utfodras meddelandet från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS slut punkter eller hur du skapar din metadata-URL, till `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`exempel.
+Om du vill konfigurera direkt Federation måste följande attribut tas emot i det WS-utfodras meddelandet från identitets leverantören. Dessa attribut kan konfigureras genom att länka till XML-filen för Online Security token eller genom att ange dem manuellt. Steg 12 i [skapa en test AD FS-instans](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) beskriver hur du hittar AD FS slut punkter eller hur du skapar din metadata-URL, till exempel `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml` .
  
 |Attribut  |Värde  |
 |---------|---------|
@@ -128,10 +128,10 @@ En AD FS server måste redan vara konfigurerad och fungerande innan du påbörja
 
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Lägg till förtroende för förlitande part och anspråks regler 
-1. På AD FS-servern går du till **verktyg** > **AD FS hantering**. 
-1. I navigerings fönstret väljer du **förtroende relationer** > **förlitande part förtroenden**. 
+1. På AD FS-servern går du till **verktyg**  >  **AD FS hantering**. 
+1. I navigerings fönstret väljer du **förtroende relationer**  >  **förlitande part förtroenden**. 
 1. Under **åtgärder**väljer du **Lägg till förtroende för förlitande part**.  
-1. I guiden Lägg till förlitande part förtroende, för **Välj data källa**, använder du alternativet **Importera data om den förlitande parten som publicerats online eller i ett lokalt nätverk**. Ange den här URL: en `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml`för federationsmetadata:.  Lämna andra standard val. Välj **Stäng**.
+1. I guiden Lägg till förlitande part förtroende, för **Välj data källa**, använder du alternativet **Importera data om den förlitande parten som publicerats online eller i ett lokalt nätverk**. Ange den här URL: en för federationsmetadata: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` .  Lämna andra standard val. Välj **Stäng**.
 1. Guiden **Redigera anspråks regler** öppnas. 
 1. I guiden **Redigera anspråks regler** väljer du **Lägg till regel**. I **Välj regeltyp**väljer du **skicka anspråk med en anpassad regel**. Välj *Nästa*. 
 1. I **Konfigurera anspråks regel**anger du följande värden:

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187227"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387532"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Använd Azure Portal för att skapa och ta bort konsument användare i Azure AD B2C
 
@@ -40,10 +40,10 @@ Den här artikeln fokuserar på att arbeta med **konsument konton** i Azure Port
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Under **Hantera** väljer du **Användare**.
+1. Under **Hantera** väljer du **Användare**.
 1. Välj **Ny användare**.
 1. Välj **skapa Azure AD B2C användare**.
-1. Välj en **inloggnings metod** och ange antingen en **e-** postadress eller ett **användar namn** för den nya användaren. Den inloggnings metod som du väljer här måste matcha den inställning som du har angett för din Azure AD B2C klients *lokala konto* identitets leverantör (se **Hantera** > **identitets leverantörer** i Azure AD B2C klient organisationen).
+1. Välj en **inloggnings metod** och ange antingen en **e-** postadress eller ett **användar namn** för den nya användaren. Den inloggnings metod som du väljer här måste matcha den inställning som du har angett för din Azure AD B2C klients *lokala konto* identitets leverantör (se **Hantera**  >  **identitets leverantörer** i Azure AD B2C klient organisationen).
 1. Ange ett **namn** för användaren. Detta är vanligt vis användarens fullständiga namn (anges och efter namn).
 1. Valfritt Du kan **blockera inloggning** om du vill försena möjligheten för användaren att logga in. Du kan aktivera logga in senare genom att redigera användarens **profil** i Azure Portal.
 1. Välj Skapa lösen **ord automatiskt** eller **Låt mig skapa lösen ord**.

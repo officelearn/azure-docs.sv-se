@@ -36,6 +36,8 @@
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Autentisera begäranden till Cognitive Services
       href: authentication.md
+    - name: Säkerhetsbaslinje
+      href: security-baseline.md
 - name: Stöd för containrar
   items:
     - name: Stöd för containrar

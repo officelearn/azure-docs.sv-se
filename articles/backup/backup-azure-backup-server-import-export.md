@@ -3,12 +3,12 @@ title: Offlinesäkerhetskopiering för DPM och Azure Backup Server
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 1fb9910f2cdf8f000725fde697d971fc1c3d385b
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: bb9b3599e74e74058598acd53f5156459c0b74fb
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631984"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374941"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (MABS)
 
@@ -83,9 +83,9 @@ Informationen i det här avsnittet hjälper dig att slutföra arbets flödet fö
    Beskrivningen av indata är följande:
 
    * **Mellanlagringsplats**: den tillfälliga lagrings plats som den första säkerhets kopian skrivs till. Mellanlagrings platsen kan vara en nätverks resurs eller en lokal dator. Om kopierings datorn och käll datorn skiljer sig anger du sökvägen till den fullständiga nätverks platsen för mellanlagringsplatsen.
-   * **Azure Storage konto**: namnet på det lagrings konto i Azure-prenumerationen som är associerat med Azure Publish Settings-filen.
-   * **Azure Storage behållare**: namnet på mål lagrings-bloben i Azure Storage-kontot där säkerhetskopierade data importeras.
-   * **ID för Azure-prenumeration**: ID för Azure-prenumerationen för prenumerationen från varifrån du laddade ned filen för Azure Publish-inställningar.
+   * **Azure Resource Manager lagrings konto**: namnet på resurs hanterarens typ lagrings konto (generell användning v1 eller generell användning v2) i valfri Azure-prenumeration.
+   * **Azure Storage behållare**: namnet på den mål-Blob Storage-behållare i Azure Storage-kontot där säkerhetskopierade data har importer ATS.
+   * **ID för Azure-prenumeration**: ID för Azure-prenumerationen där Azure Storage-kontot skapas.
    * **Namn på Azure import-jobb**: det unika namnet som Azure import service och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
 
     Spara **mellanlagringsplatsen** och namn informationen för **Azure import-jobbet** som du har angett. Det krävs att du förbereder diskarna.

@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline för Data Protection Manager (DPM) och Micro
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1deda1f0d2671e1316cf8f5c231207a5c32c10b4
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84632061"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374839"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (tidigare versioner)
 
@@ -58,7 +58,7 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
     | USA | [Länk](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | Kina | [Länk](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Ett Azure Storage-konto med distributions modellen Resource Manager har skapats i den prenumeration som du laddade ned filen med publicerings inställningar för.
+* Ett Azure Storage-konto med distributions modellen Resource Manager har skapats i den prenumeration som du laddade ned filen med publicerings inställningar för. I lagrings kontot skapar du en ny BLOB-behållare som ska användas som mål.
 
   ![Skapa ett lagrings konto med Resource Manager-utveckling](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
@@ -69,7 +69,7 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>Förbered servern för säkerhets kopiering av offline-process
 
 >[!NOTE]
-> Om du inte hittar de listade verktygen, till exempel *AzureOfflineBackupCertGen. exe*, i din installation av mars-agenten skriver du till AskAzureBackupTeam@microsoft.com för att få åtkomst till dem.
+> Om du inte hittar de verktyg som visas, till exempel *AzureOfflineBackupCertGen.exe*, i din installation av mars-agenten skriver du till AskAzureBackupTeam@microsoft.com för att få åtkomst till dem.
 
 * Öppna en kommando tolk med förhöjd behörighet på servern och kör följande kommando:
 
@@ -81,13 +81,13 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 
     Om det redan finns ett program, ber den här körbara filen dig att ladda upp certifikatet manuellt till programmet i klient organisationen. Följ stegen i [det här avsnittet](#manually-upload-an-offline-backup-certificate) för att ladda upp certifikatet manuellt till programmet.
 
-* Verktyget *AzureOfflineBackup. exe* genererar en *OfflineApplicationParams. XML-* fil. Kopiera den här filen till servern med MABS eller DPM.
+* Verktyget *AzureOfflineBackupCertGen.exe* genererar en *OfflineApplicationParams.xml* -fil. Kopiera den här filen till servern med MABS eller DPM.
 * Installera den [senaste mars-agenten](https://aka.ms/azurebackup_agent) på DPM-instansen eller Azure Backup servern.
 * Registrera servern på Azure.
 * Kör följande kommando:
 
     ```cmd
-    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname to be used for offline backup>
     ```
 
 * Föregående-kommando skapar filen `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml` .
@@ -96,7 +96,7 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 
 Följ dessa steg om du vill ladda upp offline backup-certifikatet manuellt till ett tidigare skapat Azure Active Directory program som är avsett för offline-säkerhetskopiering.
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 1. Gå till **Azure Active Directory**  >  **Appregistreringar**.
 1. På fliken **ägda program** letar du reda på ett program med formatet visnings namn `AzureOfflineBackup _<Azure User Id` .
 
@@ -104,7 +104,7 @@ Följ dessa steg om du vill ladda upp offline backup-certifikatet manuellt till 
 
 1. Välj programmet. Under **Hantera** i det vänstra fönstret, går du till **certifikat & hemligheter**.
 1. Sök efter befintliga certifikat eller offentliga nycklar. Om det inte finns någon, kan du ta bort programmet genom att välja knappen **ta bort** på programmets **översikts** sida. Sedan kan du göra om stegen för att [förbereda servern för säkerhets kopierings processen offline](#prepare-the-server-for-the-offline-backup-process) och hoppa över följande steg. Annars fortsätter du att följa de här stegen från DPM-instansen eller Azure Backup server där du vill konfigurera säkerhets kopiering offline.
-1. Välj fliken **Hantera dator certifikat program**  >  **personligt** . Sök efter certifikatet med namnet `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
+1. Från **Start** – **Kör**skriver du *Certlm. msc*. I fönstret **certifikat – lokal dator** väljer du fliken **certifikat – lokal dator**  >  **Personal** . Sök efter certifikatet med namnet `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 1. Välj certifikatet, högerklicka på **alla uppgifter**och välj sedan **Exportera**, utan privat nyckel, i. cer-format.
 1. Gå till Azure offline Backup-programmet i Azure Portal.
 1. Välj **Hantera**  >  **certifikat & hemligheter**  >  **Ladda upp certifikat**. Överför certifikatet som exporterades i föregående steg.

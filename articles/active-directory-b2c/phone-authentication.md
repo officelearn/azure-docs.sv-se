@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eadac0e973b361b1fdee63dcc9cfa848a0b2bacb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d432912cb0442744061500fc01bdd86a4c5d97ef
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183966"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385356"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Konfigurera telefonin loggning och inloggning med anpassade principer i Azure AD B2C (för hands version)
 
@@ -48,7 +48,7 @@ Följande steg förutsätter att du har slutfört [kraven](#prerequisites) och r
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. Ersätt strängen `yourtenant` med namnet på din Azure AD B2C-klient i varje fil. Om namnet på din B2C-klient till exempel är *contosob2c*, blir `contosob2c.onmicrosoft.com`alla instanser av `yourtenant.onmicrosoft.com` .
+1. Ersätt strängen `yourtenant` med namnet på din Azure AD B2C-klient i varje fil. Om namnet på din B2C-klient till exempel är *contosob2c*, blir alla instanser av `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` .
 
 1. Slutför stegen i avsnittet [Lägg till program-ID: n i avsnittet anpassad princip](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) i [komma igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md). I det här fallet uppdaterar `/phone-number-passwordless/` **`Phone_Email_Base.xml`** du med **program-ID: n** för de två program som du registrerade när du slutförde kraven, *IdentityExperienceFramework* och *ProxyIdentityExperienceFramework*.
 
@@ -58,21 +58,21 @@ Följande steg förutsätter att du har slutfört [kraven](#prerequisites) och r
 1. Under **principer**väljer du **Identity Experience Framework**.
 1. Välj **överför anpassad princip**.
 1. Ladda upp principfiler i följande ordning:
-    1. *Phone_Email_Base. XML*
-    1. *SignUpOrSignInWithPhone. XML*
-    1. *SignUpOrSignInWithPhoneOrEmail. XML*
-    1. *ProfileEditPhoneOnly. XML*
-    1. *ProfileEditPhoneEmail. XML*
-    1. *ChangePhoneNumber. XML*
-    1. *PasswordResetEmail. XML*
+    1. *Phone_Email_Base.xml*
+    1. *SignUpOrSignInWithPhone.xml*
+    1. *SignUpOrSignInWithPhoneOrEmail.xml*
+    1. *ProfileEditPhoneOnly.xml*
+    1. *ProfileEditPhoneEmail.xml*
+    1. *ChangePhoneNumber.xml*
+    1. *PasswordResetEmail.xml*
 
-När du överför varje fil lägger Azure till prefixet `B2C_1A_`.
+När du överför varje fil lägger Azure till prefixet `B2C_1A_` .
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
 1. Under **anpassade principer**väljer du **B2C_1A_SignUpOrSignInWithPhone**.
 1. Under **Välj program**väljer du det *webapp1* -program som du registrerade när du slutförde kraven.
-1. För **Välj svars**-URL `https://jwt.ms`väljer du.
+1. För **Välj svars-URL**väljer du `https://jwt.ms` .
 1. Välj **Kör nu** och registrera dig med en e-postadress eller ett telefonnummer.
 1. Välj **Kör nu** en gång och logga in med samma konto för att kontrol lera att du har rätt konfiguration.
 
@@ -86,7 +86,7 @@ Du kan hitta en användare med deras telefonnummer (inloggnings namn) genom att 
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-Ett exempel:
+Till exempel:
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')

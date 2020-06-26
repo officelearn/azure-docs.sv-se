@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186376"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85384965"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och identitets miljö ramverk
 
@@ -43,7 +43,7 @@ Vanliga verifierings fel inkluderar följande:
 
 * Värdet för ClaimType kan vara felstavat eller så finns det inte i schemat.
 * ClaimType-värden måste definieras i minst en av filerna i principen.
-    Exempel: `<ClaimType Id="issuerUserId">`
+    Exempelvis: `<ClaimType Id="issuerUserId">`
 * Om ClaimType definieras i tilläggs filen, men den också används i ett TechnicalProfile-värde i bas filen, resulterar det i ett fel när bas filen laddas upp.
 
 > Fel kodfragment:`...makes a reference to a ClaimsTransformation with id...`
@@ -52,13 +52,13 @@ Vanliga verifierings fel inkluderar följande:
 
 > Fel kodfragment:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Kontrol lera att TenantId-värdet i `<TrustFrameworkPolicy\>` elementen och `<BasePolicy\>` matchar mål Azure AD B2C klient.
+* Kontrol lera att TenantId-värdet i `<TrustFrameworkPolicy\>` `<BasePolicy\>` elementen och matchar mål Azure AD B2C klient.
 
 ## <a name="troubleshoot-the-runtime"></a>Felsöka körningen
 
 * Använd **Kör nu** och `https://jwt.ms` för att testa dina principer oberoende av ditt webb-eller mobil program. Den här webbplatsen fungerar som ett förlitande parts program. Den visar innehållet i JSON-webbtoken (JWT) som genereras av din Azure AD B2Cs princip.
 
-    Så här skapar du ett testprogram som kan `https://jwt.ms` omdirigeras till för kontroll av token:
+    Så här skapar du ett testprogram som kan omdirigeras till `https://jwt.ms` för kontroll av token:
 
     [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

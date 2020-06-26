@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: a71d8e251de1d1aedea1d1a329a27bfa236ddfff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b2e77049d121a11a45a096017f18f1345f6c6884
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652376"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374856"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Översikt över Azure HDInsight 4,0
 
@@ -91,6 +91,7 @@ Det finns ingen uppgraderings väg som stöds från tidigare versioner av HDInsi
 
 * HDInsight 4,0 har inte stöd för MapReduce för Apache Hive. Använd Apache Tez i stället. Läs mer om [Apache Tez](https://tez.apache.org/).
 * HDInsight 4,0 har inte stöd för Apache Storm.
+* HDInsight 4,0 har inte stöd för kluster typen ML-tjänster.
 * Hive-vyn är inte längre tillgänglig i HDInsight 4,0.
 * Shell-tolken i Apache Zeppelin stöds inte i Spark-och Interactive Query-kluster.
 * Det går inte att *inaktivera* LLAP i ett Spark-LLAP-kluster. Du kan bara inaktivera LLAP.

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c659280ebc8c91b53cbc3a176c84397edd942c23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186836"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85384948"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
@@ -40,7 +40,7 @@ Registrera sedan ett program i Azure AD B2C klient organisationen. Det ger Azure
 
 Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
-Registrera även en anpassad omdirigerings-URI för användning i ett senare steg. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registrera även en anpassad omdirigerings-URI för användning i ett senare steg. Exempelvis `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Skapa dina användar flöden
 I Azure AD B2C definieras varje användar upplevelse av ett [användar flöde](user-flow-overview.md). Det här programmet innehåller en identitets upplevelse: en kombinerad inloggning och registrering. När du skapar användar flödet måste du se till att:
@@ -66,15 +66,15 @@ Det här exemplet skapades genom att följa README-instruktionerna i [iOS AppAut
 
 Du kan konfigurera kommunikation med Azure AD B2C genom att ange både behörighets slut punkten och URI för token-slut punkt.  Om du vill generera dessa URI: er behöver du följande information:
 * Klient-ID (till exempel contoso.onmicrosoft.com)
-* Användar flödes namn (till exempel B2C\_1\_signupin)
+* Användar flödes namn (till exempel B2C \_ 1 \_ signupin)
 
-URI: n för token-slutpunkt kan genereras genom\_att ersätta klient-\_ID och princip namnet i följande URL:
+URI: n för token-slutpunkt kan genereras genom att ersätta klient \_ -ID och princip \_ namnet i följande URL:
 
 ```objc
 static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
-URI: n för auktoriserings slut punkt kan genereras genom\_att ersätta klient-\_ID och princip namnet i följande URL:
+URI: n för auktoriserings slut punkt kan genereras genom att ersätta klient \_ -ID och princip \_ namnet i följande URL:
 
 ```objc
 static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
@@ -92,8 +92,8 @@ OIDServiceConfiguration *configuration =
 
 När du har konfigurerat eller hämtat en Authorization service-konfiguration kan en auktoriseringsbegäran konstrueras. Om du vill skapa begäran behöver du följande information:
 
-* Klient-ID (program-ID) som du registrerade tidigare. Till exempel `00000000-0000-0000-0000-000000000000`.
-* Anpassad omdirigerings-URI som du registrerade tidigare. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+* Klient-ID (program-ID) som du registrerade tidigare. Exempelvis `00000000-0000-0000-0000-000000000000`.
+* Anpassad omdirigerings-URI som du registrerade tidigare. Exempelvis `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Båda objekten bör ha sparats när du [registrerade appen](#create-an-application).
 
@@ -123,7 +123,7 @@ appDelegate.currentAuthorizationFlow =
 
 Om du vill konfigurera ditt program för att hantera omdirigeringen till URI: n med det anpassade schemat måste du uppdatera listan med URL-scheman i info. pList:
 * Öppna info. pList.
-* Hovra över en rad som "paketera OS-typ kod" och \+ Klicka på symbolen.
+* Hovra över en rad som "paketera OS-typ kod" och klicka på \+ symbolen.
 * Byt namn på den nya raden "URL types".
 * Öppna trädet genom att klicka på pilen till vänster om "URL-typer".
 * Klicka på pilen till vänster om "objekt 0" för att öppna trädet.

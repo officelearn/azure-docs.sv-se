@@ -14,16 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 266d97e834247088d40837cbec1436e00d0f4be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2a48b3990afc5fb4ecfb8d40738b18873846459
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422148"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374924"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Anslut data från Microsoft Cloud App Security 
-
-
 
 Med [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) -anslutaren (MCAS) kan du strömma aviseringar och [Cloud Discovery loggar](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) från MCAS till Azure Sentinel. På så sätt kan du få insyn i dina molnappar, få avancerade analyser för att identifiera och bekämpa cyberhot och styra hur dina data överförs.
 
@@ -50,7 +48,9 @@ Om Cloud App Security distribueras och matas in med dina data kan aviserings inf
 
 1. Klicka på **tillämpa ändringar**.
 
-1. Om du vill använda det relevanta schemat i Log Analytics för Cloud App Security aviseringar skriver `SecurityAlert` du i frågefönstret. För schemat för Cloud Discovery loggar skriver `McasShadowItReporting`du.
+1. Du kan välja om du vill att aviseringarna från Azure Security Center automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter**väljer du **aktive rad** för att aktivera standard analys regeln som automatiskt skapar incidenter från aviseringar. Du kan sedan redigera regeln under **analys**på fliken **aktiva regler** .
+
+1. Om du vill använda det relevanta schemat i Log Analytics för Cloud App Security aviseringar skriver `SecurityAlert` du i frågefönstret. För schemat för Cloud Discovery loggar skriver du `McasShadowItReporting` .
 
 > [!NOTE]
 > Cloud Discovery hjälper till att identifiera och identifiera trender genom att aggregera data underliggande användarnas anslutningar till molnappar.

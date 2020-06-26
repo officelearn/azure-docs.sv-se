@@ -4,7 +4,7 @@ description: Ge lokalt hanterade externa partners åtkomst till både lokala och
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcc8c0538bb3362818a4172dd42905fd72b19812
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76b17391008160cfea9cbf029932d7081466cf3d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272604"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386937"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Bevilja lokalt hanterad partner konton åtkomst till moln resurser med Azure AD B2B-samarbete
 
@@ -32,7 +32,7 @@ Innan du aktiverar synkronisering av UserType-attributet måste du först bestä
 Två vanliga metoder för detta är att:
 
 - Ange ett oanvänt lokalt Active Directory-attribut (till exempel extensionAttribute1) som ska användas som källattribut. 
-- Du kan också härleda värdet för attributet UserType från andra egenskaper. Till exempel vill du synkronisera alla användare som gäst om deras lokala Active Directory userPrincipalName-attribut slutar med domänen * \@partners.contoso.com*.
+- Du kan också härleda värdet för attributet UserType från andra egenskaper. Till exempel vill du synkronisera alla användare som gäst om deras lokala Active Directory UserPrincipalName-attribut slutar med domänen * \@ partners.contoso.com*.
  
 Detaljerade attribut krav finns i [Aktivera synkronisering av UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

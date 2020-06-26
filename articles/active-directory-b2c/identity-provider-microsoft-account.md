@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 375c83445bb559efe5c797e583129cb1b0c2fb65
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ad4b08a12e63b4ae3eed0eb09e295d9730de97bb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636913"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85388008"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en Microsoft-konto med hjälp av Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Om du vill använda en Microsoft-konto som [identitets leverantör](openid-conne
 1. Välj **register**
 1. Registrera **program-ID (klient)** som visas på sidan program översikt. Du behöver detta när du konfigurerar identitets leverantören i nästa avsnitt.
 1. Välj **certifikat & hemligheter**
-1. Klicka på **ny klient hemlighet**
+1. Klicka på **Ny klienthemlighet**
 1. Ange en **Beskrivning** av hemligheten, till exempel *program lösen ord 1*, och klicka sedan på **Lägg till**.
 1. Registrera program lösen ordet som visas i kolumnen **värde** . Du behöver detta när du konfigurerar identitets leverantören i nästa avsnitt.
 

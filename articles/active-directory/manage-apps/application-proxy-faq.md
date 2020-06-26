@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 454412bc20fef1a10a51e027b52b6d54df52e6c0
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764612"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386291"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -71,6 +71,13 @@ Det finns prestanda övervaknings räknare som installeras tillsammans med anslu
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>Måste Azure AD-programproxy-anslutningen finnas i samma undernät som resursen?
 
 Kopplingen måste inte finnas i samma undernät. Det behöver dock namn matchning (DNS, värd fil) till resursen och nödvändig nätverks anslutning (routning till resursen, portar som är öppna på resursen osv.). Rekommendationer finns i avsnittet [om nätverks sto pol faktorer när du använder Azure Active Directory-programproxy](application-proxy-network-topology.md).
+
+### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>Vilka versioner av Windows Server kan jag installera en anslutning på?
+Application Proxy kräver Windows Server 2012 R2 eller senare. Det finns för närvarande en begränsning på HTTP2 för Windows Server 2019. För att kunna använda anslutningen på Windows Server 2019 måste du lägga till följande register nyckel och starta om servern:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
+
 
 ## <a name="application-configuration"></a>Tillämpningskonfiguration
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e99b5717cdcc32d8fd138d1edf5fe1bd3283c70e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08aa7e4af6dc5d5e5bff470bc4c5d023e25b3014
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187907"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387889"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Weibo-konto med hjälp av Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78187907"
 
 ## <a name="create-a-weibo-application"></a>Skapa ett Weibo-program
 
-Om du vill använda ett Weibo-konto som identitets leverantör i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i din klient som representerar det. Om du inte redan har ett Weibo-konto kan du registrera dig på [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
+Om du vill använda ett Weibo-konto som identitets leverantör i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i din klient som representerar det. Om du inte redan har ett Weibo-konto kan du registrera dig på [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) .
 
 1. Logga in på [Weibo Developer-portalen](https://open.weibo.com/) med dina Weibo-kontoautentiseringsuppgifter.
 1. När du har loggat in väljer du ditt visnings namn i det övre högra hörnet.
@@ -44,7 +44,7 @@ Om du vill använda ett Weibo-konto som identitets leverantör i Azure Active Di
 1. Välj**保存以上信息**(Spara).
 1. Välj**高级信息**(avancerad information).
 1. Välj**编辑**(redigera) bredvid fältet för OAuth 2.0-**授权设置**(omdirigerings-URL).
-1. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` för OAuth 2.0-**授权设置**(omdirigerings-URL). Om ditt klient namn till exempel är contoso anger du URL: en `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` för OAuth 2.0-**授权设置**(omdirigerings-URL). Om ditt klient namn till exempel är contoso anger du URL: en `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
 1. Välj**提交**(skicka).
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Konfigurera ett Weibo-konto som en identitets leverantör

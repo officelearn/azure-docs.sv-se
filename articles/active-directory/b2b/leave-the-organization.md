@@ -4,19 +4,19 @@ description: Visar hur en Azure AD B2B-gäst användare kan lämna en organisati
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/13/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bce67c81b924d768826402b707c41c085b7767b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272501"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386988"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Lämna en organisation som gäst användare
 
@@ -51,8 +51,8 @@ När en användare lämnar en organisation, är användar kontot "Soft Deleted" 
 
 Om du vill kan en innehavaradministratör permanent ta bort kontot när som helst under 30-dagars perioden. Gör så här:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **Azure Active Directory**.
-2. Under **Hantera** väljer du **Användare**.
+1. Välj **Azure Active Directory** i [Azure-portalen](https://portal.azure.com).
+2. Under **Hantera** väljer du **Användare**.
 3. Välj **borttagna användare**.
 4. Markera kryss rutan bredvid en borttagen användare och välj sedan **ta bort permanent**.
 

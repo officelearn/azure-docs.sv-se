@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72b21514e07b65b89d10b317da95ec7d92ecae78
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360341"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386376"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
 Om du vill hantera en Windows-enhet måste du vara medlem i den lokala gruppen Administratörer. Som en del av den Azure Active Directory (Azure AD) Join-processen uppdaterar Azure AD medlemskapet för den här gruppen på en enhet. Du kan anpassa medlemskaps uppdateringen så att den uppfyller dina affärs behov. En medlemskaps uppdatering är till exempel användbart om du vill att supportavdelningen ska kunna utföra uppgifter som kräver administratörs behörighet på en enhet.
 
-I den här artikeln förklaras hur medlemskaps uppdateringen fungerar och hur du kan anpassa den under en Azure AD-anslutning. Innehållet i den här artikeln gäller inte för en **hybrid** Azure AD-anslutning.
+I den här artikeln förklaras hur uppdateringen av lokala administratörer i medlemskap fungerar och hur du kan anpassa den under en Azure AD-anslutning. Innehållet i den här artikeln gäller inte för en **hybrid Azure AD-anslutna** enheter.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
@@ -59,10 +59,13 @@ Om du vill ändra rollen som enhets administratör konfigurerar du **ytterligare
 >[!NOTE]
 > Det här alternativet kräver en Azure AD Premium klient. 
 
-Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. Du kan inte begränsa enhets administratörer till en speciell uppsättning enheter. Uppdatering av enhets administratörs rollen behöver inte nödvändigt vis påverka de berörda användarna direkt. På enheter där en användare redan har loggat in, sker privilegie uppdateringen när *båda* åtgärderna nedan inträffar:
+Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. Du kan inte begränsa enhets administratörer till en speciell uppsättning enheter. Uppdatering av enhets administratörs rollen behöver inte nödvändigt vis påverka de berörda användarna direkt. På enheter där en användare redan har loggat in, sker privilegie höjning när *båda* åtgärderna nedan inträffar:
 
-- 4 timmar har slutförts för att Azure AD ska kunna utfärda en ny primär uppdateringstoken med rätt behörigheter. 
+- Upp till 4 timmar har passerat för Azure AD för att utfärda en ny primär uppdateringstoken med rätt behörighet. 
 - Användaren loggar ut och loggar in igen, inte låsa/låsa upp, för att uppdatera profilen.
+
+>[!NOTE]
+> Ovanstående åtgärder gäller inte för användare som inte har loggat in på relevant enhet tidigare. I det här fallet tillämpas administratörs behörigheterna direkt efter deras första inloggning på enheten. 
 
 ## <a name="manage-regular-users"></a>Hantera vanliga användare
 
@@ -88,7 +91,7 @@ Du kan inte tilldela grupper till enhets administratörs rollen, endast enskilda
 
 Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. De kan inte begränsas till en speciell uppsättning enheter.
 
-När du tar bort användare från enhets administratörs rollen har de fortfarande den lokala administratörs behörigheten på en enhet så länge de är inloggade på den. Privilegiet återkallas vid nästa inloggning efter fyra timmar när en ny primär uppdateringstoken utfärdas.
+När du tar bort användare från enhets administratörs rollen har de fortfarande den lokala administratörs behörigheten på en enhet så länge de är inloggade på den. Privilegiet återkallas vid nästa inloggning när en ny primär uppdateringstoken utfärdas. Detta återkallning, ungefär som privilegie höjning, kan ta upp till 4 timmar.
 
 ## <a name="next-steps"></a>Nästa steg
 

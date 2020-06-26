@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9717c76b42a63479c77f862057bfb141954eacff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0381418f20e126f94060b9f495fe1fe8b54e713b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673415"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378627"
 ---
 ## <a name="create-a-device-template"></a>Skapa en enhetsmall
 
@@ -21,7 +21,7 @@ Skapa en mapp som heter `environmental-sensor` på den lokala datorn.
 
 Ladda ned JSON-filen för [miljö sensorns kapacitets modell](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) och spara den i `environmental-sensor` mappen.
 
-Använd en text redigerare för att ersätta de två instanserna av `{YOUR_COMPANY_NAME_HERE}` med företags namnet i den `EnvironmentalSensorInline.capabilitymodel.json` fil som du laddade ned.
+Använd en text redigerare för att ersätta de två instanserna av `{YOUR_COMPANY_NAME_HERE}` med företags namnet i den `EnvironmentalSensorInline.capabilitymodel.json` fil som du laddade ned. Använd bara tecknen a-z, A-Z, 0-9 och under streck.
 
 I ditt Azure IoT Central-program skapar du en enhets mall som kallas *miljö sensor* genom att importera `EnvironmentalSensorInline.capabilitymodel.json` enhetens kapacitets modell fil:
 

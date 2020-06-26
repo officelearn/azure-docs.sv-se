@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c94e0f7e2f39eb6002bc2fd1076b78f4579fbe01
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85203989"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385730"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 
@@ -169,5 +169,5 @@ Följande exempel `TechnicalProfile` används för att verifiera en kod:
 
 I följande artikel visas exempel på en teknisk profil med eng ång slö sen ord med anpassad e-postverifiering:
 
-- [Anpassad e-postverifiering i Azure Active Directory B2C](custom-email.md)
+- Anpassad e-postverifiering i Azure Active Directory B2C ([MailJet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md))
 

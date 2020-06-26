@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1f08005c5179add52863f5fa6260eec1fbae53e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 765deda747d46a9ee5b6913c192fa1a43c56d35d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810035"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385915"
 ---
 # <a name="azure-active-directory-b2c-partners"></a>Azure Active Directory B2C partner
 
@@ -34,6 +34,7 @@ Vårt partner nätverk utökar våra lösnings funktioner som hjälper dig att b
 | ![Microsofts](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) är en eiDAS-kompatibel (Electronic Identification, Authentication and Trust Services) Digital ID-lösning som gör att användarna kan logga in på ett säkert sätt utan kort läsare, lösen ord, tvåfaktorautentisering och flera PIN-koder. |
 | ![Microsofts](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) -integreringen hjälper dig att logga in på ett säkert sätt och möjliggör lösenordsbaserad autentisering, Multi-Factor Authentication och digital License scanning.|
 | ![Microsofts](./media/partner-gallery/twilio-logo.png) | [Twilio verifiera app](./partner-twilio.md) tillhandahåller flera lösningar för att aktivera Multi-Factor Authentication (MFA) via SMS eng ång slö sen ord (eng ång slö sen ord), tidsbaserat eng ång slö sen ord (TOTP mobilapp) och push-meddelanden och för att uppfylla SCA-kraven för betal tjänsternas direktiv 2 (PSD2).|
+| ![Microsofts](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) är en identitets verifiering och en bevisning som bygger på användarens Skriv mönster och ger ID-verifierings lösningar som framtvingar Multi-Factor Authentication och hjälper till att uppfylla SCA-kraven för Payment Services-direktiv 2 (PSD2). |
 
 ## <a name="next-steps"></a>Nästa steg
 

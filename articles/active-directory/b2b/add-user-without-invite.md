@@ -5,27 +5,27 @@ documentationcenter: ''
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cab29fbe9e33cc12336fa1b81ed4aa37f91a7f5f
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050895"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387311"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Lägga till gäst användare för B2B-samarbete utan någon inbjudan eller e-post
 
 Nu kan du bjuda in gäst användare genom att skicka ut en direkt länk till en delad app. Med den här metoden behöver gäst användare inte längre använda inbjudan via e-post, förutom i vissa specialfall. En gäst användare klickar på appens länk, granskar och godkänner sekretess villkoren och ansluter sedan sömlöst till appen. Mer information finns i [B2B-samverkan med inbjudan](redemption-experience.md).   
 
-Innan den här nya metoden var tillgänglig kan du bjuda in gäst användare utan att behöva skicka inbjudan via e-post genom att lägga till en inbjuder (från din organisation eller från en partner organisation) till katalog rollen för **gäst inbjudningar** och sedan låta den inbjudna lägga till gäst användare i katalogen, grupper eller program via användar gränssnittet eller PowerShell. (Om du använder PowerShell kan du utelämna inbjudans e-postadress helt). Ett exempel:
+Innan den här nya metoden var tillgänglig kan du bjuda in gäst användare utan att behöva skicka inbjudan via e-post genom att lägga till en inbjuder (från din organisation eller från en partner organisation) till katalog rollen för **gäst inbjudningar** och sedan låta den inbjudna lägga till gäst användare i katalogen, grupper eller program via användar gränssnittet eller PowerShell. (Om du använder PowerShell kan du utelämna inbjudans e-postadress helt). Till exempel:
 
-1. En användare i värd organisationen (till exempel sparbank) bjuder in en användare från partner organisationen (till exempel Sam@litware.com) som gäst.
+1. En användare i värd organisationen (till exempel sparbank) bjuder in en användare från partner organisationen (till exempel Sam@litware.com ) som gäst.
 2. Administratören i värd organisationen ställer in [principer](delegate-invitations.md) som gör det möjligt för Sam att identifiera och lägga till andra användare från partner organisationen (Litware '). (Sam måste läggas till i rollen för **gäst inbjudningar** .)
 3. Nu kan Sam lägga till andra användare från Litware ' till katalogen sparbanker, grupper eller program utan att behöva göra några inbjudningar. Om Sam har rätt uppräknings privilegier i Litware ' sker det automatiskt.
  

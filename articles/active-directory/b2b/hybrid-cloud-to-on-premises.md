@@ -4,19 +4,19 @@ description: Visar hur du ger Cloud B2B-användare åtkomst till lokala appar me
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 098f464b6af5f10866403e1cd1549d571d883ac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272799"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387022"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Bevilja B2B-användare i Azure AD åtkomst till dina lokala program
 
@@ -52,7 +52,7 @@ Följande diagram innehåller en översikt över hur Azure AD-programproxy och g
 ![Diagram över MIM-och B2B-skript lösningar](media/hybrid-cloud-to-on-premises/MIMScriptSolution.PNG)
 
 1.  En användare från en partner organisation (Fabrikam-klienten) bjuds in till contoso-klienten.
-2.  Ett gäst användar objekt skapas i Contoso-klienten (till exempel ett användar objekt med ett UPN för guest_fabrikam. com # EXT #@contoso.onmicrosoft.com).
+2.  Ett gäst användar objekt skapas i Contoso-klienten (till exempel ett användar objekt med ett UPN för guest_fabrikam. com # EXT # @contoso.onmicrosoft.com ).
 3.  Fabrikam-gästen importeras från Contoso till MIM eller via B2B-PowerShell-skriptet.
 4.  En representation eller "plats" för gäst användar objekt (Guest # EXT #) skapas i den lokala katalogen, Contoso.com, via MIM eller via B2B-PowerShell-skriptet.
 5.  Gäst användaren får åtkomst till det lokala programmet, app.contoso.com.
@@ -61,7 +61,7 @@ Följande diagram innehåller en översikt över hur Azure AD-programproxy och g
 
 ### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 
-Du kan hantera lokala B2B-användar objekt via principer för livs cykel hantering. Ett exempel:
+Du kan hantera lokala B2B-användar objekt via principer för livs cykel hantering. Till exempel:
 
 - Du kan ställa in Multi-Factor Authentication-principer (MFA) för gäst användaren så att MFA används vid autentisering i Application Proxy. Mer information finns i [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md).
 - Alla sponsring, åtkomst granskningar, konto verifieringar osv. som utförs i Cloud B2B-användaren gäller för lokala användare. Om till exempel moln användaren tas bort via livs cykel hanterings principerna, tas den lokala användaren också bort av MIM Sync eller genom Azure AD Connect Sync. Mer information finns i [Hantera gäst åtkomst med åtkomst granskningar för Azure AD](../governance/manage-guest-access-with-access-reviews.md).
@@ -74,7 +74,7 @@ Information om hur du använder MIM 2016 Service Pack 1 och MIM Management Agent
 
 Det finns ett PowerShell-exempel skript som du kan använda som utgångs punkt för att skapa gäst användar objekt i din lokala Active Directory.
 
-Du kan ladda ned skriptet och Readme-filen från [Download Center](https://www.microsoft.com/download/details.aspx?id=51495). Välj **skriptet och README för att hämta Azure AD B2B-användare on-Prem. zip** -fil.
+Du kan ladda ned skriptet och Readme-filen från [Download Center](https://www.microsoft.com/download/details.aspx?id=51495). Välj **skriptet och viktigt för att hämta Azure AD B2B-användare on-prem.zip** -fil.
 
 Innan du använder skriptet måste du kontrol lera att du har granskat nödvändiga komponenter och viktiga överväganden i den tillhör ande Readme-filen. Förstå också att skriptet endast är tillgängligt som ett exempel. Utvecklings teamet eller en partner måste anpassa och granska skriptet innan du kör det.
 

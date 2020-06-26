@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0446dd9e316e145cf93c503ab9634d4eedbc299b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187796"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387838"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via ett användar flöde till ditt program i Azure Active Directory B2C
 
@@ -44,10 +44,10 @@ Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för [OAuth 
 
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
-När du testar dina program i Azure AD B2C kan det vara praktiskt att använda den Azure AD B2C token som `https://jwt.ms` returneras för att granska anspråk i det.
+När du testar dina program i Azure AD B2C kan det vara praktiskt att använda den Azure AD B2C token som returneras för `https://jwt.ms` att granska anspråk i det.
 
 1. På sidan Översikt i användar flödet väljer du **Kör användar flöde**.
-2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token i exemplet nedan ska **svars-URL:** en visas `https://jwt.ms`.
+2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token i exemplet nedan ska **svars-URL:** en visas `https://jwt.ms` .
 3. Klicka på **Kör användar flöde**och logga in med dina autentiseringsuppgifter för kontot. Du bör se åtkomsttoken för identitets leverantören i **idp_access_token** -anspråket.
 
     Du bör se något som liknar följande exempel:

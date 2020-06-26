@@ -9,18 +9,18 @@ ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154788"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383707"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Gör så här: aktivera enkel inloggning mellan appar på iOS med ADAL
 
@@ -260,7 +260,7 @@ Möjligheten för ditt program att använda Service Broker aktive ras när du sk
 /*! See the ADCredentialsType enumeration definition for details */
 @propertyADCredentialsType credentialsType;
 ```
-`AD_CREDENTIALS_AUTO` Inställningen tillåter att SDK: n försöker anropa Service Broker, `AD_CREDENTIALS_EMBEDDED` vilket gör att SDK: n inte kan anropa Service Broker.
+`AD_CREDENTIALS_AUTO`Inställningen tillåter att SDK: n försöker anropa Service Broker, `AD_CREDENTIALS_EMBEDDED` vilket gör att SDK: n inte kan anropa Service Broker.
 
 #### <a name="step-2-registering-a-url-scheme"></a>Steg 2: registrera ett URL-schema
 
@@ -309,7 +309,7 @@ till exempel: *msauth://Code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Steg 4: Lägg till en konfigurations parameter till din app
 
-ADAL använder – canOpenURL: för att kontrol lera om Service Broker är installerat på enheten. I iOS 9 på är Apple låst nedåt vilka scheman ett program kan fråga efter. Du måste lägga till "msauth" i LSApplicationQueriesSchemes-avsnittet i `info.plist file`.
+ADAL använder – canOpenURL: för att kontrol lera om Service Broker är installerat på enheten. I iOS 9 på är Apple låst nedåt vilka scheman ett program kan fråga efter. Du måste lägga till "msauth" i LSApplicationQueriesSchemes-avsnittet i `info.plist file` .
 
 ```
     <key>LSApplicationQueriesSchemes</key>

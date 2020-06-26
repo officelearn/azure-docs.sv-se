@@ -4,19 +4,19 @@ description: Visar hur en administratör kan lägga till gäst användare i sin 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee246180beb7e8eab9cf12b4df05d7a2dab4d752
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591309"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387430"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal
 
@@ -37,7 +37,7 @@ Följ dessa steg om du vill lägga till B2B-samarbets användare i katalogen:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som en användare som har tilldelats en begränsad administratörs katalog roll eller rollen som gäst deltagare.
 2. Sök efter och välj **Azure Active Directory** från vilken sida som helst.
-3. Under **Hantera** väljer du **Användare**.
+3. Under **Hantera** väljer du **Användare**.
 4. Välj **Ny gästanvändare**.
 
    ![Visar var nya gäst användare finns i användar gränssnittet](./media/add-users-administrator/new-guest-user-in-all-users.png) 
@@ -110,7 +110,7 @@ Om en gäst användare ännu inte har löst in sin inbjudan kan du skicka e-post
 
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
 2. Sök efter och välj **Azure Active Directory** från vilken sida som helst.
-3. Under **Hantera** väljer du **Användare**.
+3. Under **Hantera** väljer du **Användare**.
 5. Välj användar kontot.
 6. Under **Hantera**väljer du **profil**.
 7. Om användaren inte har accepterat inbjudan än, är alternativet **skicka om inbjudan** tillgängligt. Välj den här knappen för att skicka igen.

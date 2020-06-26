@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6bd93f9062f8446ce20436a7a04e2054aaf5be71
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189981"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386139"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Aktivera ålders hantera i Azure Active Directory B2C
 
@@ -27,13 +27,13 @@ ms.locfileid: "78189981"
 
 När du har aktiverat ålders hantera i ditt [användar flöde](user-flow-overview.md)tillfrågas användarna när de föddes och vilket land/vilken region de bor i. Om en användare loggar in som inte tidigare har angett informationen måste han eller hon ange den nästa gången de loggar in. Reglerna tillämpas varje gång en användare loggar in.
 
-Azure AD B2C använder den information som användaren anger för att identifiera om de är mindre. Fältet **ageGroup** uppdateras sedan i sitt konto. Värdet `null`kan vara, `Undefined` `Minor` `Adult`,, och. `NotAdult`  Fälten **ageGroup** och **consentProvidedForMinor** används sedan för att beräkna värdet för **legalAgeGroupClassification**.
+Azure AD B2C använder den information som användaren anger för att identifiera om de är mindre. Fältet **ageGroup** uppdateras sedan i sitt konto. Värdet kan vara,,, `null` `Undefined` `Minor` `Adult` och `NotAdult` .  Fälten **ageGroup** och **consentProvidedForMinor** används sedan för att beräkna värdet för **legalAgeGroupClassification**.
 
 Ålders hantera omfattar två ålders värden: den ålder som någon inte längre anses vara mindre och den tid då en mindre måste ha ett överordnat medgivande. I följande tabell visas de ålders regler som används för att definiera en mindre och en mindre som kräver medgivande.
 
 | Land/region | Land/region namn | Liten medgivande ålder | Mindre ålder |
 | -------------- | ------------------- | ----------------- | --------- |
-| Default | Ingen | Ingen | 18 |
+| Standard | Ingen | Ingen | 18 |
 | AE | Förenade Arabemiraten | Ingen | 21 |
 | AT | Österrike | 14 | 18 |
 | BE | Belgien | 14 | 18 |
@@ -59,7 +59,7 @@ Azure AD B2C använder den information som användaren anger för att identifier
 | LU | Luxemburg | 16 | 18 |
 | LV | Lettland | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| Ej tillämpligt | Namibia | Ingen | 21 |
+| NA | Namibia | Ingen | 21 |
 | NL | Nederländerna | 16 | 18 |
 | PL | Polen | 13 | 18 |
 | PT | Portugal | 16 | 18 |
@@ -103,7 +103,7 @@ När din klient organisation har kon figurer ATS för att använda ålders hante
 1. Skapa ett användar flöde som har ålders hantera aktiverat.
 2. När du har skapat användar flödet väljer du **Egenskaper** på menyn.
 3. I avsnittet **ålders hantera** väljer du **aktive rad**.
-4. Sedan bestämmer du hur du vill hantera användare som identifierar som minor. För **registrering eller inloggning**väljer `Allow minors to access your application` du eller `Block minors from accessing your application`. Om du väljer att blockera minor väljer `Send a JSON back to the application` du eller. `Show an error message`
+4. Sedan bestämmer du hur du vill hantera användare som identifierar som minor. För **registrering eller inloggning**väljer du `Allow minors to access your application` eller `Block minors from accessing your application` . Om du väljer att blockera minor väljer du `Send a JSON back to the application` eller `Show an error message` .
 
 
 

@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: d2705570f6993ecda0c88241d2dc517fac60695c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194050"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374533"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
@@ -100,7 +100,7 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 
 ## <a name="limitations"></a>Begränsningar 
 * Det går inte att använda IP-auktoriserade intervall för den privata API-serverns slut punkt, de gäller bara för den offentliga API-servern
-* Tillgänglighetszoner stöds för närvarande för vissa regioner, se början av det här dokumentet 
+* [Tillgänglighetszoner][availability-zones] stöds för närvarande för vissa regioner. 
 * [Begränsningar för Azure Private Link-tjänsten][private-link-service] gäller för privata kluster.
 * Inget stöd för Azure DevOps Microsoft-värdbaserat agenter med privata kluster. Överväg att använda [egen värdbaserade agenter][devops-agents]. 
 * För kunder som behöver aktivera Azure Container Registry för att fungera med privata AKS måste det Container Registry virtuella nätverket vara peer-kopplat med agent klustrets virtuella nätverk.
@@ -121,3 +121,4 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

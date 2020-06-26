@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 06/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46864b0af7a4770debaed84cc3805a219f6687e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd170d505286d57f383af50da282e120167fe499
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361293"
+ms.locfileid: "85367367"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -112,6 +112,8 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 06/24/2020: ändra i [ställa in pacemaker på SLES i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att frigöra ny förbättrad Azure-stängsel och mer elastisk STONITH-konfiguration för enheter, baserat på Azure stängsel-agenten 
+- 06/24/2020: ändra i [ställa in pacemaker på RHEL i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att frigöra mer elastisk STONITH-konfiguration
 - 06/23/2020: ändringar i [Azure Virtual Machines planering och implementering för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) -guide och introduktion av [Azure Storage typer för SAP-arbetsbelastnings](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) guide
 - 06/22/2020: Lägg till installations steg för nytt VM-tillägg för SAP i [distributions guiden](deployment-guide.md)
 - 06/16/2020: ändring i [offentlig slut punkts anslutning för virtuella datorer med Azure standard-ILB i SAP ha-scenarier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) för att lägga till en länk till SUSE offentlig Cloud infrastructure 101 dokumentation 

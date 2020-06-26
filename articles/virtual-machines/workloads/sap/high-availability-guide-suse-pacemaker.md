@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/21/2020
+ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 1dc5cf055e6fee72cb6d73b3c4c5c76eefb037d6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ed754e3f69feaf6d5415db8f71cb5c1bb65632e0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800187"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368266"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -34,9 +34,9 @@ ms.locfileid: "83800187"
 
 Det finns två alternativ för att konfigurera ett pacemaker-kluster i Azure. Du kan antingen använda en avgränsnings agent, som tar hand om att starta om en misslyckad nod via Azure-API: erna eller så kan du använda en SBD-enhet.
 
-SBD-enheten kräver minst en ytterligare virtuell dator som fungerar som en iSCSI-målserver och som tillhandahåller en SBD-enhet. Dessa iSCSI-mål servrar kan dock delas med andra pacemaker-kluster. Fördelen med att använda en SBD-enhet är snabbare att redundansväxla och om du använder SBD-enheter lokalt behöver du inte göra några ändringar på hur du hanterar pacemaker-klustret. Du kan använda upp till tre SBD-enheter för ett pacemaker-kluster för att tillåta att en SBD-enhet blir otillgänglig, till exempel under operativ Systems korrigering av iSCSI Target Server. Om du vill använda mer än en SBD-enhet per pacemaker, se till att distribuera flera iSCSI-målservern och Anslut en SBD från varje iSCSI-målserver. Vi rekommenderar att du använder antingen en SBD-enhet eller tre. Pacemaker kan inte automatiskt begränsa en klusternod om du bara konfigurerar två SBD-enheter och en av dem inte är tillgänglig. Om du vill kunna begränsa när en iSCSI-målserver är nere måste du använda tre SBD-enheter och därför tre iSCSI-målservern.
+SBD-enheten kräver minst en ytterligare virtuell dator som fungerar som en iSCSI-målserver och som tillhandahåller en SBD-enhet. Dessa iSCSI-mål servrar kan dock delas med andra pacemaker-kluster. Fördelen med att använda en SBD-enhet är om du redan använder SBD-enheter lokalt, behöver inte göra några ändringar på hur du hanterar pacemaker-klustret. Du kan använda upp till tre SBD-enheter för ett pacemaker-kluster för att tillåta att en SBD-enhet blir otillgänglig, till exempel under operativ Systems korrigering av iSCSI Target Server. Om du vill använda mer än en SBD-enhet per pacemaker, se till att distribuera flera iSCSI-målservern och Anslut en SBD från varje iSCSI-målserver. Vi rekommenderar att du använder antingen en SBD-enhet eller tre. Pacemaker kan inte automatiskt begränsa en klusternod om du bara konfigurerar två SBD-enheter och en av dem inte är tillgänglig. Om du vill kunna begränsa när en iSCSI-målserver är nere måste du använda tre SBD-enheter och därför tre iSCSI-målservern, som är den mest elastiska konfigurationen när du använder SBDs.
 
-Om du inte vill investera på en ytterligare virtuell dator kan du också använda Azure-stängsel-agenten. Nack delen är att en redundansväxling kan ta mellan 10 och 15 minuter om en resurs slutar fungera eller om klusternoderna inte längre kan kommunicera med varandra.
+Azure-stängsel-agenten behöver inte distribuera ytterligare virtuell (a) dator (er).   
 
 ![Pacemaker på SLES-översikt](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
@@ -413,32 +413,36 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** installera stängsel-agenter
+1. **[A]** installera stängsel agents-paketet, om du använder STONITH-enhet, baserat på Azure-stängsel-agenten.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > Om du använder SUSE Linux Enterprise Server för SAP 15 bör du vara medveten om att du behöver aktivera ytterligare en modul och installera ytterligare komponent, vilket är förutsättning för att använda Azure-stängsel-agenten. Mer information om SUSE moduler och tillägg finns i [moduler och tillägg som beskrivs](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Följ anvisningarna nedan för att installera Azure python SDK. 
+   > Den installerade versionen av Package **stängsel-agenterna** måste vara minst **4.4.0** för att dra nytta av snabbare växlings tider med Azure-stängsel-agenten, om en klusternod måste vara inhägnad. Vi rekommenderar att du uppdaterar paketet om du kör en lägre version.  
 
-   Följande instruktioner för hur du installerar Azure python SDK gäller endast för SUSE Enterprise Server för SAP **15**.  
 
-    - Om du använder en egen prenumeration följer du dessa anvisningar  
+1. **[A]** installera Azure python SDK 
+   - På SLES 12 SP4 eller SLES 12 SP5
+   <pre><code>
+    # You may need to activate the Public cloud extention first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install python-azure-mgmt-compute
+   </code></pre> 
 
-    <pre><code>
-    #Activate module PackageHub/15/x86_64
-    sudo SUSEConnect -p PackageHub/15/x86_64
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
-
-     - Följ dessa instruktioner om du använder prenumerationen betala per användning  
-
-    <pre><code>#Activate module PackageHub/15/x86_64
-    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
+   - På SLES 15 och högre 
+   <pre><code>
+    # You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
+    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
+    sudo zypper install python3-azure-mgmt-compute
+   </code></pre> 
+ 
+   >[!IMPORTANT]
+   >Beroende på din version och avbildnings typ kan du behöva aktivera tillägget för det offentliga molnet för din OS-version innan du kan installera Azure python SDK.
+   >Du kan kontrol lera tillägget genom att köra SUSEConnect---List-Extensions.  
+   >Så här uppnår du snabbare växlings tider med Azure-stängsel-agenten:
+   > - på SLES 12 SP4 eller SLES 12 SP5 installerar du version **4.6.2** eller senare av paket python-Azure-MGMT-Compute  
+   > - på SLES 15 installations version **4.6.2** eller senare av paket python**3**– Azure-MGMT-Compute 
 
 1. **[A]** namn matchning för värdnamn
 
@@ -457,7 +461,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    </code></pre>
 
 1. **[1]** installera kluster
-
+- Om du använder SBD-enheter för avgränsning
    <pre><code>sudo ha-cluster-init -u
    
    # ! NTP is not configured to start at system boot.
@@ -466,6 +470,19 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
    # Port for ring0 [5405] <b>Press ENTER</b>
    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
+   # Do you wish to configure an administration IP (y/n)? <b>n</b>
+   </code></pre>
+
+- Om du *inte använder* SBD-enheter för staket
+   <pre><code>sudo ha-cluster-init -u
+   
+   # ! NTP is not configured to start at system boot.
+   # Do you want to continue anyway (y/n)? <b>y</b>
+   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+   # Port for ring0 [5405] <b>Press ENTER</b>
+   # Do you wish to use SBD (y/n)? <b>n</b>
+   #WARNING: Not configuring SBD - STONITH will be disabled.
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
 
@@ -528,8 +545,27 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>sudo service corosync restart
    </code></pre>
 
+## <a name="default-pacemaker-configuration-for-sbd"></a>Standard konfiguration av pacemaker för SBD
+
+Konfigurationen i det här avsnittet gäller endast om du använder SBD STONITH.  
+
+1. **[1]** Aktivera användning av en STONITH-enhet och ange gräns fördröjningen
+
+<pre><code>sudo crm configure property stonith-timeout=144
+sudo crm configure property stonith-enabled=true
+
+# List the resources to find the name of the SBD device
+sudo crm resource list
+sudo crm resource stop stonith-sbd
+sudo crm configure delete <b>stonith-sbd</b>
+sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
+   params pcmk_delay_max="15" \
+   op monitor interval="15" timeout="15"
+</code></pre>
+
 ## <a name="create-azure-fence-agent-stonith-device"></a>Skapa STONITH-enhet för Azure stängsel-agenten
 
+Det här avsnittet av dokumentationen är endast tillämpligt om du använder STONITH, baserat på Azure-stängsel-agenten.
 STONITH-enheten använder ett huvud namn för tjänsten för att auktorisera mot Microsoft Azure. Följ de här stegen för att skapa ett huvud namn för tjänsten.
 
 1. Gå till <https://portal.azure.com>
@@ -553,22 +589,26 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehållet till
 
 ```json
 {
-  "Name": "Linux Fence Agent Role",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows to deallocate and start virtual machines",
-  "Actions": [
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action" 
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-  ]
+    "properties": {
+        "roleName": "Linux Fence Agent Role",
+        "description": "Allows to power-off and start virtual machines",
+        "assignableScopes": [
+            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/*/read",
+                    "Microsoft.Compute/virtualMachines/powerOff/action",
+                    "Microsoft.Compute/virtualMachines/start/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
@@ -591,32 +631,23 @@ Upprepa stegen ovan för den andra klusternoden.
 
 När du har redigerat behörigheterna för de virtuella datorerna kan du konfigurera STONITH-enheterna i klustret.
 
-<pre><code># replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
+<pre><code>sudo crm configure property stonith-enabled=true
+crm configure property concurrent-fencing=true
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
+  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
+  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 \ 
+  op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900
-sudo crm configure property stonith-enabled=true
+
 </code></pre>
+
+> [!IMPORTANT]
+> De här övervaknings-och avgränsnings åtgärderna deserialiseras. Det innebär att om det finns längre en övervaknings åtgärd och en samtidig avgränsnings händelse, sker ingen fördröjning för klustrets redundans, på grund av den redan pågående övervaknings åtgärden.
 
 > [!TIP]
 >Azure stängsel-agenten kräver utgående anslutning till offentliga slut punkter som dokumenteras, tillsammans med möjliga lösningar, i den [offentliga slut punkts anslutningen för virtuella datorer med standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
-
-## <a name="default-pacemaker-configuration-for-sbd"></a>Standard konfiguration av pacemaker för SBD
-
-1. **[1]** Aktivera användning av en STONITH-enhet och ange gräns fördröjningen
-
-<pre><code>sudo crm configure property stonith-timeout=144
-sudo crm configure property stonith-enabled=true
-
-# List the resources to find the name of the SBD device
-sudo crm resource list
-sudo crm resource stop stonith-sbd
-sudo crm configure delete <b>stonith-sbd</b>
-sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
-   params pcmk_delay_max="15" \
-   op monitor interval="15" timeout="15"
-</code></pre>
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker-konfiguration för schemalagda Azure-händelser
 

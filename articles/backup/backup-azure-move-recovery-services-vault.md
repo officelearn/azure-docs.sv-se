@@ -1,15 +1,14 @@
 ---
 title: Flytta Azure Backup Recovery Services valv
 description: Instruktioner om hur du flyttar Recovery Services-valvet över Azure-prenumerationer och resurs grupper.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 93c3f2db6500023755796d50e71d44a427a2ce82
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9373ea41c3cd5d35c86b8b306a20b5c106105217
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598002"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368234"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -37,7 +36,11 @@ Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, 
 - Information om hur du flyttar en virtuell dator med hanterade diskar finns i den här [artikeln](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - Alternativen för att flytta resurser som distribueras via den klassiska modellen varierar beroende på om du flyttar resurserna i en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Säkerhets kopierings principer som definierats för valvet behålls när valvet flyttas över prenumerationer eller till en ny resurs grupp.
-- Du kan bara flytta ett valv om virtuella Azure-datorer är de enda säkerhets kopierings objekten i valvet.
+- Du kan bara flytta ett valv som innehåller någon av följande typer av säkerhets kopierings objekt. Alla säkerhets kopierings objekt av typer som inte anges nedan måste stoppas och data tas bort permanent innan du flyttar valvet.
+  - Azure Virtual Machines
+  - Microsoft Azure Recovery Services (MARS) Agent
+  - Microsoft Azure Backup Server (MABS)
+  - Data Protection Manager (DPM)
 - Om du flyttar ett valv som innehåller data för säkerhets kopiering av virtuella datorer, mellan prenumerationer, måste du flytta dina virtuella datorer till samma prenumeration och använda samma mål resurs grupp namn för virtuell dator (som i den gamla prenumerationen) för att fortsätta med säkerhets kopieringen.
 
 > [!NOTE]
@@ -108,7 +111,7 @@ Du kan flytta ett Recovery Services valv och dess associerade resurser till en a
 
 ## <a name="use-powershell-to-move-recovery-services-vault"></a>Använd PowerShell för att flytta Recovery Services valv
 
-Använd `Move-AzureRMResource` cmdleten om du vill flytta ett Recovery Services valv till en annan resurs grupp. `Move-AzureRMResource`resurs namn och typ av resurs krävs. Du kan hämta båda från `Get-AzureRmRecoveryServicesVault` cmdleten.
+Använd cmdleten om du vill flytta ett Recovery Services valv till en annan resurs grupp `Move-AzureRMResource` . `Move-AzureRMResource`resurs namn och typ av resurs krävs. Du kan hämta båda från `Get-AzureRmRecoveryServicesVault` cmdleten.
 
 ```powershell
 $destinationRG = "<destinationResourceGroupName>"
@@ -116,7 +119,7 @@ $vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <
 Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
-Ta med `-DestinationSubscriptionId` parametern om du vill flytta resurserna till en annan prenumeration.
+Ta med parametern om du vill flytta resurserna till en annan prenumeration `-DestinationSubscriptionId` .
 
 ```powershell
 Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
@@ -132,7 +135,7 @@ Om du vill flytta ett Recovery Services valv till en annan resurs grupp använde
 az resource move --destination-group <destinationResourceGroupName> --ids <VaultResourceID>
 ```
 
-Ange `--destination-subscription-id` parametern om du vill flytta till en ny prenumeration.
+Ange parametern om du vill flytta till en ny prenumeration `--destination-subscription-id` .
 
 ## <a name="post-migration"></a>Efter migreringen
 

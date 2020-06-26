@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 41e6352afb5eebc6ab09f43feac4e211232fd270
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 7826df83506083e2db1bdb011704cb0fef628801
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85292130"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378445"
 ---
 Använd funktions utlösaren för att svara på en händelse som skickas till händelse strömmen i Event Hub. Du måste ha Läs behörighet till den underliggande händelsehubben för att konfigurera utlösaren. När funktionen utlöses skrivs meddelandet som skickas till funktionen som en sträng.
 
@@ -355,7 +355,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**sökväg** |**EventHubName** | Functions 1. x. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
 |**eventHubName** |**EventHubName** | Funktioner 2. x och högre. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. Kan refereras via [app-inställningar](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings)`%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | En valfri egenskap som anger den [konsument grupp](../articles/event-hubs/event-hubs-features.md#event-consumers) som används för att prenumerera på händelser i hubben. Om detta utelämnas `$Default` används konsument gruppen. |
-|**kardinalitet** | saknas | För Java Script. Ställ in på för `many` att aktivera batchbearbetning.  Om detta utelämnas eller anges till `one` skickas ett enskilt meddelande till funktionen. |
+|**kardinalitet** | saknas | Används för alla språk som inte är C-C. Ställ in på för `many` att aktivera batchbearbetning.  Om detta utelämnas eller anges till `one` skickas ett enskilt meddelande till funktionen.<br><br>I C# tilldelas den här egenskapen automatiskt när utlösaren har en matris för typen.|
 |**anslutningen** |**Anslutning** | Namnet på en app-inställning som innehåller anslutnings strängen till Event Hub-namnområdet. Kopiera den här anslutnings strängen genom att klicka på knappen **anslutnings information** för [namn området](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), inte själva händelsehubben. Den här anslutnings strängen måste ha minst Läs behörighet för att aktivera utlösaren.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]

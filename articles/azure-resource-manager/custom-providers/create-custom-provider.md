@@ -3,26 +3,38 @@ title: Skapa resurs leverantör
 description: Beskriver hur du skapar en resurs leverantör och distribuerar dess anpassade resurs typer.
 author: MSEvanhi
 ms.topic: tutorial
-ms.date: 06/19/2020
+ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: ce547c010d3cc814d4e6f6182c19572248228fc3
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125019"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368115"
 ---
-# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Snabb start: skapa en anpassad Provider och distribuera anpassade resurser
+# <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Snabb start: skapa en anpassad Provider och distribuera anpassade resurser
 
 I den här snabb starten skapar du en egen resurs leverantör och distribuerar anpassade resurs typer för den resurs leverantören. Mer information om anpassade providers finns i [Översikt över Azure Custom providers Preview](overview.md).
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra stegen i den här snabb starten måste du anropa `REST` åtgärder. Det finns [olika sätt att skicka rest-begäranden](/rest/api/azure/).
+- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- För att slutföra stegen i den här snabb starten måste du anropa `REST` åtgärder. Det finns [olika sätt att skicka rest-begäranden](/rest/api/azure/).
 
-Om du vill köra Azure CLI-kommandon använder du [bash i Azure Cloud Shell](/azure/cloud-shell/quickstart). Kommandona [Custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) kräver ett tillägg. Mer information finns i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra PowerShell-kommandon lokalt använder du PowerShell 7 eller senare och Azure PowerShell modulerna. Mer information finns i [installera Azure PowerShell](/powershell/azure/install-az-ps). Om du inte redan har ett verktyg för `REST` åtgärder installerar du [ARMClient](https://github.com/projectkudu/ARMClient). Det är ett kommando rads verktyg med öppen källkod som gör det enklare att anropa Azure Resource Manager API.
+- Kommandona [Custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) kräver ett tillägg. Mer information finns i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- Azure CLI-exempel används `az rest` för `REST` förfrågningar. Mer information finns i [AZ rest](/cli/azure/reference-index#az-rest).
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+- PowerShell-kommandona körs lokalt med PowerShell 7 eller senare och Azure PowerShell modulerna. Mer information finns i [installera Azure PowerShell](/powershell/azure/install-az-ps).
+- Om du inte redan har ett verktyg för `REST` åtgärder installerar du [ARMClient](https://github.com/projectkudu/ARMClient). Det är ett kommando rads verktyg med öppen källkod som gör det enklare att anropa Azure Resource Manager API.
+- När **ARMClient** har installerats kan du Visa användnings information från en PowerShell-kommandotolk genom att skriva: `armclient.exe` . Eller så går du till [ARMClient-wikin](https://github.com/projectkudu/ARMClient/wiki).
+
+---
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Distribuera anpassad Provider
 
@@ -30,14 +42,16 @@ Om du vill konfigurera den anpassade providern distribuerar du en [exempel mall]
 
 När du har distribuerat mallen har prenumerationen följande resurser:
 
-* Funktionsapp med åtgärder för resurserna och åtgärderna.
-* Lagrings konto för att lagra användare som skapats via den anpassade providern.
-* Anpassad provider som definierar anpassade resurs typer och åtgärder. Den använder Function-programmets slut punkt för att skicka begär Anden.
-* Anpassad resurs från den anpassade providern.
+- Funktionsapp med åtgärder för resurserna och åtgärderna.
+- Lagrings konto för att lagra användare som skapats via den anpassade providern.
+- Anpassad provider som definierar anpassade resurs typer och åtgärder. Den använder Function-programmets slut punkt för att skicka begär Anden.
+- Anpassad resurs från den anpassade providern.
 
-Använd Azure CLI eller PowerShell för att distribuera den anpassade providern:
+Om du vill distribuera den anpassade providern använder du Azure CLI, PowerShell eller Azure Portal:
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+I det här exemplet blir du ombedd att ange en resurs grupp, plats och leverantörs funktions program namn. Namnen lagras i variabler som används i andra kommandon. [AZ-gruppen Skapa](/cli/azure/group#az-group-create) och [AZ distributions grupp skapa](/cli/azure/deployment/group#az-deployment-group-create) -kommandon distribuerar resurserna.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&
@@ -52,6 +66,8 @@ read
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+I det här exemplet blir du ombedd att ange en resurs grupp, plats och leverantörs funktions program namn. Namnen lagras i variabler som används i andra kommandon. Kommandona [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) och [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) distribuerar resurserna.
+
 ```powershell
 $rgName = Read-Host -Prompt "Enter a resource group name"
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -64,7 +80,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ---
 
-Du kan också distribuera lösningen från Azure Portal med följande knapp:
+Du kan också distribuera lösningen från Azure Portal. Klicka på knappen **distribuera till Azure** för att öppna mallen i Azure Portal.
 
 [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
 
@@ -252,7 +268,7 @@ Använd de [anpassade providers-](/cli/azure/ext/custom-providers/custom-provide
 
 ### <a name="list-custom-resource-providers"></a>Lista med anpassade resurs leverantörer
 
-Visa en lista med alla anpassade resurs leverantörer i en prenumeration. Standard listar anpassade resurs leverantörer för den aktuella prenumerationen eller så kan du ange `--subscription` parametern. Om du vill visa en resurs grupp använder du `--resource-group` parametern.
+Använd `list` kommandot för att visa alla anpassade resurs leverantörer i en prenumeration. Standardvärdet visar den aktuella prenumerationens anpassade resurs leverantörer, eller så kan du ange `--subscription` parametern. Om du vill visa en resurs grupp använder du `--resource-group` parametern.
 
 ```azurecli-interactive
 az custom-providers resource-provider list --subscription $subID
@@ -289,7 +305,7 @@ az custom-providers resource-provider list --subscription $subID
 
 ### <a name="show-the-properties"></a>Visa egenskaperna
 
-Visa egenskaperna för en anpassad resurs leverantör. Utdataformatet liknar `list` utdata.
+Använd `show` kommandot för att visa egenskaperna för den anpassade resurs leverantören. Utdataformatet liknar `list` utdata.
 
 ```azurecli-interactive
 az custom-providers resource-provider show --resource-group $rgName --name $funcName

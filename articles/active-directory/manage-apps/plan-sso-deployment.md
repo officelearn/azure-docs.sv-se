@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
-ms.author: kenwith
+ms.date: 06/10/2020
+ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2a2691935cb38c20e20b6a776acfe70cc458a6ed
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763082"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374450"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
@@ -195,8 +195,6 @@ Använd följande faser för att planera för och distribuera din lösning i din
 
    Du kan också använda anspråk som utfärdats i SAML-token för företags program med hjälp av [Microsofts väglednings dokumentation](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Se till att mappningen till det du förväntar dig att ta emot i SAML-svaret för ditt program. Om du stöter på problem under konfigurationen kan du använda vår vägledning om [hur du](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)felsöker SSO-integrering.
 
-Anpassad program onboarding är en funktion för Azure AD Premium P1-eller P2-licenser.
-
 ### <a name="provide-sso-change-communications-to-end-users"></a>Tillhandahålla SSO-kommunikation till slutanvändare
 
 Implementera kommunikations planen. Se till att du låter dina slutanvändare veta att en ändring kommer, när den har anlänt, vad du gör nu och hur du söker efter hjälp.
@@ -237,11 +235,11 @@ Använd alltid rollen med minst de behörigheter som krävs för att utföra den
 
 | Person| Roller | Azure AD-roll (om det behövs) |
 |--------|-------|-----------------------------|
-| Support administratör | Nivå 1-stöd | Inga |
+| Support administratör | Nivå 1-stöd | Ingen |
 | Identitets administratör | Konfigurera och Felsök när problem påverkar Azure AD | Global administratör |
-| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Inga |
+| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
 | Infrastruktur administratörer | Certifikat förnyelse ägare | Global administratör |
-| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Inga |
+| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
 
 Vi rekommenderar att du använder [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) för att hantera dina roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 

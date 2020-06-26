@@ -1,0 +1,58 @@
+---
+title: Anslut AI-Vectra identifiera data till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter AI-Vectra identifiera data till Azure Sentinel.
+services: sentinel
+documentationcenter: na
+author: yelevin
+manager: rkarlin
+editor: ''
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
+ms.devlang: na
+ms.topic: how-to
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/21/2020
+ms.author: yelevin
+ms.openlocfilehash: 964bab2b81f6ce69e77fd69cab55f6d1894e4edb
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368465"
+---
+# <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Anslut AI-Vectra identifiera till Azure Sentinel
+
+Den här artikeln förklarar hur du ansluter din [AI-Vectra identifiera](https://www.vectra.ai/product/cognito-detect) installationen till Azure Sentinel. Med AI-Vectra identifiera data Connector kan du enkelt se till att dina AI-Vectra identifierar data i Azure Sentinel, så att du kan visa dem i arbets böcker, använda dem för att skapa anpassade aviseringar och införliva dem för att förbättra undersökningen.
+
+> [!NOTE]
+> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
+
+## <a name="configure-your-ai-vectra-detect-appliance-to-send-cef-messages"></a>Konfigurera din AI-Vectra identifiera apparat för att skicka CEF-meddelanden  
+
+Konfigurera AI-Vectra identifiera för att vidarebefordra CEF-formaterade syslog-meddelanden till din Log Analytics-arbetsyta via den syslog-vidarebefordrare som du konfigurerade i [steg 1: Distribuera logg vidarebefordraren](connect-cef-agent.md).
+
+1. I Vectra-gränssnittet navigerar du till inställningar > meddelanden och väljer Redigera syslog-konfiguration. Följ anvisningarna nedan för att konfigurera anslutningen:
+
+    - Lägg till ett nytt mål (hostname för [logg vidarebefordraren](connect-cef-agent.md))
+    - Ställ in porten som **514**
+    - Ange protokollet som **UDP**
+    - Ange formatet till **CEF**
+    - Ange logg typer (Välj alla tillgängliga logg typer)
+    - Klicka på **Spara**
+
+2. Du kan klicka på knappen **testa** för att framtvinga sändningen av vissa test händelser till logg vidarebefordraren.
+
+3. Om du vill använda det relevanta schemat i Log Analytics för AI-Vectra identifiera händelser söker du efter **CommonSecurityLog**.
+
+4. Fortsätt till [steg 3: verifiera anslutningen](connect-cef-verify.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+I det här dokumentet har du lärt dig hur du ansluter AI-Vectra identifiera enheter till Azure Sentinel. Om du vill dra full nytta av de funktioner som är inbyggda i denna data anslutning klickar du på fliken **Nästa steg** på data anslutnings sidan. Där hittar du några färdiga exempel frågor så att du kan komma igång med att hitta användbar information.
+
+Mer information om Azure Sentinel finns i följande artiklar:
+
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.

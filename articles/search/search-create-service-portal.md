@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/24/2020
+ms.openlocfilehash: 988b26b319c706b97edfbd3545a525b7d685d7f1
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488230"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368302"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabb start: skapa en Azure Kognitiv sökning-tjänst i portalen
 
@@ -24,6 +24,14 @@ I den här artikeln får du lära dig hur du skapar en resurs i [Azure Portal](h
 [![Animerad GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/resources/templates/101-azure-search-create/) för Azure Resource Manager. Hjälp med att komma igång finns i [Hantera Azure kognitiv sökning med PowerShell](search-manage-powershell.md).
+
+## <a name="before-you-start"></a>Innan du börjar
+
+Följande tjänst egenskaper är fasta för tjänstens livs längd. Att ändra någon av dessa egenskaper senare kräver en ny tjänst:
+
+* name
+* nivå (kostnads fri, Basic, standard)
+* region (Välj en plats som har relaterade tjänster, till exempel Cognitive Services eller data tjänster)
 
 ## <a name="subscribe-free-or-paid"></a>Prenumerera (kostnadsfritt eller betalt)
 

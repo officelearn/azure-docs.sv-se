@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/24/2017
+ms.date: 06/24/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d70aed6fbe0f09ea6284f913c88186ecf94e297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcb407735cff5a0c43d3a584ff37a0eabc178381
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272276"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367452"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 extern delning och Azure Active Directory B2B-samarbete
+# <a name="office-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Office 365 extern delning och Azure Active Directory (Azure AD) B2B-samarbete
 
-Extern delning i Office 365 (OneDrive, SharePoint Online, enhetliga grupper osv.) och Azure Active Directory (Azure AD) B2B-samarbete är tekniskt sett samma sak. All extern delning (förutom OneDrive/SharePoint Online), inklusive gäster i Office 365-grupper, använder redan Azure AD B2B-samarbets-API: erna för att dela.
+I både Azure AD B2B-samarbete och extern Office 365-delning (OneDrive, SharePoint Online, enhetliga grupper osv.) autentiseras externa användare med hjälp av Azure AD B2B.
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Hur skiljer sig Azure AD B2B från extern delning i SharePoint Online?
 

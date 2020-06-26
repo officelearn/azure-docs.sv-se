@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: dae826367661648f3ee56235fd6497d265bf6a1e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 45a7de4f19b663823a5eff7ba4f352992c3aaf0d
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339453"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374210"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -35,22 +35,22 @@ I följande exempel beskrivs hur du skapar en C# Function-app i Visual Studio oc
 
 Om du vill konfigurera din miljö skapar du en funktion och testar appen. Följande steg hjälper dig att skapa appar och funktioner som krävs för att stödja testerna:
 
-1. [Skapa en ny Functions-app](./functions-create-first-azure-function.md) och *namnge den-funktionen*
-2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet *MyHttpTrigger*.
-3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet *MyTimerTrigger*.
-4. [Skapa en XUnit test-app](https://xunit.github.io/docs/getting-started-dotnet-core) i Visual Studio genom att klicka på **fil > nytt > projekt > Visual C# > .net Core > xUnit test Project** och ge den namnet *functions. test*. 
+1. [Skapa en ny Functions-app](./functions-create-first-azure-function.md) och **namnge den-funktionen**
+2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet **MyHttpTrigger**.
+3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet **MyTimerTrigger**.
+4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests**. 
 5. Använd NuGet för att lägga till en referens från testappen till [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Referera till *Functions* -appen](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *functions. test* -appen.
+6. [Referera till *Functions* -appen](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *functions. tests* -appen.
 
 ### <a name="create-test-classes"></a>Skapa test klasser
 
-Nu när du har skapat programmen kan du skapa de klasser som används för att köra automatiserade tester.
+Nu när projekten har skapats kan du skapa de klasser som används för att köra automatiserade tester.
 
 Varje funktion tar en instans av [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) för att hantera meddelande loggning. Vissa tester loggar antingen inte in meddelanden eller har ingen risk för hur loggning implementeras. Andra tester måste utvärdera meddelanden som loggats för att avgöra om ett test skickas.
 
-- `ListLogger` Klassen implementerar `ILogger` gränssnittet och innehåller en intern lista över meddelanden som ska utvärderas under ett test.
+Du skapar en ny klass med namnet `ListLogger` som innehåller en intern lista över meddelanden som ska utvärderas under ett test. För att implementera det nödvändiga `ILogger` gränssnittet behöver klassen ett definitions område. Följande klass är ett omfång för test fall att skicka till `ListLogger` klassen.
 
-**Högerklicka** på programmet *functions. test* och välj **Lägg till > klass**, ge den namnet **NullScope.cs** och ange följande kod:
+Skapa en ny klass i *functions. tests* -projektet med namnet **NullScope.cs** och ange följande kod:
 
 ```csharp
 using System;
@@ -68,7 +68,7 @@ namespace Functions.Tests
 }
 ```
 
-**Högerklicka** sedan på programmet *functions. test* och välj **Lägg till > klass**, ge den namnet **ListLogger.cs** och ange följande kod:
+Skapa sedan en ny klass i *functions. tests* -projektet med namnet **ListLogger.cs** och ange följande kod:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -114,7 +114,7 @@ namespace Functions.Tests
 
 `Logs`Samlingen är en instans av `List<string>` och initieras i konstruktorn.
 
-**Högerklicka** sedan på programmet *functions. test* och välj **Lägg till > klass**, ge den namnet **LoggerTypes.cs** och ange följande kod:
+Skapa sedan en ny fil i *functions. testar* projektet med namnet **LoggerTypes.cs** och anger följande kod:
 
 ```csharp
 namespace Functions.Tests
@@ -129,7 +129,7 @@ namespace Functions.Tests
 
 Den här uppräkningen anger vilken typ av loggning som används av testerna. 
 
-**Högerklicka** sedan på programmet *functions. test* och välj **Lägg till > klass**, ge den namnet **TestFactory.cs** och ange följande kod:
+Skapa nu en ny klass i *functions. tests* -projektet med namnet **TestFactory.cs** och ange följande kod:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -163,12 +163,11 @@ namespace Functions.Tests
             return qs;
         }
 
-        public static DefaultHttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
+        public static HttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
         {
-            var request = new DefaultHttpRequest(new DefaultHttpContext())
-            {
-                Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue))
-            };
+            var context = new DefaultHttpContext();
+            var request = context.Request;
+            request.Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue));
             return request;
         }
 
@@ -201,7 +200,7 @@ namespace Functions.Tests
 
 - **CreateLogger**: den här metoden returnerar en loggnings klass som används för testning baserat på loggnings typ. `ListLogger`Håller reda på loggade meddelanden som är tillgängliga för utvärdering i tester.
 
-**Högerklicka** sedan på programmet *functions. test* och välj **Lägg till > klass**, ge den namnet **FunctionsTests.cs** och ange följande kod:
+Slutligen skapar du en ny klass i *functions. testar* projektet med namnet **FunctionsTests.cs** och anger följande kod:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;

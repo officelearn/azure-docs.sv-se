@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 51df588b1ccd41bf05d8851f00399b61292b0736
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8996335a8d39e4dd9fc79584593fe333b302c8be
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214117"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373445"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps
 
@@ -154,7 +154,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 7. Beskrivning
 8. Skärm bilder/videor
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -213,10 +213,6 @@ Ange ditt erbjudandes logo typ i tre pixel storlekar:
 - **Liten** (krävs; 48 x 48)
 - **Stor** (krävs; 216 x 216)
 - **Bred** (valfritt; 255 x 115)
-
-#### <a name="hero"></a>Hjälte
-
-Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 290 pixlar.
 
 #### <a name="screenshots"></a>Skärmbilder
 

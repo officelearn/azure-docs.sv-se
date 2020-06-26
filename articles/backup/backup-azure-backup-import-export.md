@@ -4,12 +4,12 @@ description: Lär dig hur du kan använda Azure Backup för att skicka data frå
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 6d448687836842835259fcf7bbad41af815dfb58
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 5611b5a6fc9ba8bbff11e35449caf0dd9d33fa21
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629287"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373310"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbets flöde för offline-säkerhetskopiering i Azure Backup
 
@@ -90,7 +90,7 @@ I det här avsnittet beskrivs arbets flödet offline-säkerhetskopiering så att
 
     * **Mellanlagringsplats**: den tillfälliga lagrings plats som den första säkerhets kopian skrivs till. Mellanlagrings platsen kan vara en nätverks resurs eller en lokal dator. Om kopierings datorn och käll datorn skiljer sig anger du sökvägen till den fullständiga nätverks platsen för mellanlagringsplatsen.
     * **Azure Resource Manager lagrings konto**: namnet på resurs hanterarens typ lagrings konto (generell användning v1 eller generell användning v2) i valfri Azure-prenumeration.
-    * **Azure Storage behållare**: namnet på mål lagrings-bloben i Azure Storage-kontot där säkerhetskopierade data importeras innan de kopieras till Recovery Services-valvet.
+    * **Azure Storage behållare**: namnet på den mål-Blob Storage-behållare i Azure Storage-kontot där säkerhets kopierings data importeras innan de kopieras till Recovery Services-valvet.
     * **ID för Azure-prenumeration**: ID för Azure-prenumerationen där Azure Storage-kontot skapas.
     * **Azure-importens jobbnamn**: det unika namn som Azures import-/export tjänst och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
   

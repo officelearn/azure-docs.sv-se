@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 1d3804a019add8f97dcbad0f9d707d50c35830bb
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: ffc8e1919350c9a14cb53bd243af66fdfa839d04
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753918"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373462"
 ---
 # <a name="create-a-managed-service-offer"></a>Skapa ett erbjudande för hanterad tjänst
 
@@ -91,7 +91,7 @@ Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 3. Användbara länkar
 4. Skärmbilder
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -138,9 +138,9 @@ I det här avsnittet kan du ange logo typer och avbildningar som ska användas n
 
 Ange ditt erbjudandes logo typ i fyra pixel storlekar:
 
-- **Liten** (40 x 40)
+- **Liten** (48 x 48)
 - **Medel** (90 x 90)
-- **Stor** (115 x 115)
+- **Stor** (216 x 216)
 - **Bred** (255 x 115)
 
 Följ dessa rikt linjer för dina logo typer:

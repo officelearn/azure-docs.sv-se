@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,21 +10,18 @@ ms.topic: include
 ms.custom: include file
 ms.date: 01/15/2020
 ms.author: diberry
-ms.openlocfilehash: 11abd52681d7c9962af4e5bf0728f97b256223c1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b1013b261e9449aef45f629c729579f4c87c1f6b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76122903"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378565"
 ---
 ## <a name="create-a-personalizer-azure-resource"></a>Skapa en personanpassa Azure-resurs
 
-Skapa en resurs för Personanpassare med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
+Skapa en resurs för Personanpassare med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. 
 
-* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services) som är giltig i 7 dagar utan kostnad. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
-* Visa din resurs på [Azure Portal](https://portal.azure.com/).
-
-När du har skaffat en nyckel från din utvärderings prenumeration eller resurs skapar du två [miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
+När du har skaffat en nyckel från din resurs skapar du två [miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `PERSONALIZER_RESOURCE_KEY`för resurs nyckeln.
 * `PERSONALIZER_RESOURCE_ENDPOINT`för resurs slut punkten.

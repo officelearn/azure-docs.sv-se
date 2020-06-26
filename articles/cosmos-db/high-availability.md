@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c3f3eddf57b559d9e8f4837db453232308869767
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: f459e1dd70850db1d7087b4c99de741b37d3bfda
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118057"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367129"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Zon redundans är en *kompletterande funktion* för funktionen för [multi-maste
 
 När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zon redundans i en befintlig region för ditt Azure Cosmos-konto genom att ta bort regionen och lägga till den igen med zon redundansen aktive rad.
 
-Den här funktionen är tillgänglig i: *Storbritannien, södra, Sydostasien, östra USA, östra USA 2, centrala USA, Västeuropa, västra USA 2, östra Australien, Östra Japan, norra Europa, norra Frankrike, centrala* regioner.
+Den här funktionen är tillgänglig i: *Storbritannien, södra, Sydostasien, östra USA, östra USA 2, centrala USA, Västeuropa, västra USA 2, Östra Japan, norra Europa, västra centrala* regioner.
 
 > [!NOTE]
 > Om du aktiverar Tillgänglighetszoner för ett Azure Cosmos-konto med en region kommer det att leda till kostnader som motsvarar att lägga till ytterligare en region i ditt konto. Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) och [kostnaden för flera regioner i Azure Cosmos DB](optimize-cost-regions.md) artiklar.

@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: 6eb6403ad6d1f181d1f51dde6db266070bf32a56
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 458cbe35e9d46b8a6afde399e20f3b484dfe6478
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194764"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373377"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Skapa, utveckla och underhålla antecknings böcker för Azure Synapse Studio (för hands version)
 
@@ -344,7 +344,7 @@ I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsboka
 
    ![kommando läge](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Redigerings läget anges av en text markör där du ombeds ange redigerings ytan. När en cell är i redigerings läge kan du inte skriva i cellen. Ange redigerings läge genom att trycka `Enter` eller använda musen för att klicka på cellens redigerings yta.
+2. Redigerings läget anges av en text markör där du ombeds ange redigerings ytan. När en cell är i redigerings läge kan du skriva i cellen. Ange redigerings läge genom att trycka `Enter` eller använda musen för att klicka på cellens redigerings yta.
    
    ![redigerings-läge](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

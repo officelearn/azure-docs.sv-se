@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: a07ba26128d1d4689e820ec8e300ca9420c3c2d2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771180"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367095"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
 I den här snabb starten lär du dig att använda Azure Sentinel på kort sikt. 
 
-För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel och sedan ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar, Microsoft 365 källor, inklusive Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
+För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel och sedan ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar, Microsoft 365 källor (inklusive Office 365), Azure AD, Azure ATP, Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda common Event format (CEF), syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
 
 När du har anslutit dina data källor väljer du från ett galleri med arbets böcker som skapats av experten som är baserade på dina data. Dessa arbets böcker kan enkelt anpassas efter dina behov.
 
@@ -41,7 +41,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
  
 ## <a name="enable-azure-sentinel"></a>Aktivera Azure Sentinel<a name="enable"></a>
 
-1. Logga in på Azure-portalen. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
+1. Logga in på Azure Portal. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
 
 1. Sök efter och välj **Azure Sentinel**.
 

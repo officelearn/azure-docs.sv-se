@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/24/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1e9ec975a17be2675d2f56b2cee87f91d7e9aae
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 388c40867c21390c3de8a033a1bfa08eb95bd602
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733134"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367418"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till anpassning till din organisations Azure Active Directory inloggnings sida
 Använd organisationens logo typ och egna färg scheman för att ge ett enhetligt utseende på dina Azure Active Directory-inloggnings sidor (Azure AD). Dina inloggnings sidor visas när användarna loggar in i din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitets leverantör.
@@ -62,7 +62,17 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
 
         - **Användar tips.** Skriv tips texten som visas för användarna om de glömmer bort sitt användar namn. Den här texten måste vara Unicode, utan länkar eller kod, och får inte innehålla fler än 64 tecken. Om gäster loggar in på din app rekommenderar vi inte att du lägger till det här tipset.
 
-        - **Text på inloggnings sidan.** Skriv texten som visas längst ned på inloggnings sidan. Du kan använda den här texten för att kommunicera ytterligare information, t. ex. telefonnumret till supportavdelningen eller ett juridiskt meddelande. Den här texten måste vara Unicode och får inte överstiga 256 tecken.
+        - **Text och formatering för inloggnings sidan.** Skriv texten som visas längst ned på inloggnings sidan. Du kan använda den här texten för att kommunicera ytterligare information, t. ex. telefonnumret till supportavdelningen eller ett juridiskt meddelande. Den här texten måste vara Unicode och får inte överstiga 1024 tecken.
+
+           Du kan anpassa text för inloggnings sidan som du har angett. Om du vill börja med ett nytt stycke använder du tangenten Enter två gånger. Du kan också ändra textformateringen så att den innehåller fetstil, kursiv stil, en understruken eller klicknings bara länk. Använd följande syntax för att lägga till formatering i text: 
+
+          > Aktuell```[text](link)``` 
+          
+          > Fet: ``` **text** ``` eller``` __text__ ``` 
+          
+          > Kursiv stil: ``` *text* ``` eller``` _text_ ``` 
+          
+          > Strykning``` ++text++ ``` 
 
     - **Avancerade inställningar**
             

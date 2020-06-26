@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d224f8fa5d696cd55b4f214111280d9210f836e9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f7cdc8dce8a4b30b543c4e332207354697a9e0d
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73159112"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Självstudie: Azure Active Directory integrering med Halosys
 
@@ -111,7 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ha
     b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<company-name>.halosys.com/<instance name>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [kundsupporten för Halosys](https://halosys.com/halosys#contact) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [kundsupporten för Halosys](https://www.sonata-software.com/form/contact) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -129,7 +129,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ha
 
 ### <a name="configure-halosys-single-sign-on"></a>Konfigurera enkel inloggning för Halosys
 
-För att konfigurera enkel inloggning på **Halosys**-sidan behöver du skicka nedladdad **XML med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Halosys](https://halosys.com/halosys#contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Halosys**-sidan behöver du skicka nedladdad **XML med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Halosys](https://www.sonata-software.com/form/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -149,7 +149,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -184,7 +184,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-halosys-test-user"></a>Skapa Halosys-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Halosys. Ta hjälp av [supportteamet för Halosys](https://halosys.com/halosys#contact) för att lägga till användarna på Halosys-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Halosys. Ta hjälp av [supportteamet för Halosys](https://www.sonata-software.com/form/contact) för att lägga till användarna på Halosys-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

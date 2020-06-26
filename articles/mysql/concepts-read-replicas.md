@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/10/2020
-ms.openlocfilehash: 35aedbc4a3d1dcb87b23633acd413c4a55448ef9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 6/24/2020
+ms.openlocfilehash: 29ae9c47ca4ed8cdfedf78ffa7957376c7556076
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710413"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367501"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -47,9 +47,7 @@ Du kan ha en huvud server i valfri [Azure Database for MySQL region](https://azu
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
 Du kan skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. De Universal Replica-regioner som stöds är:
 
-Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA.
-
-* Västra USA 2 är tillfälligt otillgängligt som en replikerings plats mellan regioner.
+Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Japan, östra, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA, västra USA 2, västra centrala USA.
 
 ### <a name="paired-regions"></a>Länkade regioner
 Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på huvud servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](../best-practices-availability-paired-regions.md).
@@ -58,7 +56,7 @@ Om du använder repliker över flera regioner för att planera haveri beredskap 
 
 Det finns dock begränsningar att tänka på: 
 
-* Regional tillgänglighet: Azure Database for MySQL är tillgänglig i USA, västra 2, Frankrike, centrala, Förenade Arabemiraten nord och Tyskland, centrala. De kopplade regionerna är dock inte tillgängliga.
+* Regional tillgänglighet: Azure Database for MySQL är tillgänglig i Frankrike Central, Förenade Arabemiraten nord och Tyskland, centrala. De kopplade regionerna är dock inte tillgängliga.
     
 * Enkelriktade par: vissa Azure-regioner är bara kopplade till en riktning. I dessa regioner ingår västra Indien, södra Brasilien och US Gov, Virginia. 
    Det innebär att en huvud server i västra Indien kan skapa en replik i södra Indien. En huvud server i södra Indien kan dock inte skapa en replik i västra Indien. Detta beror på att den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är inte västra Indien.

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: b02ba8bd6e3ae858c9e3ded07776a8a83ede171a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f214dbbc1991e64f86890687523be256c69e46d3
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212605"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374278"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
 
@@ -287,7 +287,6 @@ Det här fältet är obligatoriskt.
     - **Medel** (90 x 90, krävs)
     - **Stor** (216 x 216, krävs)
     - **Bred** (255 x 115)
-    - **Hjälte** (815 x 290)
 
 - **Skärm bilder** (krävs) – Lägg till högst fem skärm bilder som demonstrerar ditt erbjudande, med en storlek på 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt) – Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.

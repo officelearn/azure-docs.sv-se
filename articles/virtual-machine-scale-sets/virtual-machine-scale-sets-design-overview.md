@@ -7,15 +7,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 06/01/2017
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0676a7d31d141e0c264119a54b77ec29a527374b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2160f2c014e1bf7c486c29a48c756936df12788
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200203"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373989"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Design överväganden för skalnings uppsättningar
 I den här artikeln beskrivs design överväganden för Virtual Machine Scale Sets. Information om vad Virtual Machine Scale Sets finns i [Översikt över Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
@@ -60,7 +60,7 @@ Under överetablering kan du förbättra etableringen av lyckade kostnader, men 
 
 Om din skalnings uppsättning använder användar hanterad lagring och du inaktiverar överetablering, kan du ha fler än 20 virtuella datorer per lagrings konto, men vi rekommenderar inte att gå över 40 för prestanda orsaker i i/o. 
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 En skalnings uppsättning som bygger på en Marketplace-avbildning (kallas även plattforms avbildning) och som kon figurer ATS för att använda Azure Managed Disks har stöd för en kapacitet på upp till 1 000 virtuella datorer. Om du konfigurerar din skalnings uppsättning så att den stöder fler än 100 virtuella datorer fungerar inte alla scenarier (till exempel belastnings utjämning). Mer information finns i [arbeta med stora skalnings uppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). 
 
 En skalnings uppsättning som kon figurer ATS med användar hanterade lagrings konton är för närvarande begränsad till 100 virtuella datorer (och 5 lagrings konton rekommenderas för den här skalan).

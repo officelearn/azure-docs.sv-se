@@ -3,14 +3,16 @@ title: Använda Azure AD i Azure Kubernetes-tjänsten
 description: Lär dig hur du använder Azure AD i Azure Kubernetes service (AKS)
 services: container-service
 manager: gwallace
+author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
-ms.openlocfilehash: 8d446d82550a6bc790d162ee944b0753979b6546
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.date: 06/25/2020
+ms.author: mlearned
+ms.openlocfilehash: 280637be417d904de6dbb7ae2e2647026da6c838
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782678"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374550"
 ---
 # <a name="integrate-aks-managed-azure-ad-preview"></a>Integrera AKS-hanterad Azure AD (för hands version)
 
@@ -62,9 +64,6 @@ kubectl version --client
 ```
 
 Använd [de här anvisningarna](https://kubernetes.io/docs/tasks/tools/install-kubectl/) för andra operativ system.
-
-> [!CAUTION]
-> När du har registrerat en funktion på en prenumeration kan du för närvarande inte avregistrera den funktionen. När du aktiverar vissa för hands versions funktioner kan du använda standardvärden för alla AKS-kluster som skapas efteråt i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd i stället en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
 
 ```azurecli-interactive
 az feature register --name AAD-V2 --namespace Microsoft.ContainerService
@@ -190,7 +189,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 ## <a name="non-interactive-login-with-kubelogin"></a>Icke-interaktiv inloggning med kubelogin
 
-Det finns vissa icke-interaktiva scenarier, till exempel kontinuerliga integrerings pipeliner, som för närvarande inte är tillgängliga med kubectl. Du kan använda [kubelogin](https://github.com/Azure/kubelogin) för att komma åt klustret i icke-interaktiva scenarier.
+Det finns vissa icke-interaktiva scenarier, till exempel kontinuerliga integrerings pipeliner, som för närvarande inte är tillgängliga med kubectl. Du kan använda [kubelogin](https://github.com/Azure/kubelogin) för att komma åt klustret med icke-interaktiv tjänstens huvud inloggnings inloggning.
 
 ## <a name="next-steps"></a>Nästa steg
 

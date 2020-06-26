@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB utlösare för functions 2. x
+title: Azure Cosmos DB utlösare för functions 2. x och högre
 description: Lär dig att använda Azure Cosmos DB-utlösaren i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: e7a422e0637c6343e1b2757fdf9aee7375ee2c3f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ff8281a420eb1e967cb9f1d4db620d8f816794b
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561631"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374244"
 ---
-# <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Azure Cosmos DB utlösare för Azure Functions 2. x
+# <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB utlösare för Azure Functions 2. x och högre
 
 Azure Cosmos DB-utlösaren använder [Azure Cosmos DB ändra feed](../cosmos-db/change-feed.md) för att lyssna efter infogningar och uppdateringar över partitioner. Ändrings flödet publicerar infogningar och uppdateringar, tas inte bort.
 
@@ -57,9 +57,9 @@ namespace CosmosDBSamplesV2
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en Cosmos DB trigger-bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver logg meddelanden när Cosmos DB poster läggs till eller ändras.
+I följande exempel visas en Cosmos DB trigger-bindning i en *function.jspå* filen och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver logg meddelanden när Cosmos DB poster läggs till eller ändras.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -93,9 +93,9 @@ Här är C#-skript koden:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en Cosmos DB trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver logg meddelanden när Cosmos DB poster läggs till eller ändras.
+I följande exempel visas en Cosmos DB trigger-bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver logg meddelanden när Cosmos DB poster läggs till eller ändras.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -122,9 +122,9 @@ Här är JavaScript-koden:
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en Cosmos DB trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen skriver logg meddelanden när Cosmos DB poster ändras.
+I följande exempel visas en Cosmos DB trigger-bindning i en *function.jspå* filen och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen skriver logg meddelanden när Cosmos DB poster ändras.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -215,9 +215,9 @@ I [Java Functions runtime-bibliotek](https://docs.microsoft.com/java/api/overvie
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `CosmosDBTrigger` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `CosmosDBTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste anges till `cosmosDBTrigger` . |
 |**position** | saknas | Måste anges till `in` . Den här parametern anges automatiskt när du skapar utlösaren i Azure Portal. |

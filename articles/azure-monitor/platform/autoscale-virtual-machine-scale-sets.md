@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 02/22/2016
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 65182ce16b8785a3a0e497b3ed8003fa9e7b67bc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655427"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373887"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets
 Du kan skala in och skala ut i Virtual Machine Scale Sets baserat på prestanda mätnings trösklar, med ett återkommande schema eller med ett visst datum. Du kan också konfigurera e-post-och webhook-meddelanden för skalnings åtgärder. Den här genom gången visar ett exempel på hur du konfigurerar alla dessa objekt med en Resource Manager-mall i en skalnings uppsättning för virtuella datorer.
@@ -36,7 +36,7 @@ I den här genom gången använder vi [Azure Resource Explorer](https://resource
 
 3. Nu kan du lägga till fler profiler och regler baserat på schemat eller särskilda krav. Vi skapar en inställning för autoskalning med tre profiler. Om du vill förstå profiler och regler i autoskalning bör du gå igenom [metod tipsen för autoskalning](autoscale-best-practices.md).  
 
-    | Profiler & regler | Description |
+    | Profiler & regler | Beskrivning |
     |--- | --- |
     | **Profil** |**Prestanda/mått baserat** |
     | Regel |Antal Service Bus Queue-meddelande > x |
@@ -234,7 +234,7 @@ I den här genom gången använder vi [Azure Resource Explorer](https://resource
 
 Du har uppdaterat en inställning för autoskalning på en skalnings uppsättning för virtuella datorer som innehåller flera skalnings profiler och skalnings meddelanden.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Använd dessa länkar om du vill veta mer om autoskalning.
 
 [Felsöka autoskalning med Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

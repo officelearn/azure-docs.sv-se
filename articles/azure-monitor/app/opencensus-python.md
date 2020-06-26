@@ -7,12 +7,12 @@ ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 04581826ab6b05333e910a162c7a0ca9566ec334
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c6b84b25ae85d20ccd7872daf16014e5bed6934b
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079119"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374159"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
@@ -251,9 +251,9 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
 
 4. Export verktyget skickar mått data till Azure Monitor med ett fast intervall. Standardvärdet är var 15: e sekund. Vi spårar ett enda mått, så dessa mått data, med det värde och den tidsstämpel som den innehåller, kommer att skickas varje intervall. Du kan hitta data under `customMetrics` .
 
-#### <a name="standard-metrics"></a>Standard mått
+#### <a name="performance-counters"></a>Prestandaräknare
 
-Som standard skickar mått export verktyget en uppsättning standard mått till Azure Monitor. Du kan inaktivera detta genom att ställa in `enable_standard_metrics` flaggan på `False` i konstruktorn för mått export verktyget.
+Som standard skickar mått export verktyget en uppsättning prestanda räknare till Azure Monitor. Du kan inaktivera detta genom att ställa in `enable_standard_metrics` flaggan på `False` i konstruktorn för mått export verktyget.
 
 ```python
 ...
@@ -262,17 +262,16 @@ exporter = metrics_exporter.new_metrics_exporter(
   connection_string='InstrumentationKey=<your-instrumentation-key-here>')
 ...
 ```
-Nedan visas en lista över standard mått som har skickats för närvarande:
+Nedan visas en lista över prestanda räknare som har skickats för närvarande:
 
 - Tillgängligt minne (byte)
 - PROCESSOR processor tid (i procent)
 - Frekvens för inkommande begäran (per sekund)
 - Genomsnittlig körnings tid för inkommande begäran (millisekunder)
-- Utgående begär ande frekvens (per sekund)
 - Processor användning för processor (procent andel)
 - Privata byte för process (byte)
 
-Du bör kunna se dessa mått i `performanceCounters` . Antalet inkommande begär anden skulle vara under `customMetrics` . Mer information finns i [prestanda räknare](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+Du bör kunna se dessa mått i `performanceCounters` . Mer information finns i [prestanda räknare](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
 
 #### <a name="modify-telemetry"></a>Ändra telemetri
 

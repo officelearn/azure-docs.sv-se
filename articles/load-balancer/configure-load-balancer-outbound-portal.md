@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 30d71333bb29720afd82c7dbbde7126b30a7f6d6
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84803690"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367401"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurera belastnings utjämning och utgående regler i Standard Load Balancer med hjälp av Azure Portal
 
@@ -42,10 +42,10 @@ I det här avsnittet skapar du en belastningsutjämnare som ska belastningsutjä
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv **myResourceGroupSLB** i text rutan.|
-    | Name                   | **myLoadBalancer**                                   |
+    | Namn                   | **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
-    | SKU           | Välj **standard** eller **Basic**. Microsoft rekommenderar standard för produktions arbets belastningar. |
+    | SKU           | Välj **standard**. |
     | Offentlig IP-adress | Välj **Skapa ny**. Om du har en befintlig offentlig IP-adress som du vill använda väljer du **Använd befintlig**.  Den befintliga offentliga IP-adressen måste vara **standard** -SKU.  Grundläggande offentliga IP-adresser är inte kompatibla med **standard** -SKU: n.  |
     | Namn på offentlig IP-adress              | Skriv **myPublicIP** i textrutan.|
     | Tillgänglighetszon | Välj **zon-redundant** för att skapa en elastisk Load Balancer. Om du vill skapa en zonindelade Load Balancer väljer du en speciell zon från 1, 2 eller 3 |

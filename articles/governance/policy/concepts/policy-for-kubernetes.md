@@ -3,12 +3,12 @@ title: För hands version – lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt. Det här är en förhandsversion av funktionen.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ab18b85fc24deb58a6c65ca038d47120056eaa75
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791715"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373632"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Förstå Azure Policy för Kubernetes-kluster (för hands version)
 
@@ -52,9 +52,6 @@ Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst fun
 1. Du behöver Azure CLI-versionen 2.0.62 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 1. Registrera resurs leverantörer och för hands versions funktioner.
-
-   > [!CAUTION]
-   > När du registrerar en funktion på en prenumeration kan du inte avregistrera den funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
 
    - Azure Portal:
 

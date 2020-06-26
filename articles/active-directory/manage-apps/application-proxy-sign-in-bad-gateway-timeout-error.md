@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a8d156cc2eea881b84dc0ef58f7b6538e0225f
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759869"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367758"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Fel meddelandet "det går inte att komma åt det här företags programmet" visas när ett program för programproxy används
 
@@ -71,7 +71,7 @@ Som första snabb steg, dubbelklicka och korrigera den interna URL: en genom att
 Så här kontrollerar du att programmet är kopplat till en fungerande kopplings grupp:
 
 1. Öppna programmet i portalen genom att gå till **Azure Active Directory**, klicka på **företags program**och sedan på **alla program.** Öppna programmet och välj sedan **Application Proxy** på den vänstra menyn.
-1. Titta på fältet kopplings grupp. Om det inte finns några aktiva kopplingar i gruppen visas en varning. Om du inte ser några varningar kan du gå vidare för att kontrol lera att alla [nödvändiga portar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to) är tillåtna.
+1. Titta på fältet kopplings grupp. Om det inte finns några aktiva kopplingar i gruppen visas en varning. Om du inte ser några varningar kan du gå vidare för att kontrol lera att alla [nödvändiga portar](application-proxy-add-on-premises-application.md) är tillåtna.
 1. Om fel kopplings grupp visas använder du List rutan för att välja rätt grupp och bekräftar att du inte längre ser några varningar. Om den avsedda anslutnings gruppen visas klickar du på varnings meddelandet för att öppna sidan med anslutnings hantering.
 1. Härifrån finns det några sätt att gå vidare:
 
@@ -83,7 +83,7 @@ När du har använt de här stegen för att se till att programmet har tilldelat
 
 ## <a name="check-all-required-ports-are-open"></a>Kontrol lera att alla nödvändiga portar är öppna
 
-Om du vill kontrol lera att alla nödvändiga portar är öppna kan du läsa mer i [dokumentationen om hur du öppnar portar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to). Om alla portar som krävs är öppna, gå vidare till nästa avsnitt.
+Kontrol lera att alla nödvändiga portar är öppna. Information om vilka portar som krävs finns i avsnittet öppna portar i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory](application-proxy-add-on-premises-application.md). Om alla portar som krävs är öppna, gå vidare till nästa avsnitt.
 
 ## <a name="check-for-other-connector-errors"></a>Sök efter andra anslutnings fel
 

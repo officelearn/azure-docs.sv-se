@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0c7c1f5f633554a88b74694ed2aeafcd30c13a89
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0aea258ac52e078c48255b39145193272aa65b25
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690547"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367979"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Lucidchart för automatisk användar etablering
 
@@ -162,6 +162,7 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 ## <a name="change-log"></a>Ändringslogg
 
 * 04/30/2020 – stöd för Enterprise Extension-attributet och det anpassade attributet "CanEdit" för användare har lagts till.
+* 06/15/2020 – mjuk borttagning av användare är aktiverat (stöder [aktivt](https://tools.ietf.org/html/rfc7643) attribut).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

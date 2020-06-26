@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771129"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367112"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -81,6 +81,7 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 |  | Konfigurera [tjänst slut punkter för Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) för Cosmos DB och [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Kund |
 |  | Se till att [TLS-kryptering](../../storage/common/storage-security-tls.md) har Aktiver ATS för data under överföring. | Kund |
 |  | Konfigurera [Kundhanterade nycklar](../../storage/common/storage-encryption-keys-portal.md) för Azure Storage kryptering | Kund |
+|  | Kontrol lera åtkomsten till dina data med Azure-support med hjälp av [kundsäkerhet](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Kund |
 | Program-och mellanprogram säkerhet | Integrera med AAD-DS och [Konfigurera autentisering](apache-domain-joined-configure-using-azure-adds.md) | Kund |
 |  | Konfigurera [Auktoriseringsprinciper för Apache Ranger](apache-domain-joined-run-hive.md) | Kund |
 |  | Använda [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Kund |

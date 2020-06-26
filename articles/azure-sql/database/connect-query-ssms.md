@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 14e7f4d09185f76786fd88576eef0b6df02877c4
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253621"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368081"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd SSMS för att ansluta till och fråga Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -155,7 +155,7 @@ Kör den här [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-SQL-
 
 ### <a name="update-data"></a>Uppdatera data
 
-Kör den här [uppdateringen](/sql/t-sql/statements/update-transact-sql) av Transact-SQL-koden för att ändra din nya produkt.
+Kör den här [uppdateringen](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) av Transact-SQL-koden för att ändra din nya produkt.
 
 1. Ersätt föregående fråga med denna som returnerar den nya posten som skapades tidigare:
 

@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB binding för functions 2. x
+title: Azure Cosmos DB binding för functions 2. x och högre
 description: Lär dig hur du använder Azure Cosmos DB binding i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: bce234b0d2fee38f0644ae0bd961cdcd815b0bd2
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: b6daccb7ec4665842fd42a0938e3cbf18e2d7540
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667904"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374380"
 ---
-# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Azure Cosmos DB bindning för Azure Functions 2. x
+# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB bindning för Azure Functions 2. x och högre
 
 Azure Cosmos DB-indatabindningen använder SQL API för att hämta en eller flera Azure Cosmos DB-dokument och skickar dem till indataparametern för funktionen. Dokument-ID:t och frågeparametrarna kan fastställas baserat på den utlösare som anropar funktionen.
 
@@ -1428,7 +1428,7 @@ I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overv
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `CosmosDB` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp**     | saknas | Måste anges till `cosmosDB` .        |
 |**position**     | saknas | Måste anges till `in` .         |

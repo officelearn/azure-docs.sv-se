@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: d1dc54810371c4258616ca95b9f0f0abeee4c415
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462965"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374618"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>För hands version – Lägg till en adresspool för en plats i ett Azure Kubernetes service-kluster (AKS)
 
@@ -41,9 +41,6 @@ När du skapar ett kluster för att använda en adresspool, måste klustret ocks
 ### <a name="register-spotpoolpreview-preview-feature"></a>Registrera spotpoolpreview Preview-funktion
 
 Om du vill skapa ett AKS-kluster som använder en Node-adresspool måste du aktivera funktions flaggan *spotpoolpreview* i din prenumeration. Den här funktionen ger den senaste uppsättningen tjänst förbättringar när du konfigurerar ett kluster.
-
-> [!CAUTION]
-> När du registrerar en funktion på en prenumeration kan du för närvarande inte avregistrera funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
 
 Registrera funktions flaggan *spotpoolpreview* med [funktions registrerings kommandot AZ][az-feature-register] som visas i följande exempel:
 

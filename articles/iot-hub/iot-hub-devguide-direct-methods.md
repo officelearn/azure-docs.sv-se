@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 357fe6f04c79b5ad0cdf569e6716589007f6253b
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 189ebcc74461a57a4e91bf50262c377540cf885b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791970"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367843"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 
@@ -33,7 +33,7 @@ Se [rikt linjer för kommunikation från moln till enhet](iot-hub-devguide-c2d-g
 
 ## <a name="method-lifecycle"></a>Metod livs cykel
 
-Direkta metoder implementeras på enheten och kan kräva noll eller flera indata i metodens nytto last för att instansieras korrekt. Du anropar en direkt metod via en tjänst-riktad URI ( `{iot hub}/twins/{device id}/methods/` ). En enhet tar emot direkta metoder via ett enhetsspecifika MQTT-avsnitt ( `$iothub/methods/POST/{method name}/` ) eller via AMQP-länkar (- `IoThub-methodname` och `IoThub-status` -program-egenskaperna). 
+Direkta metoder implementeras på enheten och kan kräva noll eller flera indata i metodens nytto last för att instansieras korrekt. Du anropar en direkt metod via en tjänst-riktad URI ( `{iot hub}/twins/{device id}/methods/` ). En enhet tar emot direkta metoder via ett enhetsspecifika MQTT-avsnitt ( `$iothub/methods/POST/{method name}/` ) eller via AMQP-länkar (- `IoThub-methodname` och `IoThub-status` -program-egenskaperna).
 
 > [!NOTE]
 > När du anropar en direkt metod på en enhet kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning:``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -41,7 +41,7 @@ Direkta metoder implementeras på enheten och kan kräva noll eller flera indata
 
 Direkta metoder är synkrona och slutförs eller Miss lyckas efter tids gräns perioden (standard: 30 sekunder, vilket kan anges mellan 5 och 300 sekunder). Direkta metoder är användbara i interaktiva scenarier där du vill att en enhet ska agera om och endast om enheten är online och tar emot kommandon. Du kan till exempel aktivera en ljus källa från en telefon. I dessa scenarier vill du se en omedelbar framgång eller ett haveri, så att moln tjänsten kan agera på resultatet så snart som möjligt. Enheten kan returnera viss meddelande text som ett resultat av metoden, men det krävs inte för att metoden ska kunna användas. Det finns ingen garanti för beställning eller någon samtidig semantik för metod anrop.
 
-Direkta metoder är endast HTTPS-från moln sidan och HTTPS, MQTT, AMQP, MQTT över WebSockets eller AMQP via WebSockets från enhets sidan.
+Direkta metoder är endast HTTPS-från moln sidan och MQTT, AMQP, MQTT över WebSockets eller AMQP via WebSockets från enhets sidan.
 
 Nytto lasten för metod begär Anden och svar är ett JSON-dokument som är upp till 128 KB.
 
@@ -80,12 +80,11 @@ Värdet som anges som `responseTimeoutInSeconds` i begäran är den tid som IoT 
 
 Värdet som anges som `connectTimeoutInSeconds` i begäran är tiden då det tar slut på en direkt metod som IoT Hub tjänsten måste vänta på att en frånkopplad enhet ska anslutas. Standardvärdet är 0, vilket innebär att enheterna redan måste vara online när den direkta metoden har anropats. Det maximala värdet för `connectTimeoutInSeconds` är 300 sekunder.
 
-
 #### <a name="example"></a>Exempel
 
 I det här exemplet kan du på ett säkert sätt initiera en begäran om att anropa en direkt metod på en IoT-enhet som är registrerad på en Azure-IoT Hub.
 
-Börja med att använda [Microsoft Azure IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att skapa en SharedAccessSignature. 
+Börja med att använda [Microsoft Azure IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att skapa en SharedAccessSignature.
 
 ```bash
 az iot hub generate-sas-token -n <iothubName> -du <duration>

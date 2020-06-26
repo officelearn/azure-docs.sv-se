@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 41a6cc3a4fd604c4272783f528ed3d37372044fb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1a516374e0ac478b24fa1c3ced1627c4814f9bbd
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647738"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367605"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Juno-resan för automatisk användar etablering
 
@@ -40,7 +40,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 * [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör). 
-*  En [Juno resan-klient](https://www.junojourney.com/blank).
+*  En [Juno resan-klient](https://www.junojourney.com/getstarted).
 *  Ett användar konto i Juno-resan med administratörs behörighet.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen

@@ -3,17 +3,19 @@ title: Installera Hybrid Cloud Extension (HCX)
 description: Konfigurera VMware Hybrid Cloud Extension (HCX)-lösningen för Azure VMware-lösningen (AVS) privat moln
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: dc5f7f82b83c82538b2d5a7b4c87131afb3fcc20
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873650"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367554"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMware-lösning
 
-I den här artikeln går vi igenom procedurerna för att ställa in VMware Hybrid Cloud Extension (HCX)-lösningen för ditt moln i Azure VMware-lösningen (AVS). HCX Advanced (standard installation) stöder upp till tre externa platser, där varje extern plats kräver att en HCX Enterprise Manager eller Connector har installerats och Aktiver ATS.
-HCX möjliggör migrering av VMware-arbetsbelastningar till molnet och andra anslutna platser via olika inbyggda HCX-typer som stöds. Om fler än tre platser krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support. HCX Enterprise ger ytterligare avgifter för kunder efter allmän tillgänglighet (GA) men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+I den här artikeln går vi igenom procedurerna för att ställa in VMWare Hybrid Cloud Extension (HCX)-lösningen för ditt moln i Azure VMWare-lösningen (AVS). HCX möjliggör migrering av VMware-arbetsbelastningar till molnet och andra anslutna platser via olika inbyggda HCX-typer som stöds.
+
+HCX Advanced, standard-installationen stöder upp till tre externa platser. Om fler än tre platser krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support. HCX Enterprise-installation medför ytterligare kostnader för kunder efter allmän tillgänglighet (GA), men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+
 
 Noggrant granska [innan du börjar](#before-you-begin), [program versions krav](#software-version-requirements)och [förutsättningar](#prerequisites) först. 
 
@@ -25,7 +27,7 @@ Sedan går vi igenom alla nödvändiga procedurer för att:
 > * Konfigurera nätverks överordnad länk och service nät
 > * Slutför installationen genom att kontrol lera status för enheten
 
-När du har slutfört installationen tillhandahålls rekommenderade nästa steg.
+När du har slutfört installationen kan du följa de rekommenderade nästa stegen som anges i slutet av den här artikeln.  
 
 ## <a name="before-you-begin"></a>Innan du börjar
     
@@ -36,17 +38,17 @@ När du har slutfört installationen tillhandahålls rekommenderade nästa steg.
 * Du kan också granska relaterade VMware-material på HCX, t. ex. VMware vSphere [blogg Serien](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) på HCX. 
 * Beställ en AVS-HCX Enterprise-aktivering via support kanaler för AVS.
 
-Att ändra storlek på arbets belastningar mot beräknings-och lagrings resurser är ett viktigt planerings steg när du förbereder att använda HCX-lösningen i AVS-moln. Detta storleks steg ska åtgärdas som en del av den ursprungliga planeringen av molnet i den ursprungliga miljön. 
+Att ändra storlek på arbets belastningar mot beräknings-och lagrings resurser är ett viktigt planerings steg när du förbereder att använda HCX-lösningen i AVS-moln. Adressera storleks steget som en del av den ursprungliga planeringen av molnet i den ursprungliga miljön.   
 
 ## <a name="software-version-requirements"></a>Program versions krav
 Infrastruktur komponenter måste köra den lägsta version som krävs. 
                                                          
-| Komponent typ                                                          | Käll miljö krav                                                                   | Mål miljö krav                                                                      |
+| Komponent typ    | Käll miljö krav    | Mål miljö krav   |
 | --- | --- | --- |
-| vCenter Server                                                          | 5.1<br/><br/>Om du använder 5,5 U1 eller tidigare använder du det fristående HCX-användargränssnittet för HCX-åtgärder.         | 6,0 U2 och senare                                                                                          |
-| ESXi                                                                    | 5.0                                                                                               | ESXi 6,0 och senare                                                                                        |
-| NSX                                                                     | För HCX nätverks tillägg för logiska växlar vid källan: NSXv 6.2 + eller NSX-T 2.4 +              | NSXv 6.2 + eller NSX-T 2.4 +<br/><HCX närhets dirigering: NSXv 6.4 + (närhet routning stöds inte med NSX-T) |
-| vCloud-regissör                                                         | Krävs inte – ingen interoperabilitet med vCloud Director på käll platsen | När mål miljön är integrerad med vCloud Director är den minsta 9.1.0.2.              |
+| vCenter Server   | 5.1<br/><br/>Om du använder 5,5 U1 eller tidigare använder du det fristående HCX-användargränssnittet för HCX-åtgärder.  | 6,0 U2 och senare   |
+| ESXi   | 5.0    | ESXi 6,0 och senare   |
+| NSX    | För HCX nätverks tillägg för logiska växlar vid källan: NSXv 6.2 + eller NSX-T 2.4 +   | NSXv 6.2 + eller NSX-T 2.4 +<br/><br/>För HCX närhet: NSXv 6.4 + (närhets dirigering stöds inte med NSX-T) |
+| vCloud-regissör   | Krävs inte – ingen interoperabilitet med vCloud Director på käll platsen | När du integrerar mål miljön med vCloud Director är minimivärdet 9.1.0.2.  |
 
 ## <a name="prerequisites"></a>Krav
 
@@ -58,7 +60,7 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
 * Lokala HCX IX-och NE-enheter ska kunna uppnå vCenter-och ESXi-infrastruktur.
 
-* För att distribuera WAN Interconnect-installationen, förutom det/22 CIDR-SDDC som används för distribution av i Azure Portal, kräver HCX ett/29-block. Du bör väga detta i din nätverks planering.
+* För att distribuera WAN Interconnect-installationen, förutom det/22 CIDR-SDDC som används för distribution av i Azure Portal, kräver HCX ett/29-block. Se till att planera detta krav i din nätverks planering.
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Distribuera VMware HCX-ägg lokalt
 
@@ -66,11 +68,11 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
     ![Välj HCX i till AVS vCenter](./media/hybrid-cloud-extension-installation/avs-vsphere-client.png)
 
-1. Om du vill ladda ned VMware HCX-filer för VMware väljer du **Administration**  >  **system updates**.
+1. Under **Administration**väljer du **System uppdateringar** och väljer sedan **begär nedladdnings länk** för att ladda ned VMware HCX-filer.
 
     ![Hämta system uppdateringar](./media/hybrid-cloud-extension-installation/administration-updates.png)
 
-1. Välj en OVF-mall för att distribuera till lokal vCenter.  
+1. Gå sedan till den lokala vCenter och välj en OVF-mall för att distribuera till din lokala vCenter.  
 
     ![Välj mall för OVF](./media/hybrid-cloud-extension-installation/select-template.png)
 
@@ -90,7 +92,10 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
 Efter installationen utför du följande steg.
 
-1. Öppna HCX Manager på `https://HCXManagerIP:9443` och logga in med ditt användar namn och ditt lösen ord. 
+1. Logga in på den lokala HCX Manager på `https://HCXManagerIP:9443` och logga in med ditt användar namn och ditt lösen ord. 
+
+   > [!IMPORTANT]
+   > Se till att ta `9443` med port numret med IP-adressen för HCX Manager.
 
 1. Ange din **HCX Advanced-nyckel**i **licensiering**.  
 
@@ -99,7 +104,7 @@ Efter installationen utför du följande steg.
     > [!NOTE]
     > HCX Manager måste ha öppen Internet åtkomst eller en proxy konfigurerad.
 
-1. Konfigurera vCenter.
+1. I **vCenter**, om det behövs, redigerar du vCenter-informationen.
 
     ![Konfigurera VCenter](./media/hybrid-cloud-extension-installation/configure-vcenter.png)
 
@@ -109,25 +114,25 @@ Efter installationen utför du följande steg.
 
 ## <a name="configure-hcx"></a>Konfigurera HCX 
 
-1. Logga in på lokal vCenter och välj sedan **hem**-  >  **HCX**.
+1. Logga in på lokal vCenter och välj **HCX**under **Start**.
 
     ![HCX i VCenter](./media/hybrid-cloud-extension-installation/hcx-vcenter.png)
 
-1. Välj länkning av **infrastruktur**  >  **plats**  >  **Lägg till en webbplats ihopparning**.
+1. Under **infrastruktur**väljer du **plats länkning**  >  **Lägg till en webbplats ihopparning**.
 
     ![Lägg till webbplats koppling](./media/hybrid-cloud-extension-installation/site-pairing.png)
 
-1. Ange **URL**, **användar namn**och **lösen ord**för fjärr-HCX. Välj **Anslut**.
+1. Ange den fjärranslutna HCX URL eller IP-adress, AVS cloudadmin användar namn och lösen ord och välj sedan **Anslut**.
 
    Systemet visar den anslutna platsen.
    
     ![Plats anslutning](./media/hybrid-cloud-extension-installation/site-connection.png)
 
-1. Välj **Interconnect**  >  nätverks profiler för**multipl-site service nät**  >  **Network Profiles**  >  **skapa nätverks profil**.
+1. Under **infrastruktur**väljer du **Interconnect**  >  nätverks profiler för**multipl-site service nät**  >  **Network Profiles**  >  **skapa nätverks profil**.
 
     ![Skapa nätverks profil](./media/hybrid-cloud-extension-installation/create-network-profile.png)
 
-1. Ange HCX IX och NE IP-adressintervall (minst 2 IP-adresser krävs för IX-och NE-enheter).
+1. För den nya nätverks profilen anger du HCX IX och NE IP-adressintervall (minst två IP-adresser krävs för IX-och NE-enheter).
     
    ![Ange IP-adressintervall](./media/hybrid-cloud-extension-installation/enter-address-ranges.png)
   
@@ -140,7 +145,7 @@ Efter installationen utför du följande steg.
 
     ![Skapa beräknings profil](./media/hybrid-cloud-extension-installation/create-compute-profile.png)
 
-1. Välj tjänster som ska aktive ras, t. ex. migrering, nätverks tillägg, PR haveri beredskap. Välj **Fortsätt**.
+1. Välj de tjänster som ska aktive ras, till exempel migrering, nätverks tillägg eller haveri beredskap, och välj sedan **Fortsätt**.
 
     ![Välj tjänster](./media/hybrid-cloud-extension-installation/select-services.png)
 
@@ -165,7 +170,7 @@ Efter installationen utför du följande steg.
 
 1. Välj **nätverks överordnad länk** och välj **Fortsätt**.
       
-    Välj en eller flera nätverks profiler, så att något av följande stämmer:  
+    Välj en eller flera nätverks profiler så att något av följande stämmer:  
     * Interconnect-apparater på fjärrplatsen kan nås via det här nätverket  
     * Fjärranslutna enheter kan komma åt lokala Interconnect-enheter via det här nätverket.  
     
@@ -175,25 +180,25 @@ Efter installationen utför du följande steg.
 
 1. Välj **vMotion nätverks profil** och välj **Fortsätt**.
       
-    Välj den nätverks profil som vMotion-gränssnittet för ESXi-värdarna kan nås via. Om du inte redan har definierat en sådan nätverks profil kan du skapa den här. Om du inte har vMotion Network väljer du **hanterings nätverks profil**.  
+   Välj den nätverks profil som vMotion-gränssnittet för ESXi-värdarna kan nås via. Om du inte redan har definierat en sådan nätverks profil kan du skapa den här. Om du inte har vMotion Network väljer du **hanterings nätverks profil**.  
     
-    ![Välj Nätverks profil för vMotion](./media/hybrid-cloud-extension-installation/vmotion-network-profile.png)
+   ![Välj Nätverks profil för vMotion](./media/hybrid-cloud-extension-installation/vmotion-network-profile.png)
 
-1. Välj **nätverks profil för vSphere-replikering** och välj **Fortsätt**.
+1. Välj en nätverks profil i **nätverks profilen för vSphere-replikering**och välj sedan **Fortsätt**.
       
-    Välj en nätverks profil som vSphere Replication-gränssnittet för ESXi-värdar kan nås via. I de flesta fall är den här profilen densamma som nätverks profilen för hantering.  
+   I de flesta fall är den här profilen densamma som nätverks profilen för hantering.  
     
-    ![Välj Nätverks profil för vSphere-replikering](./media/hybrid-cloud-extension-installation/vsphere-replication-network-profile.png)
+   ![Välj Nätverks profil för vSphere-replikering](./media/hybrid-cloud-extension-installation/vsphere-replication-network-profile.png)
 
-1. Välj **distribuerade växlar för nätverks tillägg** och välj **Fortsätt**.  
+1. Från **Välj distribuerade växlar för nätverks tillägg**väljer du den dvs där du har nätverk som de virtuella datorerna ska integreras och är anslutna.  Välj **Fortsätt**.  
       
-    Välj de distribuerade virtuella växlar där du har nätverk som den Virtual Machines som ska migreras är ansluten till.
-
     ![Välj distribuerade virtuella växlar](./media/hybrid-cloud-extension-installation/distributed-switches.png)
 
-1. Granska anslutnings regler och välj **Fortsätt**. Klicka på **Slutför** för att skapa beräknings profilen.  
+1. Granska anslutnings reglerna och välj **Fortsätt**.  
 
     ![Skapa beräknings profil](./media/hybrid-cloud-extension-installation/complete-compute-profile.png)
+
+1.  Klicka på **Slutför** för att skapa beräknings profilen.
 
 ## <a name="configure-network-uplink"></a>Konfigurera nätverks överordnad länk
 
@@ -217,45 +222,45 @@ Konfigurera nu service nät mellan lokala och AVS-SDDC.
 
 1. Logga in på AVS SDDC vCenter och välj **HCX**.
 
-1. Välj **infrastruktur**  >  **Interconnect**  >  **service nät**  >  **skapa tjänst nät**.  Konfigurera nätverks-och beräknings profilerna som skapas i föregående steg.    
+2. Under **infrastruktur**väljer du **Interconnect**  >  **service-nät**  >  **skapa tjänst nät** för att konfigurera nätverks-och beräknings profilerna som skapas i föregående steg.    
       
     ![Konfigurera service nät](./media/hybrid-cloud-extension-installation/configure-service-mesh.png)
 
-1. Välj **Skapa service nät** och välj **Fortsätt**.  
-      
-    Välj kopplade platser mellan vilka du vill aktivera hybrid mobilitet.  
+3. Välj kopplade webbplatser för att aktivera hybrid möjligheter och välj **Fortsätt**.   
     
     ![Välj kopplade platser](./media/hybrid-cloud-extension-installation/select-paired-sites.png)
 
-1. Välj **Compute-profil** och välj **Fortsätt**.
+4. Välj källa och fjär beräknings profiler för att aktivera hybrid tjänster och välj **Fortsätt**.
       
-    Välj en beräknings profil var och en på käll-och fjärranslutna platser för att aktivera hybrid tjänster. Valen definierar resurserna där Virtual Machines kan använda HCX-tjänster.  
+    Valen definierar resurserna där de virtuella datorerna kan använda HCX-tjänster.  
       
     ![Aktivera hybrid tjänster](./media/hybrid-cloud-extension-installation/enable-hybridity.png)
 
-1. Välj de tjänster som ska aktive ras för HCX och välj **Fortsätt**.  
+5. Välj tjänster som ska aktive ras och välj **Fortsätt**.  
       
     ![Välj HCX Services](./media/hybrid-cloud-extension-installation/hcx-services.png)
 
-1. I **Avancerad konfiguration – Åsidosätt överordnad överordnad nätverks profil** Välj **Fortsätt**.  
+6. I **Avancerad konfiguration – Åsidosätt överordnad överordnad nätverks profil** Välj **Fortsätt**.  
       
     Nätverks profiler för överordnad länk används för att ansluta till nätverket via vilket fjärrplatsens sammanlänknings utrustning kan nås.  
       
     ![Åsidosätt profiler för överordnad länk](./media/hybrid-cloud-extension-installation/override-uplink-profiles.png)
 
-1. I **Avancerad konfiguration – nätverks tilläggets utrustning utskalning**, väljer **du konfigurera nätverks tilläggs enheten skala ut**. 
+7. Välj **Konfigurera nätverks tilläggs enheten skala ut**. 
       
     ![Nätverks tillägget skalas ut](./media/hybrid-cloud-extension-installation/network-extension-scale-out.png)
 
-1. Ange det antal installationer som motsvarar antalet DVS-switchar.  
+8. Ange det antal installationer som motsvarar antalet DVS-switchar.  
       
     ![Konfigurera antal installationer](./media/hybrid-cloud-extension-installation/appliance-scale.png)
 
-1. I **Avancerad konfiguration – trafik teknik**väljer du **Fortsätt**.  
+9. Välj **Fortsätt** för att hoppa över.  
       
     ![Konfigurera trafik teknik](./media/hybrid-cloud-extension-installation/traffic-engineering.png)
 
-1. Granska förhands granskning av topologi och välj **Fortsätt**. Ange ett användarvänligt namn för det här tjänst nätet och välj **Slutför** .  
+10. Granska förhands granskning av topologi och välj **Fortsätt**. 
+
+11. Ange ett användarvänligt namn för det här Service nätet och välj **Slutför** för att slutföra.  
       
     ![Fullständigt service nät](./media/hybrid-cloud-extension-installation/complete-service-mesh.png)
 

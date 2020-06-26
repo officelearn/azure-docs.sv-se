@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 4060cfe08e91c87467a8ef6801adab6f027473bf
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3ff031cb9e4dd45de180eca4b726aa47f0fd52e1
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696864"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367314"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
-För att kunna använda Azure Sentinel måste du först ansluta till dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar och Microsoft 365 källor, inklusive Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
+När du har aktiverat Azure Sentinel måste du först ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar, Microsoft 365 källor (inklusive Office 365), Azure AD, Azure ATP, Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda common Event format (CEF), syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.
 
 1. På menyn väljer du **data kopplingar**. På den här sidan kan du se en fullständig lista över de anslutningar som Azure Sentinel tillhandahåller och deras status. Välj den anslutning som du vill ansluta och välj **Öppna kopplings sida**. 
 
@@ -46,36 +46,45 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
 - **Integrering av tjänst till tjänst**:<br> Vissa tjänster är anslutna till varandra, till exempel AWS och Microsoft-tjänster, de här tjänsterna utnyttjar Azure Foundation för out of Box-integreringen. följande lösningar kan vara anslutna med några klick:
     - [Amazon Web Services-CloudTrail](connect-aws.md)
     - [Azure-aktivitet](connect-azure-activity.md)
-    - [Gransknings loggar och inloggningar i Azure AD](connect-azure-active-directory.md)
+    - [Azure Active Directory](connect-azure-active-directory.md) gransknings loggar och inloggnings loggar
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Security Center](connect-azure-security-center.md)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Domännamnserver](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Office 365](connect-office-365.md)
     - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
     - [Microsoft-brandväggen för webbaserade program](connect-microsoft-waf.md)
     - [Windows-brandvägg](connect-windows-firewall.md)
     - [Windows säkerhetshändelser](connect-windows-security-events.md)
 
 - **Externa lösningar via API**: vissa data källor är anslutna via API: er som tillhandahålls av den anslutna data källan. Oftast tillhandahåller de flesta säkerhets tekniker en uppsättning API: er via vilka händelse loggar som kan hämtas. API: erna ansluter till Azure Sentinel och samlar in vissa data typer och skickar dem till Azure Log Analytics. Enheter som är anslutna via API inkluderar:
-    - [Barracuda](connect-barracuda.md)
+    
+    - [Alcide kAudit](connect-alcide-kaudit.md)
+    - [Barracuda WAF](connect-barracuda.md)
     - [Barracuda CloudGen-brandväggen](connect-barracuda-cloudgen-firewall.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Perimeter 81-loggar](connect-perimeter-81-logs.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
-- **Externa lösningar via agent**: Azure Sentinel kan anslutas till alla andra data källor som kan utföra logg strömning i real tid med syslog-protokollet via en agent. <br>De flesta apparater använder syslog-protokollet för att skicka händelse meddelanden som innehåller själva loggen och data om loggen. Loggens format varierar, men de flesta apparater stöder common Event format (CEF)-baserad formatering för loggdata. <br>Azure Sentinel-agenten, som baseras på Log Analytics agent, konverterar CEF-formaterade loggar till ett format som kan matas in av Log Analytics. Beroende på typ av installation installeras agenten antingen direkt på enheten eller på en särskild Linux-server. Agenten för Linux tar emot händelser från syslog-daemon över UDP, men om en Linux-dator förväntas samla in en stor mängd Syslog-händelser skickas de via TCP från syslog-daemon till agenten och därifrån att Log Analytics.
-    - Brand väggar, proxyservrar och slut punkter:
+- **Externa lösningar via agent**: Azure Sentinel kan anslutas via en agent till en annan data källa som kan utföra logg strömning i real tid med syslog-protokollet.
+
+    De flesta apparater använder syslog-protokollet för att skicka händelse meddelanden som innehåller själva loggen och data om loggen. Formatet på loggarna varierar, men de flesta apparater stöder CEF-baserad formatering för loggdata. 
+
+    Azure Sentinel-agenten, som faktiskt är Log Analytics agent, konverterar CEF-formaterade loggar till ett format som kan matas in av Log Analytics. Beroende på typ av installation installeras agenten antingen direkt på enheten eller på en dedikerad Linux-baserad logg vidarebefordrare. Agenten för Linux tar emot händelser från syslog-daemon över UDP, men om en Linux-dator förväntas samla in en stor mängd Syslog-händelser skickas de via TCP från syslog-daemon till agenten och därifrån att Log Analytics.
+
+    - **Brand väggar, proxyservrar och slut punkter:**
+        - [Identifiera AI-Vectra](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)
-        - [F5](connect-f5.md)
+        - [F5 ASM](connect-f5.md)
         - [Forcepoint-produkter](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto Networks](connect-paloalto.md)
@@ -106,36 +115,36 @@ Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-
 
 | **Datatyp** | **Så här ansluter du** | **Data koppling?** | **Kommentarer** |
 |------|---------|-------------|------|
-| AWSCloudTrail | [Ansluta AWS](connect-aws.md) | V | |
-| AzureActivity | Översikt över [Anslut Azure-aktivitet](connect-azure-activity.md) och [aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md)| V | |
-| AuditLogs | [Ansluta till Azure Active Directory](connect-azure-active-directory.md)  | V | |
-| SigninLogs | [Ansluta till Azure Active Directory](connect-azure-active-directory.md)  | V | |
-| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
-| InformationProtectionLogs_CL  | [Azure Information Protection rapporter](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Ansluta till Azure Information Protection](connect-azure-information-protection.md)  | V | Detta använder vanligt vis **InformationProtectionEvents** -funktionen tillsammans med data typen. Mer information finns i [ändra rapporterna och skapa anpassade frågor](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AWSCloudTrail | [Ansluta AWS](connect-aws.md) | &#10003; | |
+| AzureActivity | Översikt över [Anslut Azure-aktivitet](connect-azure-activity.md) och [aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md)| &#10003; | |
+| AuditLogs | [Ansluta till Azure Active Directory](connect-azure-active-directory.md)  | &#10003; | |
+| SigninLogs | [Ansluta till Azure Active Directory](connect-azure-active-directory.md)  | &#10003; | |
+| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | &#10003; | |
+| InformationProtectionLogs_CL  | [Azure Information Protection rapporter](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Ansluta till Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | Detta använder vanligt vis **InformationProtectionEvents** -funktionen tillsammans med data typen. Mer information finns i [ändra rapporterna och skapa anpassade frågor](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | Trafik [analys schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md) analys  | | |
-| CommonSecurityLog  | [Anslut CEF](connect-common-event-format.md)  | V | |
-| OfficeActivity | [Ansluta Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Ansluta till Windows säkerhetshändelser](connect-windows-security-events.md)  | V | Arbets böckerna för oskyddade protokoll finns i [arbets boks konfiguration för oskyddade protokoll](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
-| Syslog | [Ansluta till Syslog](connect-syslog.md) | V | |
-| Microsoft-brand vägg för webbaserade program (WAF) – (AzureDiagnostics) |[Anslut brand väggen för Microsoft-webbprogram](connect-microsoft-waf.md) | V | |
-| SymantecICDx_CL | [Anslut Symantec](connect-symantec.md) | V | |
-| ThreatIntelligenceIndicator  | [Ansluta till hotinformation](connect-threat-intelligence.md)  | V | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor tjänst karta](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM Insights onboarding](../azure-monitor/insights/vminsights-onboard.md) <br> [Aktivera Azure Monitor VM-insikter](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Använda en enda virtuell dator](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Använda fordonsbaserad via princip](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| X | Arbets bok för VM Insights  |
-| DnsEvents | [Anslut DNS](connect-dns.md) | V | |
-| W3CIISLog | [Anslut IIS-loggar](../azure-monitor/platform/data-sources-iis-logs.md)  | X | |
-| WireData | [Anslut tråd data](../azure-monitor/insights/wire-data.md) | X | |
-| WindowsFirewall | [Anslut Windows-brandväggen](connect-windows-firewall.md) | V | |
-| AADIP SecurityAlert  | [Ansluta Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | V | |
-| AATP SecurityAlert  | [Ansluta till Azure ATP](connect-azure-atp.md) | V | |
-| ASC-SecurityAlert  | [Ansluta till Azure Security Center](connect-azure-security-center.md)  | V | |
-| MCAS SecurityAlert  | [Anslut Microsoft Cloud App Security](connect-cloud-app-security.md)  | V | |
+| CommonSecurityLog  | [Anslut CEF](connect-common-event-format.md)  | &#10003; | |
+| OfficeActivity | [Ansluta Office 365](connect-office-365.md) | &#10003; | |
+| SecurityEvents | [Ansluta till Windows säkerhetshändelser](connect-windows-security-events.md)  | &#10003; | Arbets böckerna för oskyddade protokoll finns i [arbets boks konfiguration för oskyddade protokoll](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
+| Syslog | [Ansluta till Syslog](connect-syslog.md) | &#10003; | |
+| Microsoft-brand vägg för webbaserade program (WAF) – (AzureDiagnostics) |[Anslut brand väggen för Microsoft-webbprogram](connect-microsoft-waf.md) | &#10003; | |
+| SymantecICDx_CL | [Anslut Symantec](connect-symantec.md) | &#10003; | |
+| ThreatIntelligenceIndicator  | [Ansluta till hotinformation](connect-threat-intelligence.md)  | &#10003; | |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor tjänst karta](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM Insights onboarding](../azure-monitor/insights/vminsights-onboard.md) <br> [Aktivera Azure Monitor VM-insikter](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Använda en enda virtuell dator](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Använda fordonsbaserad via princip](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| &#10007; | Arbets bok för VM Insights  |
+| DnsEvents | [Anslut DNS](connect-dns.md) | &#10003; | |
+| W3CIISLog | [Anslut IIS-loggar](../azure-monitor/platform/data-sources-iis-logs.md)  | &#10007; | |
+| WireData | [Anslut tråd data](../azure-monitor/insights/wire-data.md) | &#10007; | |
+| WindowsFirewall | [Anslut Windows-brandväggen](connect-windows-firewall.md) | &#10003; | |
+| AADIP SecurityAlert  | [Ansluta Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
+| AATP SecurityAlert  | [Ansluta till Azure ATP](connect-azure-atp.md) | &#10003; | |
+| ASC-SecurityAlert  | [Ansluta till Azure Security Center](connect-azure-security-center.md)  | &#10003; | |
+| MCAS SecurityAlert  | [Anslut Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
-| Sysmon (händelse) | [Anslut Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Anslut Windows-händelser](../azure-monitor/platform/data-sources-windows-events.md) <br> [Hämta Sysmon-parsern](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| X | Sysmon-samlingen installeras inte som standard på virtuella datorer. Mer information om hur du installerar Sysmon-agenten finns i [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
-| ConfigurationData  | [Automatisera VM-inventering](../automation/automation-vm-inventory.md)| X | |
-| ConfigurationChange  | [Automatisera spårning av virtuella datorer](../automation/change-tracking.md) | X | |
-| F5 BIG-IP | [Ansluta F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | X | |
-| McasShadowItReporting  |  | X | |
-| Barracuda_CL | [Ansluta till Barracuda](connect-barracuda.md) | V | |
+| Sysmon (händelse) | [Anslut Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Anslut Windows-händelser](../azure-monitor/platform/data-sources-windows-events.md) <br> [Hämta Sysmon-parsern](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon-samlingen installeras inte som standard på virtuella datorer. Mer information om hur du installerar Sysmon-agenten finns i [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| ConfigurationData  | [Automatisera VM-inventering](../automation/automation-vm-inventory.md)| &#10007; | |
+| ConfigurationChange  | [Automatisera spårning av virtuella datorer](../automation/change-tracking.md) | &#10007; | |
+| F5 BIG-IP | [Ansluta F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
+| McasShadowItReporting  |  | &#10007; | |
+| Barracuda_CL | [Ansluta till Barracuda](connect-barracuda.md) | &#10003; | |
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36aa0a4a87e439c128c5247b6850100a7f2e826e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598054"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373681"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Konfigurera program inställningar för för hands versionen av Azure statisk Web Apps
 
@@ -30,7 +30,7 @@ Program inställningarna kallas ibland miljövariabler.
 >
 > Information om hur du använder miljövariabler med webb programmet för klient delen finns i dokumenten för [Java Script Framework](#javascript-frameworks-and-libraries) eller den [statiska webbplats generatorn](#static-site-generators).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett statiskt Azure Web Apps-program
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -60,9 +60,9 @@ Information om hur du använder miljövariabler med ditt JavaScript-ramverk elle
 
 ## <a name="about-api-app-settings"></a>Om API app-inställningar
 
-API: er i Azures statiska Web Apps drivs av Azure Functions, vilket gör att du kan definiera program inställningar i den _lokala. Settings. JSON_ -filen. Den här filen definierar program inställningar i `Values` konfigurationens egenskap.
+API: er i Azures statiska Web Apps drivs av Azure Functions, vilket gör att du kan definiera program inställningar i _local.settings.jsi_ filen. Den här filen definierar program inställningar i `Values` konfigurationens egenskap.
 
-I följande exempel _Local. Settings. JSON_ visas hur du lägger till ett värde för `DATABASE_CONNECTION_STRING` .
+Följande exempel _local.settings.jspå_ visar hur du lägger till ett värde för `DATABASE_CONNECTION_STRING` .
 
 ```json
 {
@@ -105,15 +105,17 @@ Azure Portal tillhandahåller ett gränssnitt för att skapa, uppdatera och ta b
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Konfigurations vy för Azure statisk Web Apps":::
 
-1. Ange ett **namn** och ett **värde**
+1. Ange ett **namn** och ett **värde**.
 
-1. Klicka på **OK**
+1. Klicka på **OK**.
+
+1. Klicka på **Spara**.
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
 Du kan använda `az rest` kommandot för att utföra Mass uppladdning av dina inställningar till Azure. Kommandot accepterar program inställningar som JSON-objekt i en överordnad egenskap som kallas `properties` .
 
-Det enklaste sättet att skapa en JSON-fil med lämpliga värden är att skapa en modifierad version av din _lokala. Settings. JSON_ -fil.
+Det enklaste sättet att skapa en JSON-fil med lämpliga värden är att skapa en modifierad version av _local.settings.jsi_ filen.
 
 1. Lägg till följande post i din _. gitignore_ -fil för att se till att den nya filen med känsliga data inte visas offentligt.
 
@@ -121,7 +123,7 @@ Det enklaste sättet att skapa en JSON-fil med lämpliga värden är att skapa e
    local.settings*.json
    ```
 
-2. Gör sedan en kopia av din _lokala. Settings. JSON_ -fil och ge den namnet _Local. Settings. Properties. JSON_.
+2. Skapa sedan en kopia av din _local.settings.jspå_ filen och ge den namnet _local.settings.properties.jspå_.
 
 3. I den nya filen tar du bort alla andra data från filen utom program inställningarna och byter namn `Values` till `properties` .
 
@@ -150,13 +152,13 @@ Azure CLI-kommandot kräver ett antal värden som är speciella för ditt konto 
    ```
 
 > [!IMPORTANT]
-> Filen "Local. Settings. Properties. JSON" måste finnas i samma katalog där kommandot körs. Den här filen kan likna vad du vill. Namnet är inte signifikant.
+> Filen local.settings.properties.jspå måste finnas i samma katalog som kommandot körs på. Den här filen kan likna vad du vill. Namnet är inte signifikant.
 
 ### <a name="view-application-settings-with-the-azure-cli"></a>Visa program inställningar med Azure CLI
 
 Program inställningar är tillgängliga för visning via Azure CLI.
 
-1. Kör följande kommando från en terminal eller kommando rad. Se till att ersätta plats hållarna `<YOUR_SUBSCRIPTION_ID>` `<YOUR_RESOURCE_GROUP_NAME>` `<YOUR_STATIC_SITE_NAME>` med dina värden.
+- Kör följande kommando från en terminal eller kommando rad. Se till att ersätta plats hållarna `<YOUR_SUBSCRIPTION_ID>` `<YOUR_RESOURCE_GROUP_NAME>` `<YOUR_STATIC_SITE_NAME>` med dina värden.
 
    ```bash
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"

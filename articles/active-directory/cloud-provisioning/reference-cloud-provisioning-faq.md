@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c92cb120f91f8cb76675ba9fc50bad0517886e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3ef482804c80602771963633bcc46feaf014c363
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360545"
+ms.locfileid: "85373836"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
 
@@ -32,9 +32,9 @@ Moln etablering är schemalagt att köras var 2: e minut. Var 2: e minut, kommer
 
 Detta är förväntat. Felen beror på att användarobjektet inte finns i Azure AD. När användaren har allokerats till Azure AD bör hash-värden för lösen ord tillhandahållas i den efterföljande körningen. Vänta på några körningar och bekräfta att det inte längre finns några fel i lösen ordets hash-synkronisering.
 
-**F: Vad händer om Active Directory-instansen har attribut som inte stöds av Cloud provisoning (till exempel katalog tillägg)?**
+**F: Vad händer om Active Directory-instansen har attribut som inte stöds av moln etablering (till exempel katalog tillägg)?**
 
-Moln etablering kommer att köras och etablera de attribut som stöds. Attribut som inte stöds är inte etablerade i Azure AD. Granska katalog tilläggen i Active Directory och se till att du inte behöver dessa attribut för att flöda till Azure AD. Om det krävs ett eller flera attribut kan du överväga att använda Azure AD Connect synkronisera eller flytta nödvändig information till ett av de attribut som stöds (t. ex. tilläggets attribut 1-15).
+Moln etablering kommer att köras och etablera de attribut som stöds. Attribut som inte stöds är inte etablerade i Azure AD. Granska katalog tilläggen i Active Directory och se till att du inte behöver de attributen för att flöda till Azure AD. Om det krävs ett eller flera attribut kan du överväga att använda Azure AD Connect synkronisera eller flytta nödvändig information till ett av de attribut som stöds (t. ex. tilläggets attribut 1-15).
 
 **F: Vad är skillnaden mellan Azure AD Connect synkronisering och moln etablering?**
 
@@ -62,7 +62,7 @@ Ja, Cloud-etablering skapar ett huvud namn för etablerings konfigurationen med 
 
 **F: Vad händer när en synkroniserad användare krävs för att ändra lösen ord vid nästa inloggning?**
 
-Om lösen ordets hash-synkronisering är aktiverat i moln etableringen och den synkroniserade användaren krävs för att ändra lösen ord vid nästa inloggning i den lokala AD-miljön, etablerar inte moln etableringen om att ändra lösen ordets hash-värde till Azure AD. När användaren har ändrat lösen ordet, tillhandahålls hashen för användarens lösen ord från AD till Azure AD.
+Om lösen ordets hash-synkronisering är aktive rad i moln etableringen och den synkroniserade användaren krävs för att ändra lösen ord vid nästa inloggning i den lokala AD-miljön, etablerar inte moln etableringen "to-changed"-lösen ordet hash till Azure AD. När användaren har ändrat lösen ordet, tillhandahålls hashen för användarens lösen ord från AD till Azure AD.
 
 **F: har moln etableringen stöd för tillbakaskrivning av ms-DS-consistencyGUID för alla objekt?**
 
@@ -70,7 +70,7 @@ Nej, moln etableringen stöder inte tillbakaskrivning av ms-DS-consistencyGUID f
 
 **F: Jag är etablerad användare som använder moln etablering. Jag har tagit bort konfigurationen. Varför ser jag fortfarande de gamla synkroniserade objekten i Azure AD?** 
 
-När du tar bort konfigurationen rensar moln etableringen inte de synkroniserade objekten i Azure AD. Se till att du inte har de gamla objekten genom att ändra omfånget för konfigurationen till en tom grupp eller organisationsenheter. När etableringen körs och rensar objekten inaktiverar du och tar bort konfigurationen. 
+När du tar bort konfigurationen tar moln etableringen inte bort de synkroniserade objekten automatiskt i Azure AD. Se till att du inte har de gamla objekten genom att ändra omfånget för konfigurationen till en tom grupp eller organisationsenheter. När etableringen körs och rensar objekten inaktiverar du och tar bort konfigurationen. 
 
 **F: Vad betyder det att Exchange hybrid inte stöds?**
 
@@ -79,6 +79,10 @@ Funktionen Exchange-hybridinstallation gör att Exchange-postlådor kan samexist
 **F: kan jag installera moln etablerings agenten på Windows Server Core?**
 
 Nej, det finns inte stöd för att installera agenten på Server Core.
+
+**F: kan jag använda en uppsamlings server med moln etablerings agenten?**
+
+Nej, det finns inte stöd för mellanlagrings servrar.
 
 ## <a name="next-steps"></a>Nästa steg 
 

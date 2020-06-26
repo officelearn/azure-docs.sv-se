@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 05/10/2019
-ms.openlocfilehash: a4a78dfd1fd88dfc6b212f0c50716bf3293a7ccd
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 06/25/2020
+ms.openlocfilehash: 9cefd07e02eaf80b7cfdf65cab8d4eb410da4677
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221356"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373292"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Jämförelse av funktioner: Azure SQL Database och Azure SQL-hanterad instans
 
@@ -39,7 +39,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | **Funktion** | **Azure SQL Database** | **Hanterad Azure SQL-instans** |
 | --- | --- | --- |
 | [Alltid krypterad](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Ja – se [certifikat Arkiv](always-encrypted-certificate-store-configure.md) och [nyckel valv](always-encrypted-azure-key-vault-configure.md) | Ja – se [certifikat Arkiv](always-encrypted-certificate-store-configure.md) och [nyckel valv](always-encrypted-azure-key-vault-configure.md) |
-| [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [99,99-99.995% tillgänglighet](high-availability-sla.md) garanteras för varje databas. Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md) | [99,99 .% tillgänglighet](high-availability-sla.md) garanteras för varje databas och [kan inte hanteras av användaren](../managed-instance/transact-sql-tsql-differences-sql-server.md#availability). Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). Använd [grupper för automatisk redundans](auto-failover-group-overview.md) för att konfigurera en sekundär SQL-hanterad instans i en annan region. SQL Server instanser och SQL Database kan inte användas som sekundära för SQL-hanterade instanser. |
+| [AlwaysOn-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [99,99-99.995% tillgänglighet](high-availability-sla.md) garanteras för varje databas. Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md) | [99,99 .% tillgänglighet](high-availability-sla.md) garanteras för varje databas och [kan inte hanteras av användaren](../managed-instance/transact-sql-tsql-differences-sql-server.md#availability). Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). Använd [grupper för automatisk redundans](auto-failover-group-overview.md) för att konfigurera en sekundär SQL-hanterad instans i en annan region. SQL Server instanser och SQL Database kan inte användas som sekundära för SQL-hanterade instanser. |
 | [Ansluta en databas](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Inga | Inga |
 | [Granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Ja](auditing-overview.md)| [Ja](../managed-instance/auditing-configure.md), med vissa [skillnader](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [Azure Active Directory (Azure AD)-autentisering](authentication-aad-overview.md) | Ja. Endast Azure AD-användare. | Ja. Inklusive Azure AD-inloggningar på server nivå. |
@@ -69,7 +69,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Utökade händelser (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Några-se [utökade händelser i SQL Database](xevent-db-diff-from-svr.md) | Ja – Visa [skillnader i utökade händelser](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
 | [Utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Inga | Inga |
 | [Filer och filgrupper](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Endast primär fil grupp | Ja. Fil Sök vägar tilldelas automatiskt och fil platsen kan inte anges i `ALTER DATABASE ADD FILE` [instruktionen](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
-| [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | [Nej](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
+| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | [Nej](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [Full texts ökning (FT: er)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Ja, men ord separatorer från tredje part stöds inte | Ja, men [ord separatorer från tredje part stöds inte](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [Functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se enskilda funktioner | Ja – se [lagrade procedurer, funktioner, utlösa skillnader](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja – [Premium-och affärskritisk nivåer endast](../in-memory-oltp-overview.md) begränsat stöd för icke-beständiga minnes objekt, till exempel tabell typer | Ja – [endast affärskritisk nivå](../managed-instance/sql-managed-instance-paas-overview.md) |
@@ -85,7 +85,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|No|Ja, endast till SQL Database, SQL-hanterad instans och SQL Server. Se [skillnader i T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|Ja, endast för import från Azure Blob Storage. |Ja, endast till SQL Database, SQL-hanterad instans och SQL Server, och för att importera från Azure Blob Storage. Se [skillnader i T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [Operatorer](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | De flesta – se enskilda operatörer |Ja – se [skillnader i T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nej. Du kan fråga efter data i filerna som placeras på Azure Blob Storage med hjälp av `OPENROWSET` funktionen. | Nej. Du kan fråga efter data i filerna som placeras på Azure Blob Storage med hjälp av `OPENROWSET` funktionen. |
+| [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Nej. Du kan fråga efter data i filerna som placeras på Azure Blob Storage med hjälp av `OPENROWSET` funktionen. | Nej. Du kan fråga efter data i filerna som placeras på Azure Blob Storage med hjälp av `OPENROWSET` funktionen. |
 | [Fråga om aviseringar](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Yes |
 | [Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)(_tidigare R-tjänster_)| Ja, i [offentlig för hands version](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
 | [Återställnings modeller](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | Endast fullständig återställning som garanterar hög tillgänglighet stöds. Enkla och Mass återställnings modeller är inte tillgängliga. | Endast fullständig återställning som garanterar hög tillgänglighet stöds. Enkla och Mass återställnings modeller är inte tillgängliga. |
@@ -128,7 +128,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | Kvarhållning av säkerhetskopior | Ja. 7 dagar som standard, max 35 dagar. | Ja. 7 dagar som standard, max 35 dagar. |
 | [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Ja | Ja |
 | Fil system åtkomst | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) för att komma åt och läsa in data från Azure Blob Storage som ett alternativ. | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) för att komma åt och läsa in data från Azure Blob Storage som ett alternativ. |
-| [Geo-återställning](recovery-using-backups.md#geo-restore) | Ja – alla tjänst nivåer förutom storskalig | Ja – alla tjänst nivåer förutom storskalig |
+| [Geo-återställning](recovery-using-backups.md#geo-restore) | Ja | Ja |
 | [Skalnings arkitektur](service-tier-hyperscale.md) | Yes | No |
 | [Långsiktig kvarhållning av säkerhets kopior – LTR](long-term-retention-overview.md) | Ja, Behåll automatiskt säkerhets kopieringar upp till 10 år. | Inte ännu. Använd `COPY_ONLY` [manuella säkerhets kopieringar](../managed-instance/transact-sql-tsql-differences-sql-server.md#backup) som en tillfällig lösning. |
 | Pausa/återuppta | Ja, i [Server lös modell](serverless-tier-overview.md) | No |
@@ -166,7 +166,7 @@ Azure SQL Database och Azure SQL Managed instance stöder olika data verktyg som
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Ja [version 18,0 och högre](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
-| [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Inga – se [utökade händelser](xevent-db-diff-from-svr.md) | Yes |
+| [SQL Server-profilerare](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Inga – se [utökade händelser](xevent-db-diff-from-svr.md) | Yes |
 | [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Ja](https://www.microsoft.com/download/details.aspx?id=38829) | Ja, [i för hands version](https://www.microsoft.com/download/details.aspx?id=100306) |
 
 ## <a name="migration-methods"></a>Metoder för migrering

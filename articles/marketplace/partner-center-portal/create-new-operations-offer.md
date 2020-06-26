@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: badad6da0c0e244cbdb30e4b89955dd073782f04
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 6a062723394b9a5187b72cabf449cdc17b2bbbcd
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752558"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373496"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Skapa ett erbjudande för Dynamics 365 for Operations
 
@@ -210,9 +210,6 @@ Ange ditt erbjudandes logo typ i två pixel storlekar:
 - **Liten** (48 x 48)
 - **Stor** (216 x 216)
 
-#### <a name="hero"></a>Hjälte
-
-Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 290 pixlar.
 
 #### <a name="screenshots"></a>Skärmbilder
 

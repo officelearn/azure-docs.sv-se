@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: d2fea04e44e9a658f97d006de672fd757d894210
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b8afaae744522bec5675e5a8c17d8b0ea0be0c37
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321877"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367146"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
@@ -71,11 +71,11 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 
 ## <a name="essentials"></a>Essentials
 
-| Fält | Description|
+| Field | Beskrivning|
 |:---|:---|
 | alertId | GUID: n identifierar aviserings instansen unikt. |
 | alertRule | Namnet på den aviserings regel som genererade aviserings instansen. |
-| Allvarlighetsgrad | Aviseringens allvarlighets grad. Möjliga värden: Sev0, Sev1, Sev2, Sev3 eller Sev4. |
+| Severity | Aviseringens allvarlighets grad. Möjliga värden: Sev0, Sev1, Sev2, Sev3 eller Sev4. |
 | signalType | Identifierar signalen som varnings regeln definierats på. Möjliga värden: statistik, logg eller aktivitets logg. |
 | monitorCondition | När en varning utlöses anges övervaknings villkoret för aviseringen till **utlöst**. När det underliggande villkoret som orsakade aviseringen om att brand figurer rensas, anges övervaknings villkoret som **löst**.   |
 | monitoringService | Övervaknings tjänsten eller lösningen som skapade aviseringen. Fälten för aviserings kontexten styrs av övervaknings tjänsten. |
@@ -221,9 +221,9 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
                 ]
             }
         ]
-    },
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
+    },
 }
 ```
 

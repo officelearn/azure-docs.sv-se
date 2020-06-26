@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c444e54d29482f69d924df3796cc5da4afb4188
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759104"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367724"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem med att logga in till ett lokalt program med Azure AD-programproxyn
 
@@ -36,7 +36,7 @@ Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste prob
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Jag har problem med att ansluta mitt program
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
-  * [Jag vet inte vilka portar som ska öppnas för mitt program](application-proxy-connectivity-ports-how-to.md)
+  * [Jag vet inte vilka portar som ska öppnas för mitt program](application-proxy-add-on-premises-application.md)
   * [Jag påträffade ett problem eftersom det inte fanns någon fungerande anslutning i en anslutningsgrupp för mitt program](application-proxy-connectivity-no-working-connector.md)
 
 ## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Jag har problem med att konfigurera Azure AD-programproxyn i administrationsportalen

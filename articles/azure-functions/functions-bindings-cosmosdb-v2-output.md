@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB utgående bindning för funktioner 2. x
+title: Azure Cosmos DB utgående bindning för funktioner 2. x och högre
 description: Lär dig att använda Azure Cosmos DB utgående bindning i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: b58924607f002af27d21343389404fcc66d1f35d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 2228a9609b0e0325dc4e6f7ccbe88417c900b688
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561671"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374346"
 ---
-# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Cosmos DB utgående bindning för Azure Functions 2. x
+# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB utgående bindning för Azure Functions 2. x och högre
 
 Med Azure Cosmos DB utgående bindning kan du skriva ett nytt dokument till en Azure Cosmos DB-databas med hjälp av SQL-API: et.
 
@@ -125,7 +125,7 @@ Det här avsnittet innehåller följande exempel:
 
 ### <a name="queue-trigger-write-one-doc"></a>Köa utlösare, skriva ett dokument
 
-I följande exempel visas en Azure Cosmos DB utgående bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en indatatyps bindning för en kö som tar emot JSON i följande format:
+I följande exempel visas en Azure Cosmos DB utgående bindning i en *function.jspå* filen och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en indatatyps bindning för en kö som tar emot JSON i följande format:
 
 ```json
 {
@@ -146,7 +146,7 @@ Funktionen skapar Azure Cosmos DB dokument i följande format för varje post:
 }
 ```
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -205,7 +205,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Här är function. JSON-filen:
+Här är function.jspå filen:
 
 ```json
 {
@@ -250,7 +250,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en Azure Cosmos DB utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en indatatyps bindning för en kö som tar emot JSON i följande format:
+I följande exempel visas en Azure Cosmos DB utgående bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en indatatyps bindning för en kö som tar emot JSON i följande format:
 
 ```json
 {
@@ -271,7 +271,7 @@ Funktionen skapar Azure Cosmos DB dokument i följande format för varje post:
 }
 ```
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -307,7 +307,7 @@ Här är JavaScript-koden:
 
 I följande exempel visas hur du skriver ett dokument till en Azure CosmosDB-databas som utdata till en funktion.
 
-Bindnings definitionen definieras i *Function. JSON* där *Type* har angetts till `cosmosDB` .
+Bindnings definitionen definieras i *function.jspå* WHERE- *typ* är inställd på `cosmosDB` .
 
 ```json
 {
@@ -562,9 +562,9 @@ Attribut stöds inte av python.
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `CosmosDB` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `CosmosDB` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp**     | saknas | Måste anges till `cosmosDB` .        |
 |**position**     | saknas | Måste anges till `out` .         |
@@ -595,9 +595,9 @@ Som standard skapas ett dokument i din databas när du skriver till Utdataparame
 
 <a name="host-json"></a>
 
-## <a name="hostjson-settings"></a>Host. JSON-inställningar
+## <a name="hostjson-settings"></a>host.jspå Inställningar
 
-I det här avsnittet beskrivs globala konfigurations inställningar som är tillgängliga för den här bindningen i version 2. x. Mer information om globala konfigurations inställningar i version 2. x finns i [Host. JSON-referens för Azure Functions version 2. x](functions-host-json.md).
+I det här avsnittet beskrivs globala konfigurations inställningar som är tillgängliga för den här bindningen i version 2. x. Mer information om globala konfigurations inställningar i version 2. x finns [host.jsför referens för Azure Functions version 2. x](functions-host-json.md).
 
 ```json
 {
@@ -614,7 +614,7 @@ I det här avsnittet beskrivs globala konfigurations inställningar som är till
 }
 ```
 
-|Egenskap  |Default | Description |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och`Gateway`|
 |Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|

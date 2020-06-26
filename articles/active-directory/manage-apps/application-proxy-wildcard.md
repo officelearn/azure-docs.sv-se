@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d04751cb8796290135cfc045385e1bf4cf3c3c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759954"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367741"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Program med jokertecken i Azure Active Directory Application Proxy
 
@@ -62,7 +62,7 @@ Kom igång genom att se till att du uppfyller dessa krav.
 1. Skapa en verifierad domän i Azure.
 1. Ladda upp ett TLS/SSL-certifikat i PFX-format till programproxyn.
 
-Du bör överväga att använda ett jokertecken för att matcha det program som du planerar att skapa. Du kan också använda ett certifikat som bara visar vissa program. I det här fallet kommer bara de program som listas i certifikatet att vara tillgängliga via det här programmet med jokertecken.
+Du bör överväga att använda ett jokertecken för att matcha det program som du planerar att skapa. 
 
 Av säkerhets skäl är detta ett hårt krav och vi stöder inte jokertecken för program som inte kan använda en anpassad domän för den externa URL: en.
 

@@ -7,14 +7,14 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: f514c33f2c39e205ac186b70711b478f67fcb4e5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 0870f389e366a9249e98d60a51aa7fdd40238ea0
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212020"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374516"
 ---
-# <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
+# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Skapa ett data etiketts projekt (för hands version) och exportera etiketter 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

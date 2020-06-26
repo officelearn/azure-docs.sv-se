@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: f1887065ef356717e05814a23ad85c7f0e6c6ab0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 47c3606b0b1ada93aeb8a107f48222fb26483a9c
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362670"
+ms.locfileid: "85368285"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 
@@ -43,7 +43,8 @@ Azure Kognitiv sökning utnyttjar andra Azure-tjänster för djupare övervaknin
 Flera aspekter av en Sök tjänst bestäms när tjänsten är etablerad och kan inte ändras senare:
 
 * Tjänst namn (du kan inte byta namn på en tjänst)
-* Maximalt antal repliker och partitioner (bestäms av nivån)
+* Tjänst plats (du kan för närvarande inte flytta en intakt tjänst till en annan region)
+* Maximalt antal repliker och partitioner (bestäms av nivån, Basic eller standard)
 
 Om du började med Basic med maximalt en partition, och du nu behöver fler partitioner, måste du [skapa en ny tjänst](search-create-service-portal.md) på en högre nivå och återskapa innehållet på den nya tjänsten. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5b54f87635e1ea972778b0039dc34170c5b7ab8a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 869614c2e3fe11c289ab6eb7f6c1407f666de2b0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362296"
+ms.locfileid: "85368149"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
 Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync.sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.
@@ -82,7 +82,11 @@ Att behålla mer data lokalt innebär lägre utgående kostnader eftersom färre
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Jag har lagt till en ny server slut punkt. Hur länge till mina filer på den här server nivån?
-När filerna har laddats upp till Azure-filresursen i version 4,0 och senare av Azure File Sync-agenten, kommer de att sorteras enligt dina principer så snart nästa nivå av sessioner körs, vilket sker en gång i timmen. På äldre agenter kan det ta upp till 24 timmar innan skiktning sker.
+
+Huruvida filer måste vara nivåbaserade per uppsättnings principer utvärderas en gång i timmen. Du kan stöta på två situationer när en ny server slut punkt skapas:
+
+1. När du lägger till en ny server slut punkt finns ofta filer på den server platsen. De måste laddas upp först innan moln nivån kan börja. Principen för ledigt utrymme på volymen börjar inte att fungera förrän den inledande överföringen av alla filer har avslut ATS. Den valfria datum principen kommer dock att börja arbeta med en enskild fil, så snart en fil har överförts. Intervallet med en timme gäller även här. 
+2. När du lägger till en ny server slut punkt är det möjligt att du ansluter en tom Server plats till en Azure-filresurs med dina data. Om det gäller en andra server eller under en katastrof återställning. Om du väljer att ladda ned namn området och återkalla innehållet under den inledande nedladdningen till servern, kommer filerna att återkallas, baserat på den senast ändrade tidsstämpeln. Endast så många filer kommer att återkallas så att de passar in i principen ledigt utrymme för volymen och den valfria datum principen.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Hur kan jag se om en fil har flyttats på nivå?

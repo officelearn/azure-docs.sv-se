@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9271d8b5657769ce70c46b5e428d995ddc642608
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf2ef4211cab0dd778295c71a39a32305d074765
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158440"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Självstudie: Azure Active Directory integrering med Datahug
 
@@ -117,7 +117,7 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
     Skriv en URL i text rutan **inloggnings-URL** :`https://apps.datahug.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Datahug-klientsupporten](https://datahug.com/about/contact-us/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Datahug-klientsupporten](https://www.sap.com/corporate/en/company/office-locations.html) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **XML-federationsmetadata** från de angivna alternativen enligt dina behov och sparar dem på datorn.
 
@@ -147,7 +147,7 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
 
 ### <a name="configure-datahug-single-sign-on"></a>Konfigurera enkel inloggning för Datahug
 
-För att konfigurera enkel inloggning på **Datahug**-sidan måste du skicka den nedladdade **XML:en med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Datahug-supportteamet](https://datahug.com/about/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Datahug**-sidan måste du skicka den nedladdade **XML:en med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Datahug-supportteamet](https://www.sap.com/corporate/en/company/office-locations.html). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -167,7 +167,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

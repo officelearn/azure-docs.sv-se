@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d73427db5fd168a31c478f92ef11307df136a775
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 07d2326d6677ccba93e2d3173bf8abccf309fe70
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125420"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374720"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,7 +72,7 @@ Vi rekommenderar att du skapar ett data lager för en [Azure Blob-behållare](ht
 
 [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) bygger på Azure Blob Storage och är utformat för företags Big data Analytics. En grundläggande del av Data Lake Storage Gen2 är att lägga till ett [hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) till Blob Storage. Det hierarkiska namn området ordnar objekt/filer i en hierarki med kataloger för effektiv data åtkomst.
 
-När du skapar en arbets yta registreras en Azure Blob-behållare och en Azure-filresurs automatiskt till arbets ytan. De heter `workspaceblobstore` `workspacefilestore` respektive. `workspaceblobstore`används för att lagra arbets ytans artefakter och dina experiment loggar för Machine Learning. `workspacefilestore`används för att lagra antecknings böcker och R-skript som har auktoriserats via [beräknings instanser](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). `workspaceblobstore`Containern har angetts som standard data lager.
+När du skapar en arbets yta registreras en Azure Blob-behållare och en Azure-filresurs automatiskt till arbets ytan. De heter `workspaceblobstore` `workspacefilestore` respektive. `workspaceblobstore`används för att lagra arbets ytans artefakter och dina experiment loggar för Machine Learning. `workspacefilestore`används för att lagra antecknings böcker och R-skript som har auktoriserats via [beräknings instanser](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). `workspaceblobstore`Behållaren har angetts som standard data lager och kan inte tas bort från arbets ytan.
 
 > [!IMPORTANT]
 > Azure Machine Learning designer (för hands version) skapar ett data lager med namnet **azureml_globaldatasets** automatiskt när du öppnar ett exempel på design sidan för designern. Detta data lager innehåller bara exempel data uppsättningar. Använd **inte** det här data lagret för någon konfidentiell data åtkomst.
@@ -158,8 +158,6 @@ Om fil resursen finns i ett virtuellt nätverk inkluderar du parametern `skip_va
 
 För en Azure Data Lake Storage generation 2 (ADLS gen 2) data lager använder du [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett data lager för autentiseringsuppgifter som är anslutet till en Azure DataLake gen 2-lagring med [tjänstens huvud namn](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) och bevilja tjänstens huvud namn med åtkomst till *lagrings BLOB-dataläsaren* . Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
-För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) och ge tjänstens huvud namn till gång till rätt data åtkomst. Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
-
 Följande kod skapar och registrerar `adlsgen2_datastore_name` data lagret på `ws` arbets ytan. Detta data lager har åtkomst till fil systemet `test` i `account_name` lagrings kontot med hjälp av de angivna autentiseringsuppgifterna för tjänstens huvud namn.
 
 ```python 
@@ -237,6 +235,7 @@ Du kan också ändra standard data lagret med följande kod. Den här funktionen
 ```Python
  ws.set_default_datastore(new_default_datastore)
 ```
+
 <a name="up-and-down"></a>
 ## <a name="upload-and-download-data"></a>Ladda upp och ladda ned data
 

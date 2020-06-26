@@ -13,16 +13,16 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 893f449c6a8e6b41a79fe9d7c26db461b757e4a3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 52a4a7131c85231107a2a23a1916016776b219fd
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317759"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367435"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrera program till Microsoft Authentication Library (MSAL)
 
-Många utvecklare har skapat och distribuerat program med hjälp av Active Active Directory-autentiseringsbibliotek (ADAL). Vi rekommenderar nu att du använder Microsoft Authentication Library (MSAL) för autentisering och auktorisering av Azure AD-entiteter.
+Många utvecklare har skapat och distribuerat program med hjälp av Azure Active Directory Authentication Library (ADAL). Vi rekommenderar nu att du använder Microsoft Authentication Library (MSAL) för autentisering och auktorisering av Azure AD-entiteter.
 
 Genom att använda MSAL i stället för ADAL:
 
@@ -49,7 +49,7 @@ Följande artiklar kan hjälpa dig att migrera till MSAL:
 - [Migrera till MSAL Python](migrate-python-adal-msal.md)
 - [Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer till MSAL.NET](msal-net-migration-ios-broker.md)
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
 __F: är ADAL föråldrad?__  
 S: Ja. Från och med den 30 juni 2020 kommer vi inte längre att lägga till nya funktioner i ADAL. Vi fortsätter att lägga till viktiga säkerhets korrigeringar till ADAL fram till den 30 juni 2022.

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 92962c376e2b800a327f44c4cad5cd9fdd4cab8d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e46aa28d770cf561df40a0f4b40ef39a70e35687
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560519"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367945"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: automatisera storleks ändring av överförda bilder med hjälp av Event Grid
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 > * Distribuera serverfri kod med Azure Functions
 > * Skapa en prenumeration på en Blob Storage-händelse i Event Grid
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -62,7 +62,11 @@ Om du inte använder Cloud Shell måste du först logga in med `az login`.
 
 Om du inte redan har registrerat resursprovidern Event Grid i din prenumeration kontrollerar du att den är registrerad.
 
-```azurecli-interactive
+```bash
+az provider register --namespace Microsoft.EventGrid
+```
+
+```powershell
 az provider register --namespace Microsoft.EventGrid
 ```
 
@@ -72,22 +76,43 @@ För Azure Functions krävs ett allmänt lagringskonto. Förutom Blob Storage-ko
 
 1. Ange en variabel som ska innehålla namnet på resursgruppen som du skapade i den föregående självstudien.
 
-    ```azurecli-interactive
+    ```bash
     resourceGroupName="myResourceGroup"
     ```
-2. Ange en variabel som ska innehålla platsen för resurser som ska skapas. 
 
-    ```azurecli-interactive
+    ```powershell
+    $resourceGroupName="myResourceGroup"
+    ```
+
+1. Ange en variabel som ska innehålla platsen för resurser som ska skapas. 
+
+    ```bash
     location="eastus"
-    ```    
-3. Ange en variabel för namnet på det nya lagringskonto som Azure Functions kräver.
-    ```azurecli-interactive
+    ```
+
+    ```powershell
+    $location="eastus"
+    ```
+
+1. Ange en variabel för namnet på det nya lagringskonto som Azure Functions kräver.
+
+    ```bash
     functionstorage="<name of the storage account to be used by the function>"
     ```
-4. Skapa lagringskonto för Azure-funktionen.
 
-    ```azurecli-interactive
+    ```powershell
+    $functionstorage="<name of the storage account to be used by the function>"
+    ```
+
+1. Skapa lagringskonto för Azure-funktionen.
+
+    ```bash
     az storage account create --name $functionstorage --location $location \
+    --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
+    ```
+
+    ```powershell
+    az storage account create --name $functionstorage --location $location `
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
@@ -99,14 +124,25 @@ I följande kommando anger du ditt unika namn på funktionsappen. Funktionsappen
 
 1. Ange ett namn för funktionsappen som ska skapas.
 
-    ```azurecli-interactive
+    ```bash
     functionapp="<name of the function app>"
     ```
-2. Skapa Azure-funktionen.
 
-    ```azurecli-interactive
+    ```powershell
+    $functionapp="<name of the function app>"
+    ```
+
+1. Skapa Azure-funktionen.
+
+    ```bash
     az functionapp create --name $functionapp --storage-account $functionstorage \
       --resource-group $resourceGroupName --consumption-plan-location $location \
+      --functions-version 2
+    ```
+
+    ```powershell
+    az functionapp create --name $functionapp --storage-account $functionstorage `
+      --resource-group $resourceGroupName --consumption-plan-location $location `
       --functions-version 2
     ```
 
@@ -118,7 +154,7 @@ Funktionen behöver autentiseringsuppgifter för Blob Storage-kontot. Dessa läg
 
 # <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
 
-```azurecli-interactive
+```bash
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
   --name $blobStorageAccount --query connectionString --output tsv)
 
@@ -127,9 +163,18 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
   THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
+```powershell
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName `
+  --name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName `
+  --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails `
+  THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
+
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-```azurecli-interactive
+```bash
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
   -n $blobStorageAccount --query [0].value --output tsv)
 
@@ -140,6 +185,20 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
   --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
   AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
   AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
+  AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+```
+
+```powershell
+$blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName `
+  -n $blobStorageAccount --query [0].value --output tsv)
+
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName `
+  --name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName `
+  --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails `
+  AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount `
+  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey `
   AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 ```
 
@@ -155,9 +214,15 @@ Nu kan du distribuera ett funktionskodprojekt till den här funktionsappen.
 
 Storleksändringsfunktionen för C#-exemplet finns tillgängligt på [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Distribuera kodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
-```azurecli-interactive
+```bash
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName \
   --branch master --manual-integration \
+  --repo-url https://github.com/Azure-Samples/function-image-upload-resize
+```
+
+```powershell
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName `
+  --branch master --manual-integration `
   --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
@@ -165,11 +230,18 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 
 Storleksändringsfunktionen för exemplet Node.js är tillgängligt på [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
-```azurecli-interactive
+```bash
 az functionapp deployment source config --name $functionapp \
   --resource-group $resourceGroupName --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
+
+```powershell
+az functionapp deployment source config --name $functionapp `
+  --resource-group $resourceGroupName --branch master --manual-integration `
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
+```
+
 ---
 
 Funktionen för att ändra bildstorlek utlöses av HTTP-förfrågningar som skickats till den från tjänsten Event Grid. Du kan ange för Event Grid att du vill hämta meddelandena via funktionens URL genom att skapa en händelseprenumeration. För den här självstudien prenumererar du på blob-skapade händelser.
@@ -206,7 +278,7 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     
     ![Skapa händelseprenumeration från funktionen i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Inställningen      | Föreslaget värde  | Description                                        |
+    | Inställningen      | Föreslaget värde  | Beskrivning                                        |
     | ------------ | ---------------- | -------------------------------------------------- |
     | **Namn** | imageresizersub | Namn som identifierar din nya händelseprenumeration. |
     | **Typ av ämne** | Lagringskonton | Välj händelseprovidern för Storage-kontot. |
@@ -220,7 +292,7 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
 
 1. Växla till fliken **filter** och utför följande åtgärder:
     1. Välj alternativet **Aktivera ämnesfiltrering**.
-    2. För **Ämne börjar med** anger du följande värde: **/blobServices/default/containers/images/blobs/**.
+    1. För **Ämne börjar med** anger du följande värde: **/blobServices/default/containers/images/blobs/**.
 
         ![Ange filter för händelseprenumeration](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

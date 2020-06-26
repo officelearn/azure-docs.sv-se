@@ -13,16 +13,16 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b1a89acdf189e41f3c72ec12fc84920cd0c795d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 1bbc1644294a471bbb704d10c5f684d7404eae95
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84731095"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374584"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Stäng ditt arbets-eller skol konto i en ohanterad Azure AD-organisation
 
-Om du är en användare i en ohanterad Azure Active Organization-organisation (Azure AD) och du inte längre behöver använda appar från den organisationen eller upprätthålla någon koppling till den, kan du stänga ditt konto när som helst. En ohanterad organisation har inte en global administratör. Användare i en ohanterad organisation kan stänga sina konton på egen hand, utan att behöva kontakta en administratör.
+Om du är en användare i en ohanterad Azure Active Directory (Azure AD)-organisation och du inte längre behöver använda appar från den organisationen eller upprätthålla någon koppling till den, kan du när som helst stänga ditt konto. En ohanterad organisation har inte en global administratör. Användare i en ohanterad organisation kan stänga sina konton på egen hand, utan att behöva kontakta en administratör.
 
 Användare i en ohanterad organisation skapas ofta under självbetjänings registrering. Ett exempel kan vara en informations anställd i en organisation som registrerar sig för en kostnads fri tjänst. Mer information om självbetjänings registrering finns i [Vad är självbetjänings registrering för Azure Active Directory?](directory-self-service-signup.md).
 

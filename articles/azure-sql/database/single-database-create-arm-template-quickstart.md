@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
-ms.date: 06/28/2019
-ms.openlocfilehash: 02e0947de3e7e5c6ce5110740127571ea393b168
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/24/2020
+ms.openlocfilehash: 2975b98306b7019022799d5ba69b9d7af5797a2b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343871"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368047"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Resource Manager-mallen
 
@@ -24,39 +24,32 @@ Att skapa en [enskild databas](single-database-overview.md) är det snabbaste oc
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen distribuera till Azure. Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Krav
+
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Förutsättningar
-
-Inga.
-
-## <a name="create-a-single-database"></a>Skapa en enkel databas
+## <a name="review-the-template"></a>Granska mallen
 
 En enkel databas har en definierad uppsättning resurser för beräkning, minne, IO och lagring som använder en av de två [köpmodellerna](purchasing-models.md). När du skapar en enskild databas definierar du också en [Server](logical-servers.md) för att hantera den och placerar den i [Azure-resurs gruppen](../../active-directory-b2c/overview.md) i en angiven region.
 
-### <a name="review-the-template"></a>Granska mallen
-
 Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-sql-logical-server/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-logical-server/azuredeploy.json" range="1-163" highlight="63-132":::
+:::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
 
 Dessa resurser definieras i mallen:
 
 - [**Microsoft. SQL/Servers**](/azure/templates/microsoft.sql/servers)
-- [**Microsoft. SQL/Servers/firewallRules**](/azure/templates/microsoft.sql/servers/firewallrules)
-- [**Microsoft. SQL/Servers/securityAlertPolicies**](/azure/templates/microsoft.sql/servers/securityalertpolicies)
-- [**Microsoft. SQL/Servers/vulnerabilityAssessments**](/azure/templates/microsoft.sql/servers/vulnerabilityassessments)
-- [**Microsoft. SQL/Servers/connectionPolicies**](/azure/templates/microsoft.sql/servers/connectionpolicies)
-- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
-- [**Microsoft. Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments)
+- [**Microsoft. SQL/Servers/databaser**](/azure/templates/microsoft.sql/servers/databases)
 
 Fler Azure SQL Database mal sampel finns i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 Välj **testa** från följande PowerShell-kodblock för att öppna Azure Cloud Shell.
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -67,32 +60,10 @@ $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password"
 $resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sql-logical-server/azuredeploy.json" -administratorLogin $adminUser -administratorLoginPassword $adminPassword
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sql-database/azuredeploy.json" -administratorLogin $adminUser -administratorLoginPassword $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
-
-# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-$location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
-$adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
-$adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
-
-$resourceGroupName = "${projectName}rg"
-
-az group create --location $location --name $resourceGroupName
-
-az group deployment create -g $resourceGroupName --template-uri "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" `
-    --parameters 'projectName=' + $projectName \
-                 'administratorLogin=' + $adminUser \
-                 'administratorLoginPassword=' + $adminPassword
-
-Read-Host -Prompt "Press [ENTER] to continue ..."
-```
-
-* * *
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
@@ -104,22 +75,10 @@ Behåll den här resurs gruppen, servern och den enkla databasen om du vill gå 
 
 Så här tar du bort resursgruppen:
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
-
-# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName
-```
-
-* * *
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -130,4 +89,3 @@ az group delete --name $resourceGroupName
 - Information om hur du skapar en enskild databas med Azure CLI finns i [Azure CLI-exempel](az-cli-script-samples-content-guide.md).
 - Om du vill skapa en enskild databas med hjälp av Azure PowerShell, se [Azure PowerShell exempel](powershell-script-content-guide.md).
 - Information om hur du skapar Resource Manager-mallar finns i [skapa din första mall](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
- 

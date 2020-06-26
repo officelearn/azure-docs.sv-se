@@ -4,12 +4,12 @@ description: Lär dig hur du styr Pod-inåtkomster med PodSecurityPolicy i Azure
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 9e3a17e4775150247ef7924dffec68cc86a0bcac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5bd4e1b85513ed5473b4136b458d20fef4faa79c
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80998363"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374499"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>För hands version – skydda klustret med Pod säkerhets principer i Azure Kubernetes service (AKS)
 
@@ -42,9 +42,6 @@ az extension update --name aks-preview
 ### <a name="register-pod-security-policy-feature-provider"></a>Registrera Pod för säkerhets princip
 
 Om du vill skapa eller uppdatera ett AKS-kluster för att använda Pod-säkerhetsprinciper måste du först aktivera en funktions flagga i din prenumeration. Registrera funktions flaggan *PodSecurityPolicyPreview* genom att använda kommandot [AZ Feature register][az-feature-register] , som visas i följande exempel:
-
-> [!CAUTION]
-> När du registrerar en funktion på en prenumeration kan du för närvarande inte avregistrera funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
 
 ```azurecli-interactive
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
@@ -153,7 +150,7 @@ kubectl create rolebinding \
 
 ### <a name="create-alias-commands-for-admin-and-non-admin-user"></a>Skapa alias kommandon för administratörer och användare som inte är administratörer
 
-Om du vill markera skillnaden mellan den vanliga administratörs användaren `kubectl` när du använder och den icke-administratör som skapades i föregående steg, skapar du två kommando rads Ali Aset:
+Om du vill markera skillnaden mellan den vanliga administratörs användaren när du använder `kubectl` och den icke-administratör som skapades i föregående steg, skapar du två kommando rads Ali Aset:
 
 * **Kubectl-admin-** aliaset är för den vanliga administratörs användaren och är begränsad till *PSP-AKS-* namnområdet.
 * **Kubectl-nonadminuser** alias är för den *ej administratörer-användare* som skapades i föregående steg och som är begränsad till namn området *PSP-AKS* .
@@ -167,9 +164,9 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>Testa skapandet av en privilegie rad Pod
 
-Vi börjar med att testa vad som händer när du schemalägger en POD med säkerhets `privileged: true`kontexten för. Den här säkerhets kontexten eskalerar Pod privilegier. I föregående avsnitt som visade standard principerna för AKS-Pod bör den *begränsade* principen neka denna begäran.
+Vi börjar med att testa vad som händer när du schemalägger en POD med säkerhets kontexten för `privileged: true` . Den här säkerhets kontexten eskalerar Pod privilegier. I föregående avsnitt som visade standard principerna för AKS-Pod bör den *begränsade* principen neka denna begäran.
 
-Skapa en fil med `nginx-privileged.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `nginx-privileged.yaml` och klistra in följande yaml-manifest:
 
 ```yaml
 apiVersion: v1
@@ -204,7 +201,7 @@ Pod når inte schemaläggnings fasen, så det finns inga resurser att ta bort in
 
 I det föregående exemplet begärde Pod-specifikationen privilegie rad eskalering. Den här begäran nekas av standard säkerhets principen för *begränsade* pod, så Pod kan inte schemaläggas. Nu ska vi prova att köra samma NGINX-Pod utan begäran om behörighets eskalering.
 
-Skapa en fil med `nginx-unprivileged.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `nginx-unprivileged.yaml` och klistra in följande yaml-manifest:
 
 ```yaml
 apiVersion: v1
@@ -235,9 +232,9 @@ Pod når inte schemaläggnings fasen, så det finns inga resurser att ta bort in
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Testa att skapa en POD med en speciell användar kontext
 
-I föregående exempel försökte behållar avbildningen automatiskt använda roten för att binda NGINX till port 80. Den här begäran nekades av standard säkerhets principen för *begränsade* pod, så Pod kan inte starta. Nu ska vi prova att köra samma NGINX-Pod med en speciell användar kontext, till `runAsUser: 2000`exempel.
+I föregående exempel försökte behållar avbildningen automatiskt använda roten för att binda NGINX till port 80. Den här begäran nekades av standard säkerhets principen för *begränsade* pod, så Pod kan inte starta. Nu ska vi prova att köra samma NGINX-Pod med en speciell användar kontext, till exempel `runAsUser: 2000` .
 
-Skapa en fil med `nginx-unprivileged-nonroot.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `nginx-unprivileged-nonroot.yaml` och klistra in följande yaml-manifest:
 
 ```yaml
 apiVersion: v1
@@ -274,7 +271,7 @@ Nu när du har sett hur du kan använda standard säkerhets principerna för Pod
 
 Nu ska vi skapa en princip för att avvisa poddar som begär privilegie rad åtkomst. Andra alternativ, till exempel *runAsUser* eller tillåtna *volymer*, är inte uttryckligen begränsade. Den här typen av princip nekar en begäran om privilegie rad åtkomst, men tillåter annars att klustret kör den begärda poddar.
 
-Skapa en fil med `psp-deny-privileged.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `psp-deny-privileged.yaml` och klistra in följande yaml-manifest:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -315,7 +312,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 I föregående steg skapade du en POD säkerhets princip för att avvisa poddar som begär privilegie rad åtkomst. Om du vill tillåta att principen används skapar du en *roll* eller en *ClusterRole*. Sedan associerar du en av dessa roller med hjälp av en *RoleBinding* eller *ClusterRoleBinding*.
 
-I det här exemplet skapar du en ClusterRole som gör att du kan *använda* principen *PSP-Deny-Privileged* som skapades i föregående steg. Skapa en fil med `psp-deny-privileged-clusterrole.yaml` namnet och klistra in följande yaml-manifest:
+I det här exemplet skapar du en ClusterRole som gör att du kan *använda* principen *PSP-Deny-Privileged* som skapades i föregående steg. Skapa en fil med namnet `psp-deny-privileged-clusterrole.yaml` och klistra in följande yaml-manifest:
 
 ```yaml
 kind: ClusterRole
@@ -339,7 +336,7 @@ Skapa ClusterRole med kommandot [kubectl Apply][kubectl-apply] och ange namnet p
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Skapa nu en ClusterRoleBinding för att använda ClusterRole som skapades i föregående steg. Skapa en fil med `psp-deny-privileged-clusterrolebinding.yaml` namnet och klistra in följande yaml-manifest:
+Skapa nu en ClusterRoleBinding för att använda ClusterRole som skapades i föregående steg. Skapa en fil med namnet `psp-deny-privileged-clusterrolebinding.yaml` och klistra in följande yaml-manifest:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1

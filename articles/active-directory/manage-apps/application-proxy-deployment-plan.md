@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: a1cf2b57665cad4dd09639579b42b29a288eeca1
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975579"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367792"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en Azure AD-programproxy-distribution
 
@@ -317,7 +317,7 @@ I följande artiklar beskrivs vanliga scenarier som också kan användas för at
 * [Problem med att visa appsida](application-proxy-page-appearance-broken-problem.md)
 * [För lång programinläsning](application-proxy-page-load-speed-problem.md)
 * [Länkar på programsidan fungerar inte](application-proxy-page-links-broken-problem.md)
-* [Vilka portar ska jag öppna för min app?](application-proxy-connectivity-ports-how-to.md)
+* [Vilka portar ska jag öppna för min app?](application-proxy-add-on-premises-application.md)
 * [Ingen fungerande anslutning i en grupp med anslutningar för min app](application-proxy-connectivity-no-working-connector.md)
 * [Konfigurera i administratörsportalen](application-proxy-config-how-to.md)
 * [Konfigurera enkel inloggning till min app](application-proxy-config-sso-how-to.md)

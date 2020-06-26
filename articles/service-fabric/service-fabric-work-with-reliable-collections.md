@@ -3,12 +3,12 @@ title: Arbeta med Reliable Collections
 description: Lär dig metod tips för att arbeta med pålitliga samlingar i ett Azure Service Fabric-program.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409811"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374703"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
 Service Fabric erbjuder en tillstånds känslig programmerings modell som är tillgänglig för .NET-utvecklare via pålitliga samlingar. Mer specifikt Service Fabric tillhandahåller tillförlitliga ord listor och Reliable Queue-klasser. När du använder dessa klasser partitioneras ditt tillstånd (för skalbarhet), replikeras (för tillgänglighet) och överförs inom en partition (för sur semantik). Nu ska vi titta på en typisk användning av ett tillförlitligt Dictionary-objekt och se vad det faktiskt gör.
@@ -42,9 +42,14 @@ Alla åtgärder på Reliable Dictionary-objekt (förutom för ClearAsync, som in
 
 I koden ovan skickas ITransaction-objektet till en tillförlitlig ord listas AddAsync-metod. Internt kan ord listor som accepterar en nyckel ta ett lås-/skrivar lås som är kopplat till nyckeln. Om metoden ändrar nyckelns värde, tar metoden ett Skriv lås i nyckeln och om metoden bara läser från nyckelns värde, tas ett läslås på nyckeln. Eftersom AddAsync ändrar nyckelns värde till det nya, överförda värdet, tas nyckelns Skriv lås. Om två (eller fler) trådar försöker att lägga till värden med samma nyckel samtidigt, kommer en tråd att hämta Skriv låset och de andra trådarna kommer att blockeras. Som standard blockeras metoder i upp till 4 sekunder för att låsa sig. efter 4 sekunder genererar metoderna en TimeoutException. Det finns metod överlagringar som gör att du kan skicka ett explicit timeout-värde om du vill.
 
-Vanligt vis skriver du koden för att reagera på en TimeoutException genom att fånga den och försöka utföra hela åtgärden igen (se koden ovan). Jag anropar bara uppgiften i min enkla kod. fördröjning som skickar 100 millisekunder varje gång. Men i verkligheten kan du vara bättre på att använda en viss typ av exponentiell säkerhets fördröjning i stället.
+Vanligt vis skriver du koden för att reagera på en TimeoutException genom att fånga den och försöka utföra hela åtgärden igen (se koden ovan). I den här enkla koden anropar vi bara uppgiften. fördröjning som skickar 100 millisekunder varje gång. Men i verkligheten kan du vara bättre på att använda en viss typ av exponentiell säkerhets fördröjning i stället.
 
-När låset har hämtats lägger AddAsync till nyckel-och värde objekt referenser till en intern tillfällig ord lista som är associerad med ITransaction-objektet. Detta görs för att ge dig en semantik med Läs-och skriv åtgärder. Det innebär att när du anropar AddAsync, kommer ett senare anrop till TryGetValueAsync (med samma ITransaction-objekt) att returnera värdet även om du inte har allokerat transaktionen ännu. Därefter serialiserar AddAsync dina nyckel-och värde objekt till byte-matriser och lägger till dessa byte-matriser i en loggfil på den lokala noden. Slutligen skickar AddAsync byte-matriser till alla sekundära repliker så att de har samma nyckel/värde-information. Även om nyckel-/värde informationen har skrivits till en loggfil, betraktas inte informationen som en del av ord listan förrän transaktionen som de är kopplad till har genomförts.
+När låset har hämtats lägger AddAsync till nyckel-och värde objekt referenser till en intern tillfällig ord lista som är associerad med ITransaction-objektet. Detta görs för att ge dig en semantik med Läs-och skriv åtgärder. Det innebär att när du anropar AddAsync, kommer ett senare anrop till TryGetValueAsync med samma ITransaction-objekt att returnera värdet även om du inte har allokerat transaktionen ännu.
+
+> [!NOTE]
+> Om du anropar TryGetValueAsync med en ny transaktion returneras en referens till det senast allokerade värdet. Ändra inte referensen direkt, eftersom den kringgår mekanismen för att bevara och replikera ändringarna. Vi rekommenderar att du gör värdena skrivskyddade så att det enda sättet att ändra värdet för en nyckel är via Reliable Dictionary-API: er.
+
+Därefter serialiserar AddAsync dina nyckel-och värde objekt till byte-matriser och lägger till dessa byte-matriser i en loggfil på den lokala noden. Slutligen skickar AddAsync byte-matriser till alla sekundära repliker så att de har samma nyckel/värde-information. Även om nyckel-/värde informationen har skrivits till en loggfil, betraktas inte informationen som en del av ord listan förrän transaktionen som de är kopplad till har genomförts.
 
 I koden ovan genomför anropet till CommitAsync alla transaktioner. Mer specifikt lägger den till inchecknings information i logg filen på den lokala noden och skickar sedan inchecknings posten till alla sekundära repliker. När ett kvorum (majoritet) av replikerna har svarat betraktas alla data ändringar permanenta och eventuella lås som är kopplade till nycklar som ändrades via ITransaction-objektet släpps så att andra trådar/transaktioner kan ändra samma nycklar och deras värden.
 
@@ -55,7 +60,7 @@ I vissa arbets belastningar, till exempel en replikerad cache, kan en tillfälli
 
 För närvarande är flyktig support endast tillgängligt för Reliable-ordlistor och pålitliga köer, och inte ReliableConcurrentQueues. Se listan över [varningar](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) för att informera ditt beslut om att använda volatile-samlingar.
 
-Om du vill aktivera flyktigt stöd i tjänsten ställer ```HasPersistedState``` du in flaggan i tjänste typs ```false```deklarationen till, som så här:
+Om du vill aktivera flyktigt stöd i tjänsten ställer du in ```HasPersistedState``` flaggan i tjänste typs deklarationen till ```false``` , som så här:
 ```xml
 <StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
 ```
@@ -145,7 +150,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definiera oföränderliga data typer för att förhindra fel i programmerare
-Vi vill att kompilatorn ska rapportera fel när du av misstag producerar kod som ligger i ett annat tillstånd för ett objekt som du ska överväga att överväga. Men C#-kompilatorn har inte möjlighet att göra detta. För att undvika potentiella programprograms buggar rekommenderar vi starkt att du definierar de typer som du använder med tillförlitliga samlingar för att vara oföränderliga typer. Det innebär särskilt att du går till kärn värdes typer (t. ex. siffror [Int32, UInt64, osv.], DateTime, GUID, TimeSpan och like). Du kan också använda sträng. Det är bäst att undvika samlings egenskaper som serialisering och deserialisering av dem kan ofta försämra prestanda. Men om du vill använda samlings egenskaper rekommenderar vi starkt att du använder. NETs bibliotek med oföränderlig samling ([system. Collections. oföränderligt](https://www.nuget.org/packages/System.Collections.Immutable/)). Det här biblioteket är tillgängligt för nedladdning https://nuget.orgfrån. Vi rekommenderar också att du förseglar dina klasser och gör fälten skrivskyddade när det är möjligt.
+Vi vill att kompilatorn ska rapportera fel när du av misstag producerar kod som ligger i ett annat tillstånd för ett objekt som du ska överväga att överväga. Men C#-kompilatorn har inte möjlighet att göra detta. För att undvika potentiella programprograms buggar rekommenderar vi starkt att du definierar de typer som du använder med tillförlitliga samlingar för att vara oföränderliga typer. Det innebär särskilt att du går till kärn värdes typer (t. ex. siffror [Int32, UInt64, osv.], DateTime, GUID, TimeSpan och like). Du kan också använda sträng. Det är bäst att undvika samlings egenskaper som serialisering och deserialisering av dem kan ofta försämra prestanda. Men om du vill använda samlings egenskaper rekommenderar vi starkt att du använder. NETs bibliotek med oföränderlig samling ([system. Collections. oföränderligt](https://www.nuget.org/packages/System.Collections.Immutable/)). Det här biblioteket är tillgängligt för nedladdning från https://nuget.org . Vi rekommenderar också att du förseglar dina klasser och gör fälten skrivskyddade när det är möjligt.
 
 I UserInfo-typen nedan visas hur du definierar en oföränderlig typ som utnyttjar rekommendationerna ovan.
 

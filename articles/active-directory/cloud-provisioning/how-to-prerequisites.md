@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a2ea1cfba9b460f5723f69cd0382c7413b97bef
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360817"
+ms.locfileid: "85373870"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect Cloud-etablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
@@ -27,7 +27,7 @@ Den här artikeln innehåller rikt linjer för hur du väljer och använder Azur
 Du behöver följande för att kunna använda Azure AD Connect Cloud-etablering:
     
 - Ett administratörs konto med hybrid identitet för din Azure AD-klient som inte är en gäst användare.
-- En lokal server för etablerings agenten med Windows 2012 R2 eller senare.
+- En lokal server för etablerings agenten med Windows 2012 R2 eller senare.  Den här servern måste vara en nivå 0-server som baseras på [Active Directory administratörs nivå modell](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Konfigurationer för lokala brand väggar.
 
 >[!NOTE]

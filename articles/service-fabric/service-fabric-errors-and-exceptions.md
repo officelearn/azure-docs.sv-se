@@ -1,16 +1,16 @@
 ---
 title: Vanliga FabricClient-undantag utlöst
 description: 'Beskriver vanliga undantag och fel som kan uppstå i FabricClient-API: erna när du utför åtgärder för program-och kluster hantering.'
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 06/20/2018
-ms.author: oanapl
-ms.openlocfilehash: 9ad3097a490d4728e05ea90652c17c24b79cac2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: gwallace
+ms.openlocfilehash: d22184d6d275adb95932fb29338768210547c199
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75457929"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392632"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Vanliga undantag och fel när du arbetar med FabricClient-API:er
 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) -API: er gör det möjligt för kluster-och program administratörer att utföra administrativa uppgifter på ett Service Fabric program, en tjänst eller ett kluster. Till exempel program distribution, uppgradering och borttagning, kontroll av hälso tillståndet för ett kluster eller testning av en tjänst. Programutvecklare och kluster administratörer kan använda FabricClient-API: er för att utveckla verktyg för att hantera Service Fabric kluster och program.

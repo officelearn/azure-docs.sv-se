@@ -5,37 +5,21 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 11/05/2019
+ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6bf9a89a4806db53797191336578ef9148886181
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5189a9dc8cd83877b4797fd828e9c9f6da8d1b93
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759233"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392868"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure Portal
 
 Det går att skapa virtuella Azure-datorer via Azure Portal. Azure Portal är ett webbläsarbaserat användar gränssnitt för att skapa Azure-resurser. Den här snabb starten visar hur du använder Azure Portal för att distribuera en virtuell Linux-dator (VM) som kör Ubuntu 18,04 LTS. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
-
-## <a name="create-ssh-key-pair"></a>Skapa SSH-nyckelpar
-
-Du behöver ett SSH-nyckelpar för att slutföra den här snabbstarten. Om du redan har ett SSH-nyckelpar kan du hoppa över det här steget.
-
-Öppna bash-gränssnittet och använd [ssh-keygen](https://www.ssh.com/ssh/keygen/) för att skapa ett SSH-nyckelpar. Om du inte har något bash-gränssnitt på den lokala datorn kan du använda [Azure Cloud Shell](https://shell.azure.com/bash).
-
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. I menyn längst upp på sidan väljer du `>_` ikonen för att öppna Cloud Shell.
-1. Se till att CloudShell säger **bash** i det övre vänstra hörnet. Om det står i PowerShell använder du List rutan för att välja **bash** och väljer **Bekräfta** för att ändra till bash-gränssnittet.
-1. Skriv `ssh-keygen -t rsa -b 2048` för att skapa SSH-nyckeln. 
-1. Du uppmanas att ange en fil som nyckel paret ska sparas i. Tryck på **RETUR** för att spara på standard platsen, som visas inom hak paren tes. 
-1. Du uppmanas att ange en lösen fras. Du kan ange en lösen fras för SSH-nyckeln eller trycka på **RETUR** för att fortsätta utan en lösen fras.
-1. `ssh-keygen` Kommandot genererar offentliga och privata nycklar med standard namnet `id_rsa` i `~/.ssh directory`. Kommandot returnerar den fullständiga sökvägen till den offentliga nyckeln. Använd sökvägen till den offentliga nyckeln för att visa innehållet med `cat` genom att skriva `cat ~/.ssh/id_rsa.pub`.
-1. Kopiera utdata för det här kommandot och spara det någonstans för att använda dem senare i den här artikeln. Detta är din offentliga nyckel och du behöver den när du konfigurerar ditt administratörs konto för att logga in på den virtuella datorn.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -54,11 +38,15 @@ Logga in på [Azure Portal](https://portal.azure.com) om du inte redan gjort det
 
     ![Avsnittet Instansinformation](./media/quick-create-portal/instance-details.png)
 
-1. Under **administratörs konto**väljer du **Offentlig SSH-nyckel**, skriver ditt användar namn och klistrar in den offentliga nyckeln. Ta bort eventuella inledande eller avslutande blanksteg i din offentliga nyckel.
+1. Under **administratörs konto**väljer du **Offentlig SSH-nyckel**.
+
+1. Skriv *azureuser*i **användar namn** .
+
+1. För **Offentlig SSH-nyckel**, lämna standardvärdet **generera nytt nyckel par**och skriv sedan *myKey* som **nyckel par namn**.
 
     ![Administratörskonto](./media/quick-create-portal/administrator-account.png)
 
-1. Under **ingående port regler** > **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer **SSH (22)** och **http (80)** i list rutan. 
+1. Under **ingående port regler**  >  **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer **SSH (22)** och **http (80)** i list rutan. 
 
     ![Öppna portar för RDP och HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -66,24 +54,29 @@ Logga in på [Azure Portal](https://portal.azure.com) om du inte redan gjort det
 
 1. På sidan **Skapa en virtuell dator** kan du se information om den virtuella datorn som du håller på att skapa. När du är klar väljer du **Skapa**.
 
-Det tar några minuter för den virtuella datorn att distribueras. När distributionen är klar kan du gå vidare till nästa avsnitt.
+1. När fönstret **Skapa nytt nyckel par** öppnas väljer du **Hämta privat nyckel och skapa resurs**. Din nyckel fil kommer att hämtas som **myKey. pem**. Se till att du vet var `.pem` filen hämtades, du behöver sökvägen till den i nästa steg.
 
-    
+1. När distributionen är färdig väljer **du gå till resurs**.
+
+1. På sidan för den nya virtuella datorn väljer du den offentliga IP-adressen och kopierar den till Urklipp.
+
+
+    ![Kopiera den offentliga IP-adressen](./media/quick-create-portal/ip-address.png)
+
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
 Skapa en SSH-anslutning med den virtuella datorn.
 
-1. Välj **Anslut**-knappen på översiktssidan för din virtuella dator. 
+1. Om du använder en Mac-eller Linux-dator öppnar du en bash-prompt. Om du använder en Windows-dator öppnar du en PowerShell-prompt. 
 
-    ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
+1. Öppna en SSH-anslutning till den virtuella datorn i din prompt. Ersätt IP-adressen med den som finns på den virtuella datorn och ersätt sökvägen med `.pem` sökvägen till den plats där nyckel filen hämtades.
 
-2. På sidan **Anslut till den virtuella datorn** behåller du standardalternativen för att ansluta via IP-adress via port 22. I **Logga in med lokalt virtuellt datorkonto** visas ett anslutningskommando. Klicka på knappen för att kopiera kommandot. Följande exempel visar hur SSH-anslutningskommandot ser ut:
+```console
+ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
+```
 
-    ```bash
-    ssh azureuser@10.111.12.123
-    ```
-
-3. Med samma bash-gränssnitt som du använde för att skapa ett SSH-nyckelpar (du kan öppna Cloud Shell igen genom `>_` att välja igen eller `https://shell.azure.com/bash`gå till) klistrar du in ssh-anslutningen i gränssnittet för att skapa en SSH-session.
+> [!TIP]
+> Den SSH-nyckel du skapade kan användas nästa gången du skapar en virtuell dator i Azure. Du behöver bara markera källan **Använd en nyckel som lagrats i Azure** för **Offentlig SSH-nyckel** nästa gången du skapar en virtuell dator. Du har redan den privata nyckeln på datorn, så du behöver inte hämta något.
 
 ## <a name="install-web-server"></a>Installera webbservern
 

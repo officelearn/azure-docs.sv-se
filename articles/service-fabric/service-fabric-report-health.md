@@ -1,16 +1,16 @@
 ---
 title: Lägg till anpassade Service Fabric hälso rapporter
 description: Beskriver hur du skickar anpassade hälso rapporter till Azure Service Fabric hälsoentiteter. Ger rekommendationer för att utforma och implementera kvalitets hälso rapporter.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: d00f740085b15bdb5fe698a069d97f168507f31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: gwallace
+ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451589"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392649"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Lägg till anpassade Service Fabric hälso rapporter
 Azure Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) som har utformats för att flagga kluster och program villkor på vissa enheter. Hälso modellen använder **hälso rapporter** (system komponenter och övervaknings rapporter). Målet är enkelt och snabbt att diagnostisera och reparera. Service Writers måste vara på väg om hälso tillståndet. Alla villkor som kan påverka hälsan bör rapporteras, särskilt om det kan hjälpa till att flagga problem nära roten. Hälso informationen kan spara tid och ansträngning för fel sökning och undersökning. Användbarheten är särskilt tydlig när tjänsten är igång och körs i molnet (privat eller Azure).
@@ -41,7 +41,7 @@ Som nämnts kan rapportering göras från:
 När hälso rapport designen är klar kan hälso rapporter skickas enkelt. Du kan använda [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) för att rapportera hälso tillstånd om klustret inte är [säkert](service-fabric-cluster-security.md) eller om Fabric-klienten har administratörs behörighet. Rapportering kan göras via API: et genom att använda [FabricClient. HealthManager. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), via PowerShell eller genom rest. Konfigurations rattar batch rapporter för bättre prestanda.
 
 > [!NOTE]
-> Rapport hälsan är synkron och representerar bara verifierings arbetet på klient sidan. Det faktum att rapporten accepteras av hälso klienten eller att `Partition` -eller `CodePackageActivationContext` -objekten inte innebär att den används i butiken. Den skickas asynkront och kan eventuellt grupperas med andra rapporter. Bearbetningen på servern kan fortfarande Miss lyckas: sekvensnumret kan vara inaktuellt, den entitet som rapporten ska tillämpas på har tagits bort, osv.
+> Rapport hälsan är synkron och representerar bara verifierings arbetet på klient sidan. Det faktum att rapporten accepteras av hälso klienten eller att- `Partition` eller- `CodePackageActivationContext` objekten inte innebär att den används i butiken. Den skickas asynkront och kan eventuellt grupperas med andra rapporter. Bearbetningen på servern kan fortfarande Miss lyckas: sekvensnumret kan vara inaktuellt, den entitet som rapporten ska tillämpas på har tagits bort, osv.
 > 
 > 
 
@@ -58,7 +58,7 @@ Hälso rapporterna skickas till hälso tillstånds hanteraren via en hälso klie
 > 
 
 Buffringen på klienten tar hänsyn till att rapporterna är unika. Om till exempel en viss felaktig rapportering rapporterar 100 rapporter per sekund på samma egenskap för samma entitet, ersätts rapporterna med den senaste versionen. Högst en sådan rapport finns i klient kön. Om batchbearbetning har kon figurer ATS är antalet rapporter som skickas till Health Manager bara ett per sändnings intervall. Den här rapporten är den senast tillagda rapporten, som visar det mest aktuella status för entiteten.
-Ange konfigurations parametrar `FabricClient` när har skapats genom att skicka [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) med de önskade värdena för hälso relaterade poster.
+Ange konfigurations parametrar när `FabricClient` har skapats genom att skicka [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) med de önskade värdena för hälso relaterade poster.
 
 I följande exempel skapas en Fabric-klient och anger att rapporterna ska skickas när de läggs till. Vid timeout och fel som kan göras igen sker nya försök var 40 sekund.
 
@@ -72,7 +72,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Vi rekommenderar att du behåller standard klient inställningarna `HealthReportSendInterval` för infrastruktur resurser, som är 30 sekunder. Den här inställningen säkerställer optimala prestanda på grund av batchering. För kritiska rapporter som måste skickas så snart som möjligt använder `HealthReportSendOptions` du med omedelbar `true` i [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Omedelbara rapporter kringgår batch-intervallet. Använd den här flaggan i försiktighet; Vi vill dra nytta av hälso klientens batching närhelst det är möjligt. Omedelbar sändning är också användbart när Fabric-klienten stängs (till exempel om processen har avgjort ett ogiltigt tillstånd och måste stängas för att förhindra sido effekter). Den ser till att det är en god ansträngnings överföring av de ackumulerade rapporterna. När en rapport läggs till med en omedelbar flagga, slår hälso klienten ihop alla ackumulerade rapporter sedan den senaste sändningen.
+Vi rekommenderar att du behåller standard klient inställningarna för infrastruktur resurser, som är `HealthReportSendInterval` 30 sekunder. Den här inställningen säkerställer optimala prestanda på grund av batchering. För kritiska rapporter som måste skickas så snart som möjligt använder du `HealthReportSendOptions` med omedelbar `true` i [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Omedelbara rapporter kringgår batch-intervallet. Använd den här flaggan i försiktighet; Vi vill dra nytta av hälso klientens batching närhelst det är möjligt. Omedelbar sändning är också användbart när Fabric-klienten stängs (till exempel om processen har avgjort ett ogiltigt tillstånd och måste stängas för att förhindra sido effekter). Den ser till att det är en god ansträngnings överföring av de ackumulerade rapporterna. När en rapport läggs till med en omedelbar flagga, slår hälso klienten ihop alla ackumulerade rapporter sedan den senaste sändningen.
 
 Samma parametrar kan anges när en anslutning till ett kluster skapas via PowerShell. I följande exempel startas en anslutning till ett lokalt kluster:
 
@@ -102,9 +102,9 @@ GatewayInformation   : {
                        }
 ```
 
-På samma sätt som API kan rapporter skickas med hjälp `-Immediate` av växeln som skickas omedelbart, oavsett `HealthReportSendInterval` värdet.
+På samma sätt som API kan rapporter skickas med hjälp av `-Immediate` växeln som skickas omedelbart, oavsett `HealthReportSendInterval` värdet.
 
-För REST skickas rapporterna till Service Fabric Gateway, som har en intern Fabric-klient. Den här klienten är som standard konfigurerad för att skicka rapporter med en gång i 30 sekunder. Du kan ändra batch-intervallet med kluster konfigurations inställningen `HttpGatewayHealthReportSendInterval` på `HttpGateway`. Som vi nämnt är ett bättre alternativ att skicka rapporterna med `Immediate` True. 
+För REST skickas rapporterna till Service Fabric Gateway, som har en intern Fabric-klient. Den här klienten är som standard konfigurerad för att skicka rapporter med en gång i 30 sekunder. Du kan ändra batch-intervallet med kluster konfigurations inställningen `HttpGatewayHealthReportSendInterval` på `HttpGateway` . Som vi nämnt är ett bättre alternativ att skicka rapporterna med `Immediate` true. 
 
 > [!NOTE]
 > För att säkerställa att obehöriga tjänster inte kan rapportera hälso tillstånd mot entiteterna i klustret konfigurerar du servern så att den endast accepterar begär Anden från skyddade klienter. Den `FabricClient` som används för rapportering måste ha aktive rad säkerhet för att kunna kommunicera med klustret (till exempel med Kerberos eller certifikatautentisering). Läs mer om [kluster säkerhet](service-fabric-cluster-security.md).
@@ -112,7 +112,7 @@ För REST skickas rapporterna till Service Fabric Gateway, som har en intern Fab
 > 
 
 ## <a name="report-from-within-low-privilege-services"></a>Rapportera inifrån tjänster med låg behörighet
-Om Service Fabric Services inte har administratörs åtkomst till klustret kan du rapportera hälso tillståndet för entiteter från den aktuella kontexten `Partition` via `CodePackageActivationContext`eller.
+Om Service Fabric Services inte har administratörs åtkomst till klustret kan du rapportera hälso tillståndet för entiteter från den aktuella kontexten via `Partition` eller `CodePackageActivationContext` .
 
 * För tillstånds lösa tjänster använder du [IStatelessServicePartition. ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) för att rapportera om den aktuella tjänst instansen.
 * För tillstånds känsliga tjänster använder du [IStatefulServicePartition. ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) för att rapportera om den aktuella repliken.
@@ -126,7 +126,7 @@ Om Service Fabric Services inte har administratörs åtkomst till klustret kan d
 > 
 > 
 
-Du kan ange `HealthReportSendOptions` när du skickar rapporter `Partition` via `CodePackageActivationContext` och hälso-API: er. Om du har viktiga rapporter som måste skickas så snart som möjligt, använder `HealthReportSendOptions` du med omedelbar `true`. Omedelbara rapporter kringgår batch-intervallet för den interna hälso klienten. Som nämnts tidigare använder du den här flaggan med försiktighet; Vi vill dra nytta av hälso klientens batching närhelst det är möjligt.
+Du kan ange `HealthReportSendOptions` när du skickar rapporter via `Partition` och `CodePackageActivationContext` hälso-API: er. Om du har viktiga rapporter som måste skickas så snart som möjligt, använder du `HealthReportSendOptions` med omedelbar `true` . Omedelbara rapporter kringgår batch-intervallet för den interna hälso klienten. Som nämnts tidigare använder du den här flaggan med försiktighet; Vi vill dra nytta av hälso klientens batching närhelst det är möjligt.
 
 ## <a name="design-health-reporting"></a>Design hälso rapportering
 Det första steget när du genererar rapporter med hög kvalitet identifierar de villkor som kan påverka tjänstens hälsa. Ett villkor som kan hjälpa till att flagga problem i tjänsten eller klustret när det startar, eller till och med bättre, innan ett problem uppstår – kan eventuellt spara miljard tals dollar. Fördelarna är mindre drift tid, färre natt timmar som ägnats åt att undersöka och reparera problem och högre kund nöjdhet.
@@ -167,13 +167,13 @@ För periodisk rapportering kan övervaknings enheten implementeras med en timer
 
 Rapportering av över gångar kräver noggrann hantering av tillstånd. Övervaknings enheten övervakar vissa villkor och rapporter endast när villkoren ändras. Den andra metoden är att färre rapporter behövs. Nack delen är att logiken i övervaknings enheten är komplex. Övervaknings enheten måste underhålla villkoren eller rapporterna, så att de kan kontrol leras för att fastställa tillstånds ändringar. Vid redundans måste det vara viktigt med rapporter som lagts till, men som ännu inte skickats till hälso lagret. Sekvensnummer måste vara allt fler. Annars avvisas rapporterna som inaktuella. I sällsynta fall där data går förlorade kan synkroniseringen krävas mellan tillståndet hos rapportören och hälso lagrets tillstånd.
 
-Rapportering av över gångar är begripligt för rapportering i tjänster, via `Partition` eller `CodePackageActivationContext`. När det lokala objektet (replik eller distribuerat tjänst paket/distribuerat program) tas bort, tas även alla rapporter bort. Den här automatiska rensningen sänker behovet av synkronisering mellan rapporterings-och hälso lager. Om rapporten är för överordnad partition eller överordnat program, måste du vara försiktig med redundans för att undvika inaktuella rapporter i hälso lagret. Logik måste läggas till för att behålla rätt tillstånd och rensa rapporten från Store när de inte behövs längre.
+Rapportering av över gångar är begripligt för rapportering i tjänster, via `Partition` eller `CodePackageActivationContext` . När det lokala objektet (replik eller distribuerat tjänst paket/distribuerat program) tas bort, tas även alla rapporter bort. Den här automatiska rensningen sänker behovet av synkronisering mellan rapporterings-och hälso lager. Om rapporten är för överordnad partition eller överordnat program, måste du vara försiktig med redundans för att undvika inaktuella rapporter i hälso lagret. Logik måste läggas till för att behålla rätt tillstånd och rensa rapporten från Store när de inte behövs längre.
 
 ## <a name="implement-health-reporting"></a>Implementera hälso rapportering
 När entiteten och rapport informationen är tydliga kan sändning av hälso rapporter göras via API, PowerShell eller REST.
 
 ### <a name="api"></a>API
-Om du vill rapportera genom API: et måste du skapa en hälso rapport som är speciell för den entitetstyp som de vill rapportera om. Ge rapporten till en hälso klient. Du kan också skapa en hälso information och skicka den till rätt rapporterings `Partition` metoder `CodePackageActivationContext` på eller rapportera om aktuella entiteter.
+Om du vill rapportera genom API: et måste du skapa en hälso rapport som är speciell för den entitetstyp som de vill rapportera om. Ge rapporten till en hälso klient. Du kan också skapa en hälso information och skicka den till rätt rapporterings metoder på `Partition` eller `CodePackageActivationContext` rapportera om aktuella entiteter.
 
 I följande exempel visas periodiska rapporter från en övervaknings enhet i klustret. Övervaknings enheten kontrollerar om en extern resurs kan nås från en nod. Resursen krävs av ett tjänst manifest i programmet. Om resursen inte är tillgänglig kan de andra tjänsterna i programmet fortfarande fungera som de ska. Rapporten skickas därför till entiteten distribuerade tjänst paket var 30: e sekund.
 

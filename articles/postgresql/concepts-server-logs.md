@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131223"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392819"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
 
@@ -21,7 +21,7 @@ Gransknings loggning görs tillgängligt via ett postgres-tillägg, pgaudit. Mer
 
 
 ## <a name="configure-logging"></a>Konfigurera loggning 
-Du kan konfigurera postgres standard inloggning på servern med hjälp av loggnings server parametrarna. På varje Azure Database for PostgreSQL- `log_checkpoints` Server och `log_connections` är aktiverat som standard. Det finns ytterligare parametrar som du kan justera så att de passar dina loggnings behov: 
+Du kan konfigurera postgres standard inloggning på servern med hjälp av loggnings server parametrarna. På varje Azure Database for PostgreSQL-Server `log_checkpoints` och `log_connections` är aktiverat som standard. Det finns ytterligare parametrar som du kan justera så att de passar dina loggnings behov: 
 
 ![Parametrar för Azure Database for PostgreSQL-loggning](./media/concepts-server-logs/log-parameters.png)
 
@@ -45,7 +45,7 @@ Du kan ställa in kvarhållningsperioden för den här kortsiktiga logg lagringe
 
 För längre kvarhållning av loggar och logg analys kan du hämta. log-filerna och flytta dem till en tjänst från tredje part. Du kan hämta filerna med hjälp av [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md). Du kan också konfigurera Azure Monitor diagnostikinställningar som automatiskt gör dina loggar (i JSON-format) till platser på längre sikt. Läs mer om det här alternativet i avsnittet nedan. 
 
-Du kan sluta generera. log-filer genom att ange `logging_collector` parametern till av. Stänger av. generering av logg filen rekommenderas om du använder Azure Monitor diagnostikinställningar. Den här konfigurationen minskar prestanda påverkan för ytterligare loggning.
+Du kan sluta generera. log-filer genom att ange parametern `logging_collector` till av. Stänger av. generering av logg filen rekommenderas om du använder Azure Monitor diagnostikinställningar. Den här konfigurationen minskar prestanda påverkan för ytterligare loggning.
 
 ## <a name="resource-logs"></a>Resursloggar
 
@@ -82,6 +82,7 @@ Sök efter alla postgres-loggar för en viss server under den senaste dagen
 ```
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
+| where Category == "PostgreSQLLogs"
 | where TimeGenerated > ago(1d) 
 ```
 
@@ -114,7 +115,7 @@ I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på
 | Nivå | Loggnings nivå, exempel: logg, fel, meddelande |
 | Meddelande | Primärt logg meddelande | 
 | Domain | Server version, exempel: postgres-10 |
-| Information | Sekundärt logg meddelande (om tillämpligt) |
+| Detalj | Sekundärt logg meddelande (om tillämpligt) |
 | ColumnName | Namnet på kolumnen (om tillämpligt) |
 | SchemaName | Schemats namn (om tillämpligt) |
 | DatatypeName | Namnet på data typen (om tillämpligt) |

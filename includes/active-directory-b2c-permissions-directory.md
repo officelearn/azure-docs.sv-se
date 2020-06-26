@@ -18,7 +18,7 @@ ms.locfileid: "85200163"
 1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
 1. Välj fliken **Microsoft API: er** och välj sedan **Microsoft Graph**.
 1. Välj **Programbehörigheter**.
-1. Expandera rätt behörighets grupp och markera kryss rutan för behörighet att bevilja ditt hanterings program. Ett exempel:
+1. Expandera rätt behörighets grupp och markera kryss rutan för behörighet att bevilja ditt hanterings program. Till exempel:
     * **AuditLog**  >  **AuditLog. Read. all**: för att läsa katalogens gransknings loggar.
     * **Katalog**  >  **Directory. readwrite. all**: för användar migrering eller användar hanterings scenarier.
     * **Princip**  >  **Princip. readwrite. TrustFramework**: för scenarier med kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.
@@ -32,7 +32,7 @@ ms.locfileid: "85200163"
 1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
 1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
 1. Välj **Microsoft Graph**.
-1. Under **program behörigheter**markerar du kryss rutan för behörigheten att bevilja ditt hanterings program. Ett exempel:
+1. Under **program behörigheter**markerar du kryss rutan för behörigheten att bevilja ditt hanterings program. Till exempel:
     * **Läs alla Gransknings logg data**: Välj den här behörigheten för att läsa katalogens gransknings loggar.
     * **Läsa och skriva katalog data**: Välj den här behörigheten för användar migrering eller användar hanterings scenarier.
     * **Läs och skriv organisationens förtroende Ramverks principer**: Välj den här behörigheten för scenarier för kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.

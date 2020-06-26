@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b823ea97e39dfa05295449fd5a039d2b9debdfa
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76748900"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412033"
 ---
 Den här artikeln ger en översikt över tillgänglighets funktionerna i Azure Virtual Machines (VM).
 
@@ -48,17 +48,6 @@ På så sätt säkerställs att minst en instans av ditt program alltid körs vi
 ## <a name="virtual-machines-scale-sets"></a>Virtual Machines skalnings uppsättningar 
 
 Med skalnings uppsättningar för virtuella Azure-datorer kan du skapa och hantera en grupp med belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalnings uppsättningar ger hög tillgänglighet till dina program och gör att du kan hantera, konfigurera och uppdatera många virtuella datorer centralt. Vi rekommenderar att två eller flera virtuella datorer skapas i en skalnings uppsättning för att tillhandahålla ett program med hög tillgänglighet och som uppfyller [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Du betalar ingen kostnad för själva skalnings uppsättningen. du betalar bara för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure Premium-SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd)gäller Azure SLA för oplanerade underhålls händelser. Virtuella datorer i en skalnings uppsättning kan distribueras över flera uppdaterings domäner och fel domäner för att maximera tillgängligheten och återhämtning till drift störningar på grund av avbrott i data centret och planerade eller oplanerade underhålls händelser. Virtuella datorer i en skalnings uppsättning kan också distribueras till en enda tillgänglighets zon eller regionalt. Distributions alternativen för tillgänglighets zon kan variera beroende på dirigerings läge.
-
-### <a name="preview-orchestration-mode-preview"></a>Förhands granskning: för hands version av Orchestration-läge
-Med skalnings uppsättningar för virtuella datorer kan du ange Orchestration-läge.  Med den virtuella datorns läge för skalnings uppsättning (förhands granskning) kan du nu välja om skalnings uppsättningen ska dirigera virtuella datorer som uttryckligen skapas utanför en konfigurations modell för skalnings uppsättningar eller om virtuella dator instanser har skapats implicit baserat på konfigurations modellen. Välj det Orchestration-läge som den virtuella datorns Orchestration-modell tillåter att du grupperar explicit definierade Virtual Machines tillsammans i en region eller i en tillgänglighets zon. Virtuella datorer som distribueras i en tillgänglighets zon ger zonindelade isolering till virtuella datorer är de kopplade till tillgänglighets zonens gränser och omfattas inte av fel som kan uppstå i andra tillgänglighets zoner i regionen. 
-
-|   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
-|----|----|----|
-| Konfigurations modell för virtuell dator| Inga. VirtualMachineProfile är odefinierat i skalnings uppsättnings modellen. | Krävs. VirtualMachineProfile är ifyllt i skalnings uppsättnings modellen. |
-| Lägger till ny virtuell dator i skalnings uppsättningen| Virtuella datorer läggs explicit till i skalnings uppsättningen när den virtuella datorn skapas. | Virtuella datorer skapas implicit och läggs till i skalnings uppsättningen baserat på den virtuella datorns konfigurations modell, instans antal och regler för automatisk skalning. |
-| Tillgänglighetszoner| Stöder regional distribution eller virtuella datorer i en tillgänglighets zon| Stöder regional distribution eller flera Tillgänglighetszoner; Kan definiera strategi för zon utjämning |
-| Feldomäner| Kan definiera antalet fel domäner. 2 eller 3 baserat på regional support och 5 för tillgänglighets zon. Den tilldelade VM-feldomänen behålls med VM-livscykeln, inklusive frigör och starta om. | Kan definiera 1, 2 eller 3 fel domäner för icke-zonindelade distributioner och 5 för distributioner av tillgänglighets zoner. Den tilldelade virtuella dator fel domänen är inte beständig med VM-livscykeln, virtuella datorer tilldelas en feldomän vid tidpunkten för tilldelningen. |
-| Uppdateringsdomäner| Ej tillämpligt. Uppdaterings domäner mappas automatiskt till fel domäner| Ej tillämpligt. Uppdaterings domäner mappas automatiskt till fel domäner |
 
 **Fel domäner och uppdaterings domäner**
 

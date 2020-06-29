@@ -3,12 +3,12 @@ title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 70abbfe09f3200f0d26978727d21a033e1d4ee34
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: d4dea1dc5ee46d9be7bbc92166535aa93db46275
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462863"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506811"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resurs leverantörer för Azure-tjänster
 
@@ -55,7 +55,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. ClassicSubscription<sup>1</sup> | Klassisk distributionsmodell |
 | Microsoft. CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
 | Microsoft. Commerce<sup>1</sup> | grundläggande |
-| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
+| Microsoft.Compute | [Virtuella datorer](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
 | Microsoft. förbrukning<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft. ContainerRegistry | [Container Registry](/azure/container-registry/) |
@@ -64,7 +64,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft. CustomerLockbox | [Customer Lockbox för Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft. CustomProviders | [Anpassade providrar för Azure](../custom-providers/overview.md) |
-| Microsoft. data- | [Azure Data Box](/azure/databox-family/) |
+| Microsoft. data- | [Azure Data Box](/azure/databox/) |
 | Microsoft. DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft. Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft. DataCatalog | [Data Catalog](/azure/data-catalog/) |
@@ -84,7 +84,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft. DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft. DigitalTwins | [Azure Digital Twins](../../digital-twins/about-digital-twins.md) |
-| Microsoft. DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
+| Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft. DomainRegistration | [App Service](/azure/app-service/) |
 | Microsoft. EnterpriseKnowledgeGraph | Företags kunskaps diagram |
 | Microsoft. EventGrid | [Event Grid](/azure/event-grid/) |

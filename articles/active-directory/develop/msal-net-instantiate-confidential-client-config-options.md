@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1a520c5a1002e401f880fba84f8fc02a0a678133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a76935c5b826f8aa686167f702f7170522744155
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084729"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477472"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instansiera ett konfidentiellt klient program med konfigurations alternativ med MSAL.NET
 
@@ -35,7 +35,7 @@ Innan du initierar ett program måste du först [Registrera](quickstart-register
 ## <a name="configure-the-application-from-the-config-file"></a>Konfigurera programmet från konfigurations filen
 Namnet på egenskaperna för alternativen i MSAL.NET matchar namnet på egenskaperna för `AzureADOptions` i ASP.net Core, så du behöver inte skriva någon LIMS kod.
 
-En ASP.NET Core program konfiguration beskrivs i en *appSettings. JSON* -fil:
+En ASP.NET Core program konfiguration beskrivs i en *appsettings.jspå* filen:
 
 ```json
 {
@@ -60,7 +60,7 @@ En ASP.NET Core program konfiguration beskrivs i en *appSettings. JSON* -fil:
 
 Från och med MSAL.NET v3. x kan du konfigurera ditt konfidentiella klient program från konfigurations filen.
 
-I den klass där du vill konfigurera och instansiera ditt program måste du deklarera ett `ConfidentialClientApplicationOptions` -objekt.  Bind konfigurationen från källan (inklusive filen appconfig. JSON) till instansen av program alternativen med hjälp av `IConfigurationRoot.Bind()` metoden från [paketet Microsoft. Extensions. Configuration. binder NuGet](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+I den klass där du vill konfigurera och instansiera ditt program måste du deklarera ett- `ConfidentialClientApplicationOptions` objekt.  Bind konfigurationen från källan (inklusive appconfig.jspå fil) till instansen av program alternativen med hjälp av `IConfigurationRoot.Bind()` metoden från [Microsoft.Extensions.Configuration. Binder NuGet-paket](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -70,7 +70,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Detta gör att innehållet i avsnittet "AzureAD" i filen *appSettings. JSON* kan bindas till motsvarande egenskaper för `ConfidentialClientApplicationOptions` objektet.  Bygg sedan ett `ConfidentialClientApplication` objekt:
+Detta gör att innehållet i avsnittet "AzureAD" i *appsettings.jspå* filen binds till motsvarande egenskaper för `ConfidentialClientApplicationOptions` objektet.  Bygg sedan ett `ConfidentialClientApplication` objekt:
 
 ```csharp
 IConfidentialClientApplication app;

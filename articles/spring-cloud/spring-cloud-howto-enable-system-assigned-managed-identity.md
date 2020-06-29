@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: c9b9eaf7447d30dfbec6b04ff00010e0e2992c8e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d113d20e87d58bad007a35fce47d597a67849a6e
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254539"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445210"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application
 Hanterade identiteter för Azure-resurser ger en automatiskt hanterad identitet i Azure Active Directory till en Azure-resurs, till exempel ditt Azure våren Cloud-program. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod.
@@ -82,4 +82,5 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ## <a name="next-steps"></a>Nästa steg
 * [Använda hanterade identiteter med Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 * [Åtkomst Azure Key Vault med hanterade identiteter i våren Boot starter](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md#use-msi--managed-identities)
-* [Använd Key Vault från App Service med Hanterad tjänstidentitet](https://docs.microsoft.com/samples/azure-samples/app-service-msi-keyvault-dotnet/keyvault-msi-appservice-sample/)
+* [Lär dig mer om hanterade identiteter för Azure-resurser](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+

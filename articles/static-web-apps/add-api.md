@@ -7,25 +7,25 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 1720ea31c8f0b15485df194e62e463671d092b26
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 7101d23d4611f4eea9b5a9e2a7f3ba417c9fcb1a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310860"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476129"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Lägg till en API till för hands versionen av Azure statisk Web Apps med Azure Functions
 
 Du kan lägga till Server lös API: er i Azures statiska Web Apps via integration med Azure Functions. Den här artikeln visar hur du lägger till och distribuerar ett API till en statisk Azure-Web Apps webbplats.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-konto med en aktiv prenumeration.
   - Om du inte har något konto kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free).
 - [Visuell Studio-kod](https://code.visualstudio.com/)
 - [Azure Functions tillägg](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) -tillägg.
-- [Node. js](https://nodejs.org/download/) för att köra API-appen lokalt
+- [Node.js](https://nodejs.org/download/) att köra API-appen lokalt
 
 ## <a name="create-a-git-repository"></a>Skapa en git-lagringsplats
 
@@ -89,7 +89,7 @@ Din app har nu en projekt struktur som liknar följande exempel.
 
 Sedan kan du ändra `GetMessage` funktionen så att den returnerar ett meddelande till klient delen.
 
-1. Uppdatera `GetMessage` funktionen under _API/GetMessage/index. js_ med följande kod.
+1. Uppdatera `GetMessage` funktionen under _API/GetMessage/index.js_ med följande kod.
 
     ```javascript
     module.exports = async function (context, req) {
@@ -162,7 +162,7 @@ Vid distribution till Azure dirigeras begär anden till API: et automatiskt till
 
 #### <a name="update-html-files-to-access-the-api"></a>Uppdatera HTML-filer för att få åtkomst till API: et
 
-1. Uppdatera sedan innehållet i filen _index. html_ med följande kod för att hämta texten från API-funktionen och visa den på skärmen:
+1. Uppdatera sedan innehållet i _index.html_ -filen med följande kod för att hämta texten från API-funktionen och visa den på skärmen:
 
    ```html
    <!DOCTYPE html>
@@ -178,7 +178,7 @@ Vid distribution till Azure dirigeras begär anden till API: et automatiskt till
    <body>
      <main>
        <h1>Vanilla JavaScript App</h1>
-       <p>Loading message from the API: <b id="name">...</b></p>
+       <p>Loading content from the API: <b id="name">...</b></p>
      </main>
 
      <script>

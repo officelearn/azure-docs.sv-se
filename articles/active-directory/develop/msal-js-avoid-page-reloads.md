@@ -1,31 +1,31 @@
 ---
-title: Undvik sid omladdningar (MSAL. js) | Azure
+title: Undvik sid omläsningar (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du undviker hämtning av sidor vid hämtning och förnyelse av tokens i bakgrunden med Microsoft Authentication Library för Java Script (MSAL. js).
+description: Lär dig hur du undviker hämtning av sidor vid hämtning och förnyelse av token i tysthet med hjälp av Microsoft Authentication Library för Java Script (MSAL.js).
 services: active-directory
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/29/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 63944a5a9af34c2d4cf98eeb870a730df49654e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5eb30f7dcf4b459b0af0bd8de965971fbbe44863
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084953"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477659"
 ---
-# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Undvik hämtning av sidor vid hämtning och förnyelse av tokens tyst med MSAL. js
-Microsoft Authentication Library för Java Script (MSAL. js) `iframe` använder dolda element för att hämta och förnya token tyst i bakgrunden. Azure AD returnerar token tillbaka till den registrerade redirect_uri som anges i Tokenbegäran (som standard är appens rot sida). Eftersom svaret är en 302 resulterar det i HTML-koden som `redirect_uri` motsvarar inläsningen i. `iframe` Vanligt vis `redirect_uri` är appens rot sida och det gör att den kan läsas in på nytt.
+# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Undvik hämtning av sidor vid hämtning och förnyelse av tokens tyst med MSAL.js
+Microsoft Authentication Library för Java Script (MSAL.js) använder dolda `iframe` element för att hämta och förnya token tyst i bakgrunden. Azure AD returnerar token tillbaka till den registrerade redirect_uri som anges i Tokenbegäran (som standard är appens rot sida). Eftersom svaret är en 302 resulterar det i HTML-koden som motsvarar `redirect_uri` inläsningen i `iframe` . Vanligt vis är appens `redirect_uri` rot sida och det gör att den kan läsas in på nytt.
 
-I andra fall kan det hända att om du navigerar till appens rot sida kräver autentisering, kan det `iframe` leda till `X-Frame-Options: deny` kapslade element eller fel.
+I andra fall kan det hända att om du navigerar till appens rot sida kräver autentisering, kan det leda till kapslade `iframe` element eller `X-Frame-Options: deny` fel.
 
-Eftersom MSAL. js inte kan stänga 302 som utfärdats av Azure AD och som krävs för att bearbeta den returnerade token, `redirect_uri` kan den inte förhindra att `iframe`den läses in i.
+Eftersom MSAL.js inte kan stänga 302 som utfärdats av Azure AD och som krävs för att bearbeta den returnerade token, kan den inte förhindra att `redirect_uri` läsas in i `iframe` .
 
 För att undvika att hela appen laddas om igen eller andra fel som orsakas av detta, följer du dessa lösningar.
 
@@ -35,9 +35,9 @@ Ställ in `redirect_uri` egenskapen på config på en enkel sida som inte kräve
 
 ## <a name="initialization-in-your-main-app-file"></a>Initiera i huvud program filen
 
-Om din app är strukturerad så att det finns en central JavaScript-fil som definierar appens initiering, Routning och andra saker kan du villkorligt läsa in dina app-moduler baserat på om appen läses in `iframe` eller inte. Ett exempel:
+Om din app är strukturerad så att det finns en central JavaScript-fil som definierar appens initiering, Routning och andra saker kan du villkorligt läsa in dina app-moduler baserat på om appen läses in `iframe` eller inte. Till exempel:
 
-I AngularJS: app. js
+I AngularJS: app.js
 
 ```javascript
 // Check that the window is an iframe and not popup
@@ -146,4 +146,4 @@ export class MsalComponent {
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om att [skapa ett enda webb program (Spa)](scenario-spa-overview.md) med MSAL. js.
+Lär dig mer om att [skapa ett enda webb program (Spa)](scenario-spa-overview.md) med hjälp av MSAL.js.

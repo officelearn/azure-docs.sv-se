@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: c2a3b40f5ac79d11e0a80ba31c3bbc10f4e82276
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/28/2020
+ms.openlocfilehash: d39dbc640dc89febc29c7b6c4942da88837c670a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299595"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506611"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 
@@ -40,7 +40,7 @@ Du kan kopiera data från en SQL Server-databas till alla mottagar data lager so
 
 Mer specifikt stöder den här SQL Server-anslutningen:
 
-- SQL Server version 2016, 2014, 2012, 2008 R2, 2008 och 2005.
+- SQL Server version 2005 och senare.
 - Kopiera data med SQL eller Windows-autentisering.
 - Som källa hämtar data med hjälp av en SQL-fråga eller en lagrad procedur.
 - Som mottagare skapar mål tabellen automatiskt om den inte finns, baserat på käll schemat. lägga till data i en tabell eller anropa en lagrad procedur med anpassad logik under kopieringen. 
@@ -50,7 +50,7 @@ Mer specifikt stöder den här SQL Server-anslutningen:
 >[!NOTE]
 >SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) stöds inte av den här anslutningen nu. För att lösa problemet kan du använda en [allmän ODBC-anslutning](connector-odbc.md) och en SQL Server ODBC-drivrutin. Följ [den här vägledningen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) för hämtning av ODBC-drivrutiner och konfiguration av anslutnings strängar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -505,7 +505,7 @@ När du kopierar data från och till SQL Server, används följande mappningar f
 | ntext |Sträng, char [] |
 | numeric |Decimal |
 | nvarchar |Sträng, char [] |
-| real |Enkel |
+| real |Enskilt |
 | rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

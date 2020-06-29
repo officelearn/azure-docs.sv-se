@@ -6,18 +6,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 79f26d56b79a4622ce99b45f153685f9063b79ad
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: f751c45b12ec2c8f6f09080b01b24f59af1fc0d0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904855"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478339"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gör så här: tillhandahålla valfria anspråk till din Azure AD-App
 
@@ -96,7 +96,7 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
 
 **Tabell 4: värden för konfiguration av valfria anspråk**
 
-| Egenskapsnamn  | Ytterligare egenskaps namn | Beskrivning |
+| Egenskapsnamn  | Ytterligare egenskaps namn | Description |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Kan användas för både SAML-och JWT-svar och för v 1.0-och v 2.0-token. |
 |                | `include_externally_authenticated_upn`  | Inkluderar gäst-UPN som lagrats i resurs klienten. Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com` |
@@ -198,7 +198,7 @@ Om det stöds av ett angivet anspråk kan du också ändra beteendet för Option
 
 **Tabell 6: egenskaper för OptionalClaim-typ**
 
-| Name                   | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
+| Name                   | Typ                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Namnet på det valfria anspråket.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Källa (katalog objekt) för anspråket. Det finns fördefinierade anspråk och användardefinierade anspråk från tilläggs egenskaper. Om source-värdet är null är anspråket ett fördefinierat valfritt anspråk. Om source-värdet är User är värdet i egenskapen name egenskapen Extension från objektet User. |
@@ -260,7 +260,7 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
    - "SecurityGroup"
    - "DirectoryRole"
 
-   Ett exempel:
+   Till exempel:
 
     ```json
     "groupMembershipClaims": "SecurityGroup"

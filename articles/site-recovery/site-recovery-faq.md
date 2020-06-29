@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs populära allmänna frågor om Azure S
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: b16301bb092395ac71a5bfd6f53f392ab708b10c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: dd3b9b8eca4f1eab66f8982b22be5941d082b229
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345180"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506182"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -128,7 +128,7 @@ Ja. När du använder Site Recovery för att dirigera replikering och redundans 
 
 ### <a name="is-disaster-recovery-supported-for-azure-vms"></a>Stöds haveri beredskap för virtuella Azure-datorer?
 
-Ja, Site Recovery stöder haveri beredskap för virtuella Azure-datorer mellan Azure-regioner. [Läs vanliga frågor](azure-to-azure-common-questions.md) om haveri beredskap för virtuella Azure-datorer.
+Ja, Site Recovery stöder haveri beredskap för virtuella Azure-datorer mellan Azure-regioner. [Läs vanliga frågor](azure-to-azure-common-questions.md) om haveri beredskap för virtuella Azure-datorer. Om du vill replikera mellan två Azure-regioner på samma kontinent använder du Azure till Azure DR-erbjudandet. Du behöver inte konfigurera konfigurations servern/processervern och ExpressRoute-anslutningar.
 
 ### <a name="is-disaster-recovery-supported-for-vmware-vms"></a>Stöds haveri beredskap för virtuella VMware-datorer?
 

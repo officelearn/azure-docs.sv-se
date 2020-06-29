@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 7490eef7b6203b6bb2623efa4518c7bee5400fb3
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610776"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506573"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner & verktyg för Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Azure Cloud Shell körs på `Ubuntu 16.04 LTS`.
+Azure Cloud Shell körs på `Ubuntu 16.04 LTS` .
 
 ## <a name="features"></a>Funktioner
 
@@ -36,7 +36,7 @@ Cloud Shell säkert och autentiserar automatiskt konto åtkomst för Azure CLI o
 ### <a name="home-persistence-across-sessions"></a>$HOME beständighet mellan sessioner
 
 För att spara filer över flera sessioner, Cloud Shell vägleder dig genom att ansluta en Azure-filresurs vid första starten.
-När den har slutförts ansluts Cloud Shell automatiskt lagringen `$HOME\clouddrive`(monterad som) för alla kommande sessioner.
+När den har slutförts ansluts Cloud Shell automatiskt lagringen (monterad som `$HOME\clouddrive` ) för alla kommande sessioner.
 Dessutom sparas din `$HOME` katalog som en. img-fil i Azure-filresursen.
 Filer utanför `$HOME` och dator status behålls inte mellan sessioner. Använd metod tips när du lagrar hemligheter som SSH-nycklar. Tjänster som [Azure Key Vault har självstudier för installation](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
@@ -44,7 +44,7 @@ Filer utanför `$HOME` och dator status behålls inte mellan sessioner. Använd 
 
 ### <a name="azure-drive-azure"></a>Azure-enhet (Azure:)
 
-PowerShell i Cloud Shell tillhandahåller Azure-enheten (`Azure:`). Du kan växla till Azure-enheten med `cd Azure:` och tillbaka till din arbets katalog med `cd  ~`.
+PowerShell i Cloud Shell tillhandahåller Azure-enheten ( `Azure:` ). Du kan växla till Azure-enheten med `cd Azure:` och tillbaka till din arbets katalog med `cd  ~` .
 Med Azure-enheten kan du enkelt upptäcka och navigera i Azure-resurser, till exempel Compute, nätverk, lagring osv. liknar navigering i fil systemet.
 Du kan fortsätta att använda de bekanta [Azure PowerShell-cmdletarna](https://docs.microsoft.com/powershell/azure) för att hantera dessa resurser oavsett vilken enhet du befinner dig i.
 Alla ändringar som görs i Azure-resurserna, antingen direkt i Azure Portal eller genom Azure PowerShell-cmdletar, återspeglas i Azure-enheten.  Du kan köra `dir -Force` för att uppdatera dina resurser.
@@ -59,7 +59,7 @@ PowerShell i Cloud Shell innehåller en privat version av Exchange Online-module
 
  Kör `Get-Command -Module tmp_*`
 > [!NOTE]
-> Modulnamnet ska börja med `tmp_`, om du har installerat moduler med samma prefix, kommer deras cmdlets också att placeras på skärmen. 
+> Modulnamnet ska börja med `tmp_` , om du har installerat moduler med samma prefix, kommer deras cmdlets också att placeras på skärmen. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -78,7 +78,7 @@ Cloud Shell innehåller förkonfigurerad autentisering för verktyg med öppen k
 |Byggverktyg            |märke<br> maven<br> npm<br> –         |
 |Containrar             |[Docker-dator](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databaser              |MySQL-klient<br> PostgreSql-klient<br> [SQLCMD-verktyg](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL – skriptare](https://github.com/Microsoft/sql-xplat-cli) |
-|Annat                  |iPython-klient<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chefs INSPEC](https://www.chef.io/inspec/)<br> [Puppet-bult](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
+|Övrigt                  |iPython-klient<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chefs INSPEC](https://www.chef.io/inspec/)<br> [Puppet-bult](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Office 365 CLI](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Stöd för språk
 

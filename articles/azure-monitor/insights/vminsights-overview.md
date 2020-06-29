@@ -5,17 +5,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/11/2020
-ms.openlocfilehash: 6f65ba96f768a4b88aa13c073cc66920b8c5e049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: f058ce1ae5b7328c6864684994a74f2fd118ca6e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480495"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506998"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>Vad är Azure Monitor for VMs?
 
-Azure Monitor for VMs övervakar dina virtuella Azure-datorer (VM) och skalnings uppsättningar för virtuella datorer i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer. Den innehåller stöd för övervakning av prestanda-och program beroenden för virtuella datorer som finns lokalt eller i en annan moln leverantör. Följande viktiga funktioner ger djupgående insikt:
+Azure Monitor for VMs övervakar dina virtuella datorer, skalnings uppsättningar för virtuella datorer och Azure Arc-datorer i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer. Den innehåller stöd för övervakning av prestanda och programberoenden för virtuella datorer som finns lokalt eller hos en annan molnleverantör. Följande viktiga funktioner ger djupgående insikt:
 
 - **Fördefinierade prestanda diagram**: Visa kärn prestanda mått från det virtuella gäst operativ systemet.
 

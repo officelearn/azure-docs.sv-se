@@ -2,14 +2,14 @@
 title: Etablera en pool i ett virtuellt nätverk
 description: Så här skapar du en batch-pool i ett virtuellt Azure-nätverk så att Compute-noder kan kommunicera säkert med andra virtuella datorer i nätverket, till exempel en fil server.
 ms.topic: how-to
-ms.date: 04/03/2020
+ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3ff8995217521199436e0924acc691dab7c4baef
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797510"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506622"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch pool i ett virtuellt nätverk
 
@@ -17,27 +17,29 @@ När du skapar en Azure Batch pool kan du etablera poolen i ett undernät för e
 
 ## <a name="why-use-a-vnet"></a>Varför ska jag använda ett VNet?
 
-En Azure Batch pool har inställningar för att tillåta att Compute-noder kommunicerar med varandra, till exempel för att köra aktiviteter med flera instanser. De här inställningarna kräver inte ett separat VNet. Noderna kan som standard inte kommunicera med virtuella datorer som inte ingår i batch-poolen, till exempel en licens Server eller en fil server. Om du vill tillåta att datornoder i pooler kommunicerar säkert med andra virtuella datorer eller med ett lokalt nätverk kan du etablera poolen i ett undernät för ett Azure VNet.
+Compute-noder i en pool kan kommunicera med varandra, till exempel för att köra aktiviteter med flera instanser, utan att ett separat VNet krävs. Noder i en pool kan dock inte kommunicera med virtuella datorer utanför poolen, till exempel licens servrar eller fil servrar, som standard.
+
+Om du vill tillåta att Compute-noder kommunicerar säkert med andra virtuella datorer, eller med ett lokalt nätverk, kan du etablera poolen i ett undernät för ett Azure VNet.
 
 ## <a name="prerequisites"></a>Krav
 
-* **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).
+- **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).
 
-* **Ett Azure VNet**. Se följande avsnitt för krav och konfiguration för VNet. För att förbereda ett VNet med ett eller flera undernät i förväg, kan du använda Azure Portal, Azure PowerShell, kommando rads gränssnittet för Azure (CLI) eller andra metoder.
-  * Information om hur du skapar ett Azure Resource Manager-baserat VNet finns i [skapa ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Ett Resource Manager-baserat VNet rekommenderas för nya distributioner och stöds endast på pooler i konfigurationen för den virtuella datorn.
-  * Om du vill skapa ett klassiskt VNet, se [skapa ett virtuellt nätverk (klassiskt) med flera undernät](../virtual-network/create-virtual-network-classic.md). Ett klassiskt VNet stöds bara för pooler i Cloud Services-konfigurationen.
+- **Ett Azure VNet**. Se följande avsnitt för krav och konfiguration för VNet. För att förbereda ett VNet med ett eller flera undernät i förväg, kan du använda Azure Portal, Azure PowerShell, kommando rads gränssnittet för Azure (CLI) eller andra metoder.
+  - Information om hur du skapar ett Azure Resource Manager-baserat VNet finns i [skapa ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Ett Resource Manager-baserat VNet rekommenderas för nya distributioner och stöds endast på pooler som använder konfiguration av virtuell dator.
+  - Om du vill skapa ett klassiskt VNet, se [skapa ett virtuellt nätverk (klassiskt) med flera undernät](../virtual-network/create-virtual-network-classic.md). Ett klassiskt VNet stöds bara på pooler som använder Cloud Services konfiguration.
 
 ## <a name="vnet-requirements"></a>VNet-krav
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Skapa en pool med ett VNet i portalen
+## <a name="create-a-pool-with-a-vnet-in-the-azure-portal"></a>Skapa en pool med ett VNet i Azure Portal
 
 När du har skapat ditt VNet och tilldelat ett undernät, kan du skapa en batch-pool med det virtuella nätverket. Följ de här stegen för att skapa en pool från Azure Portal: 
 
 1. Navigera till ditt Batch-konto i Azure Portal. Det här kontot måste finnas i samma prenumeration och region som den resurs grupp som innehåller det virtuella nätverk som du vill använda.
 2. I fönstret **Inställningar** till vänster väljer du meny alternativet **pooler** .
-3. I fönstret **pooler** väljer du kommandot **Lägg till** .
+3. I fönstret **pooler** väljer du **Lägg till**.
 4. I fönstret **Lägg till pool** väljer du det alternativ som du vill använda från List rutan **Bildtyp** .
 5. Välj rätt **utgivare/erbjudande/SKU** för din anpassade avbildning.
 6. Ange de återstående nödvändiga inställningarna, inklusive **nodens storlek**, **dedikerade noder**och **noder med låg prioritet**samt önskade valfria inställningar.
@@ -47,22 +49,22 @@ När du har skapat ditt VNet och tilldelat ett undernät, kan du skapa en batch-
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>Användardefinierade vägar för Tvingad tunnel trafik
 
-Du kan ha krav i din organisation för att omdirigera (tvinga) Internet-baserad trafik från undernät tillbaka till din lokala plats för inspektion och loggning. Du kanske har aktiverat Tvingad tunnel trafik för undernät i ditt VNet.
+Du kan ha krav i din organisation för att omdirigera (tvinga) Internet-baserad trafik från undernät tillbaka till din lokala plats för inspektion och loggning. Dessutom kan du ha aktiverat Tvingad tunnel trafik för undernät i ditt VNet.
 
-Du måste lägga till följande [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) (UDR) för under nätet för att säkerställa att Compute-noder i Azure Batch fungerar i ett VNet där Tvingad tunnel trafik är aktive rad:
+För att säkerställa att noderna i poolen fungerar i ett VNet som har Tvingad tunnel trafik aktive rad måste du lägga till följande [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) (UDR) för under nätet:
 
-* Batch-tjänsten måste kommunicera med datornoder för att schemalägga aktiviteter. Om du vill aktivera den här kommunikationen lägger du till en UDR för varje IP-adress som används av batch-tjänsten i den region där ditt batch-konto finns. Information om hur du hämtar listan över IP-adresser för batch-tjänsten finns i [tjänst Taggar lokalt](../virtual-network/service-tags-overview.md).
+- Batch-tjänsten måste kommunicera med noder för schemaläggning av aktiviteter. Om du vill aktivera den här kommunikationen lägger du till en UDR för varje IP-adress som används av batch-tjänsten i den region där ditt batch-konto finns. Om du vill hämta en lista över IP-adresser för batch-tjänsten, se [tjänst Taggar lokalt](../virtual-network/service-tags-overview.md).
 
-* Se till att den utgående trafiken till Azure Storage (särskilt webb adresserna i formuläret `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` och `<account>.blob.core.windows.net` ) inte är blockerad via den lokala nätverks enheten.
+- Se till att utgående trafik till Azure Storage (särskilt URL-adresser i formuläret `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` och `<account>.blob.core.windows.net` ) inte blockeras av ditt lokala nätverk.
 
-När du lägger till en UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger **nästa hopp typ** till **Internet**. Se följande exempel:
+När du lägger till en UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger **nästa hopp typ** till **Internet**.
 
 ![Användardefinierad väg](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> IP-adresser för batch-tjänsten kan ändras med tiden. För att förhindra ett avbrott på grund av en ändring av en IP-adress rekommenderar vi att du upprättar en periodisk process för att uppdatera IP-adresser för batch-tjänsten automatiskt och hålla dem uppdaterade i routningstabellen.
+> IP-adresser för batch-tjänsten kan ändras med tiden. För att förhindra avbrott på grund av en ändring av IP-adress, skapar du en process för att uppdatera batch-tjänstens IP-adresser automatiskt och hålla dem uppdaterade i routningstabellen. Alternativt kan du [skapa en pool med angivna IP-adresser som du styr](create-pool-public-ip.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
-- Information om hur du skapar en användardefinierad väg finns i [Create a User-Defined Route-Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).
+- Lär dig hur du [skapar en användardefinierad väg i Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).

@@ -7,19 +7,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91abfc395c84ad49079fcaa55c20d641ee4e7b49
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546143"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478118"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser
 
 Den här artikeln visar hur du skapar ett nytt Azure Active Directory (Azure AD)-program och tjänstens huvud namn som kan användas med rollbaserad åtkomst kontroll. När du har kod som behöver åtkomst till eller ändra resurser kan du skapa en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Du kan sedan tilldela de behörigheter som krävs för tjänstens huvud namn. Den här artikeln visar hur du använder portalen för att skapa tjänstens huvud namn. Den fokuserar på ett program med en enda klient där programmet är avsett att köras endast inom en organisation. Du använder vanligt vis program med en enda klient för branschspecifika program som körs i din organisation.
 
@@ -56,7 +56,7 @@ Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resurs
 
    Om du inte ser den prenumeration du letar efter väljer du **globala prenumerations filter**. Kontrol lera att den prenumeration du vill använda är vald för portalen.
 
-1. Välj **åtkomst kontroll (IAM)**.
+1. Välj **Åtkomstkontroll (IAM)** .
 1. Välj **Lägg till rolltilldelning**.
 1. Välj den roll som du vill tilldela till programmet. Om du till exempel vill tillåta att programmet kör åtgärder som **starta om**, **Starta** och **stoppa** instanser väljer du rollen **deltagare** .  Läs mer om [tillgängliga roller](../../role-based-access-control/built-in-roles.md) som standard visas inte Azure AD-program i de tillgängliga alternativen. Du hittar ditt program genom att söka efter namnet och välja det.
 
@@ -158,7 +158,7 @@ Så här kontrollerar du dina prenumerations behörigheter:
 
 1. Sök efter och välj **prenumerationer**eller Välj **prenumerationer** på **Start** sidan.
 
-   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Sök](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Välj den prenumeration som du vill skapa tjänstens huvud namn i.
 

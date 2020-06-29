@@ -3,12 +3,12 @@ title: Konfigurera din egen nyckel för kryptering av Azure Event Hubs-data i vi
 description: Den här artikeln innehåller information om hur du konfigurerar din egen nyckel för kryptering av Azure Event Hubs data rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b92437f69dd5ff01d57d12e8e8e7fdce73cfddc0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314726"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479835"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -66,7 +66,7 @@ När du har aktiverat Kundhanterade nycklar måste du associera kundens hanterad
 
 
 ## <a name="rotate-your-encryption-keys"></a>Rotera dina krypterings nycklar
-Du kan rotera din nyckel i nyckel valvet med hjälp av rotations funktionen för Azure Key Vault. Mer information finns i [Konfigurera nyckel rotation och granskning](../key-vault/secrets/key-rotation-log-monitoring.md). Aktiverings-och utgångs datum kan också ställas in för att automatisera nyckel rotationen. Tjänsten Event Hubs identifierar nya nyckel versioner och börjar använda dem automatiskt.
+Du kan rotera din nyckel i nyckel valvet med hjälp av rotations funktionen för Azure Key Vault. Aktiverings-och utgångs datum kan också ställas in för att automatisera nyckel rotationen. Tjänsten Event Hubs identifierar nya nyckel versioner och börjar använda dem automatiskt.
 
 ## <a name="revoke-access-to-keys"></a>Återkalla åtkomst till nycklar
 Om du återkallar åtkomst till krypterings nycklarna rensas inte data från Event Hubs. Men det går inte att komma åt data från namn området Event Hubs. Du kan återkalla krypterings nyckeln via åtkomst principen eller genom att ta bort nyckeln. Läs mer om åtkomst principer och skydda nyckel valvet från [säker åtkomst till ett nyckel valv](../key-vault/general/secure-your-key-vault.md).

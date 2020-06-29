@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
-ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60302507"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507491"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa jobb för den virtuella StorSimple-matrisen
 ## <a name="overview"></a>Översikt

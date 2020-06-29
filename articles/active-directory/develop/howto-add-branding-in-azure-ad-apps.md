@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: c5b63fb0b66c78b33fb073eca919ed55bd05107c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c11bbe4aab064c8c1f32cf273cd3e0b6c2a3ae8f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884434"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478203"
 ---
 # <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
 
@@ -63,11 +63,11 @@ Det kan finnas flera olika sätt att registrera sig och logga in i ditt program.
 
 Den länk du lägger in för apphämtning måste omdirigera användaren till Azure AD-godkännandesidan (auktorisering). Administratören måste kunna godkänna så att appen får åtkomst till organisationens data, som tillhandahålls av Microsoft. Information om hur du begär åtkomst beskrivs i artikeln om att [integrera app med Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md).
 
-När administratörer har godkänt din app kan de välja att lägga till den i sina användares Office 365-programs/Start miljö (nås från rutmärket [https://portal.office.com/myapps](https://portal.office.com/myapps)och från). Om du vill annonsera den här funktionen kan du till exempel skriva ”Lägg till den här appen i organisationen” och visa en knapp enligt följande exempel:
+När administratörer har godkänt din app kan de välja att lägga till den i sina användares Office 365-programs/Start miljö (nås från rutmärket och från [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Om du vill annonsera den här funktionen kan du till exempel skriva ”Lägg till den här appen i organisationen” och visa en knapp enligt följande exempel:
 
 ![Knapp som visar text för Microsoft-logotypen och "Lägg till i min organisation"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Ett exempel:
+Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Till exempel:
 
 > *Om du redan använder Office 365 eller andra företags tjänster från Microsoft kan du bevilja <your_app_name> åtkomst till din organisations data. Detta gör att användarna kan komma åt <your_app_name> med sina befintliga arbets konton.*
 

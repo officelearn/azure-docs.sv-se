@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871532"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477251"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering?
 
@@ -47,9 +47,9 @@ Inget schemalagt för tillfället.  Se nedan för de ändringar som finns i elle
 
 **Protokoll som påverkas**: alla flöden
 
-Den 1 juni 2018, den officiella Azure Active Directory (AAD) som Azure Government ändrats från `https://login-us.microsoftonline.com` till. `https://login.microsoftonline.us` Den här ändringen gäller också för Microsoft 365 GCC hög och DoD, som även Azure Government AAD. Om du äger ett program inom en amerikansk myndighets klient måste du uppdatera ditt program för att logga in användare i `.us` slut punkten.  
+Den 1 juni 2018, den officiella Azure Active Directory (AAD) som Azure Government ändrats från `https://login-us.microsoftonline.com` till `https://login.microsoftonline.us` . Den här ändringen gäller också för Microsoft 365 GCC hög och DoD, som även Azure Government AAD. Om du äger ett program inom en amerikansk myndighets klient måste du uppdatera ditt program för att logga in användare i `.us` slut punkten.  
 
-Från och med den 5 maj kommer Azure AD att börja verkställa slut punkts ändringen, vilket hindrar myndighets användare från att logga in på appar som finns i amerikanska myndighets`microsoftonline.com`klienter med hjälp av den offentliga slut punkten ().  Påverkade appar påbörjar ett fel `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`. Det här felet indikerar att appen försöker logga in hos en amerikansk myndighets användare på den offentliga moln slut punkten. Om din app finns i en offentlig moln klient och är avsedd att stödja användare av amerikanska myndigheter, måste du [Uppdatera din app så att den stöder dem uttryckligen](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Detta kan kräva att du skapar en ny app-registrering i det amerikanska myndighets molnet. 
+Från och med den 5 maj kommer Azure AD att börja verkställa slut punkts ändringen, vilket hindrar myndighets användare från att logga in på appar som finns i amerikanska myndighets klienter med hjälp av den offentliga slut punkten ( `microsoftonline.com` ).  Påverkade appar påbörjar ett fel `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Det här felet indikerar att appen försöker logga in hos en amerikansk myndighets användare på den offentliga moln slut punkten. Om din app finns i en offentlig moln klient och är avsedd att stödja användare av amerikanska myndigheter, måste du [Uppdatera din app så att den stöder dem uttryckligen](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Detta kan kräva att du skapar en ny app-registrering i det amerikanska myndighets molnet. 
 
 Verkställighet av den här ändringen görs med hjälp av en gradvis distribution baserat på hur ofta användare från molnet för amerikanska myndigheter loggar in på program-appar som loggar in i amerikanska myndighets användare som inte ofta ser tvångs tvång och appar som ofta används av amerikanska myndighets användare kommer att ha tillämpat tvång. Vi förväntar oss att tvång är slutfört för alla appar i juni 2020. 
 
@@ -104,7 +104,7 @@ Med början av veckan 9/2 verifieras autentiseringsbegäranden som använder POS
 
 Exempel:
 
-Idag parsas de likadant `?e=    "f"&g=h` som `?e=f&g=h` `e`  ==  `f`de är.  Med den här ändringen kommer den nu att tolkas så att `e`  ==  `    "f"` -det är osannolikt att det är ett giltigt argument, och begäran kunde nu inte utföras.
+Idag `?e=    "f"&g=h` parsas de likadant som de är `?e=f&g=h` `e`  ==  `f` .  Med den här ändringen kommer den nu att tolkas så att `e`  ==  `    "f"` -det är osannolikt att det är ett giltigt argument, och begäran kunde nu inte utföras.
 
 
 ## <a name="july-2019"></a>Juli 2019
@@ -117,7 +117,7 @@ Idag parsas de likadant `?e=    "f"&g=h` som `?e=f&g=h` `e`  ==  `f`de är.  Med
 
 **Protokoll som påverkas**: [klientautentiseringsuppgifter (endast app-token)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-En säkerhets ändring förblev 26 i juli som ändrar det sätt på vilket endast app-token (via tilldelning av klientautentiseringsuppgifter) utfärdas. Tidigare har program tillåtits att hämta token för att anropa alla andra appar, oavsett närvaro i klienten eller roller som meddelats för programmet.  Det här beteendet har uppdaterats så att resurser (ibland kallade webb-API: er) är en enskild klient (standard) och att klient programmet måste finnas i resurs klienten.  Observera att befintliga medgivande mellan klienten och API: n fortfarande inte behövs, och apparna bör fortfarande utföra sina egna verifierings kontroller för att säkerställa att `roles` det finns ett anspråk och innehåller det förväntade värdet för API: et.
+En säkerhets ändring förblev 26 i juli som ändrar det sätt på vilket endast app-token (via tilldelning av klientautentiseringsuppgifter) utfärdas. Tidigare har program tillåtits att hämta token för att anropa alla andra appar, oavsett närvaro i klienten eller roller som meddelats för programmet.  Det här beteendet har uppdaterats så att resurser (ibland kallade webb-API: er) är en enskild klient (standard) och att klient programmet måste finnas i resurs klienten.  Observera att befintliga medgivande mellan klienten och API: n fortfarande inte behövs, och apparna bör fortfarande utföra sina egna verifierings kontroller för att säkerställa att det finns ett `roles` anspråk och innehåller det förväntade värdet för API: et.
 
 Fel meddelandet för det här scenariot är för närvarande tillstånd:
 
@@ -127,7 +127,7 @@ Du kan åtgärda det här problemet genom att använda administratörs medgivand
 
 #### <a name="example-request"></a>Exempelbegäran
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`I det här exemplet är resurs klienten (auktoritet) contoso.com, Resource-appen är en app med en klient som anropas `gateway.contoso.com/api` för Contoso-klienten och klient programmet är. `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`  Om klient programmet har ett huvud namn för tjänsten i Contoso.com kan denna begäran fortsätta.  Om den inte gör det Miss känner dock begäran med ovanstående fel.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`I det här exemplet är resurs klienten (auktoritet) contoso.com, Resource-appen är en app med en klient som anropas `gateway.contoso.com/api` för Contoso-klienten och klient programmet är `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Om klient programmet har ett huvud namn för tjänsten i Contoso.com kan denna begäran fortsätta.  Om den inte gör det Miss känner dock begäran med ovanstående fel.
 
 Om contoso Gateway-appen var ett program för flera innehavare, skulle begäran fortsätta oavsett vilken klient app som har ett huvud namn för tjänsten i Contoso.com.
 
@@ -139,7 +139,7 @@ Om contoso Gateway-appen var ett program för flera innehavare, skulle begäran 
 
 **Protokoll som påverkas**: alla flöden
 
-I [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)kan Azure AD-program nu registrera och använda omdirigerings-URI: er (reply) med statiska `https://contoso.com/oauth2?idp=microsoft`frågeparametrar (till exempel) för OAuth 2,0-begäranden.  Dynamiska omdirigerings-URI: er är fortfarande förbjudna eftersom de utgör en säkerhets risk och det kan inte användas för att bevara tillståndsinformation i en autentiseringsbegäran – för den `state` , använder du parametern.
+I [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)kan Azure AD-program nu registrera och använda omdirigerings-URI: er (reply) med statiska frågeparametrar (till exempel `https://contoso.com/oauth2?idp=microsoft` ) för OAuth 2,0-begäranden.  Dynamiska omdirigerings-URI: er är fortfarande förbjudna eftersom de utgör en säkerhets risk och det kan inte användas för att bevara tillståndsinformation i en autentiseringsbegäran – för den, använder du `state` parametern.
 
 Den statiska Frågeparametern omfattas av sträng matchning för omdirigering av URI: er som andra delar av omdirigerings-URI: n – om ingen sträng registreras som matchar den URI-avkodade redirect_uri, kommer begäran att avvisas.  Om URI: n hittas i appens registrering, kommer hela strängen att användas för att omdirigera användaren, inklusive parametern för statisk fråga.
 
@@ -158,7 +158,7 @@ Observera att i den här tiden (slutet av juli 2019), är app Registration-UX i 
 
 Klient program kan ibland vara felödande, vilket ger hundratals olika inloggnings begär Anden under en kort tids period.  Dessa förfrågningar kanske inte lyckas, men alla bidrar till dåliga användar upplevelser och förhöjda arbets belastningar för IDP, ökande svars tid för alla användare och minskad tillgänglighet för IDP.  Programmen körs utanför gränserna för normal användning och bör uppdateras så att de fungerar korrekt.
 
-Klienter som utfärdar dubbla förfrågningar flera gånger skickas ett `invalid_grant` fel:. `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`
+Klienter som utfärdar dubbla förfrågningar flera gånger skickas ett `invalid_grant` fel: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` .
 
 De flesta klienter behöver inte ändra beteende för att undvika det här felet.  Det här felet påverkas bara av felkonfigurerade klienter (de utan cachelagring av token eller de som uppvisar prompterna redan).  Klienter spåras baserat på varje instans lokalt (via cookie) på följande faktorer:
 
@@ -166,7 +166,7 @@ De flesta klienter behöver inte ändra beteende för att undvika det här felet
 
 * Omfattningar eller resurs som begärs
 
-* Klientorganisations-ID
+* Klient-ID
 
 * Omdirigerings-URI
 
@@ -209,5 +209,5 @@ För att undvika den här ändringen kan du göra följande:
 
 1. Skapa ett webb-API för ditt program med ett eller flera omfång. Den här explicita start punkten ger bättre kornig kontroll och säkerhet.
 1. I appens manifest, i [Azure Portal](https://portal.azure.com) eller i [appens registrerings Portal](https://apps.dev.microsoft.com), kontrollerar du att appen tillåts utfärda åtkomsttoken via det implicita flödet. Detta styrs via `oauth2AllowImplicitFlow` nyckeln.
-1. När klient programmet begär en id_token via `response_type=id_token`, begär även en åtkomsttoken (`response_type=token`) för det webb-API som skapades ovan. När du använder v 2.0-slutpunkten `scope` bör parametern se ut ungefär `api://GUID/SCOPE`så här. På den v 1.0-slut punkten `resource` ska parametern vara app-URI: n för webb-API: et.
+1. När klient programmet begär en id_token via `response_type=id_token` , begär även en åtkomsttoken ( `response_type=token` ) för det webb-API som skapades ovan. När du använder v 2.0-slutpunkten `scope` bör parametern se ut ungefär så här `api://GUID/SCOPE` . På den v 1.0-slut punkten `resource` ska parametern vara app-URI: n för webb-API: et.
 1. Skicka denna åtkomsttoken till mellan nivån i stället för id_token.

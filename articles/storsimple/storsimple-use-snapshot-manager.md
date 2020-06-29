@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
-ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a94a533dbc31e2f2d4ddb5d1985c77da8b29032
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933976"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476979"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Använd StorSimple-Snapshot Manager användar gränssnitt för att hantera säkerhets kopierings jobb och säkerhets kopierings katalog
 
@@ -67,7 +67,7 @@ Om du vill visa **Arkiv** -menyn klickar du på **fil** på Meny raden. Följand
 #### <a name="menu-description"></a>Meny Beskrivning
 I följande tabell beskrivs de objekt som visas på menyn **Arkiv** .
 
-| Meny alternativ | Beskrivning |
+| Meny alternativ | Description |
 |:--- |:--- |
 | Ny |Klicka på **ny** för att skapa en ny konsol som baseras på StorSimple Snapshot Manager. |
 | Öppna |Klicka på **Öppna** för att öppna en befintlig konsol. |
@@ -107,7 +107,7 @@ Följande tabell innehåller en alfabetisk lista över StorSimple-Snapshot Manag
 > 
 > 
 
-| Åtgärd | Navigering | Beskrivning |
+| Åtgärd | Navigering | Description |
 |:--- |:--- |:--- |
 | Autentisera |Klicka på noden **enheter** och högerklicka på en enhet i **resultat** fönstret. |Klicka på **autentisera** för att ange det lösen ord som du konfigurerade för enheten. |
 | Klona |Expandera **säkerhets kopierings katalog**, expandera **moln ögonblicks bilder**, klicka på en säkerhets kopia och välj sedan en volym i **resultat** fönstret. |Klicka på **klona** för att skapa en kopia av en ögonblicks bild av molnet och lagra den på en plats som du anger. |
@@ -118,7 +118,7 @@ Följande tabell innehåller en alfabetisk lista över StorSimple-Snapshot Manag
 | Information |Klicka på noden **enheter** och högerklicka sedan på en enhet i **resultat** fönstret. |Klicka på **information** om du vill visa konfigurations information för en enhet. |
 | Redigera |Klicka på **säkerhets kopierings principer**och högerklicka sedan på en princip i **resultat** fönstret. |Klicka på **Redigera** om du vill ändra schemat för säkerhets kopiering för en volym grupp. |
 | Exportera lista |Klicka på en nod eller ett resultat (detta objekt visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **Exportera lista** för att spara en lista i en fil med kommaavgränsade värden (CSV). Sedan kan du importera den här filen till ett kalkyl blads program för analys. |
-| Hjälp |Klicka på en nod eller ett resultat. (Det här objektet visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **Hjälp** för att öppna onlinehjälpen i ett separat webbläsarfönster. |
+| Help |Klicka på en nod eller ett resultat. (Det här objektet visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **Hjälp** för att öppna onlinehjälpen i ett separat webbläsarfönster. |
 | Nytt fönster från här |Klicka på en nod eller ett resultat (detta objekt visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **nytt fönster** härifrån för att öppna ett nytt StorSimple Snapshot Manager-fönster. |
 | Uppdatera |Klicka på en nod eller ett resultat (detta objekt visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **Uppdatera** för att uppdatera den aktuella StorSimple Snapshot Manager fönstret. |
 | Uppdatera enhet |Klicka på noden **enheter** och högerklicka på en enhet i **resultat** fönstret. |Klicka på **Uppdatera enhet** för att synkronisera en angiven ansluten enhet med StorSimple Snapshot Manager. |
@@ -139,7 +139,7 @@ Du kan öppna menyn **Visa** på Meny raden eller i **Åtgärds** fönstret.
 #### <a name="menu-description"></a>Meny Beskrivning
 I följande tabell beskrivs de objekt som visas på menyn **Visa** .
 
-| Meny alternativ | Beskrivning |
+| Meny alternativ | Description |
 |:--- |:--- |
 | Lägg till/ta bort kolumner |Klicka på **Lägg till/ta bort kolumner** om du vill lägga till eller ta bort kolumner i **resultat** fönstret. |
 | Anpassa |Klicka på **Anpassa** för att visa eller dölja objekt i StorSimple Snapshot Manager konsol fönstret. |
@@ -155,7 +155,7 @@ Du kan komma åt **Favoriter** -menyn på Meny raden.
 #### <a name="menu-description"></a>Meny Beskrivning
 I följande tabell beskrivs de objekt som visas på **Favoriter** -menyn.
 
-| Meny alternativ | Beskrivning |
+| Meny alternativ | Description |
 |:--- |:--- |
 | Lägg till i favoriter |Klicka på **Lägg till i favoriter** för att lägga till den aktuella vyn i listan över favoriter. |
 | Ordna favoriter |Klicka på **Ordna Favoriter** för att ordna innehållet i mappen Favoriter. |
@@ -173,7 +173,7 @@ I den numrerade listan längst ned på menyn visas de fönster som är öppna f�
 #### <a name="menu-description"></a>Meny Beskrivning
 I följande tabell beskrivs de objekt som visas på menyn fönster.
 
-| Meny alternativ | Beskrivning |
+| Meny alternativ | Description |
 |:--- |:--- |
 | Nytt fönster |Klicka på **nytt fönster** för att öppna ett nytt konsol fönster (förutom det befintliga fönstret). |
 | Sprid |Klicka på **kaskad** för att visa öppna konsol fönster i ett sammanhängande format. |
@@ -190,7 +190,7 @@ Du kan komma åt **Hjälp** -menyn på Meny raden. Du kan också komma åt StorS
 #### <a name="menu-description"></a>Meny Beskrivning
 I följande tabell beskrivs de objekt som visas på Hjälp-menyn.
 
-| Meny alternativ | Beskrivning |
+| Meny alternativ | Description |
 |:--- |:--- |
 | Hjälp om StorSimple Snapshot Manager |Klicka på **hjälp på StorSimple Snapshot Manager** för att öppna StorSimple Snapshot Manager hjälp i ett separat fönster. |
 | Hjälp avsnitt |Klicka på **Hjälp avsnitt** om du vill öppna hjälpen för MMC i ett separat fönster. |
@@ -204,7 +204,7 @@ Verktygsfältet, som finns under meny raden, innehåller navigerings-och aktivit
 ### <a name="icon-descriptions"></a>Ikon beskrivningar
 I följande tabell beskrivs de ikoner som visas i verktygsfältet. 
 
-| Ikon | Beskrivning |
+| Ikon | Description |
 |:--- |:--- |
 | ![Vänsterpil](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Klicka på vänsterpilen för att återgå till föregående sida. |
 | ![Högerpil](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Klicka på högerpilen för att gå till nästa sida (om pilen är grå är åtgärden inte tillgänglig). |
@@ -428,7 +428,7 @@ I följande tabeller visas kortkommandona för varje nod i **omfattnings** föns
 | V |Öppnar **Visa** -menyn. |
 | W |Öppnar en ny StorSimple-Snapshot Manager-konsol fokuserad på **volym grupper** -noden. |
 | F |Uppdaterar StorSimple Snapshot Manager-konsolen. |
-| L |Öppnar * * sidan Exportera lista * *. |
+| L |Öppnar sidan **Exportera lista** . |
 | H |Öppnar direkt hjälpen. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Kortkommandon för noden katalog för säkerhets kopiering

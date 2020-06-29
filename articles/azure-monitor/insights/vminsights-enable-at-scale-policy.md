@@ -5,17 +5,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 7d3c4e0f4bd34f996bb39426af39a692a6f79c5c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767250"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507185"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Aktivera Azure Monitor for VMs med Azure Policy
 
-I den här artikeln förklaras hur du aktiverar Azure Monitor for VMs för virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer med hjälp av Azure Policy. I slutet av den här processen har du konfigurerat att aktivera Log Analytics-och beroende agenter och identifierade virtuella datorer som inte är kompatibla.
+I den här artikeln förklaras hur du aktiverar Azure Monitor for VMs för virtuella Azure-datorer, skalnings uppsättningar för virtuella Azure-datorer och Azure Arc-datorer med hjälp av Azure Policy. I slutet av den här processen har du konfigurerat att aktivera Log Analytics-och beroende agenter och identifierade virtuella datorer som inte är kompatibla.
 
 Om du vill identifiera, hantera och aktivera Azure Monitor for VMs för alla dina virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer kan du använda antingen Azure Policy eller Azure PowerShell. Azure Policy är metoden vi rekommenderar eftersom du kan hantera princip definitioner för att effektivt styra dina prenumerationer för att säkerställa konsekvent kompatibilitet och automatisk aktivering av nyligen etablerade virtuella datorer. Följande princip definitioner:
 
@@ -46,10 +46,7 @@ Härifrån kan du kontrol lera och hantera täckning för initiativet i dina han
 
 Den här informationen är användbar för att hjälpa dig att planera och köra styrnings scenariot för Azure Monitor for VMs från en central plats. Medan Azure Policy ger en efterlevnadsprincip när en princip eller ett initiativ tilldelas ett omfång, kan du med den här nya sidan upptäcka var principen eller initiativet inte är tilldelad och tilldelar den på plats. Alla åtgärder som tilldela, Visa och redigera omdirigering till Azure Policy direkt. Sidan **Azure Monitor for VMS policy disponering** är en utökat och integrerad upplevelse för endast initiativet **Aktivera Azure Monitor for VMS**.
 
-På den här sidan kan du också konfigurera din Log Analytics arbets yta för Azure Monitor for VMs, som:
-
-- Installerar Tjänstkarta-lösningen.
-- Aktiverar prestanda räknare för operativ systemet som används av prestanda diagram, arbets böcker och dina anpassade logg frågor och aviseringar.
+På den här sidan kan du också konfigurera din Log Analytics arbets yta för Azure Monitor for VMs, som installerar *VMInsights* -lösningen.
 
 ![Azure Monitor for VMs konfigurera arbets yta](media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
 
@@ -62,7 +59,7 @@ Följande tabell innehåller en uppdelning av den information som visas på sida
 | Funktion | Beskrivning | 
 |----------|-------------| 
 | **Omfång** | Hanterings grupp och prenumerationer som du har eller ärvt åtkomst till med möjlighet att gå nedåt i hanterings gruppens hierarki.|
-| **Roll** | Din roll till omfånget, som kan vara läsare, ägare eller deltagare. I vissa fall kan det vara tomt för att indikera att du kan ha åtkomst till prenumerationen men inte till den hanterings grupp som den tillhör. Informationen i andra kolumner varierar beroende på din roll. Rollen är en nyckel för att avgöra vilka data du kan se och vilka åtgärder du kan utföra när du tilldelar principer eller initiativ (ägare), redigerar dem eller visar efterlevnad. |
+| **Role** | Din roll till omfånget, som kan vara läsare, ägare eller deltagare. I vissa fall kan det vara tomt för att indikera att du kan ha åtkomst till prenumerationen men inte till den hanterings grupp som den tillhör. Informationen i andra kolumner varierar beroende på din roll. Rollen är en nyckel för att avgöra vilka data du kan se och vilka åtgärder du kan utföra när du tilldelar principer eller initiativ (ägare), redigerar dem eller visar efterlevnad. |
 | **Totalt antal virtuella datorer** | Antal virtuella datorer under den omfattningen. För en hanterings grupp är det summan av de virtuella datorer som är kapslade under prenumerationerna eller den underordnade hanterings gruppen. |
 | **Tilldelnings täckning** | Procent av de virtuella datorer som omfattas av principen eller initiativet. |
 | **Tilldelnings status** | Information om status för din princip eller initiativ tilldelning. |
@@ -85,7 +82,7 @@ Mer information om hur du tilldelar Azure Policy finns [Azure policy översikt](
 
 Princip definitionerna för en virtuell Azure-dator visas i följande tabell.
 
-|Name |Beskrivning |Typ |
+|Name |Description |Typ |
 |-----|------------|-----|
 |Aktivera Azure Monitor for VMs |Aktivera Azure Monitor för de virtuella datorerna i det angivna omfånget (hanterings grupp, prenumeration eller resurs grupp). Tar Log Analytics-arbetsyta som en parameter. |Förmåga |
 |Granska distribution av beroende agent – VM-avbildning (OS) har inte listats |Rapporterar virtuella datorer som icke-kompatibla om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |Princip |
@@ -95,13 +92,28 @@ Princip definitionerna för en virtuell Azure-dator visas i följande tabell.
 |Distribuera Log Analytics agent för virtuella Linux-datorer |Distribuera Log Analytics agent för virtuella Linux-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
 |Distribuera Log Analytics agent för virtuella Windows-datorer |Distribuera Log Analytics agent för virtuella Windows-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
 
+
+### <a name="policies-for-hybrid-azure-arc-machines"></a>Principer för Hybrid Azure Arc-datorer
+
+Princip definitionerna för Hybrid Azure Arc-datorer visas i följande tabell.
+
+|Name |Beskrivning |Typ |
+|-----|------------|-----|
+| [För hands version]: Log Analytics-agenten ska installeras på dina Linux Azure Arc-datorer |Rapporterar hybrid Azure Arc-datorer som icke-kompatibla för virtuella Linux-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
+| [För hands version]: Log Analytics agent ska installeras på dina Windows Azure Arc-datorer |Rapporterar hybrid Azure Arc-datorer som inkompatibla för virtuella Windows-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
+| [För hands version]: Distribuera beroende agent till hybrid Linux Azure Arc-datorer |Distribuera beroende agent för Linux hybrid Azure Arc-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
+| [För hands version]: Distribuera beroende agent till hybrid Windows Azure Arc-datorer |Distribuera beroende agent för Windows hybrid Azure Arc-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
+| [För hands version]: Distribuera Log Analytics agent till Linux Azure Arc-datorer |Distribuera Log Analytics agent för Linux hybrid Azure Arc-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
+| [För hands version]: Distribuera Log Analytics agent till Windows Azure Arc-datorer |Distribuera Log Analytics agent för Windows hybrid Azure Arc-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
+
+
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Principer för skalnings uppsättningar för virtuella Azure-datorer
 
 Princip definitionerna för en skalnings uppsättning för en virtuell Azure-dator visas i följande tabell.
 
 |Name |Beskrivning |Typ |
 |-----|------------|-----|
-|Aktivera Azure Monitor för skalnings uppsättningar för virtuella datorer |Aktivera Azure Monitor för skalnings uppsättningar för virtuella datorer i det angivna omfånget (hanterings grupp, prenumeration eller resurs grupp). Tar Log Analytics-arbetsyta som en parameter. OBS! om uppgraderings principen för skalnings uppsättningen är inställd på manuell ska du använda tillägget på alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. I CLI är `az vmss update-instances`detta. |Förmåga |
+|Aktivera Azure Monitor för skalnings uppsättningar för virtuella datorer |Aktivera Azure Monitor för skalnings uppsättningar för virtuella datorer i det angivna omfånget (hanterings grupp, prenumeration eller resurs grupp). Tar Log Analytics-arbetsyta som en parameter. OBS! om uppgraderings principen för skalnings uppsättningen är inställd på manuell ska du använda tillägget på alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. I CLI är detta `az vmss update-instances` . |Förmåga |
 |Granska beroende agent distribution i virtuell dator skalnings uppsättningar – VM-avbildning (OS) har inte listats |Rapporterar skalnings uppsättning för virtuella datorer som icke-kompatibel om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |Princip |
 |Granska Log Analytics agent distribution i Virtual Machine Scale Sets – VM-avbildning (OS) har inte listats |Rapporterar skalnings uppsättning för virtuella datorer som icke-kompatibel om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |Princip |
 |Distribuera beroende agent för skalnings uppsättningar för virtuella Linux-datorer |Distribuera beroende agent för skalnings uppsättningar för virtuella Linux-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
@@ -139,7 +151,7 @@ När du tilldelar principen eller initiativet kan omfånget som valts i tilldeln
 8. Välj en arbets yta i list rutan **Log Analytics arbets yta** för den region som stöds.
 
    > [!NOTE]
-   > Om arbets ytan överskrider tilldelningens omfattning beviljar du *Log Analytics deltagar* behörighet till princip tilldelningens huvud-ID. Om du inte gör det kan det hända att du ser ett distributions fel som `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...` ger åtkomst. Läs mer om hur du [konfigurerar den hanterade identiteten manuellt](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+   > Om arbets ytan överskrider tilldelningens omfattning beviljar du *Log Analytics deltagar* behörighet till princip tilldelningens huvud-ID. Om du inte gör det kan det hända att du ser ett distributions fel som `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...` ger åtkomst. Läs mer om [hur du konfigurerar den hanterade identiteten manuellt](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
    > 
    >  Kryss rutan **hanterad identitet** är markerad eftersom initiativet som tilldelas innehåller en princip med *deployIfNotExists* -påverkan.
     
@@ -151,9 +163,9 @@ När du har skapat tilldelningen uppdaterar sidan **Azure Monitor for VMS policy
 
 Följande matris mappar varje möjligt kompatibilitetstillstånd för initiativet.  
 
-| Kompatibilitetstillstånd | Beskrivning | 
+| Kompatibilitetstillstånd | Description | 
 |------------------|-------------|
-| **Kompabilitet** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
+| **Kompatibel** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
 | **Ej kompatibel** | Alla virtuella datorer i omfånget har inte de Log Analytics-och beroende agenter som distribuerats till dem och kan kräva reparation.|
 | **Inte startat** | En ny tilldelning har lagts till. |
 | **Skrivlås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
@@ -163,10 +175,10 @@ Följande matris mappar varje möjligt kompatibilitetstillstånd för initiative
 
 I följande tabell mappas varje möjlig tilldelnings status för initiativet.
 
-| Tilldelnings status | Beskrivning | 
+| Tilldelnings status | Description | 
 |------------------|-------------|
 | **Klart** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
-| **Honom** | Prenumerationen ingår inte i en hanterings grupp.|
+| **Varning** | Prenumerationen ingår inte i en hanterings grupp.|
 | **Inte startat** | En ny tilldelning har lagts till. |
 | **Skrivlås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
 | **Tom** | Det finns inga virtuella datorer eller så har ingen princip tilldelats. | 
@@ -203,7 +215,7 @@ Utifrån resultaten av de principer som ingår i initiativet rapporteras de virt
 När som helst efter att du har tilldelat ett initiativ till en hanterings grupp eller prenumeration kan du redigera den för att ändra följande egenskaper:
 
 - Tilldelnings namn
-- Beskrivning
+- Description
 - Tilldelad av
 - Log Analytics-arbetsyta
 - Undantag

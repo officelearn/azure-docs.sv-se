@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f96ec80b529c594a383be8d668fd28b77372cd80
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900918"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413731"
 ---
 # <a name="about-azure-key-vault-keys"></a>Om Azure Key Vault nycklar
 
@@ -30,10 +30,10 @@ Kryptografiska nycklar i Key Vault representeras som JSON-webbnyckel [JWK]-objek
 
 De grundläggande JWK/JWA-specifikationerna utökas också för att aktivera nyckel typer som är unika för Key Vault implementeringen. Om du exempelvis importerar nycklar med hjälp av HSM-leverantörsspecifik paketering, möjliggör säker transport av nycklar som bara kan användas i Key Vault HSM: er. 
 
-Azure Key Vault stöder både mjuka och hårda nycklar:
+Azure Key Vault stöder både program skyddade och HSM-skyddade nycklar:
 
-- **"Mjuka" nycklar**: en nyckel som bearbetas i program vara med Key Vault, men krypteras i vila med en system nyckel som finns i en HSM. Klienter kan importera en befintlig RSA-eller EC-nyckel (Elliptic Curve) eller begära att Key Vault generera en.
-- **"Hårda" nycklar**: en nyckel som bearbetas i en HSM-modul (Hardware Security Module). Nycklarna skyddas i en av Key Vault HSM-säkerhetsvärldaren (det finns en säkerhets värld per geografi för att underhålla isoleringen). Klienter kan importera en RSA-eller EC-nyckel, i mjuk form eller genom att exportera från en kompatibel HSM-enhet. Klienter kan också begära Key Vault att generera en nyckel. Den här nyckel typen lägger till key_hsm-attributet i JWK för att hämta HSM-nyckel materialet.
+- **Program skyddade nycklar**: en nyckel som bearbetas i program vara med Key Vault, men krypteras i vila med en system nyckel som finns i en HSM. Klienter kan importera en befintlig RSA-eller EC-nyckel (Elliptic Curve) eller begära att Key Vault generera en.
+- **HSM-potected-nycklar**: en nyckel som bearbetas i en HSM-modul (Hardware Security Module). Nycklarna skyddas i en av Key Vault HSM-säkerhetsvärldaren (det finns en säkerhets värld per geografi för att underhålla isoleringen). Klienter kan importera en RSA-eller EC-nyckel, i program varu skydds formulär eller genom att exportera från en kompatibel HSM-enhet. Klienter kan också begära Key Vault att generera en nyckel. Den här nyckel typen lägger till key_hsm-attributet i JWK för att hämta HSM-nyckel materialet.
 
 Mer information om geografiska gränser finns [Microsoft Azure säkerhets Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -41,9 +41,9 @@ Mer information om geografiska gränser finns [Microsoft Azure säkerhets Center
 
 Key Vault stöder endast RSA-och Elliptic-kurv nycklar. 
 
--   **EG**: "mjuk" Elliptic kurv nyckel.
+-   **EG**: Elliptic kurv nyckel för program vara – skyddad.
 -   **EC-HSM**: "hård" Elliptic kurv nyckel.
--   **RSA**: "mjuk" RSA-nyckel.
+-   **RSA**: programvaru-skyddad RSA-nyckel.
 -   **RSA-HSM**: "hård" RSA-nyckel.
 
 Key Vault stöder RSA-nycklar av storlekarna 2048, 3072 och 4096. Key Vault stöder Elliptic kurv nyckel typer P-256, P-384, P-521 och P-256 KB (SECP256K1).
@@ -119,7 +119,7 @@ Mer information om JWK-objekt finns i [JSON-webbnyckel (JWK)](https://tools.ietf
 
 Utöver nyckelmaterialet kan följande attribut anges. I en JSON-begäran krävs attributen nyckelord och klammerparenteser, {}, även om det inte finns några angivna attribut.  
 
-- *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Anger om nyckeln är aktive rad och användbar för kryptografiska åtgärder. Det *aktiverade* attributet används tillsammans med *NBF* och *exp*. När en åtgärd sker mellan *NBF* och *exp*, tillåts den endast om *aktive rad* är inställd på **True**. Åtgärder utanför *NBF* / *exp* -fönstret tillåts inte automatiskt, förutom vissa åtgärds typer under [vissa förhållanden](#date-time-controlled-operations).
+- *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Anger om nyckeln är aktive rad och användbar för kryptografiska åtgärder. Det *aktiverade* attributet används tillsammans med *NBF* och *exp*. När en åtgärd sker mellan *NBF* och *exp*, tillåts den endast om *aktive rad* är inställd på **True**. Åtgärder utanför *NBF*  /  *exp* -fönstret tillåts inte automatiskt, förutom vissa åtgärds typer under [vissa förhållanden](#date-time-controlled-operations).
 - *NBF*: IntDate, valfritt, standard är nu. Attributet *NBF* (inte före) anger tiden före vilken nyckeln inte får användas för kryptografiska åtgärder, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations). Bearbetningen av *NBF* -attributet kräver att aktuellt datum/tid måste vara efter eller lika med det icke-före-datum/-tid som anges i *NBF* -attributet. Key Vault kan ge vissa små Leeway, vanligt vis inte fler än några minuter, för att kontona ska kunna användas för klock skevning. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
 - *exp*: IntDate, valfritt, standard är "alltid". Attributet *exp* (förfallo tid) anger förfallo tid för eller efter vilken nyckeln inte får användas för kryptografisk drift, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations). Bearbetningen av *exp* -attributet kräver att aktuellt datum/tid måste vara före det datum/tid som anges i attributet *exp* . Key Vault kan vara en del liten Leeway, vanligt vis inte mer än några minuter, för att kunna använda klock skevning. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
 
@@ -132,7 +132,7 @@ Mer information om IntDate och andra data typer finns i [om nycklar, hemligheter
 
 ### <a name="date-time-controlled-operations"></a>Kontrollerade åtgärder för datum/tid
 
-Nycklar som inte är giltiga och som har upphört att gälla utanför *NBF* / *exp* -fönstret fungerar för att **dekryptera**, **packa**upp och **Verifiera** åtgärder (returnerar inte 403, förbjudet). Rationellt för att använda tillstånd som inte är giltigt är att tillåta att en nyckel testas före produktions användningen. Rationellt för att använda tillståndet upphör att gälla är att tillåta återställnings åtgärder för data som skapades när nyckeln var giltig. Du kan också inaktivera åtkomst till en nyckel med Key Vault-principer eller genom att uppdatera det *aktiverade* nyckelattributet till **falskt**.
+Nycklar som inte är giltiga och som har upphört att gälla utanför *NBF*  /  *exp* -fönstret fungerar för att **dekryptera**, **packa**upp och **Verifiera** åtgärder (returnerar inte 403, förbjudet). Rationellt för att använda tillstånd som inte är giltigt är att tillåta att en nyckel testas före produktions användningen. Rationellt för att använda tillståndet upphör att gälla är att tillåta återställnings åtgärder för data som skapades när nyckeln var giltig. Du kan också inaktivera åtkomst till en nyckel med Key Vault-principer eller genom att uppdatera det *aktiverade* nyckelattributet till **falskt**.
 
 Mer information om data typer finns i [data typer](../general/about-keys-secrets-certificates.md#data-types).
 

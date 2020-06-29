@@ -7,15 +7,15 @@ ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: d5b6452684757aead684356fd9bb032b90c58c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b77241b1413fea09e5a16e8bd5cbcda8db5b2327
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535833"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477132"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Lägga till en Azure Active Directory med hjälp av anslutna tjänster i Visual Studio
 
@@ -44,7 +44,7 @@ Den Active Directory anslutna tjänsten har för närvarande inte stöd för ASP
 
     ![Introduktions sida](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Välj en domän från List rutan **domän** på sidan **enkel inloggning** . Listan innehåller alla domäner som är tillgängliga för de konton som visas i dialog rutan konto inställningar i Visual Studio (**fil > konto inställningar...**). Alternativt kan du ange ett domän namn om du inte hittar det du söker, till exempel `mydomain.onmicrosoft.com`. Du kan välja alternativet för att skapa en Azure Active Directory app eller använda inställningarna från en befintlig Azure Active Directory-app. Välj **Nästa** när du är färdig.
+1. Välj en domän från List rutan **domän** på sidan **enkel inloggning** . Listan innehåller alla domäner som är tillgängliga för de konton som visas i dialog rutan konto inställningar i Visual Studio (**fil > konto inställningar...**). Alternativt kan du ange ett domän namn om du inte hittar det du söker, till exempel `mydomain.onmicrosoft.com` . Du kan välja alternativet för att skapa en Azure Active Directory app eller använda inställningarna från en befintlig Azure Active Directory-app. Välj **Nästa** när du är färdig.
 
     ![Enkel inloggnings sida](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

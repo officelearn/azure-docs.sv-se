@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: f500e7cac7a049152057f7fc7c3349fb028a31a4
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697416"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444547"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs utgående bindning för Azure Functions
 
@@ -247,7 +247,7 @@ Attributets konstruktor parametrar och egenskaper beskrivs i [konfigurations](#c
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `NotificationHub` attributet:
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** |saknas| Måste anges till `notificationHub` . |
 |**position** |saknas| Måste anges till `out` . | 
@@ -255,7 +255,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**tagExpression** |**TagExpression** | Med tagg uttryck kan du ange att meddelanden ska skickas till en uppsättning enheter som har registrerats för att ta emot meddelanden som matchar etikett uttrycket.  Mer information finns i avsnittet om [Routning och tagg uttryck](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Namnet på resursen för Notification Hub i Azure Portal. |
 |**anslutningen** | **ConnectionStringSetting** | Namnet på en app-inställning som innehåller en Notification Hubs anslutnings sträng.  Anslutnings strängen måste anges till *DefaultFullSharedAccessSignature* -värdet för Notification Hub. Se [installationen av anslutnings strängen](#connection-string-setup) senare i den här artikeln.|
-|**systemet** | **Plattform** | Egenskapen Platform anger klient plattformen som meddelande mål. Som standard, om egenskapen Platform utelämnas från utgående bindning, kan mal meddelanden användas för att rikta in alla plattformar som kon figurer ATS i Azure Notification Hub. Mer information om hur du använder mallar i allmänhet för att skicka plattforms oberoende meddelanden med en Azure Notification Hub finns i [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). När den har angetts måste **plattformen** vara något av följande värden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Mer information om hur du konfigurerar Notification Hub för APN och tar emot meddelandet i en klient app finns i [skicka push-meddelanden till iOS med Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Mer information om hur du konfigurerar Notification Hub för ADM och tar emot meddelandet i en Kindle-app finns i [komma igång med Notification Hubs för Kindle-appar](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;Windows- [Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) Windows-plattformar. Windows Phone 8,1 och senare stöds också av WNS. Mer information finns i [komma igång med Notification Hubs för Windows Universal Platform-appar](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). Den här plattformen stöder Windows Phone 8-och tidigare Windows Phone-plattformar. Mer information finns i [skicka push-meddelanden med Azure Notification Hubs på Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**systemet** | **Plattform** | Egenskapen Platform anger klient plattformen som meddelande mål. Som standard, om egenskapen Platform utelämnas från utgående bindning, kan mal meddelanden användas för att rikta in alla plattformar som kon figurer ATS i Azure Notification Hub. Mer information om hur du använder mallar i allmänhet för att skicka plattforms oberoende meddelanden med en Azure Notification Hub finns i [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). När den har angetts måste **plattformen** vara något av följande värden: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Mer information om hur du konfigurerar Notification Hub för APN och tar emot meddelandet i en klient app finns i [skicka push-meddelanden till iOS med Azure Notification Hubs](../notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Mer information om hur du konfigurerar Notification Hub för ADM och tar emot meddelandet i en Kindle-app finns i [komma igång med Notification Hubs för Kindle-appar](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;Windows- [Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) Windows-plattformar. Windows Phone 8,1 och senare stöds också av WNS. Mer information finns i [komma igång med Notification Hubs för Windows Universal Platform-appar](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). Den här plattformen stöder Windows Phone 8-och tidigare Windows Phone-plattformar. Mer information finns i [skicka push-meddelanden med Azure Notification Hubs på Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

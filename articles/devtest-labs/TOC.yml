@@ -8,9 +8,13 @@
       href: lab-services-overview.md
 - name: Självstudier
   items:
-    - name: 1. Konfigurera ett labb
-      href: tutorial-create-custom-lab.md
-    - name: 2. Åtkomst till ett labb
+    - name: Konfigurera ett labb
+      items:
+        - name: Använda Azure-portalen
+          href: tutorial-create-custom-lab.md
+        - name: Använda Resource Manager-mallar
+          href: create-lab-windows-vm-template.md
+    - name: Åtkomst till ett labb
       href: tutorial-use-custom-lab.md
 - name: Exempel
   items:

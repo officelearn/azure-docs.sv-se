@@ -14,19 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 9029082a275905bbdb9efe0cefa05337c9969a2f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a7357ef3b0151096746e37bddd235f0db53baed7
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219914"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444819"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Linux-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
 Om din virtuella Linux-dator (VM) i Azure påträffar ett start-eller diskfel kan du behöva åtgärda problemet på själva disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder reparations kommandon för virtuella Azure-datorer för att ansluta disken till en annan virtuell Linux-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
 
 > [!IMPORTANT]
-> Skripten i den här artikeln gäller bara för de virtuella datorer som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Skripten i den här artikeln gäller bara för de virtuella datorer som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Utgående anslutningar från den virtuella datorn (port 443) krävs för att skriptet ska kunna köras.
+> * Det går bara att köra ett skript i taget.
+> * Ett skript som körs kan inte avbrytas.
+> * Den längsta tid som ett skript kan köras är 90 minuter, och det kommer att ta slut.
+> * För virtuella datorer som använder Azure Disk Encryption stöds endast hanterade diskar som krypterats med enkel pass kryptering (med eller utan KEK).
 
 ## <a name="repair-process-overview"></a>Översikt över reparations processen
 
@@ -53,6 +58,8 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
    Välj **Kopiera** för att kopiera kod blocken, klistra in koden i Cloud Shell och välj **RETUR** för att köra den.
 
    Om du föredrar att installera och använda detta CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare. Kör ``az --version`` för att hitta versionen. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   
+   Om du behöver logga in på Cloud Shell med ett annat konto än vad du för närvarande är inloggad på Azure-portalen med kan du använda ``az login`` [AZ-inloggnings referens](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  Om du vill växla mellan prenumerationer som är kopplade till ditt konto kan du använda ``az account set --subscription`` [AZ konto uppsättnings referens](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. Om detta är första gången du har använt `az vm repair` kommandona, lägger du till tillägget VM-Repair cli.
 
@@ -66,7 +73,7 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
    az extension update -n vm-repair
    ```
 
-3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator i en ny resurs grupp och kopplar disk kopian av operativ systemet.  Den virtuella reparations datorn kommer att ha samma storlek och region som den icke-funktionella virtuella datorn som angetts. Resurs gruppen och det virtuella dator namnet som används i alla steg är för den icke-funktionella virtuella datorn.
+3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator i en ny resurs grupp och kopplar disk kopian av operativ systemet.  Den virtuella reparations datorn kommer att ha samma storlek och region som den icke-funktionella virtuella datorn som angetts. Resurs gruppen och det virtuella dator namnet som används i alla steg är för den icke-funktionella virtuella datorn. Om den virtuella datorn använder Azure Disk Encryption försöker kommandot låsa upp den krypterade disken så att den är tillgänglig när den kopplas till den virtuella reparations datorn.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose

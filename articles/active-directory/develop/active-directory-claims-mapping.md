@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 91a70395bc359f0c5e199f91a739a7cef9205605
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: d9c46368b42cac1d06f7d78d5e0d03ad2de0bada
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673283"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478407"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -321,7 +321,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | othermail | Annan e-post |
 | Användare | land | Land/region |
 | Användare | city | Ort |
-| Användare | state | Stat |
+| Användare | state | Status |
 | Användare | befattning | Befattning |
 | Användare | employeeid | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
@@ -411,7 +411,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 | TransformationMethod | Begränsningar |
 | ----- | ----- |
-| ExtractMailPrefix | Inga |
+| ExtractMailPrefix | Ingen |
 | Slå ihop | Det suffix som anslöts måste vara en verifierad domän för resurs klienten. |
 
 ### <a name="custom-signing-key"></a>Anpassad signerings nyckel

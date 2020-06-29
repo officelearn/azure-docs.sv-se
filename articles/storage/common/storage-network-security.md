@@ -9,12 +9,12 @@ ms.date: 06/04/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: aff731b310010a23d4e1e514493cd32398dd3cfd
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 90e14408f697f113990a478e2d06256e2efb8c74
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465855"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444598"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
 
@@ -374,7 +374,7 @@ När du aktiverar inställningen **Tillåt betrodda Microsoft-tjänster...** , b
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure Backup             | Microsoft. RecoveryServices | Kör säkerhets kopiering och återställning av ohanterade diskar i virtuella IAAS-datorer. (krävs inte för Managed Disks). [Läs mer](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft. data-          | Gör det möjligt att importera data till Azure med hjälp av Data Box-enhet. [Läs mer](/azure/databox/data-box-overview). |
-| Azure DevTest Labs       | Microsoft. DevTestLab       | Skapande av anpassad avbildning och artefakt installation. [Läs mer](/azure/devtest-lab/devtest-lab-overview). |
+| Azure DevTest Labs       | Microsoft. DevTestLab       | Skapande av anpassad avbildning och artefakt installation. [Läs mer](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | Microsoft. EventGrid        | Aktivera Blob Storage händelse publicering och Tillåt Event Grid att publicera till lagrings köer. Lär dig mer om [Blob Storage-händelser](/azure/event-grid/event-sources) och [publicering till köer](/azure/event-grid/event-handlers). |
 | Azure Event Hubs         | Microsoft. EventHub         | Arkivera data med Event Hubs avbildning. [Läs mer](/azure/event-hubs/event-hubs-capture-overview). |
 | Azure File Sync          | Microsoft. StorageSync      | Gör att du kan omvandla din lokal fil server till ett cacheminne för Azure-filresurser. Tillåter synkronisering av flera platser, snabb katastrof återställning och säkerhets kopiering på moln sidan. [Läs mer](../files/storage-sync-files-planning.md) |

@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 62b79ee7398286b8e6c8ed8612bd001595e1f6ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41389bc5ed8580cd80dbc40e771c7f15241f5ae7
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084979"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479410"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Skillnader mellan Microsoft Authentication Library för iOS och macOS
 
@@ -33,7 +33,7 @@ MSAL för macOS är en delmängd av de funktioner som är tillgängliga för iOS
 
 MSAL för macOS stöder inte:
 
-- olika webb läsar typer `ASWebAuthenticationSession`, `SFAuthenticationSession`till `SFSafariViewController`exempel,,.
+- olika webb läsar typer, till exempel `ASWebAuthenticationSession` , `SFAuthenticationSession` , `SFSafariViewController` .
 - Brokered Authentication via Microsoft Authenticator app stöds inte för macOS.
 
 Delning av nyckel ringar mellan appar från samma utgivare är mer begränsad i macOS 10,14 och tidigare. Använd [åtkomst kontrol listor](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) för att ange sökvägar till de appar som ska dela nyckel ringen. Användaren kan se ytterligare prompter för nyckel ringar.

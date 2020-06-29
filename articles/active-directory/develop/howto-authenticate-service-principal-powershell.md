@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 10/10/2019
+ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 7bd8c3b25c23ba8586e38ec8eb7d1baefaa21633
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6204fcefa60d1a627e6e3d4e6b799efd3ee9298b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884196"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505876"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gör så här: använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat
 
@@ -40,7 +40,7 @@ Du måste ha den [senaste versionen](/powershell/azure/install-az-ps) av PowerSh
 
 För att slutföra den här artikeln måste du ha tillräcklig behörighet i både din Azure AD-och Azure-prenumeration. Mer specifikt måste du kunna skapa en app i Azure AD och tilldela tjänstens huvud namn till en roll.
 
-Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](howto-create-service-principal-portal.md#required-permissions).
+Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="assign-the-application-to-a-role"></a>Tilldela programmet till en roll
 Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](/azure/role-based-access-control/built-in-roles).

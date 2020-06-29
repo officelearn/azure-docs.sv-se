@@ -1,18 +1,16 @@
 ---
 title: Så här skapar du ett labb med en delad resurs | Azure Lab Services
 description: Lär dig hur du skapar ett labb som kräver en resurs som delas mellan eleverna.
-services: lab-services
 author: emaher
-ms.service: lab-services
 ms.topic: article
-ms.date: 06/05/2020
+ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: c8e8c99b40eb2d84d001076186a254988377361d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 9cb5698f95aa220208fb02a35a52ff5363a173ac
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895943"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443374"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Så här skapar du ett labb med en delad resurs i Azure Lab Services
 

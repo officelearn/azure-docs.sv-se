@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: c4b80e62d3800392b847a411dfc66c3278e72bba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 597b12a584e7b4c17ec21635e18368f897ad168a
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77661872"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443884"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Snabb start: övervaka en Azure-resurs med Azure Monitor
 [Azure Monitor](../overview.md) börjar samla in data från Azure-resurser när de har skapats. Den här snabb starten innehåller en kort genom gång av de data som samlas in automatiskt för en resurs och hur du kan visa den i Azure Portal för en viss resurs. Senare kan du lägga till en konfiguration för att samla in ytterligare data och kan gå till Azure Monitor menyn för att använda samma verktyg för att få åtkomst till data som samlats in för alla resurser i din prenumeration.
@@ -54,20 +54,20 @@ Mått är numeriska värden som beskriver viss aspekt av din resurs vid en viss 
 1. Under avsnittet **övervakning** på resurs menyn väljer du **mått**. Mät Utforskaren öppnas med den omfattning som angetts för din resurs.
 2. Klicka på **Lägg till mått** om du vill lägga till ett mått i diagrammet.
    
-   ![Mått Utforskaren](media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   ![Måttutforskare](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. Välj ett **mått** i list rutan och sedan en **agg regering**. Detta definierar hur insamlade värden kommer att samplas över varje tidsintervall.
 
-    ![Mått Utforskaren](media/quick-monitor-azure-resource/metrics-explorer-02.png)
+    ![Måttutforskare](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
 5. Klicka på **Lägg till mått** om du vill lägga till ytterligare mått-och agg regerings kombinationer i diagrammet.
 
-    ![Mått Utforskaren](media/quick-monitor-azure-resource/metrics-explorer-03.png)
+    ![Måttutforskare](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabb starten visade du aktivitets loggen och måtten för en Azure-resurs som samlas in automatiskt av Azure Monitor. Resurs loggar ger inblick i den detaljerade åtgärden för resursen men måste konfigureras för att kunna samlas in. Fortsätt till självstudien för att samla in resurs loggar till en Log Analytics arbets yta där de kan analyseras med hjälp av logg frågor.
+I den här snabb starten visade du aktivitets loggen och måtten för en Azure-resurs som samlas in automatiskt av Azure Monitor. Fortsätt till nästa snabb start som visar hur du samlar in aktivitets loggen på en Log Analytics arbets yta där de kan analyseras med hjälp av [logg frågor](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Samla in och analysera resurs loggar med Azure Monitor](tutorial-resource-logs.md)
+> [Skicka Azure aktivitets logg till Log Analytics arbets yta](quick-monitor-azure-resource.md)

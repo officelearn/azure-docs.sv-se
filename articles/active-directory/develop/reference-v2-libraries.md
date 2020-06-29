@@ -6,18 +6,18 @@ author: negoe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9e1480ad58390ea8c424bc6032940b4c743210e3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 068870378fc1ef41d791f437449fd427689a9e44
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982078"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477421"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotek för Microsoft Identity Platform-autentisering
 
@@ -48,21 +48,21 @@ En lista över bibliotek som fungerar med Microsoft Identity Platform-slutpunkte
 
 Använd bibliotek för klientautentisering för att hämta en token för att anropa ett skyddat webb-API.
 
-| Plattform | Bibliotek | Hämta | Källkod | Exempel | Referens | Konceptuellt dokument | Översikt |
+| Plattform | Bibliotek | Ladda ned | Källkod | Exempel | Referens | Konceptuellt dokument | Översikt |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Ensidesapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referens](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [Konceptuella dokument](msal-overview.md)| [Översikt](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL-vinkel | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [Vinkel SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [Referens](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [Konceptuella dokument](msal-overview.md) | [Översikt](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Skrivbordsapp](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Konceptuella dokument](msal-overview.md) | [Översikt](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
 | ![Python](media/sample-v2-code/logo_python.png) | MSAL python | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Exempel](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [Översikt](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
 | ![Java](media/sample-v2-code/logo_java.png) | MSAL Java | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Exempel](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [Referens](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [Översikt](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
-| iOS & macOS | MSAL iOS och macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS-app](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc), [MacOS-app](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [Referens](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [Konceptuella dokument](msal-overview.md) | |
+| iOS och macOS | MSAL iOS och macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS-app](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc), [MacOS-app](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [Referens](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [Konceptuella dokument](msal-overview.md) | |
 |![Android/Java](media/sample-v2-code/logo_Android.png) | MSAL Android | [Central lagrings plats](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android-app](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | [Konceptuella dokument](msal-overview.md) |[Översikt](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Roadmap)
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft-servrar som stöds av mellanprogram
 
 Använd mellanprogram bibliotek för att skydda webb program och webb-API: er. Webbappar eller webb-API: er skrivna med ASP.NET eller ASP.NET Core använda mellanprogram biblioteken.
 
-| Plattform | Bibliotek | Hämta | Källkod | Exempel | Referens
+| Plattform | Bibliotek | Ladda ned | Källkod | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET-säkerhet |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[MVC-app](quickstart-v2-aspnet-webapp.md) |[ASP.NET API-referens](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| IdentityModel-tillägg för .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [MVC-app](quickstart-v2-aspnet-webapp.md) |[Referens](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
@@ -79,7 +79,7 @@ Vid stöd för operativ system vs-språk, är mappningen följande:
 | Swift <br> Objective-C |            |            | [MSAL för iOS och macOS](msal-overview.md) | [MSAL för iOS och macOS](msal-overview.md) |            |
 | ![Java](media/sample-v2-code/logo_java.png) Java | msal4j | msal4j | msal4j | | MSAL Android |
 | ![Python](media/sample-v2-code/logo_python.png) Python | MSAL python | MSAL python | MSAL python |
-| ![Node. js](media/sample-v2-code/logo_nodejs.png) Node.JS | Passport. Node | Passport. Node | Passport. Node |
+| ![Node.Js](media/sample-v2-code/logo_nodejs.png) Node.JS | Passport. Node | Passport. Node | Passport. Node |
 
 Se även [scenarier av plattformar och språk som stöds](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 
@@ -87,7 +87,7 @@ Se även [scenarier av plattformar och språk som stöds](authentication-flows-a
 
 | Plattform | Biblioteksnamn | Testad version | Källkod | Exempel |
 |:---:|:---:|:---:|:---:|:---:|
-|![JavaScript](media/sample-v2-code/logo_js.png)|[Hej. js](https://adodson.com/hello.js/) | Version 1.13.5 |[Hej. js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
+|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | Version 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 |![Vue](media/sample-v2-code/logo_vue.png)|[Vue-MSAL](https://github.com/mvertopoulos/vue-msal) | Version 3.0.3 |[Vue – msal](https://github.com/mvertopoulos/vue-msal) | |
 | ![Java](media/sample-v2-code/logo_java.png) | [Java](https://github.com/scribejava/scribejava) | [Version 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![Java](media/sample-v2-code/logo_java.png) | [Gluu OpenID Connect-bibliotek](https://github.com/GluuFederation/oxAuth) | [Version 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | [Gluu OpenID Connect-bibliotek](https://github.com/GluuFederation/oxAuth) | |

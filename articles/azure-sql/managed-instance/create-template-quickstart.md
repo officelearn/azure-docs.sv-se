@@ -11,43 +11,39 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: 01c6c37d31d41f88b370face372555536724adde
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 7765788e9bd0803cd806ef0980991429dbe30af9
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256186"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413849"
 ---
-# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Azure SQL-hanterad instans med hjälp av en Azure Resource Manager mall
+# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Snabb start: skapa en Azure SQL-hanterad instans med en ARM-mall
 
-Den här snabb starten fokuserar på processen att distribuera en Resource Manager-mall för att skapa en hanterad Azure SQL-instans och vNet.
+Den här snabb starten fokuserar på processen att distribuera en ARM-mall för att skapa en hanterad Azure SQL-instans och vNet. [Azure SQL Managed instance](sql-managed-instance-paas-overview.md) är en intelligent, fullständigt hanterad, skalbar moln databas med nästan 100% funktions paritet med SQL Server databas motorn.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/).
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sqlmi-new-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Krav
 
-Inga.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-sql-managed-instance"></a>Skapa en Azure SQL-hanterad instans
+## <a name="review-the-template"></a>Granska mallen
 
-[Azure SQL Managed instance](sql-managed-instance-paas-overview.md) är en intelligent, fullständigt hanterad, skalbar moln databas med nästan 100% funktions paritet med SQL Server databas motorn.
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
 
-### <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-
-:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json" range="001-249" highlight="113,178,188,226":::
 
 Dessa resurser definieras i mallen:
 
-- [**Microsoft. SQL/managedinstances**](/azure/templates/microsoft.sql/managedinstances)
-- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
-- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
 - [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.Network/networkSecurityGroups)
-
-
+- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
+- [**Microsoft. SQL/managedinstances**](/azure/templates/microsoft.sql/managedinstances)
 
 Fler mall exempel finns i [snabb starts mallar för Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
@@ -73,7 +69,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 read -p "Enter a project name that is used for generating resource names:" projectName &&
@@ -86,7 +82,7 @@ echo "Press [ENTER] to continue ..." &&
 read
 ```
 
-* * *
+---
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
@@ -109,7 +105,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -117,7 +113,7 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName
 ```
 
-* * *
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

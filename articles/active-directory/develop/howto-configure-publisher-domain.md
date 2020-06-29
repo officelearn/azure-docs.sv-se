@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: 68040c8ee22454c300296493b6c840eabbca98aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 408d8856130947e9be9c6d2714310332d9935cdd
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76697140"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477999"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Gör så här: Konfigurera ett programs utgivares domän
 
@@ -71,7 +71,7 @@ Om din app inte är registrerad i en klient, ser du bara alternativet för att v
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>Så här verifierar du en ny domän för din app
 
-1. Skapa en fil med `microsoft-identity-association.json` namnet och klistra in följande JSON-kodfragment.
+1. Skapa en fil med namnet `microsoft-identity-association.json` och klistra in följande JSON-kodfragment.
 
    ```json
    {
@@ -85,7 +85,7 @@ Om din app inte är registrerad i en klient, ser du bara alternativet för att v
 
 1. Ersätt plats hållaren *{Your-app-ID-här}* med det program-ID (klient) som motsvarar din app.
 
-1. Var värd för filen på `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`:. Ersätt plats hållaren *{your-domain-här}* så att den matchar den verifierade domänen.
+1. Var värd för filen på: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json` . Ersätt plats hållaren *{your-domain-här}* så att den matchar den verifierade domänen.
 
 1. Klicka på knappen **Verifiera och spara domän** .
 
@@ -94,7 +94,7 @@ Om din app inte är registrerad i en klient, ser du bara alternativet för att v
 - Om klienten har verifierat domäner väljer du en av domänerna i list rutan **Välj en verifierad domän** .
 
 >[!Note]
-> Det förväntade Content-Type-huvudet som ska returneras är `application/json`. Du kan få ett fel meddelande som anges nedan om du använder något annat som`application/json; charset=utf-8` 
+> Det förväntade Content-Type-huvudet som ska returneras är `application/json` . Du kan få ett fel meddelande som anges nedan om du använder något annat som`application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

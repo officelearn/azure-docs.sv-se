@@ -1,17 +1,14 @@
 ---
 title: Azure Lab Services – konfigurera support information (labb konto ägare)
 description: Beskriver hur en labb konto ägare kan ange support kontakt information. Labb skapare och labb användare kan visa och använda den för att få hjälp.
-author: spelluru
-ms.author: spelluru
-ms.date: 05/15/2020
+ms.date: 06/26/2020
 ms.topic: how-to
-ms.service: lab-services
-ms.openlocfilehash: fca414c6220ddf5a8481ee616d669581d14bff83
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 17456f61352b1e26a33c042b27faa2d3aa44d73a
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895761"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445091"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Konfigurera support information (labb konto ägare i Azure Lab Services)
 Den här artikeln förklarar hur du (som en labb konto ägare) kan ange supportinformation som labb skapare (lärare) och labb användare (studenter) kan använda för att få hjälp om de stöter på tekniska problem med att använda labb kontot eller labbet. 

@@ -11,21 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54b78526ea1409f22b000aed8b20db90dfc9d143
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 324737611d2d05411012050fcf7140bee48d35b0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253570"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505842"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
 Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) -API: er. Det finns fyra API: er som visar information om riskfyllda användare och inloggningar. Med det första API: et, **riskDetection**, kan du fråga Microsoft Graph om du vill visa en lista över både användare och inloggning länkade risk identifieringar och tillhör ande information om identifieringen. Med det andra API: et, **riskyUsers**, kan du fråga Microsoft Graph om du vill ha information om användarnas identitets skydd som har identifierats som risk Med det tredje API: t **loggar**du kan du fråga Microsoft Graph om du vill veta mer om Azure AD-inloggningar med särskilda egenskaper som rör risk tillstånd, information och nivå. Med det fjärde API: et, **identityRiskEvents**, kan du fråga Microsoft Graph om du vill visa en lista över [risk identifieringar](../reports-monitoring/concept-risk-events.md) och tillhör ande information. IdentityRiskEvents-API: et är inaktuellt den 10 januari 2020; Vi rekommenderar att du använder **riskDetections** -API: et i stället. Den här artikeln hjälper dig att komma igång med att ansluta till Microsoft Graph och fråga dessa API: er. För en djupgående introduktion, fullständig dokumentation och åtkomst till Graph Explorer, se [Microsoft Graph webbplats](https://graph.microsoft.io/) eller den speciella referens dokumentationen för dessa API: er:
 
-* [riskDetection-API](/graph/api/resources/riskdetection?view=graph-rest-beta)
-* [riskyUsers-API](/graph/api/resources/riskyuser?view=graph-rest-beta)
-* [inloggnings-API](/graph/api/resources/signin?view=graph-rest-beta)
-* [identityRiskEvents-API: et](/graph/api/resources/identityriskevent?view=graph-rest-beta) är *inaktuellt 10 januari 2020*
+* [riskDetection-API](/graph/api/resources/riskdetection?view=graph-rest-v1.0)
+* [riskyUsers-API](/graph/api/resources/riskyuser?view=graph-rest-v1.0)
+* [inloggnings-API](/graph/api/resources/signin?view=graph-rest-v1.0)
 
 ## <a name="connect-to-microsoft-graph"></a>Anslut till Microsoft Graph
 
@@ -201,7 +200,7 @@ Dessa tre API: er ger en mängd möjligheter att hämta information om riskfylld
 Med identitets skydds principer för inloggnings risker kan du tillämpa villkor när risken upptäcks i real tid. Men vad händer om identifieringar som upptäcks offline? Du kan fråga riskDetection-API: et för att förstå vilka identifieringar som har inträffat offline och därmed inte har utlöst inloggnings risk principen.
 
 ```
-GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
+GET https://graph.microsoft.com/v1.0/identityProtection/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
 ### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Hämta alla användare som har godkänt en MFA-utmaning som har utlösts av riskfyllda inloggnings principer (riskyUsers-API)
@@ -209,16 +208,9 @@ GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType 
 För att förstå de riskbaserade principerna för att påverka identiteter som finns i din organisation, kan du fråga alla användare som har godkänt en MFA-utmaning som har utlösts av en risk inloggnings princip. Den här informationen kan hjälpa dig att förstå vilka användare som har identitets skydd som kan ha identifierats som risk och vilka av dina legitima användare som kan utföra åtgärder som AI bedömer som en risk.
 
 ```
-GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
+GET https://graph.microsoft.com/v1.0/identityProtection/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
 ```
 
-### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Hämta alla riskfyllda inloggningar för en speciell användare (inloggnings-API)
-
-När du tror att en användare kan ha komprometterats kan du bättre förstå statusen för deras risk genom att hämta alla deras riskfyllda inloggningar. 
-
-```
-https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
-```
 ## <a name="next-steps"></a>Nästa steg
 
 Grattis, du har precis gjort ditt första samtal till Microsoft Graph!  
@@ -232,4 +224,4 @@ Relaterad information finns i:
 - [Typer av risk identifieringar som upptäckts av Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Översikt över Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Azure AD Identity Protection tjänst roten](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
+- [Azure AD Identity Protection tjänst roten](https://docs.microsoft.com/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)

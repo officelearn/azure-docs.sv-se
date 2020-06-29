@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Dropbox för företag | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Dropbox for Business.
+title: 'Självstudie: Azure Active Directory integrering med Dropbox Business | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Dropbox-företag.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 06/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df7fc366c5087e66c3022c212870397d77e6e34d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c596a1477c773717e0a6170d8931aeaf40594f5
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77046763"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479971"
 ---
-# <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Självstudie: integrera Dropbox för företag med Azure Active Directory
+# <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Självstudie: integrera Dropbox Business med Azure Active Directory
 
-I den här självstudien får du lära dig att integrera Dropbox för företag med Azure Active Directory (Azure AD). När du integrerar Dropbox för företag med Azure AD kan du:
+I den här självstudien får du lära dig att integrera Dropbox-företag med Azure Active Directory (Azure AD). När du integrerar Dropbox-företag med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Dropbox för företag.
-* Gör det möjligt för användarna att logga in automatiskt till Dropbox för företag med sina Azure AD-konton.
+* Kontroll i Azure AD som har åtkomst till Dropbox-företag.
+* Gör det möjligt för användarna att logga in automatiskt till Dropbox Business med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -37,44 +37,44 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få en månads kostnads fri utvärderings version [här](https://azure.microsoft.com/pricing/free-trial/).
-* Dropbox for Business Single Sign-on (SSO)-prenumeration.
+* Dropbox Business Single Sign-on (SSO)-prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-* I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. Dropbox for Business har stöd för **SP**-initierad enkel inloggning
+* I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. Dropbox Business har stöd för **SP** -INITIERAd SSO
 
-* Dropbox for Business har stöd för [Automatisk användar etablering och avetablering](dropboxforbusiness-tutorial.md)
+* Dropbox Business har stöd för [Automatisk användar etablering och avetablering](dropboxforbusiness-tutorial.md)
 * När du har konfigurerat Dropbox kan du framtvinga kontroll över sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-dropbox-for-business-from-the-gallery"></a>Lägga till Dropbox for Business från galleriet
+## <a name="adding-dropbox-business-from-the-gallery"></a>Lägga till Dropbox-företag från galleriet
 
-För att kunna konfigurera integreringen av Dropbox for Business i Azure AD måste du lägga till Dropbox for Business från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrering av Dropbox-företag i Azure AD måste du lägga till Dropbox-företag från galleriet till din lista över hanterade SaaS-appar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Dropbox for Business** i sökrutan.
-1. Välj **Dropbox för företag** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Dropbox Business** i sökrutan.
+1. Välj **Dropbox Business** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD SSO med Dropbox för företag med hjälp av en test användare som kallas **Britta Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Dropbox för företag.
+Konfigurera och testa Azure AD SSO med Dropbox Business med en test användare som kallas **Britta Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Dropbox Business.
 
-Slutför följande Bygg stenar om du vill konfigurera och testa Azure AD SSO med Dropbox för företag:
+Om du vill konfigurera och testa Azure AD SSO med Dropbox Business, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.    
     1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
     1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Konfigurera Dropbox for Business SSO](#configure-dropbox-for-business-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa Dropbox for Business-testanvändare](#create-dropbox-for-business-test-user)** – så att det finns en motsvarighet till Britta Simon i Dropbox for Business som är länkad till Azure AD-representationen av användaren.
+1. **[Konfigurera Dropbox Business SSO](#configure-dropbox-business-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
+    1. **[Skapa Dropbox Business test User](#create-dropbox-business-test-user)** – om du vill ha en motsvarighet till Britta Simon i Dropbox Business som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **Dropbox for Business** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för **affärs** program integration i Dropbox och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -93,7 +93,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I avsnittet **Konfigurera Dropbox for Business** kopierar du lämpliga URL:er enligt dina behov.
+1. I avsnittet **Konfigurera Dropbox-företag** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -112,16 +112,16 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `Britta Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Dropbox för företag.
+I det här avsnittet ska du aktivera Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Dropbox-företag.
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Dropbox för företag**.
+1. I listan program väljer du **Dropbox Business**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
@@ -134,17 +134,17 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-dropbox-for-business-sso"></a>Konfigurera Dropbox för Business SSO
+## <a name="configure-dropbox-business-sso"></a>Konfigurera Dropbox Business SSO
 
-1. Om du vill automatisera konfigurationen i Dropbox för företag måste du installera **tillägget Mina appar säker inloggnings webbläsare** genom att klicka på **installera tillägget**.
+1. Om du vill automatisera konfigurationen i Dropbox-företag måste du installera **tillägget Mina appar säker inloggnings webbläsare** genom att klicka på **installera tillägget**.
 
     ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
 
-2. När du har lagt till tillägg i webbläsaren dirigeras du till Dropbox for Business-appen genom att klicka på **Installera Dropbox för företag** . Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Dropbox för företag. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-8.
+2. När du har lagt till tillägget i webbläsaren, klickar du på **Installera Dropbox Business** för att dirigera dig till affärs programmet för Dropbox. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Dropbox Business. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-8.
 
     ![Konfigurera konfiguration](common/setup-sso.png)
 
-3. Om du vill installera Dropbox för företag manuellt öppnar du ett nytt webbläsarfönster och går till Dropbox för företag-klienten och loggar in på Dropbox för företag-klienten. och utför följande steg:
+3. Om du vill konfigurera Dropbox Business manuellt öppnar du ett nytt webbläsarfönster och går till Dropbox-företags klienten och loggar in på Dropbox-företags klienten. och utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/dropboxforbusiness-tutorial/ic769509.png "Konfigurera enkel inloggning")
 
@@ -176,20 +176,20 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
     c. Klicka på **Ladda upp certifikat** och bläddra sedan till din **Base64-kodade certifikatfil** som du har laddat ned från Azure-portalen.
 
-    d. Klicka på **Kopiera länk** och klistra in det kopierade värdet i textrutan **Inloggnings-URL** I avsnittet **Domän och URL:er för Dropbox for Business** i Azure-portalen.
+    d. Klicka på **Kopiera länk** och klistra in det kopierade värdet i text rutan för **inloggnings-URL** i avsnittet **Dropbox företags domän och URL: er** på Azure Portal.
 
     e. Klicka på **Spara**.
 
-### <a name="create-dropbox-for-business-test-user"></a>Skapa Dropbox for Business-testanvändare
+### <a name="create-dropbox-business-test-user"></a>Skapa Dropbox Business test användare
 
-I det här avsnittet skapas en användare med namnet Britta Simon i Dropbox for Business. Dropbox for Business stöder just-in-time-etablering av användare, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns en användare i Dropbox for Business skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter B. Simon i Dropbox Business. Dropbox Business har stöd för just-in-Time User-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Dropbox-företag, skapas en ny efter autentiseringen.
 
 >[!Note]
->Kontakta [Dropbox for Business-kundsupporten](https://www.dropbox.com/business/contact) om du behöver skapa en användare manuellt
+>Kontakta [Dropbox Business client support team](https://www.dropbox.com/business/contact) om du behöver skapa en användare manuellt
 
 ### <a name="test-sso"></a>Testa SSO
 
-När du väljer ikonen Dropbox för företag på åtkomst panelen, bör du loggas in automatiskt till Dropbox för företag som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer företags panelen för Dropbox på åtkomst panelen, bör du loggas in automatiskt till Dropbox-företaget som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -199,4 +199,6 @@ När du väljer ikonen Dropbox för företag på åtkomst panelen, bör du logga
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Skydda Dropbox med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/protect-dropbox)
+- [Testa Dropbox-företag med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

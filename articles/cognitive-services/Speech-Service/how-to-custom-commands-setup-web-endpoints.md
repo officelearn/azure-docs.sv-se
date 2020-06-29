@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 5bdb77d27b01f576ca06aa5b6d3df0572b3b1ea6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307927"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414291"
 ---
-# <a name="set-up-web-endpoints"></a>Konfigurera webb slut punkter
+# <a name="set-up-web-endpoints"></a>Konfigurera webbslutpunkter
 
-I den här artikeln får du lära dig hur du ställer in webb slut punkter i ett program med anpassade kommandon som gör det möjligt att göra HTTP-förfrågningar från ett klient program. Du utför följande aktiviteter:
+I den här artikeln får du lära dig hur du ställer in webb slut punkter i ett program med anpassade kommandon som gör det möjligt att göra HTTP-förfrågningar från ett klient program. Du kommer att utföra följande uppgifter:
 
 - Konfigurera webb slut punkter i program för anpassade kommandon
 - Anropa webb slut punkter i program med anpassade kommandon
@@ -64,7 +64,7 @@ I den här artikeln får du lära dig hur du ställer in webb slut punkter i ett
    > [!div class="mx-imgBorder"]
    > ![Anropa åtgärds parametrar för webb slut punkter](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställningen | Föreslaget värde | Description |
    | ------- | --------------- | ----------- |
    | Slutpunkter | UpdateDeviceState | Den webb slut punkt som du vill anropa i den här åtgärden. |
    | Frågeparametrar | objekt = {SubjectDevice} &&värde = {mikrofonen} | Frågeparametrar som ska läggas till i URL: en för webb slut punkten.  |
@@ -78,7 +78,7 @@ I den här artikeln får du lära dig hur du ställer in webb slut punkter i ett
    > [!div class="mx-imgBorder"]
    > ![Anropa webb slut punkts åtgärd vid lyckad](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställningen | Föreslaget värde | Description |
    | ------- | --------------- | ----------- |
    | Åtgärd att köra | Skicka tal svar | Åtgärd som ska utföras om begäran till webb slut punkten lyckas |
    
@@ -89,7 +89,7 @@ I den här artikeln får du lära dig hur du ställer in webb slut punkter i ett
    > [!div class="mx-imgBorder"]
    > ![Anropa webb slut punkts åtgärd vid misslyckande](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställningen | Föreslaget värde | Description |
    | ------- | --------------- | ----------- |
    | Åtgärd att köra | Skicka tal svar | Åtgärd som ska utföras om begäran till webb slut punkten Miss lyckas |
 

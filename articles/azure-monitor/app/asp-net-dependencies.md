@@ -2,13 +2,13 @@
 title: Beroende spårning i Azure Application Insights | Microsoft Docs
 description: Övervaka beroende anrop från din lokala eller Microsoft Azure webb program med Application Insights.
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: 759e465a21b421c22a62245536827546acc2d79e
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.date: 06/26/2020
+ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204760"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445227"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroende spårning i Azure Application insikter 
 
@@ -80,7 +80,7 @@ Om du t. ex. skapar din kod med en sammansättning som du inte har skrivit själ
 
 Alternativt `TelemetryClient` ger tilläggs metoder `StartOperation` och `StopOperation` som kan användas för att manuellt spåra beroenden, enligt vad som visas [här](custom-operations-tracking.md#outgoing-dependencies-tracking)
 
-Om du vill inaktivera standard modulen för beroende spårning tar du bort referensen till DependencyTrackingTelemetryModule i [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) för ASP.NET program. För ASP.NET Core program följer du instruktionerna [här](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+Om du vill inaktivera standard modulen för beroende spårning tar du bort referensen till DependencyTrackingTelemetryModule i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) för ASP.NET-program. För ASP.NET Core program följer du instruktionerna [här](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>Spåra AJAX-anrop från webb sidor
 
@@ -95,14 +95,22 @@ För ASP.NET Core program måste du nu välja att delta i SQL-textsamlingen med 
 services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
 ```
 
-För ASP.NET-program samlas fullständig SQL-fråga med hjälp av kod instrumentering i byte, som kräver Instrumentation Engine eller med [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet i stället för system. data. SqlClient-biblioteket. Ytterligare plattforms oberoende steg, enligt beskrivningen nedan, krävs.
+För ASP.NET-program samlas fullständig SQL-frågetext in med hjälp av kod instrumentering i byte, som kräver att instrument motorn används eller genom att använda [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet i stället för system. data. SqlClient-biblioteket. Plattformsspecifik steg för att aktivera fullständig SQL-fr åga beskrivs nedan:
 
 | Plattform | Steg som krävs för att få en fullständig SQL-fråga |
 | --- | --- |
 | Azure Web App |På kontroll panelen i din webbapp [öppnar du bladet Application Insights](../../azure-monitor/app/azure-web-apps.md) och aktiverar SQL-kommandon under .net |
 | IIS-server (virtuell Azure-dator, lokal och så vidare) | Använd antingen [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet eller Använd statusövervakare PowerShell-modulen för att [Installera Instrumentation-motorn](../../azure-monitor/app/status-monitor-v2-api-reference.md) och starta om IIS. |
 | Azure Cloud Service | Lägg till [Start aktivitet för att installera StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Din app ska kunna integreras med ApplicationInsights SDK i bygg tid genom att installera NuGet-paket för [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) eller [ASP.net Core program](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
-| IIS Express | Använd [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet
+| IIS Express | Använd [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet.
+
+Förutom plattforms stegen ovan **måste du även uttryckligen välja att aktivera SQL-filinsamling** genom att ändra applicationInsights.config-filen med följande:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
 
 I ovanstående fall är det korrekta sättet att verifiera instrument motorn korrekt installerat genom att verifiera att SDK-versionen av insamlad `DependencyTelemetry` är "rddp". "rdddsd" eller "rddf" anger att beroenden samlas in via DiagnosticSource eller EventSource-återanrop, och därför kommer full SQL-frågan inte att fångas.
 

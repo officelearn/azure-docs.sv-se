@@ -3,15 +3,15 @@ title: Aver vFXT-kluster justering – Azure
 description: Översikt över anpassade inställningar för att optimera prestanda i AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76152943"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505298"
 ---
 # <a name="cluster-tuning"></a>Klusterjustering
 
@@ -34,7 +34,7 @@ Dessa ändringar kan vara rekommenderade baserat på data uppsättnings kvalitet
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Moln-NAS eller moln-Gateway-optimeringar
 
-I ett Cloud NAS-eller gateway-scenario tillhandahåller vFXT-klustret NAS-typ åtkomst till en moln behållare. Om du vill dra nytta av högre data hastigheter mellan vFXT-klustret och moln lagringen kan du rekommendera att ändra inställningarna till mer aggressivt push-data till lagrings volymen från cachen. Ett exempel:
+I ett Cloud NAS-eller gateway-scenario tillhandahåller vFXT-klustret NAS-typ åtkomst till en moln behållare. Om du vill dra nytta av högre data hastigheter mellan vFXT-klustret och moln lagringen kan du rekommendera att ändra inställningarna till mer aggressivt push-data till lagrings volymen från cachen. Till exempel:
 
 * Öka antalet TCP-anslutningar mellan klustret och lagrings behållaren
 

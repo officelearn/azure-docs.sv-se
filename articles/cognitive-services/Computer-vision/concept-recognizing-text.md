@@ -1,96 +1,98 @@
 ---
-title: Utskrift, handskriven text igenkänning – Visuellt innehåll
+title: Läs text från bilder och dokument – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp som rör igenkänning av utskrift och handskriven text i bilder med hjälp av API för visuellt innehåll.
+description: Begrepp som rör optisk tecken läsning (OCR) och text från bilder och dokument för utskrift och handskriven text med hjälp av API för visuellt innehåll.
 services: cognitive-services
-author: PatrickFarley
-manager: nitinme
+author: msbbonsu
+manager: netahw
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: pafarley
+ms.date: 06/23/2020
+ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 5d0a9771e5b999028996676ea72f8def3c5d63cf
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 65e1613eb8fda934899afe692f45a38fca04bff2
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589864"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414048"
 ---
-# <a name="recognize-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
+# <a name="read-text-from-images-and-documents"></a>Läs text från bilder och dokument
 
-Visuellt innehåll tillhandahåller ett antal tjänster som identifierar och extraherar tryckt text eller handskriven text som visas i bilder. Detta är användbart i många olika scenarier, till exempel anmärkningar, medicinska poster, säkerhet och bank tjänster. I följande tre avsnitt beskrivs tre olika API: er för text igenkänning, som är optimerade för olika användnings fall.
+Visuellt innehåll innehåller en ny djup inlärnings funktion för OCR (optisk tecken läsning) som extraherar tryckt eller handskriven text från bilder och PDF-dokument. Visuellt innehåll extraherar text från både analoga dokument (bilder, skannade dokument) och avbildade dokument. Du kan extrahera text från bilder i jokertecken, till exempel foton av licens plattor eller behållare med serie nummer, samt från dokument fakturor, fakturor, ekonomiska rapporter, artiklar med mera. Den här OCR-funktionen är tillgänglig som en del av den hanterade tjänsten i molnet eller lokalt (behållare). Det stöder också virtuella nätverk och privata slut punkter för att uppfylla behoven i företags klassens efterlevnad och sekretess.
 
-## <a name="read-api"></a>Läs-API
+## <a name="read-api"></a>Läs-API 
 
-Read API identifierar text innehåll i en avbildning med hjälp av våra senaste igenkännings modeller och konverterar den identifierade texten till en maskin läsnings bar tecken ström. Den är optimerad för text intensiva avbildningar (till exempel dokument som har skannats digitalt) och för bilder med stor visuell brus. Den avgör vilken igenkännings modell som ska användas för varje textrad, stöd för bilder med både utskrift och handskriven text. Read API körs asynkront eftersom det kan ta flera minuter för större dokument att returnera ett resultat.
+Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är Microsofts senaste OCR-teknik som extraherar utskriven text, handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument. Det är optimerat för att extrahera text från bilder på-vilda, bilder med visuellt brus, PDF-dokument som är antingen digitala eller skannade och text tunga bilder. Det stöder utskrift och handskriven text (engelska) och blandade språk i samma bild eller dokument. Du hittar en fullständig lista över språk som stöds på sidan [språk stöd för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) .
 
-Läs åtgärden underhåller de ursprungliga rad grupperna av identifierade ord i dess utdata. Varje rad kommer med koordinater för markerings rutor, och varje ord på raden har också sina egna koordinater. Om ett ord identifierades med låg exakthet förmedlas även den informationen. Mer information finns i referens dokumenten [läsa API v 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) eller [läsa API v 3.0](https://aka.ms/computer-vision-v3-ref) .
 
-Läs åtgärden kan identifiera text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska.
+### <a name="how-it-works"></a>Så här fungerar det
 
-### <a name="image-requirements"></a>Avbildningskrav
+[Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är asynkront. Det första steget är att anropa Läs åtgärden. Läs åtgärden tar en bild eller ett PDF-dokument som indata och returnerar ett åtgärds-ID. 
 
-Read API fungerar med avbildningar som uppfyller följande krav:
+Det andra steget är att anropa åtgärden [Hämta resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Den här åtgärden tar i det åtgärds-ID som skapades av Läs åtgärden. Den returnerar sedan det extraherade text innehållet från din avbildning eller ditt dokument i form av JSON. JSON-svaret underhåller de ursprungliga rad grupperna av identifierade ord. Den innehåller de extraherade text raderna och deras avgränsnings Rute koordinater. Varje textrad innehåller alla extraherade ord med deras koordinater och en förtroende poäng.
 
-- Bilden måste visas i JPEG-, PNG-, BMP-, PDF-eller TIFF-format.
-- Bildens mått måste vara mellan 50 x 50 och 10000 x 10000 bild punkter. PDF-sidor måste vara 17 × 17 tum eller mindre.
-- Bildens fil storlek måste vara mindre än 20 megabyte (MB).
+Vid behov kan du läsa korrigera rotationen för den identifierade sidan genom att returnera rotations förskjutningen i grader om den vågräta bild axeln, som visas i följande bild.
 
-### <a name="limitations"></a>Begränsningar
+![En bild som roteras och dess text läses och avgränsas](./Images/vision-overview-ocr-read.png)
 
-Om du använder en prenumeration på kostnads fri nivå bearbetar Read API endast de första två sidorna i ett PDF-eller TIFF-dokument. Med en betald prenumeration kommer den att bearbeta upp till 200 sidor. Observera också att API: et ska identifiera högst 300 rader per sida.
+Följ snabb starten för [extrahering av skrivna och handskrivna text](./QuickStarts/CSharp-hand-text.md) för att implementera OCR med C# och REST API.
 
-## <a name="ocr-optical-character-recognition-api"></a>OCR-API (optisk tecken läsning)
+### <a name="input-requirements"></a>Krav för indatamängd
 
-Visuellt innehåll ' OCR-API: n (optisk tecken läsning) liknar Read API, men körs synkront och är inte optimerad för stora dokument. Den använder en tidigare igenkännings modell men fungerar med fler språk. Se [språk stöd](language-support.md#text-recognition) för en fullständig lista över de språk som stöds.
+Läs-API: et tar följande indata:
+* Fil format som stöds: JPEG, PNG, BMP, PDF och TIFF
+* För PDF och TIFF bearbetas upp till 2000 sidor. För prenumeranter på den kostnads fria nivån bearbetas bara de första två sidorna.
+* Fil storleken måste vara mindre än 50 MB och dimensioner minst 50 x 50 bild punkter och högst 10000 x 10000 bild punkter.
+* PDF-dimensionerna måste bestå av högst 17 × 17 tum, som motsvarar legal eller a3 pappers storlekar och mindre.
 
-Vid behov korrigerar OCR rotationen av den tolkade texten genom att returnera rotations förskjutningen i grader om den vågräta bild axeln. OCR innehåller också koordinaterna för varje ord, som du ser i följande bild.
 
-![En bild som roteras och dess text läses och avgränsas](./Images/vision-overview-ocr.png)
+### <a name="text-from-images"></a>Text från bilder
 
-Mer information finns i [referens dokument för OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) .
+Följande Read API-utdata visar de extraherade text raderna och orden från en bild med text i olika vinklar, färger och teckensnitt
 
-### <a name="image-requirements"></a>Avbildningskrav
+![En bild som roteras och dess text läses och avgränsas](./Images/text-from-images-example.png)
 
-OCR-API: et fungerar på avbildningar som uppfyller följande krav:
+### <a name="text-from-documents"></a>Text från dokument
 
-* Bilden måste visas i formatet JPEG, PNG, GIF eller BMP.
-* Storleken på indata-bilden måste vara mellan 50 x 50 och 4200 x 4200 bild punkter.
-* Texten i bilden kan roteras med en multipel på 90 grader plus en liten vinkel på upp till 40 grader.
+Förutom bilder tar Read-API: t ett PDF-dokument som inmatade.
 
-### <a name="limitations"></a>Begränsningar
+![En bild som roteras och dess text läses och avgränsas](./Images/text-from-documents-example.png)
 
-I fotografier där texten är dominerande kan falska positiva identifieringar komma från delvis identifierade ord. I vissa fotografier, särskilt foton utan text, kan precisionen variera beroende på typen av bild.
 
-## <a name="recognize-text-api"></a>Identifiera text-API
+### <a name="handwritten-text-in-english"></a>Handskriven text på engelska
 
-> [!NOTE]
-> Identifiera text-API: et är inaktuellt med Läs-API: et. Read API har liknande funktioner och uppdateras för att hantera PDF-, TIFF-och flersidiga filer.
+Just nu stöder Läs åtgärden extrahering av handskriven text exklusivt på engelska.
 
-Identifiera text API liknar OCR, men körs asynkront och använder uppdaterade igenkännings modeller. Mer information finns i [referens dokumenten för identifiera text API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) .
+![En bild som roteras och dess text läses och avgränsas](./Images/handwritten-example.png)
 
-### <a name="image-requirements"></a>Avbildningskrav
+### <a name="printed-text-in-supported-languages"></a>Utskriven text i språk som stöds
 
-Identifiera text-API: et fungerar med avbildningar som uppfyller följande krav:
+Read API stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk. Om ditt scenario kräver stöd för fler språk, se Översikt över OCR API i det här dokumentet. Se listan över alla språk som [stöds](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition)
 
-- Bilden måste visas i formatet JPEG, PNG eller BMP.
-- Bildens mått måste vara mellan 50 x 50 och 4200 x 4200 bild punkter.
-- Bildens fil storlek måste vara mindre än 4 MB.
+![En bild som roteras och dess text läses och avgränsas](./Images/supported-languages-example.png)
 
-## <a name="limitations"></a>Begränsningar
+### <a name="mixed-languages-support"></a>Stöd för blandade språk
 
-Precisionen för text igenkännings åtgärder beror på bildens kvalitet. Följande faktorer kan orsaka en felaktig läsning:
+Read API stöder bilder och dokument med flera språk, vanligt vis kallade blandade språk dokument. Det gör det genom att klassificera varje text rad i dokumentet på det identifierade språket innan du extraherar text innehållet.
 
-* Suddiga bilder.
-* Handskriven eller kursiv text.
-* Konstnärliga teckensnittsstilar.
-* Liten teckenstorlek.
-* Komplexa bakgrunder, skuggor eller motljus över text eller perspektivförvrängningar.
-* Stora bokstäver eller saknade versaler i början av ord.
-* Nedsänkt text, upphöjd eller genomstruken text.
+![En bild som roteras och dess text läses och avgränsas](./Images/mixed-language-example.png)
+
+### <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
+
+Precis som med alla kognitiva tjänster bör utvecklare som använder Läs tjänsten vara medvetna om Microsofts principer för kund information. Mer information finns på sidan Cognitive Services på [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview) .
+
+### <a name="deploy-on-premises"></a>Distribuera lokalt
+
+Läs är även tillgänglig som en Docker-behållare (för hands version) så att du kan distribuera nya OCR-funktioner i din egen miljö. Behållare är fantastiska för särskilda säkerhets-och data styrnings krav. Se [Installera och köra Läs behållare.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
+
+
+## <a name="ocr-api"></a>OCR-API
+
+[OCR-API: t](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) använder en äldre igenkännings modell. Det stöder endast enstaka avbildningar, inte PDF-filer och returnerar ett omedelbart svar. Det stöder [fler språk](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) än Read API.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ snabb starten för att [Extrahera text (Läs)](./QuickStarts/CSharp-hand-text.md) för att implementera text igenkänning i en enkel C#-app.
+- Lär dig mer om att [läsa 3,0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
+- Följ snabb starten för att [Extrahera text](./QuickStarts/CSharp-hand-text.md) för att implementera OCR med C#, Java, java script eller python tillsammans med REST API.

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: 8893ebf1288e592131938f39b10e204f98471fa8
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 61402a851ddac1cc279c51a59e48bed7949da273
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208152"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412863"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: Extrahera text-och layoutinformation med hjälp av formulär tolken REST API med python
 
@@ -90,7 +90,7 @@ https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e
 
 ## <a name="get-the-layout-results"></a>Hämta layout resultatet
 
-När du har anropat API för **analys av layout** anropar du API: et för att **[analysera utdata](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetAnalyzeLayoutResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. I den här koden används åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
+När du har anropat API för **analys av layout** anropar du API: et för att **[analysera utdata](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. I den här koden används åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
 
 ```python
 n_tries = 10

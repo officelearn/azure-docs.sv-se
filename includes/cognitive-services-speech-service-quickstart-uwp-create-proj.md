@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 5ab0b9abd32ef2e5eb7ea02d6118e387ef753348
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609335"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414374"
 ---
 Om du vill skapa ett Visual Studio-projekt för Universell Windows-plattform (UWP)-utveckling måste du ställa in alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitektur, konfigurera ljud fångst och installera tal-SDK.
 
@@ -70,7 +70,7 @@ Välj nu mål plattforms arkitektur. I Visual Studio-verktygsfältet hittar du L
 
 ### <a name="set-up-audio-capture"></a>Konfigurera ljud inspelning
 
-Tillåt sedan att projektet fångar in ljud indata:
+Tillåt att projektet fångar in ljud indata:
 
 1. I **Solution Explorer**dubbelklickar du på **Package. appxmanifest** för att öppna paket applikations manifestet.
 

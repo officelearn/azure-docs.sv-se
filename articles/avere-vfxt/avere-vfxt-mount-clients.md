@@ -3,15 +3,15 @@ title: Montera AVERT vFXT – Azure
 description: Montera klienter med AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: b8486b5a33226b1faa5e3874144129dbe7a1a2f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c6a4b2c1d95bc803d10697ce2164ea190f824d96
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153419"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505451"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montera Avere vFXT-klustret
 
@@ -64,7 +64,7 @@ Funktionen ovan är en del av batch-exemplet som är tillgängligt i exempel web
 > [!NOTE]
 > Om du inte skapade en ny BLOB-behållare när du skapade ditt AVERT vFXT-kluster, lägger du till lagrings system enligt beskrivningen i [Konfigurera lagring](avere-vfxt-add-storage.md) innan du försöker montera klienter.
 
-Från klienten mappar ``mount`` kommandot den virtuella servern (vserver) i vFXT-klustret till en sökväg i det lokala fil systemet. Formatet är``mount <vFXT path> <local path> {options}``
+Från klienten ``mount`` mappar kommandot den virtuella servern (vserver) i vFXT-klustret till en sökväg i det lokala fil systemet. Formatet är``mount <vFXT path> <local path> {options}``
 
 Monterings kommandot har tre element:
 

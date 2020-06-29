@@ -1,24 +1,24 @@
 ---
 title: Lägg till app-roller och hämta dem från en token | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du lägger till app-roller i ett program som är registrerat i Azure Active Directory, tilldela användare och grupper till dessa roller `roles` och ta emot dem i anspråket i token.
+description: Lär dig hur du lägger till app-roller i ett program som är registrerat i Azure Active Directory, tilldela användare och grupper till dessa roller och ta emot dem i `roles` anspråket i token.
 services: active-directory
 author: kkrishna
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aedf5d710b82185cb634fcd92e6981a2c358ad52
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884264"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477897"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -45,16 +45,16 @@ Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i pro
      > [!NOTE]
      > Varje app Role-definition i det här manifestet måste ha ett annat giltigt GUID inom kontexten för `id` egenskapens manifest.
      >
-     > `value` Egenskapen för varje app Role-definition ska exakt matcha de strängar som används i koden i programmet. `value` Egenskapen får inte innehålla blank steg. Om det gör det får du ett fel meddelande när du sparar manifestet.
+     > `value`Egenskapen för varje app Role-definition ska exakt matcha de strängar som används i koden i programmet. `value`Egenskapen får inte innehålla blank steg. Om det gör det får du ett fel meddelande när du sparar manifestet.
 
 1. Spara manifestet.
 
 ### <a name="examples"></a>Exempel
 
-I följande exempel visas den `appRoles` som du kan tilldela till `users`.
+I följande exempel visas den `appRoles` som du kan tilldela till `users` .
 
 > [!NOTE]
->`id` Måste vara ett unikt GUID.
+>`id`Måste vara ett unikt GUID.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -74,9 +74,9 @@ I följande exempel visas den `appRoles` som du kan tilldela till `users`.
 ```
 
 > [!NOTE]
->`displayName` Får inte innehålla blank steg.
+>`displayName`Får inte innehålla blank steg.
 
-Du kan definiera app-roller som `users`mål `applications`, eller båda. När det är `applications`tillgängligt för visas app-roller som program behörigheter på bladet **nödvändiga behörigheter** . I följande exempel visas en app-roll som är `Application`riktad mot en.
+Du kan definiera app-roller som mål `users` , `applications` eller båda. När det är tillgängligt för `applications` visas app-roller som program behörigheter på bladet **nödvändiga behörigheter** . I följande exempel visas en app-roll som är riktad mot en `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",

@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 946b199119ee9e03ec9348c4e180f8e4c9b9a776
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 986b3c3ef5bd3903a764726281b6bd0a25ba76a4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84751867"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506843"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -118,6 +118,9 @@ När den här processen är klar kan du ta bort säkerhets kopierings objekt fr�
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Ta bort säkerhets kopierings objekt från MARS Management Console
 
+>[!NOTE]
+>Om du har tagit bort eller förlorat käll datorn utan att stoppa säkerhets kopieringen kommer nästa schemalagda säkerhets kopiering att Miss kopie ras. Den gamla återställnings punkten upphör att gälla enligt principen, men den sista enskilda återställnings punkten behålls alltid tills du stoppar säkerhets kopieringen och tar bort data. Du kan göra detta genom att följa stegen i [det här avsnittet](#delete-protected-items-on-premises).
+
 1. Öppna hanterings konsolen för MARS, gå till **Åtgärds** fönstret och välj **Schemalägg säkerhets kopiering**.
 2. På sidan **ändra eller stoppa en schemalagd säkerhets kopiering** väljer du **sluta använda detta schema för säkerhets kopiering och tar bort alla lagrade säkerhets kopior**. Välj sedan **Nästa**.
 
@@ -140,6 +143,9 @@ När den här processen är klar kan du ta bort säkerhets kopierings objekt fr�
 När du har tagit bort de lokala säkerhets kopierings objekten följer du stegen i portalen.
 
 ### <a name="delete-backup-items-from-the-mabs-management-console"></a>Ta bort säkerhets kopierings objekt från hanterings konsolen för MABS
+
+>[!NOTE]
+>Om du har tagit bort eller förlorat käll datorn utan att stoppa säkerhets kopieringen kommer nästa schemalagda säkerhets kopiering att Miss kopie ras. Den gamla återställnings punkten upphör att gälla enligt principen, men den sista enskilda återställnings punkten behålls alltid tills du stoppar säkerhets kopieringen och tar bort data. Du kan göra detta genom att följa stegen i [det här avsnittet](#delete-protected-items-on-premises).
 
 Det finns två metoder som du kan använda för att ta bort säkerhets kopierings objekt från hanterings konsolen för MABS.
 

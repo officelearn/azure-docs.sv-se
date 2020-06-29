@@ -1,25 +1,14 @@
 ---
 title: Få åtkomst till ett klassrumslabb i Azure Lab Services | Microsoft Docs
 description: I den här självstudien får du åtkomst till virtuella datorer i ett klass rums labb som har kon figurer ATS av en lärare.
-services: devtest-lab, lab-services, virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
-ms.date: 05/15/2020
-ms.author: spelluru
-ms.openlocfilehash: f0dcff0f759859d2a8c4adaf3288094e27560108
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 34b61be1ca3fc938032b75358842f2067e5c011c
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898320"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443578"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 

@@ -6,18 +6,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: sample
 ms.workload: identity
 ms.date: 06/01/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f516ae9e0bfec160c2ca6b5a0a45a419dd8480b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 788f7eab3e547347beb4d95b523ad3c77e954687
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386733"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477370"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Kod exempel för Microsoft Identity Platform (v 2.0-slut punkt)
 
@@ -39,7 +39,7 @@ Du kan också bidra till exemplen på GitHub. Mer information finns i [Microsoft
 
 De här exemplen visar hur du skriver ett program med en enda sida som skyddas med Microsoft Identity Platform. I de här exemplen används en varianter av MSAL.js.
 
-| Plattform | Beskrivning | Länk |
+| Plattform | Description | Länk |
 | -------- | --------------------- | -------- |
 | ![Den här bilden visar JavaScript-filens ](media/sample-v2-code/logo_js.png) [JavaScript-skript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | SPA-anrop Microsoft Graph |[Java Script-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Den här bilden visar JavaScript-filens ](media/sample-v2-code/logo_js.png) [JavaScript-skript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | SPA-anrop Microsoft Graph att använda auth Code Flow med PKCE |[Java Script-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) |

@@ -3,14 +3,14 @@ title: Hantera ett Kör som-konto för Azure Automation
 description: Den här artikeln beskriver hur du hanterar ditt kör som-konto med PowerShell eller från Azure Portal.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/23/2020
+ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d85eac7af71f03be384b8fa9d9603525c0807dac
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 0d854c8815ff6acd54036e023b35c3b3ac2c56cf
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770796"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444530"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Hantera ett Kör som-konto för Azure Automation
 
@@ -66,19 +66,19 @@ Om du vill skapa eller uppdatera ett Kör som-konto måste du ha vissa behörigh
 |Skapa Azure AD-program|[New-AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication)     | Programutvecklare, roll<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure AD > app-registreringar |
 |Lägg till en autentiseringsuppgift i programmet.|[New-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential)     | Program administratör eller global administratör<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure AD > app-registreringar|
 |Skapa och hämta en Azure AD-tjänstens huvud namn|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)     | Program administratör eller global administratör<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure AD > app-registreringar|
-|Tilldela eller hämta RBAC-rollen för det angivna huvudobjektet|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administratör för användar åtkomst eller ägare eller ha följande behörigheter:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer > \< prenumerations namn \> -Access Control (IAM)|
+|Tilldela eller hämta RBAC-rollen för det angivna huvudobjektet|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administratör för användar åtkomst eller ägare eller ha följande behörigheter:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer > \<subscription name\> -Access Control (IAM)|
 |Skapa eller ta bort ett Automation-certifikat|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate)     | Deltagare i resurs gruppen         |Resurs grupp för Automation-konto|
 |Skapa eller ta bort en Automation-anslutning|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection)|Deltagare i resurs gruppen |Resurs grupp för Automation-konto|
 
 <sup>1</sup> användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) om alternativet för Azure AD-klientens **användare kan registrera program** på sidan användar inställningar är inställt på **Ja**. Om program registrerings inställningen är **Nej**måste användaren som utför den här åtgärden vara som definieras i den här tabellen.
 
-Om du inte är medlem i prenumerationens Active Directory instans innan du lägger till den globala administratörs rollen för prenumerationen läggs du till som gäst. I så fall får du en `You do not have permissions to create…` Varning på sidan Lägg till Automation-konto. 
+Om du inte är medlem i prenumerationens Active Directory instans innan du lägger till den globala administratörs rollen för prenumerationen läggs du till som gäst. I så fall får du en `You do not have permissions to create…` Varning på sidan **Lägg till Automation-konto** .
 
-Om du är medlem i prenumerationens Active Directory instans när rollen global administratör tilldelas, kan du också få en `You do not have permissions to create…` Varning på sidan Lägg till Automation-konto. I så fall kan du begära borttagning från prenumerationens Active Directory instans och sedan begära att du lägger till den igen, så att du blir fullständig användare i Active Directory.
+Om du är medlem i prenumerationens Active Directory instans när rollen global administratör tilldelas, kan du också få en `You do not have permissions to create…` Varning på sidan **Lägg till Automation-konto** . I så fall kan du begära borttagning från prenumerationens Active Directory instans och sedan begära att du lägger till den igen, så att du blir fullständig användare i Active Directory.
 
 För att kontrol lera att den situation som genererar fel meddelandet har åtgärd ATS:
 
-1. I fönstret Azure Active Directory i Azure Portal väljer du **användare och grupper**. 
+1. I fönstret Azure Active Directory i Azure Portal väljer du **användare och grupper**.
 2. Välj **alla användare**.
 3. Välj ditt namn och välj sedan **profil**. 
 4. Se till att värdet för attributet **användar typ** under användarens profil inte är inställt på **gäst**.
@@ -92,262 +92,18 @@ Om du vill konfigurera eller förnya klassiska kör som-konton måste du ha roll
 Utför följande steg för att uppdatera ditt Azure Automation-konto i Azure Portal. Skapa Kör som-och klassiska kör som-konton individuellt. Om du inte behöver hantera klassiska resurser kan du bara skapa Azure Kör som-kontot.
 
 1. Logga in på Azure-portalen med ett konto som är medlem i rollen Prenumerationsadministratörer och som är medadministratör för prenumerationen.
+
 2. Sök efter och välj **Automation-konton**.
+
 3. På sidan Automation-konton väljer du ditt Automation-konto i listan.
+
 4. I det vänstra fönstret väljer du **Kör som-konton** i avsnittet konto inställningar.
+
 5. Beroende på vilket konto du behöver väljer du antingen **Azures Kör som-konto** eller **Azures klassiska Kör som-konto**. 
+
 6. Beroende på kontots intresse använder du fönstret **Lägg till Azure kör som** eller **Lägg till Azures klassiska kör som-konto** . När du har granskat översikts informationen klickar du på **skapa**.
-6. Medan Azure skapar Kör-som-kontot kan du följa förloppet under **Meddelanden** på menyn. En banderoll visas också som anger att kontot skapas. Processen kan ta några minuter att slutföra.
 
-## <a name="create-a-run-as-account-using-powershell"></a>Skapa ett Kör som-konto med hjälp av PowerShell
-
-I följande lista finns kraven för att skapa ett Kör som-konto i PowerShell. Dessa krav gäller för båda typerna av kör som-konton.
-
-* Windows 10 eller Windows Server 2016 med Azure Resource Manager modulerna 3.4.1 och senare. PowerShell-skriptet har inte stöd för tidigare versioner av Windows.
-* Azure PowerShell 1.0 och senare. Information om PowerShell 1.0-versionen finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Ett Automation-konto, som refereras till som värde för `AutomationAccountName` parametrarna och `ApplicationDisplayName` .
-* Behörigheter som motsvarar de som anges i de [behörigheter som krävs för att konfigurera kör som-konton](#permissions).
-
-Slutför nästa steg för att hämta värdena för `SubscriptionId` , `ResourceGroupName` , och, som är obligatoriska parametrar för PowerShell-skriptet.
-
-1. I Azure Portal väljer du **Automation-konton**.
-1. På sidan Automation-konton väljer du ditt Automation-konto.
-1. I avsnittet konto inställningar väljer du **Egenskaper**.
-1. Anteckna värdena för **namn**, **prenumerations-ID**och **resurs grupp** på sidan Egenskaper. Dessa värden motsvarar värdena för `AutomationAccountName` parametrarna, och för `SubscriptionId` PowerShell- `ResourceGroupName` skriptet.
-
-   ![Egenskaps sida för Automation-konto](media/manage-runas-account/automation-account-properties.png)
-
-### <a name="powershell-script-to-create-a-run-as-account"></a>PowerShell-skript för att skapa ett Kör som-konto
-
-Det här avsnittet innehåller ett PowerShell-skript för att skapa ett Kör som-konto. Skriptet innehåller stöd för flera konfigurationer.
-
-* Skapa ett Kör som-konto med hjälp av ett självsignerat certifikat.
-* Skapa ett Kör som-konto och ett klassiska Kör som-konto med hjälp av ett självsignerat certifikat.
-* Skapa ett Kör som-konto och ett klassiskt Kör som-konto genom att använda ett certifikat utfärdat av en företagscertifikatutfärdare (CA).
-* Skapa ett Kör som-konto och ett klassiskt Kör som-konto med hjälp av ett självsignerat certifikat i Azure Government-molnet.
-
-Skriptet använder flera Azure Resource Manager-cmdletar för att skapa resurser. För-cmdletar och de behörigheter som de kräver, se [Hämta behörigheter för att konfigurera kör som-konton](#get-permissions-to-configure-run-as-accounts).
-
-Spara skriptet på datorn med fil namnet **New-RunAsAccount. ps1**.
-
-```powershell
-#Requires -RunAsAdministrator
-Param (
-    [Parameter(Mandatory = $true)]
-    [String] $ResourceGroup,
-
-    [Parameter(Mandatory = $true)]
-    [String] $AutomationAccountName,
-
-    [Parameter(Mandatory = $true)]
-    [String] $ApplicationDisplayName,
-
-    [Parameter(Mandatory = $true)]
-    [String] $SubscriptionId,
-
-    [Parameter(Mandatory = $true)]
-    [Boolean] $CreateClassicRunAsAccount,
-
-    [Parameter(Mandatory = $true)]
-    [String] $SelfSignedCertPlainPassword,
-
-    [Parameter(Mandatory = $false)]
-    [string] $EnterpriseCertPathForRunAsAccount,
-
-    [Parameter(Mandatory = $false)]
-    [String] $EnterpriseCertPlainPasswordForRunAsAccount,
-
-    [Parameter(Mandatory = $false)]
-    [String] $EnterpriseCertPathForClassicRunAsAccount,
-
-    [Parameter(Mandatory = $false)]
-    [String] $EnterpriseCertPlainPasswordForClassicRunAsAccount,
-
-    [Parameter(Mandatory = $false)]
-    [ValidateSet("AzureCloud", "AzureUSGovernment")]
-    [string]$EnvironmentName = "AzureCloud",
-
-    [Parameter(Mandatory = $false)]
-    [int] $SelfSignedCertNoOfMonthsUntilExpired = 12
-)
-
-function CreateSelfSignedCertificate([string] $certificateName, [string] $selfSignedCertPlainPassword,
-    [string] $certPath, [string] $certPathCer, [string] $selfSignedCertNoOfMonthsUntilExpired ) {
-    $Cert = New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation cert:\LocalMachine\My `
-        -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
-        -NotAfter (Get-Date).AddMonths($selfSignedCertNoOfMonthsUntilExpired) -HashAlgorithm SHA256
-
-    $CertPassword = ConvertTo-SecureString $selfSignedCertPlainPassword -AsPlainText -Force
-    Export-PfxCertificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPath -Password $CertPassword -Force | Write-Verbose
-    Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPathCer -Type CERT | Write-Verbose
-}
-
-function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {
-    $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
-    $keyId = (New-Guid).Guid
-
-    # Create an Azure AD application, AD App Credential, AD ServicePrincipal
-
-    # Requires Application Developer Role, but works with Application administrator or GLOBAL ADMIN
-    $Application = New-AzADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId)
-    # Requires Application administrator or GLOBAL ADMIN
-    $ApplicationCredential = New-AzADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $PfxCert.NotBefore -EndDate $PfxCert.NotAfter
-    # Requires Application administrator or GLOBAL ADMIN
-    $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $Application.ApplicationId
-    $GetServicePrincipal = Get-AzADServicePrincipal -ObjectId $ServicePrincipal.Id
-
-    # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
-    Sleep -s 15
-    # Requires User Access Administrator or Owner.
-    $NewRole = New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
-    $Retries = 0;
-    While ($NewRole -eq $null -and $Retries -le 6) {
-        Sleep -s 10
-        New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
-        $NewRole = Get-AzRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
-        $Retries++;
-    }
-    return $Application.ApplicationId.ToString();
-}
-
-function CreateAutomationCertificateAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $certifcateAssetName, [string] $certPath, [string] $certPlainPassword, [Boolean] $Exportable) {
-    $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force
-    Remove-AzAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $certifcateAssetName -ErrorAction SilentlyContinue
-    New-AzAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Path $certPath -Name $certifcateAssetName -Password $CertPassword -Exportable:$Exportable  | write-verbose
-}
-
-function CreateAutomationConnectionAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $connectionAssetName, [string] $connectionTypeName, [System.Collections.Hashtable] $connectionFieldValues ) {
-    Remove-AzAutomationConnection -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -Force -ErrorAction SilentlyContinue
-    New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -ConnectionTypeName $connectionTypeName -ConnectionFieldValues $connectionFieldValues
-}
-
-Import-Module AzureRm.Profile
-Import-Module AzureRm.Resources
-
-$AureRmProfileVersion = (Get-Module AzureRm.Profile).Version
-if (!(($AzureRmProfileVersion.Major -ge 3 -and $AzureRmProfileVersion.Minor -ge 4) -or ($AzureRmProfileVersion.Major -gt 3))) {
-    Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
-    return
-}
-
-# To use the new Az modules to create your Run As accounts, please uncomment the following lines and ensure you comment out the previous 8 lines that import the AzureRM modules to avoid any issues. To learn about about using Az modules in your Automation account see https://docs.microsoft.com/azure/automation/az-modules.
-
-# Import-Module Az.Automation
-# Enable-AzureRmAlias
-
-
-Connect-AzAccount -Environment $EnvironmentName
-$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId | Set-AzContext
-
-# Create a Run As account by using a service principal
-$CertifcateAssetName = "AzureRunAsCertificate"
-$ConnectionAssetName = "AzureRunAsConnection"
-$ConnectionTypeName = "AzureServicePrincipal"
-
-if ($EnterpriseCertPathForRunAsAccount -and $EnterpriseCertPlainPasswordForRunAsAccount) {
-    $PfxCertPathForRunAsAccount = $EnterpriseCertPathForRunAsAccount
-    $PfxCertPlainPasswordForRunAsAccount = $EnterpriseCertPlainPasswordForRunAsAccount
-}
-else {
-    $CertificateName = $AutomationAccountName + $CertifcateAssetName
-    $PfxCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".pfx")
-    $PfxCertPlainPasswordForRunAsAccount = $SelfSignedCertPlainPassword
-    $CerCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".cer")
-    CreateSelfSignedCertificate $CertificateName $PfxCertPlainPasswordForRunAsAccount $PfxCertPathForRunAsAccount $CerCertPathForRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
-}
-
-# Create a service principal
-$PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPathForRunAsAccount, $PfxCertPlainPasswordForRunAsAccount)
-$ApplicationId = CreateServicePrincipal $PfxCert $ApplicationDisplayName
-
-# Create the Automation certificate asset
-CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
-
-# Populate the ConnectionFieldValues
-$SubscriptionInfo = Get-AzSubscription -SubscriptionId $SubscriptionId
-$TenantID = $SubscriptionInfo | Select TenantId -First 1
-$Thumbprint = $PfxCert.Thumbprint
-$ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
-# Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
-
-if ($CreateClassicRunAsAccount) {
-    # Create a Run As account by using a service principal
-    $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
-    $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
-    $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
-    $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-    "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
-    "Then click Upload and upload the .cer format of #CERT#"
-
-    if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
-        $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
-        $PfxCertPlainPasswordForClassicRunAsAccount = $EnterpriseCertPlainPasswordForClassicRunAsAccount
-        $UploadMessage = $UploadMessage.Replace("#CERT#", $PfxCertPathForClassicRunAsAccount)
-    }
-    else {
-        $ClassicRunAsAccountCertificateName = $AutomationAccountName + $ClassicRunAsAccountCertifcateAssetName
-        $PfxCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".pfx")
-        $PfxCertPlainPasswordForClassicRunAsAccount = $SelfSignedCertPlainPassword
-        $CerCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".cer")
-        $UploadMessage = $UploadMessage.Replace("#CERT#", $CerCertPathForClassicRunAsAccount)
-        CreateSelfSignedCertificate $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
-    }
-    
-    # Create the Automation certificate asset
-    CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
-
-    # Populate the ConnectionFieldValues
-    $SubscriptionName = $subscription.Name
-    $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
-
-    # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-    CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName   $ClassicRunAsAccountConnectionFieldValues
-
-    Write-Host -ForegroundColor red       $UploadMessage
-}
-```
-
->[!NOTE]
->`Add-AzAccount`och `Add-AzureRMAccount` är alias för [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
-
-### <a name="execute-the-powershell-script"></a>Kör PowerShell-skriptet
-
-1. Starta **Windows PowerShell** från **startskärmen** med utökade användarrättigheter.
-1. Från det utökade kommando rads gränssnittet går du till den mapp som innehåller skriptet.
-1. Kör skriptet genom att använda parameter värden för den konfiguration som du behöver.
-1. Om du skapar ett klassiskt kör som-konto när skriptet har körts, laddar du upp det offentliga certifikatet (fil namns tillägget **. cer** ) till hanterings arkivet för den prenumeration som Automation-kontot har skapats i.
-
-När skriptet har körts uppmanas du att autentisera med Azure. Logga in med ett konto som är medlem i rollen prenumerations administratörer och som är medadministratör för prenumerationen.
-
-#### <a name="create-a-run-as-account-by-using-a-self-signed-certificate"></a>Skapa ett Kör som-konto med hjälp av ett självsignerat certifikat
-
-```powershell
-.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
-```
-
-#### <a name="create-a-run-as-account-and-a-classic-run-as-account-by-using-a-self-signed-certificate"></a>Skapa ett Kör som-konto och ett klassiska Kör som-konto med hjälp av ett självsignerat certifikat
-
-```powershell
-.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
-```
-
-#### <a name="create-a-run-as-account-and-a-classic-run-as-account-by-using-an-enterprise-certificate"></a>Skapa ett Kör som-konto och ett klassiskt Kör som-konto med hjälp av ett företagscertifikat
-
-```powershell
-.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
-```
-
-Om du har skapat ett klassiskt kör som-konto med ett offentligt företags certifikat (**CER** -fil) använder du det här certifikatet. Se [Ladda upp ett hanterings-API-certifikat till Azure Portal](../azure-api-management-certs.md).
-
-#### <a name="create-a-run-as-account-and-a-classic-run-as-account-by-using-a-self-signed-certificate-in-the-azure-government-cloud"></a>Skapa ett Kör som-konto och ett klassiskt kör som-konto med hjälp av ett självsignerat certifikat i Azure Government molnet
-
-```powershell
-.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
-```
-
-Om du har skapat ett klassiskt kör som-konto med ett självsignerat offentligt certifikat (**CER** -fil) skapar skriptet och sparar det i mappen för temporära filer på datorn. Du hittar den i användar profilen `%USERPROFILE%\AppData\Local\Temp` som du använde för att köra PowerShell-sessionen.
+7. Medan Azure skapar Kör-som-kontot kan du följa förloppet under **Meddelanden** på menyn. En banderoll visas också som anger att kontot skapas. Processen kan ta några minuter att slutföra.
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Ta bort ett Kör som-konto eller ett klassiskt Kör som-konto
 
@@ -397,47 +153,12 @@ Använd följande steg för att förnya det självsignerade certifikatet.
 
 1. Medan certifikatet förnyas kan du följa förloppet under **Meddelanden** på menyn.
 
-## <a name="set-up-automatic-certificate-renewal-with-an-automation-runbook"></a><a name="auto-cert-renewal"></a>Konfigurera automatisk certifikat förnyelse med en Automation-Runbook
-
-Om du vill förnya certifikat automatiskt kan du använda en Automation-Runbook. Det här skriptet på [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) aktiverar den här funktionen i ditt Automation-konto.
-
->[!NOTE]
->Du måste vara global administratör eller företags administratör i Azure AD för att kunna köra skriptet.
-
-Det här skriptet skapar ett vecko schema för att förnya kör som-konto certifikat. Den lägger till en **Update-AutomationRunAsCredential** Runbook till ditt Automation-konto. Du kan visa Runbook-koden på GitHub i skriptet [Update-AutomationRunAsCredential. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1). Du kan använda PowerShell-koden i filen om du vill förnya certifikat manuellt om det behövs.
-
-Använd följande steg för att testa förnyelse processen direkt.
-
-1. Redigera **AutomationRunAsCredential-** Runbook och Lägg till ett kommentars text (#) på rad 122, framför kommandot **exit (1)** .
-
-   ```powershell
-   #Exit(1)
-   ```
-
-2. Publicera runbooken.
-3. Starta runbooken.
-4. Verifiera lyckad förnyelse med följande kod:
-
-   ```powershell
-   (Get-AzAutomationCertificate -AutomationAccountName TestAA
-                                -Name AzureRunAsCertificate
-                                -ResourceGroupName TestAutomation).ExpiryTime.DateTime
-   ```
-    Resultat:
-
-   ```Output
-   Thursday, November 7, 2019 7:00:00 PM
-   ```
-
-5. Efter testet redigerar du runbooken och tar bort kommentars tecknen som du lade till i steg 1.
-6. Publicera runbooken.
-
 ## <a name="limit-run-as-account-permissions"></a>Begränsa behörigheter för kör som-konto
 
-Du kan styra automatiseringen av automatisering mot resurser i Azure genom att köra skriptet [Update-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug8) . Det här skriptet ändrar ditt befintliga huvud namn för kör som-kontot för att skapa och använda en anpassad roll definition. Rollen har behörigheter för alla resurser utom [Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Om du vill styra automatiseringen av automatisering mot resurser i Azure kan du köra [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) -skriptet. Det här skriptet ändrar ditt befintliga huvud namn för kör som-kontot för att skapa och använda en anpassad roll definition. Rollen har behörigheter för alla resurser utom [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 >[!IMPORTANT]
->När du har kört skriptet **Update-AutomationRunAsAccountRoleAssignments. ps1** fungerar Runbooks som har åtkomst Key Vault genom användningen av kör som-konton inte längre. Innan du kör skriptet bör du granska Runbooks i ditt konto för anrop till Azure Key Vault. Om du vill ge åtkomst till Key Vault från Azure Automation runbooks måste du [lägga till kör som-kontot i Key Vault behörigheter](#add-permissions-to-key-vault).
+>När du har kört **Update-AutomationRunAsAccountRoleAssignments.ps1** skriptet fungerar inte Runbooks som har åtkomst Key Vault genom användningen av kör som-konton. Innan du kör skriptet bör du granska Runbooks i ditt konto för anrop till Azure Key Vault. Om du vill ge åtkomst till Key Vault från Azure Automation runbooks måste du [lägga till kör som-kontot i Key Vault behörigheter](#add-permissions-to-key-vault).
 
 Om du behöver begränsa ytterligare vad som kan utföras av tjänstens huvud namn kan du lägga till andra resurs typer till `NotActions` elementet i den anpassade roll definitionen. I följande exempel begränsas åtkomsten till `Microsoft.Compute/*` . Om du lägger till den här resurs typen i `NotActions` för roll definitionen kommer rollen inte att kunna komma åt någon beräknings resurs. Mer information om roll definitioner finns i [förstå roll definitioner för Azure-resurser](../role-based-access-control/role-definitions.md).
 
@@ -455,7 +176,7 @@ Du kan kontrol lera om tjänstens huvud namn som används av ditt kör som-konto
 
 [![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
-Du kan också bestämma vilken roll definition som används av kör som-kontona för flera prenumerationer eller Automation-konton. Det gör du med hjälp av skriptet [Check-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug5) i PowerShell-galleriet.
+Du kan också bestämma vilken roll definition som används av kör som-kontona för flera prenumerationer eller Automation-konton. Gör detta med hjälp av [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) -skriptet i PowerShell-galleriet.
 
 ### <a name="add-permissions-to-key-vault"></a>Lägg till behörigheter i Key Vault
 
@@ -464,7 +185,7 @@ Du kan låta Azure Automation verifiera om Key Vault och ditt kör som-konto-tj�
 * Bevilja behörighet till Key Vault.
 * Ange åtkomst principen.
 
-Du kan använda skriptet [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault. ps1](https://aka.ms/AA5hugb) i PowerShell-galleriet för att ge ditt kör som-konto behörighet att Key Vault. Mer information om hur du anger behörigheter för Key Vault finns i [bevilja program åtkomst till ett nyckel valv](../key-vault/general/group-permissions-for-apps.md) .
+Du kan använda [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) -skriptet i PowerShell-galleriet för att ge ditt kör som-konto behörighet att Key Vault. Mer information om hur du anger behörigheter för Key Vault finns i [bevilja program åtkomst till ett nyckel valv](../key-vault/general/group-permissions-for-apps.md) .
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Lös problem med fel konfiguration för kör som-konton
 

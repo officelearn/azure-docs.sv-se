@@ -1,5 +1,5 @@
 ---
-title: Integrera med en klient app med hjälp av tal-SDK
+title: Integrera med en klientapp med hjälp av Speech SDK
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln får du lära dig hur du gör förfrågningar till ett publicerat program för anpassade kommandon från tal-SDK som körs i ett UWP-program.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: d87301f09665062a1b56fa33443f1178b42fb42f
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307904"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414375"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrera med ett klient program med hjälp av tal-SDK
 
@@ -38,7 +38,7 @@ Du behöver också:
 
 ## <a name="step-1-publish-custom-commands-application"></a>Steg 1: publicera anpassade kommandon-program
 
-1. Öppna ditt tidigare skapade Custom commands-program (för hands version) och välj **publicera**
+1. Öppna dina tidigare skapade program för anpassade kommandon och välj **publicera**
 
    > [!div class="mx-imgBorder"]
    > ![Publicera programmet](media/custom-commands/setup-speech-sdk-publish-application.png)

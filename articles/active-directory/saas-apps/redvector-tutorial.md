@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4edee73e13c0490810706a0f7a028b54f37b287b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f3660956a3e66fc9a632eace378feb8873bceaf8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67093057"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>Självstudie: Azure Active Directory integrering med RedVector
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med RedVector i Azur
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://sso2.redvector.com/adfs/<Companyname>`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<Companyname>.redvector.com/saml2`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://sso2.redvector.com/saml2`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [RedVector client support team](mailto:sso@redvector.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** brittasimon@yourcompanydomain.extension . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

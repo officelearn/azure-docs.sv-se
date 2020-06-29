@@ -3,15 +3,15 @@ title: Aver vFXT-lösning för icke-ägare – Azure
 description: Lösning för att tillåta användare utan prenumerations ägare behörighet att distribuera AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d9b1060ee35af6cbc2e1b95b0f7813072c52d2e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153283"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505383"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Auktorisera icke-ägare för att distribuera Avere vFXT
 
@@ -26,7 +26,7 @@ En prenumerations ägare måste också [acceptera användnings villkoren](avere-
 > [!IMPORTANT]
 > Alla dessa steg måste utföras av en användare med ägar behörighet för den prenumeration som ska användas för klustret.
 
-1. Kopiera dessa rader och spara dem i en fil (till exempel `averecreatecluster.json`). Använd ditt prenumerations-ID `AssignableScopes` i instruktionen.
+1. Kopiera dessa rader och spara dem i en fil (till exempel `averecreatecluster.json` ). Använd ditt prenumerations-ID i `AssignableScopes` instruktionen.
 
    ```json
    {

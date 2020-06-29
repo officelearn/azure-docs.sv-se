@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: dd99934ca74736c1f80bd47d701120398437e27a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845329"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478305"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -54,7 +54,7 @@ Om SAML-begäran inte innehåller ett element för NameIDPolicy utfärdar Azure 
 
 I list rutan **Välj namn identifierare format** kan du välja något av följande alternativ.
 
-| NameID-format | Beskrivning |
+| NameID-format | Description |
 |---------------|-------------|
 | **Standard** | Standardvärdet för käll formatet används i Azure AD. |
 | **Permanent** | Azure AD kommer att använda beständigt som NameID-format. |
@@ -68,7 +68,7 @@ En tillfällig NameID stöds också, men är inte tillgänglig i list rutan och 
 
 Välj önskad källa för `NameIdentifier` (eller NameID)-anspråket. Du kan välja bland följande alternativ.
 
-| Name | Beskrivning |
+| Name | Description |
 |------|-------------|
 | E-post | Användarens e-postadress |
 | userprincipalName | Användarens huvud namn (UPN) |

@@ -12,6 +12,12 @@
   items:
     - name: Övervaka Azure-resurs
       href: learn/quick-monitor-azure-resource.md
+    - name: Skicka aktivitetsloggen till en arbetsyta
+      items:
+        - name: Azure Portal
+          href: learn/quick-collect-activity-log-portal.md
+        - name: ARM-mall
+          href: learn/quick-collect-activity-log-arm.md
     - name: Övervakning av virtuella datorer
       items:
         - name: Virtuella Azure-datorer
@@ -455,7 +461,7 @@
             - name: Webhook-åtgärder
               href: platform/alerts-log-webhook.md
             - name: Felsöka loggaviseringar
-              href: platform/alert-log-troubleshoot.md
+              href: platform/alerts-troubleshoot-log.md
         - name: Aviseringsregler för aktivitetsloggar
           items:
             - name: Avisera om en händelse i aktivitetsloggen
@@ -506,6 +512,8 @@
           href: platform/api-alerts.md
         - name: Felsöka aviseringar
           href: platform/alerts-troubleshoot.md
+        - name: Aviseringar och flytt av regioner
+          href: platform/alerts-resource-move.md
         - name: IT Service Management
           items:
             - name: IT Service Management Connector
@@ -555,12 +563,12 @@
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
+            - name: ASP.NET-konsol
+              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
+              href: app/console.md
             - name: Appar som inte är HTTP-appar/Bakgrundsappar
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: .NET-konsol
-              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
-              href: app/console.md
             - name: Java
               items:
                 - name: Webbappar

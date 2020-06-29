@@ -3,16 +3,16 @@ title: Autentisering med slutanvändare – Data Lake Storage Gen1 med Azure AD
 description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5a0c3e1df5cd283ad08f905ed0bd4f329dcfcc7e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688242"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511305"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Den här artikeln handlar om hur du skapar ett **internt Azure AD-program för**
 
     ![Hämta AAD-domän](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Ditt Azure-klient-ID. Instruktioner för hur du hämtar klient-ID finns i [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Ditt Azure-klient-ID. Instruktioner för hur du hämtar klient-ID finns i [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 Den här autentiseringsmetoden är den rekommenderade metoden om du vill att en användare ska logga in på ditt program via Azure AD. Ditt program kan sedan komma åt Azure-resurser med samma åtkomst nivå som slutanvändaren som loggade in. Slutanvändaren måste ange sina autentiseringsuppgifter regelbundet för att ditt program ska ha åtkomst.
@@ -57,7 +57,7 @@ Ditt program kan utlösa ett popup-fönster för OAuth 2,0-auktorisering där sl
 >
 
 ### <a name="directly-passing-in-user-credentials"></a>Skicka autentiseringsuppgifter direkt i användare
-Ditt program kan ange användarautentiseringsuppgifter direkt för Azure AD. Den här metoden fungerar bara med organisations-ID-användarkonton. den är inte kompatibel med användar kontona personliga/"Live ID", inklusive de konton som @outlook.com slutar @live.comi eller. Den här metoden är dessutom inte kompatibel med användar konton som kräver Azure AD tvåfaktorautentisering (2FA).
+Ditt program kan ange användarautentiseringsuppgifter direkt för Azure AD. Den här metoden fungerar bara med organisations-ID-användarkonton. den är inte kompatibel med användar kontona personliga/"Live ID", inklusive de konton som slutar i @outlook.com eller @live.com . Den här metoden är dessutom inte kompatibel med användar konton som kräver Azure AD tvåfaktorautentisering (2FA).
 
 ### <a name="what-do-i-need-for-this-approach"></a>Vad behöver jag för den här metoden?
 * Namn på Azure AD-domän. Det här kravet är redan listat i förutsättningen för den här artikeln.
@@ -78,7 +78,7 @@ När du följer anvisningarna i länken, se till att du väljer **inbyggd** för
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Steg 2: Hämta program-ID och omdirigerings-URI
 
-Läs [Hämta program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) : t för att hämta program-ID: t.
+Läs [Hämta program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) : t för att hämta program-ID: t.
 
 Utför följande steg för att hämta omdirigerings-URI: n.
 

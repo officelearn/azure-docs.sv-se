@@ -3,15 +3,15 @@ title: Flytta data till en Azure HPC cache-molnbaserad behållare
 description: Så här fyller du i Azure Blob Storage för användning med Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fd21a78d0271f91d334bba5aba748f3770ad38cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac963fd01016506193aae0fab5582224b3957de8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537941"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508970"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Flytta data till Azure Blob Storage
 
@@ -62,7 +62,7 @@ De ``cp`` eller ``copy`` -kommandon som du vanligt vis använder för att överf
 
 I det här avsnittet beskrivs strategier för att skapa en fil kopierings system med flera klienter och flera trådar för att flytta data till blob-lagring med Azure HPC-cache. Den förklarar fil överförings koncept och besluts punkter som kan användas för effektiv data kopiering med hjälp av flera klienter och kommandon för enkel kopiering.
 
-Det beskriver också vissa verktyg som kan hjälpa dig. ``msrsync`` Verktyget kan användas för att delvis automatisera processen med att dela upp en data uppsättning i buckets och använda rsync-kommandon. ``parallelcp`` Skriptet är ett annat verktyg som läser käll katalogen och utfärdar kopierings kommandon automatiskt.
+Det beskriver också vissa verktyg som kan hjälpa dig. ``msrsync``Verktyget kan användas för att delvis automatisera processen med att dela upp en data uppsättning i buckets och använda rsync-kommandon. ``parallelcp``Skriptet är ett annat verktyg som läser käll katalogen och utfärdar kopierings kommandon automatiskt.
 
 ### <a name="strategic-planning"></a>Strategisk planering
 
@@ -77,9 +77,9 @@ Strategier för parallell data inmatning med Azure HPC-cache inkluderar:
 
 * Manuell kopiering – du kan manuellt skapa en flertrådad kopia på en klient genom att köra fler än ett kopierings kommando på en gång i bakgrunden mot fördefinierade uppsättningar av filer eller sökvägar. Läs mer i [Azure HPC cache-data inmatning – manuell kopierings metod](hpc-cache-ingest-manual.md) .
 
-* Delvis automatiserad kopiering ``msrsync``  -  ``msrsync`` med är ett wrapper-verktyg som ``rsync`` kör flera parallella processer. Mer information finns i [Azure HPC-data intag – msrsync-metoden](hpc-cache-ingest-msrsync.md).
+* Delvis automatiserad kopiering med ``msrsync``  -  ``msrsync`` är ett wrapper-verktyg som kör flera parallella ``rsync`` processer. Mer information finns i [Azure HPC-data intag – msrsync-metoden](hpc-cache-ingest-msrsync.md).
 
-* Skriptad kopiering med ``parallelcp`` – lär dig hur du skapar och kör ett parallellt kopierings skript i [Azure HPC-data inmatning – parallell kopiering skript metod](hpc-cache-ingest-parallelcp.md).
+* Skriptad kopiering med ``parallelcp`` – Lär dig hur du skapar och kör ett parallellt kopierings skript i [Azure HPC-data inmatning – parallell kopiering skript metod](hpc-cache-ingest-parallelcp.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,15 +4,15 @@ description: Konfigurera MPIO på StorSimple som är anslutet till en Linux-vär
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9978be9182bbb2923fa5db0b4e5ada422ef0da9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76278366"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511600"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 I den här artikeln beskrivs de steg som krävs för att konfigurera multipath i/o (MPIO) på din CentOS 6,6-värd Server. Värd servern är ansluten till din Microsoft Azure StorSimple enhet för hög tillgänglighet via iSCSI-initierare. Den beskriver i detalj den automatiska identifieringen av flera Sök vägs enheter och den speciella installationen enbart för StorSimple volymer.
@@ -45,7 +45,7 @@ Flera sökvägar i Linux består av kernel-komponenter och komponenter för anv�
    * **Multisökväg. conf**: konfigurations fil för daemon för flera sökvägar som används för att skriva över den inbyggda konfigurations tabellen.
 
 ### <a name="about-the-multipathconf-configuration-file"></a>Om konfigurations filen multipath. conf
-Konfigurations filen `/etc/multipath.conf` innehåller många av funktionerna för flera sökvägar som kan konfigureras av användaren. `multipath` Kommandot och kernel daemon `multipathd` använder information som finns i den här filen. Filen visas endast under konfigurationen av flera Sök vägs enheter. Se till att alla ändringar görs innan du kör `multipath` kommandot. Om du ändrar filen efteråt måste du stoppa och starta flera Sök vägar igen för att ändringarna ska börja gälla.
+Konfigurations filen `/etc/multipath.conf` innehåller många av funktionerna för flera sökvägar som kan konfigureras av användaren. `multipath`Kommandot och kernel daemon `multipathd` använder information som finns i den här filen. Filen visas endast under konfigurationen av flera Sök vägs enheter. Se till att alla ändringar görs innan du kör `multipath` kommandot. Om du ändrar filen efteråt måste du stoppa och starta flera Sök vägar igen för att ändringarna ska börja gälla.
 
 Multisökväg. conf har fem avsnitt:
 
@@ -68,7 +68,7 @@ I det här avsnittet beskrivs konfigurations kraven för CentOS-servern och din 
    
     `ifconfig`
    
-    I följande exempel visas utdata när två nätverks gränssnitt (`eth0` och `eth1`) finns på värden.
+    I följande exempel visas utdata när två nätverks gränssnitt ( `eth0` och `eth1` ) finns på värden.
    
         [root@centosSS ~]# ifconfig
         eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
@@ -109,8 +109,8 @@ I det här avsnittet beskrivs konfigurations kraven för CentOS-servern och din 
       
        `service iscsid start`
       
-       `iscsid` Ibland kan det hända att det `--force` inte går att starta och att alternativet kan krävas
-   1. För att säkerställa att iSCSI-initieraren är aktive rad under Start `chkconfig` tiden använder du kommandot för att aktivera tjänsten.
+       `iscsid`Ibland kan det hända att det inte går att starta och att `--force` alternativet kan krävas
+   1. För att säkerställa att iSCSI-initieraren är aktive rad under start tiden använder du `chkconfig` kommandot för att aktivera tjänsten.
       
        `chkconfig iscsi on`
    1. Verifiera att installationen har slutförts korrekt genom att köra kommandot:
@@ -228,7 +228,7 @@ Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera s
 1. Redigera `/etc/multipath.conf` filen. Ange:
    
     `vi /etc/multipath.conf`
-1. Under `defaults` avsnittet ställer du in `path_grouping_policy` på. `multibus` `path_grouping_policy` Anger den standard Sök vägs princip som ska användas för ospecificerade flera sökvägar. Standard avsnittet ser ut som visas nedan.
+1. Under `defaults` avsnittet ställer du in på `path_grouping_policy` `multibus` . `path_grouping_policy`Anger den standard Sök vägs princip som ska användas för ospecificerade flera sökvägar. Standard avsnittet ser ut som visas nedan.
    
         defaults {
                 user_friendly_names yes
@@ -268,7 +268,7 @@ Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera s
     10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
     ```
 
-    Kopiera IQN för din StorSimple-enhet, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`från föregående utdata.
+    Kopiera IQN för din StorSimple-enhet, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target` från föregående utdata.
 
    b. Anslut till enheten med mål-IQN. StorSimple-enheten är iSCSI-målet här. Ange:
 
@@ -276,7 +276,7 @@ Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera s
     iscsiadm -m node --login -T <IQN of iSCSI target>
     ```
 
-    I följande exempel visas utdata med ett mål-IQN `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`för. Utdata indikerar att du har anslutit till de två iSCSI-aktiverade nätverks gränssnitten på enheten.
+    I följande exempel visas utdata med ett mål-IQN för `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target` . Utdata indikerar att du har anslutit till de två iSCSI-aktiverade nätverks gränssnitten på enheten.
 
     ```
     Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
@@ -338,7 +338,7 @@ A. Kontrol lera att de två Sök vägarna finns i samma undernät och dirigeras.
 
 F. När jag visar en lista över tillgängliga sökvägar visas inga utdata.
 
-A. Om du inte ser några sökvägar till flera sökvägar föreslår vi vanligt vis ett problem med daemonen för flera sökvägar, och det är troligt vis att `multipath.conf` det finns problem här i filen.
+A. Om du inte ser några sökvägar till flera sökvägar föreslår vi vanligt vis ett problem med daemonen för flera sökvägar, och det är troligt vis att det finns problem här i `multipath.conf` filen.
 
 Det kan också vara värt att kontrol lera att du faktiskt kan se vissa diskar efter att ha anslutit till målet, eftersom inget svar från flera Sök vägs listor kan innebära att du inte har några diskar.
 
@@ -413,7 +413,7 @@ A. För att kontrol lera om enheten är vit listas, Använd följande interaktiv
 Mer information finns i [fel sökning för flera sökvägar](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista över användbara kommandon
-| Typ | Kommando | Beskrivning |
+| Typ | Kommando | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Starta iSCSI-tjänsten |
 | &nbsp; |`service iscsid stop` |Stoppa iSCSI-tjänsten |

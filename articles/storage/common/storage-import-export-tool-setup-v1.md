@@ -4,16 +4,16 @@ description: Lär dig hur du konfigurerar enhets förberedelse-och reparations v
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: f65220a04a709bae5a6892bfd4105195cee35741
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd74caf391fcf1538bf920f41638b23672b47015
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978423"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512223"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera verktyget Azure import/export
 Verktyget Microsoft Azure Import/Export är verktyget för förberedelse och reparation av enheter som du kan använda med tjänsten Microsoft Azure Import/Export. Du kan använda verktyget för följande funktioner:  
@@ -60,19 +60,19 @@ Om du försöker reparera en import som delvis har misslyckats behöver du:
 ## <a name="installing-the-azure-importexport-tool"></a>Installera Azure import/export-verktyget  
  Verktyget Azure import/export består av följande filer:  
 
-- WAImportExport. exe  
+- WAImportExport.exe  
 
-- WAImportExport. exe. config  
+- WAImportExport.exe.config  
 
-- WAImportExportCore. dll  
+- WAImportExportCore.dll  
 
-- WAImportExportRepair. dll  
+- WAImportExportRepair.dll  
 
-- Microsoft. WindowsAzure. Storage. dll  
+- Microsoft.WindowsAzure.Storage.dll  
 
-- Hddid. dll  
+- Hddid.dll  
 
-  Kopiera filerna till en arbets katalog, till exempel `c:\WAImportExport`. Öppna sedan ett kommando rads fönster i administratörs läge och ange katalogen ovan som aktuell katalog.  
+  Kopiera filerna till en arbets katalog, till exempel `c:\WAImportExport` . Öppna sedan ett kommando rads fönster i administratörs läge och ange katalogen ovan som aktuell katalog.  
 
   Om du vill skriva ut hjälp för kommandot kör du verktyget utan parametrar:  
 

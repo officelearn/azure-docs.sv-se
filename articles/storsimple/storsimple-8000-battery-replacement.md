@@ -3,15 +3,15 @@ title: Byt ut batteri på Microsoft Azure StorSimple 8000-serien het
 description: Beskriver hur du tar bort, ersätter och underhåller modulen för säkerhets kopierings batteri på din StorSimple-enhet.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17a6a07d117557cdee23634bd211a14cf90d49e3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255020"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508987"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Ersätta modulen för extrabatteriet på StorSimple-enheten
 
@@ -32,14 +32,14 @@ I den här självstudien beskrivs hur du:
 Modulen backup Battery för StorSimple-enheten är en enhet som kan bytas ut på ett fält. Innan den installeras i PCM bör modulen batteri lagras i sin ursprungliga förpackning. Utför följande steg för att ta bort säkerhets kopierings batteriet.
 
 #### <a name="to-remove-the-backup-battery-module"></a>Ta bort modulen för säkerhets kopierings batteri
-1. Gå till bladet StorSimple Enhetshanteraren service i Azure Portal. Gå till **enheter** och välj sedan enheten i listan med enheter. Gå till **övervaka** > **maskin varu hälsa**. Under **delade komponenter**tittar du på batteriets status.
+1. Gå till bladet StorSimple Enhetshanteraren service i Azure Portal. Gå till **enheter** och välj sedan enheten i listan med enheter. Gå till **övervaka**  >  **maskin varu hälsa**. Under **delade komponenter**tittar du på batteriets status.
 2. Identifiera den PCM i vilken batteriet har misslyckats. Bild 1 visar bak sidan av StorSimple-enheten.
    
     ![Bakplanering av enhetens primära inne slutnings moduler](./media/storsimple-battery-replacement/IC740994.png)
    
     **Bild 1** Tillbaka till primär enhet som visar PCM-och Controller-moduler
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -52,7 +52,7 @@ Modulen backup Battery för StorSimple-enheten är en enhet som kan bytas ut på
    
     **Bild 2** Bak sidan av PCM som visar övervaknings indikator lamporna
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |AC-strömavbrott |
    | 2 |Fläkt haveri |
@@ -76,7 +76,7 @@ Utför följande steg för att installera modulen för ersättnings batteri i PC
 1. Placera modulen backup Battery i rätt orientering i PCM.
 2. Tryck på batteri-modulen för att hantera anslutningen.
 3. Ersätt PCM i den primära inne slutningen genom att följa rikt linjerna i [Ersätt en Power-och kylning-modul på din StorSimple-enhet](storsimple-8000-power-cooling-module-replacement.md).
-4. När ersättningen är klar går du till enheten och går sedan till **övervaka** > **maskin varu hälsa** i Azure Portal. Kontrol lera batteriets status för att se till att installationen lyckades. En grön status indikerar att batteriet är felfritt.
+4. När ersättningen är klar går du till enheten och går sedan till **övervaka**  >  **maskin varu hälsa** i Azure Portal. Kontrol lera batteriets status för att se till att installationen lyckades. En grön status indikerar att batteriet är felfritt.
 
 ## <a name="maintain-the-backup-battery-module"></a>Underhålla modulen för säkerhets kopierings batteri
 I din StorSimple-enhet ger modulen säkerhets kopierings batteri kraft till kontrollanten under en strömavbrott händelse. Det gör att StorSimple-enheten kan spara viktiga data innan de stängs av på ett kontrollerat sätt. Med två helt fulladdade batterier i PCMs kan systemet hantera två löpande förlust händelser.

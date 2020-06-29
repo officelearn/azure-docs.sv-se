@@ -3,16 +3,16 @@ title: StorSimple 1200-migrering till Azure File Sync
 description: Lär dig hur du migrerar en virtuell StorSimple 1200-serie till Azure File Sync.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 69225da1506ced879363b10b098d939df93cbfba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502361"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510342"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200-migrering till Azure File Sync
 
@@ -23,7 +23,7 @@ StorSimple 1200-serien kommer att uppnå [livs längd](https://support.microsoft
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
-> Microsoft strävar efter att hjälpa kunder i sin migrering. E AzureFilesMigration@microsoft -post. com för en anpassad migrations plan samt hjälp vid migreringen.
+> Microsoft strävar efter att hjälpa kunder i sin migrering. E-post AzureFilesMigration@microsoft . com för en anpassad migrations plan samt hjälp vid migreringen.
 
 Azure File Sync är en moln tjänst från Microsoft, baserat på två huvud komponenter:
 

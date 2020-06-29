@@ -3,16 +3,16 @@ title: Lägg till/ta bort en Azure File Sync Server slut punkt | Microsoft Docs
 description: Lär dig vad du ska tänka på när du planerar för en Azure Files distribution.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70cdf01cb327d1be6b2ac4b9cae414f87e27964f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255111"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509480"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Lägga till/ta bort en Azure File Sync Server slut punkt
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -54,14 +54,14 @@ För att säkerställa att alla nivåbaserade filer återkallas innan du tar bor
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
-Om `-Order CloudTieringPolicy` du anger så kommer de senast ändrade filerna att återställas först.
+`-Order CloudTieringPolicy`Om du anger så kommer de senast ändrade filerna att återställas först.
 Andra valfria men användbara parametrar att överväga är:
 * `-ThreadCount`anger hur många filer som kan återkallas parallellt.
 * `-PerFileRetryCount`anger hur ofta ett återställnings försök ska göras för en fil som för närvarande är blockerad.
 * `-PerFileRetryDelaySeconds`fastställer tiden i sekunder mellan försök att återkalla försök och bör alltid användas i kombination med föregående parameter.
 
 > [!Note]  
-> Om den lokala volym som är värd för servern inte har tillräckligt med ledigt utrymme för att återkalla alla data på `Invoke-StorageSyncFileRecall` nivån, Miss lyckas cmdleten.  
+> Om den lokala volym som är värd för servern inte har tillräckligt med ledigt utrymme för att återkalla alla data på nivån, `Invoke-StorageSyncFileRecall` Miss lyckas cmdleten.  
 
 Så här tar du bort Server slut punkten:
 

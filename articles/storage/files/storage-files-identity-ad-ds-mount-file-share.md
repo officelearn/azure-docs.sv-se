@@ -4,15 +4,15 @@ description: Lär dig hur du monterar en fil resurs på dina lokala Active Direc
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: b061b86226df38c402de3d3d65385ebf583f024b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 9a8805666e1e162f76cf5fa6f7d828833c573bed
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214425"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510441"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Del fyra: montera en fil resurs från en domänansluten virtuell dator
 

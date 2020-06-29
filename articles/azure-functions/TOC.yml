@@ -65,7 +65,7 @@
       href: 'https://www.serverlesslibrary.net/'
     - name: Azure-exempel
       items:
-        - name: 'C#'
+        - name: C#
           href: /samples/browse/?products=azure-functions&languages=csharp
         - name: Java
           href: /samples/browse/?products=azure-functions&languages=java
@@ -112,11 +112,11 @@
       items:
         - name: Språk som stöds
           href: supported-languages.md
-        - name: 'C# (klassbibliotek)'
+        - name: C# (klassbibliotek)
           href: functions-dotnet-class-library.md
-        - name: 'C#-skript (.csx)'
+        - name: C#-skript (.csx)
           href: functions-reference-csharp.md
-        - name: 'F#'
+        - name: F#
           href: functions-reference-fsharp.md
         - name: JavaScript
           href: functions-reference-node.md
@@ -127,7 +127,7 @@
         - name: Python
           href: functions-reference-python.md
         - name: TypeScript
-          href: 'functions-reference-node.md#typescript'
+          href: functions-reference-node.md#typescript
     - name: Säkerhet
       items:
         - name: Säkerhetsöversikt
@@ -377,7 +377,7 @@
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
               displayName: Azure Cosmos DB
-            - name: Functions 2.x
+            - name: Functions 2.x och senare
               displayName: Azure Cosmos DB
               items:
                 - name: Översikt
@@ -507,7 +507,7 @@
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Kvotinformation
-      href: 'functions-scale.md#service-limits'
+      href: functions-scale.md#service-limits
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Videoklipp

@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: victorh
-ms.openlocfilehash: e06f8e3adaedbc8847aacba0ca4ad9c6a172c9b7
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 91cf453247bfe4fa689df34bdf6b585ac72686aa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791698"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509067"
 ---
 # <a name="deploy-a-security-partner-provider-preview"></a>Distribuera en provider för säkerhets partner (för hands version)
 
@@ -81,9 +81,9 @@ Om du vill konfigurera tunnlar till den virtuella hubbens VPN Gateway behöver t
 
 1. Skapa Azure Active Directory (AD) tjänstens huvud namn: du kan hoppa över omdirigerings-URL: en. 
 
-   [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. Lägg till behörigheter och omfattning för tjänstens huvud namn.
-   [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 
    > [!NOTE]
    > Du kan begränsa åtkomsten till endast din resurs grupp för mer detaljerad kontroll.

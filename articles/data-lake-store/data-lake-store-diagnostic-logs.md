@@ -9,15 +9,15 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 479b227a9144604d3bd0116a60de751189376b5f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60878753"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511469"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Åtkomst till diagnostikloggar för Azure Data Lake Storage Gen1
 Lär dig att aktivera diagnostikloggning för ditt Azure Data Lake Storage Gen1-konto och hur du visar de loggar som samlats in för ditt konto.
@@ -113,7 +113,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
     }
 
 #### <a name="request-log-schema"></a>Begär logg schema
-| Name | Typ | Beskrivning |
+| Name | Typ | Description |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |ID för den resurs som åtgärden ägde rum på |
@@ -126,7 +126,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 | properties |JSON |Se nedan för information |
 
 #### <a name="request-log-properties-schema"></a>Schema för begär ande logg egenskaper
-| Name | Typ | Beskrivning |
+| Name | Typ | Description |
 | --- | --- | --- |
 | HttpMethod |Sträng |HTTP-metoden som används för åtgärden. Till exempel GET. |
 | Sökväg |Sträng |Den sökväg som åtgärden utfördes på |
@@ -160,7 +160,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
     }
 
 #### <a name="audit-log-schema"></a>Schema för spårningslogg
-| Name | Typ | Beskrivning |
+| Name | Typ | Description |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |ID för den resurs som åtgärden ägde rum på |
@@ -173,7 +173,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 | properties |JSON |Se nedan för information |
 
 #### <a name="audit-log-properties-schema"></a>Schema för gransknings logg egenskaper
-| Name | Typ | Beskrivning |
+| Name | Typ | Description |
 | --- | --- | --- |
 | StreamName |Sträng |Den sökväg som åtgärden utfördes på |
 
@@ -187,7 +187,7 @@ search *
 ```
 
 
-Azure Data Lake Storage Gen1 innehåller ett exempel på hur du bearbetar och analyserar loggdata. Du kan hitta exemplet på [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Azure Data Lake Storage Gen1 innehåller ett exempel på hur du bearbetar och analyserar loggdata. Du kan hitta exemplet på [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
 ## <a name="see-also"></a>Se även
 * [Översikt över Azure Data Lake Storage Gen1](data-lake-store-overview.md)

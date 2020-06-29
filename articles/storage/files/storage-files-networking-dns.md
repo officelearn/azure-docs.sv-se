@@ -3,21 +3,21 @@ title: Konfigurera DNS-vidarebefordran för Azure Files | Microsoft Docs
 description: En översikt över nätverks alternativ för Azure Files.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35dfbcb274721049f2160719222ca89038c93356
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80082502"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509973"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurera DNS-vidarebefordring för Azure Files
 Med Azure Files kan du skapa privata slut punkter för lagrings kontona som innehåller dina fil resurser. Även om det är användbart för många olika program är privata slut punkter särskilt användbara för att ansluta till dina Azure-filresurser från ditt lokala nätverk med hjälp av en VPN-eller ExpressRoute-anslutning med privat peering. 
 
-För att anslutningar till ditt lagrings konto ska gå över nätverks tunneln måste det fullständigt kvalificerade domän namnet (FQDN) för ditt lagrings konto matcha den privata IP-adressen för den privata slut punkten. För att uppnå detta måste du vidarebefordra Storage Endpoint-suffixet`core.windows.net` (för offentliga moln regioner) till den Azure privata DNS-tjänst som är tillgänglig från det virtuella nätverket. Den här guiden visar hur du konfigurerar och konfigurerar DNS-vidarebefordran så att de matchar lagrings kontots privata slut punkts-IP-adress.
+För att anslutningar till ditt lagrings konto ska gå över nätverks tunneln måste det fullständigt kvalificerade domän namnet (FQDN) för ditt lagrings konto matcha den privata IP-adressen för den privata slut punkten. För att uppnå detta måste du vidarebefordra Storage Endpoint-suffixet ( `core.windows.net` för offentliga moln regioner) till den Azure privata DNS-tjänst som är tillgänglig från det virtuella nätverket. Den här guiden visar hur du konfigurerar och konfigurerar DNS-vidarebefordran så att de matchar lagrings kontots privata slut punkts-IP-adress.
 
 Vi rekommenderar starkt att du läser [planering för en Azure Files distribution](storage-files-planning.md) och [Azure Files nätverks överväganden](storage-files-networking-overview.md) innan du slutför stegen som beskrivs i den här artikeln.
 
@@ -30,7 +30,7 @@ Offentliga och privata slut punkter finns på Azure Storage-kontot. Ett lagrings
 
 Varje lagrings konto har ett fullständigt kvalificerat domän namn (FQDN). I de offentliga moln regionerna följer detta FQDN mönstret `storageaccount.file.core.windows.net` där `storageaccount` är namnet på lagrings kontot. När du gör förfrågningar med det här namnet, t. ex. genom att montera resursen på din arbets station med hjälp av SMB, utför operativ systemet en DNS-sökning för att matcha det fullständigt kvalificerade domän namnet till en IP-adress som den kan använda för att skicka SMB-begäranden till.
 
-Som standard `storageaccount.file.core.windows.net` matchas den offentliga slut PUNKTens IP-adress. Den offentliga slut punkten för ett lagrings konto finns på ett Azure Storage-kluster som är värd för många andra lagrings kontots offentliga slut punkter. När du skapar en privat slut punkt länkas en privat DNS-zon till det virtuella nätverk som den lades till i, med en `storageaccount.file.core.windows.net` CNAME-Postmappning till en post post för den privata IP-adressen för lagrings kontots privata slut punkt. På så sätt kan du `storageaccount.file.core.windows.net` använda FQDN i det virtuella nätverket och matcha den privata slut PUNKTens IP-adress.
+Som standard `storageaccount.file.core.windows.net` matchas den offentliga slut punktens IP-adress. Den offentliga slut punkten för ett lagrings konto finns på ett Azure Storage-kluster som är värd för många andra lagrings kontots offentliga slut punkter. När du skapar en privat slut punkt länkas en privat DNS-zon till det virtuella nätverk som den lades till i, med en CNAME-Postmappning `storageaccount.file.core.windows.net` till en post post för den privata IP-adressen för lagrings kontots privata slut punkt. På så sätt kan du använda `storageaccount.file.core.windows.net` FQDN i det virtuella nätverket och matcha den privata slut punktens IP-adress.
 
 Eftersom vårt slutgiltiga mål är att komma åt Azure-filresurser som finns i lagrings kontot från lokalt med hjälp av en nätverks tunnel, till exempel en VPN-eller ExpressRoute-anslutning, måste du konfigurera dina lokala DNS-servrar så att de vidarebefordrar begär Anden som görs till tjänsten Azure Files till Azures privata DNS-tjänst. För att åstadkomma detta måste du konfigurera *villkorlig vidarebefordran* av `*.core.windows.net` (eller lämpligt suffix för lagrings slut punkt för amerikanska myndigheter, Tyskland, eller Kinas nationella moln) till en DNS-server som finns i ditt virtuella Azure-nätverk. DNS-servern vidarebefordrar sedan begäran vidare till Azures privata DNS-tjänst som kommer att matcha det fullständigt kvalificerade domän namnet för lagrings kontot med en lämplig privat IP-adress.
 
@@ -51,7 +51,7 @@ Innan du kan konfigurera DNS-vidarebefordran till Azure Files måste du utföra 
 ## <a name="manually-configuring-dns-forwarding"></a>Konfigurera DNS-vidarebefordran manuellt
 Om du redan har DNS-servrar på plats i ditt virtuella Azure-nätverk, eller om du bara föredrar att distribuera dina egna virtuella datorer som DNS-servrar av vilken metod organisationen använder, kan du konfigurera DNS manuellt med de inbyggda PowerShell-cmdletarna för DNS-servern.
 
-På dina lokala DNS-servrar skapar du en villkorlig vidarebefordrare med hjälp `Add-DnsServerConditionalForwarderZone`av. Den här villkorliga vidarebefordraren måste distribueras på alla lokala DNS-servrar för att effektivt vidarebefordra trafik till Azure. Kom ihåg att `<azure-dns-server-ip>` ersätta med rätt IP-adresser för din miljö.
+På dina lokala DNS-servrar skapar du en villkorlig vidarebefordrare med hjälp av `Add-DnsServerConditionalForwarderZone` . Den här villkorliga vidarebefordraren måste distribueras på alla lokala DNS-servrar för att effektivt vidarebefordra trafik till Azure. Kom ihåg att ersätta `<azure-dns-server-ip>` med rätt IP-adresser för din miljö.
 
 ```powershell
 $vnetDnsServers = "<azure-dns-server-ip>", "<azure-dns-server-ip>"
@@ -65,7 +65,7 @@ Add-DnsServerConditionalForwarderZone `
         -MasterServers $vnetDnsServers
 ```
 
-På DNS-servrarna i ditt virtuella Azure-nätverk måste du också placera en vidarebefordrare på plats, så att begär Anden för lagrings kontots DNS-zon dirigeras till den privata Azure-DNS-tjänsten, som är övervakad av `168.63.129.16`den reserverade IP-adressen. (Kom ihåg att `$storageAccountEndpoint` fylla i om du kör kommandona i en annan PowerShell-session.)
+På DNS-servrarna i ditt virtuella Azure-nätverk måste du också placera en vidarebefordrare på plats, så att begär Anden för lagrings kontots DNS-zon dirigeras till den privata Azure-DNS-tjänsten, som är övervakad av den reserverade IP-adressen `168.63.129.16` . (Kom ihåg att fylla i `$storageAccountEndpoint` om du kör kommandona i en annan PowerShell-session.)
 
 ```powershell
 Add-DnsServerConditionalForwarderZone `
@@ -94,7 +94,7 @@ Import-Module -Name AzFilesHybrid
 
 Att distribuera lösningen för DNS-vidarebefordran har två steg, som skapar en regel uppsättning för DNS-vidarebefordran, som definierar vilka Azure-tjänster som du vill vidarebefordra begär anden till och den faktiska distributionen av DNS-vidarebefordrarna. 
 
-I följande exempel vidarebefordras begär anden till lagrings kontot, inklusive begär anden till Azure Files, Azure Blob Storage, Azure Table Storage och Azure Queue Storage. Om du vill kan du lägga till vidarebefordran för ytterligare Azure-tjänster till regeln `-AzureEndpoints` via parametern för `New-AzDnsForwardingRuleSet` cmdleten. Kom ihåg att `<virtual-network-resource-group>`ersätta `<virtual-network-name>`, och `<subnet-name>` med lämpliga värden för din miljö.
+I följande exempel vidarebefordras begär anden till lagrings kontot, inklusive begär anden till Azure Files, Azure Blob Storage, Azure Table Storage och Azure Queue Storage. Om du vill kan du lägga till vidarebefordran för ytterligare Azure-tjänster till regeln via `-AzureEndpoints` parametern för `New-AzDnsForwardingRuleSet` cmdleten. Kom ihåg att ersätta `<virtual-network-resource-group>` , `<virtual-network-name>` och `<subnet-name>` med lämpliga värden för din miljö.
 
 ```PowerShell
 # Create a rule set, which defines the forwarding rules
@@ -110,19 +110,19 @@ New-AzDnsForwarder `
 
 Du kanske också tycker att det är användbart/nödvändigt att tillhandahålla flera ytterligare parametrar:
 
-| Parameternamn | Typ | Beskrivning |
+| Parameternamn | Typ | Description |
 |----------------|------|-------------|
 | `DnsServerResourceGroupName` | `string` | Som standard kommer DNS-servrarna att distribueras till samma resurs grupp som det virtuella nätverket. Om du inte vill använda den här parametern kan du välja en alternativ resurs grupp som du vill distribuera till. |
-| `DnsForwarderRootName` | `string` | Som standard har DNS-servrarna som distribueras i Azure namn `DnsFwder-*`, där asterisken fylls med en iterator. Den här parametern ändrar roten för det namnet (t. `DnsFwder`ex.). |
+| `DnsForwarderRootName` | `string` | Som standard har DNS-servrarna som distribueras i Azure namn `DnsFwder-*` , där asterisken fylls med en iterator. Den här parametern ändrar roten för det namnet (t. ex. `DnsFwder` ). |
 | `VmTemporaryPassword` | `SecureString` | Som standard väljs ett slumpmässigt lösen ord för det tillfälliga standard kontot som en virtuell dator har innan det är domänanslutna. När den är domänansluten är standard kontot inaktiverat. |
 | `DomainToJoin` | `string` | Domänen som ska ansluta till de virtuella DNS-datorerna för anslutning. Som standard väljs den här domänen utifrån domänen på den dator där du kör cmdletarna. |
 | `DnsForwarderRedundancyCount` | `int` | Antalet virtuella DNS-datorer som ska distribueras för det virtuella nätverket. Som standard `New-AzDnsForwarder` distribuerar två DNS-servrar i ditt virtuella Azure-nätverk i en tillgänglighets uppsättning för att säkerställa redundans. Det här antalet kan ändras efter behov. |
 | `OnPremDnsHostNames` | `HashSet<string>` | En manuellt angiven lista med lokala DNS-värdnamn för att skapa vidarebefordrare på. Den här parametern är användbar när du inte vill tillämpa vidarebefordrare på alla lokala DNS-servrar, t. ex. När du har ett intervall med klienter med manuellt angivna DNS-namn. |
 | `Credential` | `PSCredential` | En autentiseringsuppgift som ska användas vid uppdatering av DNS-servrarna. Detta är användbart när det användar konto som du har loggat in med inte har behörighet att ändra DNS-inställningar. |
-| `SkipParentDomain` | `SwitchParameter` | Som standard tillämpas DNS-vidarebefordrare på den högsta domän som finns i din miljö. Om `northamerica.corp.contoso.com` till exempel är en underordnad domän `corp.contoso.com`till, kommer vidarebefordraren att skapas för de DNS-servrar som `corp.contoso.com`är kopplade till. Den här parametern gör att vidarebefordrare skapas i `northamerica.corp.contoso.com`. |
+| `SkipParentDomain` | `SwitchParameter` | Som standard tillämpas DNS-vidarebefordrare på den högsta domän som finns i din miljö. Om till exempel `northamerica.corp.contoso.com` är en underordnad domän till `corp.contoso.com` , kommer vidarebefordraren att skapas för de DNS-servrar som är kopplade till `corp.contoso.com` . Den här parametern gör att vidarebefordrare skapas i `northamerica.corp.contoso.com` . |
 
 ## <a name="confirm-dns-forwarders"></a>Bekräfta DNS-vidarebefordrare
-Innan du testar för att se om DNS-vidarebefordrarna har tillämpats, rekommenderar vi att du rensar DNS-cachen `Clear-DnsClientCache`på den lokala arbets stationen med. Om du vill testa för att se om du kan lösa det fullständigt kvalificerade domän namnet för ditt lagrings `Resolve-DnsName` konto `nslookup`använder du eller.
+Innan du testar för att se om DNS-vidarebefordrarna har tillämpats, rekommenderar vi att du rensar DNS-cachen på den lokala arbets stationen med `Clear-DnsClientCache` . Om du vill testa för att se om du kan lösa det fullständigt kvalificerade domän namnet för ditt lagrings konto använder du `Resolve-DnsName` eller `nslookup` .
 
 ```powershell
 # Replace storageaccount.file.core.windows.net with the appropriate FQDN for your storage account.

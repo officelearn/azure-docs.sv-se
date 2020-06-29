@@ -4,6 +4,8 @@
       href: networking-overview.md
     - name: Arkitektur
       items:
+        - name: Azure för nätverkstekniker
+          href: azure-for-network-engineers.md
         - name: Virtuella datacenter
           href: /azure/architecture/vdc/networking-virtual-datacenter
         - name: Asymmetrisk routning med flera nätverksvägar

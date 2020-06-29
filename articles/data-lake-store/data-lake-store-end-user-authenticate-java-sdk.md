@@ -3,15 +3,15 @@ title: Autentisering med slutanvändare – Java med Data Lake Storage Gen1 – 
 description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 att använda Azure Active Directory med Java
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 1e03ad657fd40dce22a17f2fff5b67a65eb3eb52
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9186922803c287f2aa17c151590a0c1b590619d3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691765"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511322"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med Java
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig hur du använder Java SDK för att utföra
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 1. Skapa ett Maven-projekt med [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) från kommandoraden eller med hjälp av en IDE. Anvisningar för hur du skapar ett Java-projekt med IntelliJ finns [här](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Anvisningar för hur du skapar ett Java-projekt med Eclipse finns [här](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
-2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande kodfragment innan taggen ** \</Project>** :
+2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande kodfragment före **\</project>** taggen:
    
         <dependencies>
           <dependency>
@@ -51,7 +51,7 @@ I den här artikeln får du lära dig hur du använder Java SDK för att utföra
           </dependency>
         </dependencies>
    
-    Det första beroendet är att använda Data Lake Storage Gen1 SDK ()`azure-data-lake-store-sdk`från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [SLF4J](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
+    Det första beroendet är att använda Data Lake Storage Gen1 SDK ( `azure-data-lake-store-sdk` ) från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [SLF4J](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
 
 3. Lägg till följande importuttryck i programmet.
 
@@ -62,7 +62,7 @@ I den här artikeln får du lära dig hur du använder Java SDK för att utföra
         import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
         import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
 
-4. Använd följande kodfragment i ditt Java-program för att hämta token för det Active Directory inbyggda programmet som du skapade `DeviceCodeTokenProvider`tidigare med hjälp av. Ersätt **Fill – här** med de faktiska värdena för det Azure Active Directory inbyggda programmet.
+4. Använd följande kodfragment i ditt Java-program för att hämta token för det Active Directory inbyggda programmet som du skapade tidigare med hjälp av `DeviceCodeTokenProvider` . Ersätt **Fill – här** med de faktiska värdena för det Azure Active Directory inbyggda programmet.
 
         private static String nativeAppId = "FILL-IN-HERE";
             

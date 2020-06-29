@@ -3,16 +3,16 @@ title: Utveckla för Azure Files med Java | Microsoft Docs
 description: Lär dig hur du utvecklar Java-program och tjänster som använder Azure Files för att lagra fildata.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54f545c2d4f897f85ab3e5fd10d07666e93e4f41
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73837459"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509684"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Utveckla för Azure Files med Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -186,7 +186,7 @@ Nu när du har en referens till resursens rot Katalog kan du ladda upp en fil ti
 ```
 
 ## <a name="download-a-file"></a>Hämta en fil
-En av de vanligaste åtgärderna som du utför för Azure Files är att ladda ned filer. I följande exempel hämtar koden SampleFile. txt och visar dess innehåll.
+En av de vanligaste åtgärderna som du utför för Azure Files är att ladda ned filer. I följande exempel hämtar koden SampleFile.txt och visar dess innehåll.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -203,7 +203,7 @@ System.out.println(file.downloadText());
 ```
 
 ## <a name="delete-a-file"></a>Ta bort en fil
-En annan vanlig Azure Files åtgärd är fil borttagning. Följande kod tar bort en fil med namnet SampleFile. txt som lagras i en katalog med namnet **sampledir**.
+En annan vanlig Azure Files åtgärd är fil borttagning. Följande kod tar bort en fil med namnet SampleFile.txt som lagras i en katalog med namnet **sampledir**.
 
 ```java
 // Get a reference to the root directory for the share.

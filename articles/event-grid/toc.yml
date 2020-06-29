@@ -242,10 +242,14 @@
           href: enable-diagnostic-logs-topic.md
         - name: Felsöka fel
           href: troubleshoot-errors.md
+        - name: Felsöka problem med nätverksanslutning
+          href: troubleshoot-network-connectivity.md
         - name: Felsöka prenumerationsvalidering
           href: troubleshoot-subscription-validation.md
-        - name: Visa mått och skapa aviseringar
+        - name: Visa mått
           href: monitor-event-delivery.md
+        - name: Skapa aviseringar
+          href: set-alerts.md
 - name: Referens
   items:
     - name: Azure CLI

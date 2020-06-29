@@ -3,15 +3,15 @@ title: PowerShell – HDInsight-kluster med Data Lake Storage Gen1 – Azure
 description: Använd Azure PowerShell för att skapa och använda Azure HDInsight-kluster med Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 2b4e5fad65d2ad358bca6b5a2b87d4aa36b77e73
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: cd4faec2d57b15dd23fe01dfc49063f06d70639e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692059"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510964"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 som standard lagring med hjälp av PowerShell
 
@@ -65,7 +65,7 @@ Om du vill skapa ett Data Lake Storage Gen1 konto gör du följande:
         Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
     > [!NOTE]
-    > Om du registrerar Data Lake Storage Gen1 Resource Provider och får ett fel som `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`liknar, kanske din prenumeration inte är vit listas för data Lake Storage gen1. Om du vill aktivera Azure-prenumerationen för Data Lake Storage Gen1 följer du anvisningarna i [Kom igång med Azure Data Lake Storage gen1 genom att använda Azure Portal](data-lake-store-get-started-portal.md).
+    > Om du registrerar Data Lake Storage Gen1 Resource Provider och får ett fel som liknar `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` , kanske din prenumeration inte är vit listas för data Lake Storage gen1. Om du vill aktivera Azure-prenumerationen för Data Lake Storage Gen1 följer du anvisningarna i [Kom igång med Azure Data Lake Storage gen1 genom att använda Azure Portal](data-lake-store-get-started-portal.md).
     >
 
 2. Ett Data Lake Storage Gen1 konto är associerat med en Azure-resurs grupp. Börja med att skapa en resurs grupp.
@@ -209,7 +209,7 @@ I det här avsnittet skapar du ett HDInsight Hadoop Linux-kluster med Data Lake 
     När cmdleten har slutförts bör du se utdata som visar kluster informationen.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Kör test jobb på HDInsight-klustret om du vill använda Data Lake Storage Gen1
-När du har konfigurerat ett HDInsight-kluster kan du köra test jobb på det för att säkerställa att det kan komma åt Data Lake Storage Gen1. Det gör du genom att köra ett Hive-exempel jobb för att skapa en tabell som använder exempel data som redan finns i data Lake Storage gen1 på * \<kluster roten>/example/data/Sample.log*.
+När du har konfigurerat ett HDInsight-kluster kan du köra test jobb på det för att säkerställa att det kan komma åt Data Lake Storage Gen1. Det gör du genom att köra ett Hive-exempel jobb för att skapa en tabell som använder exempel data som redan finns i Data Lake Storage Gen1 på * \<cluster root> /example/data/Sample.log*.
 
 I det här avsnittet ska du skapa en SSH-anslutning (Secure Shell) till det HDInsight Linux-kluster som du skapade och sedan köra en exempel-Hive-fråga.
 
@@ -230,7 +230,7 @@ I det här avsnittet ska du skapa en SSH-anslutning (Secure Shell) till det HDIn
     Du bör se frågans utdata i SSH-konsolen.
 
     >[!NOTE]
-    >Sökvägen till exempel data i föregående CREATE TABLE-kommando är `adl:///example/data/`, där `adl:///` är kluster roten. Efter exemplet på kluster roten som anges i den här självstudien är `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`kommandot. Du kan antingen använda det kortare alternativet eller ange den fullständiga sökvägen till kluster roten.
+    >Sökvägen till exempel data i föregående CREATE TABLE-kommando är `adl:///example/data/` , där `adl:///` är kluster roten. Efter exemplet på kluster roten som anges i den här självstudien är kommandot `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster` . Du kan antingen använda det kortare alternativet eller ange den fullständiga sökvägen till kluster roten.
     >
 
 ## <a name="access-data-lake-storage-gen1-by-using-hdfs-commands"></a>Åtkomst Data Lake Storage Gen1 med hjälp av HDFS-kommandon

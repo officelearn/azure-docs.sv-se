@@ -3,15 +3,15 @@ title: Övervaka Azure FXT Edge Filer
 description: Övervaka maskin varu status för Azure FXT Edge-filer hybrid Storage cache
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 3f422339af2040ad81c585c0e193e6cb3667b135
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72254882"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509446"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Övervaka maskin varu status för Azure FXT Edge-filer
 
@@ -34,7 +34,7 @@ Varje enhets bärare har två status lampor: en aktivitets indikator (1) och en 
 * Aktivitetens lysdiod (1) tänds när enheten används.  
 * Status LAMPAn (2) anger enhetens villkor genom att använda koderna i tabellen nedan.
 
-| Status för enhets status              | Betydelse  |
+| Status för enhets status              | Innebörd  |
 |-------------------------------------|----------------------------------------------------------|
 | Blinkar grönt två gånger per sekund      | Identifiera enhet *eller* <br> Enheten förbereds för borttagning  |
 | Av (unlit)                         | Systemet har inte slutat att starta *eller* <br>Enheten är redo att tas bort |
@@ -60,7 +60,7 @@ Status indikatorerna till vänster visar en solid gul lampa om det uppstår ett 
 
 Om felet kvarstår när du har försökt med dessa lösningar kan du [kontakta supporten](fxt-support-ticket.md) för hjälp. 
 
-| Ikon | Beskrivning | Feltillstånd | Möjliga lösningar |
+| Ikon | Description | Feltillstånd | Möjliga lösningar |
 |----------------|---------------|--------------------|----------------------|
 | ![enhets ikon](media/fxt-monitor/fxt-hd-icon.jpg) | Enhets status | Enhets fel | Kontrol lera systemets händelse logg för att avgöra om enheten har ett fel eller <br>Kör lämpligt test för online-diagnostik; Starta om systemet och kör Embedded Diagnostics (ePSA) eller <br>Om enheterna har kon figurer ATS i en RAID-matris startar du om systemet och anger verktyget för konfiguration av värd korts program |
 |![temperatur ikon](media/fxt-monitor/fxt-temp-icon.jpg) | Temperatur status | Termiskt fel – en fläkt har fel eller så ligger den omgivande temperaturen utanför intervallet | Sök efter följande adresser bara villkor: <br>En fläkt fläkt saknas eller har misslyckats <br>Systemets Cover, Air-Shroud, minnesmodulen tom eller backa filler-hakparentesen tas bort <br>Omgivnings temperaturen är för hög <br>Externt luft flöde är blockerat |

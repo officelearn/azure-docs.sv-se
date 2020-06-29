@@ -2,28 +2,57 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure Arc för servrar?
+    - name: Om Arc för Kubernetes
+      href: ./kubernetes/overview.md
+    - name: Om Azure Arc för servrar
       href: ./servers/overview.md
-- name: Anvisningar
-  items:
-    - name: Ansluta till Azure Arc
-      items:
-        - name: Översikt över Connected Machine-agent
-          href: ./servers/agent-overview.md
-        - name: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
-          href: ./servers/onboard-portal.md
-        - name: Ansluta datorer i stor skala med ett huvudnamn för tjänsten
-          href: ./servers/onboard-service-principal.md
-        - name: Ansluta datorer till Azure Arc med PowerShell DSC
-          href: ./servers/onboard-dsc.md
-    - name: Hantera
-      items:
-        - name: Hantera och använda tillägg för virtuella Azure-datorer
-          href: ./servers/manage-vm-extensions.md
-        - name: Hantera agent
-          href: ./servers/manage-agent.md
 - name: Exempel
   items:
     - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./servers/policy-samples.md
+      items:
+        - name: Arc för Kubernetes
+          href: ./kubernetes/policy-samples.md
+        - name: Arc för servrar
+          href: ./servers/policy-samples.md
+- name: Anvisningar
+  items:
+    - name: Arc för Kubernetes
+      items:
+        - name: Klusteråtgärder
+          items:
+            - name: Anslut kluster
+              href: ./kubernetes/connect-cluster.md
+            - name: Använd GitOps för anslutna kluster
+              href: ./kubernetes/use-gitops-connected-cluster.md
+            - name: Använd GitOps med Helm
+              href: ./kubernetes/use-gitops-with-helm.md
+            - name: Framtvinga GitOps med hjälp av Azure Policy
+              href: ./kubernetes/use-azure-policy.md
+            - name: Övervaka med Azure Monitor för containrar
+              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+            - name: Principer för åtkomstkontroll med hjälp av Azure Policy
+              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+            - name: Distribuera IoT-arbetsbelastningar
+              href: ./kubernetes/deploy-azure-iot-edge-workloads.md
+            - name: Huvudnamn för registreringstjänst
+              href: ./kubernetes/create-onboarding-service-principal.md
+            - name: Felsökning
+              href: ./kubernetes/Troubleshooting.md
+    - name: Arc för servrar
+      items:
+        - name: Ansluta till Azure Arc
+          items:
+            - name: Översikt över Connected Machine-agent
+              href: ./servers/agent-overview.md
+            - name: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
+              href: ./servers/onboard-portal.md
+            - name: Ansluta datorer i stor skala med ett huvudnamn för tjänsten
+              href: ./servers/onboard-service-principal.md
+            - name: Ansluta datorer till Azure Arc med PowerShell DSC
+              href: ./servers/onboard-dsc.md
+        - name: Hantera
+          items:
+            - name: Hantera och använda tillägg för virtuella Azure-datorer
+              href: ./servers/manage-vm-extensions.md
+            - name: Hantera agent
+              href: ./servers/manage-agent.md

@@ -29,9 +29,15 @@
       href: how-to-customize-launch-button.md
     - name: Cachelagra autentiseringstoken
       href: how-to-cache-token.md
+    - name: Konfigurera Läs upp
+      href: how-to-configure-read-aloud.md
+    - name: Konfigurera översättning
+      href: how-to-configure-translation.md
+    - name: Spara användarinställningar
+      href: how-to-store-user-preferences.md
 - name: Referens
   items:
-    - name: SDK-referens
+    - name: JavaScript SDK
       href: reference.md
 - name: Resurser
   items:

@@ -3,16 +3,16 @@ title: Fel söknings guide för Azure Files prestanda
 description: Kända prestanda problem med Azure-filresurser och tillhör ande lösningar.
 author: gunjanj
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598093"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511953"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
 
@@ -113,7 +113,7 @@ Saknar stöd för katalog lån.
 ### <a name="workaround"></a>Lösning
 
 - Undvik att öppna och stänga av samma katalog inom en kort tids period om det är möjligt.
-- För virtuella Linux-datorer ökar du timeout-värdet för katalog post genom att ange **actimeo =\<SEK>** som monterings alternativ. Som standard är det en sekund, så ett större värde som tre eller fem kan hjälpa dig.
+- För virtuella Linux-datorer ökar du timeout-värdet för katalog post genom att ange **actimeo = \<sec> ** som ett monterings alternativ. Som standard är det en sekund, så ett större värde som tre eller fem kan hjälpa dig.
 - För virtuella Linux-datorer uppgraderar du kernel till 4,20 eller högre.
 
 ## <a name="low-iops-on-centosrhel"></a>Låga IOPS på CentOS/RHEL
@@ -187,7 +187,7 @@ Högre än förväntad fördröjning vid åtkomst till Azure Files för i/o-inte
 6. På bladet **Konfigurera signal logik** går du till dimensionen **svars typ** , klickar på list rutan **Dimensions värden** och väljer **SuccessWithThrottling** (för SMB) eller **ClientThrottlingError** (för rest). 
 
   > [!NOTE]
-  > Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats.  Lägg till dimension svärdet genom att klicka på **+** List rutan bredvid **dimensionsvärdena** , skriva **SuccessWithThrottling** eller **ClientThrottlingError**, klicka på **OK** och upprepa steg #6.
+  > Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats.  Lägg till dimension svärdet genom att klicka på **+** list rutan bredvid **dimensionsvärdena** , skriva **SuccessWithThrottling** eller **ClientThrottlingError**, klicka på **OK** och upprepa steg #6.
 
 7. Gå till **fil resurs** dimensionen, klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om. 
 

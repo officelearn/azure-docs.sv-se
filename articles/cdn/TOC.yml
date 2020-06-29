@@ -12,8 +12,8 @@
       href: cdn-create-a-storage-account-with-cdn.md
     - name: Skapa en profil och en slutpunkt
       href: cdn-create-new-endpoint.md
-    - name: Skapa en profil med hjälp av en Azure Resource Manager-mall
-      href: create-profile-resource-manager-template.md
+    - name: Skapa en profil och slutpunkt – ARM-mall
+      href: create-profile-endpoint-template.md
 - name: Självstudier
   items:
     - name: Lägga till Azure CDN till en webbapp

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: ca5ba8d7b2d78440401e29344361538c3650ba48
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: d3bfb589ec4c152b136e8e1f432864b719c97d58
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779165"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509327"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Data lagring och Inträng i Azure Time Series Insights för hands version
 
@@ -56,12 +56,17 @@ Azure Time Series Insights stöder UTF-8-kodad JSON som skickas från Azure IoT 
 
 De data typer som stöds är:
 
-| Datatyp | Beskrivning |
+| Datatyp | Description |
 |---|---|
 | **boolesk** | En datatyp med ett av två tillstånd: `true` eller `false` . |
 | **dateTime** | Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Uttryckt i [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) -format. |
+| **long** | Ett signerat 64-bitars heltal  |
 | **Dubbelklicka** | En dubbel precision 64-bitars [IEEE 754](https://ieeexplore.ieee.org/document/8766229) -svävande punkt. |
-| **sträng** | Text värden, bestående av Unicode-tecken.          |
+| **nollängd** | Text värden, bestående av Unicode-tecken.          |
+
+> [!IMPORTANT]
+>
+> * Din TSD-miljö är starkt skriven. Om enheter eller Taggar skickar både heltals-och data som inte är Integral, lagras enhetens egenskaps värden i två separerade dubbel-och långa kolumner och [sammanslagning ()-funktionen](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) ska användas vid API-anrop och för att definiera tids serie modellens variabel uttryck.
 
 #### <a name="objects-and-arrays"></a>Objekt och matriser
 
@@ -232,9 +237,11 @@ Time Series Insights för hands version lagrar kopior av dina data på följande
 
 * Den andra ompartitionerade kopian grupperas efter Time Series-ID: n och finns i `PT=TsId` mappen:
 
-  `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+  `V=1/PT=TsId/<TSI_INTERNAL_STRUCTURE>/<TSI_INTERNAL_NAME>.parquet`
 
-I båda fallen motsvarar egenskapen Time för Parquet-filen den tid då bloben skapades. Data i `PT=Time` mappen bevaras utan ändringar när de skrivs till filen. Data i `PT=TsId` mappen kommer att optimeras för frågan över tid och är inte statisk.
+Timestamp i blobs-namnen i `PT=Time` mappen motsvarar ankomst tiden för data till TSD (inte tidsstämpeln för händelserna).
+
+Data i `PT=TsId` mappen kommer att optimeras för frågan över tid och är inte statisk. Vid ompartitionering kan samma händelser finnas i flera blobbar. Dessutom kan namngivning av blobbar ändras i framtiden.
 
 > [!NOTE]
 >

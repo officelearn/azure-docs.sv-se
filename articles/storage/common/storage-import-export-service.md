@@ -4,16 +4,16 @@ description: Lär dig hur du skapar import-och export jobb i Azure Portal för a
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872429"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512438"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är Azure import/export-tjänsten?
 
@@ -135,9 +135,9 @@ Data på enheten krypteras med AES 256-bitars BitLocker-diskkryptering. Den här
 
 För import jobb krypteras enheter på två sätt.  
 
-* Ange alternativet när du använder *data uppsättningen. csv* -filen när du kör WAImportExport-verktyget under förberedelse av enheten.
+* Ange alternativet när du använder *dataset.csv* -filen när du kör WAImportExport-verktyget när du förbereder enheten.
 
-* Aktivera BitLocker-kryptering manuellt på enheten. Ange krypterings nyckeln i *driveset. csv* när du kör WAImportExport-verktygets kommando rad vid förberedelse av enheten. BitLocker-krypteringsnyckeln kan skyddas ytterligare med hjälp av ett externt nyckel skydd (kallas även för hanterad Microsoft-nyckel) eller en kund hanterad nyckel. Mer information finns i så här [använder du en kundhanterad nyckel för att skydda din BitLocker-nyckel](storage-import-export-encryption-key-portal.md).
+* Aktivera BitLocker-kryptering manuellt på enheten. Ange krypterings nyckeln i *driveset.csv* när du kör kommando raden för WAImportExport-verktyget under förberedelse av enheten. BitLocker-krypteringsnyckeln kan skyddas ytterligare med hjälp av ett externt nyckel skydd (kallas även för hanterad Microsoft-nyckel) eller en kund hanterad nyckel. Mer information finns i så här [använder du en kundhanterad nyckel för att skydda din BitLocker-nyckel](storage-import-export-encryption-key-portal.md).
 
 För export jobb, när dina data har kopierats till enheterna, krypterar tjänsten enheten med BitLocker innan du levererar tillbaka den till dig. Du får en krypterings nyckel via Azure Portal. Enheten måste låsas upp med WAImporExport-verktyget med hjälp av nyckeln.
 

@@ -1,2 +1,178 @@
 - name: Azure Digital Twins
   href: index.yml
+- name: Översikt
+  items:
+    - name: Om Azure Digital Twins
+      href: overview.md
+    - name: Skillnader jämfört med den tidigare versionen
+      href: overview-differences.md
+- name: Självstudier
+  items:
+    - name: Koda en klientapp
+      href: tutorial-code.md
+    - name: Utforska grunderna med en exempelklientapp
+      href: tutorial-command-line-app.md
+    - name: Ansluta en lösning från slutpunkt till slutpunkt
+      href: tutorial-end-to-end.md
+- name: Begrepp
+  items:
+    - name: Anpassade modeller
+      href: concepts-models.md
+    - name: Digitala tvillingenheter och tvillingdiagrammet
+      href: concepts-twins-graph.md
+    - name: Frågespråk
+      href: concepts-query-language.md
+    - name: Integrering med andra tjänster
+      href: concepts-integration.md
+    - name: Händelsevägar
+      href: concepts-route-events.md
+    - name: Säkerhet för Azure Digital Twins-lösningar
+      href: concepts-security.md
+- name: Anvisningar
+  items:
+    - name: Utveckla
+      items:
+        - name: 'Använda API:er och SDK:er'
+          href: how-to-use-apis-sdks.md
+        - name: 'Skapa anpassade SDK:er med AutoRest'
+          href: how-to-create-custom-sdks.md
+    - name: Distribuera
+      items:
+        - name: Använda Azure Digital Twins CLI
+          href: how-to-use-cli.md
+        - name: Skapa en Azure Digital Twins-instans
+          href: how-to-set-up-instance.md
+        - name: Autentisera ett klientprogram
+          href: how-to-authenticate-client.md
+    - name: Utforma modeller
+      items:
+        - name: Hantera anpassade modeller
+          href: how-to-manage-model.md
+        - name: Parsa och verifiera modeller
+          href: how-to-use-parser.md
+    - name: Använda en live-körningsmiljö
+      items:
+        - name: Hantera digitala tvillingar
+          href: how-to-manage-twin.md
+        - name: Hantera tvillingdiagram med relationer
+          href: how-to-manage-graph.md
+        - name: Tolka händelsedata
+          href: how-to-interpret-event-data.md
+        - name: Konfigurera en Azure-funktion för bearbetning av data
+          href: how-to-create-azure-function.md
+        - name: Fråga tvillingdiagrammet
+          href: how-to-query-graph.md
+    - name: Anslut indata
+      items:
+        - name: Mata in telemetri från IoT Hub
+          href: how-to-ingest-iot-hub-data.md
+    - name: Anslut utdata
+      items:
+        - name: Hantera slutpunkter och vägar
+          href: how-to-manage-routes.md
+        - name: Integrera med Azure Maps
+          href: how-to-integrate-maps.md
+- name: Referens
+  items:
+    - name: Digital Twins-tjänstbegränsningar
+      href: reference-service-limits.md
+    - name: 'API:er och SDK:er'
+      items:
+        - name: Kontrollplan
+          items:
+            - name: Swagger
+              href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
+            - name: .NET (C#) SDK – NuGet
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+            - name: .NET (C#) SDK – källa
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
+            - name: Python SDK
+              href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
+            - name: Python SDK – källa
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins'
+            - name: Go SDK – källa
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
+        - name: Dataplanet
+          items:
+            - name: Referens för REST-API
+              href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
+            - name: Swagger
+              href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins'
+            - name: .NET (C#) SDK – referens
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
+            - name: .NET (C#) SDK – NuGet
+              href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
+            - name: .NET (C#) SDK – källa
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
+    - name: DTDL
+      items:
+        - name: DTDL v2-specifikation
+          href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
+        - name: DTDL-tillägg för VS Code
+          href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
+        - name: DTDL-parserbibliotek – NuGet
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
+        - name: DTDL-verifieringsexempel
+          href: 'https://github.com/Azure-Samples/dtdl-validator'
+        - name: DTMI-specifikation
+          href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: Azure-verktyg
+      items:
+        - name: Azure CLI-referens
+          href: /cli/azure/iot
+        - name: Azure IoT CLI-tilläggsreferens
+          href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
+        - name: Azure IoT CLI-tilläggsversioner
+          href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
+        - name: Azure Cloud Shell
+          href: 'https://shell.azure.com'
+        - name: Azure PowerShell
+          href: /powershell/module/az.iothub#iot
+        - name: Azure Portal
+          href: 'https://portal.azure.com'
+    - name: Dokumentation om Azure RBAC
+      href: /azure/role-based-access-control/overview
+- name: Resurser
+  items:
+    - name: Alternativ för support och hjälp
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Kundberättelser
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
+    - name: Channel 9-video
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
+    - name: Kunddataförfrågningar
+      href: resources-customer-data-requests.md
+    - name: Priser och tillgänglighet
+      items:
+        - name: Prissättning
+          href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: Regioner och tillgänglighet
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
+- name: Relaterat
+  items:
+    - name: Lösningar
+      items:
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: /azure/iot-central/core/overview-iot-central
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: Kartor
+          href: /azure/azure-maps
+        - name: 'Tjänst-SDK:er'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge-lösningar
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

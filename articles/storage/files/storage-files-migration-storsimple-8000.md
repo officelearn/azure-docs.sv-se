@@ -3,16 +3,16 @@ title: Migrering av StorSimple 8000-serien till Azure File Sync
 description: Lär dig hur du migrerar en StorSimple 8100-eller 8600-apparat till Azure File Sync.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 9091d3bd6b57f14bd12083319595cb855a0d42ee
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858722"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510351"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
 
@@ -23,7 +23,7 @@ StorSimple 8000-serien kommer att uppnå [livs längd](https://support.microsoft
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
-> Microsoft strävar efter att hjälpa kunder i sin migrering. E AzureFiles@microsoft.com -post för en anpassad migrations plan samt hjälp vid migreringen.
+> Microsoft strävar efter att hjälpa kunder i sin migrering. E-post AzureFilesMigration@microsoft . com för en anpassad migrations plan samt hjälp vid migreringen.
 
 Azure File Sync är en moln tjänst från Microsoft, baserat på två huvud komponenter:
 

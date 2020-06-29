@@ -3,16 +3,16 @@ title: Så här distribuerar du Azure Files | Microsoft Docs
 description: Lär dig hur du distribuerar Azure Files från början till slut.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598790"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510798"
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet enligt bransch standard. I den här artikeln får du se hur du praktiskt taget distribuerar Azure Files i din organisation.
@@ -65,7 +65,7 @@ Följande steg kommer att importera data från en lokal plats till Azure-filresu
 
     Du kan ange flera resurser med ett lagrings konto. Mer information finns i [förbereda CSV-filen för data mängden](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
 
-5. Skapa CSV-filen driveset. Driveset CSV-filen listar de diskar som är tillgängliga för den lokala export agenten. Till exempel innehåller följande driveset CSV-fil listor `X:`, `Y:`och `Z:` enheter som ska användas i det lokala export jobbet:
+5. Skapa CSV-filen driveset. Driveset CSV-filen listar de diskar som är tillgängliga för den lokala export agenten. Till exempel innehåller följande driveset CSV-fil listor `X:` , `Y:` och `Z:` enheter som ska användas i det lokala export jobbet:
 
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -137,7 +137,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ```
 
 ### <a name="linux"></a>Linux
-Ett enkelt bash-skript kombinerat med SSH kan ge samma resultat i följande exempel. `$computer` Variabeln lämnas på samma sätt som användaren fyller i:
+Ett enkelt bash-skript kombinerat med SSH kan ge samma resultat i följande exempel. `$computer`Variabeln lämnas på samma sätt som användaren fyller i:
 
 ```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")

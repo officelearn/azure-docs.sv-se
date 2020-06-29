@@ -3,16 +3,16 @@ title: Felsöka Azure Files problem i Linux | Microsoft Docs
 description: Felsöka Azure Files problem i Linux
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159497"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512008"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
 
@@ -80,7 +80,7 @@ Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurera
 
 I Linux får du ett fel meddelande som liknar följande:
 
-**\<fil namns> [behörighet nekad] disk kvoten överskreds**
+**\<filename>[behörighet nekad] Disk kvoten överskreds**
 
 ### <a name="cause"></a>Orsak
 
@@ -106,14 +106,14 @@ Om du vill stänga öppna referenser för en fil resurs, katalog eller fil anvä
 - Använd rätt kopierings metod:
     - Använd [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för överföring mellan två fil resurser.
     - Genom att använda CP eller DD med parallell kan du förbättra kopierings hastigheten, antalet trådar beror på ditt användnings fall och arbets belastning. I följande exempel används sex: 
-    - CP-exempel (CP använder standard block storleken för fil systemet som segment storlek): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - CP-exempel (CP använder standard block storleken för fil systemet som segment storlek): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - DD exempel (detta kommando anger explicit segment storlek till 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Öppna käll kods verktyg från tredje part, till exempel:
         - [GNU parallellt](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) – sorterar filer och packar dem i partitioner.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) – använder Fpart och ett kopierings verktyg för att skapa flera instanser för att migrera data från src_dir till dst_url.
         - [Multi](https://github.com/pkolano/mutil) -multi-threaded CP och md5sum baserat på GNU coreutils.
-- Att ange fil storleken i förväg, i stället för att göra varje skrivning till en utökad skrivning, bidrar till att förbättra kopierings hastigheten i scenarier där fil storleken är känd. Om du behöver undvika att utöka skrivningar kan du ange en mål fil storlek med `truncate - size <size><file>` kommando. Efter det kommer `dd if=<source> of=<target> bs=1M conv=notrunc`kommandot att kopiera en källfil utan att behöva uppdatera storleken på målfilen upprepade gånger. Du kan till exempel ange mål fils storleken för varje fil som du vill kopiera (anta att en resurs monteras under/mnt/share):
+- Att ange fil storleken i förväg, i stället för att göra varje skrivning till en utökad skrivning, bidrar till att förbättra kopierings hastigheten i scenarier där fil storleken är känd. Om du behöver undvika att utöka skrivningar kan du ange en mål fil storlek med `truncate - size <size><file>` kommando. Efter det `dd if=<source> of=<target> bs=1M conv=notrunc` kommer kommandot att kopiera en källfil utan att behöva uppdatera storleken på målfilen upprepade gånger. Du kan till exempel ange mål fils storleken för varje fil som du vill kopiera (anta att en resurs monteras under/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
     - och kopierar sedan filer utan att utöka skrivningar parallellt:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
@@ -217,11 +217,11 @@ Använd lagrings konto användaren för att kopiera filerna:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: det går inte&lt;att&gt;komma åt sökvägen: indata/utdata-fel
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: det går inte att komma åt &lt; sökvägen &gt; : indata/utdata-fel
 
 När du försöker att lista filer i en Azure-filresurs med hjälp av ls-kommandot låser kommandot när filer visas. Du får följande fel meddelande:
 
-**ls: det går inte&lt;att&gt;komma åt sökvägen: indata/utdata-fel**
+**ls: det går inte att komma åt &lt; sökvägen &gt; : indata/utdata-fel**
 
 
 ### <a name="solution"></a>Lösning

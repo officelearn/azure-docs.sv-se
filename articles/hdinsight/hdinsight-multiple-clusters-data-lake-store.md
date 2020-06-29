@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bc6659904530bfa40ee54cd55eab5eaca689069
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495758"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509225"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Använd flera HDInsight-kluster med ett Azure Data Lake Storage konto
 
@@ -44,7 +44,7 @@ I tabellen,
 - **Tjänstens huvud** namn är det Azure Active Directory (AAD) som är kopplat till kontot.
 - **FINGRP** är en användar grupp som skapats i AAD och som innehåller användare från ekonomi organisationen.
 
-Instruktioner för hur du skapar ett AAD-program (som också skapar ett huvud namn för tjänsten) finns i [skapa ett AAD-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Instruktioner för hur du skapar en användar grupp i AAD finns i [hantera grupper i Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+Instruktioner för hur du skapar ett AAD-program (som också skapar ett huvud namn för tjänsten) finns i [skapa ett AAD-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Instruktioner för hur du skapar en användar grupp i AAD finns i [hantera grupper i Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Några viktiga saker att tänka på.
 
@@ -85,7 +85,7 @@ Som anges i garn JIRA som är länkad tidigare, medan lokaliserade offentliga re
 
 #### <a name="workaround"></a>Lösning
 
-Ange Läs-och kör behörigheter för **andra** via hierarkin, till exempel at **/**, **/Clusters** och **/Clusters/Finance** , som visas i tabellen ovan.
+Ange Läs-och kör behörigheter för **andra** via hierarkin, till exempel at **/** , **/Clusters** och **/Clusters/Finance** , som visas i tabellen ovan.
 
 ## <a name="see-also"></a>Se även
 

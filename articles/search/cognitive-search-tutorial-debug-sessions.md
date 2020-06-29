@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886797"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510981"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Självstudie: diagnostisera, reparera och genomför ändringar i din färdigheter
 
 I den här artikeln ska du använda Azure Portal för att få åtkomst till fel söknings-sessioner för att åtgärda problem med den angivna färdigheter. Färdigheter innehåller några fel som behöver åtgärdas. Den här självstudien tar dig igenom en felsökningssession för att identifiera och lösa problem med indata och utdata från färdigheter.
 
 > [!Important]
-> Stöd för fel söknings sessioner för Azure Kognitiv sökning är tillgängligt [på begäran](https://aka.ms/DebugSessions) som en för hands version av begränsad åtkomst. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Debug-sessioner är en förhands gransknings funktion utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> När du har beviljats åtkomst till för hands versionen kommer du att kunna komma åt och använda debug-sessioner för tjänsten med hjälp av Azure Portal.
->   
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

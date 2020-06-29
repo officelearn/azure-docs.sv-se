@@ -3,16 +3,16 @@ title: Autentisering med slutanvändare – python med Data Lake Storage Gen1 �
 description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 att använda Azure Active Directory med python
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: b08024ae60346354b97fd377fdea350c52e44404
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c8333d50217581b0681f9f19c10d2583c71ac759
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557935"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511243"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med python
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du använder python SDK för att utfö
 
 Båda alternativen beskrivs i den här artikeln. För tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med python, se [tjänst-till-tjänst-autentisering med data Lake Storage gen1 med hjälp av python](data-lake-store-service-to-service-authenticate-python.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 

@@ -3,16 +3,16 @@ title: Montera en Azure-filresurs via SMB med macOS | Microsoft Docs
 description: Lär dig hur du monterar en Azure-filresurs via SMB med macOS.
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 0e3420e469b117d90efb2949dab828021bfedcb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87271cfc602ff81a65a63426360f3bc0a8a8f030
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74924713"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509837"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montera en Azure-filresurs via SMB med macOS
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras med SMB-3 protokollet, som är branschstandard, av macOS El Capitan 10.11+. Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS: med hjälp av användargränssnittet Finder och med terminalen.
@@ -37,7 +37,7 @@ ms.locfileid: "74924713"
 1. **Öppna Finder**: Som standard är Finder redan öppet på macOS, men du kan kontrollera att det är det för tillfället markerade programmet genom att klicka på "ikonen med macOS-ansiktet" i Dock:  
     ![ikonen med macOS-ansiktet](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Välj "Anslut till Server" från "gå till"-menyn**: Använd UNC-sökvägen från kraven, konvertera det inledande dubbla omvända snedstrecket`\\`() `smb://` till och alla andra omvänt snedstreck`\`() för att vidarebefordra snedstreck`/`(). Länken bör se ut ungefär så här: ![Dialogrutan "Anslut till server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Välj "Anslut till Server" från "gå till"-menyn**: Använd UNC-sökvägen från kraven, konvertera det inledande dubbla omvända snedstrecket ( `\\` ) till `smb://` och alla andra omvänt snedstreck ( `\` ) för att vidarebefordra snedstreck ( `/` ). Länken bör se ut ungefär så här: ![Dialogrutan "Anslut till server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Använd lagringskontonamnet och lagringskontonyckeln när du tillfrågas om användarnamn och lösenord**: När du klickar på "Anslut" i dialogrutan "Anslut till server" uppmanas du att ange ett användarnamn och lösenord (det kommer att vara ifyllt automatiskt med ditt macOS-användarnamn). Du har möjlighet att lägga till ditt lagringskontonamnet/lagringskontonyckel i din nyckelring för macOS.
 
@@ -60,6 +60,6 @@ ms.locfileid: "74924713"
 Mer information om Azure Files finns på följande länkar.
 
 * [Apple Support-artikel – Så här ansluter du med fildelning på din Mac.](https://support.apple.com/HT204445)
-* [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
+* [Vanliga frågor och svar](../storage-files-faq.md)
 * [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Felsökning i Linux](storage-troubleshoot-linux-file-connection-problems.md)    

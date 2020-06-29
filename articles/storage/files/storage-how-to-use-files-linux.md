@@ -3,19 +3,19 @@ title: Använda Azure Files med Linux | Microsoft Docs
 description: Lär dig hur du monterar en Azure-filresurs via SMB på Linux.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fcc9876caf0c002650ab30b7eaed7dc44e2f135e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137747"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509854"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
-[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med `mount` kommandot och i start genom att skapa en post i `/etc/fstab`.
+[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med `mount` kommandot och i start genom att skapa en post i `/etc/fstab` .
 
 Det rekommenderade sättet att montera en Azure-filresurs på Linux är att använda SMB 3,0. Som standard kräver Azure Files kryptering under överföring, som endast stöds av SMB 3,0. Azure Files stöder också SMB 2,1, som inte stöder kryptering under överföring, men du kan inte montera Azure-filresurser med SMB 2,1 från en annan Azure-region eller lokalt av säkerhets skäl. Såvida inte ditt program specifikt kräver SMB 2,1, finns det mycket anledning att använda det eftersom de flesta populära, nyligen utgivna Linux-distributioner har stöd för SMB 3,0:  
 
@@ -28,7 +28,7 @@ Det rekommenderade sättet att montera en Azure-filresurs på Linux är att anv�
 | openSUSE | 13.2 + | 42.3 + |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3 + |
 
-Om du använder en Linux-distribution som inte finns med i tabellen ovan kan du kontrol lera om din Linux-distribution stöder SMB 3,0 med kryptering genom att kontrol lera Linux kernel-versionen. SMB 3,0 med kryptering har lagts till i Linux-kernel-version 4,11. `uname` Kommandot returnerar den version av Linux-kärnan som används:
+Om du använder en Linux-distribution som inte finns med i tabellen ovan kan du kontrol lera om din Linux-distribution stöder SMB 3,0 med kryptering genom att kontrol lera Linux kernel-versionen. SMB 3,0 med kryptering har lagts till i Linux-kernel-version 4,11. `uname`Kommandot returnerar den version av Linux-kärnan som används:
 
 ```bash
 uname -r
@@ -40,7 +40,7 @@ uname -r
 * <a id="install-cifs-utils"></a>**Se till att CIFS-utils-paketet är installerat.**  
     CIFS-utils-paketet kan installeras med hjälp av paket hanteraren på valfri Linux-distribution. 
 
-    Använd `apt` paket hanteraren på **Ubuntu** **-och Debian-baserade** distributioner:
+    Använd paket hanteraren på **Ubuntu** **-och Debian-baserade** distributioner `apt` :
 
     ```bash
     sudo apt update
@@ -53,13 +53,13 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    Använd `yum` Package Manager på äldre versioner av **Red Hat Enterprise Linux** och **CentOS**:
+    Använd Package Manager på äldre versioner av **Red Hat Enterprise Linux** och **CentOS** `yum` :
 
     ```bash
     sudo yum install cifs-utils 
     ```
 
-    Använd **openSUSE** `zypper` Package Manager på openSUSE:
+    Använd **openSUSE**Package Manager på openSUSE `zypper` :
 
     ```bash
     sudo zypper install cifs-utils
@@ -99,7 +99,7 @@ Om du vill använda en Azure-filresurs med din Linux-distribution måste du skap
 Du kan montera samma Azure-filresurs till flera monterings punkter om du vill.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montera Azure-filresursen på begäran med`mount`
-1. **Skapa en mapp för monterings punkten**: Ersätt `<your-resource-group>`, `<your-storage-account>`och `<your-file-share>` med lämplig information för din miljö:
+1. **Skapa en mapp för monterings punkten**: Ersätt `<your-resource-group>` , `<your-storage-account>` och `<your-file-share>` med lämplig information för din miljö:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -134,7 +134,7 @@ Du kan montera samma Azure-filresurs till flera monterings punkter om du vill.
 När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath` för att demontera resursen.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Skapa en permanent monterings punkt för Azure-filresursen med`/etc/fstab`
-1. **Skapa en mapp för monterings punkten**: en mapp för en monterings punkt kan skapas var som helst i fil systemet, men det är en vanlig konvention för att skapa den under/mnt. Följande kommando skapar till exempel en ny katalog, ersätter `<your-resource-group>`, `<your-storage-account>`och `<your-file-share>` med lämplig information för din miljö:
+1. **Skapa en mapp för monterings punkten**: en mapp för en monterings punkt kan skapas var som helst i fil systemet, men det är en vanlig konvention för att skapa den under/mnt. Följande kommando skapar till exempel en ny katalog, ersätter `<your-resource-group>` , `<your-storage-account>` och `<your-file-share>` med lämplig information för din miljö:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -200,7 +200,7 @@ När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath`
 
     Autofs-paketet kan installeras med hjälp av Package Manager på valfri Linux-distribution. 
 
-    Använd `apt` paket hanteraren på **Ubuntu** **-och Debian-baserade** distributioner:
+    Använd paket hanteraren på **Ubuntu** **-och Debian-baserade** distributioner `apt` :
     ```bash
     sudo apt update
     sudo apt install autofs
@@ -209,11 +209,11 @@ När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath`
     ```bash
     sudo dnf install autofs
     ```
-    Använd `yum` Package Manager på äldre versioner av **Red Hat Enterprise Linux** och **CentOS**:
+    Använd Package Manager på äldre versioner av **Red Hat Enterprise Linux** och **CentOS** `yum` :
     ```bash
     sudo yum install autofs 
     ```
-    Använd **openSUSE** `zypper` Package Manager på openSUSE:
+    Använd **openSUSE**Package Manager på openSUSE `zypper` :
     ```bash
     sudo zypper install autofs
     ```
@@ -244,26 +244,26 @@ När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath`
 ## <a name="securing-linux"></a>Skydda Linux
 Port 445 måste vara tillgänglig för att du ska kunna montera en Azure-filresurs på Linux. Många organisationer blockerar port 445 på grund av säkerhetsrisker med SMB 1. SMB 1, som även kallas CIFS (common Internet File System), är ett äldre fil system protokoll som ingår i många Linux-distributioner. SMB 1 är ett inaktuellt, ineffektivt och framför allt oskyddat protokoll. Den goda nyheten är att Azure Files inte stöder SMB 1, och från och med linux kernel version 4,18, gör det möjligt för Linux att inaktivera SMB 1. Vi [rekommenderar alltid starkt](https://aka.ms/stopusingsmb1) att du inaktiverar SMB 1 på dina Linux-klienter innan du använder SMB-filresurser i produktion.
 
-Från och med linux kernel 4,18, anropar SMB-kernel `cifs` -modulen, som kallas för gamla orsaker, en ny modul-parameter (kallas ofta *parameter* av olika externa dokument) `disable_legacy_dialects`. Även om vi introducerade i Linux kernel 4,18 har vissa leverantörer förflyttat den här ändringen till äldre kärnor som de stöder. För enkelhetens skull är följande tabell information om tillgängligheten för den här modulen i vanliga Linux-distributioner.
+Från och med linux kernel 4,18, anropar SMB-kernel-modulen, som kallas `cifs` för gamla orsaker, en ny modul-parameter (kallas ofta *parameter* av olika externa dokument) `disable_legacy_dialects` . Även om vi introducerade i Linux kernel 4,18 har vissa leverantörer förflyttat den här ändringen till äldre kärnor som de stöder. För enkelhetens skull är följande tabell information om tillgängligheten för den här modulen i vanliga Linux-distributioner.
 
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | Nej |
-| Ubuntu 18.04 | Ja |
-| Ubuntu 19.04 + | Ja |
-| Debian 8-9 | Nej |
-| Debian 10 + | Ja |
-| Fedora 29 + | Ja |
-| CentOS 7 | Nej | 
-| CentOS 8 + | Ja |
-| Red Hat Enterprise Linux 6. x-7. x | Nej |
-| Red Hat Enterprise Linux 8 + | Ja |
-| openSUSE skottår 15,0 | Nej |
-| openSUSE skottår 15.1 + | Ja |
-| openSUSE Tumbleweed | Ja |
-| SUSE Linux Enterprise 11. x-12. x | Nej |
-| SUSE Linux Enterprise 15 | Nej |
-| SUSE Linux Enterprise 15,1 | Nej |
+| Ubuntu 14.04-16.04 | No |
+| Ubuntu 18.04 | Yes |
+| Ubuntu 19.04 + | Yes |
+| Debian 8-9 | No |
+| Debian 10 + | Yes |
+| Fedora 29 + | Yes |
+| CentOS 7 | No | 
+| CentOS 8 + | Yes |
+| Red Hat Enterprise Linux 6. x-7. x | No |
+| Red Hat Enterprise Linux 8 + | Yes |
+| openSUSE skottår 15,0 | No |
+| openSUSE skottår 15.1 + | Yes |
+| openSUSE Tumbleweed | Yes |
+| SUSE Linux Enterprise 11. x-12. x | No |
+| SUSE Linux Enterprise 15 | No |
+| SUSE Linux Enterprise 15,1 | No |
 
 Du kan kontrol lera om din Linux-distribution stöder `disable_legacy_dialects` modulen modul via följande kommando.
 
@@ -283,7 +283,7 @@ Innan du inaktiverar SMB 1 måste du kontrol lera att SMB-modulen inte är inlä
 lsmod | grep cifs
 ```
 
-Om du vill ta bort modulen avmonterar du först alla SMB-resurser `umount` (med kommandot enligt beskrivningen ovan). Du kan identifiera alla monterade SMB-resurser i systemet med följande kommando:
+Om du vill ta bort modulen avmonterar du först alla SMB-resurser (med `umount` kommandot enligt beskrivningen ovan). Du kan identifiera alla monterade SMB-resurser i systemet med följande kommando:
 
 ```bash
 mount | grep cifs
@@ -301,13 +301,13 @@ Du kan läsa in modulen manuellt med SMB 1 från och med `modprobe` kommandot:
 sudo modprobe cifs disable_legacy_dialects=Y
 ```
 
-Slutligen kan du kontrol lera att SMB-modulen har lästs in med parametern genom att titta på de inlästa `/sys/module/cifs/parameters`parametrarna i:
+Slutligen kan du kontrol lera att SMB-modulen har lästs in med parametern genom att titta på de inlästa parametrarna i `/sys/module/cifs/parameters` :
 
 ```bash
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-För att permanent inaktivera SMB 1 på Ubuntu-och Debian-baserade distributioner måste du skapa en ny fil (om du inte redan har anpassade alternativ för andra moduler) som `/etc/modprobe.d/local.conf` anropas med inställningen. Du kan göra detta med följande kommando:
+För att permanent inaktivera SMB 1 på Ubuntu-och Debian-baserade distributioner måste du skapa en ny fil (om du inte redan har anpassade alternativ för andra moduler) som anropas `/etc/modprobe.d/local.conf` med inställningen. Du kan göra detta med följande kommando:
 
 ```bash
 echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
@@ -324,5 +324,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 Mer information om Azure Files finns på följande länkar:
 
 * [Planera för distribution av Azure Files](storage-files-planning.md)
-* [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
+* [Vanliga frågor och svar](../storage-files-faq.md)
 * [Felsökning](storage-troubleshoot-linux-file-connection-problems.md)

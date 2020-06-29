@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 87885d9b476582fcce53b8b960d24093693af4ec
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67876209"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509395"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple som ett säkerhets kopierings mål med NetBackup
 
@@ -55,8 +55,8 @@ Precis som med vilken lagrings lösning som helst är det viktigt att en noggran
 
 StorSimple är utformad för att tillhandahålla lagring till program som fungerar med en väldefinierad arbets uppsättning data (frekventa data). I den här modellen lagras den aktiva data uppsättningen på de lokala nivåerna, och återstående icke-arbetsminne/kall/arkiverad data uppsättning för data skiktas i molnet. Den här modellen visas i följande figur. Den nästan platta gröna linjen representerar de data som lagras på de lokala nivåerna på StorSimple-enheten. Den röda linjen representerar den totala mängden data som lagras i StorSimple-lösningen på alla nivåer. Utrymmet mellan den platta gröna linjen och den exponentiella röda kurvan representerar den totala mängden data som lagras i molnet.
 
-**StorSimple tiering**
-![Diagram över StorSimple för StorSimple-skiktning](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+**StorSimple-skiktning** 
+ ![ Diagram för StorSimple-skiktning](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 Med den här arkitekturen i åtanke kommer du att se att StorSimple passar utmärkt för att hantera säkerhets kopierings mål. Du kan använda StorSimple för att:
 -   Utför dina mest frekventa återställningar från den lokala arbets uppsättningen med data.
@@ -185,7 +185,7 @@ I det här avsnittet demonstreras några konfigurations exempel. Följande exemp
 | StorSimple distributions uppgifter  | Ytterligare kommentarer |
 |---|---|
 | Distribuera din lokala StorSimple-enhet. | Versioner som stöds: Update 3 och senare versioner. |
-| Aktivera säkerhets kopierings målet. | Använd de här kommandona för att aktivera eller inaktivera säkerhets kopieringens mål läge och hämta status. Mer information finns i fjärrans [luta till en StorSimple-enhet](storsimple-remote-connect.md).</br> Aktivera säkerhets kopierings läge: `Set-HCSBackupApplianceMode -enable`. </br> Så här stänger du av säkerhets `Set-HCSBackupApplianceMode -disable`kopierings läge:. </br> Så här hämtar du det aktuella läget för inställningarna för `Get-HCSBackupApplianceMode`säkerhets kopierings läge:. |
+| Aktivera säkerhets kopierings målet. | Använd de här kommandona för att aktivera eller inaktivera säkerhets kopieringens mål läge och hämta status. Mer information finns i fjärrans [luta till en StorSimple-enhet](storsimple-remote-connect.md).</br> Aktivera säkerhets kopierings läge: `Set-HCSBackupApplianceMode -enable` . </br> Så här stänger du av säkerhets kopierings läge: `Set-HCSBackupApplianceMode -disable` . </br> Så här hämtar du det aktuella läget för inställningarna för säkerhets kopierings läge: `Get-HCSBackupApplianceMode` . |
 | Skapa en gemensam volym behållare för din volym som lagrar säkerhetskopierade data. Alla data i en volym behållare har deduplicerats. | StorSimple volym behållare definierar Deduplicerings domäner.  |
 | Skapa StorSimple-volymer. | Skapa volymer med storlekar så nära den förväntade användningen som möjligt, eftersom volym storleken påverkar varaktigheten för moln ögonblicks bilder. Information om hur du ändrar storlek på en volym finns i om [bevarande principer](#retention-policies).</br> </br> Använd StorSimple-skiktade volymer och markera kryss rutan **Använd den här volymen för lagrings data** som inte används mindre ofta. </br> Det finns inte stöd för att använda lokalt fästa volymer. |
 | Skapa en unik säkerhets kopierings princip för StorSimple för alla säkerhets kopierings mål volymer. | En princip för StorSimple-säkerhetskopiering definierar volym konsekvens gruppen. |
@@ -265,7 +265,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 
 ### <a name="to-set-up-netbackup-storage"></a>Konfigurera NetBackup Storage
 
-1.  I administrations konsolen för NetBackup väljer du **Media-och enhets hantering** > **enheter** > **lagringspooler**. I guiden Konfiguration av lagringspool väljer du typ av lagrings Server **AdvancedDisk**och väljer sedan **Nästa**.
+1.  I administrations konsolen för NetBackup väljer du **Media-och enhets hantering**  >  **enheter**  >  **lagringspooler**. I guiden Konfiguration av lagringspool väljer du typ av lagrings Server **AdvancedDisk**och väljer sedan **Nästa**.
 
     ![Administrations konsol för NetBackup, guiden Konfiguration av lagringspool](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 
     ![Administrations konsol för NetBackup väljer du volym disken StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Ange ett namn på säkerhets kopierings målet och välj sedan **Nästa** > **Nästa** för att avsluta guiden.
+4.  Ange ett namn på säkerhets kopierings målet och välj sedan **Nästa**  >  **Nästa** för att avsluta guiden.
 
 5.  Granska inställningarna och välj sedan **Slutför**.
 
@@ -303,7 +303,7 @@ Här är ett exempel på ett GFS rotations schema för fyra veckor, varje månad
 | Typ av frekvens/säkerhets kopiering | Fullständig | Stegvis (dagar 1-5)  |   
 |---|---|---|
 | Varje vecka (veckor 1-4) | Lördag | Måndag-fredag |
-| Månadsvis  | Lördag  |   |
+| Varje månad  | Lördag  |   |
 | Varje år | Lördag  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Tilldela StorSimple-volymer till ett säkerhets kopierings jobb i NetBackup
@@ -340,7 +340,7 @@ Följande sekvens förutsätter att NetBackup och mål värden är konfigurerade
 
    ![Administrations konsol för NetBackup, frekvens för säkerhets kopiering och rotation för en ny princip](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Välj **Nästa** > **Nästa** > **Slutför**.  Du kan ändra schemat när principen har skapats.
+8. Välj **Nästa**  >  **Nästa**  >  **Slutför**.  Du kan ändra schemat när principen har skapats.
 
 9. Välj för att expandera principen som du nyss skapade och välj sedan **scheman**.
 
@@ -395,7 +395,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 
 ### <a name="backup-configuration-and-capacity-requirements"></a>Säkerhets kopierings konfiguration och kapacitets krav
 
-| Typ av säkerhets kopiering och kvarhållning | Konfigurerat lagring | Storlek (TiB) | GFS-multiplikator | Total kapacitet\* (TIB) |
+| Typ av säkerhets kopiering och kvarhållning | Konfigurerat lagring | Storlek (TiB) | GFS-multiplikator | Total kapacitet \* (TIB) |
 |---|---|---|---|---|
 | Vecka 1 (fullständig och stegvis) |Lokal disk (kortsiktig)| 1 | 1 | 1 |
 | StorSimple veckor 2-4 |StorSimple disk (lång sikt) | 1 | 4 | 4 |
@@ -414,7 +414,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 | Vecka 2 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 3 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2-4 |   |   |   |   |   |
-| Månadsvis | StorSimple varje månad |   |   |   |   |   |
+| Varje månad | StorSimple varje månad |   |   |   |   |   |
 | Varje år | StorSimple varje år  |   |   |   |   |   |
 
 
@@ -430,7 +430,7 @@ När du har definierat de första disk-poolerna måste du definiera tre ytterlig
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Så här tilldelar du StorSimple-volymer till ett säkerhets kopierings Arkiv och ett duplicerat jobb
 
-1. I administrations konsolen för NetBackup väljer du**livs cykel principer** > för **lagrings** > lagring**ny lagrings livs cykel princip**.
+1. I administrations konsolen för NetBackup väljer du livs cykel principer för **lagrings**  >  **lagring**  >  **ny lagrings livs cykel princip**.
 
    ![Administrations konsol för NetBackup, ny lagrings livs cykel princip](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
@@ -508,8 +508,8 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Starta eller ta bort en moln ögonblicks bild
 
 1. [Installera Azure PowerShell](/powershell/azure/overview).
-2. Hämta och installera PowerShell-skriptet [Manage-CloudSnapshots. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) .
-3. Kör PowerShell som administratör på den server som kör skriptet. Se till att du kör skriptet med `-WhatIf $true` för att se vilka ändringar som görs i skriptet. Skicka `-WhatIf $false`när verifieringen är klar. Kör kommandot nedan:
+2. Hämta och konfigurera [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell-skript.
+3. Kör PowerShell som administratör på den server som kör skriptet. Se till att du kör skriptet med `-WhatIf $true` för att se vilka ändringar som görs i skriptet. Skicka när verifieringen är klar `-WhatIf $false` . Kör kommandot nedan:
    ```powershell
    .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
    ```
@@ -529,7 +529,7 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 
 En katastrof kan orsakas av olika faktorer. I följande tabell visas vanliga scenarier för haveri beredskap.
 
-| Scenario | Påverkan | Återställa | Anteckningar |
+| Scenario | Påverkan | Återställa | Kommentarer |
 |---|---|---|---|
 | StorSimple enhets problem | Säkerhets kopierings-och återställnings åtgärder avbryts. | Ersätt den felande enheten och utför [StorSimple redundans och haveri beredskap](storsimple-device-failover-disaster-recovery.md). | Om du behöver utföra en återställning efter återställning av enheten hämtas fullständiga data arbets uppsättningar från molnet till den nya enheten. Alla åtgärder är i moln hastighet. Processen för att genomsöka index och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån, vilket kan vara en tids krävande process. |
 | NetBackup Server-haveri | Säkerhets kopierings-och återställnings åtgärder avbryts. | Återskapa säkerhets kopierings servern och utför databas återställningen. | Du måste återskapa eller återställa NetBackup-servern på återställnings platsen för haveri beredskap. Återställ databasen till den senaste punkten. Om den återställda NetBackup-databasen inte är synkroniserad med dina senaste säkerhets kopierings jobb krävs indexering och katalogering. Den här processen för att indexera och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån. Detta gör det ytterligare tids krävande. |

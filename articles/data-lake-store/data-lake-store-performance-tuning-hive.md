@@ -3,15 +3,15 @@ title: Prestanda justering – Hive på Azure Data Lake Storage Gen1
 description: Rikt linjer för prestanda justering för Hive i HdInsight och Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 2e44332ddab9387c05a45d15101ccd2bdec3ada4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 819e158ce2613441efdf2177d50fc8e7989bf68f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690528"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510929"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Vägledning för prestanda justering för Hive i HDInsight och Azure Data Lake Storage Gen1
 
@@ -35,7 +35,7 @@ Här är de viktigaste inställningarna för att justera för förbättrade Data
 
 * **Tez. Grouping. Max-size** – maximal storlek för varje mappning
 
-* **Hive. exec. dereducerar. byte. per. minsknings** fil – storlek för varje minskning
+* **hive.exec. reduce. byte. per.** dereducerare – storlek på varje minsknings man
 
 **Hive. Tez. container. size** -container-storlek anger hur mycket minne som är tillgängligt för varje aktivitet.  Detta är den viktigaste indatan för styrning av samtidigheten i Hive.  
 
@@ -43,11 +43,11 @@ Här är de viktigaste inställningarna för att justera för förbättrade Data
 
 **Tez. Grouping. Max-size** – parametern låter dig ange max storleken för varje mapp.  Om antalet mappningar som Tez väljer är större än värdet för den här parametern kommer Tez att använda värdet som anges här.
 
-**Hive. exec. dereducerare. bytes. per. reduce** – den här parametern anger storleken på varje minskning.  Som standard är varje minskning 256 MB.  
+**hive.exec. Reducer. bytes. per. reduce** – den här parametern anger storleken på varje minskning.  Som standard är varje minskning 256 MB.  
 
 ## <a name="guidance"></a>Riktlinjer
 
-**Ange Hive. exec. dereducerar. bytes. per. reduce** – standardvärdet fungerar bra när data är okomprimerade.  För data som är komprimerade bör du minska storleken på minskningen.  
+**Ange hive.exec. dereducerare. bytes. per. reduce** – standardvärdet fungerar bra när data är okomprimerade.  För data som är komprimerade bör du minska storleken på minskningen.  
 
 **Ange Hive. Tez. container. size** – i varje nod anges minnet av garn. nodemanager. Resource. Memory-MB och bör anges korrekt i HDI-kluster som standard.  Mer information om hur du ställer in rätt minne i garn finns i det här [inlägget](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
@@ -77,7 +77,7 @@ Om du vill kontrol lera om du får en begränsning måste du aktivera fel sökni
 
 1. Lägg till följande egenskap i egenskaperna log4j i Hive config. Detta kan göras från Ambari View: log4j. loggfil. com. Microsoft. Azure. datalake. Store = DEBUG starta om alla noder/tjänster för att konfigurationen ska börja gälla.
 
-2. Om du får en begränsning visas HTTP 429-felkoden i Hive-loggfilen. Hive-logg filen finns i/tmp/&lt;User&gt;/Hive.log
+2. Om du får en begränsning visas HTTP 429-felkoden i Hive-loggfilen. Hive-logg filen finns i/tmp/ &lt; User &gt; /Hive.log
 
 ## <a name="further-information-on-hive-tuning"></a>Mer information om Hive-justering
 

@@ -3,15 +3,15 @@ title: Autentisering med slutanvändare – .NET med Data Lake Storage Gen1 – 
 description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 att använda Azure Active Directory med .NET SDK
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 37507f686ad2cf3fc66087b89ae77242ec79afdd
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 12f6e0fd34de96677693b7f0d159c7cf9032ca1b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688163"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511291"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att utföra
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
 1. I Visual Studio väljer du **Arkiv** -menyn, **nytt**och sedan **projekt**.
 2. Välj **konsol program (.NET Framework)** och välj sedan **Nästa**.
-3. I **projekt namn**anger `CreateADLApplication`du och väljer sedan **skapa**.
+3. I **projekt namn**anger du `CreateADLApplication` och väljer sedan **skapa**.
 
 4. Lägg till NuGet-paketen i projektet.
 
@@ -69,7 +69,7 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att utföra
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 Lägg till det här kodfragmentet i ditt .NET-klient program. Ersätt plats hållarna med värdena som hämtats från ett internt Azure AD-program (listat som krav). Det här kodfragmentet gör att du kan autentisera ditt program **interaktivt** med data Lake Storage gen1, vilket innebär att du uppmanas att ange dina autentiseringsuppgifter för Azure.
 
-För enkel användning använder följande kodfragment standardvärden för klient-ID och omdirigerings-URI som är giltiga för alla Azure-prenumerationer. I följande kodfragment behöver du bara ange värdet för klient-ID: t. Du kan hämta klient-ID: t med hjälp av anvisningarna i [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+För enkel användning använder följande kodfragment standardvärden för klient-ID och omdirigerings-URI som är giltiga för alla Azure-prenumerationer. I följande kodfragment behöver du bara ange värdet för klient-ID: t. Du kan hämta klient-ID: t med hjälp av anvisningarna i [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
     
 - Ersätt Main ()-funktionen med följande kod:
 
@@ -91,7 +91,7 @@ För enkel användning använder följande kodfragment standardvärden för klie
 
 Några saker att känna till i föregående kodfragment:
 
-* Föregående kodfragment använder en hjälp funktion `GetTokenCache` och. `GetCreds_User_Popup` Koden för dessa hjälp funktioner finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* Föregående kodfragment använder en hjälp funktion `GetTokenCache` och `GetCreds_User_Popup` . Koden för dessa hjälp funktioner finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * För att hjälpa dig att slutföra självstudien snabbare använder kodfragmentet ett internt program klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Så kan du **använder detta utdrag i befintligt skick i ditt program**.
 * Men om du vill använda en egen Azure AD-domän och ett eget programklient-ID måste du skapa ett eget Azure AD-program och sedan använda Azure AD-domänens ID, klient-ID och omdirigerings-URI för det program som du skapade. Instruktioner finns i [skapa ett Active Directory program för slutanvändarens autentisering med data Lake Storage gen1](data-lake-store-end-user-authenticate-using-active-directory.md) .
 

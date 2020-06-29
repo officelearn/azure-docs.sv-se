@@ -3,16 +3,16 @@ title: Skapa en Premium Azure-filresurs
 description: I den här artikeln får du lära dig hur du skapar en Premium Azure-filresurs.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 271acdb968bf5bbec3632bbc1f6def854196cd8e
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629339"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509990"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Så här skapar du en Premium Azure-filresurs
 Premium-filresurser erbjuds på lagrings mediet SSD (solid-state disk) och är användbara för i/o-intensiva arbets belastningar, inklusive värd databaser och HPC (data behandling med höga prestanda). Premium-filresurser finns i en särskild typ av lagrings konto, vilket kallas ett FileStorage-konto. Premium-filresurser är utformade för högpresterande program och företags skalnings program, vilket ger konsekvent låg latens, höga IOPS och höga data flödes resurser.

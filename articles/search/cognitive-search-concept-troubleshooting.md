@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 25f0e0f15a299ef8b946b3d5fa0eb3eddc2272c2
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508628"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510870"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Tips för AI-anrikning i Azure Kognitiv sökning
 
@@ -49,7 +49,16 @@ I så fall kanske du vill be indexeraren att ignorera fel. Det gör du genom att
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Tips 4: titta på omfattande dokument under huven 
+> [!NOTE]
+> Vi rekommenderar att du ställer in maxFailedItems, maxFailedItemsPerBatch på 0 för produktions arbets belastningar
+
+## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Tips 4: Använd debug-sessioner för att identifiera och lösa problem med din färdigheter 
+
+Debug-sessioner är en visuell redigerare som fungerar med en befintlig färdigheter i Azure Portal. Inom en felsökningssession kan du identifiera och lösa fel, verifiera ändringar och spara ändringar i en produktions färdigheter i AI-pipeline för anrikning. Detta är en förhands gransknings funktion som [läser dokumentationen](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Mer information om begrepp och hur du kommer igång finns i [Felsöka sessioner](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+
+Debug-sessioner fungerar på ett enda dokument är ett bra sätt för dig att på ett iterativt sätt bygga mer komplexa anriknings pipeliner.
+
+## <a name="tip-5-looking-at-enriched-documents-under-the-hood"></a>Tips 5: titta på omfattande dokument under huven 
 Omfattande dokument är temporära strukturer som skapats under anrikning och sedan tas bort när bearbetningen är klar.
 
 Om du vill ta en ögonblicksbild av det berikade dokumentet som skapades under indexeringen lägger du till ett fält som heter ```enriched``` i ditt index. Indexeraren placerar automatiskt en strängrepresentation i fältet för alla berikanden för det dokumentet.
@@ -77,11 +86,7 @@ Lägg till ett ```enriched``` fält som en del av index definitionen för fel s�
 }
 ```
 
-### <a name="debug-sessions"></a>Felsökningssessioner
-
-Debug-sessioner är en visuell redigerare som fungerar med en befintlig färdigheter i Azure Portal. Inom en felsökningssession kan du identifiera och lösa fel, verifiera ändringar och skicka ändringar till en produktions-färdigheter i AI-pipeline för anrikning. Detta är en förhands gransknings funktion och åtkomst beviljas från fall till fall. [Läs dokumentationen](https://docs.microsoft.com/azure/search/cognitive-search-debug-session) och ta reda på hur du kan använda för att få åtkomst.
-
-## <a name="tip-5-expected-content-fails-to-appear"></a>Tips 5: förväntat innehåll visas inte
+## <a name="tip-6-expected-content-fails-to-appear"></a>Tips 6: förväntat innehåll visas inte
 
 Innehåll som saknas kan vara resultatet av dokument som tas bort under indexeringen. Kostnads fria och grundläggande nivåer har låg gräns för dokument storlek. Alla filer som överskrider gränsen bryts vid indexering. Du kan söka efter borttagna dokument i Azure Portal. I instrument panelen för Sök tjänsten dubbelklickar du på panelen indexerare. Granska förhållandet mellan lyckade dokument indexerade. Om den inte är 100% kan du klicka på kvoten för att få mer information. 
 
@@ -89,7 +94,7 @@ Om problemet är relaterat till fil storlek kan du se ett fel som detta: "blobbe
 
 En andra orsak till att innehållet som Miss söker visas kan vara relaterade till fel vid indata/utdata-mappning. Till exempel är ett utmatnings mål namn "personer", men index fält namnet är "människor". Systemet kan returnera 201 slutförda meddelanden för hela pipelinen så att du tror att indexeringen är klar, när fältet i själva verket är tomt. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Tips 6: utöka bearbetning bortom den maximala körnings tiden (24-timmarsformat)
+## <a name="tip-7-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Tips 7: utöka bearbetning bortom den maximala körnings tiden (24-timmarsformat)
 
 Bild analys är i beräknings intensiva för ännu enkla fall, så när avbildningar är särskilt stora eller komplexa kan bearbetnings tiderna överskrida den högsta tillåtna tiden. 
 
@@ -102,7 +107,7 @@ Indexering av schemalagda indexerare återupptas enligt schema vid det senast fu
 
 För portalbaserade indexeringar (enligt beskrivningen i snabb starten) väljer du alternativet "kör en gång"-alternativ begränsar bearbetningen till 1 timme ( `"maxRunTime": "PT1H"` ). Du kanske vill utöka bearbetnings fönstret till något längre.
 
-## <a name="tip-7-increase-indexing-throughput"></a>Tips 7: öka indexerings data flödet
+## <a name="tip-8-increase-indexing-throughput"></a>Tips 8: öka indexerings data flödet
 
 För [parallell indexering](search-howto-large-index.md)ska du placera dina data i flera behållare eller flera virtuella mappar i samma behållare. Skapa sedan flera DataSource-och Indexer-par. Alla indexerare kan använda samma färdigheter och skriva till samma mål Sök index, så din Sökapp behöver inte vara medveten om denna partitionering.
 Mer information finns i [Indexera stora data uppsättningar](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).

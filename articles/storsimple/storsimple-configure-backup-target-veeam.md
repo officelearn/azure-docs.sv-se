@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f2a514b6f44df7be15f18aa8f7c42668c872ab4a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67875308"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509701"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple som ett säkerhets kopierings mål med Veeam
 
@@ -56,8 +56,8 @@ Precis som med vilken lagrings lösning som helst är det viktigt att en noggran
 
 StorSimple är utformad för att tillhandahålla lagring till program som fungerar med en väldefinierad arbets uppsättning data (frekventa data). I den här modellen lagras den aktiva data uppsättningen på de lokala nivåerna, och återstående icke-arbetsminne/kall/arkiverad data uppsättning för data skiktas i molnet. Den här modellen visas i följande figur. Den nästan platta gröna linjen representerar de data som lagras på de lokala nivåerna på StorSimple-enheten. Den röda linjen representerar den totala mängden data som lagras i StorSimple-lösningen på alla nivåer. Utrymmet mellan den platta gröna linjen och den exponentiella röda kurvan representerar den totala mängden data som lagras i molnet.
 
-**StorSimple tiering**
-![Diagram över StorSimple för StorSimple-skiktning](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+**StorSimple-skiktning** 
+ ![ Diagram för StorSimple-skiktning](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 Med den här arkitekturen i åtanke kommer du att se att StorSimple passar utmärkt för att hantera säkerhets kopierings mål. Du kan använda StorSimple för att:
 
@@ -187,7 +187,7 @@ I det här avsnittet demonstreras några konfigurations exempel. Följande exemp
 | StorSimple distributions uppgifter  | Ytterligare kommentarer |
 |---|---|
 | Distribuera din lokala StorSimple-enhet. | Versioner som stöds: Update 3 och senare versioner. |
-| Aktivera säkerhets kopierings målet. | Använd de här kommandona för att aktivera eller inaktivera säkerhets kopieringens mål läge och hämta status. Mer information finns i fjärrans [luta till en StorSimple-enhet](storsimple-remote-connect.md).</br> Aktivera säkerhets kopierings läge: `Set-HCSBackupApplianceMode -enable`. </br> Så här stänger du av säkerhets `Set-HCSBackupApplianceMode -disable`kopierings läge:. </br> Så här hämtar du det aktuella läget för inställningarna för `Get-HCSBackupApplianceMode`säkerhets kopierings läge:. |
+| Aktivera säkerhets kopierings målet. | Använd de här kommandona för att aktivera eller inaktivera säkerhets kopieringens mål läge och hämta status. Mer information finns i fjärrans [luta till en StorSimple-enhet](storsimple-remote-connect.md).</br> Aktivera säkerhets kopierings läge: `Set-HCSBackupApplianceMode -enable` . </br> Så här stänger du av säkerhets kopierings läge: `Set-HCSBackupApplianceMode -disable` . </br> Så här hämtar du det aktuella läget för inställningarna för säkerhets kopierings läge: `Get-HCSBackupApplianceMode` . |
 | Skapa en gemensam volym behållare för din volym som lagrar säkerhetskopierade data. Alla data i en volym behållare har deduplicerats. | StorSimple volym behållare definierar Deduplicerings domäner.  |
 | Skapa StorSimple-volymer. | Skapa volymer med storlekar så nära den förväntade användningen som möjligt, eftersom volym storleken påverkar varaktigheten för moln ögonblicks bilder. Information om hur du ändrar storlek på en volym finns i om [bevarande principer](#retention-policies).</br> </br> Använd StorSimple-skiktade volymer och markera kryss rutan **Använd den här volymen för lagrings data** som inte används mindre ofta. </br> Det finns inte stöd för att använda lokalt fästa volymer. |
 | Skapa en unik säkerhets kopierings princip för StorSimple för alla säkerhets kopierings mål volymer. | En princip för StorSimple-säkerhetskopiering definierar volym konsekvens gruppen. |
@@ -319,7 +319,7 @@ Här är ett exempel på ett GFS rotations schema för fyra veckor, varje månad
 | Typ av frekvens/säkerhets kopiering | Fullständig | Stegvis (dagar 1-5)  |   
 |---|---|---|
 | Varje vecka (veckor 1-4) | Lördag | Måndag-fredag |
-| Månadsvis  | Lördag  |   |
+| Varje månad  | Lördag  |   |
 | Varje år | Lördag  |   |
 
 
@@ -378,7 +378,7 @@ Följande bild visar typisk kortsiktig kvarhållning lokalt (till Server) volyme
 
 I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska köras på lokala och StorSimple diskar. Den innehåller individuella och totala kapacitets krav.
 
-| Typ av säkerhets kopiering och kvarhållning | Konfigurerat lagring | Storlek (TiB) | GFS-multiplikator | Total kapacitet\* (TIB) |
+| Typ av säkerhets kopiering och kvarhållning | Konfigurerat lagring | Storlek (TiB) | GFS-multiplikator | Total kapacitet \* (TIB) |
 |---|---|---|---|---|
 | Vecka 1 (fullständig och stegvis) |Lokal disk (kortsiktig)| 1 | 1 | 1 |
 | StorSimple veckor 2-4 |StorSimple disk (lång sikt) | 1 | 4 | 4 |
@@ -399,7 +399,7 @@ GFS rotation, varje vecka, månads vis och årligt schema
 | Vecka 2 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 3 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2-4 |   |   |   |   |   |
-| Månadsvis | StorSimple varje månad |   |   |   |   |   |
+| Varje månad | StorSimple varje månad |   |   |   |   |   |
 | Varje år | StorSimple varje år  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Tilldela StorSimple-volymer till ett Veeam kopierings jobb
@@ -469,8 +469,8 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Starta eller ta bort en moln ögonblicks bild
 
 1. [Installera Azure PowerShell](/powershell/azure/overview).
-2. Hämta och installera PowerShell-skriptet [Manage-CloudSnapshots. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) .
-3. Kör PowerShell som administratör på den server som kör skriptet. Se till att du kör skriptet med `-WhatIf $true` för att se vilka ändringar som görs i skriptet. Skicka `-WhatIf $false`när verifieringen är klar. Kör kommandot nedan:
+2. Hämta och konfigurera [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell-skript.
+3. Kör PowerShell som administratör på den server som kör skriptet. Se till att du kör skriptet med `-WhatIf $true` för att se vilka ändringar som görs i skriptet. Skicka när verifieringen är klar `-WhatIf $false` . Kör kommandot nedan:
    ```powershell
    .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
    ```
@@ -500,7 +500,7 @@ Med Veeam får du snabb, detaljerad återställning på filnivå via StorSimple 
 
 En katastrof kan orsakas av olika faktorer. I följande tabell visas vanliga scenarier för haveri beredskap.
 
-| Scenario | Påverkan | Återställa | Anteckningar |
+| Scenario | Påverkan | Återställa | Kommentarer |
 |---|---|---|---|
 | StorSimple enhets problem | Säkerhets kopierings-och återställnings åtgärder avbryts. | Ersätt den felande enheten och utför [StorSimple redundans och haveri beredskap](storsimple-device-failover-disaster-recovery.md). | Om du behöver utföra en återställning efter återställning av enheten hämtas fullständiga data arbets uppsättningar från molnet till den nya enheten. Alla åtgärder är i moln hastighet. Processen för att genomsöka index och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån, vilket kan vara en tids krävande process. |
 | Veeam Server-problem | Säkerhets kopierings-och återställnings åtgärder avbryts. | Återskapa säkerhets kopierings servern och utför databas återställningen enligt beskrivningen i [Veeam Help Center (teknisk dokumentation)](https://www.veeam.com/documentation-guides-datasheets.html).  | Du måste återskapa eller återställa Veeam-servern på återställnings platsen för haveri beredskap. Återställ databasen till den senaste punkten. Om den återställda Veeam-databasen inte är synkroniserad med dina senaste säkerhets kopierings jobb krävs indexering och katalogering. Den här processen för att indexera och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån. Detta gör det ytterligare tids krävande. |

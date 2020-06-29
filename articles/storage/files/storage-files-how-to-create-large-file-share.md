@@ -3,22 +3,22 @@ title: Aktivera och skapa stora fil resurser – Azure Files
 description: I den här artikeln får du lära dig hur du aktiverar och skapar stora fil resurser.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 16a183776bebad2fd365c3182ae64ea54befe41d
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219085"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510735"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Aktivera och skapa stora fil resurser
 
 När du aktiverar stora fil resurser på ditt lagrings konto kan fil resurserna skala upp till 100 TiB. Du kan aktivera den här skalningen på dina befintliga lagrings konton för dina befintliga fil resurser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -48,7 +48,7 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
 1. Ange replikeringen till antingen **Lokalt Redundant lagring** eller **zon-redundant lagring**.
 1. Lämna dessa fält till standardvärdena:
 
-   |Fält  |Värde  |
+   |Field  |Värde  |
    |---------|---------|
    |Distributionsmodell     |Resource Manager         |
    |Prestanda     |Standard         |
@@ -132,7 +132,7 @@ Att skapa en stor fil resurs är nästan identiskt med att skapa en standard fil
 
 1. Välj **fil resurser**från ditt lagrings konto.
 1. Välj **+ Filresurs**.
-1. Ange ett namn på fil resursen. Du kan också ange den kvot storlek som du vill, upp till 100 TiB. Välj sedan **skapa**. 
+1. Ange ett namn på fil resursen. Du kan också ange den kvot storlek som du vill, upp till 100 TiB. Välj sedan **Skapa**. 
 
 ![Azure Portal gränssnittet visar rutorna namn och kvot](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 

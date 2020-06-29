@@ -3,16 +3,16 @@ title: Lokal NAS-migrering till Azure File Sync
 description: Lär dig hur du migrerar filer från en lokal NAS-plats (Network Attached Storage) till en hybrid moln distribution med Azure File Sync och Azure-filresurser.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7b0c7a30580d3863a78e85b8b45287a598bbf394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247358"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510313"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrera från nätverksansluten lagring (NAS) till en hybrid moln distribution med Azure File Sync
 
@@ -124,7 +124,7 @@ Lägg
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /UNILOG:\<fil namn\>
+      /UNILOG:\<file name\>
    :::column-end:::
    :::column span="1":::
       Matar ut status till logg filen som UNICODE (skriver över befintlig logg).

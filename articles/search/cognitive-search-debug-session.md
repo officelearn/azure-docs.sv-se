@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: d325b65b01ea13cfcb141d28343d94866d9e05e2
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 6c658053afcaff99249e5d20ca2dc5a14037470b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84751536"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510847"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Felsöka sessioner i Azure Kognitiv sökning
 
 Debug-sessioner är en visuell redigerare som fungerar med en befintlig färdigheter i Azure Portal. Inom en felsökningssession kan du identifiera och lösa fel, verifiera ändringar och skicka ändringar till en produktions-färdigheter i AI-pipeline för anrikning.
 
 > [!Important]
-> Stöd för fel söknings sessioner för Azure Kognitiv sökning är tillgängligt [på begäran](https://aka.ms/DebugSessions) som en för hands version av begränsad åtkomst. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Debug-sessioner är en förhands gransknings funktion utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> När du har beviljats åtkomst till för hands versionen kommer du att kunna komma åt och använda debug-sessioner för tjänsten med hjälp av Azure Portal.
 
 ## <a name="using-debug-sessions"></a>Använda debug-sessioner
 
@@ -86,6 +85,10 @@ I fönstret fördelad **data struktur** visas dokumentets berikning genom färdi
 ## <a name="errorswarnings"></a>Fel/varningar
 
 I det här fönstret visas alla fel och varningar som färdigheter genererar när den körs mot dokumentet i felsökningssessionen.
+
+## <a name="limitations"></a>Begränsningar
+
+Fel söknings sesisons fungerar med alla allmänt tillgängliga data källor AMD-förhands gransknings data källor. MongoDB-API (för hands version) och API för Cassandra (för hands version) av Cosmos DB stöds inte för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
 

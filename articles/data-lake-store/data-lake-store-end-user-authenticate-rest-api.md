@@ -3,15 +3,15 @@ title: Autentisering av slutanvändare – REST med Data Lake Storage Gen1 – A
 description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 att använda Azure Active Directory med REST API
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ac06c9ef355eeba489d2006c435a48b7efcfd7f0
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: f0b79ec08883c81aee535a6eff1176e3e10027d9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688070"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511202"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med hjälp av REST API
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > \<REDIRECT-URI> måste kodas för användning i en URL. För https://localhost, Använd `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI>måste kodas för användning i en URL. För https://localhost , Använd `https%3A%2F%2Flocalhost` )
 
     För självstudierna kan du ersätta platshållarvärdena i URL-adressen ovan och klistra in den i webbläsarens adressfält. Du omdirigeras för att autentisera med Azure-autentiseringsuppgifter. När du har loggat in visas svaret i webbläsarens adressfält. Svaret ska ha följande format:
 
@@ -60,11 +60,11 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
         -F code=<AUTHORIZATION-CODE>
 
    > [!NOTE]
-   > I det här fallet behöver \<REDIRECT-URI> inte vara kodad.
+   > I det här fallet \<REDIRECT-URI> behöver de inte vara kodade.
    > 
    > 
 
-3. Svaret är ett JSON-objekt som innehåller en åtkomsttoken (till exempel `"access_token": "<ACCESS_TOKEN>"`) och en uppdateringstoken (till exempel `"refresh_token": "<REFRESH_TOKEN>"`). Programmet använder åtkomsttoken vid åtkomst till Azure Data Lake Storage Gen1 och uppdateringstoken för att få en annan åtkomsttoken när en åtkomsttoken upphör att gälla.
+3. Svaret är ett JSON-objekt som innehåller en åtkomsttoken (till exempel `"access_token": "<ACCESS_TOKEN>"` ) och en uppdateringstoken (till exempel `"refresh_token": "<REFRESH_TOKEN>"` ). Programmet använder åtkomsttoken vid åtkomst till Azure Data Lake Storage Gen1 och uppdateringstoken för att få en annan åtkomsttoken när en åtkomsttoken upphör att gälla.
 
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 

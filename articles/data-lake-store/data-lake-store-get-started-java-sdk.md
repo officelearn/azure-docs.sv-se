@@ -3,15 +3,15 @@ title: Java SDK – fil Systems åtgärder på Data Lake Storage Gen1 – Azure
 description: Använd Java SDK för Azure Data Lake Storage Gen1 för att utföra fil Systems åtgärder på Data Lake Storage Gen1, till exempel skapa mappar, och ladda upp och ladda ned filer.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 6f97443e4bcf6689f0bf49917774f662d5462566
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 45f9ebced14856145b1631fdbb6484c94826b72e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691780"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511137"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Fil Systems åtgärder på Azure Data Lake Storage Gen1 med Java SDK
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://azure.microsoft.com/do
 
 1. Skapa ett Maven-projekt med [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) från kommandoraden eller med hjälp av en IDE. Anvisningar för hur du skapar ett Java-projekt med IntelliJ finns [här](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Anvisningar för hur du skapar ett Java-projekt med Eclipse finns [här](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
 
-2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande kodfragment innan taggen ** \</Project>** :
+2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande kodfragment före **\</project>** taggen:
    
         <dependencies>
           <dependency>
@@ -52,7 +52,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://azure.microsoft.com/do
           </dependency>
         </dependencies>
    
-    Det första beroendet är att använda Data Lake Storage Gen1 SDK ()`azure-data-lake-store-sdk`från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [SLF4J](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
+    Det första beroendet är att använda Data Lake Storage Gen1 SDK ( `azure-data-lake-store-sdk` ) från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [SLF4J](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
 
 3. Lägg till följande importuttryck i programmet.
 
@@ -200,7 +200,7 @@ Följande kodfragment tar bort de angivna filerna och mapparna i ett Data Lake S
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 1. För att köra inifrån en IDE, letar du upp och trycker på **Kör**-knappen. För att köra från Maven, använder du [exec:exec](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
-2. För att skapa en fristående jar som du kan köra från kommandoraden, skapar du jaren med alla beroenden inkluderade, med hjälp av [Maven-plugin-paketet](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Pom. xml i [exempel käll koden på GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) innehåller ett exempel.
+2. För att skapa en fristående jar som du kan köra från kommandoraden, skapar du jaren med alla beroenden inkluderade, med hjälp av [Maven-plugin-paketet](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). pom.xml i [exempel käll koden på GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) har ett exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Utforska JavaDoc för Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)

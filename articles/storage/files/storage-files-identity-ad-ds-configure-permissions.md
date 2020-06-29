@@ -4,15 +4,15 @@ description: Lär dig hur du konfigurerar Windows ACL-behörigheter för lokal A
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 34535cda82ba039ace98b6055e8f7096c5454fda
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 38168db9706bd168b3edc2e740eaea40b23d4b0b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207880"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510584"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Del tre: Konfigurera behörigheter för kataloger och filnivå över SMB 
 

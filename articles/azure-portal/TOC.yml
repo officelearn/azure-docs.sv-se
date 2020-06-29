@@ -8,6 +8,12 @@
       href: azure-portal-quickstart-center.md
     - name: Webbläsare och enheter som stöds
       href: azure-portal-supported-browsers-devices.md
+- name: Snabbstarter
+  items:
+    - name: Skapa en virtuell dator i portalen
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - name: Skapa en instrumentpanel – ARM-mall
+      href: quick-create-template.md
 - name: Begrepp
   items:
     - name: Dela instrumentpaneler med rollbaserad åtkomstkontroll

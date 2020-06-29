@@ -4,16 +4,16 @@ titleSuffix: Azure Files
 description: Hur du skapar en Azure-filresurs med hjälp av Azure Portal, PowerShell eller Azure CLI.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ed6abbac7c5953eaec4fa4584248d0d98b49ba63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba6f4bcaffbf9fa11c949853362485d524bec23a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77596940"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510024"
 ---
 # <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 Om du vill skapa en Azure-filresurs måste du svara på tre frågor om hur du ska använda den:
@@ -45,7 +45,7 @@ Azure har stöd för flera typer av lagrings konton för olika lagrings scenarie
 
 - **FileStorage lagrings konton**: med FileStorage Storage-konton kan du Distribuera Azure-filresurser i Premium/Solid-State-baserad (SSD) maskin vara. FileStorage-konton kan bara användas för att lagra Azure-filresurser. inga andra lagrings resurser (BLOB-behållare, köer, tabeller osv.) kan distribueras i ett FileStorage-konto.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Om du vill skapa ett lagrings konto via Azure Portal väljer du **+ skapa en resurs** från instrument panelen. I fönstret Azure Marketplace search kan du söka efter **lagrings konto** och välja det resulterande Sök resultatet. Detta kommer att leda till en översikts sida för lagrings konton. Klicka på **skapa** för att fortsätta med guiden skapa lagrings konto.
 
 ![En skärm bild av alternativet för snabb skapande av lagrings konto i en webbläsare](media/storage-how-to-create-file-share/create-storage-account-0.png)
@@ -87,7 +87,7 @@ Taggar är namn/värde-par som låter dig kategorisera resurser och Visa konsol 
 Det sista steget för att skapa lagrings kontot är att välja knappen **skapa** på fliken **Granska + skapa** . Den här knappen är inte tillgänglig om alla obligatoriska fält för ett lagrings konto inte har fyllts i.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Vi använder `New-AzStorageAccount` cmdleten för att skapa ett lagrings konto med hjälp av PowerShell. Denna cmdlet har många alternativ; endast de alternativ som krävs visas. Mer information om avancerade alternativ finns i [ `New-AzStorageAccount` cmdlet-dokumentationen](/powershell/module/az.storage/new-azstorageaccount).
+Vi använder cmdleten för att skapa ett lagrings konto med hjälp av PowerShell `New-AzStorageAccount` . Denna cmdlet har många alternativ; endast de alternativ som krävs visas. Mer information om avancerade alternativ finns i cmdlet- [ `New-AzStorageAccount` dokumentationen](/powershell/module/az.storage/new-azstorageaccount).
 
 För att förenkla skapandet av lagrings kontot och efterföljande fil resurser kommer vi att lagra flera parametrar i variabler. Du kan ersätta variabel innehållet med de värden du önskar, men Observera att lagrings konto namnet måste vara globalt unikt.
 
@@ -97,7 +97,7 @@ $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
 ```
 
-Vi använder följande kommando för att skapa ett lagrings konto som kan lagra standard Azure-filresurser. `-SkuName` Parametern relaterar till den typ av redundans som önskas. Om du vill ha ett Geo-redundant eller Geo-redundant lagrings konto måste du också ta bort `-EnableLargeFileShare` parametern.
+Vi använder följande kommando för att skapa ett lagrings konto som kan lagra standard Azure-filresurser. `-SkuName`Parametern relaterar till den typ av redundans som önskas. om du vill ha ett Geo-redundant eller geo-zon-redundant lagrings konto måste du också ta bort `-EnableLargeFileShare` parametern.
 
 ```azurepowershell-interactive
 $storAcct = New-AzStorageAccount `
@@ -109,7 +109,7 @@ $storAcct = New-AzStorageAccount `
     -EnableLargeFileShare
 ```
 
-För att kunna skapa ett lagrings konto som kan lagra Premium Azure-filresurser, kommer vi att använda följande kommando. Observera att `-SkuName` parametern har ändrats till att inkludera både `Premium` och önskad redundans nivå för lokalt redundant (`LRS`). - `-Kind` Parametern är `FileStorage` istället för `StorageV2` att Premium-filresurser måste skapas i ett FileStorage lagrings konto i stället för ett GPv2-lagrings konto.
+För att kunna skapa ett lagrings konto som kan lagra Premium Azure-filresurser, kommer vi att använda följande kommando. Observera att `-SkuName` parametern har ändrats till att inkludera både `Premium` och önskad redundans nivå för lokalt redundant ( `LRS` ). - `-Kind` Parametern är `FileStorage` istället för `StorageV2` att Premium-filresurser måste skapas i ett FileStorage lagrings konto i stället för ett GPv2-lagrings konto.
 
 ```azurepowershell-interactive
 $storAcct = New-AzStorageAccount `
@@ -131,7 +131,7 @@ storageAccountName="mystorageacct$RANDOM"
 region="westus2"
 ```
 
-Vi använder följande kommando för att skapa ett lagrings konto som kan lagra standard Azure-filresurser. `--sku` Parametern relaterar till den typ av redundans som önskas. Om du vill ha ett Geo-redundant eller Geo-redundant lagrings konto måste du också ta bort `--enable-large-file-share` parametern.
+Vi använder följande kommando för att skapa ett lagrings konto som kan lagra standard Azure-filresurser. `--sku`Parametern relaterar till den typ av redundans som önskas. om du vill ha ett Geo-redundant eller geo-zon-redundant lagrings konto måste du också ta bort `--enable-large-file-share` parametern.
 
 ```azurecli-interactive
 az storage account create \
@@ -143,7 +143,7 @@ az storage account create \
     --output none
 ```
 
-För att kunna skapa ett lagrings konto som kan lagra Premium Azure-filresurser, kommer vi att använda följande kommando. Observera att `--sku` parametern har ändrats till att inkludera både `Premium` och önskad redundans nivå för lokalt redundant (`LRS`). - `--kind` Parametern är `FileStorage` istället för `StorageV2` att Premium-filresurser måste skapas i ett FileStorage lagrings konto i stället för ett GPv2-lagrings konto.
+För att kunna skapa ett lagrings konto som kan lagra Premium Azure-filresurser, kommer vi att använda följande kommando. Observera att `--sku` parametern har ändrats till att inkludera både `Premium` och önskad redundans nivå för lokalt redundant ( `LRS` ). - `--kind` Parametern är `FileStorage` istället för `StorageV2` att Premium-filresurser måste skapas i ett FileStorage lagrings konto i stället för ett GPv2-lagrings konto.
 
 ```azurecli-interactive
 az storage account create \
@@ -163,7 +163,7 @@ För standard fil resurser är det en övre gränser för Azure-filresursen, ut�
 
 För Premium-filresurser är kvoten överbelastad till en medels **Tor storlek**. Den etablerade storleken är den mängd som du debiteras för, oavsett faktisk användning. När du etablerar en Premium-filresurs vill du överväga två faktorer: 1) den framtida tillväxten av resursen från ett utrymmes användnings perspektiv och 2) IOPS som krävs för din arbets belastning. Varje etablerad GiB ger dig ytterligare reserverade och burst-IOPS. Mer information om hur du planerar för en Premium-filresurs finns i avsnittet om att [allokera Premium-filresurser](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Om du precis har skapat ditt lagrings konto kan du navigera till det från distributions skärmen genom att välja **gå till resurs**. Om du tidigare har skapat lagrings kontot kan du navigera till det via den resurs grupp som innehåller det. När du är i lagrings kontot väljer du panelen med namnet **fil resurser** (du kan också navigera till **fil resurser** via innehålls förteckningen för lagrings kontot).
 
 ![En skärm bild av panelen fil resurser](media/storage-how-to-create-file-share/create-file-share-1.png)
@@ -178,10 +178,10 @@ Bladet ny fil resurs bör visas på skärmen. Fyll i fälten på bladet ny fil r
 Välj **skapa** för att slutföra skapandet av den nya resursen. Observera att om ditt lagrings konto finns i ett virtuellt nätverk kan du inte skapa en Azure-filresurs om inte din klient också finns i det virtuella nätverket. Du kan också kringgå den här begränsningen genom att använda Azure PowerShell `New-AzRmStorageShare` cmdlet.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Du kan skapa Azure-filresursen med [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdleten. Följande PowerShell-kommandon förutsätter att du har `$resourceGroupName` angett `$storageAccountName` variablerna och enligt definitionen ovan i avsnittet Skapa ett lagrings konto med Azure PowerShell. 
+Du kan skapa Azure-filresursen med [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdleten. Följande PowerShell-kommandon förutsätter att du har angett variablerna `$resourceGroupName` och `$storageAccountName` enligt definitionen ovan i avsnittet Skapa ett lagrings konto med Azure PowerShell. 
 
 > [!Important]  
-> För Premium-filresurser refererar `-QuotaGiB` parametern till den allokerade storleken på fil resursen. Den allokerade storleken på fil resursen är den mängd som du debiteras för, oavsett användning. Standard fil resurser faktureras baserat på användning i stället för en etablerad storlek.
+> För Premium-filresurser `-QuotaGiB` refererar parametern till den allokerade storleken på fil resursen. Den allokerade storleken på fil resursen är den mängd som du debiteras för, oavsett användning. Standard fil resurser faktureras baserat på användning i stället för en etablerad storlek.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -209,7 +209,7 @@ storageAccountKey=$(az storage account keys list \
 När du har lagrings konto nyckeln kan du skapa Azure-filresursen med [`az storage share create`](/cli/azure/storage/share) kommandot. 
 
 > [!Important]  
-> För Premium-filresurser refererar `--quota` parametern till den allokerade storleken på fil resursen. Den allokerade storleken på fil resursen är den mängd som du debiteras för, oavsett användning. Standard fil resurser faktureras baserat på användning i stället för en etablerad storlek.
+> För Premium-filresurser `--quota` refererar parametern till den allokerade storleken på fil resursen. Den allokerade storleken på fil resursen är den mängd som du debiteras för, oavsett användning. Standard fil resurser faktureras baserat på användning i stället för en etablerad storlek.
 
 ```azurecli-interactive
 shareName="myshare"

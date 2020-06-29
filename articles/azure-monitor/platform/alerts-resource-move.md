@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: fe89f932bcf7aa22657a3fcabddd015df4b9913d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 65c2e3dbe7cb99c9b7c6e1a84178fd28d5013a69
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85486677"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507950"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Så här uppdaterar du aviserings regler eller åtgärds regler när deras mål resurs flyttas till en annan Azure-region
 
@@ -32,6 +32,7 @@ Det finns två huvudsakliga orsaker till varför dina regler slutar att fungera 
 När du flyttar en resurs ändras resurs-ID i de flesta fall. Systemet replikerar resursen till den nya regionen i bakgrunden innan du tar bort den från den gamla regionen. Den här processen kräver att två resurser och därmed två olika resurs-ID: n finns samtidigt under en viss tids period. Eftersom resurs-ID: n måste vara unika måste ett nytt ID skapas under processen. 
 
 **Hur påverkar flyttningen av resursen befintliga regler?**
+
 Aviserings regler och åtgärds regler har en omfattning av de resurser som de gäller för. Omfånget kan vara en hel prenumeration, en resurs grupp eller en eller flera olika resurser.
 Här är till exempel en regel med en omfattning med två resurser (två virtuella datorer):
 
@@ -101,8 +102,12 @@ Om **bara några** av resurserna i omfånget har flyttats måste du ta bort de f
 2. Ändra omfånget. Om det behövs kan du dela upp i två regler (relevanta för vissa fall av mått aviseringar, som anges ovan).
 3. Distribuera om regeln ([mått aviseringar](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2), [aktivitets logg aviseringar](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert), [Åtgärds regler](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)).
 
-### <a name="changing-the-scope-of-a-rule-using-azure-cli"></a>Ändra omfånget för en regel med hjälp av Azure CLI
+### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Ändra omfånget för en regel med hjälp av Azure CLI
 
 1.  Hämta den befintliga regeln ([mått aviseringar](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [aktivitets logg aviseringar](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
 2.  Uppdatera regel omfånget direkt ([mått aviseringar](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [aktivitets logg aviseringar](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope))
 3.  Om det behövs kan du dela upp i två regler (relevanta för vissa fall av mått aviseringar, som anges ovan).
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om att åtgärda andra problem med [aviserings meddelanden](alerts-troubleshoot.md), [mått varningar](alerts-troubleshoot-metric.md)och [logg aviseringar](alerts-troubleshoot-log.md). 

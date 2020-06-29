@@ -8,17 +8,17 @@ manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: c05b62b254320bd56a6f0591f1edbe32d5362e56
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60631687"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514723"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrera data från StorSimple 5000-7000-serien till 8000-serien het
 
@@ -123,7 +123,7 @@ Utför följande steg för att installera StorSimple Migration Tool på datorn.
 
 1. Kopiera mappen _StorSimple8000SeriesMigrationTool_ till din Windows-dator. Kontrol lera att enheten där program varan har kopierats har tillräckligt med utrymme.
 
-    Öppna verktygs konfigurations filen _StorSimple8000SeriesMigrationTool. exe. config_ i mappen. Här är kodfragmentet i filen.
+    Öppna konfigurations filen för verktyget _StorSimple8000SeriesMigrationTool.exe.config_ i mappen. Här är kodfragmentet i filen.
     
     ```xml
         <add key="UserName" value="username@xyz.com" />
@@ -145,7 +145,7 @@ Utför följande steg för att installera StorSimple Migration Tool på datorn.
     ![Kontrol lera klient-ID för Azure Active Directory](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
 
 3.  Spara ändringarna som gjorts i konfigurations filen.
-4.  Kör _StorSimple8000SeriesMigrationTool. exe_ för att starta verktyget. När du uppmanas att ange autentiseringsuppgifter anger du de autentiseringsuppgifter som är associerade med din prenumeration i Azure Portal. 
+4.  Kör _StorSimple8000SeriesMigrationTool.exe_ för att starta verktyget. När du uppmanas att ange autentiseringsuppgifter anger du de autentiseringsuppgifter som är associerade med din prenumeration i Azure Portal. 
 5.  Användar gränssnittet för migrations verktyget för StorSimple visas.
   
 

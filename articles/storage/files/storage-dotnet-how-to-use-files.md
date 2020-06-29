@@ -4,16 +4,16 @@ description: Lär dig hur du utvecklar .NET-program och tjänster som använder 
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301445"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515376"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
@@ -34,7 +34,7 @@ Mer information om Azure Files finns i [Vad är Azure Files?](storage-files-intr
 
 ## <a name="understanding-the-net-apis"></a>Förstå .NET-API: er
 
-Azure Files tillhandahåller två breda metoder för klientprogram: Server Message Block (SMB) och REST. I .NET är API `System.IO` : `WindowsAzure.Storage` erna och abstrakta dessa metoder.
+Azure Files tillhandahåller två breda metoder för klientprogram: Server Message Block (SMB) och REST. I .NET är `System.IO` API: `WindowsAzure.Storage` erna och abstrakta dessa metoder.
 
 API | När du ska använda detta | Anteckningar
 ----|-------------|------
@@ -80,11 +80,11 @@ Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 
    * **Microsoft. Azure. Storage. common**
    * **Microsoft. Azure. Storage. File**
-   * **Microsoft. Azure. ConfigurationManager**
+   * **Microsoft.Azure.ConfigurationManager**
 
-## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagrings konto i filen app. config
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagrings konto i App.config-filen
 
-Spara sedan dina autentiseringsuppgifter i projekt `App.config` filen. I **Solution Explorer**dubbelklickar du på `App.config` och redigerar filen så att den liknar följande exempel. Ersätt `myaccount` med ditt lagrings konto namn `mykey` och med din lagrings konto nyckel.
+Spara sedan dina autentiseringsuppgifter i projekt `App.config` filen. I **Solution Explorer**dubbelklickar du på `App.config` och redigerar filen så att den liknar följande exempel. Ersätt `myaccount` med ditt lagrings konto namn och `mykey` med din lagrings konto nyckel.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -103,7 +103,7 @@ Spara sedan dina autentiseringsuppgifter i projekt `App.config` filen. I **Solut
 
 ## <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
 
-Öppna **Solution Explorer** `Program.cs` filen i Solution Explorer och Lägg till följande med hjälp av direktiv överst i filen.
+Öppna filen i **Solution Explorer** `Program.cs` och Lägg till följande med hjälp av direktiv överst i filen.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -116,7 +116,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Ansluta till filresursen via programmering
 
-Lägg sedan till följande innehåll till- `Main()` metoden, efter den kod som visas ovan, för att hämta anslutnings strängen. Den här koden hämtar en referens till filen som vi skapade tidigare och matar ut innehållet.
+Lägg sedan till följande innehåll till `Main()` -metoden, efter den kod som visas ovan, för att hämta anslutnings strängen. Den här koden hämtar en referens till filen som vi skapade tidigare och matar ut innehållet.
 
 ```csharp
 // Create a CloudFileClient object for credentialed access to Azure Files.
@@ -435,7 +435,7 @@ using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Även om Azure-blobbar, Azure-tabeller och Azure-köer använder `ServiceProperties` den delade typen `Microsoft.Azure.Storage.Shared.Protocol` i namn området, Azure Files använder sin egen typ `FileServiceProperties` , typen i `Microsoft.Azure.Storage.File.Protocol` namn området. Du måste referera till båda namn områdena från din kod, men för att kunna kompilera i följande kod.
+Även om Azure-blobbar, Azure-tabeller och Azure-köer använder den delade `ServiceProperties` typen i `Microsoft.Azure.Storage.Shared.Protocol` namn området, Azure Files använder sin egen typ, `FileServiceProperties` typen i `Microsoft.Azure.Storage.File.Protocol` namn området. Du måste referera till båda namn områdena från din kod, men för att kunna kompilera i följande kod.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.

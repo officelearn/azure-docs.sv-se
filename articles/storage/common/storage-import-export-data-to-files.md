@@ -4,16 +4,16 @@ description: Lär dig hur du skapar import jobb i Azure Portal för att överfö
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbff2cbed37a4cff91116596f1c20dc3d170cae2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268306"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513489"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Importera data till Azure Files med Import/Export-tjänsten i Azure
 
@@ -29,11 +29,11 @@ Innan du skapar ett import jobb för att överföra data till Azure Files bör d
 - Ha minst ett Azure Storage konto. Se listan över [lagrings konton och lagrings typer som stöds för import/export-tjänsten](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 - Har tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
 - Ha ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems).
-- [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-systemet. Zippa upp till standardmappen `waimportexport`. Till exempel `C:\WaImportExport`.
-- Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com`.  
+- [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-systemet. Zippa upp till standardmappen `waimportexport` . Exempelvis `C:\WaImportExport`.
+- Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .  
     - Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
     - Generera ett spårnings nummer för export jobbet.
-    - Varje jobb bör ha ett separat spårnings nummer. Det finns inte stöd för flera jobb med samma spårnings nummer.
+    - Varje jobb ska ha ett separat spårningsnummer. Det finns inte stöd för flera jobb med samma spårningsnummer.
     - Om du inte har ett transport företags konto går du till:
         - [Skapa ett FedEX-konto](https://www.fedex.com/en-us/create-account.html)eller
         - [Skapa ett DHL-konto](http://www.dhl-usa.com/en/express/shipping/open_account.html).
@@ -48,9 +48,9 @@ Utför följande steg för att förbereda enheterna.
 
 1. Anslut våra disk enheter till Windows-systemet via SATA-anslutningar.
 2. Skapa en enda NTFS-volym på varje enhet. Tilldela volymen en enhets beteckning. Använd inte mountpoints.
-3. Ändra *data mängden. csv* -filen i rotmappen där verktyget finns. Beroende på om du vill importera en fil eller mapp eller båda lägger du till poster i *data uppsättningen. csv* -filen som liknar följande exempel.  
+3. Ändra *dataset.csv* -filen i rotmappen där verktyget finns. Beroende på om du vill importera en fil eller mapp eller båda lägger du till poster i *dataset.csv* -filen som liknar följande exempel.  
 
-   - **Så här importerar du en fil**: i följande exempel finns de data som ska kopieras på enheten F:. Filen *MyFile1. txt* kopieras till roten för *MyAzureFileshare1*. Om *MyAzureFileshare1* inte finns skapas den i Azure Storage-kontot. Mappstrukturen upprätthålls.
+   - **Så här importerar du en fil**: i följande exempel finns de data som ska kopieras på enheten F:. Filen *MyFile1.txt* kopieras till roten i *MyAzureFileshare1*. Om *MyAzureFileshare1* inte finns skapas den i Azure Storage-kontot. Mappstrukturen upprätthålls.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -73,9 +73,9 @@ Utför följande steg för att förbereda enheterna.
      Läs mer om hur [du förbereder data uppsättningens CSV-fil](storage-import-export-tool-preparing-hard-drives-import.md).
 
 
-4. Ändra filen *driveset. csv* i rotmappen där verktyget finns. Lägg till poster i filen *driveset. csv* som liknar följande exempel. Driveset-filen innehåller en lista över diskar och motsvarande enhets beteckningar så att verktyget kan välja listan över diskar som ska förberedas korrekt.
+4. Ändra *driveset.csv* -filen i rotmappen där verktyget finns. Lägg till poster i *driveset.csv* -filen som liknar följande exempel. Driveset-filen innehåller en lista över diskar och motsvarande enhets beteckningar så att verktyget kan välja listan över diskar som ska förberedas korrekt.
 
-    I det här exemplet förutsätts att två diskar är kopplade till och enkla NTFS-volymer G:\ och H:\ skapas. H:\is har inte krypterats medan G: redan är krypterad. Verktyget formaterar och krypterar den disk som är värd för H:\ endast (och inte G:\).
+    I det här exemplet förutsätts att två diskar är kopplade till och enkla NTFS-volymer G:\ och H:\ skapas. H:\is har inte krypterats medan G: redan är krypterad. Verktyget formaterar och krypterar den disk som är värd för H:\ endast (och inte G: \) .
 
    - **För en disk som inte är krypterad**: ange *kryptera* för att aktivera BitLocker-kryptering på disken.
 
@@ -115,7 +115,7 @@ Fler exempel finns i [exempel på Journal-filer](#samples-for-journal-files).
 ## <a name="step-2-create-an-import-job"></a>Steg 2: skapa ett import jobb
 
 Utför följande steg för att skapa ett import jobb i Azure Portal.
-1. Logga in på https://portal.azure.com/.
+1. Logga in på https://portal.azure.com/ .
 2. Gå till **alla tjänster > lagring > import/export-jobb**.
 
     ![Gå till import/export](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
@@ -145,7 +145,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
 4. I **information om retur leverans**:
 
-    - Välj transport företags leverantör i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet `adbops@microsoft.com` på med information om den operatör som du planerar att använda.
+    - Välj transport företags leverantör i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com` med information om den operatör som du planerar att använda.
     - Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt import jobb har slutförts.
     - Ange ett fullständigt och giltigt kontakt namn, telefon, e-postadress, gatuadress, ort, post, delstat/provins och land/region.
 
@@ -178,7 +178,7 @@ Spåra jobbet till slutfört. När jobbet har slutförts kontrollerar du att din
 
 Om du vill **lägga till fler enheter**skapar du en ny driveset-fil och kör kommandot enligt nedan.
 
-För efterföljande kopierings sessioner till de olika disk enheterna än vad som anges i *InitialDriveset. csv* -filen anger du en ny driveset *. csv* -fil och anger den som `AdditionalDriveSet`ett värde för parametern. Använd **samma Journal fil** namn och ange ett **nytt sessions-ID**. Formatet på AdditionalDriveset CSV-filen är samma som InitialDriveSet-formatet.
+För efterföljande kopierings sessioner till de olika disk enheterna än vad som anges i *InitialDriveset. csv* -filen anger du en ny driveset *. csv* -fil och anger den som ett värde för parametern `AdditionalDriveSet` . Använd **samma Journal fil** namn och ange ett **nytt sessions-ID**. Formatet på AdditionalDriveset CSV-filen är samma som InitialDriveSet-formatet.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -193,7 +193,7 @@ Ett exempel på en import visas nedan.
 
 Om du vill lägga till ytterligare data till samma driveset använder du kommandot PrepImport för efterföljande kopierings-sessioner för att kopiera ytterligare filer/kataloger.
 
-För efterföljande kopierings sessioner till samma hård disk enheter som anges i *InitialDriveset. csv* -filen anger du **samma Journal fil** namn och anger ett **nytt sessions-ID**. du behöver inte ange lagrings konto nyckeln.
+För efterföljande kopierings sessioner till samma hård disk enheter som anges i *InitialDriveset.csv* -filen anger du **samma Journal fil** namn och anger ett **nytt sessions-ID**. du behöver inte ange lagrings konto nyckeln.
 
     ```
     WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

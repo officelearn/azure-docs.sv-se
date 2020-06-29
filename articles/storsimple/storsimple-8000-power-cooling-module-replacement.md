@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 045cec85174a88d1d608a4adc679461008852768
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60632507"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514597"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Ersätta en energi- och kylningsmodul på StorSimple-enheten
 ## <a name="overview"></a>Översikt
@@ -61,7 +61,7 @@ Följ dessa anvisningar när du är redo att ta bort en Power-och kylnings modul
    
      **Bild 1** Enhetens Front Panel  
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |Knappen ljud av |
    | 2 |Systemets strömförsörjning |
@@ -74,7 +74,7 @@ Följ dessa anvisningar när du är redo att ta bort en Power-och kylnings modul
    
      **Bild 2** Bak från PCM med indikator lampor
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |AC-strömavbrott |
    | 2 |Fläkt haveri |
@@ -88,7 +88,7 @@ Följ dessa anvisningar när du är redo att ta bort en Power-och kylnings modul
    
      **Bild 3** Tillbaka till enheten med plugin-moduler 
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

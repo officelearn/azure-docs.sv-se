@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: common
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 64d987ff01e596eefa98e8086788546c465e2d83
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195397"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515022"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Flytta ett Azure Storage-konto till en annan region
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig att:
 > * Flytta data till det nya lagrings kontot.
 > * Ta bort resurserna i käll regionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Kontrol lera att tjänsterna och funktionerna som ditt konto använder stöds i mål regionen.
 
@@ -113,9 +113,9 @@ Distribuera mallen med hjälp av Azure Portal:
 
 5. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
 
-6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in filen **Template. JSON** som du laddade ned i det sista avsnittet.
+6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
 
-7. I filen **Template. JSON** anger du ett namn på mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för lagrings konto namnet till `mytargetaccount` .
+7. I **template.js** filen namnger du mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för lagrings konto namnet till `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -143,7 +143,7 @@ Distribuera mallen med hjälp av Azure Portal:
 
 Distribuera mallen med hjälp av PowerShell:
 
-1. I filen **Template. JSON** anger du ett namn på mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för lagrings konto namnet till `mytargetaccount` .
+1. I **template.js** filen namnger du mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för lagrings konto namnet till `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +156,7 @@ Distribuera mallen med hjälp av PowerShell:
     },
     ``` 
 
-2. Redigera egenskapen **location** i filen **Template. JSON** till mål regionen. I det här exemplet anges mål regionen till `eastus` .
+2. Redigera **plats** egenskapen i **template.jspå** fil till mål regionen. I det här exemplet anges mål regionen till `eastus` .
 
     ```json
     "resources": [{
@@ -182,7 +182,7 @@ Distribuera mallen för att skapa ett nytt lagrings konto i mål regionen.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Spara filen **Template. JSON** .
+1. Spara **template.jspå** filen.
 
 2. Ange eller Välj egenskaps värden:
 
@@ -219,7 +219,7 @@ Vissa funktioner exporteras till en mall, så du måste lägga till dem i det ny
 
 I följande tabell visas dessa funktioner tillsammans med rikt linjer för att lägga till dem i ditt nya lagrings konto.
 
-| Funktion    | Vägledning    |
+| Funktion    | Riktlinjer    |
 |--------|-----------|
 | **Principer för livs cykel hantering** | [Hantera Azure Blob Storage-livscykeln](../blobs/storage-lifecycle-management-concepts.md) |
 | **Statiska webbplatser** | [Vara värd för en statisk webbplats i Azure Storage](../blobs/storage-blob-static-website-how-to.md) |

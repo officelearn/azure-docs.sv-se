@@ -3,18 +3,18 @@ title: Övervaka, diagnostisera och Felsök Azure Storage | Microsoft Docs
 description: Använd funktioner som lagrings analys, loggning på klient sidan och andra verktyg från tredje part för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 71f2acfc7c1d227d89f96f753572f4631f4cad65
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684655"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513377"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -535,7 +535,7 @@ Logg poster:
 | e2d06d78-... |StringToSign = HEAD............ x-MS-client-Request-ID: e2d06d78-.... x-MS-date: tis, 03 jun 2014 10:33:12 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: container. |
 | e2d06d78-... |Väntar på svar. |
 | de8b1c3c-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt` . |
-| de8b1c3c-... |StringToSign = Lägg... 64. qCmF + TQLPhq/YYK50mP9ZQ = =...... x-MS-BLOB-Type: BlockBlob. x-MS-client-Request-ID: de8b1c3c-.... x-MS-date: tis, 03 jun 2014 10:33:12 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer/blobCreated. txt. |
+| de8b1c3c-... |StringToSign = Lägg... 64. qCmF + TQLPhq/YYK50mP9ZQ = =...... x-MS-BLOB-Type: BlockBlob. x-MS-client-Request-ID: de8b1c3c-.... x-MS-date: tis, 03 jun 2014 10:33:12 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Förbereder att skriva data i begäran. |
 | e2d06d78-... |Ett undantag uppstod i väntan på svar: fjärrservern returnerade ett fel: (404) hittades inte.. |
 | e2d06d78-... |Svaret togs emot. Status kod = 404, begäran-ID = 353ae3bc-..., Content-MD5 =, ETag =. |

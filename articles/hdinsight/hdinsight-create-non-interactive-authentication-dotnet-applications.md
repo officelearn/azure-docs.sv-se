@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 5e6a0586bc750f8972586920c15dbb297295aa20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52f90f3ce6d6cd53fcf17f7c735dafe5411303c4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371281"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514511"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa ett .NET HDInsight-program med icke-interaktiv autentisering
 
@@ -21,9 +21,9 @@ Kör din Microsoft .NET Azure HDInsight-app antingen under programmets egna iden
 
 Du behöver följande från ditt icke-interaktiva .NET-program:
 
-* Ditt klient-ID för Azure-prenumerationen (även kallat ett *katalog-ID*). Se [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-* Klient-ID för Azure Active Directory (Azure AD). Se [skapa ett Azure Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) och [Hämta ett program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-* Azure AD-programmets hemliga nyckel. Se [Hämta Application Authentication Key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Ditt klient-ID för Azure-prenumerationen (även kallat ett *katalog-ID*). Se [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* Klient-ID för Azure Active Directory (Azure AD). Se [skapa ett Azure Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) och [Hämta ett program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* Azure AD-programmets hemliga nyckel. Se [Hämta Application Authentication Key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## <a name="prerequisites"></a>Krav
 

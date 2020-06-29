@@ -3,16 +3,16 @@ title: Konfigurera ett VPN för plats-till-plats (S2S) som ska användas med Azu
 description: Konfigurera en plats-till-plats (S2S) VPN för användning med Azure Files
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae3d38d92990d7a1af4146c25b017286ebd29352
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d1d0f9e2a86da8213a9662b68c791a117dcc7fb
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061027"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515337"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Konfigurera en plats-till-plats-VPN för användning med Azure Files
 Du kan använda en plats-till-plats (S2S) VPN-anslutning för att montera dina Azure-filresurser över SMB från ditt lokala nätverk, utan att öppna port 445. Du kan konfigurera en plats-till-plats-VPN med hjälp av [azure VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), som är en Azure-resurs som erbjuder VPN-tjänster, och som distribueras i en resurs grupp, tillsammans med lagrings konton eller andra Azure-resurser.

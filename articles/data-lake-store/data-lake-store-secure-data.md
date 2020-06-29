@@ -9,15 +9,15 @@ editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ae93dad9a18c18e330b4ff65924dd1db7a1faf0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260311"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515257"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Skydda data som lagras i Azure Data Lake Storage Gen1
 Att skydda data i Azure Data Lake Storage Gen1 är en metod i tre steg.  Både rollbaserad åtkomst kontroll (RBAC) och åtkomst kontrol listor (ACL: er) måste anges för att aktivera åtkomst till data för användare och säkerhets grupper fullständigt.

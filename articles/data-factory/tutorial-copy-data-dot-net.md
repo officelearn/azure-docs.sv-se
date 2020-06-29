@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 182c5b4059874b6e03092481c68b39cf55bc7e62
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253944"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513265"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 
@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-kon
 * *Azure SQL Database*. Du använder databasen som *mottagare* för datalagringen. Om du inte har en databas i Azure SQL Database kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * *Visual Studio*. Genom gången i den här artikeln används Visual Studio 2019.
 * *[Azure SDK för .net](/dotnet/azure/dotnet-tools)*.
-* *Azure Active Directory program*. Om du inte har ett Azure Active Directory program kan du läsa avsnittet [skapa ett Azure Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) i [How to: använda portalen för att skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md). Kopiera följande värden för användning i senare steg: **program (klient) ID**, **autentiseringsnyckel**och **katalog (klient) ID**. Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel.
+* *Azure Active Directory program*. Om du inte har ett Azure Active Directory program kan du läsa avsnittet [skapa ett Azure Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) i [How to: använda portalen för att skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md). Kopiera följande värden för användning i senare steg: **program (klient) ID**, **autentiseringsnyckel**och **katalog (klient) ID**. Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 

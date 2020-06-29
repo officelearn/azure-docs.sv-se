@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6ddf3db422a192b82b8d67e8e532a9ae0030d6f7
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 0a247626566a4b0156d879954bf6734d248f01d8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212536"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513515"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Skapa en Power BI-app för Microsoft AppSource
 
@@ -53,7 +53,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -111,7 +111,7 @@ Du kan också välja upp till två branscher och två lodräta under varje brans
 | Distribution | * Grossist<br>Paket-och paket leverans |
 | Education | *Högre utbildning <br> * Primär och sekundär utbildning/K-12<br>* Bibliotek och Museums |
 | Ekonomiska tjänster | *Bank-och kapital <br> marknader* Försäkringsbokf |
-| Myndigheter | *Försvar och information (som används för att kallas för nationell och offentlig <br> säkerhet)* Allmän säkerhet och rättvisa<br>* Civila myndigheter |
+| Government | *Försvar och information (som används för att kallas för nationell och offentlig <br> säkerhet)* Allmän säkerhet och rättvisa<br>* Civila myndigheter |
 | Sjukvård (används för att kallas hälsa) | *Hälso betalare <br> * Hälso leverantör<br>* Farmaceutiska |
 | Tillverkning och resurser (används för att kallas produktion) | *Kemisk och Agrochemical <br> * Diskret tillverkning<br>* Energi |
 | Butiks-och konsument varor (som används för att kallas detalj handel) | *Konsument varor <br> * Detaljist |
@@ -160,7 +160,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 7. Sekretesspolicy
 8. Erbjudandets namn
 9. Sammanfattning
-10. Beskrivning
+10. Description
 11. Skärm bilder/videor
 
 ### <a name="name"></a>Name
@@ -177,7 +177,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -270,4 +270,4 @@ På sidan Granska kan du:
 
 Om du vill skicka publicerings erbjudandet väljer du **publicera**.
 
-Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Om du vill publicera erbjudandet till allmänheten (eller om ett privat erbjudande till en privat mål grupp) går du till Partner Center och väljer **Go-Live**.
+Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Om du vill publicera ditt erbjudande till allmänheten går du till Partner Center och väljer **Go-Live**.

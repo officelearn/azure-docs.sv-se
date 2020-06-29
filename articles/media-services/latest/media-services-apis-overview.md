@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648536"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515061"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -41,7 +41,7 @@ I stället för att skapa ett huvud namn för tjänsten bör du överväga att a
 
 Om du skapar en Azure AD-App och tjänstens huvud namn måste appen finnas i en egen klient organisation. När du har skapat appen ger du appens **deltagare** eller **ägar** rollen åtkomst till Media Services kontot.
 
-Om du inte är säker på om du har behörighet att skapa en Azure AD-App, se de [behörigheter som krävs](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+Om du inte är säker på om du har behörighet att skapa en Azure AD-App, se de [behörigheter som krävs](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 I följande figur representerar talen flödet för förfrågningarna i kronologisk ordning:
 
@@ -154,5 +154,5 @@ För att hämta alla nödvändiga värden, se [åtkomst Azure Media Services-API
 
 * [Ansluta till Media Services med Java](configure-connect-java-howto.md)
 * [Ansluta till Media Services med .NET](configure-connect-dotnet-howto.md)
-* [Anslut till Media Services med Node. js](configure-connect-nodejs-howto.md)
+* [Ansluta till Media Services med Node.js](configure-connect-nodejs-howto.md)
 * [Ansluta till Media Services med python](configure-connect-python-howto.md)

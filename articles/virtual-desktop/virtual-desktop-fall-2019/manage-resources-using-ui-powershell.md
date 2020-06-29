@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5a500ef44170f23c8acdf752393389a4af06a798
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214187"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513404"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Distribuera ett hanterings verktyg med PowerShell
 
@@ -40,7 +40,7 @@ Följande webbläsare är kompatibla med hanterings verktyget:
 Innan du distribuerar hanterings verktyget behöver du en Azure Active Directory (Azure AD)-användare för att skapa en app-registrering och distribuera hanterings gränssnittet. Den här användaren måste:
 
 - Har behörighet att skapa resurser i din Azure-prenumeration
-- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de behörigheter som krävs genom att följa instruktionerna i de [behörigheter som krävs](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de behörigheter som krävs genom att följa instruktionerna i de [behörigheter som krävs](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 När du har distribuerat och konfigurerat hanterings verktyget rekommenderar vi att du ber användaren att starta användar gränssnittet för hantering för att se till att allt fungerar. Användaren som startar hanterings gränssnittet måste ha en roll tilldelning som gör det möjligt för dem att visa eller redigera Windows-klienten för virtuella skriv bord.
 

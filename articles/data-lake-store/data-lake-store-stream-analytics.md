@@ -3,15 +3,15 @@ title: Strömma data från Stream Analytics till Data Lake Storage Gen1 – Azur
 description: Använd Azure Stream Analytics för att strömma data till Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 42c7894c33fe0f09748beee20508e7670545c0ed
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690984"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515175"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Strömma data från Azure Storage Blob till Azure Data Lake Storage Gen1 med Azure Stream Analytics
 I den här artikeln får du lära dig hur du använder Azure Data Lake Storage Gen1 som utdata för ett Azure Stream Analytics jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage BLOB (indata) och skriver data till Data Lake Storage Gen1 (utdata).
@@ -100,7 +100,7 @@ Du börjar med att skapa ett Stream Analytics jobb som innehåller en indatakäl
 
     Starta jobbet genom att klicka på **Starta** . Det kan ta upp till några minuter att starta jobbet.
 
-3. Om du vill utlösa jobbet för att välja data från blobben kopierar du en exempel data fil till BLOB-behållaren. Du kan hämta en exempel data fil från [Azure Data Lake git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). I den här kursen ska vi kopiera filen **vehicle1_09142014. csv**. Du kan använda olika klienter, till exempel [Azure Storage Explorer](https://storageexplorer.com/), för att ladda upp data till en BLOB-behållare.
+3. Om du vill utlösa jobbet för att välja data från blobben kopierar du en exempel data fil till BLOB-behållaren. Du kan hämta en exempel data fil från [Azure Data Lake git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). I den här kursen ska vi kopiera filen **vehicle1_09142014.csv**. Du kan använda olika klienter, till exempel [Azure Storage Explorer](https://storageexplorer.com/), för att ladda upp data till en BLOB-behållare.
 
 4. På fliken **Översikt** , under **övervakning**, se hur data bearbetades.
 
@@ -110,7 +110,7 @@ Du börjar med att skapa ett Stream Analytics jobb som innehåller en indatakäl
 
     ![Verifiera utdata](./media/data-lake-store-stream-analytics/run.query.4.png "Verifiera utdata")
 
-    I rutan Datautforskaren ser du att utdata skrivs till en mappsökväg som anges i inställningarna för Data Lake Storage Gen1 utdata (`streamanalytics/job/output/{date}/{time}`).  
+    I rutan Datautforskaren ser du att utdata skrivs till en mappsökväg som anges i inställningarna för Data Lake Storage Gen1 utdata ( `streamanalytics/job/output/{date}/{time}` ).  
 
 ## <a name="see-also"></a>Se även
 * [Skapa ett HDInsight-kluster för att använda Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

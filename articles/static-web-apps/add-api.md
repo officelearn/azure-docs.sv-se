@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 7101d23d4611f4eea9b5a9e2a7f3ba417c9fcb1a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: e3cb45ee2cfa299a482391d59359b40baea0feb5
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476129"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517345"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Lägg till en API till för hands versionen av Azure statisk Web Apps med Azure Functions
 
@@ -22,7 +22,7 @@ Du kan lägga till Server lös API: er i Azures statiska Web Apps via integratio
 
 - Azure-konto med en aktiv prenumeration.
   - Om du inte har något konto kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free).
-- [Visuell Studio-kod](https://code.visualstudio.com/)
+- [Visual Studio-koden](https://code.visualstudio.com/)
 - [Azure Functions tillägg](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) -tillägg.
 - [Node.js](https://nodejs.org/download/) att köra API-appen lokalt
@@ -156,7 +156,7 @@ Visual Studio Code integreras med [Azure Functions Core tools](https://docs.micr
 
 ### <a name="call-the-api-from-the-application"></a>Anropa API: et från programmet
 
-Vid distribution till Azure dirigeras begär anden till API: et automatiskt till Functions-appen för begär Anden som skickas till `api` vägen. Fungerar lokalt, du har konfigurerat program inställningarna till proxy-begäranden till det lokala API: et.
+Vid distribution till Azure dirigeras begär anden till API: et automatiskt till Functions-appen för begär Anden som skickas till `api` vägen. Fungerar lokalt måste du konfigurera program inställningarna till proxy-begäranden till det lokala API: et.
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 

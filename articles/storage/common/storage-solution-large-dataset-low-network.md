@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: be1f74dcccc654dbdd0a743d1da2da89071045f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cad76677464ba4895141e53ea45b98f55cc2f655
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253143"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515748"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Dataöverföring för stora datamängder med låg eller ingen nätverksbandbredd
  
@@ -23,7 +23,7 @@ Om du vill veta en översikt över alla tillgängliga alternativ för data över
 
 ## <a name="offline-transfer-or-network-transfer"></a>Offline-överföring eller nätverks överföring
 
-Stora data uppsättningar innebär att du har några TBs till några data för PBs. Du har begränsad till ingen nätverks bandbredd, nätverket är långsamt eller är inte tillförlitligt. Dessutom:
+Stora data uppsättningar innebär att du har några TBs till några data för PBs. Du har begränsad till ingen nätverks bandbredd, nätverket är långsamt eller är inte tillförlitligt. Du kan också:
 
 - Du är begränsad till kostnader för nätverks överföring från Internet leverantörer (ISP).
 - Säkerhets-eller organisations principer tillåter inte utgående anslutningar vid hantering av känsliga data.
@@ -50,13 +50,13 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 |    Data storlek                        |    Upp till 35 TBs                 |    Upp till 80 TBs per enhet                       |    Upp till 800 TB per enhet               |    Variabel                            |
 |    Datatyp                        |    Azure-blobar                  |    Azure-blobar<br>Azure Files                    |    Azure-blobar<br>Azure Files            |    Azure-blobar<br>Azure Files          |
 |    Form faktor                      |    5 SSD per order             |    1 X 50 – kg. enhet för Skriv bords storlek per beställning    |    1 X ~ 500 – kg. stor enhet per beställning    |    Upp till 10 hård diskar/SSD per beställning        |
-|    Första installations tid               |    Låg <br>(15 minuter)            |    Låg till måttlig <br> (<30 minuter)               |    Moderera<br>(1-2 timmar)               |    Måttligt till svårt<br>variabel |
+|    Första installations tid               |    Låg <br>(15 minuter)            |    Låg till måttlig <br> (<30 minuter)               |    Medel<br>(1-2 timmar)               |    Måttligt till svårt<br>variabel |
 |    Skicka data till Azure               |    Ja                          |    Ja                                           |    Ja                                   |    Ja                                 |
-|    Exportera data från Azure           |    Nej                           |    Nej                                            |    Nej                                    |    Ja                                 |
+|    Exportera data från Azure           |    Inga                           |    Inga                                            |    Inga                                    |    Yes                                 |
 |    Kryptering                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    Maskinvara                         |     Microsoft tillhandahålls          |    Microsoft tillhandahålls                            |    Microsoft tillhandahålls                    |    Kunden har tillhandahållit                   |
 |    Nätverksgränssnitt                |    USB 3.1/SATA                 |    RJ 45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
-|    Partnerintegration              |    Vissa                         |    [Högt](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Högt](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Vissa                                |
+|    Partnerintegration              |    Vissa                         |    [Hög](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Hög](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Vissa                                |
 |    Frakt                         |    Microsoft-hanterat            |    Microsoft-hanterat                             |    Microsoft-hanterat                     |    Kund hantering                    |
 | Använd när data flyttas         |Inom en handels avgränsning|Inom en handels avgränsning|Inom en handels avgränsning|Över geografiska gränser, t. ex. USA till EU|
 |    Prissättning                          |    [Prissättning](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prissättning](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |

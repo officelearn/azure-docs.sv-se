@@ -3,15 +3,15 @@ title: Felsöka Azure HPC cache NFS-lagrings mål
 description: Tips för att undvika och åtgärda konfigurations fel och andra problem som kan orsaka fel när du skapar ett NFS-lagrings mål
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: 72b6b0b78da23fd0891c0571c9137fefbfb0b077
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186625"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515464"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Felsök problem med NAS-konfiguration och NFS-lagring
 
@@ -40,7 +40,7 @@ I allmänhet behöver cacheminnet åtkomst till dessa portar:
 | TCP/UDP  | 4046  | monterad   |
 | TCP/UDP  | 4047  | status   |
 
-Använd följande ``rpcinfo`` kommando för att ta reda på vilka portar som behövs för ditt system. Det här kommandot nedan visar portarna och formaterar relevanta resultat i en tabell. (Använd systemets IP-adress i stället för *<storage_IP>* term.)
+Använd följande kommando för att ta reda på vilka portar som behövs för ditt system ``rpcinfo`` . Det här kommandot nedan visar portarna och formaterar relevanta resultat i en tabell. (Använd systemets IP-adress i stället för *<storage_IP>* term.)
 
 Du kan skicka det här kommandot från valfri Linux-klient som har NFS-infrastruktur installerad. Om du använder en klient i klustrets undernät kan du också kontrol lera anslutningen mellan under nätet och lagrings systemet.
 
@@ -58,7 +58,7 @@ Azure HPC-cachen behöver åtkomst till lagrings systemets export för att skapa
 
 Olika lagrings system använder olika metoder för att aktivera den här åtkomsten:
 
-* Linux-servrar läggs ``no_root_squash`` vanligt vis till i den ``/etc/exports``exporterade sökvägen i.
+* Linux-servrar läggs vanligt vis till i ``no_root_squash`` den exporterade sökvägen i ``/etc/exports`` .
 * NetApp och EMC-system styr vanligt vis åtkomst med export regler som är kopplade till vissa IP-adresser eller nätverk.
 
 Om du använder export regler måste du komma ihåg att cachen kan använda flera olika IP-adresser från cache-undernätet. Tillåt åtkomst från alla möjliga IP-adresser för undernät.
@@ -79,17 +79,17 @@ Ett system kan till exempel Visa tre exporter som följande:
 * ``/ifs/accounting``
 * ``/ifs/accounting/payroll``
 
-Exporten ``/ifs/accounting/payroll`` är underordnad ``/ifs/accounting``, och ``/ifs/accounting`` är i själva fallet underordnad ``/ifs``.
+Exporten ``/ifs/accounting/payroll`` är underordnad ``/ifs/accounting`` , och ``/ifs/accounting`` är i själva fallet underordnad ``/ifs`` .
 
-Om du lägger till ``payroll`` ett lagrings mål för att exportera som ett HPC-cacheminne monterar cacheminnet i själva verket ``/ifs/`` och använder löne katalogen därifrån. Därför behöver Azure HPC-cache rot åtkomst ``/ifs`` till för att komma åt ``/ifs/accounting/payroll`` exporten.
+Om du lägger till ``payroll`` ett lagrings mål för att exportera som ett HPC-cacheminne monterar cacheminnet i själva verket ``/ifs/`` och använder löne katalogen därifrån. Därför behöver Azure HPC-cache rot åtkomst till för ``/ifs`` att komma åt ``/ifs/accounting/payroll`` exporten.
 
 Detta krav är relaterat till hur cacheminnet indexerar filer och undviker fil kollisioner med hjälp av fil referenser som lagrings systemet tillhandahåller.
 
-Ett NAS-system med hierarkiska exporter kan ge olika fil referenser för samma fil om filen hämtas från olika exporter. En-klient kan till exempel montera ``/ifs/accounting`` och komma åt filen ``payroll/2011.txt``. En annan klient monterar ``/ifs/accounting/payroll`` och kommer åt filen ``2011.txt``. Beroende på hur lagrings systemet tilldelar fil referenser, kan dessa två klienter få samma fil med olika fil referenser (en för ``<mount2>/payroll/2011.txt`` och en ``<mount3>/2011.txt``).
+Ett NAS-system med hierarkiska exporter kan ge olika fil referenser för samma fil om filen hämtas från olika exporter. En-klient kan till exempel montera ``/ifs/accounting`` och komma åt filen ``payroll/2011.txt`` . En annan klient monterar ``/ifs/accounting/payroll`` och kommer åt filen ``2011.txt`` . Beroende på hur lagrings systemet tilldelar fil referenser, kan dessa två klienter få samma fil med olika fil referenser (en för ``<mount2>/payroll/2011.txt`` och en ``<mount3>/2011.txt`` ).
 
 Server dels lagrings systemet behåller interna alias för fil referenser, men Azure HPC-cachen kan inte avgöra vilka fil referenser i index referensen till samma objekt. Det är därför möjligt att cachen kan ha olika skrivningar i cacheminnet för samma fil och tillämpa ändringarna på fel sätt eftersom det inte vet att de är samma fil.
 
-För att undvika den här möjliga filkollisionen för filer i flera exporter monterar Azure HPC cache automatiskt den mest tillgängliga exporten i sökvägen``/ifs`` (i exemplet) och använder fil referensen från den exporten. Om flera exporter använder samma bas Sök väg behöver Azure HPC-cache rot åtkomst till den sökvägen.
+För att undvika den här möjliga filkollisionen för filer i flera exporter monterar Azure HPC cache automatiskt den mest tillgängliga exporten i sökvägen ( ``/ifs`` i exemplet) och använder fil referensen från den exporten. Om flera exporter använder samma bas Sök väg behöver Azure HPC-cache rot åtkomst till den sökvägen.
 
 ## <a name="enable-export-listing"></a>Aktivera export av lista
 <!-- link in prereqs article -->

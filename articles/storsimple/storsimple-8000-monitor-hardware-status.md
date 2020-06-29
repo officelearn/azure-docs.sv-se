@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6eb983eb5e36c5f3ac6b6eca049239d12bc01a0f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711705"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514630"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Använd tjänsten StorSimple Enhetshanteraren för att övervaka maskin varu komponenter och status
 
@@ -79,7 +79,7 @@ Utför följande steg för att Visa maskin varu status för en enhets komponent:
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Komponent lista för primär inne slutning av StorSimple-enhet
 I följande tabell visas de fysiska och logiska komponenterna som finns i den primära inne slutningen (finns både i 8100 och 8600) på din lokala StorSimple-enhet.
 
-| Komponent | Modul | Typ | Location | Är fältet replacementable Unit (FRU)? | Beskrivning |
+| Komponent | Modul | Typ | Location | Är fältet replacementable Unit (FRU)? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Enhet i fack [0-11] |Disk enheter |Fysiska |Delad |Yes |En rad visas för var och en av SSD-enheterna eller hård diskarna i den primära inne slutningen. |
 | Omgivnings temperatur sensor |Hölje |Fysiska |Delad |No |Mäter temperaturen i chassit. |
@@ -120,7 +120,7 @@ I följande tabell visas de fysiska och logiska komponenterna som finns i den pr
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Komponent lista för EBOD-inne slutning av StorSimple-enhet
 I följande tabell beskrivs de fysiska och logiska komponenterna i EBOD-kabinettet (endast i 8600-modellen) för den lokala StorSimple-enheten.
 
-| Komponent | Modul | Typ | Location | Fru? | Beskrivning |
+| Komponent | Modul | Typ | Location | Fru? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Enhet i fack [0-11] |Disk enheter |Fysiska |Delad |Yes |En rad visas för var och en av de HDD-enheterna framför EBOD-höljet. |
 | Omgivnings temperatur sensor |Hölje |Fysiska |Delad |No |Mäter temperaturen i chassit. |

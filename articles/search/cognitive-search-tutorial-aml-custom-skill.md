@@ -8,24 +8,24 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 1ff29be9cde4a2bd53f0edbe57f3eab603c1796f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740369"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513815"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Självstudie: bygga och distribuera en anpassad kunskap med Azure Machine Learning 
 
-I den här självstudien använder du [data uppsättningen för hotell granskning](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuerad under Creative Commons License [CC by-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) för att skapa en [anpassad färdighet](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) med Azure Machine Learning för att extrahera aspektbaserade sentiment från granskningarna. Detta gör det möjligt för tilldelning av positiva och negativa sentiment i samma granskning att bli korrekt tilldelad till identifierade entiteter som personal, rum, lobbyn eller pooler.
+I den här självstudien använder du [data uppsättningen för hotell granskning](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuerad under Creative Commons License [CC by-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) för att skapa en [anpassad färdighet](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) med Azure Machine Learning för att extrahera aspektbaserade sentiment från granskningarna. Detta gör det möjligt för tilldelning av positiva och negativa sentiment i samma granskning att bli korrekt tilldelad till identifierade entiteter som personal, rum, lobbyn eller pooler.
 
-För att träna den aspektbaserade sentiment-modellen kommer du att använda [lagrings platsen NLP recept](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Modellen kommer sedan att distribueras som en slut punkt i ett Azure Kubernetes-kluster. När den har distribuerats läggs modellen till i pipelinen som en anpassad färdighet för användning av tjänsten Kognitiv sökning.
+För att träna den aspektbaserade sentiment-modellen i Azure Machine Learning kommer du att använda [lagrings platsen NLP recept](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Modellen kommer sedan att distribueras som en slut punkt i ett Azure Kubernetes-kluster. När den har distribuerats läggs slut punkten till i pipeline för anrikning som en AML-färdighet som används av den Kognitiv sökning tjänsten.
 
 Det finns två angivna data uppsättningar. Om du vill träna modellen själv, krävs hotel_reviews_1000.csv-filen. Vill du hoppa över övnings steget? Ladda ned hotel_reviews_100.csv.
 
 > [!div class="checklist"]
 > * Skapa en Azure Kognitiv sökning-instans
-> * Skapa en Azure Machine Learning-arbetsyta
+> * Skapa en Azure Machine Learning arbets yta (Sök tjänsten och arbets ytan bör vara i samma prenumeration)
 > * Träna och distribuera en modell till ett Azure Kubernetes-kluster
 > * Länka en pipeline för AI-anrikning till den distribuerade modellen
 > * Mata in utdata från distribuerad modell som en anpassad färdighet

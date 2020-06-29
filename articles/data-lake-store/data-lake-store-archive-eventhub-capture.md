@@ -3,15 +3,15 @@ title: Samla in data från Event Hubs till Azure Data Lake Storage Gen1
 description: Använd Azure Data Lake Storage Gen1 för att avbilda data som tagits emot av Azure Event Hubs.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 5cbcdc5cb9713432be5b52898d956506d80d6ea0
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9d663c2e95ee94811d70a0602b35842a789dd9b3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690676"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515767"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Använd Azure Data Lake Storage Gen1 för att avbilda data från Event Hubs
 
@@ -44,7 +44,7 @@ I det här avsnittet skapar du en mapp i kontot där du vill samla in data från
 
     ![Tilldela behörigheter för Data Lake Storage Gen1 roten](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Tilldela behörigheter för Data Lake Storage Gen1 roten")
 
-    b. Under **åtkomst**klickar du på **Lägg till**, klicka på **Välj användare eller grupp**och Sök `Microsoft.EventHubs`sedan efter. 
+    b. Under **åtkomst**klickar du på **Lägg till**, klicka på **Välj användare eller grupp**och Sök sedan efter `Microsoft.EventHubs` . 
 
     ![Tilldela behörigheter för Data Lake Storage Gen1 roten](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Tilldela behörigheter för Data Lake Storage Gen1 roten")
     
@@ -65,7 +65,7 @@ I det här avsnittet skapar du en mapp i kontot där du vill samla in data från
 
     ![Tilldela behörigheter för mappen Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Tilldela behörigheter för mappen Data Lake Storage Gen1")
 
-    b. Under **åtkomst**klickar du på **Lägg till**, klicka på **Välj användare eller grupp**och Sök `Microsoft.EventHubs`sedan efter. 
+    b. Under **åtkomst**klickar du på **Lägg till**, klicka på **Välj användare eller grupp**och Sök sedan efter `Microsoft.EventHubs` . 
 
     ![Tilldela behörigheter för mappen Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Tilldela behörigheter för mappen Data Lake Storage Gen1")
     

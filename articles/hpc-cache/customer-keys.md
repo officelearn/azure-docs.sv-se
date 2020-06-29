@@ -3,15 +3,15 @@ title: Använd kund-hanterade nycklar för att kryptera data i Azure HPC-cache
 description: Använda Azure Key Vault med Azure HPC cache för att kontrol lera åtkomsten till krypterings nycklar i stället för att använda Microsoft-hanterade standard krypterings nycklar
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2d10241b8395c33767ffeeb550d9d8060bde3ce3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: b7b9e9e6858d709e80642603e77bfb36f2e4c0c9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597747"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512906"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Använd kund hanterade krypterings nycklar för Azure HPC cache
 
@@ -148,4 +148,4 @@ De här artiklarna förklarar mer om hur du använder Azure Key Vault och Kundha
 
 När du har skapat Azure HPC cache och auktoriserad Key Vault-baserad kryptering fortsätter du att konfigurera din cache genom att ge den åtkomst till dina data källor.
 
-* [Lägga till lagringsmål](hpc-cache-add-storage.md)
+* [Lägg till lagrings mål](hpc-cache-add-storage.md)

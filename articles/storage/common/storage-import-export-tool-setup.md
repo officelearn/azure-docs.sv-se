@@ -4,16 +4,16 @@ description: Lär dig hur du konfigurerar enhets förberedelse-och reparations v
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/29/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 01432ab68fc399f3e97eac2de5a7c356bef7078a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7d2cac9402477090ae412dcf21265bec4609278
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74979044"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514177"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera verktyget Azure import/export
 
@@ -49,28 +49,28 @@ Om du försöker **Reparera en export** som delvis har misslyckats, behöver du:
 
 ## <a name="installing-the-azure-importexport-tool"></a>Installera Azure import/export-verktyget
 
-Först [hämtar du verktyget Azure import/export](https://www.microsoft.com/download/details.aspx?id=55280) och extraherar det till en katalog på din dator, till exempel `c:\WAImportExport`.
+Först [hämtar du verktyget Azure import/export](https://www.microsoft.com/download/details.aspx?id=55280) och extraherar det till en katalog på din dator, till exempel `c:\WAImportExport` .
 
 Verktyget Azure import/export består av följande filer:
 
-* data uppsättning. csv
-* driveset. csv
-* hddid. dll
-* Microsoft. data. Services. client. dll
-* Microsoft. WindowsAzure. Storage. dll
+* dataset.csv
+* driveset.csv
+* hddid.dll
+* Microsoft.Data.Services.Client.dll
+* Microsoft.WindowsAzure.Storage.dll
 * Microsoft. WindowsAzure. Storage. pdb
-* Microsoft. WindowsAzure. Storage. XML
-* WAImportExport. exe
-* WAImportExport. exe. config
+* Microsoft.WindowsAzure.Storage.xml
+* WAImportExport.exe
+* WAImportExport.exe.config
 * WAImportExport. pdb
-* WAImportExportCore. dll
+* WAImportExportCore.dll
 * WAImportExportCore. pdb
-* WAImportExportRepair. dll
+* WAImportExportRepair.dll
 * WAImportExportRepair. pdb
 
 Öppna sedan ett kommando tolks fönster i **Administratörs läge**och ändra till den katalog som innehåller de extraherade filerna.
 
-Om du vill skriva ut hjälp för kommandot kör du verktyget`WAImportExport.exe`() utan parametrar:
+Om du vill skriva ut hjälp för kommandot kör du verktyget ( `WAImportExport.exe` ) utan parametrar:
 
 ```
 WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013

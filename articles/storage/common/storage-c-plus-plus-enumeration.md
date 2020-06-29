@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 29ce845fa3239dd48ff2ff0480beff08cf704b30
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 86fc63d8b0615423f4138ed1b09dc3a24d1e527e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82591694"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514452"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Lista över Azure Storage-resurser i C++
 
@@ -34,7 +34,7 @@ Var och en av dessa metoder visas med olika överbelastningar för olika scenari
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynkron jämfört med synkron
 
-Eftersom lagrings klient biblioteket för C++ skapas ovanpå [C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk), stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Exempel:
+Eftersom lagrings klient biblioteket för C++ skapas ovanpå [C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk), stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Till exempel:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -115,7 +115,7 @@ Dessa metoder implementerades som omslag för segmenterade API: er. För varje s
 
 Den här metoden kan fungera när lagrings kontot eller-tabellen innehåller ett litet antal objekt. Men med en ökning av antalet objekt kan det minne som krävs öka utan begränsning, eftersom alla resultat låg kvar i minnet. En List åtgärd kan ta lång tid, under vilken anroparen inte hade någon information om förloppet.
 
-Dessa girig som visar API: er i SDK finns inte i C#, Java eller Java Script Node. js-miljön. För att undvika potentiella problem med att använda dessa girig-API: er har vi tagit bort dem i version 0.6.0 Preview.
+Dessa girig som visar API: er i SDK finns inte i C#, Java eller Java Script Node.js-miljön. För att undvika potentiella problem med att använda dessa girig-API: er har vi tagit bort dem i version 0.6.0 Preview.
 
 Om din kod anropar dessa girig-API: er:
 

@@ -8,13 +8,13 @@ ms.author: mhopkins
 ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: 1495ed55c24a0f94b911d60d1db0f32940ea134a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 0a8eca9e7b3e890b67daf915ffe733dd54ef5896
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137066"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515056"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Hämta lagrings konto typ och SKU-namn med .NET
 
@@ -24,9 +24,9 @@ Konto information finns på tjänst versioner som börjar med version 2018-03-28
 
 ## <a name="about-account-type-and-sku-name"></a>Om kontotyp och SKU-namn
 
-**Kontotyp**: giltiga `BlobStorage`konto typer är, `BlockBlobStorage` `FileStorage` `Storage`,,, och. `StorageV2` [Översikt över Azure Storage-kontot](storage-account-overview.md) innehåller mer information, inklusive beskrivningar av de olika lagrings kontona.
+**Kontotyp**: giltiga konto typer är,,,, `BlobStorage` `BlockBlobStorage` `FileStorage` `Storage` och `StorageV2` . [Översikt över Azure Storage-kontot](storage-account-overview.md) innehåller mer information, inklusive beskrivningar av de olika lagrings kontona.
 
-**SKU-namn**: giltiga SKU- `Premium_LRS`namn `Premium_ZRS`är `Standard_GRS`, `Standard_GZRS`, `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS`,,,, `Standard_ZRS`och. SKU-namn är Skift läges känsliga och är sträng fält i [klassen SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
+**SKU-namn**: giltiga SKU-namn är,,,,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` `Standard_LRS` `Standard_RAGRS` `Standard_RAGZRS` och `Standard_ZRS` . SKU-namn är Skift läges känsliga och är sträng fält i [klassen SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
 
 ## <a name="retrieve-account-information"></a>Hämta konto information
 

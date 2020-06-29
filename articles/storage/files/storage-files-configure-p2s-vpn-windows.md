@@ -3,16 +3,16 @@ title: Konfigurera en punkt-till-plats (P2S) VPN i Windows för användning med 
 description: Så här konfigurerar du en punkt-till-plats (P2S) VPN i Windows för användning med Azure Files
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95386af4522adca1d65e04b01c2a349a80e9ab8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da49d1c94584393bfef066d61c1caf360b249c3b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81273485"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515317"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Konfigurera en punkt-till-plats (P2S) VPN i Windows för användning med Azure Files
 Du kan använda en punkt-till-plats (P2S) VPN-anslutning för att montera dina Azure-filresurser över SMB utanför Azure, utan att öppna port 445. En punkt-till-plats-VPN-anslutning är en VPN-anslutning mellan Azure och en enskild klient. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. Om du har många klienter som behöver ansluta till dina Azure-filresurser från ditt lokala nätverk kan du använda en plats-till-plats (S2S) VPN-anslutning i stället för en punkt-till-plats-anslutning för varje klient. Mer information finns i [Konfigurera en plats-till-plats-VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
@@ -33,7 +33,7 @@ För att få åtkomst till Azure-filresursen och andra Azure-resurser från loka
 
 Följande PowerShell skapar ett virtuellt Azure-nätverk med tre undernät: ett för lagrings kontots tjänst slut punkt, ett för lagrings kontots privata slut punkt, vilket krävs för att komma åt lagrings kontot lokalt utan att skapa en anpassad routning för den offentliga IP-adressen för det lagrings konto som kan ändras, och ett för din virtuella nätverksgateway som tillhandahåller VPN-tjänsten. 
 
-Kom ihåg att `<region>`ersätta `<resource-group>`, och `<desired-vnet-name>` med lämpliga värden för din miljö.
+Kom ihåg att ersätta `<region>` , `<resource-group>` och `<desired-vnet-name>` med lämpliga värden för din miljö.
 
 ```PowerShell
 $region = "<region>"
@@ -128,7 +128,7 @@ foreach($line in $rawRootCertificate) {
 ## <a name="deploy-virtual-network-gateway"></a>Distribuera virtuell nätverksgateway
 Den virtuella Azure-Nätverksgatewayen är den tjänst som dina lokala Windows-datorer kommer att ansluta till. Att distribuera den här tjänsten kräver två grundläggande komponenter: en offentlig IP-adress som identifierar gatewayen för dina klienter oavsett var de finns i världen och ett rot certifikat som du skapade tidigare och som ska användas för att autentisera dina klienter.
 
-Kom ihåg att `<desired-vpn-name-here>` ersätta med det namn som du vill ha för dessa resurser.
+Kom ihåg att ersätta `<desired-vpn-name-here>` med det namn som du vill ha för dessa resurser.
 
 > [!Note]  
 > Det kan ta upp till 45 minuter att distribuera den virtuella Azure-Nätverksgatewayen. Även om den här resursen distribueras, kommer det här PowerShell-skriptet att blockeras för att distributionen ska slutföras. Detta är förväntat.
@@ -214,7 +214,7 @@ Export-PfxCertificate `
 ## <a name="configure-the-vpn-client"></a>Konfigurera VPN-klienten
 Den virtuella Azure-Nätverksgatewayen kommer att skapa ett nedladdnings Bart paket med konfigurationsfiler som krävs för att initiera VPN-anslutningen på din lokala Windows-dator. Vi konfigurerar VPN-anslutningen med funktionen [Always on VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) i Windows 10/Windows Server 2016 +. Det här paketet innehåller också körbara paket som konfigurerar den äldre Windows VPN-klienten, om så önskas. Den här guiden använder alltid VPN i stället för den äldre Windows VPN-klienten som Always on VPN-klienten, vilket gör att slutanvändarna kan ansluta eller koppla från Azure VPN utan administratörs behörighet till datorn. 
 
-Följande skript kommer att installera det klient certifikat som krävs för autentisering mot den virtuella Nätverksgatewayen, ladda ned och installera VPN-paketet. Kom ihåg att `<computer1>` ersätta `<computer2>` och med önskade datorer. Du kan köra det här skriptet på så många datorer som du vill genom att lägga till fler PowerShell `$sessions` -sessioner i matrisen. Ditt användnings konto måste vara administratör på var och en av dessa datorer. Om någon av dessa datorer är den lokala dator som du kör skriptet från, måste du köra skriptet från en upphöjd PowerShell-session. 
+Följande skript kommer att installera det klient certifikat som krävs för autentisering mot den virtuella Nätverksgatewayen, ladda ned och installera VPN-paketet. Kom ihåg att ersätta `<computer1>` och `<computer2>` med önskade datorer. Du kan köra det här skriptet på så många datorer som du vill genom att lägga till fler PowerShell-sessioner i `$sessions` matrisen. Ditt användnings konto måste vara administratör på var och en av dessa datorer. Om någon av dessa datorer är den lokala dator som du kör skriptet från, måste du köra skriptet från en upphöjd PowerShell-session. 
 
 ```PowerShell
 $sessions = [System.Management.Automation.Runspaces.PSSession[]]@()

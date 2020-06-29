@@ -3,15 +3,15 @@ title: Använda .NET SDK för Microsoft Azure StorSimple Data Manager jobb
 description: Lär dig hur du använder .NET SDK för att starta StorSimple Data Manager-jobb
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 316eddc98de78974bb2583f91ced635b148686c1
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76270731"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514903"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Använd .NET SDK för att initiera data omvandlingen
 
@@ -43,7 +43,7 @@ Innan du börjar ska du kontrol lera att du har:
 Utför följande steg för att använda .NET för att starta ett data omvandlings jobb.
 
 1. Gör så här för att hämta konfigurations parametrarna:
-    1. Hämta `Get-ConfigurationParams.ps1` från skriptet för GitHub-lagringsplatsen `C:\DataTransformation` på plats.
+    1. Hämta `Get-ConfigurationParams.ps1` från skriptet för GitHub-lagringsplatsen på `C:\DataTransformation` plats.
     1. Kör `Get-ConfigurationParams.ps1` skriptet från GitHub-lagringsplatsen. Ange följande kommando:
 
         ```
@@ -52,8 +52,8 @@ Utför följande steg för att använda .NET för att starta ett data omvandling
         Du kan skicka in värden för ActiveDirectoryKey och AppName.
 
 2. Det här skriptet matar ut följande värden:
+    * Klient-ID
     * Klientorganisations-ID
-    * Klient-ID:t
     * Active Directory nyckel (samma som den som anges ovan)
     * Prenumerations-ID:t
 

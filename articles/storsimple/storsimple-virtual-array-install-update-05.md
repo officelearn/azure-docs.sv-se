@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: e09ff4bcbc141b1a1f80bc278918a291639c1885
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 9b95593dd7ce7e10300ecef9b3636073a3096a7f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61445428"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513662"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installera Uppdatering 0,5 på din virtuella StorSimple-matris
 
@@ -57,7 +57,7 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Hämta uppdateringen eller snabb korrigeringen
 
-1. Starta Internet Explorer och gå till [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Starta Internet Explorer och gå till [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
 
@@ -75,8 +75,8 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
     ![Filer i paketet](./media/storsimple-virtual-array-install-update-05/update05folder.png)
 
     Du ser:
-    -  En Microsoft Update fristående paket fil `WindowsTH-KB3011067-x64`. Den här filen används för att uppdatera enhetens program vara.
-    - En paket fil `GenevaMonitoringAgentPackageInstaller`för en Genève-övervaknings agent. Den här filen används för att uppdatera övervaknings-och Diagnostics service-agenten (MDS). Dubbelklicka på CAB-filen. En. msi visas. Markera filen, högerklicka på den och **extrahera** sedan filen. Du kan använda _MSI_ -filen för att uppdatera agenten.
+    -  En Microsoft Update fristående paket fil `WindowsTH-KB3011067-x64` . Den här filen används för att uppdatera enhetens program vara.
+    - En paket fil för en Genève-övervaknings agent `GenevaMonitoringAgentPackageInstaller` . Den här filen används för att uppdatera övervaknings-och Diagnostics service-agenten (MDS). Dubbelklicka på CAB-filen. En. msi visas. Markera filen, högerklicka på den och **extrahera** sedan filen. Du kan använda _MSI_ -filen för att uppdatera agenten.
 
         ![Extrahera MDS-agentens uppdaterings fil](./media/storsimple-virtual-array-install-update-05/extract-geneva-monitoring-agent-installer.png)
         
@@ -90,7 +90,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabb korrigeringen
 
-1. I det lokala webb gränssnittet går du till **Underhåll** > **program uppdatering**.
+1. I det lokala webb gränssnittet går du till **Underhåll**  >  **program uppdatering**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -106,7 +106,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll** > **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10290.0** för uppdatering 0,5.
+5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10290.0** för uppdatering 0,5.
    
    > [!NOTE]
    > Vi rapporterar program versioner på ett något annorlunda sätt i det lokala webb gränssnittet och Azure Portal. Till exempel kan de lokala Web UI-rapporterna **10.0.0.0.0.10290** och Azure Portal rapporterar **10.0.10290.0** för samma version.

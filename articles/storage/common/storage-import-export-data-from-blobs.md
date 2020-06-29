@@ -4,22 +4,22 @@ description: Lär dig hur du skapar export jobb i Azure Portal för att överfö
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8605fb3c43e625d86fd4d4008ddc49b0e29c8d44
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509482"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513498"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten till att exportera data från Azure Blob Storage
 
 Den här artikeln innehåller stegvisa instruktioner för hur du använder tjänsten Azure import/export för att på ett säkert sätt exportera stora mängder data från Azure Blob Storage. Tjänsten kräver att du levererar tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagrings konto till enheterna och levererar sedan enheterna tillbaka.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du skapar ett export jobb för att överföra data från Azure Blob Storage bör du noggrant granska och slutföra följande lista över nödvändiga komponenter för tjänsten.
 Du måste:
@@ -216,8 +216,8 @@ I följande tabell visas exempel på giltiga BLOB-sökvägar:
    | Börjar med |/book |Exporterar alla blobar i alla behållare som börjar med prefix **boken** |
    | Börjar med |MP3 |Exporterar alla blobbar i container **musiken** |
    | Börjar med |/music/love |Exporterar alla blobbar i container **musiken** som börjar med prefixet **kärlek** |
-   | Lika med |$root/logo.bmp |Exporterar BLOB- **logotypen. bmp** i rot behållaren |
-   | Lika med |Videor/berättelse. mp4 |Exporterar BLOB **berättelse. mp4** i behållar **videor** |
+   | Lika med |$root/logo.bmp |Exporterar BLOB- **logo.bmp** i rot behållaren |
+   | Lika med |Videor/story.mp4 |Exporterar BLOB- **story.mp4** i behållar **videor** |
 
 ## <a name="next-steps"></a>Nästa steg
 

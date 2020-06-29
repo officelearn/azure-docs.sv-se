@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 464fa05f658dd6e6e25d79f8840ceeb939383149
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77467223"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515213"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Haveriberedskap och redundansväxling av enhet för StorSimple Virtual Array via Azure-portalen
 
@@ -60,7 +60,7 @@ Kontrol lera att följande krav är uppfyllda för en enhets växling vid fel:
 * För en fil server DR rekommenderar vi att du ansluter mål enheten till samma domän som källan. Den här konfigurationen säkerställer att resurs behörigheterna automatiskt löses. Det finns bara stöd för redundans till en mål enhet i samma domän.
 * Tillgängliga mål enheter för DR är enheter som har samma eller större kapacitet jämfört med käll enheten. De enheter som är anslutna till din tjänst men inte uppfyller kriterierna för tillräckligt med utrymme är inte tillgängliga som mål enheter.
 
-### <a name="other-considerations"></a>Andra överväganden
+### <a name="other-considerations"></a>Ytterligare överväganden
 
 * För planerad redundans:
   

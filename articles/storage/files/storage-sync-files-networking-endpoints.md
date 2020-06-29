@@ -3,18 +3,18 @@ title: Konfigurera Azure File Sync nätverks slut punkter | Microsoft Docs
 description: En översikt över nätverks alternativ för Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e62f093c46b4acc4380f43419a2af0f30e9eb540
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 68d2b864b0e825756fbcd8e43fee3d6289c77c36
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466744"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512861"
 ---
-# <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurera Azure File Sync nätverks slut punkter
+# <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurera nätverksslutpunkter i Azure File Sync
 Azure Files och Azure File Sync ger två huvud typer av slut punkter för åtkomst till Azure-fil resurser: 
 - Offentliga slut punkter som har en offentlig IP-adress och som kan nås från var som helst i världen.
 - Privata slut punkter, som finns i ett virtuellt nätverk och har en privat IP-adress inom det virtuella nätverkets adress utrymme.

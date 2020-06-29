@@ -3,17 +3,17 @@ title: Överföra data till eller från Azure Blob Storage med hjälp av AzCopy 
 description: Den här artikeln innehåller en samling av AzCopy-exempel kommandon som hjälper dig att skapa behållare, kopiera filer och synkronisera kataloger mellan lokala fil system och behållare.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: da5eafbdffccc8175b5248ce7b9456d26adf97a2
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817561"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513771"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 

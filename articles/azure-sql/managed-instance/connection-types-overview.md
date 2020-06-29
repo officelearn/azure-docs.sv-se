@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 153f338a49a24d1cb9eb71c068effcfd20bd2ffe
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6c6774fb462a21e721b19ae53d1d018d780b28ae
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706315"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517328"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Anslutnings typer för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,11 @@ I anslutnings typen proxy upprättas TCP-sessionen med hjälp av gatewayen och a
 
 ![proxy.png](./media/connection-types-overview/proxy.png)
 
-## <a name="script-to-change-connection-type-settings-using-powershell"></a>Skript för att ändra inställningar för Anslutnings typ med PowerShell
+## <a name="changing-connection-type"></a>Ändrar Anslutnings typ
+
+- **Använda portalen:** Om du vill ändra anslutnings typen med hjälp av Azure Portal öppnar du sidan Virtual Network och använder **anslutnings typs** inställningen för att ändra anslutnings typen och spara ändringarna.
+
+- **Skript för att ändra inställningar för Anslutnings typ med PowerShell:**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

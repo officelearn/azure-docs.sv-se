@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253468"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513312"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -54,7 +54,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 En lista över Azure-regioner där Data Factory för närvarande är tillgänglig finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Data lager och beräkningar kan finnas i andra regioner. Butikerna innehåller Azure Storage och Azure SQL Database. Beräkningarna inkluderar HDInsight, som Data Factory använder.
 
-Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel. Du behöver flera värden för senare delar av den här självstudien, till exempel **program-ID** och **katalog (klient)-ID**.
+Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel. Du behöver flera värden för senare delar av den här självstudien, till exempel **program-ID** och **katalog (klient)-ID**.
 
 ### <a name="create-a-blob-table"></a>Skapa en BLOB-tabell
 

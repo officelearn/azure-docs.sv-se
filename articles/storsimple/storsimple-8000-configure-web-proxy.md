@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65204253"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514282"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera webbproxy för din StorSimple-enhet
 
@@ -86,7 +86,7 @@ Web Proxy är nu aktiverat. Du kan hoppa över steget [Aktivera webbproxy](#enab
 Ett annat sätt att konfigurera webbproxy-inställningar är via Windows PowerShell för StorSimple-cmdletar. Konfigurera webbproxy genom att utföra följande steg.
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>Konfigurera webbproxy via-cmdletar
-1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är `Password1`.
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är `Password1` .
 2. Skriv följande i kommandotolken:
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
@@ -108,7 +108,7 @@ Web Proxy är inaktive rad som standard. När du har konfigurerat webbproxyinst�
 Utför följande steg i Windows PowerShell för StorSimple för att aktivera webbproxy på enheten:
 
 #### <a name="to-enable-web-proxy"></a>Så här aktiverar du webbproxy
-1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är `Password1`.
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. Ange **enhetens administratörs lösen ord**när du uppmanas att göra det. Standard lösen ordet är `Password1` .
 2. Skriv följande i kommandotolken:
    
     `Enable-HcsWebProxy`

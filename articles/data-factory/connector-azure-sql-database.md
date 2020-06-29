@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: 4c79779d9ce87a2596e5ccd3888e323fd27e0115
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6a71cc080c28cfa6e54de5b942ad1d8ce5b496d3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298082"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513953"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure SQL Database med Azure Data Factory
 
@@ -129,7 +129,7 @@ För olika typer av autentiseringar, se följande avsnitt om krav respektive JSO
 
 Följ dessa steg om du vill använda en tjänst objekts Azure AD-baserad autentisering av Azure AD-programtoken:
 
-1. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure Portal. Anteckna program namnet och följande värden som definierar den länkade tjänsten:
+1. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) från Azure Portal. Anteckna program namnet och följande värden som definierar den länkade tjänsten:
 
     - Program-ID
     - Program nyckel
@@ -628,7 +628,7 @@ När data kopieras från eller till Azure SQL Database, används följande mappn
 | ntext |Sträng, char [] |
 | numeric |Decimal |
 | nvarchar |Sträng, char [] |
-| real |Enkel |
+| real |Enskilt |
 | rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

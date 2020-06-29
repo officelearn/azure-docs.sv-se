@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 1755d6808183887ca428f227272c3923d4bae21f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 3195fd9e367caed352cb4f9881573740399851e4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213862"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513553"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -39,7 +39,7 @@ Granska följande resurser när du förbereder ditt erbjudande för Azure-progra
 * Snabbstarter:
 
     * [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/)
-    * [GitHub Azure snabb starts mallar](https://github.com/azure/azure-quickstart-templates)
+    * [Best Practices guide för Azure-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publicera programdefinition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Distribuera tjänstkatalogapp](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
@@ -181,7 +181,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
 7. Sammanfattning
-8. Beskrivning
+8. Description
 9. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
@@ -207,7 +207,7 @@ Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan 
 
 Ange en längre Beskrivning av erbjudandet, upp till 256 tecken. Beskrivningen kan användas i Sök resultat.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -426,10 +426,14 @@ Du kan konfigurera varje plan så att den blir synlig för alla eller till en sp
 
 Välj **det här är en privat plan** för att göra din plan privat och endast synlig för den begränsade gruppen som du väljer. När du har publicerat som privat plan kan du uppdatera mål gruppen eller välja att göra planen tillgänglig för alla. När en plan publiceras som synlig för alla måste den förbli synlig för alla; den kan inte konfigureras om som privat plan.
 
+>[!Note]
+>En privat eller begränsad mål grupp skiljer sig från den förhands visnings mål som du definierade på fliken **förhands granskning** . En förhands gransknings grupp kan komma åt ditt erbjudande _innan_ det publiceras Live på Marketplace. Även om valet för privat mål bara gäller för en speciell plan, kan förhands gransknings gruppen Visa alla planer (privata eller inte) för validerings syfte.
+
 Om du gör planen privat anger du ett **ID för Azure-prenumeration** och dess beskrivning. Varje är en mål grupp som kommer att ha åtkomst till den här privata planen. Åtkomst tilldelas med hjälp av Azures prenumerations-ID med alternativet att inkludera en beskrivning av varje tilldelad Azure-prenumeration. Lägg till upp till 10 kunders prenumerations-ID individuellt eller 20 000 genom att importera en CSV-fil. ID: n för Azure-prenumerationen visas som GUID och bokstäver måste vara gemena.
 
 >[!Note]
->En privat eller begränsad mål grupp skiljer sig från den förhands visnings mål som du definierade på fliken **förhands granskning** . En förhands gransknings grupp kan komma åt ditt erbjudande _innan_ det publiceras Live på Marketplace. Även om valet för privat mål bara gäller för en speciell plan, kan förhands gransknings gruppen Visa alla planer (privata eller inte) för validerings syfte.
+>Privata erbjudanden stöds inte med Azure-prenumerationer som upprättats via en åter försäljare av Cloud Solution Provider-programmet (CSP).
+
 
 ### <a name="technical-configuration"></a>Teknisk konfiguration 
 

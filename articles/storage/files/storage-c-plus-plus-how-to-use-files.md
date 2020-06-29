@@ -3,16 +3,16 @@ title: Utveckla för Azure Files med C++ | Microsoft Docs
 description: Lär dig hur du utvecklar C++-program och-tjänster som använder Azure Files för att lagra fildata.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699804"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515383"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Utveckla för Azure Files med C++
 
@@ -41,7 +41,7 @@ Om du vill bygga exemplen måste du installera Azure Storage klient bibliotek 2.
 Om du vill installera Azure Storage-2.4.0 för C++ kan du använda någon av följande metoder:
 
 * **Linux:** Följ anvisningarna i README-sidan [för Azure Storage klient bibliotek för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
-* **Windows:** I Visual Studio klickar du **på &gt; verktyg NuGet Package &gt; Manager Package**Manager-konsolen. Skriv följande kommando i [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
+* **Windows:** I Visual Studio klickar du på **verktyg &gt; NuGet Package Manager &gt; Package**Manager-konsolen. Skriv följande kommando i [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
   
 
 ```powershell

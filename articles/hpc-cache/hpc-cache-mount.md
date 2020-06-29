@@ -3,19 +3,19 @@ title: Montera en Azure HPC-cache
 description: Ansluta klienter till en Azure HPC cache-tjänst
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: a44232f06b455e20530271723e816c2117b339a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458417"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515532"
 ---
-# <a name="mount-the-azure-hpc-cache"></a>Montera Azure HPC-cachen
+# <a name="mount-the-azure-hpc-cache"></a>Montera Azure HPC Cache
 
-När cachen har skapats kan NFS-klienter komma åt den med ett `mount` enkelt kommando. Kommandot ansluter en speciell lagrings mål Sök väg på Azure HPC-cachen till en lokal katalog på klient datorn.
+När cachen har skapats kan NFS-klienter komma åt den med ett enkelt `mount` kommando. Kommandot ansluter en speciell lagrings mål Sök väg på Azure HPC-cachen till en lokal katalog på klient datorn.
 
 Monterings kommandot består av följande element:
 
@@ -57,7 +57,7 @@ När du ansluter klient datorn till cacheminnet associeras sökvägen med en sö
 
 Du kan använda sidan **monterings instruktioner** i Azure Portal för att skapa ett kopierings Bart monterings kommando. Öppna sidan från avsnittet **Konfigurera** i vyn cache i portalen.
 
-Innan du använder kommandot på en klient kontrollerar du att klienten uppfyller kraven och att den program vara som krävs för att använda NFS `mount` -kommandot enligt beskrivningen ovan i [förbereda klienter](#prepare-clients).
+Innan du använder kommandot på en klient kontrollerar du att klienten uppfyller kraven och att den program vara som krävs för att använda NFS- `mount` kommandot enligt beskrivningen ovan i [förbereda klienter](#prepare-clients).
 
 ![skärm bild av en Azure HPC cache-instans i portalen med sidan Konfigurera > monterings instruktioner inläst](media/mount-instructions.png)
 

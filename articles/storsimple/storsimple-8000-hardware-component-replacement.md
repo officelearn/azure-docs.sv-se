@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69b6c4e81446cf6a922fe9a1d0da8452e5ec164d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60321827"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513200"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Ersätta en maskin varu komponent på din StorSimple 8000-serie enhet
 
@@ -51,12 +51,12 @@ Bekanta dig med säkerhets informationen om din enhet och dina säkerhets ikoner
 
 Innan du försöker ersätta en komponent bör du tänka på följande information.
 
-![Varnings](./media/storsimple-hardware-component-replacement/Warning.png) ![ikon varning om](./media/storsimple-hardware-component-replacement/Electric.png) elektrisk stötande ikon **!**
+![Varnings ikon ](./media/storsimple-hardware-component-replacement/Warning.png) ![ varning om elektrisk stötande ikon ](./media/storsimple-hardware-component-replacement/Electric.png) **!**
 
 * På egen hand genom att använda en statisk urladdning eller en antistatisk mat i hantering av moduler och komponenter i StorSimple-enheten.
 * Vidrör inte någon krets. Använd de angivna referenserna och stöd linjerna när du hanterar komponenter som kan ha exponerade kretsar.
 
-![Varnings](./media/storsimple-hardware-component-replacement/Warning.png) ![ikon meddelande](./media/storsimple-hardware-component-replacement/NoticeIcon.png) ikon **meddelande:**
+![Varnings ikon meddelande ](./media/storsimple-hardware-component-replacement/Warning.png) ![ ikon ](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **meddelande:**
 
 **Lämna aldrig ett tomt fack i höljets bak sida**när du ersätter en modul. Hämta en ersättnings-eller tom modul innan du tar bort problem delen.
 
@@ -67,11 +67,11 @@ De viktigaste maskin varu komponenterna i enheten sammanfattas i följande tabel
 
 | Komponenter | Antal närvarande | Plugin-modul? | Ersättnings procedur |
 |:--- |:--- |:--- |:--- |
-| Chassi |1 |Inga |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
-| Primära kontrollanter |2 |Ja |[Ersätta en Controller-modul på din StorSimple-enhet](storsimple-8000-controller-replacement.md) |
-| 764W Power and kylning-moduler (PCMs) |2 |Ja |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
-| Reserv batteri |2 |Ja |[Ersätta modulen för extrabatteriet på StorSimple-enheten](storsimple-8000-battery-replacement.md) |
-| Diskenheter |12 |Ja |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |
+| Chassi |1 |No |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
+| Primära kontrollanter |2 |Yes |[Ersätta en Controller-modul på din StorSimple-enhet](storsimple-8000-controller-replacement.md) |
+| 764W Power and kylning-moduler (PCMs) |2 |Yes |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
+| Reserv batteri |2 |Yes |[Ersätta modulen för extrabatteriet på StorSimple-enheten](storsimple-8000-battery-replacement.md) |
+| Diskenheter |12 |Yes |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabell 1** Maskin varu komponenter i den primära inne slutningen
 
@@ -79,10 +79,10 @@ Den primära inne slutningen och EBOD-kabinettet skiljer sig i sina I/O-moduler.
 
 | Komponenter | Antal närvarande | Plugin-modul? | Ersättnings procedur |
 |:--- |:--- |:--- |:--- |
-| Chassi |1 |Inga |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
-| EBOD kontrollanter |2 |Ja |[Ersätta en EBOD-kontrollant på din StorSimple-enhet](storsimple-8000-ebod-controller-replacement.md) |
-| 580W Power and kylning-moduler (PCMs) |2 |Ja |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
-| Diskenheter |12 |Ja |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |
+| Chassi |1 |No |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
+| EBOD kontrollanter |2 |Yes |[Ersätta en EBOD-kontrollant på din StorSimple-enhet](storsimple-8000-ebod-controller-replacement.md) |
+| 580W Power and kylning-moduler (PCMs) |2 |Yes |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
+| Diskenheter |12 |Yes |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabell 2** Maskin varu komponenter i EBOD-kabinettet
 
@@ -92,7 +92,7 @@ Plugin-modulerna på enheten är markerade i följande främre och bakre diagram
 
 **Bild 1** Enhetens fram sida
 
-| Label (Etikett) | Beskrivning |
+| Etikett | Description |
 |:--- |:--- |
 | 0 - 11 |Disk enheter (totalt 12) |
 
@@ -102,7 +102,7 @@ Både den primära inne slutningen och EBOD-kabinettet har enhets bärare. Chass
 
 **Bild 2** Tillbaka till den primära inne slutningen
 
-| Label (Etikett) | Beskrivning |
+| Etikett | Beskrivning |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ Både den primära inne slutningen och EBOD-kabinettet har enhets bärare. Chass
 
 **Bild 3** Bak sidan av EBOD-kabinettet
 
-| Label (Etikett) | Beskrivning |
+| Etikett | Beskrivning |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

@@ -4,16 +4,16 @@ description: Lär dig hur du skapar import-och export jobb i Azure Portal för a
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 570c663861361a19190f6fb5d608b6aa029a0885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d12c0ce0df44c37f4e7df49df2c11301513917c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282502"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514213"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använd Azure import/export-tjänsten för att importera data till Azure Blob Storage
 
@@ -33,11 +33,11 @@ Du måste:
 * Aktivera BitLocker på Windows-systemet. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 * [Ladda ned den senaste WAImportExport-versionen 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet. Den senaste versionen av verktyget har säkerhets uppdateringar för att tillåta en extern skydds funktion för BitLocker-nyckeln och den uppdaterade funktionen för upplåsnings läge.
 
-  * Zippa upp till standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
-* Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com`.  
+  * Zippa upp till standardmappen `waimportexportv1` . Exempelvis `C:\WaImportExportV1`.
+* Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .  
   * Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
   * Generera ett spårnings nummer för export jobbet.
-  * Varje jobb bör ha ett separat spårnings nummer. Det finns inte stöd för flera jobb med samma spårnings nummer.
+  * Varje jobb ska ha ett separat spårningsnummer. Det finns inte stöd för flera jobb med samma spårningsnummer.
   * Om du inte har ett transport företags konto går du till:
     * [Skapa ett FedEX-konto](https://www.fedex.com/en-us/create-account.html)eller
     * [Skapa ett DHL-konto](http://www.dhl-usa.com/en/express/shipping/open_account.html).
@@ -73,31 +73,31 @@ Utför följande steg för att förbereda enheterna.
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
-    En journal fil skapas i samma mapp som du körde verktyget. Två andra filer skapas också – en *. XML* -fil (mapp där du kör verktyget) och en *Drive-manifest. XML-* fil (mapp där data finns).
+    En journal fil skapas i samma mapp som du körde verktyget. Två andra filer skapas också – en *. XML* -fil (mapp där du kör verktyget) och en *drive-manifest.xml* fil (mapp där data finns).
 
     De parametrar som används beskrivs i följande tabell:
 
-    |Alternativ  |Beskrivning  |
+    |Alternativ  |Description  |
     |---------|---------|
     |/j     |Namnet på Journal filen med fil namns tillägget. jrn. En journal fil skapas per enhet. Vi rekommenderar att du använder diskens serie nummer som Journal fil namn.         |
     |/ID     |Sessions-ID. Använd ett unikt sessions nummer för varje instans av kommandot.      |
-    |/t:     |Enhets beteckningen för den disk som ska levereras. Till exempel enhet `D`.         |
+    |/t:     |Enhets beteckningen för den disk som ska levereras. Till exempel enhet `D` .         |
     |/bk:     |Enhetens BitLocker-nyckel. Det numeriska lösen ordet från utdata från`manage-bde -protectors -get D:`      |
-    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\`. Till exempel `D:\`.         |
+    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Exempelvis `D:\`.         |
     |/dstdir:     |Namnet på mål behållaren i Azure Storage.         |
-    |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar. `PageBlob`         |
+    |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar `PageBlob` .         |
     |/skipwrite:     |Alternativet som anger att det inte finns några nya data som behöver kopieras och befintliga data på disken måste förberedas.          |
     |/enablecontentmd5:     |Alternativet när det är aktiverat, säkerställer att MD5 beräknas och anges som `Content-md5` egenskap för varje blob. Använd bara det här alternativet om du vill använda `Content-md5` fältet när data har överförts till Azure. <br> Det här alternativet påverkar inte data integritets kontrollen (som inträffar som standard). Inställningen ökar den tid det tar att ladda upp data till molnet.          |
 8. Upprepa föregående steg för varje disk som måste levereras. En journal fil med det angivna namnet skapas för varje körning av kommando raden.
 
     > [!IMPORTANT]
-    > * Tillsammans med journal filen skapas även en `<Journal file name>_DriveInfo_<Drive serial ID>.xml` fil i samma mapp som verktyget finns i. XML-filen används i stället för journal filen när du skapar ett jobb om journal filen är för stor.
+    > * Tillsammans med journal filen `<Journal file name>_DriveInfo_<Drive serial ID>.xml` skapas även en fil i samma mapp som verktyget finns i. XML-filen används i stället för journal filen när du skapar ett jobb om journal filen är för stor.
 
 ## <a name="step-2-create-an-import-job"></a>Steg 2: skapa ett import jobb
 
 Utför följande steg för att skapa ett import jobb i Azure Portal.
 
-1. Logga in på https://portal.azure.com/.
+1. Logga in på https://portal.azure.com/ .
 2. Gå till **alla tjänster > lagring > import/export-jobb**.
 
     ![Gå till import/export-jobb](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
@@ -119,7 +119,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
 5. I **jobb information**:
 
-   * Ladda upp filerna för enhets journaler som du fick under steget förberedelse av enhet. Om `waimportexport.exe version1` användes överför du en fil för varje enhet som du har för berett. Om journal filens storlek överskrider 2 MB kan du använda den `<Journal file name>_DriveInfo_<Drive serial ID>.xml` som skapats med journal filen.
+   * Ladda upp filerna för enhets journaler som du fick under steget förberedelse av enhet. Om `waimportexport.exe version1` användes överför du en fil för varje enhet som du har för berett. Om journal filens storlek överskrider 2 MB kan du använda den som `<Journal file name>_DriveInfo_<Drive serial ID>.xml` skapats med journal filen.
    * Välj det mål lagrings konto där data ska finnas.
    * DropOff-platsen fylls i automatiskt baserat på den region där det valda lagrings kontot finns.
 
@@ -127,7 +127,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
 6. I **information om retur leverans**:
 
-   * Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet `adbops@microsoft.com` på med information om den operatör som du planerar att använda.
+   * Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com` med information om den operatör som du planerar att använda.
    * Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt import jobb har slutförts. Om du inte har ett konto nummer skapar du ett [FedEx](https://www.fedex.com/us/oadr/) -eller [DHL](https://www.dhl.com/) -konto.
    * Ange ett fullständigt och giltigt kontakt namn, telefon, e-postadress, gatuadress, ort, post, delstat/provins och land/region.
 

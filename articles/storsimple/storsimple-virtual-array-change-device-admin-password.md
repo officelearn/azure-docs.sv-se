@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 11490814-d9fd-4dc7-9c3b-55dd2c23eaf1
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5308badf439254062a8aefca1840eb21bc234ace
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 8bc8846d546faec194617ccb753cdbd105e16bf9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60580410"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513616"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Ändra StorSimple för den virtuella matris enheten via StorSimple Enhetshanteraren
 
@@ -60,7 +60,7 @@ Utför följande steg för att ändra enhetens administratörs lösen ord via de
 
 #### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Ändra enhetens administratörs lösen ord via det lokala webb gränssnittet
 
-1. I det lokala webb gränssnittet klickar du på **underhålls** > **ändring av lösen ord** för enheten.
+1. I det lokala webb gränssnittet klickar du på **underhålls**  >  **ändring av lösen ord** för enheten.
    
     ![ändra password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. Ange det **aktuella lösen ordet**.

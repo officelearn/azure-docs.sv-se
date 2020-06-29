@@ -3,15 +3,15 @@ title: .NET SDK – fil Systems åtgärder på Data Lake Storage Gen1 – Azure
 description: Använd Azure Data Lake Storage Gen1 .NET SDK för fil Systems åtgärder på Data Lake Storage Gen1, till exempel skapa mappar osv.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 9e52a3cb8d31b5fccc9a0b5a3a76d4e9b43de123
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: eb950f6029511cf834791c161e6a730bcadcabcc
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690970"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515653"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Fil Systems åtgärder på Data Lake Storage Gen1 med hjälp av .NET SDK
 
@@ -41,7 +41,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Sampl
 
 1. I Visual Studio väljer du **Arkiv** -menyn, **nytt**och sedan **projekt**.
 1. Välj **konsol program (.NET Framework)** och välj sedan **Nästa**.
-1. I **projekt namn**anger `CreateADLApplication`du och väljer sedan **skapa**.
+1. I **projekt namn**anger du `CreateADLApplication` och väljer sedan **skapa**.
 1. Lägg till NuGet-paketen i projektet.
 
    1. Högerklicka på projektnamnet i Solution Explorer och klicka på **Hantera NuGet-paket**.

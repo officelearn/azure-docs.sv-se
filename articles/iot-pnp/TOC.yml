@@ -19,7 +19,7 @@
           href: quickstart-connect-pnp-device-c-linux.md
         - name: C Windows
           href: quickstart-connect-pnp-device-c-windows.md
-        - name: 'C#'
+        - name: C#
           href: quickstart-connect-pnp-device-csharp.md
         - name: Java
           href: quickstart-connect-pnp-device-java.md
@@ -29,7 +29,7 @@
       href: ../iot-central/core/tutorial-connect-pnp-device.md
     - name: Ansluta till en enhet i din lösning
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstart-connect-pnp-device-solution-csharp.md
         - name: Java
           href: quickstart-connect-pnp-device-solution-java.md
@@ -43,7 +43,7 @@
       href: tutorial-build-device-certification.md
     - name: Certifiera enheten
       href: tutorial-certification-test.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Ordlista
       href: iot-plug-and-play-glossary.md
@@ -55,7 +55,7 @@
       href: concepts-model-discovery.md
     - name: Begränsningar och kvoter
       href: concepts-limits-quotas.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Utveckla med Visual Studio och Visual Studio Code
       href: howto-develop-with-vs-vscode.md
@@ -73,7 +73,7 @@
   items:
     - name: 'Bibliotek och SDK:er'
       href: libraries-sdks.md
-    - name: REST API
+    - name: REST-API
       items:
         - name: Digital tvilling
           href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
@@ -83,6 +83,10 @@
           href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
         - name: Generera en REST-säkerhetstoken
           href: howto-generate-sas-token.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resurser
   items:
     - name: Alternativ för support och hjälp
@@ -91,7 +95,7 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning-tjänst
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
@@ -108,6 +112,6 @@
     - name: 'SDK:er för Azure IoT'
       items:
         - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

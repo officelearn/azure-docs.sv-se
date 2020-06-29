@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 34aeda7534c15b51b9759b696caaf3fcfac88659
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 086e3cf71012f168851df1c85b19689294fe6302
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317713"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515723"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -23,11 +23,11 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 ### <a name="june-2020"></a>Juni 2020
 
-+ [Azure Machine Learning (AML) (för hands version)](cognitive-search-aml-skill.md) är en kognitiv kunskap som används vid indexeringen och som omsluter en Azure Machine learnings modell. Genom kunskapen kan du integrera en tidigare utbildad och distribuerad anpassad maskin inlärning till en AI-pipeline. [Registrera dig för att begära åtkomst](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). När du är redo att lägga till en AML-färdighet använder du AML-mallen i färdigheter-redigeraren i Azure Portal. Kom igång med [den här självstudien](cognitive-search-tutorial-aml-custom-skill.md)för praktiska övningar.
+Azure Machine Learning skicklighet är en ny färdighets typ som integrerar en inferencing-slutpunkt från Azure Machine Learning. Portal upplevelsen stöder identifiering och integrering av din Azure Machine Learning-slutpunkt i en Kognitiv sökning färdigheter. Identifieringen kräver att din Kognitiv sökning och Azure ML-tjänsterna distribueras i samma prenumeration. Kom igång med [den här självstudien](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft-version)
 
-+ Funktionen [Felsök sessioner](cognitive-search-debug-session.md) är nu i för hands version. [Registrera dig för att begära åtkomst](https://aka.ms/DebugSessions). Fel söknings sessioner tillhandahåller ett Portal gränssnitt för att undersöka och lösa problem med en färdigheter. Korrigeringar som skapats i felsökningssessionen kan sparas till produktionens färdighetsuppsättningar. Kom igång med [den här självstudien](cognitive-search-tutorial-debug-sessions.md).
++ Funktionen [Felsök sessioner](cognitive-search-debug-session.md) är nu i för hands version. Fel söknings sessioner tillhandahåller ett Portal gränssnitt för att undersöka och lösa problem med en färdigheter. Korrigeringar som skapats i felsökningssessionen kan sparas till produktionens färdighetsuppsättningar. Kom igång med [den här självstudien](cognitive-search-tutorial-debug-sessions.md).
 
 + Säkerhets förbättringar omfattar möjligheten att [Konfigurera en privat Sök slut punkt (för hands version)](service-create-private-endpoint.md) som inte är tillgänglig på det offentliga Internet. Du kan också [Konfigurera IP-regler för Inbound brand Väggs stöd (för hands version)](service-configure-firewall.md).
 

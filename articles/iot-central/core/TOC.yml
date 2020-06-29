@@ -151,6 +151,10 @@
               href: howto-manage-preferences.md
             - name: Växla livechatt
               href: howto-show-hide-chat.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resurser
   items:
     - name: Alternativ för support och hjälp

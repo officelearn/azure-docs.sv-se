@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416874"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513297"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Kopiera data från Office 365 till Azure med Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,10 +40,10 @@ För närvarande kan du bara **Kopiera data från Office 365 till [Azure Blob St
 Om du vill kopiera data från Office 365 till Azure måste du utföra följande nödvändiga steg:
 
 - Din Office 365-klient administratör måste slutföra de åtgärder som beskrivs [här](https://docs.microsoft.com/graph/data-connect-get-started).
-- Skapa och konfigurera ett Azure AD-webbprogram i Azure Active Directory.  Instruktioner finns i [skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Skapa och konfigurera ett Azure AD-webbprogram i Azure Active Directory.  Instruktioner finns i [skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Anteckna följande värden, som du kommer att använda för att definiera den länkade tjänsten för Office 365:
-    - Klient-ID. Instruktioner finns i [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-    - Program-ID och program nyckel.  Instruktioner finns i [Hämta program-ID och autentiseringsnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - Klient-ID. Instruktioner finns i [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+    - Program-ID och program nyckel.  Instruktioner finns i [Hämta program-ID och autentiseringsnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 - Lägg till den användar identitet som ska göra data åtkomst förfrågan som ägare av Azure AD-webbprogrammet (från Azure AD-webbprogrammet > inställningar > ägare > Lägg till ägare). 
     - Användar identiteten måste vara i Office 365-organisationen som du hämtar data från och får inte vara gäst användare.
 
@@ -68,7 +68,7 @@ Du kan skapa en pipeline med kopierings aktiviteten genom att använda något av
 - [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [REST API](quickstart-create-data-factory-rest-api.md)
+- [REST-API](quickstart-create-data-factory-rest-api.md)
 - [Azure Resource Manager mall](quickstart-create-data-factory-resource-manager-template.md). 
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Office 365-anslutaren.
@@ -77,14 +77,14 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för den länkade Office 365-tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Office365** | Ja |
-| office365TenantId | Azure-klient-ID som Office 365-kontot tillhör. | Ja |
-| servicePrincipalTenantId | Ange den klient information under vilken Azure AD-webbappen finns. | Ja |
-| servicePrincipalId | Ange programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. | Ja |
-| connectVia | Den Integration Runtime som ska användas för att ansluta till data lagret.  Om inget värde anges används standard Azure Integration Runtime. | Nej |
+| typ | Egenskapen Type måste anges till: **Office365** | Yes |
+| office365TenantId | Azure-klient-ID som Office 365-kontot tillhör. | Yes |
+| servicePrincipalTenantId | Ange den klient information under vilken Azure AD-webbappen finns. | Yes |
+| servicePrincipalId | Ange programmets klient-ID. | Yes |
+| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. | Yes |
+| connectVia | Den Integration Runtime som ska användas för att ansluta till data lagret.  Om inget värde anges används standard Azure Integration Runtime. | No |
 
 >[!NOTE]
 > Skillnaden mellan **office365TenantId** och **servicePrincipalTenantId** och motsvarande värde för att tillhandahålla:
@@ -117,12 +117,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från Office 365:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **Office365Table** | Ja |
-| tableName | Namnet på data uppsättningen som ska extraheras från Office 365. [Här](https://docs.microsoft.com/graph/data-connect-datasets#datasets) hittar du en lista över Office 365-datauppsättningar som är tillgängliga för extrahering. | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **Office365Table** | Yes |
+| tableName | Namnet på data uppsättningen som ska extraheras från Office 365. [Här](https://docs.microsoft.com/graph/data-connect-datasets#datasets) hittar du en lista över Office 365-datauppsättningar som är tillgängliga för extrahering. | Yes |
 
-Om du har `dateFilterColumn`angett `startTime`, `endTime`,, `userScopeFilterUri` och i data uppsättning, stöds den fortfarande som-är, medan du föreslås att använda den nya modellen i aktivitets källan som går framåt.
+Om du har angett `dateFilterColumn` , `startTime` , `endTime` , och `userScopeFilterUri` i data uppsättning, stöds den fortfarande som-är, medan du föreslås att använda den nya modellen i aktivitets källan som går framåt.
 
 **Exempel**
 
@@ -151,15 +151,15 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Office 365:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **Office365Source** | Ja |
-| allowedGroups | Grupp urvals predikat.  Använd den här egenskapen för att välja upp till 10 användar grupper som data ska hämtas för.  Om inga grupper anges returneras data för hela organisationen. | Nej |
-| userScopeFilterUri | När `allowedGroups` egenskapen inte anges kan du använda ett predikat-uttryck som tillämpas på hela klienten för att filtrera de specifika rader som ska extraheras från Office 365. Predikatet format ska matcha fråge formatet för Microsoft Graph API: er, t. `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`ex.. | Nej |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **Office365Source** | Yes |
+| allowedGroups | Grupp urvals predikat.  Använd den här egenskapen för att välja upp till 10 användar grupper som data ska hämtas för.  Om inga grupper anges returneras data för hela organisationen. | No |
+| userScopeFilterUri | När `allowedGroups` egenskapen inte anges kan du använda ett predikat-uttryck som tillämpas på hela klienten för att filtrera de specifika rader som ska extraheras från Office 365. Predikatet format ska matcha fråge formatet för Microsoft Graph API: er, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` t. ex.. | No |
 | dateFilterColumn | Namn på kolumnen DateTime-filter. Använd den här egenskapen för att begränsa det tidsintervall som Office 365-data extraheras för. | Ja om data uppsättningen har en eller flera DateTime-kolumner. [Här](https://docs.microsoft.com/graph/data-connect-filtering#filtering) hittar du en lista över data uppsättningar som kräver detta datetime-filter. |
 | startTime | Starta DateTime-värdet för att filtrera på. | Ja om `dateFilterColumn` har angetts |
 | endTime | Slutdatum/tid-värde att filtrera på. | Ja om `dateFilterColumn` har angetts |
-| outputColumns | Matris för de kolumner som ska kopieras till Sink. | Nej |
+| outputColumns | Matris för de kolumner som ska kopieras till Sink. | No |
 
 **Exempel:**
 

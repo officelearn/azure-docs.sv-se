@@ -3,15 +3,15 @@ title: Skapa ett support paket för StorSimple 8000-serien
 description: Lär dig hur du skapar, dekrypterar och redigerar ett support paket för din StorSimple 8000-serie enhet.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277074"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514052"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett support paket för StorSimple 8000-serien
 
@@ -23,7 +23,7 @@ Den här självstudien innehåller stegvisa instruktioner för att skapa och han
 
 ## <a name="create-a-support-package"></a>Skapa ett support paket
 
-I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Ett exempel:
+I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Till exempel:
 
 * Om du behöver ta bort känslig information från dina loggfiler innan du delar med Microsoft Support.
 * Om du har problem med att ladda upp paketet på grund av anslutnings problem.
@@ -64,14 +64,14 @@ Du kan dela ditt manuellt genererade support paket med Microsoft Support via e-p
 
 Du kan använda följande parametrar med cmdleten export-HcsSupportPackage.
 
-| Parameter | Obligatorisk/valfri | Beskrivning |
+| Parameter | Obligatorisk/valfri | Description |
 | --- | --- | --- |
-| `-Path` |Krävs |Används för att ange platsen för den delade nätverksmapp där support paketet placeras. |
-| `-EncryptionPassphrase` |Krävs |Används för att ge en lösen fras för att kryptera support paketet. |
-| `-Credential` |Valfri |Använd för att ange autentiseringsuppgifter för den delade nätverksmappen. |
-| `-Force` |Valfri |Används för att hoppa över bekräftelse steget för kryptering av lösen fras. |
-| `-PackageTag` |Valfri |Används för att ange en katalog under *sökvägen* där support paketet placeras. Standardvärdet är [enhets namn]-[aktuellt datum och tid: ÅÅÅÅ-MM-dd-HH-mm-SS]. |
-| `-Scope` |Valfri |Ange som **kluster** (standard) om du vill skapa ett support paket för båda styrenheterna. Om du bara vill skapa ett paket för den aktuella kontrollanten anger du **kontrollant**. |
+| `-Path` |Obligatorisk |Används för att ange platsen för den delade nätverksmapp där support paketet placeras. |
+| `-EncryptionPassphrase` |Obligatorisk |Används för att ge en lösen fras för att kryptera support paketet. |
+| `-Credential` |Valfritt |Använd för att ange autentiseringsuppgifter för den delade nätverksmappen. |
+| `-Force` |Valfritt |Används för att hoppa över bekräftelse steget för kryptering av lösen fras. |
+| `-PackageTag` |Valfritt |Används för att ange en katalog under *sökvägen* där support paketet placeras. Standardvärdet är [enhets namn]-[aktuellt datum och tid: ÅÅÅÅ-MM-dd-HH-mm-SS]. |
+| `-Scope` |Valfritt |Ange som **kluster** (standard) om du vill skapa ett support paket för båda styrenheterna. Om du bara vill skapa ett paket för den aktuella kontrollanten anger du **kontrollant**. |
 
 ## <a name="edit-a-support-package"></a>Redigera ett support paket
 

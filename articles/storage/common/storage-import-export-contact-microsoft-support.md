@@ -4,16 +4,16 @@ description: Lär dig hur du loggar support förfrågan om problem som rör ditt
 services: storsimple
 author: alkohli
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20ac33a26bfe24eb60e2febc1344859f4e54cdd4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67621043"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514424"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Öppna ett support ärende för ett import/export-jobb
 
@@ -39,7 +39,7 @@ Utför följande steg för att skapa en support förfrågan:
             ![Välj hantering av lagrings konto](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
         - Om du väljer **BLOB**väljer du **resurs**, **behållar namn** (valfritt) och **Support plan**.
             ![Välj BLOB](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-        - Om du väljer **fil**väljer du **resurs**, **fil resurs namn** (valfritt) och **Support plan** ![Välj fil](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
+        - Om du väljer **fil**väljer du **resurs**, **fil resurs namn** (valfritt) och **Support plan** ![ Välj fil](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
     4. Klicka på **Nästa**.
 
 3. I **New Support-begäran**väljer du **steg 2 problem**. I **problem**, utför följande steg:

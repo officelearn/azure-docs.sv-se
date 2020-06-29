@@ -8,17 +8,17 @@ manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d656fd8757580b8ce96acf168e92fc847d400ca
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65150741"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514057"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrera data från StorSimple 5000-7000-serien till Azure File Sync
 
@@ -74,7 +74,7 @@ Utför följande steg för att migrera Windows-filresursen som kon figurer ATS p
     - [Distribuera tjänsten för synkronisering av lagring](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
     - [Registrera Windows Server med Storage Sync-tjänsten](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
     - [Skapa en Sync-grupp och en moln slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Sync-grupper måste göras för varje Windows-filresurs som måste migreras från värden.
-    - [Skapa en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Ange sökvägen som sökvägen till StorSimple-volymen som innehåller dina fil resurs data. Om StorSimple-volymen till exempel är enhet `J`, och dina data finns i `J:/<myafsshare>`, lägger du till den här sökvägen som en server slut punkt. Låt **nivån** vara **inaktive rad**.
+    - [Skapa en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Ange sökvägen som sökvägen till StorSimple-volymen som innehåller dina fil resurs data. Om StorSimple-volymen till exempel är enhet `J` , och dina data finns i `J:/<myafsshare>` , lägger du till den här sökvägen som en server slut punkt. Låt **nivån** vara **inaktive rad**.
 2.  Vänta tills fil serverns synkronisering har slutförts. Kontrol lera följande för varje server i en specifik Sync-grupp:
     - Tidsstämplar för senaste försök till synkronisering för både överföring och nedladdning har nyligen gjorts.
     - Statusen är grön för både överföring och hämtning.

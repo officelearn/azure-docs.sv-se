@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 872cab4575b143dea057fe7fd070b433f8d54eb9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4bf0acdc774bc41d0bc80c944560f41789584c03
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220322"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513916"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Data Factory
 
@@ -129,9 +129,9 @@ För olika typer av autentiseringar, se följande avsnitt om krav respektive JSO
 
 Följ dessa steg om du vill använda tjänstens huvud-baserade Azure AD Application token-autentisering:
 
-1. **[Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** från Azure Portal. Anteckna program namnet och följande värden som definierar den länkade tjänsten:
+1. **[Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)** från Azure Portal. Anteckna program namnet och följande värden som definierar den länkade tjänsten:
 
-   - Program-ID:t
+   - Program-ID
    - Program nyckel
    - Klientorganisations-ID
 
@@ -761,7 +761,7 @@ När du kopierar data från eller till Azure Synapse Analytics används följand
 | nchar                                 | Sträng, char []                 |
 | numeric                               | Decimal                        |
 | nvarchar                              | Sträng, char []                 |
-| real                                  | Enkel                         |
+| real                                  | Enskilt                         |
 | rowversion                            | Byte []                         |
 | smalldatetime                         | DateTime                       |
 | smallint                              | Int16                          |

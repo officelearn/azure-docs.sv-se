@@ -3,15 +3,15 @@ title: Lägga till lagring till en Azure HPC-cache
 description: Definiera lagrings mål så att Azure HPC-cachen kan använda ditt lokala NFS-system eller Azure Blob-behållare för långsiktig fil lagring
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: 442c9897c5f02e9ed9cbcda96b6a540b9201f428
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434116"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513874"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -153,9 +153,9 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 | Användnings modell | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 | ---- | ---- | ---- | ---- |
-| Läs tung, sällan skrivna skrivningar | Läs | Aldrig | Inga |
+| Läs tung, sällan skrivna skrivningar | Läs | Aldrig | Ingen |
 | Större än 15% skrivningar | Läsa/skriva | Aldrig | 1 timme |
-| Klienterna kringgår cachen | Läs | 30 sekunder | Inga |
+| Klienterna kringgår cachen | Läs | 30 sekunder | Ingen |
 
 ## <a name="next-steps"></a>Nästa steg
 

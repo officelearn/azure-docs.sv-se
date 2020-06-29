@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: cd0c8961cff15385249222986e5fb90ee75e3559
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: f7f0a466f288031474b100f42c9ba41aafb9ff9a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887332"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515549"
 ---
 # <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
 
@@ -48,7 +48,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Ett exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Till exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -144,7 +144,7 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -238,9 +238,6 @@ Ange din förhands gransknings mål med ID: n för Azure-prenumerations-ID, till
 > Du hittar ditt prenumerations-ID för Azure på sidan prenumerationer i Azure Portal.
 
 Lägg till minst ett Azure-prenumerations-ID, antingen individuellt (upp till 10) eller genom att ladda upp en CSV-fil (upp till 100). Genom att lägga till dessa prenumerations-ID: n bestämmer du vem som kan förhandsgranska ditt erbjudande innan det publiceras Live. Om ditt erbjudande redan är Live kan du välja en förhands gransknings grupp för att testa ändringar eller uppdateringar av ditt erbjudande.
-
-> [!NOTE]
-> Förhands gransknings publiken skiljer sig från en privat publik. En **förhands gransknings** grupp kan se och bekräfta alla erbjudande planer innan de är Live på Marketplace, inklusive de som bara publiceras till en **privat** mål grupp (på fliken tillgänglighet).
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -396,7 +393,7 @@ Om du vill skicka publicerings erbjudandet väljer du **publicera**.
 
 Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas.
 
-Om du vill publicera erbjudandet till allmänheten (eller om ett privat erbjudande till en privat mål grupp) går du till Partner Center och väljer **Go-Live**.
+Om du vill publicera ditt erbjudande till allmänheten går du till Partner Center och väljer **Go-Live**.
 
 ## <a name="next-step"></a>Nästa steg
 

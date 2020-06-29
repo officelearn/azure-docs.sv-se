@@ -8,17 +8,17 @@ manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 44a05ecb273bdf7582300c3b6a9110e2ada0994c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471830"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514661"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -69,7 +69,7 @@ Nasuni har erfarenhet av att göra migreringen lätt – kom igång redan idag:h
 
 Talon gör det enkelt för StorSimple 5000-7000-kunder att fortsätta att utnyttja de fördelar som de har för mycket på StorSimple-plattformen (små på plats som backas upp av obegränsade moln resurser) med ännu större funktion.  Med den snabba lösningen för Talon kan kunderna migrera och bevara sina data i Azure, samtidigt som du har en ännu mindre plats på plats och lägger till fördelar som global fil låsning, globalt namn område och samarbete på flera platser.  Talon är en ledande lösning för Azure eko system, som arbetar med globala kunder för att migrera sina lokala arbets belastningar för fil servrar till ett konsoliderat, Azure-baserat utrymme utan att kompromissa med användar arbets flödet eller erfarenheten.  
 
-Lär dig mer om hur du kan utveckla till ett Cloud-konsoliderat företag på https://www.talonstorage.com/alliances/microsoft-storsimple.
+Lär dig mer om hur du kan utveckla till ett Cloud-konsoliderat företag på https://www.talonstorage.com/alliances/microsoft-storsimple .
 
 
 ## <a name="migration---frequently-asked-questions"></a>Migrering – vanliga frågor och svar

@@ -3,15 +3,15 @@ title: Data inmatning för Azure HPC-cache – manuell kopiering
 description: Använda CP-kommandon för att flytta data till ett Blob Storage-mål i Azure HPC-cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 1d5f8e6b59a4ae0149f219738952b47ce399c2ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a5fdc3b76c330619601e171c152d7a2e583ae90
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195000"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514491"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Data inmatning för Azure HPC-cache – manuell kopierings metod
 
@@ -37,7 +37,7 @@ När det här kommandot har utfärdats `jobs` visar kommandot att två trådar k
 
 Om dina fil namn är förutsägbara kan du använda uttryck för att skapa parallella kopierings trådar.
 
-Om din katalog till exempel innehåller 1000 filer som är numrerade från `0001` till `1000`kan du använda följande uttryck för att skapa 10 parallella trådar som varje kopia 100-filer:
+Om din katalog till exempel innehåller 1000 filer som är numrerade från `0001` till `1000` kan du använda följande uttryck för att skapa 10 parallella trådar som varje kopia 100-filer:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -56,7 +56,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 Om fil namns strukturen inte är förutsägbar, kan du gruppera filer efter katalog namn.
 
-Det här exemplet samlar in hela kataloger som ska ``cp`` skickas till kommandon som körs som bakgrunds aktiviteter:
+Det här exemplet samlar in hela kataloger som ska skickas till ``cp`` kommandon som körs som bakgrunds aktiviteter:
 
 ```bash
 /root
@@ -138,7 +138,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 När du har lärt dig mer om metoderna ovan (flera Copy-threads per mål, flera mål per klient, flera klienter per nätverks åtkomligt käll fil system), bör du tänka på följande rekommendation: Bygg fil manifest och Använd dem med kopiera kommandon på flera klienter.
 
-I det här scenariot ``find`` används Unix-kommandot för att skapa manifest med filer eller kataloger:
+I det här scenariot används UNIX- ``find`` kommandot för att skapa manifest med filer eller kataloger:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
@@ -214,7 +214,7 @@ Och för sex.... Extrapolera vid behov.
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Du får *N* resulterande filer, en för var och en av dina *N* -klienter som har Sök vägs namnen på nivå fyra kataloger som erhålls som en del av `find` utdata från kommandot.
+Du får *N* resulterande filer, en för var och en av dina *N* -klienter som har Sök vägs namnen på nivå fyra kataloger som erhålls som en del av utdata från `find` kommandot.
 
 Använd varje fil för att bygga kopierings kommandot:
 

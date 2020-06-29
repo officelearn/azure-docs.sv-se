@@ -3,15 +3,15 @@ title: Visa och hantera aviseringar för enhet med StorSimple 8000-serien
 description: Beskriver StorSimple-aviserings villkor och allvarlighets grad, hur du konfigurerar varnings meddelanden och hur du använder tjänsten StorSimple Enhetshanteraren för att hantera aviseringar.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 4956c511f67fc5929eef2e39797cbe93b5b1d73e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711943"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515510"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa och hantera StorSimple-aviseringar
 
@@ -219,7 +219,12 @@ Om det inte går att ansluta till en StorSimple produktions enhet kan följande 
 |:--- |:--- |:--- |
 | Det gick inte att skapa support paketet. |StorSimple kunde inte generera paketet. |Försök igen. Kontakta Microsoft Support om problemet kvarstår. När du har löst problemet tar du bort den här aviseringen från aviserings sidan. |
 
+### <a name="enclosure-environment-alerts"></a>Meddelanden om kabinett miljö
+
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
+|:--- |:--- |:--- |
+| Maskin varu komponentens sensor för omgivande temperatur rapporterar status som misslyckad.  | Kabinett typ: huvud hölje | Den här aviseringen utlöses när omgivningen utanför temperatur runt StorSimple är över ett acceptabelt intervall. Kontrol lera omgivningens yttre temperatur eller luft flödet från nätventilationen i data centret. När temperaturen återgår till normal, rensas aviseringen automatiskt när en stund har förflutit. Kontakta Microsofts supportavdelning om problemet kvarstår.   |
+
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [StorSimple-fel och fel sökning av problem med enhets distribution](storsimple-8000-troubleshoot-deployment.md).
-

@@ -3,16 +3,16 @@ title: Migrera data till Azure File Sync med Azure Data Box
 description: Migrera Mass data på ett sätt som är kompatibelt med Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d0331419de89775062f1309c5d854cd7325c68e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656754"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514386"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrera bulkdata till Azure File Sync med Azure DataBox
 Du kan migrera Mass data till Azure File Sync på två sätt:
@@ -49,9 +49,9 @@ Så här konfigurerar du Azure File Sync på ett sätt som är kompatibelt med v
 
 ![Diagram som visar hur du konfigurerar Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Steg | Information |
+| Steg | Detalj |
 |---|---------------------------------------------------------------------------------------|
-| ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställ dina data Box-enhet](../../databox/data-box-deploy-ordered.md). Data Box-enhets familjen erbjuder [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som passar dina behov. När du får data Box-enhet ska du följa [dokumentationen för att kopiera data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till den här UNC-sökvägen på data Box-enhet: * \\<DeviceIPAddres\>\<StorageAccountName_AzFile\>\<resurs\>namn*. Här är *resurs* namn namnet på den mellanlagrings resursen. Skicka Data Box-enhet tillbaka till Azure. |
+| ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställ dina data Box-enhet](../../databox/data-box-deploy-ordered.md). Data Box-enhets familjen erbjuder [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som passar dina behov. När du får Data Box-enhet ska du följa [dokumentationen för att kopiera data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till den här UNC-sökvägen på Data Box-enhet: * \\<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Här är *resurs* namn namnet på den mellanlagrings resursen. Skicka Data Box-enhet tillbaka till Azure. |
 | ![Steg 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Vänta tills filerna visas i de Azure-filresurser som du valde som tillfälliga mellanlagrings resurser. *Aktivera inte synkronisering till dessa resurser.* |
 | ![Steg 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Skapa en ny tom resurs för varje fil resurs som Data Box-enhet skapats åt dig. Den här nya resursen ska finnas i samma lagrings konto som Data Box-enhet resursen. [Så här skapar du en ny Azure-filresurs](storage-how-to-create-file-share.md).</li><li>[Skapa en Sync-grupp](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) i en tjänst för synkronisering av lagring. Referera till den tomma resursen som en moln slut punkt. Upprepa det här steget för alla Data Box-enhet fil resurser. [Konfigurera Azure File Sync](storage-sync-files-deployment-guide.md).</li></ul> |
 | ![Steg 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Lägg till din Live Server-katalog som en server slut punkt](storage-sync-files-deployment-guide.md#create-a-server-endpoint). I processen anger du att du har flyttat filerna till Azure och hänvisar till mellanlagrings resurserna. Du kan aktivera eller inaktivera moln nivåer efter behov. När du skapar en server slut punkt på din Live-Server refererar du till mellanlagrings resursen. På bladet **Lägg till Server slut punkt** , under **offline-dataöverföring**, väljer du **aktive rad**och väljer sedan den mellanlagrings resurs som måste finnas i samma lagrings konto som moln slut punkten. Här filtreras listan över tillgängliga resurser efter lagrings konto och resurser som inte redan synkroniseras. Skärm bilden som följer efter den här tabellen visar hur du refererar till data delning när Server slut punkten skapas i Azure Portal. |

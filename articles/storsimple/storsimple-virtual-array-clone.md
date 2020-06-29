@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: af6e979c-55e3-477c-b53e-a76a697f80c9
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1596503f5f0a333bf061015827596464aed7558e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60580939"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513642"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klona från en säkerhets kopia av din virtuella StorSimple-matris
 
@@ -124,7 +124,7 @@ Varje resurs har en *. backups* -mapp som innehåller de senaste säkerhets kopi
    
    De sista fem säkerhets kopiorna visas på det här sättet och kan användas för att utföra en återställning på objekt nivå. De fem senaste säkerhets kopiorna omfattar både standard schemalagda och manuella säkerhets kopieringar.
    
-   * **Schemalagda säkerhets kopior** som &lt;heter&gt;enhets namn DAILYSCHEDULE-ÅÅÅÅMMDD-HHMMSS-UTC.
+   * **Schemalagda säkerhets kopior** som heter &lt; enhets namn &gt; DAILYSCHEDULE-ÅÅÅÅMMDD-HHMMSS-UTC.
    * **Manuella säkerhets kopior** som heter ad hoc-ÅÅÅÅMMDD-HHMMSS-UTC.
      
      ![](./media/storsimple-virtual-array-clone/image14.png)

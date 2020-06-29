@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/19/2019
+ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: bb7ffb06bb0cffeefae87ada665e2c123213186a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4fb623a77fc97fea1584451b73eef930c725f8a1
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218653"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517430"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry integration med Security Center
 
@@ -27,7 +27,7 @@ Om du är på Azure Security Center standard nivån kan du lägga till behållar
 
 När en bild skickas till ditt register, Security Center skannar automatiskt avbildningen. Om du vill utlösa en genomsökning av en avbildning kan du skicka den till din lagrings plats.
 
-När genomsökningen är klar (vanligt vis efter cirka 10 minuter, men kan ta upp till 48h), är avgöranden tillgängliga i Security Center rekommendationer som detta:
+När genomsökningen är klar (vanligt vis efter cirka 10 minuter, men kan vara upp till 40 minuter), är avgöranden tillgängliga som Security Center rekommendationer som detta:
 
 [![Exempel på Azure Security Center rekommendation om sårbarheter som identifierats i en Azure Container Registry (ACR) värd avbildning](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 

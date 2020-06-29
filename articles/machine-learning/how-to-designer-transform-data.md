@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: how-to
 author: peterclu
 ms.author: peterlu
-ms.date: 05/04/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 69e4583d03fbe013fd6629952e34dae039f3836d
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ea0ba58c3eb38a54be5ff777519ca12d6a2cf9ce
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433209"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517557"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transformera data i Azure Machine Learning designer (förhands granskning)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -78,7 +78,7 @@ I det här avsnittet använder du [modulen dela data](algorithm-module-reference
 
 Din pipeline bör se ut så här:
 
-![Skärm bild som visar hur du konfigurerar pipeline och modulen dela data](media/how-to-designer-transform-data/split-data.png).
+:::image type="content" source="./media/how-to-designer-transform-data/split-data.png"alt-text="Skärm bild som visar hur du konfigurerar pipeline och modulen dela data":::
 
 
 ## <a name="save-the-datasets"></a>Spara data uppsättningarna

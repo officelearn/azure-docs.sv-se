@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 650798fdb884e6494990efb533335a1dd8b4d89f
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67875399"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514917"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad katastrof återställnings lösning med Azure Site Recovery för fil resurser som finns på StorSimple
 
@@ -84,7 +84,7 @@ Det här steget kräver att du förbereder den lokala fil Server miljön, skapar
 
 1. Installera VM-agenten på alla virtuella datorer i fil servern. Detta krävs för att du ska kunna köra Azure Automation-skript på misslyckade virtuella datorer.
    
-   1. [Ladda ned agenten](https://aka.ms/vmagentwin) till `C:\\Users\\<username>\\Downloads`.
+   1. [Ladda ned agenten](https://aka.ms/vmagentwin) till `C:\\Users\\<username>\\Downloads` .
    1. Öppna Windows PowerShell i administratörs läge (kör som administratör) och ange följande kommando för att navigera till nedladdnings platsen:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -174,10 +174,10 @@ Du kan skapa en återställnings plan i ASR för att automatisera växlings proc
    - _RecoveryPlanName_**– ResourceGroupName**: Resource Manager-gruppen som har resursen StorSimple.
    - _RecoveryPlanName_**-ManagerName**: den StorSimple-resurs som har StorSimple-enheten.
    - _RecoveryPlanName_**-enhets**namn: den StorSimple-enhet som måste växlas över.
-   - _RecoveryPlanName_**-DeviceIpAddress**: enhetens IP-adress (detta finns på fliken **enheter** under StorSimple &gt; **Enhetshanteraren avsnittet** &gt; **nätverks** &gt; inställningar för **DNS-inställningar** ).
+   - _RecoveryPlanName_**-DeviceIpAddress**: enhetens IP-adress (detta finns på fliken **enheter** under StorSimple Enhetshanteraren avsnittet nätverks inställningar för &gt; **Settings** &gt; **Network** &gt; **DNS-inställningar** ).
    - _RecoveryPlanName_**-VolumeContainers**: en kommaavgränsad sträng med volym behållare som finns på den enhet som måste redundansväxla. till exempel: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: StorSimple Cloud Appliance som behållarna ska redundansväxla till.
-   - _RecoveryPlanName_**-TargetDeviceIpAddress**: IP-adressen för mål enheten (detta finns på fliken &gt; **nätverks** **inställnings** grupp i avsnittet &gt; **virtuell dator** ).
+   - _RecoveryPlanName_**-TargetDeviceIpAddress**: IP-adressen för mål enheten (detta finns på **Virtual Machine** &gt; fliken nätverks **inställnings** grupp i avsnittet virtuell dator &gt; **Networking** ).
    - _RecoveryPlanName_**-StorageAccountName**: namnet på det lagrings konto där skriptet (som måste köras på den virtuella datorn som har redundansväxlats) kommer att lagras. Det kan vara valfritt lagrings konto som har lite utrymme för att lagra skriptet tillfälligt.
    - _RecoveryPlanName_**– StorageAccountKey**: åtkomst nyckeln för lagrings kontot ovan.
    - _RecoveryPlanName_**-VMGUIDS**: när du skyddar en virtuell dator tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade virtuella datorn. Hämta VMGUID genom att välja fliken **Recovery Services** och klicka på **skyddade objekt** &gt; **skydds grupper** &gt; **Machines** &gt; **Egenskaper**för datorer. Om du har flera virtuella datorer lägger du till GUID som en kommaavgränsad sträng.
@@ -195,7 +195,7 @@ Du kan skapa en återställnings plan i ASR för att automatisera växlings proc
             cd C:\scripts\StorSimpleSDKTools
       ```
    1. Hämta NuGet CLI under samma mapp i steg 1.
-      Olika versioner av NuGet. exe finns på [NuGet-nedladdningar](https://www.nuget.org/downloads). Varje nedladdnings länk pekar direkt till en. exe-fil, så se till att högerklicka och spara filen på datorn i stället för att köra den från webbläsaren.
+      Det finns olika versioner av nuget.exe på [NuGet-nedladdningar](https://www.nuget.org/downloads). Varje nedladdnings länk pekar direkt till en. exe-fil, så se till att högerklicka och spara filen på datorn i stället för att köra den från webbläsaren.
       
       ```
             wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
@@ -230,7 +230,7 @@ Du kan skapa en återställnings plan i ASR för att automatisera växlings proc
             compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
       ```
          
-   1. Importera zip-filen för Azure Automation modul (Microsoft. Azure. Management. StorSimple8000Series. zip) som skapades i ovanstående steg. Det kan du göra genom att välja Automation-kontot, klicka på **moduler** under delade resurser och sedan klicka på **Lägg till en modul**.
+   1. Importera zip-filen för Azure Automation modul (Microsoft.Azure.Management.StorSimple8000Series.zip) som skapades i ovan-steget. Det kan du göra genom att välja Automation-kontot, klicka på **moduler** under delade resurser och sedan klicka på **Lägg till en modul**.
    
    När du har importerat modulen StorSimple 8000-serien bör fliken **moduler** visas på följande sätt:
    
@@ -282,7 +282,7 @@ I guiden [Active Directory Dr-lösnings](../site-recovery/site-recovery-active-d
    
    ![Starta redundans](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
    
-1. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper eller på **jobbet testa redundans** i &gt; valv namn **jobb** &gt; **Site Recovery jobb**.
+1. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper eller på **jobbet testa redundans** i valv namn &gt; **jobb** &gt; **Site Recovery jobb**.
 1. När redundansväxlingen är klar bör du även kunna se repliken av Azure-datorn i Azure Portal &gt; **Virtual Machines**. Du kan utföra dina verifieringar.
 1. När verifieringen är klar klickar du på **valideringar slutfört**. Detta tar bort StorSimple-volymerna och stänger av StorSimple Cloud Appliance.
 1. När du är klar klickar du på **rensning** av redundanstest i återställnings planen. I Notes-posten och spara alla observationer som är kopplade till redundanstest. Detta tar bort den virtuella dator som skapades under redundanstest.
@@ -304,7 +304,7 @@ Under en oplanerad redundansväxling växlar StorSimple-volymer över till den v
 
 #### <a name="to-perform-a-failover"></a>Utföra en redundansväxling
 1. I Azure Portal väljer du återställnings planer för **Recovery Services** &gt; **-valv (Site Recovery)** &gt; **recoveryplan_name** som skapats för den virtuella fil servern.
-1. Klicka på **mer** &gt; **redundans**på bladet återställnings plan.  
+1. Klicka på **mer** redundans på bladet återställnings plan &gt; **Failover**.  
 1. På bladet **Bekräfta redundans** väljer du käll-och mål platserna.
 1. Välj **Stäng virtuella datorer och synkronisera senaste data** för att ange att Site Recovery ska försöka stänga av den skyddade virtuella datorn och synkronisera data så att den senaste versionen av data kommer att Miss lyckas.
 1. Efter redundansväxlingen är de virtuella datorerna i ett väntande tillstånd. Klicka på **genomför** för att genomföra redundansväxlingen.

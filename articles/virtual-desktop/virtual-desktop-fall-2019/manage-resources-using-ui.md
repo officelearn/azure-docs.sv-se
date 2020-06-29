@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 307fe6cd287d7a58435f745cd066be8308293267
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362116"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514234"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg med en Azure Resource Manager mall
 
@@ -40,7 +40,7 @@ Innan du distribuerar hanterings verktyget behöver du en Azure Active Directory
 
 - Ha Azure Multi-Factor Authentication (MFA) inaktiverat
 - Har behörighet att skapa resurser i din Azure-prenumeration
-- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de behörigheter som krävs genom att följa instruktionerna i de [behörigheter som krävs](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de behörigheter som krävs genom att följa instruktionerna i de [behörigheter som krävs](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 När du har distribuerat och konfigurerat hanterings verktyget rekommenderar vi att du ber användaren att starta användar gränssnittet för hantering för att se till att allt fungerar. Användaren som startar hanterings gränssnittet måste ha en roll tilldelning som gör det möjligt för dem att visa eller redigera Windows-klienten för virtuella skriv bord.
 

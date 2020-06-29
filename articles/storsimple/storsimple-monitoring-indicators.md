@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60630656"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512973"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Använd StorSimple övervaknings indikatorer för att hantera din enhet
 
@@ -136,7 +136,7 @@ Följande bild hjälper dig att identifiera lysdioderna på den primära kontrol
 Använd följande tabell för att avgöra om Controller-modulen fungerar som den ska.  
 
 ### <a name="controller-indicator-leds"></a>Indikator lampor för kontrollant
-| SPOLNING | Beskrivning |
+| SPOLNING | Description |
 | --- | --- |
 | Indikator för ID (blå) |Anger att modulen identifieras. Om den blå INDIKATORn blinkar på en styrenhet som körs, är kontrollanten den aktiva styrenheten och den andra är vänte läges styrenheten. Mer information finns i [identifiera den aktiva kontrollanten på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | Fel indikator (gul) |Indikerar ett fel i kontrollanten. |
@@ -219,7 +219,7 @@ Du kan stänga av ljud larmet genom att trycka på ljud av-knappen på ops-panel
 I följande tabell beskrivs de olika larm villkoren.
 
 ### <a name="alarm-conditions"></a>Larm villkor
-| Status | Severity | Varningar | Indikator för OPS-panel |
+| Status | Allvarlighetsgrad | Varningar | Indikator för OPS-panel |
 | --- | --- | --- | --- |
 | PCM-avisering – förlust av LIKSTRÖMs kraft från en enda PCM |Fel – ingen förlust av redundans |S1 |Modul-fel |
 | PCM-avisering – förlust av LIKSTRÖMs kraft från en enda PCM |Fel – förlust av redundans |S1 |Modul-fel |
@@ -239,7 +239,7 @@ I följande tabell beskrivs de olika larm villkoren.
 | Enhetens energi kontroll fel |Varning – ingen förlust av enhets strömförsörjning |S1 |Modul-fel |
 | Enhetens energi kontroll fel |Fel – kritiskt; förlust av enhets kraft |S1 |Modul-fel |
 | Enheten har tagits bort |Varning |Ingen |Modul-fel |
-| Otillräcklig ström tillgänglig |Varning |ingen |Modul-fel |
+| Otillräcklig ström tillgänglig |Varning |inget |Modul-fel |
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [StorSimple maskin varu komponenter och status](storsimple-8000-monitor-hardware-status.md).

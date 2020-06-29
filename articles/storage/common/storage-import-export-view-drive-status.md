@@ -4,16 +4,16 @@ description: Lär dig hur du visar statusen för import/export-jobb och de enhet
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 222c893f06d9adf77f8a8124af18bc03c5d20bdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a000ab4a465e3b19efe6f2853bcd19dca47e440
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72821438"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514125"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för Import/Export-jobb i Azure
 
@@ -28,14 +28,14 @@ Du kan spåra statusen för dina import-eller export jobb från Azure Portal. Kl
 
 Du ser något av följande jobb statusar beroende på var enheten finns i processen.
 
-| Jobb status | Beskrivning |
+| Jobb status | Description |
 |:--- |:--- |
 | Skapar | När ett jobb har skapats är dess tillstånd inställt på att **skapa**. När jobbet har statusen **skapande** , antar import/export-tjänsten att enheterna inte har levererats till data centret. Ett jobb kan finnas kvar i det här läget i upp till två veckor, och det tas bort automatiskt av tjänsten. |
 | Frakt | När du har levererat ditt paket bör du uppdatera spårnings informationen i Azure Portal.  Detta stänger jobbet till **leverans** tillstånd. Jobbet förblir i **leverans** tillstånd i upp till två veckor. 
 | Mottaget | När alla enheter har tagits emot i data centret är jobbets tillstånd inställt på **mottaget**. |
 | Överföring | När minst en enhet har börjat bearbeta är jobbets tillstånd inställt på **överföring**. Mer information finns i [enhets tillstånd](#view-drive-status). |
 | Paketering | När alla enheter har slutfört bearbetningen placeras jobbet i **förpacknings** tillstånd tills enheterna skickas tillbaka till dig. |
-| Slutfört | När alla enheter har skickats tillbaka till dig, om jobbet har slutförts utan fel, anges jobbet som **slutfört**. Jobbet tas bort automatiskt efter 90 dagar i **slutfört** tillstånd. |
+| Slutförd | När alla enheter har skickats tillbaka till dig, om jobbet har slutförts utan fel, anges jobbet som **slutfört**. Jobbet tas bort automatiskt efter 90 dagar i **slutfört** tillstånd. |
 | Stängd | När alla enheter har skickats tillbaka till dig, och om det uppstod några fel under bearbetningen av jobbet, anges jobbet till **stängt**. Jobbet tas bort automatiskt efter 90 dagar i **stängt** tillstånd. |
 
 ## <a name="view-drive-status"></a>Visa enhetsstatus
@@ -44,13 +44,13 @@ I tabellen nedan beskrivs livs cykeln för en enskild enhet som den övergår vi
 
 I följande tabell beskrivs varje tillstånd som varje enhet i ett jobb kan passera.
 
-| Enhets tillstånd | Beskrivning |
+| Enhets tillstånd | Description |
 |:--- |:--- |
 | Ange | För ett import jobb **anges**det ursprungliga läget för en enhet när jobbet skapas från Azure Portal. För ett export jobb, eftersom ingen enhet har angetts när jobbet skapas, tas det första enhets läget **emot**. |
 | Mottaget | Enheten övergår till **mottaget** tillstånd när tjänsten import/export har bearbetat de enheter som togs emot från transport företaget för ett import jobb. För ett export jobb är det första enhets läget **mottaget** . |
 | NeverReceived | Enheten flyttas till **NeverReceived** -tillstånd när paketet för ett jobb kommer, men paketet innehåller inte enheten. En enhet flyttas också till det här läget om den har varit två veckor sedan tjänsten tog emot leverans informationen, men paketet har ännu inte anlänt till data centret. |
 | Överföring | En enhet flyttas till **överförings** tillstånd när tjänsten börjar överföra data från enheten till Azure Storage. |
-| Slutfört | En enhet flyttas till **slutfört** tillstånd när tjänsten har överfört alla data utan fel.
+| Slutförd | En enhet flyttas till **slutfört** tillstånd när tjänsten har överfört alla data utan fel.
 | CompletedMoreInfo | En enhet flyttar till **CompletedMoreInfo** -tillstånd när tjänsten har påträffat några problem vid kopiering av data till antingen från eller till enheten. Informationen kan innehålla fel, varningar eller informations meddelanden om att skriva över blobbar.
 | ShippedBack | En enhet flyttas till **ShippedBack** -tillstånd när den har levererats från data centret tillbaka till retur adressen. |
 

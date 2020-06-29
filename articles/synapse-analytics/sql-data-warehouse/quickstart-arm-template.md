@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 766a41b61f32804c7d7f59c946530f8e1a7b869a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 3f84cd92a4c4f96831d39cac783df6710c5ea5f4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296278"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513414"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Snabb start: skapa en SQL-pool för Azure Synapse Analytics med en ARM-mall
 
-Med den här mallen skapas en Azure Synapse Analytics SQL-pool med transparent datakryptering aktive rad. Synapse SQL-pool syftar på de företags data lager funktioner som är allmänt tillgängliga i Azure Synapse.
+Med den här Azure Resource Manager mallen (ARM-mallen) skapas en Azure Synapse Analytics SQL-pool med transparent datakryptering aktiverat. Synapse SQL-pool syftar på de företags data lager funktioner som är allmänt tillgängliga i Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -107,8 +107,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Azure Synapse Analytics SQL-pool med hjälp av en Azure Resource Manager-mall och verifierade distributionen. Om du vill veta mer om Azure Synapse Analytics och Azure Resource Manager kan du fortsätta till artiklarna nedan.
+I den här snabb starten skapade du en Azure Synapse Analytics SQL-pool med en ARM-mall och validerat distributionen. Om du vill veta mer om Azure Synapse Analytics och Azure Resource Manager kan du fortsätta till artiklarna nedan.
 
 - Läs en [Översikt över Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Läs mer om [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Skapa och distribuera din första Azure Resource Manager-mall](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Skapa och distribuera din första ARM-mall](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

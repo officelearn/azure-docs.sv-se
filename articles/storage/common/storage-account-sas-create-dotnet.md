@@ -5,17 +5,17 @@ description: Lär dig hur du skapar en signatur för delad åtkomst för kontot 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 00eff8614907ae61aa56cd58ca90db9c6d441732
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 75f4a3c835a843e824c2ac0b437843cd91824bfa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807666"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512716"
 ---
 # <a name="create-an-account-sas-with-net"></a>Skapa ett konto säkerhets associationer med .NET
 

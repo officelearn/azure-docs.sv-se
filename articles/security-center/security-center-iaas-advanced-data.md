@@ -1,6 +1,6 @@
 ---
-title: Avancerad data säkerhet för IaaS i Azure Security Center | Microsoft Docs
-description: Lär dig hur du aktiverar avancerad data säkerhet för SQL-datorer i Azure Security Center.
+title: Azure Security Center avancerad data säkerhet för SQL-datorer (för hands version)
+description: Lär dig hur du aktiverar avancerad data säkerhet för SQL-datorer i Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: 1c269ad13072ae4dcff9caba892ccc0643647e5c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 673524f08ecae28fb6f2e18f3c0c7230cf102b06
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254229"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513465"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Avancerad data säkerhet för SQL-datorer (för hands version)
 

@@ -3,16 +3,16 @@ title: Fjärrans luta till din StorSimple-enhet
 description: Förklarar hur du konfigurerar enheten för fjärrhantering och hur du ansluter till Windows PowerShell för StorSimple via HTTP eller HTTPS.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58d61df932da06e32bb4c8f21a3a296b185f02d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80299007"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514566"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Fjärrans luta till din StorSimple 8000-serie enhet
 
@@ -103,7 +103,7 @@ Utför följande steg på klienten för att aktivera fjärrhantering.
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
    
    > [!NOTE]
-   > Om du vill skapa en Windows PowerShell-session för användning med den virtuella StorSimple- `–Port` enheten lägger du till parametern och anger den offentliga port som du konfigurerade i fjärr kommunikation för StorSimple Virtual-installation.
+   > Om du vill skapa en Windows PowerShell-session för användning med den virtuella StorSimple-enheten lägger `–Port` du till parametern och anger den offentliga port som du konfigurerade i fjärr kommunikation för StorSimple Virtual-installation.
    
    
 I det här läget bör du ha en aktiv Windows PowerShell-fjärrsession till enheten.
@@ -155,7 +155,7 @@ Utför följande steg i enhetens serie konsol för att aktivera fjärrhantering.
     Kontrol lera att fältet **RemoteManagementMode** visar **HttpsEnabled**. Följande bild visar dessa inställningar i SparaTillFil.
    
      ![Seriell HTTPS aktive rad](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
-4. Kopiera enhetens serie `Get-HcsSystem`nummer från utdata från och spara den för senare användning.
+4. `Get-HcsSystem`Kopiera enhetens serie nummer från utdata från och spara den för senare användning.
    
    > [!NOTE]
    > Serie numret mappar till CN-namnet i certifikatet.
@@ -170,7 +170,7 @@ Utför följande steg i enhetens serie konsol för att aktivera fjärrhantering.
 6. Kopiera informationen i certifikatet från **-----Starta certifikat-----** till **-----slut certifikat-----** i en text redigerare, till exempel anteckningar, och spara den som en CER-fil. (Du kommer att kopiera den här filen till fjärrvärden när du förbereder värden.)
    
    > [!NOTE]
-   > Använd `Set-HcsRemoteManagementCert` cmdleten om du vill generera ett nytt certifikat.
+   > Använd cmdleten om du vill generera ett nytt certifikat `Set-HcsRemoteManagementCert` .
    
 ### <a name="prepare-the-host-for-remote-management"></a>Förbereda värden för fjärrhantering
 

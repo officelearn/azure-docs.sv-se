@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f0be5d8378cd1640d3052f2e56c8161e2c0b203
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "62116899"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513594"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Installera Uppdatering 0,6 på din virtuella StorSimple-matris
 
@@ -30,6 +30,7 @@ I den här artikeln beskrivs de steg som krävs för att installera uppdatering 
 Innan du installerar en uppdatering rekommenderar vi att du tar volymerna eller resurserna offline på värden först och sedan enheten. Detta minskar risken för skadade data. När volymerna eller resurserna är offline bör du också göra en manuell säkerhets kopiering av enheten.
 
 > [!IMPORTANT]
+>
 > - Uppdatering 0,6 motsvarar **10.0.10293.0** program varu version på enheten. Information om vad som är nytt i den här uppdateringen finns i [viktig information om uppdatering 0,6](storsimple-virtual-array-update-06-release-notes.md).
 >
 > - Om du kör uppdatering 0,2 eller senare, rekommenderar vi att du installerar uppdateringarna via Azure Portal. Om du kör uppdatering 0,1 eller GA-program versioner måste du använda snabb korrigerings metoden via det lokala webb gränssnittet för att installera uppdatering 0,6.
@@ -57,7 +58,7 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Hämta uppdateringen eller snabb korrigeringen
 
-1. Starta Internet Explorer och gå till [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Starta Internet Explorer och gå till [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Om du använder Microsoft Update katalogen för första gången på datorn klickar du på **Installera** när du uppmanas att installera Microsoft Update Catalog-tillägget.
 
@@ -75,15 +76,15 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
     ![Filer i paketet](./media/storsimple-virtual-array-install-update-06/update06folder.png)
 
     Du ser:
-    -  En Microsoft Update fristående paket fil `WindowsTH-KB3011067-x64`. Den här filen används för att uppdatera enhetens program vara.
-    - En paket fil `GenevaMonitoringAgentPackageInstaller`för en Genève-övervaknings agent. Den här filen används för att uppdatera övervaknings-och Diagnostics service-agenten (MDS). Dubbelklicka på CAB-filen. En _. msi_ visas. Markera filen, högerklicka på den och **extrahera** sedan filen. Du kan använda _MSI_ -filen för att uppdatera agenten.
+    -  En Microsoft Update fristående paket fil `WindowsTH-KB3011067-x64` . Den här filen används för att uppdatera enhetens program vara.
+    - En paket fil för en Genève-övervaknings agent `GenevaMonitoringAgentPackageInstaller` . Den här filen används för att uppdatera övervaknings-och Diagnostics service-agenten (MDS). Dubbelklicka på CAB-filen. En _. msi_ visas. Markera filen, högerklicka på den och **extrahera** sedan filen. Du kan använda _MSI_ -filen för att uppdatera agenten.
 
         ![Extrahera MDS-agentens uppdaterings fil](./media/storsimple-virtual-array-install-update-06/extract-geneva-monitoring-agent-installer.png)
 
         > [!IMPORTANT]
         > Du behöver inte uppdatera MDS-agenten om du kör StorSimple Update 0,5 (0.0.10293.0).
 
-    - Tre filer som innehåller viktiga Windows-säkerhetsuppdateringar, `windows8.1-kb4012213-x64`,`windows8.1-kb3205400-x64`, och `windows8.1-kb4019213-x64`.
+    - Tre filer som innehåller viktiga Windows-säkerhetsuppdateringar, `windows8.1-kb4012213-x64` ,, `windows8.1-kb3205400-x64` och `windows8.1-kb4019213-x64` .
 
 
 ### <a name="install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabb korrigeringen
@@ -94,7 +95,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabb korrigeringen
 
-1. I det lokala webb gränssnittet går du till **Underhåll** > **program uppdatering**. Anteckna den program varu version som du kör. Om du kör **10.0.10290.0**behöver du inte uppdatera MDS-agenten i steg 6.
+1. I det lokala webb gränssnittet går du till **Underhåll**  >  **program uppdatering**. Anteckna den program varu version som du kör. Om du kör **10.0.10290.0**behöver du inte uppdatera MDS-agenten i steg 6.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -110,7 +111,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll** > **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10293** för uppdatering 0,6.
+5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10293** för uppdatering 0,6.
    
    > [!NOTE]
    > Vi rapporterar program versioner på ett något annorlunda sätt i det lokala webb gränssnittet och Azure Portal. Till exempel kan de lokala Web UI-rapporterna **10.0.0.0.0.10293** och Azure Portal rapporterar **10.0.10293.0** för samma version.
@@ -121,7 +122,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
 
     Om du kör en program varu version före uppdateringen 0,5 är nästa steg att uppdatera MDS-agenten. På sidan **program uppdatering** går du till sökvägen för **uppdaterings filen** och bläddrar till `GenevaMonitoringAgentPackageInstaller.msi` filen. Upprepa steg 2-4. När den virtuella matrisen har startats om loggar du in på det lokala webb gränssnittet.
 
-7. Upprepa steg 2-4 för att installera säkerhets korrigeringarna för Windows `windows8.1-kb4012213-x64`med`windows8.1-kb3205400-x64`hjälp av `windows8.1-kb4019213-x64`filer, och. Den virtuella matrisen startas om efter varje installation och du måste logga in på det lokala webb gränssnittet.
+7. Upprepa steg 2-4 för att installera säkerhets korrigeringarna för Windows med hjälp av filer `windows8.1-kb4012213-x64` , `windows8.1-kb3205400-x64` och `windows8.1-kb4019213-x64` . Den virtuella matrisen startas om efter varje installation och du måste logga in på det lokala webb gränssnittet.
 
 ## <a name="next-steps"></a>Nästa steg
 

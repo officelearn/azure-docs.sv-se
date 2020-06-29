@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: aa11f7e964f66d0a345e25f307127d75838f872f
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718724"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515815"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Azure Machine Learning har varierande stöd för olika beräknings mål. En typi
 
 
 > [!NOTE]
-> Azure Machine Learning Compute kan skapas som en permanent resurs eller skapas dynamiskt när du begär en körning. Med körnings-baserad skapande tas beräknings målet bort när övnings körningen är klar, så du kan inte återanvända beräknings målen som skapats på det här sättet.
+> Azure Machine Learning beräknings kluster kan skapas som en permanent resurs eller skapas dynamiskt när du begär en körning. Med körnings-baserad skapande tas beräknings målet bort när övnings körningen är klar, så du kan inte återanvända beräknings målen som skapats på det här sättet.
 
 ## <a name="whats-a-run-configuration"></a>Vad är en körnings konfiguration?
 
@@ -76,7 +76,8 @@ ML pipelines skapas från flera **steg**, som är distinkta beräknings enheter 
 Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 * [Lokal dator](#local)
-* [Azure Machine Learning-beräkning](#amlcompute)
+* [Azure Machine Learning beräknings kluster](#amlcompute)
+* [Azure Machine Learning beräknings instans](#instance)
 * [Virtuella fjärrdatorer](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -91,9 +92,9 @@ Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](#submit).
 
-### <a name="azure-machine-learning-compute"></a><a id="amlcompute"></a>Azure Machine Learning-beräkning
+### <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning beräknings kluster
 
-Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller beräkning med flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en [Docker-behållare](https://www.docker.com/why-docker).
+Azure Machine Learning Compute Cluster är en hanterad beräknings infrastruktur som gör att du enkelt kan skapa en beräkning med en enda eller flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en [Docker-behållare](https://www.docker.com/why-docker).
 
 Du kan använda Azure Machine Learning Compute för att distribuera inlärnings processen över ett kluster av processor-eller GPU-datornoder i molnet. Mer information om de VM-storlekar som innehåller GPU: er finns i [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
@@ -125,6 +126,41 @@ Azure Machine Learning Compute kan återanvändas över körningar. Beräkningen
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](#submit).
+
+
+### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Azure Machine Learning beräknings instans
+
+[Azure Machine Learning beräknings instans](concept-compute-instance.md) är en hanterad beräknings infrastruktur som gör att du enkelt kan skapa en enda virtuell dator. Beräkningen skapas i din region i arbets ytan, men till skillnad från ett beräknings kluster kan en instans inte delas med andra användare i din arbets yta. Även instansen skalas inte automatiskt ned.  Du måste stoppa resursen för att förhindra pågående kostnader.
+
+En beräknings instans kan köra flera jobb parallellt och har en jobbkö. 
+
+Beräknings instanser kan köra jobb på ett säkert sätt i en [virtuell nätverks miljö](how-to-enable-virtual-network.md#compute-instance), utan att företag behöver öppna SSH-portar. Jobbet körs i en behållare miljö och paketerar dina modell beroenden i en Docker-behållare. 
+
+1. **Skapa och koppla**: 
+    
+    [! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb? namn = create_instance)]
+
+1. **Konfigurera**: skapa en körnings konfiguration.
+    
+    ```python
+    
+    from azureml.core import ScriptRunConfig
+    from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+    
+    src = ScriptRunConfig(source_directory='', script='train.py')
+    
+    # Set compute target to the one created in previous step
+    src.run_config.target = instance
+    
+    # Set environment
+    src.run_config.environment = myenv
+     
+    run = experiment.submit(config=src)
+    ```
+
+Fler kommandon som är användbara för beräknings instansen finns i Notebook [träna-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Den här antecknings boken finns också i mappen Studio **exempel** i *Training/träna-on-computeinstance*.
+
+Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](#submit)
 
 
 ### <a name="remote-virtual-machines"></a><a id="vm"></a>Virtuella fjärrdatorer

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: twooley
-ms.openlocfilehash: b8fe87a2df633af310bc661308813a60987e77d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9a42a8f94f3e5cb63cd340b696a803d97491c76
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933283"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512826"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Använd StorSimple-Snapshot Manager för att administrera din StorSimple-lösning
 
@@ -51,7 +51,7 @@ Du kan använda StorSimple-Snapshot Manager för att övervaka och hantera aktue
 | Läs mer om StorSimple Snapshot Manager |[Vad är StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
 | Installera StorSimple Snapshot Manager<br>Installera om StorSimple Snapshot Manager<br>Ta bort StorSimple Snapshot Manager |[Distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md) |
 | Använd StorSimple Snapshot Manager menyer och funktioner:<ul><li>Menyrad</li><li>Verktygsfältet</li><li>Omfattnings fönster</li><li>Resultat fönster</li><li>Åtgärds fönstret</li><li>Tangent bords navigering och genvägar</li></ul> |[StorSimple Snapshot Manager användar gränssnitt](storsimple-use-snapshot-manager.md) |
-| Använd de vanliga MMC-funktionerna som ingår i StorSimple Snapshot Manager:<ul><li>Visa</li><li>Nytt fönster från här</li><li>Uppdatera</li><li>Exportera lista</li><li>Hjälp</li></ul> |[Använd MMC-meny åtgärderna i StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md) |
+| Använd de vanliga MMC-funktionerna som ingår i StorSimple Snapshot Manager:<ul><li>Visa</li><li>Nytt fönster från här</li><li>Uppdatera</li><li>Exportera lista</li><li>Help</li></ul> |[Använd MMC-meny åtgärderna i StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md) |
 | Lägga till eller ersätta en enhet<br>Ansluta en enhet<br>Verifiera importerade volym grupper<br>Uppdatera anslutna enheter<br>Autentisera en enhet<br>Visa enhetsinformation<br>Ta bort en enhets konfiguration<br>Ändra ett enhets lösen ord<br>Ersätta en misslyckad enhet<br> |[Använda StorSimple Snapshot Manager för att ansluta och hantera StorSimple-enheter](storsimple-snapshot-manager-manage-devices.md) |
 | Montera volymer<br>Visa information om volymer<br>Ta bort en volym<br>Genomsök volymer på nytt<br>Konfigurera och säkerhetskopiera en enkel volym<br>Konfigurera och säkerhetskopiera en dynamisk speglad volym |[Använd StorSimple Snapshot Manager för att visa och hantera volymer](storsimple-snapshot-manager-manage-volumes.md) |
 | Visa volym grupper<br>Skapa en volym grupp<br>Säkerhetskopiera en volym grupp<br>Redigera en volym grupp<br>Ta bort en volym grupp |[Använd StorSimple Snapshot Manager för att skapa och hantera volym grupper](storsimple-snapshot-manager-manage-volume-groups.md) |

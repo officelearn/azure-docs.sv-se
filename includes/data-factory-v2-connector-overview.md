@@ -2,14 +2,14 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/13/2019
+ms.date: 06/28/2020
 ms.author: jingwang
-ms.openlocfilehash: a346b205523e2ef1539d92eae06202510585e1f5
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 729d863e0f7c9d183554cbc65e9a8410ff17359a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85128147"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85516876"
 ---
 | Kategori              | Datalager                                                   | [Kopierings aktivitet](../articles/data-factory/copy-activity-overview.md) (källa/mottagare) | [Mappa data flöde](../articles/data-factory/concepts-data-flow-overview.md) (källa/mottagare) | [Sökningsaktivitet](../articles/data-factory/control-flow-lookup-activity.md) | [Hämta metadata-aktivitet](../articles/data-factory/control-flow-get-metadata-activity.md) / [Validerings aktivitet](../articles/data-factory/control-flow-validation-activity.md) | [Ta bort aktivitet](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -36,9 +36,9 @@ ms.locfileid: "85128147"
 | &nbsp;                | [HBase](../articles/data-factory/connector-hbase.md)         | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Hive](../articles/data-factory/connector-hive.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Apache Impala](../articles/data-factory/connector-impala.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [Informix](../articles/data-factory/connector-informix.md)   | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [Informix](../articles/data-factory/connector-informix.md)   | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [MariaDB](../articles/data-factory/connector-mariadb.md)     | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [Microsoft Access](../articles/data-factory/connector-microsoft-access.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [Microsoft Access](../articles/data-factory/connector-microsoft-access.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [MySQL](../articles/data-factory/connector-mysql.md)         | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Netezza](../articles/data-factory/connector-netezza.md)     | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Oracle](../articles/data-factory/connector-oracle.md)       | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |

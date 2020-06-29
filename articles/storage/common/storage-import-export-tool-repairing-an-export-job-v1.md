@@ -4,16 +4,16 @@ description: Lär dig hur du reparerar ett export jobb som har skapats och körs
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: b2ba30bddfc6364c79e1bb01d30cde63b261a07f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10e209228ad12b377b729bc251eb761b51ff5378
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74978023"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514365"
 ---
 # <a name="repairing-an-export-job"></a>Reparera ett exportjobb
 När ett export jobb har slutförts kan du köra Microsoft Azure Import/Export-verktyget lokalt för att:  
@@ -33,14 +33,14 @@ Följande parametrar kan anges med **RepairExport**:
 |Parameter|Beskrivning|  
 |---------------|-----------------|  
 |**/r: <RepairFile\>**|Krävs. Sökväg till reparations filen som spårar förloppet för reparationen och gör att du kan återuppta en avbruten reparation. Varje enhet måste ha en och bara en reparations fil. När du startar en reparation för en specifik enhet kommer du att överföra sökvägen till en reparations fil som ännu inte finns. Om du vill återuppta en avbruten reparation bör du skicka namnet på en befintlig reparations fil. Den reparations fil som motsvarar mål enheten måste alltid anges.|  
-|**/logdir: <LogDirectory\>**|Valfri. Logg katalogen. Utförliga loggfiler skrivs till den här katalogen. Om ingen logg katalog anges kommer den aktuella katalogen att användas som logg katalog.|  
+|**/logdir: <LogDirectory\>**|Valfritt. Logg katalogen. Utförliga loggfiler skrivs till den här katalogen. Om ingen logg katalog anges kommer den aktuella katalogen att användas som logg katalog.|  
 |**/d: <TargetDirectory\>**|Krävs. Den katalog som ska verifieras och repare ras. Detta är vanligt vis rot katalogen på export enheten, men det kan också vara en nätverks fil resurs som innehåller en kopia av de exporterade filerna.|  
-|**/BK: <BitLockerKey\>**|Valfri. Du bör ange BitLocker-nyckeln om du vill att verktyget ska låsa upp en krypterad plats där de exporterade filerna lagras.|  
+|**/BK: <BitLockerKey\>**|Valfritt. Du bör ange BitLocker-nyckeln om du vill att verktyget ska låsa upp en krypterad plats där de exporterade filerna lagras.|  
 |**/SN: <StorageAccountName\>**|Krävs. Namnet på lagrings kontot för export jobbet.|  
 |**/sk: <StorageAccountKey\>**|**Krävs** om och endast om en behållar-säkerhetsassociationer inte har angetts. Konto nyckeln för lagrings kontot för export jobbet.|  
 |**/CSAS: <behållare\>**|**Krävs** om och endast om lagrings konto nyckeln inte har angetts. Behållar-SAS för åtkomst till de blobar som är associerade med export jobbet.|  
 |**/CopyLogFile: <DriveCopyLogFile\>**|Krävs. Sökvägen till logg filen för enhets kopian. Filen genereras av tjänsten Windows Azure import/export och kan laddas ned från blob-lagringen som är kopplad till jobbet. Kopierings logg filen innehåller information om misslyckade blobbar eller filer som ska repare ras.|  
-|**/ManifestFile: <DriveManifestFile\>**|Valfri. Sökvägen till export enhetens manifest fil. Den här filen genereras av tjänsten Windows Azure import/export och lagras på export enheten och eventuellt i en BLOB i det lagrings konto som är associerat med jobbet.<br /><br /> Innehållet i filerna på export enheten verifieras med de MD5-hashar som finns i den här filen. Filer som bedöms vara skadade kommer att laddas ned och skrivas om till mål katalogerna.|  
+|**/ManifestFile: <DriveManifestFile\>**|Valfritt. Sökvägen till export enhetens manifest fil. Den här filen genereras av tjänsten Windows Azure import/export och lagras på export enheten och eventuellt i en BLOB i det lagrings konto som är associerat med jobbet.<br /><br /> Innehållet i filerna på export enheten verifieras med de MD5-hashar som finns i den här filen. Filer som bedöms vara skadade kommer att laddas ned och skrivas om till mål katalogerna.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Använda RepairExport-läge för att korrigera misslyckade exporter  
 Du kan använda Azure import/export-verktyget för att hämta filer som inte gick att exportera. Kopierings logg filen innehåller en lista över filer som inte kunde exporteras.  

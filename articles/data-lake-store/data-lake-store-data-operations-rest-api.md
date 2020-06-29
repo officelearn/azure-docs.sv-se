@@ -8,15 +8,15 @@ manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 08c212f2a7986c93caa35d646e5fc3e9b71b4a6a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60878791"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515604"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Fil Systems åtgärder på Azure Data Lake Storage Gen1 som använder REST API
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Du kan använda två sätt för att autentisera med Azure Active Directory.
 ## <a name="create-folders"></a>Skapa mappar
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
-Använd följande cURL-kommando. Ersätt ** \<yourstorename>** med ditt data Lake Storage gen1 konto namn.
+Använd följande cURL-kommando. Ersätt **\<yourstorename>** med namnet på data Lake Storage Gen1s kontot.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS'
 
@@ -59,7 +59,7 @@ Om åtgärden slutförs bör du se ett svar som följande fragment:
 ## <a name="list-folders"></a>Lista mappar
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
-Använd följande cURL-kommando. Ersätt ** \<yourstorename>** med ditt data Lake Storage gen1 konto namn.
+Använd följande cURL-kommando. Ersätt **\<yourstorename>** med namnet på data Lake Storage Gen1s kontot.
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS'
 
@@ -87,7 +87,7 @@ Om åtgärden slutförs bör du se ett svar som följande fragment:
 ## <a name="upload-data"></a>Ladda upp data
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
-Använd följande cURL-kommando. Ersätt ** \<yourstorename>** med ditt data Lake Storage gen1 konto namn.
+Använd följande cURL-kommando. Ersätt **\<yourstorename>** med namnet på data Lake Storage Gen1s kontot.
 
     curl -i -X PUT -L -T 'C:\temp\list.txt' -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE'
 
@@ -114,7 +114,7 @@ Att läsa data från ett Data Lake Storage Gen1 konto är en två stegs process.
 * Du skickar först en GET-begäran mot slutpunkten `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. Det här anropet returnerar en plats dit du skickar nästa GET-begäran.
 * Du skickar sedan GET-begäran mot slutpunkten `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. Det här anropet visar innehållet i filen.
 
-Eftersom det inte finns någon skillnad i indataparametrarna mellan det första och andra steget, kan du använda parameter `-L` för att skicka den första begäran. `-L`-alternativet kombinerar i stort sett två begärande till ett och gör att cURL gör om begäran på den nya platsen. Till sist visas utdata från alla begärananrop, som det visas i följande fragment. Ersätt ** \<yourstorename>** med ditt data Lake Storage gen1 konto namn.
+Eftersom det inte finns någon skillnad i indataparametrarna mellan det första och andra steget, kan du använda parameter `-L` för att skicka den första begäran. `-L`-alternativet kombinerar i stort sett två begärande till ett och gör att cURL gör om begäran på den nya platsen. Till sist visas utdata från alla begärananrop, som det visas i följande fragment. Ersätt **\<yourstorename>** med namnet på data Lake Storage Gen1s kontot.
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
@@ -133,7 +133,7 @@ Du bör se utdata som liknar följande fragment:
 ## <a name="rename-a-file"></a>Byt namn på en fil
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
-Använd kommandot cURL för att byta namn på en fil. Ersätt ** \<yourstorename>** med ditt data Lake Storage gen1 konto namn.
+Använd kommandot cURL för att byta namn på en fil. Ersätt **\<yourstorename>** med namnet på data Lake Storage Gen1s kontot.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt'
 
@@ -147,7 +147,7 @@ Du bör se utdata som liknar följande fragment:
 ## <a name="delete-a-file"></a>Ta bort en fil
 Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
-Använd kommandot cURL för att ta bort en fil. Ersätt ** \<yourstorename>** med ditt data Lake Storage gen1 konto namn.
+Använd kommandot cURL för att ta bort en fil. Ersätt **\<yourstorename>** med namnet på data Lake Storage Gen1s kontot.
 
     curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE'
 

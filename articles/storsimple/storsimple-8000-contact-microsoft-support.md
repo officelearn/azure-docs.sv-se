@@ -3,15 +3,15 @@ title: Skapa ett support ärende eller fall för StorSimple 8000-serien
 description: Lär dig hur du loggar support förfrågan och startar en support-session på din StorSimple 8000-serie enhet.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706978"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514253"
 ---
 # <a name="contact-microsoft-support"></a>Kontakta Microsoft Support
 

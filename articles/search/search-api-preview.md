@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: db941152186127302680b5e659e43cd2d82a8908
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3fa67f6961b146d1dc7f5a4d1780e4060f1fdedc
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162284"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512690"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Förhands gransknings funktioner i Azure Kognitiv sökning
 
@@ -37,6 +37,7 @@ Utforska de senaste förbättringarna av AI-anrikning genom API för för [hands
 | [Kunskaper om identifiering av PII (för hands version)](cognitive-search-skill-pii-detection.md) | En kognitiv kunskap som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt.| 
 | [Stegvis anrikning (för hands version)](cognitive-search-incremental-indexing-conceptual.md) | Lägger till cachelagring i en anriknings pipeline, så att du kan återanvända befintliga utdata om en viss ändring, till exempel en uppdatering av en färdigheter eller ett annat objekt, inte ändrar innehållet. Cachelagring gäller endast för berikade dokument som produceras av en färdigheter.| 
 | [Kunskaps lager (för hands version)](knowledge-store-concept-intro.md) | Ett nytt mål för en AI-baserad berikad pipeline. Den fysiska data strukturen finns i Azure Blob Storage och Azure Table Storage, och den skapas och fylls i när du kör en indexerare som har en bifogad kognitiv färdigheter. Definitionen av ett kunskaps lager anges i en färdigheter-definition. I kunskaps lager definitionen styr du de fysiska strukturerna för dina data genom *projektions* element som avgör hur data är formade, om data lagras i Table Storage eller Blob Storage, samt om det finns flera vyer.| 
+| [AML-kunskaper (för hands version)](cognitive-search-aml-skill.md) | En anpassad kunskap som skapats i Azure Machine Learning (AML) för att utöka dokument vid indexering. Azure ML-kunskaper gör kunskaps identifiering, autentisering och schema mappning enklare.|
 
 ## <a name="indexing-and-query-features"></a>Indexerings-och fråge funktioner
 
@@ -53,15 +54,15 @@ Indexerings funktionerna för indexeraren finns i API för för hands versions s
 |||
 |-|-|
 | [Stöd för privat slut punkt](service-create-private-endpoint.md) | Du kan skapa ett virtuellt nätverk med en säker klient (till exempel en virtuell dator) och sedan skapa en Sök tjänst som använder privat slut punkt. |
-| Begränsning av IP-åtkomst | Med [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) hjälp av hanterings REST API kan du skapa en tjänst som har begränsningar för vilka IP-adresser som tillåts åtkomst. |
+| Begränsning av IP-åtkomst | Med hjälp [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) av hanterings REST API kan du skapa en tjänst som har begränsningar för vilka IP-adresser som tillåts åtkomst. |
 
 ## <a name="earlier-preview-features"></a>Tidigare för hands versions funktioner
 
-Funktioner som meddelats i tidigare förhands granskningar, om de inte har övergått till allmän tillgänglighet, finns fortfarande i offentlig för hands version. Om du anropar ett API med en tidigare för hands version av API-version kan du fortsätta att använda den versionen eller `2019-05-06-Preview` växla till utan att ändra förväntat beteende.
+Funktioner som meddelats i tidigare förhands granskningar, om de inte har övergått till allmän tillgänglighet, finns fortfarande i offentlig för hands version. Om du anropar ett API med en tidigare för hands version av API-version kan du fortsätta att använda den versionen eller växla till `2019-05-06-Preview` utan att ändra förväntat beteende.
 
 ## <a name="how-to-call-a-preview-api"></a>Så här anropar du ett för hands versions-API
 
-Äldre förhands visningar fungerar fortfarande, men blir inaktuella över tid. Om dina kod anrop `api-version=2016-09-01-Preview` eller `api-version=2017-11-11-Preview`, är dessa anrop fortfarande giltiga. Men endast den nyaste för hands versionen har uppdaterats med förbättringar. 
+Äldre förhands visningar fungerar fortfarande, men blir inaktuella över tid. Om dina kod anrop `api-version=2016-09-01-Preview` eller `api-version=2017-11-11-Preview` , är dessa anrop fortfarande giltiga. Men endast den nyaste för hands versionen har uppdaterats med förbättringar. 
 
 Följande exempel på syntax illustrerar ett anrop till för hands versionen av API-versionen.
 

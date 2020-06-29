@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: 30e3f901d9feca07902e20c87f4fbf5b6979a11b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: fbaa10ec8a0b48d40644bb90144d89f53ab52563
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299491"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513530"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Snabb start: skapa en Cognitive Services resurs med en ARM-mall
 
-Använd den här artikeln för att skapa och distribuera en Cognitive Services resurs med en Azure Resource Manager ARM-mall (ARM). Med den här resursen med flera tjänster kan du:
+Använd den här artikeln för att skapa och distribuera en Cognitive Services resurs med hjälp av en Azure Resource Manager-mall (ARM-mall). Med den här resursen med flera tjänster kan du:
 * Få åtkomst till flera Azure-Cognitive Services med en enda nyckel och slut punkt.
 * Konsolidera faktureringen från de tjänster som du använder.
 

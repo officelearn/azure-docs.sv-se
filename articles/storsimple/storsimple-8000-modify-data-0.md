@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 3cf136c5ddec8f4998d15c597914e1f806453945
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60631591"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514604"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Ändra inställningarna för nätverks gränssnittet för DATA 0 på din StorSimple 8000-serie enhet
 
@@ -32,13 +32,13 @@ DATA 0-gränssnittet konfigureras först via installations guiden under den för
 När du har läst den här självstudien kommer du att kunna:
 
 * Ändra nätverks inställningen DATA 0 via installations guiden
-* Ändra nätverks inställningar för `Set-HcsNetInterface` data 0 via cmdleten
+* Ändra nätverks inställningar för DATA 0 via `Set-HcsNetInterface` cmdleten
 
 ## <a name="modify-data-0-network-settings-through-setup-wizard"></a>Ändra nätverks inställningar för DATA 0 via installations guiden
 Du kan konfigurera om DATA 0 nätverks inställningar genom att ansluta till Windows PowerShell-gränssnittet för StorSimple-enheten och starta en session med installations guiden. Utför följande steg för att ändra inställningarna för DATA 0:
 
 #### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Ändra nätverks inställningar för DATA 0 via installations guiden
-1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. När du uppmanas ange **enhetens administratörs lösen ord**. Standard lösen ordet är `Password1`.
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. När du uppmanas ange **enhetens administratörs lösen ord**. Standard lösen ordet är `Password1` .
 2. Skriv följande i kommandotolken:
    
     `Invoke-HcsSetupWizard`
@@ -51,7 +51,7 @@ Du kan konfigurera om DATA 0 nätverks inställningar genom att ansluta till Win
 Ett annat sätt att konfigurera om DATA 0-nätverks gränssnittet är genom att använda `Set-HcsNetInterface` cmdleten. Cmdleten körs från Windows PowerShell-gränssnittet på din StorSimple-enhet. När du använder den här proceduren kan styrenhetens fasta IP-adresser också konfigureras här. Utför följande steg för att ändra inställningarna för DATA 0: 
 
 #### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Ändra nätverks inställningarna för DATA 0 via cmdleten Set-HcsNetInterface
-1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. När du uppmanas ange enhetens administratörs lösen ord. Standard lösen ordet är `Password1`.
+1. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**. När du uppmanas ange enhetens administratörs lösen ord. Standard lösen ordet är `Password1` .
 2. Skriv följande i kommandotolken:
    
     `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`

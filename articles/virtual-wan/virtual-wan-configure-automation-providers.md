@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d282cec55d5534957478d6268c8bbd6d74245d8d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190421"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514863"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Automatiserings rikt linjer för virtuella WAN-partner
 
@@ -54,7 +54,7 @@ Förstå den förväntade kund upplevelsen tillsammans med Azure Virtual WAN.
 
 ###  <a name="access-control"></a><a name="access"></a>Åtkomstkontroll
 
-Kunderna måste kunna ställa in lämplig åtkomst kontroll för virtuellt WAN-nätverk i enhetens användar gränssnitt. Detta rekommenderas med hjälp av ett huvud namn för Azure-tjänsten. Tjänstens huvud namn (SPN) tillhandahåller den enhets styrenhet som är lämplig autentisering för att överföra information om grenen. Mer information finns i [skapa tjänstens huvud namn](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Även om den här funktionen ligger utanför det virtuella WAN-erbjudandet i Azure finns en lista under de vanligaste stegen för att ställa in åtkomst i Azure efter vilken relevant information finns i listan på instrument panelen för enhets hantering
+Kunderna måste kunna ställa in lämplig åtkomst kontroll för virtuellt WAN-nätverk i enhetens användar gränssnitt. Detta rekommenderas med hjälp av ett huvud namn för Azure-tjänsten. Tjänstens huvud namn (SPN) tillhandahåller den enhets styrenhet som är lämplig autentisering för att överföra information om grenen. Mer information finns i [skapa tjänstens huvud namn](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Även om den här funktionen ligger utanför det virtuella WAN-erbjudandet i Azure finns en lista under de vanligaste stegen för att ställa in åtkomst i Azure efter vilken relevant information finns i listan på instrument panelen för enhets hantering
 
 * Skapa ett Azure Active Directory-program för din lokala enhets styrenhet.
 * Hämta program-ID och autentiseringsnyckel
@@ -227,4 +227,4 @@ Din lokala SDWAN/VPN-enhet eller SD-WAN-konfiguration måste matcha eller inneh�
 
 Mer information om virtuellt WAN finns i [om Azure Virtual WAN](virtual-wan-about.md) och [vanliga frågor och svar om Azure Virtual WAN](virtual-wan-faq.md).
 
-Om du vill ha ytterligare information kan du skicka ett <azurevirtualwan@microsoft.com>e-postmeddelande till. Ange ditt företagsnamn inom [ ] i ämnesraden.
+Om du vill ha ytterligare information kan du skicka ett e-postmeddelande till <azurevirtualwan@microsoft.com> . Ange ditt företagsnamn inom [ ] i ämnesraden.

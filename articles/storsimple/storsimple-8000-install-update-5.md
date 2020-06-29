@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: bbac6eade634ffcfdc47ae3d22b32e0bd429b7c6
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704381"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513176"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installera uppdatering 5 på din StorSimple-enhet
 
@@ -76,19 +76,19 @@ Snabb korrigerings metoden omfattar följande tre steg:
 
 Du måste ladda ned och installera följande snabb korrigeringar i den angivna ordningen och de föreslagna mapparna:
 
-| Beställa | KB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
+| Beställa | KB | Description | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Program uppdatering<br> Hämta både _HcsSoftwareUpdate.exe_ och _CisMSDAgent.exe_ |Normal <br></br>Icke-störande |~ 25 minuter |FirstOrderUpdate|
 
 Om du uppdaterar från en enhet som kör uppdatering 4 behöver du bara installera de kumulativa uppdateringarna för operativ systemet som andra order uppdateringar.
 
-| Beställa | KB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
+| Beställa | KB | Description | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
 | blankett. |KB4025336 |Paket för ackumulerade OS-uppdateringar <br> Hämta Windows Server 2012 R2 version |Normal <br></br>Icke-störande |- |SecondOrderUpdate|
 
 Om du installerar från en enhet som kör uppdatering 3 eller tidigare installerar du följande utöver de kumulativa uppdateringarna.
 
-| Beställa | KB | Beskrivning | Uppdateringstyp | Installationstid |Installera i mapp|
+| Beställa | KB | Description | Uppdateringstyp | Installationstid |Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
 | 2b. |KB4011841 <br> KB4011842 |Uppdatering av LSI-drivrutin och inbyggd program vara <br> Uppdatering av USM POLICYEGENSKAPER inbyggd program vara (version 3,38) |Normal <br></br>Icke-störande |~ 3 timmar <br> (inkluderar 2A. + 2B. + 2C.)|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Paket för säkerhets uppdateringar av operativ system <br> Hämta Windows Server 2012 R2 version |Normal <br></br>Icke-störande |- |SecondOrderUpdate|
@@ -97,7 +97,7 @@ Om du installerar från en enhet som kör uppdatering 3 eller tidigare installer
 
 Du kan också behöva installera uppdateringar av inbyggd disk på alla uppdateringar som visas i föregående tabeller. Du kan kontrol lera om du behöver diskens inbyggda program varu uppdateringar genom att köra `Get-HcsFirmwareVersion` cmdleten. Om du kör dessa versioner av inbyggd program vara:,,,,, `XMGJ` `XGEG` `KZ50` `F6C2` `VR08` `N003` `0107` , behöver du inte installera dessa uppdateringar.
 
-| Beställa | KB | Beskrivning | Uppdateringstyp | Installationstid | Installera i mapp|
+| Beställa | KB | Description | Uppdateringstyp | Installationstid | Installera i mapp|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Inbyggd disk |Underhåll <br></br>Störande |~ 30 minuter | ThirdOrderUpdate |
 

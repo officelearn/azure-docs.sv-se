@@ -3,16 +3,16 @@ title: Azure File Sync inställningar för lokal brand vägg och proxy | Microso
 description: Azure File Sync lokal nätverks konfiguration
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 415dc4f5609b912163be42605277a33ebcfda589
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466195"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515285"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
@@ -61,7 +61,7 @@ Följ stegen nedan om du vill konfigurera inställningar för datorövergripande
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - Lägg till avsnittet < system. net > i Machine. config-filerna (under avsnittet < system. serviceModel >).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
+   - Lägg till avsnittet <system.net> i machine.config filer (under avsnittet <system. serviceModel>).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -266,7 +266,7 @@ if ($found) {
 Du kan sedan använda IP-adressintervall i `$ipAddressRanges` för att uppdatera brand väggen. Kontrol lera brand Väggs-/nätverks enhetens webbplats för information om hur du uppdaterar brand väggen.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testa nätverks anslutningen till tjänstens slut punkter
-När en server har registrerats med den Azure File Sync tjänsten kan test-StorageSyncNetworkConnectivity-cmdleten och ServerRegistration. exe användas för att testa kommunikationen med alla URL: er som är speciella för den här servern. Den här cmdleten kan hjälpa till att felsöka när ofullständig kommunikation förhindrar att servern fungerar fullt ut med Azure File Sync och den kan användas för att finjustera proxy-och brand Väggs konfigurationerna.
+När en server har registrerats med den Azure File Sync tjänsten kan cmdleten test-StorageSyncNetworkConnectivity och ServerRegistration.exe användas för att testa kommunikationen med alla slut punkter (URL: er) som är speciella för den här servern. Den här cmdleten kan hjälpa till att felsöka när ofullständig kommunikation förhindrar att servern fungerar fullt ut med Azure File Sync och den kan användas för att finjustera proxy-och brand Väggs konfigurationerna.
 
 Om du vill köra testet för nätverks anslutning installerar du Azure File Sync agent version 9,1 eller senare och kör följande PowerShell-kommandon:
 ```powershell

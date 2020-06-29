@@ -3,16 +3,16 @@ title: Övervaka Azure File Sync | Microsoft Docs
 description: Så här övervakar du Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699293"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515194"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -34,7 +34,7 @@ Om du vill visa Azure File Sync mått i Azure Monitor väljer du resurs typen **
 
 Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 
-| Måttnamn | Beskrivning |
+| Måttnamn | Description |
 |-|-|
 | Byte som har synkroniserats | Storlek på överförda data (uppladdning och nedladdning).<br><br>Enhet: byte<br>Sammansättnings typ: sum<br>Tillämpliga dimensioner: Server slut punkt, namn, synkroniseringsanslutning, namn på Sync-grupp |
 | Återkalla moln nivå | Storlek på data som har återkallats.<br><br>**Obs!** det här måttet tas bort i framtiden. Använd storleks måttet återkalla storlek på moln nivå för att övervaka storleken på data som återkallas.<br><br>Enhet: byte<br>Sammansättnings typ: sum<br>Tillämplig dimension: Server namn |
@@ -68,7 +68,7 @@ Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått g
 ### <a name="registered-server-health"></a>Registrerad Server hälsa
 
 - Om det **registrerade Server** läget är **online**, kommunicerar servern med tjänsten.
-- Om det **registrerade Server** läget **visas som offline**kontrollerar du att processen för övervakning av lagrings plats (AzureStorageSyncMonitor. exe) på servern körs. Om servern finns bakom en brand vägg eller proxy kan du läsa [den här artikeln](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) för att konfigurera brand väggen och proxyn.
+- Om det **registrerade Server** läget **visas som offline**kontrollerar du att processen för övervakning av lagrings plats (AzureStorageSyncMonitor.exe) på servern körs. Om servern finns bakom en brand vägg eller proxy kan du läsa [den här artikeln](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) för att konfigurera brand väggen och proxyn.
 
 ### <a name="server-endpoint-health"></a>Server slut punkts hälsa
 
@@ -79,7 +79,7 @@ Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått g
 
 - Följande mått diagram visas i Storage Sync service portal:
 
-  | Måttnamn | Beskrivning | Blad namn |
+  | Måttnamn | Description | Blad namn |
   |-|-|-|
   | Byte som har synkroniserats | Storlek på överförda data (uppladdning och nedladdning) | Synkronisera grupp, Server slut punkt |
   | Återkalla moln nivå | Storlek på data som återkallas | Registrerade servrar |
@@ -132,11 +132,11 @@ Hälso tillstånd för moln nivåer:
 
 Använd Azure File Sync prestanda räknare på servern för att övervaka synkronisering av aktiviteter.
 
-Öppna prestanda övervakaren (Perfmon. exe) om du vill visa Azure File Sync prestanda räknare på servern. Du hittar räknarna under objekten **AFS-överförda byte** och **AFS-synkronisering** .
+Öppna prestanda övervakaren (Perfmon.exe) om du vill visa Azure File Sync prestanda räknare på servern. Du hittar räknarna under objekten **AFS-överförda byte** och **AFS-synkronisering** .
 
 Följande prestanda räknare för Azure File Sync är tillgängliga i prestanda övervakaren:
 
-| Object\Counter-namn för prestanda | Beskrivning |
+| Object\Counter-namn för prestanda | Description |
 |-|-|
 | AFS-byte Transferred\Downloaded byte/s | Antal hämtade byte per sekund. |
 | AFS-byte Transferred\Uploaded byte/s | Antal överförda byte per sekund. |

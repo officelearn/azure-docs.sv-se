@@ -3,15 +3,15 @@ title: Prestanda justering – Storm med Azure Data Lake Storage Gen1
 description: Lär dig mer om prestanda justerings rikt linjer för ett Storm-kluster på Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 47fb385e5e1fb60f860735530356fa87031c51e8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691649"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513797"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestanda justerings vägledning för storm på HDInsight och Azure Data Lake Storage Gen1
 
@@ -126,8 +126,8 @@ Om du når gränserna för bandbredden som tillhandahålls av Data Lake Storage 
 
 Om du vill kontrol lera om du får en begränsning aktiverar du fel söknings loggning på klient sidan:
 
-1. I **Ambari** > **Storm** > **Config**config > **Advanced Storm-Work-log4j**, ändra ** &lt;rot nivå = "info"&gt; ** till ** &lt;rotnivån = "debug"&gt;**. Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
-2. Övervaka loggfilerna för Storm-topologin på arbetsnoder&lt;(&gt;/&lt;under&gt;/var/log/Storm/Worker-Artifacts/TopologyName port/Worker.log) för data Lake Storage gen1 begränsnings undantag.
+1. I **Ambari**  >  **Storm**  >  **config**  >  **Advanced Storm-Work-log4j**, ändra ** &lt; rot nivå = "info" &gt; ** till ** &lt; rotnivån = "debug" &gt; **. Starta om alla noder/tjänster för att konfigurationen ska börja gälla.
+2. Övervaka loggfilerna för Storm-topologin på arbetsnoder (under/var/log/Storm/Worker-Artifacts/ &lt; TopologyName &gt; / &lt; port &gt; /Worker.log) för data Lake Storage gen1 begränsnings undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 Ytterligare prestanda justering för Storm kan refereras till i [den här bloggen](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).

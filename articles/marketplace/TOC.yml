@@ -258,36 +258,6 @@
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: Erbjudande på virtuella datorer
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-    - name: API-referens
-      items:
-        - name: Översikt
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Krav
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
-        - name: Överväganden
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
-        - name: Samtidighetskontroll
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
-        - name: Hämta erbjudanden
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
-        - name: Hämta särskilt erbjudande
-          href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
-        - name: Lägga till eller ändra ett erbjudande
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
-        - name: Hämta erbjudandestatus
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
-        - name: Publicera ett erbjudande
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
-        - name: Hämta åtgärder
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
-        - name: Avbryt åtgärder
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
-        - name: Sätt igång
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
-        - name: Prissättning för erbjudanden på virtuella datorer
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
-        - name: Felsöka autentiseringsfel
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Få support
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
 - name: Den kommersiella marknadsplatsen i Partner-centrum
@@ -433,8 +403,6 @@
       href: ./partner-center-portal/update-existing-offer.md
     - name: Aktivera förmåner
       href: ./partner-center-portal/marketplace-rewards.md
-    - name: Supportalternativ
-      href: ./partner-center-portal/support.md
     - name: Partnercenteranalys
       items:
         - name: Analys för den kommersiella marknadsplatsen
@@ -471,3 +439,35 @@
           href: ./partner-center-portal/payout-policy-details.md
         - name: Skatteinformation
           href: ./partner-center-portal/tax-details-paid-transactions.md
+    - name: CPP API-referens
+      items:
+        - name: Översikt
+          href: ./cloud-partner-portal-api-overview.md
+        - name: Krav
+          href: ./cloud-partner-portal-api-prerequisites.md
+        - name: Överväganden
+          href: ./cloud-partner-portal-api-considerations.md
+        - name: Samtidighetskontroll
+          href: ./cloud-partner-portal-api-concurrency-control.md
+        - name: Hämta erbjudanden
+          href: ./cloud-partner-portal-api-retrieve-offers.md
+        - name: Hämta särskilt erbjudande
+          href: ./cloud-partner-portal-api-retrieve-specific-offer.md
+        - name: Lägga till eller ändra ett erbjudande
+          href: ./cloud-partner-portal-api-creating-offer.md
+        - name: Hämta erbjudandestatus
+          href: ./cloud-partner-portal-api-retrieve-offer-status.md
+        - name: Publicera ett erbjudande
+          href: ./cloud-partner-portal-api-publish-offer.md
+        - name: Hämta åtgärder
+          href: ./cloud-partner-portal-api-retrieve-operations.md
+        - name: Avbryt åtgärder
+          href: ./cloud-partner-portal-api-cancel-operations.md
+        - name: Sätt igång
+          href: ./cloud-partner-portal-api-go-live.md
+        - name: Prissättning för erbjudanden på virtuella datorer
+          href: ./cloud-partner-portal-api-setting-price.md
+        - name: Felsöka autentiseringsfel
+          href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+    - name: Supportalternativ
+      href: ./partner-center-portal/support.md

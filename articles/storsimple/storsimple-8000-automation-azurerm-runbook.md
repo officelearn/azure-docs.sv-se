@@ -3,15 +3,15 @@ title: Använd Azure Automation Runbook för att hantera StorSimple-enheter
 description: Lär dig hur du använder Azure Automation Runbook för att automatisera StorSimple-jobb
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 727bebe0c190ed4dff4408884c45fe166ad541a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 737533cd75ebec8d5d6c614f496e0c9b552217aa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76276962"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514163"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Använd Azure Automation runbooks för att hantera StorSimple-enheter
 
@@ -41,7 +41,7 @@ Utför följande steg för att skapa en Automation-modul för enhets hantering i
         cd C:\scripts\StorSimpleSDKTools
     ```
 
-2. [Hämta NUGET CLI](https://www.nuget.org/downloads) under den mapp som skapades i föregående steg. Det finns olika versioner av _NuGet. exe_. Välj den version som motsvarar din SDK. Varje nedladdnings länk pekar direkt till en _. exe_ -fil. Tänk på att högerklicka och spara filen på datorn i stället för att köra den från webbläsaren.
+2. [Hämta NUGET CLI](https://www.nuget.org/downloads) under den mapp som skapades i föregående steg. Det finns olika versioner av _nuget.exe_. Välj den version som motsvarar din SDK. Varje nedladdnings länk pekar direkt till en _. exe_ -fil. Tänk på att högerklicka och spara filen på datorn i stället för att köra den från webbläsaren.
 
     Du kan också köra följande kommando för att ladda ned och lagra skriptet i samma mapp som du skapade tidigare.
 
@@ -83,7 +83,7 @@ Utför följande steg för att skapa en Automation-modul för enhets hantering i
         compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
     ```
 
-6. Kontrol lera att zip-filen för Automation-modulen `C:\scripts\StorSimpleSDKTools`har skapats i.
+6. Kontrol lera att zip-filen för Automation-modulen har skapats i `C:\scripts\StorSimpleSDKTools` .
 
     ![verifiera-Automation-modul](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 

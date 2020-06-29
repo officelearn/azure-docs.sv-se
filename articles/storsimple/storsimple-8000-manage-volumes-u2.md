@@ -3,15 +3,15 @@ title: Hantera StorSimple-volymer (uppdatering 3)
 description: Förklarar hur du lägger till, ändrar, övervakar och tar bort StorSimple-volymer och hur du kopplar från dem om det behövs.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254773"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508256"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Använda tjänsten StorSimple Enhetshanteraren för att hantera volymer (uppdatering 3 eller senare)
 
@@ -157,13 +157,13 @@ Din nya volym är nu redo att användas.
 
        ![Granska effekten av att ta volymen offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
-5. Klicka på **Spara** för att spara ändringarna. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. I Azure Portal visas ett uppdaterings volym meddelande. Ett meddelande visas när volymen har uppdaterats.
+5. Klicka på **Spara** för att spara dina ändringar. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. I Azure Portal visas ett uppdaterings volym meddelande. Ett meddelande visas när volymen har uppdaterats.
 
     ![Granska effekten av att ta volymen offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 
 7. Om du expanderar en volym utför du följande steg på Windows-värddatorn:
    
-   1. Gå till **dator hantering** ->**disk hantering**.
+   1. Gå till **dator hantering**  -> **disk hantering**.
    2. Högerklicka på **disk hantering** och välj **Genomsök diskar**.
    3. I listan över diskar väljer du den volym som du har uppdaterat, högerklickar på och väljer sedan **Utöka volym**. Guiden utöka volym startar. Klicka på **Nästa**.
    4. Slutför guiden och acceptera standardvärdena. När guiden har slutförts bör volymen Visa den ökade storleken.

@@ -4,16 +4,16 @@ description: Så här exporterar du data från ditt Azure IoT Central-program ti
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: f23a91a278b81c1583d88db2ede265ba2ad2d415
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414238"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483932"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Exportera IoT-data till destinationer i Azure
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du använder funktionen för data export i Azure
 > [!Note]
 > När du aktiverar data export får du bara data från dessa tidpunkter. För närvarande går det inte att hämta data under en tid då data exporten var avstängd. Aktivera data export tidigt om du vill behålla mer historiska data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste vara administratör i IoT Central programmet eller ha behörighet för data export.
 
@@ -82,11 +82,9 @@ Nu när du har ett mål att exportera data till, följer du dessa steg för att 
     > [!Tip]
     > Om du inte ser **data export** i det vänstra fönstret har du inte behörighet att konfigurera data export i din app. Prata med en administratör för att konfigurera data export.
 
-3. Välj knappen **+ ny** längst upp till höger. Välj en **Azure-Event Hubs**, **Azure Service Bus**eller **Azure Blob Storage** som mål för exporten. Det maximala antalet exporter per program är fem.
+3. Välj knappen **+ ny** . Välj ett av **azure Blob Storage**, **azure Event Hubs**, **Azure Service Bus kö**eller **Azure Service Bus ämne** som export mål. Det maximala antalet exporter per program är fem.
 
-    ![Skapa ny data export](media/howto-export-data/new-export-definition.png)
-
-4. I list rutan väljer du **Event Hubs namnrymd**, **Service Bus namnrymd**, **lagrings konto namnrum**eller **anger en anslutnings sträng**.
+4. Ange ett namn på exporten. I list rutan väljer du ditt **namn område**eller **anger en anslutnings sträng**.
 
     - Du ser bara lagrings konton, Event Hubs namnrymder och Service Bus namnrum i samma prenumeration som ditt IoT Central-program. Om du vill exportera till ett mål utanför den här prenumerationen väljer du **Ange en anslutnings sträng** och se steg 6.
     - För appar som har skapats med den kostnads fria pris Planen är det enda sättet att konfigurera data exporten via en anslutnings sträng. Appar i den kostnads fria pris Planen har ingen tillhör ande Azure-prenumeration.
@@ -108,7 +106,7 @@ Nu när du har ett mål att exportera data till, följer du dessa steg för att 
           1. Under **Inställningar**väljer du **åtkomst nycklar**
           2. Kopiera antingen anslutnings strängen KEY1 eller key2-anslutningssträngen
 
-    Klistra in i anslutnings strängen. Skriv in namnet på instansen eller behållaren, Tänk på att detta är Skift läges känsligt.
+    Klistra in i anslutnings strängen. Skriv in namnet på instansen eller **behållaren**, Tänk på att detta är Skift läges känsligt.
 
 7. Under **data som ska exporteras**väljer du de typer av data som ska exporteras genom att ange typen till **på**.
 
@@ -754,4 +752,4 @@ Viktiga skillnader mellan det gamla data formatet och det nya data **formatet ä
 Nu när du vet hur du exporterar dina data till Azure Event Hubs, Azure Service Bus och Azure Blob Storage, fortsätter du till nästa steg:
 
 > [!div class="nextstepaction"]
-> [Så här skapar du Webhooks](./howto-create-webhooks.md)
+> [Så här kör du Custom Analytics med Databricks](./howto-create-custom-analytics.md)

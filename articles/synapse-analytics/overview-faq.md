@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: e0f1caf77f0e898b13045e2c840d93f42a5569fc
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609156"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484051"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (för hands versioner av arbets ytor) vanliga frågor och svar
 
@@ -48,6 +48,10 @@ A: Azure Synapse har följande funktioner:
 A: Azure Synapse Analytics är en utveckling av Azure SQL Data Warehouse i en analys plattform, som innehåller SQL-pool som data lager lösning. Den här plattformen kombinerar data utforskning, inmatning, omvandling, förberedelse och ett betjänande analys lager.
 
 ## <a name="use-cases"></a>Användningsfall
+
+### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>F: Hur gör jag för att byta namn på en publicerad artefakt (data uppsättning, Notebook, SQL-skript och så vidare) i Azure-Synapse?
+
+A: om du vill byta namn på en publicerad artefakt fil måste du först klona filen och byta namn på den nya filen till det namn som du föredrar. Du måste manuellt uppdatera alla referenserna för artefakten till det nya fil namnet och ta bort den gamla.
 
 ### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>F: Vad är ett bra användnings fall för Synapse SQL-pool
 

@@ -3,15 +3,15 @@ title: Analysera data i Azure Data Lake Storage Gen1-Power BI
 description: Använd Power BI för att analysera data som lagras i Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: eb34199f6f1b304d56c691f56b78d9c035be8a5b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a692c5b23eaf23b33eef9bd2baf1e62b4bcca74e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744775"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504941"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen1 med Power BI
 I den här artikeln får du lära dig hur du använder Power BI Desktop för att analysera och visualisera data som lagras i Azure Data Lake Storage Gen1.
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du använder Power BI Desktop för att
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett data Lake Storage gen1 konto**. Följ anvisningarna i [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Den här artikeln förutsätter att du redan har skapat ett Data Lake Storage Gen1-konto, kallat **myadlsg1**, och laddat upp en exempel data fil (**Drivers. txt**) till den. Den här exempel filen kan laddas ned från [Azure Data Lake git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Ett data Lake Storage gen1 konto**. Följ anvisningarna i [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Den här artikeln förutsätter att du redan har skapat ett Data Lake Storage Gen1-konto, kallat **myadlsg1**, och laddat upp en exempel data fil (**Drivers.txt**) till den. Den här exempel filen kan laddas ned från [Azure Data Lake git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 * **Power BI Desktop**. Du kan ladda ned det från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Skapa en rapport i Power BI Desktop
@@ -56,7 +56,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 10. I Frågeredigeraren, under kolumnen **innehåll** , klickar du på **binär**.
     
     ![Redigera frågor](./media/data-lake-store-power-bi/convert-query1.png "Redigera frågor")
-11. En filikon visas som representerar filen **Drivers. txt** som du laddade upp. Högerklicka på filen och klicka på **CSV**.    
+11. En fil ikon visas som representerar den **Drivers.txt** -fil som du överförde. Högerklicka på filen och klicka på **CSV**.    
     
     ![Redigera frågor](./media/data-lake-store-power-bi/convert-query2.png "Redigera frågor")
 12. Du bör se utdata som visas nedan. Dina data är nu tillgängliga i ett format som du kan använda för att skapa visualiseringar.

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 2aca113e21d759416580c8876ec2092762893da5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299833"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506981"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Anpassade mått i Azure Monitor (förhands granskning)
 
@@ -86,7 +86,7 @@ När du rapporterar en mått data punkt, för varje dimensions nyckel för det m
 
 * Mått namnet skulle vara **minnes byte som används**.
 * Dimensions nyckeln skulle **bearbetas**.
-* Dimension svärdet skulle vara **ContosoApp. exe**.
+* Dimension svärdet skulle vara **ContosoApp.exe**.
 
 När du publicerar ett mått värde kan du bara ange ett enskilt dimensions värde per dimensions nyckel. Om du samlar in samma minnes användning för flera processer på den virtuella datorn kan du rapportera flera mått värden för den tidsstämpeln. Varje mått värde anger ett annat dimensions värde för **process** dimensions nyckeln.
 Mått är valfria, men alla mått kan inte ha några mått. Om ett mått post definierar dimensions nycklar är motsvarande dimensions värden obligatoriska.
@@ -189,28 +189,28 @@ Under den offentliga för hands versionen är möjligheten att publicera anpassa
 |Azure-region |Regionalt slut punkts prefix|
 |---|---|
 | **USA och Kanada** | |
-|USA, västra centrala | https: \/ /westcentralus.Monitoring.Azure.com/ |
-|USA, västra 2       | https: \/ /westus2.Monitoring.Azure.com/ |
+|USA, västra centrala | https: \/ /westcentralus.Monitoring.Azure.com |
+|USA, västra 2       | https: \/ /westus2.Monitoring.Azure.com |
 |USA, norra centrala | https: \/ /northcentralus.Monitoring.Azure.com
-|USA, södra centrala| https: \/ /southcentralus.Monitoring.Azure.com/ |
+|USA, södra centrala| https: \/ /southcentralus.Monitoring.Azure.com |
 |USA, centrala      | https: \/ /centralus.Monitoring.Azure.com |
-|Kanada, centrala | https: \/ /canadacentral.Monitoring.Azure.comc
-|USA, östra| https: \/ /eastus.Monitoring.Azure.com/ |
-|USA, östra 2 | https: \/ /eastus2.Monitoring.Azure.com/
+|Kanada, centrala | https: \/ /canadacentral.Monitoring.Azure.com |
+|USA, östra| https: \/ /eastus.Monitoring.Azure.com |
+|USA, östra 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
-|Europa, norra    | https: \/ /northeurope.Monitoring.Azure.com/ |
-|Europa, västra     | https: \/ /westeurope.Monitoring.Azure.com/ |
+|Europa, norra    | https: \/ /northeurope.Monitoring.Azure.com |
+|Europa, västra     | https: \/ /westeurope.Monitoring.Azure.com |
 |Storbritannien, södra | https: \/ /uksouth.Monitoring.Azure.com
 |Frankrike, centrala | https: \/ /francecentral.Monitoring.Azure.com |
 | **Afrika** | |
-|Sydafrika, norra | https: \/ /southafricanorth.Monitoring.Azure.com
+|Sydafrika, norra | https: \/ /southafricanorth.Monitoring.Azure.com |
 | **Asien** | |
-|Indien, centrala | https: \/ /centralindia.Monitoring.Azure.com
-|Australien, östra | https: \/ /australiaeast.Monitoring.Azure.com
-|Japan, östra | https: \/ /japaneast.Monitoring.Azure.com
+|Indien, centrala | https: \/ /centralindia.Monitoring.Azure.com |
+|Australien, östra | https: \/ /australiaeast.Monitoring.Azure.com |
+|Japan, östra | https: \/ /japaneast.Monitoring.Azure.com |
 |Sydostasien  | https: \/ /southeastasia.Monitoring.Azure.com |
-|Asien, östra | https: \/ /EastAsia.Monitoring.Azure.com
-|Sydkorea, centrala   | https: \/ /koreacentral.Monitoring.Azure.com
+|Asien, östra | https: \/ /EastAsia.Monitoring.Azure.com |
+|Sydkorea, centrala   | https: \/ /koreacentral.Monitoring.Azure.com |
 
 ## <a name="latency-and-storage-retention"></a>Svars tid och lagrings kvarhållning
 
@@ -231,7 +231,7 @@ En aktiv tids serie definieras som en unik kombination av mått, dimensions nyck
 
 ## <a name="next-steps"></a>Nästa steg
 Använd anpassade mått från olika tjänster: 
- - [Virtual Machines](collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Virtuella datorer](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Skaluppsättning för virtuella datorer](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (klassisk)](collect-custom-metrics-guestos-vm-classic.md)
  - [Virtuell Linux-dator med hjälp av teleympkvistar-agenten](collect-custom-metrics-linux-telegraf.md)

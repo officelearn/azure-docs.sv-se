@@ -1,25 +1,14 @@
 ---
 title: Konfigurera ett delat avbildnings galleri i Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du konfigurerar ett delat avbildnings galleri i Azure DevTest Labs
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2020
-ms.author: spelluru
-ms.openlocfilehash: 12a7b678130a2c199dd94af540bacffe8d4685f1
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.date: 06/26/2020
+ms.openlocfilehash: f4a80062a245530c5d15e761a9eb7dc95fee091e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125742"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483796"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurera ett delat bildgalleri i Azure DevTest Labs
 DevTest Labs stöder nu funktionen för [delad bild galleri](../virtual-machines/windows/shared-image-galleries.md) . Det gör det möjligt för labb användare att komma åt bilder från en delad plats när du skapar labb resurser. Det hjälper dig också att bygga struktur och organisation runt dina anpassade avbildningar av virtuella datorer. Funktionen för delad bild galleri stöder:

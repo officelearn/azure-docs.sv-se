@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246891"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504328"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka konfigurationsserverfel
 
@@ -67,7 +67,7 @@ Om du vill lösa vCenter-identifierings felen lägger du till vCenter-servern i 
 - Öppna Internet Explorer i system användar innehåll genom att köra följande kommando rad PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
 - Lägg till proxyinställningar i IE och starta om tmanssvc-tjänsten.
 - Om du vill konfigurera inställningar för proxyserver kör du CD C:\Program\Microsoft Azure Site Recovery Provider
-- Kör sedan DRCONFIGURATOR. EXE/Configure/AddBypassUrls [Lägg till IP-adress/FQDN för vCenter Server som angavs under **konfigurera vCenter Server/vSphere ESXi Server-** steget i [konfigurations serverns distribution](vmware-azure-deploy-configuration-server.md#configure-settings)]
+- Kör sedan DRCONFIGURATOR.EXE/Configure/AddBypassUrls [Lägg till IP-adress/fullständigt domän namn för vCenter Server som anges under **konfigurera vCenter Server/vSphere ESXi Server-** steg för [distribution av konfigurations Server](vmware-azure-deploy-configuration-server.md#configure-settings)]
 
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Ändra konfigurations serverns IP-adress
 
@@ -97,9 +97,9 @@ Kör följande kommando på käll datorn:
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
 ```
 
-Inställning | Information
+Inställningen | Information
 --- | ---
-Användning | UnifiedAgentConfigurator. exe/CSEndPoint < konfigurations serverns IP-adress \> /PassphraseFilePath < lösen ords Sök väg\>
+Användning | UnifiedAgentConfigurator.exe/CSEndPoint <konfigurations serverns IP-adress \> /PassphraseFilePath <sökväg till lösen fras\>
 Agent konfigurations loggar | Finns under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.
 /PassphraseFilePath |  Obligatorisk. Platsen för lösen frasen. Använd en giltig UNC-eller lokal fil Sök väg.
@@ -112,7 +112,7 @@ Kör följande kommando på käll datorn:
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
 
-Inställning | Information
+Inställningen | Information
 --- | ---
 Användning | cd-/usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh-i <konfigurations serverns IP-adress \> -P <lösen ords Sök väg\>
 -i | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.
@@ -193,7 +193,7 @@ Du har inte behörighet att skapa ett program i Azure Active Directory (AAD) med
 Lös problemet genom att logga in på Azure Portal och gör något av följande:
 
 - Be rollen program utvecklare i AAD. Mer information om rollen programutvecklare finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Kontrol lera att flaggan **användare kan skapa program** har angetts till *True* i AAD. Mer information finns i [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Kontrol lera att flaggan **användare kan skapa program** har angetts till *True* i AAD. Mer information finns i [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Processervern/huvud mål servern kan inte kommunicera med konfigurations servern 
 

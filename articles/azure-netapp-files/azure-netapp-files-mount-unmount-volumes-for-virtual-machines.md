@@ -5,14 +5,14 @@ author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
-ms.openlocfilehash: d02ceda9dc2c6a822d45c2a31fe91a976610292b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b7586fcd0a262fa325e171480ec0becc297f65fe
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610861"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483592"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för virtuella Windows- eller Linux-datorer 
 
@@ -30,7 +30,7 @@ Du kan montera eller demontera en volym för virtuella Windows-eller Linux-dator
     
     Om du använder NFSv 4.1 använder du följande kommando för att montera fil systemet:`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-3. Om du vill att en NFS-volym ska monteras automatiskt när en virtuell Azure-dator startas eller startas om, lägger du till `/etc/fstab` en post i filen på värden. 
+3. Om du vill att en NFS-volym ska monteras automatiskt när en virtuell Azure-dator startas eller startas om, lägger du till en post i `/etc/fstab` filen på värden. 
 
     Exempelvis:  `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
@@ -41,7 +41,7 @@ Du kan montera eller demontera en volym för virtuella Windows-eller Linux-dator
 4. Om du vill montera volymen till Windows med NFS:
 
     a. Montera volymen på en virtuell UNIX-eller Linux-dator först.  
-    b. Kör ett `chmod 777` eller `chmod 775` -kommando mot volymen.  
+    b. Kör ett `chmod 777` eller- `chmod 775` kommando mot volymen.  
     c. Montera volymen via NFS-klienten i Windows.
 
 ## <a name="next-steps"></a>Nästa steg

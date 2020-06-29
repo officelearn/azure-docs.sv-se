@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60397285"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504312"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Dataöverföring för små datamängder med låg eller måttlig nätverksbandbredd
  
@@ -55,9 +55,9 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 | Grafiskt gränssnitt | Ja | Ja | Inga | Inga |
 | Plattformar som stöds | Windows, Mac, Linux | Webbaserad |Windows, Mac, Linux |Alla plattformar |
 | Tillåtna Blob Storage-åtgärder<br>för blobbar och mappar | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbar |
-| Tillåten Data Lake gen1-lagring<br>åtgärder för filer och mappar | Ladda upp<br>Ladda ned<br>Hantera | Inga |Ladda upp<br>Ladda ned<br>Hantera                   | Inga |
+| Tillåten Data Lake gen1-lagring<br>åtgärder för filer och mappar | Ladda upp<br>Ladda ned<br>Hantera | No |Ladda upp<br>Ladda ned<br>Hantera                   | No |
 | Tillåtna åtgärder för fil lagring<br>för filer och kataloger | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera   |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbar |
-| Tillåtna åtgärder för tabell lagring<br>för tabeller |Hantera | Inga |Tabell stöd i AzCopy-v7 |Ja, anpassningsbar|
+| Tillåtna åtgärder för tabell lagring<br>för tabeller |Hantera | No |Tabell stöd i AzCopy-v7 |Ja, anpassningsbar|
 | Tillåten Queue Storage | Hantera | Inga  |Inga | Ja, är anpassningsbar|
 
 

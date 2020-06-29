@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34a02181632c301f443ce48ade0de2013e2ae86c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254890"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508290"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Ersätta en EBOD-kontrollant på din StorSimple-enhet
 
@@ -42,7 +42,7 @@ Innan du ersätter modulen EBOD i StorSimple-enheten kontrollerar du att den and
 
 #### <a name="to-remove-an-ebod-module"></a>Ta bort en EBOD-modul
 1. Öppna Azure Portal.
-2. Gå till din enhet och gå till **Inställningar** > **maskin varu hälsa**och kontrol lera att status för lysdioden för modulen Active EBOD Controller är grön och att indikatorn för modulen för EBOD Controller är röd.
+2. Gå till din enhet och gå till **Inställningar**  >  **maskin varu hälsa**och kontrol lera att status för lysdioden för modulen Active EBOD Controller är grön och att indikatorn för modulen för EBOD Controller är röd.
 3. Leta reda på modulen för den felande EBOD på bak sidan av enheten.
 4. Ta bort de kablar som ansluter modulen EBOD Controller till kontrollanten innan du tar EBOD-modulen ur systemet.
 5. Anteckna den exakta SAS-porten för EBOD Controller-modulen som var ansluten till kontrollanten. Du kommer att behöva återställa systemet till den här konfigurationen när du har bytt ut EBOD-modulen.
@@ -54,7 +54,7 @@ Innan du ersätter modulen EBOD i StorSimple-enheten kontrollerar du att den and
    
      **Bild 1** Tillbaka till EBOD-modulen
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |Indikator för fel |
    | 2 |Ström indikator |
@@ -86,7 +86,7 @@ I följande procedur och tabell förklaras hur du installerar en EBOD Controller
    
     **Bild 4**. Återansluter kablar
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |Primärt kabinett |
    | 2 |PCM 0 |

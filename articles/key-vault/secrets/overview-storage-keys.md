@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 1a39a8e4d09da1f9ec8721c2ea89672e7bfc096a
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118550"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508511"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Hantera lagrings konto nycklar med Key Vault och Azure CLI
 
@@ -125,11 +125,11 @@ Kopiera utdata när åtgärden har körts.
 "se=2020-01-01&sp=***"
 ```
 
-De här utdata skickas till- `--template-id` parametern i nästa steg.
+De här utdata skickas till- `--template-uri` parametern i nästa steg.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Generera en definition för signatur för delad åtkomst
 
-Använd Azure CLI-AZ för att skapa SAS-definition med hjälp av kommandot för [SAS-definition](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) i Azure CLI och skicka utdata från föregående steg till `--template-id` -parametern för att skapa en definition av en signatur för delad åtkomst.  Du kan ange namnet på ditt val av- `-n` parameter.
+Använd Azure CLI-AZ för att skapa SAS-definition med hjälp av kommandot för [SAS-definition](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) i Azure CLI och skicka utdata från föregående steg till `--template-uri` -parametern för att skapa en definition av en signatur för delad åtkomst.  Du kan ange namnet på ditt val av- `-n` parameter.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>

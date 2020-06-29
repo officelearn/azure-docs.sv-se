@@ -1,23 +1,14 @@
 ---
 title: Konfigurera ett labb att använda Fjärrskrivbordsgateway i Azure DevTest Labs
 description: Lär dig hur du konfigurerar ett labb i Azure DevTest Labs med en Fjärrskrivbordsgateway för att säkerställa säker åtkomst till de virtuella labb datorerna utan att behöva exponera RDP-porten.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899307"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483847"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurera ditt labb i Azure DevTest Labs att använda en Fjärrskrivbordsgateway
 I Azure DevTest Labs kan du konfigurera en Fjärrskrivbordsgateway för ditt labb för att säkerställa säker åtkomst till de virtuella datorerna i labbet (VM) utan att behöva exponera RDP-porten. Labbet är en central plats där dina labb användare kan visa och ansluta till alla virtuella datorer som de har åtkomst till. Knappen **Anslut** på sidan **virtuell dator** skapar en datorspecifik RDP-fil som du kan öppna för att ansluta till datorn. Du kan anpassa och säkra RDP-anslutningen ytterligare genom att ansluta ditt labb till en Fjärrskrivbordsgateway. 

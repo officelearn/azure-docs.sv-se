@@ -4,15 +4,15 @@ description: inkludera fil
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 76af1084626944d8399edd2c7ec5dec92e25f3ed
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378517"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506061"
 ---
 Med hjälp av virtuella datorer kan du dra nytta av vår outnyttjade kapacitet till betydande besparingar. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella datorer. De virtuella datorerna är därför fantastiska för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
 
@@ -21,9 +21,17 @@ Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid oc
 
 ## <a name="eviction-policy"></a>Borttagnings princip
 
-Virtuella datorer kan avlägsnas baserat på kapacitet eller det högsta pris som du har angett. För virtuella datorer är borttagnings principen inställd på *frigörning* som flyttar de avlägsnade virtuella datorerna till statusen stoppad-frigjord, så att du kan distribuera om de avlägsnade virtuella datorerna vid ett senare tillfälle. Däremot kommer omtilldelning av virtuella datorer att vara beroende av att det finns tillgänglig dekor kapacitet. De friallokerade virtuella datorerna räknas över till din vCPU kvot och du debiteras för de underliggande diskarna. 
+Virtuella datorer kan avlägsnas baserat på kapacitet eller det högsta pris som du har angett. När du skapar en virtuell dator för virtuella datorer kan du ange att principen ska *avallokeras* eller *tas bort*. 
 
-Användare kan välja att ta emot meddelanden i den virtuella datorn via [Azure schemalagda händelser](../articles/virtual-machines/linux/scheduled-events.md). Detta meddelar dig om dina virtuella datorer avlägsnas och du har 30 sekunder på dig att slutföra jobben och utföra avstängnings uppgifter innan avlägsnandet. 
+Principen *frigör* flyttar den virtuella datorn till statusen stoppad-frigjord, så att du kan distribuera den igen senare. Det finns dock ingen garanti för att allokeringen ska lyckas. De friallokerade virtuella datorerna räknas av mot kvoten och du debiteras lagrings kostnaderna för de underliggande diskarna. 
+
+Om du vill att den virtuella datorn ska tas bort när den tas bort kan du ange vilken borttagnings princip som ska *tas bort*. De avlägsnade virtuella datorerna tas bort tillsammans med deras underliggande diskar, så du kan inte fortsätta att debiteras för lagringen. 
+
+> [!NOTE]
+>
+> Portalen stöder för närvarande inte `Delete` borttagnings alternativ, du kan bara ange `Delete` POWERSHELL, CLI och mallar.
+
+Du kan välja att ta emot meddelanden i virtuella datorer via [Azure schemalagda händelser](../articles/virtual-machines/linux/scheduled-events.md). Detta meddelar dig om dina virtuella datorer avlägsnas och du har 30 sekunder på dig att slutföra jobben och utföra avstängnings uppgifter innan avlägsnandet. 
 
 
 | Alternativ | Resultat |
@@ -36,6 +44,7 @@ Användare kan välja att ta emot meddelanden i den virtuella datorn via [Azure 
 | Efter avlägsnandet går priset för den virtuella datorn tillbaka till < det högsta priset. | Den virtuella datorn kommer inte att startas om automatiskt. Du kan starta om den virtuella datorn själv och debiteras enligt det aktuella priset. |
 | Om max priset är inställt på`-1` | Den virtuella datorn kommer inte att avlägsnas av prissättnings skäl. Det högsta priset är det aktuella priset, upp till priset för virtuella datorer med standard typ. Du debiteras aldrig enligt standard priset.| 
 | Ändra Max priset | Du måste frigöra den virtuella datorn för att ändra det högsta priset. Frigör den virtuella datorn, ange ett nytt max pris och uppdatera den virtuella datorn. |
+
 
 ## <a name="limitations"></a>Begränsningar
 

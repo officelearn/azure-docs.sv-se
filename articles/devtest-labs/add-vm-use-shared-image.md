@@ -1,25 +1,14 @@
 ---
 title: Lägg till en virtuell dator med hjälp av en delad avbildning i Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du lägger till en virtuell dator (VM) med en avbildning från den bifogade delade avbildnings galleriet i Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
-ms.author: spelluru
-ms.openlocfilehash: c13b2c3d00a0ab0af0f7785feae645d907ffdaa3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 9421a1e21be9446b0e59328bd9a3730b57655274
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898817"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483864"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Lägg till en virtuell dator med hjälp av en avbildning från den bifogade delade avbildnings galleriet
 Med Azure DevTest Labs kan du koppla ett delat avbildnings galleri till labbet och sedan använda bilder i galleriet som baser för de virtuella datorer som du skapar i labbet. Information om hur du ansluter ett delat avbildnings galleri till labbet finns i [Konfigurera delade avbildnings galleriet](configure-shared-image-gallery.md). Den här artikeln visar hur du lägger till en virtuell dator i labbet med hjälp av en avbildning från den bifogade delade avbildnings galleriet som en bas. 

@@ -3,15 +3,15 @@ title: Konfigurera aver vFXT Storage – Azure
 description: Så här lägger du till ett Server dels lagrings system i ditt AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252615"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505757"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
@@ -47,7 +47,7 @@ Följ dessa steg om du vill lägga till en NAS core-filer:
 
 1. Klicka på fliken **Inställningar** längst upp i kontroll panelen aver.
 
-1. Klicka på **Core** > **filer hantera Core** -till vänster.
+1. Klicka på **Core**  >  **filer hantera Core** -till vänster.
 
 1. Klicka på **Skapa**.
 
@@ -119,7 +119,7 @@ Följ dessa steg om du vill lägga till Blob Storage när klustret har skapats.
 
    ![Azure Portal GUI för att kopiera nyckeln](media/avere-vfxt-copy-storage-key.png)
 
-1. Öppna kontroll panelen aver för klustret. Klicka på **Inställningar**och öppna autentiseringsuppgifter för **kluster** > **moln** i det vänstra navigerings fönstret. På sidan autentiseringsuppgifter för moln klickar du på **Lägg till autentiseringsuppgift**.
+1. Öppna kontroll panelen aver för klustret. Klicka på **Inställningar**och öppna **Cluster**  >  **autentiseringsuppgifter** för kluster moln i det vänstra navigerings fönstret. På sidan autentiseringsuppgifter för moln klickar du på **Lägg till autentiseringsuppgift**.
 
    ![Klicka på knappen Lägg till autentiseringsuppgift på sidan konfiguration av moln autentiseringsuppgifter](media/avere-vfxt-new-credential-button.png)
 
@@ -137,7 +137,7 @@ Följ dessa steg om du vill lägga till Blob Storage när klustret har skapats.
 
    ![Formulär för slutförd moln behörighet i AVERT-Kontrollpanelen](media/avere-vfxt-new-credential-submit.png)
 
-1. Skapa sedan core-filer. Klicka på **Core** >  -**filer hantera Core**-på vänster sida av kontroll panelen aver.
+1. Skapa sedan core-filer. Klicka på **Core**-  >   **filer hantera Core**-på vänster sida av kontroll panelen aver.
 
 1. Klicka på knappen **skapa** på sidan **Hantera inställningar för Core-Filskydd** .
 
@@ -152,7 +152,7 @@ Följ dessa steg om du vill lägga till Blob Storage när klustret har skapats.
    * Ändra **certifikat verifiering** till **inaktive rad**
    * Ändra **komprimerings läge** till **ingen**
    * Klicka på **Nästa**.
-   * På den fjärde sidan anger du namnet på behållaren i **Bucket-namn** som *storage_account_name*/*container_name*.
+   * På den fjärde sidan anger du namnet på behållaren i **Bucket-namn** som *storage_account_name* / *container_name*.
    * Du kan också ange **krypterings typ** till **ingen**.  Azure Storage krypteras som standard.
    * Klicka på **Lägg till**filer.
 
@@ -166,14 +166,14 @@ Därefter måste du [skapa en Knut](#create-a-junction)punkt.
 
 En Knut punkt är en sökväg som du skapar för-klienter. Klienter monterar sökvägen och kommer till den plats du väljer.
 
-Du kan till exempel skapa `/vfxt/files` för att mappa till din NetApp Core- `/vol0/data` filexport och `/project/resources` under katalogen.
+Du kan till exempel skapa `/vfxt/files` för att mappa till din NetApp Core- `/vol0/data` filexport och under `/project/resources` katalogen.
 
 Mer information om Knut punkter finns i [avsnittet namnrymd i konfigurations guiden för AVERT kluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Följ de här stegen i gränssnittet AVERT på kontroll panelen:
 
-* Klicka på **vserver** > -**namnrymd** i det övre vänstra hörnet.
-* Ange en namn områdes Sök väg som börjar med/(snedstreck ``/vfxt/data``), t. ex..
+* Klicka på **vserver**-  >  **namnrymd** i det övre vänstra hörnet.
+* Ange en namn områdes Sök väg som börjar med/(snedstreck), t ``/vfxt/data`` . ex..
 * Välj dina kärnor.
 * Välj kärn-filer exporteras.
 * Klicka på **Nästa**.

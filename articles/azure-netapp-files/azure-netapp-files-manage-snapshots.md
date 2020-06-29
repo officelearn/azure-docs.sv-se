@@ -11,17 +11,17 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed13c61646bd2a6672b613964507d291a69a6821
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78267907"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483609"
 ---
-# <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicks bilder med hjälp av Azure NetApp Files
+# <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
 Du kan använda Azure NetApp Files för att skapa en ögonblicks bild på begäran manuellt för en volym eller återställa från en ögonblicks bild till en ny volym. Azure NetApp Files tjänsten skapar inte automatiskt ögonblicks bilder av volymen.  
 

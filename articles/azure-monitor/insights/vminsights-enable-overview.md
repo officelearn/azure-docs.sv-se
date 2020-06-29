@@ -5,23 +5,29 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/29/2020
-ms.openlocfilehash: 87d8b26110eba647975de577e9d7b5b0ed138266
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.date: 06/25/2020
+ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84423980"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507083"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
-Den här artikeln innehåller en översikt över tillgängliga alternativ för att aktivera Azure Monitor for VMs på dina virtuella datorer för att övervaka hälso tillstånd och prestanda. Identifiera program beroenden som körs på virtuella Azure-datorer och skalnings uppsättningar för virtuella datorer, lokala virtuella datorer eller virtuella datorer som finns i en annan moln miljö.  
+Den här artikeln innehåller en översikt över tillgängliga alternativ för att aktivera Azure Monitor for VMs övervaka hälso tillstånd och prestanda för följande:
+
+- Virtuella Azure-datorer 
+- Azure Virtual Machine Scale Sets
+- Virtuella hybrid datorer som är anslutna till Azure Arc
+- Lokala virtuella datorer
+- Virtuella datorer som finns i en annan moln miljö.  
 
 Så här konfigurerar du Azure Monitor for VMs:
 
-* Aktivera en enskild virtuell Azure-dator eller skalnings uppsättning för virtuella datorer genom att välja **insikter** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer.
-* Aktivera två eller flera virtuella Azure-datorer och skalnings uppsättningar för virtuella datorer med hjälp av Azure Policy. Den här metoden säkerställer att de nödvändiga beroendena är installerade och korrekt konfigurerade för befintliga och nya virtuella datorer och skalnings uppsättningar. Icke-kompatibla virtuella datorer och skalnings uppsättningar rapporteras, så du kan välja om du vill aktivera dem och åtgärda dem.
-* Aktivera två eller flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer i en angiven prenumeration eller resurs grupp med hjälp av PowerShell.
+* Aktivera en enskild virtuell Azure-dator, Azure-VMSS eller Azure Arc-dator genom att välja **insikter** direkt från menyn i Azure Portal.
+* Aktivera flera virtuella Azure-datorer, Azure-VMSS eller Azure Arc-datorer med hjälp av Azure Policy. Den här metoden säkerställer att de nödvändiga beroendena är installerade och korrekt konfigurerade för befintliga och nya virtuella datorer och skalnings uppsättningar. Icke-kompatibla virtuella datorer och skalnings uppsättningar rapporteras, så du kan välja om du vill aktivera dem och åtgärda dem.
+* Aktivera flera virtuella Azure-datorer, virtuella Azure Arc-datorer, Azure-VMSS eller Azure Arc-datorer i en viss prenumeration eller resurs grupp med hjälp av PowerShell.
 * Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
 
 ## <a name="prerequisites"></a>Krav
@@ -43,6 +49,7 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 - USA, östra 2
 - USA, centrala
 - USA, norra centrala
+- US Gov AZ
 - US Gov va
 - Kanada, centrala
 - Storbritannien, södra
@@ -67,15 +74,13 @@ Om du inte har en Log Analytics arbets yta kan du skapa en med hjälp av en av r
 
 Du kan också skapa en arbets yta när du aktiverar övervakning för en enskild virtuell Azure-dator eller skalnings uppsättning för virtuella datorer i Azure Portal.
 
-Om du vill konfigurera ett i skala-scenario som använder Azure Policy, Azure PowerShell eller Azure Resource Manager mallar, i din Log Analytics arbets yta:
-
-* Installera *ServiceMap* -och *InfrastructureInsights* -lösningarna. Du kan slutföra installationen med hjälp av en angiven Azure Resource Manager mall. Eller på fliken **Kom igång** i Azure Portal väljer du **Konfigurera arbets yta**.
-* Konfigurera Log Analytics arbets ytan för att samla in prestanda räknare.
-
-Använd någon av följande metoder för att konfigurera din arbets yta för scenariot för vid skalning:
+Om du vill konfigurera ett i skala-scenario som använder Azure Policy, Azure PowerShell eller Azure Resource Manager mallar måste du installera *VMInsights* -lösningen. Du kan göra detta med någon av följande metoder:
 
 * Använd [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * På sidan Azure Monitor for VMs [**princip täckning**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) väljer du **Konfigurera arbets yta**. 
+
+### <a name="azure-arc-machines"></a>Azure Arc-datorer
+Azure Monitor for VMs är tillgängligt för Azure Arc-aktiverade servrar i regioner där Arc-tillägget är tillgängligt. Användare måste köra version 0,9 eller senare av Arc-agenten för att aktivera Azure Monitor for VMs på deras Arc-aktiverade servrar.
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -166,11 +171,11 @@ I en hybrid miljö kan du ladda ned och installera beroende agenten manuellt ell
 
 I följande tabell beskrivs de anslutna källor som kart funktionen stöder i en hybrid miljö.
 
-| Ansluten källa | Stöds | Beskrivning |
+| Ansluten källa | Stöds | Description |
 |:--|:--|:--|
-| Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| System Center Operations Manager-hanteringsgrupp | Nej | |
+| Windows-agenter | Yes | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| Linux-agenter | Yes | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| System Center Operations Manager-hanteringsgrupp | No | |
 
 Du kan ladda ned beroende agenten från följande platser:
 
@@ -189,12 +194,12 @@ Mer information om hur du styr åtkomsten till en Log Analytics arbets yta finns
 
 Aktivera Azure Monitor for VMs med någon av de metoder som beskrivs i den här tabellen:
 
-| Distributions tillstånd | Metod | Beskrivning |
+| Distributions tillstånd | Metod | Description |
 |------------------|--------|-------------|
-| Enskild virtuell Azure-dator eller skalnings uppsättning för virtuell dator | [Aktivera från den virtuella datorn](vminsights-enable-single-vm.md) | Du kan aktivera en enskild virtuell Azure-dator genom att välja **insikter** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer. |
-| Flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer | [Aktivera via Azure Policy](vminsights-enable-at-scale-policy.md) | Du kan aktivera flera virtuella Azure-datorer med hjälp av Azure Policy och tillgängliga princip definitioner. |
-| Flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer | [Aktivera via Azure PowerShell eller Azure Resource Manager mallar](vminsights-enable-at-scale-powershell.md) | Du kan aktivera flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer i en angiven prenumeration eller resurs grupp med hjälp av Azure PowerShell eller Azure Resource Manager mallar. |
-| Hybridmoln | [Aktivera för Hybrid miljön](vminsights-enable-hybrid-cloud.md) | Du kan distribuera till virtuella datorer eller fysiska datorer som finns i ditt data Center eller i andra moln miljöer. |
+| Enskild virtuell Azure-dator, Azure-VMSS eller Azure Arc-dator | [Aktivera från portalen](vminsights-enable-single-vm.md) | Välj **insikter** direkt från menyn i Azure Portal. |
+| Flera virtuella Azure-datorer, Azure-VMSS eller Azure Arc-datorer | [Aktivera via Azure Policy](vminsights-enable-at-scale-policy.md) | Använd Azure Policy för att automatiskt aktivera när en virtuell dator eller VMSS skapas. |
+| | [Aktivera via Azure PowerShell eller Azure Resource Manager mallar](vminsights-enable-at-scale-powershell.md) | Använd Azure PowerShell-eller Azure Resource Manager mallar för att aktivera flera virtuella Azure-datorer, Azure Arc VM eller Azure-VMSS över en angiven prenumeration eller resurs grupp. |
+| Hybridmoln | [Aktivera för Hybrid miljön](vminsights-enable-hybrid-cloud.md) | Distribuera till virtuella datorer eller fysiska datorer som finns i ditt data Center eller i andra moln miljöer. |
 
 ## <a name="management-packs"></a>Hanteringspaket
 

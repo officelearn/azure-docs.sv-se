@@ -3,15 +3,15 @@ title: Distribuera aver vFXT för Azure
 description: Steg för att distribuera ett AVERT vFXT-kluster i Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c42abdbfaf5c867a9d8d4cbc6b4519a86adaac0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252602"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505655"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
@@ -87,7 +87,7 @@ På den andra sidan i distributions mal len kan du ange kluster storlek, nodtyp,
 
 * **AVERT vFXT antal klusternoder** – Välj antalet noder i klustret. Minimivärdet är tre noder och det högsta värdet är 12.
 
-* **Kluster administrations lösen ord** – skapa lösen ordet för kluster administration. Det här lösen ordet används med användar ```admin``` namnet för att logga in på kontroll panelen kluster, där du kan övervaka klustret och konfigurera kluster inställningar.
+* **Kluster administrations lösen ord** – skapa lösen ordet för kluster administration. Det här lösen ordet används med användar namnet ```admin``` för att logga in på kontroll panelen kluster, där du kan övervaka klustret och konfigurera kluster inställningar.
 
 * **Aver vFXT-kluster namn** – ge klustret ett unikt namn.
 

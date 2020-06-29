@@ -4,18 +4,18 @@ titleSuffix: Azure Storage
 description: En självstudie som demonstrerar fel sökning från slut punkt till slut punkt med Azure-lagringsanalys, AzCopy och Microsoft Message Analyzer
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 4b0145514a884c43ef18518cf25a2a78b1fc3aa3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: e94810d53bf28aeb03de32a440c56a95232d0c2d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84809052"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506352"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Felsökning från slutpunkt till slutpunkt med Azure Storage-mått och -loggning, AzCopy och Message Analyzer
 

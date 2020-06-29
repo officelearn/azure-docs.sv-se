@@ -3,15 +3,15 @@ title: Flytta data till AVERT vFXT för Azure
 description: Så här lägger du till data till en ny lagrings volym för användning med AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153726"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505604"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Flytta data till vFXT-kluster – parallella data inmatningar
 
@@ -25,7 +25,7 @@ De ``cp`` eller ``copy`` -kommandon som används ofta för att överföra data f
 
 I den här artikeln beskrivs strategier för att skapa en fil kopierings system med flera klienter och flera trådar för att flytta data till ett AVERT vFXT-kluster. Den förklarar fil överförings koncept och besluts punkter som kan användas för effektiv data kopiering med hjälp av flera klienter och kommandon för enkel kopiering.
 
-Det beskriver också vissa verktyg som kan hjälpa dig. ``msrsync`` Verktyget kan användas för att delvis automatisera processen med att dela upp en data uppsättning i buckets och använda ``rsync`` kommandon. ``parallelcp`` Skriptet är ett annat verktyg som läser käll katalogen och utfärdar kopierings kommandon automatiskt. ``rsync`` Verktyget kan också användas i två faser för att ge en snabb kopia som fortfarande ger data konsekvens.
+Det beskriver också vissa verktyg som kan hjälpa dig. ``msrsync``Verktyget kan användas för att delvis automatisera processen med att dela upp en data uppsättning i buckets och använda ``rsync`` kommandon. ``parallelcp``Skriptet är ett annat verktyg som läser käll katalogen och utfärdar kopierings kommandon automatiskt. ``rsync``Verktyget kan också användas i två faser för att ge en snabb kopia som fortfarande ger data konsekvens.
 
 Klicka på länken för att gå till ett avsnitt:
 
@@ -69,7 +69,7 @@ När det här kommandot har utfärdats `jobs` visar kommandot att två trådar k
 
 Om dina fil namn är förutsägbara kan du använda uttryck för att skapa parallella kopierings trådar.
 
-Om din katalog till exempel innehåller 1000 filer som är numrerade från `0001` till `1000`kan du använda följande uttryck för att skapa tio parallella trådar som varje kopia 100-filer:
+Om din katalog till exempel innehåller 1000 filer som är numrerade från `0001` till `1000` kan du använda följande uttryck för att skapa tio parallella trådar som varje kopia 100-filer:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -88,7 +88,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 Om fil namns strukturen inte är förutsägbar, kan du gruppera filer efter katalog namn.
 
-Det här exemplet samlar in hela kataloger som ska ``cp`` skickas till kommandon som körs som bakgrunds aktiviteter:
+Det här exemplet samlar in hela kataloger som ska skickas till ``cp`` kommandon som körs som bakgrunds aktiviteter:
 
 ```bash
 /root
@@ -170,7 +170,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 När du har lärt dig mer om metoderna ovan (flera kopierings trådar per mål, flera mål per klient, flera klienter per nätverks lättillgängligt käll fil system), bör du tänka på följande rekommendation: Bygg fil manifest och Använd dem med kopiera kommandon på flera klienter.
 
-I det här scenariot ``find`` används Unix-kommandot för att skapa manifest med filer eller kataloger:
+I det här scenariot används UNIX- ``find`` kommandot för att skapa manifest med filer eller kataloger:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
@@ -246,7 +246,7 @@ Och för sex.... Extrapolera vid behov.
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Du får *N* resulterande filer, en för var och en av dina *N* -klienter som har Sök vägs namnen på nivå fyra kataloger som erhålls som en del av `find` utdata från kommandot.
+Du får *N* resulterande filer, en för var och en av dina *N* -klienter som har Sök vägs namnen på nivå fyra kataloger som erhålls som en del av utdata från `find` kommandot.
 
 Använd varje fil för att bygga kopierings kommandot:
 
@@ -260,7 +260,7 @@ Målet är att köra flera trådar av dessa skript samtidigt per klient parallel
 
 ## <a name="use-a-two-phase-rsync-process"></a>Använda en rsync process med två faser
 
-Standard ``rsync`` verktyget fungerar inte bra för att fylla i moln lagring via det Avera VFXT för Azure-systemet eftersom det genererar ett stort antal fil skapande-och namnbytes åtgärder för att garantera data integriteten. Du kan dock använda ``--inplace`` alternativet med ``rsync`` för att hoppa över den mer noggranna kopierings proceduren om du följer den med en andra körning som kontrollerar fil integriteten.
+Standard ``rsync`` verktyget fungerar inte bra för att fylla i moln lagring via det Avera vFXT för Azure-systemet eftersom det genererar ett stort antal fil skapande-och namnbytes åtgärder för att garantera data integriteten. Du kan dock använda ``--inplace`` alternativet med ``rsync`` för att hoppa över den mer noggranna kopierings proceduren om du följer den med en andra körning som kontrollerar fil integriteten.
 
 En standard ``rsync`` kopierings åtgärd skapar en temporär fil och fyller den med data. Om data överföringen har slutförts får den temporära filen namnet till det ursprungliga fil namnet. Den här metoden garanterar konsekvens även om filerna nås under kopieringen. Men den här metoden genererar fler Skriv åtgärder, vilket saktar ned fil flyttningen via cachen.
 
@@ -278,24 +278,24 @@ Den här metoden är en enkel och tids effektiv metod för data uppsättningar u
 
 ## <a name="use-the-msrsync-utility"></a>Använda verktyget msrsync
 
-``msrsync`` Verktyget kan också användas för att flytta data till en server del för Server delen för det Avera klustret. Det här verktyget är utformat för att optimera bandbredds användningen genom ``rsync`` att köra flera parallella processer. Den är tillgänglig från GitHub på <https://github.com/jbd/msrsync>.
+``msrsync``Verktyget kan också användas för att flytta data till en server del för Server delen för det Avera klustret. Det här verktyget är utformat för att optimera bandbredds användningen genom att köra flera parallella ``rsync`` processer. Den är tillgänglig från GitHub på <https://github.com/jbd/msrsync> .
 
 ``msrsync``delar upp käll katalogen i separata "buckets" och kör sedan enskilda ``rsync`` processer i varje Bucket.
 
 Preliminär testning med en virtuell dator med fyra kärnor visade bäst effektivitet vid användning av 64-processer. Använd ``msrsync`` alternativet ``-p`` för att ange antalet processer till 64.
 
-Du kan också använda ``--inplace`` argumentet med ``msrsync`` -kommandon. Om du använder det här alternativet bör du överväga att köra ett andra kommando (som med [rsync](#use-a-two-phase-rsync-process), som beskrivs ovan) för att säkerställa data integriteten.
+Du kan också använda ``--inplace`` argumentet med- ``msrsync`` kommandon. Om du använder det här alternativet bör du överväga att köra ett andra kommando (som med [rsync](#use-a-two-phase-rsync-process), som beskrivs ovan) för att säkerställa data integriteten.
 
 ``msrsync``Det går bara att skriva till och från lokala volymer. Källa och mål måste vara tillgängliga som lokala monteringar i klustrets virtuella nätverk.
 
-Följ dessa ``msrsync`` instruktioner om du vill använda för att fylla i en Azure Cloud-volym med ett AVERT-kluster:
+Följ dessa instruktioner om du vill använda ``msrsync`` för att fylla i en Azure Cloud-volym med ett AVERT-kluster:
 
-1. Installera ``msrsync`` och dess förutsättningar (rsync och python 2,6 eller senare)
+1. Installera ``msrsync`` och dess förutsättningar (rsync och Python 2,6 eller senare)
 1. Fastställ det totala antalet filer och kataloger som ska kopieras.
 
-   Använd till exempel verktyget ``prime.py`` aver med argument ```prime.py --directory /path/to/some/directory``` (tillgängligt genom nedladdning av URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   Använd till exempel verktyget aver ``prime.py`` med argument ```prime.py --directory /path/to/some/directory``` (tillgängligt genom nedladdning av URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py> ).
 
-   Om du inte ``prime.py``använder kan du beräkna antalet objekt med verktyget GNU ``find`` enligt följande:
+   Om du inte använder ``prime.py`` kan du beräkna antalet objekt med ``find`` verktyget GNU enligt följande:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -311,7 +311,7 @@ Följ dessa ``msrsync`` instruktioner om du vill använda för att fylla i en Az
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   Om du ``--inplace``använder lägger du till en andra körning utan alternativet för att kontrol lera att data har kopierats korrekt:
+   Om du använder ``--inplace`` lägger du till en andra körning utan alternativet för att kontrol lera att data har kopierats korrekt:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
@@ -323,9 +323,9 @@ Följ dessa ``msrsync`` instruktioner om du vill använda för att fylla i en Az
 
 ## <a name="use-the-parallel-copy-script"></a>Använd skriptet för parallell kopiering
 
-``parallelcp`` Skriptet kan också vara användbart för att flytta data till vFXT-klustrets backend-lagring.
+``parallelcp``Skriptet kan också vara användbart för att flytta data till vFXT-klustrets backend-lagring.
 
-Skriptet nedan lägger till den körbara `parallelcp`filen. (Det här skriptet är utformat för Ubuntu. om du använder en annan distribution måste ``parallel`` du installera separat.)
+Skriptet nedan lägger till den körbara filen `parallelcp` . (Det här skriptet är utformat för Ubuntu. om du använder en annan distribution måste du installera ``parallel`` separat.)
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
@@ -379,7 +379,7 @@ EOM
 
 ### <a name="parallel-copy-example"></a>Exempel på parallell kopiering
 
-I det här exemplet används skriptet för parallell kopiering ``glibc`` för att kompilera med källfiler från det Avera klustret.
+I det här exemplet används skriptet för parallell kopiering för att kompilera ``glibc`` med källfiler från det Avera klustret.
 <!-- xxx what is stored where? what is 'the avere cluster mount point'? xxx -->
 
 Källfilerna lagras på kluster monterings punkten aver och objekten lagras på den lokala hård disken.

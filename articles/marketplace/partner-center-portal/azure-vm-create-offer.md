@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 7d32e4100d00a4ecff9f8bd5017d8bc5ab74105e
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 38228e7080cb0bdead2f2b3490729702d923ae36
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752430"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504907"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -191,7 +191,7 @@ Ange en kort beskrivning av ditt erbjudande, som visas i Sök resultaten för Az
 
 Ange en längre Beskrivning av ditt erbjudande, som visas i Sök resultaten för Azure Marketplace. Det kan innehålla upp till 256 tecken.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -400,10 +400,14 @@ Du kan utforma varje plan som ska vara synlig för alla eller endast till en fö
 
 **Privat publik**: gör ditt plan bara synligt för en förvaltad mål grupp. När den har publicerats som en privat plan kan du uppdatera mål gruppen eller ändra den till offentlig. När du har gjort en plan offentlig måste den vara offentlig. Det går inte att ändra tillbaka till en privat plan.
 
-**Begränsad mål grupp (Azure-prenumerations-ID)**: tilldela den mål grupp som ska ha åtkomst till den privata planen genom att använda Azures prenumerations-ID. Du kan också ta med en beskrivning av varje Azure-prenumerations-ID som du har tilldelat. Lägg till upp till 10 prenumerations-ID: n manuellt eller upp till 20 000-ID om du importerar ett CSV-kalkylblad. ID: n för Azure-prenumerationen visas som GUID och alla bokstäver måste vara gemena.
-
 > [!NOTE]
 > En privat eller begränsad mål grupp skiljer sig från den förhands visnings mål som du definierade i **förhands gransknings** fönstret. En förhands gransknings grupp kan komma åt ditt erbjudande _innan_ det publiceras Live till Azure Marketplace. Även om valet för den privata publiken bara gäller för en speciell plan, kan förhands gransknings publiken Visa alla privata och offentliga planer i validerings syfte.
+
+**Begränsad mål grupp (Azure-prenumerations-ID)**: tilldela den mål grupp som ska ha åtkomst till den privata planen genom att använda Azures prenumerations-ID. Du kan också ta med en beskrivning av varje Azure-prenumerations-ID som du har tilldelat. Lägg till upp till 10 prenumerations-ID: n manuellt eller upp till 20 000-ID om du importerar ett CSV-kalkylblad. ID: n för Azure-prenumerationen visas som GUID och alla bokstäver måste vara gemena.
+
+>[!Note]
+>Privata erbjudanden stöds inte med Azure-prenumerationer som upprättats via en åter försäljare av Cloud Solution Provider-programmet (CSP).
+
 
 #### <a name="hide-a-plan"></a>Dölj en plan
 
@@ -526,7 +530,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Villkor
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
-7. Beskrivning
+7. Description
 8. Användbara länkar
 9. Skärm bilder/videor
 

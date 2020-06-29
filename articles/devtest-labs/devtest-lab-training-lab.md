@@ -1,24 +1,14 @@
 ---
 title: Använda Azure DevTest Labs för utbildning | Microsoft Docs
 description: Den här artikeln innehåller detaljerade steg som du kan följa för att ställa in ett labb för utbildning i Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: 8f0a930d6e3c04548ade71f6d4e3294114eb60a2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 1a4b39d104d2ffdb45c23db2ad16cc4ee4627fb9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896223"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484153"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Använda Azure DevTest Labs för utbildning
 Azure DevTest Labs kan användas för att implementera många viktiga scenarier förutom utveckling/testning. Ett av dessa scenarier är att ställa in ett labb för utbildning. Med Azure DevTest Labs kan du skapa ett labb där du kan ange anpassade mallar som varje fordonsbaserad kan använda för att skapa identiska och isolerade miljöer för utbildning. Du kan använda principer för att säkerställa att inlärnings miljöer endast är tillgängliga för varje tågen när de behöver dem och innehåller tillräckligt med resurser – till exempel virtuella datorer – krävs för utbildningen. Slutligen kan du enkelt dela labbet med eleverna, som de har åtkomst till med ett klick.

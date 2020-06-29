@@ -10,19 +10,19 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de9abcca8d5b02b58bd5d4550dcb100a90853f7f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202000"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505978"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Självstudie: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord
 
 Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord (SSPR) ger användare möjlighet att ändra eller återställa sitt lösen ord, utan någon administratör eller support vid inblandning. Om ett användar konto är låst eller om det glömmer sitt lösen ord, kan de följa prompter för att avblockera sig själva och komma tillbaka till arbetet. Detta minskar risken för support och produktivitets förlust när en användare inte kan logga in på sin enhet eller ett program.
 
 > [!IMPORTANT]
-> Den här snabb starten visar en administratör för att aktivera återställning av lösen ord för självbetjäning. Om du är en slutanvändare som redan är registrerad för lösen ords återställning via självbetjäning och behöver gå tillbaka till ditt konto https://aka.ms/sspr, går du till.
+> Den här snabb starten visar en administratör för att aktivera återställning av lösen ord för självbetjäning. Om du är en slutanvändare som redan är registrerad för lösen ords återställning via självbetjäning och behöver gå tillbaka till ditt konto, går du till https://aka.ms/sspr .
 >
 > Om IT-teamet inte har aktiverat möjligheten att återställa ditt eget lösen ord kan du kontakta supportavdelningen för ytterligare hjälp.
 
@@ -47,7 +47,11 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 
 ## <a name="enable-self-service-password-reset"></a>Aktivera lösenordsåterställning via självbetjäning
 
-Med Azure AD kan du aktivera SSPR för *inga*, *markerade*eller *alla* användare. Med den här detaljerade möjligheten kan du välja en delmängd av användare för att testa registrerings processen och arbets flödet för SSPR. När du är bekväm med processen och kan kommunicera kraven med en bredare uppsättning användare kan du välja ytterligare grupper av användare som du vill aktivera för SSPR. Du kan också aktivera SSPR för alla i Azure AD-klienten.
+Med Azure AD kan du aktivera SSPR för *inga*, *markerade*eller *alla* användare. Med den här detaljerade möjligheten kan du välja en delmängd av användare för att testa registrerings processen och arbets flödet för SSPR. När du är bekväm med processen och kan kommunicera kraven med en bredare uppsättning användare kan du välja en grupp med användare som ska aktive ras för SSPR. Du kan också aktivera SSPR för alla i Azure AD-klienten.
+
+> [!NOTE]
+>
+> Endast en Azure AD-grupp kan för närvarande aktive ras för SSPR med hjälp av Azure Portal. Som en del av en större distribution av SSPR stöds kapslade grupper. Se till att de användare i gruppen som du väljer har rätt tilldelade licenser. Det finns för närvarande ingen validerings process för dessa licensierings krav.
 
 I den här självstudien konfigurerar du SSPR för en uppsättning användare i en test grupp. I följande exempel används gruppen *SSPR-test-Group* . Ange din egen Azure AD-grupp efter behov:
 
@@ -57,8 +61,6 @@ I den här självstudien konfigurerar du SSPR för en uppsättning användare i 
 1. Bläddra efter och välj din Azure AD-grupp, till exempel *SSPR-test-Group*och välj sedan *Välj*.
 
     [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    Som en del av en större distribution av SSPR stöds kapslade grupper. Se till att de användare i gruppen som du väljer har rätt tilldelade licenser. Det finns för närvarande ingen validerings process för dessa licensierings krav.
 
 1. Om du vill aktivera SSPR för Välj användare väljer du **Spara**.
 
@@ -114,10 +116,10 @@ När SSPR har Aktiver ATS och kon figurer ATS, testa SSPR-processen med en anvä
 > [!NOTE]
 > Använd ett konto som inte är administratör när du testar lösen ords återställning via självbetjäning. Administratörer är alltid aktiverade för lösen ords återställning via självbetjäning och krävs för att använda två autentiseringsmetoder för att återställa sina lösen ord.
 
-1. Om du vill se den manuella registrerings processen öppnar du ett nytt webbläsarfönster i InPrivate-eller Incognito [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)-läge och bläddrar till. Användarna ska dirigeras till den här registrerings portalen vid nästa inloggning.
+1. Om du vill se den manuella registrerings processen öppnar du ett nytt webbläsarfönster i InPrivate-eller Incognito-läge och bläddrar till [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Användarna ska dirigeras till den här registrerings portalen vid nästa inloggning.
 1. Logga in med en icke-administratörs test användare, till exempel *testuser*, och registrera dina autentiseringsmetoder för din kontakt information.
 1. När du är klar väljer du knappen **ser bra ut** och stänger webbläsarfönstret.
-1. Öppna ett nytt webbläsarfönster i InPrivate-eller Incognito-läge [https://aka.ms/sspr](https://aka.ms/sspr)och bläddra till.
+1. Öppna ett nytt webbläsarfönster i InPrivate-eller Incognito-läge och bläddra till [https://aka.ms/sspr](https://aka.ms/sspr) .
 1. Ange konto informationen för användare som inte är administratörs test, till exempel *testuser*, tecknen från captcha och välj sedan **Nästa**.
 
     ![Ange användar konto information för att återställa lösen ordet](media/tutorial-enable-sspr/password-reset-page.png)

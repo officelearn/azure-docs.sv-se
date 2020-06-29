@@ -3,15 +3,15 @@ title: Ändra BLOB-sökväg från standard
 description: Lär dig hur du konfigurerar en Azure-funktion för att byta namn på en BLOB-fil Sök väg
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76270632"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504839"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Ändra en BLOB-sökväg från standard Sök vägen
 
@@ -193,7 +193,7 @@ Utför följande steg för att skapa en Azure-funktion:
         
         ![Länken "Visa filer"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Skriv **Project. JSON**och tryck på **RETUR**. I filen **Project. JSON** klistrar du in följande kod:
+    3. Skriv **project.jspå**och tryck sedan på **RETUR**. I **project.js** filen klistrar du in följande kod:
 
         ```
         {

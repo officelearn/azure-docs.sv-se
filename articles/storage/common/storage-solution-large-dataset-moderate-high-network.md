@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: cfe450972acda3affbea6cbe3d262bc4b1956dc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b60162800695be67c742554881b296c3d8bb9dc
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262867"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504380"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföring för stora datamängder med måttlig eller hög nätverksbandbredd
  
@@ -67,13 +67,13 @@ Om du använder offline-dataöverföring kan du använda följande tabell för a
 |    Data storlek                        |    Upp till 35 TBs                 |    Upp till 80 TBs per enhet                       |    Upp till 800 TB per enhet               |    Variabel                            |
 |    Datatyp                        |    Azure-blobar                  |    Azure-blobar<br>Azure Files                    |    Azure-blobar<br>Azure Files            |    Azure-blobar<br>Azure Files          |
 |    Form faktor                      |    5 SSD per order             |    1 X 50 – kg. enhet för Skriv bords storlek per beställning    |    1 X ~ 500 – kg. stor enhet per beställning    |    Upp till 10 hård diskar/SSD per beställning        |
-|    Första installations tid               |    Låg <br>(15 minuter)            |    Låg till måttlig <br> (<30 minuter)               |    Moderera<br>(1-2 timmar)               |    Måttligt till svårt<br>variabel |
+|    Första installations tid               |    Låg <br>(15 minuter)            |    Låg till måttlig <br> (<30 minuter)               |    Medel<br>(1-2 timmar)               |    Måttligt till svårt<br>variabel |
 |    Skicka data till Azure               |    Ja                          |    Ja                                           |    Ja                                   |    Ja                                 |
-|    Exportera data från Azure           |    Nej                           |    Nej                                            |    Nej                                    |    Ja                                 |
+|    Exportera data från Azure           |    Inga                           |    Inga                                            |    Inga                                    |    Yes                                 |
 |    Kryptering                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    Maskinvara                         |     Microsoft tillhandahålls          |    Microsoft tillhandahålls                            |    Microsoft tillhandahålls                    |    Kunden har tillhandahållit                   |
 |    Nätverksgränssnitt                |    USB 3.1/SATA                 |    RJ 45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
-|    Partnerintegration              |    Vissa                         |    [Högt](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Högt](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Vissa                                |
+|    Partnerintegration              |    Vissa                         |    [Hög](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Hög](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Vissa                                |
 |    Frakt                         |    Microsoft-hanterat            |    Microsoft-hanterat                             |    Microsoft-hanterat                     |    Kund hantering                    |
 | Använd när data flyttas         |Inom en handels avgränsning|Inom en handels avgränsning|Inom en handels avgränsning|Över geografiska gränser, t. ex. USA till EU|
 |    Prissättning                          |    [Prissättning](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prissättning](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
@@ -87,9 +87,9 @@ Om du använder data överföring online använder du tabellen i följande avsni
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Datatyp                  |    Azure-blobbar, Azure Files, Azure-tabeller    |    Azure-blobbar, Azure Files, Azure-tabeller    |    Azure-blobbar, Azure Files                           |   Stöd för 70 + data anslutningar för data lager och format    |
 |    Form faktor                |    Kommandoradsverktyg                        |    Programmerings gränssnitt                    |    Microsoft tillhandahåller en virtuell <br>eller fysisk enhet     |    Tjänsten i Azure Portal                                            |
-|    Inledande eng ång slöin ställning     |    Överskådlig               |    Moderera                       |    Enkelt (<30 minuter) till måttlig (1-2 timmar)            |    Bredd                                                          |
-|    För bearbetning av data              |    Nej                                        |    Nej                                        |    Ja (med Edge Compute)                               |    Ja                                                                |
-|    Överföring från andra moln       |    Nej                                        |    Nej                                        |    Nej                                                    |    Ja                                                                |
+|    Inledande eng ång slöin ställning     |    Överskådlig               |    Medel                       |    Enkelt (<30 minuter) till måttlig (1-2 timmar)            |    Bredd                                                          |
+|    För bearbetning av data              |    Inga                                        |    Inga                                        |    Ja (med Edge Compute)                               |    Yes                                                                |
+|    Överföring från andra moln       |    Inga                                        |    Inga                                        |    Inga                                                    |    Ja                                                                |
 |    Användar typ                        |    IT-proffs eller utveckling                                       |    Dev                                       |    IT-proffs                                                |    IT-proffs                                                             |
 |    Prissättning                          |    Kostnads fritt gäller avgifterna för utgående data         |    Kostnads fritt gäller avgifterna för utgående data         |    [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 

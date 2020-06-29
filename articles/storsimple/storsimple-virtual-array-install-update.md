@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 9997a97b-9382-43ed-b56e-61369335c987
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7bf064ff01693f7a65c756a99c435d7f1a39840e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 77d2e61533016de7417446ba4111116e9749ac74
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61409463"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507882"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Installera uppdateringar på din virtuella StorSimple-matris – Azure Portal
 
@@ -49,7 +49,7 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Hämta uppdateringen eller snabb korrigeringen
 
-1. Starta Internet Explorer och gå till [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Starta Internet Explorer och gå till [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
 
@@ -65,7 +65,7 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 
 6. Klicka på **Hämta**. Ange eller **Bläddra** till en lokal plats där du vill att nedladdningarna ska läggas. Uppdateringarna hämtas till den angivna platsen och placeras i en undermapp med samma namn som uppdateringen. Mappen kan också kopieras till en nätverksresurs som kan nås från enheten.
 
-7. Öppna den kopierade mappen. du bör se en Microsoft Update fristående paket `WindowsTH-KB3011067-x64`fil. Den här filen används för att installera uppdateringen eller snabb korrigeringen.
+7. Öppna den kopierade mappen. du bör se en Microsoft Update fristående paket fil `WindowsTH-KB3011067-x64` . Den här filen används för att installera uppdateringen eller snabb korrigeringen.
 
 ### <a name="install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabb korrigeringen
 
@@ -75,7 +75,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabb korrigeringen
 
-1. I det lokala webb gränssnittet går du till **Underhåll** > **program uppdatering**.
+1. I det lokala webb gränssnittet går du till **Underhåll**  >  **program uppdatering**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update1m.png)
 
@@ -91,7 +91,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update5m.png)
 
-5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll** > **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10288.0** för uppdatering 0,3.
+5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10288.0** för uppdatering 0,3.
    
    > [!NOTE]
    > Vi rapporterar program versioner på ett något annorlunda sätt i det lokala webb gränssnittet och Azure Portal. Till exempel kan de lokala Web UI-rapporterna **10.0.0.0.0.10288** och Azure Portal rapporterar **10.0.10288.0** för samma version.

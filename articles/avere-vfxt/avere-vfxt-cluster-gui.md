@@ -3,15 +3,15 @@ title: Öppna kontroll panelen aver vFXT – Azure
 description: Så här ansluter du till vFXT-klustret och den webbläsarbaserade AVERT-kontroll panelen för att konfigurera AVERT vFXT
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: fe2fc062f690498f3d1f588887279aa33d2434b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75416154"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505621"
 ---
 # <a name="access-the-vfxt-cluster"></a>Komma åt vFXT-klustret
 
@@ -35,7 +35,7 @@ Du kan skapa en SSH-tunnel från kommando raden i ett Linux-baserat eller ett Wi
 
 Använd ett SSH-tunnel kommando med det här formuläret:
 
-SSH-L- *local_port*:*cluster_mgmt_ip*: 443 *controller_username*\@*controller_public_IP*
+SSH-L- *local_port*:*cluster_mgmt_ip*: 443 *controller_username* \@ *controller_public_IP*
 
 Det här kommandot ansluter till klustrets hanterings-IP-adress via kluster styrenhetens IP-adress.
 
@@ -51,7 +51,7 @@ Autentisering sker automatiskt om du använde din offentliga SSH-nyckel för att
 
 Det här steget använder en webbläsare för att ansluta till konfigurations verktyget i vFXT-klustret.
 
-* För en SSH-tunnel-anslutning öppnar du webbläsaren och går till `https://127.0.0.1:8443`.
+* För en SSH-tunnel-anslutning öppnar du webbläsaren och går till `https://127.0.0.1:8443` .
 
   Du är ansluten till klustrets IP-adress när du skapade tunneln, så du behöver bara använda den lokala IP-adressen i webbläsaren. Om du har använt en annan lokal port än 8443 använder du Port numret i stället.
 

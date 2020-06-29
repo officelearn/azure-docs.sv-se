@@ -1,25 +1,16 @@
 ---
 title: Skapa en Service Fabric kluster miljö i Azure DevTest Labs
 description: Lär dig hur du skapar en miljö med ett fristående Service Fabric kluster och hur du startar och stoppar klustret med hjälp av scheman.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
 author: EMaher
-manager: femila
-editor: spelluru
-ms.assetid: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 71793b81d8735c80881fc25a9b7ec31bc4fc6762
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897189"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484017"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Skapa en miljö med fristående Service Fabric kluster i Azure DevTest Labs
 Den här artikeln innehåller information om hur du skapar en miljö med ett fristående Service Fabric kluster i Azure DevTest Labs. 

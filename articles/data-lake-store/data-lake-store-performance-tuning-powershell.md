@@ -3,15 +3,15 @@ title: Azure Data Lake Storage Gen1 prestanda justering – PowerShell
 description: Tips om hur du kan förbättra prestandan när du använder Azure PowerShell med Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73904567"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504703"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Vägledning för prestanda justering för att använda PowerShell med Azure Data Lake Storage Gen1
 
@@ -21,12 +21,12 @@ Den här artikeln beskriver de egenskaper som du kan finjustera för att få bä
 
 ## <a name="performance-related-properties"></a>Prestanda relaterade egenskaper
 
-| Egenskap            | Default | Beskrivning |
+| Egenskap            | Standard | Description |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Med den här parametern kan du välja antalet parallella trådar för att ladda upp eller ned varje fil. Det här talet representerar Max antalet trådar som kan allokeras per fil, men du kan få färre trådar beroende på ditt scenario (om du till exempel laddar upp en 1 KB-fil får du en tråd även om du ber om 20 trådar).  |
 | ConcurrentFileCount | 10      | Den här parametern är specifikt för att ladda upp och ned mappar. Den här parametern anger antalet samtidiga filer som kan laddas upp eller ned. Det här antalet representerar det maximala antalet samtidiga filer som kan överföras eller laddas ned samtidigt, men du kan få mindre samtidighet beroende på ditt scenario (om du t. ex. överför två filer, får du två samtidiga filer, även om du ber om 15). |
 
-**Exempel**
+**Exempel:**
 
 Det här kommandot laddar ned filer från Data Lake Storage Gen1 till användarens lokala enhet med 20 trådar per fil och 100 samtidiga filer.
 
@@ -48,7 +48,7 @@ Nästa fråga som du kan ha är att avgöra vilket värde som ska tillhandahåll
 
     `Total thread count = total physical cores * 6`
 
-    **Exempel**
+    **Exempel:**
 
     Vi antar att du kör PowerShell-kommandon från en virtuell D14-dator med 16 kärnor
 
@@ -58,7 +58,7 @@ Nästa fråga som du kan ha är att avgöra vilket värde som ska tillhandahåll
 
     `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 
-    **Exempel**
+    **Exempel:**
 
     Förutsatt att du har 100 filer som sträcker sig från 1 GB till 10 GB, använder vi 10 GB som största fil storlek för Equation, som skulle kunna läsas som följande.
 
@@ -68,7 +68,7 @@ Nästa fråga som du kan ha är att avgöra vilket värde som ska tillhandahåll
 
     `Total thread count = PerFileThreadCount * ConcurrentFileCount`
 
-    **Exempel**
+    **Exempel:**
 
     Utifrån de exempelvärden vi har använt
 

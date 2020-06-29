@@ -3,15 +3,15 @@ title: Hantera ditt AVERT vFXT-kluster – Azure
 description: Hantera AVERT kluster – lägga till eller ta bort noder, starta om, stoppa eller förstöra vFXT-klustret
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4135bfe528c33a2beaeb21438181deb5b19ad12e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153487"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505502"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Hantera Avere vFXT-klustret
 
@@ -77,7 +77,7 @@ När ett kluster börjar stängas, skickar det tillstånds meddelanden till flik
 
 vfxt.py är ett kommando rads verktyg för att skapa och hantera kluster.
 
-vfxt.py är förinstallerat på den virtuella kluster styrenheten. Om du vill installera det på ett annat system läser du dokumentationen på <https://github.com/Azure/AvereSDK>.
+vfxt.py är förinstallerat på den virtuella kluster styrenheten. Om du vill installera det på ett annat system läser du dokumentationen på <https://github.com/Azure/AvereSDK> .
 
 Vfxt.py-skriptet kan användas för följande kluster hanterings aktiviteter:
 
@@ -91,7 +91,7 @@ En fullständig användnings guide för vfxt.py finns på GitHub: [moln kluster 
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Lägg till klusternoder med vfxt.py
 
-Ett exempel på kommando skript för att lägga till klusternoder finns på kluster styrenheten. Leta ``./add-nodes`` upp på kontroll enheten och öppna den i ett redigerings program för att anpassa den med din kluster information.
+Ett exempel på kommando skript för att lägga till klusternoder finns på kluster styrenheten. Leta upp ``./add-nodes`` på kontroll enheten och öppna den i ett redigerings program för att anpassa den med din kluster information.
 
 Klustret måste köras för att kunna använda det här kommandot.
 
@@ -181,7 +181,7 @@ Du kan använda den här metoden för att permanent ta bort klusternoder när de
 ### <a name="destroy-the-cluster-from-the-azure-portal"></a>Förstör klustret från Azure Portal
 
 > [!NOTE]
-> Om du vill att eventuella återstående klient ändringar i cacheminnet ska skrivas till backend-lagring, antingen använder du alternativet `--destroy` vfxt.py eller använder alternativet aver på kontroll panelen för att stänga klustret på ett städat sätt innan du tar bort Node-instanserna i Azure Portal.
+> Om du vill att eventuella återstående klient ändringar i cacheminnet ska skrivas till backend-lagring, antingen använder du `--destroy` alternativet vfxt.py eller använder alternativet aver på kontroll panelen för att stänga klustret på ett städat sätt innan du tar bort Node-instanserna i Azure Portal.
 
 Du kan ta bort instanser av noder genom att ta bort dem i Azure Portal. Du kan ta bort dem en i taget enligt beskrivningen ovan, eller så kan du använda sidan **Virtual Machines** för att hitta alla de virtuella datorerna i klustret, markera dem med kryss rutorna och klicka på knappen **ta bort** för att ta bort alla i en åtgärd.
 

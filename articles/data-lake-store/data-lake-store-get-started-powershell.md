@@ -3,20 +3,20 @@ title: Kom igång med Azure Data Lake Storage Gen1 – PowerShell | Microsoft Do
 description: Använd Azure PowerShell för att skapa ett Azure Data Lake Storage Gen1 konto och utföra grundläggande åtgärder.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 42ddab6991b418af3e41da9966cdab69ded87461
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8c97064af6fecf08af4608cfcd9874ff9bb1936
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73837895"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504790"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portalen](data-lake-store-get-started-portal.md)
+> * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >

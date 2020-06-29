@@ -3,15 +3,15 @@ title: Tjänst-till-tjänst-autentisering – Data Lake Storage Gen1 – Java SD
 description: Lär dig hur du uppnår tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 att använda Azure Active Directory med Java
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f355da7cd9c035b4ed0845bbd374a93bfb4a7350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e282aed68e58409a53546a08699cc7035633f62
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73904541"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505199"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Java
 
@@ -19,7 +19,7 @@ ms.locfileid: "73904541"
 > * [Använda Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Använda .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Använda Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Använda REST-API](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Använda REST-API:et](data-lake-store-service-to-service-authenticate-rest-api.md)
 >
 >  
 
@@ -39,7 +39,7 @@ I den här artikeln får du lära dig hur du använder Java SDK för att utföra
 
 1. Skapa ett Maven-projekt med [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) från kommandoraden eller med hjälp av en IDE. Anvisningar för hur du skapar ett Java-projekt med IntelliJ finns [här](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Anvisningar för hur du skapar ett Java-projekt med Eclipse finns [här](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
-2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande kodfragment innan taggen ** \</Project>** :
+2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande kodfragment före **\</project>** taggen:
 
         <dependencies>
           <dependency>
@@ -54,7 +54,7 @@ I den här artikeln får du lära dig hur du använder Java SDK för att utföra
           </dependency>
         </dependencies>
 
-    Det första beroendet är att använda Data Lake Storage Gen1 SDK ()`azure-data-lake-store-sdk`från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [slf4j](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
+    Det första beroendet är att använda Data Lake Storage Gen1 SDK ( `azure-data-lake-store-sdk` ) från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [slf4j](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
 
 3. Lägg till följande importuttryck i programmet.
 
@@ -65,7 +65,7 @@ I den här artikeln får du lära dig hur du använder Java SDK för att utföra
         import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
         import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider;
 
-4. Använd följande kodfragment i Java-programmet för att hämta token för Active Directory-webbprogram som du skapade tidigare med hjälp av en av underklasserna i `AccessTokenProvider` (följande `ClientCredsTokenProvider`exempel använder). Tokenleverantören cachelagrar autentiseringsuppgifter som används för att hämta token i minnet och förnyar automatiskt token när de håller på att gå ut. Det är möjligt att skapa egna underklasser av `AccessTokenProvider` så att token erhålls av kund koden. Nu ska vi bara använda den som angavs i SDK.
+4. Använd följande kodfragment i Java-programmet för att hämta token för Active Directory-webbprogram som du skapade tidigare med hjälp av en av underklasserna i `AccessTokenProvider` (följande exempel använder `ClientCredsTokenProvider` ). Tokenleverantören cachelagrar autentiseringsuppgifter som används för att hämta token i minnet och förnyar automatiskt token när de håller på att gå ut. Det är möjligt att skapa egna underklasser av `AccessTokenProvider` så att token erhålls av kund koden. Nu ska vi bara använda den som angavs i SDK.
 
     Ersätt **FILL-IN-HERE** med de faktiska värdena för Azure Active Directory-webbappen.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/10/2020
-ms.openlocfilehash: 00c60a0ff20c67b63b2ca93f9e5997e78a283f26
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.date: 6/26/2020
+ms.openlocfilehash: 2b5da354e8e8b49e40e7d960e368aad8067de659
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667598"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506709"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -145,7 +145,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 Funktionen för att återuppta automatiskt utlöses även under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.
 
-### <a name="connectivity"></a>Anslutningar
+### <a name="connectivity"></a>Anslutning
 
 Om en server lös databas har pausats kommer den första inloggningen att återuppta databasen och returnera ett fel som anger att databasen inte är tillgänglig med felkoden 40613. När databasen har återupptagits måste inloggningen göras om för att upprätta anslutningen. Databas klienter med logik för anslutnings försök ska inte behöva ändras.
 
@@ -334,7 +334,7 @@ Mer exakt, beräknings fakturan i det här exemplet beräknas enligt följande:
 |Tidsintervall|Virtuella kärnor som används varje sekund|GB som används varje sekund|Beräknings dimension faktureras|vCore sekunder debiteras över tidsintervallet|
 |---|---|---|---|---|
 |0:00-1:00|4|9|Virtuella kärnor som används|4 virtuella kärnor * 3600 sekunder = 14400 vCore sekunder|
-|1:00-2:00|1|12|Använt minne|12 GB * 1/3 * 3600 sekunder = 14400 vCore sekunder|
+|1:00-2:00|1|12|Minnesanvändning|12 GB * 1/3 * 3600 sekunder = 14400 vCore sekunder|
 |2:00-8:00|0|0|Minsta allokerade minne|3 GB * 1/3 * 21600 sekunder = 21600 vCore sekunder|
 |8:00-24:00|0|0|Ingen beräkning har pausats|0 vCore sekunder|
 |Totalt antal vCore sekunder debiteras över 24 timmar||||50400 vCore sekunder|
@@ -347,7 +347,7 @@ Azure Hybrid-förmån (AHB) och reserverade kapacitets rabatter gäller inte fö
 
 ## <a name="available-regions"></a>Tillgängliga regioner
 
-Server lös beräknings nivån är tillgänglig över hela världen utom följande regioner: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, Storbritannien, norra, Storbritannien, södra 2, västra centrala USA och US Gov Central (Iowa).
+Server lös beräknings nivån är tillgänglig över hela världen utom följande regioner: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra och US Gov Central (Iowa).
 
 ## <a name="next-steps"></a>Nästa steg
 

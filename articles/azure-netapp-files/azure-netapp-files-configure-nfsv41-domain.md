@@ -10,15 +10,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 77178a23206eadae941794c92b8dd99fe2ca1e05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dda911add42568e76160e4233502a1f4f550520d
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73906291"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483728"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Konfigurera NFSv4.1-standarddomän för Azure NetApp Files
 
@@ -26,16 +26,16 @@ NFSv4 introducerar konceptet för en domän för autentisering. Azure NetApp Fil
 
 ## <a name="default-behavior-of-usergroup-mapping"></a>Standard beteende för mappning av användare/grupper
 
-Rot mappningen används som `nobody` standard för användaren eftersom NFSv4-domänen är `localdomain`inställd på. När du monterar en Azure NetApp Files NFSv 4.1-volym som rot visas fil behörigheter på följande sätt:  
+Rot mappningen används som standard för `nobody` användaren eftersom NFSv4-domänen är inställd på `localdomain` . När du monterar en Azure NetApp Files NFSv 4.1-volym som rot visas fil behörigheter på följande sätt:  
 
 ![Standard beteende för mappning av användare/grupper för NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-Som exemplet ovan visar bör användaren för `file1` vara `root`, men den mappas till `nobody` som standard.  Den här artikeln visar hur du ställer in `file1` användaren på `root`.  
+Som exemplet ovan visar bör användaren för `file1` vara `root` , men den mappas till `nobody` som standard.  Den här artikeln visar hur du ställer in `file1` användaren på `root` .  
 
 ## <a name="steps"></a>Steg 
 
 1. Redigera `/etc/idmapd.conf` filen på NFS-klienten.   
-    Ta bort kommentaren `#Domain` till raden (det vill säga `#` ta bort från raden) och ändra värdet `localdomain` till. `defaultv4iddomain.com` 
+    Ta bort kommentaren till raden `#Domain` (det vill säga ta bort `#` från raden) och ändra värdet `localdomain` till `defaultv4iddomain.com` . 
 
     Inledande konfiguration: 
     
@@ -47,7 +47,7 @@ Som exemplet ovan visar bör användaren för `file1` vara `root`, men den mappa
 
 2. Demontera alla för tillfället monterade NFS-volymer.
 3. Uppdatera `/etc/idmapd.conf` filen.
-4. Starta om `rpcbind` tjänsten på värden (`service rpcbind restart`) eller starta bara om värden.
+4. Starta om `rpcbind` tjänsten på värden ( `service rpcbind restart` ) eller starta bara om värden.
 5. Montera NFS-volymerna efter behov.   
 
     Se [montera eller demontera en volym för virtuella Windows-eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
@@ -56,13 +56,13 @@ I följande exempel visas den resulterande ändringen av användare/grupp:
 
 ![Resulterande konfiguration för NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
-Som exemplet visar har användaren/gruppen nu ändrats från `nobody` till. `root`
+Som exemplet visar har användaren/gruppen nu ändrats från `nobody` till `root` .
 
 ## <a name="behavior-of-other-non-root-users-and-groups"></a>Beteende för andra (icke-rot) användare och grupper
 
 Azure NetApp Files stöder lokala användare (användare som har skapats lokalt på en värd) som har behörigheter kopplade till filer eller mappar i NFSv 4.1-volymer. Tjänsten har dock inte stöd för att mappa användare/grupper över flera noder. Därför mappas inte användare som skapats på en värd som standard till användare som har skapats på en annan värd. 
 
-I `Host1` följande exempel har tre befintliga test användar konton`testuser01`(, `testuser02`, `testuser03`): 
+I följande exempel `Host1` har tre befintliga test användar konton ( `testuser01` , `testuser02` , `testuser03` ): 
 
 ![Resulterande konfiguration för NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 

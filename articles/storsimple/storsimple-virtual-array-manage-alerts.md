@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267435"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507644"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple Enhetshanteraren för att hantera aviseringar för den virtuella StorSimple-matrisen
 
@@ -39,7 +39,7 @@ Du kan välja om du vill bli informerad via e-post om aviserings villkoren för 
 > [!NOTE]
 > Du kan ange högst 20 e-postadresser per virtuell matris.
 
-När du har aktiverat e-postavisering för en virtuell matris kommer medlemmar i meddelande listan att få ett e-postmeddelande varje gången en kritisk varning inträffar. Meddelandena skickas från *StorSimple-Alerts-\@noreply mail.windowsazure.com* och beskriver varnings villkoret. Mottagare kan klicka på **Avbryt** för att ta bort sig själva från listan med e-postaviseringar.
+När du har aktiverat e-postavisering för en virtuell matris kommer medlemmar i meddelande listan att få ett e-postmeddelande varje gången en kritisk varning inträffar. Meddelandena skickas från *StorSimple-Alerts-noreply \@ mail.windowsazure.com* och beskriver varnings villkoret. Mottagare kan klicka på **Avbryt** för att ta bort sig själva från listan med e-postaviseringar.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Så här aktiverar du e-postavisering för aviseringar
 
@@ -53,7 +53,7 @@ När du har aktiverat e-postavisering för en virtuell matris kommer medlemmar i
    
    1. I fältet **Aktivera e-postavisering** väljer du **Ja**.
    2. I fältet **e-posttjänst administratörer** väljer du **Ja** om du vill att tjänst administratören och alla medadministratörer ska få aviserings meddelanden.
-   3. I fältet **ytterligare e-postmottagare** anger du e-postadresserna till alla andra mottagare som ska få aviserings meddelanden. Ange namn i formatet *någon\@Somewhere.com*. Använd semikolon för att avgränsa e-postadresserna. Du kan konfigurera högst 20 e-postadresser per virtuell enhet.
+   3. I fältet **ytterligare e-postmottagare** anger du e-postadresserna till alla andra mottagare som ska få aviserings meddelanden. Ange namn i formatet *någon \@ Somewhere.com*. Använd semikolon för att avgränsa e-postadresserna. Du kan konfigurera högst 20 e-postadresser per virtuell enhet.
       
        ![aviserings aviserings konfiguration](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Skicka ett test-e-postmeddelande genom att klicka på **Skicka test-e-post**. Tjänsten StorSimple Enhetshanteraren visar status meddelanden när det vidarebefordrar test meddelandet.
@@ -137,7 +137,7 @@ I följande tabeller visas några av de StorSimple-aviseringar som du kan stöta
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Konfiguration av lokal virtuell enhet stöds inte. |Långsamma prestanda. |Den aktuella konfigurationen kan resultera i försämrade prestanda. Kontrol lera att servern uppfyller minimi kraven för konfiguration. Mer information finns i krav för [StorSimple Virtual Array](storsimple-ova-system-requirements.md). |
-| Du håller på att ta slut på det allokerade disk utrymmet på <*enhets namnet*\>. |Varning om disk utrymme. |Det allokerade disk utrymmet håller på att ta slut. För att frigöra utrymme bör du överväga att flytta arbets belastningar till en annan volym eller dela eller ta bort data. |
+| Du håller på att ta slut på det allokerade disk utrymmet på <*enhets namnet* \> . |Varning om disk utrymme. |Det allokerade disk utrymmet håller på att ta slut. För att frigöra utrymme bör du överväga att flytta arbets belastningar till en annan volym eller dela eller ta bort data. |
 
 ### <a name="job-failure-alerts"></a>Aviseringar om jobb haveri
 
@@ -157,7 +157,7 @@ I följande tabeller visas några av de StorSimple-aviseringar som du kan stöta
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Du upplever oväntade fördröjningar i data överföringen. |Långsam data överföring. |Begränsnings fel inträffar när du överskrider skalbarhets målen för en lagrings tjänst. Lagrings tjänsten gör detta för att säkerställa att ingen enskild klient eller klient organisation kan använda tjänsten på bekostnad av andra. Mer information om hur du felsöker ditt Azure Storage-konto finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Du har ont om lokalt reservations disk utrymme på <*enhets namnet*\>. |Långsam svars tid. |10% av den totala etablerade storleken för <*enhets namnet* \> är reserverat på den lokala enheten och du börjar nu ta slut på det reserverade utrymmet. Arbets belastningen på <*enhets namnet* \> genererar en högre andel omsättning eller så kanske du nyligen har migrerat en stor mängd data. Detta kan resultera i försämrade prestanda. Överväg följande åtgärder för att lösa problemet:<ul><li>Öka moln bandbredden till den här enheten.</li><li>Minska eller flytta arbets belastningar till en annan volym eller resurs.</li></ul> |
+| Du har ont om lokalt reservations disk utrymme på <*enhets namnet* \> . |Långsam svars tid. |10% av den totala etablerade storleken för <*enhets namnet* \> är reserverat på den lokala enheten och du börjar nu ta slut på det reserverade utrymmet. Arbets belastningen på <*enhets namnet* \> genererar en högre andel omsättning eller så kanske du nyligen har migrerat en stor mängd data. Detta kan resultera i försämrade prestanda. Överväg följande åtgärder för att lösa problemet:<ul><li>Öka moln bandbredden till den här enheten.</li><li>Minska eller flytta arbets belastningar till en annan volym eller resurs.</li></ul> |
 
 ### <a name="security-alerts"></a>Säkerhetsaviseringar
 

@@ -3,15 +3,15 @@ title: PowerShell – HDInsight med Data Lake Storage Gen1-tilläggs lagring –
 description: Lär dig hur du använder Azure PowerShell för att konfigurera ett HDInsight-kluster med Azure Data Lake Storage Gen1 som ytterligare lagrings utrymme.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fb4ab1cdb60fff40effc1ff2f12f8600ba263d23
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b1264475a9e5100e2b38079fe0540ada5d91cd55
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692052"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504720"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Använd Azure PowerShell för att skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 (som ytterligare lagrings utrymme)
 
@@ -132,7 +132,7 @@ Om du vill konfigurera Active Directory autentisering för Data Lake Storage Gen
 
 Kontrol lera att du har [Windows SDK](https://dev.windows.com/en-us/downloads) installerat innan du fortsätter med stegen i det här avsnittet. Du måste också ha skapat en katalog, till exempel **C:\mycertdir**, där certifikatet kommer att skapas.
 
-1. Från PowerShell-fönstret navigerar du till den plats där du installerade Windows SDK (vanligt `C:\Program Files (x86)\Windows Kits\10\bin\x86` vis och använder verktyget [MakeCert][makecert] för att skapa ett självsignerat certifikat och en privat nyckel. Använd följande kommandon.
+1. Från PowerShell-fönstret navigerar du till den plats där du installerade Windows SDK (vanligt vis `C:\Program Files (x86)\Windows Kits\10\bin\x86` och använder verktyget [MakeCert][makecert] för att skapa ett självsignerat certifikat och en privat nyckel. Använd följande kommandon.
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir

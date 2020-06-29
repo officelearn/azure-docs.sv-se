@@ -3,15 +3,15 @@ title: .NET-tjänst-till-tjänst-autentisering – Data Lake Storage Gen1
 description: Lär dig hur du uppnår tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 att använda Azure Active Directory med .NET SDK
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: bac5fa95ca5ce4e289d4dd18cba9238da7b8a2e2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 19b4ac619ec3e72c787efc8e9f043f42dbd8b09b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691625"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505162"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att utföra
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
 1. I Visual Studio väljer du **Arkiv** -menyn, **nytt**och sedan **projekt**.
 2. Välj **konsol program (.NET Framework)** och välj sedan **Nästa**.
-3. I **projekt namn**anger `CreateADLApplication`du och väljer sedan **skapa**.
+3. I **projekt namn**anger du `CreateADLApplication` och väljer sedan **skapa**.
 
 4. Lägg till NuGet-paketen i projektet.
 
@@ -84,7 +84,7 @@ private static void Main(string[] args)
 }
 ```
 
-Föregående kodfragment använder en hjälp funktion `GetCreds_SPI_SecretKey`. Koden för den här hjälp funktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+Föregående kodfragment använder en hjälp funktion `GetCreds_SPI_SecretKey` . Koden för den här hjälp funktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Tjänst-till-tjänst-autentisering med certifikat
 
@@ -105,7 +105,7 @@ private static void Main(string[] args)
 }
 ```
 
-Föregående kodfragment använder en hjälp funktion `GetCreds_SPI_Cert`. Koden för den här hjälp funktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+Föregående kodfragment använder en hjälp funktion `GetCreds_SPI_Cert` . Koden för den här hjälp funktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du använder tjänst-till-tjänst-autentisering för att autentisera med Data Lake Storage Gen1 med .NET SDK. Nu kan du titta på följande artiklar som talar om hur du använder .NET SDK för att arbeta med Data Lake Storage Gen1.

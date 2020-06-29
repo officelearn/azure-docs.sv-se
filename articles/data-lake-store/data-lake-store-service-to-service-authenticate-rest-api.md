@@ -3,15 +3,15 @@ title: REST-tjänst-till-tjänst-autentisering – Data Lake Storage Gen1 – Az
 description: Lär dig hur du uppnår tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 och Azure Active Directory att använda REST API.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d7d0ec39e9f0f294324eb18337f4234ddaa63e2c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 08b5e915902fb4e2002bd20699cdaca9f0f35e3e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688146"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505074"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 som använder REST API
 > [!div class="op_single_selector"]

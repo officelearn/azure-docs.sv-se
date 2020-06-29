@@ -3,16 +3,16 @@ title: Hantera ett Azure Data Lake Storage Gen1 konto med python
 description: Lär dig hur du använder python SDK för Azure Data Lake Storage Gen1 konto hanterings åtgärder.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: tracking-python
-ms.openlocfilehash: afdb132e4e3dd4ca155b6ea0dda413438f0c6b4f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 78e638952513eddf8da828158c4afa3187819fbb
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557834"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508613"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Konto hanterings åtgärder på Azure Data Lake Storage Gen1 med python
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "84557834"
 
 Lär dig hur du använder python SDK för Azure Data Lake Storage Gen1 för att utföra grundläggande konto hanterings åtgärder, till exempel skapa ett Data Lake Storage Gen1 konto, lista Data Lake Storage Gen1-kontona osv. Instruktioner för hur du utför fil Systems åtgärder på Data Lake Storage Gen1 med python finns i [fil Systems åtgärder på data Lake Storage gen1 med python](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 

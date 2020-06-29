@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: 7765788e9bd0803cd806ef0980991429dbe30af9
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: eed333b5e6a83b140df515fc02767b8a7c7a63c7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413849"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506647"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Snabb start: skapa en Azure SQL-hanterad instans med en ARM-mall
 
-Den här snabb starten fokuserar på processen att distribuera en ARM-mall för att skapa en hanterad Azure SQL-instans och vNet. [Azure SQL Managed instance](sql-managed-instance-paas-overview.md) är en intelligent, fullständigt hanterad, skalbar moln databas med nästan 100% funktions paritet med SQL Server databas motorn.
+Den här snabb starten fokuserar på processen att distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa en hanterad Azure SQL-instans och vNet. [Azure SQL Managed instance](sql-managed-instance-paas-overview.md) är en intelligent, fullständigt hanterad, skalbar moln databas med nästan 100% funktions paritet med SQL Server databas motorn.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 

@@ -3,15 +3,15 @@ title: Prestanda justering – Spark med Azure Data Lake Storage Gen1
 description: Lär dig mer om prestanda justerings rikt linjer för Spark på Azure HDInsight och Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 665fd3bf29f0ec4d2196bd29be300ee909364e31
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: f604d1d054717e426fcb02271b3a2aa06c6489b6
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691091"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505264"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestanda justerings vägledning för Spark på HDInsight och Azure Data Lake Storage Gen1
 

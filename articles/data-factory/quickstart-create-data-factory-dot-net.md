@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f0f18e523368e85d9cea0206e98bb7b1a0e6165
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c2f840333f066afaa22883fb0f5d67072a5c822
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419382"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504873"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabb start: skapa en data fabrik och pipeline med .NET SDK
 
@@ -47,9 +47,9 @@ Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/
 
 Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser*, följer du anvisningarna för att utföra dessa uppgifter:
 
-1. Skapa ett program i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)som representerar det .NET-program som du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
-2. I [Hämta värden för att logga in](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), hämtar du **program-ID** och **klient-ID**och noterar de här värdena som du använder senare i den här självstudien. 
-3. I [certifikat och hemligheter](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets), Hämta **autentiseringsnyckel**och anteckna det här värdet som du använder senare i den här självstudien.
+1. Skapa ett program i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)som representerar det .NET-program som du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
+2. I [Hämta värden för att logga in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), hämtar du **program-ID** och **klient-ID**och noterar de här värdena som du använder senare i den här självstudien. 
+3. I [certifikat och hemligheter](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in), Hämta **autentiseringsnyckel**och anteckna det här värdet som du använder senare i den här självstudien.
 4. I [tilldela programmet till en roll](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)tilldelar du programmet rollen **deltagare** på prenumerations nivå så att programmet kan skapa data fabriker i prenumerationen.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
@@ -57,13 +57,13 @@ Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program 
 Skapa sedan ett C# .NET-konsol program i Visual Studio:
 
 1. Starta **Visual Studio**.
-2. I fönstret Starta väljer du **skapa en ny projekt** > **konsol app (.NET Framework)**. .NET version 4.5.2 eller senare krävs.
+2. I fönstret Starta väljer du **skapa en ny projekt**  >  **konsol app (.NET Framework)**. .NET version 4.5.2 eller senare krävs.
 3. Skriv **ADFv2QuickStart**i **projekt namn**.
 4. Välj **Skapa** för att skapa projektet.
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Package**Manager-konsolen.
+1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen.
 2. I fönstret **Package Manager-konsol** kör du följande kommandon för att installera paket. Mer information finns i [Microsoft. Azure. Management. DataFactory NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -430,7 +430,7 @@ Press any key to exit...
 
 ## <a name="verify-the-output"></a>Verifiera utdata
 
-Pipelinen skapar automatiskt mappen utdata i BLOB-behållaren **adftutorial** . Sedan kopieras filen **EMP. txt** från mappen indata till mappen utdata. 
+Pipelinen skapar automatiskt mappen utdata i BLOB-behållaren **adftutorial** . Sedan kopieras **emp.txt** -filen från mappen indata till mappen utdata. 
 
 1. På sidan för **adftutorial** -behållaren som du avbröt i i [Lägg till en mapp för indata och filen för BLOB-behållaren](#add-an-input-folder-and-file-for-the-blob-container) ovan väljer du **Uppdatera** för att visa mappen utdata. Azure Portal 
 2. Välj **utdata**i mapplistan.

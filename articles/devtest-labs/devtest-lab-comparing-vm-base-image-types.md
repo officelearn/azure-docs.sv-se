@@ -1,25 +1,14 @@
 ---
 title: Jämföra anpassade bilder och formler i DevTest Labs | Microsoft Docs
 description: Lär dig mer om skillnaderna mellan anpassade bilder och formler som virtuella dator baser, så att du kan bestämma vilka som passar din miljö bäst.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: a3cb259a-7d80-40ec-8ee8-45105704d589
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
-ms.author: spelluru
-ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: dac820d0600745906e4b1aeef95806ed5679488a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896328"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484034"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Jämföra anpassade bilder och formler i DevTest Labs
 Både [anpassade bilder](devtest-lab-create-template.md) och [formler](devtest-lab-manage-formulas.md) kan användas som baser för [skapade nya virtuella datorer](devtest-lab-add-vm.md). Skillnaden mellan anpassade bilder och formler är dock att en anpassad avbildning bara är en bild som baseras på en virtuell hård disk, medan en formel är en avbildning baserad på en virtuell hård disk *förutom* förkonfigurerade inställningar – till exempel VM-storlek, virtuellt nätverk, undernät och artefakter. Dessa förkonfigurerade inställningar ställs in med standardvärden som kan åsidosättas när den virtuella datorn skapas. Den här artikeln förklarar några av fördelarna (-och nack delarna) med att använda anpassade bilder jämfört med formler.

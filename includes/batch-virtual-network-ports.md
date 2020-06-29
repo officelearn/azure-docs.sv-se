@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: cb35021ad7e4d735a7dd521e39e4fe5fd102ae01
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888356"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506621"
 ---
 ### <a name="general-requirements"></a>Allmänna krav
 
@@ -38,16 +38,14 @@ Ytterligare krav för virtuella nätverk varierar beroende på huruvida Batch-po
 
 **Undernät-ID** – när du anger undernätet med hjälp av Batch API:er använder du *resursidentifieraren* för undernätet. Undernät-ID har formatet:
 
-  ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
-  ```
+`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}`
 
 **Behörigheter** – kontrollera huruvida dina säkerhetsprinciper eller lås på det virtuella nätverkets prenumeration eller resursgruppen begränsar en användares behörigheter att hantera det virtuella nätverket.
 
 **Ytterligare nätverksresurser** – Batch tilldelar automatiskt ytterligare nätverksresurser i den resursgrupp som innehåller det virtuella nätverket.
 
 > [!IMPORTANT]
->För varje 100 dedikerad eller låg prioritets nod allokerar batch: en nätverks säkerhets grupp (NSG), en offentlig IP-adress och en belastningsutjämnare. Dessa resurser begränsas av prenumerationens [resurskvoter](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). För stora pooler kan du behöva begära en kvot ökning för en eller flera av dessa resurser.
+> För varje 100 dedikerad eller låg prioritets nod allokerar batch: en nätverks säkerhets grupp (NSG), en offentlig IP-adress och en belastningsutjämnare. Dessa resurser begränsas av prenumerationens [resurskvoter](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). För stora pooler kan du behöva begära en kvot ökning för en eller flera av dessa resurser.
 
 #### <a name="network-security-groups-batch-default"></a>Nätverks säkerhets grupper: standard för batch
 
@@ -59,11 +57,11 @@ Under nätet måste tillåta inkommande kommunikation från batch-tjänsten för
 * Utgående trafik på alla portar till Internet. Detta kan ändras per NSG-regler för under näts nivå (se nedan).
 
 > [!IMPORTANT]
-> Var försiktig om du ändrar eller lägger till regler för inkommande eller utgående trafik i Batch-konfigurerade NSG:er. Om kommunikation till beräkningsnoderna i det angivna undernätet nekas av en NSG, ställer Batch-tjänsten in status för beräkningsnoderna till **oanvändbara**. Dessutom bör inga resurs lås tillämpas på någon resurs som skapats av batchen, annars kan detta leda till att resurser rensas som ett resultat av användar initierade åtgärder som att ta bort en pool.
+> Använd försiktighet om du ändrar eller lägger till regler för inkommande eller utgående trafik i batch-konfigurerade NSG: er. Om kommunikationen till Compute-noderna i det angivna under nätet nekas av en NSG, kommer batch-tjänsten att ange status för beräknings noderna till **oanvändbar**. Dessutom bör inga resurs lås användas för någon resurs som skapats av batch, eftersom detta kan förhindra att resurser rensas till följd av användar initierade åtgärder som att ta bort en pool.
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Nätverks säkerhets grupper: Ange regler för under näts nivå
 
-Du behöver inte ange NSG: er på under näts nivån för det virtuella nätverket eftersom batch konfigurerar sin egen NSG: er (se ovan). Om du har en NSG som är associerad med under nätet där batch Compute-noder distribueras eller vill tillämpa anpassade NSG-regler för att åsidosätta de standardvärden som tillämpas, måste du konfigurera den här NSG med minst inkommande och utgående säkerhets regler som visas i följande tabeller.
+Du behöver inte ange NSG: er på under näts nivån för det virtuella nätverket eftersom batch konfigurerar sin egen NSG: er (se ovan). Om du har en NSG som är associerad med under nätet där batch Compute-noderna distribueras, eller om du vill tillämpa anpassade NSG-regler för att åsidosätta de standardvärden som tillämpas, måste du konfigurera den här NSG med minst de inkommande och utgående säkerhets reglerna som visas i följande tabeller.
 
 Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om du behöver tillåta fjärråtkomst till Compute-noderna från externa källor. Du kan behöva aktivera port 22-regler på Linux om du behöver stöd för aktiviteter med flera instanser med vissa MPI-körningar. Att tillåta trafik på dessa portar är inte absolut nödvändigt för att datornoder ska kunna användas.
 
@@ -75,7 +73,7 @@ Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om
 | Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | Ej tillämpligt | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
 
 > [!WARNING]
-> IP-adresser för batch-tjänsten kan ändras med tiden. Därför rekommenderas det starkt att använda `BatchNodeManagement` tjänst tag gen (eller regional variant) för NSG-regler. Vi rekommenderar inte att du fyller i NSG-regler med batch-tjänstens IP-adresser direkt.
+> IP-adresser för batch-tjänsten kan ändras med tiden. Därför rekommenderar vi starkt att du använder `BatchNodeManagement` tjänst tag gen (eller regional variant) för NSG-regler. Undvik att fylla i NSG-regler med en speciell IP-adress för batch-tjänsten.
 
 **Säkerhetsregler för utgående trafik**
 
@@ -89,9 +87,7 @@ Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om
 
 **Undernät-ID** – när du anger undernätet med hjälp av Batch API:er använder du *resursidentifieraren* för undernätet. Undernät-ID har formatet:
 
-  ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}
-  ```
+`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
 **Behörigheter** – tjänstens huvudnamn för `Microsoft Azure Batch` måste ha rollen rollbaserad åtkomstkontroll (RBAC) för `Classic Virtual Machine Contributor` för den angivna virtuella nätverket.
 
@@ -99,9 +95,9 @@ Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om
 
 Undernätet måste tillåta inkommande kommunikation från Batch-tjänsten för att kunna schemalägga uppgifter på beräkningsnoderna samt utgående kommunikation för att kommunicera med Azure Storage eller andra resurser.
 
-Du behöver inte ange en NSG eftersom Batch endast konfigurerar inkommande kommunikation från Batch-IP-adresser till poolnoderna. Om det angivna undernätet dock har associerade NSG:er (NSG:er) och/eller en brandvägg konfigurerar du säkerhetsreglerna för inkommande och utgående trafik enligt det som visas i följande tabeller. Om kommunikation till beräkningsnoderna i det angivna undernätet nekas av en NSG, ställer Batch-tjänsten in status för beräkningsnoderna till **oanvändbara**.
+Du behöver inte ange en NSG eftersom Batch endast konfigurerar inkommande kommunikation från Batch-IP-adresser till poolnoderna. Om det angivna undernätet dock har associerade NSG:er (NSG:er) och/eller en brandvägg konfigurerar du säkerhetsreglerna för inkommande och utgående trafik enligt det som visas i följande tabeller. Om kommunikationen till Compute-noderna i det angivna under nätet nekas av en NSG, anger batch-tjänsten status för beräknings noderna till **oanvändbar**.
 
-Konfigurera inkommande trafik på port 3389 för Windows om du behöver tillåta RDP-åtkomst till noderna i poolen. Det krävs inte för att poolnoderna ska kunna användas.
+Konfigurera inkommande trafik på port 3389 för Windows om du behöver tillåta RDP-åtkomst till noderna i poolen. Detta krävs inte för att pool-noderna ska kunna användas.
 
 **Säkerhetsregler för inkommande trafik**
 

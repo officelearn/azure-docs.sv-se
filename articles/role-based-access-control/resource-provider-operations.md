@@ -8,12 +8,12 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
-ms.openlocfilehash: 2131912244b2f895ebb7d9bbc28f132ac2404ae7
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 3e79f0498aa14bed1cda29148a6b3c7e1e9e2a3d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414580"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508477"
 ---
 # <a name="azure-resource-providers-operations"></a>Azure Resource providers-åtgärder
 
@@ -1358,8 +1358,7 @@ Azure-tjänst: klassisk distributions modell lagring
 
 ### <a name="microsoftdatabox"></a>Microsoft. data-
 
-Azure-tjänst: [Azure Data Box](../databox-family/index.md)
-
+Azure-tjänst: [Azure Data Box](../databox/index.yml)
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Description |
 > | --- | --- |
@@ -2523,7 +2522,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/customdomains/validate/Action | Verifiera att en anpassad domän kan läggas till på en statisk plats |
 > | Microsoft. Web/staticSites/Functions/Read | Visa en lista över funktioner för en statisk plats |
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -4115,7 +4114,7 @@ Azure-tjänst: [SQL Server på azure Virtual Machines](../azure-sql/virtual-mach
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Write | Skapa en ny eller ändra egenskaper för befintlig virtuell SQL-dator |
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Delete | Ta bort befintlig virtuell SQL-dator |
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 ### <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
@@ -6858,7 +6857,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Övervaka
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 

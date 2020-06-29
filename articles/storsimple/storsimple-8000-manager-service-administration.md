@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60723314"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508052"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Använd tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet
 
@@ -37,7 +37,7 @@ När du har läst den här artikeln får du lära dig att:
 Tjänsten StorSimple Enhetshanteraren körs i Microsoft Azure och ansluter till flera StorSimple-enheter. Du kan använda en central Microsoft Azure-portalen som körs i en webbläsare för att hantera dessa enheter. Gör så här för att ansluta till StorSimple-Enhetshanteraren tjänsten:
 
 #### <a name="to-connect-to-the-service"></a>Så här ansluter du till tjänsten
-1. Navigera till [https://portal.azure.com/](https://portal.azure.com/).
+1. Navigera till [https://portal.azure.com/](https://portal.azure.com/) .
 2. Logga in på Microsoft Azure-portalen (som finns längst upp till höger i fönstret) med dina Microsoft-konto autentiseringsuppgifter.
 3. Bläddra nedåt i det vänstra navigerings fönstret för att få åtkomst till StorSimple Enhetshanteraren-tjänsten.
 
@@ -78,7 +78,7 @@ Klicka på lämplig procedur i tabellen om du vill ha mer information om varje a
 | Stoppa enhets styrenheter</br>Starta om enhets styrenheter</br>Stänga av enhets styrenheter</br>Återställa enheten till fabriks inställningarna</br>(Ovan gäller endast för lokala enheter) |[Hantera StorSimple enhets styrenhet](storsimple-8000-manage-device-controller.md) |
 | Lär dig mer om StorSimple maskin varu komponenter</br>Övervaka maskinvarustatus</br>(Ovan gäller endast för lokala enheter) |[Övervaka maskin varu komponenter](storsimple-8000-monitor-hardware-status.md) |
 | Skapa ett support paket |[Skapa och hantera ett support paket](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
-| Installera program uppdateringar |[Uppdatera din enhet](storsimple-update-device.md) |
+| Installera program uppdateringar |[Uppdatera enheten](storsimple-update-device.md) |
 
 ## <a name="next-steps"></a>Nästa steg
 

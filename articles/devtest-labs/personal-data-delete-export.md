@@ -1,23 +1,14 @@
 ---
 title: Så här tar du bort och exporterar personliga data från Azure DevTest Labs
 description: Lär dig hur du tar bort och exporterar personliga data från Azure DevLast Labs-tjänsten för att stödja dina skyldigheter enligt allmän dataskyddsförordning (GDPR).
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: b59a799b2e2211ee8fd473de2e26a26148777502
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898089"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483524"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportera eller ta bort personliga data från Azure DevTest Labs
 Den här artikeln innehåller anvisningar för att ta bort och exportera personliga data från Azure DevTest Labss tjänsten. 
@@ -160,7 +151,7 @@ Nu ska vi ta en närmare titt på exporterade data. Som tidigare nämnts kommer 
 
 **virtualmachines.csv** innehåller följande data kolumner:
 
-| Kolumnnamn | Beskrivning |
+| Kolumnnamn | Description |
 | ----------- | ----------- | 
 | SubscriptionId | Prenumerations-ID: n som labbet finns i. |
 | LabUId | Unikt GUID-ID för labbet. |
@@ -188,7 +179,7 @@ Nu ska vi ta en närmare titt på exporterade data. Som tidigare nämnts kommer 
 
 De data kolumner som finns i **disks.csv** visas nedan:
 
-| Kolumnnamn | Beskrivning | 
+| Kolumnnamn | Description | 
 | ----------- | ----------- | 
 | SubscriptionId | ID för den prenumeration som innehåller labbet |
 | LabUId | GUID för labbet |

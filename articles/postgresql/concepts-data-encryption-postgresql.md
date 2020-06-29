@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e4811b1b892fb04400b5a96450db14a260532003
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 3eb429c4981cbc548c7d68c788008b841ff5d33e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488842"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484085"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
@@ -143,6 +143,15 @@ För Azure Database for PostgreSQL har stödet för att kryptera data i vila med
     > - Om du vill verifiera att den etablerade servern har stöd för upp till 16TB kan du gå till bladet pris nivå i portalen och se den maximala lagrings storleken som stöds av den etablerade servern. Om du kan flytta skjutreglaget upp till 4 TB kanske servern inte stöder kryptering med Kundhanterade nycklar. Men data krypteras med hjälp av tjänst hanterade nycklar hela tiden. Kontakta AskAzureDBforPostgreSQL@service.microsoft.com om du har några frågor.
 
 * Kryptering stöds endast med kryptografisk nyckel för RSA 2048.
+
+## <a name="infrastructure-double-encryption"></a>Dubbel kryptering av infrastruktur
+Azure Database for PostgreSQL använder lagrings [kryptering av data i vila](concepts-security.md#at-rest) för data med hjälp av Microsofts hanterade nycklar. Data, inklusive säkerhets kopior, krypteras på disk och den här krypteringen är alltid aktive rad och kan inte inaktive ras. Krypteringen använder FIPS 140-2-validerad kryptografisk modul och ett AES 256-bitars chiffer för Azure Storage-kryptering. 
+
+Infrastrukturens dubbla kryptering lägger till ett andra lager av kryptering med hjälp av en FIPS 140-2-verifierad kryptografisk modul och en annan krypteringsalgoritm som ger ytterligare skydds lager för dina data i vila. Nyckeln som används i infrastruktur Double Encryption hanteras också av tjänsten. Detta är inte *aktiverat* som standard eftersom det kommer att påverka prestandan på grund av det extra krypterings lagret. 
+
+   > [!NOTE]
+   > - Den här funktionen är fortfarande inte tillgänglig globalt. 
+   > - Stöd för den här funktionen är begränsat till **generell användning** och **minnesoptimerade pris nivåer** .
 
 ## <a name="next-steps"></a>Nästa steg
 

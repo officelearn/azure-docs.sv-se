@@ -3,15 +3,15 @@ title: Stänga av en Microsoft Azure FXT Edge-enhet
 description: Procedurer för start och säker avstängning av en Azure FXT Edge-nod
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 91445c4219abaa67385105f52515f52c87e2cf06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92364de82bc3de8229eced4ee02997a27afbde45
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72255999"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506420"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Hur man på ett säkert sätt stänger av maskin vara från Azure FXT Edge-filer
 
@@ -29,7 +29,7 @@ När en Azure FXT Edge-nod används som en del av ett kluster, bör du använda 
 Följ de här anvisningarna för att säkert stänga av en Azure FXT Edge-nod:
 
 1. Logga in på kluster kontroll panelen. (Riktningar i [Öppna inställnings sidorna](fxt-cluster-create.md#open-the-settings-pages))
-1. Klicka på fliken **Inställningar** och Läs sedan in sidan **cluster** > **FXT Nodes** .
+1. Klicka på fliken **Inställningar** och Läs sedan in sidan **cluster**  >  **FXT Nodes** .
 1. Leta upp den som du vill stänga av i listan över klusternoder. Klicka på knappen **ström** i kolumnen **åtgärder** . 
 1. Vänta en stund. Noden stängs av och stängs av.
 

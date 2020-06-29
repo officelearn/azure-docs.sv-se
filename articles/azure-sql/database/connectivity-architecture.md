@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
-ms.openlocfilehash: 513e198f9184d5789d5b33de7f05cda0c5dc094d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/26/2020
+ms.openlocfilehash: fceac1a5852c0be767ffc375ad9ec5de033f17b7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046623"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506777"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Anslutnings arkitektur för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -109,6 +109,8 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Sydafrika, västra    | 102.133.24.0       |
 | USA, södra centrala     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
 | Sydostasien      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
+| Schweiz, norra    | 51.107.56.0, 51.107.57.0 |
+| Schweiz, västra     | 51.107.152.0, 51.107.153.0 |
 | Förenade Arabemiraten Central          | 20.37.72.64        |
 | Förenade Arabemiraten, norra            | 65.52.248.0        |
 | Storbritannien, södra             | 51.140.184.11      |

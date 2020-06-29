@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298745"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504465"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använd verktyget StorSimple Diagnostics för att felsöka enhets problem i 8000-serien
 
@@ -210,7 +210,7 @@ Det här testet rapporterar system information, tillgängliga uppdateringar, klu
 
 * System informationen inkluderar modellen, enhetens serie nummer, tidszon, styrenhets status och den detaljerade program varu version som körs på systemet. Om du vill förstå de olika system parametrarna som rapporteras som utdata går du till [tolka system information](#appendix-interpreting-system-information).
 
-* Uppdaterings tillgänglighet rapporterar om de vanliga och underhålls lägena är tillgängliga och deras associerade paket namn. Om `RegularUpdates` och `MaintenanceModeUpdates` är `false`, indikerar detta att uppdateringarna inte är tillgängliga. Enheten är uppdaterad.
+* Uppdaterings tillgänglighet rapporterar om de vanliga och underhålls lägena är tillgängliga och deras associerade paket namn. Om `RegularUpdates` och `MaintenanceModeUpdates` är `false` , indikerar detta att uppdateringarna inte är tillgängliga. Enheten är uppdaterad.
 * Kluster informationen innehåller information om olika logiska komponenter i alla HCS UPPDATERINGSKLIENTEN-kluster grupper och deras respektive status. Om du ser en frånkopplad kluster grupp i det här avsnittet av rapporten [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * Tjänst informationen innehåller namn och status för alla HCS UPPDATERINGSKLIENTEN-och CiS-tjänster som körs på enheten. Den här informationen är användbar för Microsoft Support vid fel sökning av enhets problemet.
 
@@ -414,9 +414,9 @@ Controller0>
 
 Här är en tabell som beskriver de olika Windows PowerShell-parametrarna i system information Map till. 
 
-| PowerShell-parameter    | Beskrivning  |
+| PowerShell-parameter    | Description  |
 |-------------------------|------------------|
-| Instans-ID             | Varje styrenhet har en unik identifierare eller ett GUID som är associerat med den.|
+| Instance ID             | Varje styrenhet har en unik identifierare eller ett GUID som är associerat med den.|
 | Name                    | Det egna namnet på enheten enligt konfigurationen i Azure Portal under enhets distributionen. Det egna standard namnet är enhetens serie nummer. |
 | Modell                   | Modellen för din enhet med StorSimple 8000-serien. Modellen kan vara 8100 eller 8600.|
 | Serienummer            | Enhetens serie nummer tilldelas till fabriken och är 15 tecken långt. Till exempel visar 8600-SHX0991003G44HT:<br> 8600 – är enhets modellen.<br>SHX – är webbplatsen för produktion.<br> 0991003 – är en enskild produkt. <br> G44HT – de sista 5 siffrorna ökar för att skapa unika serie nummer. Det får inte vara en sekventiell uppsättning.|

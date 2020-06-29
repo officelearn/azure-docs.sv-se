@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 94c9a2b6a46262ad293da9ca3ba493d6f898c870
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e36237e67b4498ca6aad4b7ffa8c645abeff6143
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77085835"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477302"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Användaren får ett medgivande för flera resurser med MSAL.NET
 Med Microsoft Identity Platform-slutpunkten kan du inte hämta en token för flera resurser på en gång. När du använder Microsoft Authentication Library för .NET (MSAL.NET) ska omfattnings parametern i metoden för att hämta token bara innehålla omfång för en enskild resurs. Du kan dock godkänna flera resurser direkt genom att ange ytterligare omfång med hjälp av `.WithExtraScopeToConsent` Builder-metoden.
@@ -28,8 +28,8 @@ Med Microsoft Identity Platform-slutpunkten kan du inte hämta en token för fle
 
 Om du till exempel har två resurser som har två omfång:
 
-- https:\//mytenant.onmicrosoft.com/customerapi (med 2 omfattningar `customer.read` och) `customer.write`
-- https:\//mytenant.onmicrosoft.com/vendorapi (med 2 omfattningar `vendor.read` och) `vendor.write`
+- https: \/ /mytenant.onmicrosoft.com/customerapi (med 2 omfattningar `customer.read` och `customer.write` )
+- https: \/ /mytenant.onmicrosoft.com/vendorapi (med 2 omfattningar `vendor.read` och `vendor.write` )
 
 Du bör använda `.WithExtraScopeToConsent` modifieraren som har parametern *extraScopesToConsent* som visas i följande exempel:
 

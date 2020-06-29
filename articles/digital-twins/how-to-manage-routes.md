@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5049e875c3b8047b99e3256c7bbac60d0af822bb
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: d6ecc2ddab7bc0fa739989e9cfdc2645cc1ccb27
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392275"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476911"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Hantera slut punkter och vägar i digitala Azure-dubbla
 
@@ -25,7 +25,10 @@ Slut punkts typer som stöds är:
 
 Mer information om de olika slut punkterna finns i [Välj mellan Azure Messaging Services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
-Slut punkter och vägar hanteras med EventRoutes- [**API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
+Slut punkter och vägar hanteras med EventRoutes- [**API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md). De kan också hanteras via [Azure Portal](https://portal.azure.com).
+
+> [!NOTE]
+> Hantering av händelse vägar via Azure Portal är för närvarande bara tillgängligt för Azure-användare på företags domän konton. Om du använder en personlig [Microsoft-konto (MSA)](https://account.microsoft.com/account/Account)kan du använda Azures digitala dubbla API: er eller CLI för att hantera händelse vägar, enligt beskrivningen i den här artikeln.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Skapa en slut punkt för Azure Digitals dubbla
 
@@ -140,7 +143,7 @@ Om du vill lägga till ett filter kan du använda en skicka-begäran till *https
 
 Här följer de väg filter som stöds.
 
-| Filternamn | Beskrivning | Filter schema | Värden som stöds | 
+| Filternamn | Description | Filter schema | Värden som stöds | 
 | --- | --- | --- | --- |
 | Typ | Den [typ av händelse](./concepts-route-events.md#types-of-event-messages) som flödar genom den digitala dubbla instansen | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Källa | Namn på Azure Digitals dubbla instanser | `"filter" : "source = '<hostname>'"`|  **För meddelanden**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **För telemetri**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|

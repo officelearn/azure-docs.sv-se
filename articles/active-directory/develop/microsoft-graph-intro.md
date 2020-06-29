@@ -1,24 +1,24 @@
 ---
-title: Microsoft Graph-API
+title: Microsoft Graph API
 description: Microsoft Graph API är ett RESTful webb-API som gör att du kan komma åt Microsoft Cloud tjänst resurser.
 author: davidmu1
 services: active-directory
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 67dbf696903e7a930d75762deb00ad58ed1a4f69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0cdcb5287434c72bf54337611d67de8d6f65d8d9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886474"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479521"
 ---
-# <a name="microsoft-graph-api"></a>Microsoft Graph-API
+# <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Microsoft Graph API är ett RESTful webb-API som gör att du kan komma åt Microsoft Cloud tjänst resurser. När du har registrerat din app och get Authentication-token för en användare eller tjänst kan du göra förfrågningar till Microsoft Graph API. Mer information finns i [Översikt över Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
@@ -55,6 +55,6 @@ När du har slutfört snabb starten har du en app som är redo att köras. Mer i
 
 ## <a name="tools"></a>Verktyg
 
-Microsoft Graph Explorer är ett webbaserat verktyg som du kan använda för att bygga och testa förfrågningar med hjälp av Microsoft Graph-API: er. Du kan komma åt Microsoft Graph Explorer på `https://developer.microsoft.com/graph/graph-explorer`:.
+Microsoft Graph Explorer är ett webbaserat verktyg som du kan använda för att bygga och testa förfrågningar med hjälp av Microsoft Graph-API: er. Du kan komma åt Microsoft Graph Explorer på: `https://developer.microsoft.com/graph/graph-explorer` .
 
-Postman är ett verktyg som du kan använda för att bygga och testa förfrågningar med hjälp av Microsoft Graph API: er. Du kan hämta Postman på: `https://www.getpostman.com/`. Om du vill interagera med Microsoft Graph i Postman använder du samlingen Microsoft Graph i Postman. Mer information finns i [använda Postman med Microsoft Graph-API: et](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+Postman är ett verktyg som du kan använda för att bygga och testa förfrågningar med hjälp av Microsoft Graph API: er. Du kan hämta Postman på: `https://www.getpostman.com/` . Om du vill interagera med Microsoft Graph i Postman använder du samlingen Microsoft Graph i Postman. Mer information finns i [använda Postman med Microsoft Graph-API: et](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

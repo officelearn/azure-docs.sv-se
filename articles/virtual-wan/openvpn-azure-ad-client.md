@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/27/2020
+ms.date: 06/26/2020
 ms.author: alzam
-ms.openlocfilehash: b717e4f5f91e22ea3aef818e15be1c93ca06b4f4
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: bf507ff75d88ac4c549233e50a44ea60ab212886
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84750465"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482997"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokollanslutningar: Azure AD-autentisering
 
@@ -154,7 +154,7 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
     ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
 
@@ -206,6 +206,26 @@ Du kan ändra den nedladdade profil-XML- ** \<includeroutes> \<route> \<destinat
     <includeroutes>
         <route>
             <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+    </includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+### <a name="how-do-i-direct-all-traffic-to-the-vpn-tunnel-force-tunnel"></a>Hur gör jag för att dirigera all trafik till VPN-tunneln (tvinga tunnel)?
+
+Du kan ändra den nedladdade profil-XML- ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** filen och lägga till taggarna
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <includeroutes>
+        <route>
+            <destination>0.0.0.0</destination><mask>1</mask>
+        </route>
+        <route>
+            <destination>128.0.0.0</destination><mask>1</mask>
         </route>
     </includeroutes>
     

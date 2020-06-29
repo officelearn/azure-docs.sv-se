@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cf385ef9af152308bcd96f25df49aebddd25b059
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1478ee1396390e26d333230b0254578ec748ef6c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691063"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477268"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Hantera ITP i Safari och andra webbläsare där cookies från tredje part blockeras
 
@@ -36,7 +36,7 @@ Den lösning som beskrivs i den här artikeln fungerar i alla dessa webbläsare,
 
 ## <a name="overview-of-the-solution"></a>Översikt över lösningen
 
-För att fortsätta autentisera användare i SPAs måste Apps-utvecklare använda [Authorization Code Flow](v2-oauth2-auth-code-flow.md). I auth Code Flow utfärdar identitets leverantören en kod och SPA-filen löser in koden för en åtkomsttoken och en uppdateringstoken. När appen kräver ytterligare tokens kan den använda [token för uppdateringstoken](v2-oauth2-auth-code-flow.md#refresh-the-access-token) för att hämta nya tokens. MSAL. js 2,0, Microsoft Identity Platform-biblioteket för SPAs, implementerar auktoriseringskod-flödet för SPAs och, med mindre uppdateringar, en direkt ersättning för MSAL. js 1. x.
+För att fortsätta autentisera användare i SPAs måste Apps-utvecklare använda [Authorization Code Flow](v2-oauth2-auth-code-flow.md). I auth Code Flow utfärdar identitets leverantören en kod och SPA-filen löser in koden för en åtkomsttoken och en uppdateringstoken. När appen kräver ytterligare tokens kan den använda [token för uppdateringstoken](v2-oauth2-auth-code-flow.md#refresh-the-access-token) för att hämta nya tokens. MSAL.js 2,0, Microsoft Identity Platform-biblioteket för SPAs, implementerar auktoriseringskod-flödet för SPAs och, med mindre uppdateringar, en direkt ersättning för MSAL.js 1. x.
 
 För Microsoft Identity Platform, SPAs och interna klienter följer liknande protokoll vägledning:
 
@@ -63,7 +63,7 @@ Det finns två sätt att utföra inloggning:
     * Överväg att använda en för inläsning i appen som söker efter en inloggningssession och omdirigeras till inloggnings sidan innan appen helt packar upp och kör Java Script-nyttolasten.
 * **Popup**
     * Om användar upplevelsen av en hel sida som omdirigeras inte fungerar för programmet kan du överväga att använda ett popup-fönster för att hantera autentisering.
-    * När popup-fönstret avslutar omdirigeringen till programmet efter autentisering, kommer kod i omdirigeraren att lagra koden och tokens i lokal lagring för det program som ska användas. MSAL. js stöder popup-fönster för autentisering, som de flesta bibliotek.
+    * När popup-fönstret avslutar omdirigeringen till programmet efter autentisering, kommer kod i omdirigeraren att lagra koden och tokens i lokal lagring för det program som ska användas. MSAL.js stöder popup-fönster för autentisering, som de flesta bibliotek.
     * Webbläsare minskar stödet för popup-fönster, så de kanske inte är det mest pålitliga alternativet. Användar interaktion med SPA innan du skapar popup-fönstret kan behövas för att uppfylla webb läsar kraven.
 
 >[!NOTE]
@@ -83,4 +83,4 @@ Detta mönster för spårningstoken för begränsad livs längd valdes som balan
 
 Läs mer om [flödet för auktoriseringskod](v2-oauth2-auth-code-flow.md).
 
-Testa koden för auktoriseringskod med snabb starten för [MSAL. js 2,0](quickstart-v2-javascript-auth-code.md).
+Testa koden för auktoriseringskod med snabb starten för [MSAL.js 2,0](quickstart-v2-javascript-auth-code.md).

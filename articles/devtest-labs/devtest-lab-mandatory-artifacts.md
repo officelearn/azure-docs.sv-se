@@ -1,24 +1,14 @@
 ---
 title: Ange obligatoriska artefakter för din Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du anger obligatoriska artefakter som måste installeras innan du installerar eventuella användarspecifika artefakter på virtuella datorer (VM) i labbet.
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: spelluru
-ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897560"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480311"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Ange obligatoriska artefakter för ditt labb i Azure DevTest Labs
 Som ägare till ett labb kan du ange obligatoriska artefakter som tillämpas på alla datorer som skapas i labbet. Tänk dig ett scenario där du vill att varje dator i labbet ska vara ansluten till företagets nätverk. I det här fallet skulle varje labb användare behöva lägga till en domän kopplings artefakt när den virtuella datorn skapas för att kontrol lera att datorn är ansluten till företags domänen. Med andra ord måste labb användare i princip skapa en ny dator om de glömmer att tillämpa obligatoriska artefakter på datorn. Som labb ägare gör du domän kopplings artefakten som en obligatorisk artefakt i labbet. Det här steget ser till att varje dator är ansluten till företags nätverket och sparar tid och ansträngning för dina labb användare.

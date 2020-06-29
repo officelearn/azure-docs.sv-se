@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6141440cdb5b232145417c6051cb340e806f9352
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: b98a5a25ed0aa97a8fa187a9bb1a8075f550d7ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338011"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482402"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -187,16 +187,16 @@ Import-Module .\HybridRegistration.psd1
 Kör nu `Add-HybridRunbookWorker` cmdleten med hjälp av följande syntax.
 
 ```powershell-interactive
-Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
+Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 ```
 
-Du kan hämta den information som krävs för parametrarna `EndPoint` och `Token` från sidan **nycklar** i ditt Automation-konto. Välj **nycklar** under avsnittet **konto inställningar** på sidans vänstra sida.
+Du kan hämta den information som krävs för parametrarna `Url` och `Key` från sidan **nycklar** i ditt Automation-konto. Välj **nycklar** under avsnittet **konto inställningar** på sidans vänstra sida.
 
 ![Sidan hantera nycklar](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* `EndPoint`Kopiera värdet för **URL**för parametern.
+* `Url`Kopiera värdet för **URL**för parametern.
 
-* För `Token` parametern kopierar du värdet för **primär åtkomst nyckel**.
+* För `Key` parametern kopierar du värdet för **primär åtkomst nyckel**.
 
 * För `GroupName` parametern använder du namnet på Hybrid Runbook Workers gruppen. Om den här gruppen redan finns i Automation-kontot, läggs den aktuella datorn till i den. Om den här gruppen inte finns läggs den till.
 
@@ -219,7 +219,7 @@ Moduler som är installerade måste finnas på en plats som refereras av `PSModu
 3. Öppna en PowerShell-session i administratörs läge och kör följande kommando med URL: en och primär åtkomst nyckel värden. Använd `Verbose` parametern för en detaljerad logg över borttagnings processen. Om du vill ta bort inaktuella datorer från Hybrid Worker gruppen använder du den valfria `machineName` parametern.
 
 ```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <primaryAccessKey> -machineName <computerName>
+Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 
 ## <a name="remove-a-hybrid-worker-group"></a>Ta bort en Hybrid Worker-grupp

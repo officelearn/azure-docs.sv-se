@@ -1,22 +1,14 @@
 ---
 title: Använda Azure Managed Identities för att skapa miljöer i DevTest Labs | Microsoft Docs
 description: Lär dig hur du använder hanterade identiteter i Azure för att distribuera miljöer i ett labb i Azure DevTest Labs.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: spelluru
-ms.openlocfilehash: a4ba4206c01e492f2ae980c5806de1e72c7051c3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 4d4df9cab17289eba21caf9d7c88eb37626b3349
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895313"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478883"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Använd Azure Managed Identities för att distribuera miljöer i ett labb 
 Som labb ägare kan du använda en hanterad identitet för att distribuera miljöer i ett labb. Den här funktionen är användbar i scenarier där miljön innehåller eller har referenser till Azure-resurser, till exempel nyckel valv, delade avbildnings gallerier och nätverk som är externa i miljöns resurs grupp. Det gör det möjligt att skapa sand Box miljöer som inte är begränsade till resurs gruppen för den miljön.

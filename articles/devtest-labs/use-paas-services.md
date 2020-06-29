@@ -1,23 +1,14 @@
 ---
 title: Använd PaaS-tjänster (Platform-as-a-Service) i Azure DevTest Labs
 description: Lär dig hur du använder tjänster som plattform som en tjänst (pass) i Azure DevTest Labs.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 88bbf921fedae4bcdba2b6386ce6e08105206cd2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895299"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478747"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Använd PaaS-tjänster (Platform-as-a-Service) i Azure DevTest Labs
 PaaS stöds i DevTest Labs via miljö funktionen. Miljöer i DevTest Labs stöds av förkonfigurerade Azure Resource Manager mallar i en git-lagringsplats. Miljöer kan innehålla både PaaS-och IaaS-resurser. De gör att du kan skapa komplexa system som kan omfatta Azure-resurser, till exempel virtuella datorer, databaser, virtuella nätverk och webbappar, som är anpassade för att fungera tillsammans. Dessa mallar ger konsekvent distribution och förbättrad hantering av miljöer med käll kods kontroll. 

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 18e1ab1d01394d585cfb06ced8c5fbac04114177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431961"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476775"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -28,7 +28,7 @@ Mer allmän information om Azure Key Vault finns i [Vad är Key Vault](overview.
 
 ## <a name="public-previews"></a>Offentliga för hands versionerna
 
-Med jämna mellanrum släpper vi en offentlig för hands version av en ny Key Vault funktion. Prova dessa och berätta för oss vad du tycker via azurekeyvault@microsoft.com, vår e-postadress för feedback.
+Med jämna mellanrum släpper vi en offentlig för hands version av en ny Key Vault funktion. Prova dessa och berätta för oss vad du tycker via azurekeyvault@microsoft.com , vår e-postadress för feedback.
 
 ## <a name="creating-and-managing-key-vaults"></a>Skapa och hantera nyckel valv
 
@@ -43,7 +43,7 @@ Innan du börjar arbeta med nycklar, hemligheter eller certifikat i ditt nyckel 
 - [Skapa och hantera nyckel valv med Azure-porten](../secrets/quick-create-portal.md)
 - [Skapa och hantera nyckel valv med python](../secrets/quick-create-python.md)
 - [Skapa och hantera nyckel valv med Java](../secrets/quick-create-java.md)
-- [Skapa och hantera nyckel valv med Node. js](../secrets/quick-create-node.md)
+- [Skapa och hantera nyckel valv med Node.js](../secrets/quick-create-node.md)
 - [Skapa och hantera nyckel valv med .NET (v4 SDK)](../secrets/quick-create-net.md)
 - [Skapa ett nyckel valv och Lägg till en hemlighet via en Azure Resource Manager mall](../secrets/quick-create-template.md)
 - [Skapa och hantera nyckel valv med REST](/rest/api/keyvault/)
@@ -73,9 +73,9 @@ Mer information om 2. x-versionen av .NET SDK finns i [viktig](dotnet2api-releas
 
 #### <a name="nodejs"></a>Node.js
 
-I Node. js är API för Key Vault hantering och Key Vault objekt-API separata. I följande översikts artikel får du till gång till båda. 
+I Node.js separeras API för Key Vault hantering och Key Vault objekt-API. I följande översikts artikel får du till gång till båda. 
 
-[Azure Key Vault moduler för Node. js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Azure Key Vault moduler för Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
@@ -106,7 +106,6 @@ Följande artiklar och scenarier innehåller en detaljerad vägledning för att 
 - [Så här skickar du säkra värden (t. ex. lösen ord) under distributionen](../../azure-resource-manager/templates/key-vault-parameter.md) – när du behöver skicka ett säkert värde (till exempel ett lösen ord) som en parameter under distributionen kan du lagra värdet som en hemlighet i en Azure Key Vault och referera till värdet i andra Resource Manager-mallar.
 - [Använda Key Vault för utöknings bar nyckel hantering med SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) -SQL Server-anslutning för Azure Key Vault aktiverar SQL Server och SQL-in-a-VM för att utnyttja Azure Key Vault-tjänsten som en EKM-Provider (Extensible Key Management) för att skydda dess krypterings nycklar för program länken. Transparent datakryptering, kryptering av säkerhets kopior och kryptering på kolumn nivå.
 - [Hur du distribuerar certifikat till virtuella datorer från Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) – ett moln program som körs på en virtuell dator i Azure behöver ett certifikat. Hur får du det här certifikatet till den virtuella datorn idag?
-- [Så här konfigurerar du Key Vault med slut punkt till slut punkt för nyckel rotation och granskning](../secrets/key-rotation-log-monitoring.md) – det här hjälper dig att konfigurera nyckel rotation och granskning med Azure Key Vault.
 - [Distribuera Azure Web App-certifikat via Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) innehåller steg-för-steg-instruktioner för distribution av certifikat som lagras i Key Vault som en del av [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) erbjudandet.
 - [Bevilja behörighet till många program för att komma åt ett nyckel valv](group-permissions-for-apps.md) Key Vault åtkomst kontroll principen stöder upp till 1024 poster. Du kan dock skapa en Azure Active Directory säkerhets grupp. Lägg till alla associerade tjänst huvud namn i säkerhets gruppen och ge sedan åtkomst till den här säkerhets gruppen till Key Vault.
 - Mer detaljerad information om hur du integrerar och använder nyckel valv med Azure finns i [Ryan Jones "Azure Resource Manager Template exempel for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

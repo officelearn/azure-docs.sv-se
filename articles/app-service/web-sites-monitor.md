@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738107"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482691"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobil-och API-appar i [Azure Portal](https://portal.azure.com).
@@ -31,7 +31,7 @@ Om appen finns i en *Basic*-, *standard*-eller *Premium* -plan anges gränserna 
 
 Kvoter för kostnads fria eller delade appar är:
 
-| Kvot | Beskrivning |
+| Kvot | Description |
 | --- | --- |
 | **PROCESSOR (kort)** | Mängden CPU som tillåts för den här appen i ett intervall om 5 minuter. Den här kvoten återställs var femte minut. |
 | **PROCESSOR (dag)** | Den totala mängden processor som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
@@ -58,7 +58,7 @@ Du kan öka eller ta bort kvoter från din app genom att uppgradera din App Serv
 ## <a name="understand-metrics"></a>Förstå mått
 
 > [!NOTE]
-> **Användning av fil system** är ett nytt mått som distribueras globalt, inga data förväntas om du inte har varit vit listas för privat för hands version.
+> **Användning av fil system** är ett nytt mått som distribueras globalt, inga data förväntas såvida du inte har beviljats åtkomst för privat för hands version.
 > 
 
 > [!IMPORTANT]
@@ -68,12 +68,12 @@ Mått ger information om appen eller App Service plan beteendet.
 
 För en app är tillgängliga mått:
 
-| Mått | Beskrivning |
+| Metric | Beskrivning |
 | --- | --- |
 | **Svars tid** | Den tid det tar för appen att betjäna begär Anden, i sekunder. |
 | **Genomsnittlig svars tid (inaktuell)** | Genomsnittlig tid det tar för appen att betjäna begär Anden, i sekunder. |
 | **Genomsnittlig arbets mängd för minne** | Den genomsnittliga mängden minne som används av appen, i megabyte (MiB). |
-| **Anslutningar** | Antalet kopplade socketar som är befintliga i sandbox (W3wp. exe och dess underordnade processer).  En bunden socket skapas genom att anropa BIND ()/Connect ()-API: er och förblir kvar tills socketen stängs med CloseHandle ()/Closesocket (). |
+| **Anslutningar** | Antalet kopplade socketar som är befintliga i sandbox (w3wp.exe och dess underordnade processer).  En bunden socket skapas genom att anropa BIND ()/Connect ()-API: er och förblir kvar tills socketen stängs med CloseHandle ()/Closesocket (). |
 | **CPU-tid** | Mängden CPU som används av appen, i sekunder. Mer information om det här måttet finns i [CPU-tid jämfört med processor procent](#cpu-time-vs-cpu-percentage). |
 | **Aktuella sammansättningar** | Det aktuella antalet sammansättningar som har lästs in i alla AppDomains i det här programmet. |
 | **Data i** | Mängden inkommande bandbredd som används av appen, i MiB. |
@@ -112,7 +112,7 @@ För en App Service plan är tillgängliga mått:
 > App Service plan mått är bara tillgängliga för planer på nivåerna *Basic*, *standard*och *Premium* .
 > 
 
-| Mått | Beskrivning |
+| Metric | Beskrivning |
 | --- | --- |
 | **CPU-procent** | Den genomsnittliga CPU som används för alla instanser av planen. |
 | **Minnes procent** | Genomsnittligt minne som används för alla instanser av planen. |
@@ -138,13 +138,13 @@ Om du vill granska statusen för de olika kvoter och mått som påverkar en app 
 
 ![Kvot diagram i Azure Portal][quotas]
 
-Välj **inställnings** > **kvoter**för att hitta kvoter. I diagrammet kan du granska: 
+Välj **inställnings**kvoter för att hitta kvoter  >  **Quotas**. I diagrammet kan du granska: 
 1. Kvotens namn.
 1. Dess återställnings intervall.
 1. Den aktuella gränsen.
 1. Det aktuella värdet.
 
-![Mått diagram i Azure Portal][metrics] du kan komma åt mått direkt från resurs **översikts** sidan. Här ser du diagram som visar några av måtten för appar.
+![Mått diagram i Azure Portal ][metrics] du kan komma åt mått direkt från resurs **översikts** sidan. Här ser du diagram som visar några av måtten för appar.
 
 Om du klickar på någon av dessa diagram tas du till vyn mått där du kan skapa anpassade diagram, fråga olika mått och mycket mer. 
 

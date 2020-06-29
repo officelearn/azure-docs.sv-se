@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: a8b1c53a5c060f2124a36b69365bdd9b62896b56
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220962"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478492"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skripttillägg för Windows
 
@@ -23,7 +23,7 @@ Det anpassade skript tillägget laddar ned och kör skript på virtuella Azure-d
 
 Det här dokumentet beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!NOTE]  
 > Använd inte anpassat skript tillägg för att köra Update-AzVM med samma virtuella dator som parametern, eftersom det väntar på sig själv.  
@@ -66,6 +66,7 @@ Om ditt skript finns på en lokal server kanske du fortfarande behöver fler bra
 * Anpassat skript tillägg stöder inte proxyservrar, men du kan använda ett fil överförings verktyg som stöder proxyservrar i skriptet, till exempel *vändning*
 * Om dina skript eller kommandon använder andra katalogplatser än standardplatserna krävs logik som kan hantera den situationen.
 * Anpassat skript tillägg körs under kontot LocalSystem
+* Om du planerar att använda egenskaperna *storageAccountName* och *storageAccountKey* måste dessa egenskaper vara samordnad i *protectedSettings*.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -128,7 +129,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 | typeHandlerVersion | 1,10 | int |
 | fileUris (t. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matris |
 | tidsstämpel (t. ex.) | 123456789 | 32-bitars heltal |
-| commandToExecute (t. ex.) | PowerShell-ExecutionPolicy unrestricted-File Configure-Music-app. ps1 | sträng |
+| commandToExecute (t. ex.) | PowerShell – ExecutionPolicy obegränsade-File configure-music-app.ps1 | sträng |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
 | storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | sträng |
 | managedIdentity (t. ex.) | {} eller {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} eller {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | JSON-objekt |
@@ -342,7 +343,7 @@ där `<n>` är ett decimal tal som kan ändras mellan körningar av tillägget. 
 
 När `commandToExecute` kommandot körs anger tillägget den här katalogen (till exempel `...\Downloads\2` ) som den aktuella arbets katalogen. Den här processen gör det möjligt att använda relativa sökvägar för att hitta filerna som hämtats via `fileURIs` egenskapen. Se tabellen nedan för exempel.
 
-Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Ett exempel:
+Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Till exempel:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

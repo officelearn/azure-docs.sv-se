@@ -1,25 +1,14 @@
 ---
 title: Azure DevTest Labs vanliga frågor och svar | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: c5e5437db480646275a8bbe34e1a64c005a32a16
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895558"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481671"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.

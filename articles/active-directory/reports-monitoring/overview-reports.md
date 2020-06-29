@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b655fa2f12eac894e97c61cc931983aa58fff7a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74007933"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481399"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Vad är rapporter i Azure Active Directory?
 
@@ -81,7 +81,7 @@ Aktivitetsrapporter hjälper dig att förstå beteendet för användare i din or
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Vilken Azure AD-licens behöver du för att komma åt granskningsloggar?  
 
-Granskningsloggarna är tillgängliga för funktioner som du har licenser för. Om du har en licens för en specifik funktion har du också åtkomst till dess granskningslogg. Mer information finns i avsnittet om [Azure Active Directory-funktioner](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+Granskningsloggarna är tillgängliga för funktioner som du har licenser för. Om du har en licens för en specifik funktion har du också åtkomst till dess granskningslogg. En jämförelse av deatiled-funktioner som per [olika typer av licenser](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses) kan ses på [sidan Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/). Mer information finns i avsnittet om [Azure Active Directory-funktioner](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Rapport över inloggningar
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ff4781109b2572d5555ec0a03c65359ef5a89d8d
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834959"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482521"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Bästa metoder för utveckling för Synapse SQL
 I den här artikeln beskrivs vägledning och bästa praxis när du utvecklar din lösning för data lager. 
@@ -106,7 +106,7 @@ Eftersom ett columnstore-segment av hög kvalitet är viktigt är det en bra id�
 Eftersom columnstore-tabeller vanligt vis inte skickar data till ett komprimerat columnstore-segment förrän det finns fler än 1 000 000 rader per tabell, och varje SQL-adresspool är partitionerad i 60-tabeller, kommer columnstore-tabeller inte att dra nytta av en fråga om tabellen har fler än 60 000 000 rader.  
 
 > [!TIP]
-> För tabeller med färre än 60 000 000 rader är det inte säkert att ett columstore-index är den optimala lösningen.  
+> För tabeller med färre än 60 000 000 rader är det inte säkert att ett columnstore-index är den optimala lösningen.  
 
 Om du partitionerar data bör du dessutom tänka på att varje partition måste innehålla 1 miljon rader för att kunna dra nytta av ett grupperat columnstore-index.  Om en tabell har 100 partitioner måste den ha minst 6 000 000 000 rader för att kunna dra nytta av ett lager för grupperade kolumner (60-distributioner *100 partitioner* 1 000 000 rader).  
 
@@ -150,7 +150,7 @@ Om möjligt kan du förbereda filer för bättre prestanda:
 
 Data är ofta ordnade i partitioner. Du kan instruera SQL på begäran att fråga specifika mappar och filer. Detta minskar antalet filer och mängden data som frågan behöver läsa och bearbeta. 
 
-Därför kommer du att få bättre prestanda. Mer information finns i funktioner för [fil namn](develop-storage-files-overview.md#filename-function) och fil [Sök väg](develop-storage-files-overview.md#filepath-function) och exempel på hur du [frågar efter vissa filer](query-specific-files.md).
+Därför kommer du att få bättre prestanda. Mer information finns i funktioner för [fil namn](query-data-storage.md#filename-function) och fil [Sök väg](query-data-storage.md#filepath-function) och exempel på hur du [frågar efter vissa filer](query-specific-files.md).
 
 Om dina data i lagringen inte är partitionerade bör du överväga att partitionera dem så att du kan använda dessa funktioner för att optimera frågor som riktar sig mot dessa filer.
 

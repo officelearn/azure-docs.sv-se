@@ -1,24 +1,15 @@
 ---
 title: Populära scenarier för att använda Azure DevTest Labs
 description: Den här artikeln innehåller de vanligaste scenarierna för att använda Azure DevTest Labs och två allmänna sökvägar för att börja använda tjänsten i din organisation.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: spelluru
+ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 1adb9b009a250942bab7e9b0e3b4b3e52840341c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896062"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481603"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Populära scenarier för att använda Azure DevTest Labs
 DevTest Labs kan konfigureras för att uppfylla olika krav, beroende på företagets behov.  I den här artikeln beskrivs de populära scenarierna. Varje scenario täcker fördelarna med DevTest Labs och resurser som används för att implementera dessa scenarier.  

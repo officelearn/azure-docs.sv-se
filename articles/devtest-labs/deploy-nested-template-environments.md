@@ -1,23 +1,14 @@
 ---
 title: Distribuera miljöer med kapslade mallar i Azure DevTest Labs
 description: Lär dig hur du distribuerar kapslade Azure Resource Manager mallar för att tillhandahålla miljöer med Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 39002e286fafd4f813333a14ed86256a517897e9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897035"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481348"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Distribuera kapslade Azure Resource Manager mallar för test miljöer
 Med en kapslad distribution kan du köra andra Azure Resource Manager mallar inifrån en huvud resurs hanterings mall. Det gör att du kan dela upp distributionen i en uppsättning riktade och språkspecifika mallar. Det ger fördelar avseende testning, åter användning och läsbarhet. Artikeln [med länkade mallar när du distribuerar Azure-resurser](../azure-resource-manager/templates/linked-templates.md) ger en bättre översikt över den här lösningen med flera kod exempel. Den här artikeln innehåller ett exempel som är speciellt för Azure DevTest Labs. 

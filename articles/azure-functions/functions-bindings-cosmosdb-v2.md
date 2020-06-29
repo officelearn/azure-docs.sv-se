@@ -1,35 +1,35 @@
 ---
-title: Azure Cosmos DB bindningar för funktioner 2. x
+title: Azure Cosmos DB bindningar för functions 2. xD och högre
 description: Förstå hur du använder Azure Cosmos DB utlösare och bindningar i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
-ms.openlocfilehash: f258a7aff52796a53540706bc8413575d63c9e7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77605770"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482181"
 ---
-# <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-overview"></a>Azure Cosmos DB utlösare och bindningar för Azure Functions 2. x-översikt
+# <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Cosmos DB utlösare och bindningar för Azure Functions 2. x och högre översikt
 
 > [!div class="op_single_selector" title1="Välj den version av Azure Functions runtime som du använder: "]
 > * [Version 1](functions-bindings-cosmosdb.md)
-> * [Version 2](functions-bindings-cosmosdb-v2.md)
+> * [Version 2 och högre](functions-bindings-cosmosdb-v2.md)
 
-I den här uppsättningen artiklar förklaras hur du arbetar med [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) -bindningar i Azure Functions 2. x. Azure Functions stöd för utlösare, indata och utgående bindningar för Azure Cosmos DB.
+I den här uppsättningen artiklar förklaras hur du arbetar med [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) -bindningar i Azure Functions 2. x och högre. Azure Functions stöd för utlösare, indata och utgående bindningar för Azure Cosmos DB.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Köra en funktion när ett Azure Cosmos DB-dokument skapas eller ändras | [Utlösare](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Läsa ett Azure Cosmos DB dokument | [Binda in](./functions-bindings-cosmosdb-v2-input.md) |
 | Spara ändringar i ett Azure Cosmos DB dokument  |[Utgående bindning](./functions-bindings-cosmosdb-v2-output.md) |
 
 > [!NOTE]
-> Den här referensen gäller för [Azure Functions version 2. x](functions-versions.md).  Information om hur du använder dessa bindningar i functions 1. x finns [Azure Cosmos DB bindningar för Azure Functions 1. x](functions-bindings-cosmosdb.md).
+> Den här referensen gäller för [Azure Functions version 2. x och högre](functions-versions.md).  Information om hur du använder dessa bindningar i functions 1. x finns [Azure Cosmos DB bindningar för Azure Functions 1. x](functions-bindings-cosmosdb.md).
 >
-> Den här bindningen hade ursprungligen namnet DocumentDB. I functions version 2. x är utlösaren, bindningarna och paketet alla namngivna Cosmos DB.
+> Den här bindningen hade ursprungligen namnet DocumentDB. I functions version 2. x och högre är utlösaren, bindningarna och paketet alla namngivna Cosmos DB.
 
 ## <a name="supported-apis"></a>API: er som stöds
 
@@ -41,7 +41,7 @@ I den här uppsättningen artiklar förklaras hur du arbetar med [Azure Cosmos D
 
 Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
-| Språk                                        | Lägg till efter...                                   | Anmärkningar 
+| Språk                                        | Lägg till efter...                                   | Kommentarer 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installera [NuGet-paketet], version 3. x | |
 | C#-skript, Java, Java Script, python, PowerShell | [Tilläggs paketet] registreras          | [Tillägget Azure-verktyg] rekommenderas för användning med Visual Studio Code. |

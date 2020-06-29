@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 911fa7d509e756f482b2deefad11e35f9cb5ec01
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117955"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483320"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,6 +23,9 @@ ms.locfileid: "85117955"
 Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som används av Azure Machine Learning. Azure Machine Learning kan använda lagrings konton för att lagra data eller utbildade modeller.
 
 Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure Storage-konto. När du återskapar åtkomst nyckeln måste Azure Machine Learning uppdateras för att använda den nya nyckeln. Azure Machine Learning kan använda lagrings kontot för både modell lagring och som ett data lager.
+
+> [!IMPORTANT]
+> Autentiseringsuppgifterna som registreras med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) aktiverat för din Key Vault, se till att följa den här artikeln för att uppdatera autentiseringsuppgifter. Det går inte att avregistrera data lagret och omregistrera det med samma namn.
 
 ## <a name="prerequisites"></a>Krav
 

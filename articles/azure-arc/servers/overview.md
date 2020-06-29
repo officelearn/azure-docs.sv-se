@@ -9,14 +9,14 @@ ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
 ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: c9e69e221dc21baae96ab814cb9fb0b65ce98126
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: e775945526a5453085946ed4eea2a2e19761ba78
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449489"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482198"
 ---
-# <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure-båge för servrar (förhands granskning)
+# <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure Arc för servrar (för hands version)?
 
 Med Azure Arc för servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure på företagets nätverk eller annan moln leverantör, på samma sätt som du hanterar virtuella datorer i Azure. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar.
 

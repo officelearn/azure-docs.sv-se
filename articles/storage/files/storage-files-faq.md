@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 2111ccd65a2944ec5f5ea0526e6e7f577261b213
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906827"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482878"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -155,11 +155,11 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-  **Kan jag flytta synkroniseringstjänsten för lagring och/eller lagrings konto till en annan resurs grupp eller prenumeration?**  
-   Ja, tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp eller prenumeration i den befintliga Azure AD-klienten. Om lagrings kontot har flyttats måste du ge hybrid File Sync tjänst åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+  **Kan jag flytta synkroniseringstjänsten för lagring och/eller lagrings konto till en annan resurs grupp, prenumeration eller Azure AD-klient?**  
+   Ja, tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp, prenumeration eller Azure AD-klient. När lagrings tjänsten för synkronisering eller lagrings kontot har flyttats måste du ge Microsoft. StorageSync-programmet åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
-    > Azure File Sync har inte stöd för att flytta prenumerationen till en annan Azure AD-klient.
+    > När du skapar moln slut punkten måste Storage Sync-tjänsten och lagrings kontot finnas i samma Azure AD-klient. När moln slut punkten har skapats kan tjänsten Storage Sync och lagrings kontot flyttas till olika Azure AD-klienter.
     
 * <a id="afs-ntfs-acls"></a>
   **Ska Azure File Sync bevara NTFS-ACL: er för katalog-/fil nivå tillsammans med data som lagras i Azure Files?**

@@ -12,15 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: 62e67d4965444df0e731b4387808ed3b89e4673a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72597199"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483473"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Felsöka fel i resursprovidern för Azure NetApp Files 
 
@@ -35,7 +35,7 @@ Felet uppstår när du försöker uppdatera eller korrigera en volym och `Bareme
 * Orsak:   
 Du försöker uppdatera en volym och `BaremetalTenantId` egenskapen har ett annat värde än värdet som lagras i Azure.
 * Lösning:   
-Ta `BaremetalTenantId` inte med i begäran om korrigering och uppdatering (begäran). Du kan också se `BaremetalTenantId` till att är detsamma i begäran.
+Ta inte med `BaremetalTenantId` i begäran om korrigering och uppdatering (begäran). Du kan också se till att `BaremetalTenantId` är detsamma i begäran.
 
 ***ServiceLevel kan inte ändras.***  
 
@@ -50,32 +50,32 @@ Skapa en annan pool för kapacitet och skapa sedan volymerna igen i den nya kapa
 
 ***PoolId kan inte ändras***  
 
-Det här felet uppstår när du försöker uppdatera eller korrigera en kapacitets uppsättning med en `PoolId` ändrad egenskap.
+Det här felet uppstår när du försöker uppdatera eller korrigera en kapacitets uppsättning med en ändrad `PoolId` egenskap.
 
 * Orsak:   
-Du försöker uppdatera en egenskap för kapacitets `PoolId` gruppen. `PoolId` Egenskapen är en skrivskyddad egenskap och kan inte ändras.
+Du försöker uppdatera en egenskap för kapacitets gruppen `PoolId` . `PoolId`Egenskapen är en skrivskyddad egenskap och kan inte ändras.
 * Lösning:   
-Ta `PoolId` inte med i begäran om korrigering och uppdatering (begäran).  Du kan också se `PoolId` till att är detsamma i begäran.
+Ta inte med `PoolId` i begäran om korrigering och uppdatering (begäran).  Du kan också se till att `PoolId` är detsamma i begäran.
 
 ***CreationToken kan inte ändras.***
 
-Felet uppstår när du försöker ändra sökvägen till filen (`CreationToken`) när volymen har skapats. Fil Sök väg`CreationToken`() måste anges när volymen skapas och kan inte ändras senare.
+Felet uppstår när du försöker ändra sökvägen till filen ( `CreationToken` ) när volymen har skapats. Fil Sök väg ( `CreationToken` ) måste anges när volymen skapas och kan inte ändras senare.
 
 * Orsak:   
-Du försöker ändra sökvägen till filen (`CreationToken`) när volymen har skapats, vilket inte är en åtgärd som stöds. 
+Du försöker ändra sökvägen till filen ( `CreationToken` ) när volymen har skapats, vilket inte är en åtgärd som stöds. 
 * Lösning:   
 Om du inte behöver ändra sökvägen till filen kan du ta bort parametern från begäran för att ignorera fel meddelandet.
 * Lösning:   
-Om du behöver ändra sökvägen till filen (`CreationToken`) kan du skapa en ny volym med en ny fil Sök väg och sedan migrera data till den nya volymen.
+Om du behöver ändra sökvägen till filen ( `CreationToken` ) kan du skapa en ny volym med en ny fil Sök väg och sedan migrera data till den nya volymen.
 
 ***CreationToken måste vara minst 16 tecken långt.***
 
-Felet uppstår när fil Sök vägen (`CreationToken`) inte uppfyller längd kraven. Fil Sök vägens längd måste vara minst ett tecken långt.
+Felet uppstår när fil Sök vägen ( `CreationToken` ) inte uppfyller längd kraven. Fil Sök vägens längd måste vara minst ett tecken långt.
 
 * Orsak:   
 Fil Sök vägen är tom.  När du skapar en volym med hjälp av API: et krävs en token för skapande. Om du använder Azure Portal genereras fil Sök vägen automatiskt.
 * Lösning:   
-Ange minst ett Character som fil Sök väg (`CreationToken`).
+Ange minst ett Character som fil Sök väg ( `CreationToken` ).
 
 ***Det går inte att ändra domän namnet.***
 
@@ -101,7 +101,7 @@ Använd ett annat index för regeln som du försöker ange.
 
 ***Fel {Action} {resourceTypeName}***
 
-Det här felet visas när andra fel hanteringen misslyckades med att hantera felet när en åtgärd utfördes på en resurs.   Den innehåller texten ' error '. `{action}` Kan vara vilken som helst av`getting`( `creating`, `updating`, eller `deleting`).  `{resourceTypeName}` Är `resourceTypeName` (till exempel `netAppAccount` `capacityPool` `volume`,,, och så vidare).
+Det här felet visas när andra fel hanteringen misslyckades med att hantera felet när en åtgärd utfördes på en resurs.   Den innehåller texten ' error '. `{action}`Kan vara vilken som helst av ( `getting` ,, `creating` `updating` eller `deleting` ).  `{resourceTypeName}`Är `resourceTypeName` (till exempel,,, `netAppAccount` `capacityPool` `volume` och så vidare).
 
 * Orsak:   
 Det här felet är ett ohanterat undantag där orsaken inte är känd.
@@ -123,21 +123,21 @@ Du kan ersätta ett under streck med ett bindestreck eller använda versaler i s
 
 ***FileSystemId kan inte ändras.***
 
-Felet uppstår när du försöker ändra `FileSystemId`.  Det `FileSystemdId` finns inte stöd för att ändra. 
+Felet uppstår när du försöker ändra `FileSystemId` .  Det `FileSystemdId` finns inte stöd för att ändra. 
 
 * Orsak:   
 ID: t för fil systemet anges när volymen skapas. `FileSystemId`kan inte ändras senare.
 * Lösning:   
-Ta `FileSystemId` inte med i en korrigerings-eller uppdaterings förfrågan.  Du kan också se `FileSystemId` till att är detsamma i begäran.
+Ta inte med `FileSystemId` i en korrigerings-eller uppdaterings förfrågan.  Du kan också se till att `FileSystemId` är detsamma i begäran.
 
 ***ActiveDirectory med ID: {String} finns inte.***
 
-`{string}` Delen är det värde som du angav i `ActiveDirectoryId` egenskapen för Active Directory anslutningen.
+`{string}`Delen är det värde som du angav i `ActiveDirectoryId` egenskapen för Active Directory anslutningen.
 
 * Orsak:   
 När du skapade ett konto med Active Directory-konfigurationen har du angett ett värde `ActiveDirectoryId` som ska vara tomt.
 * Lösning:   
-Ta `ActiveDirectoryId` inte med i Create (parkera)-begäran.
+Ta inte med `ActiveDirectoryId` i Create (parkera)-begäran.
 
 ***Ogiltig API-version.***
 
@@ -148,18 +148,18 @@ Värdet i Frågeparametern `api-version` innehåller ett ogiltigt värde.
 * Lösning:   
 Använd rätt värde för API-version.  Resurs leverantören har stöd för många API-versioner. Värdet är i formatet åååå-mm-dd.
 
-***Ett ogiltigt värde {Value} togs emot för {1}.***
+***Ett ogiltigt värde {Value} togs emot för {1} .***
 
-Det här meddelandet anger ett fel i fälten för `RuleIndex`, `AllowedClients` `UnixReadOnly` `UnixReadWrite` `Nfsv3`,,, och `Nfsv4`.
+Det här meddelandet anger ett fel i fälten för,,,, `RuleIndex` `AllowedClients` `UnixReadOnly` `UnixReadWrite` `Nfsv3` och `Nfsv4` .
 
 * Orsak:   
-Begäran om verifiering av begäran misslyckades för minst ett av följande `RuleIndex`fält:, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv`3 och. `Nfsv4`
+Begäran om verifiering av begäran misslyckades för minst ett av följande fält: `RuleIndex` ,,, `AllowedClients` `UnixReadOnly` `UnixReadWrite` , `Nfsv` 3 och `Nfsv4` .
 * Lösning:   
-Se till att ange alla parametrar som krävs och som inte är i konflikt på kommando raden. Du kan till exempel inte ange både parametrarna `UnixReadOnly` och `UnixReadWrite` samtidigt.
+Se till att ange alla parametrar som krävs och som inte är i konflikt på kommando raden. Du kan till exempel inte ange både `UnixReadOnly` parametrarna och `UnixReadWrite` samtidigt.
 * Lösning:   
 Se lösningen ovan.
 
-***IP- {0} intervall {1} till för {2} VLAN används redan***
+***IP-intervall {0} till {1} för VLAN {2} används redan***
 
 Felet beror på att de interna posterna i de använda IP-intervallen har en konflikt med den nyligen tilldelade IP-adressen.
 
@@ -185,7 +185,7 @@ Det här felet uppstår när en användare försöker uppdatera eller korrigera 
 * Orsak:   
 Du försöker uppdatera volym `MountTargets` egenskapen. Det finns inte stöd för att ändra den här egenskapen.
 * Lösning:   
-Ta `MountTargets` inte med i en korrigerings-eller uppdaterings förfrågan.  Du kan också se till `MountTargets` att är detsamma i begäran.
+Ta inte med `MountTargets` i en korrigerings-eller uppdaterings förfrågan.  Du kan också se till att `MountTargets` är detsamma i begäran.
 
 ***Namnet används redan.***
 
@@ -252,7 +252,7 @@ Problemet är troligt vis tillfälligt. Begäran ska lyckas efter en stund.
 * Lösning:   
 Inga. Det underliggande API: t är viktigt för att hantera volymer.
 
-***Det gick inte att hitta något resultat{0}-ID för åtgärden.***
+***Det gick inte att hitta något resultat-ID för åtgärden {0} .***
 
 Det här felet indikerar att det inte går att slutföra åtgärden på grund av ett internt fel.
 
@@ -310,9 +310,9 @@ Kontrol lera att åtgärden har angetts korrekt och att den är tillgänglig fö
 Det här felet uppstår när du försöker ändra egenskapen OwnerId för volymen. Det finns inte stöd för att ändra OwnerId. 
 
 * Orsak:   
-`OwnerId` Egenskapen anges när volymen skapas. Det går inte att ändra egenskapen senare.
+`OwnerId`Egenskapen anges när volymen skapas. Det går inte att ändra egenskapen senare.
 * Lösning:   
-Ta `OwnerId` inte med i en korrigerings-eller uppdaterings förfrågan. Du kan också se till `OwnerId` att är detsamma i begäran.
+Ta inte med `OwnerId` i en korrigerings-eller uppdaterings förfrågan. Du kan också se till att `OwnerId` är detsamma i begäran.
 
 ***Det gick inte att hitta den överordnade poolen***
 
@@ -355,21 +355,21 @@ Ange en giltig sträng i egenskapen location.
 
 ***Namnet på {resourceType} måste vara identiskt med namnet på resurs identifieraren.***
 
-Felet uppstår när du skapar en resurs och du fyller i egenskapen namn med ett annat värde än egenskapen namn för `resourceId`.
+Felet uppstår när du skapar en resurs och du fyller i egenskapen namn med ett annat värde än egenskapen namn för `resourceId` .
 
 * Orsak:   
 Ogiltigt värde i egenskapen name när du skapar en resurs.
 * Lösning:   
-Lämna egenskapen name tom eller Tillåt att den använder samma värde som egenskapen Name (mellan det sista omvänt snedstrecket/och frågetecknet "?") i `resourceId`.
+Lämna egenskapen name tom eller Tillåt att den använder samma värde som egenskapen Name (mellan det sista omvänt snedstrecket/och frågetecknet "?") i `resourceId` .
 
 ***Protokoll typen {Value} är inte känd***
 
 Felet uppstår när du skapar en volym med en okänd protokoll typ.  Giltiga värden är "NFSv3", "NFSv4" och "CIFS".
 
 * Orsak:   
-Du försöker ange ett ogiltigt värde i egenskapen Volume `protocolType` .
+Du försöker ange ett ogiltigt värde i `protocolType` egenskapen Volume.
 * Lösning:   
-Ange en giltig sträng i `protocolType`.
+Ange en giltig sträng i `protocolType` .
 * Lösning:   
 Ange `protocolType` som null.
 
@@ -378,7 +378,7 @@ Ange `protocolType` som null.
 Felet uppstår när du försöker uppdatera eller korrigera `ProtocolType` en volym.  Det finns inte stöd för att ändra ProtocolType.
 
 * Orsak:   
-`ProtocolType` Egenskapen anges när volymen skapas.  Det går inte att uppdatera.
+`ProtocolType`Egenskapen anges när volymen skapas.  Det går inte att uppdatera.
 * Lösning:   
 Inga.
 * Lösning:   
@@ -386,10 +386,10 @@ Skapa en annan volym med nya protokoll typer.
 
 ***Om du skapar resursen av typen {resourceType} överskrids kvoten för {quota} resurser av typen {resourceType} per {parentResourceType}. Det aktuella resurs antalet är {currentCount}. ta bort några resurser av den här typen innan du skapar en ny.***
 
-Det här felet uppstår när du försöker skapa en resurs`NetAppAccount`(, `CapacityPool` `Volume`, eller `Snapshot`), men kvoten har nått sin gräns.
+Det här felet uppstår när du försöker skapa en resurs ( `NetAppAccount` ,, `CapacityPool` `Volume` eller `Snapshot` ), men kvoten har nått sin gräns.
 
 * Orsak:   
-Du försöker skapa en resurs, men kvot gränsen nås (till exempel: `NetAppAccounts` per prenumeration eller `CapacityPools` per `NetAppAccount`).
+Du försöker skapa en resurs, men kvot gränsen nås (till exempel: `NetAppAccounts` per prenumeration eller `CapacityPools` per `NetAppAccount` ).
 * Lösning:   
 Öka kvot gränsen.
 * Lösning:   
@@ -444,29 +444,29 @@ Felet uppstår när du försöker ändra `subnetId` när volymen har skapats.  `
 * Orsak:   
 Du försöker ändra `subnetId` när volymen har skapats, vilket inte är en åtgärd som stöds. 
 * Lösning:   
-Om du inte `subnetId` behöver ändra det kan du ta bort parametern från begäran för att ignorera fel meddelandet.
+Om du `subnetId` inte behöver ändra det kan du ta bort parametern från begäran för att ignorera fel meddelandet.
 * Lösning:   
-Om du behöver ändra `subnetId`kan du skapa en ny volym med en ny `subnetId`och sedan migrera data till den nya volymen.
+Om du behöver ändra kan `subnetId` du skapa en ny volym med en ny `subnetId` och sedan migrera data till den nya volymen.
 
 ***SubnetId har ett ogiltigt format.***
 
-Felet uppstår när du försöker skapa en ny volym men inte `subnetId` är en `resourceId` för ett undernät.
+Felet uppstår när du försöker skapa en ny volym men `subnetId` inte är en `resourceId` för ett undernät.
 
 * Orsak:   
 Felet uppstår när du försöker skapa en ny volym, men `subnetId` är inte en `resourceId` för ett undernät. 
 * Lösning:   
-Kontrol lera värdet för för `subnetId` att se till att det innehåller `resourceId` ett för under nätet som används.
+Kontrol lera värdet för för `subnetId` att se till att det innehåller ett `resourceId` för under nätet som används.
 * Lösning:   
 Inga. Se lösningen ovan. 
 
 ***Under nätet måste ha delegeringen "Microsoft. NetApp/Volumes".***
 
-Felet uppstår när du skapar en volym och det valda under nätet inte delegeras till `Microsoft.NetApp/volumes`.
+Felet uppstår när du skapar en volym och det valda under nätet inte delegeras till `Microsoft.NetApp/volumes` .
 
 * Orsak:   
-Du försökte skapa volymen och du har valt ett undernät som inte är delegerat till `Microsoft.NetApp/volumes`.
+Du försökte skapa volymen och du har valt ett undernät som inte är delegerat till `Microsoft.NetApp/volumes` .
 * Lösning:   
-Välj ett annat undernät som är delegerat `Microsoft.NetApp/volumes`till.
+Välj ett annat undernät som är delegerat till `Microsoft.NetApp/volumes` .
 * Lösning:   
 Lägg till en korrekt delegering till under nätet.
 
@@ -681,4 +681,4 @@ Ta bort volymen och gör sedan om åtgärden för att skapa volymen från ögonb
  
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utveckla för Azure NetApp Files med REST API](azure-netapp-files-develop-with-rest-api.md)
+* [Utveckla för Azure NetApp Files med REST-API](azure-netapp-files-develop-with-rest-api.md)

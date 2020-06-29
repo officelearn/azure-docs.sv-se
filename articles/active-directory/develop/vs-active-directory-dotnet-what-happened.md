@@ -6,21 +6,21 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: d42d905bf35c015213e76bc50c4bc339a5c4a062
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6a364cbd29c3273466bee15b9a54e097497a8e5
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886117"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479121"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med mitt MVC-projekt (Visual Studio Azure Active Directory Connected service)?
 
 > [!div class="op_single_selector"]
-> - [Komma igång](vs-active-directory-dotnet-getting-started.md)
+> - [Kom igång](vs-active-directory-dotnet-getting-started.md)
 > - [Vad hände](vs-active-directory-dotnet-what-happened.md)
 
 Den här artikeln beskriver de exakta ändringar som gjorts i ett ASP.NET MVC-projekt när du lägger till den [Azure Active Directory anslutna tjänsten med Visual Studio](vs-active-directory-add-connected-service.md).
@@ -68,11 +68,11 @@ Följande referenser tas bort (endast ASP.NET 4-projekt, som i Visual Studio 201
 
 ## <a name="project-file-changes"></a>Projekt fil ändringar
 
-- Ange en distinkt `IISExpressSSLPort` siffra som egenskap.
+- Ange `IISExpressSSLPort` en distinkt siffra som egenskap.
 - Ange egenskapen `WebProject_DirectoryAccessLevelKey` till 0, eller 1 om du har valt alternativet **Läs katalog data** .
 - Ange egenskapen `IISUrl` till `https://localhost:<port>/` där `<port>` matchar `IISExpressSSLPort` värdet.
 
-## <a name="webconfig-or-appconfig-changes"></a>ändringar i Web. config eller app. config
+## <a name="webconfig-or-appconfig-changes"></a>web.config eller app.config ändringar
 
 - Följande konfigurations poster har lagts till:
 
@@ -86,17 +86,17 @@ Följande referenser tas bort (endast ASP.NET 4-projekt, som i Visual Studio 201
     </appSettings>
     ```
 
-- Element `<dependentAssembly>` har lagts till `<runtime><assemblyBinding>` under noden `System.IdentityModel.Tokens.Jwt` för `Microsoft.IdentityModel.Protocol.Extensions`och.
+- Element har lagts till `<dependentAssembly>` under `<runtime><assemblyBinding>` noden för `System.IdentityModel.Tokens.Jwt` och `Microsoft.IdentityModel.Protocol.Extensions` .
 
 Ytterligare ändringar om du har valt alternativet **Läs katalog data** :
 
-- Följande konfigurations post har lagts `<appSettings>`till under:
+- Följande konfigurations post har lagts till under `<appSettings>` :
 
     ```xml
     <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
     ```
 
-- Följande element har lagts till `<configuration>`under; värdena för projekt-MDF-filen och projekt-Catalog-ID: t varierar:
+- Följande element har lagts till under `<configuration>` ; värdena för projekt-MDF-filen och projekt-Catalog-ID: t varierar:
 
     ```xml
     <configSections>
@@ -120,29 +120,29 @@ Ytterligare ändringar om du har valt alternativet **Läs katalog data** :
     </entityFramework>
     ```
 
-- Element `<dependentAssembly>` har lagts till `<runtime><assemblyBinding>` under noden `Microsoft.Data.Services.Client`för `Microsoft.Data.Edm`,, `Microsoft.Data.OData`och.
+- Element har lagts till `<dependentAssembly>` under `<runtime><assemblyBinding>` noden för `Microsoft.Data.Services.Client` , `Microsoft.Data.Edm` , och `Microsoft.Data.OData` .
 
 ## <a name="code-changes-and-additions"></a>Kod ändringar och tillägg
 
-- `[Authorize]` Attributet har lagts till `Controllers/HomeController.cs` och andra befintliga kontrollanter.
+- Attributet har lagts `[Authorize]` till `Controllers/HomeController.cs` och andra befintliga kontrollanter.
 
-- En start klass `App_Start/Startup.Auth.cs`för autentisering har lagts till, som innehåller start logik för Azure AD-autentisering. Om du har valt alternativet **Läs katalog data** innehåller den här filen även kod för att ta emot en OAuth-kod och utbyta den för en åtkomsttoken.
+- En start klass för autentisering har lagts till, `App_Start/Startup.Auth.cs` som innehåller start logik för Azure AD-autentisering. Om du har valt alternativet **Läs katalog data** innehåller den här filen även kod för att ta emot en OAuth-kod och utbyta den för en åtkomsttoken.
 
-- En styrenhets klass har `Controllers/AccountController.cs`lagts till `SignIn` , `SignOut` som innehåller och-metoder.
+- En styrenhets klass har lagts till, `Controllers/AccountController.cs` som innehåller `SignIn` och- `SignOut` metoder.
 
-- Har lagt till en partiell `Views/Shared/_LoginPartial.cshtml`vy, som innehåller en åtgärds länk för `SignIn` och `SignOut`.
+- Har lagt till en partiell vy, `Views/Shared/_LoginPartial.cshtml` som innehåller en åtgärds länk för `SignIn` och `SignOut` .
 
-- Lade till en partiell vy `Views/Account/SignoutCallback.cshtml`, som innehåller HTML för inloggnings gränssnitt.
+- Lade till en partiell vy, `Views/Account/SignoutCallback.cshtml` som innehåller HTML för inloggnings gränssnitt.
 
-- Uppdaterade `Startup.Configuration` metoden för att inkludera ett anrop till `ConfigureAuth(app)` om klassen redan fanns. annars lades `Startup` en klass till som innehåller anrop av metoden.
+- Har uppdaterat `Startup.Configuration` metoden för att inkludera ett anrop till `ConfigureAuth(app)` om klassen redan fanns, annars lade till en `Startup` klass som innehåller anrop till metoden.
 
-- Lade `Connected Services/AzureAD/ConnectedService.json` till (visual Studio 2017) `Service References/Azure AD/ConnectedService.json` eller (Visual Studio 2015) som innehåller information som Visual Studio använder för att spåra tillägget av den anslutna tjänsten.
+- Lade till `Connected Services/AzureAD/ConnectedService.json` (Visual studio 2017) eller `Service References/Azure AD/ConnectedService.json` (visual Studio 2015) som innehåller information som Visual Studio använder för att spåra tillägget av den anslutna tjänsten.
 
-- Om du har valt alternativet **Läs katalog data** lägger till `Models/ADALTokenCache.cs` och `Models/ApplicationDbContext.cs` stöder cachelagring av token. Även lagt till ytterligare en kontrollant och vy för att illustrera åtkomst till användar profils information med hjälp av `Controllers/UserProfileController.cs`Azure `Views/UserProfile/Index.cshtml`Graph API: er:, och`Views/UserProfile/Relogin.cshtml`
+- Om du har valt alternativet **Läs katalog data** lägger till `Models/ADALTokenCache.cs` och `Models/ApplicationDbContext.cs` stöder cachelagring av token. Även lagt till ytterligare en kontrollant och vy för att illustrera åtkomst till användar profils information med hjälp av Azure Graph API: er: `Controllers/UserProfileController.cs` , `Views/UserProfile/Index.cshtml` och`Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>Fil säkerhets kopiering (Visual Studio 2015)
 
-När du lägger till den anslutna tjänsten säkerhetskopierar Visual Studio 2015 ändrade och borttagna filer. Alla berörda filer sparas i mappen `Backup/AzureAD`. I Visual Studio 2017 och senare skapas inga säkerhets kopior.
+När du lägger till den anslutna tjänsten säkerhetskopierar Visual Studio 2015 ändrade och borttagna filer. Alla berörda filer sparas i mappen `Backup/AzureAD` . I Visual Studio 2017 och senare skapas inga säkerhets kopior.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

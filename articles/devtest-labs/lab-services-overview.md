@@ -1,26 +1,16 @@
 ---
-title: Om Azure Lab Services | Microsoft Docs
-description: Lär dig hur Lab Services kan göra det enkelt att skapa, hantera och skydda labb med virtuella datorer som kan användas av utvecklare, testare, lärare, elever och andra.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Lab Services jämfört med Azure DevTest Labs
+description: Jämför Azure DevTest Labs och Azure Lab Services.
 ms.topic: overview
-ms.date: 02/03/2020
-ms.author: spelluru
-ms.openlocfilehash: a1e42a415e99bfaec1c48204efdaacd178005705
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899674"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480090"
 ---
-# <a name="an-introduction-to-azure-lab-services"></a>En introduktion till Azure Lab Services
+# <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Jämför Azure DevTest Labs och Azure Lab Services
 Det finns två tjänster på Azure som gör att du kan konfigurera labb miljöer i molnet. 
 
 - **Azure DevTest Labs** – med den här tjänsten kan du snabbt konfigurera en miljö för ditt team (till exempel: utvecklings miljö eller test miljö i molnet). En labbägare skapar ett labb, etablerar Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg och gör dem tillgängliga för labbanvändare. Labb användare ansluter till virtuella datorer (VM) i labbet och använder dem för sitt dagliga arbete, kortsiktiga projekt. När användarna börjar använda resurser i labbet, kan en labbadministratör analysera kostnaden och användningen för flera labb och ange övergripande principer för att optimera din organisations eller ditt teams kostnader.

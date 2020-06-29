@@ -5,19 +5,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: kanshiG
 ms.author: govindk
-ms.date: 05/10/2020
-ms.openlocfilehash: 7a7428d3445d1d5846618bfd84c47121dc9a4bc1
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/25/2020
+ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262760"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482912"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Övervaka normaliserade RU/s för en Azure Cosmos-behållare eller ett konto
 
 Azure Monitor för Azure Cosmos DB ger en mått vy för att övervaka ditt konto och skapa instrument paneler. De Azure Cosmos DB måtten samlas in som standard, men den här funktionen kräver inte att du aktiverar eller konfigurerar något explicit.
 
-Det **normaliserade ru-förbruknings** måttet används för att se hur väl mätta replikerna är i förhållande till användningen av begär ande enheter över partitionernas nyckel intervall. Azure Cosmos DB distribuerar data flödet jämnt över alla fysiska partitioner. Det här måttet ger en vy av den högsta data flödes användningen i en replik uppsättning. Om du använder det här måttet, bör du öka data flödet för att uppfylla arbets Belastningens behov, om du ser hög procent andel av enhets användningen för enheter.
+Det **normaliserade ru-förbruknings** måttet används för att se hur väl mätta replikerna är i förhållande till användningen av begär ande enheter över partitionernas nyckel intervall. Azure Cosmos DB distribuerar data flödet jämnt över alla fysiska partitioner. Det här måttet ger en vy av den högsta data flödes användningen i en replik uppsättning. Använd det här måttet för att beräkna RU/s-användningen mellan partitioner för den aktuella behållaren. Om du använder det här måttet, bör du öka data flödet för att uppfylla arbets Belastningens behov, om du ser hög procent andel av enhets användningen för enheter.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Vad som ska förväntas och göra när normaliserade RU/s är högre
 

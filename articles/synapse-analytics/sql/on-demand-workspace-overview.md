@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3f020abd4d207a49068ccffb9bb7f57b88bc87df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206401"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480447"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL på begäran (för hands version) i Azure Synapse Analytics 
 
@@ -89,21 +89,21 @@ SQL på begäran har ingen lokal lagring, endast metadata-objekt lagras i-databa
 
 För att möjliggöra smidig användning av frågor om data som finns i filer i data Lake, utökar SQL på begäran den befintliga [OpenRowSet](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) -funktionen genom att lägga till följande funktioner:
 
-[Fråga efter flera filer eller mappar](develop-storage-files-overview.md#query-multiple-files-or-folders)
+[Fråga efter flera filer eller mappar](query-data-storage.md#query-multiple-files-or-folders)
 
-[PARQUET-filformat](develop-storage-files-overview.md#parquet-file-format)
+[PARQUET-filformat](query-data-storage.md#query-parquet-files)
 
-[Ytterligare alternativ för att arbeta med avgränsad text (fält avslutning, rad avslutning, escape-tecken)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Ytterligare alternativ för att arbeta med avgränsad text (fält avslutning, rad avslutning, escape-tecken)](query-data-storage.md#query-csv-files)
 
-[Läs en vald delmängd av kolumner](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[Läs en vald delmängd av kolumner](query-data-storage.md#read-a-chosen-subset-of-columns)
 
-[Schema härledning](develop-storage-files-overview.md#schema-inference)
+[Schema härledning](query-data-storage.md#schema-inference)
 
-[funktionen filename](develop-storage-files-overview.md#filename-function)
+[funktionen filename](query-data-storage.md#filename-function)
 
-[funktionen filsökväg](develop-storage-files-overview.md#filepath-function)
+[funktionen filsökväg](query-data-storage.md#filepath-function)
 
-[Arbeta med komplexa typer och kapslade eller upprepade data strukturer](develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[Arbeta med komplexa typer och kapslade eller upprepade data strukturer](query-data-storage.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
 ## <a name="security"></a>Säkerhet
 

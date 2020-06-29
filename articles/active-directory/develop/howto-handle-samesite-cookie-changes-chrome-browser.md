@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f28d3722d56582bd925d31b43b4a0219bca2ae30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df0caf3ae029353742b4b1060ca5241ac9cbb5bd
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81534609"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477812"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Hantera SameSite-cookieändringar i webbläsaren Chrome
 
@@ -29,13 +29,13 @@ ms.locfileid: "81534609"
 - När `SameSite` är inställt på **lax**skickas cookien i begär Anden inom samma plats och i Hämta förfrågningar från andra platser. Den skickas inte i GET-begäranden som är mellan domäner.
 - Värdet **strict** garanterar att cookien skickas i begär Anden endast inom samma plats.
 
-Som standard är `SameSite` värdet inte angivet i webbläsare och det är därför att det inte finns några begränsningar för cookies som skickas i begär Anden. Ett program måste delta i CSRF-skyddet genom att ställa in **lax** eller **strict** enligt deras krav.
+Som standard `SameSite` är värdet inte angivet i webbläsare och det är därför att det inte finns några begränsningar för cookies som skickas i begär Anden. Ett program måste delta i CSRF-skyddet genom att ställa in **lax** eller **strict** enligt deras krav.
 
 ## <a name="samesite-changes-and-impact-on-authentication"></a>SameSite ändringar och inverkan på autentisering
 
-[De senaste uppdateringarna av standarderna på SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) föreslår skydd av appar genom att göra standard `SameSite` beteendet för när inget värde är inställt på lax. Den här minskningen innebär att cookies begränsas för HTTP-förfrågningar, förutom att de görs från andra platser. Dessutom introduceras värdet **inget** för att ta bort begränsningar för cookies som skickas. De här uppdateringarna kommer snart att lanseras i en kommande version av Chrome-webbläsaren.
+[De senaste uppdateringarna av standarderna på SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) föreslår skydd av appar genom att göra standard beteendet för `SameSite` när inget värde är inställt på lax. Den här minskningen innebär att cookies begränsas för HTTP-förfrågningar, förutom att de görs från andra platser. Dessutom introduceras värdet **inget** för att ta bort begränsningar för cookies som skickas. De här uppdateringarna kommer snart att lanseras i en kommande version av Chrome-webbläsaren.
 
-När webbappar autentiserar med Microsoft Identity Platform med svars läget "form_post", svarar inloggnings servern på programmet med ett HTTP-inlägg för att skicka token eller auth-koden. Eftersom den här begäran är en kors domän förfrågan (från `login.microsoftonline.com` till din domän-till- `https://contoso.com/auth`instans) hamnar cookies som har angetts av din app nu under de nya reglerna i Chrome. De cookies som måste användas i scenarier med olika platser är cookies som innehåller värdena för *status* och *nonce* , som också skickas i inloggningsbegäran. Det finns andra cookies som har släppts av Azure AD för att hålla sessionen.
+När webbappar autentiserar med Microsoft Identity Platform med svars läget "form_post", svarar inloggnings servern på programmet med ett HTTP-inlägg för att skicka token eller auth-koden. Eftersom den här begäran är en kors domän förfrågan (från `login.microsoftonline.com` till din domän-till-instans `https://contoso.com/auth` ) hamnar cookies som har angetts av din app nu under de nya reglerna i Chrome. De cookies som måste användas i scenarier med olika platser är cookies som innehåller värdena för *status* och *nonce* , som också skickas i inloggningsbegäran. Det finns andra cookies som har släppts av Azure AD för att hålla sessionen.
 
 Om du inte uppdaterar dina webbappar kommer det här nya beteendet leda till autentiseringsfel.
 
@@ -43,7 +43,7 @@ Om du inte uppdaterar dina webbappar kommer det här nya beteendet leda till aut
 
 För att undvika autentiseringsfel kan webbappar som autentiseras med Microsoft Identity Platform ställa in `SameSite` egenskapen på `None` för cookies som används i scenarier mellan domäner när de körs i webbläsaren Chrome.
 Andra webbläsare (se [här](https://www.chromium.org/updates/same-site/incompatible-clients) för en fullständig lista) Följ föregående beteende för `SameSite` och kommer inte att inkludera cookies om `SameSite=None` har angetts.
-Därför måste du, för att få stöd för autentisering på flera webbläsare-webbappar, `SameSite` ange värdet `None` till endast på Chrome och lämna värdet tomt i andra webbläsare.
+Därför måste du, för att få stöd för autentisering på flera webbläsare-webbappar, ange `SameSite` värdet till `None` endast på Chrome och lämna värdet tomt i andra webbläsare.
 
 Den här metoden visas i våra kod exempel nedan.
 

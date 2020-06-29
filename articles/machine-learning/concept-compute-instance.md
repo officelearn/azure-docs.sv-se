@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 8c03df8fb0cd8f5f092450ebe4c66266d2ff4293
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 8713e7538ae65fc8e750d5b3244482a5503b0e37
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816360"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483269"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -33,7 +33,7 @@ En beräknings instans är en fullständigt hanterad molnbaserad arbets station 
 
 |Viktiga fördelar||
 |----|----|
-|Produktivitet|Data forskare kan bygga och distribuera modeller med integrerade antecknings böcker och följande verktyg i webbläsaren:<br/>– Jupyter<br/>- JupyterLab<br/>– RStudio|
+|Produktivitet|Data forskare kan bygga och distribuera modeller med integrerade antecknings böcker och följande verktyg i webbläsaren:<br/>– Jupyter<br/>- JupyterLab<br/>-RStudio (för hands version)|
 |Hanterad & säker|Minska din säkerhets storlek och Lägg till efterlevnad med företagets säkerhets krav. Beräknings instanser ger robusta hanterings principer och säkra nätverkskonfigurationer som:<br/><br/>– Automatisk etablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [Rollbaserad åtkomst kontroll (RBAC)](/azure/role-based-access-control/overview)<br/>- [Stöd för virtuella nätverk](how-to-enable-virtual-network.md#compute-instance)<br/>– SSH-princip för att aktivera/inaktivera SSH-åtkomst|
 |Förkonfigurerad &nbsp; eller &nbsp; ml|Spara tid på installations aktiviteter med förkonfigurerade och uppdaterade ML-paket, ramverk för djup inlärning, GPU-drivrutiner.|
 |Helt anpassningsbar|Brett stöd för virtuella Azure-datorer, inklusive GPU: er och beständiga anpassningar på låg nivå, till exempel installation av paket och driv rutiner gör avancerade scenarier till en enkelt. |
@@ -58,7 +58,7 @@ De här verktygen och miljöerna är installerade på beräknings instansen:
 
 |**R** -verktyg & miljöer|Information|
 |----|:----:|
-|RStudio server med öppen källkod||
+|RStudio-server med öppen källkod (för hands version)||
 |R-kernel||
 |Azure Machine Learning SDK för R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK-exempel|
 

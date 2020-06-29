@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06e197a6e445c7dc1179be696318905f2132ee36
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77085864"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477744"
 ---
 # <a name="configure-keychain"></a>Konfigurera nyckelring
 
@@ -32,19 +32,19 @@ Den här artikeln beskriver hur du konfigurerar app-rättigheter så att MSAL ka
 
 MSAL på iOS använder `com.microsoft.adalcache` åtkomst gruppen som standard. Det här är den delade åtkomst gruppen som används av både MSAL-och ADAL-SDK: er (Azure AD Authentication Library) och säkerställer den bästa funktionen för enkel inloggning mellan flera appar från samma utgivare.
 
-På iOS lägger du `com.microsoft.adalcache` till nyckel rings gruppen i appens rättighet i Xcode under **projekt inställningar** > **kapacitet** > för**nyckel delning**
+På iOS lägger du till `com.microsoft.adalcache` nyckel rings gruppen i appens rättighet i Xcode under **projekt inställningar**  >  **kapacitet**för  >  **nyckel delning**
 
 ### <a name="macos"></a>macOS
 
 MSAL på macOS använder `com.microsoft.identity.universalstorage` åtkomst gruppen som standard.
 
-På grund av begränsningar i nyckel ringar, `access group` översätts MSAL inte direkt till åtkomst gruppens attribut för nyckel ringar (se [KSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) på MacOS 10,14 och tidigare. Det fungerar dock på samma sätt från ett SSO-perspektiv genom att se till att flera program som distribueras av samma Apple-utvecklare kan ha tyst SSO.
+På grund av begränsningar i nyckel ringar, `access group` översätts MSAL inte direkt till åtkomst gruppens attribut för nyckel ringar (se [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) på MacOS 10,14 och tidigare. Det fungerar dock på samma sätt från ett SSO-perspektiv genom att se till att flera program som distribueras av samma Apple-utvecklare kan ha tyst SSO.
 
 På macOS 10,15 och senare (macOS Catalina) använder MSAL-attributet för nyckel ringar för att uppnå tyst SSO, på samma sätt som för iOS.
 
 ## <a name="custom-keychain-access-group"></a>Anpassad nyckel rings åtkomst grupp
 
-Om du vill använda en annan åtkomst grupp för nyckel ringar kan du skicka den anpassade gruppen när du skapar `MSALPublicClientApplicationConfig` den `MSALPublicClientApplication`, så här:
+Om du vill använda en annan åtkomst grupp för nyckel ringar kan du skicka den anpassade gruppen när du skapar `MSALPublicClientApplicationConfig` `MSALPublicClientApplication` den, så här:
 
 # <a name="objective-c"></a>[Objective-C](#tab/objc)
 

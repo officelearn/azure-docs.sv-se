@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889983"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478169"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Den nya Azure Portal appens registrerings upplevelse
 
@@ -77,7 +77,7 @@ I den nya upplevelsen har **program hemligheter** bytt namn till **certifikat & 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plattformar/autentisering: svars webb adresser/omdirigerings-URI: er
 I den tidigare versionen har en app haft plattformar för webb-, intern-och webb-API för att konfigurera omdirigerings-URL: er, utloggnings-URL och implicit flöde.
 
-I den nya upplevelsen hittar du svars-URL: er\'i avsnittet om app s-autentisering. Dessutom kallas de omdirigerings-URI: er och formatet för omdirigering av URI: er har ändrats. De måste vara kopplade till en app-typ (webb eller offentlig klient-mobil och stationär dator). [Läs mer](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+I den nya upplevelsen hittar du svars-URL: er i avsnittet om app \' s-autentisering. Dessutom kallas de omdirigerings-URI: er och formatet för omdirigering av URI: er har ändrats. De måste vara kopplade till en app-typ (webb eller offentlig klient-mobil och stationär dator). [Läs mer](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 Webb-API: er har kon figurer ATS i exponera en API-sida.
 
@@ -106,7 +106,7 @@ Det finns ett nytt gränssnitt för egenskaper som tidigare endast kunde anges m
 
 -   Omfattningar som definieras av denna API (oauth2Permissions) och auktoriserade klient program (preAuthorizedApplications) kan konfigureras via sidan exponera en API. Mer information om hur du konfigurerar en app så att den är ett webb-API och visar behörigheter/omfattningar finns i [den här snabb](quickstart-configure-app-expose-web-apis.md)starten.
 
--   Publisher-domän (som visas för användare på [begäran om\'program s medgivande](application-consent-experience.md)) hittar du på sidan varumärkes dialog. Mer information om hur du konfigurerar en Publisher-domän finns i [den här instruktionen](howto-configure-publisher-domain.md).
+-   Publisher-domän (som visas för användare på [begäran om program \' s medgivande](application-consent-experience.md)) hittar du på sidan varumärkes dialog. Mer information om hur du konfigurerar en Publisher-domän finns i [den här instruktionen](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -116,7 +116,7 @@ Den nya upplevelsen har följande begränsningar:
 
 -   Den nya upplevelsen stöder ännu inte Live SDK-appar som skapats med personliga Microsoft-konton.
 
--   Det finns inte stöd för att ändra värdet för konton som stöds i användar gränssnittet. Du måste använda app-manifestet om du\'inte byter mellan Azure AD-klienten och flera klienter.
+-   Det finns inte stöd för att ändra värdet för konton som stöds i användar gränssnittet. Du måste använda app-manifestet om du inte \' byter mellan Azure AD-klienten och flera klienter.
 
    > [!NOTE]
    > Om du är en personlig Microsoft-konto användare i Azure AD-klienten och klient administratören har begränsat åtkomsten till Azure Portal kan du få åtkomst nekad. Men om du kommer genom genvägen genom att skriva Appregistreringar i Sök fältet eller fästa det, kommer du att kunna komma åt den nya upplevelsen.

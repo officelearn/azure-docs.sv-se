@@ -1,24 +1,14 @@
 ---
 title: Integrering av Azure DevTest Labs och DevOps | Microsoft Docs
 description: Lär dig hur du använder labb Azure DevTest Labs inom en pipeline för kontinuerlig integrering (CI)/kontinuerlig leverans (CD) i en företags miljö.
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
-ms.author: spelluru
-ms.openlocfilehash: db9e338891a4e8bab9f9b36482815542ae348ec2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896930"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481076"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integrering av Azure DevTest Labs och Azure-DevOps
 DevOps är en metod för program varu utveckling som integrerar program varu utveckling (dev) med åtgärder (OPS) för ett system. Det här systemet kan leverera nya funktioner, uppdateringar och korrigeringar i anpassnings syfte med affärs mål. Den här metoden omfattar allt från att utforma nya funktioner baserat på mål, användnings mönster och feedback från kunder. att åtgärda, återvinna och härdning av systemet när problem uppstår. En lätt identifierbar komponent av den här metoden är pipeline för kontinuerlig integrering (CI)/kontinuerlig leverans (CD). En CI/CD-pipeline tar information, kod och resurser från ett genomförande genom en serie steg som omfattar utveckling, testning och distribution, för att skapa systemet. Den här artikeln fokuserar på olika sätt att effektivt använda labb i en pipeline i en företags miljö. 

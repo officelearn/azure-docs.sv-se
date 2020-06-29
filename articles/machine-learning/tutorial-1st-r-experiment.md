@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684745"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483388"
 ---
-# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Självstudie: Använd R för att skapa en maskin inlärnings modell
+# <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här självstudien använder du Azure Machine Learning R SDK för att skapa en logistik Regressions modell som förutsäger sannolikheten för en allvarlig olycks händelse i en Car-olycka. Du får se hur Azure Machine Learning moln resurser fungerar med R för att tillhandahålla en skalbar miljö för utbildning och distribution av en modell.  
+I den här självstudien använder du Azure Machine Learning R SDK (för hands version) för att skapa en logistik Regressions modell som förutsäger sannolikheten för en allvarlig olycks händelse i en Car-olycka. Du får se hur Azure Machine Learning moln resurser fungerar med R för att tillhandahålla en skalbar miljö för utbildning och distribution av en modell.  
 
 I den här självstudien utför du följande åtgärder:
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
 1. En lista över mappar visar alla användare som har åtkomst till arbets ytan.  Välj din mapp för att klona mappen **vignettes** där.
 
-## <a name="a-nameopenopen-rstudio"></a><a name="open">Öppna RStudio
+## <a name="open-rstudio"></a><a name="open"></a>Öppna RStudio
 
 Använd RStudio på en beräknings instans eller Notebook VM för att köra den här självstudien.  
 
@@ -124,7 +124,7 @@ library(azuremlsdk)
 Utbildnings-och Poäng skripten ( `accidents.R` och `accident_predict.R` ) har vissa ytterligare beroenden. Om du planerar att köra dessa skript lokalt ser du till att du har de nödvändiga paketen också.
 
 ### <a name="load-your-workspace"></a>Läs in din arbets yta
-Skapa en instans av ett arbets områdes objekt från din befintliga arbets yta. Följande kod läser in arbets ytans information från **config. JSON** -filen. Du kan också hämta en arbets yta med [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) .
+Skapa en instans av ett arbets områdes objekt från din befintliga arbets yta. Följande kod läser in arbets ytans detaljer från **config.jsi** filen. Du kan också hämta en arbets yta med [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) .
 
 ```R
 ws <- load_workspace_from_config()

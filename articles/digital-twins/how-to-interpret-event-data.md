@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1af98e6ecbe9b5951d94dd22be8a47c1b13691d3
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 55264f1fe0526773db5af299c37e4ea077e6d63f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390626"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483337"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
 
@@ -194,7 +194,7 @@ Här är fälten i bröd texten för en Edge Change-avisering.
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
-| `subject` | ID för relationen, t. ex.`<twinID>/relationships/<relationshipName>` |
+| `subject` | ID för relationen, t. ex.`<twinID>/relationships/<relationshipID>` |
 | `time` | Tidsstämpel för när åtgärden utfördes för relationen |
 | `traceparent` | En W3C-spårnings kontext för händelsen |
 
@@ -225,15 +225,14 @@ Här är ett exempel på ett meddelande om att skapa eller ta bort relationer:
 
 ```json
 {
-    "$relationshipName": "RelationshipName1",
-    "$sourceId": "building11",
+    "$relationshipId": "building_to_floor",
+    "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
     "$relationshipName": "Contains",
     "$targetId": "floor11",
     "ownershipUser": "user1",
     "ownershipDepartment": "Operations"
 }
 ```
-
 
 ### <a name="digital-twin-change-notifications"></a>Digitala dubbla ändrings meddelanden
 

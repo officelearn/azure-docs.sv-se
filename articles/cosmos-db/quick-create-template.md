@@ -8,20 +8,22 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: e626f6e5b65e369c3c77900cd46f2b86cd6f9d52
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118006"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483303"
 ---
-# <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Snabb start: skapa en Azure Cosmos DB och en behållare med Azure Resource Manager mall
+# <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Snabb start: skapa en Azure Cosmos DB och en behållare med en ARM-mall
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga nyckel/värde-databaser, dokument databaser och Graf-databaser. Den här snabb starten fokuserar på processen att distribuera en Resource Manager-mall för att skapa en Azure Cosmos-databas och en behållare i databasen. Du kan senare lagra data i den här behållaren.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga nyckel/värde-databaser, dokument databaser och Graf-databaser. Den här snabb starten fokuserar på processen att distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa en Azure Cosmos-databas och en behållare i databasen. Du kan senare lagra data i den här behållaren.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -31,11 +33,9 @@ En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings ko
 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="create-an-azure-cosmos-account-database-container"></a>Skapa ett Azure Cosmos-konto, en databas, en behållare
+## <a name="review-the-template"></a>Granska mallen
 
-### <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
@@ -49,7 +49,7 @@ Tre Azure-resurser definieras i mallen:
 
 Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett Azure Cosmos-konto, en databas och en behållare.
 
@@ -57,7 +57,7 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
 
 2. Välj eller ange följande värden.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Resource Manager-mall, Azure Cosmos DB integrering, distribuera Portal":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM-mall, Azure Cosmos DB integrering, distribuera Portal":::
 
     Om den inte anges använder du standardvärdena för att skapa Azure Cosmos-resurser.
 
@@ -78,7 +78,7 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
 
 3. Välj **Köp**. När du har distribuerat Azure Cosmos-kontot får du ett meddelande:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Resource Manager-mall, Cosmos DB integrering, distribuera Portal meddelande":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM-mall, Cosmos DB integrering, distribuera Portal meddelande":::
 
 Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -132,7 +132,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett Azure Cosmos-konto, en databas och en behållare med hjälp av en Azure Resource Manager mall och verifierade distributionen. Om du vill veta mer om Azure Cosmos DB och Azure Resource Manager fortsätter du till artiklarna nedan.
+I den här snabb starten skapade du ett Azure Cosmos-konto, en databas och en behållare med hjälp av en ARM-mall och validerade distributionen. Om du vill veta mer om Azure Cosmos DB och Azure Resource Manager fortsätter du till artiklarna nedan.
 
 - Läs en [Översikt över Azure Cosmos DB](introduction.md)
 - Läs mer om [Azure Resource Manager](../azure-resource-manager/management/overview.md)

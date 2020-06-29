@@ -6,16 +6,16 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 4b39aa77ea3895a606ad34a3bc9b70dba924a23f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10485a5467a63e0b3bb1aa0dbefc4d156c2a9565
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886100"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479036"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostisera fel med den Azure Active Directory anslutna tjänsten
 
@@ -25,7 +25,7 @@ Projektet måste återskapas för att det ska gå att identifiera tidigare auten
 
 ## <a name="project-types"></a>Projekt typer
 
-Den anslutna tjänsten kontrollerar vilken typ av projekt du utvecklar så att den kan mata in rätt autentiserings logik i projektet. Om det finns en kontrollant som är härledd `ApiController` från i projektet anses projektet vara ett WebAPI-projekt. Om det bara finns kontrollanter som härleds `MVC.Controller` från i projektet, betraktas projektet som ett MVC-projekt. Den anslutna tjänsten har inte stöd för andra projekt typer.
+Den anslutna tjänsten kontrollerar vilken typ av projekt du utvecklar så att den kan mata in rätt autentiserings logik i projektet. Om det finns en kontrollant som är härledd från `ApiController` i projektet anses projektet vara ett WebAPI-projekt. Om det bara finns kontrollanter som härleds från `MVC.Controller` i projektet, betraktas projektet som ett MVC-projekt. Den anslutna tjänsten har inte stöd för andra projekt typer.
 
 ## <a name="compatible-authentication-code"></a>Kompatibel autentiseringsnyckel
 
@@ -52,7 +52,7 @@ Slutligen försöker den anslutna tjänsten identifiera versioner av autentiseri
 * Enskilda användar konton
 * Organisations konton
 
-För att identifiera Windows-autentisering i ett MVC-projekt söker den anslutna `authentication` `web.config` filen efter elementet i filen.
+För att identifiera Windows-autentisering i ett MVC-projekt söker den anslutna `authentication` filen efter elementet i `web.config` filen.
 
 ```xml
 <configuration>
@@ -62,7 +62,7 @@ För att identifiera Windows-autentisering i ett MVC-projekt söker den anslutna
 </configuration>
 ```
 
-För att identifiera Windows-autentisering i ett Web API-projekt söker den anslutna tjänsten `IISExpressWindowsAuthentication` efter elementet i projekt `.csproj` filen:
+För att identifiera Windows-autentisering i ett Web API-projekt söker den anslutna tjänsten efter `IISExpressWindowsAuthentication` elementet i projekt `.csproj` filen:
 
 ```xml
 <Project>
@@ -80,7 +80,7 @@ Om du vill identifiera autentisering av enskilda användar konton letar den ansl
 </packages>
 ```
 
-För att identifiera en gammal form av autentisering med organisations konto letar den anslutna tjänsten efter följande element i`web.config`:
+För att identifiera en gammal form av autentisering med organisations konto letar den anslutna tjänsten efter följande element i `web.config` :
 
 ```xml
 <configuration>

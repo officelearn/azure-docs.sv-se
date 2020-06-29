@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b62d69220a931bef8d91a85bcbbaedfbce86110a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 2ac68f1cab6958c0fc79fa6518c61417e75c0a70
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211401"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480617"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -188,7 +188,7 @@ Datum- och tidsvärdena använder UTC.
 
 Eftersom du kan använda samma lagrings konto för att samla in loggar för flera resurser, är det fullständiga resurs-ID: t i BLOB-namnet användbart för att få åtkomst till eller hämta bara de blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
 
-Skapa en mapp för att ladda ned Blobbarna. Ett exempel:
+Skapa en mapp för att ladda ned Blobbarna. Till exempel:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -208,7 +208,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 När du kör det här andra kommandot **/** skapar avgränsaren i BLOB-namnen en fullständig mappstruktur under målmappen. Du använder den här strukturen för att ladda ned och lagra Blobbarna som filer.
 
-Om du vill ladda ned blobbarna selektivt använder du jokertecken. Ett exempel:
+Om du vill ladda ned blobbarna selektivt använder du jokertecken. Till exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 
@@ -263,7 +263,7 @@ Enskilda blobbar lagras som text, formaterad som en JSON-blobb. Nu ska vi titta 
 
 I följande tabell visas fält namn och beskrivningar:
 
-| Fältnamn | Beskrivning |
+| Fältnamn | Description |
 | --- | --- |
 | **tid** |Datum och tid i UTC. |
 | **resourceId** |Azure Resource Manager resurs-ID. För Key Vault loggar är detta alltid Key Vault resurs-ID. |
@@ -279,7 +279,7 @@ I följande tabell visas fält namn och beskrivningar:
 | **Autentiseringsidentitet** |Identitet från den token som angavs i REST API begäran. Detta är vanligt vis en "användare", "tjänstens huvud namn" eller kombinationen "användare + appId", som i fallet med en begäran som resulterar från en Azure PowerShell-cmdlet. |
 | **egenskaperna** |Information som varierar beroende på åtgärd (**operationName**). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **create** eller **VaultGet**), innehåller det även nyckel-URI (som "ID"), valv-URI eller hemlig URI. |
 
-Värdena för **operationName** -fältet är i *ObjectVerb* -format. Ett exempel:
+Värdena för **operationName** -fältet är i *ObjectVerb* -format. Till exempel:
 
 * Alla Key Vault-åtgärder har `Vault<action>` formatet, till exempel `VaultGet` och `VaultCreate` .
 * Alla viktiga åtgärder har `Key<action>` formatet, till exempel `KeySign` och `KeyList` .
@@ -330,5 +330,3 @@ En själv studie kurs som använder Azure Key Vault i ett .NET-webb program finn
 Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](developers-guide.md).
 
 En lista över Azure PowerShell 1,0-cmdletar för Azure Key Vault finns i [Azure Key Vault-cmdletar](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
-
-En själv studie kurs om nyckel rotation och logg granskning med Azure Key Vault finns i [konfigurera Key Vault med nyckel rotation och granskning från slut punkt till slut punkt](../secrets/key-rotation-log-monitoring.md).

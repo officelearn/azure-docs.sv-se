@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864342"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481841"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionering i Azure Cosmos DB
 
@@ -35,6 +35,14 @@ Du kan lära dig mer om [hur Azure Cosmos DB hanterar partitioner](partition-dat
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Välja en partitionsnyckel
 
+En partitionsnyckel har två komponenter: **sökväg till partitionsnyckel** och nyckel **värde för partition**. Anta till exempel att du väljer ett objekt {"userId": "Anders", "worksFor": "Microsoft"} om du väljer "userId" som partitionsnyckel är följande de två partitionens nyckel komponenter:
+
+* Sökvägen till partitionsnyckel (till exempel: "/userId"). Sökvägen till partitionsnyckel accepterar alfanumeriska tecken och under streck (_). Du kan också använda kapslade objekt med standard Sök vägs notation (/).
+
+* Värdet för partitionsnyckel (till exempel: "Anders"). Värdet för partitionsnyckel kan vara sträng eller numeriska typer.
+
+Mer information om gränserna för data flöde, lagring och längden på partitionsnyckel finns i artikeln [Azure Cosmos DB tjänst kvoter](concepts-limits.md) .
+
 Att välja partitionsnyckel är ett enkelt men viktigt design val i Azure Cosmos DB. När du har valt partitionsnyckel är det inte möjligt att ändra den på plats. Om du behöver ändra din partitionsnyckel bör du flytta dina data till en ny behållare med din nya önskade partitionsnyckel.
 
 För **alla** behållare bör din partitionsnyckel:
@@ -49,7 +57,7 @@ Om du behöver [transaktioner med flera objekt](database-transactions-optimistic
 
 För de flesta behållare är ovanstående kriterier allt du behöver tänka på när du väljer en partitionsnyckel. För stora, omfattande behållare kanske du vill välja en partitionsnyckel som visas ofta som ett filter i dina frågor. Frågor kan [effektivt dirigeras till relevanta fysiska partitioner](how-to-query-container.md#in-partition-query) genom att inkludera partitionsnyckel i filtrets predikat.
 
-Om de flesta av dina arbets belastnings begär Anden är frågor och de flesta av dina frågor har ett likhets filter för samma egenskap, kan den här egenskapen vara ett bra alternativ för partitionsnyckel. Om du till exempel ofta kör en fråga som filtrerar på `UserID`så minskar antalet `UserID` [frågor om flera partitioner](how-to-query-container.md#avoiding-cross-partition-queries)genom att välja som partitionsnyckel.
+Om de flesta av dina arbets belastnings begär Anden är frågor och de flesta av dina frågor har ett likhets filter för samma egenskap, kan den här egenskapen vara ett bra alternativ för partitionsnyckel. Om du till exempel ofta kör en fråga som filtrerar på `UserID` `UserID` så minskar antalet [frågor om flera partitioner](how-to-query-container.md#avoiding-cross-partition-queries)genom att välja som partitionsnyckel.
 
 Men om din behållare är liten har du förmodligen inte tillräckligt med fysiska partitioner för att behöva oroa dig över prestanda påverkan för frågor över olika partitioner. De flesta små behållare i Azure Cosmos DB behöver bara en eller två fysiska partitioner.
 

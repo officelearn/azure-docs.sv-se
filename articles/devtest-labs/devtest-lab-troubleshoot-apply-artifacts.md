@@ -1,23 +1,14 @@
 ---
 title: Felsöka problem med artefakter i Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du felsöker problem som inträffar när du använder artefakter på en Azure DevTest Labs virtuell dator.
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: spelluru
-ms.openlocfilehash: 8da33f5a553b4a671d9d7b9b223f77b301b8440b
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: a89b675a1b3bf134b98e09c7278f0eccb594c325
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898698"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483201"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Felsöka problem när du använder artefakter på en Azure DevTest Labs virtuell dator
 Att tillämpa artefakter på en virtuell dator kan inte utföras av olika orsaker. Den här artikeln vägleder dig igenom några av metoderna för att identifiera möjliga orsaker.
@@ -67,7 +58,7 @@ När en artefakt verkar låsa sig måste du först avgöra var den fastnar. En a
     - Du kan komma åt aktivitets loggen från navigerings fältet i Labbets virtuella dator sida. När du väljer det kan du se en post för **att antingen tillämpa artefakter på den virtuella datorn** (om åtgärden tillämpa artefakter utlöstes direkt) eller **lägga till eller ändra virtuella datorer** (om åtgärden tillämpa artefakter var en del av processen för att skapa virtuella datorer).
     - Leta efter fel under dessa poster. Ibland märks felet inte i enlighet med detta och du måste undersöka varje post.
     - När du undersöker informationen om varje post ser du till att granska innehållet i JSON-nyttolasten. Du kan se ett fel längst ned i dokumentet.
-- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Exempel:
+- **Vid försök att köra artefakten**. Det kan bero på nätverks-eller lagrings problem. Mer information finns i respektive avsnitt längre fram i den här artikeln. Det kan också inträffa på grund av hur skriptet har skapats. Till exempel:
     - Ett PowerShell-skript har **obligatoriska parametrar**, men det går inte att skicka ett värde till det, antingen på grund av att du tillåter att användaren lämnar den tom eller eftersom du inte har ett standardvärde för egenskapen i artifactfile.jsi definitions filen. Skriptet slutar svara eftersom det väntar på användarindata.
     - Ett PowerShell-skript **kräver indata från användaren** som en del av körningen. Skripten måste skrivas för att fungera tyst utan att användaren behöver vidta några åtgärder.
 - **Det tar lång tid för VM-agenten att bli redo**. När den virtuella datorn startas eller när det anpassade skript tillägget först installeras för att betjäna begäran om att tillämpa artefakter, kan den virtuella datorn behöva uppgradera VM-agenten eller vänta tills VM-agenten initieras. Det kan finnas tjänster där VM-agenten är beroende av att det tar lång tid att initiera. I sådana fall kan du läsa [Översikt över Azure Virtual Machine agent](../virtual-machines/extensions/agent-windows.md) för ytterligare fel sökning.

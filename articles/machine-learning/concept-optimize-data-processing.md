@@ -9,13 +9,13 @@ ms.author: sgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 507b03266e70ae082872890c9d5cddb50fdeb703
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719992"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481892"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimera data bearbetning med Azure Machine Learning
 
@@ -51,7 +51,7 @@ För flera virtuella processorer, vCPU, Tänk på att du vill att en partition s
 
 Om du inte kan lägga till mer RAM-minne på datorn kan du använda följande tekniker för att minimera CPU-arbetsbelastningar och optimera bearbetnings tider. De här rekommendationerna gäller både enkla och distribuerade system.
 
-Teknik | Beskrivning
+Teknik | Description
 ----|----
 Komprimering | Använd en annan representation för dina data, på ett sätt som använder mindre minne och inte märkbart påverkar resultatet av beräkningen.<br><br>*Exempel:* I stället för att lagra poster som en sträng med cirka 10 byte eller mer per post, lagrar du dem som booleska, sanna eller falska, som du kan lagra på 1 byte.
 Segmentering | Läs in data i minnet i del mängder (segment), bearbeta data en delmängd vid tiden eller flera del mängder parallellt. Den här metoden fungerar bäst om du behöver bearbeta alla data, men behöver inte läsa in alla data i minnet samtidigt. <br><br>*Exempel:* I stället för att bearbeta data på hela året samtidigt kan du läsa in och bearbeta data en månad i taget.
@@ -61,9 +61,10 @@ Indexering | Använd och Använd ett index, en sammanfattning som talar om var d
 
 Om de tidigare rekommendationerna inte räcker och du inte kan få en virtuell dator som passar dina data, kan du 
 
-* Använd ett ramverk som `Spark` eller `Dask` för att bearbeta data "slut på minne". I det här alternativet läses dataframe in i RAM-partitionen genom partition och bearbetning, med det slutliga resultatet som samlas in i slutet. 
+* Använd ett ramverk som `Spark` eller `Dask` för att bearbeta data "slut på minne". I det här alternativet läses dataframe in i RAM-partitionen genom partition och bearbetning, med det slutliga resultatet som samlas in i slutet.  
 
 * Skala ut till ett kluster med hjälp av ett distribuerat ramverk. I det här alternativet delas data bearbetnings belastningen upp och bearbetas på flera processorer som fungerar parallellt, med det slutliga resultatet som samlas in i slutet.
+
 
 ### <a name="recommended-distributed-frameworks"></a>Rekommenderade distribuerade ramverk
 
@@ -75,6 +76,8 @@ Om du är bekant med`Pandas`| `Modin`eller `Dask` dataframe
 Om du föredrar`Spark` | `PySpark`
 För data som är mindre än 1 GB | `Pandas`lokalt **eller** en beräknings instans för fjärrAzure Machine Learning
 För data som är större än 10 GB| Flytta till ett kluster med hjälp av `Ray` , `Dask` eller`Spark`
+
+Du kan skapa `Dask` kluster i Azure ml Compute-kluster med [dask-cloudprovider-](https://cloudprovider.dask.org/en/latest/#azure) paketet. Eller så kan du köra `Dask` lokalt på en beräknings instans.
 
 ## <a name="next-steps"></a>Nästa steg
 

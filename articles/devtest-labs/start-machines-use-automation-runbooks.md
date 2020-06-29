@@ -1,23 +1,14 @@
 ---
 title: Starta datorer med Automation-runbooks i Azure DevTest Labs
 description: Lär dig hur du startar virtuella datorer i ett labb i Azure DevTest Labs genom att använda Azure Automation runbooks.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: df6d7943a5344b4288dfe369dcce9087b894984f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 72ce964b451fb6bcd1e93d75e6ae674c7608d63a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895327"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481909"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Starta virtuella datorer i ett labb i ordning genom att använda Azure Automation runbooks
 Med funktionen [Autostart](devtest-lab-set-lab-policy.md#set-autostart) i DevTest Labs kan du konfigurera virtuella datorer så att de startar automatiskt vid en viss tidpunkt. Den här funktionen stöder dock inte att datorer startar i en speciell ordning. Det finns flera scenarier där den här typen av automatisering skulle vara användbar.  Ett scenario är var du måste starta en virtuell dator i ett labb innan du börjar med de andra virtuella datorerna, eftersom hoppet används som åtkomst punkt till de andra virtuella datorerna.  Den här artikeln visar hur du konfigurerar ett Azure Automation-konto med en PowerShell-Runbook som kör ett skript. Skriptet använder taggar på virtuella datorer i labbet för att kontrol lera start ordningen utan att behöva ändra skriptet.

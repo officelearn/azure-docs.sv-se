@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125714"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482130"
 ---
 # <a name="connection-strings"></a>Anslutningssträngar
 
@@ -165,7 +165,7 @@ En anslutnings sträng kan anges antingen i kod, i en miljö variabel eller i en
 
 TelemetryConfiguration. ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net har uttryckligen angetts:
+.NET har uttryckligen angetts:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -173,7 +173,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-.Net-konfigurations fil:
+.NET-konfigurations fil:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -182,8 +182,16 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
+NetCore explicit uppsättning:
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;" };
+    services.AddApplicationInsightsTelemetry(options: options);
+}
+```
 
-NetCore config. JSON: 
+NetCore-config.jspå: 
 
 ```json
 {
@@ -202,7 +210,7 @@ Java (v 2.5. x) explicit angiven:
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
 
-ApplicationInsights. XML
+ApplicationInsights.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">

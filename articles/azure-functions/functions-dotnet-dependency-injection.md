@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 26816a545cb83e0a3d996a8056b96154830e58b6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: df26a6815a3dde27559f2f55038bdccadd78ea0b
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195518"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482147"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
@@ -21,7 +21,7 @@ Azure Functions stöder design mönstret för program beroende insprutning (DI),
 
 - Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
@@ -36,11 +36,8 @@ Registrera tjänster genom att skapa en metod för att konfigurera och lägga ti
 Registrera-metoden genom att lägga till `FunctionsStartup` attributet Assembly som anger typ namnet som används vid start.
 
 ```csharp
-using System;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Http;
-using Microsoft.Extensions.Logging;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -52,7 +49,7 @@ namespace MyNamespace
         {
             builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton((s) => {
+            builder.Services.AddSingleton<IMyService>((s) => {
                 return new MyService();
             });
 
@@ -61,6 +58,8 @@ namespace MyNamespace
     }
 }
 ```
+
+I det här exemplet används paketet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) som krävs för att registrera ett `HttpClient` vid start.
 
 ### <a name="caveats"></a>Varningar
 
@@ -72,48 +71,47 @@ En serie registrerings steg som körs före och efter körningen bearbetar start
 
 ## <a name="use-injected-dependencies"></a>Använda inmatade beroenden
 
-Konstruktorn för konstruktorn används för att göra beroenden tillgängliga i en funktion. Användningen av konstruktorn för konstruktorn kräver att du inte använder statiska klasser.
+Konstruktorn för konstruktorn används för att göra beroenden tillgängliga i en funktion. Användningen av konstruktorn för konstruktorn kräver att du inte använder statiska klasser för inmatade tjänster eller för dina funktions klasser.
 
-Följande exempel visar hur `IMyService` och `HttpClient` beroenden matas in i en http-utlöst funktion. I det här exemplet används paketet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) som krävs för att registrera ett `HttpClient` vid start.
+Följande exempel visar hur `IMyService` och `HttpClient` beroenden matas in i en http-utlöst funktion.
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MyNamespace
 {
-    public class HttpTrigger
+    public class MyHttpTrigger
     {
-        private readonly IMyService _service;
         private readonly HttpClient _client;
+        private readonly IMyService _service;
 
-        public HttpTrigger(IMyService service, HttpClient httpClient)
+        public MyHttpTrigger(HttpClient httpClient, MyService service)
         {
-            _service = service;
-            _client = httpClient;
+            this._client = httpClient;
+            this._service = service;
         }
 
-        [FunctionName("GetPosts")]
-        public async Task<IActionResult> Get(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "posts")] HttpRequest req,
+        [FunctionName("MyHttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            var res = await _client.GetAsync("https://microsoft.com");
-            await _service.AddResponse(res);
+            var response = await _client.GetAsync("https://microsoft.com");
+            var message = _service.GetMessage();
 
-            return new OkResult();
+            return new OkObjectResult("Response from function with injected dependencies.");
         }
     }
 }
 ```
+
+I det här exemplet används paketet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) som krävs för att registrera ett `HttpClient` vid start.
 
 ## <a name="service-lifetimes"></a>Livs längd för tjänsten
 
@@ -127,7 +125,9 @@ Visa eller hämta ett [exempel på olika livs längder för tjänsten](https://a
 
 ## <a name="logging-services"></a>Loggnings tjänster
 
-Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en `ILoggerProvider` instans. Application Insights läggs till av Azure Functions automatiskt.
+Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en instans av [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory) , som är tillgänglig via NuGet-paketet [Microsoft. Extensions. logging. Abstraction](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) .
+
+Application Insights läggs till av Azure Functions automatiskt.
 
 > [!WARNING]
 > - Lägg inte till i `AddApplicationInsightsTelemetry()` samlingen tjänster när den registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
@@ -135,7 +135,9 @@ Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en `I
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger <T> och ILoggerFactory
 
-Värden kommer att injiceras `ILogger<T>` och `ILoggerFactory` tjänster till konstruktörer.  Dessa nya loggnings filter kommer dock att filtreras bort från funktions loggarna som standard.  Du måste ändra `host.json` filen om du vill välja ytterligare filter och kategorier.  Följande exempel visar hur du lägger till en `ILogger<HttpTrigger>` med-loggar som kommer att exponeras av värden.
+Värden injiceras `ILogger<T>` och `ILoggerFactory` tjänster i konstruktörer.  Dessa nya loggnings filter filtreras dock inte som standard av funktions loggarna.  Du måste ändra `host.json` filen om du vill välja ytterligare filter och kategorier.
+
+Följande exempel visar hur du lägger till en `ILogger<HttpTrigger>` med-loggar som exponeras för värden.
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +162,7 @@ namespace MyNamespace
 }
 ```
 
-Och en `host.json` fil som lägger till logg filtret.
+Följande exempel `host.json` fil lägger till logg filtret.
 
 ```json
 {
@@ -251,7 +253,7 @@ public class HttpTrigger
 Mer information om hur du arbetar med alternativ finns [i alternativ mönster i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) .
 
 > [!WARNING]
-> Undvik att försöka läsa värden från filer som *Local. Settings. JSON* eller *appSettings. { miljö}. JSON* i förbruknings planen. Värden som läses från dessa filer som rör utlösnings anslutningar är inte tillgängliga eftersom appen skalas eftersom värd infrastrukturen inte har åtkomst till konfigurations informationen eftersom skalnings kontrollen skapar nya instanser av appen.
+> Undvik att försöka läsa värden från filer som *local.settings.jspå* eller *appSettings. { miljö}. JSON* i förbruknings planen. Värden som läses från dessa filer som rör utlösnings anslutningar är inte tillgängliga eftersom appen skalas eftersom värd infrastrukturen inte har åtkomst till konfigurations informationen eftersom skalnings kontrollen skapar nya instanser av appen.
 
 ## <a name="next-steps"></a>Nästa steg
 

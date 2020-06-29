@@ -1,46 +1,46 @@
 ---
 title: Migrera JavaScript-app med en enda sida från implicit beviljande till flöde för auktoriseringskod | Azure
 titleSuffix: Microsoft identity platform
-description: Så här uppdaterar du en JavaScript-SPA med MSAL. js 1. x och det implicita bidraget till MSAL. js 2. x och koden för auktoriseringskod med PKCE-och CORS-stöd.
+description: Så här uppdaterar du en JavaScript-SPA med MSAL.js 1. x och det implicita beviljade flödet till MSAL.js 2. x och koden för auktoriseringskod med PKCE-och CORS-stöd.
 services: active-directory
 author: hahamil
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/01/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 6af203759cca830a6adcf9f70436d42f3d983da4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 8115f8e767d1bdcbacb74e90606526c98b0820f7
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84301043"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479546"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrera en JavaScript-app med en sida från implicit beviljande till auth Code Flow
 
 > [!IMPORTANT]
 > Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA).
 
-Microsoft Authentication Library för Java Script (MSAL. js) v 2.0 ger stöd för Authorization Code-flödet med PKCE och CORS till program med en enda sida på Microsoft Identity Platform. Följ stegen i avsnitten nedan för att migrera ditt MSAL. js 1. x-program med hjälp av implicit beviljande till MSAL. js 2.0 + (hädanefter *2. x*) och flödet för auth-koden.
+Microsoft Authentication Library för Java Script (MSAL.js) v 2.0 ger stöd för kod flödet för auktorisering med PKCE och CORS till en Enkels Ides program på Microsoft Identity Platform. Följ stegen i avsnitten nedan för att migrera ditt MSAL.js 1. x-program med hjälp av implicit beviljande till MSAL.js 2.0 + (hädanefter *2. x*) och flödet för auth-koden.
 
-MSAL. js 2. x förbättrar för MSAL. js 1. x genom att stödja kod flödet för auktorisering i webbläsaren i stället för det implicita tilldelnings flödet. MSAL. js 2. x stöder **inte** det implicita flödet.
+MSAL.js 2. x ökar med MSAL.js 1. x genom att stödja auktoriseringskod i webbläsaren i stället för det implicita tilldelnings flödet. MSAL.js 2. x stöder **inte** det implicita flödet.
 
 ## <a name="migration-steps"></a>Migreringsanvisningar
 
-Om du vill uppdatera programmet till MSAL. js 2. x och auth Code Flow finns det tre primära steg:
+Om du vill uppdatera ditt program till MSAL.js 2. x och auth Code Flow finns det tre primära steg:
 
 1. Ändra dina omdirigerings-URI: er för [program registrering](#switch-redirect-uris-to-spa-platform) från **webb** plattformen till **en program plattform med enkel sida** .
-1. Uppdatera [koden](#switch-redirect-uris-to-spa-platform) från MSAL. js 1. x till **2. x**.
-1. Inaktivera det [implicita bidraget](#disable-implicit-grant-settings) i din app-registrering när alla program som delar registreringen har uppdaterats till MSAL. js 2. x och auth Code Flow.
+1. Uppdatera [koden](#switch-redirect-uris-to-spa-platform) från MSAL.js 1. x till **2. x**.
+1. Inaktivera det [implicita bidraget](#disable-implicit-grant-settings) i din app-registrering när alla program som delar registreringen har uppdaterats till MSAL.js 2. x och kod flödet för autentisering.
 
 I följande avsnitt beskrivs varje steg i ytterligare information.
 
 ## <a name="switch-redirect-uris-to-spa-platform"></a>Ändra omdirigerings-URI till SPA-plattform
 
-Om du vill fortsätta att använda din befintliga App-registrering för dina program använder du Azure Portal för att uppdatera registreringens omdirigerings-URI: er till SPA-plattformen. På så sätt kan auktoriseringskod flöda med PKCE och CORS-stöd för appar som använder registreringen (du måste fortfarande uppdatera programmets kod till MSAL. js v2. x).
+Om du vill fortsätta att använda din befintliga App-registrering för dina program använder du Azure Portal för att uppdatera registreringens omdirigerings-URI: er till SPA-plattformen. Detta gör att auktoriseringskod kan flöda med PKCE och CORS-stöd för appar som använder registreringen (du måste fortfarande uppdatera programmets kod till MSAL.js v2. x).
 
 Följ de här stegen för app-registreringar som är konfigurerade med omdirigerings-URI: er för **webb** plattform:
 
@@ -49,7 +49,7 @@ Följ de här stegen för app-registreringar som är konfigurerade med omdiriger
 1. I panelen **webb** plattform under **omdirigerings-URI**väljer du varnings banderollen som anger att du bör migrera dina URI: er.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Varnings banderoll för implicit flöde på webbappens panel i Azure Portal":::
-1. Välj *bara* de omdirigerings-URI: er vars program kommer att använda MSAL. js 2. x och välj sedan **Konfigurera**.
+1. Välj *bara* de omdirigerings-URI: er vars program kommer att använda MSAL.js 2. x och välj sedan **Konfigurera**.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Välj rutan omdirigerings-URI i fönstret SPA i Azure Portal":::
 
@@ -59,7 +59,7 @@ De här omdirigerings-URI: erna bör nu visas på en plattforms panel med **en e
 
 Du kan också [skapa en ny app-registrering](scenario-spa-app-registration.md) i stället för att uppdatera omdirigerings-URI: erna i den befintliga registreringen.
 
-## <a name="update-your-code-to-msaljs-2x"></a>Uppdatera din kod till MSAL. js 2. x
+## <a name="update-your-code-to-msaljs-2x"></a>Uppdatera koden till MSAL.js 2. x
 
 I MSAL 1. x skapade du en program instans genom att initiera en [UserAgentApplication][msal-js-useragentapplication] på följande sätt:
 
@@ -89,7 +89,7 @@ När du har uppdaterat alla produktions program som använder den här appens re
 
 När du avmarkerar inställningarna för implicit beviljande i appens registrering inaktive ras det implicita flödet för alla program som använder registrering och dess klient-ID.
 
-Inaktivera **inte** det implicita tilldelnings flödet innan du har uppdaterat alla program till MSAL. js 2. x och [PublicClientApplication][msal-js-publicclientapplication].
+Inaktivera **inte** det implicita tilldelnings flödet innan du har uppdaterat alla program till MSAL.js 2. x och [PublicClientApplication][msal-js-publicclientapplication].
 
 ## <a name="next-steps"></a>Nästa steg
 

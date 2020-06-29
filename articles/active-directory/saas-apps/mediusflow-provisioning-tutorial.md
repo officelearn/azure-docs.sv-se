@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3b194755e96e8b8dec2bd0325417950ffe96241c
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339316"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482419"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera MediusFlow för automatisk användar etablering
 
@@ -56,10 +56,10 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 Börja med att aktivera åtkomst till Azure AD-inloggningen och Azure AD-konfigurationsverktyget i MediusFlow genom att utföra följande steg:
 
 #### <a name="user-login"></a>Användar inloggning
-Till aktiverar du inloggnings flödet till Microsoft 365/Azure AD jfr [den här] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artikeln.
+Om du vill aktivera inloggnings flödet till Microsoft 365/Azure AD hänvisar du till [den] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artikeln.
 
 #### <a name="user-transfer-configuration"></a>Konfiguration av användar överföring
-Om du vill aktivera konfigurations portalen för användarna för etablering från Azure AD kan du läsa [den här](
+Om du vill aktivera konfigurations portalen för användare för etablering från Azure AD kan du läsa [den här](
 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) artikeln.
 
 #### <a name="configure-user-provisioning"></a>Konfigurera användarförsörjning
@@ -94,7 +94,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
     ![Autentisera](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
 
-8. För att användarna ska kunna importeras med en fördefinierad uppsättning roller, företag och andra allmänna konfigurationer i MediusFlow måste du konfigurera den som först. Börja med att lägga till konfigurationen genom att klicka på **Lägg till ny konfiguration**.
+8. För att användarna ska kunna importeras med en fördefinierad uppsättning roller, företag och andra allmänna konfigurationer i MediusFlow måste du konfigurera det först. Börja med att lägga till konfigurationen genom att klicka på **Lägg till ny konfiguration**.
 
     ![Konfigurera användare](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
 

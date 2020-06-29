@@ -1,24 +1,15 @@
 ---
 title: Företagets policy och efterlevnad i Azure DevTest Labs
 description: Den här artikeln innehåller vägledning om hur du styr företagets policy och efterlevnad för Azure DevTest Labs infrastruktur.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 81ca2a90b1940d70e170cab3f8d18144a5d5e5a8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: fe370ec882fd0462bba6afdf11c718cf46618f0c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896888"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480940"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Styrning av Azure DevTest Labs infrastruktur – företagets policy och efterlevnad
 Den här artikeln innehåller vägledning om hur du styr företagets policy och efterlevnad för Azure DevTest Labs infrastruktur. 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ea97d7a2aa5fdc18d11e952eafe65b167b3397
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483928"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476843"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure MFA per användare för att skydda inloggningshändelser
 
@@ -38,8 +38,8 @@ Användar konton i Azure Multi-Factor Authentication har följande tre distinkta
 
 | Status | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
 |:---:| --- |:---:|:--:|:--:|
-| Disabled | Standard läget för en ny användare som inte har registrerats i Azure Multi-Factor Authentication. | Nej | Nej | Nej |
-| Enabled | Användaren har registrerats i Azure Multi-Factor Authentication, men har inte registrerats. De får ett meddelande om att registrera sig nästa gången de loggar in. | Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure Multi-Factor Authentication registrering.| Ja. När åtkomsttoken har upphört att gälla krävs Azure Multi-Factor Authentication registrering. |
+| Disabled | Standard läget för en ny användare som inte har registrerats i Azure Multi-Factor Authentication. | Inga | Inga | Inga |
+| Enabled | Användaren har registrerats i Azure Multi-Factor Authentication men inte registrerat autentiseringsmetoder. De får ett meddelande om att registrera sig nästa gången de loggar in. | Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure Multi-Factor Authentication registrering.| Ja. När åtkomsttoken har upphört att gälla krävs Azure Multi-Factor Authentication registrering. |
 | Enforced | Användaren har registrerats och slutfört registrerings processen för Azure Multi-Factor Authentication. | Ja. Appar kräver applösenord. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. |
 
 En användares tillstånd visar om en administratör har registrerat dem i Azure Multi-Factor Authentication och om de har slutfört registrerings processen.

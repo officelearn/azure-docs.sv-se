@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791994"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481739"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -55,7 +55,14 @@ Du kan använda följande verktyg för att skapa eller konfigurera ett VNet:
 * En nätverks konfigurations fil (netcfg – endast för klassisk virtuella nätverk). Se artikeln [Konfigurera ett VNet med hjälp av en nätverks konfigurations fil](virtual-networks-using-network-configuration-file.md) .
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Vilka adress intervall kan jag använda i virtuella nätverk?
-Alla IP-adressintervall definieras i [RFC 1918](https://tools.ietf.org/html/rfc1918). Till exempel 10.0.0.0/16. Du kan inte lägga till följande adress intervall:
+Vi rekommenderar att du använder de adress intervall som räknas upp i [RFC 1918](https://tools.ietf.org/html/rfc1918), som har tagits ur bruk av IETF för privata, icke-flyttbara adress utrymmen:
+* 10.0.0.0-10.255.255.255 (10/8-prefix)
+* 172.16.0.0-172.31.255.255 (172.16/12-prefix)
+* 192.168.0.0-192.168.255.255 (192.168/16-prefix)
+
+Andra adress utrymmen kan fungera men kan ha oönskade sido effekter.
+
+Dessutom kan du inte lägga till följande adress intervall:
 * 224.0.0.0/4 (multicast)
 * 255.255.255.255/32 (sändning)
 * 127.0.0.0/8 (loopback)
@@ -131,7 +138,7 @@ Ja. Du kan ange DNS-serverns IP-adresser i VNet-inställningarna. Inställningen
 Referens för [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Kan jag ändra mina DNS-servrar när jag har skapat nätverket?
-Ja. Du kan när som helst ändra listan över DNS-servrar för ditt VNet. Om du ändrar listan över DNS-servrar måste du utföra en förnyelse av DHCP-lån på alla virtuella datorer som påverkas i VNet för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta `ipconfig /renew` genom att skriva direkt på den virtuella datorn. Information om andra operativ system typer finns i dokumentationen för DHCP-lånet för den angivna OS-typen. 
+Ja. Du kan när som helst ändra listan över DNS-servrar för ditt VNet. Om du ändrar listan över DNS-servrar måste du utföra en förnyelse av DHCP-lån på alla virtuella datorer som påverkas i VNet för att de nya DNS-inställningarna ska börja gälla. För virtuella datorer som kör Windows OS kan du göra detta genom att skriva `ipconfig /renew` direkt på den virtuella datorn. Information om andra operativ system typer finns i dokumentationen för DHCP-lånet för den angivna OS-typen. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>Vad är Azure-tillhandahållit DNS och fungerar det med virtuella nätverk?
 Azure-tillhandahöll DNS är en DNS-tjänst för flera innehavare som erbjuds av Microsoft. Azure registrerar alla virtuella datorer och moln tjänst roll instanser i den här tjänsten. Den här tjänsten tillhandahåller namn matchning efter värdnamn för virtuella datorer och roll instanser i samma moln tjänst och av FQDN för virtuella datorer och roll instanser i samma VNet. Mer information om DNS finns i [namn matchning för virtuella datorer och Cloud Services roll instanser](virtual-networks-name-resolution-for-vms-and-role-instances.md).

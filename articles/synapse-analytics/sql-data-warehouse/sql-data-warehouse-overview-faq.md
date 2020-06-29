@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a0d98a2c58e7629f988d0d3e8015355ba414c07a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b3ee3f729e1e2f03d7c72a72081ad2e3f0316cbb
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85201149"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482538"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
 
@@ -56,10 +56,6 @@ A. Se vår aktuella [kapacitets begränsning](sql-data-warehouse-service-capacit
 F. Varför tar min skala/pausa/återupptas så länge?
 
 A. Flera faktorer kan påverka tiden för beräknings hanterings åtgärder. Ett vanligt fall för tids krävande åtgärder är transaktionell återställning. När en skalnings-eller paus åtgärd initieras blockeras alla inkommande sessioner och frågor töms. För att datorn ska vara i ett stabilt tillstånd måste transaktionerna återställas innan en åtgärd kan påbörjas. Ju större siffra och större logg storlek för transaktionerna, desto längre tid kommer åtgärden att stoppas för att återställa systemet till ett stabilt tillstånd.
-
-F: Hur gör jag för att byta namn på en publicerad artefakt (data uppsättning, Notebook, SQL-skript och så vidare) i Azure-Synapse?
-
-A: om du vill byta namn på en publicerad artefakt fil måste du först klona filen och byta namn på den nya filen till det namn som du föredrar. Du måste manuellt uppdatera alla referenserna för artefakten till det nya fil namnet och ta bort den gamla.
 
 ## <a name="user-support"></a>Stöd för användare
 

@@ -6,20 +6,20 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c1f279e49b938fb391223bec47d23326e34b2ea
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598138"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477693"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Markera din app som utgivare verifierad (för hands version)
+# <a name="mark-your-app-as-publisher-verified-preview"></a>Markera din app som verifierad av utgivare (förhandsversion)
 
 När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av sina Microsoft Partner Network-konton (MPN) och har associerat MPN-kontot med sin program registrering. Den här artikeln beskriver hur du slutför processen för [utgivar verifiering (för hands version)](publisher-verification-overview.md) .
 

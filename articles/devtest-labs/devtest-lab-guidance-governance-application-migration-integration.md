@@ -1,24 +1,15 @@
 ---
 title: Migrering och integrering av program i Azure DevTest Labs
 description: Den här artikeln innehåller rikt linjer för styrning av Azure DevTest Labs infrastruktur i samband med migrering och integrering av program.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: cebc32edf78df1fa6a72876f8c8e5d23525942b7
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898271"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481586"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Styrning av Azure DevTest Labs infrastruktur – migrering och integrering av program
 När din utvecklings-/test labb miljö har upprättats måste du tänka på följande frågor:

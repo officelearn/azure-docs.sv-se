@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
-ms.openlocfilehash: a437d54dac50be7ddaad899a1cf0a3e93aade8f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f72e16afd61d364a2dad634f3502c801f1b99380
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154584"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478152"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>Ny utbildningsguide för Azure-portalappsregistreringar
 
@@ -56,7 +56,7 @@ Den tidigare versionen hade en **egenskaps** sida. **Egenskaperna** innehåller 
 
 - **Namn**
 - **Objekt-ID**
-- **Program-ID:t**
+- **Program-ID**
 - **URI för app-id**
 - **Logotyp**
 - **URL för start sidan**
@@ -73,13 +73,13 @@ Den nya upplevelsen har inte den sidan. Här kan du hitta motsvarande funktioner
 - De funktioner som styrs av växling vid **flera innehavare** i den tidigare versionen har ersatts av **konto typer som stöds** på sidan **autentisering** . Mer information finns i [snabb start: ändra de konton som stöds av ett program](quickstart-modify-supported-accounts.md).
 - **URL för utloggning** finns nu på sidan **autentisering** .
 - **Program typen** är inte längre ett giltigt fält. I stället måste du i stället använda URI: er, som du hittar på sidan **autentisering** , bestämma vilka typer av appar som stöds.
-- **App-ID-URI** heter nu **program-ID URI** och du hittar den på att **exponera ett API**. I den tidigare versionen registrerades den här egenskapen med följande format: `https://{tenantdomain}/{appID}`, till exempel. `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b` I den nya upplevelsen skapas den automatiskt som `api://{appID}`, men den måste sparas explicit. I Azure AD B2C klienter används fortfarande `https://{tenantdomain}/{appID}` formatet.
+- **App-ID-URI** heter nu **program-ID URI** och du hittar den på att **exponera ett API**. I den tidigare versionen registrerades den här egenskapen med följande format:, till `https://{tenantdomain}/{appID}` exempel `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b` . I den nya upplevelsen skapas den automatiskt som `api://{appID}` , men den måste sparas explicit. I Azure AD B2C klienter `https://{tenantdomain}/{appID}` används fortfarande formatet.
 
 ### <a name="reply-urlsredirect-urls"></a>Svars webb adresser/omdirigerings-URL
 
 I den tidigare versionen hade en app en sida med **svars-URL: er** . I den nya upplevelsen hittar du svars-URL: er på sidan **Authentication** för en app. De kallas nu **omdirigerings-URI: er**.
 
-Formatet för omdirigerings-URI: er har ändrats. De måste vara kopplade till en app-typ, antingen webb eller offentlig. Av säkerhets skäl stöds inte jokertecken `http://` och scheman, förutom för *http://localhost*.
+Formatet för omdirigerings-URI: er har ändrats. De måste vara kopplade till en app-typ, antingen webb eller offentlig. Av säkerhets skäl stöds inte jokertecken och `http://` scheman, förutom för *http://localhost* .
 
 ### <a name="keyscertificates--secrets"></a>Nycklar/certifikat & hemligheter
 
@@ -118,8 +118,8 @@ De äldre och nya upplevelserna använder olika versioner av JSON-formatet i man
 
 Den nya upplevelsen lägger till UI-kontroller för följande egenskaper:
 
-- Sidan **autentisering** har ett **implicit beviljat flöde** (`oauth2AllowImplicitFlow`). Till skillnad från den äldre upplevelsen kan du aktivera **åtkomsttoken** eller **ID-token**, eller båda.
-- Sidan **exponera en API** innehåller **omfattningar som definieras av detta API** (`oauth2Permissions`) och **auktoriserade klient program** (`preAuthorizedApplications`). Mer information om hur du konfigurerar en app så att den är ett webb-API och visar behörigheter/omfattningar finns i [snabb start: Konfigurera ett program för att exponera webb-API: er](quickstart-configure-app-expose-web-apis.md).
+- Sidan **autentisering** har ett **implicit beviljat flöde** ( `oauth2AllowImplicitFlow` ). Till skillnad från den äldre upplevelsen kan du aktivera **åtkomsttoken** eller **ID-token**, eller båda.
+- Sidan **exponera en API** innehåller **omfattningar som definieras av detta API** ( `oauth2Permissions` ) och **auktoriserade klient program** ( `preAuthorizedApplications` ). Mer information om hur du konfigurerar en app så att den är ett webb-API och visar behörigheter/omfattningar finns i [snabb start: Konfigurera ett program för att exponera webb-API: er](quickstart-configure-app-expose-web-apis.md).
 - Sidan **anpassning** innehåller **utgivarens domän**. Utgivarens domän visas för användare i [programmets medgivande fråga](application-consent-experience.md). Mer information finns i [How to: Configure the Application ' Publisher Domain](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Begränsningar

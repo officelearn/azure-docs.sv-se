@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1ded745b5a734fd92a8ace851e3ecfc4a7a487d5
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e8d68e5f2eeeb7363469535c027f258fbc9d7ed1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636401"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480498"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Självstudie: skapa virtuella Windows-avbildningar med Azure PowerShell
 
@@ -54,7 +54,7 @@ Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra h
 
 ## <a name="get-the-vm"></a>Hämta den virtuella datorn
 
-Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp kan du använda `Get-AzVM` igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$VM*. 
+Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp kan du använda `Get-AzVM` igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$sourceVM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -131,7 +131,7 @@ New-AzGalleryImageVersion `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
-   -Source $vm.Id.ToString() `
+   -Source $sourceVM.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01'
 ```
 

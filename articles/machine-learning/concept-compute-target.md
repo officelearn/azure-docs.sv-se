@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/30/2020
-ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/26/2020
+ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780121"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483286"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -52,21 +52,23 @@ Du kan skapa Azure Machine Learning beräknings instanser (för hands version) e
 * Azure Machine Learning-studio
 * Azure Portal
 * Python SDK- [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) -klasser
-* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (för hands version)
 * Resource Manager-mall
-
-Du kan också skapa beräknings kluster med [Machine Learning-tillägget för Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+* Machine Learning- [tillägget för Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
 
 När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, till skillnad från andra typer av beräknings mål.
 
-### <a name="compute-clusters"></a>Beräknings kluster
 
-Du kan använda Azure Machine Learning beräknings kluster för utbildning och för batch-inferencing (för hands version).  Med den här beräknings resursen har du:
+|Funktion  |Beräknings kluster  |Beräkninsinstans  |
+|---------|---------|---------|
+|Kluster med en eller flera noder     |    **&check;**       |         |
+|Autoskalar varje gången du skickar en körning     |     **&check;**      |         |
+|Automatisk kluster hantering och schemaläggning av jobb     |   **&check;**        |     **&check;**      |
+|Stöd för både CPU-och GPU-resurser     |  **&check;**         |    **&check;**       |
 
-* Kluster med en eller flera noder
-* Automatisk skalning varje gången du skickar en körning 
-* Automatisk kluster hantering och schemaläggning av jobb 
-* Stöd för både CPU-och GPU-resurser
+
+> [!NOTE]
+> När ett beräknings kluster är inaktivt skalas det till 0 noder, så du betalar inte när det inte används.  En beräknings *instans*är dock alltid aktive rad och har inte autoskalning.  Du bör [stoppa beräknings instansen](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) när du inte använder den för att undvika extra kostnader.
 
 ### <a name="supported-vm-series-and-sizes"></a>VM-serien och storlekar som stöds
 
@@ -80,17 +82,17 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 | **VM-serien som stöds**  | **Begränsningar** |
 |------------|------------|
-| D | Inga |
-| Dv2 | Inga |  
-| DSv2 | Inga |  
-| FSv2 | Inga |  
+| D | Ingen |
+| Dv2 | Ingen |  
+| DSv2 | Ingen |  
+| FSv2 | Ingen |  
 | M | Godkännande krävs |
-| NC | Inga |    
+| NC | Ingen |    
 | NCsv2 | Godkännande krävs |
 | NCsv3 | Godkännande krävs |  
 | NDs | Godkännande krävs |
 | NDv2 | Godkännande krävs |
-| NV | Inga |
+| NV | Ingen |
 | NVv3 | Godkännande krävs | 
 
 

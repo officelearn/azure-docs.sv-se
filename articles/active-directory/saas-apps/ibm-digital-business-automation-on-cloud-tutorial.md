@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c0a8185d81966932c17fd3b0590b5f8ef2f7b6df
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099670"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479801"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med IBM Digital Business Automation i molnet
 
@@ -93,7 +93,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > Om **ID** -och **svars-URL** -värdena inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
     > [!Note]
-    > Kunder kan hämta metadatafilen för sin moln prenumeration från [DBAoC DevOps-teamet](mailto:supportbpmoncloud@us.ibm.com).
+    > Kunder kan hämta metadatafilen för sina moln prenumerationer från [IBM Digital Business Automation på moln klient support teamet](mailto:supportbpmoncloud@us.ibm.com).
 
 1. Om du inte har **metadata-filen för en tjänst leverantör**går du till avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, ange värdena för följande fält:
 

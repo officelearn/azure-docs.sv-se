@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 68f8a7086dd164c102e42c99bb8d6ba22b71ad6f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710991"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480141"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Lägga till nätverksgränssnitt till eller ta bort nätverksgränssnitt från virtuella datorer
 
@@ -151,7 +151,7 @@ Information om inställningar för nätverks gränssnitt och hur du ändrar dem 
 
 - Om du tar bort en virtuell dator tas inte nätverks gränssnitten som är kopplade till den bort. När du tar bort en virtuell dator kopplas nätverks gränssnitten bort från den virtuella datorn. Du kan lägga till dessa nätverks gränssnitt till olika virtuella datorer eller ta bort dem.
 
-- Precis som med IPv6 kan du inte ansluta ett nätverks gränssnitt med accelererat nätverk aktiverat till en virtuell dator när du har skapat det. För att kunna dra nytta av accelererade nätverk måste du också slutföra stegen i det virtuella dator operativ systemet. Lär dig mer om accelererat nätverk och andra begränsningar när du använder dem för virtuella [Windows](create-vm-accelerated-networking-powershell.md) -eller [Linux](create-vm-accelerated-networking-cli.md) -datorer.
+- Att uppnå optimala prestanda som dokumenteras kräver accelererat nätverk. I vissa fall måste du uttryckligen aktivera accelererat nätverk för virtuella [Windows](create-vm-accelerated-networking-powershell.md) -eller [Linux](create-vm-accelerated-networking-cli.md) -datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 

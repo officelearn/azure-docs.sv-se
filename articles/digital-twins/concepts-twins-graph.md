@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c4bbc3510cc273504d7c97287d3aeb1948db2eb2
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c4cdfc35d39be827109c56a16d68f6e51b56ef43
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390677"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483354"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
 
@@ -95,7 +95,7 @@ Digitala dubbla data och Relations data lagras både i JSON-format. Det innebär
 
 När ett digitalt objekt visas som ett JSON-objekt visas följande fält:
 
-| Fältnamn | Beskrivning |
+| Fältnamn | Description |
 | --- | --- |
 | `$dtId` | En användardefinierad sträng som representerar ID: t för den digitala dubbla |
 | `$conformance` | En uppräkning som innehåller proformat-tillståndet för denna digitala garn (*överensstämmande*, *icke-överensstämmande*, *okänd*) |
@@ -124,7 +124,6 @@ Här är ett exempel på en digital, dubbels formaterad som ett JSON-objekt:
   "component": {
     "TableOccupancy": 1,
     "$metadata": {
-      "$model": "dtmi:com:contoso:Table;1",
       "TableOccupancy": {
         "desiredValue": 1,
         "desiredVersion": 3,
@@ -161,9 +160,9 @@ Här är ett exempel på en digital, dubbels formaterad som ett JSON-objekt:
 
 När den visas som ett JSON-objekt, visas följande fält i en relation från en digital:
 
-| Fältnamn | Beskrivning |
+| Fältnamn | Description |
 | --- | --- |
-| `$edgeId` | En användardefinierad sträng som representerar ID: t för den här Relations kanten. Den här strängen är unik i kontexten för källan Digital, som också innebär att `sourceId`  +  `edgeId` är unik i kontexten för Azure Digitals-instansen. |
+| `$relationshipId` | En användardefinierad sträng som representerar ID: t för den här relationen. Den här strängen är unik i kontexten för källan Digital, som också innebär att `sourceId`  +  `relationshipId` är unik i kontexten för Azure Digitals-instansen. |
 | `$sourceId` | ID: t för den digitala källan |
 | `$targetId` | ID: t för målets digitala dubbla |
 | `$relationshipName` | Namnet på relationen |
@@ -173,9 +172,10 @@ Här är ett exempel på en relation som är formaterad som ett JSON-objekt:
 
 ```json
 {
-  "$edgeId": "Edge-01",
+  "$relationshipId": "relationship-01",
+  "$etag": "W/\"506e8391-2b21-4ac9-bca3-53e6620f6a90\"",
   "$sourceId": "GroundFloor",
-  "$relationship": "contains",
+  "$relationshipName": "contains",
   "$targetId": "Cafe",
   "startDate": "2020-02-04"
 }

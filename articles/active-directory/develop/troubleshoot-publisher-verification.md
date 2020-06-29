@@ -6,20 +6,20 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: cf886b7b43280e542f1941e7c0edb570868525d9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598180"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477047"
 ---
-# <a name="troubleshoot-publisher-verification-preview"></a>Felsöka Publisher-verifiering (för hands version)
+# <a name="troubleshoot-publisher-verification-preview"></a>Felsöka verifiering av utgivare (förhandsversion)
 Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen (för hands version)](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller ser oväntade beteenden: 
 
 1. Granska [kraven](publisher-verification-overview.md#requirements) och se till att alla är uppfyllda.

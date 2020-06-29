@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/30/2020
+ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 85977819d30ddc8745eb9231242eb1990222676c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa8f5fa9901055957c5c94923ebd74c3d57ce41a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530996"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481790"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics-tillägg för virtuella datorer för Windows
 
@@ -36,6 +36,7 @@ Följande tabell innehåller en mappning av versionen av Windows Log Analytics V
 
 | Log Analytics Windows agent-paket version | Log Analytics version av Windows VM-tillägg | Lanserings datum | Viktig information |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18038 | 1.0.18038 | April 2020   | <ul><li>Aktiverar anslutning via privat länk med Azure Monitor privata länk omfång</li><li>Lägger till inmatnings begränsning för att undvika plötslig, oavsiktligt inflöde vid inmatning till en arbets yta</li><li>Lägger till stöd för ytterligare Azure Government moln och regioner</li><li>Löser ett fel där HealthService.exe kraschat</li></ul> |
 | 10.20.18029 | 1.0.18029 | Mars 2020   | <ul><li>Lägger till stöd för SHA-2-kod signering</li><li>Förbättrar installation och hantering av VM-tillägg</li><li>Löser ett fel i Azure Arc for servers-integrering</li><li>Lägger till ett inbyggt fel söknings verktyg för kund support</li><li>Lägger till stöd för ytterligare Azure Government regioner</li> |
 | 10.20.18018 | 1.0.18018 | Oktober 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li></ul> |
 | 10.20.18011 | 1.0.18011 | Juli 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Ökat MaxExpressionDepth till 10000 </li></ul> |
@@ -163,7 +164,7 @@ När du placerar tillägg-JSON i roten för mallen, innehåller resurs namnet en
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMExtension` Kommandot kan användas för att distribuera tillägget Log Analytics agent virtuell dator till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell. 
+`Set-AzVMExtension`Kommandot kan användas för att distribuera tillägget Log Analytics agent virtuell dator till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

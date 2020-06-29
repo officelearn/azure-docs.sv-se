@@ -1,25 +1,14 @@
 ---
 title: Använda Azure DevTest Labs för utvecklare | Microsoft Docs
 description: Lär dig mer om Azure DevTest Labs funktioner som kan användas för att uppfylla kraven för utvecklare och detaljerade steg som du kan följa för att ställa in ett labb.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 22e070e5-3d1a-49fe-9d4c-5e07cb0b7fe2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: c6bb2c4d21ee6b6cb072c550c82c380b3a380f24
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896923"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481042"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Använd Azure DevTest Labs för utvecklare
 Azure DevTest Labs kan användas för att implementera många viktiga scenarier, men ett av de primära involverar användning av DevTest Labs som värd för utvecklingsdatorer för utvecklare. I det här scenariot har DevTest Labs följande fördelar:

@@ -7,18 +7,18 @@ services: active-directory
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 06/22/2018
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b7ba4abd45fff8548c361f5e5ed44ef45fe32bbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48e94e1c4244e8828a2e5c436ba65dc001fab897
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883448"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479138"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referens för Azure AD SAML-token
 
@@ -41,9 +41,9 @@ Azure Active Directory (Azure AD) genererar flera typer av säkerhetstoken vid b
 > |Efternamn | `family_name` |Innehåller användarens efter namn, efter namn eller familje namn som definieras i objektet Azure AD-användare. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
 > |Name | `unique_name` |Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är inte garanterat unikt inom en klient organisation och är utformat för att endast användas i visnings syfte. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |Objekt-ID | `oid` |Innehåller en unik identifierare för ett objekt i Azure AD. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Använd objekt-ID: t för att identifiera ett objekt i frågor till Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
-> |Roller | `roles` |Representerar alla program roller som ämnet har beviljats både direkt och indirekt genom grupp medlemskap och kan användas för att genomdriva rollbaserad åtkomst kontroll. Program roller definieras per program, via `appRoles` egenskapen för applikations manifestet. `value` Egenskapen för varje program roll är det värde som visas i roll anspråket. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
+> |Roller | `roles` |Representerar alla program roller som ämnet har beviljats både direkt och indirekt genom grupp medlemskap och kan användas för att genomdriva rollbaserad åtkomst kontroll. Program roller definieras per program, via `appRoles` egenskapen för applikations manifestet. `value`Egenskapen för varje program roll är det värde som visas i roll anspråket. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 > |Subjekt | `sub` |Identifierar huvudobjektet som token kontrollerar information om, till exempel användaren av ett program. Värdet är oföränderligt och kan inte omtilldelas eller återanvändas, så det kan användas för att utföra verifierings kontroller på ett säkert sätt. Eftersom ämnet alltid finns i token i Azure AD-problemen rekommenderar vi att du använder det här värdet i ett system för generell behörighets kontroll. <br> `SubjectConfirmation`är inte ett anspråk. Den beskriver hur ämnet för token verifieras. `Bearer`anger att ämnet bekräftas av deras besittning av token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
-> |Klient-ID:t | `tid` |En oföränderlig identifierare som inte kan återanvändas och som identifierar den katalog klient som utfärdade token. Du kan använda det här värdet för att få åtkomst till klient organisations specifika katalog resurser i ett program med flera innehavare. Du kan till exempel använda det här värdet för att identifiera klienten i ett anrop till Graph API. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
+> |Klientorganisations-ID | `tid` |En oföränderlig identifierare som inte kan återanvändas och som identifierar den katalog klient som utfärdade token. Du kan använda det här värdet för att få åtkomst till klient organisations specifika katalog resurser i ett program med flera innehavare. Du kan till exempel använda det här värdet för att identifiera klienten i ett anrop till Graph API. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |Tokenlivstid | `nbf`, `exp` |Definierar tidsintervallet då token är giltig. Tjänsten som verifierar token ska verifiera att det aktuella datumet ligger inom token för token, annars ska den avvisa token. Tjänsten kan tillåta upp till fem minuter bortom livs längd intervallet för token för att beräkna eventuella skillnader i klock tiden ("tids skevning") mellan Azure AD och tjänsten. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 
 ## <a name="sample-saml-token"></a>Exempel på SAML-token

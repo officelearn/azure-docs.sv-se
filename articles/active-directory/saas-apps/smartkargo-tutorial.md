@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310023893d25a484cf05dac00628c632a4421edb
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: d8f65236fee57b4dc3e2bb012d8cdd222f431ec0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719036"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482623"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartkargo"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SmartKargo
 
@@ -83,7 +83,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<CUSTOMER_NAME>.smartkargo.com/`
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<CUSTOMER_NAME>.smartkargo.com/`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<CUSTOMER_NAME>.smartkargo.com/`
 
@@ -92,13 +92,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en, svars-URL och identifierare. Kontakta [SmartKargo client support team](https://www.smartkargo.com/company/contact-2/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
-
-1. I avsnittet **SAML-signeringscertifikat** , kopierar du **värdet tumavtryck** och sparar det på din dator.
-
-    ![Kopiera tumavtrycksvärdet](common/copy-thumbprint.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera SmartKargo** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -136,7 +132,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-smartkargo-sso"></a>Konfigurera SmartKargo SSO
 
-Om du vill konfigurera enkel inloggning på **SmartKargo** sida måste du skicka **tumavtrycket** och lämpliga kopierade url: er från Azure Portal till [SmartKargo Platform support team](https://www.smartkargo.com/company/contact-2/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **SmartKargo** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [SmartKargo Platform support team](https://www.smartkargo.com/company/contact-2/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-smartkargo-test-user"></a>Skapa SmartKargo test användare
 

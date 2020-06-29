@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 1f1a83bce3a8b46bb49bf78917690851390408e0
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194696"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476792"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Vad är Apache Spark i Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Apache Spark innehåller primitiver för minnes intern kluster användning. Ett 
 
 Spark-pooler i Azure Synapse erbjuder en fullständigt hanterad Spark-tjänst. Fördelarna med att skapa en spark-pool i Synapse Analytics visas här.
 
-| Funktion | Beskrivning |
+| Funktion | Description |
 | --- | --- |
 | Hastighet och effektivitet |Spark-instanser startar på ungefär 2 minuter för färre än 60 noder och ungefär 5 minuter för fler än 60 noder. Instansen stängs av som standard, 5 minuter efter det senaste jobbet som utförts om det inte hålls alivet av en Notebook-anslutning. |
 | Enkelt att skapa |Du kan skapa en ny Spark-pool i Azure Synapse på bara några minuter med hjälp av Azure Portal, Azure PowerShell eller Synapse Analytics .NET SDK. Se [Kom igång med Spark-pooler i Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |
@@ -60,7 +60,7 @@ SparkContext kan ansluta till kluster hanteraren, som allokerar resurser mellan 
 
 SparkContext kör användarens huvud funktion och kör de olika parallella åtgärderna på noderna. Drivrutinen samlar sedan in åtgärdernas resultat. Noderna läser och skriver data från och till fil systemet. Noderna cachelagrar också transformerade data i minnet som elastiska distribuerade data uppsättningar (RDD).
 
-SparkContext ansluter till Spark-poolen och ansvarar för att konvertera ett program till ett riktat diagram (DAG). Grafen består av enskilda uppgifter som körs i en utförar-process på noderna. Varje applikation får en egen körningsprocess som förblir aktiv under applikationens livslängd och kör uppgifter i flera trådar.
+SparkContext ansluter till Spark-poolen och ansvarar för att konvertera ett program till ett dirigerat acykliska diagram (DAG). Grafen består av enskilda uppgifter som körs i en utförar-process på noderna. Varje applikation får en egen körningsprocess som förblir aktiv under applikationens livslängd och kör uppgifter i flera trådar.
 
 ## <a name="apache-spark-in-synapse-analytics-use-cases"></a>Apache Spark i användnings fall i Synapse Analytics
 

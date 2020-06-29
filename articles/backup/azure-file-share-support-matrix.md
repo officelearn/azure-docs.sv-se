@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 72492ea77534b636d90820c96e36163e6c6efebe
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 3d9c9e4518ea6cd53c1f1d5e4a50040e3cf025b4
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488468"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443323"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Support mat ris för säkerhets kopiering av Azure-filresurs
 
@@ -31,7 +31,8 @@ Västra centrala USA, östra Australien, södra centrala Kanada
 | ------------------------ | ------------------------------------------------------------ |
 | Typ av konto            | Azure Backup stöder Azure-filresurser som finns i generell användning v1, General-Purpose v2 och lagrings konton för fil lagrings typ |
 | Prestanda              | Azure Backup stöder fil resurser i både standard-och Premium Storages konton |
-| Replikering              | Azure Files-resurser i lagrings konton med valfri replikeringstyp stöds |
+| Replikering              | Azure-filresurser i lagrings konton med valfri replikeringstyp stöds |
+| Brandväggen är aktiverad         | Azure-filresurser i lagrings konton med brand Väggs regler som tillåter Microsoft Azure tjänster att komma åt lagrings kontot stöds|
 
 ## <a name="supported-file-shares"></a>Fil resurser som stöds
 
@@ -46,8 +47,10 @@ Västra centrala USA, östra Australien, södra centrala Kanada
 
 | Inställningen                                                      | Gräns |
 | ------------------------------------------------------------ | ----- |
-| Maximalt antal fil resurser som kan skyddas per dag per valv | 200   |
+| Maximalt antal fil resurser som kan skyddas per valv per dag| 200   |
 | Maximalt antal lagrings konton som kan registreras per valv per dag | 50    |
+| Maximalt antal fil resurser som kan skyddas per valv | 2000   |
+| Maximalt antal lagrings konton som kan registreras per valv | 200   |
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 

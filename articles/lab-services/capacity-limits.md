@@ -1,29 +1,19 @@
 ---
 title: Kapacitets gränser i Azure Lab Services
 description: Läs mer om kapacitets begränsningar (gränser för virtuella datorer) i Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.author: spelluru
-ms.openlocfilehash: 721dd664bb3a2d38d3e698a813a69ba9b61fb32d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 92bdc714d70b3d73ca2cbc76b1f5dc5366582cbd
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899118"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444105"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Kapacitets gränser i Azure Lab Services
 Azure Lab Services har standard kapacitets gränser för Azure-prenumerationer som följer Azures begränsningar för beräknings kvoter och för att minimera bedrägerier. Alla Azure-prenumerationer får en ursprunglig kapacitets gräns, som kan variera beroende på prenumerations typ, antal standard beräknings kärnor och GPU-kärnor som är tillgängliga i Azure Lab Services. Den begränsar hur många virtuella datorer du kan skapa i labbet innan du måste begära en gräns för att öka.  
 
-Om du är nära eller har nått gränsen för din prenumerations virtuella dator kärnor visas meddelanden från Azure Lab Services när du försöker utföra åtgärder som skapar ytterligare virtuella datorer. Ett exempel: 
+Om du är nära eller har nått gränsen för din prenumerations virtuella dator kärnor visas meddelanden från Azure Lab Services när du försöker utföra åtgärder som skapar ytterligare virtuella datorer. Till exempel: 
 
 - Skapa ett labb
 - Publicera ett labb

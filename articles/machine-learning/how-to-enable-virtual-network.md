@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/22/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 084c1c604ac780b133f89eaeeb3fa5e780c2d565
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 3189fec114ca68dfd862c0973b289b9eff25fed5
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392598"
+ms.locfileid: "85445567"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -289,7 +289,7 @@ Använd följande steg för att använda ett Azure Storage-konto för arbets yta
 
 Vid åtkomst till Studio från en resurs i ett virtuellt nätverk (till exempel en beräknings instans eller virtuell dator), måste du tillåta utgående trafik från det virtuella nätverket till Studio. 
 
-Om du till exempel använder nätverks säkerhets grupper (NSG) för att begränsa utgående trafik, lägger du till en regel till ett __service tag-__ mål för __AzureFrontDoor. FirstParty__.
+Om du till exempel använder nätverks säkerhets grupper (NSG) för att begränsa utgående trafik, lägger du till en regel till ett __service tag-__ mål för __AzureFrontDoor. frontend__.
 
 <a id="aksvnet"></a>
 

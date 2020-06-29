@@ -1,24 +1,14 @@
 ---
 title: Tillåt labb skapare att välja plats i Azure Lab Services
 description: Den här artikeln beskriver hur en labb konto administratör kan låta labb skapare välja platser för sina labb.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
-ms.author: spelluru
-ms.openlocfilehash: 8d11b0fcf57be35d5a47d720a07fa274acc05b35
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899139"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444207"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Tillåt labb skapare att välja plats för labbet i Azure Lab Services
 I Azure Lab Services kan en labb konto ägare tillåta labb skapare (lärare) att välja en plats för de labb som de skapar. Den här platsen kan skilja sig från labb kontots plats. En plats är en grupp med Azure-regioner. Till exempel är USA plats en grupp med regioner som USA, västra, USA, västra och så vidare. 

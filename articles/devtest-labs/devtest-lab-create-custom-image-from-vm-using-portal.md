@@ -1,25 +1,14 @@
 ---
 title: Skapa en Azure DevTest Labs anpassad avbildning från en virtuell dator | Microsoft Docs
 description: Lär dig hur du skapar en anpassad avbildning i Azure DevTest Labs från en etablerad virtuell dator med hjälp av Azure Portal
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2020
-ms.author: spelluru
-ms.openlocfilehash: 3c11c8a4076f868e3f8896dac80147a485f166d3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 597ef49b667cf613b721c645e09f8e6dcb157011
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896237"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476605"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Skapa en anpassad avbildning från en virtuell dator
 

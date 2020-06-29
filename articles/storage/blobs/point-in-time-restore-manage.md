@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 747acc27a5eaf8551e44a3bf52f55b5a380b73ce
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752637"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445448"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Aktivera och hantera tidpunkts återställning för block-blobar (för hands version)
 
@@ -38,6 +38,10 @@ Följande kommando installerar AZ. Storage [2.0.1-Preview-](https://www.powershe
 Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
 ```
 
+Kommandot ovan kräver version 2.2.4.1 eller senare av PowerShellGet för att kunna installeras. Ta reda på vilken version som du för närvarande har läst in:
+```powershell
+Get-Module PowerShellGet
+```
 Mer information om hur du installerar Azure PowerShell finns i [installera Azure PowerShell med PowerShellGet](/powershell/azure/install-az-ps).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Aktivera och konfigurera återställning av tidpunkter

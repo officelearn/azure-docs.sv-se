@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 3e17df2a3c92d24a7fa662fbf92f8c89b434eb0d
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338237"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444462"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
@@ -90,7 +90,7 @@ Tjänstslutpunkter har följande fördelar:
 
 ### <a name="considerations"></a>Överväganden
 
-- När du har aktiverat en tjänst slut punkt har käll-IP-adresserna för virtuella datorer i under näts växeln. Käll-IP-adresserna växlar från att använda offentliga IPv4-adresser för att använda sin privata IPv4-adress vid kommunikation med tjänsten från det under nätet. Befintliga öppna TCP-anslutningar till tjänsten stängs under bytet. Kontrollera att inga kritiska uppgifter körs när du aktiverar eller inaktiverar en tjänstslutpunkt för en tjänst för ett undernät. Kontrollera även att dina program ansluter automatiskt till Azure-tjänster efter IP-adressbytet.
+- När du har aktiverat en tjänst slut punkt växlar Källans IP-adresser från att använda offentliga IPv4-adresser till att använda sin privata IPv4-adress när de kommunicerar med tjänsten från det under nätet. Befintliga öppna TCP-anslutningar till tjänsten stängs under bytet. Kontrollera att inga kritiska uppgifter körs när du aktiverar eller inaktiverar en tjänstslutpunkt för en tjänst för ett undernät. Kontrollera även att dina program ansluter automatiskt till Azure-tjänster efter IP-adressbytet.
 
   IP-adressbytet påverkar bara tjänsttrafiken från ditt virtuella nätverk. Det påverkar inte någon annan trafik som är adresserad till eller från offentliga IPv4-adresser som är tilldelade till dina virtuella datorer. För Azure-tjänster gäller att befintliga brandväggsregler där offentliga Azure-IP-adresser används slutar att fungera vid bytet till privata adresser i det virtuella nätverket.
 - Med tjänst slut punkter förblir DNS-posterna för Azure-tjänster redan idag och fortsätter att matcha till offentliga IP-adresser som tilldelats till Azure-tjänsten.

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97ddc91b5e49cafa87b90113f0160d8aec9c699a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360324"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444258"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
 
@@ -42,7 +42,7 @@ Innan du börjar ska du kontrol lera att du är bekant med [Översikt över enhe
 
 Viktiga fördelar med att ge dina enheter en Azure AD-identitet:
 
-* Öka produktiviteten – med Azure AD kan användarna göra [sömlös inloggning (SSO)](/azuread-join-sso.md) till dina lokala och molnbaserade resurser, vilket gör att de kan vara produktiva var de än är.
+* Öka produktiviteten – med Azure AD kan användarna göra [sömlös inloggning (SSO)](./azuread-join-sso.md) till dina lokala och molnbaserade resurser, vilket gör att de kan vara produktiva var de än är.
 
 * Öka säkerheten – med Azure AD-enheter kan du tillämpa [principer för villkorlig åtkomst (ca)](../conditional-access/require-managed-devices.md) på resurser baserat på enhetens eller användarens identitet. CA-principer kan ge extra skydd med hjälp av [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Att ansluta en enhet till Azure AD är ett krav för att öka säkerheten med en strategi för [lösen ords lös autentisering](../authentication/concept-authentication-passwordless.md) .
 
@@ -66,7 +66,7 @@ När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga f�
 
 I den här planen lägger du till följande intressenter i listan:
 
-| Roll| Beskrivning |
+| Roll| Description |
 | - | - |
 | Enhets administratör| En representant från enhets teamet som kan verifiera att planen uppfyller enhets kraven för din organisation. |
 | Nätverks administratör| En representant från nätverks teamet som kan se till att de uppfyller nätverks kraven. |

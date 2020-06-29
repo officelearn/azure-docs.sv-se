@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2fd6c908aa95ef22cbf7ea0b62b925d84d66cd28
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143275"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412591"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrera till version 3. x av API för textanalys
 
@@ -44,7 +44,7 @@ Om programmet använder REST API uppdaterar du slut punkten för begäran till v
 ## <a name="feature-changes"></a>Funktions ändringar
 
 > [!NOTE] 
-> För närvarande returneras [v3-enhets kategorier](named-entity-types.md) bara på engelsk text. API: n returnerar version 2,1-resultat för begär Anden på andra språk, förutsatt att de stöds i version 2,1.
+> För närvarande returneras [v3-enhets kategorier](named-entity-types.md) endast på engelska och spanska text. API: n returnerar version 2,1-resultat för begär Anden på andra språk, förutsatt att de stöds i version 2,1.
 
 I version 2,1 använder API för textanalys en slut punkt för namngiven entitets igenkänning (NER) och entitet länkning. Version 3 ger utökad identifiering av namngivna entiteter och använder separata slut punkter för NER och begär Anden om enhets länkning. Från och med v 3.1 – för hands version. 1 kan NER också identifiera personlig `pii` och hälso `phi` information. 
 
@@ -108,4 +108,4 @@ Om programmet använder REST API uppdaterar du slut punkten för begäran till v
 * [Referens för API för textanalys v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [Vad är API för textanalys](overview.md)
 * [Stöd för språk](language-support.md)
-* [Modell version](concepts/model-versioning.md)
+* [Versionshantering för modell](concepts/model-versioning.md)

@@ -1,22 +1,14 @@
 ---
 title: Utöka Azure DevTest Labs med Azure Functions | Microsoft Docs
 description: Lär dig hur du utökar Azure DevTest Labs med hjälp av Azure Functions.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: dd1fc4c1076d89c12b25837db9fa6a0ac3e1f3a5
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: bcd12d77065d231198e992fa5c459f0fc210855a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898929"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476316"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Använda Azure Functions för att utöka DevTest Labs
 Du kan använda Azure Functions för att stödja ytterligare scenarier utöver de som redan stöds av DevTest Labs. Azure Functions kan användas för att utöka de inbyggda funktionerna i tjänsten för att möta dina verksamhets specifika behov. I följande lista finns några möjliga scenarier. Den här artikeln visar hur du implementerar ett av dessa exempel scenarier.

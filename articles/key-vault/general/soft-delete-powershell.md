@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f883b8527fff97ea3e16e7ffa7637c432dc33c2f
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 452dd99ae58858b661892e3f962fce8086d4503c
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783375"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444666"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Så här använder du Key Vault mjuk borttagning med PowerShell
 
@@ -40,7 +40,7 @@ Key Vault detaljerad referensinformation för PowerShell finns i [Azure Key Vaul
 
 Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
-| Åtgärd | Beskrivning | Användar behörighet |
+| Åtgärd | Description | Användar behörighet |
 |:--|:--|:--|
 |Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
 |Återställa|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|
@@ -267,7 +267,7 @@ Om du visar borttagna Key Vault-objekt visas även när de är schemalagda att r
 
 När rensnings skyddet är aktiverat kan ett valv eller ett objekt i Borttaget läge inte rensas förrän kvarhållningsperioden har passerat. Detta valv eller objekt kan fortfarande återställas. Den här funktionen ger ytterligare garantier för att ett valv eller ett objekt aldrig kan tas bort permanent förrän kvarhållningsperioden har passerat. Standard kvarhållningsperiod är 90 dagar, men när nyckel valvet skapas är det möjligt att ange ett värde mellan 7 och 90 dagar i kvarhållningsintervall. Bevarande principen rensa skydd använder samma intervall. När du har angett går det inte att ändra lagrings princip intervallet.
 
-Du kan bara aktivera rensnings skydd om alternativet mjuk borttagning också är aktiverat. 
+Du kan bara aktivera rensnings skydd om alternativet mjuk borttagning också är aktiverat. Inaktive ring av rensnings skydd stöds inte för tillfället. 
 
 Använd cmdleten [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) för att aktivera både mjuk borttagning och rensning av skydd när du skapar ett valv:
 

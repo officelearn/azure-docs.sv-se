@@ -1,23 +1,14 @@
 ---
 title: Importera virtuella datorer från ett annat labb i Azure DevTest Labs
 description: I den här artikeln beskrivs hur du importerar virtuella datorer från ett annat labb till det aktuella labbet i Azure DevTest Labs.
-services: devtest-lab, lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: 608f5f8bbf4c420042d81955f783d2dec59b3e54
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0f664a0ae399575ee936565adaf7364fd1c5ce5c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897476"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475942"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importera virtuella datorer från ett annat labb i Azure DevTest Labs
 Den här artikeln innehåller information om hur du importerar virtuella datorer från ett annat labb till labbet.
@@ -62,7 +53,7 @@ För att köra det här PowerShell-skriptet måste du identifiera den virtuella 
 ```
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Använd PowerShell för att importera alla virtuella datorer i käll labbet
-Om den virtuella käll datorn inte anges importerar skriptet automatiskt alla virtuella datorer i DevTest Labs.  Ett exempel:
+Om den virtuella käll datorn inte anges importerar skriptet automatiskt alla virtuella datorer i DevTest Labs.  Till exempel:
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `

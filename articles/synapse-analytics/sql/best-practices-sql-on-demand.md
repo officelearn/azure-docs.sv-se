@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0b926491ef3fc672626317184fb7ed2760919866
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210515"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476282"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Metod tips för SQL på begäran (för hands version) i Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Om möjligt kan du förbereda filer för bättre prestanda:
 
 ## <a name="push-wildcards-to-lower-levels-in-the-path"></a>Jokertecken för push-meddelanden till lägre nivåer i sökvägen
 
-Du kan använda jokertecken i din sökväg för att [fråga flera filer och mappar](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL på begäran listar filer på ditt lagrings konto, från och med den första * använda Storage API. Den eliminerar filer som inte matchar den angivna sökvägen. Att minska den inledande listan över filer kan förbättra prestanda om det finns många filer som matchar den angivna sökvägen upp till det första jokertecknet.
+Du kan använda jokertecken i din sökväg för att [fråga flera filer och mappar](query-data-storage.md#query-multiple-files-or-folders). SQL på begäran listar filer på ditt lagrings konto, från och med den första * använda Storage API. Den eliminerar filer som inte matchar den angivna sökvägen. Att minska den inledande listan över filer kan förbättra prestanda om det finns många filer som matchar den angivna sökvägen upp till det första jokertecknet.
 
 ## <a name="use-appropriate-data-types"></a>Använd lämpliga data typer
 
@@ -113,7 +113,7 @@ FROM
 
 Data är ofta ordnade i partitioner. Du kan instruera SQL på begäran att fråga specifika mappar och filer. Då minskas antalet filer och mängden data som frågan behöver läsa och bearbeta. En extra bonus är att du får bättre prestanda.
 
-Mer information finns i avsnittet om [fil namn](develop-storage-files-overview.md#filename-function) och fil [Sök väg](develop-storage-files-overview.md#filepath-function) och se exemplen för att [fråga efter vissa filer](query-specific-files.md).
+Mer information finns i avsnittet om [fil namn](query-data-storage.md#filename-function) och fil [Sök väg](query-data-storage.md#filepath-function) och se exemplen för att [fråga efter vissa filer](query-specific-files.md).
 
 > [!TIP]
 > Skicka alltid resultatet av sökvägen och fil namns funktionerna till lämpliga data typer. Om du använder tecken data typer måste du se till att du använder rätt längd.

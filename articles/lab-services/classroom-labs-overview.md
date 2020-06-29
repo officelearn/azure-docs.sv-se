@@ -1,24 +1,14 @@
 ---
 title: Om klass rums labb i Azure Lab Services | Microsoft Docs
 description: Lär dig hur du snabbt skapar en klass rums labb miljö i molnet – konfigurera ett labb med en mall-VM med den program vara som krävs för klassen och gör en kopia av den virtuella datorn som är tillgänglig för varje elev i klassen.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
-ms.author: spelluru
-ms.openlocfilehash: bbbea0c943758c2682f7b166e461807d2914f790
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899698"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445635"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introduktion till klassrumslabb
 Azure Lab Services låter dig snabbt konfigurera en ett klassrums-labbmiljö i molnet. En undervisare skapar ett klassrumslabb, etablerar virtuella Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg i klassen och gör dem tillgängliga för studenterna. Studenterna i klassen ansluter till virtuella datorer (VM) i labbet och använder dem för sina projekt, uppgifter, klassrumsövningar. 

@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: b74874806585357fe2c7fa2603bfb50751c4d843
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355496"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445516"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
 
@@ -224,12 +224,12 @@ Använd [Verifiera JWT](https://docs.microsoft.com/azure/api-management/api-mana
 
 ## <a name="build-an-application-to-call-the-api"></a>Bygg ett program för att anropa API: et
 
-I den här guiden använde du Developer-konsolen i API Management som exempel klient programmet för att anropa den `Echo API` skyddade av OAuth 2,0. Mer information om hur du skapar ett program och implementerar OAuth 2,0 finns i [Azure Active Directory kod exempel](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code.md).
+I den här guiden använde du Developer-konsolen i API Management som exempel klient programmet för att anropa den `Echo API` skyddade av OAuth 2,0. Mer information om hur du skapar ett program och implementerar OAuth 2,0 finns i [Azure Active Directory kod exempel](../active-directory/develop/sample-v2-code.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Azure Active Directory och OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios.md).
+- Läs mer om [Azure Active Directory och OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
 - Se fler [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API Management.
-- Andra sätt att skydda Server dels tjänsten finns i [ömsesidig certifikatautentisering](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates).
-- [Skapa en API Management tjänst instans](https://docs.microsoft.com/azure/api-management/get-started-create-service-instance).
-- [Hantera ditt första API](https://docs.microsoft.com/azure/api-management/import-and-publish).
+- Andra sätt att skydda Server dels tjänsten finns i [ömsesidig certifikatautentisering](./api-management-howto-mutual-certificates.md).
+- [Skapa en API Management tjänst instans](./get-started-create-service-instance.md).
+- [Hantera ditt första API](./import-and-publish.md).

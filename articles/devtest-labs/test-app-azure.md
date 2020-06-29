@@ -1,23 +1,14 @@
 ---
 title: Testa din app i Azure | Microsoft Docs
 description: Lär dig hur du skapar en fil resurs i ett labb och monterar den på din lokala dator och en virtuell dator i labbet. distribuera sedan Skriv bord/webb program till fil resursen och testa dem.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
-ms.author: spelluru
-ms.openlocfilehash: 65d7ee23195e69c67d9235aeea9a7a166a3a22c1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 06/26/2020
+ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211552"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476503"
 ---
 # <a name="test-your-app-in-azure"></a>Testa appen i Azure 
 Den här artikeln innehåller steg för att testa ditt program i Azure med DevTest Labs. Först skapar du en fil resurs i ett labb och monterar den som en enhet på din lokala utvecklings dator och en virtuell dator i ett labb. Sedan använder du Visual Studio 2019 för att distribuera din app till fil resursen så att du kan köra appen på den virtuella datorn i labbet.  

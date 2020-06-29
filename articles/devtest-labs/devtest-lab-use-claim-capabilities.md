@@ -1,24 +1,14 @@
 ---
 title: Använda anspråks funktioner i Azure DevTest Labs | Microsoft Docs
 description: Lär dig mer om olika scenarier för att använda anspråk/fordrings funktioner i Azure DevTest Labs
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
-ms.author: spelluru
-ms.openlocfilehash: a15148260bccadc59966c86031100f0e0332b0f9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 73ed3c0b94a66f5d17b5c8e2561c65bb48579aa1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898530"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476537"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Använd anspråks funktioner i Azure DevTest Labs
 Tjänsten Azure DevTest Labs förbättrar effektiviteten och effektiviteten hos utvecklare och testare. Den här artikeln fokuserar på möjligheten att begära eller frigöra virtuella datorer i Azure DevTest Labs. Det visar även olika sätt som den här funktionen förbättrar användar upplevelsen. Innan du tittar på olika scenarier där den här funktionen kan användas kan vi titta **på vad det** är och hur det fungerar.

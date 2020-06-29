@@ -3,12 +3,12 @@ title: Konfigurera din egen nyckel för att kryptera Azure Service Bus data i vi
 description: Den här artikeln innehåller information om hur du konfigurerar din egen nyckel för att kryptera Azure Service Bus data rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 9bc48d82d1e63f08ab68e8f9c6a63e781c14c675
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338089"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475993"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal
 Azure Service Bus Premium tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Service Bus Premium är beroende av Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -93,7 +93,7 @@ När du har aktiverat Kundhanterade nycklar måste du associera kundens hanterad
 
 ## <a name="rotate-your-encryption-keys"></a>Rotera dina krypterings nycklar
 
-Du kan rotera din nyckel i nyckel valvet med hjälp av rotations funktionen för Azure Key Vault. Mer information finns i [Konfigurera nyckel rotation och granskning](../key-vault/secrets/key-rotation-log-monitoring.md). Aktiverings-och utgångs datum kan också ställas in för att automatisera nyckel rotationen. Tjänsten Service Bus identifierar nya nyckel versioner och börjar använda dem automatiskt.
+Du kan rotera din nyckel i nyckel valvet med hjälp av rotations funktionen för Azure Key Vault. Aktiverings-och utgångs datum kan också ställas in för att automatisera nyckel rotationen. Tjänsten Service Bus identifierar nya nyckel versioner och börjar använda dem automatiskt.
 
 ## <a name="revoke-access-to-keys"></a>Återkalla åtkomst till nycklar
 

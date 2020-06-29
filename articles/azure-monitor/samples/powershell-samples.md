@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 14fe27c28e2eb6a527dc6f026916002cfb5b0147
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945264"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413900"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell-exempel
 Den här artikeln visar exempel på PowerShell-kommandon som hjälper dig att komma åt Azure Monitor-funktioner.
@@ -220,6 +220,10 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 De ytterligare webhook-egenskaperna är valfria. Du kan få tillbaka innehållet i en aktivitets logg avisering med hjälp av `Get-AzActivityLogAlert` .
 
 ## <a name="create-and-manage-autoscale-settings"></a>Skapa och hantera inställningar för autoskalning
+
+> [!NOTE] 
+> För Cloud Services (Microsoft. ClassicCompute) stöder autoskalning en tids kornig het på 5 minuter (PT5M). För de andra tjänsterna kan autoskalning stödja en tids kornig het på minst 1 minut (PT1M)
+
 En resurs (en webbapp, virtuell dator, moln tjänst eller virtuell dators skalnings uppsättning) kan bara ha en inställning för autoskalning som kon figurer ATS för den.
 Alla inställningar för autoskalning kan dock ha flera profiler. Till exempel en för en prestanda-baserad skalnings profil och en andra för en schema-baserad profil. Varje profil kan ha flera konfigurerade regler. Mer information om autoskalning finns i [så här skalar du ett program i autoskalning](../../cloud-services/cloud-services-how-to-scale-portal.md).
 

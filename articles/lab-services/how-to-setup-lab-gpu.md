@@ -1,24 +1,16 @@
 ---
 title: 'Konfigurera ett labb med GPU: er i Azure Lab Services | Microsoft Docs'
 description: Lär dig hur du konfigurerar ett labb med virtuella GPU-datorer (Graphics Processing Unit).
-services: lab-services
-documentationcenter: na
 author: nicolela
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 0d42d3292c894aec1deff5da548383499ca50db9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338302"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443408"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurera ett labb med virtuella GPU-datorer
 
@@ -36,13 +28,13 @@ I den här processen har du möjlighet att välja antingen **visualisering** ell
 
 Som det beskrivs i följande tabell är *beräkningens* GPU-storlek avsedd för beräknings intensiva program.  Den [djup inlärningen i bearbetnings klass typen för naturligt språk](./class-type-deep-learning-natural-language-processing.md) använder till exempel den **små GPU-storleken (Compute)** .  Compute-GPU är lämplig för den här typen av klass eftersom studenter använder djup inlärnings ramverk och verktyg som tillhandahålls av [data science Virtual Machine-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) för att träna djup inlärnings modeller med stora data uppsättningar.
 
-| Storlek | Kärnor | RAM | Beskrivning | 
+| Storlek | Kärnor | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Liten GPU (Compute) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för dator intensiva program, till exempel artificiell intelligens (AI) och djup inlärning. |
 
 GPU-storlekarna för *visualisering* är avsedda för grafik intensiva program.  [Klass typen solidworker Engineering](./class-type-solidworks.md) visar till exempel användningen av den **små GPU-storleken (visualisering)** .  GPU för visualisering är lämplig för den här typen av klass eftersom eleverna interagerar med SolidWorks-miljön 3D Computer-Aided Design (CAD) för att modellera och visualisera solida objekt.
 
-| Storlek | Kärnor | RAM | Beskrivning | 
+| Storlek | Kärnor | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Liten GPU (visualisering) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel och kodning som använder ramverk som OpenGL och DirectX. |
 | Medelhög GPU (visualisering) | -&nbsp;12 &nbsp; kärnor<br>-&nbsp;112 &nbsp; GB &nbsp; ram  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel och kodning som använder ramverk som OpenGL och DirectX. |

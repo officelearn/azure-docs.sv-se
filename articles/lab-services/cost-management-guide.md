@@ -1,18 +1,16 @@
 ---
 title: Kostnads hanterings guide för Azure Lab Services
 description: Förstå de olika sätten att Visa kostnader för labb tjänster.
-services: lab-services
 author: rbest
 ms.author: rbest
-ms.date: 05/09/2020
+ms.date: 06/26/2020
 ms.topic: article
-ms.service: lab-services
-ms.openlocfilehash: b71ccd55407f24fe672bc3a977a91bf1315e831f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: fbbaf4a3646260fc09467e214b82fd0213415635
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897378"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445312"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Kostnads hantering för Azure Lab Services
 

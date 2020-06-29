@@ -367,9 +367,9 @@
     - name: Säkerhetskopiering och återställning
       href: backup-recovery.md
     - name: Ramverk för molnimplementering
-      href: 'https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/'
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/'
     - name: Arkitekturcenter
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/'
+      href: 'https://docs.microsoft.com/azure/architecture/'
     - name: Riktlinjer för infrastruktur
       href: infrastructure-example.md
 - name: Anvisningar

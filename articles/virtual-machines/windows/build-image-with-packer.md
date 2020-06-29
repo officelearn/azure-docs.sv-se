@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 219685b1f82cea3e85a6d45023e913141345e685
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106514"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445533"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Använda Packer för att skapa avbildningar av virtuella Windows-datorer i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distribution och operativ system version. Avbildningar kan omfatta förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de flesta vanliga operativ system och program miljöer, eller så kan du skapa egna anpassade avbildningar som är anpassade efter dina behov. Den här artikeln beskriver [hur du använder verktyget med](https://www.packer.io/) öppen källkod för att definiera och skapa anpassade avbildningar i Azure.
@@ -122,7 +122,7 @@ Den här mallen skapar en virtuell Windows Server 2016-dator, installerar IIS oc
 
 
 ## <a name="build-packer-image"></a>Avbildning av bygg paket
-Om du inte redan har installerat Packer på den lokala datorn [följer du installations anvisningarna för installations](https://www.packer.io/docs/install/index.html)guiden.
+Om du inte redan har installerat Packer på den lokala datorn [följer du installations anvisningarna för installations](https://learn.hashicorp.com/packer/getting-started/install)guiden.
 
 Bygg avbildningen genom att öppna en cmd-prompt och ange din Packer-mallfil enligt följande:
 

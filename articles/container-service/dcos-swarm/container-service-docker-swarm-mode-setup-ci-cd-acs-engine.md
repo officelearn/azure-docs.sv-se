@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81be5c4db21e3a2201b8802a2e796f45494fd0dc
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277921"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445465"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>FÖRÅLDRAD Full CI/CD-pipeline för att distribuera ett program med flera behållare på Azure Container Service med ACS-motorn och Docker Swarm-läge med Azure DevOps
 
@@ -67,7 +67,7 @@ I det här avsnittet konfigurerar du din Azure DevOps-organisation. Om du vill k
 
 Konfigurera en anslutning mellan ditt Azure DevOps-projekt och ditt Azure-konto.
 
-1. Klicka på **ny tjänst slut punkt** > **Azure Resource Manager**till vänster.
+1. Klicka på **ny tjänst slut punkt**  >  **Azure Resource Manager**till vänster.
 2. För att godkänna att Azure-DevOps fungerar med ditt Azure-konto väljer du din **prenumeration** och klickar på **OK**.
 
     ![Azure-DevOps – auktorisera Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
@@ -76,7 +76,7 @@ Konfigurera en anslutning mellan ditt Azure DevOps-projekt och ditt Azure-konto.
 
 Konfigurera en anslutning mellan ditt Azure DevOps-projekt och ditt GitHub-konto.
 
-1. Klicka på **ny tjänst slut punkt** > **GitHub**till vänster.
+1. Klicka på **ny tjänst slut punkt**  >  **GitHub**till vänster.
 2. För att godkänna att Azure-DevOps fungerar med ditt GitHub-konto klickar du på **auktorisera** och följer proceduren i fönstret som öppnas.
 
     ![Azure-DevOps – auktorisera GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
@@ -137,20 +137,20 @@ Du behöver två Docker-steg för varje avbildning, en för att bygga avbildning
 
     ![Azure-DevOps – Lägg till bygg steg](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-add-task.png)
 
-2. Konfigurera ett steg som använder `docker build` kommandot för varje bild.
+2. Konfigurera ett steg som använder kommandot för varje bild `docker build` .
 
     ![Azure DevOps – Docker-version](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
     För build-åtgärden väljer du Azure Container Registry, åtgärden för att **bygga en avbildning** och Dockerfile som definierar varje bild. Ange **arbets katalogen** som rot katalogen för Dockerfile, definiera **avbildnings namnet**och välj **ta med den senaste taggen**.
     
-    Avbildningens namn måste ha formatet: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Ersätt **[Name]** med avbildnings namnet:
+    Avbildningens namn måste ha formatet: ```$(RegistryURL)/[NAME]:$(Build.BuildId)``` . Ersätt **[Name]** med avbildnings namnet:
     - ```proxy```
     - ```products-api```
     - ```ratings-api```
     - ```recommendations-api```
     - ```shopfront```
 
-3. Konfigurera ett andra steg som använder `docker push` kommandot för varje bild.
+3. Konfigurera ett andra steg som använder kommandot för varje bild `docker push` .
 
     ![Azure DevOps – Docker push](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
 
@@ -188,15 +188,15 @@ Du behöver två Docker-steg för varje avbildning, en för att bygga avbildning
 
 ## <a name="step-3-create-the-release-pipeline"></a>Steg 3: skapa en version av pipelinen
 
-Med Azure-DevOps kan du [hantera versioner i olika miljöer](https://www.visualstudio.com/team-services/release-management/). Du kan aktivera kontinuerlig distribution för att se till att ditt program har distribuerats i dina olika miljöer (till exempel utveckling, testning, för produktion och produktion) på ett smidigt sätt. Du kan skapa en miljö som representerar ditt Azure Container Service Docker Swarm läges kluster.
+Med Azure-DevOps kan du [hantera versioner i olika miljöer](https://azure.microsoft.com/services/devops/pipelines/). Du kan aktivera kontinuerlig distribution för att se till att ditt program har distribuerats i dina olika miljöer (till exempel utveckling, testning, för produktion och produktion) på ett smidigt sätt. Du kan skapa en miljö som representerar ditt Azure Container Service Docker Swarm läges kluster.
 
 ![Azure DevOps – version till ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
 ### <a name="initial-release-setup"></a>Installation av inledande version
 
-1. Om du vill skapa en versions pipeline klickar du på **releases** > **+ release**
+1. Om du vill skapa en versions pipeline klickar du på **releases**  >  **+ release**
 
-2. Konfigurera artefakt källan genom att klicka på **artefakter** > **Länka en artefakt källa**. Här länkar du den nya versions pipelinen till den version som du definierade i föregående steg. Därefter är filen filen Docker. yml tillgänglig i versions processen.
+2. Konfigurera artefakt källan genom att klicka på **artefakter**  >  **Länka en artefakt källa**. Här länkar du den nya versions pipelinen till den version som du definierade i föregående steg. Därefter är filen filen Docker. yml tillgänglig i versions processen.
 
     ![Azure DevOps – versions artefakter](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
@@ -222,7 +222,7 @@ Versions arbets flödet består av två uppgifter som du lägger till.
 
     ![Azure-DevOps – version SCP](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 
-2. Konfigurera en andra aktivitet för att köra ett bash-kommando `docker` för `docker stack deploy` att köra och kommandon på huvud-noden. Se följande skärm för mer information.
+2. Konfigurera en andra aktivitet för att köra ett bash-kommando för att köra `docker` och `docker stack deploy` kommandon på huvud-noden. Se följande skärm för mer information.
 
     ```
     docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth
@@ -238,7 +238,7 @@ Versions arbets flödet består av två uppgifter som du lägger till.
    - Kör `docker stack deploy` kommandon som hämtar de nya avbildningarna och skapar behållarna.
 
      >[!IMPORTANT]
-     > Som du ser på föregående skärm, lämnar kryss rutan **misslyckad stderr** omarkerad. Med den här inställningen kan vi slutföra publicerings processen på `docker-compose` grund av att flera diagnostiska meddelanden skrivs ut, till exempel att behållare stoppas eller tas bort, på standard fel utdata. Om du markerar kryss rutan kan Azure DevOps rapportera fel som uppstått under versionen, även om alla går bra.
+     > Som du ser på föregående skärm, lämnar kryss rutan **misslyckad stderr** omarkerad. Med den här inställningen kan vi slutföra publicerings processen på grund av att `docker-compose` flera diagnostiska meddelanden skrivs ut, till exempel att behållare stoppas eller tas bort, på standard fel utdata. Om du markerar kryss rutan kan Azure DevOps rapportera fel som uppstått under versionen, även om alla går bra.
      >
 3. Spara den nya versions pipelinen.
 

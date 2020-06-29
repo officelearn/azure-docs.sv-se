@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 0ebbf0d41c05f71c571d9665903ba4ba44f71bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2128fee29e64c58a8066a681776fb509b3e31b6f
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77198811"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445703"
 ---
 # <a name="configure-opc-publisher"></a>Konfigurera OPC Publisher
 
@@ -31,7 +31,7 @@ I det här avsnittet beskrivs alternativ för att konfigurera OPC UA Node Publis
 
 ### <a name="use-a-configuration-file-to-configure-publishing-data-changes"></a>Använd en konfigurations fil för att konfigurera publicerings data ändringar
 
-Det enklaste sättet att konfigurera OPC UA-noder att publicera är med en konfigurations fil. Konfigurations fil formatet är dokumenterat i [publishednodes. JSON](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) i lagrings platsen.
+Det enklaste sättet att konfigurera OPC UA-noder att publicera är med en konfigurations fil. Konfigurations fil formatet är dokumenterat i [publishednodes.jspå](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) i lagrings platsen.
 
 Syntaxen för konfigurations filen har ändrats med tiden. OPC Publisher läser fortfarande gamla format, men konverterar dem till det senaste formatet När konfigurationen är kvar.
 
@@ -58,7 +58,7 @@ I följande exempel visas formatet för konfigurations filen:
 
 Om du vill publicera OPC UA-händelser använder du samma konfigurations fil som för data ändringar.
 
-I följande exempel visas hur du konfigurerar publicering av händelser som genereras av [SimpleEvents-servern](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server). Du hittar SimpleEvents-servern i [OPC Foundation-lagringsplatsen](https://github.com/OPCFoundation/UA-.NETStandard) :
+I följande exempel visas hur du konfigurerar publicering av händelser som genereras av [SimpleEvents-servern](https://github.com/OPCFoundation/UA-.NETStandard-Samples/tree/master/Workshop/SimpleEvents/Server). Du hittar SimpleEvents-servern i [OPC Foundation-lagringsplatsen](https://github.com/OPCFoundation/UA-.NETStandard-Samples) :
 
 ```json
 [
@@ -116,7 +116,7 @@ I det här avsnittet beskrivs de metod anrop som du kan använda för att konfig
 
 ### <a name="configure-using-opc-ua-method-calls"></a>Konfigurera med OPC UA-metod anrop
 
-OPC Publisher innehåller en OPC UA-server som kan nås på port 62222. Om värd namnet är **utgivare**är slut punktens URI: `opc.tcp://publisher:62222/UA/Publisher`.
+OPC Publisher innehåller en OPC UA-server som kan nås på port 62222. Om värd namnet är **utgivare**är slut punktens URI: `opc.tcp://publisher:62222/UA/Publisher` .
 
 Den här slut punkten visar följande fyra metoder:
 

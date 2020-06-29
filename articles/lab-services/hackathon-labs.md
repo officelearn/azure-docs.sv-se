@@ -1,23 +1,14 @@
 ---
 title: Använd Azure Lab Services för Hackathon
 description: I den här artikeln beskrivs hur du använder Azure Lab Services för att skapa labb som du kan använda för att köra Hackathon kickar.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2020
-ms.author: spelluru
-ms.openlocfilehash: ba5559289f3d17f1a24a90a0daa466d4c8895c9c
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.date: 06/26/2020
+ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85120535"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445890"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Använd Azure Lab Services för nästa Hackathon
 Azure Lab Services är utformad för att vara lätt att använda så att du snabbt kan skapa ett nytt labb av virtuella datorer (VM) för din Hackathon.  Använd följande check lista för att se till att din Hackathon går så smidigt som möjligt. Den här check listan bör utföras av IT-avdelningen eller fakulteten som ansvarar för att skapa och hantera ditt Hackathon-labb. 

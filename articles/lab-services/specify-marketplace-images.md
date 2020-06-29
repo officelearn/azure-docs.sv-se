@@ -1,24 +1,14 @@
 ---
 title: Ange Marketplace-avbildningar för ett labb i Azure Lab Services
 description: Den här artikeln visar hur du anger de Marketplace-avbildningar som labb skaparen kan använda för att skapa labb i ett labb konto i Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2020
-ms.author: spelluru
-ms.openlocfilehash: 199f7b3b94a8f7a3f181a82ca0d3350d528d7d8f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 5a353394fec3dadf0f808a25ec66f6e9028820a3
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897336"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445618"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Ange Marketplace-avbildningar som är tillgängliga för labbuppgiftsförfattare
 Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 

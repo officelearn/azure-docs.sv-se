@@ -9,23 +9,22 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: d36961a12162a587def76b1ffeb2109f9ed63f4d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7c2484892f3de3c8eca3f766793be83bc7a29dc8
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587688"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445550"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begär anden till Azure Cognitive Services
 
 Varje begäran till en Azure-kognitiv tjänst måste innehålla ett Authentication-huvud. Den här rubriken skickas längs en prenumerations nyckel eller åtkomsttoken som används för att verifiera prenumerationen för en tjänst eller grupp av tjänster. I den här artikeln får du lära dig mer om tre sätt att autentisera en begäran och kraven för var och en.
 
-* [Autentisera med en prenumerations nyckel för en enskild tjänst](#authenticate-with-a-single-service-subscription-key)
-* [Autentisera med en prenumerations nyckel för flera tjänster](#authenticate-with-a-multi-service-subscription-key)
-* [Autentisera med en token](#authenticate-with-an-authentication-token)
-* [Autentisera med Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* Autentisera med en prenumerations nyckel för en [enskild tjänst](#authenticate-with-a-single-service-subscription-key) eller [flera tjänster](#authenticate-with-a-multi-service-subscription-key)
+* Autentisera med en [token](#authenticate-with-an-authentication-token)
+* Autentisera med [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du gör en förfrågan behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto har vi en guide som hjälper dig att konfigurera på några minuter: [skapa ett Cognitive Services konto för Azure](cognitive-services-apis-create-account.md).
 

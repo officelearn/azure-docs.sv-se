@@ -1,24 +1,14 @@
 ---
 title: Använda klass rums labb för utbildning – Azure Lab Services
 description: I den här artikeln beskrivs hur du använder Azure DevTest Labs för att skapa labb i Azure för inlärnings scenarier.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
-ms.author: spelluru
-ms.openlocfilehash: cd5a2fb55e1c2ec360d1585155f53b9213a72179
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 582508968609ba53de14b95b71ee75b5fec9ba93
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897392"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445261"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Använda klass rums labb för utbildningar
 Azure Labs Services gör det möjligt för lärare (lärare, lärare, lärare eller undervisnings assistenter osv.) att snabbt och enkelt skapa ett online-labb för att etablera förkonfigurerade inlärnings miljöer för eleverna. Varje ombordpersonal skulle kunna använda identiska och isolerade miljöer för utbildningen. Principer kan användas för att säkerställa att inlärnings miljöerna endast är tillgängliga för varje ombordpersonal när de behöver dem och innehåller tillräckligt med resurser, till exempel virtuella datorer – krävs för utbildningen. 

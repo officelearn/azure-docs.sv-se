@@ -1,24 +1,14 @@
 ---
 title: Visa och ta bort labb labb i ett labb konto i Azure Lab Services
 description: Lär dig att visa alla labb i ett labb konto och ta bort ett labb från labb kontot.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 23da222ab43394793afec96c31000bdc8baa54e0
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895747"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443493"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>Hantera labb i ett labbkonto
 Den här artikeln visar hur du kan visa alla labb i ett labb konto och ta bort ett labb i labb kontot. 

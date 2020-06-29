@@ -1,15 +1,25 @@
 ---
 title: Få åtkomst till ett labb i Azure DevTest Labs | Microsoft Docs
 description: I den här självstudien får du åtkomst till labbet som har skapats med Azure DevTest Labs, göra anspråk på virtuella datorer, använda dem och sedan släppa anspråket.
+services: devtest-lab, lab-services, virtual-machines
+documentationcenter: na
+author: spelluru
+manager: ''
+editor: ''
+ms.service: lab-services
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/26/2020
+ms.custom: mvc
+ms.date: 06/25/2020
 ms.author: spelluru
-ms.openlocfilehash: b4477e0b98ef534b8170ee297edf88ac6fa62dd7
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 0482a8a5cd16ee52146a5e392f7479a757c96009
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476452"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414631"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudie: Få åtkomst till ett labb i Azure DevTest Labs
 I den här självstudien använder du det labbet som skapades i [Självstudie: Skapa ett labb i Azure DevTests Labs](tutorial-create-custom-lab.md) .

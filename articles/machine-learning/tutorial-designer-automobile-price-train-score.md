@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790542"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517635"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -107,8 +107,8 @@ Du kan visualisera data för att förstå den data uppsättning som du kommer at
 1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + log**.
 
 1. Välj diagram ikonen för att visualisera data.
-
-    ![Visualisera datan](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Alternativ text här.":::
 
 1. Välj olika kolumner i data fönstret om du vill visa information om var och en.
 
@@ -180,8 +180,8 @@ Din data uppsättning har fortfarande värden som saknas efter att du tagit bort
 1. I informations fönstret för moduler till höger om arbets ytan markerar du rutan **kommentar** och anger *ta bort saknade värde rader*. 
 
     Din pipeline bör nu se ut ungefär så här:
-    
-    ![Select-Column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-Column":::
 
 ## <a name="train-a-machine-learning-model"></a>Träna en Machine Learning-modell
 
@@ -229,7 +229,7 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
     > [!IMPORTANT]
     > Se till att de vänstra Utdataportarna för **delade data** ansluter till **träna modell**. Den vänstra porten innehåller inlärnings uppsättningen. Rätt port innehåller test uppsättningen.
 
-    ![Skärm bild som visar korrekt konfiguration av modulen träna modell. Modulen linjär regression ansluter till den vänstra porten för modulen träna modell och modulen dela data ansluts till rätt port för träna modell](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Skärm bild som visar korrekt konfiguration av modulen träna modell. Modulen linjär regression ansluter till den vänstra porten för modulen träna modell och modulen dela data ansluts till rätt port för träna modell.":::
 
 1. Välj **träningsmodellmodulen**.
 
@@ -244,7 +244,7 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
 
     Din pipeline bör se ut så här:
 
-    ![Skärm bild som visar korrekt konfiguration av pipelinen efter att du lagt till modulen träna modell.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Skärm bild som visar korrekt konfiguration av pipelinen efter att du lagt till modulen träna modell.":::
 
 ### <a name="add-the-score-model-module"></a>Lägg till modulen Poäng modell
 
@@ -264,7 +264,7 @@ Använd modulen **utvärdera modell** för att utvärdera hur bra din modell bev
 
     Den sista pipelinen bör se ut ungefär så här:
 
-    ![Skärm bild som visar korrekt konfiguration av pipelinen.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Skärm bild som visar korrekt konfiguration av pipelinen.":::
 
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
@@ -295,7 +295,7 @@ När körningen är klar kan du visa resultatet av pipeline-körningen. Börja m
 
     Här kan du se de förutsagda priser och de faktiska priserna från test data.
 
-    ![Skärm bild av utmatnings visualiseringen som markerar den markerade etikett kolumnen](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Skärm bild av utmatnings visualiseringen som markerar den markerade etikett kolumnen":::
 
 ### <a name="evaluate-models"></a>Utvärdera modeller
 

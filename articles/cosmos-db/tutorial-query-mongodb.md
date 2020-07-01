@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 853133297567546d2e5259aee9a24ab52a6a4614
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74870147"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85552930"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Fråga data med Azure Cosmos DB:s API för MongoDB
 
@@ -63,11 +63,14 @@ Frågorna i den här artikeln använder följande exempeldokument.
 Med exemplet på familjedokumentet ovan returnerar följande fråga dokument där ID-fältet matchar `WakefieldFamily`.
 
 **Söka i data**
-    
-    db.families.find({ id: "WakefieldFamily"})
+
+```bash
+db.families.find({ id: "WakefieldFamily"})
+```
 
 **Resultat**
 
+```json
     {
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
@@ -107,17 +110,21 @@ Med exemplet på familjedokumentet ovan returnerar följande fråga dokument dä
     "creationDate": 1431620462,
     "isRegistered": false
     }
+```
 
 ## <a name="example-query-2"></a><a id="examplequery2"></a>Exempelfråga 2 
 
 Nästa fråga returnerar alla underordnade i familjen. 
 
 **Söka i data**
-    
-    db.families.find( { id: "WakefieldFamily" }, { children: true } )
+
+```bash 
+db.families.find( { id: "WakefieldFamily" }, { children: true } )
+``` 
 
 **Resultat**
 
+```json
     {
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
@@ -139,26 +146,35 @@ Nästa fråga returnerar alla underordnade i familjen.
       }
     ]
     }
-
+```
 
 ## <a name="example-query-3"></a><a id="examplequery3"></a>Exempelfråga 3 
 
 Nästa fråga returnerar alla familjer som är registrerade. 
 
 **Söka i data**
-    
-    db.families.find( { "isRegistered" : true })
-**Resultat** Inget dokument returneras. 
+
+```bash
+db.families.find( { "isRegistered" : true })
+``` 
+
+**Resultat**
+
+Inget dokument kommer att returneras. 
 
 ## <a name="example-query-4"></a><a id="examplequery4"></a>Exempelfråga 4
 
 Nästa fråga returnerar alla familjer som inte är registrerade. 
 
 **Söka i data**
-    
-    db.families.find( { "isRegistered" : false })
+
+```bash
+db.families.find( { "isRegistered" : false })
+``` 
+
 **Resultat**
 
+```json
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
@@ -193,17 +209,21 @@ Nästa fråga returnerar alla familjer som inte är registrerade.
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-5"></a><a id="examplequery5"></a>Exempelfråga 5
 
 Nästa fråga returnerar alla familjer med statusen NY som inte är registrerade. 
 
 **Söka i data**
-    
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+
+```bash
+db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+``` 
 
 **Resultat**
 
+```json
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
@@ -238,18 +258,21 @@ Nästa fråga returnerar alla familjer med statusen NY som inte är registrerade
     "creationDate": 1431620462,
     "isRegistered": false
 }
-
+```
 
 ## <a name="example-query-6"></a><a id="examplequery6"></a>Exempelfråga 6
 
 Nästa fråga returnerar alla familjer där värdet för underordnade klasser är 8.
 
 **Söka i data**
-  
-     db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+
+```bash
+db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+```
 
 **Resultat**
 
+```json
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
@@ -284,14 +307,17 @@ Nästa fråga returnerar alla familjer där värdet för underordnade klasser ä
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-7"></a><a id="examplequery7"></a>Exempelfråga 7
 
 Nästa fråga returnerar alla familjer där den underordnade matrisens storlek är 3.
 
 **Söka i data**
-  
-      db.Family.find( {children: { $size:3} } )
+
+```bash
+db.Family.find( {children: { $size:3} } )
+```
 
 **Resultat**
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 90c2068021f1e9a173f37bdf1098edda10ab3d8d
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413475"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554402"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -48,11 +48,9 @@ Du kan analysera bilder för att ge insikter om sina visuella funktioner och ege
 |**[Skapa en miniatyrbild](concept-generating-thumbnails.md)**|Analysera innehållet i en bild för att generera en lämplig miniatyrbild för den. Visuellt innehåll genererar först en högkvalitativ miniatyr och sedan analyseras objekten i bilden för att fastställa *intresseområdet*. Visuellt innehåll beskär sedan bilden för att den ska uppfylla kraven för intresseområdet. Den genererade miniatyrbilden kan vid behov anges med proportioner som skiljer sig från proportionerna på den ursprungliga bilden.|
 |**[Hämta ett intresseområde](concept-generating-thumbnails.md#area-of-interest)**|Analysera innehållet i en bild för att returnera koordinaterna för *intresseområdet*. I stället för att beskära bilden och generera en miniatyr, returnerar Visuellt innehåll områdets avgränsnings Rams koordinater, så det anropande programmet kan ändra den ursprungliga avbildningen efter behov.|
 
-## <a name="extract-text-from-images"></a>Extrahera text från bilder
+## <a name="detect-text-from-images"></a>Identifiera text från bilder
 
-Du kan använda Visuellt innehåll [Read](concept-recognizing-text.md#read-api) API för att extrahera utskrift och handskriven text från bilder till en maskin läsnings bar tecken ström. Read API använder de senaste modellerna och fungerar med text på en rad olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. Den fungerar för sju olika språk (se [språk stöd](./language-support.md)).
-
-Du kan också använda [OCR-API (optisk tecken läsning)](concept-recognizing-text.md) för att extrahera utskriven text på flera språk. Om det behövs korrigerar OCR rotationen av den tolkade texten och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den tolkade texten.
+Du kan använda API: [erna för visuellt innehåll text identifiering](concept-recognizing-text.md) för att extrahera utskrift och handskriven text från bilder till en maskin läsnings bar tecken ström. Read API använder de senaste modellerna och fungerar med text på en rad olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. De två API: erna för text Identifiering har stöd för att extrahera utskriven text på [flera språk](./language-support.md).
 
 ## <a name="moderate-content-in-images"></a>Moderera innehåll i bilder
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 50b6244e5db6f812d1f9e3d23ea5fa88ea3bebea
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 2924a950e7b52a41939d1c06305bad2d1b243476
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456818"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554133"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
 I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET Core webbapp kan logga in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
@@ -145,7 +145,7 @@ Metoden `AddAuthentication` konfigurerar tjänsten för att lägga till cookie-b
 
 Raden som innehåller `.AddAzureAd` lägger till Microsoft Identity Platform-autentisering till ditt program. Den konfigureras sedan att logga in med hjälp av Microsoft Identity Platform-slutpunkten.
 
-> |Var  |  |
+> |Var | Description |
 > |---------|---------|
 > | ClientId  | Program-ID (klient) från appen som registrerats i Azure-portalen. |
 > | Myndighet | STS-slutpunkten för autentisering av användaren. Vanligtvis <https://login.microsoftonline.com/{tenant}/v2.0> för offentligt moln, där {tenant} är namnet på din klientorganisation eller ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare) |

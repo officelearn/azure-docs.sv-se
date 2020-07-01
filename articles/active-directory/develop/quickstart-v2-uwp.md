@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 362f6d1f4e50e1cc78c8897499b9f6593096162b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536020"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553861"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
@@ -48,12 +48,12 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 >      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
 >      - Välj **Registrera** för att skapa programmet.
 > 1. I listan över sidor för appen väljer du **Autentisering**.
-> 1. I avsnittet **omdirigerings-URI: er** | **föreslagna omdirigerings-URI: er för offentliga klienter (Mobile, Desktop)** kontrollerar **https://login.microsoftonline.com/common/oauth2/nativeclient**du.
+> 1. I avsnittet **omdirigerings-URI: er**  |  **föreslagna omdirigerings-URI: er för offentliga klienter (Mobile, Desktop)** kontrollerar du **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Välj **Spara**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera programmet
-> För att kod exemplet för den här snabb starten ska fungera måste du lägga till en omdirigerings-URI som **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+> För att kod exemplet för den här snabb starten ska fungera måste du lägga till en omdirigerings-URI som **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
@@ -133,13 +133,13 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Där: ||
+> |Där: | Description |
 > |---------|---------|
 > | `ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
 
 ### <a name="requesting-tokens"></a>Begära token
 
-MSAL har två metoder för att förvärva tokens i en UWP-app: `AcquireTokenInteractive` och `AcquireTokenSilent`.
+MSAL har två metoder för att förvärva tokens i en UWP-app: `AcquireTokenInteractive` och `AcquireTokenSilent` .
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
@@ -155,13 +155,13 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Där:||
+> |Där:| Description |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er. |
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-Använd `AcquireTokenSilent` metoden för att hämta token för att få åtkomst till skyddade resurser `AcquireTokenInteractive` efter den första metoden. Du vill inte kräva att användaren validerar sina autentiseringsuppgifter varje gång de behöver åtkomst till en resurs. Det mesta av den tid som du vill ha token-förvärv och förnyelse utan användar interaktion
+Använd `AcquireTokenSilent` metoden för att hämta token för att få åtkomst till skyddade resurser efter den första `AcquireTokenInteractive` metoden. Du vill inte kräva att användaren validerar sina autentiseringsuppgifter varje gång de behöver åtkomst till en resurs. Det mesta av den tid som du vill ha token-förvärv och förnyelse utan användar interaktion
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -170,7 +170,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Där: ||
+> |Där: | Description |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er |
 > | `firstAccount` | Anger det första användar kontot i cachen (MSAL stöder flera användare i en enda app) |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e3674f7686679c27ad732fcaa92620703b91b5fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d22e86a37ca386d41374cf0b4811943108d293b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82112617"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553852"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp
 
@@ -47,12 +47,12 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 >      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
 >      - Välj **Registrera** för att skapa programmet.
 > 1. I listan över sidor för appen väljer du **Autentisering**.
-> 1. I avsnittet **omdirigerings-URI: er** | **föreslagna omdirigerings-URI: er för offentliga klienter (mobil, stationär)** använder **https://login.microsoftonline.com/common/oauth2/nativeclient**du.
+> 1. I avsnittet **omdirigerings-URI: er**  |  **föreslagna omdirigerings-URI: er för offentliga klienter (mobil, stationär)** använder du **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Välj **Spara**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
-> För att kod exemplet för den här snabb starten ska fungera måste du lägga till en svars **https://login.microsoftonline.com/common/oauth2/nativeclient**-URL som.
+> För att kod exemplet för den här snabb starten ska fungera måste du lägga till en svars-URL som **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
@@ -128,7 +128,7 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Där: ||
+> |Där: | Description |
 > |---------|---------|
 > | `ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
 
@@ -150,7 +150,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Där:||
+> |Där:| Description |
 > |---------|---------|
 > | `_scopes` | Innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er. |
 
@@ -165,7 +165,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Där: ||
+> |Där: | Description |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er. |
 > | `firstAccount` | Anger den första användaren i cachen (MSAL stöder flera användare i en enda app). |

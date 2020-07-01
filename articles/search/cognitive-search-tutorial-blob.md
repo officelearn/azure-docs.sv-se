@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d2783d658d3420575da5d9d480fb705afe2495fc
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78190730"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85550364"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd REST och AI för att generera sökbart innehåll från Azure-blobbar
 
@@ -109,9 +109,9 @@ Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nycke
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Hämta en Admin API-nyckel och URL för Azure Kognitiv sökning
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts- `https://mydemo.search.windows.net`URL: en var, är `mydemo`tjänstens namn.
+1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en var `https://mydemo.search.windows.net` , är tjänstens namn `mydemo` .
 
-2. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
@@ -125,7 +125,7 @@ Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det hä
 
 De metoder för begäran som används i den här självstudien är **post**, **placeras**och **hämtas**. Du använder metoderna för att göra fyra API-anrop till din Sök tjänst: skapa en data källa, en färdigheter, ett index och en indexerare.
 
-I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` Admin-API-nyckeln för din Azure kognitiv sökning-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
+I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` admin-API-nyckeln för din Azure kognitiv sökning-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
 
   ![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
 
@@ -140,7 +140,7 @@ Ett [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create
 1. Använd **post** och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2020-06-30
    ```
 
 1. I **brödtext**i begäran kopierar du följande JSON-definition och ersätter `connectionString` med den faktiska anslutningen av ditt lagrings konto. 
@@ -161,7 +161,7 @@ Ett [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create
     ```
 1. Skicka begäran. Du bör se status koden 201 som bekräftar att det är klart. 
 
-Om du ser felet 403 eller 404 ska du kontrollera konstruktionen för begäran: `api-version=2019-05-06` ska vara på slutpunkten, `api-key` ska vara i rubriken efter `Content-Type` och dess värde måste vara giltigt för en söktjänst. Du kanske vill köra JSON-dokumentet via en online-JSON-verifierare för att kontrol lera att syntaxen är korrekt. 
+Om du ser felet 403 eller 404 ska du kontrollera konstruktionen för begäran: `api-version=2020-06-30` ska vara på slutpunkten, `api-key` ska vara i rubriken efter `Content-Type` och dess värde måste vara giltigt för en söktjänst. Du kanske vill köra JSON-dokumentet via en online-JSON-verifierare för att kontrol lera att syntaxen är korrekt. 
 
 ### <a name="step-2-create-a-skillset"></a>Steg 2: skapa en färdigheter
 
@@ -170,21 +170,21 @@ Ett [färdigheter-objekt](https://docs.microsoft.com/rest/api/searchservice/crea
 1. Använd **Lägg** till och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst.
 
     ```http
-    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2019-05-06
+    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2020-06-30
     ```
 
 1. I begär ande **texten**kopierar du JSON-definitionen nedan. Den här färdigheter består av följande inbyggda kunskaper.
 
-   | Kvalifikation                 | Beskrivning    |
+   | Kvalifikation                 | Description    |
    |-----------------------|----------------|
    | [Igenkänning av enhet](cognitive-search-skill-entity-recognition.md) | Extraherar namn på personer, organisationer och platser från innehållet i BLOB-behållaren. |
    | [Språkidentifiering](cognitive-search-skill-language-detection.md) | Identifierar innehållets språk. |
    | [Textuppdelning](cognitive-search-skill-textsplit.md)  | Delar upp stort innehåll i mindre segment innan nyckel fras extraherings kunskapen anropas. Extrahering av nyckelfraser accepterar indata på 50 000 tecken eller mindre. Några av exempelfilerna måste delas upp för att rymmas inom gränsen. |
    | [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) | Hämtar de viktigaste huvud fraserna. |
 
-   Varje kunskap körs på innehållet i dokumentet. Under bearbetningen kommer Azure Kognitiv sökning att knäcka varje dokument för att läsa innehåll från olika fil format. Text som hittas från källfilen placeras i ett genererat ```content```-fält, ett för varje dokument. Det innebär att indatamängden ```"/document/content"```blir.
+   Varje kunskap körs på innehållet i dokumentet. Under bearbetningen kommer Azure Kognitiv sökning att knäcka varje dokument för att läsa innehåll från olika fil format. Text som hittas från källfilen placeras i ett genererat ```content```-fält, ett för varje dokument. Det innebär att indatamängden blir ```"/document/content"``` .
 
-   För extrahering av nyckel fraser, eftersom vi använder text delnings kunskapen för att dela upp större filer i sidor, är ```"document/pages/*"``` kontexten för extraherings kunskaper för nyckel fraser (för varje sida i dokumentet ```"/document/content"```) i stället för.
+   För extrahering av nyckel fraser, eftersom vi använder text delnings kunskapen för att dela upp större filer i sidor, är kontexten för extraherings kunskaper för nyckel fraser ```"document/pages/*"``` (för varje sida i dokumentet) i stället för ```"/document/content"``` .
 
     ```json
     {
@@ -255,10 +255,10 @@ Ett [index](https://docs.microsoft.com/rest/api/searchservice/create-index) ger 
 1. Använd **Lägg** till och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst, för att namnge ditt index.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
-1. I **brödtext**i begäran kopierar du följande JSON-definition. I `content` fältet lagras själva dokumentet. Ytterligare fält för `languageCode`, `keyPhrases`och `organizations` representerar ny information (fält och värden) som skapats av färdigheter.
+1. I **brödtext**i begäran kopierar du följande JSON-definition. I `content` fältet lagras själva dokumentet. Ytterligare fält för `languageCode` , `keyPhrases` och `organizations` representerar ny information (fält och värden) som skapats av färdigheter.
 
     ```json
     {
@@ -339,14 +339,14 @@ En [indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer
 1. Använd **Lägg** till och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst, för att ge indexeraren ett namn.
 
    ```http
-   https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+   https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
 1. I begär ande **texten**kopierar du JSON-definitionen nedan. Observera fält mappnings elementen. dessa mappningar är viktiga eftersom de definierar data flödet. 
 
-   Bearbetas före färdigheter, vilket `fieldMappings` skickar innehåll från data källan till mål fälten i ett index. Du använder fält mappningar för att skicka befintligt, oförändrat innehåll till indexet. Om fält namn och typer är desamma i båda ändar, krävs ingen mappning.
+   `fieldMappings`Bearbetas före färdigheter, vilket skickar innehåll från data källan till mål fälten i ett index. Du använder fält mappningar för att skicka befintligt, oförändrat innehåll till indexet. Om fält namn och typer är desamma i båda ändar, krävs ingen mappning.
 
-   `outputFieldMappings` Används för fält som skapats av färdigheter och bearbetas därför när färdigheter har körts. Referenser till `sourceFieldNames` i `outputFieldMappings` finns inte förrän dokuments cracking eller berikning skapar dem. `targetFieldName` Är ett fält i ett index som definieras i index schemat.
+   `outputFieldMappings`Används för fält som skapats av färdigheter och bearbetas därför när färdigheter har körts. Referenser till `sourceFieldNames` i `outputFieldMappings` finns inte förrän dokuments cracking eller berikning skapar dem. `targetFieldName`Är ett fält i ett index som definieras i index schemat.
 
     ```json
     {
@@ -421,7 +421,7 @@ En [indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer
 
 Skriptet ställer in ```"maxFailedItems"```  på -1, vilket instruerar indexeringsmotorn att ignorera fel under dataimport. Detta är acceptabelt eftersom det finns några dokument i demonstrations data källan. För en större datakälla skulle du ställa in värdet på större än 0.
 
-```"dataToExtract":"contentAndMetadata"``` Instruktionen instruerar indexeraren att automatiskt extrahera innehållet från olika fil format samt metadata som är relaterade till varje fil. 
+```"dataToExtract":"contentAndMetadata"```Instruktionen instruerar indexeraren att automatiskt extrahera innehållet från olika fil format samt metadata som är relaterade till varje fil. 
 
 När innehållet har extraherats kan du ställa in ```imageAction``` på att extrahera text från avbildningar som hittades i datakällan. Konfigurationen av ```"imageAction":"generateNormalizedImages"```, tillsammans med OCR-färdigheten och färdigheten för textsammanslagning, talar om för indexeraren att den ska extrahera text från bilderna (exempelvis ordet ”stopp” från en trafikstoppskylt) och bädda in den som en del av innehållsfältet. Det här beteendet gäller både avbildningarna som är inbäddade i dokumenten (tänk på en avbildning i en PDF) samt avbildningar som hittas i datakällan, till exempel en JPG-fil.
 
@@ -432,7 +432,7 @@ Indexering och anrikning börjar så snart du skickar en begäran om att skapa i
 1. Använd **Get** och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst, för att ge indexeraren ett namn.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr/status?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr/status?api-version=2020-06-30
    ```
 
 1. Granska svaret för att lära dig om indexeraren körs, eller om du vill visa information om fel och varningar.  
@@ -446,12 +446,12 @@ Om du använder den kostnads fria nivån förväntas följande meddelande: "" De
 
 Nu när du har skapat nya fält och information kan vi köra några frågor för att förstå värdet för kognitiv sökning, som relaterar till ett typiskt Sök scenario.
 
-Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i ett `content` enda fält. Du kan söka i det här fältet och hitta matchningar för dina frågor.
+Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i ett enda `content` fält. Du kan söka i det här fältet och hitta matchningar för dina frågor.
 
 1. Använd **Get** och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst, för att söka efter instanser av en term eller fras, returnerar `content` fältet och antalet matchande dokument.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
    ```
    
    Resultatet av den här frågan returnerar dokument innehåll, vilket är samma resultat som du får om du använder BLOB-indexeraren utan den kognitiva Sök pipelinen. Det här fältet är sökbart, men kan inte användas om du vill använda ansikte, filter eller Autoavsluta.
@@ -461,7 +461,7 @@ Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i e
 1. Returnera några av de nya fälten som skapats av pipelinen (personer, organisationer, platser, languageCode) för den andra frågan. Vi utesluter det kortfattat, men du bör ta med det om du vill se dessa värden.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2019-05-06
+   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    Fälten i $select-instruktionen innehåller ny information som skapats från den naturliga språk bearbetnings funktionen i Cognitive Services. Som du kan förväntar dig finns det störningar i resultatet och variationen i dokumenten, men i många fall ger analys modellerna korrekta resultat.
 
@@ -472,7 +472,7 @@ Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i e
 1. Om du vill se hur du kan dra nytta av dessa fält lägger du till en aspekt parameter för att returnera en agg regering av matchande dokument efter plats.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&facet=locations&api-version=2019-05-06
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&facet=locations&api-version=2020-06-30
    ``` 
 
    I det här exemplet finns det två eller tre matchningar för varje plats.
@@ -483,7 +483,7 @@ Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i e
 1. I det här sista exemplet ska du använda ett filter för organisations samlingen och returnera två matchningar för filter villkor baserat på NASDAQ.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
+   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 Dessa frågor illustrerar några av de olika sätten att arbeta med frågesyntax och filter på nya fält som skapats av kognitiv sökning. Fler fråge exempel finns i [exemplen i search documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax Query exempel](search-query-simple-examples.md)och [fullständiga Lucene-fråge exempel](search-query-lucene-examples.md).
@@ -501,7 +501,7 @@ Du kan använda portalen för att ta bort index, indexerare, data källor och f�
 Eller Använd **ta bort** och ange URL: er för varje objekt. Följande kommando tar bort en indexerare.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
 ```
 
 Statuskod 204 returneras vid borttagning.
@@ -510,7 +510,7 @@ Statuskod 204 returneras vid borttagning.
 
 Den här självstudien visar de grundläggande stegen för att skapa en utökad indexeringspipeline genom att skapa komponentdelar: en datakälla, kunskapsuppsättning, index och indexerare.
 
-[Inbyggda kunskaper](cognitive-search-predefined-skills.md) introducerades, tillsammans med färdigheter-definitionen och Mechanics för länkning av färdigheter tillsammans genom indata och utdata. Du har också lärt `outputFieldMappings` dig att i index definitions definitionen krävs för att dirigera berikade värden från pipelinen till ett sökbart index i en Azure kognitiv sökning-tjänst.
+[Inbyggda kunskaper](cognitive-search-predefined-skills.md) introducerades, tillsammans med färdigheter-definitionen och Mechanics för länkning av färdigheter tillsammans genom indata och utdata. Du har också lärt dig att `outputFieldMappings` i index definitions definitionen krävs för att dirigera berikade värden från pipelinen till ett sökbart index i en Azure kognitiv sökning-tjänst.
 
 Slutligen lärde du dig att testa resultat och återställa systemet för ytterligare iterationer. Du har lärt dig att när du utfärdar frågor mot indexet returneras utdata som skapades av pipelinen för berikande indexering. 
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: d50217bed3850f0e9021dda4bf1b577d006839d1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 52a76e685a9db58870c9a18b419ef725f559a969
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674490"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85552999"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Självstudie: Konfigurera Azure Cosmos DB global distribution med SQL-API: et
 
@@ -104,7 +104,6 @@ const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLoc
 Följande kod visar hur du ställer in önskade platser med hjälp av python SDK:
 
 ```python
-
 connectionPolicy = documents.ConnectionPolicy()
 connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
 client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
@@ -130,14 +129,13 @@ Följande kod visar hur du ställer in önskade platser med Java SDK:
 --- 
 
 ## <a name="rest"></a>REST
-När ett databaskonto har gjorts tillgängligt i flera regioner, kan klienterna fråga efter dess tillgänglighet genom att utföra en GET-begäran för följande URI.
-
-    https://{databaseaccount}.documents.azure.com/
+När ett databas konto har gjorts tillgängligt i flera regioner kan klienterna fråga dess tillgänglighet genom att utföra en GET-begäran på denna URI`https://{databaseaccount}.documents.azure.com/`
 
 Tjänsten returnerar en lista med regioner och URI:erna för deras motsvarande Azure Cosmos DB-slutpunkter för replikerna. Den aktuella skrivregionen indikeras i svaret. Klienten kan sedan välja lämplig slutpunkt för alla ytterligare REST API-förfrågningar enligt följande.
 
 Exempelsvar
 
+```json
     {
         "_dbs": "//dbs/",
         "media": "//media/",
@@ -167,7 +165,7 @@ Exempelsvar
         "_ts": 0,
         "_etag": null
     }
-
+```
 
 * Alla PUT-, POST- och DELETE-förfrågningar måste gå till den angivna skriv-URI:n
 * Alla får och andra skrivskyddade begär Anden (till exempel frågor) kan gå till valfri slut punkt för klientens val

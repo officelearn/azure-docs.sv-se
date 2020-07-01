@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 2e225d4d37f6bdb3d50b32f6464456e4f7fa0036
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6f4c18d0fb2a4414dc98100dcec85161fdda85f0
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853955"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554092"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabb start: lägga till Microsoft Identity Platform-inloggning till en ASP.NET-webbapp
 I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET-webbapp loggar in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans.  (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
@@ -43,7 +43,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Quickstart`.
->      - Lägg `https://localhost:44368/` till i **omdirigerings-URI**och klicka på **Registrera**.
+>      - Lägg till `https://localhost:44368/` i **omdirigerings-URI**och klicka på **Registrera**.
 >      - I det vänstra navigerings fönstret under avsnittet hantera väljer du **autentisering**
 >          - Under avsnittet **implicit beviljande** underavsnitt väljer du **ID-token**.
 >          - Och välj sedan **Spara**.
@@ -94,7 +94,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 >
 > > [!TIP]
 > > - För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
-> > - Se till att värdet `redirectUri` för i **Web. config** motsvarar den **omdirigerings-URI** som definierats för appens registrering i Azure AD (om inte, navigera till menyn **autentisering** för appens registrering och uppdatera **omdirigerings-URI: n** så att den matchar)
+> > - Se till att värdet för `redirectUri` i **Web.config** motsvarar **OMDIRIGERINGS-URI: n** som definierats för appens registrering i Azure AD (om inte, navigera till menyn **autentisering** för appens registrering och uppdatera **omdirigerings-URI: n** så att den matchar)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -156,7 +156,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Var  |  |
+> |Var  | Description |
 > |---------|---------|
 > | `ClientId`     | Program-ID från appen som registrerats i Azure-portalen |
 > | `Authority`    | STS-slutpunkten för autentisering av användaren. Vanligtvis <https://login.microsoftonline.com/{tenant}/v2.0> för offentligt moln, där {tenant} är namnet på din klientorganisation, ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare) |

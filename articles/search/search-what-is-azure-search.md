@@ -7,19 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 7075753049e6ba6f4804d23aa31796cbd5bc9141
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/30/2020
+ms.openlocfilehash: 9d081dea8e4a59a7b872bde8626cbb8674eebd7e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263236"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554322"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Vad är Azure Cognitive Search?
 
-Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-service-name)) är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din kod eller ett verktyg anropar data inmatning (indexering) för att skapa och läsa in ett index. Du kan också lägga till kognitiva kunskaper för att tillämpa AI-processer under indexering. På så sätt kan du lägga till ny information och strukturer som är användbara för sökning och andra scenarier.
+Azure Kognitiv sökning ([tidigare kallat "Azure Search"](whats-new.md#new-service-name)) är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. 
 
-På den andra sidan av tjänsten utfärdar din program kod frågor om begär Anden och hanterar svar. Sök funktionen definieras i klienten med hjälp av funktioner från Azure Kognitiv sökning, med frågekörningen över ett beständigt index som du skapar, äger och lagrar i din tjänst.
+I en anpassad lösning finns en Sök tjänst mellan två primära arbets belastningar: innehålls inmatning och frågor. Din kod eller ett verktyg definierar ett schema och anropar data inmatning (indexering) för att läsa in ett index i Azure Kognitiv sökning. Du kan också lägga till kognitiva kunskaper för att tillämpa AI-processer under indexering. Om du gör det kan du skapa ny information och strukturer som är användbara för scenarier för sökning och kunskaps utvinning.
+
+När ett index finns utfärdar din program kod frågor till en Sök tjänst och hanterar svar. Sök funktionen definieras i klienten med hjälp av funktioner från Azure Kognitiv sökning, med frågekörningen över ett beständigt index som du skapar, äger och lagrar i din tjänst.
 
 ![Azure Kognitiv sökning-arkitektur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Kognitiv sökning-arkitektur")
 
@@ -31,7 +33,7 @@ Azure Kognitiv sökning passar bra för följande program scenarier:
 
 + Konsolidering av heterogena innehålls typer i ett privat, enskilt, sökbart index. Frågor är alltid över ett index som du skapar och läser in med dokument, och indexet finns alltid i molnet på Azure Kognitiv sökning-tjänsten. Du kan fylla i ett index med strömmar av JSON-dokument från valfri källa eller plattform. Du kan också använda en *indexerare* för att hämta data till ett index för innehåll som har ursprung på Azure. Index definition och hantering/ägarskap är ett viktigt skäl till att använda Azure Kognitiv sökning.
 
-+ RAW-innehåll är en stor mängd olika text-, bildfiler eller programfiler, till exempel Office-innehållstyp på en Azure-datakälla, till exempel Azure Blob Storage eller Cosmos DB. Du kan använda kognitiva kunskaper under indexeringen för att lägga till struktur eller extrahera mening från avbildnings-och programfiler.
++ RAW-innehåll är en stor mängd olika text-, bildfiler eller programfiler, till exempel Office-innehållstyp på en Azure-datakälla, till exempel Azure Blob Storage eller Cosmos DB. Du kan använda kognitiva kunskaper under indexeringen om du vill lägga till en struktur eller extrahera sökbar text från avbildnings-och programfiler.
 
 + Enkel implementering av sökrelaterade funktioner. Azure Kognitiv sökning-API: er fören klar fråge konstruktion, fasett navigering, filter (inklusive geo-spatial sökning), synonym mappning, typeahead-frågor och relevans-justering. Med hjälp av inbyggda funktioner kan du tillgodose förväntningar på slutanvändare för en Sök upplevelse som liknar de kommersiella sökmotorer för Webbs ökning.
 
@@ -53,8 +55,8 @@ Azure Kognitiv sökning passar bra för följande program scenarier:
 
 | AI- &nbsp; anrikning&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funktioner |
 |-------------------|----------|
-|AI-bearbetning under indexering | [**AI-anrikning**](cognitive-search-concept-intro.md) för bild-och text analyser kan tillämpas på en indexerings pipeline för att extrahera text information från RAW-innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |
-| Lagra berikat innehåll för analys och konsumtion i icke-sökscenarier | [**Knowledge Store (för hands version)**](knowledge-store-concept-intro.md) är ett tillägg till AI-baserad indexering. Med Azure Storage som en server del kan du spara berikare som skapats under indexering. Dessa artefakter kan användas för att utforma bättre färdighetsuppsättningar eller skapa form och struktur av amorphous eller tvetydiga data. Du kan skapa projektioner av dessa strukturer som riktar sig mot specifika arbets belastningar eller användare. Du kan också analysera extraherade data direkt eller läsa in dem i andra appar.<br/><br/> |
+|AI-bearbetning under indexering | [**AI-anrikning**](cognitive-search-concept-intro.md) för bild-och text analyser kan tillämpas på en indexerings pipeline för att extrahera text information från RAW-innehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. Du kan också [integrera Azure Machine Learning skapade färdigheter](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-aml-custom-skill). |
+| Lagra berikat innehåll för analys och konsumtion i icke-sökscenarier | [**Kunskaps lager**](knowledge-store-concept-intro.md) är ett tillägg till AI-baserad indexering. Med Azure Storage som en server del kan du spara berikade som skapats under indexeringen. Dessa artefakter kan användas för att utforma bättre färdighetsuppsättningar eller skapa form och struktur av amorphous eller tvetydiga data. Du kan skapa projektioner av dessa strukturer som riktar sig mot specifika arbets belastningar eller användare. Du kan också analysera extraherade data direkt eller läsa in dem i andra appar.<br/><br/> |
 | Cachelagrat innehåll | Den [**stegvisa anrikningen (för hands version)**](cognitive-search-incremental-indexing-conceptual.md) begränsar bearbetningen till enbart de dokument som ändras av en viss redigering till pipelinen med hjälp av cachelagrat innehåll för de delar av pipelinen som inte ändras. |
 
 | Data &nbsp; import/indexering | Funktioner |
@@ -127,9 +129,9 @@ Bland våra kunder kan de som har nytta av de många funktionerna i Azure Kognit
 
 Även om många aktiviteter kan utföras i portalen är Azure Kognitiv sökning avsett för utvecklare som vill integrera Sök funktioner i befintliga program. Följande programmeringsgränssnitt är tillgängliga.
 
-|Plattform |Beskrivning |
+|Plattform |Description |
 |-----|------------|
-|[REST](/rest/api/searchservice/) | HTTP-kommandon som stöds av alla programmeringsplattformar och -språk, bland annat Xamarin, Java och JavaScript|
+|[REST](/rest/api/searchservice/) | HTTP-kommandon som stöds av valfri programmerings plattform och språk, inklusive Java, python och Java Script|
 |[.NET SDK](search-howto-dotnet-sdk.md) | .NET-omslutning för REST API erbjuder effektiv kodning i C# och andra språk med förvaltad kod med .NET Framework som mål |
 
 ## <a name="free-trial"></a>Kostnadsfri utvärderingsversion

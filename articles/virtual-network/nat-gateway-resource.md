@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: db50a8938459fe063553f08c495149867ee36f43
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710073"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85549631"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Utforma virtuella nätverk med NAT-gateway-resurser
 
@@ -325,8 +325,7 @@ En SNAT-port är tillgänglig för åter användning till samma mål-IP-adress o
 - NSG Flow-loggning stöds inte när NAT används.
 - NAT kan inte omfatta flera virtuella nätverk.
 
-
-## <a name="feedback"></a>Feedback
+## <a name="suggestions"></a>Förslag
 
 Vi vill veta hur vi kan förbättra tjänsten. Saknas en funktion? Gör ditt ärende för det vi ska skapa nästa på [UserVoice för NAT](https://aka.ms/natuservoice).
 

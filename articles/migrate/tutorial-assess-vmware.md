@@ -4,19 +4,19 @@ description: Beskriver hur du bedömer lokala virtuella VMware-datorer för migr
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 7fcfa698b0a7e96a117b9d9663869bbec0e0079e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771316"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85550885"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Utvärdera virtuella VMware-datorer med Server Assessment
 
 Den här artikeln visar hur du kan utvärdera lokala virtuella VMware-datorer (VM: ar) med hjälp av verktyget [Azure Migrate: Server bedömning](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
 
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure. I de här självstudierna får du lära dig att
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure. I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att utvärdera de virtuella datorerna.
@@ -42,25 +42,25 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 Konfigurera ett nytt Azure Migrate projekt enligt följande:
 
 1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
-1. Under **Tjänster** väljer du **Azure Migrate**.
-1. I **Översikt**, under **Upptäck, utvärdera och migrera servrar**, väljer du **utvärdera och migrera servrar**.
+2. Under **Tjänster** väljer du **Azure Migrate**.
+3. I **Översikt**, under **Upptäck, utvärdera och migrera servrar**, väljer du **utvärdera och migrera servrar**.
 
    ![Knapp för att utvärdera och migrera servrar](./media/tutorial-assess-vmware/assess-migrate.png)
 
-1. I **komma igång**väljer du **Lägg till verktyg**.
-1. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.     
-1. I **projekt information**anger du projekt namnet och geografin som du vill skapa projektet i. Granska stödda geografiska områden för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
+4. I **komma igång**väljer du **Lägg till verktyg**.
+5. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.     
+6. I **projekt information**anger du projekt namnet och geografin som du vill skapa projektet i. Granska stödda geografiska områden för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Rutor för projekt namn och region](./media/tutorial-assess-vmware/migrate-project.png)
 
-1. Välj **Nästa**.
-1. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering**  >  **Nästa**.
+7. Välj **Nästa**.
+8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering**  >  **Nästa**.
 
    ![Val för Server bedömnings verktyget](./media/tutorial-assess-vmware/assessment-tool.png)
 
-1. I **Välj migreringsverktyg** väljer du **Hoppa över att lägga till ett migreringsverktyg just nu** > **Nästa**.
-1. I **Granska + Lägg till verktyg**granskar du inställningarna och väljer **Lägg till verktyg**.
-1. Vänta några minuter tills Azure Migrate-projektet har distribuerats. Projektsidan öppnas. Om du inte ser projektet kan du öppna det från **Servrar** i Azure Migrate-instrumentpanelen.
+9. I **Välj migreringsverktyg** väljer du **Hoppa över att lägga till ett migreringsverktyg just nu** > **Nästa**.
+10. I **Granska + Lägg till verktyg**granskar du inställningarna och väljer **Lägg till verktyg**.
+11. Vänta några minuter tills Azure Migrate-projektet har distribuerats. Projektsidan öppnas. Om du inte ser projektet kan du öppna det från **Servrar** i Azure Migrate-instrumentpanelen.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurera Azure Migrate-enheten
 
@@ -75,8 +75,8 @@ När du har skapat enheten kontrollerar du att den kan ansluta till Azure Migrat
 ### <a name="download-the-ova-template"></a>Ladda ned mallen för ägg
 
 1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
-1. I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere hypervisor**.
-1. Välj **Ladda ned** för att ladda ned filer för embryon.
+2. I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere hypervisor**.
+3. Välj **Ladda ned** för att ladda ned filer för embryon.
 
    ![Alternativ för att ladda ned en ägg fil](./media/tutorial-assess-vmware/download-ova.png)
 
@@ -114,13 +114,13 @@ Importera den nedladdade filen och skapa en virtuell dator:
 
    ![Meny kommando för att distribuera en OVF-mall](./media/tutorial-assess-vmware/deploy-ovf.png)
 
-1. I guiden Distribuera OVF-mall > **källa**anger du platsen för ägg filen.
-1. I **namn** och **plats**anger du ett eget namn för den virtuella datorn. Välj det lager objekt som den virtuella datorn ska vara värd för.
-1. I **värd/kluster**anger du den värd eller det kluster som den virtuella datorn ska köras på.
-1. I **lagring**anger du lagrings målet för den virtuella datorn.
-1. I **Diskformat** anger du disktyp och storlek.
-1. I **nätverks mappning**anger du det nätverk som den virtuella datorn ska ansluta till. Nätverket måste ha Internet anslutning för att kunna skicka metadata till Azure Migrate Server bedömning.
-1. Granska och bekräfta inställningarna och välj sedan **Slutför**.
+2. I guiden Distribuera OVF-mall > **källa**anger du platsen för ägg filen.
+3. I **namn** och **plats**anger du ett eget namn för den virtuella datorn. Välj det lager objekt som den virtuella datorn ska vara värd för.
+4. I **värd/kluster**anger du den värd eller det kluster som den virtuella datorn ska köras på.
+5. I **lagring**anger du lagrings målet för den virtuella datorn.
+6. I **Diskformat** anger du disktyp och storlek.
+7. I **nätverks mappning**anger du det nätverk som den virtuella datorn ska ansluta till. Nätverket måste ha Internet anslutning för att kunna skicka metadata till Azure Migrate Server bedömning.
+8. Granska och bekräfta inställningarna och välj sedan **Slutför**.
 
 ## <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till enheten till Azure
 
@@ -134,8 +134,8 @@ Konfigurera enheten för första gången.
 > Om du ställer in installationen med hjälp av ett [PowerShell-skript](deploy-appliance-script.md) i stället för hämtade ägg, är de två första stegen i den här proceduren inte relevanta.
 
 1. I klient konsolen för vSphere högerklickar du på den virtuella datorn och väljer sedan **Öppna konsol**.
-1. Ange språk, tidszon och lösen ord för enheten.
-1. Öppna en webbläsare på vilken dator som helst som kan ansluta till den virtuella datorn och öppna URL: en för installations programmets webbapp: **https://-enhetens*namn eller IP-adress*: 44368**.
+2. Ange språk, tidszon och lösen ord för enheten.
+3. Öppna en webbläsare på vilken dator som helst som kan ansluta till den virtuella datorn och öppna URL: en för installations programmets webbapp: **https://-enhetens*namn eller IP-adress*: 44368**.
 
    Alternativt kan du öppna appen från apparatens skriv bord genom att välja genvägen till appen.
 1. I webbappen > **Konfigurera krav**gör du följande:
@@ -153,13 +153,13 @@ Konfigurera enheten för första gången.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrera enheten med Azure Migrate
 
 1. Välj **Logga**in. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
-1. På fliken nytt loggar du in med ditt användar namn och lösen ord för Azure.
+2. På fliken nytt loggar du in med ditt användar namn och lösen ord för Azure.
    
    Inloggning med en PIN-kod stöds inte.
-1. När du har loggat in går du tillbaka till webbappen.
-1. Välj den prenumeration där Azure Migrate projektet skapades och välj sedan projektet.
-1. Ange ett namn för enheten. Namnet måste vara alfanumeriskt med 14 tecken eller färre.
-1. Välj **Registrera**.
+3. När du har loggat in går du tillbaka till webbappen.
+4. Välj den prenumeration där Azure Migrate projektet skapades och välj sedan projektet.
+5. Ange ett namn för enheten. Namnet måste vara alfanumeriskt med 14 tecken eller färre.
+6. Välj **Registrera**.
 
 
 ## <a name="start-continuous-discovery"></a>Starta kontinuerlig identifiering
@@ -191,39 +191,53 @@ Identifiering fungerar på följande sätt:
 Efter identifieringen kan du kontrol lera att de virtuella datorerna visas i Azure Portal:
 
 1. Öppna instrument panelen för Azure Migrate.
-1. I **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering**väljer du den ikon som visar antalet för **identifierade servrar**.
+2. I **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering**väljer du den ikon som visar antalet för **identifierade servrar**.
 
 ## <a name="set-up-an-assessment"></a>Konfigurera en utvärdering
 
 Du kan skapa två typer av utvärderingar genom att använda Azure Migrate Server utvärdering:
 
-**Beskrivningar** | **Information** | **Data**
+**Bedömnings typ** | **Detaljer**
+--- | --- 
+**Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. [Läs mer](concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+
+Server utvärderingen innehåller två alternativ för storleks ändring:
+
+**Storleks villkor** | **Detaljer** | **Data**
 --- | --- | ---
-**Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)**: baserat på IOPS och data flödet för lokala diskar.
-**Som lokalt** | Utvärderingar baserade på lokal storlek | **Rekommenderad VM-storlek**: baserat på den lokala virtuella dator storleken.<br/><br> **Rekommenderad disk typ**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.
+**Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | **Utvärdering**av virtuell Azure-dator: rekommendation för virtuell dator baseras på data från processor-och minnes användning.<br/><br/> Disk typs rekommendation (standard HDD/SSD eller Premium-Managed Disks) baseras på IOPS och data flödet för lokala diskar.<br/><br/> **Azure VMware-lösning (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på data från processor-och minnes användning.
+**Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer. | **Utvärdering**av virtuell Azure-dator: rekommendationen för VM-storlek baseras på den lokala virtuella dator storleken<br/><br> Den rekommenderade disk typen baseras på vad du väljer i inställningen lagrings typ för utvärderingen.<br/><br/> **Azure VMware Solution (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på den lokala virtuella dator storleken.
 
 ## <a name="run-an-assessment"></a>Köra en utvärdering
 
-Kör en utvärdering på följande sätt:
+Kör en *utvärdering av Azure VM* på följande sätt:
 
 1. Gå igenom [metod tipsen](best-practices-assessment.md) för att skapa utvärderingar.
-1. På fliken **servrar** i panelen **Azure Migrate: Server bedömning** väljer du **utvärdera**.
+2. På fliken **servrar** i panelen **Azure Migrate: Server bedömning** väljer du **utvärdera**.
 
    ![Utvärderings knappens placering](./media/tutorial-assess-vmware/assess.png)
 
-1. I **utvärdera servrar**anger du ett namn för utvärderingen.
-1. Välj **Visa alla**och granska sedan utvärderings egenskaperna.
+3. I **utvärdera servrar**väljer du bedömnings typ som "Azure VM", väljer identifierings källa och anger bedömnings namnet.
+
+    ![Grundläggande om bedömning](./media/tutorial-assess-vmware/assess-servers-azurevm.png)
+ 
+4. Välj **Visa alla**och granska sedan utvärderings egenskaperna.
 
    ![Bedömnings egenskaper](./media/tutorial-assess-vmware/view-all.png)
 
-1. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
-1. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
-1. Välj **Skapa utvärdering** för att skapa gruppen och köra utvärderingen.
+5. Klicka på **Nästa** för att **välja datorer att utvärdera**. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
+6. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
+7. Klicka på **Nästa** för att **Granska + skapa utvärdering** för att granska utvärderings informationen.
+8. Välj **Skapa utvärdering** för att skapa gruppen och köra utvärderingen.
 
    ![Utvärdera servrar](./media/tutorial-assess-vmware/assessment-create.png)
 
-1. När utvärderingen har skapats kan du Visa den på **servrar**  >  **Azure Migrate:**  >  **utvärderingar**av Server bedömning.
-1. Välj **Exportera utvärdering** för att ladda ned den som en Excel-fil.
+8. När utvärderingen har skapats kan du Visa den på **servrar**  >  **Azure Migrate:**  >  **utvärderingar**av Server bedömning.
+9. Välj **Exportera utvärdering** för att ladda ned den som en Excel-fil.
+
+Om du vill köra en **Azure VMware-lösning (AVS)-utvärdering**följer du stegen som beskrivs [här](how-to-create-azure-vmware-solution-assessment.md).
+
 
 ## <a name="review-an-assessment"></a>Granska en utvärdering
 
@@ -236,20 +250,20 @@ En utvärdering beskriver:
 Så här visar du en utvärdering:
 
 1. I **mål**  >  **servrar**för migrering väljer du **utvärderingar** i **Azure Migrate: Server utvärdering**.
-1. I **utvärderingar**väljer du en utvärdering för att öppna den.
+2. I **utvärderingar**väljer du en utvärdering för att öppna den.
 
    ![Utvärderings Sammanfattning](./media/tutorial-assess-vmware/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Granska Azure readiness
 
 1. I **Azure-beredskap**kontrollerar du om de virtuella datorerna är klara för migrering till Azure.
-1. Granska VM-statusen:
+2. Granska VM-statusen:
     - **Redo för Azure**: används när Azure Migrate rekommenderar en VM-storlek och kostnads uppskattning för virtuella datorer i utvärderingen.
     - **Klar med villkor**: visar problem och Rekommenderad reparation.
     - **Inte redo för Azure**: visar problem och förslag på åtgärder.
     - **Beredskap okänd**: används när Azure Migrate inte kan utvärdera beredskap på grund av data tillgänglighets problem.
 
-1. Välj en status för **Azure-beredskap** . Du kan visa information om VM-beredskap. Du kan också öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
+3. Välj en status för **Azure-beredskap** . Du kan visa information om VM-beredskap. Du kan också öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
 
 ### <a name="review-cost-details"></a>Granska kostnads information
 

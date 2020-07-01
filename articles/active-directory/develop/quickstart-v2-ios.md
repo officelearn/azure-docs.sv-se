@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: b4092ac7bdd03d2e978cd9d9a8aa9fd2aaf1cdd2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: bd17c20707c3bf1a153e9209cd7e2ec279de0501
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733299"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554053"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
@@ -173,7 +173,7 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |Där: ||
+> |Där: | Description |
 > |---------|---------|
 > | `clientId` | Program-ID från den app som registrerats i *portal.azure.com* |
 > | `authority` | Slut punkten för Microsoft Identity Platform. I de flesta fall är detta *https<span/>://login.microsoftonline.com/common* |
@@ -237,7 +237,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |Där:||
+> |Där:| Description |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er ( `api://<Application ID>/access_as_user` ) |
 
@@ -257,7 +257,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |Där: ||
+> |Där: | Description |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er ( `api://<Application ID>/access_as_user` ) |
 > | `account` | Det konto som en token begärs för. Den här snabb starten är ungefär samma konto program. Om du vill skapa en app med flera konton måste du definiera logik för att identifiera vilket konto som ska användas för token-begäranden som använder `accountsFromDeviceForParameters:completionBlock:` och skickar korrekt`accountIdentifier` |

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 0a41165a77ff5f98a6a0bb408da62cb6c4cb35f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2be5a4ffb239b445381b5e7c84de15c0bcea371
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536088"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553914"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph-API med hjälp av appens identitet
 
@@ -88,7 +88,7 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 >
 > 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
 > 1. Öppna lösningen i Visual Studio- **1-Call-MSGraph\daemon-Console.SLN** (valfritt).
-> 1. Redigera **appSettings. JSON** och ersätt värdena för fälten `ClientId` `Tenant` och `ClientSecret` med följande:
+> 1. Redigera **appsettings.jspå** och ersätt värdena för fälten `ClientId` `Tenant` och `ClientSecret` med följande:
 >
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
@@ -110,7 +110,7 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 > [!div renderon="docs"]
 > #### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
 
-Om du försöker köra programmet nu får du ett *HTTP 403-otillåtet* fel: `Insufficient privileges to complete the operation`. Detta beror på att en *app-only-behörighet* kräver administratörs medgivande, vilket innebär att en global administratör för din katalog måste ge ditt program medgivande. Välj ett av alternativen nedan beroende på din roll:
+Om du försöker köra programmet nu får du ett *HTTP 403-otillåtet* fel: `Insufficient privileges to complete the operation` . Detta beror på att en *app-only-behörighet* kräver administratörs medgivande, vilket innebär att en global administratör för din katalog måste ge ditt program medgivande. Välj ett av alternativen nedan beroende på din roll:
 
 ##### <a name="global-tenant-administrator"></a>Global innehavaradministratör
 
@@ -198,7 +198,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Där: ||
+> | Där: | Description |
 > |---------|---------|
 > | `config.ClientSecret` | Är klienthemligheten som skapats för appen i Azure-portalen. |
 > | `config.ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
@@ -215,9 +215,9 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Där:| |
+> |Där:| Description |
 > |---------|---------|
-> | `scopes` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API `{Application ID URI}` : er definieras under **exponera ett API** -avsnitt i Azure-portalens program registrering (för hands version). |
+> | `scopes` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API: er `{Application ID URI}` definieras under **exponera ett API** -avsnitt i Azure-portalens program registrering (för hands version). |
 
 Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 

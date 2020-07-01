@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b89ab7e44bc71fa442f332cbba35af450f7d5155
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 4ddf754bb48bf588451f2eea595e8d1036d20b3e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760668"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85555284"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Snabbstart: Lägga till ett program i din Azure Active Directory-klientorganisation
 
@@ -97,7 +97,7 @@ Redigera program egenskaperna:
 
    - Beteende för **tilldelade** användare:
 
-       | Egenskapsinställningar för program | | | Upplevelse för tilldelad användare | |
+       | Program egenskap | Program egenskap | Program egenskap | Upplevelse för tilldelad användare | Upplevelse för tilldelad användare |
        |---|---|---|---|---|
        | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan tilldelade användare logga in? | Kan tilldelade användare se programmet?* |
        | ja | ja | ja | ja | ja  |
@@ -111,7 +111,7 @@ Redigera program egenskaperna:
 
    - Beteende för **ej tilldelade** användare:
 
-       | Egenskapsinställningar för program | | | Upplevelse för ej tilldelade användare | |
+       | Program egenskap | Program egenskap | Program egenskap | Upplevelse för ej tilldelade användare | Upplevelse för ej tilldelade användare |
        |---|---|---|---|---|
        | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan ej tilldelade användare logga in? | Kan ej tilldelade användare se programmet?* |
        | ja | ja | ja | nej  | nej   |

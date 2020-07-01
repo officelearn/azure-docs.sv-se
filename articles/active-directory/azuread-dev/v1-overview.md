@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5489c65a0e955183b034e173706b6decfa6df9d5
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: db158a50cfc164a0fc839e858cc6e7c46558eb77
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387498"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85551584"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Översikt över Azure Active Directory för utvecklare (v 1.0)
 
@@ -29,11 +29,8 @@ Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvec
 > [!NOTE]
 > Merparten av innehållet på den här sidan fokuserar på slut punkten och plattformen för v 1.0, som endast stöder Microsoft arbets-eller skol konton. Om du vill logga in på konsumenter eller personliga Microsoft-konton kan du läsa informationen på [slut punkten och plattformen för v 2.0](../develop/v2-overview.md). V 2.0-slutpunkten erbjuder en enhetlig utvecklings upplevelse för appar som vill logga in på alla Microsoft-identiteter.
 
-| | |
-| --- | --- |
-|[Grundläggande om autentisering](v1-authentication-scenarios.md) | En introduktion till autentisering med Azure AD. |
-|[Typer av program](app-types.md) | En översikt över de autentiseringsscenarier som stöds av Azure AD. |
-| | |
+- [Grundläggande autentisering](v1-authentication-scenarios.md) En introduktion till autentisering med Azure AD.
+- [Typer av program](app-types.md) En översikt över de autentiserings scenarier som stöds av Azure AD.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -47,12 +44,9 @@ Mer information och genom gångar för de vanligaste uppgifterna i Azure AD finn
 
 Följande artiklar innehåller detaljerad information om API:er, protokollmeddelanden och de termer som används i Azure AD.
 
-|                                                                                   | |
-| ----------------------------------------------------------------------------------| --- |
-| [Autentiseringsbibliotek (ADAL)](active-directory-authentication-libraries.md)   | En översikt över de bibliotek och SDK:er som tillhandahålls av Azure AD. |
-| [Kodexempel](sample-v1-code.md)                                  | En lista över alla Azure AD-kodexempel. |
-| [Ordlista](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | Termer och definitioner av ord som används i den här dokumentationen. |
-|  |  |
+- [ADAL (Authentication Libraries)](active-directory-authentication-libraries.md) En översikt över de bibliotek och SDK: er som tillhandahålls av Azure AD.
+- [Kod exempel](sample-v1-code.md) En lista över alla kod exempel för Azure AD.
+- [Ord lista](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) Terminologi och definitioner av ord som används i den här dokumentationen.
 
 ## <a name="videos"></a>Videoklipp
 

@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 047e03c4fa5916119036c5e539674dc48a6c77aa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322829"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554022"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton. En JavaScript-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en Azure-prenumeration kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
@@ -73,10 +73,10 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
 
 > [!div renderon="docs"]
-> Om du vill köra projektet med en webb server med hjälp av Node. js [laddar du ned de centrala projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
+> Om du vill köra projektet med en webb server med hjälp av Node.js [laddar du ned de centrala projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
 > [!div renderon="portal"]
-> Köra projektet med en webb server med hjälp av Node. js
+> Kör projektet med en webb server genom att använda Node.js
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Ladda ned kod exemplet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
@@ -84,7 +84,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
 >
-> I mappen *JavaScriptSPA* redigerar du *authConfig. js*och anger `clientID` `authority` `redirectUri` värdena och i `msalConfig` .
+> I mappen *JavaScriptSPA* redigerar du *authConfig.js*och anger `clientID` `authority` `redirectUri` värdena och `msalConfig` .
 >
 > ```javascript
 >
@@ -126,7 +126,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 
 > [!div renderon="docs"]
 >
-> Sedan, fortfarande i samma mapp, redigerar du *graphConfig. js* -filen för att ange `graphMeEndpoint` och `graphMeEndpoint` för `apiConfig` objektet.
+> Sedan, fortfarande i samma mapp, redigerar du *graphConfig.js* -filen för att ange `graphMeEndpoint` och `graphMeEndpoint` för `apiConfig` objektet.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
@@ -148,7 +148,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 > #### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
 
-Kör projektet med en webb server med hjälp av [Node. js](https://nodejs.org/en/download/):
+Kör projektet med en webb server genom att använda [Node.js](https://nodejs.org/en/download/):
 
 1. Starta-servern genom att köra följande kommando från projekt katalogen:
     ```batch
@@ -167,17 +167,17 @@ När webbläsaren har läst in programmet väljer du **Logga**in. Första gånge
 
 ![Så här fungerar JavaScript-exempel-SPA: 1. SPA påbörjar inloggningen. 2. SPA hämtar en ID-token från Microsoft Identity Platform. 3. SPA-anropen hämtar token. 4. Microsoft Identity Platform returnerar en åtkomsttoken till SPA. 5. SPA gör-och HTTP GET-begäran med ACE-token till Microsoft Graph-API: et. 6. Graph API returnerar ett HTTP-svar till SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
-### <a name="msaljs"></a>msal. js
+### <a name="msaljs"></a>msal.js
 
-MSAL-biblioteket loggar in användare och begär de token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Filen starter *index. html* innehåller en referens till biblioteket:
+MSAL-biblioteket loggar in användare och begär de token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Snabb starten *index.html* -filen innehåller en referens till biblioteket:
 
 ```html
 <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
 ```
 > [!TIP]
-> Du kan ersätta den tidigare versionen med den senaste utgivna versionen under [MSAL. js-versioner](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+> Du kan ersätta den tidigare versionen med den senaste versionen under [MSAL.js-versioner](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-Om du har Node. js installerat kan du ladda ned den senaste versionen via Node. js-paket hanteraren (NPM):
+Om du har Node.js installerat kan du hämta den senaste versionen via Node.js Package Manager (NPM):
 
 ```batch
 npm install msal
@@ -204,7 +204,7 @@ Snabb starts koden visar också hur du initierar MSAL-biblioteket:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Var  |  |
+> |Var  | Description |
 > |---------|---------|
 > |`clientId`     | Program-ID för programmet som är registrerat i Azure Portal.|
 > |`authority`    | Valfritt Auktoritets-URL: en som stöder konto typer, enligt beskrivningen ovan i avsnittet konfiguration. Standard auktoriteten är `https://login.microsoftonline.com/common` . |
@@ -232,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Var  |  |
+> |Var  | Description |
 > |---------|---------|
 > | `scopes`   | Valfritt Innehåller omfattningar som begärs för användar medgivande vid inloggnings tillfället. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (det vill säga `api://<Application ID>/access_as_user` ). |
 
@@ -262,7 +262,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Var  |  |
+> |Var  | Description |
 > |---------|---------|
 > | `scopes`   | Innehåller omfång som begärs att returneras i åtkomsttoken för API. Till exempel `[ "mail.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (det vill säga `api://<Application ID>/access_as_user` ).|
 
@@ -305,4 +305,4 @@ En mer detaljerad steg-för-steg-guide om hur du skapar programmet för den här
 Om du vill bläddra bland MSAL-lagrings platsen för dokumentation, vanliga frågor och svar, se:
 
 > [!div class="nextstepaction"]
-> [MSAL. js GitHub-lagrings platsen](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js GitHub lagrings platsen](https://github.com/AzureAD/microsoft-authentication-library-for-js)

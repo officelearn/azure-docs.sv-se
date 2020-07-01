@@ -1,6 +1,6 @@
 ---
 title: Hantera klientprogram med Azure Active Directory | Microsoft Docs
-description: I den här artikeln beskrivs fördelarna med att integrera Azure Active Directory med dina lokala, molnbaserade och SaaS-program.
+description: En översikt över hur du använder Azure Active Directory (AD) som identitets-och auktoriserings hanterings system (IAM) för ditt moln och lokala program.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,26 +8,50 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 06/05/2019
+ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f826f5cc3e56dcf88ee110265724779a9d1f624
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 1d69da3f1e9a505d14974a7a3089acca0e17c713
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84762929"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85549556"
 ---
-# <a name="application-management-with-azure-active-directory"></a>Programhantering med Azure Active Directory
+# <a name="what-is-application-management"></a>Vad är programhantering?
 
-Azure Active Directory (Azure AD) fören klar hanteringen av dina program genom att tillhandahålla ett enda identitets system för dina molnbaserade och lokala appar. Du kan lägga till SaaS-program (program vara som en tjänst), lokala program och LOB-appar (Line of Business) till Azure AD. Användarna loggar sedan in en gång för att på ett säkert och smidigt sätt komma åt dessa program, tillsammans med Office 365 och andra företags program från Microsoft. Du kan minska administrativa kostnader genom att [Automatisera användar etableringen](../app-provisioning/user-provisioning.md). Du kan också använda Multi-Factor Authentication och principer för villkorlig åtkomst för att ge säker åtkomst till programmet.
+Azure AD är ett IAM-system (Identity and Authorization Management). Det ger en enda plats för att lagra information om digitala identiteter. Du kan konfigurera dina program så att de använder Azure AD som den plats där användar information lagras. 
 
-![Diagram som visar federerade appar via Azure AD](media/what-is-application-management/app-management-overview.png)
+Azure AD måste konfigureras för integrering med ett program. Med andra ord måste du veta vilka program som använder den som ett identitets system. Processen för att hålla Azure AD medveten om dessa program och hur de ska hantera dem kallas för program hantering.
+
+Du hanterar program på bladet **företags program** som finns i avsnittet hantera i Azure Active Directory-portalen.
+
+![Alternativet företags program under avsnittet hantera i Azure AD-portalen.](media/what-is-application-management/enterprise-applications-in-nav.png)
+
+## <a name="what-is-an-identity-and-authorization-management-iam-system"></a>Vad är ett identitets-och auktoriserings hanterings system (IAM)?
+Ett program är en del av program varan som används för något ändamål. De flesta program kräver att användare loggar in så att programmet kan ge en anpassad upplevelse för den specifika användaren. Med andra ord måste programmet känna till identiteten för användaren med hjälp av programmet. Eftersom det vet vilka funktioner du kan erbjuda, eller ta bort, för användaren.
+
+Om varje program håller reda på användare separat, skulle resultatet vara en silo av olika användar namn och inloggningar för varje program. Ett program vet inte något om användarna i andra program.
+
+Ett centraliserat identitets system löser problemet genom att tillhandahålla en enda plats för att lagra användar information som sedan kan användas av alla program. Dessa system har visat sig vara kända för identitets-och auktoriserings hanterings system (IAM). Azure Active AD är IAM-systemet för Microsoft-molnet.
+
+>[!TIP]
+>Ett IAM-system ger en enda plats för att hålla koll på användar identiteter. Azure AD är IAM-systemet för Microsoft-molnet.
+
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>Varför hantera program med en molnlösning?
 
 Organisationer har ofta hundratals program som användarna behöver för att utföra sitt arbete. Användare använder dessa program på många enheter och platser. Nya program läggs till, utvecklas och tas ur bruk varje dag. Med så många program och åtkomst punkter är det viktigare än någonsin att använda en molnbaserad lösning för att hantera användar åtkomst till alla program.
+
+>[!TIP]
+>Azure AD App-galleriet innehåller många populära program som redan är förkonfigurerade för att fungera med Azure AD som en identitets leverantör.
+
+## <a name="how-does-azure-ad-work-with-applications"></a>Hur fungerar Azure AD med program?
+
+Azure AD fören klar hanteringen av dina program genom att tillhandahålla ett enda identitets system för dina molnbaserade och lokala appar. Du kan lägga till SaaS-program (program vara som en tjänst), lokala program och LOB-appar (Line of Business) till Azure AD. Användarna loggar sedan in en gång för att på ett säkert och smidigt sätt komma åt dessa program, tillsammans med Office 365 och andra företags program från Microsoft. Du kan minska administrativa kostnader genom att [Automatisera användar etableringen](../app-provisioning/user-provisioning.md). Du kan också använda Multi-Factor Authentication och principer för villkorlig åtkomst för att ge säker åtkomst till programmet.
+
+![Diagram som visar federerade appar via Azure AD](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="what-types-of-applications-can-i-integrate-with-azure-ad"></a>Vilka typer av program kan jag integrera med Azure AD?
 
@@ -35,11 +59,17 @@ Det finns fyra huvud typer av program som du kan lägga till i dina **företags 
 
 - **Azure AD Gallery-program** – Azure AD har ett galleri som innehåller tusentals program som har integrerats för enkel inloggning med Azure AD. Vissa av de program som din organisation använder finns förmodligen i galleriet. [Lär dig mer om att planera din program integrering](plan-an-application-integration.md)eller få detaljerade integrerings steg för enskilda appar i [självstudierna för SaaS-program](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 
-- **Lokala program med programproxy** – med Azure AD-programproxy kan du integrera dina lokala webbappar med Azure AD för att stödja enkel inloggning. Sedan kan slutanvändarna komma åt dina lokala webbappar på samma sätt som de kommer åt Office 365 och andra SaaS-appar. [Lär dig varför du ska använda Application Proxy och hur det fungerar](what-is-application-proxy.md).
+- **Lokala program med programproxy** – med Azure AD-programproxy kan du integrera dina lokala webbappar med Azure AD för att stödja enkel inloggning. Slutanvändare kan sedan komma åt dina lokala webbappar på samma sätt som de kommer åt Office 365 och andra SaaS-appar, se [ge fjärråtkomst till lokala program via Azure Ads programproxy](application-proxy.md).
 
 - **Anpassade program** – när du skapar dina egna affärs program kan du integrera dem med Azure AD för att stödja enkel inloggning. Genom att registrera ditt program med Azure AD har du kontroll över autentiseringsprincip för programmet. Mer information finns i [vägledning för utvecklare](developer-guidance-for-integrating-applications.md).
 
-- **Program som inte är gallerier** – ta med dina egna program! Stöd för enkel inloggning för andra appar genom att lägga till dem i Azure AD. Du kan integrera valfri webblänk eller ett program som återger ett användar namn och ett lösen ords fält, stöder SAML-eller OpenID Connect-protokoll eller stöder SCIM. Mer information finns i [Konfigurera enkel inloggning för appar som inte är gallerier](configure-single-sign-on-non-gallery-applications.md).
+- **Program som inte är gallerier** – ta med dina egna program! Stöd för enkel inloggning för andra appar genom att lägga till dem i Azure AD. Det finns flera sätt att integrera ett program, men några av dem visas nedan. Mer information finns i [Konfigurera enkel inloggning för appar som inte är gallerier](configure-single-sign-on-non-gallery-applications.md).
+
+>[!TIP]
+>Du kan integrera Azure AD med ett program även om det inte redan är förkonfigurerat och i app-galleriet. Du kan **integrera Azure AD med något** av följande
+> - Alla webb länkar eller program som återger ett **användar namn och lösen ord**.
+> - Alla program som stöder **SAML-eller OpenID Connect-protokoll**.
+> - Alla program som stöder **systemet för scim-standarden (Cross-Domain Identity Management)** .
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Hantera risker med principer för villkorlig åtkomst
 
@@ -59,7 +89,12 @@ Med Azure AD kan du övervaka programinloggningar via rapporter som utnyttjar ve
 
 Genom att migrera till Azure AD kan du minska kostnaderna och slippa besväret med att hantera en lokal infrastruktur. Azure AD tillhandahåller även åtkomst till program via självbetjäning, vilket sparar tid för både administratörer och användare. Enkel inloggning eliminerar programspecifika lösenord. Den här möjligheten att logga in en enda gång sänker kostnaderna i samband med återställning av lösenord för program och förlorad produktivitet under hämtning av lösenord.
 
+För program som riktar sig till mänsklig personal eller andra program med en stor uppsättning användare kan du använda app-etablering för att automatisera processen för etablering och avetablering av användare, se [Vad är program etablering?](../app-provisioning/user-provisioning.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Application Proxy?](what-is-application-proxy.md)
+- [Visa program som redan har kon figurer ATS i din Azure AD-klient](view-applications-portal.md)
 - [Snabb start: lägga till ett galleri program i Azure AD-klienten](add-application-portal.md)
+- [Lägg till en Galleri-app i Azure AD-organisationen](add-gallery-app.md)
+- [Kom igång med program integrering](plan-an-application-integration.md)
+- [Lär dig hur du automatiserar etablering](../app-provisioning/user-provisioning.md)

@@ -26,7 +26,7 @@
     - name: Skapa datafabrik – Resource Manager-mall
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Säkerhet – aktivera kundhanterad nyckelkryptering
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
     - name: Skapa ett dataflöde
       href: data-flow-create.md
 - name: Självstudier
@@ -576,7 +576,7 @@
         - name: Hanterad identitet för Data Factory
           href: data-factory-service-identity.md
         - name: Kryptering av kundhanterad nyckel
-          href: quickstart-enable-customer-managed-key.md
+          href: enable-customer-managed-key.md
     - name: Övervaka och hantera
       items:
         - name: Övervaka visuellt

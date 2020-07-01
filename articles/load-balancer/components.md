@@ -11,16 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: a055216634775254867421854aa0b456fa90c709
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84448690"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85551063"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer-komponenter
 
-Azure Load Balancer består av några viktiga komponenter. De kan konfigureras i din prenumeration via Azure Portal, Azure CLI, Azure PowerShell eller mallar.
+Azure Load Balancer innehåller några viktiga komponenter. Dessa komponenter kan konfigureras i din prenumeration via:
+
+* Azure Portal
+* Azure CLI
+* Azure PowerShell
+* Resource Manager-mallar
 
 ## <a name="frontend-ip-configuration"></a>IP-konfiguration för klient del<a name = "frontend-ip-configurations"></a>
 
@@ -34,7 +39,7 @@ IP-adressens typ avgör vilken **typ** av belastningsutjämnare som skapats. Val
 |  | Offentlig lastbalanserare  | Intern lastbalanserare |
 | ---------- | ---------- | ---------- |
 | IP-konfiguration för klient del| Offentlig IP-adress | Privat IP-adress|
-| Beskrivning | En offentlig belastningsutjämnare mappar den offentliga IP-adressen och porten för inkommande trafik till den privata IP-adressen och porten för den virtuella datorn. Belastnings utjämning mappar trafik på det andra sättet för svars trafiken från den virtuella datorn. Du kan distribuera vissa typer av trafik över flera virtuella datorer eller tjänster genom att använda belastnings Utjämnings regler. Du kan till exempel sprida belastningen av trafik för webbegäranden på flera webbservrar.| En intern belastningsutjämnare distribuerar trafik till resurser som finns i ett virtuellt nätverk. Azure begränsar åtkomsten till klient delens IP-adresser för ett virtuellt nätverk som är belastningsutjämnad. IP-adresser och virtuella nätverk på klient sidan exponeras aldrig direkt till en Internet-slutpunkt. Interna verksamhetsspecifika appar körs i Azure och nås i Azure eller via lokala resurser. |
+| Description | En offentlig belastningsutjämnare mappar den offentliga IP-adressen och porten för inkommande trafik till den privata IP-adressen och porten för den virtuella datorn. Belastnings utjämning mappar trafik på det andra sättet för svars trafiken från den virtuella datorn. Du kan distribuera vissa typer av trafik över flera virtuella datorer eller tjänster genom att använda regler för belastnings utjämning. Du kan till exempel sprida belastningen av trafik för webbegäranden på flera webbservrar.| En intern belastningsutjämnare distribuerar trafik till resurser som finns i ett virtuellt nätverk. Azure begränsar åtkomsten till klient delens IP-adresser för ett virtuellt nätverk som är belastningsutjämnad. IP-adresser och virtuella nätverk på klient sidan exponeras aldrig direkt till en Internet-slutpunkt. Interna verksamhetsspecifika appar körs i Azure och nås i Azure eller via lokala resurser. |
 | SKU: er som stöds | Basic, standard | Basic, standard |
 
 ![Exempel på nivå för belastnings utjämning](./media/load-balancer-overview/load-balancer.png)
@@ -51,7 +56,7 @@ När du överväger att utforma en backend-pool bör du utforma för det minsta 
 
 ## <a name="health-probes"></a>Hälsotillståndsavsökningar
 
-En hälso avsökning används för att fastställa hälso status för instanserna i backend-poolen. När du skapar en Load Balancer måste du konfigurera en hälso avsökning som Load Balancer kan använda för att avgöra om en instans är felfri och dirigera trafik till den.
+En hälso avsökning används för att fastställa hälso status för instanserna i backend-poolen. Under skapandet av belastningsutjämnare konfigurerar du en hälso avsökning för belastningsutjämnaren som ska användas.  Den här hälso avsökningen avgör om en instans är felfri och kan ta emot trafik.
 
 Du kan definiera tröskelvärdet för hälso avsökningar. När en avsökning inte svarar, Load Balancer sluta att skicka nya anslutningar till felaktiga instanser. Ett avsöknings haveri påverkar inte befintliga anslutningar. Anslutningen fortsätter tills programmet:
 
@@ -67,11 +72,22 @@ Basic Load Balancer stöder inte HTTPS-avsökningar. Grundläggande Load Balance
 
 En Load Balancer regel används för att definiera hur inkommande trafik distribueras till **alla** instanser i backend-poolen. En belastnings Utjämnings regel mappar en bestämd IP-konfiguration och port för klient delen till flera Server dels IP-adresser och portar.
 
-Om du till exempel vill att trafik på port 80 (eller en annan port) för klient delens IP-adress ska dirigeras till port 80 av alla Server dels instanser använder du en belastnings Utjämnings regel för att uppnå detta.
+Använd till exempel en belastnings Utjämnings regel för port 80 för att dirigera trafik från klient delens IP-adress till port 80 för Server dels instanserna.
 
-### <a name="high-availability-ports"></a>Portar med hög tillgänglighet
+<p align="center">
+  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Belastnings Utjämnings regler">
+</p>
 
-En Load Balancer regel konfigurerad med protokollet-all och Port-0. Detta gör det möjligt att tillhandahålla en enskild regel för att belastningsutjämna alla TCP-och UDP-flöden som kommer till alla portar i ett internt Standard Load Balancer. Belastnings Utjämnings beslutet görs per flöde. Den här åtgärden baseras på följande fem-tupel-anslutning: 
+*Bild: belastnings Utjämnings regler*
+
+## <a name="high-availability-ports"></a>Portar med hög tillgänglighet
+
+En belastnings Utjämnings regel som kon figurer ATS med **protokollet-all och Port-0**. 
+
+Med den här regeln kan en enskild regel belastningsutjämna alla TCP-och UDP-flöden som tas emot på alla portar i en intern Standard Load Balancer. 
+
+Belastnings Utjämnings beslutet görs per flöde. Den här åtgärden baseras på följande fem-tupel-anslutning: 
+
 1. 
     källans IP-adress
   
@@ -80,21 +96,33 @@ En Load Balancer regel konfigurerad med protokollet-all och Port-0. Detta gör d
 4. målporten
 5. protokollhanterare
 
-Belastnings Utjämnings reglerna för HA-portar hjälper dig med kritiska scenarier, till exempel hög tillgänglighet och skalning för virtuella nätverks installationer (NVA) i virtuella nätverk. Funktionen kan också hjälpa när ett stort antal portar måste vara belastningsutjämnade.
+Belastnings Utjämnings reglerna för HA-portar hjälper dig med kritiska scenarier, till exempel hög tillgänglighet och skalning för virtuella nätverks installationer (NVA) i virtuella nätverk. Funktionen kan hjälpa dig när ett stort antal portar måste vara belastningsutjämnade.
 
-Du kan läsa mer om [ha-portar](load-balancer-ha-ports-overview.md).
+<p align="center">
+  <img src="./media/load-balancer-components/harules.svg" width="512" title="Regler för HA-portar">
+</p>
+
+*Bild: regler för HA-portar*
+
+Läs mer om [ha-portar](load-balancer-ha-ports-overview.md).
 
 ## <a name="inbound-nat-rules"></a>Ingående NAT-regler
 
-En inkommande NAT-regel vidarebefordrar inkommande trafik som skickas till en vald klient dels-IP-adress och port kombination till en **specifik** virtuell dator eller instans i backend-poolen. Vidarebefordran av portar utförs av samma hash-baserade distribution som belastnings utjämning.
+En inkommande NAT-regel vidarebefordrar inkommande trafik som skickas till klient delens IP-adress och port kombination. Trafiken skickas till en **speciell** virtuell dator eller instans i backend-poolen. Vidarebefordran av portar utförs av samma hash-baserade distribution som belastnings utjämning.
 
 Till exempel, om du vill att Remote Desktop Protocol (RDP) eller Secure Shell-sessioner (SSH) ska separera VM-instanser i en backend-pool. Flera interna slut punkter kan mappas till portar på samma IP-adress för klient delen. Klient delens IP-adresser kan användas för att fjärradministrera dina virtuella datorer utan någon ytterligare hopp ruta.
 
-Inkommande NAT-regler i kontexten för Virtual Machine Scale Sets (VMSS) är inkommande NAT-pooler. Läs mer om [Load Balancer-komponenter och VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+<p align="center">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Ingående NAT-regler">
+</p>
+
+*Bild: inkommande NAT-regler*
+
+Inkommande NAT-regler i kontexten för Virtual Machine Scale Sets är inkommande NAT-pooler. Läs mer om [Load Balancer-komponenter och skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
 ## <a name="outbound-rules"></a>Regler för utgående trafik
 
-En utgående regel konfigurerar utgående NAT (Network Address Translation) för alla virtuella datorer eller instanser som identifieras av backend-poolen. Detta gör det möjligt för instanser i Server delen att kommunicera (utgående) till Internet eller andra slut punkter.
+En utgående regel konfigurerar utgående NAT (Network Address Translation) för alla virtuella datorer eller instanser som identifieras av backend-poolen. Den här regeln gör det möjligt för instanser i Server delen att kommunicera (utgående) till Internet eller andra slut punkter.
 
 Läs mer om [utgående anslutningar och regler](load-balancer-outbound-connections.md).
 

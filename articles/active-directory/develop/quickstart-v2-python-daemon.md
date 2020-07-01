@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, tracking-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 90954ea2754fd77f1612bd616acb7d3c88e50816
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c8fab1449c72dc3e1a27506e97272e322c0e8c6e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558658"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553891"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph API från en python-konsol app med appens identitet
 
@@ -25,7 +25,7 @@ I den här snabb starten skriver du ett python-program som hämtar en åtkomstto
 > [!div renderon="docs"]
 > ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill köra det här exemplet behöver du:
 
@@ -92,7 +92,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
 > 1. Navigera till undermappen **1-Call-MsGraph-WithSecret "**.
-> 1. Redigera **Parameters. JSON** och ersätt värdena för fälten `authority` , `client_id` och `secret` med följande kodfragment:
+> 1. Redigera **parameters.jspå** och ersätt värdena för fälten `authority` , `client_id` och `secret` med följande kodfragment:
 >
 >    ```json
 >    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
@@ -189,7 +189,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Där: ||
+> | Där: |Description |
 > |---------|---------|
 > | `config["secret"]` | Är klienthemligheten som skapats för appen i Azure-portalen. |
 > | `config["client_id"]` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
@@ -210,7 +210,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Där:| |
+> |Där:| Description |
 > |---------|---------|
 > | `config["scope"]` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API: er `{Application ID URI}` definieras under **exponera ett API** -avsnitt i Azure-portalens program registrering (för hands version). |
 

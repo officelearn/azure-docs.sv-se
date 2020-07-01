@@ -9,44 +9,48 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: bdb30fed4dadef84fe012c11893661b8d9d70325
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 39f10ed627320527a7a34fec52d540739f36e9ce
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483048"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554426"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---resource-manager-template"></a>Snabb start: skapa en Azure CDN profil och en slut punkt för Resource Manager-mall
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Snabb start: skapa en mall för Azure CDN profil och slut punkts ARM
 
-Kom igång med Azure CDN med hjälp av en Azure Resource Manager mall.  Den här mallen distribuerar en profil och en slut punkt.
+Kom igång med Azure Content Delivery Network (CDN) med hjälp av en Azure Resource Manager-mall (ARM-mall). Mallen distribuerar en profil och en slut punkt.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-cdn-profile-and-endpoint"></a>Skapa CDN-profil och slut punkt
+## <a name="review-the-template"></a>Granska mallen
+
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-cdn-with-custom-origin/).
 
 Den här mallen har kon figurer ATS för att skapa en:
 
 * Profil
 * Slutpunkt
 
-### <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabb starten är från [Azure snabb starts mallar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cdn-with-custom-origin/azuredeploy.json)
-
-:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json" range="1-125" highlight="46-117":::
-
+:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json" range="1-125" highlight="45-117":::
 
 En Azure-resurs har definierats i mallen:
 
-**Microsoft. CDN**
-
 * **[Microsoft. CDN/profiler](https://docs.microsoft.com/azure/templates/microsoft.cdn/profiles)**
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-**Azure CLI**
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. eastus): " location
@@ -62,7 +66,7 @@ az group deployment create \
 --template-uri  $templateUri
 ```
 
-**Azure PowerShell**
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -74,13 +78,13 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Azure Portal**
+### <a name="portal"></a>Portalen
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Välj **resurs grupper** i det vänstra fönstret.
 
@@ -92,7 +96,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-**Azure CLI**
+### <a name="azure-cli"></a>Azure CLI
 
 När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/azure/group#az-group-delete) för att ta bort resurs gruppen och alla resurser som ingår i.
 
@@ -101,7 +105,7 @@ När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/az
     --name myResourceGroupCDN
 ```
 
-**Azure PowerShell**
+### <a name="powershell"></a>PowerShell
 
 När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) för att ta bort resurs gruppen och alla resurser som ingår i.
 
@@ -109,7 +113,7 @@ När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](
 Remove-AzResourceGroup -Name myResourceGroupCDN
 ```
 
-**Azure Portal**
+### <a name="portal"></a>Portalen
 
 Ta bort resurs gruppen, CDN-profilen och alla relaterade resurser när de inte längre behövs. Välj den resurs grupps **myResourceGroupCDN** som innehåller CDN-profilen och slut punkten och välj sedan **ta bort**.
 

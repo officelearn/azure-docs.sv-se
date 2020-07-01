@@ -3,20 +3,14 @@
 - name: Översikt
   expanded: true
   items:
-    - name: Vad är molnprogramhantering och enkel inloggning?
+    - name: Vad är programhantering?
       href: what-is-application-management.md
-    - name: Vad är programproxy för lokala appar?
-      href: what-is-application-proxy.md
-    - name: Vanliga apphanteringsscenarier
-      href: common-scenarios.md
-    - name: Vad är programetablering?
-      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Snabbstarter
   items:
-    - name: Lägga till en molnbaserad app från galleriet
-      href: add-application-portal.md
     - name: Visa dina företagsprogram
       href: view-applications-portal.md
+    - name: Lägga till en molnbaserad app från galleriet
+      href: add-application-portal.md
 - name: Självstudier
   items:
     - name: 'Integrerade galleriappar (t.ex. ServiceNow, Salesforce, Dropbox)'
@@ -32,6 +26,8 @@
   items:
     - name: Metodtips för apphantering
       href: application-management-fundamentals.md
+    - name: Vanliga scenarier för apphantering
+      href: common-scenarios.md
     - name: Molnappar och enkel inloggning
       items:
         - name: Planera integration av en molnapp
@@ -80,6 +76,8 @@
       items:
         - name: Programproxy
           href: application-proxy.md
+        - name: Vad är programproxy för lokala appar?
+          href: what-is-application-proxy.md
         - name: Planera en distribution av programproxy
           href: application-proxy-deployment-plan.md
         - name: Anslutningar

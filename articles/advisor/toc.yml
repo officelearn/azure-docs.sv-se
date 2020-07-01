@@ -4,6 +4,14 @@
   items:
     - name: Vad är Azure Advisor?
       href: advisor-overview.md
+- name: Snabbstarter
+  items:
+    - name: Konfigurera aviseringar för nya rekommendationer
+      items:
+        - name: Azure Portal
+          href: advisor-alerts-portal.md
+        - name: ARM-mall
+          href: advisor-alerts-arm.md
 - name: Självstudier
   items:
     - name: Kom igång med Advisor
@@ -25,7 +33,7 @@
     - name: Behörigheter och blockerade åtgärder
       href: permissions.md
     - name: Konfigurera aviseringar för rekommendationer
-      href: advisor-alerts.md
+      href: advisor-alerts-portal.md
     - name: Massåtgärd för rekommendationer
       href: advisor-quick-fix.md
     - name: Advisor-data i Azure Resource Graph

@@ -135,6 +135,8 @@
           href: batch-virtual-network.md
         - name: Skapa en pool med offentliga IP-adresser
           href: create-pool-public-ip.md
+        - name: Skapa en pool utan offentliga IP-adresser
+          href: batch-pool-no-public-ip-address.md
         - name: Montera ett virtuellt filsystem
           href: virtual-file-mount.md
         - name: Montera en Azure-filresurs

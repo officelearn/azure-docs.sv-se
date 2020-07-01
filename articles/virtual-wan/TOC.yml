@@ -36,6 +36,30 @@
           href: virtual-wan-locations-partners.md
         - name: Automatiseringsriktlinjer för partner
           href: virtual-wan-configure-automation-providers.md
+    - name: Prissättningsbegrepp
+      href: pricing-concepts.md
+    - name: Routning
+      items:
+        - name: Om routning av virtuell hubb
+          href: about-virtual-hub-routing.md
+        - name: Scenarier
+          items:
+            - name: Alla-till-alla
+              href: scenario-any-to-any.md
+            - name: Isolera virtuella nätverk
+              href: scenario-isolate-vnets.md
+            - name: Isolera virtuella nätverk – anpassade
+              href: scenario-isolate-vnets-custom.md
+            - name: Virtuella nätverk för delade tjänster
+              href: scenario-shared-services-vnet.md
+            - name: Dirigera via NVA
+              href: scenario-route-through-nva.md
+            - name: Dirigera genom NVA – anpassad (förhandsversion)
+              href: scenario-route-through-nvas-custom.md
+            - name: Azure Firewall – Interhub (förhandsversion)
+              href: scenario-route-between-hubs-firewall.md
+            - name: Azure Firewall – anpassad
+              href: scenario-route-between-vnets-firewall.md
     - name: Plats-till-plats
       items:
         - name: Om IPSec-principer
@@ -44,8 +68,6 @@
           href: path-selection-multiple-links.md
 - name: Anvisningar
   items:
-    - name: Konfigurera global VNet-peering
-      href: global-peering-vnet.md
     - name: Uppgradera en Virtual WAN-SKU
       href: upgrade-virtual-wan.md
     - name: ExpressRoute
@@ -90,13 +112,9 @@
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: Routning
       items:
-        - name: Dirigera trafik från en virtuell hubb till en NVA
-          items:
-            - name: Azure Portal
-              href: virtual-wan-route-table-portal.md
-            - name: Azure PowerShell
-              href: virtual-wan-route-table.md
-        - name: Visa effektiva vägar för virtuell hubb
+        - name: Så här konfigurerar du routning för en virtuell hubb
+          href: how-to-virtual-hub-routing.md
+        - name: Så här visar du effektiva vägar för en virtuell hubb
           href: effective-routes-virtual-hub.md
     - name: Säkerhet
       items:

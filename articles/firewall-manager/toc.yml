@@ -12,7 +12,7 @@
       href: quick-secure-virtual-hub.md
 - name: Självstudier
   items:
-    - name: Skydda ditt virtuella WAN – portalen
+    - name: Skydda din virtuella hubb – portalen
       href: secure-cloud-network.md
     - name: Skydda ditt virtuella hubbnätverk – portalen
       href: secure-hybrid-network.md
@@ -26,16 +26,24 @@
       href: deployment-overview.md
     - name: Säkerhetspartnerprovidrar
       href: trusted-security-partners.md
+    - name: IP-grupper
+      href: ip-groups.md
     - name: Regelbearbetningslogik
       href: rule-processing.md
     - name: Alternativ för arkitektur
       href: vhubs-and-vnets.md
+    - name: Inställningar för hotinformation
+      href: threat-intelligence-settings.md
+    - name: FQDN i nätverksregler
+      href: fqdn-filtering-network-rules.md
 - name: Anvisningar
   items:
     - name: Distribuera säkerhetspartnerprovidrar
       href: deploy-trusted-security-partner.md
     - name: Migrera till brandväggsprincip – PowerShell
       href: migrate-to-policy.md
+    - name: DNS-inställningar
+      href: dns-settings.md
 - name: Referens
   items:
     - name: Azure CLI

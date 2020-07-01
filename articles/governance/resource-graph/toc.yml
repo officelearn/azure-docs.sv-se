@@ -8,7 +8,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Kör din första fråga – Azure-portalen
+    - name: Kör din första fråga – portalen
       displayName: 'portal, resource, graph, explorer'
       href: ./first-query-portal.md
     - name: Kör din första fråga – Azure CLI
@@ -26,6 +26,9 @@
     - name: Kör din första fråga – Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Skapa en delad fråga – Azure CLI
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
     - name: Distribuera en delad fråga – ARM-mall
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md

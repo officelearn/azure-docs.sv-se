@@ -117,6 +117,8 @@
       items:
         - name: Stöd för datatypen Long läggs till
           href: time-series-insights-long-data-type.md
+        - name: Ändringar i utplattning och lagring av JSON
+          href: ingestion-rules-update.md
 - name: Referens
   items:
     - name: Time Series Insights

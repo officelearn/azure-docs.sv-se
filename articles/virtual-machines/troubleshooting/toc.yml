@@ -103,6 +103,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: Den virtuella datorn svarar inte när säkerhetsprincipen tillämpas
           href: unresponsive-vm-apply-security-policy.md
+        - name: Windows-stoppfel – status slut på minne
+          href: troubleshoot-windows-stop-error.md
 - name: Det går inte att ansluta till min virtuella dator
   items:
     - name: RDP

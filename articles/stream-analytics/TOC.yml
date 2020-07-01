@@ -30,7 +30,7 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 – Distribuera med CI/CD i Azure Pipelines
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '4 – Köra en UDF för C#'
+    - name: 4 – Köra en UDF för C#
       href: stream-analytics-edge-csharp-udf.md
     - name: 5 – Skapa en anpassad .NET-deserialiserare
       href: custom-deserializer.md
@@ -82,10 +82,12 @@
           href: stream-analytics-javascript-user-defined-functions.md
         - name: JavaScript UDA
           href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: 'UDF för C#'
+        - name: UDF för C#
           href: stream-analytics-edge-csharp-udf-methods.md
         - name: UDF för maskininlärning
           href: machine-learning-udf.md
+        - name: 'Felsöka UDF:er och uppdateringar'
+          href: debug-user-defined-functions.md
     - name: Optimera Stream Analytics-jobbet
       items:
         - name: Förstå och justera direktuppspelningsenheter
@@ -228,6 +230,8 @@
           href: visual-studio-code-local-run.md
         - name: Testa lokalt med realtidsdata
           href: visual-studio-code-local-run-live-input.md
+        - name: Felsöka frågor med hjälp av jobbdiagram
+          href: debug-locally-using-job-diagram-vs-code.md
         - name: Konfigurera CI/CD-pipeliner
           href: setup-cicd-vs-code.md
         - name: Utforska jobb

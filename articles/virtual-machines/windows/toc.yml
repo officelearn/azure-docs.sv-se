@@ -855,6 +855,8 @@
           href: incremental-snapshots.md
         - name: Migrering och konvertering
           items:
+            - name: Konvertera till kryptering på serversidan
+              href: disks-ade-sse-conversion-powershell.md
             - name: Konvertera en disk mellan Standard och Premium
               href: convert-disk-storage.md
             - name: Migrera till Premium Storage med Azure Site Recovery

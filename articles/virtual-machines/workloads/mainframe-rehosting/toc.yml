@@ -6,7 +6,7 @@
           href: overview.md
         - name: Arbetsbelastningar
           href: partner-workloads.md
-    - name: Koncept
+    - name: Begrepp
       items:
         - name: Compute
           href: concepts/mainframe-compute-azure.md
@@ -18,6 +18,8 @@
           href: microfocus/get-started.md
         - name: Installera Enterprise Server
           href: microfocus/set-up-micro-focus-azure.md
+        - name: Distribuera Enterprise Server till AKS
+          href: microfocus/deploy-micro-focus-enterprise-server.md
         - name: Kör CICS BankDemo
           href: microfocus/demo.md
         - name: Enterprise Server i containrar

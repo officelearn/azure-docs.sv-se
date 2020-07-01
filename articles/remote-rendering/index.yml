@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
-  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+  ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/16/2020
-  ms.locfileid: "84808936"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565426"
 landingContent:
 - title: Om Azure Remote Rendering
   linkLists:
@@ -60,11 +60,19 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Unity: Konfigurera ett projekt från grunden'
-      url: tutorials/unity/project-setup.md
-    - text: 'Unity: Arbeta med fjärrentiteter'
-      url: tutorials/unity/working-with-remote-entities.md
-    - text: 'Unity: Ändra miljö och material'
-      url: tutorials/unity/changing-environment-and-materials.md
+    - text: Översikt
+      url: tutorials/unity/tutorial-landing.md
+    - text: Visa en modell som renderats på distans
+      url: tutorials/unity/view-remote-models/view-remote-models.md
+    - text: Läsa in anpassade modeller
+      url: tutorials/unity/custom-models/custom-models.md
+    - text: Manipulera modeller
+      url: tutorials/unity/manipulate-models/manipulate-models.md
+    - text: Finjustera material, belysning och effekter
+      url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+    - text: Skydda Azure Remote Rendering och modellagring
+      url: tutorials/unity/security/security.md
+    - text: Skapa ett kommersiellt Azure Remote Rendering-program
+      url: tutorials/unity/commercial-ready/commercial-ready.md
     - text: 'Ursprunglig C++: Integrera Remote Rendering i en HoloLens Holographic-app'
       url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

@@ -9,12 +9,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: e181f5cb94dc33765b6fceb81cc98832a3b800ce
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: c3c9cd72a85744ac6b609b178ac4e7c2413b4080
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79479781"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85554309"
 landingContent:
 - title: Om Azure CDN
   linkLists:
@@ -68,3 +68,13 @@ landingContent:
       url: cdn-verizon-custom-reports.md
     - text: Analysera förbrukningsstatistik med avancerade HTTP-rapporter i Azure CDN
       url: cdn-advanced-http-reports.md
+- title: Verizon Premium
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Verizon Premium-regelmotor
+      url: cdn-verizon-premium-rules-engine-reference.md
+    - text: Regelmotor – villkorliga uttryck
+      url: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
+    - text: Regelmotor – funktioner
+      url: cdn-verizon-premium-rules-engine-reference-features.md

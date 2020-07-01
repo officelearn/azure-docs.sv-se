@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b68bc2eca25c35395d9a31f3a80e45d1595815bf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448835"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601980"
 ---
 # <a name="what-is-bing-autosuggest"></a>Vad är Automatiska förslag i Bing?
 
@@ -23,15 +23,15 @@ Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du
 
 ## <a name="bing-autosuggest-api-features"></a>API för automatiska förslag för Bing
 
-| Funktion                                                                                                                                                                                 | Beskrivning                                                                                                                                                            |
+| Funktion                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Föreslå söktermer i realtid](concepts/get-suggestions.md) | Förbättra programupplevelsen med API:et för automatiska förslag. Föreslagna sökord visas medan användaren skriver. |
 
 ## <a name="workflow"></a>Arbetsflöde
 
-API för automatiska förslag för Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+API för automatiska förslag för Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnads fritt.
+1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/cognitive-services/) kostnads fritt.
 2. Skicka en begäran till det här API:et varje gång en användare skriver ett nytt tecken i programmets sökruta.
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 

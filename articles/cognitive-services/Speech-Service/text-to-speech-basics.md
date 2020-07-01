@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 2bba1536c9d0990eb771f62d27b852ae1eb3b45c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ddcfeaad70e6552f94f9c87b6e9cf24ed15bfba8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604623"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611482"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>Lär dig grunderna för tal syntes
 
@@ -29,8 +29,8 @@ I den här artikeln får du lära dig vanliga design mönster för att skapa tex
 * Använda neurala-röster
 
 > [!TIP]
-> Om du inte har haft möjlighet att slutföra en av våra snabb starter, rekommenderar vi att du använder däcken och provar tal igenkänningen för dig själv.
-> * [Identifiera tal från en mikrofon](quickstarts/text-to-speech.md)
+> Om du inte har haft möjlighet att slutföra en av våra snabb starter, uppmuntrar vi dig att använda däcken och testa text till tal för dig själv.
+> * [Syntetisera tal till en högtalare](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]

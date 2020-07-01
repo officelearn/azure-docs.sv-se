@@ -10,16 +10,16 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943917"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603357"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
 
-Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen som intresserar dig. Om du till exempel äger en webbplats med sökfunktion om kampsport kan du ange vilka domäner, underwebbplatser och webbsidor Bing ska söka i. Användarna ser sökresultat som skräddarsytts efter det innehåll som intresserar dem, i stället för att behöva bläddra bland sökresultat som kan vara irrelevant. 
+Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen som intresserar dig. Om du till exempel äger en kamp-webbplats som tillhandahåller en Sök funktion kan du ange domäner, underordnade platser och webb sidor som Bing-sökningar. Användarna ser sökresultat som skräddarsytts efter det innehåll som intresserar dem, i stället för att behöva bläddra bland sökresultat som kan vara irrelevant. 
 
 I den här självstudien beskrivs hur du konfigurerar en anpassad sökinstans och integrerar den i en webbsida.
 
@@ -34,7 +34,7 @@ Här är några av uppgifterna:
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Om du vill hämta en nyckel [skapar du en anpassad sökning i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) i Azure Portal. Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services).
+- Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Om du vill hämta en nyckel [skapar du en anpassad sökning i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) i Azure Portal.
 - Om du inte redan har installerat Visual Studio 2017 eller senare kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Skapa en anpassad sökinstans
@@ -79,7 +79,7 @@ Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du l
 
 ## <a name="add-pinned-entries"></a>Lägga till fästa poster
 
-Lägg till webb sidan och fråge termen till den **fästa** fliken om du vill fästa en speciell webb sida överst i Sök resultaten. Den **fästa** fliken innehåller en lista över webb sidor och frågetermer som anger den webb sida som visas som det främsta resultatet för en speciell fråga. Webb sidan är endast fixerad om användarens frågesträng matchar PIN-kodens frågesträng baserat på PIN-koden match. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
+Lägg till webb sidan och fråge termen till den **fästa** fliken om du vill fästa en speciell webb sida överst i Sök resultaten. Den **fästa** fliken innehåller en lista över webb sidor och frågetermer som anger den webb sida som visas som det främsta resultatet för en speciell fråga. Webb sidan är endast fixerad om användarens frågesträng matchar PIN-kodens frågesträng baserat på PIN-koden match. Endast indexerade webbplatser visas i sökningar. Mer information finns i [definiera din anpassade vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. På sidan **Konfiguration** klickar du på den **fästa** fliken och anger webbsidan och frågetermen för den webbsida som du vill ska returneras som ett översta resultat.  
   
@@ -116,7 +116,7 @@ Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar f�
 
    ![Skärmbild av avancerade konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Välj dina prenumerationsnycklar från listrutorna. Eller så kan du ange prenumerationsnyckeln manuellt. Information om hämtning av nycklar finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Välj dina prenumerationsnycklar från listrutorna. Eller så kan du ange prenumerationsnyckeln manuellt.
   
    ![Skärmbild av ytterligare konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ Det finns två sätt att använda det värdbaserade användargränssnittet.
 - Alternativ 1: Integrera medföljande JavaScript-kodfragment i programmet.
 - Alternativ 2: Använda HTML-slutpunkten som medföljer.
 
-Resten av den här självstudien visar **Alternativ 1: Javascript-kodavsnitt**.  
+Resten av den här självstudien illustrerar **alternativ 1: JavaScript-kodfragment**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Konfigurera din Visual Studio-lösning
 

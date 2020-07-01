@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 453c1f19945c309e4bcc224b55c2b359b6194789
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74227587"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Självstudie: Azure Active Directory integrering med Kintone
 
@@ -109,10 +109,10 @@ Utför följande steg för att konfigurera enkel inloggning med Kintone i Azure 
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
     
-    | |
-    |--|
-    | `https://<companyname>.cybozu.com` |
-    | `https://<companyname>.kintone.com` |
+        ```https
+        https://<companyname>.cybozu.com
+        https://<companyname>.kintone.com
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Kintone client support team](https://www.kintone.com/contact/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -145,7 +145,7 @@ Utför följande steg för att konfigurera enkel inloggning med Kintone i Azure 
 
 1. Under **system administrations \> säkerhet** klickar du på **Logga in**.
 
-    ![Gäst](./media/kintone-tutorial/ic785881.png "Inloggning")
+    ![Inloggning](./media/kintone-tutorial/ic785881.png "Inloggning")
 
 1. Klicka på **Aktivera SAML-autentisering**.
 

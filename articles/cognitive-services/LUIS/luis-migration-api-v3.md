@@ -2,14 +2,14 @@
 title: 'Förutsägelse slut punkt ändringar i v3-API: et'
 description: 'Slut punkten v3-API: er för fråga förutsägelse har ändrats. Använd den här guiden för att lära dig hur du migrerar till API: er för version 3-slutpunkt.'
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: 293cbd583e1493c5f142604457a00a8055c7a802
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338200"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610888"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
 
@@ -86,17 +86,7 @@ Om du vill fråga efter version måste du först [publicera via API](https://wes
 
 ### <a name="query-string-changes"></a>Ändra frågesträngar
 
-V3-API: et har olika parametrar för frågesträng.
-
-|PARAM-namn|Typ|Version|Standard|Syfte|
-|--|--|--|--|--|
-|`log`|boolean|V2 & V3|falskt|Lagra fråga i logg filen. Standardvärdet är false.|
-|`query`|sträng|Endast v3|Ingen standard – det krävs i GET-begäran|**I v2**är uttryck som ska förutsägas i `q` parametern. <br><br>**I v3**skickas funktionerna i- `query` parametern.|
-|`show-all-intents`|boolean|Endast v3|falskt|Returnera alla avsikter med motsvarande Poäng i objektet **förutsägelse. avsikter** . Avsikter returneras som objekt i ett överordnat `intents` objekt. Detta ger program mässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give` . I v2 returnerades dessa i en matris. |
-|`verbose`|boolean|V2 & V3|falskt|**I v2**returnerades alla förväntade avsikter när värdet är true. Om du behöver alla förutsägande syften använder du v3-parametrarna för `show-all-intents` .<br><br>**I v3**innehåller den här parametern endast information om entitetens metadata för entitet förutsägelse.  |
-|`timezoneOffset`|sträng|V2|-|Tids zonen som används för datetimeV2-entiteter.|
-|`datetimeReference`|sträng|V3|-|[Tids zonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) som används för datetimeV2-entiteter. Ersätter `timezoneOffset` från v2.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### <a name="v3-post-body"></a>V3-INLÄGGs text
 
@@ -112,7 +102,7 @@ V3-API: et har olika parametrar för frågesträng.
 }
 ```
 
-|Egenskap|Typ|Version|Standard|Syfte|
+|Egenskap|Typ|Version|Standardvärde|Syfte|
 |--|--|--|--|--|
 |`dynamicLists`|matris|Endast v3|Krävs inte.|Med [dynamiska listor](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) kan du utöka en befintlig utbildad och publicerad List-entitet, redan i Luis-appen.|
 |`externalEntities`|matris|Endast v3|Krävs inte.|[Externa entiteter](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) ger din Luis-app möjlighet att identifiera och märka enheter under körning, som kan användas som funktioner till befintliga entiteter. |

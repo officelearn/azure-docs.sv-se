@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8377f0f5d586212c94bb763598b6e7a9e391073c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c52f909cf3cc77b4f5e40ee9804d0c473e575c5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382726"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601946"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Vad är API:et för videosökning i Bing?
 
@@ -23,7 +23,7 @@ API för videosökning i Bing gör det enkelt att lägga till videosökfunktione
 
 ## <a name="bing-video-search-api-features"></a>Funktioner i API för videosökning i Bing
 
-| Funktion                                                                                                                                                                                 | Beskrivning                                                                                                                                                            |
+| Funktion                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Föreslå söktermer i realtid](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | Förbättra programupplevelsen med [automatiska förslag i Bing](../bing-autosuggest/get-suggested-search-terms.md). Föreslagna sökord visas medan användaren skriver. |
 | [Filtrera och begränsa videoresultat](concepts/get-videos.md#filtering-videos)                      | Filtrera videor som returneras genom att redigera frågeparametrar.                                                                                                       |
@@ -35,7 +35,7 @@ API för videosökning i Bing gör det enkelt att lägga till videosökfunktione
 
 API för videosökning i Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. Du kan använda tjänsten med hjälp av antingen [REST API](csharp.md)eller [SDK](video-search-sdk-quickstart.md).
 
-1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnads fritt.
+1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/cognitive-services/) kostnads fritt.
 2. Skicka en begäran till API:et med en giltig sökfråga.
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 
@@ -43,8 +43,6 @@ API för videosökning i Bing är en RESTful-webbtjänst, vilket innebär att de
 ## <a name="next-steps"></a>Nästa steg
 
 [Interaktiva demon](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/) för API för videosökning i Bing visar hur du kan anpassa en sökfråga och sök efter videor på webben.
-
-När du är redo att anropa API:et skapar du ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnads fritt.
 
 Använd [snabbstarten](csharp.md) för att snabbt komma igång med din första API-begäran.
 

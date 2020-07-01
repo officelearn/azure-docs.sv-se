@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: b0a26b4d3f0f59f8e05c5990bbc64ee55f12f124
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307924"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604700"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Fel söknings fel vid redigering av ett program för anpassade kommandon
 
@@ -26,7 +26,7 @@ Anpassade kommandon skapar också ett program i [Luis](https://www.luis.ai/) nä
 
 [Luis begränsar 500 program per redigering av resurs](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Det gick inte att skapa LUIS-programmet om du använder en redigerings resurs som redan har 500-program. 
 
-Se till att den valda LUIS Authoring-resursen har mindre än 500. Om inte, kan du skapa en ny LUIS som skapar resurs, byter till en annan eller försöker rensa dina LUIS-program.  
+Se till att den valda LUIS Authoring-resursen har färre än 500 program. Om inte, kan du skapa en ny LUIS Authoring-resurs, byta till en annan eller försöka rensa dina LUIS-program.  
 
 ## <a name="errors-when-deleting-an-application"></a>Fel vid borttagning av ett program
 ### <a name="cant-delete-luis-application"></a>Det går inte att ta bort LUIS-programmet
@@ -48,8 +48,8 @@ Du får inte ta bort en parameter när den används. Ta bort alla referenser til
 Du får inte ta bort en webb slut punkt när den används. Ta bort alla **anrops webb slut punkts** åtgärder som använder den här webb slut punkten innan du tar bort en webb slut punkt.
 
 ## <a name="errors-when-training-an-application"></a>Fel vid träning av ett program
-### <a name="build-in-intents"></a>Build i avsikter
-LUIS har skapat Ja/Nej-avsikter. Om du har exempel på meningar med endast "Ja", skulle ingen utbildning underkännas. 
+### <a name="built-in-intents"></a>Inbyggda avsikter
+LUIS har inbyggda Ja/Nej-avsikter. Om du har exempel på meningar med endast "Ja", skulle ingen utbildning underkännas. 
 
 | Följt | Variationer | 
 | ------- | --------- | 

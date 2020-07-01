@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 085bfd51ae6eabfc26201897a124a6272e0221fa
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943879"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603595"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för webbsökning i Bing
 
@@ -30,15 +30,16 @@ Den här exempelappen kan:
 > * Hantera prenumerationsnycklar
 > * Hantera fel
 
-För att använda den här appen krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för att hämta en prenumerationsnyckel.
+För att använda den här appen krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat.
 
 ## <a name="prerequisites"></a>Krav
 
 Här följer några saker som du kan behöva för att köra appen:
 
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+
 * Node.js 8 eller senare
-* En prenumerations nyckel för Bing-sökning-API: et. Om du inte har en sådan [skapar du en Bing-sökning v7-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
-## <a name="get-the-source-code-and-install-dependencies"></a>Hämta källkoden och installera beroenden
 
 Det första steget är att klona lagringsplatsen med exempelappens källkod.
 
@@ -127,7 +128,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` kan anges till `strict`, `moderate` eller `off`, med `moderate` som standardinställningen för webbsökning i Bing. Det här formuläret använder en kryss ruta som har två tillstånd `strict` : `moderate`eller.
+`SafeSearch` kan anges till `strict`, `moderate` eller `off`, med `moderate` som standardinställningen för webbsökning i Bing. Det här formuläret använder en kryss ruta som har två tillstånd: `strict` eller `moderate` .
 
 Om något av kryssrutorna **befordra** är markerade har parametern `answerCount` lagts till i frågan. `answerCount` krävs när du använder parametern `promote`. I det här kodfragmentet anges värdet till `9` för att returnera alla tillgängliga resultattyper.
 > [!NOTE]

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448452"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602762"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Vad är API för nyhetssökning i Bing?
 
@@ -28,7 +28,7 @@ Observera att API:et för nyhetssökning i Bing endast returnerar nya sökresult
 
 API:et för nyhetssökning i Bing hittar och returnerar i första hand relevanta nyhetsartiklar, men har även flera funktioner för intelligent och fokuserad nyhetssökning på webben.
 
-|Funktion  |Beskrivning  |
+|Funktion  |Description  |
 |---------|---------|
 |[Föreslå och använda söktermer](concepts/search-for-news.md#suggest-and-use-search-terms)     | Förbättra sökupplevelsen med [API:et för automatiska förslag i Bing](../bing-autosuggest/get-suggested-search-terms.md). Då visas föreslagna sökord medan du skriver.         |
 |[Få allmänna nyheter](concepts/search-for-news.md#get-general-news)     | Hitta nyheter med API:et för nyhetssökning i Bing genom att skicka sökfrågor till Bing och få tillbaka en lista med relevanta nyhetsartiklar.           |
@@ -40,10 +40,8 @@ API:et för nyhetssökning i Bing hittar och returnerar i första hand relevanta
 
 API:et för nyhetssökning i Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. Du kan använda tjänsten med hjälp av antingen REST API eller SDK.
 
-1. Skapa ett Cognitive Services-API-konto med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api).
-
+1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/cognitive-services/) kostnads fritt.
 2. Skicka en begäran till API:et med en giltig sökfråga.
-
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 
 ## <a name="next-steps"></a>Nästa steg

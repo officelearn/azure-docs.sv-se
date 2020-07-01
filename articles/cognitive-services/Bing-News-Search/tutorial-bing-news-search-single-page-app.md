@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: d50eafd8464a315cb4e619a0c34b6a173d6ca638
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362201"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602796"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: skapa en webbapp med en sida
 
@@ -43,8 +43,10 @@ Självstudiesidan är helt självständigt. Den använder inte några externa ra
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för Bing-sökning-API: et. Om du inte har dem kan du använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [enkel Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för Bing-sökning-API: et. Om du inte har dessa måste du skapa dem:
 
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
 
 ## <a name="app-components"></a>Appkomponenter
 Som andra enkelsidiga webbappar innehåller den här självstudiekursprogrammet tre delar:
@@ -107,7 +109,7 @@ Följande bild visar frågetextrutan och alternativ som definierar en sökning e
 
 HTML-formuläret innehåller element med följande namn:
 
-|Element|Beskrivning|
+|Element|Description|
 |-|-|
 | `where` | En listruta för att välja marknad (plats och språk) som används för sökningen. |
 | `query` | Textfältet för att ange sökvillkor. |
@@ -321,7 +323,7 @@ function renderResults(items) {
 ```
 API:et för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
 
-|Relation|Beskrivning|
+|Relation|Description|
 |-|-|
 |`pivotSuggestions`|Frågor som ersätter ett pivotord i den ursprungliga sökningen med ett annat. Om du till exempel söker efter ”röda blommor” kan ett pivotord vara ”röda”, och ett pivotförslag kan vara ”gula blommor”.|
 |`queryExpansions`|Frågor som begränsar den ursprungliga sökningen genom att lägga till fler termer. Om du exempelvis söker efter ”Microsoft Surface” kan en frågeexpansion vara ”Microsoft Surface Pro”.|

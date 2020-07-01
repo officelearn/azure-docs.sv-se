@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: d91082ae3c0ae5e501675a06b02e2f55f20ce236
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e0eff35405b0fbd5cd8ec41c9e455393f36d14f8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399571"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611481"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -17,8 +17,8 @@ Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst 
 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Innan du kan göra något måste du installera <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Java Script Speech SDK <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Använd följande instruktioner, beroende på plattform:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node. js<span 
+Innan du kan göra något måste du installera <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Java Script Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Använd följande instruktioner, beroende på plattform:
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js<span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Webbläsare<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
@@ -36,7 +36,7 @@ import {
 } from "microsoft-cognitiveservices-speech-sdk";
 ```
 
-Mer information `import`finns i <a href="https://javascript.info/import-export" target="_blank">Exportera och importera <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Mer information finns i `import` <a href="https://javascript.info/import-export" target="_blank">Exportera och importera <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 # <a name="require"></a>[innebära](#tab/require)
 
@@ -45,30 +45,30 @@ const readFileSync = require("fs").readFileSync;
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-Mer information om `require`finns i <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">Vad är det som krävs? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Mer information om `require` finns i <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">Vad kräver <span class="docon docon-navigate-external x-hidden-focus"></span> ? </a>.
 
 
 # <a name="script"></a>[-skriptet](#tab/script)
 
-Ladda ned och extrahera <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript-filen <span class="docon docon-navigate-external x-hidden-focus"></span> för Java Script tal SDK</a> *Microsoft. cognitiveservices. Speech. SDK. bunta. js* och placera den i en mapp som är tillgänglig för HTML-filen.
+Hämta och extrahera <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Java Script Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* -filen och placera den i en mapp som är tillgänglig för HTML-filen.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
 ```
 
 > [!TIP]
-> Om du är mål för `<script>` en webbläsare och använder-taggen. `sdk` prefixet behövs inte. `sdk` Prefixet är ett alias som används för att `require` namnge modulen.
+> Om du är mål för en webbläsare och använder `<script>` taggen, `sdk` behövs inte prefixet. `sdk`Prefixet är ett alias som används för att namnge `require` modulen.
 
 ---
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest)en. Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
 
 > [!NOTE]
 > Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
 
-Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest):
+Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) :
 
 * Med en prenumeration: skicka i en nyckel och tillhör ande region.
 * Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
@@ -85,9 +85,9 @@ function synthesizeSpeech() {
 
 ## <a name="synthesize-speech-to-a-file"></a>Syntetisera tal till en fil
 
-Därefter skapar du ett [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) -objekt som kör text till tal-konverteringar och-utdata till högtalare, filer eller andra utgående strömmar. Det [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) accepterar som param- [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) objektet som skapades i föregående steg och ett [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) objekt som anger hur resultat ska hanteras.
+Därefter skapar du ett [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) -objekt som kör text till tal-konverteringar och-utdata till högtalare, filer eller andra utgående strömmar. Det [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) accepterar som param [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) -objektet som skapades i föregående steg och ett [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) objekt som anger hur resultat ska hanteras.
 
-Starta genom att skapa en `AudioConfig` för att automatiskt skriva utdata till en `.wav` fil med hjälp `fromAudioFileOutput()` av den statiska funktionen.
+Starta genom att skapa en `AudioConfig` för att automatiskt skriva utdata till en `.wav` fil med hjälp av den `fromAudioFileOutput()` statiska funktionen.
 
 ```javascript
 function synthesizeSpeech() {
@@ -96,7 +96,7 @@ function synthesizeSpeech() {
 }
 ```
 
-Sedan instansierar du `SpeechSynthesizer` en överföring `speechConfig` av ditt objekt `audioConfig` och objektet som params. Sedan är det lika enkelt att köra tal syntes och skrivning till en fil som att `speakTextAsync()` köra med en text sträng. Resultatet av återanrop är en bra plats för `synthesizer.close()`att ringa, i själva verket krävs det här anropet för att syntesen ska fungera korrekt.
+Sedan instansierar `SpeechSynthesizer` du en överföring av ditt `speechConfig` objekt och `audioConfig` objektet som params. Sedan är det lika enkelt att köra tal syntes och skrivning till en fil som att köra `speakTextAsync()` med en text sträng. Resultatet av återanrop är en bra plats för att ringa `synthesizer.close()` , i själva verket krävs det här anropet för att syntesen ska fungera korrekt.
 
 ```javascript
 function synthesizeSpeech() {
@@ -111,12 +111,11 @@ function synthesizeSpeech() {
                 console.log(JSON.stringify(result));
             }
             synthesizer.close();
-        }
-    },
-    error => {
-        console.log(error);
-        synthesizer.close();
-    });
+        },
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
 }
 ```
 
@@ -155,12 +154,12 @@ För många scenarier i tal program utveckling behöver du förmodligen resulter
 * Integrera resultatet med andra API: er eller tjänster.
 * Ändra ljud data, skriv anpassade `.wav` rubriker osv.
 
-Det är enkelt att göra den här ändringen från föregående exempel. Ta först bort `AudioConfig` blocket, eftersom du kommer att hantera utmatnings beteendet manuellt från den här punkten och därefter för ökad kontroll. Pass `undefined` sedan efter `AudioConfig` i `SpeechSynthesizer` konstruktorn. 
+Det är enkelt att göra den här ändringen från föregående exempel. Ta först bort `AudioConfig` blocket, eftersom du kommer att hantera utmatnings beteendet manuellt från den här punkten och därefter för ökad kontroll. Pass sedan `undefined` efter `AudioConfig` i `SpeechSynthesizer` konstruktorn. 
 
 > [!NOTE]
-> Att `undefined` skicka till `AudioConfig`, i stället för att utesluta det som i exemplet ovan, spelar inte upp ljudet som standard på den aktuella aktiva utmatnings enheten.
+> `undefined`Att skicka till `AudioConfig` , i stället för att utesluta det som i exemplet ovan, spelar inte upp ljudet som standard på den aktuella aktiva utmatnings enheten.
 
-Den här gången sparar du resultatet i en [`SpeechSynthesisResult`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?view=azure-node-latest) variabel. `SpeechSynthesisResult.audioData` Egenskapen returnerar en `ArrayBuffer` av utdata. Du kan arbeta med det `ArrayBuffer` manuellt.
+Den här gången sparar du resultatet i en [`SpeechSynthesisResult`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?view=azure-node-latest) variabel. `SpeechSynthesisResult.audioData`Egenskapen returnerar en `ArrayBuffer` av utdata. Du kan arbeta med det `ArrayBuffer` manuellt.
 
 ```javascript
 function synthesizeSpeech() {
@@ -193,11 +192,11 @@ I följande avsnitt visas hur du anpassar attribut för ljud uppspelning, inklus
 * Samplings frekvens
 * Bitdjup
 
-Om du vill ändra ljud formatet använder du `speechSynthesisOutputFormat` egenskapen på `SpeechConfig` objektet. Den här egenskapen förväntar `enum` sig [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest)en typ, som du kan använda för att välja utdataformatet. Se referens dokumenten för en [lista över tillgängliga ljud format](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest) .
+Om du vill ändra ljud formatet använder du `speechSynthesisOutputFormat` egenskapen på `SpeechConfig` objektet. Den här egenskapen förväntar sig en `enum` typ [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest) , som du kan använda för att välja utdataformatet. Se referens dokumenten för en [lista över tillgängliga ljud format](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest) .
 
 Det finns olika alternativ för olika filtyper beroende på dina krav. Observera att RAW-format, t `Raw24Khz16BitMonoPcm` . ex., inte innehåller ljud rubriker enligt definitionen. Använd RAW-format endast när du vet att den underordnade implementeringen kan avkoda en RAW-Bitstream, eller om du planerar att skapa rubriker manuellt baserat på bitdjup, samplings frekvens, antal kanaler osv.
 
-I det här exemplet anger du ett RIFF-format `Riff24Khz16BitMonoPcm` med hög åter givning genom `speechSynthesisOutputFormat` att ange `SpeechConfig` på-objektet. Liknar exemplet i föregående avsnitt och hämta `ArrayBuffer` ljuddata och interagera med den.
+I det här exemplet anger du ett RIFF-format med hög åter givning `Riff24Khz16BitMonoPcm` genom att ange `speechSynthesisOutputFormat` på- `SpeechConfig` objektet. Liknar exemplet i föregående avsnitt och hämta `ArrayBuffer` ljuddata och interagera med den.
 
 ```javascript
 function synthesizeSpeech() {
@@ -230,7 +229,7 @@ Om du kör programmet igen skrivs en `.wav` fil till den angivna sökvägen.
 Med SSML (Speech syntes Markup Language) kan du finjustera bredden, uttal, tal igenkänning, volym och fler text till tal-utdata genom att skicka in dina begär Anden från ett XML-schema. I det här avsnittet visas några praktiska exempel på användnings exempel, men en mer detaljerad guide finns i [artikeln SSML instruktion](../../../speech-synthesis-markup.md).
 
 Om du vill börja använda SSML för anpassning gör du en enkel ändring som byter rösten.
-Börja med att skapa en ny XML-fil för SSML-konfigurationen i rot katalogen för projektet i det `ssml.xml`här exemplet. Rot elementet är alltid `<speak>`och rad brytnings texten i ett `<voice>` element gör att du kan ändra rösten med hjälp `name` av param. Det här exemplet ändrar rösten till en amerikansk engelska (UK) röst. Observera att den här rösten är en **standard** röst, som har olika priser och tillgänglighet än **neurala** röster. Se den [fullständiga listan](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) över **standard** röster som stöds.
+Börja med att skapa en ny XML-fil för SSML-konfigurationen i rot katalogen för projektet i det här exemplet `ssml.xml` . Rot elementet är alltid `<speak>` och rad brytnings texten i ett `<voice>` element gör att du kan ändra rösten med hjälp av `name` param. Det här exemplet ändrar rösten till en amerikansk engelska (UK) röst. Observera att den här rösten är en **standard** röst, som har olika priser och tillgänglighet än **neurala** röster. Se den [fullständiga listan](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) över **standard** röster som stöds.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -240,7 +239,7 @@ Börja med att skapa en ny XML-fil för SSML-konfigurationen i rot katalogen fö
 </speak>
 ```
 
-Sedan måste du ändra begäran om tal syntes för att referera till XML-filen. Begäran är i huvudsak samma, men i stället för att använda `speakTextAsync()` funktionen används `speakSsmlAsync()`. Den här funktionen förväntar sig en XML-sträng, så först skapar du en funktion för att läsa in en XML-fil och returnera den som en sträng.
+Sedan måste du ändra begäran om tal syntes för att referera till XML-filen. Begäran är i huvudsak samma, men i stället för att använda `speakTextAsync()` funktionen används `speakSsmlAsync()` . Den här funktionen förväntar sig en XML-sträng, så först skapar du en funktion för att läsa in en XML-fil och returnera den som en sträng.
 
 ```javascript
 function xmlToString(filePath) {
@@ -249,7 +248,7 @@ function xmlToString(filePath) {
 }
 ```
 
-Mer information `readFileSync`finns i <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">fil systemet<span class="docon docon-navigate-external x-hidden-focus"></span>Node. js</a>. Härifrån är resultat-objektet exakt detsamma som i föregående exempel.
+Mer information finns i `readFileSync` <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">Node.js fil system <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Härifrån är resultat-objektet exakt detsamma som i föregående exempel.
 
 ```javascript
 function synthesizeSpeech() {
@@ -275,7 +274,7 @@ function synthesizeSpeech() {
 }
 ```
 
-Utdata fungerar, men det finns några enkla ytterligare ändringar som du kan göra för att hjälpa dem att bli mer naturliga. Den övergripande tal hastigheten är lite för snabb, så vi lägger till en `<prosody>` tagg och minskar hastigheten till **90%** av standard priset. Dessutom är pausen efter det att kommatecken i meningen är lite för kort och inte naturligt. Du kan åtgärda det här problemet genom `<break>` att lägga till en tagg för att skjuta upp talet och ange tids parametern till **200ms**. Kör sammanfattningen igen för att se hur dessa anpassningar påverkar utdata.
+Utdata fungerar, men det finns några enkla ytterligare ändringar som du kan göra för att hjälpa dem att bli mer naturliga. Den övergripande tal hastigheten är lite för snabb, så vi lägger till en `<prosody>` tagg och minskar hastigheten till **90%** av standard priset. Dessutom är pausen efter det att kommatecken i meningen är lite för kort och inte naturligt. Du kan åtgärda det här problemet genom att lägga till en `<break>` tagg för att skjuta upp talet och ange tids parametern till **200ms**. Kör sammanfattningen igen för att se hur dessa anpassningar påverkar utdata.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -291,7 +290,7 @@ Utdata fungerar, men det finns några enkla ytterligare ändringar som du kan g�
 
 Neurala-röster är tal syntes-algoritmer som drivs av djup neurala nätverk. När du använder en neurala-röst är syntetiskt tal nästan lätt att skilja från de mänskliga inspelningarna. Med den humana naturliga prosody och tydligare utsättande av ord, minskar neurala-röster avsevärt lyssnings utmattning när användarna interagerar med AI-system.
 
-Om du vill växla till en neurala röst ändrar `name` du till ett av [röst alternativen för neurala](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Lägg sedan till ett XML-namnområde `mstts`för och Radbryt texten i `<mstts:express-as>` taggen. Använd `style` param för att anpassa tal formatet. Det här exemplet `cheerful`använder, men försök att ställa `customerservice` in `chat` det på eller för att se skillnaden i tal formatet.
+Om du vill växla till en neurala röst ändrar `name` du till ett av [röst alternativen för neurala](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Lägg sedan till ett XML-namnområde för `mstts` och Radbryt texten i `<mstts:express-as>` taggen. Använd `style` param för att anpassa tal formatet. Det här exemplet använder `cheerful` , men försök att ställa in det på `customerservice` eller `chat` för att se skillnaden i tal formatet.
 
 > [!IMPORTANT]
 > Neurala-röster stöds **bara** för tal resurser som skapats i regionerna *östra USA*, Asien, sydöstra *och Västeuropa.* *South East Asia*

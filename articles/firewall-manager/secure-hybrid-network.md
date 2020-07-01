@@ -1,26 +1,24 @@
 ---
-title: 'Självstudie: skydda ditt virtuella hubb nätverk med Azure Firewall Manager Preview'
+title: 'Självstudie: skydda ditt virtuella hubb nätverk med hjälp av Azure Firewall Manager'
 description: I den här självstudien får du lära dig hur du skyddar ditt virtuella nätverk med Azure Firewall Manager med hjälp av Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77459961"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563649"
 ---
-# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Självstudie: skydda ditt virtuella hubb nätverk med Azure Firewall Manager Preview 
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Självstudie: skydda ditt virtuella hubb nätverk med hjälp av Azure Firewall Manager
 
 När du ansluter ditt lokala nätverk till ett virtuellt Azure-nätverk för att skapa ett hybridnätverk är förmågan att styra åtkomst till dina Azure-nätverksresurser en viktig del av den övergripande säkerhetsplanen.
 
-Med hjälp av Azure Firewall Manager Preview kan du skapa ett virtuellt hubb nätverk för att skydda din hybrid nätverks trafik som är avsedd för privata IP-adresser, Azure-PaaS och Internet. Du kan använda Azure Firewall Manager för att kontrol lera nätverks åtkomst i ett hybrid nätverk med principer som definierar tillåten och nekad nätverks trafik.
+Med hjälp av Azure Firewall Manager kan du skapa ett nav virtuellt nätverk för att skydda din hybrid nätverks trafik som är avsedd för privata IP-adresser, Azure-PaaS och Internet. Du kan använda Azure Firewall Manager för att kontrol lera nätverks åtkomst i ett hybrid nätverk med principer som definierar tillåten och nekad nätverks trafik.
 
 Firewall Manager stöder också en säker arkitektur för virtuella hubbar. En jämförelse av arkitektur typerna för den säkra virtuella hubben och hubben för virtuella nätverk finns i [Vad är arkitektur alternativ för Azure Firewall Manager?](vhubs-and-vnets.md)
 
@@ -67,7 +65,7 @@ Se avsnittet [skapa vägar](#create-the-routes) i den här självstudien för at
 >[!NOTE]
 >Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om en UDR pekar på Azure Firewall som standardgateway. För att undernät till undernät-trafik ska kunna skickas till brandväggen i det här scenariot måste en UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-firewall-policy"></a>Skapa en brand Väggs princip
 
@@ -354,7 +352,7 @@ Skapa en virtuell dator i det virtuella eker-nätverket som kör IIS, utan offen
 3. Ange följande värden för den virtuella datorn:
     - **Resurs grupp** – Välj **VB-hybrid-test**.
     - **Namn på virtuell dator**: *VM-eker-01*.
-    - **Region** - *(USA) USA, östra)*.
+    - **Region**  -  *(USA) USA, östra)*.
     - **Användar namn**: *azureuser*.
     - **Lösen ord**: Ange lösen ordet
 
@@ -392,8 +390,8 @@ Det här är en virtuell dator som du använder för att ansluta via fjärr skri
 2. Under **populär**väljer du **Windows Server 2016 Data Center**.
 3. Ange följande värden för den virtuella datorn:
     - **Resurs grupp** – Välj befintlig och välj sedan **VB-hybrid-test**.
-    - **Virtuellt dator namn** - *VM-OnPrem*.
-    - **Region** - *(USA) USA, östra)*.
+    - **Namn på**  -  virtuell dator *VM-OnPrem*.
+    - **Region**  -  *(USA) USA, östra)*.
     - **Användar namn**: *azureuser*.
     - **Lösen ord**: Ange lösen ordet.
 
@@ -413,9 +411,9 @@ Det här är en virtuell dator som du använder för att ansluta via fjärr skri
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Öppna en webbläsare på **VM-Onprem** och gå till http://\<privat IP-adress för VM-spoke-01\>.
+3. Öppna en webbläsare på **VM-OnPrem**och gå till http:// \<VM-spoke-01 private IP\> .
 
-   Du bör se webb sidan **VM-eker-01** : ![VM-eker-01-webbsida](media/secure-hybrid-network/vm-spoke-01-web.png)
+   Du bör se webb sidan **VM-eker-01** : ![ VM-eker-01-webbsida](media/secure-hybrid-network/vm-spoke-01-web.png)
 
 4. Från den virtuella datorn **OnPrem** den virtuella datorn öppnar du ett fjärr skrivbord till **VM-ekrar-01** på den privata IP-adressen.
 
@@ -444,4 +442,4 @@ Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de i
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: skydda ditt virtuella WAN med Azure Firewall Manager Preview](secure-cloud-network.md)
+> [Självstudie: skydda ditt virtuella WAN med Azure Firewall Manager](secure-cloud-network.md)

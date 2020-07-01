@@ -1,14 +1,14 @@
 ---
 title: 'Mönster: påverkan av en princip definition'
 description: Detta Azure Policy mönster ger exempel på hur du kan använda de olika effekterna av en princip definition.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: 1a9aec50bd328b76271d54f7830c75e0848d3cde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80372640"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565735"
 ---
 # <a name="azure-policy-pattern-effects"></a>Azure Policy mönster: effekter
 

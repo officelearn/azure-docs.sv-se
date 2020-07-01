@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3d1efc0a116a38686fa929a2058fa88e4c2cfa82
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 0023308c74d58b1c94bf13fcb47ffb8aa7ade1d6
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119485"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557621"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrera data till Azure Cosmos DB Table-API-konto
 
@@ -45,26 +45,26 @@ Utför följande åtgärder om du vill migrera tabelldata:
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
    ```
 
-Följande alternativ kan användas med kommandot:
+Alternativen som stöds för det här kommandot är:
 
-    /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
-    /OverwriteErrorLog: Optional. Overwrite error log file
-    /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
-    /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
-    /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
-    /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
+* **/Errorlog:** Valfritt. Namnet på CSV-filen för att dirigera om data överförings problem
+* **/OverwriteErrorLog:** Valfritt. Skriv över fel logg filen
+* **/ProgressUpdateInterval:** Valfritt, standard är 00:00:01. Tidsintervall för uppdatering av data överförings förlopp på skärmen
+* **/ErrorDetails:** Valfritt, standard är ingen. Anger att detaljerad fel information ska visas för följande fel: ingen, kritiskt, alla
+* **/EnableCosmosTableLog:** Valfritt. Dirigera loggen till ett Cosmos-tabell konto. Om det här alternativet är inställt, är detta standardvärdet för anslutnings strängen för mål kontot om inte/CosmosTableLogConnectionString också Detta är användbart om flera instanser av DT körs samtidigt.
+* **/CosmosTableLogConnectionString:** Valfritt. ConnectionString för att dirigera loggen till ett fjärran sluten Cosmos-tabell konto.
 
 ### <a name="command-line-source-settings"></a>Kommandoradsinställningar för källan
 
 Använd följande alternativ för källan när du definierar Azure Table Storage eller Table API (förhandsversion) som källan för migreringen.
 
-    /s:AzureTable: Reads data from Azure Table storage
-    /s.ConnectionString: Connection string for the table endpoint. This can be retrieved from the Azure portal
-    /s.LocationMode: Optional, default is PrimaryOnly. Specifies which location mode to use when connecting to Azure Table storage: PrimaryOnly, PrimaryThenSecondary, SecondaryOnly, SecondaryThenPrimary
-    /s.Table: Name of the Azure Table
-    /s.InternalFields: Set to All for table migration as RowKey and PartitionKey are required for import.
-    /s.Filter: Optional. Filter string to apply
-    /s.Projection: Optional. List of columns to select
+* **/s: AzureTable:** Läser data från Azure Table Storage
+* **/s.ConnectionString:** Anslutnings sträng för tabell slut punkten. Detta kan hämtas från Azure Portal
+* **/s.LocationMode:** Valfritt, standard är PrimaryOnly. Anger vilket plats läge som ska användas vid anslutning till Azure Table Storage: PrimaryOnly, PrimaryThenSecondary, SecondaryOnly, SecondaryThenPrimary
+* **/s.table:** Namn på Azure-tabellen
+* **/s.InternalFields:** Ange som RowKey och PartitionKey krävs för att importera.
+* **/s.filter:** Valfritt. Filter sträng som ska användas
+* **/s.Projection:** Valfritt. Lista med kolumner som ska väljas
 
 Om du vill hämta käll anslutnings strängen när du importerar från Azure Table Storage öppnar du Azure Portal och klickar på **lagrings konton**  >  **konto**  >  **åtkomst nycklar**och använder sedan kopierings knappen för att kopiera **anslutnings strängen**.
 
@@ -82,28 +82,29 @@ Om du vill hämta käll anslutnings strängen när du importerar från ett Azure
 
 Använd följande alternativ för målet när du definierar Azure Cosmos DB Table-API:et som målet för migreringen.
 
-    /t:TableAPIBulk: Uploads data into Azure CosmosDB Table in batches
-    /t.ConnectionString: Connection string for the table endpoint
-    /t.TableName: Specifies the name of the table to write to
-    /t.Overwrite: Optional, default is false. Specifies if existing values should be overwritten
-    /t.MaxInputBufferSize: Optional, default is 1GB. Approximate estimate of input bytes to buffer before flushing data to sink
-    /t.Throughput: Optional, service defaults if not specified. Specifies throughput to configure for table
-    /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
+* **/t: TableAPIBulk:** Överför data till Azure dataCosmosDBs-tabellen i batchar
+* **/t.ConnectionString:** Anslutnings sträng för tabell slut punkten
+* **/t.TableName:** Anger namnet på den tabell som ska skrivas till
+* **/t.overwrite:** Valfritt, standardvärdet är false. Anger om befintliga värden ska skrivas över
+* **/t.MaxInputBufferSize:** Valfritt är standard 1 GB. Ungefärlig uppskattning av inkommande byte till buffert innan data töms till Sink
+* **/t.Throughput:** Valfritt, service standardinställningar om inget anges. Anger data flöde som ska konfigureras för tabellen
+* **/t.MaxBatchSize:** Valfritt, standard är 2 MB. Ange batchstorleken i byte
 
 <a id="azure-table-storage"></a>
 ### <a name="sample-command-source-is-azure-table-storage"></a>Exempelkommando: Källan är Azure Table Storage
 
 Här är ett kommandoradsexempel som visar hur du importerar från Azure Table Storage till Table API:
 
-```
+```bash
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
+
 <a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Exempelkommando: Källan är Azure Cosmos DB Table API (förhandsversion)
 
 Här är ett kommandoradsexempel som visar hur du importerar från Table API (förhandsversion) till Table API GA:
 
-```
+```bash
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
@@ -115,7 +116,7 @@ Använd följande exempel som referens när du importerar till Azure Cosmos DB. 
 
 Exempel på importkommando:
 
-```
+```bash
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
@@ -123,7 +124,6 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/m
 
 > [!WARNING]
 > Om du genast vill dra nytta av fördelarna med allmänt tillgängliga tabeller i GA-versionen migrerar du dina befintliga tabeller i förhandsversionen genom att följa anvisningarna i det här avsnittet. Annars kommer vi att genomföra en automatisk migrering av befintliga kunder med förhandsversionen under de kommande veckorna. Observera att tabeller i förhandsversionen har vissa begränsningar som nyligen skapade tabeller inte har.
-> 
 
 Nu är Table API allmänt tillgängligt (GA). Det finns skillnader mellan förhandsversionen och GA-versionen för tabeller både i koden som körs i molnet och i koden som körs på klienten. Därför avråder vi dig från att försöka kombinera en SDK-klient som använder förhandsversionen med ett Table API-konto i GA-versionen och tvärtom. Kunder med förhandsversionen av Table API som vill fortsätta att använda sina befintliga tabeller men i en produktionsmiljö, måste migrera från förhandsversionen till GA-miljön eller vänta på den automatiska migreringen. Om du väljer att skjuta upp migreringen till den automatiska migreringen kommer du att informeras om begränsningarna i migrerade tabeller. Efter migreringen kommer du att kunna skapa nya tabeller i ditt befintliga konto utan begränsningar (endast migrerade tabeller har begränsningar).
 

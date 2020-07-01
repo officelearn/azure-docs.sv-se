@@ -1,19 +1,18 @@
 ---
-title: Nya funktions meddelanden
-titleSuffix: Azure Cognitive Search
+title: Vad är nytt i Azure Kognitiv sökning
 description: Meddelanden om nya och förbättrade funktioner, inklusive tjänst byte för Azure Search till Azure Kognitiv sökning.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 086e3cf71012f168851df1c85b19689294fe6302
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/30/2020
+ms.openlocfilehash: bca6cbe2a605131083536b3e709943fe2353f38f
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515723"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565069"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -23,23 +22,33 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 ### <a name="june-2020"></a>Juni 2020
 
-Azure Machine Learning skicklighet är en ny färdighets typ som integrerar en inferencing-slutpunkt från Azure Machine Learning. Portal upplevelsen stöder identifiering och integrering av din Azure Machine Learning-slutpunkt i en Kognitiv sökning färdigheter. Identifieringen kräver att din Kognitiv sökning och Azure ML-tjänsterna distribueras i samma prenumeration. Kom igång med [den här självstudien](cognitive-search-tutorial-aml-custom-skill.md).
++ [Kunskaps lager](knowledge-store-concept-intro.md) är nu allmänt tillgängligt.
+
++ [Search Service REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) är den nya stabila versionen av REST-API: erna. Förutom kunskaps lager innehåller den här allmänt tillgängliga versionen förbättringar för att söka efter relevans och poäng.
+
++ Den nya algoritmen för rankning av rankning är nu [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) för alla nya tjänster som du skapar. För befintliga tjänster kan du välja att ange `similarity` egenskapen för index fält. Den här egenskapen är allmänt tillgänglig.
+
++ Det går uttryckligen att ange en ny indexerare `executionEnvironment` `private` . Den här funktionen stöder indexerings åtkomst till externa data över privata slut punkter och är allmänt tillgänglig.
+
++ [Azure Machine Learning (AML)](cognitive-search-aml-skill.md) är en ny färdighets typ som integrerar en inferencing-slutpunkt från Azure Machine Learning. Portal upplevelsen stöder identifiering och integrering av din Azure Machine Learning-slutpunkt i en Kognitiv sökning färdigheter. Identifieringen kräver att din Kognitiv sökning och Azure ML-tjänsterna distribueras i samma prenumeration. Den här kunskapen är allmänt tillgänglig. Kom igång med [den här självstudien](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft-version)
 
 + Funktionen [Felsök sessioner](cognitive-search-debug-session.md) är nu i för hands version. Fel söknings sessioner tillhandahåller ett Portal gränssnitt för att undersöka och lösa problem med en färdigheter. Korrigeringar som skapats i felsökningssessionen kan sparas till produktionens färdighetsuppsättningar. Kom igång med [den här självstudien](cognitive-search-tutorial-debug-sessions.md).
 
-+ Säkerhets förbättringar omfattar möjligheten att [Konfigurera en privat Sök slut punkt (för hands version)](service-create-private-endpoint.md) som inte är tillgänglig på det offentliga Internet. Du kan också [Konfigurera IP-regler för Inbound brand Väggs stöd (för hands version)](service-configure-firewall.md).
++ Skärma upp en Sök tjänst slut punkt från det offentliga Internet genom att [Konfigurera IP-regler för Inbound brand Väggs stöd](service-configure-firewall.md) eller genom [att använda Azures privata länk för en privat Sök slut punkt](service-create-private-endpoint.md). Båda funktionerna är allmänt tillgängliga.
 
 + Använd en [Systemhanterad identitet (för hands version)](search-howto-managed-identities-data-sources.md) för att konfigurera en anslutning till en Azure-datakälla för indexering. Gäller för [indexerare](search-indexer-overview.md) som inhämtar innehåll från Azure-datakällor som Azure SQL Database, Azure Cosmos DB och Azure Storage.
 
-+ Ändra grunden för hur Sök Resultat beräknas, från per-Shard till alla-Shards, med parametrarna [scoringStatistics = global](index-similarity-and-scoring.md#scoring-statistics) och SessionID.
++ Ändra grunden för hur Sök Resultat beräknas, från per-Shard till alla-Shards, med [SessionID](index-similarity-and-scoring.md) och [scoringStatistics = globala](index-similarity-and-scoring.md#scoring-statistics)frågeparametrar. Dessa parametrar är allmänt tillgängliga.
+
++ Lägg till en [featuresMode (förhands granskning)](index-similarity-and-scoring.md#featuresMode-param) om du vill visa mer information: per fält likhets poäng, per fält term frekvens och per fält antal unika tokens matchade. Du kan använda dessa data punkter i anpassade bedömnings algoritmer. Ett exempel som visar den här funktionen finns i [Lägg till Machine Learning (LearnToRank) för att söka efter relevans](https://github.com/Azure-Samples/search-ranking-tutorial).
 
 ### <a name="march-2020"></a>Mars 2020
 
 + [Intern BLOB-mjuk borttagning (förhands granskning)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) innebär att Azure Blob Storage indexeraren i Azure kognitiv sökning kommer att identifiera blobbar som är i ett mjukt borttaget läge och ta bort motsvarande sökdokument under indexeringen.
 
-+ Ny stabil [hanterings REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) är nu tillgängligt. 
++ Ny stabil [hanterings REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) är nu allmänt tillgänglig. 
 
 ### <a name="february-2020"></a>Februari 2020
 
@@ -49,13 +58,11 @@ Azure Machine Learning skicklighet är en ny färdighets typ som integrerar en i
 
 ### <a name="january-2020"></a>Januari 2020
 
-+ [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) är nu allmänt tillgängliga. Om du använder REST kan du komma åt funktionen med hjälp av `api-version=2019-05-06` . För hanterad kod är rätt paket fortfarande [.NET SDK version 8,0 – förhands granskning](search-dotnet-sdk-migration-version-9.md) trots att funktionen inte är i förhands granskning. 
++ [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) är nu allmänt tillgängliga. Om du använder REST kan du komma åt funktionen med `api-version=2019-05-06` eller senare. För hanterad kod är rätt paket fortfarande [.NET SDK version 8,0 – förhands granskning](search-dotnet-sdk-migration-version-9.md) trots att funktionen inte är i förhands granskning. 
 
 + Privat åtkomst till en Sök tjänst är tillgänglig via två mekanismer, både för närvarande i för hands version:
 
   + Du kan begränsa åtkomsten till vissa IP-adresser genom att använda hanterings REST API `api-version=2019-10-01-Preview` för att skapa tjänsten. För hands versions-API: et har nya egenskaper för **IpRule** och **NETWORKRULESET** i [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Den här förhands gransknings funktionen är tillgänglig i valda regioner. Mer information finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
-
-  + För närvarande tillgängligt via en begränsad till gång kan du etablera en Azure Search-tjänst som stöder Azures privata slut punkter för anslutningar från klienter i samma virtuella nätverk. Mer information finns i [skapa en privat slut punkt för en säker anslutning](service-create-private-endpoint.md).
 
 ### <a name="december-2019"></a>December 2019
 

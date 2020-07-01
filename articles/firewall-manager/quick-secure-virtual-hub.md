@@ -1,39 +1,39 @@
 ---
-title: 'Snabb start: säker virtuell hubb med Azure Firewall Manager Preview – Resource Manager-mall'
-description: Lär dig hur du skyddar din virtuella hubb med Azure Firewall Manager Preview.
+title: 'Snabb start: säker virtuell hubb med Azure Firewall Manager – Resource Manager-mall'
+description: Lär dig hur du skyddar din virtuella hubb med Azure Firewall Manager.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167204"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563693"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Snabb start: skydda din virtuella hubb med Azure Firewall Manager – Resource Manager-mall
 
-I den här snabb starten använder du en Resource Manager-mall för att skydda den virtuella hubben med hjälp av Azure Firewall Manager Preview. Den distribuerade brand väggen har en program regel som tillåter anslutningar till `www.microsoft.com` . Två virtuella Windows Server 2019-datorer distribueras för att testa brand väggen. En hopp Server används för att ansluta till arbets belastnings servern. Från arbets belastnings servern kan du bara ansluta till `www.microsoft.com` .
+I den här snabb starten använder du en Resource Manager-mall för att skydda den virtuella hubben med hjälp av Azure Firewall Manager. Den distribuerade brand väggen har en program regel som tillåter anslutningar till `www.microsoft.com` . Två virtuella Windows Server 2019-datorer distribueras för att testa brand väggen. En hopp Server används för att ansluta till arbets belastnings servern. Från arbets belastnings servern kan du bara ansluta till `www.microsoft.com` .
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Mer information om för hands versionen av Azure Firewall Manager finns i [Vad är för hands versionen av Azure Firewall Manager?](overview.md).
+Mer information om Azure Firewall Manager finns i [Vad är Azure Firewall Manager?](overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-secured-virtual-hub"></a>Skapa en säker virtuell hubb
 
-Den här mallen skapar en säker virtuell hubb med Azure Firewall Manager Preview, tillsammans med nödvändiga resurser för att stödja scenariot.
+Den här mallen skapar en säker virtuell hubb med Azure Firewall Manager, tillsammans med nödvändiga resurser för att stödja scenariot.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
+Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
@@ -101,4 +101,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs om betrodda säkerhets partner](trusted-security-partners.md)
+> [Lär dig mer om providers för säkerhets partner](trusted-security-partners.md)

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 7898fcf9b149f50f8478576d18cd3c3b984eb937
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: ad87c7e3517aad8a611c711773c5e1cc99b24f88
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209104"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562883"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -46,8 +46,8 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
   Den nya SDK: n stöder alla funktioner i v 2.0-REST API för formulär igenkänning. Du kan till exempel träna en modell med eller utan etiketter och extrahera text, nyckel värde par och tabeller från dina formulär, extrahera data från kvitton med den förbyggda tjänsten för inaktuella inleveranser och extrahera text och tabeller med layout tjänsten från dina dokument. Du kan dela din feedback på SDK: erna via [feedback-formuläret för SDK](https://aka.ms/FR_SDK_v1_feedback).
  
 * **Kopiera anpassad modell** Nu kan du kopiera modeller mellan regioner och prenumerationer med hjälp av funktionen ny kopiera anpassad modell. Innan du anropar API: t för kopiera anpassad modell måste du först få behörighet att kopiera till mål resursen genom att anropa åtgärden Kopiera auktorisering mot mål resursens slut punkt.
-   * [Skapa en kopierings auktorisering](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/CopyCustomFormModelAuthorization) REST API
-   * [Kopiera en anpassad modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/CopyCustomFormModel) REST API 
+   * [Skapa en kopierings auktorisering](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) REST API
+   * [Kopiera en anpassad modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) REST API 
 
 ### <a name="security-improvements"></a>Förbättringar av säkerhet
 
@@ -137,4 +137,4 @@ JSON-Svaren för alla API-anrop har nya format. Vissa nycklar och värden har la
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .
+Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .

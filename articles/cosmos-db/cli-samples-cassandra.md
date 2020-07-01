@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 04bbfe3ee38c5ce37c36ab2f85467ce68e7335be
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 093d8cdd97f28a419788070e674d80aad595f46a
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262981"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556322"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Azure CLI-exempel för Azure Cosmos DB API för Cassandra
 
 Följande tabell innehåller länkar till exempel på Azure CLI-skript för Azure Cosmos DB API för Cassandra. Referens sidor för alla Azure Cosmos DB CLI-kommandon är tillgängliga i [Azure CLI-referensen](/cli/azure/cosmosdb). Alla Azure Cosmos DB CLI-skript exempel finns i [Azure Cosmos DB CLI GitHub-lagringsplatsen](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Uppgift | Description |
 |---|---|
 | [Skapa ett Azure Cosmos-konto, ett tecken utrymme och en tabell](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure Cosmos DB konto, ett blank steg och en tabell för API för Cassandra. |
 | [Ändra data flöde](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Uppdatera RU/s på ett tecken utrymme och en tabell.|

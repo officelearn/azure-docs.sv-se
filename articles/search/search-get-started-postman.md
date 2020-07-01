@@ -9,19 +9,19 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: c502886aac9d13f7a470a9b83f1fc12334913beb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c68c813c9c9ecdcb7c7b75102940aa1f1a57b4f0
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121644"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562199"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Postman med hjälp av REST API: er
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C #](search-create-index-dotnet.md)
+> * [C#](search-create-index-dotnet.md)
 > * [Python](search-get-started-python.md)
-> * [Portalen](search-get-started-portal.md)
+> * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
@@ -29,7 +29,7 @@ Ett av de enklaste sätten att utforska [Azure KOGNITIV sökning REST-API: er](h
 
 Den här artikeln förklarar hur du formulerar förfrågningar interaktivt. Du kan också [Hämta och importera en Postman-samling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) för att använda fördefinierade begär Anden.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -45,7 +45,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
@@ -55,11 +55,11 @@ Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din 
 
 I det här avsnittet använder du önskat webb verktyg för att konfigurera anslutningar till Azure Kognitiv sökning. Varje verktyg behåller information om begär ande huvud för sessionen, vilket innebär att du bara behöver ange API-nyckel och innehålls typ en gång.
 
-För något av verktygen måste du välja ett kommando (GET, POST, placering och så vidare), ange en URL-slutpunkt och för vissa uppgifter tillhandahåller du JSON i bröd texten i begäran. Ersätt Sök tjänst namnet (din-SEARCH-SERVICE-NAME) med ett giltigt värde. Lägg `$select=name` till för att returnera bara namnet på varje index. 
+För något av verktygen måste du välja ett kommando (GET, POST, placering och så vidare), ange en URL-slutpunkt och för vissa uppgifter tillhandahåller du JSON i bröd texten i begäran. Ersätt Sök tjänst namnet (din-SEARCH-SERVICE-NAME) med ett giltigt värde. Lägg till `$select=name` för att returnera bara namnet på varje index. 
 
-    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name
+    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name
 
-Lägg märke till HTTPS-prefixet, namnet på tjänsten, namnet på ett objekt (i det här fallet samlingen indexs) och [API-versionen](search-api-versions.md). API-versionen är en obligatorisk, gemen sträng som anges som `?api-version=2019-05-06` för den aktuella versionen. API-versionerna uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
+Lägg märke till HTTPS-prefixet, namnet på tjänsten, namnet på ett objekt (i det här fallet samlingen indexs) och [API-versionen](search-api-versions.md). API-versionen är en obligatorisk, gemen sträng som anges som `?api-version=2020-06-30` för den aktuella versionen. API-versionerna uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
 
 Rubrik sammansättning för begäran innehåller två element, innehålls typ, plus den API-nyckel som används för att autentisera till Azure Kognitiv sökning. Ersätt administrations-API-nyckeln (din-AZURE-SEARCH-ADMIN-API-nyckel) med ett giltigt värde. 
 
@@ -74,13 +74,13 @@ I Postman formulerar du en begäran som ser ut som på följande skärm bild. V�
 
 I Azure Kognitiv sökning skapar du vanligt vis indexet innan du läser in det med data. [Create index-REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för den här aktiviteten. 
 
-URL: en utökas till att `hotels` inkludera index namnet.
+URL: en utökas till att inkludera `hotels` index namnet.
 
 Så här gör du i Postman:
 
 1. Ändra verbet som ska **läggas**till.
 
-2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
+2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30` .
 
 3. Ange index definitionen (kopierings klar kod anges nedan) i bröd texten i begäran.
 
@@ -128,13 +128,13 @@ När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet h
 
 Att skapa ett index och att fylla det, är två separata steg. I Azure Kognitiv sökning innehåller indexet alla sökbara data som du kan ange som JSON-dokument. REST API för att [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) används för den här uppgiften. 
 
-URL: en utökas till att `docs` omfatta samlingarna och `index` åtgärden.
+URL: en utökas till att omfatta `docs` samlingarna och `index` åtgärden.
 
 Så här gör du i Postman:
 
 1. Byt till verbet **POST**.
 
-2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`.
+2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30` .
 
 3. Ange JSON-dokumenten (koden för kopierings klar nedan) i bröd texten i begäran.
 
@@ -247,7 +247,7 @@ Så här gör du i Postman:
 
 1. Ändra verbet som ska **hämtas**.
 
-2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
+2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2020-06-30` .
 
 3. Klicka på **Skicka**.
 
@@ -262,27 +262,27 @@ Byt ut den aktuella URL: en till dem nedan och klicka på **Skicka** varje gång
 ```
 # Query example 1 - Search on restaurant and wifi
 # Return only the HotelName, Description, and Tags fields
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=restaurant wifi&$count=true&$select=HotelName,Description,Tags&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=restaurant wifi&$count=true&$select=HotelName,Description,Tags&api-version=2020-06-30
 
 # Query example 2 - Apply a filter to the index to find hotels rated 4 or highter
 # Returns the HotelName and Rating. Two documents match
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$filter=Rating gt 4&$select=HotelName,Rating&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$filter=Rating gt 4&$select=HotelName,Rating&api-version=2020-06-30
 
 # Query example 3 - Take the top two results, and show only HotelName and Category in the results
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2020-06-30
 
 # Query example 4 - Sort by a specific field (Address/City) in ascending order
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2020-06-30
 ```
 
 ## <a name="get-index-properties"></a>Hämta index egenskaper
 Du kan också använda [Hämta statistik](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) för frågor om antal dokument och index storlek: 
 
 ```
-https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30
 ```
 
-Om `/stats` du lägger till i din URL returneras index information. Din begäran i Postman borde se ut som på bilden nedan. Svaret innehåller ett dokumentantal och det diskutrymme som används uttryckt i byte.
+`/stats`Om du lägger till i din URL returneras index information. Din begäran i Postman borde se ut som på bilden nedan. Svaret innehåller ett dokumentantal och det diskutrymme som används uttryckt i byte.
 
  ![Hämta index information](media/search-get-started-postman/postman-system-query.png "Hämta index information")
 

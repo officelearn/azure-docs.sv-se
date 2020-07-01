@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5d947c9f3f5aedd419662936c7007fc45a57b087
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 751fa9daabaaef05abb5df8229e84975b87cffc1
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262998"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563826"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---table-api"></a>Azure PowerShell exempel för Azure Cosmos DB-Tabell-API
 
@@ -20,7 +20,7 @@ Följande tabell innehåller länkar till exempel Azure PowerShell skript för A
 > [!NOTE]
 > I exemplen används [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) -hanterings-cmdletar. Sök efter uppdateringar `Az.CosmosDB` regelbundet.
 
-| | |
+|Uppgift | Description |
 |---|---|
 |[Skapa ett konto och en tabell](scripts/powershell/table/ps-table-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto och en tabell. |
 |[Lista eller hämta tabeller](scripts/powershell/table/ps-table-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Visa eller hämta tabeller. |

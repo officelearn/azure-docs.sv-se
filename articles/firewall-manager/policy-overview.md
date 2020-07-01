@@ -1,22 +1,20 @@
 ---
-title: Översikt över Azure Firewall Manager Preview-princip
+title: Översikt över Azure Firewall Manager-principer
 description: Lär dig mer om Azure Firewall Manager-principer
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 1308f4ba3335f2fd2633f6e39a679cd6477a4b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77445023"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563705"
 ---
-# <a name="azure-firewall-manager-preview-policy-overview"></a>Översikt över Azure Firewall Manager Preview-princip
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="azure-firewall-manager-policy-overview"></a>Översikt över Azure Firewall Manager-principer
 
 Brand Väggs principen är en Azure-resurs som innehåller samlingar för NAT, nätverk och program regler samt hot information-inställningar. Det är en global resurs som kan användas i flera Azure Firewall-instanser i säkra virtuella hubbar och virtuella hubb nätverk. Principer fungerar mellan regioner och prenumerationer.
 
@@ -26,7 +24,7 @@ Brand Väggs principen är en Azure-resurs som innehåller samlingar för NAT, n
 
 En princip kan skapas och hanteras på flera sätt, inklusive Azure Portal, REST API, mallar, Azure PowerShell och CLI.
 
-Du kan också migrera befintliga regler från Azure-brandväggen med hjälp av portalen eller Azure PowerShell för att skapa principer. Mer information finns i [så här migrerar du Azure Firewall-konfigurationer till en Azure Firewall-princip (för hands version)](migrate-to-policy.md). 
+Du kan också migrera befintliga regler från Azure-brandväggen med hjälp av portalen eller Azure PowerShell för att skapa principer. Mer information finns i [så här migrerar du Azure Firewall-konfigurationer till Azure brand Väggs princip](migrate-to-policy.md). 
 
 Principer kan associeras med en eller flera virtuella nav eller virtuella nätverk. Brand väggen kan finnas i alla prenumerationer som är kopplade till ditt konto och i vilken region som helst.
 
@@ -38,6 +36,8 @@ Principer som skapats med icke-tomma överordnade principer ärver alla regel sa
 
 Hot informations läget ärvs också från den överordnade principen. Du kan ställa in ditt hot informations läge på ett annat värde om du vill åsidosätta det här beteendet, men du kan inte inaktivera det. Det går bara att åsidosätta med ett striktare värde. Om din överordnade princip till exempel är inställd på **endast avisering**, kan du konfigurera den här lokala principen för att **Varna och neka**.
 
+Som hot informations läge ärvs listan över hot information från den överordnade principen. Den underordnade principen kan lägga till ytterligare IP-adresser i listan över tillåtna.
+
 NAT-regel samlingar ärvs inte eftersom de är specifikt för en specifik brand vägg.
 
 Med arv tillämpas eventuella ändringar i den överordnade principen automatiskt ned till associerade underordnade brand Väggs principer.
@@ -47,15 +47,14 @@ Med arv tillämpas eventuella ändringar i den överordnade principen automatisk
 Azure-brandväggen stöder både traditionella regler och principer. I följande tabell jämförs principer och regler:
 
 
-|         |Princip  |Regler  |
+|         |Policy  |Regler  |
 |---------|---------|---------|
-|Innehåller     |Inställningar för NAT, nätverk, program regler och hot information|Regler för NAT, nätverk och program |
+|Innehåller     |NAT, nätverk, program regler, anpassade inställningar för DNS-och DNS-proxy, IP-grupper och hot information-inställningar (inklusive listan över tillåtna)|NAT-, nätverks-och program regler, anpassade inställningar för DNS-och DNS-proxy, IP-grupper och hot informations inställningar (inklusive listan över tillåtna)|
 |Skyddar     |Virtuella hubbar och virtuella nätverk|Endast virtuella nätverk|
 |Portalmiljö     |Central hantering med hjälp av brand Väggs hanteraren|Fristående brand Väggs upplevelse|
 |Stöd för flera brand väggar     |Brand Väggs principen är en separat resurs som kan användas i olika brand väggar|Exportera och importera regler manuellt eller med hjälp av hanterings lösningar från tredje part |
 |Prissättning     |Faktureras baserat på brand Väggs Association. Se [prissättning](#pricing).|Kostnadsfri|
 |Distributions metoder som stöds     |Portal, REST API, mallar, Azure PowerShell och CLI|Portal, REST API, mallar, PowerShell och CLI. |
-|Versions status     |Offentlig för hands version|Allmän tillgänglighet|
 
 ## <a name="pricing"></a>Prissättning
 
@@ -63,4 +62,4 @@ Principer faktureras baserat på brand Väggs associationer. En princip med noll
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du distribuerar en Azure-brandvägg finns i [Självstudier: skydda ditt moln nätverk med för hands versionen av Azure Firewall Manager med hjälp av Azure Portal](secure-cloud-network.md).
+Information om hur du distribuerar en Azure-brandvägg finns i [Självstudier: skydda ditt moln nätverk med Azure Firewall Manager med hjälp av Azure Portal](secure-cloud-network.md).

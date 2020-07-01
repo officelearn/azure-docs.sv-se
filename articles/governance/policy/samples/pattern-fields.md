@@ -1,14 +1,14 @@
 ---
 title: 'Mönster: fält egenskaper i en princip definition'
 description: Detta Azure Policy mönster innehåller ett exempel på hur du använder fält egenskaper i en princip definition.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: e65767dd9cbe7b2192c21f779643289e5a7fc45e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 87c550e5fb3ef0efbf219efc738a69071d2e89ba
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172865"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565724"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Azure Policy mönster: fält egenskaper
 
@@ -26,8 +26,8 @@ Med den här princip definitionen kan du definiera tillåtna regioner som uppfyl
 
 **Fält** operatorn används tre gånger inom den [logiska operatorn](../concepts/definition-structure.md#logical-operators) **allOf**.
 
-- Den första användningen utvärderar `location` egenskapen med **notIn** -villkoret till parametern **listOfAllowedLocations** . **notIn** fungerar som förväntat en _matris_ och parametern är en _matris_. `location` Om den nya eller uppdaterade resursen inte finns i listan över godkända objekt, utvärderas det här elementet som sant.
-- Den andra användningen utvärderar också `location` egenskapen, men använder **notEquals** -villkoret för att se om resursen är _Global_. `location` Om den skapade eller uppdaterade resursen inte är _Global_, utvärderas elementet som sant.
+- Den första användningen utvärderar `location` egenskapen med **notIn** -villkoret till parametern **listOfAllowedLocations** . **notIn** fungerar som förväntat en _matris_ och parametern är en _matris_. Om den `location` nya eller uppdaterade resursen inte finns i listan över godkända objekt, utvärderas det här elementet som sant.
+- Den andra användningen utvärderar också `location` egenskapen, men använder **notEquals** -villkoret för att se om resursen är _Global_. Om den `location` skapade eller uppdaterade resursen inte är _Global_, utvärderas elementet som sant.
 - Den senaste användningen utvärderar `type` egenskapen och använder **notEquals** -villkoret för att verifiera resurs typen är inte _Microsoft. AzureActiveDirectory/b2cDirectories_. Om den inte är det, utvärderas elementet som sant.
 
 Om alla tre villkors satserna i den logiska operatorn **allOf** utvärderar True, blockeras skapandet eller uppdateringen av Azure policy.

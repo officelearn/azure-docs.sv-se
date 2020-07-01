@@ -1,18 +1,18 @@
 ---
 title: 'Mönster: operatorn Count i en princip definition'
 description: Detta Azure Policy mönster ger ett exempel på hur du använder operatorn Count i en princip definition.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: 88c2d1083a92732ac56ca4d6da7087cc4220d9a5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 807890b7fb08d790deff6e0be9e08ad91c4ec44d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172949"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565748"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Azure Policy mönster: operatorn Count
 
-Operatorn [Count](../concepts/definition-structure.md#count) utvärderar medlemmar i \[ \* \] ett alias.
+Operatorn [Count](../concepts/definition-structure.md#count) utvärderar medlemmar i ett \[ \* \] alias.
 
 ## <a name="sample-policy-definition"></a>Exempel på princip definition
 
@@ -24,7 +24,7 @@ Den här princip definitionen [granskar](../concepts/effects.md#audit) nätverks
 
 Kärn komponenterna i operatorn **Count** är _Field_, _WHERE_och condition. Varje är markerat i kodfragmentet nedan.
 
-- _fältet_ visar antalet [alias](../concepts/definition-structure.md#aliases) för att utvärdera medlemmar i. Här tittar vi på **\[ \* securityRules** Ali Aset- _matrisen_ för nätverks säkerhets gruppen.
+- _fältet_ visar antalet [alias](../concepts/definition-structure.md#aliases) för att utvärdera medlemmar i. Här tittar vi på ** \[ \* \] securityRules** Ali Aset- _matrisen_ för nätverks säkerhets gruppen.
 - _där_ använder princip språket för att definiera vilka _mat ris_ medlemmar som uppfyller villkoren. I det här exemplet grupper en logisk **allOf** i tre olika villkor för alias för _mat ris_ egenskaper: _Direction_, _Access_och _destinationPortRange_.
 - Count-villkoret i det här exemplet är **större**. Count utvärderas som sant när en eller flera medlemmar _i Ali Aset_ matchar _WHERE_ -satsen.
 

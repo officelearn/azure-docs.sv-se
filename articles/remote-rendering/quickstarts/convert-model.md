@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81312998"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557178"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Snabb start: konvertera en modell för åter givning
 
@@ -48,9 +48,9 @@ Du behöver:
 
 ## <a name="azure-setup"></a>Azure-installation
 
-Om du inte har något konto ännu går du till [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), klickar på alternativet kostnads fritt konto och följer anvisningarna.
+Om du inte har något konto ännu går du till [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/) , klickar på alternativet kostnads fritt konto och följer anvisningarna.
 
-När du har ett Azure-konto går du [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home)till.
+När du har ett Azure-konto går du till [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home) .
 
 ### <a name="storage-account-creation"></a>Skapa lagrings konto
 
@@ -70,7 +70,7 @@ Genom att klicka på den här knappen visas följande skärm med lagrings egensk
 Fyll i formuläret på följande sätt:
 
 * Skapa en ny resurs grupp från länken nedanför List rutan och ge den namnet **ARR_Tutorial**
-* För **lagrings konto namnet**anger du ett unikt namn här. **Det här namnet måste vara globalt unikt**, annars visas en uppfattande meddelande som informerar dig om att namnet är klart angivet. I omfånget för den här snabb starten namnger vi IT- **arrtutorialstorage**. Därefter måste du ersätta den med ditt namn för valfri förekomst i den här snabb starten.
+* För **lagrings konto namnet**anger du ett unikt namn här. **Det här namnet måste vara globalt unikt**, annars visas en uppfattande meddelande som informerar att namnet redan är upptaget. I omfånget för den här snabb starten namnger vi IT- **arrtutorialstorage**. Därefter måste du ersätta den med ditt namn för valfri förekomst i den här snabb starten.
 * Välj en **plats** nära dig. Vi rekommenderar att du använder samma plats som används för att ställa in renderingen i den andra snabb starten.
 * **Prestanda** har angetts till "standard"
 * **Konto typ** har angetts till "StorageV2 (generell användning v2)"
@@ -108,7 +108,7 @@ Du bör nu ha två Blob Storage-behållare:
 
 ## <a name="run-the-conversion"></a>Kör konverteringen
 
-För att göra det enklare att anropa till gångs konverterings tjänsten tillhandahåller vi ett verktygs skript. Den finns i mappen *skript* och kallas **Conversion. ps1**.
+För att göra det enklare att anropa till gångs konverterings tjänsten tillhandahåller vi ett verktygs skript. Den finns i mappen *skript* och kallas **Conversion.ps1**.
 
 I synnerhet detta skript
 
@@ -117,7 +117,7 @@ I synnerhet detta skript
 1. Avsök konverterings status-API: et med det hämtade konverterings-ID: t tills konverterings processen avslutas med lyckat eller misslyckat
 1. hämtar en länk till den konverterade till gången i utgående lagring
 
-Skriptet läser konfigurationen från filen *Scripts\arrconfig.JSON*. Öppna JSON-filen i en text redigerare.
+Skriptet läser konfigurationen från filen *Scripts\arrconfig.jspå*. Öppna JSON-filen i en text redigerare.
 
 ```json
 {
@@ -149,15 +149,15 @@ Konfigurationen i **accountSettings** -gruppen (konto-ID och nyckel) bör fyllas
 I gruppen **assetConversionSettings** ser du till att ändra **resourceGroup**, **blobInputContainerName**och **blobOutputContainerName** som visas ovan.
 Observera att värdet **arrtutorialstorage** måste ersättas med det unika namn som du valde när du skapade lagrings kontot.
 
-Ändra **localAssetDirectoryPath** så att den pekar på den katalog på disken som innehåller den modell som du vill konvertera. Var noga med att kringgå omvända snedstreck ("\\") i sökvägen med dubbla omvända snedstreck ("\\\\").
+Ändra **localAssetDirectoryPath** så att den pekar på den katalog på disken som innehåller den modell som du vill konvertera. Var noga med att kringgå omvända snedstreck (" \\ ") i sökvägen med dubbla omvända snedstreck (" \\ \\ ").
 
-Alla data från sökvägen som anges i **localAssetDirectoryPath** överförs till **blobInputContainerName** -BLOB-behållaren under en under Sök väg som anges av **inputFolderPath**. Så i exempel konfigurationen ovan överförs innehållet i katalogen "D:\\tmp\\robot" till BLOB-behållaren "arrinput" för lagrings kontot "arrtutorialstorage" under sökvägen "robotConversion". Redan befintliga filer kommer att skrivas över.
+Alla data från sökvägen som anges i **localAssetDirectoryPath** överförs till **blobInputContainerName** -BLOB-behållaren under en under Sök väg som anges av **inputFolderPath**. Så i exempel konfigurationen ovan överförs innehållet i katalogen "D: \\ tmp \\ robot" till BLOB-behållaren "arrinput" för lagrings kontot "arrtutorialstorage" under sökvägen "robotConversion". Redan befintliga filer kommer att skrivas över.
 
-Ändra **inputAssetPath** till sökvägen till den modell som ska konverteras – sökvägen är relativ till localAssetDirectoryPath. Använd "/" i stället för\\"" som Sök vägs avgränsare. Så för en "robot. FBX"-fil som finns direkt i "D:\\tmp\\robot" använder du "robot. FBX".
+Ändra **inputAssetPath** till sökvägen till den modell som ska konverteras – sökvägen är relativ till localAssetDirectoryPath. Använd "/" i stället för " \\ " som Sök vägs avgränsare. Så för en "robot. FBX"-fil som finns direkt i "D: \\ tmp \\ robot" använder du "robot. FBX".
 
 När modellen konverteras skrivs den tillbaka till den lagrings behållare som anges av **blobOutputContainerName**. En under Sök väg kan anges genom att tillhandahålla den valfria **outputFolderPath**. I exemplet ovan kommer "robot. arrAsset" att kopieras till utgående BLOB-behållare under "konverterad/robot".
 
-Konfigurations inställningen **outputAssetFileName** bestämmer namnet på den konverterade till gången – parametern är valfri och utdata-filnamn kommer att härledas från indatafilens namn annars. 
+Konfigurations inställningen **outputAssetFileName** bestämmer namnet på den konverterade till gången – parametern är valfri och utdata-filnamn kommer att härledas från indatafilens namn annars.
 
 Öppna en PowerShell, kontrol lera att du har installerat *Azure PowerShell* som anges i [kraven](#prerequisites). Logga sedan in på prenumerationen med följande kommando och följ anvisningarna på skärmen:
 
@@ -174,7 +174,9 @@ Connect-AzAccount
 .\Conversion.ps1 -UseContainerSas
 ```
 
-Du bör se något som liknar detta ![: Conversion. ps1](./media/successful-conversion.png)
+Du bör se något som liknar detta: ![Conversion.ps1](./media/successful-conversion.png)
+
+## <a name="insert-new-model-into-quickstart-sample-app"></a>Infoga ny modell i exempel appen för snabb start
 
 Konverterings skriptet genererar en URL för *signaturer för delad åtkomst (SAS)* för den konverterade modellen. Nu kan du kopiera den här URI: n som **modell namn** till exempel appen snabb start (se [snabb start: återge en modell med Unity](render-model.md)).
 
@@ -187,8 +189,8 @@ Konverterings skriptet genererar en URL för *signaturer för delad åtkomst (SA
 SAS-URI: n som skapas av konverterings skriptet är bara giltig i 24 timmar. När den har gått ut behöver du dock inte konvertera modellen igen. I stället kan du skapa en ny SAS i portalen enligt beskrivningen i nästa steg:
 
 1. Gå till [Azure Portal](https://www.portal.azure.com)
-1. Klicka på **lagrings konto** resursen: ![åtkomst till signaturer](./media/portal-storage-accounts.png)
-1. I följande skärm klickar du på **lagrings Utforskaren** på den vänstra panelen och letar reda på din utmatnings modell (*. arrAsset* -fil) i *arroutput* Blob storage-behållaren. Högerklicka på filen och välj **Hämta signatur för delad åtkomst** från snabb menyn: ![åtkomst till signatur](./media/portal-storage-explorer.png)
+1. Klicka på **lagrings konto** resursen: ![ åtkomst till signaturer](./media/portal-storage-accounts.png)
+1. I följande skärm klickar du på **lagrings Utforskaren** på den vänstra panelen och letar reda på din utmatnings modell (*. arrAsset* -fil) i *arroutput* Blob storage-behållaren. Högerklicka på filen och välj **Hämta signatur för delad åtkomst** från snabb menyn: ![ åtkomst till signatur](./media/portal-storage-explorer.png)
 1. En ny skärm öppnas där du kan välja ett utgångs datum. Tryck på **skapa**och kopiera URI: n som visas i nästa dialog ruta. Denna nya URI ersätter den temporära URI som skriptet skapade.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -198,4 +200,4 @@ Nu när du vet grunderna kan du få en titt på våra självstudier för att få
 Om du vill lära dig mer om modell konverteringen kan du ta [en titt på modell konverterings REST API](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Självstudie: Konfigurera ett Unity-projekt från grunden](../tutorials/unity/project-setup.md)
+> [Självstudie: Visa fjärranslutna modeller](../tutorials/unity/view-remote-models/view-remote-models.md)

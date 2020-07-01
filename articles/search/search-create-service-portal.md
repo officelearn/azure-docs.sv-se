@@ -8,14 +8,14 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/24/2020
-ms.openlocfilehash: 988b26b319c706b97edfbd3545a525b7d685d7f1
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368302"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562533"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabb start: skapa en Azure Kognitiv sökning-tjänst i portalen
+# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabbstart: Skapa en Azure Cognitive Search-tjänst i portalen
 
 Azure Kognitiv sökning är en fristående resurs som används för att koppla en Sök upplevelse till anpassade appar. Kognitiv sökning integreras enkelt med andra Azure-tjänster, med appar på nätverks servrar eller med program vara som körs på andra moln plattformar.
 
@@ -27,11 +27,11 @@ Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/res
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Följande tjänst egenskaper är fasta för tjänstens livs längd. Att ändra någon av dessa egenskaper senare kräver en ny tjänst:
+Följande tjänst egenskaper är fasta för tjänstens livs längd och det krävs en ny tjänst för att ändra dem. När du skapar en tjänst bör du tänka på hur du ska använda den:
 
-* name
-* nivå (kostnads fri, Basic, standard)
-* region (Välj en plats som har relaterade tjänster, till exempel Cognitive Services eller data tjänster)
+* namn (granska [de här förslagen](#name-the-service) för tjänst namn)
+* nivå (kostnads fri, Basic, standard [påverkar fakturering](search-sku-tier.md) och ställer in en övre gräns för kapacitet)
+* region (Välj en plats som har relaterade tjänster. För integrering med Cognitive Services eller Azure Machine Learning samplacera tjänster i samma region ett krav)
 
 ## <a name="subscribe-free-or-paid"></a>Prenumerera (kostnadsfritt eller betalt)
 
@@ -41,7 +41,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="find-azure-cognitive-search"></a>Hitta Azure-Kognitiv sökning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
 

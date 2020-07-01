@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 65e1613eb8fda934899afe692f45a38fca04bff2
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414048"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560796"
 ---
 # <a name="read-text-from-images-and-documents"></a>Läs text från bilder och dokument
 
@@ -24,12 +24,11 @@ Visuellt innehåll innehåller en ny djup inlärnings funktion för OCR (optisk 
 
 ## <a name="read-api"></a>Läs-API 
 
-Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är Microsofts senaste OCR-teknik som extraherar utskriven text, handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument. Det är optimerat för att extrahera text från bilder på-vilda, bilder med visuellt brus, PDF-dokument som är antingen digitala eller skannade och text tunga bilder. Det stöder utskrift och handskriven text (engelska) och blandade språk i samma bild eller dokument. Du hittar en fullständig lista över språk som stöds på sidan [språk stöd för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) .
-
+Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är Microsofts senaste OCR-teknik som extraherar tryckt text (sju språk), handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument med flera sidor. Det är optimerat för att extrahera text från en text – tunga bilder och PDF-dokument med flera sidor med blandade språk. Det stöder identifiering av skriven och handskriven text (endast engelska) i samma bild eller dokument. Du hittar en fullständig lista över språk som stöds på sidan [språk stöd för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) .
 
 ### <a name="how-it-works"></a>Så här fungerar det
 
-[Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är asynkront. Det första steget är att anropa Läs åtgärden. Läs åtgärden tar en bild eller ett PDF-dokument som indata och returnerar ett åtgärds-ID. 
+[Läsnings-API: et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) stöder text intensiva dokument på upp till 2000 sidor och körs därför asynkront. Det första steget är att anropa Läs åtgärden. Läs åtgärden tar en bild eller ett PDF-dokument som indata och returnerar ett åtgärds-ID. 
 
 Det andra steget är att anropa åtgärden [Hämta resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Den här åtgärden tar i det åtgärds-ID som skapades av Läs åtgärden. Den returnerar sedan det extraherade text innehållet från din avbildning eller ditt dokument i form av JSON. JSON-svaret underhåller de ursprungliga rad grupperna av identifierade ord. Den innehåller de extraherade text raderna och deras avgränsnings Rute koordinater. Varje textrad innehåller alla extraherade ord med deras koordinater och en förtroende poäng.
 
@@ -90,7 +89,7 @@ Läs är även tillgänglig som en Docker-behållare (för hands version) så at
 
 ## <a name="ocr-api"></a>OCR-API
 
-[OCR-API: t](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) använder en äldre igenkännings modell. Det stöder endast enstaka avbildningar, inte PDF-filer och returnerar ett omedelbart svar. Det stöder [fler språk](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) än Read API.
+[OCR-API: t](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) använder en äldre igenkännings modell, stöder bara bilder och körs synkront, och returneras omedelbart med den identifierade texten. Det stöder [fler språk](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) än Read API.
 
 ## <a name="next-steps"></a>Nästa steg
 

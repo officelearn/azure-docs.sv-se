@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: dc566d2702fb24ef551e4900bed7b828d2597383
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659921"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557069"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Snabb start: Distribuera Unity-exempel till Skriv bordet
 
@@ -38,7 +38,7 @@ Endast flata skrivbordsappar stöds för närvarande på Desktop, så VR-stödet
 1. Välj **spelare** till vänster.
 1. Välj fliken **universell Windows-plattform inställningar** .
 1. Expandera **XR-inställningarna**.
-1. Inaktivera **virtuell verklighet som stöds**.
+1. Det går inte att inaktivera **Virtual verklighet**. \
     ![inställningar för spelare](./media/unity-disable-xr.png)
 1. I *XR inställningar*expanderar du **publicerings inställningar**.
 1. I **enhets familjer som stöds**kontrollerar du att **Skriv bordet** är markerat.
@@ -49,13 +49,13 @@ Endast flata skrivbordsappar stöds för närvarande på Desktop, så VR-stödet
 1. Ändra *plattform* till **universell Windows-plattform** (**fristående dator** stöds också, men används inte här, se [plattforms begränsningar](../reference/limits.md#platform-limitations)).
 1. Ställ in *mål enheten* på **datorn**.
 1. Ange *arkitektur* till **x86**.
-1. Ange *build-typ* till **D3D-projekt**.
+1. Ange *build-typ* till **D3D-projekt**. \
   ![Build-inställningar](./media/unity-build-settings-pc.png)
 1. Välj **Växla till plattform**.
 1. När du trycker på **skapa** (eller "skapa och kör") kommer du att uppmanas att välja en mapp där lösningen ska lagras.
 1. Öppna den genererade **snabb starten. SLN** med Visual Studio.
 1. Ändra konfigurationen till **version** och **x86**.
-1. Växla fel söknings läge till **lokal dator**.
+1. Växla fel söknings läge till **lokal dator**. \
   ![Lösnings konfiguration](./media/unity-deploy-config-pc.png)
 1. Bygg lösningen (F7).
 

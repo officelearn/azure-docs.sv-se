@@ -3,12 +3,12 @@ title: Exempel på avancerade frågor
 description: Använd Azure Resource Graph för att köra vissa avancerade frågor, inklusive arbeta med kolumner, list etiketter som används och matchande resurser med reguljära uttryck.
 ms.date: 06/18/2020
 ms.topic: sample
-ms.openlocfilehash: 454692ab650752738700e5303e9092b23489514b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: ce949eb9f718f8526ef189993d7004db152d5e22
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323045"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565634"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exempel på avancerade resurs diagram frågor
 
@@ -375,7 +375,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 ## <a name="list-all-extensions-installed-on-a-virtual-machine"></a><a name="join-vmextension"></a>Lista alla tillägg som är installerade på en virtuell dator
 
 Först används den här frågan `extend` på resurs typen virtuella datorer för att hämta ID: t i versaler ( `toupper()` ) ID, Hämta operativ systemets namn och typ och hämta storleken på den virtuella datorn.
-Att få resurs-ID i versaler är ett bra sätt att förbereda för att ansluta till en annan egenskap. Frågan använder sedan `join` med **sort** som _leftouter_ för att hämta tillägg till virtuella datorer genom att matcha en övre bokstäver `substring` av tilläggs-ID: t. Den del av ID: t \<ExtensionName\> som är "/Extensions/" har samma format som de virtuella datorernas ID, så vi använder den här egenskapen för `join` . `summarize`används sedan med `make_list` namnet på det virtuella dator tillägget för att kombinera namnet på varje tillägg där _ID_, _OSName_, _OSType_och _VMSize_ är samma i en enskild mat ris egenskap. Slutligen är vi `order by` den nedre bokstäver- _OSNameen_ med **ASC**. Av defualt, `order by` är fallande.
+Att få resurs-ID i versaler är ett bra sätt att förbereda för att ansluta till en annan egenskap. Frågan använder sedan `join` med **sort** som _leftouter_ för att hämta tillägg till virtuella datorer genom att matcha en övre bokstäver `substring` av tilläggs-ID: t. Den del av ID: t \<ExtensionName\> som är "/Extensions/" har samma format som de virtuella datorernas ID, så vi använder den här egenskapen för `join` . `summarize`används sedan med `make_list` namnet på det virtuella dator tillägget för att kombinera namnet på varje tillägg där _ID_, _OSName_, _OSType_och _VMSize_ är samma i en enskild mat ris egenskap. Slutligen är vi `order by` den nedre bokstäver- _OSNameen_ med **ASC**. Som standard `order by` är fallande.
 
 ```kusto
 Resources

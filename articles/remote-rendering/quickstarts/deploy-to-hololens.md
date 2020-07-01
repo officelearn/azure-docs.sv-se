@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 75b6629ea924ec17888ec2f981ff85ed917434c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679739"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557040"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Snabb start: Distribuera Unity-exempel till HoloLens
 
@@ -36,12 +36,14 @@ Se till att dina autentiseringsuppgifter sparas korrekt med scenen och att du ka
 1. Ändra *plattform* till **universell Windows-plattform**
 1. Ställ in *mål enheten* på **HoloLens**
 1. Ange *arkitektur* till **arm64**
-1. Ange *build-typ* till **D3D Project** ![build-inställningar](./media/unity-build-settings.png)
+1. Ange *build-typ* till **D3D-projekt**\
+    ![Build-inställningar](./media/unity-build-settings.png)
 1. Välj **Växla till plattform**
 1. När du trycker på **skapa** (eller "skapa och kör") kommer du att uppmanas att välja en mapp där lösningen ska lagras
 1. Öppna den genererade **snabb starten. SLN** med Visual Studio
 1. Ändra konfigurationen till **versions** -och **arm64**
-1. Växla fel söknings läge till konfiguration av **fjärrdator** ![-lösning](media/unity-deploy-config.png)
+1. Växla fel söknings läge till **fjärrdatorn**\
+    ![Lösnings konfiguration](media/unity-deploy-config.png)
 1. Bygg lösningen (F7)
 1. För projektet "snabb start" går du till *egenskaper > fel sökning*
     1. Kontrol lera att konfigurations *versionen* är aktiv

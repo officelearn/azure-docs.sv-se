@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 27f085543869b1a77db9c97ca2e7ae7d3d3b7b88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 891e0c18b3f95dca905fbc14b957af773135eeec
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80046418"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557890"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduktion till Azure App Service i Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "80046418"
 
 ## <a name="languages"></a>Språk
 
-App Service i Linux stöder ett antal inbyggda avbildningar i syfte att öka utvecklarnas produktivitet. Språken inkluderar: Node. js, Java (JRE 8 & JRE 11), PHP, python, .NET Core och Ruby. Kör [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) för att visa de senaste språken och de versioner som stöds. Om det saknas stöd för den körmiljö som ditt program behöver för att fungera tillhandahåller vi anvisningar för hur du [skapar en egen Docker-avbildning](tutorial-custom-docker-image.md) som distribueras till Web App for Containers.
+App Service i Linux stöder ett antal inbyggda avbildningar i syfte att öka utvecklarnas produktivitet. Språk är: Node.js, Java (JRE 8 & JRE 11), PHP, python, .NET Core och Ruby. Kör [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) för att visa de senaste språken och de versioner som stöds. Om det saknas stöd för den körmiljö som ditt program behöver för att fungera tillhandahåller vi anvisningar för hur du [skapar en egen Docker-avbildning](tutorial-custom-docker-image.md) som distribueras till Web App for Containers.
 
 ## <a name="deployments"></a>Distributioner
 
@@ -54,7 +54,7 @@ Kontrollera [instrumentpanelen för Azure-status](https://azure.microsoft.com/st
 
 Azure-portalen visar endast de funktioner som för närvarande fungerar tillsammans med Web App for Containers. Allt fler funktioner kommer att bli synliga i portalen i takt med att vi aktiverar dem.
 
-App Service på Linux stöds bara med [kostnads fria, Basic-, standard-och Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service-planer och har inte någon [delad](https://azure.microsoft.com/pricing/details/app-service/plans/) nivå. Det går inte att skapa en Linux-webbapp i en App Service plan som redan är värd för Web Apps som inte är Linux.  
+App Service på Linux stöds bara med [kostnads fria, Basic, standard, Premium och isolerade](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service-planer och har inte någon [delad](https://azure.microsoft.com/pricing/details/app-service/plans/) nivå. Det går inte att skapa en Linux-webbapp i en App Service plan som redan är värd för Web Apps som inte är Linux.  
 
 Baserat på en aktuell begränsning för samma resurs grupp kan du inte blanda Windows-och Linux-appar i samma region.
 
@@ -65,7 +65,7 @@ Baserat på en aktuell begränsning för samma resurs grupp kan du inte blanda W
 >
 >
 
-När det inte går att starta appen eller om du vill kontrollera loggen i din app kan du öppna Docker-loggarna i katalogen LogFiles. Katalogen är åtkomlig via SCM-webbplatsen eller via FTP. Om du vill `stdout` logga `stderr` in och från din behållare måste du aktivera **program loggning** under **App Service loggar**. Inställningen utförs direkt. App Service identifierar ändringen och startar om behållaren automatiskt.
+När det inte går att starta appen eller om du vill kontrollera loggen i din app kan du öppna Docker-loggarna i katalogen LogFiles. Katalogen är åtkomlig via SCM-webbplatsen eller via FTP. Om du vill logga in `stdout` och `stderr` från din behållare måste du aktivera **program loggning** under **App Service loggar**. Inställningen utförs direkt. App Service identifierar ändringen och startar om behållaren automatiskt.
 
 Du kommer åt SCM-webbplatsen från **Avancerade verktyg** i menyn **Utvecklingsverktyg**.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168465"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561562"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -100,7 +100,7 @@ För att öka samtidigheten för en ***anpassad modell***behöver vi följande i
   - Logga in (om det behövs),
   - Välj ditt projekt och din distribution,
   - Välj slut punkten du behöver samtidighets ökningen för,
-  - Kopiera `Endpoint ID`.
+  - Kopiera `Endpoint ID` .
 
 För att öka samtidigheten för en ***bas modell***behöver vi följande information:
 
@@ -117,7 +117,10 @@ eller
   - Välj `Cognitive Services` i rutan Sök,
   - från de visade tjänsterna väljer du den tal tjänst som du vill att samtidigheten ska höjas för.
   - Visa `Properties` för den här tjänsten,
-  - Kopiera hela `Resource ID`.
+  - Kopiera hela `Resource ID` .
+  
+>[!NOTE]
+>[Behållare](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) kräver ingen ökning av samtidiga gränser, eftersom behållare endast begränsas av CPU: er för den maskin vara som de är värd för.
 
 ## <a name="importing-data"></a>Importera data
 

@@ -1,14 +1,14 @@
 ---
 title: 'Mönster: grup princip definitioner med initiativ'
 description: Detta Azure Policy mönster ger ett exempel på hur du kan gruppera princip definitioner i ett initiativ
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: 41c2b0cf3b8f677cdc408e85088c3ca6c2049d6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 065e7632d76feccdd6d2d5a411ba7cdf50aeaf68
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172858"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565698"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Azure Policy mönster: grup princip definitioner
 

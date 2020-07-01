@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: skapa en skiss med REST API'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av REST API.
-ms.date: 02/26/2020
+ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: ec84e8396ad65aa01f73414b971f27bc95396e2f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 51fe927f1ee60f18cff7907e9e641c89acd751e2
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745100"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563302"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
 

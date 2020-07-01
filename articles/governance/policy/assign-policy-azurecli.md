@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: ny princip tilldelning med Azure CLI'
 description: I den här snabb starten använder du Azure CLI för att skapa en Azure Policy tilldelning för att identifiera icke-kompatibla resurser.
-ms.date: 01/11/2020
+ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: b1d93cdb4dfa1c82e8004af4052c22bba60f3a3a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 33db6b4098dc0a69f4dabbea62fc9627cdc948eb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745745"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558939"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med Azure CLI
 

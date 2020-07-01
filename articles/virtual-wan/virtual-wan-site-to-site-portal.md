@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687930"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563010"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -29,7 +29,7 @@ I den här guiden får du lära du dig hur man:
 > * Ansluta en VPN-plats till en hubb
 > * Ansluta ett virtuellt nätverk till en hubb
 > * Hämta en konfigurations fil
-> * Visa virtuellt WAN
+> * Konfigurera din VPN-gateway
 
 > [!NOTE]
 > Om du har många webbplatser är det vanligast att använda en [virtuellt WAN-partner](https://aka.ms/virtualwan) för att skapa den här konfigurationen. Du kan dock skapa den här konfigurationen själv om du har erfarenhet av att arbeta med nätverk och är skicklig på konfigurera din egen VPN-enhet.
@@ -57,7 +57,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 2. Välj **virtuellt WAN** från resultaten. På den virtuella WAN-sidan klickar du på **skapa** för att öppna sidan Skapa WAN.
 3. På sidan **skapa WAN** , på fliken **grundläggande** , fyller du i följande fält:
 
-   ![Virtual WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
+   ![Virtuellt WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
 
    * **Prenumeration** – Välj vilken prenumeration du vill använda.
    * **Resurs grupp** – skapa ny eller Använd befintlig.
@@ -251,11 +251,20 @@ Om du behöver anvisningar för att konfigurera enheten kan du använda instrukt
 * Ett nytt virtuellt WAN-nätverk kan stödja både IKEv1 och IKEv2.
 * Virtuella WAN kan använda både principbaserade och dirigerade VPN-enheter och enhets instruktioner.
 
-## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Visa virtuellt WAN
+## <a name="configure-your-vpn-gateway"></a><a name="gateway-config"></a>Konfigurera din VPN-gateway
 
-1. Navigera till det virtuella WAN-nätverket.
-2. På sidan **Översikt** representerar varje punkt på kartan ett nav. Hovra över en punkt för att Visa hubbens hälso översikt, anslutnings status och byte in och ut.
-3. I avsnittet hubbar och anslutningar kan du Visa nav status, VPN-platser osv. Du kan klicka på ett särskilt nav namn och navigera till VPN-platsen för ytterligare information.
+Du kan visa och konfigurera inställningarna för VPN-gateway när som helst genom att välja **Visa/konfigurera**.
+
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Visa konfiguration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+
+På sidan **redigera VPN gateway** kan du se följande inställningar:
+
+* VPN Gateway offentlig IP-adress (tilldelad av Azure)
+* VPN Gateway privat IP-adress (tilldelad av Azure)
+* VPN Gateway standard-BGP IP-adress (tilldelad av Azure)
+* Konfigurations alternativ för anpassad BGP IP-adress: det här fältet är reserverat för APIPA (automatisk privat IP-adressering). Azure har stöd för BGP IP i intervallen 169.254.21. * och 169.254.22. *
+
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Visa konfiguration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

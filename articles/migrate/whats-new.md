@@ -4,12 +4,12 @@ description: Lär dig mer om nyheter och nya uppdateringar i tjänsten Azure Mig
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: be617590ce0c96c3ec8ea705732534c8395ac0ce
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052323"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556931"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Vad är nytt i Azure Migrate
 
@@ -17,6 +17,7 @@ ms.locfileid: "85052323"
 
 ## <a name="update-june-2020"></a>Uppdatering (2020 juni)
 
+- Utvärderingar för att migrera lokala virtuella VMware-datorer till [Azure VMware-lösningen (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) stöds nu. [Läs mer](how-to-create-azure-vmware-solution-assessment.md)
 - Stöd för flera autentiseringsuppgifter på installations programmet för fysisk server identifiering.
 - Stöd för att tillåta Azure-inloggning från enheten för klient organisationer där klient begränsning har kon figurer ATS.
 - Nya Azure Migrate utrustnings versioner enligt listan nedan.

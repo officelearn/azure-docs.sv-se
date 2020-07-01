@@ -7,7 +7,11 @@
 - name: Snabbstarter
   items:
     - name: Konfigurera aviseringar för Service Health-händelser
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+      items:
+        - name: Azure Portal
+          href: alerts-activity-log-service-notifications-portal.md
+        - name: ARM-mall
+          href: alerts-activity-log-service-notifications-arm.md
 - name: Begrepp
   items:
     - name: Azure-statussida

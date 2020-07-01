@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 05/14/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: de939f2bfe55541dca9d93f6778e4b098d067daa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657004"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565981"
 ---
 # <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
@@ -64,7 +64,7 @@ Om du vill konfigurera ett virtuellt WAN från slutpunkt till slutpunkt skapar d
 
 **Ytterligare virtuella WAN-resurser**
 
-  * **Plats:** Den här resursen används endast för plats-till-plats-anslutningar. Plats resursen är **vpnsite**. Den representerar din lokala VPN-enhet och dess inställningar. Om du arbetar med en Virtual WAN-partner har du en inbyggd lösning som hjälper dig att automatiskt exportera den här informationen till Azure.
+* **Plats:** Den här resursen används endast för plats-till-plats-anslutningar. Plats resursen är **vpnsite**. Den representerar din lokala VPN-enhet och dess inställningar. Om du arbetar med en Virtual WAN-partner har du en inbyggd lösning som hjälper dig att automatiskt exportera den här informationen till Azure.
 
 ## <a name="types-of-connectivity"></a><a name="connectivity"></a>Typer av anslutningar
 
@@ -72,21 +72,9 @@ Virtuella WAN-nätverk möjliggör följande typer av anslutningar: plats-till-p
 
 ### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>Plats-till-plats-VPN-anslutningar
 
-![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan.png)
+Du kan ansluta till dina resurser i Azure via en plats-till-plats IPsec/IKE-anslutning (IKEv2). Mer information finns i [skapa en plats-till-plats-anslutning med hjälp av virtuellt WAN](virtual-wan-site-to-site-portal.md). 
 
-När du skapar en virtuell WAN-plats-till-plats-anslutning kan du arbeta med en tillgänglig partner. Om du inte vill använda en partner kan du konfigurera anslutningen manuellt. Mer information finns i [skapa en plats-till-plats-anslutning med hjälp av virtuellt WAN](virtual-wan-site-to-site-portal.md).
-
-#### <a name="virtual-wan-partner-workflow"></a><a name="s2spartner"></a>Arbets flöde för virtuell WAN-partner
-
-När du arbetar med en virtuell WAN-partner är arbets flödet:
-
-1. Platsenhetens (VPN/SDWAN) kontrollant autentiseras för export av platsspecifik information till Azure med hjälp av ett [Azure-tjänstobjekt](../active-directory/develop/howto-create-service-principal-portal.md).
-2. Platsenhetens (VPN/SDWAN) kontrollant tar emot Azure-anslutningskonfigurationen och uppdaterar den lokala enheten. På så vis automatiseras konfigurationshämtningen, redigeringen och uppdateringen av den lokala VPN-enheten.
-3. När enheten har rätt Azure-konfiguration upprättas en plats-till-plats-anslutning (två aktiva tunnlar) till Azures WAN-nätverk. Azure stöder både IKEv1 och IKEv2. BGP är valfritt.
-
-#### <a name="partners-for-site-to-site-virtual-wan-connections"></a><a name="partners"></a>Partner för virtuella WAN-anslutningar från plats till plats
-
-En lista över tillgängliga partners och platser finns i artikeln [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) .
+Den här typen av anslutning kräver en VPN-enhet eller en virtuell WAN-partner enhet. Virtuella WAN-partner ger automatisering för anslutning, vilket är möjligheten att exportera enhets informationen till Azure, ladda ned Azure-konfigurationen och upprätta anslutning till Azure Virtual WAN Hub. En lista över tillgängliga partners och platser finns i artikeln [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) . Om VPN/SD-WAN-providern inte finns med i den här länken kan du förenkla användningen av steg-för-steg-instruktionen [skapa en plats-till-plats-anslutning med hjälp av Virtual WAN](virtual-wan-site-to-site-portal.md) för att konfigurera anslutningen.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Användares VPN-anslutningar (punkt-till-plats)
 
@@ -95,9 +83,50 @@ Du kan ansluta till dina resurser i Azure via en IPsec/IKE (IKEv2) eller OpenVPN
 ### <a name="expressroute-connections"></a><a name="er"></a>ExpressRoute-anslutningar
 Med ExpressRoute kan du ansluta ett lokalt nätverk till Azure över en privat anslutning. Information om hur du skapar anslutningen finns i [skapa en ExpressRoute-anslutning med hjälp av virtuellt WAN](virtual-wan-expressroute-portal.md).
 
+### <a name="hub-to-vnet-connections"></a><a name="hub"></a>NAV-till-VNet-anslutningar
+
+Du kan ansluta ett virtuellt Azure-nätverk till en virtuell hubb. Mer information finns i [ansluta ditt VNet till en hubb](virtual-wan-site-to-site-portal.md#vnet).
+
+### <a name="transit-connectivity"></a><a name="transit"></a>Överförings anslutning
+
+#### <a name="transit-connectivity-between-vnets"></a><a name="transit-vnet"></a>Överförings anslutning mellan virtuella nätverk
+
+Det virtuella WAN-nätverket tillåter överföring av anslutningar mellan virtuella nätverk. Virtuella nätverk ansluter till en virtuell hubb via en virtuell nätverks anslutning. Överförings anslutning mellan virtuella nätverk i **standard virtuella WAN-nätverk** aktive ras på grund av förekomsten av en router i varje virtuellt nav. Den här routern instansieras när den virtuella hubben skapas.
+
+Routern kan ha fyra Dirigerings status: etablerad, etablering, misslyckad eller ingen. **Routningsstatus** finns i Azure Portal genom att gå till sidan virtuellt nav.
+
+* **Ingen** status anger att den virtuella hubben inte etablerade routern. Detta kan inträffa om det virtuella WAN-nätverket är av typen *Basic*eller om den virtuella hubben distribuerades innan tjänsten är tillgänglig.
+* Statusen **misslyckades anger att det** inte gick att instansiera. För att instansiera eller återställa routern kan du leta upp alternativet **Återställ router** genom att gå till översikts sidan för virtuella hubbar i Azure Portal.
+
+Varje virtuell hubb-router stöder ett sammanställt data flöde på upp till 50 Gbit/s. Anslutning mellan virtuella nätverks anslutningar förutsätter totalt 2000 VM-arbetsbelastning över alla virtuella nätverk i ett virtuellt WAN.
+
+#### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Överförings anslutning mellan VPN och ExpressRoute
+
+Det virtuella WAN-nätverket tillåter överföring av anslutningar mellan VPN-och ExpressRoute. Detta innebär att VPN-anslutna platser eller fjärran vändare kan kommunicera med ExpressRoute-anslutna platser. Det finns också ett implicit antagande om att **flaggan för Branch-till-gren** är aktive rad. Den här flaggan finns i Azures virtuella WAN-inställningar i Azure Portal. All väg hantering tillhandahålls av den virtuella Hub-routern, som också möjliggör överförings anslutning mellan virtuella nätverk.
+
+### <a name="custom-routing"></a><a name="routing"></a>Anpassad routning
+
+Det virtuella WAN-nätverket ger avancerade förbättringar av routningen. Möjlighet att konfigurera anpassade väg tabeller, optimera routning av virtuella nätverk med väg Association och-spridning, logiskt gruppera väg tabeller med etiketter och förenkla flera virtuella nätverks installationer eller delade tjänster.
+
+### <a name="global-vnet-peering"></a><a name="global"></a>Global VNet-peering
+
+Global VNet-peering är en mekanism för att ansluta två virtuella nätverk i olika regioner. I virtuella WAN-nätverk ansluter virtuella nätverks anslutningar virtuella nätverk till virtuella nav. Användaren behöver inte konfigurera global VNet-peering explicit. Virtuella nätverk som är anslutna till det virtuella navet är samma region som debiteras för VNet-peering. Virtuella nätverk som är anslutna till en virtuell hubb i en annan region ådrar sig globala VNet-peering-kostnader.
+
+### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Kryptering av ExpressRoute-trafik
+
+Azure Virtual WAN ger möjlighet att kryptera din ExpressRoute-trafik. Tekniken ger en krypterad överföring mellan lokala nätverk och virtuella Azure-nätverk via ExpressRoute, utan att gå över det offentliga Internet eller använda offentliga IP-adresser. Mer information finns i [IPSec över ExpressRoute för virtuellt WAN](vpn-over-expressroute.md).
+
 ## <a name="locations"></a><a name="locations"></a>Platser
 
 Plats information finns i artikeln [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) .
+
+## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Routa tabeller i Basic-och standard-virtuella WAN
+
+Routningstabeller har nu funktioner för Association och spridning. En fördefinierad routningstabell är en routningstabell som inte har dessa funktioner. Om du har en fördefinierad routningstabell, Tänk på följande:
+
+* **Virtuella standard WAN-kunder med befintliga väg tabeller**: om du vill använda de nya funktionerna i en routningstabell tar du bort alla befintliga routningstabeller och återskapar nya.
+
+* **Grundläggande virtuella WAN-kunder med befintliga väg tabeller**: om du vill använda de nya funktionerna för en routningstabell tar du bort alla befintliga routningstabeller och **uppgraderar** sedan ditt grundläggande virtuella WAN-nätverk till standard virtuella WAN. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 

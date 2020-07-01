@@ -4,12 +4,12 @@ description: Läs mer om tjänsten Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d90c40447dc4928a34332685aea728b13c3775b1
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 41fcf1c4a9a59ad0cea89c8b44374cef6444558e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771265"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564121"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -20,7 +20,7 @@ Azure Migrate tillhandahåller en central hubb för att utvärdera och migrera t
 - **Plattform för enhetlig migrering**: en enda portal för att starta, köra och spåra migreringen till Azure.
 - **Olika verktyg**: en uppsättning verktyg för utvärdering och migrering. Azure Migrate verktyg inkluderar Server utvärdering och Azure Migrate: Server-migrering. Azure Migrate integreras också med andra Azure-tjänster och-verktyg och med oberoende program varu leverantörer (ISV)-erbjudanden.
 - **Utvärdering och migrering**: i Azure Migrate hubb kan du utvärdera och migrera:
-    - **Servrar**: utvärdera lokala servrar och migrera dem till virtuella Azure-datorer.
+    - **Servrar**: utvärdera lokala servrar och migrera dem till virtuella Azure-datorer eller Azure VMware-lösning (AVS) (för hands version).
     - **Databaser**: utvärdera lokala databaser och migrera dem till Azure SQL Database eller till SQL-hanterad instans.
     - **Webb program**: utvärdera lokala webb program och migrera dem till Azure App Service med hjälp av Azure App Service Migration Assistant.
     - **Virtuella skriv bord**: utvärdera din lokala virtuella Skriv bords infrastruktur (VDI) och migrera den till Windows Virtual Desktop i Azure.
@@ -30,7 +30,7 @@ Azure Migrate tillhandahåller en central hubb för att utvärdera och migrera t
 
 Azure Migrate Hub innehåller följande verktyg:
 
-**Verktyg** | **Utvärdera och migrera** | **Information**
+**Verktyg** | **Utvärdera och migrera** | **Detaljer**
 --- | --- | ---
 **Azure Migrate: Server utvärdering** | Utvärdera servrar. | Identifiera och utvärdera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar som förbereder migrering till Azure.
 **Azure Migrate: Server-migrering** | Migrera servrar. | Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, andra virtualiserade datorer och virtuella datorer i offentliga moln till Azure.
@@ -60,12 +60,12 @@ Azure Migrate integreras med flera ISV-erbjudanden.
 
 ## <a name="azure-migrate-server-assessment-tool"></a>Azure Migrate: Server bedömnings verktyg
 
-Verktyget Azure Migrate: Server bedömning identifierar och utvärderar lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar för migrering till Azure.
+Verktyget Azure Migrate: Server bedömning identifierar och utvärderar lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar för migrering till Azure. 
 
 Så här fungerar verktyget:
 
 - **Azure-beredskap**: Bedöm om lokala datorer är klara för migrering till Azure.
-- **Azure-storlek**: uppskattar storleken på virtuella Azure-datorer efter migreringen.
+- **Azure-storlek**: uppskattar storleken på virtuella Azure-datorer eller antalet Azure VMware-noder efter migreringen.
 - **Kostnads uppskattning i Azure**: uppskattar kostnader för att köra lokala servrar i Azure.
 - Beroende **analys**: identifierar beroenden mellan servrar och optimerings strategier för att flytta beroende servrar till Azure. Lär dig mer om Server utvärdering med [beroende analys](concepts-dependency-visualization.md).
 
@@ -80,7 +80,7 @@ Server utvärderingen använder en förenklad [Azure Migrate](migrate-appliance.
 
 Med verktyget Azure Migrate: Migreringsverktyg kan du migrera till Azure:
 
-**Migrera** | **Information**
+**Migrera** | **Detaljer**
 --- | ---
 Lokala virtuella VMware-datorer | Migrera virtuella datorer till Azure med hjälp av en agent utan agent eller en agent-baserad migrering.<br/><br/> Vid migrering utan Agent använder Server Migration en Azure Migrate-enhet som du distribuerar lokalt. Det är samma typ av apparat som du använder för Server utvärdering.<br/><br/> För agent-baserad migrering använder Server utvärdering en replikeringsprincip.
 Lokala virtuella Hyper-V-datorer | Migrera virtuella datorer till Azure.<br/><br/> Server utvärderingen använder leverantörs agenter som är installerade på Hyper-V-värden för migreringen.

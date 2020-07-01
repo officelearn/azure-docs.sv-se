@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 241d91a8c8670c32461684ed964b6fc0fd7c1672
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206418"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563258"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -81,7 +81,7 @@ Du använder följande API: er för att träna modeller och extrahera strukturer
 | **Analysera inleverans** |Analysera ett enda kvitto dokument för att extrahera viktig information och annan kvitto text.|
 | **Analysera layout** |Analysera layouten för ett formulär för att extrahera text-och tabell strukturen.|
 
-Mer information får du genom att utforska [REST API referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm) . Om du är bekant med en tidigare version av API: n läser du artikeln [Nyheter](./whats-new.md) och lär dig mer om de senaste ändringarna.
+Mer information får du genom att utforska [REST API referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) . Om du är bekant med en tidigare version av API: n läser du artikeln [Nyheter](./whats-new.md) och lär dig mer om de senaste ändringarna.
 
 ## <a name="input-requirements"></a>Krav för indatamängd
 ### <a name="custom-model"></a>Anpassad modell
@@ -104,4 +104,4 @@ Precis som med alla kognitiva tjänster bör utvecklare som använder formulär 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .
+Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .

@@ -13,6 +13,7 @@
     - name: Skapa en profil och en slutpunkt
       href: cdn-create-new-endpoint.md
     - name: Skapa en profil och slutpunkt – ARM-mall
+      displayName: Resource Manager
       href: create-profile-endpoint-template.md
 - name: Självstudier
   items:

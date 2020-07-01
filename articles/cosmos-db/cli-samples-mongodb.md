@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 88b795b52955a6bd323e7a900c0cd62dab1dd2d4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 7536a2e3fc32aeb330aad52625a5946e856d6646
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262947"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556036"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-mongodb-api"></a>Azure CLI-exempel för Azure Cosmos DB MongoDB-API
 
@@ -21,7 +21,7 @@ Följande tabell innehåller länkar till exempel på Azure CLI-skript för Azur
 > [!NOTE]
 > För närvarande kan du bara skapa 3,2-versionen (det vill säga konton som använder slut punkten i formatet `*.documents.azure.com` ) för Azure Cosmos DBS API för MongoDB-konton med hjälp av PowerShell-, CLI-och Resource Manager-mallar. Om du vill skapa en 3,6-version av konton använder du i stället Azure Portal.
 
-| |  |
+|Uppgift | Description |
 |---|---|
 | [Skapa ett Azure Cosmos-konto, en databas och en samling](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure Cosmos DB konto, en databas och en samling för MongoDB-API: et. |
 | [Ändra data flöde](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Uppdatera RU/s i en databas och samling.|

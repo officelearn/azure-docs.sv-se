@@ -1,24 +1,21 @@
 ---
-title: Skapa ett kunskaps lager (för hands version) med REST
+title: Skapa ett kunskaps lager med REST
 titleSuffix: Azure Cognitive Search
-description: Använd REST API och Postman för att skapa en Azure Kognitiv sökning kunskaps lager för att spara omfattande innehåll från en AI-pipeline. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
+description: Använd REST API och Postman för att skapa en Azure Kognitiv sökning kunskaps lager för att spara omfattande innehåll från en AI-pipeline.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: f030fc81ab33ecd0531040662346e1ed44f5d17c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/30/2020
+ms.openlocfilehash: f496413cf1a5175cee65bce46a2f7f6260d5451d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263032"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565216"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Skapa ett kunskaps lager med REST och Postman
-
-> [!IMPORTANT] 
-> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 Ett kunskaps lager innehåller utdata från en Azure Kognitiv sökning anriknings pipeline för senare analys eller annan efterföljande bearbetning. En AI-fördefinierad pipeline tar emot bildfiler eller ostrukturerade textfiler, indexerar dem med hjälp av Azure Kognitiv sökning, använder AI-anrikninger från Cognitive Services (till exempel bild analys och naturlig språk bearbetning) och sparar sedan resultatet i ett kunskaps lager i Azure Storage. Du kan använda verktyg som Power BI eller Storage Explorer i Azure Portal för att utforska kunskaps lagret.
 
@@ -81,7 +78,7 @@ Om du vill hämta värdet för `admin-key` går du till Azure kognitiv sökning-
 | Variabel    | Hämta det på |
 |-------------|-----------------|
 | `admin-key` | På sidan **nycklar** i Azure kognitiv sökning-tjänsten.  |
-| `api-version` | Lämna som **2019-05-06-för hands version**. |
+| `api-version` | Lämna som **2020-06-30**. |
 | `datasource-name` | Lämna som **Hotell – recensioner – DS**. | 
 | `indexer-name` | Lämna som **Hotell – recensioner – IXR**. | 
 | `index-name` | Lämna som **Hotell – recensioner – IX**. | 

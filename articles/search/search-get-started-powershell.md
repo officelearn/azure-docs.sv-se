@@ -9,25 +9,25 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 612751c2405cd55ad0b3760aa8e093e434a22f57
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 96ab2b7c8e80375f97df550ed6c83e7bb3e2f3e3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121602"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562075"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i PowerShell med REST API: er
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C #](search-create-index-dotnet.md)
+> * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [Portalen](search-create-index-portal.md)
+> * [Portal](search-create-index-portal.md)
 > 
 
 Den här artikeln vägleder dig genom processen att skapa, läsa in och skicka frågor mot ett Azure Kognitiv sökning-index med PowerShell och [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du kör PowerShell-kommandon interaktivt. Du kan också [Hämta och köra ett PowerShell-skript](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) som utför samma åtgärder.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -43,7 +43,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
@@ -63,7 +63,7 @@ Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din 
 2. Skapa ett **$URL** -objekt som anger tjänstens index samling. Ersätt tjänst namnet (din-SEARCH-SERVICE-NAME) med en giltig Sök tjänst.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name"
     ```
 
 3. Kör **Invoke-RestMethod** för att skicka en get-begäran till tjänsten och kontrol lera anslutningen. Lägg till **ConvertTo-JSON** så att du kan visa svaren som skickas tillbaka från tjänsten.
@@ -87,7 +87,7 @@ Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din 
 
 Om du inte använder portalen måste det finnas ett index för tjänsten innan du kan läsa in data. Det här steget definierar indexet och pushar det till tjänsten. [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för det här steget.
 
-Obligatoriska element i ett index innehåller ett namn och en fält samling. Fält samlingen definierar strukturen för ett *dokument*. Varje fält har ett namn, typ och attribut som avgör hur det används (till exempel om det är full text sökbar, filtrerings bar eller hämtnings bar i Sök resultaten). I ett index måste ett av fälten av typen `Edm.String` anges som *nyckel* för dokument identitet.
+Obligatoriska element i ett index innehåller ett namn och en fält samling. Fält samlingen definierar strukturen för ett *dokument*. Varje fält har ett namn, typ och attribut som avgör hur det används (till exempel om det är full text sökbar, filtrerings bar eller hämtnings bar i Sök resultaten). I ett index måste ett av fälten av typen anges `Edm.String` som *nyckel* för dokument identitet.
 
 Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna som visas nedan. Det är en del av ett större [hotell index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) som används i andra genom gångar. Vi trimmade det i den här snabb starten för det kortfattat.
 
@@ -123,7 +123,7 @@ Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna
 2. Ange URI: n till index samlingen på din tjänst och ditt *hotell-snabb start* index.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30"
     ```
 
 3. Kör kommandot med **$URL**, **$headers**och **$Body** för att skapa indexet för tjänsten. 
@@ -183,7 +183,7 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
 
 1. Klistra in det här exemplet i PowerShell för att skapa ett **$Body** -objekt som innehåller de dokument som du vill ladda upp. 
 
-    Denna begäran innehåller två fullständiga och en partiell post. Den partiella posten visar att du kan ladda upp ofullständiga dokument. `@search.action` Parametern anger hur indexeringen utförs. Giltiga värden är Ladda upp, sammanfoga, mergeOrUpload och ta bort. MergeOrUpload-beteendet skapar antingen ett nytt dokument för hotelId = 3, eller uppdaterar innehållet om det redan finns.
+    Denna begäran innehåller två fullständiga och en partiell post. Den partiella posten visar att du kan ladda upp ofullständiga dokument. `@search.action`Parametern anger hur indexeringen utförs. Giltiga värden är Ladda upp, sammanfoga, mergeOrUpload och ta bort. MergeOrUpload-beteendet skapar antingen ett nytt dokument för hotelId = 3, eller uppdaterar innehållet om det redan finns.
 
     ```powershell
     $body = @"
@@ -273,7 +273,7 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
 1. Ange slut punkten till samlingen *hotell-starter* -samling och inkludera index åtgärden (index/hotell-snabb start/dokument/index).
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30"
     ```
 
 1. Kör kommandot med **$URL**, **$headers**och **$Body** för att läsa in dokument till hotell-snabb starts indexet.
@@ -326,7 +326,7 @@ Se till att använda enkla citat tecken vid sökning $urls. Frågesträngar inne
    Den här strängen kör en tom sökning (search = *) och returnerar en lista med en lista (Sök poäng = 1,0) av godtyckliga dokument. Som standard returnerar Azure Kognitiv sökning 50 matchningar åt gången. Som strukturerad returnerar den här frågan en hel dokument struktur och-värden. Lägg till **$Count = sant** för att få ett antal dokument i resultaten.
 
     ```powershell
-    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$count=true'
     ```
 
 1. Kör kommandot för att skicka **$URL** till tjänsten.
@@ -375,21 +375,21 @@ Testa några andra exempel frågor för att få en känsla för syntaxen. Du kan
 # Query example 1
 # Search the entire index for the terms 'restaurant' and 'wifi'
 # Return only the HotelName, Description, and Tags fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
 # Apply a filter to the index to find hotels rated 4 or highter
 # Returns the HotelName and Rating. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
 # Take the top two results, and show only HotelName and Category in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelName,Category'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
 # Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 ## <a name="clean-up-resources"></a>Rensa resurser
 

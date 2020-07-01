@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ea38b7351d2ba512261de94ac00a06eec9ba9946
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 0abc98c95c03e3dd2e12a601188d9c5f7cb4523d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206265"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558985"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning
 
@@ -39,7 +39,7 @@ Först behöver du en uppsättning tränings data i en Azure Storage-blob. Du b�
 > [!NOTE]
 > Du kan använda funktionen märkta data för att manuellt märka vissa eller alla dina utbildnings data i förväg. Detta är en mer komplex process men resulterar i en bättre tränad modell. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
 
-Om du vill träna en formulär igenkännings modell med dokumenten i din Azure Blob-behållare anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync)** -API: et för träna genom att köra följande spiral-kommando. Innan du kör kommandot gör du följande ändringar:
+Om du vill träna en formulär igenkännings modell med dokumenten i din Azure Blob-behållare anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande spiral-kommando. Innan du kör kommandot gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
@@ -53,7 +53,7 @@ Du får ett `201 (Success)` svar med ett **plats** huvud. Värdet för den här 
 
 ## <a name="get-training-results"></a>Hämta utbildnings resultat
 
-När du har startat träna-åtgärden använder du en ny åtgärd, **[hämtar anpassad modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetCustomModel)** för att kontrol lera kursens status. Skicka modell-ID: t till det här API-anropet för att kontrol lera utbildningens status:
+När du har startat träna-åtgärden använder du en ny åtgärd, **[hämtar anpassad modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** för att kontrol lera kursens status. Skicka modell-ID: t till det här API-anropet för att kontrol lera utbildningens status:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel.
 1. Ersätt `<subscription key>` med din prenumerations nyckel
@@ -135,7 +135,7 @@ Du får ett `200 (Success)` svar med en JSON-text i följande format. Lägg mär
 
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analysera formulär för nyckel/värde-par och tabeller
 
-Sedan använder du din nya tränade modell för att analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **[analys formulärets](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)** API genom att köra följande spiral-kommando. Innan du kör kommandot gör du följande ändringar:
+Sedan använder du din nya tränade modell för att analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **[analys formulärets](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API genom att köra följande spiral-kommando. Innan du kör kommandot gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick från ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
 1. Ersätt `<model ID>` med det modell-ID som du fick i föregående avsnitt.
@@ -422,4 +422,4 @@ Huvud nyckel/värde paret associationer och tabeller finns i `"pageResults"` nod
 I den här snabb starten använde du formulär tolken REST API med sväng för att träna en modell och köra den i ett exempel scenario. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)

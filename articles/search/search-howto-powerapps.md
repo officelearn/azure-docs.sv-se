@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 04/25/2020
-ms.openlocfilehash: 2a2e292390b2f060bf31d739605d7506203a5619
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 66289c512a746a30ed8dbd3e5c2df92bea27d907
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901402"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565841"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Självstudie: fråga ett Kognitiv sökning-index från Power Apps
 
@@ -43,7 +43,7 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
 1. [Logga in](http://make.powerapps.com) på Power Apps.
 
-1. Till vänster expanderar du **data** > **anpassade anslutningar**.
+1. Till vänster expanderar du **data**  >  **anpassade anslutningar**.
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menyn anpassad anslutning" border="true":::
 
@@ -57,7 +57,7 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
    * Ikon bakgrunds färg (till exempel #007ee5)
    * Beskrivning (till exempel "en anslutning till Azure Kognitiv sökning")
-   * På värden måste du ange din Sök tjänst-URL (t. ex. `<yourservicename>.search.windows.net`)
+   * På värden måste du ange din Sök tjänst-URL (t. ex. `<yourservicename>.search.windows.net` )
    * För bas-URL anger du bara "/"
 
     :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Dialog rutan allmän information" border="true":::
@@ -74,9 +74,9 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
    * Välj verbet`GET`
 
-   * För URL: en anger du en exempel fråga för Sök indexet (`search=*` returnerar alla `$select=` dokument, låter dig välja fält). API-versionen måste anges. Fullständigt angivet kan en URL se ut så här:`https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
+   * För URL: en anger du en exempel fråga för Sök indexet ( `search=*` returnerar alla dokument, `$select=` låter dig välja fält). API-versionen måste anges. Fullständigt angivet kan en URL se ut så här:`https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
-   * För sidhuvuden skriver `Content-Type`du. 
+   * För sidhuvuden skriver du `Content-Type` . 
 
      **Power Apps** använder syntaxen för att extrahera parametrar från frågan. Observera att Sök fältet uttryckligen definierats. 
 
@@ -94,11 +94,11 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Metadata för versions parameter" border="true":::
 
-1. För *API-version*: ange `2019-05-06` som **Standardvärde**, ange **obligatorisk** till *Sant*och ange **synlighet** som *intern*.  
+1. För *API-version*: ange `2020-06-30` som **Standardvärde**, ange **obligatorisk** till *Sant*och ange **synlighet** som *intern*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadata för versions parameter" border="true":::
 
-1. För *innehålls typ*: inställt `application/json`på.
+1. För *innehålls typ*: inställt på `application/json` .
 
 1. När du har gjort ändringarna växlar du till vyn **Swagger-redigerare** . I avsnittet parametrar bör du se följande konfiguration:
 
@@ -106,14 +106,14 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
     parameters:
       - {name: search, in: query, required: false, type: string, default: '*'}
       - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
-      - {name: api-version, in: query, required: true, type: string, default: '2019-05-06',
+      - {name: api-version, in: query, required: true, type: string, default: '2020-06-30',
         x-ms-visibility: internal}
       - {name: Content-Type, in: header, required: false, type: string}
     ```
 
 1. Gå tillbaka till **3. **Steg för begäran och rulla ned till avsnittet svar. Klicka på **Lägg till standard svar**. Detta är viktigt eftersom det hjälper Power apps att förstå schemat för svaret. 
 
-1. Klistra in ett exempel svar. Ett enkelt sätt att avbilda ett exempel svar är via Sök Utforskaren i Azure Portal. I Sök Utforskaren ska du ange samma fråga som du gjorde för begäran, men Lägg till **$Top = 2** om du vill begränsa resultatet till bara två dokument:: `search=*&$select=HotelName,Description,Address/City&$top=2`. 
+1. Klistra in ett exempel svar. Ett enkelt sätt att avbilda ett exempel svar är via Sök Utforskaren i Azure Portal. I Sök Utforskaren ska du ange samma fråga som du gjorde för begäran, men Lägg till **$Top = 2** om du vill begränsa resultatet till bara två dokument:: `search=*&$select=HotelName,Description,Address/City&$top=2` . 
 
    Power Apps behöver bara några få resultat för att identifiera schemat.
 
@@ -176,7 +176,7 @@ Du behöver en [frågas-API-nyckel](search-security-api-keys.md#find-existing-ke
 
 I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett visnings område för resultatet. Power App ansluter till det nyligen skapade anpassade anslutnings programmet för att hämta data från Azure Search.
 
-1. Till vänster expanderar du **appar** > **+ ny app** > -**arbetsyta**.
+1. Till vänster expanderar du **appar**  >  **+ ny app**-  >  **arbetsyta**.
 
     :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Skapa app för arbets yta" border="true":::
 

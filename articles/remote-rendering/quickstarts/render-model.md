@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300580"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565514"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Snabb start: rendera en modell med Unity
 
 Den här snabb starten beskriver hur du kör ett Unity-exempel som återger en inbyggd modell via fjärr anslutning med hjälp av tjänsten Azure Remote rendering (ARR).
 
-Vi kommer inte att gå in i detalj om ARR-API: et eller hur du konfigurerar ett nytt Unity-projekt. De här avsnitten beskrivs i [Självstudier: Konfigurera ett Unity-projekt från grunden](../tutorials/unity/project-setup.md).
+Vi kommer inte att gå in i detalj om ARR-API: et eller hur du konfigurerar ett nytt Unity-projekt. De här avsnitten beskrivs i [själv studie kursen: Visa fjärranslutna modeller](../tutorials/unity/view-remote-models/view-remote-models.md).
 
 I den här snabb starten får du lära dig att:
 > [!div class="checklist"]
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig att:
 >* Hämta och skapa exempel appen ARR starter för enhets enhet
 >* Rendera en modell i exempel appen ARR starter
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att få åtkomst till tjänsten Azure Remote rendering måste du först [skapa ett konto](../how-tos/create-an-account.md).
 

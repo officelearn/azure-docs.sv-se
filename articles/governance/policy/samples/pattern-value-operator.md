@@ -1,14 +1,14 @@
 ---
 title: 'Mönster: värde operatorn i en princip definition'
 description: Detta Azure Policy mönster innehåller ett exempel på hur du använder värde operatorn i en princip definition.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: ace7b7cd4a765cdb8c7aa764b52b180c60508ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e246e3a5e2517fa80626081227070bcb2f967784
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172788"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565668"
 ---
 # <a name="azure-policy-pattern-the-value-operator"></a>Azure Policy mönster: värde operatorn
 

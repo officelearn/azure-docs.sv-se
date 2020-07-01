@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561648"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564210"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudie: etablera Azure Data Box Gateway i VMware
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Etablera en virtuell enhet i VMware
 > * Starta den virtuella enheten och hämta IP-adressen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
 ## <a name="prerequisites"></a>Krav
@@ -145,7 +145,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
     På samma sidan klickar du på **Add hard disk** (Lägg till hårddisk) och väljer sedan **Existing hard disk** (Befintlig hårddisk). Välj VMDK-filen i datalagret. Detta lägger till en OS-disk. 
 
-     ! Sidan anpassa inställningar[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Sidan anpassa inställningar](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Rulla ned tills du ser **New hard disk** (Ny hårddisk) och expandera den för att visa inställningarna. Ställ in **Virtual Device Node** (Nod för virtuell enhet) på **IDE controller 0** (IDE-styrenhet 0).
 
@@ -157,8 +157,8 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
 18. På sidan **Ready to Complete** (Redo att slutföra)granskar du alla inställningar associerade med den nya virtuella datorn. Kontrollera att CPU är 4, minnet är 8 192 MB, nätverksgränssnittet är 1 och hårddisk 2 har IDE-styrenhet 0. Klicka på **Slutför**.
    
-    ![Redo att slutföra](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![sidan som är redo att slutföras](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Redo att slutföra sidan som är ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+     ![ redo att slutföras](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Den virtuella datorn är nu etablerad. Ett meddelande om detta visas och den nya virtuella datorn har lagts till i listan över virtuella datorer.
 

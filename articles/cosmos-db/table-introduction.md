@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695257"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557536"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB | Tabell-API
 
@@ -32,7 +32,7 @@ Program som är skrivna för Azure Table Storage kan migrera till Azure Cosmos D
 ## <a name="table-offerings"></a>Tabellerbjudanden
 Om du använder Azure Table Storage får du följande fördelar genom att byta till Azure Cosmos DB:s tabell-API:
 
-| | Azure Table Storage | Tabell-API för Azure Cosmos DB |
+| Funktion | Azure Table Storage | Tabell-API för Azure Cosmos DB |
 | --- | --- | --- |
 | Svarstid | Snabb, men inga övre gränser för svarstid. | Enkel svars tid i millisekunder för läsningar och skrivningar, med <10 MS svars tid för läsningar och skrivningar i 99 percentilen, i valfri skala, var som helst i världen. |
 | Dataflöde | Modell med variabelt dataflöde. Tabeller har en gräns för skalbarhet på 20 000 åtgärder/s. | Mycket skalbara med [dedikerat reserverat dataflöde per tabell](request-units.md) som understöds av serviceavtal. Konton har ingen maxgräns för dataflöde och kan hantera >10 miljoner åtgärder/s per tabell. |

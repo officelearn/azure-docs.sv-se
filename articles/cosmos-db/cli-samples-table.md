@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 36e85ccf4c145b6881670cb95f5e84ec177ce2a5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8c6456074e29efe47819e4f31235d957bde81cfb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262930"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560618"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>Azure CLI-exempel för Azure Cosmos DB Tabell-API
 
 Följande tabell innehåller länkar till exempel på Azure CLI-skript för Azure Cosmos DB Tabell-API. Referens sidor för alla Azure Cosmos DB CLI-kommandon är tillgängliga i [Azure CLI-referensen](/cli/azure/cosmosdb). Alla Azure Cosmos DB CLI-skript exempel finns i [Azure Cosmos DB CLI GitHub-lagringsplatsen](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Uppgift | Description |
 |---|---|
 | [Skapa ett Azure Cosmos-konto och en tabell](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure Cosmos DB konto och en tabell för Tabell-API. |
 | [Ändra data flöde](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Uppdatera RU/s i en tabell.|

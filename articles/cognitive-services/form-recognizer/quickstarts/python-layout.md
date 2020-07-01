@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: 61402a851ddac1cc279c51a59e48bed7949da273
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: c84e36f668a9b5cd7fdb61103300d971fdf6c0fa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412863"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563080"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: Extrahera text-och layoutinformation med hjälp av formulär tolken REST API med python
 
@@ -39,7 +39,7 @@ För att slutföra den här snabb starten måste du ha:
 
 ## <a name="analyze-the-form-layout"></a>Analysera formulärlayouten
 
-Du börjar analysera layouten genom att anropa API: et för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeLayoutAsync)** med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
+Du börjar analysera layouten genom att anropa API: et för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<path to your form>` med sökvägen till ditt lokala formulär dokument.
@@ -80,7 +80,7 @@ Du börjar analysera layouten genom att anropa API: et för **[analys av layout]
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-layout.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python form-recognizer-layout.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-layout.py`.
 
 Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` Åtgärds-ID: t.
 
@@ -120,7 +120,7 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd kommandot igen `python` för att köra exemplet. Exempelvis `python form-recognizer-layout.py`.
+1. Använd kommandot igen `python` för att köra exemplet. Till exempel `python form-recognizer-layout.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 
@@ -283,4 +283,4 @@ Se följande faktura bild och dess motsvarande JSON-utdata. Utdatan har kort ATS
 I den här snabb starten använde du formulär tolken REST API med python för att extrahera textens layout för en faktura. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeLayoutAsync)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)

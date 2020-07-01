@@ -7,20 +7,27 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 06/15/2020
-ms.openlocfilehash: bd68778eb3f0ca9c2af456cdb88cdcc9fe5862dc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85393903"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560490"
 ---
-# <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-azure-resource-manager-template"></a>Snabb start: skapa en instrument panel i Azure Portal med hjälp av en Azure Resource Manager mall
+# <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Snabb start: skapa en instrument panel i Azure Portal med en ARM-mall
 
-En instrument panel i Azure Portal är en fokuserad och ordnad vy av dina moln resurser. Den här snabb starten fokuserar på processen att distribuera en Resource Manager-mall för att skapa en instrument panel. Instrument panelen visar prestanda för en virtuell dator (VM) samt en statisk information och länkar.
+En instrument panel i Azure Portal är en fokuserad och ordnad vy av dina moln resurser. Den här snabb starten fokuserar på processen att distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa en instrument panel. Instrument panelen visar prestanda för en virtuell dator (VM) samt en statisk information och länkar.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Krav
+
+- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En befintlig virtuell dator.
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -63,7 +70,7 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 
 1. Välj eller ange följande värden och välj sedan **Granska + skapa**.
 
-    ![Resource Manager-mall, skapa instrument panel, distribuera Portal](media/quick-create-template/create-dashboard-using-template-portal.png)
+    ![ARM-mall, skapa instrument panel, distribuera Portal](media/quick-create-template/create-dashboard-using-template-portal.png)
 
     Om den inte anges använder du standardvärdena för att skapa instrument panelen.
 
@@ -75,7 +82,7 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 
 1. Välj **skapa** eller **köp**. När instrument panelen har distribuerats visas ett meddelande:
 
-    ![Resource Manager-mall, skapa instrument panel, distribuera Portal meddelande](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+    ![ARM-mall, skapa instrument panel, distribuera Portal meddelande](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
 Azure Portal användes för att distribuera mallen. Utöver Azure-portalen kan du också använda Azure PowerShell, Azure CLI, and REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
 

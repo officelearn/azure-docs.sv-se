@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: kom igång med Azure Sentinel'
-description: Snabb start för Azure Sentinel – kom igång med Azure Sentinel
+description: Använd den här snabb starten för att lära dig att snabbt visa och övervaka vad som händer i din miljö med hjälp av Azure Sentinel. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798676"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564613"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabb start: kom igång med Azure Sentinel
 

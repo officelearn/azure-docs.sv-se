@@ -161,6 +161,10 @@
               href: concepts-read-replicas.md
             - name: Logisk avkodning
               href: concepts-logical.md
+        - name: Flytta mellan regioner
+          items:
+            - name: Azure Portal
+              href: howto-move-regions-portal.md
     - name: Hyperskala (Citus)
       items:
         - name: Noder

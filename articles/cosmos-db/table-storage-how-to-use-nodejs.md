@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Table Storage eller Azure Cosmos DB Tabell-API från Node. js
+title: Använd Azure Table Storage eller Azure Cosmos DB Tabell-API från Node.js
 description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: d04cf082f5dc7ca3ae07b60dc193c66613fa5c4f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 35435bd318596ffd0a46e5d272565358c092bc03
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76771083"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562693"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -41,16 +41,19 @@ För att använda Azure Storage eller Azure Cosmos DB behöver du Azure Storage 
 1. Använd ett kommandoradsgränssnitt som **PowerShell** (Windows), **Terminal** (Mac) eller **Bash** (Unix) och navigera till mappen där du skapade ditt program.
 2. Skriv **npm install azure-storage** i kommandofönstret. Kommandot returnerar utdata liknande dem i exemplet nedan.
 
-       azure-storage@0.5.0 node_modules\azure-storage
-       +-- extend@1.2.1
-       +-- xmlbuilder@0.4.3
-       +-- mime@1.2.11
-       +-- node-uuid@1.4.3
-       +-- validator@3.22.2
-       +-- underscore@1.4.4
-       +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-       +-- xml2js@0.2.7 (sax@0.5.2)
-       +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+   ```bash
+    azure-storage@0.5.0 node_modules\azure-storage
+    +-- extend@1.2.1
+    +-- xmlbuilder@0.4.3
+    +-- mime@1.2.11
+    +-- node-uuid@1.4.3
+    +-- validator@3.22.2
+    +-- underscore@1.4.4
+    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+    +-- xml2js@0.2.7 (sax@0.5.2)
+    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+   ```
+
 3. Du kan kontrollera att mappen **node_modules** har skapats genom att köra kommandot **ls** manuellt. I mappen hittar du paketet **azure storage**, som innehåller de bibliotek som du behöver för att få åtkomst till lagring.
 
 ### <a name="import-the-package"></a>Importera paketet
@@ -68,7 +71,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
-Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar** > **anslutnings sträng** i Azure Portal för ditt Cosmos DB-konto. Ett exempel:
+Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar**  >  **anslutnings sträng** i Azure Portal för ditt Cosmos DB-konto. Ett exempel:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -136,8 +139,6 @@ var task = {
 
 > [!NOTE]
 > Det finns också en **Timestamp** för varje post, som anges av Azure när en entitet infogas eller uppdateras.
->
->
 
 Du kan också använda **entityGenerator** för att skapa entiteter. I följande exempel skapas samma uppgiftsentitet med hjälp av **entityGenerator**.
 
@@ -173,8 +174,6 @@ Exempelsvar:
 > Som standard returnerar inte **insertEntity** den infogade entiteten som en del av `response`-informationen. Om du planerar att utföra andra åtgärder med den här entiteten eller om du vill cachelagra informationen, kan det vara bra att returnera den som en del av `result`. Du kan göra det genom att aktivera **echoContent** på följande sätt:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
->
->
 
 ## <a name="update-an-entity"></a>Uppdatera en entitet
 Du kan uppdatera en befintlig entitet med hjälp av olika metoder:
@@ -459,6 +458,6 @@ Mer information finns i resurserna nedan.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Azure Storage SDK för Node.js](https://github.com/Azure/azure-storage-node)-databas på GitHub.
-* [Azure för Node. js-utvecklare](https://docs.microsoft.com/azure/javascript/)
+* [Azure för Node.js-utvecklare](https://docs.microsoft.com/azure/javascript/)
 * [Skapa en Node.js-webbapp i Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Skapa och distribuera ett Node.js-program till en Azure-molntjänst](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (med hjälp av Windows PowerShell)

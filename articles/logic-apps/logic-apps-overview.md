@@ -3,16 +3,16 @@ title: Automatisera uppgifter för företags integrering
 description: Lär dig mer om automatisering av arbets flöden som integrerar appar, data, tjänster och system med minimal kod för företags integrering med hjälp av Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659608"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563819"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Översikt – vad är Azure Logic Apps?
 
@@ -32,7 +32,7 @@ Om du vill bygga lösningar för företags integrering med Azure Logic Apps kan 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-## <a name="how-does-logic-apps-work"></a>Hur fungerar Logic Apps? 
+## <a name="how-do-logic-apps-work"></a>Hur fungerar Logic Apps? 
 
 Varje logikapps arbetsflöde börjar med en utlösare, som utlöses när en viss händelse sker eller när nya tillgängliga data uppfyller specifika villkor. Många utlösare som tillhandahålls av kopplingarna i Logic Apps innehåller grundläggande schemaläggnings funktioner så att du kan konfigurera hur ofta dina arbets belastningar ska köras. För mer komplex schemaläggning eller avancerade upprepningar kan du använda en upprepnings utlösare som första steg i arbets flödet. Lär dig mer om [schemabaserade arbets flöden](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
@@ -42,7 +42,7 @@ Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som kö
 
 Du kan skapa logikappar visuellt med Logikappdesignern, som är tillgänglig på Azure Portal via webbläsaren och i Visual Studio. Om du behöver mer anpassade logikappar kan du skapa eller redigera logikappsdefinitioner i JavaScript Object Notation (JSON) genom att arbeta i ”kodvyn”. Du kan också använda Azure PowerShell-kommandon och Azure Resource Manager-mallar för utvalda aktiviteter. Logikappar distribueras och körs i molnet på Azure. En mer detaljerad introduktion finns i den här videon: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Använda Azure Enterprise-integreringstjänster för att köra molnappar i skala)
 
-## <a name="why-use-logic-apps"></a>Varför ska man använda Logic Apps?
+## <a name="why-use-logic-apps"></a>Varför ska jag använda Logic Apps?
 
 Logikappar hjälper det digitala företaget att snabbt och enkelt ansluta äldre, moderna och banbrytande system genom att erbjuda inbyggda API:er som Microsoft-hanterade anslutningsappar. På så vis kan du lägga krutet på apparnas affärslogik och funktionalitet. Du behöver inte tänka på att skapa, vara värd för, skala, hantera, underhålla eller övervaka dina appar. Logic Apps gör det åt dig. Dessutom betalar du endast för det du använder baserat på en [förbrukningsprismodell](../logic-apps/logic-apps-pricing.md).
 

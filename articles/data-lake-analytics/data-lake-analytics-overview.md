@@ -9,43 +9,43 @@ ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: 3572c308310c49eed48ccb25dfa7cb0fb161515f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2855239db7395e5abf8e507678e9e9831147f67
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70164510"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564678"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Vad är Azure Data Lake Analytics?
 
 Azure Data Lake Analytics är en tjänst på begäran som gör det enklare att analysera stordata. I stället för att distribuera, konfigurera och justera maskinvara, kan du skriva frågor genom vilka du kan omvandla dina data och extrahera värdefulla insikter. Med Analytics-tjänsten kan du hantera jobb av alla skalor direkt bara genom att ange hur mycket kraft du behöver. Du betalar endast för jobbet när tjänsten körs vilket gör den kostnadseffektiv. 
 
-### <a name="dynamic-scaling"></a>Dynamisk skalning
+## <a name="dynamic-scaling"></a>Dynamisk skalning
   
 Data Lake Analytics etablerar resurser dynamiskt och du kan utföra analyser på terabyte eller även petabyte av data. Du betalar endast för bearbetningen du använt. När du ökar eller minskar storleken på data som lagras eller mängden beräkning som används behöver du inte skriva om kod. 
 
-### <a name="develop-faster-debug-and-optimize-smarter-using-familiar-tools"></a>Utveckla snabbare, felsök och optimera smartare med hjälp av välbekanta verktyg
+## <a name="develop-faster-debug-and-optimize-smarter-using-familiar-tools"></a>Utveckla snabbare, felsök och optimera smartare med hjälp av välbekanta verktyg
   
 Data Lake Analytics djupintegreras med Visual Studio. Du kan använda välbekanta verktyg för att köra, felsöka och justera koden. Med visualiseringar av dina U-SQL-jobb kan du se hur koden körs i skala, så att du lätt kan identifiera prestandaflaskhalsar och optimera kostnader.
 
-### <a name="u-sql-simple-and-familiar-powerful-and-extensible"></a>U-SQL: Enkelt och bekant, kraftfullt och utökningsbart
+## <a name="u-sql-simple-and-familiar-powerful-and-extensible"></a>U-SQL: Enkelt och bekant, kraftfullt och utökningsbart
   
 Data Lake Analytics innehåller U-SQL, ett frågespråk som utökar den bekanta, enkla, deklarativa kompetensen hos SQL med den expressiva kraften i C#. U-SQL-språket använder samma distribuerade körning som används av Microsofts interna exabyteskaliga Data Lake. SQL- och .NET-utvecklare kan nu bearbeta och analysera alla sina data med kunskaper som de redan har.
 
-### <a name="integrates-seamlessly-with-your-it-investments"></a>Kan helt integreras med dina IT-investeringar
+## <a name="integrates-seamlessly-with-your-it-investments"></a>Kan helt integreras med dina IT-investeringar
   
 Data Lake Analytics använder dina befintliga IT-investeringar för identitet, hantering och säkerhet. Detta förenklar datastyrning och gör det enkelt att utöka dina aktuella program. Data Lake Analytics är integrerat med Active Directory, så att användare och behörigheter kan hanteras, och integrerad övervakning och granskning ingår.
 
-### <a name="affordable-and-cost-effective"></a>Prisvärt och kostnadseffektivt
+## <a name="affordable-and-cost-effective"></a>Prisvärt och kostnadseffektivt
 
 Data Lake Analytics är en kostnadseffektiv lösning för arbetsbelastningar av stordata som körs. Du betalar per projekt när data bearbetas. Det krävs ingen maskinvara, licenser eller tjänstspecifikt supportavtal. Systemet skalas automatiskt uppåt eller nedåt när jobbet startas och är klart, vilket innebär att du aldrig betalar för mer än vad du behöver. [Läs mer om att kontrollera kostnader och spara pengar](https://aka.ms/adlasavemoney).
-    
-### <a name="works-with-all-your-azure-data"></a>Fungerar med alla dina Azure-data
+
+## <a name="works-with-all-your-azure-data"></a>Fungerar med alla dina Azure-data
   
 Data Lake Analytics fungerar med Azure Data Lake Storage för högsta prestanda, data flöde och parallellisering och fungerar med Azure Storage blobbar, Azure SQL Database Azure Warehouse.
 
-### <a name="next-steps"></a>Nästa steg
- 
-  * Kom igång med data Lake Analytics att använda [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)
-  * Hantera Azure Data Lake Analytics med [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node. js](data-lake-analytics-manage-use-nodejs.md)
-  * [Kontrollera kostnader och spara pengar med Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)
+## <a name="next-steps"></a>Nästa steg
+
+* Kom igång med data Lake Analytics att använda [Azure Portal](data-lake-analytics-get-started-portal.md)  |  [Azure PowerShell](data-lake-analytics-get-started-powershell.md)  |  [CLI](data-lake-analytics-get-started-cli.md)
+* Hantera Azure Data Lake Analytics med [Azure Portal](data-lake-analytics-manage-use-portal.md)  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [CLI](data-lake-analytics-manage-use-cli.md)  |  [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)  |  [Node.js](data-lake-analytics-manage-use-nodejs.md)
+* [Kontrollera kostnader och spara pengar med Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)

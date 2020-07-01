@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/29/2020
 ms.author: swmachan
-ms.openlocfilehash: 100084a244944bcaf0d566e347d56dd4a03ecfae
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995793"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561462"
 ---
 # <a name="request-limits-for-translator"></a>Begär ande begränsningar för översättare
 
@@ -66,14 +66,13 @@ När du använder funktionen [BreakSentence](https://docs.microsoft.com/azure/co
 
 | Språk | Kod | Tecken gräns |
 |----------|------|-----------------|
-| Kinesiska | zh | 132 |
-| Tyska | de | 290 |
-| Italienska | it | 280 |
-| Japanska | ja | 150 |
-| Portugisiska | pt | 290 |
-| Spanska | ES | 280 |
-| Italienska | it | 280 |
-| Thailändska | i:te | 258 |
+| Kinesiska | zh | 166 |
+| Tyska | de | 800 |
+| Italienska | it | 800 |
+| Japanska | ja | 166 |
+| Portugisiska | pt | 800 |
+| Spanska | ES | 800 |
+| Thailändska | i:te | 180 |
 
 > [!NOTE]
 > Den här begränsningen gäller inte för översättningar.

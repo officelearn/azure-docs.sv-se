@@ -1,24 +1,22 @@
 ---
-title: Översikt över distributionen av Azure Firewall Manager
-description: Lär dig mer om distributions steg på hög nivå som krävs för för hands versionen av Azure Firewall Manager
+title: Översikt över Azure Firewall Manager-distribution
+description: Lär dig mer om distributions steg på hög nivå som krävs för Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77443133"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565803"
 ---
-# <a name="azure-firewall-manager-preview-deployment-overview"></a>Översikt över distributionen av Azure Firewall Manager
+# <a name="azure-firewall-manager-deployment-overview"></a>Översikt över Azure Firewall Manager-distribution
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Det finns fler än ett sätt att distribuera för hands versionen av Azure Firewall Manager, men följande allmänna process rekommenderas.
+Det finns mer än ett sätt att distribuera Azure Firewall Manager, men följande allmänna process rekommenderas.
 
 ## <a name="general-deployment-process"></a>Allmän distributionsprocess
 
@@ -70,4 +68,4 @@ Det finns fler än ett sätt att distribuera för hands versionen av Azure Firew
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: skydda ditt moln nätverk med för hands versionen av Azure Firewall Manager med hjälp av Azure Portal](secure-cloud-network.md)
+- [Självstudie: skydda ditt moln nätverk med Azure Firewall Manager med hjälp av Azure Portal](secure-cloud-network.md)

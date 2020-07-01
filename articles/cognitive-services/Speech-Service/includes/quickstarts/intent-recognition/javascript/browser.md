@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: 4ebd0b7b02036ca9aed6848ee261d32245ba4973
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 904144b044a0a0223d4807372407b5ce0b9f127b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979711"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85570145"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
@@ -159,7 +159,7 @@ Innan du kan initiera ett `SpeechRecognizer` objekt måste du skapa en konfigura
 
 ## <a name="create-an-audio-configuration"></a>Skapa en ljud konfiguration
 
-Nu måste du skapa ett `AudioConfig` objekt som pekar på devic3 för indatamängden. Infoga den här koden i `startIntentRecognizeAsyncButton.addEventListener()` metoden, precis under din tal konfiguration.
+Nu måste du skapa ett `AudioConfig` objekt som pekar på din indataenhet. Infoga den här koden i `startIntentRecognizeAsyncButton.addEventListener()` metoden, precis under din tal konfiguration.
 
 ```JavaScript
         var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();

@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 46536dcaf5e8565bb621fa3b1c3ff547459816ab
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 39550c3da7a5ed129e26dec3d33f19c65d76cdfa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509431"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560537"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Azure CLI-exempel för API för Azure Cosmos DB Core (SQL)
 
 Följande tabell innehåller länkar till Azure CLI-skript för API: et för Azure Cosmos DB Core (SQL). Referens sidor för alla Azure Cosmos DB CLI-kommandon är tillgängliga i [Azure CLI-referensen](/cli/azure/cosmosdb). För Azure CLI-exempel för andra Azure Cosmos DB-API: er, se [API för Cassandra](cli-samples-cassandra.md), [MongoDB-API](cli-samples-mongodb.md), [Gremlin-API](cli-samples-gremlin.md)och [tabell-API](cli-samples-table.md). Alla Azure Cosmos DB CLI-skript exempel finns i [Azure Cosmos DB CLI GitHub-lagringsplatsen](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Uppgift | Description |
 |---|---|
 | [Skapa ett Azure Cosmos-konto, en databas och en behållare](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure Cosmos DB konto, databas och behållare för SQL-API (Core). |
 | [Ändra data flöde](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Uppdatera RU/s i en databas och behållare.|

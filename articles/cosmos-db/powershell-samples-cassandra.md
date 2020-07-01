@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2efc652c936e7949147bf77ccc1548308734a467
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: fec25bb3043942605895491952d963ee20ac4078
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260686"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563895"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Azure PowerShell exempel för Azure Cosmos DB-API för Cassandra
 
@@ -20,7 +20,7 @@ Följande tabell innehåller länkar till exempel Azure PowerShell skript för A
 > [!NOTE]
 > I exemplen används [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) -hanterings-cmdletar. Sök efter uppdateringar `Az.CosmosDB` regelbundet.
 
-| | |
+|Uppgift | Description |
 |---|---|
 |[Skapa ett konto, ett tomt utrymme och en tabell](scripts/powershell/cassandra/ps-cassandra-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, ett blank steg och en tabell. |
 |[Lista eller hämta blank steg eller tabeller](scripts/powershell/cassandra/ps-cassandra-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista eller hämta blank steg eller tabeller. |

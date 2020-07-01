@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: publicera i Azure Sentinel'
-description: Lär dig hur du samlar in data i Azure Sentinel genom att följa det här snabb starts dokumentet.
+description: I den här snabb starten lär du dig att använda Azure Sentinel på kort genom att först aktivera Sentinel och sedan ansluta data källor.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: a07ba26128d1d4689e820ec8e300ca9420c3c2d2
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367095"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564537"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
@@ -41,7 +41,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
  
 ## <a name="enable-azure-sentinel"></a>Aktivera Azure Sentinel<a name="enable"></a>
 
-1. Logga in på Azure Portal. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
+1. Logga in på Azure-portalen. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
 
 1. Sök efter och välj **Azure Sentinel**.
 

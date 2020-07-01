@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a207118af0b07be79c934a9665f47e73c5eecde0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589201"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560173"
 ---
 # <a name="language-support-for-computer-vision"></a>Språk stöd för Visuellt innehåll
 
 Vissa funktioner i Visuellt innehåll stöd för flera språk. de funktioner som inte nämns här stöder bara engelska.
 
-## <a name="text-recognition"></a>Textigenkänning
+## <a name="text-detection-ocr"></a>Text identifiering (OCR)
 
-Visuellt innehåll kan identifiera text på många språk. API: erna för OCR och läsning kräver inte att du anger en språkkod. Se [identifiera utskrift och handskriven text](concept-recognizing-text.md) för mer information om den här funktionen och fördelarna med varje API.
+Visuellt innehåll kan identifiera text på många språk. API: erna för Läs-och OCR kräver inte att du anger en språkkod. Se [Läs text från bilder och dokument](concept-recognizing-text.md) för mer information om den här funktionen och fördelarna med varje API.
 
 |Språk| Språkkod | OCR-API | Läs-API |
 |:-----|:----:|:-----:|:---:|

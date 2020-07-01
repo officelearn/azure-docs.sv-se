@@ -7,12 +7,12 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: e0845e7cdc2ce6dc57ed5a18d263f117f0c2005c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006246"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563496"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Snabb start: klient biblioteket Azure Blob Storage V12 med Xamarin
 
@@ -26,7 +26,7 @@ Använd klient biblioteket för Azure Blob Storage-V12 med Xamarin för att:
 * Ladda ned blobben till din enhet
 * Ta bort en container
 
-[API Reference dokumentation](/dotnet/api/azure.storage.blobs) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [exempel](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+[API-referens dokumentation](/dotnet/api/azure.storage.blobs)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)  |  [Exempel](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -151,7 +151,7 @@ protected async override void OnAppearing()
 Följande kodfragment:
 
 1. Skapar en `MemoryStream` av text.
-1. Överför texten till en BLOB genom att anropa [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) -funktionen i [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) -klassen och skicka den båda fil namnet som definierats för variabeln på klass nivå `MemoryStream` och text. Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
+1. Överför texten till en BLOB genom att anropa [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) -funktionen i [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) -klassen och skicka den i både fil namnet och i `MemoryStream` texten. Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
 
 Lägg till den här koden i *mainpage.XAML.cs* -filen:
 

@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 2829f451b90a20c5ad399796b0485c6e533bbb23
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488774"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562290"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Guiden **Importera data** är ett Azure Portal verktyg som vägleder dig genom s
 
 Guiden innehåller också sidor för AI-berikning så att du kan extrahera text och struktur från bildfiler och ostrukturerad text. Innehålls bearbetning med AI inkluderar optisk tecken läsning (OCR), nyckel fras och enhets extrahering och bild analys.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha följande:
 
@@ -150,7 +150,7 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 
    ![Kommandot Sökutforskaren](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. I list rutan **index** väljer du *hotell-Sample-index*. Klicka på list rutan **API-version** för att se vilka REST-API: er som är tillgängliga. Använd den allmänt tillgängliga versionen (2019-05-06) för frågorna nedan.
+2. I list rutan **index** väljer du *hotell-Sample-index*. Klicka på list rutan **API-version** för att se vilka REST-API: er som är tillgängliga. Använd den allmänt tillgängliga versionen (2020-06-30) för frågorna nedan.
 
    ![Index- och API-kommandon](media/search-get-started-portal/search-explorer-changeindex.png)
 

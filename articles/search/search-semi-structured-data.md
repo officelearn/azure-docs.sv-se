@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 64cb864b50f44f70bb9ceccc9983641970116cc7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261451"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559016"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Självstudie: indexera JSON-blobbar från Azure Storage med REST
 
@@ -112,13 +112,13 @@ I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` a
 
   ![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
 
-URI: er måste ange en API-version och varje anrop ska returnera en **201 som skapats**. Den allmänt tillgängliga API-versionen för att använda JSON-matriser är `2019-05-06` .
+URI: er måste ange en API-version och varje anrop ska returnera en **201 som skapats**. Den allmänt tillgängliga API-versionen för att använda JSON-matriser är `2020-06-30` .
 
 ## <a name="3---create-a-data-source"></a>3-skapa en data Källa
 
 Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) skapas ett Azure kognitiv sökning-objekt som anger vilka data som ska indexeras.
 
-1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/datasources?api-version=2019-05-06` . Ersätt `[service name]` med namnet på söktjänsten. 
+1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/datasources?api-version=2020-06-30` . Ersätt `[service name]` med namnet på söktjänsten. 
 
 1. Kopiera följande JSON till begär ande texten.
 
@@ -161,7 +161,7 @@ Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/
     
 Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/searchservice/create-index), vilket skapar ett Azure kognitiv sökning-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
 
-1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/indexes?api-version=2019-05-06` . Ersätt `[service name]` med namnet på söktjänsten.
+1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/indexes?api-version=2020-06-30` . Ersätt `[service name]` med namnet på söktjänsten.
 
 1. Kopiera följande JSON till begär ande texten.
 
@@ -236,7 +236,7 @@ Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/sear
 
 En indexerare ansluter till data källan, importerar data till mål Sök indexet och tillhandahåller eventuellt ett schema för att automatisera data uppdateringen. REST API är [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-1. Ange URI för det här anropet `https://[service name].search.windows.net/indexers?api-version=2019-05-06` . Ersätt `[service name]` med namnet på söktjänsten.
+1. Ange URI för det här anropet `https://[service name].search.windows.net/indexers?api-version=2020-06-30` . Ersätt `[service name]` med namnet på söktjänsten.
 
 1. Kopiera följande JSON till begär ande texten.
 
@@ -281,7 +281,7 @@ Du kan börja söka så snart det första dokumentet har lästs in.
 
 1. Ändra verbet som ska **hämtas**.
 
-1. Ange URI för det här anropet `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true` . Ersätt `[service name]` med namnet på söktjänsten.
+1. Ange URI för det här anropet `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true` . Ersätt `[service name]` med namnet på söktjänsten.
 
 1. Skicka begäran. Det här är en ospecificerad text Sök fråga som returnerar alla fält som är markerade som hämtnings bara i indexet, tillsammans med ett dokument antal. Svaret ska se ut så här:
 
@@ -313,7 +313,7 @@ Du kan börja söka så snart det första dokumentet har lästs in.
             . . . 
     ```
 
-1. Lägg till `$select` Frågeparametern för att begränsa resultatet till färre fält: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true` .  För den här frågan matchar 100 dokument, men som standard returnerar Azure Kognitiv sökning bara 50 i resultaten.
+1. Lägg till `$select` Frågeparametern för att begränsa resultatet till färre fält: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true` .  För den här frågan matchar 100 dokument, men som standard returnerar Azure Kognitiv sökning bara 50 i resultaten.
 
    ![Parametriserad fråga](media/search-semi-structured-data/lastquery.png "Paramterized-fråga")
 
@@ -333,7 +333,7 @@ I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för
 Du kan använda portalen för att ta bort index, indexerare och data källor. Eller Använd **ta bort** och ange URL: er för varje objekt. Följande kommando tar bort en indexerare.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30
 ```
 
 Statuskod 204 returneras vid borttagning.

@@ -1,24 +1,22 @@
 ---
-title: 'Självstudie: skydda ditt virtuella WAN med Azure Firewall Manager Preview'
-description: I den här självstudien får du lära dig hur du skyddar ditt virtuella WAN med Azure Firewall Manager med hjälp av Azure Portal.
+title: 'Självstudie: skydda din virtuella hubb med Azure Firewall Manager'
+description: I den här självstudien får du lära dig hur du skyddar din virtuella hubb med Azure Firewall Manager med hjälp av Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691027"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563666"
 ---
-# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Självstudie: skydda ditt virtuella WAN med Azure Firewall Manager Preview 
+# <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Självstudie: skydda din virtuella hubb med Azure Firewall Manager
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Med hjälp av Azure Firewall Manager Preview kan du skapa säkra virtuella hubbar för att skydda din moln nätverks trafik till privata IP-adresser, Azure-PaaS och Internet. Trafik dirigering till brand väggen är automatiserad, så du behöver inte skapa användardefinierade vägar (UDR).
+Med hjälp av Azure Firewall Manager kan du skapa säkra virtuella hubbar för att skydda din moln nätverks trafik till privata IP-adresser, Azure PaaS och Internet. Trafik dirigering till brand väggen är automatiserad, så du behöver inte skapa användardefinierade vägar (UDR).
 
 ![skydda moln nätverket](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -95,7 +93,7 @@ Nu kan du peer-koppla hubben och eker-virtuella nätverk.
 5. För **hubbar**väljer du **hubb-01**.
 6. För **resurs grupp**väljer du **VB-Manager**.
 7. För **virtuellt nätverk**väljer du **eker-01**.
-8. Välj **OK**.
+8. Välj **Skapa**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Skapa en brand Väggs princip och skydda hubben
 
@@ -111,16 +109,18 @@ En brand Väggs princip definierar samlingar av regler för att dirigera trafik 
 8. För **prioritet**, Skriv **100**.
 9. Se till att **regel samlings åtgärden** är **tillåten**.
 10. För regel **namn** typen **Allow-MSFT**.
-11. För **käll adress**skriver **\*** du.
-12. För **protokoll**, Skriv **http, https**.
-13. Se till att mål typen är ett **fullständigt domän namn**.
-14. För **mål**skriver ** \*du. Microsoft.com**.
-15. Välj **Lägg till**.
-16. Välj **Nästa: hubbar**.
-17. På fliken **hubbar** väljer du **associera virtuella nav**.
-18. Välj **hubb – 01** och välj sedan **Lägg till**.
-1. Välj **Granska + skapa**.
-2. Välj **Skapa**.
+11. För **typ av källa**väljer du **IP-adress**.
+12. Som **källa**skriver du **\*** .
+13. För **protokoll**, Skriv **http, https**.
+14. Se till att **måltypen** är ett **fullständigt domän namn**.
+15. För **mål**skriver du ** \* . Microsoft.com**.
+16. Välj **Lägg till**.
+17. Välj **Nästa: Hot information**.
+18. Välj **Nästa: hubbar**.
+19. På fliken **hubbar** väljer du **associera virtuella nav**.
+20. Välj **hubb – 01** och välj sedan **Lägg till**.
+21. Välj **Granska + skapa**.
+22. Välj **Skapa**.
 
 Det kan ta ungefär fem minuter eller mer att slutföra.
 
@@ -130,13 +130,11 @@ Nu måste du se till att nätverks trafiken dirigeras till genom brand väggen.
 
 1. I brand Väggs hanteraren väljer du **skyddade virtuella nav**.
 2. Välj **hubb – 01**.
-3. Under **Inställningar**väljer du **flödes inställningar**.
-4. Under **Internet trafik**, **trafik från virtuella nätverk**, väljer du **Skicka via Azure-brandvägg**.
-5. Under **Azure privat trafik**, **trafik till virtuella nätverk**, väljer du **Skicka via Azure-brandvägg**.
-6. Välj **Redigera IP-adressprefix (ES)**.
-8. Skriv **10.0.1.0/24** som adress till arbets belastnings under nätet och välj **Spara**.
-9. Under **Inställningar**väljer du **anslutningar**.
+3. Under **Inställningar**väljer du **säkerhets konfiguration**.
+4. Under **Internet trafik**väljer du **Azure-brandvägg**.
+5. Under **privat trafik**väljer du **Skicka via Azure-brandvägg**.
 10. Kontrol lera att **Hub-eker-** anslutningen visar **Internet trafik** som **skyddad**.
+11. Välj **Spara**.
 
 
 ## <a name="test-your-firewall"></a>Testa din brand vägg
@@ -204,7 +202,7 @@ Testa nu brand Väggs reglerna för att bekräfta att den fungerar som förvänt
 2. Anslut ett fjärr skrivbord till den virtuella datorn för att **hoppa över SRV** och logga in. Därifrån öppnar du en fjärr skrivbords anslutning till den privata IP-adressen för **arbets belastningen** .
 
 3. Öppna Internet Explorer och navigera till https://www.microsoft.com.
-4. Välj **OK** > **Stäng** i Internet Explorers säkerhets aviseringar.
+4. Välj **OK**  >  **Stäng** i Internet Explorers säkerhets aviseringar.
 
    Du bör se Microsofts hem sida.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/13/2020
+ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 550cec535343d48ad74dd35e6886af78bdd15701
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79203595"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563286"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Snabb start: prova Content Moderator på webben
 
@@ -32,7 +32,7 @@ Verktyget Content Moderator granskning är ett webbaserat verktyg som gör det m
 
 ## <a name="create-a-review-team"></a>Skapa ett granskningsteam
 
-Skapa sedan en gransknings grupp. I ett arbets scenario är det här gruppen med personer som manuellt kommer att granska tjänstens kontroll beslut. Om du vill skapa ett team måste du välja en **region**och ange ett **grupp namn** och ett **Team-ID**. Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
+Skapa sedan en gransknings grupp. I ett arbets scenario är detta den grupp av personer som manuellt granskar tjänstens kontroll beslut. Om du vill skapa ett team måste du välja en **region**och ange ett **grupp namn** och ett **Team-ID**. Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
 
 > [!NOTE]
 > **Team namn** är ett eget namn för gransknings teamet. Detta är det namn som visas i Azure Portal. **Team-ID: t** är det som används för att identifiera program mässigt för gransknings teamet.

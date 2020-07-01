@@ -1,24 +1,22 @@
 ---
-title: Vad är för hands version av Azure Firewall Manager?
+title: Vad är Azure Firewall Manager?
 description: Lär dig mer om Azure Firewall Manager-funktioner
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792173"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563740"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>Vad är för hands version av Azure Firewall Manager?
+# <a name="what-is-azure-firewall-manager"></a>Vad är Azure Firewall Manager?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-För hands versionen av Azure Firewall Manager är en säkerhets hanterings tjänst som tillhandahåller centrala säkerhets principer och väg hantering för molnbaserade säkerhetsperimetern. 
+Azure Firewall Manager är en säkerhets hanterings tjänst som tillhandahåller Central säkerhets policy och väg hantering för molnbaserade säkerhetsperimetern. 
 
 Brand Väggs hanteraren kan tillhandahålla säkerhets hantering för två typer av nätverks arkitektur:
 
@@ -33,9 +31,9 @@ En detaljerad jämförelse mellan *skyddade virtuella hubbar* och *virtuella hub
 
 ![Firewall-Manager](media/overview/trusted-security-partners.png)
 
-## <a name="azure-firewall-manager-preview-features"></a>Förhands gransknings funktioner i Azure Firewall Manager
+## <a name="azure-firewall-manager-features"></a>Funktioner i Azure Firewall Manager
 
-I för hands versionen av Azure Firewall Manager finns följande funktioner:
+Azure Firewall Manager erbjuder följande funktioner:
 
 ### <a name="central-azure-firewall-deployment-and-configuration"></a>Central Azure Firewall-distribution och konfiguration
 
@@ -43,7 +41,7 @@ Du kan distribuera och konfigurera flera Azure Firewall-instanser centralt som s
 
 ### <a name="hierarchical-policies-global-and-local"></a>Hierarkiska principer (globala och lokala)
 
-Du kan använda Azure Firewall Manager Preview för att centralt hantera Azure Firewall-principer över flera skyddade virtuella nav. Dina centrala IT-team kan skapa globala brand Väggs principer som upprätthåller organisationens bred brand Väggs policy över team. Lokalt skapade brand Väggs principer tillåter en DevOps-självbetjänings modell för bättre flexibilitet.
+Du kan använda Azure Firewall Manager för att centralt hantera Azure Firewall-principer över flera skyddade virtuella nav. Dina centrala IT-team kan skapa globala brand Väggs principer som upprätthåller organisationens bred brand Väggs policy över team. Lokalt skapade brand Väggs principer tillåter en DevOps-självbetjänings modell för bättre flexibilitet.
 
 ### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Integrerat med säkerhets-som-en-tjänst från tredje part för avancerad säkerhet
 
@@ -60,7 +58,7 @@ Den här funktionen är endast tillgänglig med säkra virtuella nav distributio
 
    Dra nytta av din Azure-anslutning och global distribution för att enkelt lägga till tredjeparts filtrering för förgreningar i Internet scenarier.
 
-Mer information om betrodda säkerhetsproviders finns i [Vad är betrodda säkerhets partner för Azure Firewall Manager (för hands version)?](trusted-security-partners.md)
+Mer information om leverantörer av säkerhets partner finns i [Vad är Azure Firewall Manager-leverantörer av säkerhets partner?](trusted-security-partners.md)
 
 ### <a name="centralized-route-management"></a>Centraliserad flödes hantering
 
@@ -76,20 +74,17 @@ Azure Firewall-principer kan användas i olika regioner. Du kan till exempel ska
 
 ## <a name="known-issues"></a>Kända problem
 
-För hands versionen av Azure Firewall Manager har följande kända problem:
+Azure Firewall Manager har följande kända problem:
 
-|Problem  |Beskrivning  |Åtgärd  |
+|Problem  |Description  |Åtgärd  |
 |---------|---------|---------|
-|Begränsningar för filtrering av tredje part.|V2I trafik filtrering med tredjeparts leverantörer stöds inte med Azure Firewall B2V och V2V.|Undersöker|
 |Delning av trafik stöds inte för närvarande.|Det finns för närvarande inte stöd för att dela upp Office 365 och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även all Azures offentliga PaaS och Office 365-trafik via partner tjänsten.|Undersöker delning av trafik på hubben.
 |En säker virtuell hubb per region.|Du kan inte ha mer än en säker virtuell hubb per region.|Skapa flera virtuella WAN-näti en region.|
 |Grundläggande principer måste finnas i samma region som den lokala principen.|Skapa alla lokala principer i samma region som bas principen. Du kan fortfarande använda en princip som har skapats i en region på ett skyddat nav från en annan region.|Undersöker|
 |Kommunikation mellan olika hubbar fungerar inte med skyddad virtuell hubb|Skyddad virtuell hubb till skyddad virtuell nav-kommunikation stöds inte ännu.|Undersöker|
 |Alla skyddade virtuella hubbar som delar samma virtuella WAN-nätverk måste finnas i samma resurs grupp.|Det här beteendet är justerat med virtuella WAN-hubbar idag.|Skapa flera virtuella WAN-administratörer för att kunna skapa säkra virtuella hubbar i olika resurs grupper.|
-|IP-grupper stöds inte i brand Väggs principer.|IP-grupper finns i en offentlig för hands version och stöds för närvarande bara med traditionella brand Väggs regler.|Korrigering pågår.
-|Prenumerationer på moln lösnings leverantörer (CSP) stöds inte.|CSP- [prenumerationer](https://azure.microsoft.com/offers/ms-azr-0145p/) stöds för närvarande inte.|Undersöker
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [Översikt över Azure Firewall Manager Preview Deployment](deployment-overview.md)
+- Läs [Översikt över Azure Firewall Manager-distribution](deployment-overview.md)
 - Läs mer om [skyddade virtuella nav](secured-virtual-hub.md).

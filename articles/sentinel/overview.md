@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Sentinel? | Microsoft Docs
-description: Lär dig mer om Azure Sentinel, dess viktiga funktioner och hur det fungerar.
+description: Lär dig mer om Azure Sentinel, en skalbar, Cloud-inbyggd säkerhets informations händelse hantering (SIEM) och SOAR-lösning (Security Orchestration autoresponse).
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 517bdc0846ae56e0db41631f1dc5411471c6c2bd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ebc9756afc43648f2b44ca317abe3373807f4efa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800128"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564635"
 ---
 # <a name="what-is-azure-sentinel"></a>Vad är Azure Sentinel?
 
@@ -55,7 +55,7 @@ När du har [anslutit dina data källor](quickstart-onboard.md)   till Azure S
 
 ![Instrumentpaneler](./media/tutorial-monitor-data/access-workbooks.png)
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel [analyser för att korrelera aviseringar till incidenter](tutorial-detect-threats-built-in.md). **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar ett åtgärds möjligt hot som du kan undersöka och lösa. Använd de inbyggda korrelations reglerna som de är, eller Använd dem som start punkt för att skapa en egen. Azure Sentinel tillhandahåller också maskin inlärnings regler som mappar ditt nätverks beteende och letar efter avvikelser i dina resurser. Dessa analyser ansluter punkterna, genom att kombinera aviseringar med låg kvalitet på olika enheter i potentiella säkerhets incidenter med hög kvalitet.
 

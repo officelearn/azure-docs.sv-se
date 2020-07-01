@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 17c64fd1d0e04130867b484ff7eb3fcdb3f0977d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: bd64faf46f91c3b73d58f7c226748cd0ac083701
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263287"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562140"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Node.js med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Vi använde följande program och tjänster för att bygga och testa den här sn
 
 Rekommenderat:
 
-* [Visuell Studio-kod](https://code.visualstudio.com)
+* [Visual Studio-koden](https://code.visualstudio.com)
 
 * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) -och [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) -tillägg för VSCode.
 
@@ -280,7 +280,7 @@ class AzureSearchClient {
         // The query key is used for read-only requests and so can be distributed with less risk of abuse.
         this.queryKey = queryKey;
         this.indexName = indexName;
-        this.apiVersion = '2019-05-06';
+        this.apiVersion = '2020-06-30';
     }
 
     // All methods go inside class body here!
@@ -289,7 +289,7 @@ class AzureSearchClient {
 module.exports = AzureSearchClient;
 ```
 
-Det första ansvaret för klassen är att veta hur du skapar URL: er som de olika förfrågningarna ska skickas till. Bygg dessa URL: er med instans metoder som använder de konfigurations data som skickas till klassen konstruktor. Observera att den URL som de konstruerar är specifik för en API-version och måste ha ett argument som anger den versionen (i det här programmet `2019-05-06` ). 
+Det första ansvaret för klassen är att veta hur du skapar URL: er som de olika förfrågningarna ska skickas till. Bygg dessa URL: er med instans metoder som använder de konfigurations data som skickas till klassen konstruktor. Observera att den URL som de konstruerar är specifik för en API-version och måste ha ett argument som anger den versionen (i det här programmet `2020-06-30` ). 
 
 Den första av dessa metoder kommer att returnera URL: en för själva indexet. Lägg till följande metod i klass texten:
 

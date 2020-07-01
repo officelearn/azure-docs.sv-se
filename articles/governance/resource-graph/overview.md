@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
-ms.date: 03/02/2020
+ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 055bb0be75de4d5f6a5a27c5fb3b218fda8777d7
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167272"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565678"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
@@ -52,8 +52,7 @@ Nu när du har en bättre förståelse för vad Azure Resource Graph är, ska vi
 
 Det är viktigt att förstå att Azure Resource Graph-frågespråket baseras på [Kusto-frågespråket](/azure/data-explorer/data-explorer-overview) som används av Azure Data Explorer.
 
-Information om åtgärder och funktioner som kan användas med Azure Resource Graph finns i [Frågespråket i Resource Graph](./concepts/query-language.md).
-Information om hur man söker efter resurser finns i [Utforska resurser](./concepts/explore-resources.md).
+Information om åtgärder och funktioner som kan användas med Azure Resource Graph finns i [Frågespråket i Resource Graph](./concepts/query-language.md). Information om hur man söker efter resurser finns i [Utforska resurser](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Behörigheter i Azure Resource Graph
 
@@ -62,8 +61,7 @@ Om du vill använda Resource Graph måste du ha rätt behörighet i [Rollbaserad
 > [!NOTE]
 > Resurs diagram använder de prenumerationer som är tillgängliga för ett huvud konto under inloggningen. Om du vill se resurser för en ny prenumeration som lagts till under en aktiv session måste huvud kontot uppdatera kontexten. Den här åtgärden sker automatiskt när du loggar ut och in igen.
 
-Azure CLI och Azure PowerShell använder prenumerationer som användaren har åtkomst till. När du använder REST API direkt tillhandahålls prenumerations listan av användaren. Om användaren har åtkomst till någon av prenumerationerna i listan returneras frågeresultaten för de prenumerationer som användaren har åtkomst till. Detta är detsamma som när [resurs grupper anropas – lista](/rest/api/resources/resourcegroups/list) \- du får resurs grupper som du har åtkomst till utan att du behöver ange att resultatet kan vara delvis.
-Om det inte finns några prenumerationer i prenumerations listan som användaren har rätt behörighet till är svaret _403_ (förbjudet).
+Azure CLI och Azure PowerShell använder prenumerationer som användaren har åtkomst till. När du använder REST API direkt tillhandahålls prenumerations listan av användaren. Om användaren har åtkomst till någon av prenumerationerna i listan returneras frågeresultaten för de prenumerationer som användaren har åtkomst till. Detta är detsamma som när [resurs grupper anropas – lista](/rest/api/resources/resourcegroups/list) \- du får resurs grupper som du har åtkomst till utan att du behöver ange att resultatet kan vara delvis. Om det inte finns några prenumerationer i prenumerations listan som användaren har rätt behörighet till är svaret _403_ (förbjudet).
 
 ## <a name="throttling"></a>Begränsning
 

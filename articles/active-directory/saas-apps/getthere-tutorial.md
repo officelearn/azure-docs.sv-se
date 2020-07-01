@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6dfe4a81a86ff6eb36f3b5eb164b3183193c86d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 25d8ce37da0992ab3ac2c02f9c48c9c79ee40ae8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70163428"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608691"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-getthere"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GetThere
 
@@ -87,19 +87,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL: 
 
-    | |
-    |--|
-    | `getthere.com` |
-    | `http://idp.getthere.com` |
+        ```https
+        getthere.com
+        http://idp.getthere.com
+        ```
 
     b. Skriv någon av följande URL: er i text rutan **svars-URL** :
 
-    | |
-    |--|
-    | `https://wx1.getthere.net/login/saml/post.act` |
-    | `https://gtx2-gcte2.getthere.net/login/saml/post.act` |
-    | `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
-    | `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
+        ```https
+        https://wx1.getthere.net/login/saml/post.act
+        https://gtx2-gcte2.getthere.net/login/saml/post.act
+        https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act
+        https://wx1.getthere.net/login/saml/ssoaavalidate.act
+        ```
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -117,7 +117,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -159,6 +159,6 @@ När du klickar på panelen GetThere på åtkomst panelen, bör du loggas in aut
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova GetThere med Azure AD](https://aad.portal.azure.com/)

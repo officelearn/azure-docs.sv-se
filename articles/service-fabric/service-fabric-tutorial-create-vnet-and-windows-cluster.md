@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du distribuerar ett 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756048"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611670"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric kluster som kör Windows till ett virtuellt Azure-nätverk
 
@@ -61,7 +61,7 @@ Ladda ned följande Azure Resource Manager mallfiler:
 * [azuredeploy.json][template]
 * [azuredeploy.parameters.json][parameters]
 
-Den här mallen distribuerar ett säkert kluster med sju virtuella datorer och tre nodtyper till ett virtuellt nätverk och en nätverkssäkerhetsgrupp.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [Azuredeploy. JSON][template] distribuerar ett antal resurser, inklusive följande.
+Den här mallen distribuerar ett säkert kluster med sju virtuella datorer och tre nodtyper till ett virtuellt nätverk och en nätverkssäkerhetsgrupp.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [azuredeploy.jspå][template] distribuerar ett antal resurser, inklusive följande.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-kluster
 
@@ -73,8 +73,8 @@ I resursen **Microsoft.ServiceFabric/kluster** konfigureras ett Windows-kluster 
 * Certifikatet är skyddat (kan konfigureras i mallparametrar).
 * [Omvänd proxy](service-fabric-reverseproxy.md) är aktiverat.
 * [DNS-tjänsten](service-fabric-dnsservice.md) är aktive rad.
-* [Hållbarhets nivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) på brons nivå (kan konfigureras i mallparametrar).
-* [Tillförlitlighets nivån](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrar).
+* [Hållbarhets nivå](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) på brons nivå (kan konfigureras i mallparametrar).
+* [Tillförlitlighets nivån](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrar).
 * Klient anslutnings slut punkt: 19000 (kan konfigureras i mallparametrar).
 * HTTP Gateway-slutpunkt: 19080 (kan konfigureras i mallparametrar).
 
@@ -143,14 +143,14 @@ Som standard installeras [Windows Defender Antivirus program](/windows/security/
 
 Parameterfilen [azuredeploy.parameters.json][parameters] deklarerar många värden som används till att distribuera klustret och associerade resurser. Följande är parametrar som ska ändras för distributionen:
 
-**ProfileServiceApplicationProxy** | **Exempel värde** | **Obs!** 
+**Parameter** | **Exempel värde** | **Anteckningar** 
 |---|---|---|
 |adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. [Användar namns krav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösen ords krav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Namnet på klustret. Får endast innehålla bokstäver och siffror. Längden ska vara mellan 3 och 23 tecken.|
 |location|southcentralus| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
-|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https:\//mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https: \/ /mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Konfigurera Azure Active Directory-klientautentisering
@@ -183,7 +183,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 > [!NOTE]
 > För nationella moln (till exempel Azure Government, Azure Kina, Azure Germany) anger du `-Location` parametern.
 
-*TenantId* eller katalog-ID finns i [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory** > **Egenskaper** och kopiera värdet för **katalog-ID** .
+*TenantId* eller katalog-ID finns i [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory**  >  **Egenskaper** och kopiera värdet för **katalog-ID** .
 
 *ClusterName* (Klusternamn) används för att prefigera de AD-program som skapas av skriptet. Det behöver inte exakt matcha det faktiska kluster namnet. Det gör det bara lättare att mappa Azure AD-artefakter till Service Fabric kluster som används.
 
@@ -193,8 +193,8 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 
 Du uppmanas att logga in på ett konto som har administratörs behörighet för Azure AD-klienten. När du har loggat in skapar skriptet webbprogrammet och det interna programmet för att representera ditt Service Fabric-kluster. I klientens program i [Azure Portal](https://portal.azure.com)bör du se två nya poster:
 
-   * *Kluster kluster*\_
-   * *Kluster*\_namn klient
+   * *Kluster* \_ namn Flernodskluster
+   * *Kluster* \_ namn Klientsession
 
 Skriptet skriver ut JSON-filen som krävs av Resource Manager-mallen när du skapar klustret, så det är en bra idé att låta PowerShell-fönstret vara öppet.
 
@@ -271,7 +271,7 @@ Ett sätt att ladda upp och samla in loggar är att använda tillägget Azure-di
 
 Om du följer den här självstudien har du redan konfigurerat en diagnostisk samling i [mallen][template].
 
-Om du har ett befintligt kluster som inte har någon diagnostik distribuerad kan du lägga till eller uppdatera det via kluster mal len. Ändra den Resource Manager-mall som används för att skapa det befintliga klustret eller ladda ned mallen från portalen. Ändra filen Template. JSON genom att utföra följande uppgifter:
+Om du har ett befintligt kluster som inte har någon diagnostik distribuerad kan du lägga till eller uppdatera det via kluster mal len. Ändra den Resource Manager-mall som används för att skapa det befintliga klustret eller ladda ned mallen från portalen. Ändra template.jspå filen genom att utföra följande uppgifter:
 
 Lägg till en ny lagrings resurs i avsnittet resurser i mallen:
 ```json
@@ -597,7 +597,7 @@ Lägg till tillägget Log Analytics agent i varje skalnings uppsättning för vi
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuera det virtuella nätverket och klustret
 
-Konfigurera sedan nätverkstopologin och distribuera Service Fabric-klustret. Resource Manager-mallen [azuredeploy. JSON][template] skapar ett virtuellt nätverk, ett undernät och en nätverks säkerhets grupp för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverad. För produktions kluster använder du ett certifikat från en certifikat utfärdare som kluster certifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
+Konfigurera sedan nätverkstopologin och distribuera Service Fabric-klustret. [azuredeploy.jsi][template] Resource Manager-mallen skapar ett virtuellt nätverk, ett undernät och en nätverks säkerhets grupp för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverad. För produktions kluster använder du ett certifikat från en certifikat utfärdare som kluster certifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
 
 Mallen i den här artikeln distribuerar ett kluster som använder certifikatets tumavtryck för att identifiera klustercertifikatet. Två certifikat kan inte ha samma tumavtryck, vilket gör certifikathantering svårare. Att växla ett distribuerat kluster från certifikat tumavtrycken till Certifikatets gemensamma namn fören klar certifikat hanteringen. Information om hur du uppdaterar klustret så att det använder certifikatets delade namn för certifikat hantering, finns [i Ändra kluster till certifikatets delade namn hantering](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 

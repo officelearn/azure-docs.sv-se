@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32d8944b55794412eb322697469933030e2fbb56
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 39e2d72ba63633d7c5d3da3094cfa00e076513af
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74184044"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609120"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Konfigurera hanterade identiteter för Azure-resurser på en skalnings uppsättning för virtuella datorer med hjälp av Azure Portal
 
@@ -86,7 +86,7 @@ För närvarande stöder Azure Portal inte tilldelning av en användardefinierad
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Tilldela en användardefinierad hanterad identitet till en befintlig skalnings uppsättning för virtuella datorer
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till Azure-prenumerationen som innehåller den virtuella datorns skal uppsättning.
-2. Navigera till önskad skalnings uppsättning för virtuell dator och klicka på **identitet**, **tilldelad användare** och ** \+Lägg sedan till**.
+2. Navigera till önskad skalnings uppsättning för virtuell dator och klicka på **identitet**, **tilldelad användare** och ** \+ Lägg sedan till**.
 
    ![Lägg till användardefinierad identitet till VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 

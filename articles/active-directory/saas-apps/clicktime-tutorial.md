@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 233ddde25645cbdd9073011eeec2a20e42c8e9a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27803187e06ee523ff7e6b773bd302eed7422111
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73157417"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Självstudie: Azure Active Directory integrering med ClickTime
 
@@ -110,10 +110,10 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med ClickTi
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
     
-    | |
-    |--|
-    | `https://app.clicktime.com/Login/` |
-    | `https://app.clicktime.com/App/Login/Consume.aspx` |
+        ```https
+        https://app.clicktime.com/Login/
+        https://app.clicktime.com/App/Login/Consume.aspx
+        ```
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -137,7 +137,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med ClickTi
 
 1. Gör följande i avsnittet **Single Sign-On Preferences** (Inställningar för enkel inloggning):
    
-    ![Säkerhetsinställningar](./media/clicktime-tutorial/tic777280.png "Säkerhetsinställningar")
+    ![Säkerhets inställningar](./media/clicktime-tutorial/tic777280.png "Säkerhetsinställningar")
    
     a.  Välj **Tillåt** för inloggning med enkel inloggning (SSO) med **Azure AD**.
    
@@ -165,7 +165,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -224,7 +224,7 @@ När det gäller ClickTime är etablering en manuell aktivitet.
    
     a.  I textrutan **Fullständigt namn** skriver du det fullständiga namnet för användaren som **Britta Simon**. 
   
-    b.  I text rutan **e-postadress** skriver du e-postmeddelandet som **\@brittasimon contoso.com**.
+    b.  I text rutan **e-postadress** skriver du e-postmeddelandet som **brittasimon \@ contoso.com**.
        
     > [!NOTE]
     > Om du vill kan du ange du ytterligare egenskaper för personobjektet.

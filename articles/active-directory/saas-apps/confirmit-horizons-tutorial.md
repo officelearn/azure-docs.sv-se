@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6127f149141db275c4b13c25fd6fbd0241b3e404
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5b43a871eefa313982275b90e2c31f99badcf97
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67105037"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Självstudie: Azure Active Directory integrering med Confirmit-horisonter
 
@@ -109,25 +109,23 @@ Utför följande steg för att konfigurera enkel inloggning med Confirmit-horiso
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>` |
-    | `https://sso.us.confirmit.com/<UNIQUEID>` |
-    | |
+        ```https
+        https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>
+        https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>
+        https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>
+        https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>
+        https://sso.us.confirmit.com/<UNIQUEID>
+        ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs`|
-    | `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs`|
-    | `https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs`|
-    | `https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs`|
-    | `https://sso.us.confirmit.com/<UNIQUEID>/saml/acs` |
-    | |
+        ```https
+        https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs
+        https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs
+        https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs
+        https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs
+        https://sso.us.confirmit.com/<UNIQUEID>/saml/acs
+        ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -135,14 +133,13 @@ Utför följande steg för att konfigurera enkel inloggning med Confirmit-horiso
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>` |
-    | `https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>` |
-    | `https://sso.us.confirmit.com/<UNIQUEID>` |
-    | | 
+        ```https
+        https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>
+        https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>
+        https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>
+        https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>
+        https://sso.us.confirmit.com/<UNIQUEID>
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Confirmits horisonter support team](mailto:support@confirmit.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

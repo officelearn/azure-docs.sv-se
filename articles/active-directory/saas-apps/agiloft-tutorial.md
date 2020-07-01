@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3283695c42c5bccf00ca43274d120409646c380f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: babab60f94252f43f21f77543babf20ea98f9b3d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73153960"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Självstudie: Azure Active Directory integrering med Agiloft
 
@@ -109,19 +109,17 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Agiloft
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-    | |
-    |-|-|
-    | `https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>` |
-    | `https://<subdomain>.agiloft.com/project/<KB_NAME>` |
-    | |
+        ```https
+        https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>
+        https://<subdomain>.agiloft.com/project/<KB_NAME>
+        ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |-|-|
-    | `https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>` |
-    | `https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>` |
-    | |
+        ```https
+        https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>
+        https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>
+        ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -129,11 +127,10 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Agiloft
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |-|-|
-    | `https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
-    | `https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
-    | |
+        ```https
+        https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>
+        https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för Agiloft-klienten](https://www.agiloft.com/support-login.htm) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -196,7 +193,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

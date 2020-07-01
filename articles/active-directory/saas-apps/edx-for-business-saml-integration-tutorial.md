@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17ffa9330da4fec0cfa3260f9bb99fbaffc24f6
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: f396b42e7221863c386ce43cc7350cdbdc338f53
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466732"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608722"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-edx-for-business-saml-integration"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med edX for Business SAML-integration
 
@@ -95,9 +95,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Förutom ovan förväntar sig edX for Business SAML-integrering att några fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Namn | |  Källattribut|
-    | ---------------| --------------- | --------- |
-    | land | | användare. land  |
+    | Name | Källattribut|
+    | ---------------| --------- |
+    | land | användare. land  |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
@@ -110,7 +110,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

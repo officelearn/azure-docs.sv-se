@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64ed7f5d73b4e5a0eb4e7ff4ed6c0ce0788880fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f0e41b9578beb68f497c1a0fa7968064b6b91cee
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73157730"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Självstudie: Azure Active Directory integrering med BeeLine
 
@@ -109,11 +109,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BeeLi
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://projects.beeline.net/<instancename>`
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
-    
-    | |
-    |--|
-    | `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
-    | `https://projects.beeline.net/<companyname>/SSO_External.ashx` |
+
+    ```https
+    https://projects.beeline.net/<instancename>/SSO_External.ashx
+    https://projects.beeline.net/<companyname>/SSO_External.ashx
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [kundsupporten för BeeLine](https://www.beeline.com/contact-us/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -158,7 +158,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

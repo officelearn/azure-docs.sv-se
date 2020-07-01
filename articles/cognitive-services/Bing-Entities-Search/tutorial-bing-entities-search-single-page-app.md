@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 33c5cbd47213d021d374f52c1dadaf20d508ae37
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943125"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608576"
 ---
 # <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
@@ -58,7 +58,12 @@ I den här självstudien diskuterar vi endast vissa delar av källkoden. Den ful
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för API: et för Bing-sökning och Bing Maps. Om du inte har dem kan du använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [enkel Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för API: et för Bing-sökning och Bing Maps. 
+
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration:
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Skapa en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Skapa en Visuellt innehåll resurs "  target="_blank"> skapa en Bing Maps-resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
 
 ## <a name="app-components"></a>Appkomponenter
 
@@ -86,7 +91,7 @@ HTML-koden innehåller också avdelningar (HTML `<div>`-taggar) där sökresulta
 ## <a name="managing-subscription-keys"></a>Hantera prenumerationsnycklar
 
 > [!NOTE]
-> Den här appen kräver prenumerationsnycklar för både API:et för Bing-sökning och API för Bing Maps. Du kan använda en [utvärderingsnyckel för Bing-sökning](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [grundläggande Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Den här appen kräver prenumerationsnycklar för både API:et för Bing-sökning och API för Bing Maps.
 
 För att undvika att lägga till prenumerationsnycklarna för API:et för Bing Search och API:et för Bing Maps i koden använder vi webbläsarens beständiga lagring för att lagra dem. Om någon av nycklarna inte har lagrats frågar vi efter den lagrar den för senare användning. Om nyckeln senare avvisas av API:et ogiltigförklarar vi den lagrade nyckeln så att användaren tillfrågas om den vid nästa sökning.
 
@@ -167,7 +172,7 @@ Fältet `mapquery` hanteras inte i `bingSearchOptions()` eftersom det används f
 
 ## <a name="obtaining-a-location"></a>Hämta en plats
 
-Bing Maps-API: et erbjuder en [ `locationQuery` Metod](//msdn.microsoft.com/library/ff701711.aspx)som vi använder för att hitta latitud och longitud för den plats som användaren anger. Dessa koordinater skickas till API:et för entitetsökning i Bing med användarens begäran. Sökresultaten prioritera entiteter och platser som är nära den angivna platsen.
+Bing Maps-API: et erbjuder en [ `locationQuery` metod](//msdn.microsoft.com/library/ff701711.aspx)som vi använder för att hitta latitud och longitud för den plats som användaren anger. Dessa koordinater skickas till API:et för entitetsökning i Bing med användarens begäran. Sökresultaten prioritera entiteter och platser som är nära den angivna platsen.
 
 Vi kan inte komma åt API:et för Bing Maps med hjälp av en vanlig `XMLHttpRequest`-fråga i en webbapp eftersom tjänsten inte har stöd för frågor med olika ursprung. Som tur är stöder den JSONP (”P” står för ”padded”, dvs. utfylld). Ett JSONP-svar är ett vanligt JSON-svar som är omslutet i ett funktionsanrop. Begäran görs genom att en `<script>`-tagg infogas i dokumentet. (Inläsning av skript omfattas inte av säkerhetsprinciper för webbläsare.)
 
@@ -394,7 +399,7 @@ Fel hanteras genom att anropa `renderErrorMessage()` med all känd information o
 
 ## <a name="displaying-search-results"></a>Visa sökresultat
 
-API:et för entitetsökning i Bing [kräver att du visar resultat i en angiven ordning](use-display-requirements.md). Eftersom API:et kan returnera två olika typer av svar räcker det inte att gå igenom samlingen `Entities` eller `Places` på toppnivå i JSON-svaret och visar de resultaten. (Om du bara vill ha en typ av resultat använder du `responseFilter`-frågeparametern.)
+API:et för entitetsökning i Bing [kräver att du visar resultat i en angiven ordning](use-display-requirements.md). Eftersom API: et kan returnera två olika typer av svar, är det inte tillräckligt att iterera genom den översta nivån `Entities` eller `Places` samlingen i JSON-svaret och visa dessa resultat. (Om du bara vill ha en typ av resultat använder du `responseFilter`-frågeparametern.)
 
 I stället använder vi `rankingResponse`-samlingen i sökresultatet för att sortera resultaten för visning. Det här objektet refererar till objekt i samlingen `Entitiess` och/eller `Places`.
 
@@ -520,7 +525,7 @@ Entitetsrenderarfunktionen:
 
 Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
 
-När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
+Genom att tillhandahålla `X-MSEdge-ClientID` sidhuvudet kan Bing-API: er associera alla användares sökningar, som har två viktiga fördelar.
 
 Först hjälper Bing-sökmotorn till med att tillämpa tidigare kontexter på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”hamnar” returnera information om platser där segelbåtar kan förtöjas.
 
@@ -531,7 +536,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram ändå. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers` huvud som tillåter listor med svars rubriker och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 

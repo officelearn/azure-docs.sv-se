@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f77f00870af7b9d1788d96391264bdf9b4ee73c
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68879681"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607709"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Självstudie: integrera Carbonite Endpoint backup med Azure Active Directory
 
@@ -84,36 +84,33 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **identifierare** skriver du en av följande URL: er:
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com`|
-    | `https://red-apac.mysecuredatavault.com`|
-    | `https://red-fr.mysecuredatavault.com`|
-    | `https://red-emea.mysecuredatavault.com`|
-    | `https://kamino.mysecuredatavault.com`|
-    | | |
+        ```https
+        https://red-us.mysecuredatavault.com
+        https://red-apac.mysecuredatavault.com
+        https://red-fr.mysecuredatavault.com
+        https://red-emea.mysecuredatavault.com
+        https://kamino.mysecuredatavault.com
+        ```
 
     b. I text rutan **svars-URL** skriver du en av följande URL: er:
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | | |
+        ```https
+        https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
+        https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
+        https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
+        https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
+        ```
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I text rutan **inloggnings-URL** skriver du en av följande URL: er:
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com/`|
-    | `https://red-apac.mysecuredatavault.com/`|
-    | `https://red-fr.mysecuredatavault.com/`|
-    | `https://red-emea.mysecuredatavault.com/`|
-    | | |
+    ```https
+    https://red-us.mysecuredatavault.com/
+    https://red-apac.mysecuredatavault.com/
+    https://red-fr.mysecuredatavault.com/
+    https://red-emea.mysecuredatavault.com/
+    ```
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -167,7 +164,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -217,4 +214,4 @@ När du klickar på panelen för säkerhets kopiering av Carbonite på åtkomst 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

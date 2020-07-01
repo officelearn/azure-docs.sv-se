@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 984fd0c7946a50922315269c87e08b1c35b74348
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0fc56fe040528df5b4bd5e9217bd614c4a640c15
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74074765"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608061"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
 
@@ -116,7 +116,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -281,20 +281,20 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Nedan visas en fullständig lista över SAML-standardattribut som är standard. GivenName representeras med hjälp av följande sträng.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-| | |
+| Session | Attribut |
 | -- | -- |
 | eb46b6b6. session. SAML. Last. assertionID | `<TENANT ID>` |
 | eb46b6b6. session. SAML. Last. assertionIssueInstant  | `<ID>` |
 | eb46b6b6. session. SAML. Last. assertionIssuer | `https://sts.windows.net/<TENANT ID>`/ |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/DisplayName | user0 |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/objectidentifier | `<TENANT ID>` |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/tenantid | `<TENANT ID>` |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/EmailAddress | `user0@superdemo.live` |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/givenName | user0 |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/Name | `user0@superdemo.live` |
-| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/Surname | 0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.Microsoft.com/Claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.Microsoft.com/Identity/Claims/DisplayName | user0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.Microsoft.com/Identity/Claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.Microsoft.com/Identity/Claims/objectidentifier | `<TENANT ID>` |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.Microsoft.com/Identity/Claims/tenantid | `<TENANT ID>` |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.xmlSOAP.org/WS/2005/05/Identity/Claims/EmailAddress | `user0@superdemo.live` |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.xmlSOAP.org/WS/2005/05/Identity/Claims/givenName | user0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.xmlSOAP.org/WS/2005/05/Identity/Claims/Name | `user0@superdemo.live` |
+| eb46b6b6. session. SAML. Last. attr. Name. http: \/ /schemas.xmlSOAP.org/WS/2005/05/Identity/Claims/Surname | 0 |
 | eb46b6b6. session. SAML. Last. Audience | `https://kerbapp.superdemo.live` |
 | eb46b6b6. session. SAML. Last. authNContextClassRef | urn: Oasis: namn: TC: SAML: 2.0: AC: klasser: lösen ord |
 | eb46b6b6. session. SAML. Last. authNInstant | `<ID>` |
@@ -332,7 +332,7 @@ När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova F5 med Azure AD](https://aad.portal.azure.com/)
 

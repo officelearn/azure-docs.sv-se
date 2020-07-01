@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 852cd728f17902a83f5efeb3ccfb596f67ba37e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c7a6716bbc4b297973c8bfb0305434ee08a4730
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158121"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Självstudie: Azure Active Directory integrering med FreshGrade
 
@@ -107,17 +107,17 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fr
 
      a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
 
-      | |
-      |--|
-      | `https://<subdomain>.freshgrade.com/login` |
-      | `https://<subdomain>.onboarding.freshgrade.com/login` |
+        ```https        
+        https://<subdomain>.freshgrade.com/login
+        https://<subdomain>.onboarding.freshgrade.com/login
+        ```
 
     b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster:
     
-      | |
-      |--|
-      | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
-      | `https://login.freshgrade.com:443/saml/metadata/alias/<instancename>` |
+        ```https
+        https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
+        https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för FreshGrade](mailto:support@freshgrade.com) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

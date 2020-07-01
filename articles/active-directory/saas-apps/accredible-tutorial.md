@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5be397ca14a90c333e20f0a1a42b63e0c9f0ae0e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af40becf09468dba25ad7090a6a7c2829884ab61
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73154157"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Självstudie: Azure Active Directory integrering med Accredible
 
@@ -108,11 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Accre
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-    | |
-    |--|
-    |  `https://api.accredible.com/sp/admin/accredible` |
-    | `https://api.accredible.com/sp/user/accredible` |
-    | |
+        ```https
+        https://api.accredible.com/sp/admin/accredible
+        https://api.accredible.com/sp/user/accredible
+        ```
 
     b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://api.accredible.com/v1/saml/admin/<Unique id>/consume`
 
@@ -155,7 +154,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

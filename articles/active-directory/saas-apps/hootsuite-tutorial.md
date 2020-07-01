@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfcba442a0f9e93b5a5f2adbfa4368353b981f4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2639a52fbd1de266bfa9446bf6106952ba8e3573
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74185410"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606128"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hootsuite"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med HootSuite
 
@@ -90,10 +90,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I text rutan **svars-URL** skriver du någon av URL: en med följande mönster:
 
-    | |
-    |--|
-    | `https://hootsuite.com/member/sso-complete` |
-    | `https://hootsuite.com/sso/<ORG_ID>` |
+        ```https
+        https://hootsuite.com/member/sso-complete
+        https://hootsuite.com/sso/<ORG_ID>
+        ```
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -118,7 +118,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -160,7 +160,7 @@ När du klickar på panelen HootSuite på åtkomst panelen, bör du loggas in au
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova HootSuite med Azure AD](https://aad.portal.azure.com/)
 

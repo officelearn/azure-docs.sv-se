@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184129783b448cb2d6dc22e488ffe38401a1218
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0dddb07d394dfd3ec15b6377d283420112233a5e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72264124"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608916"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med ADP-Globalview
 
@@ -85,11 +85,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     
     I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-    | |
-    |--|
-    | `https://<subdomain>.globalview.adp.com/federate`|
-    | `https://<subdomain>.globalview.adp.com/federate2`|
-    | |
+    ```https
+    https://<subdomain>.globalview.adp.com/federate
+    https://<subdomain>.globalview.adp.com/federate2
+    ```
+
 
     > [!NOTE]
     > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska identifieraren. Kontakta [kundsupporten för ADP Globalview](https://www.adp.com/contact-us/overview.aspx) och be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -110,7 +110,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -152,7 +152,7 @@ När du klickar på ADP Globalview-panelen i åtkomstpanelen bör du automatiskt
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Testa ADP-Globalview med Azure AD](https://aad.portal.azure.com/)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d9feb7f3cd369fcd13986ebd5f48a63905252e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69b04914bcdaac394b38c25e6d4f843155d481bc
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80295754"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608672"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ipoint-service-provider"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med iPoint-tjänstleverantör
 
@@ -86,11 +86,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I text rutan **inloggnings-URL** skriver du en URL med något av följande mönster:
 
-    |||
-    |-|-|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/dashboard/`|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/ipca-web/`|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/authserver/saml/ssoLogin`|
+    ```https
+    https://<CUSTOMERNAME>.ipoint-systems.com/dashboard/
+    https://<CUSTOMERNAME>.ipoint-systems.com/ipca-web/
+    https://<CUSTOMERNAME>.ipoint-systems.com/authserver/saml/ssoLogin
+    ```
 
 1. Klicka på **Spara**.
 
@@ -120,7 +120,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -162,7 +162,7 @@ När du klickar på panelen iPoint Service Provider på åtkomst panelen bör du
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova iPoint Service Provider med Azure AD](https://aad.portal.azure.com/)
 

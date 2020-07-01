@@ -3,12 +3,12 @@ title: 'Självstudie: extrahera strukturerade data med Machine Learning-entitet 
 description: Extrahera strukturerade data från en uttryck med hjälp av enheten för maskin inlärning. Om du vill öka extraherings precisionen lägger du till underentiteter med funktioner.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676166"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611024"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Självstudie: extrahera strukturerade data från User uttryck med Machine Learning-entiteter i Language Understanding (LUIS)
 
@@ -16,7 +16,7 @@ I den här självstudien extraherar du strukturerade data från en uttryck med h
 
 Enheten för maskin inlärning stöder modellen för [modell nedbrytning](luis-concept-model.md#v3-authoring-model-decomposition) genom att tillhandahålla entiteter för entiteter med [funktioner](luis-concept-feature.md).
 
-**I de här självstudierna får du lära dig att**
+**I den här guiden får du lära dig att:**
 
 > [!div class="checklist"]
 > * Importera exempelappen
@@ -98,7 +98,7 @@ Föregående steg skapar entiteten och underentiteten. Lägg till funktioner i u
 
 1. Välj **Skapa ny fras lista** på den nedrullningsbara menyn.
 
-1. I **list rutan skapa ny fras** anger du namnet `SizePhraselist` och anger värden för: `small` , `medium` , och `large` . När **förslags** rutan fylls i, Välj `extra large` och `xl` . Klicka på **Spara** för att skapa den nya fras listan.
+1. I **list rutan skapa ny fras** anger du namnet `SizePhraselist` och anger värden för: `small` , `medium` , och `large` . När **förslags** rutan fylls i, Välj `extra large` och `xl` . Välj **skapa** för att skapa den nya fras listan.
 
     Den här fras List funktionen hjälper `Size` underentiteten att hitta ord som är relaterade till storlek genom att tillhandahålla exempel ord. Den här fras listan behöver inte inkludera varje storlek, men ska innehålla ord som förväntas indikera storlek.
 
@@ -131,7 +131,7 @@ Att lägga till en lista med kända storlekar som klient programmet känner av k
 
 1. På fliken **schema och funktioner** väljer du entiteten **storlek** och väljer sedan **+ Lägg till funktion**.
 
-1. Välj **@ SizeList** i list rutan.
+1. Välj **@ SizeListentity** i list rutan.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 

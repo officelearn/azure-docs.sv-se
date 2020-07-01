@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ce7b4dab18954d26b411948a6a436b16317f4f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6c8955eb62ca413460a45b8cddf46c43bcd80af
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158277"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607225"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Självstudie: Azure Active Directory integrering med EmpCenter
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med EmpCe
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     
-    | |
-    |--|
-    | `https://<subdomain>.EmpCenter.com/<instancename>` |
-    | `https://<subdomain>.workforcehosting.com/<instancename>` |
+    ```https
+    https://<subdomain>.EmpCenter.com/<instancename>
+    https://<subdomain>.workforcehosting.com/<instancename>
+    ```
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EmpCenter-klientens supportteam](https://www.workforcesoftware.com/services/customer-support/) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -152,7 +152,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

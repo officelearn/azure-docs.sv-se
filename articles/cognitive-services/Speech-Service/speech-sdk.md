@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: f663c9af8c352d0170c633fe76b3fbc5268aad1e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dc0a7fc9797948e834b8b3cb802bb92fce0eb59
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399959"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610769"
 ---
 # <a name="about-the-speech-sdk"></a>Om Speech SDK
 
@@ -37,7 +37,7 @@ Tal-SDK: n visar många funktioner från tal tjänsten, men inte alla. Funktione
 
 ### <a name="voice-assistants"></a>Röstassistenter
 
-Röst assistenter som använder tal-SDK gör det möjligt för utvecklare att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Röst assistents tjänsten ger snabb och tillförlitlig interaktion mellan en enhet och en assistent. I implementeringen används bot-ramverkets direkta rad tal kanal eller den integrerade anpassade kommandona (för hands version) för att slutföra uppgiften. Dessutom kan röst assistenter skapas med hjälp av den [anpassade röst portalen](https://aka.ms/customvoice) för att skapa en unik röst upplevelse.
+[Röst assistenter](voice-assistants.md) som använder tal-SDK gör det möjligt för utvecklare att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Röst assistents tjänsten ger snabb och tillförlitlig interaktion mellan en enhet och en assistent. I implementeringen används bot-ramverkets direkta rad tal kanal eller den integrerade anpassade kommandona (för hands version) för att slutföra uppgiften. Dessutom kan röst assistenter använda anpassade röster som skapats i den [anpassade röst portalen](https://aka.ms/customvoice) för att lägga till en unik röst utmatnings upplevelse.
 
 #### <a name="keyword-spotting"></a>Nyckelord upptäcka
 
@@ -65,7 +65,7 @@ Tal-SDK: n kan användas för att skriva över samtals Center scenarier där tel
 
 ### <a name="codec-compressed-audio-input"></a>Codec-komprimerad ljud inspelning
 
-Flera av programmeringsspråken för tal-SDK stöder codec-komprimerade ljud inspelnings strömmar. Mer information finns i <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">använda komprimerade ljud inspelnings <span class="docon docon-navigate-external x-hidden-focus"> </span>format </a>.
+Flera av programmeringsspråken för tal-SDK stöder codec-komprimerade ljud inspelnings strömmar. Mer information finns i <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">använda komprimerade ljud inspelnings <span class="docon docon-navigate-external x-hidden-focus"></span> format </a>.
 
 ## <a name="rest-api"></a>REST-API
 

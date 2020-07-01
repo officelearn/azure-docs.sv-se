@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c87fe6dce4fa35eaed4ab43d6dcbffeae32e27f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79538d2855ad3ef344543f9148baf5953e84d1d9
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69626049"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607944"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med blink
 
@@ -85,11 +85,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **inloggnings-URL** skriver du en URL med något av följande mönster:
     
-    | | |
-    |-|-|
-    | `https://app.joinblink.com`|
-    | `https://<SUBDOMAIN>.joinblink.com`|
-    | | |
+        ```https
+        https://app.joinblink.com
+        https://<SUBDOMAIN>.joinblink.com
+        ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://api.joinblink.com/saml/o-<TENANTID>`
 
@@ -137,7 +136,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -179,6 +178,6 @@ När du klickar på panelen blinka i åtkomst panelen, bör du loggas in automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova slack med Azure AD](https://aad.portal.azure.com/)

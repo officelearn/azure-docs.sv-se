@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc7d481b757a76ba65e0c78a93bde1bc58ace7cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc5ae5532acdd66e091891c55e3cebb79cb3d227
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72791641"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608639"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med KnowledgeOwl
 
@@ -86,34 +86,34 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
-    | | |
-    |-|-|
-    | `https://app.knowledgeowl.com/sp`|
-    | `https://app.knowledgeowl.com/sp/id/<unique ID>`|
+        ```https
+        https://app.knowledgeowl.com/sp        
+        https://app.knowledgeowl.com/sp/id/<unique ID>
+        ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
     
-    | | |
-    |-|-|
-    | `https://subdomain.knowledgeowl.com/help/saml-login`|
-    | `https://subdomain.knowledgeowl.com/docs/saml-login`|
-    | `https://subdomain.knowledgeowl.com/home/saml-login`|
-    | `https://privatedomain.com/help/saml-login`|
-    | `https://privatedomain.com/docs/saml-login`|
-    | `https://privatedomain.com/home/saml-login`|
+        ```https
+        https://subdomain.knowledgeowl.com/help/saml-login
+        https://subdomain.knowledgeowl.com/docs/saml-login
+        https://subdomain.knowledgeowl.com/home/saml-login
+        https://privatedomain.com/help/saml-login
+        https://privatedomain.com/docs/saml-login
+        https://privatedomain.com/home/saml-login
+        ```
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     
-    | | |
-    |-|-|
-    | `https://subdomain.knowledgeowl.com/help/saml-login`|
-    | `https://subdomain.knowledgeowl.com/docs/saml-login`|
-    | `https://subdomain.knowledgeowl.com/home/saml-login`|
-    | `https://privatedomain.com/help/saml-login`|
-    | `https://privatedomain.com/docs/saml-login`|
-    | `https://privatedomain.com/home/saml-login`|
+        ```https
+        https://subdomain.knowledgeowl.com/help/saml-login
+        https://subdomain.knowledgeowl.com/docs/saml-login
+        https://subdomain.knowledgeowl.com/home/saml-login
+        https://privatedomain.com/help/saml-login
+        https://privatedomain.com/docs/saml-login
+        https://privatedomain.com/home/saml-login
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Du måste uppdatera värdet från den faktiska identifieraren, svars-URL: en och inloggnings-URL: en som beskrivs senare i självstudien.
@@ -144,7 +144,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -225,6 +225,6 @@ När du klickar på panelen KnowledgeOwl på åtkomst panelen, bör du loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova KnowledgeOwl med Azure AD](https://aad.portal.azure.com/)

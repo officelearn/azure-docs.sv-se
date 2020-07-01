@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98458f8be162d0903f5ea0d1f7d4651d46f78e8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d7092ea68f2b7f35e372013a94108e43a83c8777
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048440"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608663"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iprova"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med iProva
 
@@ -78,11 +78,10 @@ I det här avsnittet hämtar du information från iProva för att konfigurera en
 
 1. Öppna en webbläsare och gå till sidan **SAML2-info** i iProva med hjälp av följande URL-mönster:
 
-    | | |
-    |-|-|
-    | `https://SUBDOMAIN.iprova.nl/saml2info`|
-    | `https://SUBDOMAIN.iprova.be/saml2info`|
-    | | |
+    ```https
+    https://SUBDOMAIN.iprova.nl/saml2info
+    https://SUBDOMAIN.iprova.be/saml2info
+    ```
 
     ![Visa SAML2-informationssidan i iProva](media/iprova-tutorial/iprova-saml2-info.png)
 
@@ -128,7 +127,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -162,13 +161,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. Välj **Lägg till**.
 
-6. I rutan **användar namn** anger du användar namnet för användaren `B.Simon@contoso.com`.
+6. I rutan **användar namn** anger du användar namnet för användaren `B.Simon@contoso.com` .
 
 7. I rutan **fullständigt namn** anger du det fullständiga namnet på användaren, t. ex. **B. Simon**.
 
 8. Välj alternativet **Inget lösenord (använd enkel inloggning)**.
 
-9. I rutan **e-postadress** anger du e-postadressen till `B.Simon@contoso.com`användaren.
+9. I rutan **e-postadress** anger du e-postadressen till användaren `B.Simon@contoso.com` .
 
 10. Rulla ned till slutet av sidan och välj **Slutför**.
 
@@ -226,7 +225,7 @@ När du klickar på iProva-panelen i åtkomstpanelen så bör du automatiskt log
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova iProva med Azure AD](https://aad.portal.azure.com/)
 

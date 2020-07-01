@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d530ce802b6735ffe0b45abdc97fe99a1a7e619b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 92f0895cbad547dbbb4ab040e69f1963c95df425
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67105763"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Självstudie: Azure Active Directory integrering med CERN Central
 
@@ -109,17 +109,17 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med CE
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-    | |
-    |--|
-    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
-    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+        ```https
+        https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata
+        https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata
+        ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |--|
-    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
-    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
+        ```https
+        https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso
+        https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [CERN Central client support team](mailto:SISupport@cbre.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -150,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension` . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

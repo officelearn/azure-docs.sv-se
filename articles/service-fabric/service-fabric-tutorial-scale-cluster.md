@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du skalar ett Servic
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788866"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611653"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Självstudie: Skala ut ett Service Fabric-kluster i Azure
 
@@ -80,14 +80,14 @@ Att skala in och ut eller vågrät skalning ändrar antalet noder i klustret. N�
 
 ### <a name="update-the-template"></a>Uppdatera mallen
 
-[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret och tre parametrar som anger antalet noder för varje nodtyp: *nt0InstanceCount*, *nt1InstanceCount*och *nt2InstanceCount*.  Parametern *nt1InstanceCount* anger till exempel antalet instanser för den andra nodtypen och anger antalet virtuella datorer i den associerade skalnings uppsättningen för den virtuella datorn.
+[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *parameters.js* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret och tre parametrar som anger antalet noder för varje nodtyp: *nt0InstanceCount*, *nt1InstanceCount*och *nt2InstanceCount*.  Parametern *nt1InstanceCount* anger till exempel antalet instanser för den andra nodtypen och anger antalet virtuella datorer i den associerade skalnings uppsättningen för den virtuella datorn.
 
 Så genom att uppdatera värdet för *nt1InstanceCount* ändrar du antalet noder i den andra nodtypen.  Kom ihåg att du inte kan skala upp en nodtyp till fler än 100 noder.  Icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder. Icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
 
 Om du skalar i och tar bort noder från, [måste du][durability] [ta bort de nodernas status manuellt](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  För silver-och Gold-hållbarhets nivån görs de här stegen automatiskt av plattformen.
 
 ### <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
-Spara ändringarna i *mallarna Template. JSON* och *Parameters. JSON* .  Kör följande kommando för att distribuera den uppdaterade mallen:
+Spara ändringarna i *template.js* och *parameters.jspå* filer.  Kör följande kommando för att distribuera den uppdaterade mallen:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
@@ -103,11 +103,11 @@ Varje nodtyp som definieras i ett Service Fabric kluster som körs i Azure har k
 
 ### <a name="update-the-template"></a>Uppdatera mallen
 
-[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret.  I det här avsnittet lägger du till en fjärde nodtyp genom att uppdatera och distribuera en Resource Manager-mall. 
+[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *parameters.js* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret.  I det här avsnittet lägger du till en fjärde nodtyp genom att uppdatera och distribuera en Resource Manager-mall. 
 
 Förutom den nya nodtypen lägger du också till den associerade skalnings uppsättningen för virtuella datorer (som körs i ett separat undernät i det virtuella nätverket) och nätverks säkerhets gruppen.  Du kan välja att lägga till nya eller befintliga offentliga IP-adresser och resurser för Azure Load Balancer för den nya skalnings uppsättningen.  Den nya nodtypen har en [hållbarhets nivå][durability] för silver och storlek på "Standard_D2_V2".
 
-Lägg till följande nya parametrar i filen *Template. JSON* :
+Lägg till följande nya parametrar i filen *template.js* :
 ```json
 "nt3InstanceCount": {
     "defaultValue": 5,
@@ -122,7 +122,7 @@ Lägg till följande nya parametrar i filen *Template. JSON* :
 },
 ```
 
-Lägg till följande nya variabler i filen *Template. JSON* :
+Lägg till följande nya variabler i filen *template.js* :
 ```json
 "lbID3": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name')))]",
 "lbIPConfig3": "[concat(variables('lbID3'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -144,7 +144,7 @@ Lägg till följande nya variabler i filen *Template. JSON* :
 "subnet3Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet3Name'))]",
 ```
 
-I filen *Template. JSON* lägger du till ett nytt undernät i den virtuella nätverks resursen:
+I *template.jspå* fil lägger du till ett nytt undernät i den virtuella nätverks resursen:
 ```json
 {
     "type": "Microsoft.Network/virtualNetworks",
@@ -181,7 +181,7 @@ I filen *Template. JSON* lägger du till ett nytt undernät i den virtuella nät
 },
 ```
 
-Lägg till en ny offentlig IP-adress och belastnings Utjämnings resurser i filen *Template. JSON* :
+Lägg till nya offentliga IP-adresser och belastnings Utjämnings resurser i filen *template.js* :
 ```json
 {
     "type": "Microsoft.Network/publicIPAddresses",
@@ -362,7 +362,7 @@ Lägg till en ny offentlig IP-adress och belastnings Utjämnings resurser i file
 },
 ```
 
-I filen *Template. JSON* lägger du till en ny nätverks säkerhets grupp och resurser för skalnings uppsättning för virtuella datorer.  Egenskapen NodeTypeRef i Service Fabric tilläggs egenskaperna för den virtuella datorns skal uppsättning mappar den angivna nodtypen till skalnings uppsättningen.
+Lägg till en ny nätverks säkerhets grupp och resurser för skalnings uppsättningar för virtuella datorer i filen *template.js* .  Egenskapen NodeTypeRef i Service Fabric tilläggs egenskaperna för den virtuella datorns skal uppsättning mappar den angivna nodtypen till skalnings uppsättningen.
 
 ```json
 {
@@ -746,7 +746,7 @@ I filen *Template. JSON* lägger du till en ny nätverks säkerhets grupp och re
 },
 ```
 
-Uppdatera kluster resursen i filen *Template. JSON* och Lägg till en ny nodtyp:
+Uppdatera kluster resursen i *template.jspå* filen och Lägg till en ny nodtyp:
 ```json
 {
     "type": "Microsoft.ServiceFabric/clusters",
@@ -782,7 +782,7 @@ Uppdatera kluster resursen i filen *Template. JSON* och Lägg till en ny nodtyp:
 }                
 ```
 
-Lägg till följande nya parametrar och värden i filen *Parameters. JSON* :
+Lägg till följande nya parametrar och värden i filen *parameters.js* :
 ```json
 "nt3InstanceCount": {
     "Value": 5    
@@ -793,7 +793,7 @@ Lägg till följande nya parametrar och värden i filen *Parameters. JSON* :
 ```
 
 ### <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
-Spara ändringarna i *mallarna Template. JSON* och *Parameters. JSON* .  Kör följande kommando för att distribuera den uppdaterade mallen:
+Spara ändringarna i *template.js* och *parameters.jspå* filer.  Kör följande kommando för att distribuera den uppdaterade mallen:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
@@ -833,24 +833,23 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Öka nodens resurser 
-När du har skapat ett Service Fabric-kluster kan du skala en typ av klusternod lodrätt (ändra resurserna för noderna) eller uppgradera operativ systemet för de virtuella datorernas nodtyper.  
+När du har skapat ett Service Fabric-kluster kan du skala en klusternod lodrätt (ändra resurserna för noderna) eller uppgradera operativ systemet för de virtuella datorernas nodtyper genom att ersätta den ursprungliga nodtypen med en ny nodtyp (med uppdaterad VM SKU eller OS-avbildning). Mer information finns i [skala upp en typ av Azure-Service Fabric Node](service-fabric-scale-up-node-type.md).
 
-> [!WARNING]
-> Vi rekommenderar att du inte ändrar VM-SKU: n för en skalnings uppsättning/nodtyp om den inte körs vid silver tålighet eller större. Att ändra den virtuella datorns SKU-storlek är en dataförstörande infrastruktur åtgärd på plats. Utan någon möjlighet att fördröja eller övervaka den här ändringen är det möjligt att åtgärden kan leda till data förlust för tillstånds känsliga tjänster eller orsaka andra oförutsedda drifts problem, även för tillstånds lösa arbets belastningar.
+> [!IMPORTANT]
+> Försök aldrig att ändra på plats för VM SKU eller OS-avbildning, vilket är en farlig åtgärd och som inte stöds.
 
-> [!WARNING]
-> Vi rekommenderar att du inte ändrar VM-SKU: n för den primära nodtypen, som är en farlig åtgärd och som inte stöds.  Om du behöver mer kluster kapacitet kan du lägga till fler VM-instanser eller ytterligare nodtyper.  Om detta inte är möjligt kan du skapa ett nytt kluster och [återställa program tillstånd](service-fabric-reliable-services-backup-restore.md) (om det är tillämpligt) från det gamla klustret.  Om detta inte är möjligt kan du [ändra VM-SKU: n för den primära nodtypen](service-fabric-scale-up-node-type.md).
+Om detta inte är möjligt kan du skapa ett nytt kluster och [återställa program tillstånd](service-fabric-reliable-services-backup-restore.md) (om det är tillämpligt) från det gamla klustret. Du behöver inte återställa någon system tjänst status. de återskapas när du distribuerar dina program till det nya klustret. Om du precis har kört tillstånds lösa program i klustret, så kan du distribuera dina program till det nya klustret, men du har inget att återställa.
 
 ### <a name="update-the-template"></a>Uppdatera mallen
 
-[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret.  
+[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *parameters.js* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret.  
 
 Storleken på de virtuella datorerna i den andra nodtypen anges i parametern *vmNodeType1Size* .  Ändra värdet för parametern *vmNodeType1Size* från Standard_D2_V2 till [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md), vilket dubblerar resurserna för varje VM-instans.
 
 VM-SKU: n för alla tre nodtyper anges i parametern *vmImageSku* .  Återigen bör det vara försiktig med att ändra VM-SKU: n för en nodtyp och rekommenderas inte för den primära nodtypen.
 
 ### <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
-Spara ändringarna i *mallarna Template. JSON* och *Parameters. JSON* .  Kör följande kommando för att distribuera den uppdaterade mallen:
+Spara ändringarna i *template.js* och *parameters.jspå* filer.  Kör följande kommando för att distribuera den uppdaterade mallen:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
@@ -873,19 +872,7 @@ Fortsätt sedan till nästa självstudie för att lära dig hur du uppgraderar k
 > [!div class="nextstepaction"]
 > [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-
-> * Lägga till och ta bort nodtyper (skala ut och skala in)
-> * Öka Node-resurser (skala upp)
-
-Fortsätt sedan till nästa självstudie för att lära dig hur du uppgraderar körningen för ett kluster.
-> [!div class="nextstepaction"]
-> [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81594e6a21372f2b4dacedbda638cc87bad966db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa50257b785af20ea3a351bd5e40885a0c39eba2
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74227569"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Självstudie: Azure Active Directory integrering med IdeaScale
 
@@ -110,10 +110,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IdeaS
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
     
-    | |
-    |--|
-    | `http://<companyname>.ideascale.com`  |
-    | `https://<companyname>.ideascale.com` |
+        ```https
+        http://<companyname>.ideascale.com
+        https://<companyname>.ideascale.com
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för IdeaScale-klienten](https://support.ideascale.com/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -178,7 +178,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

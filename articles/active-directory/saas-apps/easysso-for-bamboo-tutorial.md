@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35c41d1605b96ad0a9d9765f8c405c1cabf9f0b7
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 7e10daab315fd20fb1f82ada2e17cef28bb6045f
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658992"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608817"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EasySSO för Bamboo
 
@@ -101,13 +101,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig EasySSO för Bamboo-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Name |  |  Källattribut|
-    | ---------------| --------------- | --------- |
-    | urn: OID: 0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
-    | urn: OID: 2.16.840.1.113730.3.1.241 | | user.displayname |
-    | urn:oid:2.5.4.4 | | user.surname |
-    | urn:oid:2.5.4.42 | | user.givenname |
+    | Name | Källattribut |
+    | ---------------| --------- |
+    | urn: OID: 0.9.2342.19200300.100.1.1 | user.userprincipalname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn: OID: 2.16.840.1.113730.3.1.241 | user.displayname |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:2.5.4.42 | user.givenname |
     
     Om dina Azure AD-användare har konfigurerat **sAMAccountName** måste du mappa **urn: OID: 0.9.2342.19200300.100.1.1** till **sAMAccountName** -attributet.
     
@@ -125,7 +125,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881304"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609460"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uppgradera från API för webbsökning i Bing V5 till v7
 
@@ -26,11 +26,11 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Slut punktens versions nummer har ändrats från V5 till v7. Till exempel https:\/\/API.Cognitive.Microsoft.com/Bing/**v 7.0**/search.
+- Slut punktens versions nummer har ändrats från V5 till v7. Till exempel https: \/ \/ API.Cognitive.Microsoft.com/Bing/**v 7.0**/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Fel svars objekt och felkoder
 
-- Alla misslyckade förfrågningar bör nu innehålla `ErrorResponse` ett objekt i svars texten.
+- Alla misslyckade förfrågningar bör nu innehålla ett `ErrorResponse` objekt i svars texten.
 
 - Följande fält har lagts till i `Error` objektet.  
   - `subCode`&mdash;Partitioner felkod i diskreta buckets, om möjligt
@@ -39,12 +39,12 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 - Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.
 
-|Kod|Under kod|Beskrivning
+|Kod|Under kod|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kods villkoren inträffar. Svaret kommer att inkludera dessa fel om HTTP-statuskoden är 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kod villkoren inträffar. Svaret kommer att inkludera dessa fel om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
 |RateLimitExceeded||Bing returnerar RateLimitExceeded varje gång du överskrider dina frågor per sekund (frågor per sekund) eller frågor per månad (QPM)-kvot.<br/><br/>Bing returnerar HTTP-statuskod 429 om du har överskridit frågor per sekund och 403 om du har överskridit QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan autentisera anroparen. Till exempel saknas `Ocp-Apim-Subscription-Key` rubriken eller så är prenumerations nyckeln inte giltig.<br/><br/>Redundans inträffar om du anger fler än en autentiseringsmetod.<br/><br/>Om felet är InvalidAuthorization är HTTP-status koden 401.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan autentisera anroparen. Till exempel `Ocp-Apim-Subscription-Key` saknas rubriken eller så är prenumerations nyckeln inte giltig.<br/><br/>Redundans inträffar om du anger fler än en autentiseringsmetod.<br/><br/>Om felet är InvalidAuthorization är HTTP-status koden 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Det här felet kan inträffa om prenumerations nyckeln har inaktiverats eller har upphört att gälla. <br/><br/>Om felet är InsufficientAuthorization är HTTP-status koden 403.
 
 - Följande mappar de tidigare fel koderna till de nya koderna. Om du har tagit ett beroende på V5-felkoder, uppdaterar du koden enligt detta.
@@ -73,7 +73,7 @@ Blockerad|InvalidRequest. blockerad
 
 ## <a name="non-breaking-changes"></a>Icke-brytande ändringar  
 
-### <a name="headers"></a>Rubriker
+### <a name="headers"></a>Sidhuvuden
 
 - Den valfria rubriken för [pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) -begäran har lagts till. Som standard returnerar Bing cachelagrat innehåll om det finns. Om du vill förhindra att Bing returnerar cachelagrat innehåll ska du ställa in huvudet Pragma på no-cache (till exempel Pragma: no-cache).
 
@@ -81,8 +81,8 @@ Blockerad|InvalidRequest. blockerad
 
 - Frågeparametern för [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) har lagts till. Använd den här parametern för att ange det antal svar som du vill att svaret ska innehålla. Svaren väljs utifrån rangordning. Om du till exempel anger den här parametern till tre (3), innehåller svaret de tre främsta rankade svaren.  
 
-- Parametern [befordra](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) frågeparameter har lagts till. Använd den här parametern tillsammans `answerCount` med för att uttryckligen inkludera en eller flera svars typer, oavsett rangordning. Om du till exempel vill flytta videor och bilder till svaret ställer du in Höj till *videor, bilder*. Listan med svar som du vill befordra räknas inte mot `answerCount` gränsen. Om `answerCount` är till exempel 2 och `promote` är inställt på *videor, bilder*, kan svaret omfatta webb sidor, nyheter, videor och bilder.
+- Parametern [befordra](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) frågeparameter har lagts till. Använd den här parametern tillsammans med `answerCount` för att uttryckligen inkludera en eller flera svars typer, oavsett rangordning. Om du till exempel vill flytta videor och bilder till svaret ställer du in Höj till *videor, bilder*. Listan med svar som du vill befordra räknas inte mot `answerCount` gränsen. Om är till exempel `answerCount` 2 och `promote` är inställt på *videor, bilder*, kan svaret omfatta webb sidor, nyheter, videor och bilder.
 
 ### <a name="object-changes"></a>Objekt ändringar
 
-- `someResultsRemoved` Fältet har lagts till i [webbsvars](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) -objektet. Fältet innehåller ett booleskt värde som anger om svaret exkluderade vissa resultat från webb svaret.  
+- Fältet har lagts `someResultsRemoved` till i [webbsvars](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) -objektet. Fältet innehåller ett booleskt värde som anger om svaret exkluderade vissa resultat från webb svaret.  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2feb65384e8586b30840a37a66aaee5375881c22
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7233ea2d9d49d9a030f11f45e8aeba3fb0927c2
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67103938"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Självstudie: Azure Active Directory integration med dokumentation
 
@@ -107,11 +107,10 @@ Utför följande steg för att konfigurera enkel inloggning med dokumentation f�
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
 
-    | |
-    |-|-|
-    | `https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn`|
-    | `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn`|
-    | |
+        ```https
+        https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
+        https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
+        ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `Dossier/<CLIENTNAME>`
 
@@ -120,11 +119,10 @@ Utför följande steg för att konfigurera enkel inloggning med dokumentation f�
 
     c. I textrutan **Svars-URL** skriver du en URL med följande mönster: 
     
-    | |
-    |-|-|
-    |  `https://<SUBDOMAIN>.dossiersystems.com/azuresso`|
-    | `https://dossier.<CLIENTDOMAINNAME>/azuresso`|
-    | |
+        ```https
+        https://<SUBDOMAIN>.dossiersystems.com/azuresso
+        https://dossier.<CLIENTDOMAINNAME>/azuresso
+        ```
 
 
     > [!NOTE]
@@ -166,7 +164,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension` . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

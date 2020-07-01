@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6aaaa24535c95e0a0d3f2b67709374c083ab738
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc8a416ac930de24e694107bec4f7ac287e15437
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726251"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608899"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AlertMedia
 
@@ -96,12 +96,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     ![image](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig AlertMedia-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
-    
-    | Name |   |  Källattribut|
-    | ---------------| --------------- | --------- |
-    | e-post |  | user.userprincipalname |
-    | förnamn |  | user.givenname |
-    | efternamn |  | user.surname |
+
+| Name | Källattribut|
+| ---- | --------------- |
+| e-post | user.userprincipalname |
+| förnamn | user.givenname |
+| efternamn | user.surname |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
@@ -115,7 +115,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -167,7 +167,7 @@ När du klickar på panelen AlertMedia på åtkomst panelen, bör du loggas in a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova AlertMedia med Azure AD](https://aad.portal.azure.com/)
 

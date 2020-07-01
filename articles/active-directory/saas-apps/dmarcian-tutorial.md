@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602c885deca429b56417181971ced495831ba5d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 845a09610fa7855dfa2be71e3736371f8f45078f
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68823691"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607142"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>Självstudie: integrera dmarcian med Azure Active Directory
 
@@ -85,29 +85,29 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-    | |
-    | -- |
-    | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+        ```https
+        https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
+        https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
+        https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
+        ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |--|
-    | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
+        ```https
+        https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
+        https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
+        https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
+        ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     
-    | |
-    |--|
-    | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
-    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
-    | `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
+        ```https
+        https://us.dmarcian.com/login/<ACCOUNT_ID>
+        https://dmarcian-eu.com/login/<ACCOUNT_ID>
+        https://dmarciam-ap.com/login/<ACCOUNT_ID>
+        ```
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Du kommer att uppdatera de här värdena med faktisk identifierare, svars-URL och inloggnings-URL. Detta förklaras senare i självstudien.
@@ -163,7 +163,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -205,7 +205,7 @@ För att göra det möjligt för Azure AD-användare att logga in i dmarcian må
 
     ![Den nya användaren](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-    a. I text rutan **ny användarens e-post** anger du e-postmeddelandet som **\@brittasimon contoso.com**.
+    a. I text rutan **ny användarens e-post** anger du e-postmeddelandet som **brittasimon \@ contoso.com**.
 
     b. Om du vill ge administratörsrättigheter till användaren väljer du **Make User an Admin** (Gör användaren till administratör).
 
@@ -223,5 +223,5 @@ När du klickar på dmarcian-panelen i åtkomstpanelen bör du automatiskt logga
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

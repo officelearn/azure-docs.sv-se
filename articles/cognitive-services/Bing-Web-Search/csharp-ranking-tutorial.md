@@ -9,14 +9,14 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382335"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609443"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Bygg en klients öknings klient i C #
 
@@ -31,8 +31,9 @@ Den här självstudien visar hur du:
 
 För att följa med i själv studie kursen behöver du:
 
-- Visual Studio. Om du inte har det kan du [Hämta och installera den kostnads fria Visual Studio 2017 community-versionen](https://www.visualstudio.com/downloads/).
-- En prenumerations nyckel för API för webbsökning i Bing. Om du inte har redan har en kan du registrera dig för [en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+* [Visual Studio IDE](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-new-console-app-project"></a>Skapa ett nytt konsol program projekt
 
@@ -47,13 +48,13 @@ Ge programmet namnet **MyConsoleSearchApp**och klicka sedan på **OK**.
 Med JSON.net kan du arbeta med de JSON-svar som returneras av API: et. Lägg till dess NuGet-paket i projektet:
 
 - I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket...**.
-- Sök efter **Browse** `Newtonsoft.Json`på fliken Bläddra. Välj den senaste versionen och klicka sedan på **Installera**.
+- Sök efter på fliken **Bläddra** `Newtonsoft.Json` . Välj den senaste versionen och klicka sedan på **Installera**.
 - Klicka på **OK** -knappen i fönstret **Granska ändringar** .
 - Stäng Visual Studio-fliken med namnet **NuGet: MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Lägg till en referens i system. Web
 
-Den här självstudien är `System.Web` beroende av sammansättningen. Lägg till en referens till den här sammansättningen i ditt projekt:
+Den här självstudien är beroende av `System.Web` sammansättningen. Lägg till en referens till den här sammansättningen i ditt projekt:
 
 - Högerklicka på **referenser** i **Solution Explorer**och välj **Lägg till referens...**
 - Välj **sammansättningar > Framework**och rulla sedan ned och kontrol lera **system. Web**
@@ -61,7 +62,7 @@ Den här självstudien är `System.Web` beroende av sammansättningen. Lägg til
 
 ## <a name="add-some-necessary-using-statements"></a>Lägg till några nödvändiga using-instruktioner
 
-Koden i den här självstudien kräver tre ytterligare using-instruktioner. Lägg till dessa uttryck under de `using` befintliga-satserna överst i **program.cs**:
+Koden i den här självstudien kräver tre ytterligare using-instruktioner. Lägg till dessa uttryck under de befintliga- `using` satserna överst i **program.cs**:
 
 ```csharp
 using System.Web;
@@ -221,7 +222,7 @@ Innan du visar hur resultatet visas i rangordningen kan du ta en titt på ett ex
 }
 ```
 
-`rankingResponse` JSON-objektet ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visnings ordning för Sök resultat. Den innehåller en eller flera av följande prioriterade grupper:
+`rankingResponse`JSON-objektet ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visnings ordning för Sök resultat. Den innehåller en eller flera av följande prioriterade grupper:
 
 - `pole`: Sök resultaten för att få den mest synliga behandlingen (till exempel, som visas ovanför Mainline och sid panelen).
 - `mainline`: Sök resultaten visas i Mainline.
@@ -307,7 +308,7 @@ static void DisplayItem(Newtonsoft.Json.Linq.JToken item, string title, string[]
 
 Dessa metoder fungerar tillsammans för att mata ut Sök resultaten till-konsolen.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör appen. Resultatet bör se ut ungefär så här:
 

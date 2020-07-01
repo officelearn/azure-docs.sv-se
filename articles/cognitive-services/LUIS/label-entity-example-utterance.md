@@ -3,12 +3,12 @@ title: Etikett för entitets exempel uttryck
 description: Lär dig hur du etiketterar en enhet för maskin inlärning med underentiteter i ett exempel på en uttryck på LUIS-portalen.
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722651"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610497"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etiketten maskin inlärnings enhet i ett exempel uttryck
 
@@ -16,7 +16,7 @@ Att märka en entitet i ett exempel uttryck ger LUIS ett exempel på vad entitet
 
 Du kan märka enhets-och underentiteter som har registrerats av enheten.
 
-Eftersom du inte kan lägga till reguljära uttryck, lista eller förbyggda entiteter, skapar du en entitet eller en underentitet och lägger sedan till dessa entiteter är funktioner, i förekommande fall, i entiteten eller underentiteten.
+Eftersom du inte kan märka reguljära uttryck, lista eller färdiga entiteter, skapar du en entitet eller en underentitet och lägger sedan till dessa entiteter som funktioner, i förekommande fall, i entiteten eller underentiteten.
 
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Etikett exempel på yttranden från sidan för avsikts information
 

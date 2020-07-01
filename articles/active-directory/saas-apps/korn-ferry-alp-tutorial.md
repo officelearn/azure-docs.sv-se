@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57801403f2d0e29fb32b6919a7078ae3fb895fdf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ab11c4fe957ab81dde3fb4f75a4dd82a6d4e5d2
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73159645"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Självstudie: Azure Active Directory integrering med korn färj-ALP
 
@@ -108,19 +108,19 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Korn Fe
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
 
-    | |
-    |--|
-    | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` | 
-    | `https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>` |
-    | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
+        ```https
+        https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
+        https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
+        https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
+        ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
     
-    | |
-    |--|
-    | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` |
-    | `https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>` |
-    | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
+        ```https
+        https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
+        https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
+        https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för Korn Ferry ALP-klienten](mailto:noreply@kornferry.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -151,7 +151,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

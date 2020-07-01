@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d459222327ef3535202e82f640f5b513f0426d54
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882776"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609477"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Lägg till analyser i API:er för Bing-sökresultat
 
 Bing-statistik ger analyser för API:er för Bing-sökresultat. Dessa analyser inkluderar anrops volym, högsta frågesträng, geografisk distribution med mera. Du kan aktivera Bing-statistik i [Azure Portal](https://ms.portal.azure.com) genom att gå till Azure-resursen och klicka på **Aktivera Bing-statistik**.
 
 > [!IMPORTANT]
-> * Bing-statistik är inte tillgänglig med kostnads fria utvärderings prenumerationer eller resurser `F0` på den kostnads fria pris nivån.
+> * Bing-statistik är inte tillgänglig med resurser på den kostnads fria `F0` pris nivån.
 > * Du får inte använda några tillgängliga data via Bing Statistics-instrumentpanelen för att skapa program för distribution till tredje part.
 > * Om du aktiverar Bing-statistik ökar prenumerations hastigheten något. Se [pris](https://aka.ms/bingstatisticspricing) information.
 
@@ -46,7 +46,7 @@ Som standard visar diagram och grafer alla mått och data som du har åtkomst ti
 
 - **Resurs-ID**: det unika resurs-ID: t som identifierar din Azure-prenumeration. Listan innehåller flera ID: n om du prenumererar på fler än en Bing-sökning API-nivå. Som standard är alla resurser markerade.  
   
-- **Marknader**: de marknader där resultatet kommer från. Till exempel en-US (engelska, USA). Som standard är alla marknader markerade. `en-WW` Marknaden är marknaden som Bing använder om samtalet inte anger någon marknad och Bing inte kan fastställa användarens marknad.  
+- **Marknader**: de marknader där resultatet kommer från. Till exempel en-US (engelska, USA). Som standard är alla marknader markerade. `en-WW`Marknaden är marknaden som Bing använder om samtalet inte anger någon marknad och Bing inte kan fastställa användarens marknad.  
   
 - **Slut punkter**: Bing-sökning API-slutpunkter. Listan innehåller alla slut punkter som du har en betald prenumeration för. Som standard är alla slut punkter markerade.  
 
@@ -92,9 +92,9 @@ Följande är möjliga mått och slut punkts begränsningar.
 
 - **Anropa ursprunglig distribution**: de typer av webbläsare som används av användarna. Till exempel Microsoft Edge, Chrome, Safari och FireFox. Anrop som görs utanför en webbläsare (t. ex. robotar, Postman eller Använd vändning från en konsol app) grupperas under bibliotek. Ursprunget bestäms med hjälp av begärans huvud värde för användar agenten. Om begäran inte innehåller ett användar agent huvud försöker Bing härleda ursprunget från andra signaler.  
 
-- **Säker Sök distribution**: distribution av säkra Sök värden. Till exempel, för, måttlig eller strikt. `safeSearch` Frågeparametern innehåller värdet, om det anges. Annars använder Bing standardvärdet som måttlig.  
+- **Säker Sök distribution**: distribution av säkra Sök värden. Till exempel, för, måttlig eller strikt. `safeSearch`Frågeparametern innehåller värdet, om det anges. Annars använder Bing standardvärdet som måttlig.  
 
-- **Svar på begärd distribution**: de webbsökning API-svar som du `responseFilter` har begärt i Frågeparametern.  
+- **Svar på begärd distribution**: de webbsökning API-svar som du har begärt i `responseFilter` Frågeparametern.  
 
 - **Svar som returnerade distribution**: svaren som webbsökning-API: t returnerade i svaret.
 

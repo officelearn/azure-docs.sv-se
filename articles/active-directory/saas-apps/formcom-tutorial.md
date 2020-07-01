@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: aa6585b981626d3752f2383db20f8e149a2ed007
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c1ee9d301d983404c23f4c710ea771599942df49
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73156114"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Självstudie: Azure Active Directory integrering med Form.com
 
@@ -111,10 +111,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Form.
 
     c. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
     
-    | |
-    |--|
-    | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
-    | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
+        ```https
+        https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action
+        https://<subdomain>.form.com/Member/UserAccount/SAML2.action
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Form.com-klientens supportteam](https://form.com/about/company/contact-us/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -155,7 +155,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b025d98c230bc82b86a736785fb8e6581ec4519c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: f87a80d5300b58b9f888d3e485d5e9dbf90c4a80
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864461"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608696"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Google Cloud (G Suite)-anslutning
 
@@ -129,20 +129,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster:
 
-    | |
-    |--|
-    | `google.com/a/<yourdomain.com>` |
-    | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+        ```https
+        google.com/a/<yourdomain.com>
+        google.com
+        https://google.com
+        https://google.com/a/<yourdomain.com>
+        ```
 
     c. I textrutan **Svars-URL** skriver du en URL med följande mönster:  
 
-    | |
-    |--|
-    | `https://www.google.com` |
-    | `https://www.google.com/a/<yourdomain.com>` |
-
+        ```https
+        https://www.google.com
+        https://www.google.com/a/<yourdomain.com>
+        ```
 
 1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera för **Google Cloud Platform**:
 
@@ -150,22 +149,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster:
     
-    | |
-    |--|
-    | `google.com/a/<yourdomain.com>` |
-    | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+        ```https
+        google.com/a/<yourdomain.com>
+        google.com
+        https://google.com
+        https://google.com/a/<yourdomain.com>
+        ```
     
     c. I textrutan **Svars-URL** skriver du en URL med följande mönster:  
     
-    | |
-    |--|
-    | `https://www.google.com` |
-    | `https://www.google.com/a/<yourdomain.com>` |
+        ```https
+        https://www.google.com
+        https://www.google.com/a/<yourdomain.com>
+        ```
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Google Cloud-anslutningen (G Suite) tillhandahåller inte enhets-ID/identifierade värden för enkel inloggnings konfiguration så när du avmarkerar alternativet för **domänautentiseringsuppgifter** är identifieraren `google.com`. Om du markerar alternativet för **domänbaserad utfärdare** blir det `google.com/a/<yourdomainname.com>`. Om du vill kontrol lera/avmarkera alternativet för **domänanslutet utfärdare** måste du gå till avsnittet **Konfigurera anslutnings-SSO för Google Cloud (G Suite)** som beskrivs senare i självstudien. Om du vill ha mer information kan du kontakta [support teamet för Google Cloud (G Suite)](https://www.google.com/contact/).
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Google Cloud-anslutningen (G Suite) tillhandahåller inte enhets-ID/identifierade värden för enkel inloggnings konfiguration så när du avmarkerar alternativet för **domänautentiseringsuppgifter** är identifieraren `google.com` . Om du markerar alternativet för **domänbaserad utfärdare** blir det `google.com/a/<yourdomainname.com>` . Om du vill kontrol lera/avmarkera alternativet för **domänanslutet utfärdare** måste du gå till avsnittet **Konfigurera anslutnings-SSO för Google Cloud (G Suite)** som beskrivs senare i självstudien. Om du vill ha mer information kan du kontakta [support teamet för Google Cloud (G Suite)](https://www.google.com/contact/).
 
 1. Ditt Google Cloud (G Suite)-anslutnings program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfiguration av attribut. Följande skärmbild visar ett exempel på detta. Standardvärdet för **unikt användar-ID** är **User. UserPrincipalName** men Google Cloud (G Suite) Connector förväntar sig att mappas till användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration.
 
@@ -188,7 +187,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -264,7 +263,7 @@ När du klickar på kopplings panelen för Google Cloud (G Suite) på åtkomst p
 
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Konfigurera användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 

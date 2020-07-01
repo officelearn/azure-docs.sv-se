@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d3f2381f2fdce123511caa2339d41b0641b077
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 4889fe0b482bd1485f6f05b8e0369823561f094d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690645"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-float"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Float
 
@@ -83,13 +83,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    a. Skriv följande URL i text rutan **identifierare** : `https://app.float.com/sso/metadata`.
+    a. Skriv följande URL i text rutan **identifierare** : `https://app.float.com/sso/metadata` .
 
-    b. I text rutan **svars-URL** anger du en URL med hjälp `https://<hostname>.float.com/sso/azuread`av mönstret.
+    b. I text rutan **svars-URL** anger du en URL med hjälp av mönstret `https://<hostname>.float.com/sso/azuread` .
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL i mönstret `https://<hostname>.float.com/login`i text rutan **inloggnings-URL** .
+    Skriv en URL i mönstret i text rutan **inloggnings-URL** `https://<hostname>.float.com/login` .
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Ersätt <hostname> med ditt float-värdnamn. Kontakta [flytt ALS kund support teamet](mailto:support@float.com) om du är osäker. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -100,9 +100,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Förutom över, förväntar sig ett flytt program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Name |  |  Källattribut|
-    | ---------------| --------------- | --------- |
-    | e-post | | user.userprincipalname |
+    | Name | Källattribut|
+    | ---------------| --------- |
+    | e-post | user.userprincipalname |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -119,7 +119,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -161,7 +161,7 @@ När du klickar på panelen Float i åtkomst panelen, bör du loggas in automati
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova att flyta med Azure AD](https://aad.portal.azure.com/)
 

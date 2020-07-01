@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6572560833e6336495b3bec782a096b584be1ec0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c180b303fc1437f9f0f1763406760545d808c7a5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67100275"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Självstudie: Azure Active Directory integration med informations hantering i detalj handeln – informations hantering
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning med informations han
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
-    | |
-    |--|
-    | `https://<company name>.mingle.infor.com` |
-    | `http://<company name>.mingledev.infor.com` |
+        ```https
+        https://<company name>.mingle.infor.com
+        http://<company name>.mingledev.infor.com
+        ```
 
     b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<company name>.mingle.infor.com/sp/ACS.saml2`
 
@@ -160,7 +160,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension` . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

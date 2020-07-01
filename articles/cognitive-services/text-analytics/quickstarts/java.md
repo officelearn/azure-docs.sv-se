@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 0541438659f25780be0c7bc1c87670cab6d7ca08
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 68095a86d3593349a356a6ee44e3f75ab5726979
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446312"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611007"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Snabb start: Använd Java för att anropa tjänsten Azure Textanalys kognitivt
 <a name="HOLTop"></a>
@@ -37,7 +37,7 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../../cognitive-services-ap
 
 API:et för språkidentifiering identifierar språket i ett textdokument med hjälp av metoden  [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med `DetectLanguage.java`namnet.
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `DetectLanguage.java` .
 1. Lägg till den kod som anges nedan till din-klass.
 1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
@@ -100,7 +100,7 @@ public class DetectLanguage {
         endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
-    static String path = "/text/analytics/v2.1/languages";
+    static String path = "/text/analytics/v3.0/languages";
     
     public static String GetLanguage (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
@@ -161,43 +161,38 @@ public class DetectLanguage {
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
-
 {
-   "documents": [
-      {
-         "id": "1",
-         "detectedLanguages": [
-            {
-               "name": "English",
-               "iso6391Name": "en",
-               "score": 1.0
-            }
-         ]
-      },
-      {
-         "id": "2",
-         "detectedLanguages": [
-            {
-               "name": "Spanish",
-               "iso6391Name": "es",
-               "score": 1.0
-            }
-         ]
-      },
-      {
-         "id": "3",
-         "detectedLanguages": [
-            {
-               "name": "Chinese_Simplified",
-               "iso6391Name": "zh_chs",
-               "score": 1.0
-            }
-         ]
-      }
-   ],
-   "errors": [
-
-   ]
+    "documents": [
+        {
+            "id": "1",
+            "detectedLanguage": {
+                "name": "English",
+                "iso6391Name": "en",
+                "confidenceScore": 1.0
+            },
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "detectedLanguage": {
+                "name": "Spanish",
+                "iso6391Name": "es",
+                "confidenceScore": 1.0
+            },
+            "warnings": []
+        },
+        {
+            "id": "3",
+            "detectedLanguage": {
+                "name": "Chinese_Simplified",
+                "iso6391Name": "zh_chs",
+                "confidenceScore": 1.0
+            },
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2019-10-01"
 }
 ```
 <a name="SentimentAnalysis"></a>
@@ -206,7 +201,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med `GetSentiment.java`namnet.
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med namnet `GetSentiment.java` .
 1. Lägg till den kod som anges nedan till din-klass.
 1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
@@ -270,7 +265,7 @@ public class GetSentiment {
         endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
-    static String path = "/text/analytics/v2.1/sentiment";
+    static String path = "/text/analytics/v3.0/sentiment";
     
     public static String getTheSentiment (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
@@ -332,17 +327,56 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ```json
 {
-   "documents": [
-      {
-         "score": 0.99984133243560791,
-         "id": "1"
-      },
-      {
-         "score": 0.024017512798309326,
-         "id": "2"
-      },
-   ],
-   "errors": [   ]
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 102,
+                    "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."
+                }
+            ],
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "sentiment": "negative",
+            "confidenceScores": {
+                "positive": 0.02,
+                "neutral": 0.05,
+                "negative": 0.93
+            },
+            "sentences": [
+                {
+                    "sentiment": "negative",
+                    "confidenceScores": {
+                        "positive": 0.02,
+                        "neutral": 0.05,
+                        "negative": 0.93
+                    },
+                    "offset": 0,
+                    "length": 92,
+                    "text": "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico."
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
 }
 ```
 
@@ -352,7 +386,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den kallas `GetKeyPhrases.java`.
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den kallas `GetKeyPhrases.java` .
 1. Lägg till den kod som anges nedan till din-klass.
 1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
@@ -416,7 +450,7 @@ public class GetKeyPhrases {
         endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
-    static String path = "/text/analytics/v2.1/keyPhrases";
+    static String path = "/text/analytics/v3.0/keyPhrases";
     
     public static String GetKeyPhrases (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
@@ -478,46 +512,50 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ```json
 {
-   "documents": [
-      {
-         "keyPhrases": [
-            "HDR resolution",
-            "new XBox",
-            "clean look"
-         ],
-         "id": "1"
-      },
-      {
-         "keyPhrases": [
-            "Carlos",
-            "notificacion",
-            "algun problema",
-            "telefono movil"
-         ],
-         "id": "2"
-      },
-      {
-         "keyPhrases": [
-            "new hotel",
-            "Grand Hotel",
-            "review",
-            "center of Seattle",
-            "classiest decor",
-            "stars"
-         ],
-         "id": "3"
-      }
-   ],
-   "errors": [  ]
+    "documents": [
+        {
+            "id": "1",
+            "keyPhrases": [
+                "HDR resolution",
+                "new XBox",
+                "clean look"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "keyPhrases": [
+                "Carlos",
+                "notificacion",
+                "algun problema",
+                "telefono movil"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "3",
+            "keyPhrases": [
+                "new hotel",
+                "Grand Hotel",
+                "review",
+                "center of Seattle",
+                "classiest decor",
+                "stars"
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2019-10-01"
 }
 ```
 <a name="Entities"></a>
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är. `https://en.wikipedia.org/wiki/United_States`  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location` , medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States` .  I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med `GetEntities.java`namnet.
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med namnet `GetEntities.java` .
 1. Lägg till den kod som anges nedan till din-klass.
 1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
@@ -581,7 +619,7 @@ public class GetEntities {
         endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
-    static String path = "/text/analytics/v2.1/entities";
+    static String path = "/text/analytics/v3.0/entities/recognition/general";
     
     public static String GetEntities (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
@@ -640,47 +678,31 @@ public class GetEntities {
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
-{  
-   "documents":[  
-      {  
-         "id":"1",
-         "entities":[  
-            {  
-               "name":"Microsoft",
-               "matches":[  
-                  {  
-                     "wikipediaScore":0.20872054383103444,
-                     "entityTypeScore":0.99996185302734375,
-                     "text":"Microsoft",
-                     "offset":0,
-                     "length":9
-                  }
-               ],
-               "wikipediaLanguage":"en",
-               "wikipediaId":"Microsoft",
-               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
-               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
-               "type":"Organization"
-            },
-            {  
-               "name":"Technology company",
-               "matches":[  
-                  {  
-                     "wikipediaScore":0.82123868042800585,
-                     "text":"It company",
-                     "offset":16,
-                     "length":10
-                  }
-               ],
-               "wikipediaLanguage":"en",
-               "wikipediaId":"Technology company",
-               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
-               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
-            }
-         ]
-      }
-   ],
-    "errors":[]
+{
+    "documents": [
+        {
+            "id": "1",
+            "entities": [
+                {
+                    "text": "Microsoft",
+                    "category": "Organization",
+                    "offset": 0,
+                    "length": 9,
+                    "confidenceScore": 0.86
+                },
+                {
+                    "text": "IT",
+                    "category": "Skill",
+                    "offset": 16,
+                    "length": 2,
+                    "confidenceScore": 0.8
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
 }
 ```
 

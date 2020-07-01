@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a4a95452c11993f57674bcbd16cf3ed5ea828e4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c07c518b4898f64e7ef726ec173c7e31083dae7d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67099554"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Självstudie: Azure Active Directory integrering med itslearning
 
@@ -107,11 +107,10 @@ Utför följande steg för att konfigurera enkel inloggning med itslearning i Az
 
     a. I rutan **Inloggnings-URL** anger du följande URL: 
     
-    | |
-    |--|
-    | `https://www.itslearning.com/index.aspx`|
-    | `https://us1.itslearning.com/index.aspx`|
-    | |
+        ```https
+        https://www.itslearning.com/index.aspx
+        https://us1.itslearning.com/index.aspx
+        ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du URL:en: `urn:mace:saml2v2.no:services:com.itslearning`
 
@@ -151,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension` . Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

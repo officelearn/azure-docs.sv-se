@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed5370fda9be2573f773bd2fe653feb74defeb7d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2f1ff2247cb3b8f673f187f688e80bde8559c0a4
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68248867"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606079"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Självstudie: integrera med Azure Active Directory
 
@@ -85,19 +85,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I text rutan **svars-URL** skriver du en URL med något av följande mönster:
 
-    | |
-    |--|
-    | `https://microsoft.hyperanna.com/userservice/auth/saml` |
-    | `https://anna.hyperanna.com/userservice/auth/saml` |
+    ```https
+    https://microsoft.hyperanna.com/userservice/auth/saml
+    https://anna.hyperanna.com/userservice/auth/saml
+    ```
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I text rutan **inloggnings-URL** skriver du en URL med något av följande mönster:
 
-    | |
-    |--|
-    | `https://microsoft.hyperanna.com/` |
-    | `https://anna.hyperanna.com/` |
+    ```https
+    `https://microsoft.hyperanna.com/
+    `https://anna.hyperanna.com/
+    ```
 
 4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -118,7 +118,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -156,5 +156,5 @@ När du klickar på den andra panelen i åtkomst panelen bör du loggas in autom
 
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

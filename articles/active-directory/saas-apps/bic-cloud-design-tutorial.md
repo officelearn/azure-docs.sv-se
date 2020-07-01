@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13f6de35400280d68227af1dd7e3a981494d9e61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de3ebba84a56a0dd997a2d0309bbc203cd606fa1
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77088216"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607964"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bic-cloud-design"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med BIC Cloud design
 
@@ -97,10 +97,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
-    |||
-    |-|-|
-    | `https://<customer-specific-name/tenant>.biccloud.com`|
-    | `https://<customer-specific-name/tenant>.biccloud.de` |
+    ```https
+    https://<customer-specific-name/tenant>.biccloud.com
+    https://<customer-specific-name/tenant>.biccloud.de
+    ```
 
     > [!Note]
     > Om värdet för **Identifierare** inte fylls i automatisk fyller du i värdet manuellt baserat på dina behov. Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [BIC Cloud design client support team](mailto:bicsupport@gbtec.de) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -131,7 +131,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -173,6 +173,6 @@ När du klickar på BIC Cloud design panel på åtkomst panelen, bör du loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova BIC Cloud design med Azure AD](https://aad.portal.azure.com/)

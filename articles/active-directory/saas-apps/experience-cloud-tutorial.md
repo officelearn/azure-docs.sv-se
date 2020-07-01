@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d044a229764d0d6ce1d0f3b10b95d406ccd3dd5f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f1a2fd4a4649b38434d196e8f4203966efdff876
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77371415"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606570"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-experience-cloud"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med erfarenhets moln
 
@@ -86,33 +86,32 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **identifierare** anger du en URL med följande mönster:
     
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>`|
-    | `https://<cluster>.medallia.ca/sso/<company>`|
-    | `https://<cluster>.medallia.eu/sso/<company>`|
-    | `https://<cluster>.medallia.au/sso/<company>`|
+        ```https
+        https://<cluster>.medallia.com/sso/<company>
+        https://<cluster>.medallia.ca/sso/<company>
+        https://<cluster>.medallia.eu/sso/<company>
+        https://<cluster>.medallia.au/sso/<company>
+        ```
 
     b. I text rutan **svars-URL** skriver du en URL med följande mönster:
 
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.au/sso/<company>/logonSubmit.do`|
-
+        ```https
+        https://<cluster>.medallia.com/sso/<company>/logonSubmit.do
+        https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do
+        https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do
+        https://<cluster>.medallia.au/sso/<company>/logonSubmit.do
+        ```
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:
 
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>`|
-    | `https://<cluster>.medallia.ca/sso/<company>`|
-    | `https://<cluster>.medallia.eu/sso/<company>`|
-    | `https://<cluster>.medallia.au/sso/<company>`|
+        ```https
+        https://<cluster>.medallia.com/sso/<company>
+        https://<cluster>.medallia.ca/sso/<company>
+        https://<cluster>.medallia.eu/sso/<company>
+        https://<cluster>.medallia.au/sso/<company>
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [support teamet för moln klient](mailto:support@medallia.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -133,7 +132,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -175,7 +174,7 @@ När du klickar på panelen erfarenhets moln i åtkomst panelen, bör du loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova att uppleva molnet med Azure AD](https://aad.portal.azure.com/)
 

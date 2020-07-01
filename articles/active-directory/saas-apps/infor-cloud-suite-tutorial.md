@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9bb3d260b808e61f15ec85752c299bfeb3ab6fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb7778ce25fd1ff01cfd7d2e1af7991bb38b1f47
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67588564"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605678"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Självstudie: Azure Active Directory integration med information CloudSuite
 
@@ -109,23 +109,21 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med inf
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-    | | |
-    |-|-|
-    | `http://mingle-sso.inforcloudsuite.com`|
-    | `http://mingle-sso.se1.inforcloudsuite.com`|
-    | `http://mingle-sso.eu1.inforcloudsuite.com`|
-    | `http://mingle-sso.se2.inforcloudsuite.com`|
-    | |
+        ```https
+        http://mingle-sso.inforcloudsuite.com
+        http://mingle-sso.se1.inforcloudsuite.com
+        http://mingle-sso.eu1.inforcloudsuite.com
+        http://mingle-sso.se2.inforcloudsuite.com
+        ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-    | | |
-    |-|-|
-    | `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | |
+        ```https
+        https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
+        https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
+        https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
+        https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
+        ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -133,12 +131,12 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med inf
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
-    | | |
-    |-|-|
-    | `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`|
+        ```https
+        https://mingle-portal.inforcloudsuite.com/Tenant-Name/
+        https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
+        https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
+        https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [information CloudSuite-klientens support team](mailto:support@infor.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -179,7 +177,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension` . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

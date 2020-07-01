@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 60248d1326d872734a49a93a689625cf2603f929
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733950"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601708"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -22,7 +22,7 @@ För att kommunicera med din Azure Active Directory Domain Services (Azure AD DS
 
 Den här självstudien visar hur du konfigurerar LDAPs för en Azure AD DS-hanterad domän.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett digitalt certifikat för användning med Azure AD DS
@@ -230,7 +230,7 @@ Med säker LDAP-åtkomst aktive rad via Internet uppdaterar du DNS-zonen så att
 
 ![Visa den skyddade LDAP-externa IP-adressen för din hanterade domän i Azure Portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Konfigurera den externa DNS-providern för att skapa en värd post, till exempel *LDAPS*, för att matcha den externa IP-adressen. Du kan skapa en post i Windows hosts-filen för att testa lokalt på datorn först. För att kunna redigera hosts-filen på den lokala datorn öppnar du *anteckningar* som administratör och öppnar sedan filen *C:\WINDOWS\SYSTEM32\DRIVERS\ETC*
+Konfigurera den externa DNS-providern för att skapa en värd post, till exempel *LDAPS*, för att matcha den externa IP-adressen. Du kan skapa en post i Windows hosts-filen för att testa lokalt på datorn först. För att kunna redigera hosts-filen på den lokala datorn öppnar du *anteckningar* som administratör och öppnar sedan filen *C:\Windows\System32\drivers\etc\hosts*
 
 I följande exempel DNS-post, antingen med den externa DNS-providern eller i den lokala värd filen, löser trafik för *LDAPS.aaddscontoso.com* till den externa IP-adressen för *168.62.205.103*:
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d151deb3b8f7a5784cd9c22bd124145be092489
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f9800e2c4e5c99ea86ec7bf27a5925b7c96b5384
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158914"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Självstudie: Azure Active Directory integrering med Ariba
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ar
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
     
-    | |
-    |--|
-    | `https://<subdomain>.sourcing.ariba.com` |
-    | `https://<subdomain>.supplier.ariba.com` |
+        ```https
+        https://<subdomain>.sourcing.ariba.com
+        https://<subdomain>.supplier.ariba.com
+        ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `http://<subdomain>.procurement-2.ariba.com`
 
@@ -144,7 +144,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

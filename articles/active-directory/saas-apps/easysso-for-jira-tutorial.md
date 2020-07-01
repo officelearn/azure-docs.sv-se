@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d82c3b4b3abe475c1c1f87aafcf02a01d4cab9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f7c1b34329e93789c4093c74038759d5e26957e6
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605323"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608763"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-jira"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EasySSO för JIRA
 
@@ -101,13 +101,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig EasySSO för JIRA-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Name |  |  Källattribut|
-    | ---------------| --------------- | --------- |
-    | urn: OID: 0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
-    | urn: OID: 2.16.840.1.113730.3.1.241 | | user.displayname |
-    | urn:oid:2.5.4.4 | | user.surname |
-    | urn:oid:2.5.4.42 | | user.givenname |
+    | Name | Källattribut|
+    | ---------------| --------- |
+    | urn: OID: 0.9.2342.19200300.100.1.1 | user.userprincipalname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn: OID: 2.16.840.1.113730.3.1.241 | user.displayname |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:2.5.4.42 | user.givenname |
     
     Om dina Azure AD-användare har konfigurerat **sAMAccountName** måste du mappa **urn: OID: 0.9.2342.19200300.100.1.1** till **sAMAccountName** -attributet.
     

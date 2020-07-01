@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6423920f5583cf811624a62205a433febddec02e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09bb4cfb62217ffa16d30170ce2aa5e065a7eae6
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158779"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Självstudie: Azure Active Directory integration med Brightspace av Desire2Learn
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Brigh
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
-    | |
-    |--|
-    | `https://<companyname>.tenants.brightspace.com/samlLogin`|
-    | `https://<companyname>.desire2learn.com/shibboleth-sp`|
+        ```https
+        https://<companyname>.tenants.brightspace.com/samlLogin
+        https://<companyname>.desire2learn.com/shibboleth-sp
+        ```
 
     b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
@@ -154,7 +154,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

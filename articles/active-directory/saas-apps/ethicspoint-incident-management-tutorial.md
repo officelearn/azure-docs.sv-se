@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 029e45fc4768084b0dcd89b32c5392d26192f7d6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 917e70374007d230c4a675f882457b05ba3a021b
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73157154"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Självstudie: Azure Active Directory integration med EthicsPoint incident hantering (EPIM)
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Ethic
 
     a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     
-    | |
-    |--|
-    | `https://<companyname>.navexglobal.com`|
-    | `https://<companyname>.ethicspointvp.com`|
+        ```https
+        https://<companyname>.navexglobal.com
+        https://<companyname>.ethicspointvp.com
+        ```
 
     b. I rutan **identifierare** anger du en URL med följande mönster:`https://<companyname>.navexglobal.com/adfs/services/trust`
 
@@ -156,7 +156,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

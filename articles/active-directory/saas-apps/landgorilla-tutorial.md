@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7c2f9b076d831f4d851a964ababb64930a7c7f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01e4c34b492fbc3d39fb46252f2460a710ccc01c
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68879998"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608593"
 ---
 # <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Självstudie: integrera mark Gorilla med Azure Active Directory
 
@@ -84,20 +84,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **identifierare** anger du en URL med något av följande mönster:
 
-    | | |
-    |-|-|
-    | `https://<customer domain>.landgorilla.com/`|
-    | `https://www.<customer domain>.landgorilla.com`|
-    | | |
+        ```https
+        https://<customer domain>.landgorilla.com/
+        https://www.<customer domain>.landgorilla.com
+        ```
 
     b. I text rutan **svars-URL** skriver du en URL med något av följande mönster:
 
-    | | |
-    |-|-|
-    | `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`|
-    | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`|
-    | `https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`|
-    | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`|
+        ```https
+        https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php
+        https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php
+        https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp
+        https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [land Gorilla-klientens support team](https://www.landgorilla.com/support/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -122,7 +121,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -160,4 +159,4 @@ När du klickar på panelen land Gorilla på åtkomst panelen, bör du loggas in
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

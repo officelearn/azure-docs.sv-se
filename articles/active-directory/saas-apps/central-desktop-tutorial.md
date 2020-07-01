@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda8e928b530001faeae34c364dfed91d7620f0a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd3747c16d67d7ecbe9496e438e8d1eb1cd51ca1
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73157507"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Självstudie: Azure Active Directory integrering med central Desktop
 
@@ -110,11 +110,10 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ce
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster:
     
-    | |
-    |--|
-    | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
-    | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
-    | |
+        ```https
+        https://<companyname>.centraldesktop.com/saml2-metadata.php
+        https://<companyname>.imeetcentral.com/saml2-metadata.php
+        ```
 
     c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<companyname>.centraldesktop.com/saml2-assertion.php`
 
@@ -187,7 +186,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

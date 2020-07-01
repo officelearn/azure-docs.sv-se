@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c6eaf23950f83592a33709574be464f4499f0ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b4ae8462a3905c63ece1e010fa021c3ab7b6b0fa
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74823223"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608832"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Claromentis
 
@@ -91,10 +91,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
-    | | |
-    |-|-|
-    | `https://<customer_site_url>/login`|
-    | `https://<customer_site_url>/login?no_auto=0`|
+    ```https
+    https://<customer_site_url>/login
+    https://<customer_site_url>/login?no_auto=0
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL: en och inloggnings-URL: en som beskrivs senare i Turorial.
@@ -115,7 +115,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -201,6 +201,6 @@ När du klickar på panelen Claromentis på åtkomst panelen, bör du loggas in 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Claromentis med Azure AD](https://aad.portal.azure.com/)

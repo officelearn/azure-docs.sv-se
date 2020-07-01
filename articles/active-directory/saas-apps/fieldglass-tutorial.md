@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ada7092fa626987513416f7be0a52f6abeefaeb5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 975e345f4d11ba16b5a74c44645f110110ca8d43
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158186"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Självstudie: Azure Active Directory integrering med Fieldglass
 
@@ -110,10 +110,10 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
     
-    | |
-    |--|
-    | `https://www.fieldglass.net/<company name>`|
-    | `https://<company name>.fgvms.com/<company name>`|
+        ```https
+        https://www.fieldglass.net/<company name>
+        https://<company name>.fgvms.com/<company name>
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [kundsupporten för Fieldglass](https://www.fieldglass.com/customer-support) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -154,7 +154,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

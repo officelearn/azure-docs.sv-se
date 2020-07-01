@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1faf1c1fcdefb0c93d36c195f0cf44626a555f44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 439a904c4e70a6e7e9633757c6d89fd3ce0a3a90
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158999"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Självstudie: Azure Active Directory integrering med Huddle
 
@@ -111,20 +111,18 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Huddl
 
     a. I textrutan **Identifierare** skriver du en URL:
 
-    | | |
-    |--|--|
-    | `https://login.huddle.net`|
-    | `https://login.huddle.com`|
-    | |
+        ```https
+        https://login.huddle.net
+        https://login.huddle.com
+        ```
 
     b. Skriv en URL i textrutan **Svars-URL**: 
 
-    | | |
-    |--|--|
-    | `https://login.huddle.net/saml/browser-sso`|
-    | `https://login.huddle.com/saml/browser-sso`|
-    | `https://login.huddle.com/saml/idp-initiated-sso`|
-    | |
+        ```https
+        https://login.huddle.net/saml/browser-sso
+        https://login.huddle.com/saml/browser-sso
+        https://login.huddle.com/saml/idp-initiated-sso
+        ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -132,11 +130,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Huddl
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
-    | | |
-    |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com`|
-    | |
+        ```https
+        https://<customsubdomain>.huddle.com
+        https://us.huddle.com
+        ```
 
     > [!NOTE]
     > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Hämta det här värdet genom att kontakta [supportteamet för Huddle-klienten](https://huddle.zendesk.com).
@@ -180,7 +177,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

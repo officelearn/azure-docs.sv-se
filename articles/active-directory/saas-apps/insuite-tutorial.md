@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8b2af6ff99db384586dad359285a08ad187bd5d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c1226d181a47f48e294d8a7da4c42467c9ade488
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666080"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608653"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-insuite"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med insvit
 
@@ -84,19 +84,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **inloggnings-URL** skriver du en URL med något av följande mönster:
 
-    | | |
-    |-|-|
-    | `https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi`|
-    | `https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi`|
+        ```https
+        https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+        https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+        ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `DreamArts_insuite_TENANTNAME`
 
     c. I text rutan **svars-URL** skriver du en URL med något av följande mönster:
 
-    | | |
-    |-|-|
-    | `https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi`|
-    | `https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi`|
+        ```https
+        https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+        https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Hämta de här värdena genom att kontakta [support teamet för klient support](mailto:e-support@dreamarts.co.jp) . Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -159,7 +159,7 @@ När du klickar på panelen insvit i åtkomst panelen, bör du loggas in automat
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova insviten med Azure AD](https://aad.portal.azure.com/)
 

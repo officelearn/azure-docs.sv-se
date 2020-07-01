@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf7e3659aa3044a4453574a2cd171303d00abc19
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67102847"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85606725"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Självstudie: integrera utgifter med Azure Active Directory
 
@@ -82,10 +82,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I text rutan **svars-URL** skriver du någon av URL: en:
 
-    | |
-    |--|
-    | `https://app.expensein.com/samlcallback` |
-    | `https://mobileapi.expensein.com/identity/samlcallback` |
+    ```https
+    https://app.expensein.com/samlcallback
+    https://mobileapi.expensein.com/identity/samlcallback
+    ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -139,7 +139,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: de939f2bfe55541dca9d93f6778e4b098d067daa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 92b88c84650227e43755e6e34d09cc26003457dc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565981"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800587"
 ---
 # <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
@@ -122,11 +122,11 @@ Plats information finns i artikeln [virtuella WAN-partners och platser](virtual-
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Routa tabeller i Basic-och standard-virtuella WAN
 
-Routningstabeller har nu funktioner för Association och spridning. En fördefinierad routningstabell är en routningstabell som inte har dessa funktioner. Om du har en fördefinierad routningstabell, Tänk på följande:
+Routningstabeller har nu funktioner för Association och spridning. En fördefinierad routningstabell är en routningstabell som inte har dessa funktioner. Om du har befintliga vägar i hubben Routning och vill använda de nya funktionerna bör du tänka på följande:
 
-* **Virtuella standard WAN-kunder med befintliga väg tabeller**: om du vill använda de nya funktionerna i en routningstabell tar du bort alla befintliga routningstabeller och återskapar nya.
+* **Virtuella standard WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda nya funktioner i en routningstabell tar du bort alla befintliga vägar från avsnittet routning för hubben i Azure Portal och försöker sedan skapa nya routningstabeller i avsnittet Route tables för hubben.
 
-* **Grundläggande virtuella WAN-kunder med befintliga väg tabeller**: om du vill använda de nya funktionerna för en routningstabell tar du bort alla befintliga routningstabeller och **uppgraderar** sedan ditt grundläggande virtuella WAN-nätverk till standard virtuella WAN. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
+* **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna för routningstabell, tar du bort alla befintliga vägar från avsnittet routning för hubben i Azure Portal och **uppgraderar** sedan ditt grundläggande virtuella WAN-nätverk till standard virtuella WAN. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 

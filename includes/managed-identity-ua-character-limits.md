@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: active-directory
 author: daveba
 ms.service: msi
@@ -16,4 +16,4 @@ ms.lasthandoff: 04/29/2020
 ms.locfileid: "67187509"
 ---
 > [!IMPORTANT]
-> När du skapar användare tilldelas identiteter stöds endast alfanumeriska tecken (0-9, a-z, A-Z) och under streck\_() och bindestreck (-). Dessutom ska namnet innehålla minst 3 tecken och upp till 128 tecken långt för att tilldelningen till VM/VMSS ska fungera korrekt. Kom tillbaka om för att få uppdateringar. Mer information finns i [Vanliga frågor och kända problem](/azure/active-directory/managed-service-identity/known-issues).
+> När du skapar användare tilldelas identiteter stöds endast alfanumeriska tecken (0-9, a-z, A-Z) och under streck ( \_ ) och bindestreck (-). Dessutom ska namnet innehålla minst 3 tecken och upp till 128 tecken långt för att tilldelningen till VM/VMSS ska fungera korrekt. Kom tillbaka om för att få uppdateringar. Mer information finns i [Vanliga frågor och kända problem](/azure/active-directory/managed-service-identity/known-issues).

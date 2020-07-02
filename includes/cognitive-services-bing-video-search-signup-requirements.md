@@ -4,20 +4,16 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: 233282b16086709d4f7e3cd7e7ae1867407a001d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 19c449adcd79502779d5a95dd07a44f74f5ddc38
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848676"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805995"
 ---
 ## <a name="create-an-azure-resource"></a>Skapa en Azure-resurs
 
 Börja använda API för videosökning i Bing genom att skapa någon av följande Azure-resurser:
-
-[Utvärderings resurs](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * Ingen Azure-prenumeration krävs.
-   * Gäller i sju dagar utan kostnad. När du har registrerat dig är en utvärderings nyckel och en slut punkt tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
 [Bing-sökning v7-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)
    * Tillgängligt via Azure Portal tills du tar bort resursen.

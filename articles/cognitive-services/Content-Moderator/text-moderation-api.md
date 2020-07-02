@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561033"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800099"
 ---
 # <a name="learn-text-moderation-concepts"></a>Lär dig om text moderator koncept
 
@@ -36,13 +36,15 @@ Tjänstsvaret innehåller följande information:
 
 Om API: n identifierar eventuella svordomar i något av de [språk som stöds](Text-Moderation-API-Languages.md), inkluderas dessa villkor i svaret. Svaret innehåller också deras plats ( `Index` ) i den ursprungliga texten. `ListId`I följande exempel-JSON refererar de termer som finns i [anpassade term listor](try-terms-list-api.md) om de är tillgängliga.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
         "Term": "crap"
     }
+```
 
 > [!NOTE]
 > För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
@@ -55,18 +57,20 @@ Content Moderator funktionen för maskin stöd för **text klassificering** stö
 
 Följande utdrag i JSON-extraheringen visar ett exempel på utdata:
 
-    "Classification": {
-        "ReviewRecommended": true,
-        "Category1": {
-              "Score": 1.5113095059859916E-06
-            },
-        "Category2": {
-              "Score": 0.12747249007225037
-            },
-        "Category3": {
-              "Score": 0.98799997568130493
-        }
+```json
+"Classification": {
+    "ReviewRecommended": true,
+    "Category1": {
+        "Score": 1.5113095059859916E-06
+    },
+    "Category2": {
+        "Score": 0.12747249007225037
+    },
+    "Category3": {
+        "Score": 0.98799997568130493
     }
+}
+```
 
 ### <a name="explanation"></a>Förklaring
 
@@ -127,11 +131,11 @@ I följande exempel visas ett exempel svar:
 
 Anta att indatamängden är ("lzay" och "f0x" är avsiktliga):
 
-    The qu!ck brown f0x jumps over the lzay dog.
+> Qu! CK bruna f0x-hopp över lzay hund.
 
 Om du ber om automatisk korrigering innehåller svaret den korrigerade versionen av texten:
 
-    The quick brown fox jumps over the lazy dog.
+> Quick Jansson Fox hoppar över den Lazy hunden.
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Skapa och hantera dina anpassade listor med villkor
 
@@ -143,13 +147,15 @@ Standardinställningen är att den globala listan över termer fungerar bra i de
 
 I följande exempel visas matchnings List-ID:
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
         "Term": "crap"
     }
+```
 
 Content Moderator innehåller ett [API för term listor](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) med åtgärder för att hantera anpassade term listor. Börja med [villkoret listar API-konsolen](try-terms-list-api.md) och Använd REST API kod exempel. Ta också en titt på [termen listar .net snabb start](term-lists-quickstart-dotnet.md) om du är bekant med Visual Studio och C#.
 

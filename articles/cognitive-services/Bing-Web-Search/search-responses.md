@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74110611"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800536"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>API för webbsökning i Bing svars struktur och svars typer  
 
@@ -38,7 +38,7 @@ När du skickar Webbsökning i Bing en Sök förfrågan returneras ett [`SearchR
 }, ...
 ```
 
-Vanligt vis returnerar Webbsökning i Bing en delmängd av svaren. Om till exempel termen har *seglings-dinghies*kan svaret omfatta `webPages`, `images`och. `rankingResponse` Om du inte har använt [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) för att filtrera ut webb sidor, innehåller svaret alltid `webpages` och `rankingResponse` svaren.
+Vanligt vis returnerar Webbsökning i Bing en delmängd av svaren. Om till exempel termen har *seglings-dinghies*kan svaret omfatta `webPages` , `images` och `rankingResponse` . Om du inte har använt [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) för att filtrera ut webb sidor, innehåller svaret alltid `webpages` och `rankingResponse` svaren.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -111,7 +111,7 @@ Mer information om bildsvar och avbildningar finns i [bildsökning API](../bing-
 
 ## <a name="related-searches-answer"></a>Relaterade söknings svar
 
-[RelatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) -svaret innehåller en lista över de populäraste relaterade frågorna från andra användare. Varje [fråga](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) i listan innehåller en frågesträng (`text`), en frågesträng med träff markerings tecken (`displayText`) och en URL (`webSearchUrl`) till Bing: s Sök resultat sida för den frågan.
+[RelatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) -svaret innehåller en lista över de populäraste relaterade frågorna från andra användare. Varje [fråga](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) i listan innehåller en frågesträng ( `text` ), en frågesträng med träff markerings tecken ( `displayText` ) och en URL ( `webSearchUrl` ) till Bing: s Sök resultat sida för den frågan.
 
 ```json
 {
@@ -123,7 +123,7 @@ Mer information om bildsvar och avbildningar finns i [bildsökning API](../bing-
 
 Använd `displayText` frågesträngen och `webSearchUrl` URL: en för att skapa en hyperlänk som tar användaren till Bing search-resultat sidan för den relaterade frågan. Du kan också använda `text` frågesträngen i din egen webbsökning API-fråga och visa resultatet själv.
 
-Information om hur du hanterar markerings markörerna i `displayText`finns i [träff markering](../bing-web-search/hit-highlighting.md).
+Information om hur du hanterar markerings markörerna i `displayText` finns i [träff markering](../bing-web-search/hit-highlighting.md).
 
 Nedan visas ett exempel på de relaterade frågor som används i Bing.com.
 
@@ -208,7 +208,7 @@ Mer information om video svar och videor finns [videosökning API](../bing-video
 }, ...
 ```
 
-Beroende på användarens enhet visas en delmängd av nyhets artiklarna med ett alternativ för användaren att visa de återstående artiklarna. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild kan du klicka på avbildningen med hjälp `url`av. Se till att du tillskriver artikeln med `provider`.
+Beroende på användarens enhet visas en delmängd av nyhets artiklarna med ett alternativ för användaren att visa de återstående artiklarna. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild kan du klicka på avbildningen med hjälp av `url` . Se till att du tillskriver artikeln med `provider`.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.
@@ -220,11 +220,11 @@ Mer information om nyhets svaret och nyhets artiklarna finns i [NYHETSSÖKNING A
 
 ## <a name="computation-answer"></a>Beräknings svar
 
-Om användaren anger ett matematiskt uttryck eller en enhets konverterings fråga kan svaret innehålla ett [beräknings](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) svar. `computation` Svaret innehåller det normaliserade uttrycket och dess resultat.
+Om användaren anger ett matematiskt uttryck eller en enhets konverterings fråga kan svaret innehålla ett [beräknings](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) svar. `computation`Svaret innehåller det normaliserade uttrycket och dess resultat.
 
 En enhets konverterings fråga är en fråga som konverterar en enhet till en annan. Till exempel *hur många fötter i 10 meter?* eller *hur många tablespoons i en 1/4-bägare?*
 
-Följande visar `computation` svaret på *hur många fötter i 10 meter?*
+Följande visar svaret på `computation` *hur många fötter i 10 meter?*
 
 ```json
 "computation": {
@@ -330,7 +330,7 @@ Matematiska uttryck som innehåller variabler (till exempel 4x + 6 = 18, där x 
 
 Om användaren anger en tid eller datum fråga kan svaret innehålla ett [tids zons](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) svar. Det här svaret stöder implicita eller explicita frågor. En implicit fråga, till exempel *vilken tid är den?*, returnerar den lokala tiden baserat på användarens plats. En explicit fråga, till exempel *vilken tid som finns i Seattle?*, returnerar den lokala tiden för Seattle, WA.
 
-`timeZone` Svaret innehåller namnet på platsen, aktuellt UTC-datum och tid på den angivna platsen och UTC-förskjutningen. Om platsens gräns ligger inom flera tids zoner, innehåller svaret det aktuella UTC-datumet och-tiden för alla tids zoner inom gränsen. Eftersom Florida-tillstånd ligger inom två tids zoner, innehåller svaret till exempel det lokala datumet och tiden för båda tids zonerna.  
+`timeZone`Svaret innehåller namnet på platsen, aktuellt UTC-datum och tid på den angivna platsen och UTC-förskjutningen. Om platsens gräns ligger inom flera tids zoner, innehåller svaret det aktuella UTC-datumet och-tiden för alla tids zoner inom gränsen. Eftersom Florida-tillstånd ligger inom två tids zoner, innehåller svaret till exempel det lokala datumet och tiden för båda tids zonerna.  
 
 Om frågan begär tiden för en delstat eller ett land/en region, fastställer Bing den primära staden inom platsens geografiska gräns och returnerar den i `primaryCityTime` fältet. Om gränsen innehåller flera tids zoner returneras återstående tids zoner i `otherCityTimes` fältet.
 
@@ -449,15 +449,18 @@ Om du vill få åtkomst till sidhuvudena kan du göra API för webbsökning i Bi
 
 Det är enkelt att installera en CORS-proxy så att vår [självstudie](tutorial-bing-web-search-single-page-app.md) kan komma åt de valfria klient rubrikerna. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i en kommandotolk.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Ändra sedan API för webbsökning i Bing slut punkten i HTML-filen till:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Ändra sedan API för webbsökning i Bing-slutpunkten i HTML-filen till: \
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Slutligen startar du CORS-proxyn med följande kommando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 

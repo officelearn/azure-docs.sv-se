@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61094667"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Omprövnings logik i Media Services SDK för .NET  
@@ -40,14 +40,14 @@ I följande tabell beskrivs undantag som Media Services SDK för .NET hanterar e
 | Undantag | Webb förfrågan | Storage | Söka i data | SaveChanges |
 | --- | --- | --- | --- | --- |
 | WebException<br/>Mer information finns i avsnittet [Webexceptions status koder](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) . |Ja |Ja |Ja |Ja |
-| DataServiceClientException<br/> Mer information finns i [status koder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Inga |Ja |Ja |Ja |
-| DataServiceQueryException<br/> Mer information finns i [status koder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Inga |Ja |Ja |Ja |
-| DataServiceRequestException<br/> Mer information finns i [status koder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Inga |Ja |Ja |Ja |
-| DataServiceTransportException |Inga |Inga |Ja |Ja |
-| TimeoutException |Ja |Ja |Ja |Inga |
+| DataServiceClientException<br/> Mer information finns i [status koder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nej |Ja |Ja |Ja |
+| DataServiceQueryException<br/> Mer information finns i [status koder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nej |Ja |Ja |Ja |
+| DataServiceRequestException<br/> Mer information finns i [status koder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nej |Ja |Ja |Ja |
+| DataServiceTransportException |Nej |Nej |Ja |Ja |
+| TimeoutException |Ja |Ja |Ja |Nej |
 | SocketException |Ja |Ja |Ja |Ja |
-| StorageException |Inga |Ja |Inga |Inga |
-| IOException |Inga |Ja |Inga |Inga |
+| StorageException |Nej |Ja |Nej |Nej |
+| IOException |Nej |Ja |Nej |Nej |
 
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Webexceptions status koder
 I följande tabell visas för vilka webexceptions-felkoder som logiken för omförsök implementeras. [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) -uppräkningen definierar status koderna.  
@@ -58,13 +58,13 @@ I följande tabell visas för vilka webexceptions-felkoder som logiken för omf�
 | NameResolutionFailure |Ja |Ja |Ja |Ja |
 | ProxyNameResolutionFailure |Ja |Ja |Ja |Ja |
 | SendFailure |Ja |Ja |Ja |Ja |
-| PipelineFailure |Ja |Ja |Ja |Inga |
-| ConnectionClosed |Ja |Ja |Ja |Inga |
-| KeepAliveFailure |Ja |Ja |Ja |Inga |
-| UnknownError |Ja |Ja |Ja |Inga |
-| ReceiveFailure |Ja |Ja |Ja |Inga |
-| RequestCanceled |Ja |Ja |Ja |Inga |
-| Timeout |Ja |Ja |Ja |Inga |
+| PipelineFailure |Ja |Ja |Ja |Nej |
+| ConnectionClosed |Ja |Ja |Ja |Nej |
+| KeepAliveFailure |Ja |Ja |Ja |Nej |
+| UnknownError |Ja |Ja |Ja |Nej |
+| ReceiveFailure |Ja |Ja |Ja |Nej |
+| RequestCanceled |Ja |Ja |Ja |Nej |
+| Tidsgräns |Ja |Ja |Ja |Nej |
 | ProtocolError <br/>Återförsöket för ProtocolError kontrol leras av HTTP-status kod hantering. Mer information finns i [status koder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Ja |Ja |Ja |Ja |
 
 ### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a>Status koder för HTTP-fel
@@ -72,14 +72,14 @@ När fråge-och SaveChanges-åtgärder returnerar DataServiceClientException, Da
 
 | Status | Webb förfrågan | Storage | Söka i data | SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |Inga |Ja |Inga |Inga |
-| 403 |Inga |Ja<br/>Hantering av återförsök med längre vänte tid. |Inga |Inga |
+| 401 |Nej |Ja |Nej |Nej |
+| 403 |Nej |Ja<br/>Hantering av återförsök med längre vänte tid. |Nej |Nej |
 | 408 |Ja |Ja |Ja |Ja |
 | 429 |Ja |Ja |Ja |Ja |
-| 500 |Ja |Ja |Ja |Inga |
-| 502 |Ja |Ja |Ja |Inga |
+| 500 |Ja |Ja |Ja |Nej |
+| 502 |Ja |Ja |Ja |Nej |
 | 503 |Ja |Ja |Ja |Ja |
-| 504 |Ja |Ja |Ja |Inga |
+| 504 |Ja |Ja |Ja |Nej |
 
 Om du vill ta en titt på den faktiska implementeringen av Media Services SDK för .NET-omprövnings logik, se [Azure-SDK-för-Media-Services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 

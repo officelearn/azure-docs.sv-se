@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
 ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60199422"
 ---
-# <a name="pricing"></a>Prissättning
+# <a name="pricing"></a>Priser
 Bash i Cloud Shell och PowerShell i Cloud Shell omfattas av informationen nedan.
 
 ## <a name="compute-cost"></a>Beräknings kostnad

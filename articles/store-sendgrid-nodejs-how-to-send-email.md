@@ -1,6 +1,6 @@
 ---
-title: Så här använder du e-posttjänsten för SendGrid (Node. js) | Microsoft Docs
-description: Lär dig hur du skickar e-post med e-posttjänsten SendGrid i Azure. Kod exempel som skrivits med Node. js API.
+title: Så här använder du e-posttjänsten SendGrid (Node.js) | Microsoft Docs
+description: 'Lär dig hur du skickar e-post med e-posttjänsten SendGrid i Azure. Kod exempel som skrivits med Node.js-API: et.'
 services: ''
 documentationcenter: nodejs
 author: erikre
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60931725"
 ---
-# <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Skicka e-post med hjälp av SendGrid från Node. js
+# <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Skicka e-post med hjälp av SendGrid från Node.js
 
-Den här guiden visar hur du utför vanliga programmerings åtgärder med e-posttjänsten SendGrid i Azure. Exemplen skrivs med Node. js-API: et. Scenarierna som beskrivs är att **Skapa e-post**, **skicka e-post**, **lägga till bilagor**, **använda filter**och **Uppdatera egenskaper**. Mer information om SendGrid och hur du skickar e-post finns i avsnittet [Nästa steg](#next-steps) .
+Den här guiden visar hur du utför vanliga programmerings åtgärder med e-posttjänsten SendGrid i Azure. Exemplen skrivs med hjälp av Node.js-API: et. Scenarierna som beskrivs är att **Skapa e-post**, **skicka e-post**, **lägga till bilagor**, **använda filter**och **Uppdatera egenskaper**. Mer information om SendGrid och hur du skickar e-post finns i avsnittet [Nästa steg](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Vad är e-posttjänsten för SendGrid?
 
@@ -36,15 +36,15 @@ SendGrid är en [molnbaserad e-posttjänst] som tillhandahåller tillförlitlig 
 * Vidarebefordra kund förfrågningar
 * E-postmeddelanden från ditt program
 
-Mer information finns i [https://sendgrid.com](https://sendgrid.com).
+Mer information finns i [https://sendgrid.com](https://sendgrid.com) .
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="reference-the-sendgrid-nodejs-module"></a>Referera till modulen SendGrid Node. js
+## <a name="reference-the-sendgrid-nodejs-module"></a>Referera till modulen SendGrid Node.js
 
-SendGrid-modulen för Node. js kan installeras via Node Package Manager (NPM) med hjälp av följande kommando:
+SendGrid-modulen för Node.js kan installeras via Node Package Manager (NPM) med hjälp av följande kommando:
 
 ```bash
 npm install sendgrid
@@ -72,7 +72,7 @@ var email = new sendgrid.Email({
 });
 ```
 
-Du kan också ange ett HTML-meddelande för klienter som har stöd för det genom att ange HTML-egenskapen. Ett exempel:
+Du kan också ange ett HTML-meddelande för klienter som har stöd för det genom att ange HTML-egenskapen. Till exempel:
 
 ```javascript
 html: This is a sample <b>HTML<b> email message.
@@ -96,7 +96,7 @@ sendgrid.send(email, function(err, json){
 ```
 
 > [!NOTE]
-> Exemplet ovan visar att skicka i ett e-postobjekt och en callback-funktion, kan du också direkt anropa funktionen Send genom att ange e-postegenskaper direkt. Ett exempel:  
+> Exemplet ovan visar att skicka i ett e-postobjekt och en callback-funktion, kan du också direkt anropa funktionen Send genom att ange e-postegenskaper direkt. Till exempel:  
 > 
 > ```javascript
 > sendgrid.send({
@@ -207,11 +207,11 @@ Mer information finns i [SendGrid-NodeJS][sendgrid-nodejs].
 
 SendGrid erbjuder webbaserade API: er som du kan använda för att utnyttja ytterligare SendGrid-funktioner från ditt Azure-program. Fullständig information finns i [SENDGRID API-dokumentationen][SendGrid API documentation].
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 
-* SendGrid Node. js-modul: [SendGrid-NodeJS][sendgrid-nodejs]
+* SendGrid Node.js modul-lagringsplats: [SendGrid-NodeJS][sendgrid-nodejs]
 * SendGrid API-dokumentation:<https://sendgrid.com/docs>
 * SendGrid Special erbjudande för Azure-kunder:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61463411"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Exempel för inställningar för Media Encoder Standard (marknads status)
@@ -29,7 +29,7 @@ ms.locfileid: "61463411"
 Media Services har fullständigt stöd för att anpassa alla värden i för inställningar för att uppfylla dina särskilda kodnings behov och krav. Om du behöver anpassa en kodnings för inställning, bör du börja med en av de nedan system för inställningar som anges i det här avsnittet som en mall för din anpassade konfiguration. Förklaringar av vad varje element i de här för inställningarna innebär och giltiga värden för varje element finns i avsnittet [Media Encoder Standard schema](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  När du använder en för inställning för 4K-kodningar bör du hämta `S3` den reserverade enhets typen. Mer information finns i [skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  När du använder en för inställning för 4K-kodningar bör du hämta den `S3` reserverade enhets typen. Mer information finns i [skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>Standardinställning för video rotation i för inställningar:
 När du arbetar med Media Encoder Standard är video rotationen aktive rad som standard. Om din video har spelats in på en mobil enhet i stående läge, roterar dessa för inställningarna dem i liggande läge före kodning.

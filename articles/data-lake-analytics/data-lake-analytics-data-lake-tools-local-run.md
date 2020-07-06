@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "62113943"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Kör U-SQL-skript på din lokala dator
@@ -47,7 +47,7 @@ En lokal U-SQL-körnings motor är ett **lokalt beräknings konto** för U-SQL-j
 
 ### <a name="working-directories"></a>Arbets kataloger
 
-När du kör ett U-SQL-skript krävs en arbetskatalog-mapp för att cachelagra kompileringsfel, köra loggar och utföra andra funktioner. I Azure Data Lake verktyg för Visual Studio är arbets katalogen U-SQL-projektets arbets katalog. Den finns under `<U-SQL project root path>/bin/debug>`. Arbets katalogen rensas varje gång en ny körning utlöses.
+När du kör ett U-SQL-skript krävs en arbetskatalog-mapp för att cachelagra kompileringsfel, köra loggar och utföra andra funktioner. I Azure Data Lake verktyg för Visual Studio är arbets katalogen U-SQL-projektets arbets katalog. Den finns under `<U-SQL project root path>/bin/debug>` . Arbets katalogen rensas varje gång en ny körning utlöses.
 
 ## <a name="local-runs-in-microsoft-visual-studio"></a>Lokala körningar i Microsoft Visual Studio
 
@@ -57,7 +57,7 @@ Azure Data Lake Tools för Visual Studio har en inbyggd lokal körnings motor. V
  
 ## <a name="local-runs-with-a-local-machine-account"></a>Lokala körningar med ett lokalt dator konto
 
-Ett **lokalt dator** konto är ett delat lokalt data beräknings konto med en enda lokal datarotmapp som det lokala lagrings kontot. Som standard finns rotmappen på **C:\Users\<användar namn> \appdata\local\usqldataroot**. Den kan också konfigureras med hjälp av **verktyg** > **data Lake** > **alternativ och inställningar**.
+Ett **lokalt dator** konto är ett delat lokalt data beräknings konto med en enda lokal datarotmapp som det lokala lagrings kontot. Som standard finns rotmappen på **C:\Users \<username> \AppData\Local\USQLDataRoot**. Den kan också konfigureras med hjälp av **verktyg**  >  **data Lake**  >  **alternativ och inställningar**.
 
 ![Konfigurera en lokal datarotmapp](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   
@@ -65,7 +65,7 @@ Ett U-SQL-projekt krävs för en lokal körning. U-SQL-projektets arbets katalog
 
 ## <a name="local-runs-with-a-local-project-account"></a>Lokala körningar med ett konto med lokalt projekt
 
-Ett konto med **lokalt projekt** är ett projekt isolerat lokalt beräknings konto för varje projekt med en isolerad lokal datarotmapp. Varje aktivt U-SQL-projekt som öppnas i Solution Explorer i Visual Studio har ett `(Local-project: <project name>)` motsvarande konto. Kontona visas i både Server Explorer i Visual Studio och i U-SQL Script Editor-marginalen.  
+Ett konto med **lokalt projekt** är ett projekt isolerat lokalt beräknings konto för varje projekt med en isolerad lokal datarotmapp. Varje aktivt U-SQL-projekt som öppnas i Solution Explorer i Visual Studio har ett motsvarande `(Local-project: <project name>)` konto. Kontona visas i både Server Explorer i Visual Studio och i U-SQL Script Editor-marginalen.  
 
 Kontot för **lokalt projekt** ger en ren och isolerad utvecklings miljö. Ett **lokalt dator** konto har en delad lokal datarotmapp som lagrar metadata och indata och utdata för alla lokala jobb. Men ett konto med **lokalt projekt** skapar en tillfällig lokal datarotmapp i arbets katalogen u-SQL-projekt varje gång ett U-SQL-skript körs. Den här tillfälliga datarotmappen rensas när en återuppbyggnad eller omkörning sker. 
 
@@ -75,7 +75,7 @@ Ett U-SQL-projekt hanterar den isolerade lokala körnings miljön via en projekt
 
 Ett U-SQL-projekt skapar en lokal datarotmapp och konfigurerar data för ett **lokalt projekt** konto. En tillfällig datarotmapp rensas och återskapas under U-SQL-projektets arbets katalog varje gång en ombyggnad och lokal körning sker. Alla data källor som konfigureras av U-SQL-projektet kopieras till den här tillfälliga lokala datarotmappen innan det lokala jobbet körs. 
 
-Du kan konfigurera rotmappen för dina data källor. Högerklicka på **U-SQL projekt** > **egenskap** > **test data källa**. När du kör ett U-SQL-skript på ett **lokalt projekt** konto kopieras alla filer och undermappar i mappen **test data källa** till den tillfälliga lokala datarotmappen. Filer i undermappar ingår. När ett lokalt jobb har körts kan du också hitta utdata i den tillfälliga lokala datarotmappen i projektets arbets katalog. Alla dessa utdata tas bort och rensas när projektet skapas och rensas. 
+Du kan konfigurera rotmappen för dina data källor. Högerklicka på **U-SQL projekt**  >  **egenskap**  >  **test data källa**. När du kör ett U-SQL-skript på ett **lokalt projekt** konto kopieras alla filer och undermappar i mappen **test data källa** till den tillfälliga lokala datarotmappen. Filer i undermappar ingår. När ett lokalt jobb har körts kan du också hitta utdata i den tillfälliga lokala datarotmappen i projektets arbets katalog. Alla dessa utdata tas bort och rensas när projektet skapas och rensas. 
 
 ![Konfigurera ett projekts test data Källa](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
@@ -95,8 +95,8 @@ Mer skillnader mellan **lokala datorer** och konton med **lokalt projekt** visas
 |Skillnads vinkel|Lokal dator|Lokalt projekt|
 |----------------|---------------|---------------|
 |Lokal åtkomst|Kan nås av alla projekt.|Endast motsvarande projekt har åtkomst till det här kontot.|
-|Lokal rotmapp|En permanent lokal mapp. Konfigureras med hjälp av **verktyg** > **data Lake** > **alternativ och inställningar**.|En tillfällig mapp som skapats för varje lokal körning under arbets katalogen U-SQL-projekt. Mappen rensas när en återuppbyggnad eller omkörning sker.|
-|Indata för ett U-SQL-skript|Den relativa sökvägen under den permanenta lokala data rot katalogen.|Ange till**test data källa**för **U-SQL-projektets projekt egenskap** > . Alla filer och undermappar kopieras till den tillfälliga datarotmappen innan en lokal körning.|
+|Lokal rotmapp|En permanent lokal mapp. Konfigureras med hjälp av **verktyg**  >  **data Lake**  >  **alternativ och inställningar**.|En tillfällig mapp som skapats för varje lokal körning under arbets katalogen U-SQL-projekt. Mappen rensas när en återuppbyggnad eller omkörning sker.|
+|Indata för ett U-SQL-skript|Den relativa sökvägen under den permanenta lokala data rot katalogen.|Ange till test data källa för **U-SQL-projektets projekt egenskap**  >  **Test Data Source**. Alla filer och undermappar kopieras till den tillfälliga datarotmappen innan en lokal körning.|
 |Utdata för ett U-SQL-skript|Relativ sökväg under den permanenta lokala data rot katalogen.|Utdata till den tillfälliga datarotmappen. Resultaten rensas när en återuppbyggnad eller omkörning sker.|
 |Refererad databas distribution|Refererade databaser distribueras inte automatiskt när de körs mot ett **lokalt dator** konto. Det är detsamma för att skicka till ett Azure Data Lake Analytics-konto.|Refererade databaser distribueras till det **lokala projekt** kontot automatiskt före en lokal körning. Alla databas miljöer rensas och omdistribueras när en återuppbyggnad eller omkörning sker.|
 

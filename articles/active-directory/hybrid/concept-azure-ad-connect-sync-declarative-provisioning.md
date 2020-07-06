@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60246370"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect synkronisering: förstå deklarativ etablering
@@ -105,7 +105,7 @@ I attributet flöden finns det en inställning för att avgöra om flervärdesat
 
 Det finns också **sammanfognings** -och **MergeCaseInsensitive**. Med de här alternativen kan du sammanfoga värden från olika källor. Den kan till exempel användas för att sammanfoga medlems-eller proxyAddresses-attributet från flera olika skogar. När du använder det här alternativet måste alla synkroniserade regler i omfånget för ett objekt använda samma kopplings typ. Du kan inte definiera **uppdatering** från en koppling och **koppla** från en annan. Om du försöker igen visas ett fel meddelande.
 
-Skillnaden mellan **sammanfognings** -och **MergeCaseInsensitive** är hur man bearbetar duplicerade attributvärden. Synkroniseringsmotorn ser till att dubblettvärden inte infogas i målattributet. Med **MergeCaseInsensitive**kommer duplicerade värden med bara en skillnad i fallet inte att vara närvarande. Du bör till exempel inte se både "SMTP:bob@contoso.com" och "smtp:bob@contoso.com" i målattributet. **Sammanslagning** tittar bara på exakta värden och flera värden där det bara finns en skillnad i vad som kan förekomma.
+Skillnaden mellan **sammanfognings** -och **MergeCaseInsensitive** är hur man bearbetar duplicerade attributvärden. Synkroniseringsmotorn ser till att dubblettvärden inte infogas i målattributet. Med **MergeCaseInsensitive**kommer duplicerade värden med bara en skillnad i fallet inte att vara närvarande. Du bör till exempel inte se både " SMTP:bob@contoso.com " och " smtp:bob@contoso.com " i målattributet. **Sammanslagning** tittar bara på exakta värden och flera värden där det bara finns en skillnad i vad som kan förekomma.
 
 Alternativet **Ersätt** är detsamma som vid **uppdatering**, men används inte.
 

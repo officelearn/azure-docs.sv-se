@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: e542c6c15f1b23ba3a84b35dd5d712f9481f49de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61463722"
 ---
 # <a name="h264-multiple-bitrate-1080p"></a>H264, flera bithastigheter, 1080p
 `Media Encoder Standard`definierar en uppsättning kodnings för inställningar som du kan använda när du skapar kodnings jobb. Du kan antingen använda en `preset name` för att ange i vilket format du vill koda medie filen. Du kan också skapa egna JSON-eller XML-baserade för hands inställningar (med UTF-8-eller UTF-16-kodning. Sedan skickar du den anpassade för inställningen till kodaren. En lista över alla förinställda namn som stöds av den här `Media Encoder Standard` kodaren finns i [uppgifts för inställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- I det här avsnittet `H264 Multiple Bitrate 1080p` visas för inställningen i XML-och JSON-format.  
+ I det här avsnittet visas för `H264 Multiple Bitrate 1080p` inställningen i XML-och JSON-format.  
   
  Den här för hands inställningen ger en uppsättning av 8 GOP MP4-filer, från 6000 kbps till 400 kbit/s och stereo AAC-ljud. Detaljerad information om profil, bit hastighet, samplings frekvens osv. för den här för inställningen finns i XML-eller JSON-definitionen nedan. Förklaringar av vad varje element i de här för inställningarna innebär och giltiga värden för varje element finns i avsnittet [Media Encoder Standard schema](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  När du `Width` ändrar värdena `Height` och i lager bör du se till att proportionerna är konsekventa. Till exempel: 1920x1080, 1280x720, 1080x576, 640 x 360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640 x 360.  
+>  När du ändrar `Width` värdena och i `Height` lager bör du se till att proportionerna är konsekventa. Till exempel: 1920x1080, 1280x720, 1080x576, 640 x 360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640 x 360.  
   
  XML  
   

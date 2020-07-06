@@ -8,10 +8,10 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61447649"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Anpassa och distribuera om en mikrotjänst
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Hämta den nya Docker-avbildningen
 > * Visualisera ändringarna 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här självstudien behöver du:
 
@@ -44,7 +44,7 @@ I den här delen anropar du standard-API: t för IoT Hub Manager. API: et return
 
 1. Kontrol lera att lösningen för fjärrövervakning körs lokalt på datorn.
 2. Leta reda på var du laddade ned Postman och öppna den.
-3. I Postman anger du följande i avsnittet GET: `http://localhost:8080/iothubmanager/v1/status`.
+3. I Postman anger du följande i avsnittet GET: `http://localhost:8080/iothubmanager/v1/status` .
 4. Visa returen och du bör se, "status": "OK: Alive".
 
     ![Meddelande om Alive och bra Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -144,7 +144,7 @@ Slutför genom att distribuera om en lokal instans av lösningen för fjärröve
     ```
 
 3. Leta reda på var du laddade ned Postman och öppna den.
-4. I Postman anger du följande begäran i avsnittet GET: `http://localhost:8080/iothubmanager/v1/status`. Nu bör du se "status": "OK: nya ändringar har gjorts här!".
+4. I Postman anger du följande begäran i avsnittet GET: `http://localhost:8080/iothubmanager/v1/status` . Nu bör du se "status": "OK: nya ändringar har gjorts här!".
 
 ![Nya ändringar gjorda här Postman-meddelande](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

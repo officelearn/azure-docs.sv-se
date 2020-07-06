@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60245509"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect synkronisering: förstå uttryck för deklarativ etablering
@@ -72,19 +72,19 @@ Här är ett exempel som fyller i metaversum-Attribute-domänen med NetBIOS-namn
 Följande operatorer kan användas:
 
 * **Jämförelse**: <, <=,  <>, =, >, >=
-* **Matematik**: +,-, \*,-
+* **Matematik**: +,-, \* ,-
 * **Sträng**: & (sammanfoga)
 * **Logiskt**:  &&  (och), | | eller
 * **Utvärderings ordning**: ()
 
-Operatorerna utvärderas vänster till höger och har samma utvärderings prioritet. Det vill säga \* (multiplikatorn) utvärderas inte före-(subtraktion). 2\*(5 + 3) är inte samma som 2\*5 + 3. Hakparenteserna () används för att ändra utvärderings ordningen när vänster till höger-utvärderings ordning inte är lämplig.
+Operatorerna utvärderas vänster till höger och har samma utvärderings prioritet. Det vill säga \* (multiplikatorn) utvärderas inte före-(subtraktion). 2 \* (5 + 3) är inte samma som 2 \* 5 + 3. Hakparenteserna () används för att ändra utvärderings ordningen när vänster till höger-utvärderings ordning inte är lämplig.
 
 ## <a name="multi-valued-attributes"></a>Attribut med flera värden
 Funktionerna kan användas på både enkelvärdesattribut och attribut med flera värden. För attribut med flera värden fungerar funktionen över alla värden och tillämpar samma funktion på alla värden.
 
-Ett exempel:  
+Till exempel:  
 `Trim([proxyAddresses])`Gör en trimning av alla värden i proxyAddress-attributet.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Ersätt domänen med @contoso.comför varje @-signvärde med.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"`Ersätt domänen med för varje värde med @-sign @contoso.com .  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Leta efter SIP-adressen och ta bort den från värdena.
 
 ## <a name="next-steps"></a>Nästa steg

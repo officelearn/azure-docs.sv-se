@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60780829"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Custom caching in Azure API Management (Anpassad cachelagring i Azure API Management)
@@ -49,7 +49,7 @@ Och sekundär resurs `/userprofile/{userid}` som ser ut som,
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-För att avgöra vilken användar information som ska inkluderas måste API Management identifiera vem användaren är. Den här mekanismen är implementerings beroende. Som exempel använder jag ett `Subject` `JWT` token-anspråk. 
+För att avgöra vilken användar information som ska inkluderas måste API Management identifiera vem användaren är. Den här mekanismen är implementerings beroende. Som exempel använder jag `Subject` ett `JWT` token-anspråk. 
 
 ```xml
 <set-variable
@@ -65,7 +65,7 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-Om det inte finns någon post i cachen som motsvarar nyckelvärdet, skapas ingen `userprofile` Sammanhangs variabel. API Management kontrollerar att sökningen lyckas med `choose` kontroll flödes principen.
+Om det inte finns någon post i cachen som motsvarar nyckelvärdet, `userprofile` skapas ingen Sammanhangs variabel. API Management kontrollerar att sökningen lyckas med `choose` kontroll flödes principen.
 
 ```xml
 <choose>
@@ -75,7 +75,7 @@ Om det inte finns någon post i cachen som motsvarar nyckelvärdet, skapas ingen
 </choose>
 ```
 
-Om `userprofile` kontext variabeln inte finns måste API Management göra en http-begäran för att hämta den.
+Om `userprofile` kontext variabeln inte finns måste API Management göra en HTTP-begäran för att hämta den.
 
 ```xml
 <send-request
@@ -184,7 +184,7 @@ Samma typ av fragmentering av fragment kan också göras på backend-webbservrar
 ## <a name="transparent-versioning"></a>Transparent versions hantering
 Det är vanligt att flera olika implementerings versioner av ett API stöds vid ett och samma tillfälle. Till exempel för att stödja olika miljöer (utveckling, testning, produktion osv.) eller för att stödja äldre versioner av API: et för att ge tid för API-konsumenter att migrera till nyare versioner. 
 
-En metod för att hantera detta, i stället för att kräva att klient utvecklare ändrar webb `/v1/customers` adresserna från till `/v2/customers` , lagras i konsumentens profil data, vilken version av API de för närvarande vill använda och anropa lämplig URL för Server delen. För att fastställa rätt server dels-URL för att anropa en viss klient, är det nödvändigt att fråga vissa konfigurations data. Genom att cachelagra dessa konfigurations data kan API Management minimera prestanda försämringen för att göra sökningen.
+En metod för att hantera detta, i stället för att kräva att klient utvecklare ändrar webb adresserna från till, lagras `/v1/customers` `/v2/customers` i konsumentens profil data, vilken version av API de för närvarande vill använda och anropa lämplig URL för Server delen. För att fastställa rätt server dels-URL för att anropa en viss klient, är det nödvändigt att fråga vissa konfigurations data. Genom att cachelagra dessa konfigurations data kan API Management minimera prestanda försämringen för att göra sökningen.
 
 Det första steget är att fastställa den identifierare som används för att konfigurera den önskade versionen. I det här exemplet valde jag att koppla versionen till produkt prenumerations nyckeln. 
 

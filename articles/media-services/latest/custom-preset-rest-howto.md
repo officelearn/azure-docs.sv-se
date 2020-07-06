@@ -13,24 +13,24 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65761796"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Koda med en anpassad transformering-REST
 
 När du kodar med Azure Media Services kan du snabbt komma igång med en av de rekommenderade inbyggda för inställningarna, baserat på bransch bästa praxis, som du ser i själv studie kursen för [strömnings filer](stream-files-tutorial-with-rest.md#create-a-transform) . Du kan också bygga en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 När du skapar anpassade för inställningar gäller följande aspekter:
 
 * Alla värden för höjd och bredd på AVC-innehåll måste vara en multipel av 4.
 * I Azure Media Services v3 är alla kodnings bit hastigheter i bitar per sekund. Detta skiljer sig från för inställningarna med våra v2-API: er, som använde kilobit/sekund som enhet. Om bit hastigheten i v2 exempelvis angavs som 128 (kilobit/sekund), skulle den vara inställd på 128000 (bitar/sekund) i v3.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). <br/>Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
 - [Konfigurera PostMan för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md).<br/>Kontrol lera att du följer det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 
@@ -135,7 +135,7 @@ I det här exemplet lägger vi först till ett AacAudio-lager för ljud kodninge
 
 I det här exemplet skapar vi en **transformering** som baseras på den anpassade för inställning som vi definierade tidigare. När du skapar en transformering bör du först använda [Get](https://docs.microsoft.com/rest/api/media/transforms/get) för att kontrol lera om det redan finns en. Om transformeringen finns kan du använda den igen. 
 
-I Postman-samlingen som du laddade ned väljer du transformeringar **och jobb**->**skapa eller uppdatera transformering**.
+I Postman-samlingen som du laddade ned väljer du transformeringar **och jobb** -> **skapa eller uppdatera transformering**.
 
 Metoden för att **Skicka** http-begäran liknar:
 

@@ -15,10 +15,10 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60733325"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Koda med en automatiskt genererad bit hastighets steg
@@ -33,7 +33,7 @@ När du använder **AdaptiveStreaming** -förinställningen i **Transform**får 
 
 Om du vill se ett exempel på hur denna för inställning används, se [strömma en fil](stream-files-dotnet-quickstart.md).
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Utdata
 
 Det här avsnittet innehåller tre exempel på de video lager för utdata som produceras av Media Services Encoder som ett resultat av kodning med **AdaptiveStreaming** -förinställningen. I samtliga fall innehåller utdata en MP4-fil med stereo ljud som är kodad med 128 kbps.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64724118"
 ---
 # <a name="media-services-development-with-net"></a>Media Services utveckling med .NET 
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du börjar utveckla Media Services program med h
 
 Med **Azure Media Services .NET SDK** Library kan du program mera Media Services med .net. För att göra det ännu enklare att utveckla med .NET, finns **Azure Media Services .NET SDK-tillägg** . Det här biblioteket innehåller en uppsättning tilläggs metoder och hjälp funktioner som fören klar din .NET-kod. Båda biblioteken är tillgängliga via **NuGet** och **GitHub**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Ett Media Services-konto i en ny eller befintlig Azure-prenumeration. Se artikeln [så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * Operativ system: Windows 10, Windows 7, Windows 2008 R2 eller Windows 8.
 * .NET Framework 4,5 eller senare.
@@ -57,13 +57,13 @@ Du kan också hämta de senaste Media Services .NET SDK-bitarna från GitHub ([G
    
     4. Projektet ändras och refererar till Media Services .NET SDK-tillägg, Media Services .NET SDK och andra beroende sammansättningar läggs till.
 4. Överväg att aktivera återställning av NuGet-paket för att främja en renare utvecklings miljö. Mer information finns i [NuGet Package Restore "](https://docs.nuget.org/consume/package-restore).
-5. Lägg till en referens till **system. Configuration** -sammansättningen. Den här sammansättningen innehåller system. Configuration. **ConfigurationManager** -klass som används för att komma åt konfigurationsfiler (till exempel App. config).
+5. Lägg till en referens till **System.Configuration** -sammansättning. Den här sammansättningen innehåller System.Configuration. **ConfigurationManager** -klass som används för att komma åt konfigurationsfiler (till exempel App.config).
    
     1. Om du vill lägga till referenser med hjälp av dialog rutan hantera referenser högerklickar du på projekt namnet i Solution Explorer. Klicka sedan på **Lägg till**och sedan på **referens...**.
    
     2. Dialog rutan hantera referenser visas.
-    3. Under .NET Framework-sammansättningar kan du söka efter och välja system. Configuration-sammansättningen och trycka på **OK**.
-6. Öppna filen app. config och Lägg till avsnittet **appSettings** i filen. Ange de värden som krävs för att ansluta till Media Services API. Mer information finns i [få åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+    3. Under .NET Framework-sammansättningar kan du söka efter och välja System.Configuration-sammansättningen och klicka på **OK**.
+6. Öppna filen App.config och Lägg till ett **appSettings** -avsnitt i filen. Ange de värden som krävs för att ansluta till Media Services API. Mer information finns i [få åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
     Ange de värden som behövs för att ansluta med hjälp av autentiseringsmetoden för **tjänstens huvud namn** .
 
@@ -79,7 +79,7 @@ Du kan också hämta de senaste Media Services .NET SDK-bitarna från GitHub ([G
                 </configuration>
         ```
 
-7. Lägg till **system. Configuration** -referensen i projektet.
+7. Lägg till referensen **System.Configuration** till ditt projekt.
 8. Skriv över de befintliga **using** -instruktionerna i början av program.cs-filen med följande kod:
 
     ```csharp      

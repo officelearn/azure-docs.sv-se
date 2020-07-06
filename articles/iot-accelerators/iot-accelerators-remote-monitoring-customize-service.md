@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61447054"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad tjänst i webb gränssnittet för webb gränssnittet för fjärrövervakning av Solution Accelerator
@@ -26,7 +26,7 @@ Exempel tjänsten i den här artikeln innehåller data för ett rutnät som avsn
 
 I ett reagerar program agerar en tjänst vanligt vis i en server dels tjänst. I exemplen för Remote Monitoring Solution Accelerator ingår tjänster som interagerar med IoT Hub Manager och konfigurations mikrotjänster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här instruktions guiden behöver du följande program vara installerad på den lokala utvecklings datorn:
 
@@ -45,25 +45,25 @@ Om du vill lägga till en tjänst i webb gränssnittet måste du lägga till kä
 
 För att komma igång innehåller mappen **src/genom gång/tjänster** de filer som definierar en enkel tjänst:
 
-**exampleService. js**
+**exampleService.js**
 
 [!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
 
 Mer information om hur tjänsterna implementeras finns i [introduktionen till den aktiva programmering som du saknar](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).
 
-**Model/exampleModels. js**
+**modell/exampleModels.js**
 
 [!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
 
-Kopiera **exampleService. js** till mappen **src/Services** och kopiera **exampleModels. js** till mappen **src/Services/Models** .
+Kopiera **exampleService.js** till mappen **src/services** och kopiera **exampleModels.js** till mappen **src/Services/Models** .
 
-Uppdatera filen **index. js** i mappen **src/Services** för att exportera den nya tjänsten:
+Uppdatera den **index.js** filen i mappen **src/Services** för att exportera den nya tjänsten:
 
 ```js
 export * from './exampleService';
 ```
 
-Uppdatera filen **index. js** i mappen **src/Services/Models** för att exportera den nya modellen:
+Uppdatera den **index.js** filen i mappen **src/Services/Models** för att exportera den nya modellen:
 
 ```js
 export * from './exampleModels';
@@ -73,17 +73,17 @@ export * from './exampleModels';
 
 För att komma igång innehåller mappen **src/genom gång/Arkiv/dämpare** en exempel minskning:
 
-**exampleReducer. js**
+**exampleReducer.js**
 
 [!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
-Kopiera **exampleReducer. js** till mappen **src/Store/reduces** .
+Kopiera **exampleReducer.js** till mappen **src/Store/reduces** .
 
 Mer information om minsknings-och **Epics**finns i [Redux](https://redux-observable.js.org/).
 
 ### <a name="configure-the-middleware"></a>Konfigurera mellanprogram
 
-Om du vill konfigurera mellanprogram, lägger du till minskningen i filen **rootReducer. js** i mappen **src/Store** :
+Om du vill konfigurera mellanprogram lägger du till minsknings punkten i **rootReducer.js** -filen i mappen **src/Store** :
 
 ```js
 import { reducer as exampleReducer } from './reducers/exampleReducer';
@@ -97,7 +97,7 @@ const rootReducer = combineReducers({
 });
 ```
 
-Lägg till Epics i filen **rootEpics. js** i mappen **src/Store** :
+Lägg till Epics i **rootEpics.js** -filen i mappen **src/Store** :
 
 ```js
 import { epics as exampleEpics } from './reducers/exampleReducer';

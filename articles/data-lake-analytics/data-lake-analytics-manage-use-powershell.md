@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66156427"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "66156427"
 
 Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, data källor, användare och jobb med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,7 +59,7 @@ Connect-AzAccount -SubscriptionName $subname
 
 ## <a name="saving-authentication-context"></a>Sparar autentiserings kontext
 
-`Connect-AzAccount` Cmdleten efterfrågar alltid autentiseringsuppgifter. Du kan undvika att du tillfrågas genom att använda följande cmdlets:
+`Connect-AzAccount`Cmdleten efterfrågar alltid autentiseringsuppgifter. Du kan undvika att du tillfrågas genom att använda följande cmdlets:
 
 ```powershell
 # Save login session information
@@ -133,7 +133,7 @@ $adla_acct = Get-AdlAnalyticsAccount -Name $adla
 $dataLakeStoreName = $adla_acct.DefaultDataLakeAccount
 ```
 
-Du kan hitta standard Data Lake Stores kontot genom att `IsDefault` filtrera listan över data källor med egenskapen:
+Du kan hitta standard Data Lake Stores kontot genom att filtrera listan över data källor med `IsDefault` egenskapen:
 
 ```powershell
 Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault } 
@@ -215,7 +215,7 @@ $jobs = Get-AdlJob -Account $adla -Top 10
 
 ### <a name="list-jobs-by-job-state"></a>Lista jobb efter jobb tillstånd
 
-Med hjälp `-State` av parametern. Du kan kombinera något av följande värden:
+Med hjälp av `-State` parametern. Du kan kombinera något av följande värden:
 
 * `Accepted`
 * `Compiling`
@@ -257,7 +257,7 @@ Get-AdlJob -Account $adla -State Ended -Result Failed
 
 ### <a name="list-jobs-by-job-submitter"></a>Visa jobb per jobb överföring
 
-`-Submitter` Parametern hjälper dig att identifiera vem som har skickat ett jobb.
+`-Submitter`Parametern hjälper dig att identifiera vem som har skickat ett jobb.
 
 ```powershell
 Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
@@ -265,7 +265,7 @@ Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
 
 ### <a name="list-jobs-by-submission-time"></a>Lista jobb efter överförings tid
 
-`-SubmittedAfter` Är användbart vid filtrering till ett tidsintervall.
+`-SubmittedAfter`Är användbart vid filtrering till ett tidsintervall.
 
 
 ```powershell
@@ -295,7 +295,7 @@ Stop-AdlJob -Account $adla -JobID $jobID
 
 ### <a name="wait-for-a-job-to-finish"></a>Vänta tills ett jobb har slutförts
 
-I stället för `Get-AdlAnalyticsJob` att upprepa tills ett jobb har slutförts kan du `Wait-AdlJob` använda cmdleten för att vänta tills jobbet är slut.
+I stället för att upprepa `Get-AdlAnalyticsJob` tills ett jobb har slutförts kan du använda `Wait-AdlJob` cmdleten för att vänta tills jobbet är slut.
 
 ```powershell
 Wait-AdlJob -Account $adla -JobId $job.JobId
@@ -327,7 +327,7 @@ $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>
 
 ### <a name="list-existing-compute-policies"></a>Lista befintliga beräknings principer
 
-`Get-AdlAnalyticsComputePolicy` Cmdlet: en hämtar information om beräknings principer för ett data Lake Analytics konto.
+`Get-AdlAnalyticsComputePolicy`Cmdlet: en hämtar information om beräknings principer för ett data Lake Analytics konto.
 
 ```powershell
 $policies = Get-AdlAnalyticsComputePolicy -Account $adla
@@ -335,7 +335,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 
 ### <a name="create-a-compute-policy"></a>Skapa en beräknings princip
 
-`New-AdlAnalyticsComputePolicy` Cmdlet: en skapar en ny beräknings princip för ett data Lake Analytics-konto. I det här exemplet anges den maximala mappen som är tillgänglig för den angivna användaren till 50 och minsta jobb prioritet på 250.
+`New-AdlAnalyticsComputePolicy`Cmdlet: en skapar en ny beräknings princip för ett data Lake Analytics-konto. I det här exemplet anges den maximala mappen som är tillgänglig för den angivna användaren till 50 och minsta jobb prioritet på 250.
 
 ```powershell
 $userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
@@ -557,5 +557,5 @@ Du kan också använda en mall för Azure-resurs grupper med hjälp av följande
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* Kom igång med data Lake Analytics att använda [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)
-* Hantera Azure Data Lake Analytics med [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) 
+* Kom igång med data Lake Analytics att använda [Azure Portal](data-lake-analytics-get-started-portal.md)  |  [Azure PowerShell](data-lake-analytics-get-started-powershell.md)  |  [Azure CLI](data-lake-analytics-get-started-cli.md)
+* Hantera Azure Data Lake Analytics med [Azure Portal](data-lake-analytics-manage-use-portal.md)  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [CLI](data-lake-analytics-manage-use-cli.md) 

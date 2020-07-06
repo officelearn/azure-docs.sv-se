@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60878450"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Kryptering av data i Azure Data Lake Storage Gen1
@@ -56,11 +56,11 @@ Här är en kort jämförelse av funktionerna som tillhandahålls i de två läg
 | --- | --- | --- |
 |Hur lagras data?|Data krypteras alltid innan de lagras.|Data krypteras alltid innan de lagras.|
 |Var lagras huvudkrypteringsnyckeln?|Key Vault|Key Vault|
-|Finns det krypteringsnycklar som lagras i klartext utanför Key Vault? |Inga|Inga|
+|Finns det krypteringsnycklar som lagras i klartext utanför Key Vault? |Inga|Nej|
 |Kan huvudkrypteringsnyckeln hämtas från Key Vault?|Nej. När den har lagrats i Key Vault kan den endast användas för kryptering och dekryptering.|Nej. När den har lagrats i Key Vault kan den endast användas för kryptering och dekryptering.|
 |Vem äger Key Vault-instansen och huvudkrypteringsnyckeln?|Tjänsten Data Lake Storage Gen1|Du äger nyckelvalvsinstansen som ingår i din Azure-prenumeration. Huvudkrypteringsnyckeln i Key Vault kan hanteras av programvara eller maskinvara.|
-|Kan du återkalla åtkomsten till huvud krypterings nyckeln för den Data Lake Storage Gen1 tjänsten?|Inga|Ja. Du kan hantera åtkomst kontrol listor i Key Vault och ta bort åtkomst kontroll poster för tjänst identiteten för tjänsten Data Lake Storage Gen1.|
-|Kan man ta bort huvudkrypteringsnyckeln permanent?|Inga|Ja. Om du tar bort huvud krypterings nyckeln från Key Vault kan inte data i Data Lake Storage Gen1-kontot dekrypteras av någon, inklusive Data Lake Storage Gen1 tjänsten. <br><br> Om du uttryckligen har säkerhetskopierat MEK innan du tog bort den från nyckelvalvet kan MEK återställas, och data kan återställas. Men om du inte har säkerhetskopierat huvud krypterings nyckeln innan du tar bort den från Key Vault, kan data i Data Lake Storage Gen1-kontot aldrig dekrypteras därefter.|
+|Kan du återkalla åtkomsten till huvud krypterings nyckeln för den Data Lake Storage Gen1 tjänsten?|Nej|Ja. Du kan hantera åtkomst kontrol listor i Key Vault och ta bort åtkomst kontroll poster för tjänst identiteten för tjänsten Data Lake Storage Gen1.|
+|Kan man ta bort huvudkrypteringsnyckeln permanent?|Nej|Ja. Om du tar bort huvud krypterings nyckeln från Key Vault kan inte data i Data Lake Storage Gen1-kontot dekrypteras av någon, inklusive Data Lake Storage Gen1 tjänsten. <br><br> Om du uttryckligen har säkerhetskopierat MEK innan du tog bort den från nyckelvalvet kan MEK återställas, och data kan återställas. Men om du inte har säkerhetskopierat huvud krypterings nyckeln innan du tar bort den från Key Vault, kan data i Data Lake Storage Gen1-kontot aldrig dekrypteras därefter.|
 
 
 Förutom skillnaden när det gäller vem som hanterar huvudkrypteringsnyckeln och det nyckelvalv som nyckeln finns i är den övriga designen densamma för båda lägena.
@@ -107,7 +107,7 @@ Följande diagram illustrerar dessa begrepp:
 
 När du använder kundhanterade nycklar kan du rotera huvudkrypteringsnyckeln. Information om hur du konfigurerar ett Data Lake Storage Gen1 konto med Kundhanterade nycklar finns i [komma igång](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 När du konfigurerar Data Lake Storage Gen1 kontot har du valt att använda dina egna nycklar. Det här alternativet kan inte ändras efter att kontot har skapats. I anvisningarna nedan antas att du använder kundhanterade nycklar (att du valt egna nycklar från ditt nyckelvalv).
 

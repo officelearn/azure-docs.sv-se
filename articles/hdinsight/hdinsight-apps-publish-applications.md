@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64685329"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program på Azure Marketplace
@@ -25,13 +25,13 @@ Mer information finns i dessa artiklar om HDInsight-program:
 * [Installera HDInsight-program](hdinsight-apps-install-applications.md). Lär dig hur du installerar ett HDInsight-program i klustren.
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md). Lär dig hur du installerar och testar anpassade HDInsight-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill skicka in ditt anpassade program på Marketplace måste du först [skapa och testa ditt anpassade program](hdinsight-apps-install-custom-applications.md).
 
 Du måste också registrera ditt Developer-konto. Mer information finns i [publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md) och [skapa ett Microsoft Developer-konto](../marketplace/marketplace-publishers-guide.md).
 
 ## <a name="define-the-application"></a>Definiera programmet
-Två steg är inblandade i att publicera program på Marketplace. Börja med att definiera en *createUiDef. JSON* -fil. Filen createUiDef. JSON anger vilka kluster som programmet är kompatibelt med. Publicera sedan mallen från Azure Portal. Här är ett exempel på en createUiDef. JSON-fil:
+Två steg är inblandade i att publicera program på Marketplace. Börja med att definiera en *createUiDef.jsi* filen. Filen createUiDef.jspå anger vilka kluster som programmet är kompatibelt med. Publicera sedan mallen från Azure Portal. Här är ett exempel på en createUiDef.jspå filen:
 
 ```json
 {
@@ -44,7 +44,7 @@ Två steg är inblandade i att publicera program på Marketplace. Börja med att
 }
 ```
 
-| Field | Beskrivning | Möjliga värden |
+| Fält | Beskrivning | Möjliga värden |
 | --- | --- | --- |
 | typer |De klustertyper programmet är kompatibelt med. |Hadoop, HBase, Storm, Spark (eller någon kombination av dessa) |
 | versioner |De typer av HDInsight-kluster programmet är kompatibelt med. |3.4 |
@@ -76,8 +76,8 @@ Installations skriptet måste ha följande egenskaper:
 ## <a name="package-the-application"></a>Paketera programmet
 Skapa en zip-fil som innehåller alla filer som krävs för att installera HDInsight-programmet. Du kan använda zip-filen för att publicera programmet. Zip-filen innehåller följande filer:
 
-* createUiDefinition. JSON
-* mainTemplate. JSON (ett exempel finns i [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).)
+* createUiDefinition.jspå
+* mainTemplate.jspå (mer information finns i [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).)
 * Alla nödvändiga skript
 
 > [!NOTE]  
@@ -91,8 +91,8 @@ Så här publicerar du ett HDInsight-program:
 3. Ange en rubrik och välj sedan **skapa en ny lösnings mall**.
 4. Om du inte redan har registrerat din organisation väljer du **skapa dev Center-konto och ansluter till Azure-programmet**.  Mer information finns i [skapa ett Microsoft Developer-konto](../marketplace/marketplace-publishers-guide.md).
 5. Välj **definiera vissa topologier för att komma igång**. En lösnings mal len är "överordnad" till alla dess topologier. Du kan definiera flera topologier i ett erbjudande eller en lösnings mall. När ett erbjudande skickas till mellanlagringen, skickas det med alla topologier. 
-6. Ange ett Topology-namn och välj **+** sedan.
-7. Ange en ny version och välj **+** sedan.
+6. Ange ett Topology-namn och välj sedan **+** .
+7. Ange en ny version och välj sedan **+** .
 8. Ladda upp zip-filen som du skapade när du paketerade programmet.  
 9. Välj **begär certifiering**. Microsofts certifierings team granskar filerna och certifierar topologin.
 

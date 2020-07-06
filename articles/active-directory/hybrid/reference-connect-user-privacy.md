@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60455796"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Användar sekretess och Azure AD Connect 
@@ -48,10 +48,10 @@ Azure AD Connect kunder bör använda följande rikt linjer när de tar bort anv
 Data om en person tas bort automatiskt från Azure AD Connect-databasen när personens data tas bort från käll systemet där det kom från. Ingen speciell åtgärd från administratörer krävs för att vara GDPR-kompatibel.  Det kräver dock att Azure AD Connect data synkroniseras med data källan minst varannan dag.
 
 ## <a name="delete-the-azure-ad-connect-installation-log-file-folder-contents"></a>Ta bort innehållet i mappen Azure AD Connect installations logg filen
-Kontrol lera och ta bort innehållet i **C:\programdata\aadconnect** -mappen regelbundet, förutom i filen **PersistedState. XML** . Den här filen upprätthåller tillstånd för den tidigare installationen av Azure A Connect och används när en uppgraderings installation utförs. Den här filen innehåller inte några data om en person och bör inte tas bort.
+Kontrol lera och ta bort innehållet i **c:\programdata\aadconnect** -mappen regelbundet, förutom **PersistedState.Xml** -filen. Den här filen upprätthåller tillstånd för den tidigare installationen av Azure A Connect och används när en uppgraderings installation utförs. Den här filen innehåller inte några data om en person och bör inte tas bort.
 
 >[!IMPORTANT]
->Ta inte bort filen PersistedState. xml.  Den här filen innehåller ingen användar information och behåller den tidigare installationens tillstånd.
+>Ta inte bort PersistedState.xml-filen.  Den här filen innehåller ingen användar information och behåller den tidigare installationens tillstånd.
 
 Du kan antingen granska och ta bort filerna med hjälp av Utforskaren i Windows, eller så kan du använda ett skript som följande för att utföra nödvändiga åtgärder:
 

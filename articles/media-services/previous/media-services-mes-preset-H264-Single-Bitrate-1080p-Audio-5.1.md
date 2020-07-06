@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 83d1c279552a75b959c19fb37e859806571f48eb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61463624"
 ---
 # <a name="h264-single-bitrate-1080p-audio-51"></a>H264, enkel bithastighet, 1080p, Audio 5.1
 
 `Media Encoder Standard`definierar en uppsättning kodnings för inställningar som du kan använda när du skapar kodnings jobb. Du kan antingen använda en `preset name` för att ange i vilket format du vill koda medie filen. Du kan också skapa egna JSON-eller XML-baserade för hands inställningar (med UTF-8-eller UTF-16-kodning. Sedan skickar du den anpassade för inställningen till kodaren. En lista över alla förinställda namn som stöds av den här `Media Encoder Standard` kodaren finns i [uppgifts för inställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- I det här avsnittet `H264 Single Bitrate 1080p Audio 5.1` visas för inställningen i XML-och JSON-format..  
+ I det här avsnittet visas för `H264 Single Bitrate 1080p Audio 5.1` inställningen i XML-och JSON-format..  
   
  Den här för inställningen skapar en enda MP4-fil med en bit hastighet på 6750 kbit/s och AAC 5,1-ljud. Detaljerad information om profil, bit hastighet, samplings frekvens osv. för den här för inställningen finns i XML-eller JSON-definitionen nedan. Förklaringar av vad varje element innebär och giltiga värden för varje element finns i [Media Encoder Standard schemat](media-services-mes-schema.md).  
   

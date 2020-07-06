@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61244352"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använda meddelande vägar och anpassade slut punkter för meddelanden från enhet till moln
@@ -26,7 +26,7 @@ IoT Hub [meddelanderoutning](iot-hub-devguide-routing-query-syntax.md) gör det 
 | **Namn**      | Det unika namn som identifierar frågan. |
 | **Källa**    | Ursprung för den data ström som ska användas. Till exempel telemetri av enhet. |
 | **Villkor** | Frågeuttrycket för den cirkulations fråga som körs mot egenskaperna för meddelande programmet, system egenskaper, meddelande text, enhetens dubbla Taggar och enhetens dubbla egenskaper för att avgöra om det är en matchning för slut punkten. Mer information om hur du skapar en fråga finns i se [syntax för meddelanderoutning](iot-hub-devguide-routing-query-syntax.md) |
-| **Endpoint**  | Namnet på slut punkten där IoT Hub skickar meddelanden som matchar frågan. Vi rekommenderar att du väljer en slut punkt i samma region som IoT-hubben. |
+| **Slutpunkt**  | Namnet på slut punkten där IoT Hub skickar meddelanden som matchar frågan. Vi rekommenderar att du väljer en slut punkt i samma region som IoT-hubben. |
 
 Ett enskilt meddelande kan matcha villkoret på flera Dirigerings frågor, i vilket fall IoT Hub levererar meddelandet till slut punkten som är kopplad till varje matchad fråga. IoT Hub deduplicerar också meddelande leveransen automatiskt, så om ett meddelande matchar flera frågor som har samma mål, skrivs det bara en gång till det målet.
 

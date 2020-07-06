@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60245480"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect synkronisering: förstå användare, grupper och kontakter
@@ -51,11 +51,11 @@ Viktiga saker att tänka på när du synkroniserar grupper från Active Director
     
       * En Active Directory grupp vars proxyAddress-attribut har värdet *{"X500:/0 = contoso. com/ou = Users/CN = testgroup"}* kommer inte att vara e-postaktiverade i Azure AD. Den har ingen SMTP-adress.
       
-      * En Active Directory grupp vars proxyAddress-attribut har värden *{"X500:/0 = contoso. com/ou = Users/CN = testgroup", "SMTP\@: johndoe contoso.com"}* kommer att vara e-postaktiverade i Azure AD.
+      * En Active Directory grupp vars proxyAddress-attribut har värden *{"X500:/0 = contoso. com/ou = Users/CN = testgroup", "SMTP: johndoe \@ contoso.com"}* kommer att vara e-postaktiverade i Azure AD.
       
-      * En Active Directory grupp vars proxyAddress-attribut har värden *{"X500:/0 = contoso. com/ou = Users/CN = testgroup", "SMTP\@: johndoe contoso.com"}* kommer också att vara e-postaktiverade i Azure AD.
+      * En Active Directory grupp vars proxyAddress-attribut har värden *{"X500:/0 = contoso. com/ou = Users/CN = testgroup", "SMTP: johndoe \@ contoso.com"}* kommer också att vara e-postaktiverade i Azure AD.
 
-## <a name="contacts"></a>Contacts
+## <a name="contacts"></a>Kontakter
 Att ha kontakter som representerar en användare i en annan skog är vanligt efter en sammanslagning & förvärv där en GALSync-lösning är bryggning av två eller flera Exchange-skogar. Objektet kontakt är alltid förenat från anslutnings utrymmet till metaversum med hjälp av e-postattributet. Om det redan finns ett kontakt objekt eller ett användar objekt med samma e-postadress kopplas objekten samman. Detta konfigureras i regeln **i från AD – kontakta Join**. Det finns också en regel med namnet **i från AD – kontakta common** med ett attributarkiv till metaversum-attributet **sourceObjectType** med den ständige **kontakten**. Den här regeln har en mycket låg prioritet, så om ett användar objekt är anslutet till samma metaversum-objekt, kommer regeln **i från AD – User common** att bidra till värde användaren för det här attributet. Med den här regeln kommer det här attributet att ha värdet kontakt om ingen användare har anslutits och värdet användare om minst en användare har hittats.
 
 Vid etablering av ett objekt till Azure AD, skapar den utgående regeln **ut till AAD – kontakta Join** att ett kontakt objekt skapas om attributet metaversum **sourceObjectType** har angetts till **Contact**. Om det här attributet är inställt på **användare**, kommer regeln **ut till AAD – User Join** att skapa ett användar objekt i stället.

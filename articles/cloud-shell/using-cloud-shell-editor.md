@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60199232"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Använda Azure Cloud Shell redigeraren
@@ -37,13 +37,13 @@ Om du vill öppna redigeringsprogrammet med en knapp i användargränssnittet kl
 
 ## <a name="closing-the-editor"></a>Stänger redigeraren
 
-Om du vill stänga redigeraren öppnar `...` du Åtgärds panelen längst upp till höger i redigeraren `Close editor`och väljer.
+Om du vill stänga redigeraren öppnar du `...` Åtgärds panelen längst upp till höger i redigeraren och väljer `Close editor` .
 
 ![Stäng redigerings programmet](media/using-cloud-shell-editor/close-editor.png)
 
 ## <a name="command-palette"></a>Kommando palett
 
-Om du vill starta kommando paletten använder `F1` du nyckeln när fokus har angetts i redigeraren. Det går även att öppna kommando paletten via Åtgärds panelen.
+Om du vill starta kommando paletten använder du `F1` nyckeln när fokus har angetts i redigeraren. Det går även att öppna kommando paletten via Åtgärds panelen.
 
 ![CMD-palett](media/using-cloud-shell-editor/cmd-palette.png)
 
@@ -52,5 +52,5 @@ Om du vill starta kommando paletten använder `F1` du nyckeln när fokus har ang
 Stöd för språk markering i Cloud Shell-redigeraren stöds via överordnade funktioner i [Monaco-redigerarens](https://github.com/Microsoft/monaco-editor)användning av Monarch-syntaxen. Information om hur du gör bidrag finns i [hand boken för Monaco Contributor](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[Prova snabb starten för bash i Cloud Shell](quickstart.md)
-[Visa en fullständig lista över integrerade Cloud Shell-verktyg](features.md)
+[Försök att använda snabb starten för bash i Cloud Shell](quickstart.md) 
+ [Visa en fullständig lista över integrerade Cloud Shell-verktyg](features.md)

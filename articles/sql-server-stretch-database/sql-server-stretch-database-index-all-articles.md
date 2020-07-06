@@ -1,6 +1,6 @@
 ---
 title: Alla avsnitt om SQL Server Stretch Database-tjänsten | Microsoft Docs
-description: Tabell över alla ämnen för Azure-tjänsten med namnet SQL Server Stretch Database som finns https://azure.microsoft.com/documentation/articles/på, rubrik och beskrivning.
+description: Tabell över alla ämnen för Azure-tjänsten med namnet SQL Server Stretch Database som finns på https://azure.microsoft.com/documentation/articles/ , rubrik och beskrivning.
 services: sql-server-stretch-database
 documentationcenter: ''
 ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
@@ -14,10 +14,10 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 81f1ac3280381ef08a1daf1fa4e041227a07aeaf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66003030"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Alla avsnitt för Azure SQL Server Stretch Database-tjänsten
@@ -55,6 +55,6 @@ Det här avsnittet innehåller en lista över alla ämnen som gäller direkt til
 ## <a name="backup-and-recovery"></a>Säkerhetskopiering och återställning
 | &nbsp; | Titel | Beskrivning |
 | ---:|:--- |:--- |
-| 14 |[Säkerhetskopiera Stretch-aktiverade databaser](sql-server-stretch-database-backup.md) |Lär dig hur du säkerhetskopierar utsträckta\-databaser. |
-| 15 |[Återställa utsträckta-aktiverade databaser](sql-server-stretch-database-restore.md) |Lär dig hur du återställer\-utsträcknings aktiverade databaser. |
+| 14 |[Säkerhetskopiera Stretch-aktiverade databaser](sql-server-stretch-database-backup.md) |Lär dig hur du säkerhetskopierar utsträckta \- databaser. |
+| 15 |[Återställa utsträckta-aktiverade databaser](sql-server-stretch-database-restore.md) |Lär dig hur du återställer utsträcknings \- aktiverade databaser. |
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65950894"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitets krav för din hybrid identitets lösning
@@ -29,7 +29,7 @@ Det första steget i att designa en hybrid identitets lösning är att faststäl
 
 Du måste gå igenom dessa viktiga aspekter av verksamheten för att förstå vad det är ett krav nu och vad företaget planerar för framtiden. Om du inte har insyn i den långsiktiga strategin för Hybrid Identitets design, är det sannolikt att din lösning inte är skalbar eftersom affärs behoven växer och förändras. Diagrammet nedan visar ett exempel på en hybrid identitets arkitektur och de arbets belastningar som ska låsas upp för användare. Detta är bara ett exempel på alla nya möjligheter som kan låsas upp och levereras med en solid hybrid identitets strategi. 
 
-Vissa komponenter som ingår i ![hybrid identitets arkitekturen hybrid identitets arkitektur](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Vissa komponenter som ingår i hybrid identitets arkitekturen hybrid ![ identitets arkitektur](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Fastställa affärs behov
 Varje företag har olika krav, även om dessa företag ingår i samma bransch, kan de verkliga affärs kraven variera. Du kan fortfarande utnyttja bästa praxis från branschen, men i slut änden är det företagets affärs behov som kommer att leda till att du definierar kraven för Hybrid identitets designen. 

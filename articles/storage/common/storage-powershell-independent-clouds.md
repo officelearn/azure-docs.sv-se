@@ -10,10 +10,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 0bc8da02a523479c3c543eff28a376136e29098f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176217"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Hantera lagring i Azures oberoende moln med PowerShell
@@ -34,7 +34,7 @@ Om du vill använda Azure Storage i ett av de oberoende molnen ansluter du till 
 * Du fastställer och använder de tillgängliga regionerna.
 * Du använder rätt slut punkts suffix, vilket skiljer sig från Azure Public.
 
-Exemplen kräver Azure PowerShell module AZ version 0,7 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen i ett PowerShell-fönster. Om inget anges eller om du behöver uppgradera, se [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps).
+Exemplen kräver Azure PowerShell module AZ version 0,7 eller senare. Kör för att hitta versionen i ett PowerShell-fönster `Get-Module -ListAvailable Az` . Om inget anges eller om du behöver uppgradera, se [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 

@@ -4,10 +4,10 @@ description: Lär dig hur du återställer Key Vault nyckel och hemlighet i Azur
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 826b3917fda820ed02cde425ca5a394bffec0df1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186829"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer med Azure Backup
@@ -16,7 +16,7 @@ Den här artikeln visar hur du använder Azure VM backup för att utföra åters
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Säkerhetskopiera krypterade virtuella datorer** – krypterade virtuella Azure-datorer har säkerhetskopierats med Azure Backup. Se artikeln [hantera säkerhets kopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md) för information om hur du säkerhetskopierar krypterade virtuella Azure-datorer.
 * **Konfigurera Azure Key Vault** – kontrol lera att nyckel valvet som nycklar och hemligheter måste återställas till redan finns. Läs artikeln [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) för information om hantering av nyckel valv.
@@ -128,7 +128,7 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 
 > [!NOTE]
 >
-> * Värdet för $secretname kan hämtas genom att referera till utdata från $rp 1. KeyAndSecretDetails. SecretUrl och använder text efter hemligheter/t. URL för `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` utdata och hemligt namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Värdet för $secretname kan hämtas genom att referera till utdata från $rp 1. KeyAndSecretDetails. SecretUrl och använder text efter hemligheter/t. URL för utdata `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` och hemligt namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Värdet för taggen DiskEncryptionKeyFileName är detsamma som hemligt namn.
 > * Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från Key Vault efter att nycklarna återställts och med [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) -cmdlet
 >

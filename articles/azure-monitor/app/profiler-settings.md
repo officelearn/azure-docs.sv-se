@@ -7,16 +7,16 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188934"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurera Application Insights Profiler
 
 ## <a name="updated-profiler-agent"></a>Agenten har uppdaterats
-Utlösaren fungerar bara med version 2,6 eller senare av profilerings agenten. Om du kör en Azure App Service kommer agenten att uppdateras automatiskt. Du kan se vilken version av agenten du kör om du går till kudu-URL: en för din webbplats och lägger till \DiagnosticServices i slutet av den, så här `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`:. Application Insights Profiler webbjobbet ska vara version 2,6 eller senare. Du kan tvinga en uppgradering genom att starta om din webbapp. 
+Utlösaren fungerar bara med version 2,6 eller senare av profilerings agenten. Om du kör en Azure App Service kommer agenten att uppdateras automatiskt. Du kan se vilken version av agenten du kör om du går till kudu-URL: en för din webbplats och lägger till \DiagnosticServices i slutet av den, så här: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . Application Insights Profiler webbjobbet ska vara version 2,6 eller senare. Du kan tvinga en uppgradering genom att starta om din webbapp. 
 
 Om du kör profileraren på en virtuell dator eller moln tjänst måste du ha Windows Azure-diagnostik (WAD)-tilläggs version 16.0.4 eller senare installerat. Du kan kontrol lera versionen av WAD genom att logga in på den virtuella datorn och titta på den här katalogen: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Katalog namnet är den version av WAD som är installerad. Azure VM-agenten kommer att uppdatera WAD automatiskt när nya versioner är tillgängliga.
 
@@ -65,7 +65,7 @@ Appnamn | Namnet på det program som profilerades.
 Dator instans | Namnet på datorn som profilens agent kördes på.
 Tidsstämpel | Tid när profilen fångades.
 Spåra | Antal spårningar som kopplats till enskilda begär Anden.
-CPU i % | Procent andel CPU som användes när profileraren kördes.
+CPU % | Procent andel CPU som användes när profileraren kördes.
 Minnesoptimerade | Procent andelen minne som användes när profileraren kördes.
 
 ## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a>Använd webb prestanda test för att generera trafik till ditt program
@@ -78,7 +78,7 @@ I nästa avsnitt visas hur det här scenariot fungerar:
 
 Om din webbapp redan har inkommande trafik eller om du bara vill generera trafik manuellt, hoppar du över det här avsnittet och fortsätter till steg 2.
 
-1. I Application Insights-portalen väljer du **Konfigurera** > **prestanda testning**. 
+1. I Application Insights-portalen väljer du **Konfigurera**  >  **prestanda testning**. 
 
 1. Starta ett nytt prestandatest genom att välja knappen **nytt** .
 

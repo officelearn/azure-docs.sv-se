@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187236"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad panel i instrument panelen i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator
@@ -24,7 +24,7 @@ Den här artikeln visar hur du lägger till en ny panel på en instrument panels
 
 Exempel panelen i den här artikeln visas på sidan befintlig instrument panel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här instruktions guiden behöver du följande program vara installerad på den lokala utvecklings datorn:
 
@@ -43,13 +43,13 @@ Om du vill lägga till en panel i webb gränssnittet måste du lägga till käll
 
 För att komma igång innehåller mappen **src/genom gång/komponenter/sidor/instrument panel/paneler/examplePanel** de filer som definierar en panel, inklusive:
 
-**examplePanel. js**
+**examplePanel.js**
 
 [!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 Kopiera mappen **src/genom gång/komponenter/sidor/instrument panel/paneler/examplePanel** till mappen **src/Components/Pages/Dashboard/** panels.
 
-Lägg till följande export i filen **src/genom gång/Components/Pages/Dashboard/panels/index. js** :
+Lägg till följande export i filen **src/genom gång/Components/Pages/Dashboard/panels/index.js** :
 
 ```js
 export * from './examplePanel';
@@ -57,7 +57,7 @@ export * from './examplePanel';
 
 ### <a name="add-the-panel-to-the-dashboard"></a>Lägg till panelen på instrument panelen
 
-Lägg till panelen genom att ändra **src/Components/Pages/Dashboard/Dashboard. js** .
+Ändra fliken **src/Components/Pages/Dashboard/dashboard.js** för att lägga till panelen.
 
 Lägg till exempel panelen i listan över importer från paneler:
 
@@ -90,7 +90,7 @@ Om webb gränssnittet inte redan körs lokalt kör du följande kommando i roten
 npm start
 ```
 
-Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard`. Gå till **instrument panels** sidan för att visa den nya panelen.
+Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard` . Gå till **instrument panels** sidan för att visa den nya panelen.
 
 ## <a name="next-steps"></a>Nästa steg
 

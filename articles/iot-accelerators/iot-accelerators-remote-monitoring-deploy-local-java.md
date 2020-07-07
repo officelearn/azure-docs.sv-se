@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187219"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösnings acceleratorn för fjärr styrning lokalt – IntelliJ
@@ -23,7 +23,7 @@ Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrö
 
 Om du vill köra lösnings acceleratorn för fjärrövervakning i Docker på den lokala datorn läser [du distribuera lösnings Accelerator för fjärrövervakning lokalt Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
@@ -41,9 +41,9 @@ För att slutföra den lokala distributionen behöver du följande verktyg insta
 * [IntelliJ SBT-plugin](https://plugins.jetbrains.com/plugin/5007-sbt)
 * [IntelliJ SBT utförar-plugin](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node. js-V8](https://nodejs.org/)
+* [Node.js V8](https://nodejs.org/)
 
-Node. js-V8 är ett krav för de PC-CLI som skripten använder för att skapa Azure-resurser. Använd inte Node. js-v10.
+Node.js V8 är ett krav för de PC CLI-datorer som skripten använder för att skapa Azure-resurser. Använd inte Node.js v10.
 
 > [!NOTE]
 > IntelliJ IDE är tillgänglig för Windows och Mac.
@@ -98,7 +98,7 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna följer du dessa st
    Skriptet lägger också till en uppsättning miljövariabler på den lokala datorn. Varje variabel namn har prefixet **PCs**. De här miljövariablerna innehåller information som tillåter fjärr styrning att läsa konfigurations värden från en Azure Key Vault resurs.
 
    > [!TIP]
-   > När skriptet har slutförts sparas miljövariablerna i en fil som heter ** \<din arbetsmapp\>\\. PC\\\<-lösningens\>namn. kuvert**. Du kan använda dem för framtida distributioner av lösnings Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värdena i **den\\lokala\\\\. kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
+   > När skriptet har slutförts sparas miljövariablerna i en fil med namnet ** \<your home folder\> \\ . PCs. \\ \<solution name\> Kuvert**. Du kan använda dem för framtida distributioner av lösnings Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värdena i **den \\ \\ lokala \\ . kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
 
 1. Stäng kommando rads miljön.
 
@@ -109,7 +109,7 @@ Om du redan har skapat de nödvändiga Azure-resurserna ställer du in motsvaran
 * **PCS_AAD_APPID**: Azure Active Directory (Azure AD) program-ID.
 * **PCS_AAD_APPSECRET**: Azure AD Application Secret.
 
-Konfigurations värden kommer att läsas från den här Key Vault resursen. Dessa miljövariabler kan sparas i ** \<din arbetsmapp\>\\. PC\\\<-lösningens namn\>. miljö** fil från distributionen. Observera att miljövariabler som har angetts på den lokala datorn åsidosätter värden i den **lokala\\\\. kuvert filen för Services-skript\\** när du kör **Docker-sammanställning**.
+Konfigurations värden kommer att läsas från den här Key Vault resursen. Dessa miljövariabler kan sparas i filen ** \<your home folder\> \\ . PCs \\ \<solution name\> . miljö** från distributionen. Observera att miljövariabler som har angetts på den lokala datorn åsidosätter värden i den ** \\ \\ lokala \\ . kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
 
 En del av konfigurationen som krävs av mikrotjänsten lagras i en instans av Key Vault som skapades vid den första distributionen. Motsvarande variabler i nyckel valvet bör ändras efter behov.
 
@@ -159,11 +159,11 @@ Följande steg visar hur du kör mikrotjänster för fjärr styrning i IntelliJ.
 
 #### <a name="create-run-configurations"></a>Skapa körnings konfigurationer
 
-1. Välj **Kör** > **Redigera konfigurationer**.
-1. Välj **Lägg till ny konfiguration** > **SBT uppgift**.
+1. Välj **Kör**  >  **Redigera konfigurationer**.
+1. Välj **Lägg till ny konfiguration**  >  **SBT uppgift**.
 1. Ange **namn**och ange sedan **aktiviteter** som **Kör**.
 1. Välj **arbets katalog** baserat på den tjänst som du vill köra.
-1. Välj **tillämpa** > **OK** för att spara dina val.
+1. Välj **tillämpa**  >  **OK** för att spara dina val.
 1. Skapa kör konfigurationer för följande webb tjänster:
     * Webbtjänst (services\config)
     * Webbtjänst (services\device-Telemetry)
@@ -176,9 +176,9 @@ I följande bild visas ett exempel på hur du lägger till en konfiguration för
 
 #### <a name="create-a-compound-configuration"></a>Skapa en sammansatt konfiguration
 
-1. Om du vill köra alla tjänster tillsammans väljer du **Lägg till ny konfiguration** > **sammansatt**.
+1. Om du vill köra alla tjänster tillsammans väljer du **Lägg till ny konfiguration**  >  **sammansatt**.
 1. Ange **ett namn**och välj sedan **Lägg till SBT-aktiviteter**.
-1. Välj **tillämpa** > **OK** för att spara dina val.
+1. Välj **tillämpa**  >  **OK** för att spara dina val.
 
 I följande bild visas ett exempel på hur du lägger till alla SBT-aktiviteter i en enda konfiguration:
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-När **Start** kommandot har slutförts visas sidan på adressen `http://localhost:3000/dashboard`i webbläsaren. Felen på den här sidan förväntas. Om du vill visa programmet utan fel utför du följande steg.
+När **Start** kommandot har slutförts visas sidan på adressen i webbläsaren `http://localhost:3000/dashboard` . Felen på den här sidan förväntas. Om du vill visa programmet utan fel utför du följande steg.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurera och kör nginx
 

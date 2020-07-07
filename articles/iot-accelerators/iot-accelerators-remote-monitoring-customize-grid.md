@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186296"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till ett anpassat rutnät i webb gränssnittet för lösnings Accelerator för fjärr styrning
@@ -24,7 +24,7 @@ Den här artikeln visar hur du lägger till ett nytt rutnät på en sida i webb 
 
 Exemplet i rutnätet i den här artikeln visar de data från tjänsten som [lägger till en anpassad tjänst i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-service.md) , som visar hur du lägger till.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här instruktions guiden behöver du följande program vara installerad på den lokala utvecklings datorn:
 
@@ -46,11 +46,11 @@ Om du vill lägga till ett rutnät i webb gränssnittet måste du lägga till k�
 
 För att komma igång innehåller mappen **src/genom gång/Components/Pages/pageWithGrid/exampleGrid** de filer som definierar ett rutnät:
 
-**exampleGrid. js**
+**exampleGrid.js**
 
 [!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
 
-**exampleGridConfig. js**
+**exampleGridConfig.js**
 
 [!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
 
@@ -58,7 +58,7 @@ Kopiera mappen **src/genom gång/Components/Pages/pageWithGrid/exampleGrid** til
 
 ### <a name="add-the-grid-to-the-page"></a>Lägg till rutnätet på sidan
 
-Ändra de **src/Components/Pages/example/basicPage. container. js** enligt följande för att importera tjänst definitionerna:
+Ändra de **src/Components/Pages/example/basicPage.container.js** enligt följande för att importera tjänst definitionerna:
 
 ```js
 import { connect } from 'react-redux';
@@ -89,7 +89,7 @@ const mapDispatchToProps = dispatch => ({
 export const BasicPageContainer = translate()(connect(mapStateToProps, mapDispatchToProps)(BasicPage));
 ```
 
-Ändra **src/Components/Pages/example/basicPage. js** enligt följande för att lägga till rutnätet:
+Ändra **urspr/Components/Pages/example/basicPage.js** enligt följande för att lägga till rutnätet:
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -144,7 +144,7 @@ export class BasicPage extends Component {
 }
 ```
 
-Ändra de **src/Components/Pages/example/basicPage. test. js** enligt följande för att uppdatera testerna:
+Ändra de **src/Components/Pages/example/basicPage.test.js** enligt följande för att uppdatera testerna:
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -182,7 +182,7 @@ Om webb gränssnittet inte redan körs lokalt kör du följande kommando i roten
 npm start
 ```
 
-Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard`. Gå till **exempel** sidan om du vill visa rutnätet som visar data från tjänsten.
+Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard` . Gå till **exempel** sidan om du vill visa rutnätet som visar data från tjänsten.
 
 ## <a name="select-rows"></a>Markera rader
 
@@ -247,7 +247,7 @@ Om en användare behöver agera på flera rader samtidigt använder du kryss rut
 
 Om användaren bara behöver agera på en enda rad konfigurerar du en mjuk markerings länk för en eller flera kolumner i **columnDefs**.
 
-1. I **exampleGridConfig. js**lägger du till **SoftSelectLinkRenderer** som **cellRendererFramework** för en **columnDef**.
+1. I **exampleGridConfig.js**lägger du till **SoftSelectLinkRenderer** som **cellRendererFramework** för en **columnDef**.
 
     ```js
     export const exampleColumnDefs = {

@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186449"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
@@ -52,7 +52,7 @@ Skapa en ny virtuell Linux-dator:
 
     ![Översikt över virtuella datorers storlek Telegraph-agent](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. På sidan **Inställningar** i **nätverks** > **nätverks säkerhets grupp** > **väljer du offentliga inkommande portar**, väljer **http** och **SSH (22)**. Lämna resten av standardinställningarna och välj **OK**. 
+1. På sidan **Inställningar** i **nätverks**  >  **nätverks säkerhets grupp**  >  **väljer du offentliga inkommande portar**, väljer **http** och **SSH (22)**. Lämna resten av standardinställningarna och välj **OK**. 
 
 1. På sammanfattningssidan klickar du på **Skapa** för att starta distributionen av den virtuella datorn. 
 
@@ -111,7 +111,7 @@ Agenten samlar nu in mått från var och en av de angivna plugin-programmen och 
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Rita dina teleympkvistar-mått i Azure Portal 
 
-1. Öppna [Azure-portalen](https://portal.azure.com). 
+1. Öppna [Azure Portal](https://portal.azure.com). 
 
 1. Gå till fliken ny **övervakare** . Välj sedan **mått**.  
 

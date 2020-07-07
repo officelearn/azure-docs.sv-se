@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144343"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och gruppera process meddelanden i Azure Logic Apps
@@ -29,7 +29,7 @@ Om du vill skicka och bearbeta meddelanden tillsammans på ett visst sätt som g
 
 Se till att batch-mottagaren och batch-avsändaren delar samma Azure-prenumeration *och* Azure-region. Om de inte gör det kan du inte välja batch-mottagaren när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en prenumeration kan du [börja med ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 Eller [Registrera dig för en prenumeration där du betalar per](https://azure.microsoft.com/pricing/purchase-options/)användning.
@@ -85,11 +85,11 @@ Innan du kan skicka meddelanden till en batch måste den batch först finnas som
    2. I sökrutan anger du "send email" (skicka e-post) som filter.
    Välj en e-postanslutning baserat på din e-postprovider.
 
-      Om du till exempel har ett personligt konto, till exempel @outlook.com eller @hotmail.com, väljer du Outlook.com-anslutningen. I det här exemplet används Office 365 Outlook Connector.
+      Om du till exempel har ett personligt konto, till exempel @outlook.com eller @hotmail.com , väljer du Outlook.com-anslutningen. I det här exemplet används Office 365 Outlook Connector.
 
    3. Välj den här åtgärden: **skicka en e- *postprovider* > för e-<**
 
-      Ett exempel:
+      Till exempel:
 
       ![Välj åtgärden "Skicka ett e-postmeddelande" för din e-postleverantör](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -180,7 +180,7 @@ Skapa nu en eller flera Logic-appar för batch-avsändare som skickar meddelande
 
    2. När listan med dynamiskt innehåll visas väljer du **uttryck**. 
 
-   3. Ange uttrycket `utcnow()`och välj sedan **OK**. 
+   3. Ange uttrycket `utcnow()` och välj sedan **OK**. 
 
       ![I "meddelande innehåll" väljer du "uttryck", anger "utcnow ()" och väljer "OK".](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
 
@@ -198,7 +198,7 @@ Skapa nu en eller flera Logic-appar för batch-avsändare som skickar meddelande
 
    2. Välj **Expression** (Uttryck) i listan med dynamiskt innehåll.
    
-   3. Ange uttrycket `rand(1,6)`och välj sedan **OK**.
+   3. Ange uttrycket `rand(1,6)` och välj sedan **OK**.
 
       ![Konfigurera en partition för mål gruppen](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 

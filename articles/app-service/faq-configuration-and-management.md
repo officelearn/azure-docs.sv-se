@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160008"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
@@ -105,7 +105,7 @@ En vanlig orsak till fel vid säkerhets kopiering är att vissa filer används a
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Hur gör jag för att ta bort en rubrik från HTTP-svaret?
 
-Om du vill ta bort huvudena från HTTP-svaret uppdaterar du webbplatsens Web. config-fil. Mer information finns i [ta bort standard server rubriker på dina Azure-webbplatser](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Om du vill ta bort huvudena från HTTP-svaret uppdaterar du platsens web.config-fil. Mer information finns i [ta bort standard server rubriker på dina Azure-webbplatser](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>Är App Service kompatibel med PCI standard 3,0 och 3,1?
 
@@ -125,7 +125,7 @@ Mer information om hur du använder distributions platser finns [i Konfigurera e
 
 Så här granskar du webb jobb loggar:
 
-1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
+1. Logga in på din **kudu-webbplats** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Välj webb jobbet.
 3. Välj knappen **Växla utdata** .
 4. Hämta utdatafilen genom att välja länken **Hämta** .
@@ -147,7 +147,7 @@ Undantaget orsakades av ett problem med den Hybridanslutningshanteraren som har 
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Hur gör jag för att lägga till en regel för att skapa en URL?
 
-Om du vill lägga till en regel för en URL-omskrivning skapar du en Web. config-fil med relevanta konfigurations poster i mappen **wwwroot** . Mer information finns i [Azure App Services: förstå URL-omskrivning](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+Om du vill lägga till en regel för en URL-omskrivning skapar du en web.config-fil med relevanta konfigurations poster i mappen **wwwroot** . Mer information finns i [Azure App Services: förstå URL-omskrivning](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Hur gör jag för att kontroll av inkommande trafik till App Service?
 
@@ -302,7 +302,7 @@ Skicka en supportbegäran om inget av dessa villkor gäller och problemet kvarst
 
 ## <a name="how-do-i-turn-on-http-compression-for-my-content"></a>Hur gör jag för att aktivera HTTP-komprimering för mitt innehåll?
 
-Om du vill aktivera komprimering både för statiska och dynamiska innehålls typer lägger du till följande kod i filen Web. config på program nivå:
+Om du vill aktivera komprimering både för statiska och dynamiska innehålls typer lägger du till följande kod på web.config-filen på program nivå:
 
 ```xml
 <system.webServer>

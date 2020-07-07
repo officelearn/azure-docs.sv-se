@@ -4,10 +4,10 @@ description: Lär dig hur du använder Azure CLI för att hantera och övervaka 
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: 06e1f29874085c3943a5207f36eff313dc670e88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184120"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Hantera säkerhets kopior av Azure-filresurser med Azure CLI
@@ -18,7 +18,7 @@ Azure CLI innehåller en kommando rads upplevelse för att hantera Azure-resurse
 
 Om du vill installera och använda CLI lokalt måste du köra Azure CLI-version 2.0.18 eller senare. Kör `az --version` för att hitta CLI-versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har en Azure-filresurs som har säkerhetskopierats av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Om du inte har en sådan, se [säkerhetskopiera Azure-filresurser med CLI](backup-afs-cli.md) för att konfigurera säkerhets kopiering för dina fil resurser. I den här artikeln använder du följande resurser:
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
 ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82146936"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Om för hands versionen av Azure Edge Zone
@@ -30,13 +30,13 @@ Vanliga scenarier för användnings fall för gräns zoner är:
 
 Det finns tre typer av Azure Edge-zoner:
 
-- Azure Edge-zoner
+- Azure Edge Zones
 - Azure Edge-zoner med operatör
 - Azures privata gräns zoner
 
-## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge-zoner
+## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge Zones
 
-![Azure Edge-zoner](./media/edge-zones-overview/edge-zones.png "Azure Edge-zoner")
+![Azure Edge Zones](./media/edge-zones-overview/edge-zones.png "Azure Edge Zones")
 
 Azure Edge-zoner är små tillägg till Azure placerade i populations Center som är långt bort från Azure-regioner. Azure Edge Zones stöder virtuella datorer, behållare och en vald uppsättning Azure-tjänster som gör att du kan köra svars känsliga och data flödes intensiva program som ligger nära slutanvändarna. Azure Edge-zoner ingår i Microsofts globala nätverk. De tillhandahåller säker, tillförlitlig anslutning med hög bandbredd mellan program som körs i Edge-zonen nära användaren. Och de erbjuder en fullständig uppsättning Azure-tjänster som körs i Azure-regioner. Azure Edge-zoner ägs och drivs av Microsoft. Du kan använda samma uppsättning Azure-verktyg och samma Portal för att hantera och distribuera tjänster i gräns zoner.
 

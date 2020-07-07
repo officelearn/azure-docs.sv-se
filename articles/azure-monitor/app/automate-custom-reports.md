@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82161523"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisera anpassade rapporter med Azure Application Insights-data
@@ -91,11 +91,11 @@ availabilityResults
 
    ![Skärm bild för funktions inställningar](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Välj**konfiguration**av **Funktionsapp** > **plattforms funktioner** > .
+6. Välj konfiguration av **Funktionsapp**  >  **plattforms funktioner**  >  **Configuration**.
 
     ![Skärm bild för Azure Function program-inställningar](./media/automate-custom-reports/config.png)
 
-7. Skapa tre nya program inställningar med lämpliga motsvarande värden ``AI_APP_ID``, ``AI_APP_KEY``och ``SendGridAPI``. Välj **Spara**.
+7. Skapa tre nya program inställningar med lämpliga motsvarande värden ``AI_APP_ID`` , ``AI_APP_KEY`` och ``SendGridAPI`` . Välj **Spara**.
 
      ![Skärm bild för funktions integrations gränssnitt](./media/automate-custom-reports/app-settings.png)
     
@@ -136,7 +136,7 @@ De här stegen gäller endast om du inte redan har ett SendGrid-konto konfigurer
 
      ![Skärm bild av inställningar för API-nyckel](./media/automate-custom-reports/sendgrid-manage.png)
 
-3. SendGrid-platsen startas. Välj **Inställningar** > **API-nycklar**.
+3. SendGrid-platsen startas. Välj **Inställningar**  >  **API-nycklar**.
 
      ![Skärm bild för att skapa och Visa API-nyckel](./media/automate-custom-reports/function-app-15.png)
 

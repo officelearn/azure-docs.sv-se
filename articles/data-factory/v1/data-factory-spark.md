@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185599"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory pipelines
@@ -51,12 +51,12 @@ Här är de vanligaste stegen för att skapa en Data Factory-pipeline med en spa
 * Skapa en data uppsättning som refererar till den länkade lagrings tjänsten. För närvarande måste du ange en data uppsättning för utdata för en aktivitet även om det inte finns några utdata som skapas.
 * Skapa en pipeline med Spark-aktivitet som refererar till den länkade HDInsight-tjänsten som du skapade. Aktiviteten konfigureras med den data uppsättning som du skapade i föregående steg som en data uppsättning för utdata. Data uppsättningen för utdata är det som driver schemat (varje timme, varje dag). Därför måste du ange data uppsättningen för utdata även om aktiviteten inte faktiskt skapar utdata.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 1. Skapa ett allmänt lagrings konto genom att följa instruktionerna i [skapa ett lagrings konto](../../storage/common/storage-account-create.md).
 
 1. Skapa ett Spark-kluster i HDInsight genom att följa anvisningarna i självstudien [skapa ett Spark-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Koppla lagrings kontot som du skapade i steg 1 med det här klustret.
 
-1. Hämta och granska python-skriptfilen **test.py** finns på [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+1. Hämta och granska python-skriptfilen **test.py** finns på [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py) .
 
 1. Ladda upp **test.py** till mappen **pyFiles** i behållaren **adfspark** i Blob Storage. Skapa behållaren och mappen om de inte finns.
 
@@ -65,7 +65,7 @@ Gör så här för att skapa en datafabrik:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Välj **ny** > **data och analys** > **Data Factory**.
+1. Välj **ny**  >  **data och analys**  >  **Data Factory**.
 
 1. På bladet **ny data fabrik** , under **namn**, anger du **SparkDF**.
 
@@ -112,13 +112,13 @@ I det här steget länkar du ditt lagringskonto till datafabriken. En data upps�
 #### <a name="create-an-hdinsight-linked-service"></a>Skapa en länkad HDInsight-tjänst
 I det här steget skapar du en länkad HDInsight-tjänst för att länka ditt HDInsight Spark-kluster till data fabriken. HDInsight-klustret används för att köra Spark-programmet som anges i Spark-aktiviteten för pipelinen i det här exemplet.
 
-1. I Data Factory redigeraren väljer du **fler** > **nya beräkning** > **HDInsight-kluster**.
+1. I Data Factory redigeraren väljer du **fler**  >  **nya beräkning**  >  **HDInsight-kluster**.
 
     ![Skapa länkad HDInsight-tjänst](media/data-factory-spark/new-hdinsight-linked-service.png)
 
 1. Kopiera och klistra in följande kodfragment till fönstret Draft-1. Utför följande steg i JSON-redigeraren:
 
-    a. Ange URI: n för HDInsight Spark-klustret. Till exempel: `https://<sparkclustername>.azurehdinsight.net/`.
+    a. Ange URI: n för HDInsight Spark-klustret. Exempel: `https://<sparkclustername>.azurehdinsight.net/`.
 
     b. Ange namnet på den användare som har åtkomst till Spark-klustret.
 
@@ -152,7 +152,7 @@ I det här steget skapar du en länkad HDInsight-tjänst för att länka ditt HD
 ### <a name="create-the-output-dataset"></a>Skapa datauppsättningen för utdata
 Data uppsättningen för utdata är det som driver schemat (varje timme, varje dag). Därför måste du ange en data uppsättning för Spark-aktiviteten i pipelinen även om aktiviteten inte genererar några utdata. Det är valfritt att ange en indata-datauppsättning för aktiviteten.
 
-1. I Data Factory redigeraren väljer du **mer** > **ny data uppsättning** > **Azure Blob Storage**.
+1. I Data Factory redigeraren väljer du **mer**  >  **ny data uppsättning**  >  **Azure Blob Storage**.
 
 1. Kopiera och klistra in följande kodfragment till fönstret Draft-1. JSON-kodfragmentet definierar en data uppsättning som kallas **OutputDataset**. Dessutom kan du ange att resultaten lagras i BLOB-behållaren med namnet **adfspark** och mappen med namnet **pyFiles/output**. Som tidigare nämnts är den här data uppsättningen en dummy-datauppsättning. Spark-programmet i det här exemplet genererar inga utdata. Avsnittet **tillgänglighet** anger att data uppsättningen för utdata skapas dagligen.
 
@@ -183,7 +183,7 @@ Data uppsättningen för utdata är det som driver schemat (varje timme, varje d
 ### <a name="create-a-pipeline"></a>Skapa en pipeline
 I det här steget skapar du en pipeline med en HDInsightSpark-aktivitet. För närvarande är det utdatauppsättningen som skapar schemat. Därför måste du skapa en utdatauppsättning även om aktiviteten inte genererar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen. Därför anges ingen indata-datamängd i det här exemplet.
 
-1. I Data Factory redigeraren väljer du **mer** > **ny pipeline**.
+1. I Data Factory redigeraren väljer du **mer**  >  **ny pipeline**.
 
 1. Ersätt skriptet i fönstret Draft-1 med följande skript:
 
@@ -217,7 +217,7 @@ I det här steget skapar du en pipeline med en HDInsightSpark-aktivitet. För n�
 
     a. Egenskapen **Type** har angetts till **HDInsightSpark**.
 
-    b. Egenskapen **rootPath** anges till **adfspark\\pyFiles** där Adfspark är BLOB-behållaren och pyFiles är filmapp i den behållaren. I det här exemplet är Blob Storage det som är associerat med Spark-klustret. Du kan överföra filen till ett annat lagrings konto. Om du gör det skapar du en länkad lagrings tjänst för att länka lagrings kontot till data fabriken. Ange sedan namnet på den länkade tjänsten som ett värde för egenskapen **sparkJobLinkedService** . Mer information om den här egenskapen och andra egenskaper som stöds av Spark-aktiviteten finns i [Egenskaper för Spark-aktivitet](#spark-activity-properties).
+    b. Egenskapen **rootPath** anges till **adfspark \\ pyFiles** där adfspark är BLOB-behållaren och pyFiles är filmapp i den behållaren. I det här exemplet är Blob Storage det som är associerat med Spark-klustret. Du kan överföra filen till ett annat lagrings konto. Om du gör det skapar du en länkad lagrings tjänst för att länka lagrings kontot till data fabriken. Ange sedan namnet på den länkade tjänsten som ett värde för egenskapen **sparkJobLinkedService** . Mer information om den här egenskapen och andra egenskaper som stöds av Spark-aktiviteten finns i [Egenskaper för Spark-aktivitet](#spark-activity-properties).
 
     c. Egenskapen **entryFilePath** är inställd på **test.py**, vilket är python-filen.
 
@@ -247,9 +247,9 @@ I det här steget skapar du en pipeline med en HDInsightSpark-aktivitet. För n�
 
 ### <a name="verify-the-results"></a>Verifiera resultaten
 
-1. Starta Jupyter Notebook för ditt HDInsight Spark-kluster genom att gå `https://CLUSTERNAME.azurehdinsight.net/jupyter`till. Du kan också öppna ett kluster instrument panel för ditt HDInsight Spark-kluster och sedan starta Jupyter Notebook.
+1. Starta Jupyter Notebook för ditt HDInsight Spark-kluster genom att gå till `https://CLUSTERNAME.azurehdinsight.net/jupyter` . Du kan också öppna ett kluster instrument panel för ditt HDInsight Spark-kluster och sedan starta Jupyter Notebook.
 
-1. Välj **ny** > **PySpark** för att starta en ny antecknings bok.
+1. Välj **ny**  >  **PySpark** för att starta en ny antecknings bok.
 
     ![Jupyter ny Notebook](media/data-factory-spark/jupyter-new-book.png)
 
@@ -324,20 +324,20 @@ Här är exempel-JSON-definitionen för en pipeline med en spark-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | -------- | ----------- | -------- |
-| namn | Namnet på aktiviteten i pipelinen. | Ja |
-| description | Text som beskriver vad aktiviteten gör. | Inga |
+| name | Namnet på aktiviteten i pipelinen. | Ja |
+| description | Text som beskriver vad aktiviteten gör. | Nej |
 | typ | Den här egenskapen måste anges till HDInsightSpark. | Ja |
 | linkedServiceName | Namnet på den länkade HDInsight-tjänsten som Spark-programmet körs på. | Ja |
 | rootPath | BLOB-behållaren och mappen som innehåller Spark-filen. Fil namnet är Skift läges känsligt. | Ja |
 | entryFilePath | Relativ sökväg till rotmappen för Spark-koden/-paketet. | Ja |
-| className | Programmets Java/Spark-huvud klass. | Inga |
-| ogiltiga | En lista med kommando rads argument för Spark-programmet. | Inga |
-| proxyUser | Användar kontot som ska personifieras för att köra Spark-programmet. | Inga |
-| sparkConfig | Ange värden för konfigurations egenskaperna för Spark som anges i [Spark-konfigurationen: program egenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Inga |
-| getDebugInfo | Anger när Spark-loggfilerna kopieras till det lagrings utrymme som används av HDInsight-klustret (eller) som anges av sparkJobLinkedService. Tillåtna värden är none, Always eller Failure. Standardvärdet är none. | Inga |
-| sparkJobLinkedService | Den länkade lagrings tjänsten som innehåller Spark-jobbets fil, beroenden och loggar. Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-klustret. | Inga |
+| className | Programmets Java/Spark-huvud klass. | Nej |
+| ogiltiga | En lista med kommando rads argument för Spark-programmet. | Nej |
+| proxyUser | Användar kontot som ska personifieras för att köra Spark-programmet. | Nej |
+| sparkConfig | Ange värden för konfigurations egenskaperna för Spark som anges i [Spark-konfigurationen: program egenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej |
+| getDebugInfo | Anger när Spark-loggfilerna kopieras till det lagrings utrymme som används av HDInsight-klustret (eller) som anges av sparkJobLinkedService. Tillåtna värden är none, Always eller Failure. Standardvärdet är none. | Nej |
+| sparkJobLinkedService | Den länkade lagrings tjänsten som innehåller Spark-jobbets fil, beroenden och loggar. Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-klustret. | Nej |
 
 ## <a name="folder-structure"></a>Mappstruktur
 Spark-aktiviteten stöder inte ett infogat skript som gris-och Hive-aktiviteter. Spark-jobb är också mer utöknings bara än gris-/Hive-jobb. För Spark-jobb kan du tillhandahålla flera beroenden, till exempel jar-paket (placerade i Java-CLASSPATH), python-filer (placeras på PYTHONPATH) och andra filer.
@@ -348,11 +348,11 @@ Skapa följande mappstruktur i blob-lagringen som refereras av den länkade HDIn
 | ---- | ----------- | -------- | ---- |
 | . | Spark-jobbets rot Sök väg i den länkade lagrings tjänsten. | Ja | Mapp |
 | &lt;användardefinierad&gt; | Den sökväg som pekar på post filen för Spark-jobbet. | Ja | Fil |
-| ./jars | Alla filer i den här mappen överförs och placeras i Java-classpath för klustret. | Inga | Mapp |
-| ./pyFiles | Alla filer i den här mappen överförs och placeras i PYTHONPATH i klustret. | Inga | Mapp |
-| ./files | Alla filer i den här mappen överförs och placeras i den utförar arbets katalogen. | Inga | Mapp |
-| ./archives | Alla filer i den här mappen är okomprimerade. | Inga | Mapp |
-| ./logs | Mappen där loggar från Spark-klustret lagras.| Inga | Mapp |
+| ./jars | Alla filer i den här mappen överförs och placeras i Java-classpath för klustret. | Nej | Mapp |
+| ./pyFiles | Alla filer i den här mappen överförs och placeras i PYTHONPATH i klustret. | Nej | Mapp |
+| ./files | Alla filer i den här mappen överförs och placeras i den utförar arbets katalogen. | Nej | Mapp |
+| ./archives | Alla filer i den här mappen är okomprimerade. | Nej | Mapp |
+| ./logs | Mappen där loggar från Spark-klustret lagras.| Nej | Mapp |
 
 Här är ett exempel på lagring som innehåller två Spark-jobbmallar i blob-lagringen som refereras av den länkade HDInsight-tjänsten:
 

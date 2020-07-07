@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
 ms.openlocfilehash: 7cc2b7871c7141a0e466bf8620351c5beed0c684
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82165696"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Designa distributioner av Azure Monitor loggar
@@ -114,7 +114,7 @@ I följande tabell sammanfattas åtkomst lägena:
 
     Detta är standardinställningen för alla arbets ytor som skapats före mars 2019.
 
-* **Använd resurs-eller arbets ytans behörigheter**: det här kontroll läget möjliggör detaljerad RBAC. Användare kan beviljas åtkomst till data som är associerade med resurser som de kan visa genom att `read` tilldela Azure-behörighet. 
+* **Använd resurs-eller arbets ytans behörigheter**: det här kontroll läget möjliggör detaljerad RBAC. Användare kan beviljas åtkomst till data som är associerade med resurser som de kan visa genom att tilldela Azure- `read` behörighet. 
 
     När en användare ansluter till arbets ytan i Sammanhangs läge för arbets ytan gäller arbets ytans behörigheter. När en användare ansluter till arbets ytan i resurs kontext läge, verifieras endast resurs behörigheter och behörigheter för arbets ytan ignoreras. Aktivera RBAC för en användare genom att ta bort dem från arbets ytans behörigheter och tillåta att deras resurs behörigheter identifieras.
 
@@ -129,7 +129,7 @@ Information om hur du ändrar åtkomst kontrol läget i portalen, med PowerShell
 
 Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Standard tröskelvärdet för inmatnings frekvens är inställt på **6 GB/min** per arbets yta. Detta är ett ungefärligt värde eftersom den faktiska storleken kan variera mellan olika data typer beroende på logg längden och dess komprimerings förhållande. Den här begränsningen gäller inte för data som skickas från agenter eller [API för data insamling](data-collector-api.md).
 
-Om du skickar data till ett högre pris till en enskild arbets yta, släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym fortsätter att överskrida hastighets gränsen eller om du förväntar dig att få en stund snart, kan du begära en ökning av din arbets yta LAIngestionRate@microsoft.com genom att skicka ett e-postmeddelande till eller öppna en support förfrågan.
+Om du skickar data till ett högre pris till en enskild arbets yta, släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym fortsätter att överskrida hastighets gränsen eller om du förväntar dig att få en stund snart, kan du begära en ökning av din arbets yta genom att skicka ett e-postmeddelande till LAIngestionRate@microsoft.com eller öppna en support förfrågan.
  
 Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll.
 

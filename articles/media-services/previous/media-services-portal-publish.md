@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: abdb926825abcac4485cb11b71bdc82597391727
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176829"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicera innehåll i Azure Portal  
 > [!div class="op_single_selector"]
-> * [Portalen](media-services-portal-publish.md)
+> * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [REST](media-services-rest-deliver-streaming-content.md)
+> * [FLESTA](media-services-rest-deliver-streaming-content.md)
 > 
 > 
 
@@ -70,7 +70,7 @@ Om du vill uppdatera ett förfallo datum på en positionerare kan du använda en
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Använda portalen för att publicera en tillgång
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
-2. Välj **Inställningar** > **till gångar**. Välj den tillgång som du vill publicera.
+2. Välj **Inställningar**  >  **till gångar**. Välj den tillgång som du vill publicera.
 3. Välj sedan knappen **Publicera**.
 4. Välj typ av lokaliserare.
 5. Välj **Lägg till**.

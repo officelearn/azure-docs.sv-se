@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192492"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägg till ytterligare lagrings konton i HDInsight
 
-Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azure Storage *konton* i HDInsight. Stegen i det här dokumentet lägger till ett lagrings *konto* i ett befintligt HDInsight-kluster. Den här artikeln gäller lagrings *konton* (inte standard klustrets lagrings konto) och inte ytterligare lagrings [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) utrymme [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md), till exempel och.
+Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azure Storage *konton* i HDInsight. Stegen i det här dokumentet lägger till ett lagrings *konto* i ett befintligt HDInsight-kluster. Den här artikeln gäller lagrings *konton* (inte standard klustrets lagrings konto) och inte ytterligare lagrings utrymme, till exempel [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) och [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
 
 > [!IMPORTANT]  
 > Informationen i det här dokumentet är att lägga till ytterligare lagrings konton i ett kluster när det har skapats. Information om hur du lägger till lagrings konton när du skapar kluster finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Lagrings kontots namn och nyckel. Se [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md).
 * Om du använder PowerShell behöver du AZ-modulen.  Se [Översikt över Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Under bearbetningen utför skriptet följande åtgärder:
 
-* Om lagrings kontot redan finns i site. XML-konfigurationen för klustret, avslutas skriptet och inga ytterligare åtgärder utförs.
+* Om lagrings kontot redan finns i core-site.xml konfigurationen för klustret, avslutas skriptet och inga ytterligare åtgärder utförs.
 
 * Kontrollerar att lagrings kontot finns och kan nås med hjälp av nyckeln.
 
 * Krypterar nyckeln med hjälp av kluster autentiseringsuppgiften.
 
-* Lägger till lagrings kontot i site. XML-filen.
+* Lägger till lagrings kontot i core-site.xmls filen.
 
 * Stoppar och startar om Apache Oozie, Apache Hadoop garn, Apache Hadoop MapReduce2 och Apache Hadoop HDFS-tjänster. Genom att stoppa och starta dessa tjänster kan de använda det nya lagrings kontot.
 
@@ -53,11 +53,11 @@ Använd [skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md#script-act
 |---|---|
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Node-typ (er)|Head|
-|Parametrar|`ACCOUNTNAME``ACCOUNTKEY` `-p`|
+|Parametrar|`ACCOUNTNAME``ACCOUNTKEY` `-p` (valfritt)|
 
 * `ACCOUNTNAME`är namnet på det lagrings konto som ska läggas till i HDInsight-klustret.
-* `ACCOUNTKEY`är åtkomst nyckeln för `ACCOUNTNAME`.
-* `-p` är valfritt. Om det här alternativet har angetts krypteras nyckeln inte och lagras i filen site. xml som oformaterad text.
+* `ACCOUNTKEY`är åtkomst nyckeln för `ACCOUNTNAME` .
+* `-p` är valfritt. Om det här alternativet har angetts krypteras nyckeln inte och lagras i core-site.xml-filen som oformaterad text.
 
 ## <a name="verification"></a>Verifiering
 
@@ -95,19 +95,19 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 ### <a name="apache-ambari"></a>Apache Ambari
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-1. Navigera till **HDFS** > **configs** > **Advanced** > **anpassad Core-site**.
+1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site**.
 
-1. Observera de nycklar som börjar med `fs.azure.account.key`. Konto namnet kommer att ingå i den nyckel som visas i den här exempel bilden:
+1. Observera de nycklar som börjar med `fs.azure.account.key` . Konto namnet kommer att ingå i den nyckel som visas i den här exempel bilden:
 
    ![verifiering med Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
 
 ## <a name="remove-storage-account"></a>Ta bort lagrings konto
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-1. Navigera till **HDFS** > **configs** > **Advanced** > **anpassad Core-site**.
+1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site**.
 
 1. Ta bort följande nycklar:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -123,7 +123,7 @@ Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsnin
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Det gick inte att komma åt lagring efter ändring av nyckel
 
-Om du ändrar nyckeln för ett lagrings konto kan HDInsight inte längre komma åt lagrings kontot. HDInsight använder en cachelagrad kopia av nyckeln i site. xml för klustret. Den cachelagrade kopian måste uppdateras för att matcha den nya nyckeln.
+Om du ändrar nyckeln för ett lagrings konto kan HDInsight inte längre komma åt lagrings kontot. HDInsight använder en cachelagrad kopia av nyckeln i core-site.xml för klustret. Den cachelagrade kopian måste uppdateras för att matcha den nya nyckeln.
 
 Om du kör skript åtgärden igen uppdateras **inte** nyckeln, eftersom skriptet kontrollerar om det redan finns en post för lagrings kontot. Om det redan finns en post görs inga ändringar.
 

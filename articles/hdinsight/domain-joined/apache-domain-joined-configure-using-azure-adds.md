@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seodec18,seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: 2b4756990162817087b0904a764b97526c3545d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186659"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Enterprise Security Package konfigurationer med Azure Active Directory Domain Services i HDInsight
@@ -64,13 +64,13 @@ Använd en *användardefinierad hanterad identitet* för att förenkla säker do
 
 Vissa åtgärder för domän tjänster, till exempel skapa organisationsenheter och tjänstens huvud namn, krävs för HDInsight-Enterprise Security Package. Du kan skapa hanterade identiteter i vilken prenumeration som helst. Mer information om hanterade identiteter i allmänhet finns i [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Mer information om hur hanterade identiteter fungerar i Azure HDInsight finns i [hanterade identiteter i Azure HDInsight](../hdinsight-managed-identities.md).
 
-Om du vill konfigurera ESP-kluster skapar du en användardefinierad hanterad identitet om du inte redan har en. Se [`Create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal`](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+Om du vill konfigurera ESP-kluster skapar du en användardefinierad hanterad identitet om du inte redan har en. Se [`Create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal`](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) .
 
 Tilldela sedan rollen **HDInsight Domain Services Contributor** till den hanterade identiteten i **åtkomst kontroll** för Azure AD DS. Du behöver administratörs behörighet för Azure AD DS för att utföra den här roll tilldelningen.
 
 ![Azure Active Directory Domain Services åtkomst kontroll](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-Genom att tilldela rollen **HDInsight Domain Services Contributor** ser du till att den här`on behalf of`identiteten har rätt () åtkomst till Domain Services-åtgärder på Azure AD DS-domänen. Dessa åtgärder omfattar att skapa och ta bort organisationsenheter.
+Genom att tilldela rollen **HDInsight Domain Services Contributor** ser du till att den här identiteten har rätt ( `on behalf of` ) åtkomst till Domain Services-åtgärder på Azure AD DS-domänen. Dessa åtgärder omfattar att skapa och ta bort organisationsenheter.
 
 När den hanterade identiteten har fått rollen hanterar Azure AD DS-administratören vem som använder den. Först väljer administratören den hanterade identiteten i portalen. Väljer sedan **Access Control (IAM)** under **Översikt**. Administratören tilldelar rollen **hanterad identitets operatör** till användare eller grupper som vill skapa ESP-kluster.
 
@@ -93,13 +93,13 @@ Aktivera Azure AD DS. Sedan körs en lokal Domain Name System-Server (DNS) på A
 
 Det är enklare att placera både Azure AD DS-instansen och HDInsight-klustret i samma virtuella Azure-nätverk. Om du planerar att använda olika virtuella nätverk måste du peer-koppla dessa virtuella nätverk så att domänkontrollanten är synlig för virtuella HDInsight-datorer. Mer information finns i [peering för virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md).
 
-När de virtuella nätverken har peer-kopplats konfigurerar du det virtuella HDInsight-nätverket så att det använder en anpassad DNS-server. Och ange de privata IP-adresserna för Azure AD DS som DNS-serveradresser. När båda virtuella nätverk använder samma DNS-servrar kommer ditt anpassade domän namn att matchas mot rätt IP-adress och kan komma att bli tillgängligt från HDInsight. Om ditt domän namn till exempel är `contoso.com`, ska du efter det här steget `ping contoso.com` , matcha till rätt Azure AD DS-IP.
+När de virtuella nätverken har peer-kopplats konfigurerar du det virtuella HDInsight-nätverket så att det använder en anpassad DNS-server. Och ange de privata IP-adresserna för Azure AD DS som DNS-serveradresser. När båda virtuella nätverk använder samma DNS-servrar kommer ditt anpassade domän namn att matchas mot rätt IP-adress och kan komma att bli tillgängligt från HDInsight. Om ditt domän namn till exempel är `contoso.com` , ska du efter det här steget, `ping contoso.com` matcha till rätt Azure AD DS-IP.
 
 ![Konfigurera anpassade DNS-servrar för ett peer-kopplat virtuellt nätverk](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
 Om du använder regler för nätverks säkerhets grupper (NSG) i ditt HDInsight-undernät, bör du tillåta de [IP-adresser som krävs](../hdinsight-management-ip-addresses.md) för både inkommande och utgående trafik.
 
-Testa nätverks konfigurationen genom att ansluta en virtuell Windows-dator till det virtuella HDInsight-nätverket/under nätet och pinga domän namnet. (Den bör matcha till en IP-adress.) Kör **Ldp. exe** för att få åtkomst till Azure AD DS-domänen. Anslut sedan den här virtuella Windows-datorn till domänen för att bekräfta att alla nödvändiga RPC-anrop lyckas mellan klienten och servern.
+Testa nätverks konfigurationen genom att ansluta en virtuell Windows-dator till det virtuella HDInsight-nätverket/under nätet och pinga domän namnet. (Den bör matcha till en IP-adress.) Kör **ldp.exe** för att få åtkomst till Azure AD DS-domänen. Anslut sedan den här virtuella Windows-datorn till domänen för att bekräfta att alla nödvändiga RPC-anrop lyckas mellan klienten och servern.
 
 Använd **nslookup** för att bekräfta nätverks åtkomst till ditt lagrings konto. Eller en extern databas som du kan använda (till exempel externa Hive-metaarkiv eller Ranger DB). Se till att de [nödvändiga portarna](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) är tillåtna i Azure AD DS-undernätets NSG-regler, om en NSG skyddar Azure AD DS. Om domänen som ansluter till den här virtuella Windows-datorn lyckas kan du fortsätta till nästa steg och skapa ESP-kluster.
 
@@ -124,7 +124,7 @@ När du skapar ett HDInsight-kluster med ESP måste du ange följande parametrar
 
 * **Kluster åtkomst grupper**: de säkerhets grupper vars användare du vill synkronisera och har åtkomst till klustret ska vara tillgängliga i Azure AD DS. Ett exempel är HiveUsers-gruppen. Mer information finns i [skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* **LDAPS-URL**: ett exempel `ldaps://contoso.com:636`är.
+* **LDAPS-URL**: ett exempel är `ldaps://contoso.com:636` .
 
 Den hanterade identitet som du har skapat kan väljas från List rutan **användarens tilldelade hanterade identitet** när du skapar ett nytt kluster.
 

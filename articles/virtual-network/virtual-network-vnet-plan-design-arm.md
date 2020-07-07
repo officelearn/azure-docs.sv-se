@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
 ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186024"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella nätverk
@@ -35,7 +35,7 @@ Alla Azure-resurser skapas i en Azure-region och prenumeration. En resurs kan ba
 - Har du krav på data placering, suveränitet, efterlevnad eller återhämtning? I så fall, är det viktigt att välja den region som motsvarar kraven. Mer information finns i avsnittet om [Azure-geografiska](https://azure.microsoft.com/global-infrastructure/geographies/)områden.
 - Behöver du återhämtning i Azure-tillgänglighetszoner inom samma Azure-region för de resurser som du distribuerar? Du kan distribuera resurser, till exempel virtuella datorer (VM) till olika tillgänglighets zoner inom samma virtuella nätverk. Alla Azure-regioner stöder dock inte tillgänglighets zoner. Läs mer om tillgänglighets zoner och de regioner som stöder dem i [tillgänglighets zoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="subscriptions"></a>Subscriptions
+## <a name="subscriptions"></a>Prenumerationer
 
 Du kan distribuera så många virtuella nätverk som krävs inom varje prenumeration, upp till [gränsen](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [prenumerations styrning](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
 
@@ -107,7 +107,7 @@ Resurser i ett virtuellt nätverk kan inte matcha namnen på resurserna i ett pe
 
 Azure använder [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) för resurser. Behörigheter tilldelas en [omfattning](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) i följande hierarki: hanterings grupp, prenumeration, resurs grupp och enskild resurs. Mer information om hierarkin finns i [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla tillhör ande funktioner, till exempel peering, nätverks säkerhets grupper, tjänst slut punkter och routningstabeller, kan du tilldela medlemmar i din organisation till den inbyggda rollen [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)eller [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och sedan tilldela rollen till lämplig omfattning. Om du vill tilldela specifika behörigheter för en delmängd av funktioner för virtuella nätverk skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldelar de specifika behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [undernät och tjänst slut punkter](virtual-network-manage-subnet.md#permissions), [nätverks gränssnitt](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [nätverks-och program säkerhets grupper](manage-network-security-group.md#permissions)eller [väg tabeller](manage-route-table.md#permissions) till rollen.
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 Med Azure Policy kan du skapa, tilldela och hantera princip definitioner. Princip definitioner tillämpar olika regler för dina resurser, så att resurserna förblir kompatibla med organisationens standarder och service avtal. Azure Policy kör en utvärdering av dina resurser och söker efter resurser som inte är kompatibla med de princip definitioner som du har. Du kan till exempel definiera och tillämpa en princip som gör det möjligt att skapa virtuella nätverk i endast en speciell resurs grupp eller region. En annan princip kan kräva att varje undernät har en nätverks säkerhets grupp som är kopplad till den. Principerna utvärderas sedan när du skapar och uppdaterar resurser.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82143227"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planera och distribuera lokala Azure Active Directory lösen ords skydd
@@ -44,7 +44,7 @@ I gransknings fasen ser många organisationer till att följande situationer gä
 
 Det är också möjligt att använda starkare lösen ords verifiering för att påverka din befintliga Active Directory distribution av domänkontrollantens distributions automatisering. Vi rekommenderar att minst en befordran av DOMÄNKONTROLLANTen och en degradering av en DOMÄNKONTROLLANT sker under utvärderings perioden för gransknings perioden för att hjälpa till att få ut sådana problem. Mer information finns i följande artiklar:
 
-* [Ntdsutil. exe kan inte ange ett svagt lösen ord för reparations läge för katalog tjänster](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [Ntdsutil.exe kan inte ange ett svagt lösen ord för reparations läge för katalog tjänster](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [Befordran av replik på domänkontrollant Miss lyckas på grund av ett svagt lösen ord för reparations läge för katalog tjänster](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [Degradering av domänkontrollanten Miss lyckas på grund av ett svagt lokalt administratörs lösen ord](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
@@ -88,7 +88,7 @@ Följande grundläggande krav gäller:
     * Som standard är RPC-Server porten en dynamisk RPC-port, men den kan konfigureras att [använda en statisk port](#static).
 * Alla datorer där Azure AD Password Protection-proxytjänsten ska installeras måste ha nätverks åtkomst till följande slut punkter:
 
-    |**Endpoint**|**Syfte**|
+    |**Slutpunkt**|**Syfte**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Autentiseringsbegäranden|
     |`https://enterpriseregistration.windows.net`|Funktioner för lösen ords skydd i Azure AD|
@@ -140,8 +140,8 @@ Uppdaterings tjänsten för Microsoft Azure AD Connect Agent installeras sida vi
 
 Det finns två obligatoriska installations program för en lokal distribution av lösen ords skydd i Azure AD:
 
-* Azure AD Password Protection DC-agent (*AzureADPasswordProtectionDCAgentSetup. msi*)
-* Proxy för lösen ords skydd i Azure AD (*AzureADPasswordProtectionProxySetup. exe*)
+* Azure AD Password Protection DC-agent (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Azure AD-proxy för lösen ords skydd (*AzureADPasswordProtectionProxySetup.exe*)
 
 Hämta båda installations program från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -160,7 +160,7 @@ Välj en eller flera servrar som ska vara värdar för Azure AD Password Protect
 
 Slutför följande steg för att installera proxy-tjänsten för lösen ords skydd i Azure AD:
 
-1. Om du vill installera proxy-tjänsten för Azure AD Password Protection `AzureADPasswordProtectionProxySetup.exe` kör du programinstallationen.
+1. Om du vill installera proxy-tjänsten för Azure AD Password Protection kör du `AzureADPasswordProtectionProxySetup.exe` programinstallationen.
 
     Program varu installationen kräver ingen omstart och kan automatiseras med hjälp av standard-MSI-procedurer, som i följande exempel:
     
@@ -175,7 +175,7 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
     >
     > Om du använder en brand vägg från en tredje part måste den fortfarande konfigureras för att uppfylla distributions kraven. Detta inkluderar att tillåta inkommande åtkomst till port 135 och proxy RPC-Server porten. Mer information finns i föregående avsnitt om [distributions krav](#deployment-requirements).
 
-1. Programmet Azure AD Password Protection-proxy innehåller en ny PowerShell- `AzureADPasswordProtection`modul. Följande steg kör olika cmdlets från den här PowerShell-modulen.
+1. Programmet Azure AD Password Protection-proxy innehåller en ny PowerShell-modul `AzureADPasswordProtection` . Följande steg kör olika cmdlets från den här PowerShell-modulen.
 
     Om du vill använda den här modulen öppnar du ett PowerShell-fönster som administratör och importerar den nya modulen enligt följande:
     
@@ -191,13 +191,13 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
 
     Resultatet bör visa **statusen** *körs*.
 
-1. Proxy-tjänsten körs på datorn, men saknar autentiseringsuppgifter för att kommunicera med Azure AD. Registrera proxyservern för lösen ords skydd för Azure AD med Azure AD `Register-AzureADPasswordProtectionProxy` med hjälp av cmdleten.
+1. Proxy-tjänsten körs på datorn, men saknar autentiseringsuppgifter för att kommunicera med Azure AD. Registrera proxyservern för lösen ords skydd för Azure AD med Azure AD med hjälp av `Register-AzureADPasswordProtectionProxy` cmdleten.
 
     Denna cmdlet kräver globala administratörsautentiseringsuppgifter för din Azure-klient. Du måste också ha lokala Active Directory domän administratörs behörighet i skogs rots domänen. Denna cmdlet måste också köras med ett konto med lokal administratörs behörighet:
 
     När det här kommandot har slutförts en gång för en Azure AD-proxy för lösen ords skydd, lyckas ytterligare anrop till den, men är onödigt.
 
-    `Register-AzureADPasswordProtectionProxy` Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget.
+    `Register-AzureADPasswordProtectionProxy`Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget.
 
     > [!TIP]
     > Det kan finnas en märkbar fördröjning före slut för ande första gången den här cmdleten körs för en viss Azure-klient. Om inte ett haveri rapporteras behöver du inte bekymra dig om den här fördröjningen.
@@ -246,7 +246,7 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
 
     Cmdleten kräver autentiseringsuppgifter för global administratör för din Azure-klient. Du måste också köra denna cmdlet med ett konto med lokal administratörs behörighet. Det kräver också lokala Active Directory företags administratörs behörighet. Det här steget körs en gång per skog.
 
-    `Register-AzureADPasswordProtectionForest` Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget.
+    `Register-AzureADPasswordProtectionForest`Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget.
 
     > [!TIP]
     > Det kan finnas en märkbar fördröjning före slut för ande första gången den här cmdleten körs för en viss Azure-klient. Om inte ett haveri rapporteras behöver du inte bekymra dig om den här fördröjningen.
@@ -294,7 +294,7 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
 
 Om din miljö kräver att en särskild HTTP-proxy används för att kommunicera med Azure använder du följande steg för att konfigurera Azure AD-tjänsten för lösen ords skydd.
 
-Skapa en *AzureADPasswordProtectionProxy. exe. config* -fil i `%ProgramFiles%\Azure AD Password Protection Proxy\Service` mappen. Ta med följande innehåll:
+Skapa en *AzureADPasswordProtectionProxy.exe.config* -fil i `%ProgramFiles%\Azure AD Password Protection Proxy\Service` mappen. Ta med följande innehåll:
 
    ```xml
    <configuration>
@@ -320,11 +320,11 @@ Om HTTP-proxyn kräver autentisering lägger du till *useDefaultCredentials* -ta
    </configuration>
    ```
 
-I båda fallen ersätter `http://yourhttpproxy.com:8080` du med adressen och porten för din aktuella HTTP-proxyserver.
+I båda fallen ersätter du `http://yourhttpproxy.com:8080` med adressen och porten för din aktuella HTTP-proxyserver.
 
 Om din HTTP-proxy har kon figurer ATS för att använda en auktoriseringsprincip måste du bevilja åtkomst till Active Directory dator kontot för den dator som är värd för proxyservern för lösen ords skydd.
 
-Vi rekommenderar att du stoppar och startar om tjänsten Azure AD Password Protection proxy när du har skapat eller uppdaterat filen *AzureADPasswordProtectionProxy. exe. config* .
+Vi rekommenderar att du stoppar och startar om tjänsten Azure AD Password Protection proxy när du har skapat eller uppdaterat *AzureADPasswordProtectionProxy.exe.config* -filen.
 
 Proxy-tjänsten stöder inte användning av autentiseringsuppgifter för att ansluta till en HTTP-proxy.
 
@@ -332,7 +332,7 @@ Proxy-tjänsten stöder inte användning av autentiseringsuppgifter för att ans
 
 Azure AD Password Protection DC Agent-programvaran använder RPC över TCP för att kommunicera med proxy-tjänsten. Som standard lyssnar proxy tjänsten Azure AD Password Protection på en tillgänglig dynamisk RPC-slutpunkt. Du kan konfigurera tjänsten så att den lyssnar på en angiven TCP-port, om det behövs på grund av nätverkets topologi eller brand Väggs krav i din miljö.
 
-<a id="static" /></a>Om du vill konfigurera tjänsten så att den körs under en statisk port `Set-AzureADPasswordProtectionProxyConfiguration` använder du cmdleten på följande sätt:
+<a id="static" /></a>Om du vill konfigurera tjänsten så att den körs under en statisk port använder du `Set-AzureADPasswordProtectionProxyConfiguration` cmdleten på följande sätt:
 
 ```powershell
 Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
@@ -376,7 +376,7 @@ Du kan automatisera programinstallationen med hjälp av standard-MSI-procedurer,
 msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart
 ```
 
-`/norestart` Flaggan kan utelämnas om du vill att installations programmet ska starta om datorn automatiskt.
+`/norestart`Flaggan kan utelämnas om du vill att installations programmet ska starta om datorn automatiskt.
 
 Program varu installationen eller avinstallationen kräver en omstart. Detta krav beror på att lösen ords filter-DLL: er bara läses in eller tas bort av en omstart.
 
@@ -389,17 +389,17 @@ Om du vill aktivera lokal Azure AD Password Protection från Azure Portal eller 
 
 ## <a name="upgrading-the-proxy-service"></a>Uppgradera proxy-tjänsten
 
-Proxy tjänsten Azure AD Password Protection stöder automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer, som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard och kan aktive ras eller inaktive `Set-AzureADPasswordProtectionProxyConfiguration` ras med cmdleten.
+Proxy tjänsten Azure AD Password Protection stöder automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer, som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard och kan aktive ras eller inaktive ras med `Set-AzureADPasswordProtectionProxyConfiguration` cmdleten.
 
 Den aktuella inställningen kan frågas med hjälp av `Get-AzureADPasswordProtectionProxyConfiguration` cmdleten. Vi rekommenderar att inställningen för automatisk uppgradering alltid är aktive rad.
 
-`Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att fråga program varu versionen av alla installerade proxyservrar för Azure AD-lösenordet i en skog.
+`Get-AzureADPasswordProtectionProxy`Cmdleten kan användas för att fråga program varu versionen av alla installerade proxyservrar för Azure AD-lösenordet i en skog.
 
 ### <a name="manual-upgrade-process"></a>Manuell uppgraderings process
 
-Du kan utföra en manuell uppgradering genom att köra den senaste versionen `AzureADPasswordProtectionProxySetup.exe` av program varu installations programmet. Den senaste versionen av program varan finns på [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+Du kan utföra en manuell uppgradering genom att köra den senaste versionen av `AzureADPasswordProtectionProxySetup.exe` program varu installations programmet. Den senaste versionen av program varan finns på [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
-Du behöver inte avinstallera den aktuella versionen av proxyn för lösen ords skydd för Azure AD – installations programmet utför en uppgradering på plats. Ingen omstart krävs när du uppgraderar proxy-tjänsten. Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer `AzureADPasswordProtectionProxySetup.exe /quiet`, till exempel.
+Du behöver inte avinstallera den aktuella versionen av proxyn för lösen ords skydd för Azure AD – installations programmet utför en uppgradering på plats. Ingen omstart krävs när du uppgraderar proxy-tjänsten. Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, till exempel `AzureADPasswordProtectionProxySetup.exe /quiet` .
 
 ## <a name="upgrading-the-dc-agent"></a>Uppgradera DC-agenten
 
@@ -407,11 +407,11 @@ När en nyare version av Azure AD Password Protection DC Agent-programvaran är 
 
 Du behöver inte avinstallera den aktuella versionen av program varan för DC-agenten. installations programmet utför en uppgradering på plats. En omstart krävs alltid vid uppgradering av DC Agent-programvaran – detta krav orsakas av Windows-funktioner.
 
-Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`, till exempel.
+Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, till exempel `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart` .
 
 Du kan utelämna `/norestart` flaggan om du hellre vill att installations programmet ska starta om datorn automatiskt.
 
-`Get-AzureADPasswordProtectionDCAgent` Cmdleten kan användas för att fråga program varu versionen av alla installerade DC-agenter för lösen ords skydd i Azure AD i en skog.
+`Get-AzureADPasswordProtectionDCAgent`Cmdleten kan användas för att fråga program varu versionen av alla installerade DC-agenter för lösen ords skydd i Azure AD i en skog.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233196"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Distribuera till Azure Functions med DevOps starter
@@ -36,9 +36,9 @@ I de här självstudierna får du:
 >* Genomföra ändringar i Git och distribuera dem automatiskt till Azure
 >* Rensa resurser
 
-För närvarande är de körningar som stöds för functions **.net** och **Node. js**. Vi använder. NET Runtime för den här självstudien för att distribuera till Azure Functions. 
+För närvarande är de körningar som stöds för functions **.net** och **Node.js**. Vi använder. NET Runtime för den här självstudien för att distribuera till Azure Functions. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Du kan få ett kostnads fritt via [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 

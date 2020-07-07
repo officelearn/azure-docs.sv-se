@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 713afb7b277fba65dc4c860e8bdd6b62b4e0147d
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204954"
 ---
-# <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Svara snabbt på säkra identiteter med Azure AD
+# <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Svara säkra identiteter snabbt med Azure AD
 
 Det kan verka som avskräckande försöker skydda dina arbetare i dagens värld, särskilt när du behöver svara snabbt och ge åtkomst till många tjänster snabbt. Den här artikeln är avsedd att ge en kortfattad lista över alla åtgärder som ska vidtas, vilket hjälper dig att identifiera och prioritera vilken ordning du behöver för att distribuera Azure AD-funktioner baserat på den licens typ som du äger. Azure AD erbjuder många funktioner och ger många olika säkerhets nivåer för dina identiteter, och det kan ibland vara svårt att navigera i vilken funktion som är relevant. Många organisationer finns redan i molnet eller går snabbt till molnet, men det här dokumentet är avsett att du snabbt ska kunna distribuera tjänster, med säkra dina identiteter som primärt övervägande. 
 
@@ -34,7 +34,7 @@ Den här check listan hjälper dig att snabbt distribuera kritiska rekommenderad
 - Använd Cloud Intelligence.
 - Aktivera självbetjäning för slutanvändare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här guiden förutsätter att endast ditt moln eller Hybrid identiteter har skapats i Azure AD. Om du behöver hjälp med att välja din identitets typ läser du artikeln och [väljer rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../hybrid/choose-ad-authn.md) 
 

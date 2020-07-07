@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187270"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad sida i webb gränssnittet för webb gränssnittet för fjärrövervakning av Solution Accelerator
@@ -24,7 +24,7 @@ Den här artikeln visar hur du lägger till en ny sida i webb gränssnittet för
 
 Andra instruktions guider utökar det här scenariot för att lägga till fler funktioner på sidan som du lägger till.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här instruktions guiden behöver du följande program vara installerad på den lokala utvecklings datorn:
 
@@ -51,11 +51,11 @@ Om du vill lägga till en sida i webb gränssnittet måste du lägga till källf
 
 För att komma igång innehåller mappen **src/genom gång/komponenter/sidor/basicPage** fyra filer som definierar en enkel sida:
 
-**basicPage. container. js**
+**basicPage.container.js**
 
 [!code-javascript[Page container source](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.container.js?name=container "Page container source")]
 
-**basicPage. js**
+**basicPage.js**
 
 [!code-javascript[Basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.js?name=page "Basic page")]
 
@@ -63,7 +63,7 @@ För att komma igång innehåller mappen **src/genom gång/komponenter/sidor/bas
 
 [!code-javascript[Page styling](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.scss?name=styles "Page styling")]
 
-**basicPage. test. js**
+**basicPage.test.js**
 
 [!code-javascript[Test code for basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.test.js?name=test "Test code for basic page")]
 
@@ -73,7 +73,7 @@ Skapa en ny mapp **src/Components/Pages/example** och kopiera dessa fyra filer t
 
 Om du vill lägga till den nya sidan i webb gränssnittet gör du följande ändringar i befintliga filer:
 
-1. Lägg till den nya sid behållaren i filen **src/Components/pages/index. js** :
+1. Lägg till den nya sid behållaren i filen **src/Components/Pages/index.js** :
 
     ```js
     export * from './example/basicPage.container';
@@ -81,7 +81,7 @@ Om du vill lägga till den nya sidan i webb gränssnittet gör du följande änd
 
 1. Valfritt  Lägg till en SVG-ikon för den nya sidan. Mer information finns i [webui/src/Utilities/Readme. MD](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/utilities/README.md). Du kan använda en befintlig SVG-fil.
 
-1. Lägg till sid namnet i översättnings filen, **offentliga/lokala/en/översättningar. JSON**. Webb gränssnittet använder [i18next](https://www.i18next.com/) för internationalisering.
+1. Lägg till sid namnet i översättnings filen, **offentliga/lokala/en/translations.jspå**. Webb gränssnittet använder [i18next](https://www.i18next.com/) för internationalisering.
 
     ```json
     "tabs": {
@@ -89,7 +89,7 @@ Om du vill lägga till den nya sidan i webb gränssnittet gör du följande änd
     },
     ```
 
-1. Öppna filen **src/Components/app. js** som definierar program sidan på den översta nivån. Lägg till den nya sidan i listan över importer:
+1. Öppna filen **src/Components/app.js** som definierar program sidan på den översta nivån. Lägg till den nya sidan i listan över importer:
 
     ```javascript
     // Page Components
@@ -99,7 +99,7 @@ Om du vill lägga till den nya sidan i webb gränssnittet gör du följande änd
     } from './pages';
     ```
 
-1. I samma fil lägger du till den nya sidan i `pagesConfig` matrisen. Ange `to` adressen för vägen, REFERERA till SVG-ikonen och de översättningar som lagts till tidigare och Ställ `component` in på sidans behållare:
+1. I samma fil lägger du till den nya sidan i `pagesConfig` matrisen. Ange `to` adressen för vägen, referera till SVG-ikonen och de översättningar som lagts till tidigare och Ställ in på `component` sidans behållare:
 
     ```js
     const pagesConfig = [
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard`.
+Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard` .
 
 Om du inte ansluter din lokala instans av webb gränssnittet till en distribuerad instans av Solution Accelerator visas fel på instrument panelen. De här felen påverkar inte din möjlighet att testa din nya sida.
 
@@ -154,7 +154,7 @@ Du kan också ansluta din lokala kopia av webb gränssnittet till den fjärrstyr
 
 1. Distribuera en **grundläggande** instans av Solution Accelerator med **PC** cli. Anteckna namnet på distributionen och de autentiseringsuppgifter som du har angett för den virtuella datorn. Mer information finns i [distribuera med CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Använd Azure Portal eller [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att aktivera SSH-åtkomst till den virtuella dator som är värd för mikrotjänsterna i din lösning. Ett exempel:
+1. Använd Azure Portal eller [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att aktivera SSH-åtkomst till den virtuella dator som är värd för mikrotjänsterna i din lösning. Till exempel:
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -162,7 +162,7 @@ Du kan också ansluta din lokala kopia av webb gränssnittet till den fjärrstyr
 
     Du bör bara aktivera SSH-åtkomst vid testning och utveckling. Om du aktiverar SSH [bör du inaktivera det igen så snart som möjligt](../security/fundamentals/network-best-practices.md).
 
-1. Använd Azure Portal eller [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Ett exempel:
+1. Använd Azure Portal eller [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Till exempel:
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

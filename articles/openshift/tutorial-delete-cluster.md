@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
 ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232146"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: ta bort ett Azure Red Hat OpenShift 4-kluster
@@ -35,7 +35,7 @@ Om du kör Azure CLI lokalt kan du köra `az login` för att logga in på Azure.
 az login
 ```
 
-Om du har åtkomst till flera prenumerationer kan `az account set -s {subscription ID}` du `{subscription ID}` köra Ersätt med den prenumeration som du vill använda.
+Om du har åtkomst till flera prenumerationer kan `az account set -s {subscription ID}` du köra Ersätt `{subscription ID}` med den prenumeration som du vill använda.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
@@ -52,7 +52,7 @@ Ta bort klustret med dessa värden:
 az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
-Sedan uppmanas du att bekräfta om du vill ta bort klustret. När du har bekräftat `y`med, tar det flera minuter att ta bort klustret. När kommandot har slutförts tas hela resurs gruppen och alla resurser i den, inklusive klustret, bort.
+Sedan uppmanas du att bekräfta om du vill ta bort klustret. När du har bekräftat med `y` , tar det flera minuter att ta bort klustret. När kommandot har slutförts tas hela resurs gruppen och alla resurser i den, inklusive klustret, bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: ce35f3af38b98f43ebbd0d3f42136ab8358b19a5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233728"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Självstudie: distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps starter
@@ -35,7 +35,7 @@ I de här självstudierna får du:
 > * Genomföra ändringar i Git och distribuera automatiskt till Azure
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -121,7 +121,7 @@ DevOps starter skapar och konfigurerar automatiskt de nödvändiga stegen för a
 
 Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats. Varje ändring av Git-lagringsplatsen påbörjar en version, och en version distribuerar dina ändringar till Azure. Följ proceduren i det här avsnittet eller använd en annan metod för att checka in ändringarna till lagringsplatsen. Du kan till exempel klona Git-lagringsplatsen i ditt favoritverktyg eller IDE och sedan push-överföra ändringarna till den här lagringsplatsen.
 
-1. I menyn Azure-DevOps väljer du **koda** > **filer**och går sedan till din lagrings platsen.
+1. I menyn Azure-DevOps väljer du **koda**  >  **filer**och går sedan till din lagrings platsen.
 
 1. Gå till katalogen *Views\Home* och välj ellipsen (...) bredvid filen *Index.cshtml*. Välj sedan **Redigera**.
 

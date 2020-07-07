@@ -12,17 +12,17 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181740"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>En webbapp som anropar webb-API: er: Hämta en token för appen
 
 Du har skapat ditt klient program objekt. Nu ska du använda den för att hämta en token för att anropa ett webb-API. Anropa ett webb-API i ASP.NET eller ASP.NET Core på kontrollanten:
 
-- Hämta en token för webb-API: et med hjälp av token-cachen. För att hämta denna token anropar du `AcquireTokenSilent` MSAL-metoden (eller motsvarande i Microsoft. Identity. Web).
+- Hämta en token för webb-API: et med hjälp av token-cachen. För att hämta denna token anropar du MSAL `AcquireTokenSilent` -metoden (eller motsvarande i Microsoft. Identity. Web).
 - Anropa det skyddade API: et och skicka åtkomsttoken till den som en parameter.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
@@ -45,9 +45,9 @@ public class HomeController : Controller
 }
 ```
 
-`ITokenAcquisition` Tjänsten injiceras av ASP.net med hjälp av beroende inmatning.
+`ITokenAcquisition`Tjänsten injiceras av ASP.net med hjälp av beroende inmatning.
 
-Här är den `HomeController`förenklade koden för åtgärden, som hämtar en token för att anropa Microsoft Graph:
+Här är den förenklade koden för åtgärden `HomeController` , som hämtar en token för att anropa Microsoft Graph:
 
 ```csharp
 public async Task<IActionResult> Profile()
@@ -76,15 +76,15 @@ Dessa avancerade steg beskrivs i kapitel 3 i själv studie kursen [3-webapp-mult
 
 Koden för ASP.NET liknar koden som visas för ASP.NET Core:
 
-- En kontroll enhets åtgärd, som skyddas av ett [auktorisera]-attribut, extraherar klient-ID `ClaimsPrincipal` och användar-ID för kontrollantens medlem. (ASP.NET använder `HttpContext.User`.)
-- Därifrån skapar den ett MSAL.NET `IConfidentialClientApplication` -objekt.
+- En kontroll enhets åtgärd, som skyddas av ett [auktorisera]-attribut, extraherar klient-ID och användar-ID för `ClaimsPrincipal` kontrollantens medlem. (ASP.NET använder `HttpContext.User` .)
+- Därifrån skapar den ett MSAL.NET- `IConfidentialClientApplication` objekt.
 - Slutligen anropar den `AcquireTokenSilent` metoden för det konfidentiella klient programmet.
 
 # <a name="java"></a>[Java](#tab/java)
 
 I Java-exemplet finns den kod som anropar ett API i getUsersFromGraph-metoden i [AuthPageController. java # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
-Metoden försöker anropa `getAuthResultBySilentFlow`. Om användaren behöver samtycka till fler omfattningar, bearbetar koden `MsalInteractionRequiredException` objektet för att utmana användaren.
+Metoden försöker anropa `getAuthResultBySilentFlow` . Om användaren behöver samtycka till fler omfattningar, bearbetar koden `MsalInteractionRequiredException` objektet för att utmana användaren.
 
 ```java
 @RequestMapping("/msal4jsample/graph/me")

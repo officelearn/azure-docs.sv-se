@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 2c62dd2591ca9ccfc4266862578279573598d0c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137781"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Logistik Regressions-modul för multiklass
@@ -48,7 +48,7 @@ I multiklass Logistisk regression kan klassificeraren användas för att föruts
 
     Regulariseringshastigheten är en metod för att förhindra övermontering genom att motverka modeller med extrema koefficient värden. Regulariseringshastigheten fungerar genom att lägga till den påföljd som är kopplad till koefficienterna till felet i hypotesen. En korrekt modell med extrema koefficienter skulle innebära mer, men en mindre exakt modell med fler restriktiva värden skulle bli mindre.
 
-     L1-och L2-regulariseringshastigheten har olika effekter och användnings områden. L1 kan användas för sparse-modeller, vilket är användbart när du arbetar med avancerade data. L2-regulariseringshastigheten är däremot bättre för data som inte är sparse.  Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: `x = L1` det `y = L2`vill `ax + by = c` säga, om och, definierar det linjära omfånget för regulariseringshastigheten-villkoren.
+     L1-och L2-regulariseringshastigheten har olika effekter och användnings områden. L1 kan användas för sparse-modeller, vilket är användbart när du arbetar med avancerade data. L2-regulariseringshastigheten är däremot bättre för data som inte är sparse.  Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: det vill säga, om `x = L1` och `y = L2` , `ax + by = c` definierar det linjära omfånget för regulariseringshastigheten-villkoren.
 
      Olika linjära kombinationer av L1-och L2-villkor har gjorts för logistik Regressions modeller som [elastiska net regulariseringshastigheten](https://wikipedia.org/wiki/Elastic_net_regularization).
 

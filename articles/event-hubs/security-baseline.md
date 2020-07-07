@@ -8,10 +8,10 @@ ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: c60c1d33954b5e12038fd66787225f4d0aeba62d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184715"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Azures säkerhets bas linje för Event Hubs
@@ -38,7 +38,7 @@ Du kan också skydda ditt Azure Event Hubs-namnområde med hjälp av brand vägg
 
 Så här använder du tjänst slut punkter i virtuella nätverk med Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
 
-Mer information finns i integrera Azure-Event Hubs med Azures privata länk https://docs.microsoft.com/azure/event-hubs/private-link-service:.
+Mer information finns i integrera Azure-Event Hubs med Azures privata länk: https://docs.microsoft.com/azure/event-hubs/private-link-service .
 
 Aktivera integrering av virtuella nätverk och brand väggar på Event Hubs namnrymd:https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls
 
@@ -335,7 +335,7 @@ Använda Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutoria
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
 
-**Vägledning**: Microsoft Azure ger integrerad åtkomst kontroll hantering för resurser och program baserat på Azure Active Directory (AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token är https\/:/eventhubs.Azure.net/. Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
+**Vägledning**: Microsoft Azure ger integrerad åtkomst kontroll hantering för resurser och program baserat på Azure Active Directory (AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token är https: \/ /eventhubs.Azure.net/. Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
 
 Så här autentiserar du ett program med Azure AD för att få åtkomst till Event Hubs resurser:https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -1078,7 +1078,7 @@ Konfigurera automatisering av arbets flöde och Logic Apps:https://docs.microsof
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att alla kritiska säkerhets brister upptäcks inom 60 dagar
 
-**Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1:.
+**Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 .
 Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft Managed Cloud Infrastructure, tjänster och program, här:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center övervakning**: Ja

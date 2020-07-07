@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186642"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: fel vid skapande av kluster
@@ -26,7 +26,7 @@ I den här artikeln beskrivs lösningar på fel som du kan stöta på när du sk
 
 ### <a name="error"></a>Fel
 
-"Det går inte att få åtkomst till skript åtgärdens plats-URI:\<URL\>för skript åtgärd
+"Det går inte att komma åt URI för skript åtgärd: \<SCRIPT ACTION URL\> "
 
 #### <a name="error-message"></a>Felmeddelande
 
@@ -48,11 +48,11 @@ HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som 
 
 ### <a name="error"></a>Fel
 
-"Det går inte att komma åt URI för skript \<åtgärd\>: SCRIPT_ACTION_URL"
+"Det går inte att komma åt URI för skript åtgärd: \<SCRIPT_ACTION_URL\> "
 
 #### <a name="error-message"></a>Felmeddelande
 
-"Den aktuella skript- \<URI\> : n SCRIPT_URI är i ADLS, men det här klustret har inget data Lake Storage-huvudobjekt"
+"Den aktuella skript-URI: n \<SCRIPT_URI\> är i ADLS, men det här klustret har inget data Lake Storage-huvudobjekt"
 
 ### <a name="cause"></a>Orsak
 
@@ -68,7 +68,7 @@ Lägg till motsvarande Azure Data Lake Storage gen 1-konto i klustret. Lägg ock
 
 ### <a name="error"></a>Fel
 
-Storleken på den virtuella\<dator\>CUSTOMER_SPECIFIED_VM_SIZE som tillhandahölls i begäran är ogiltig eller stöds inte för rollen\<roll\>. Giltiga värden är: \<VALID_VM_SIZE_FOR_ROLE\>. "
+"VM-storleken" \<CUSTOMER_SPECIFIED_VM_SIZE\> som tillhandahölls i begäran är ogiltig eller stöds inte för rollen " \<ROLE\> ". Giltiga värden är: \<VALID_VM_SIZE_FOR_ROLE\> . "
 
 ### <a name="cause"></a>Orsak
 
@@ -84,7 +84,7 @@ Fel meddelandet visar en lista över giltiga värden för VM-storleken. Välj et
 
 ### <a name="error"></a>Fel
 
-"VirtualNetworkId är ogiltig. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>' * "
+"VirtualNetworkId är ogiltig. VirtualNetworkId ' \<USER_VIRTUALNETWORKID\> ' * "
 
 ### <a name="cause"></a>Orsak
 
@@ -108,11 +108,11 @@ Här är ett exempel på ett virtuellt nätverks-ID:
 
 ### <a name="error"></a>Fel
 
-"Kluster distributionen misslyckades på grund av ett fel i den anpassade skript åtgärden. Misslyckade åtgärder \<:\>SCRIPT_NAME, gå till Ambari UI för att ytterligare Felsöka fel. "
+"Kluster distributionen misslyckades på grund av ett fel i den anpassade skript åtgärden. Misslyckade åtgärder: \<SCRIPT_NAME\> gå till Ambari-användargränssnittet för att ytterligare felsöka problemet. "
 
 ### <a name="cause"></a>Orsak
 
-Det anpassade skript som du angav under Create Cluster-begäran körs när klustret har distribuerats. Den här felkoden anger att ett fel uppstod under körningen av det anpassade \<skriptet\>med namnet SCRIPT_NAME.
+Det anpassade skript som du angav under Create Cluster-begäran körs när klustret har distribuerats. Den här felkoden anger att ett fel uppstod under körningen av det anpassade skriptet med namnet \<SCRIPT_NAME\> .
 
 ### <a name="resolution"></a>Lösning
 
@@ -124,7 +124,7 @@ Eftersom skriptet är ditt anpassade skript rekommenderar vi att du felsöker pr
 
 ### <a name="error"></a>Fel
 
-\<"META_STORE_TYPE\> metaarkiv schema version \<METASTORE_MAJOR_VERSION\> i databas \<DATABASE_NAME\> är inkompatibel med kluster version \<CLUSTER_VERSION\>"
+" \<META_STORE_TYPE\> Metaarkiv schema version \<METASTORE_MAJOR_VERSION\> i databasen \<DATABASE_NAME\> är inte kompatibel med kluster versionen \<CLUSTER_VERSION\> "
 
 ### <a name="cause"></a>Orsak
 
@@ -161,7 +161,7 @@ Om du planerar att använda nätverks säkerhets grupper för att kontrol lera n
 
 ### <a name="error"></a>Fel
 
-"Den hanterade identiteten har inte behörighet för lagrings kontot. Verifiera att rollen Storage BLOB data Owner har tilldelats till den hanterade identiteten för lagrings kontot. Lagring:/Subscriptions/ \<PRENUMERATIONS\> -\< ID/resourceGroups/resurs\> grupp \<namn/providers/Microsoft.Storage/storageAccounts/lagrings konto\>namn, hanterad identitet\> :/Subscriptions/\< \<-prenumerations\> - \<ID/resourceGroups//resurs\>grupp namn/providers/Microsoft.ManagedIdentity/userAssignedIdentities/användarens hanterade identitets namn "
+"Den hanterade identiteten har inte behörighet för lagrings kontot. Verifiera att rollen Storage BLOB data Owner har tilldelats till den hanterade identiteten för lagrings kontot. Lagring:/Subscriptions/ \<Subscription ID\> /ResourceGroups/ \< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\> , hanterad identitet:/Subscriptions/ \<Subscription ID\> /resourceGroups// \< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> "
 
 ### <a name="cause"></a>Orsak
 
@@ -182,7 +182,7 @@ Mer information finns i [Konfigurera behörigheter för den hanterade identitete
 
 ### <a name="error"></a>Fel
 
-"Säkerhets\<reglerna i nätverks säkerhets gruppen/Subscriptions/SubscriptionID\>/resourceGroups/<resurs grupp namn\> standard/providers/Microsoft. nätverks-/networkSecurityGroups/\<nätverks säkerhets grupp namn\> som kon figurer ATS\<med\>undernät\</Subscriptions/SubscriptionID/ResourceGroups/\> resurs grupp namn RG-westeurope-VNet-TomTom-default/providers/Microsoft.\<Network/\>virtualNetworks\</Virtual Network\> namn/subnets/under nät namnet tillåter inte obligatorisk inkommande och/eller utgående anslutning. Om du vill ha mer information går du [till planera ett virtuellt nätverk för Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)eller kontaktar supporten. "
+"Säkerhets reglerna i nätverks säkerhets gruppen/Subscriptions/ \<SubscriptionID\> /resourceGroups/<resurs grupp namn \> default/providers/Microsoft. Network/networkSecurityGroups/ \<Network Security Group Name\> konfigurerad med Subnet/Subscriptions/ \<SubscriptionID\> /resourceGroups/ \<Resource Group name\> RG-westeurope-VNet-TomTom-default/providers/Microsoft. Network/virtualNetworks/ \<Virtual Network Name\> /subnets/ \<Subnet Name\> tillåter inte obligatorisk inkommande och/eller utgående anslutning. Om du vill ha mer information går du [till planera ett virtuellt nätverk för Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)eller kontaktar supporten. "
 
 ### <a name="cause"></a>Orsak
 
@@ -230,7 +230,7 @@ Om du använder anpassade säkerhets grupper för VNet-nätverk (NSG: er) och an
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Felkod: distributioner misslyckades på grund av princip överträdelse: resursen<Resource URI>tilläts inte av principen. Princip identifierare: [{"policyAssignment": {"name": "<Policy Name> ", "ID": "/providers/Microsoft.Management/managementGroups/<Management Group Name> providers/Microsoft. Authorization/policyAssignments/<Policy Name>"}, "policyDefinition":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Felkod: distributioner misslyckades på grund av princip överträdelse: resursen tilläts inte <Resource URI> av principen. Princip identifierare: [{"policyAssignment": {"name": " <Policy Name> ", "ID": "/providers/Microsoft.Management/managementGroups/ <Management Group Name> providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}, "policyDefinition":<Policy Definition>
 
 ### <a name="cause"></a>Orsak
 

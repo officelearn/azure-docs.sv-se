@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 0ccb87017f962650f099d506e1d200ab408316d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195153"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Översikt över Apache Spark strömning
 
-[Apache Spark](https://spark.apache.org/) Streaming tillhandahåller bearbetning av data strömmar på HDInsight Spark-kluster. Med en garanti att indatamängden bearbetas exakt en gång, även om ett nodfel inträffar. En spark-dataström är ett långvarigt jobb som tar emot indata från en mängd olika källor, inklusive Azure Event Hubs. Dessutom: Azure IoT Hub, Apache Kafka, Apache FLUME, Twitter, `ZeroMQ`, RAW TCP-Sockets eller från övervakning Apache Hadoop garn fil system. Till skillnad från en enda händelse driven process, tar en spark-Stream in indata i tid i Windows. Till exempel en 2-sekunds sektor och transformerar varje batch med data med hjälp av kart-, minska-, kopplings-och extraherings åtgärder. Spark-dataströmmen skriver sedan transformerade data till fil system, databaser, instrument paneler och konsolen.
+[Apache Spark](https://spark.apache.org/) Streaming tillhandahåller bearbetning av data strömmar på HDInsight Spark-kluster. Med en garanti att indatamängden bearbetas exakt en gång, även om ett nodfel inträffar. En spark-dataström är ett långvarigt jobb som tar emot indata från en mängd olika källor, inklusive Azure Event Hubs. Dessutom: Azure IoT Hub, Apache Kafka, Apache FLUME, Twitter, `ZeroMQ` , RAW TCP-Sockets eller från övervakning Apache HADOOP garn fil system. Till skillnad från en enda händelse driven process, tar en spark-Stream in indata i tid i Windows. Till exempel en 2-sekunds sektor och transformerar varje batch med data med hjälp av kart-, minska-, kopplings-och extraherings åtgärder. Spark-dataströmmen skriver sedan transformerade data till fil system, databaser, instrument paneler och konsolen.
 
 ![Strömnings bearbetning med HDInsight och Spark streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
-Spark streaming-program måste vänta en bråkdel av en sekund för att `micro-batch` samla in varje händelse innan du skickar batchen för bearbetning. Ett händelse drivet program bearbetar däremot varje händelse omedelbart. Fördröjning av Spark-direktuppspelning är vanligt vis under några sekunder. Fördelarna med mikrobatch-metoden är mer effektiv data behandling och enklare mängd beräkningar.
+Spark streaming-program måste vänta en bråkdel av en sekund för att samla in varje `micro-batch` händelse innan du skickar batchen för bearbetning. Ett händelse drivet program bearbetar däremot varje händelse omedelbart. Fördröjning av Spark-direktuppspelning är vanligt vis under några sekunder. Fördelarna med mikrobatch-metoden är mer effektiv data behandling och enklare mängd beräkningar.
 
 ## <a name="introducing-the-dstream"></a>Vi presenterar DStream
 
@@ -89,7 +89,7 @@ Push-överför omvandlingen till mål systemen genom att använda utmatnings åt
 wordCounts.print()
 ```
 
-### <a name="run-the-application"></a>Köra appen
+### <a name="run-the-application"></a>Kör programmet
 
 Starta streaming-programmet och kör det tills en avslutnings signal tas emot.
 
@@ -167,7 +167,7 @@ Det finns sex värden eftersom DummySource skapar ett värde var femte sekund oc
 
 ## <a name="sliding-windows"></a>Glidande fönster
 
-Om du vill utföra sammanställda beräkningar i DStream under en viss tids period, till exempel för att få en genomsnitts temperatur under de `sliding window` senaste två Sekunderna, använder du åtgärderna som ingår i Spark-direktuppspelning. Ett glidande fönster har en varaktighet (fönster längd) och det intervall då fönstrets innehåll utvärderas (bild intervallet).
+Om du vill utföra sammanställda beräkningar i DStream under en viss tids period, till exempel för att få en genomsnitts temperatur under de senaste två Sekunderna, använder du `sliding window` åtgärderna som ingår i Spark-direktuppspelning. Ett glidande fönster har en varaktighet (fönster längd) och det intervall då fönstrets innehåll utvärderas (bild intervallet).
 
 Glidande fönster kan överlappa, du kan till exempel definiera ett fönster med en längd på två sekunder, som bilderna var tredje. Den här åtgärden innebär varje gång som du utför en agg regerings beräkning, innehåller fönstret data från den sista och den andra av föregående fönster. Och alla nya data i nästa sekund.
 

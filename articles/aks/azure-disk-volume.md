@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 32e9da592d4c8f3997d5b1844065bf550d7d7d48
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207521"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure-diskar i Azure Kubernetes service (AKS) manuellt
@@ -59,7 +59,7 @@ Disk resurs-ID: t visas när kommandot har slutförts, som visas i följande exe
 
 ## <a name="mount-disk-as-volume"></a>Montera disk som volym
 
-Om du vill montera Azure-disken i din POD konfigurerar du volymen i behållar specifikationen. skapa en `azure-disk-pod.yaml` ny fil med namnet med följande innehåll. Uppdatera `diskName` med namnet på disken som skapades i föregående steg och `diskURI` med det disk-ID som visas i utdata från kommandot disk Create. Om du vill kan du `mountPath`uppdatera, som är den sökväg där Azure-disken är monterad i pod. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
+Om du vill montera Azure-disken i din POD konfigurerar du volymen i behållar specifikationen. skapa en ny fil med namnet `azure-disk-pod.yaml` med följande innehåll. Uppdatera `diskName` med namnet på disken som skapades i föregående steg och `diskURI` med det disk-ID som visas i utdata från kommandot disk Create. Om du vill kan du uppdatera `mountPath` , som är den sökväg där Azure-disken är monterad i pod. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ Använd `kubectl` kommandot för att skapa pod.
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Nu har du en igång-Pod med en Azure-disk `/mnt/azure`monterad på. Du kan använda `kubectl describe pod mypod` för att kontrol lera att disken har monterats. I följande komprimerade exempel utdata visas den volym som är monterad i behållaren:
+Nu har du en igång-Pod med en Azure-disk monterad på `/mnt/azure` . Du kan använda `kubectl describe pod mypod` för att kontrol lera att disken har monterats. I följande komprimerade exempel utdata visas den volym som är monterad i behållaren:
 
 ```
 [...]

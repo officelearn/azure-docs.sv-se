@@ -5,13 +5,13 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137713"
 ---
-# <a name="alerts-on-activity-log"></a>Aviseringar i aktivitets loggen
+# <a name="alerts-on-activity-log"></a>Aviseringar om aktivitetsloggar
 
 ## <a name="overview"></a>Översikt
 

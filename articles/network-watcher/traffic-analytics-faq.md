@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189053"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
@@ -330,25 +330,25 @@ Den geografiska kart sidan innehåller två huvud avsnitt:
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
 - Som standard är valet på sidan geo Map för banderollen "Azure DCs"-filtret.
-- Om du vill flytta till ett annat filter använder `Tab` du antingen `Right arrow` tangenten eller. Om du vill flytta bakåt använder du `Shift+Tab` antingen eller `Left arrow` . Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
-- Tryck `Enter` på tangenten `Down` eller piltangenten för att använda det valda filtret. Baserat på filter val och distribution är en eller flera noder under kart avsnittet markerade.
-- Om du vill växla mellan banderoll och karta `Ctrl+F6`trycker du på.
+- Om du vill flytta till ett annat filter använder du antingen `Tab` `Right arrow` tangenten eller. Om du vill flytta bakåt använder du antingen `Shift+Tab` eller `Left arrow` . Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck på `Enter` `Down` tangenten eller piltangenten för att använda det valda filtret. Baserat på filter val och distribution är en eller flera noder under kart avsnittet markerade.
+- Om du vill växla mellan banderoll och karta trycker du på `Ctrl+F6` .
         
 ### <a name="keyboard-navigation-on-the-map"></a>Tangent bords navigering på kartan
     
-- När du har valt ett filter på banderollen och tryckte `Ctrl+F6`på, flyttas fokus till en av de markerade noderna (**Azure-datacenter** eller **land/region**) i vyn karta.
-- Om du vill flytta till andra markerade noder i kartan använder du `Tab` antingen eller `Right arrow` nyckeln för vidarebefordran. Använd `Shift+Tab` eller för `Left arrow` att flytta bakåt.
-- Om du vill välja en markerad nod i kartan använder du `Enter` nyckeln `Down arrow` eller.
-- Vid val av sådana noder flyttas fokus till **rutan information-verktyget** för noden. Fokus flyttas som standard till knappen stängd i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` du `Left arrow` och nycklar för att flytta framåt respektive bakåt. Att `Enter` trycka på har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
-- När du trycker `Tab` på när fokus är i **rutan information-verktyget**, flyttas fokus till slut punkterna i samma kontinent som den valda noden. Använd- `Right arrow` och `Left arrow` -tangenterna för att flytta genom de här slut punkterna.
-- Om du vill flytta till andra flödes slut punkter eller kontinent- `Tab` kluster använder du för `Shift+Tab` att vidarebefordra rörelser och för omvänd rörelse.
-- När fokus är på **kontinents kluster**använder du `Enter` `Down` piltangenterna för att markera slut punkterna i det kontinents klustret. Om du vill flytta genom slut punkter och knappen Stäng i informations rutan i det kontinent klustret använder du `Right arrow` antingen-eller `Left arrow` -nyckeln för framåt och bakåt. På alla slut punkter kan du använda `Shift+L` för att växla till anslutnings linjen från den valda noden till slut punkten. Du kan gå `Shift+L` tillbaka till den valda slut punkten genom att trycka på igen.
+- När du har valt ett filter på banderollen och tryckte på `Ctrl+F6` , flyttas fokus till en av de markerade noderna (**Azure-datacenter** eller **land/region**) i vyn karta.
+- Om du vill flytta till andra markerade noder i kartan använder du antingen `Tab` eller `Right arrow` nyckeln för vidarebefordran. Använd `Shift+Tab` eller `Left arrow` för att flytta bakåt.
+- Om du vill välja en markerad nod i kartan använder du `Enter` `Down arrow` nyckeln eller.
+- Vid val av sådana noder flyttas fokus till **rutan information-verktyget** för noden. Fokus flyttas som standard till knappen stängd i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` `Left arrow` du och nycklar för att flytta framåt respektive bakåt. Att trycka på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- När du trycker `Tab` på när fokus är i **rutan information-verktyget**, flyttas fokus till slut punkterna i samma kontinent som den valda noden. Använd- `Right arrow` och- `Left arrow` tangenterna för att flytta genom de här slut punkterna.
+- Om du vill flytta till andra flödes slut punkter eller kontinent-kluster använder du `Tab` för att vidarebefordra rörelser och `Shift+Tab` för omvänd rörelse.
+- När fokus är på **kontinents kluster**använder du piltangenterna `Enter` `Down` för att markera slut punkterna i det kontinents klustret. Om du vill flytta genom slut punkter och knappen Stäng i informations rutan i det kontinent klustret använder du antingen `Right arrow` -eller `Left arrow` -nyckeln för framåt och bakåt. På alla slut punkter kan du använda `Shift+L` för att växla till anslutnings linjen från den valda noden till slut punkten. Du kan `Shift+L` gå tillbaka till den valda slut punkten genom att trycka på igen.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Tangent bords navigering i alla steg
     
 - `Esc`döljer den utökade markeringen.
-- `Up arrow` Nyckeln utför samma åtgärd som `Esc`. `Down arrow` Nyckeln utför samma åtgärd som `Enter`.
-- Använd `Shift+Plus` för att zooma in och `Shift+Minus` zooma ut.
+- `Up arrow`Nyckeln utför samma åtgärd som `Esc` . `Down arrow`Nyckeln utför samma åtgärd som `Enter` .
+- Använd `Shift+Plus` för att zooma in och `Shift+Minus` Zooma ut.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Hur kan jag navigera med hjälp av tangent bordet i vyn för topologi för virtuella nätverk?
 
@@ -360,15 +360,15 @@ Sidan topologi för virtuella nätverk innehåller två huvud delar:
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
 - Som standard är valet på sidan topologi för virtuella nätverk för banderollen "anslutet virtuella nätverk".
-- Om du vill flytta till ett annat filter `Tab` använder du nyckeln för att flytta framåt. Om du vill flytta bakåt använder `Shift+Tab` du nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
-- Tryck `Enter` på för att använda det valda filtret. Baserat på filter val och distribution markeras en eller flera noder (virtuellt nätverk) under avsnittet topologi.
-- Om du vill växla mellan banderollen och topologin `Ctrl+F6`trycker du på.
+- Om du vill flytta till ett annat filter använder du `Tab` nyckeln för att flytta framåt. Om du vill flytta bakåt använder du `Shift+Tab` nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck på `Enter` för att använda det valda filtret. Baserat på filter val och distribution markeras en eller flera noder (virtuellt nätverk) under avsnittet topologi.
+- Om du vill växla mellan banderollen och topologin trycker du på `Ctrl+F6` .
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Tangent bords navigering i topologin
     
-- När du har valt ett filter på banderollen och tryckte `Ctrl+F6`på, flyttas fokus till en av de markerade noderna (**VNet**) i vyn topologi.
+- När du har valt ett filter på banderollen och tryckte på `Ctrl+F6` , flyttas fokus till en av de markerade noderna (**VNet**) i vyn topologi.
 - Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för Forward transport. 
-- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder du `Right arrow` och `Left arrow` för att flytta framåt och bakåt. Att `Enter` trycka på har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder du `Right arrow` och `Left arrow` för att flytta framåt och bakåt. Att trycka på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
 - Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckeln. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.
     
 
@@ -382,14 +382,14 @@ Sidan topologier för virtuella under nätverk innehåller två huvud avsnitt:
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
 - Som standard är valet på sidan topologier för virtuella under nätverk för banderollen "undernät"-filtret.
-- Om du vill flytta till ett annat filter `Tab` använder du nyckeln för att flytta framåt. Om du vill flytta bakåt använder `Shift+Tab` du nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
-- Tryck `Enter` på för att använda det valda filtret. Baserat på filter val och distribution är en eller flera noder (undernät) i avsnittet topologi markerat.
-- Om du vill växla mellan banderollen och topologin `Ctrl+F6`trycker du på.
+- Om du vill flytta till ett annat filter använder du `Tab` nyckeln för att flytta framåt. Om du vill flytta bakåt använder du `Shift+Tab` nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck på `Enter` för att använda det valda filtret. Baserat på filter val och distribution är en eller flera noder (undernät) i avsnittet topologi markerat.
+- Om du vill växla mellan banderollen och topologin trycker du på `Ctrl+F6` .
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Tangent bords navigering i topologin
     
-- När du har valt ett filter på banderollen och tryckte `Ctrl+F6`på, flyttas fokus till en av de markerade noderna (**undernät**) i vyn topologi.
+- När du har valt ett filter på banderollen och tryckte på `Ctrl+F6` , flyttas fokus till en av de markerade noderna (**undernät**) i vyn topologi.
 - Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för Forward transport. 
-- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` du `Left arrow` och nycklar för att flytta framåt respektive bakåt. Att `Enter` trycka på har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
-- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka `Shift+Left arrow` på nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
+- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` `Left arrow` du och nycklar för att flytta framåt respektive bakåt. Att trycka på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
 

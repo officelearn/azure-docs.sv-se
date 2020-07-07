@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: c289892246cfce3ffac3f668577073a2af92511f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82509558"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Använd Apache Hive som ett ETL-verktyg (Extract, Transform och Load)
@@ -75,7 +75,7 @@ Du kan använda Hive för att mata ut data till olika typer av mål, inklusive:
 * Program eller tjänster som kräver att data bearbetas i vissa format eller som filer som innehåller vissa typer av informations strukturer.
 * Ett JSON-dokument lagrar som Azure Cosmos DB.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 ETL-modellen används vanligt vis när du vill:
 

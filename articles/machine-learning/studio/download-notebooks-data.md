@@ -9,10 +9,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
 ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208473"
 ---
 # <a name="download-notebookspreview-data"></a>Hämta Notebook-data (för hands version)
@@ -25,9 +25,9 @@ Den här artikeln innehåller stegvisa instruktioner för hur du laddar ned ante
     ![Gå till fliken bärbara datorer!](./media/download-notebooks/notebooks-list.png)
 
 1. Välj den antecknings bok som du vill ladda ned. Den öppnas i Jupyter.
-    ![Välj en bärbar](./media/download-notebooks/select-notebook.png) dator som laddar ned flera bärbara datorer samtidigt stöds inte.
+    ![Välj en bärbar dator ](./media/download-notebooks/select-notebook.png) som laddar ned flera bärbara datorer samtidigt stöds inte.
 
-1. Gå till **filer** -> **Ladda ned som**och välj ett format alternativ.
+1. Gå till **filer**  ->  **Ladda ned som**och välj ett format alternativ.
     ![Alternativ för nedladdning av bärbara datorer](./media/download-notebooks/download-options.PNG)
 
 1. När du har valt ett alternativ börjar Notebook-filen att laddas ned. Ignorera eventuella 500-eller 502-fel som visas påverkar inte nedladdningen.

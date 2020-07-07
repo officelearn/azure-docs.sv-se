@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: apimpm
 ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203176"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Funktions-baserad jämförelse av Azure API Management-nivåer
@@ -26,7 +26,7 @@ Varje API Management [pris nivå](https://aka.ms/apimpricing) erbjuder en distin
 > [!IMPORTANT]
 > Observera att Developer-nivån är för användnings fall och utvärderings versioner som inte är i produktion. Den erbjuder inte service avtal.
 
-| Funktion                                                                                      | Förbrukning | Developer | Basic | Standard | Premium |
+| Funktion                                                                                      | Förbrukning | Utvecklare | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Azure AD-integrering<sup>1</sup>                                                             | Nej          | Ja       | Nej    | Ja      | Ja     |
 | Stöd för Virtual Network (VNet)                                                               | Nej          | Ja       | Nej    | Nej       | Ja     |

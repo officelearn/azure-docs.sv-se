@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/08/2020
 ms.openlocfilehash: 3bf63aa08ec4c1deff2551cfcc0cf188a75261bc
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515487"
 ---
 # <a name="rest-api-to-query-apache-hbase-in-azure-hdinsight"></a>REST API att fråga Apache HBase i Azure HDInsight
@@ -24,7 +24,7 @@ Använda Apache HBase REST-gränssnittet för att fråga en tabell under ett ann
 
 ## <a name="cause"></a>Orsak
 
-HBase REST API stöds bara när du använder standard namn området. Detta är ett känt problem med att använda HBase-namnområden eller att göra anrop som refererar till särskilda på kolumner med kolumn familjer med REST server på HDInsight. Detta beror på ett säkerhets problem med HDInsight-gatewayen. När du använder API: et för att skapa en tabell med ett namn område, till gång till kolumner via kolumn familjer `:` , måste du ange ett av tecknen, vilket betraktas som ett säkerhets problem i IIS Gateway-modulen.
+HBase REST API stöds bara när du använder standard namn området. Detta är ett känt problem med att använda HBase-namnområden eller att göra anrop som refererar till särskilda på kolumner med kolumn familjer med REST server på HDInsight. Detta beror på ett säkerhets problem med HDInsight-gatewayen. När du använder API: et för att skapa en tabell med ett namn område, till gång till kolumner via kolumn familjer, måste du ange ett av `:` tecknen, vilket betraktas som ett säkerhets problem i IIS Gateway-modulen.
 
 ## <a name="mitigation"></a>Åtgärd
 

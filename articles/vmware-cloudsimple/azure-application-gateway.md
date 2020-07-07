@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185701"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Använd Azure Application Gateway med virtuella VMware-datorer i CloudSimple-miljön för privat moln
@@ -71,7 +71,7 @@ Detaljerade instruktioner för detta finns i [skapa en Programgateway med Sök v
 
 1. Skapa ett virtuellt nätverk i din prenumeration och resurs grupp.
 2. Skapa ett undernät (som ska användas som dedikerat undernät) i det virtuella nätverket.
-3. Skapa en standard Application Gateway (om du vill aktivera WAF): på Start sidan Azure Portal klickar du på **resurs** > **nätverk** > **Application Gateway** på sidans övre vänstra sida. Välj standard-SKU och storlek och ange information om Azure-prenumeration, resurs grupp och plats. Om det behövs skapar du en ny offentlig IP-adress för den här programgatewayen och ger information om det virtuella nätverket och det dedikerade under nätet för programgatewayen.
+3. Skapa en standard Application Gateway (om du vill aktivera WAF): på Start sidan Azure Portal klickar du på **resurs**  >  **nätverk**  >  **Application Gateway** på sidans övre vänstra sida. Välj standard-SKU och storlek och ange information om Azure-prenumeration, resurs grupp och plats. Om det behövs skapar du en ny offentlig IP-adress för den här programgatewayen och ger information om det virtuella nätverket och det dedikerade under nätet för programgatewayen.
 4. Lägg till en backend-pool med virtuella datorer och Lägg till den i Application Gateway.
 
 ## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. skapa och konfigurera en VM-pool för en webb server i ditt privata moln

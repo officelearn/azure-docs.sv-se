@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Distribuera Node. js-appar som drivs av Azure Cosmos DB med Azure DevOps starter'
-description: Med Azure DevOps Starter är det enkelt att komma igång med Azure. Med DevOps Starter kan du distribuera Node. js-appen som drivs av Azure Cosmos DB till Windows Web App med några få enkla steg.
+title: 'Självstudie: Distribuera Node.js appar som drivs av Azure Cosmos DB med Azure DevOps starter'
+description: Med Azure DevOps Starter är det enkelt att komma igång med Azure. Med DevOps Starter kan du distribuera din Node.js-app som drivs av Azure Cosmos DB till Windows Web App med några få enkla steg.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 07579cf22738e195e3e4ae7a2aa18ffeb885bbe2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233281"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Distribuera Node. js-appar som drivs av Azure Cosmos DB med DevOps starter
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Distribuera Node.js appar som drivs av Azure Cosmos DB med DevOps starter
 
 Azure DevOps starter erbjuder en strömlinjeformad upplevelse där du kan skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig distribution (CD) till Azure. Du gör detta genom att använda din befintliga kod och git-lagringsplats (lagrings platsen) eller genom att välja ett exempel program.
 
@@ -28,7 +28,7 @@ DevOps Starter är också:
 I de här självstudierna får du:
 
 > [!div class="checklist"]
-> * Använd DevOps starter för att distribuera en Node. js-app som drivs av Azure Cosmos DB
+> * Använd DevOps starter för att distribuera en Node.js app som drivs av Azure Cosmos DB
 > * Konfigurera Azure DevOps och en Azure-prenumeration
 > * Granska Azure Cosmos DB
 > * Granska CI-pipelinen
@@ -36,11 +36,11 @@ I de här självstudierna får du:
 > * Genomför ändringarna i git och distribuera dem automatiskt till Azure
 > * Rensa resurserna
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration, som du kan få via [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) kostnads fritt.
 
-## <a name="use-devops-starter-to-deploy-nodejs-app"></a>Använd DevOps starter för att distribuera Node. js-appen
+## <a name="use-devops-starter-to-deploy-nodejs-app"></a>Använd DevOps starter för att distribuera Node.js app
 
 DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps starter skapar också Azure-resurser, till exempel Azure Cosmos DB, Application Insights, App Service och App Service planer i den Azure-prenumeration du väljer.
 
@@ -50,13 +50,13 @@ DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Az
 
     ![DevOps starter-instrumentpanelen](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Välj **Node. js** som körnings miljö och välj sedan **Nästa**. Under **Välj ett program ramverk**väljer du **Express. js**.
+1. Välj **Node.js** som körnings miljö och välj sedan **Nästa**. Under **Välj ett program ramverk**väljer du **Express.js**.
 
 1. Aktivera avsnittet **Lägg till en databas** för **Cosmos DB**och välj sedan **Nästa**.
 
     ![Lägg till en databas](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Azure DevOps Starter har stöd för olika program ramverk, till exempel **Express. js**, **Sample Node. js-app**och **segel. js**. I den här självstudien använder vi **Express. js**.
+    Azure DevOps Starter har stöd för olika program ramverk, till exempel **Express.js**, **exempel Node.js app**och **Sail.js**. I den här självstudien använder vi **Express.js**.
 
 1. Välj en Azure-tjänst för att distribuera programmet och välj sedan **Nästa**. Alternativen omfattar Windows Web App, Azure Kubernetes service och Azure Web App for Containers. I den här självstudien använder vi **Windows Web App**.
 
@@ -72,7 +72,7 @@ DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Az
 
 1. Stäng Azure-konfigurationsområdet och välj sedan **Klar**.
 
-1. Processen har slutförts efter några minuter. En exempel-Node. js-app har kon figurer ATS i en git-lagrings platsen i din Azure DevOps-organisation. Sedan skapas Azure Cosmos DB, App Service, App Service plan och Application Insights resurser, samt en CI/CD-pipeline. Din app distribueras sedan till Azure.
+1. Processen har slutförts efter några minuter. Ett exempel på en Node.js app har kon figurer ATS i en git-lagrings platsen i din Azure DevOps-organisation. Sedan skapas Azure Cosmos DB, App Service, App Service plan och Application Insights resurser, samt en CI/CD-pipeline. Din app distribueras sedan till Azure.
 
    När alla dessa processer är slutförda visas start-instrumentpanelen för Azure DevOps i Azure Portal. Du kan också gå till DevOps starter-instrumentpanelen direkt från **alla resurser** i Azure Portal.
 
@@ -158,7 +158,7 @@ Ta bort de relaterade resurserna som du har skapat när du inte behöver dem lä
 Du kan ändra dessa bygg- och versionspipelines för att tillgodose ditt teams behov. Du kan också använda det här CI/CD-mönstret som en mall för dina andra pipelines. I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Använd DevOps starter för att distribuera en Node. js-app som drivs av Azure Cosmos DB
+> * Använd DevOps starter för att distribuera en Node.js app som drivs av Azure Cosmos DB
 > * Konfigurera Azure DevOps och en Azure-prenumeration 
 > * Granska Azure Cosmos DB
 > * Granska CI-pipelinen

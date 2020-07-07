@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du distribuerar ett Service Fabric 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195892"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Service Fabric program uppgradering med PowerShell
@@ -40,9 +40,9 @@ Nu kan du använda [Service Fabric Explorer för att Visa klustret och programme
 ## <a name="step-2-update-the-visual-objects-sample"></a>Steg 2: uppdatera det visuella objekt exemplet
 Du kanske märker att de visuella objekten inte roterar med den version som distribuerades i steg 1. Vi ska uppgradera det här programmet till ett ställe där de visuella objekten också roterar.
 
-Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna StatefulVisualObjectActor.cs-filen. I den filen navigerar du till metoden `MoveObject`, kommentera ut `this.State.Move()`och ta bort kommentaren `this.State.Move(true)`. Den här ändringen roterar objekten när tjänsten har uppgraderats.
+Välj VisualObjects. ActorService-projektet i VisualObjects-lösningen och öppna StatefulVisualObjectActor.cs-filen. I den filen navigerar du till metoden `MoveObject` , kommentera ut `this.State.Move()` och ta bort kommentaren `this.State.Move(true)` . Den här ändringen roterar objekten när tjänsten har uppgraderats.
 
-Vi måste också uppdatera filen *ServiceManifest. XML* (under PackageRoot) för projektet **VisualObjects. ActorService**. Uppdatera *CodePackage* och tjänst versionen till 2,0 och motsvarande rader i filen *ServiceManifest. XML* .
+Vi måste också uppdatera *ServiceManifest.xml* -filen (under PackageRoot) för projektet **VisualObjects. ActorService**. Uppdatera *CodePackage* och tjänst versionen till 2,0 och motsvarande rader i *ServiceManifest.xml* -filen.
 Du kan använda alternativet Visual Studio *Edit manifest Files* när du har högerklickat på lösningen för att göra manifest filen ändringar.
 
 När ändringarna har gjorts bör manifestet se ut ungefär så här (markerade delar visar ändringarna):
@@ -53,7 +53,7 @@ När ändringarna har gjorts bör manifestet se ut ungefär så här (markerade 
 <CodePackageName="Code" Version="2.0">
 ```
 
-Nu är filen *ApplicationManifest. XML* (som finns i **VisualObjects** -projektet under **VisualObjects** -lösningen) uppdaterad till version 2,0 av **VisualObjects. ActorService** -projektet. Dessutom uppdateras program versionen till 2.0.0.0 från 1.0.0.0. *ApplicationManifest. XML* bör se ut som i följande kodfragment:
+Nu är *ApplicationManifest.xml* -filen (som finns i **VisualObjects** -projektet under **VisualObjects** -lösningen) uppdaterad till version 2,0 av projektet **VisualObjects. ActorService** . Dessutom uppdateras program versionen till 2.0.0.0 från 1.0.0.0. *ApplicationManifest.xml* bör se ut som följande kodfragment:
 
 ```xml
 <ApplicationManifestxmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -83,7 +83,7 @@ Programmet är nu byggt och redo att uppgraderas. Om du öppnar ett PowerShell-f
 
 Programpaketet lagras under följande relativa sökväg där du okomprimerade Service Fabric SDK- *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Du bör hitta mappen "paket" i katalogen där programpaketet lagras. Kontrol lera tidsstämplarna för att se till att det är den senaste versionen (du kan behöva ändra Sök vägarna på lämpligt sätt också).
 
-Nu ska vi kopiera det uppdaterade programpaketet till Service Fabric avbildnings arkiv (där programpaketen lagras av Service Fabric). Parametern *ApplicationPackagePathInImageStore* informerar Service Fabric var programpaketet kan hittas. Vi har lagt till det uppdaterade programmet i "\_VisualObjects v2" med följande kommando (du kan behöva ändra Sök vägarna igen på lämpligt sätt).
+Nu ska vi kopiera det uppdaterade programpaketet till Service Fabric avbildnings arkiv (där programpaketen lagras av Service Fabric). Parametern *ApplicationPackagePathInImageStore* informerar Service Fabric var programpaketet kan hittas. Vi har lagt till det uppdaterade programmet i "VisualObjects \_ v2" med följande kommando (du kan behöva ändra Sök vägarna igen på lämpligt sätt).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
@@ -111,7 +111,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 ```
 
 
-Program namnet är detsamma som det beskrevs i filen *ApplicationManifest. XML* . Service Fabric använder det här namnet för att identifiera vilket program som uppgraderas. Om du ställer in timeout-värdet för kort kan du stöta på ett fel meddelande som anger problemet. Läs avsnittet fel sökning eller öka tids gränsen.
+Program namnet är detsamma som det beskrevs i *ApplicationManifest.xml* -filen. Service Fabric använder det här namnet för att identifiera vilket program som uppgraderas. Om du ställer in timeout-värdet för kort kan du stöta på ett fel meddelande som anger problemet. Läs avsnittet fel sökning eller öka tids gränsen.
 
 Eftersom program uppgraderingen fortsätter kan du övervaka den med Service Fabric Explorer eller genom att använda kommandot [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) PowerShell: 
 

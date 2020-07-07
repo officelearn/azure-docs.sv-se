@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: nipavlo
 ms.openlocfilehash: 7f571a851e4da147240c524b742bcd652bc54181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82183132"
 ---
 # <a name="balancing-of-subclustered-metrics"></a>Balansering av underklustrade mått
@@ -103,7 +103,7 @@ Resurs hanterarens beteende om under klustring kan ändras genom att ändra föl
 * SubclusteringEnabled-parameter bestämmer om resurs hanteraren kommer att ta under kluster i kontot när belastnings utjämning utförs. Om den här parametern är inaktive rad ignorerar Resource Manager underkluster och försöker uppnå optimalt saldo på global nivå. Standardvärdet för den här parametern är false.
 * SubclusteringReportingPolicy – anger hur resurs hanteraren ska generera hälso rapporter för hierarkiskt och partiellt överlappande under kluster. Värdet noll innebär att hälso rapporter om under klustring är inaktiverade, "1" innebär att varnings hälso rapporter skapas för under kluster med optimala under kluster och värdet "2" kommer att skapa hälso rapporter för "OK". Standardvärdet för den här parametern är "1".
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -112,7 +112,7 @@ ClusterManifest. XML:
         </Section>
 ```
 
-via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
+via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [

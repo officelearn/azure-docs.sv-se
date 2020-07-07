@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: abf7e6d7032e7e5dc35b2f4397a5630d45d762de
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205123"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Distribuera till Azure Kubernetes Service
 
 Den här artikeln innehåller steg för att distribuera en lokal gateway-komponent i Azure API Management till [Azure Kubernetes-tjänsten](https://azure.microsoft.com/services/kubernetes-service/). Om du vill distribuera en lokal gateway till ett Kubernetes-kluster ser du det här[dokumentet](how-to-deploy-self-hosted-gateway-kubernetes.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - [Skapa ett Azure Kubernetes-kluster](../aks/kubernetes-walkthrough-portal.md)

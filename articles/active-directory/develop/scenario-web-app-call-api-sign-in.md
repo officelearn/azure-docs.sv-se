@@ -12,10 +12,10 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: e138b3513b42dda47b0a114d866d657e18e3e393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181655"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>En webbapp som anropar webb-API: ta bort konton från token-cachen vid global utloggning
@@ -26,7 +26,7 @@ Utloggning är annorlunda för en webbapp som anropar webb-API: er. När använd
 
 ## <a name="intercept-the-callback-after-single-sign-out"></a>Fånga upp återanropet efter enkel utloggning
 
-För att ta bort den token-cachepost som är kopplad till det konto som loggade in kan programmet `logout` fånga efter-händelsen. Web Apps lagrar åtkomsttoken för varje användare i en token-cache. Genom att fånga efter `logout` återanrop kan ditt webb program ta bort användaren från cachen.
+För att ta bort den token-cachepost som är kopplad till det konto som loggade in kan programmet fånga efter- `logout` händelsen. Web Apps lagrar åtkomsttoken för varje användare i en token-cache. Genom att fånga efter `logout` återanrop kan ditt webb program ta bort användaren från cachen.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

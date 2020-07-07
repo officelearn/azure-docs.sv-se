@@ -4,10 +4,10 @@ description: Lär dig hur du skapar och distribuerar err Java Service Fabric til
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193572"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Skapa ditt första Java Service Fabric Reliable Actors-program på Linux
@@ -19,7 +19,7 @@ ms.locfileid: "82193572"
 
 Den här snabbstartsguiden hjälper dig att skapa ditt första Azure Service Fabric Java-program i en Linux-utvecklingsmiljö på bara några minuter.  När du är klar har du ett enkelt Java-program för en tjänst som körs i klustret för lokal utveckling.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du installera Service Fabric SDK, Service Fabric CLI, Yeoman, konfigurera Java-utvecklingsmiljön och konfigurera ett utvecklingskluster i [Linux-utvecklingsmiljön](service-fabric-get-started-linux.md). Om du använder Mac OS X kan du [konfigurera en utvecklingsmiljö på en Mac med hjälp av Docker](service-fabric-get-started-mac.md).
 
 Installera också [Service Fabric CLI](service-fabric-cli.md).

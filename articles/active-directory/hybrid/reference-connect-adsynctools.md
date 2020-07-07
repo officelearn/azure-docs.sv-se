@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11c9d66f891e8f5d53fc2a965e75f095417d20d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184018"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell-referens
@@ -81,7 +81,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="confirm-adsynctoolsadmoduleloaded"></a>Bekräfta – ADSyncToolsADModuleLoaded
 
@@ -209,7 +209,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="export-adsynctoolsconsistencyguidmigration"></a>Exportera – ADSyncToolsConsistencyGuidMigration
 
@@ -302,7 +302,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="get-adsyncsqlbrowserinstances"></a>Get-ADSyncSQLBrowserInstances
 
@@ -389,7 +389,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="get-adsynctoolsconsistencyguid"></a>Get-ADSyncToolsConsistencyGuid
 
@@ -436,7 +436,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="get-adsynctoolsobjectguid"></a>Get-ADSyncToolsObjectGuid
 
@@ -483,7 +483,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
@@ -530,7 +530,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="get-adsynctoolssourceanchorchanged"></a>Get-ADSyncToolsSourceAnchorChanged
 
@@ -553,7 +553,7 @@ Funktions frågor AAD Connect körnings historik och exporterar alla användare 
 #Required Parameters
 ```
 
-$sourcePath = Read-Host-prompt "Ange sökvägen till logg filen med fil namnet" # "\<Source_Path\>" $OutputPath = Read-Host-prompt "Ange din fil Sök väg med fil namnet" # "\<Out_Path\>"
+$sourcePath = Read-Host-prompt "Ange sökvägen till logg filen med fil namnet" # " \<Source_Path\> $outputPath = Read-Host-prompt" Ange din out-sökväg med fil namnet "#" \<Out_Path\> "
  
  Get-ADSyncToolsUsersSourceAnchorChanged-sourcePath $sourcePath-outputPath $outputPath
 
@@ -596,7 +596,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="import-adsynctoolsimmutableidmigration"></a>Importera – ADSyncToolsImmutableIdMigration
 
@@ -659,7 +659,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 
 ## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
@@ -719,7 +719,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="remove-adsynctoolsexpiredcertificates"></a>Remove-ADSyncToolsExpiredCertificates
 
@@ -804,7 +804,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="repair-adsynctoolsautoupgradestate"></a>Reparera – ADSyncToolsAutoUpgradeState
 
@@ -958,7 +958,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="test-adsyncnetworkport"></a>Test-ADSyncNetworkPort
 
@@ -1105,7 +1105,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipcredentials"></a>-SkipCredentials
-Typer av AD-objekt som \> ska spåras * = alla objekt typer
+Typer av AD-objekt som ska spåras \> * = alla objekt typer
 
 ```yaml
 Type: SwitchParameter
@@ -1137,7 +1137,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="trace-adsynctoolsldapquery"></a>Spåra ADSyncToolsLdapQuery
 
@@ -1230,7 +1230,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="update-adsynctoolsconsistencyguidmigration"></a>Uppdatera – ADSyncToolsConsistencyGuidMigration
 
@@ -1354,4 +1354,4 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .

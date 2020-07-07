@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.openlocfilehash: 4ade2c2e60373298eecf4e85df7fffeae4f45207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176640"
 ---
 # <a name="manage-storage-account-access-keys"></a>Hantera åtkomst nycklar för lagrings konton
@@ -27,7 +27,7 @@ Microsoft rekommenderar att du använder Azure Key Vault för att hantera dina �
 
 Du kan visa och kopiera åtkomst nycklar för ditt konto med Azure Portal, PowerShell eller Azure CLI. Azure Portal innehåller också en anslutnings sträng för ditt lagrings konto som du kan kopiera.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Visa och kopiera åtkomst nycklar för lagrings kontot eller anslutnings strängen från Azure Portal:
 
@@ -42,7 +42,7 @@ Visa och kopiera åtkomst nycklar för lagrings kontot eller anslutnings sträng
 
 Anropa kommandot [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) för att hämta åtkomst nycklar för ditt konto med PowerShell.
 
-I följande exempel hämtas den första nyckeln. Om du vill hämta den andra nyckeln `Value[1]` använder du `Value[0]`i stället för. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
+I följande exempel hämtas den första nyckeln. Om du vill hämta den andra nyckeln använder du `Value[1]` i stället för `Value[0]` . Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```powershell
 $storageAccountKey = `
@@ -83,7 +83,7 @@ Två åtkomst nycklar tilldelas så att du kan rotera dina nycklar. Att ha två 
 > [!WARNING]
 > Återskapande av åtkomst nycklar kan påverka alla program eller Azure-tjänster som är beroende av lagrings konto nyckeln. Alla klienter som använder konto nyckeln för att komma åt lagrings kontot måste uppdateras för att använda den nya nyckeln, inklusive Media Services, moln, skriv bords-och mobil program och grafiska användar gränssnitts program för Azure Storage, till exempel [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Så här roterar du åtkomst nycklar för lagrings kontot i Azure Portal:
 
@@ -108,7 +108,7 @@ Så här roterar du dina åtkomst nycklar för lagrings konton med PowerShell:
     ```
 
 1. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
-1. Återskapa den sekundära åtkomstnyckeln på samma sätt. Om du vill återskapa den sekundära nyckeln använder `key2` du som nyckel namn i stället `key1`för.
+1. Återskapa den sekundära åtkomstnyckeln på samma sätt. Om du vill återskapa den sekundära nyckeln använder du `key2` som nyckel namn i stället för `key1` .
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -125,7 +125,7 @@ Så här roterar du dina åtkomst nycklar för lagrings konton med Azure CLI:
     ```
 
 1. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
-1. Återskapa den sekundära åtkomstnyckeln på samma sätt. Om du vill återskapa den sekundära nyckeln använder `key2` du som nyckel namn i stället `key1`för.
+1. Återskapa den sekundära åtkomstnyckeln på samma sätt. Om du vill återskapa den sekundära nyckeln använder du `key2` som nyckel namn i stället för `key1` .
 
 ---
 
@@ -137,4 +137,4 @@ Användaren måste antingen vara tjänst administratör för att kunna rotera et
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure Storage-kontot](storage-account-overview.md)
-- [skapar ett lagringskonto](storage-account-create.md)
+- [Skapa ett lagringskonto](storage-account-create.md)

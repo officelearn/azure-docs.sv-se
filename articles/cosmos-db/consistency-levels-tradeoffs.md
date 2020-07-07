@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82191744"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda
@@ -67,10 +67,10 @@ I tabellen nedan definieras relationen mellan konsekvens modell och data hållba
 |---------|---------|---------|---------|---------|
 |1|En eller flera huvud|Vilken konsekvens nivå som helst|< 240 minuter|<1 vecka|
 |>1|Enda huvud|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|
-|>1|Enda huvud|Begränsad föråldring|*K* & *T*|< 15 minuter|
+|>1|Enda huvud|Begränsad föråldring|*K*  &  *T*|< 15 minuter|
 |>1|Enda huvud|Stark|0|< 15 minuter|
 |>1|Flera huvud servrar|Session, konsekvent prefix, eventuell|< 15 minuter|0|
-|>1|Flera huvud servrar|Begränsad föråldring|*K* & *T*|0|
+|>1|Flera huvud servrar|Begränsad föråldring|*K*  &  *T*|0|
 
 *K* = antalet *"K"* versioner (d.v.s. uppdateringar) för ett objekt.
 

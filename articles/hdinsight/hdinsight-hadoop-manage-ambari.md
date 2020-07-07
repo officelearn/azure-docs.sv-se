@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232861"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet
@@ -29,7 +29,7 @@ I det här dokumentet får du lära dig hur du använder Ambari-webbgränssnitte
 
 ## <a name="connectivity"></a>Anslutning
 
-Ambari-webbgränssnittet är tillgängligt i ditt HDInsight- `https://CLUSTERNAME.azurehdinsight.net`kluster på `CLUSTERNAME` , där är namnet på klustret.
+Ambari-webbgränssnittet är tillgängligt i ditt HDInsight-kluster på `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
 > [!IMPORTANT]  
 > För att ansluta till Ambari i HDInsight krävs HTTPS. När du tillfrågas om autentisering använder du det administratörs konto namn och lösen ord som du angav när klustret skapades. Om du inte uppmanas att ange autentiseringsuppgifter kontrollerar du nätverks inställningarna för att bekräfta att det inte finns några anslutnings problem mellan klienten och Azure HDInsight-kluster.
@@ -68,9 +68,9 @@ När sidan öppnas noterar du fältet överst. Det här fältet innehåller föl
 Följande lista innehåller de vanliga aviserings statusarna som används av Ambari:
 
 * **OK**
-* **Honom**
+* **Varning**
 * **MINDRE**
-* **OKÄND**
+* **UNKNOWN**
 
 Andra aviseringar än **OK** leder till posten **# Alerts** överst på sidan för att visa antalet aviseringar. Om du väljer den här posten visas aviseringarna och deras status.
 

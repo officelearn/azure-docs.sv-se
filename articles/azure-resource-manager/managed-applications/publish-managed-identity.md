@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82508145"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Azure-hanterat program med hanterad identitet
@@ -46,11 +46,11 @@ Att skapa ett hanterat program med en hanterad identitet kräver att ytterligare
 }
 ```
 
-Det finns två vanliga sätt att skapa ett hanterat program med **identiteten**: [CreateUIDefinition. JSON](./create-uidefinition-overview.md) och [Azure Resource Manager mallar](../templates/template-syntax.md). För enkla scenarier med enkel skapande bör CreateUIDefinition användas för att aktivera hanterad identitet, eftersom det ger en rikare upplevelse. Men när du hanterar avancerade eller komplexa system som kräver automatiserade eller flera hanterade program distributioner kan du använda mallarna.
+Det finns två vanliga sätt att skapa ett hanterat program med **identitet**: [CreateUIDefinition.jspå](./create-uidefinition-overview.md) och [Azure Resource Manager mallar](../templates/template-syntax.md). För enkla scenarier med enkel skapande bör CreateUIDefinition användas för att aktivera hanterad identitet, eftersom det ger en rikare upplevelse. Men när du hanterar avancerade eller komplexa system som kräver automatiserade eller flera hanterade program distributioner kan du använda mallarna.
 
 ### <a name="using-createuidefinition"></a>Använda CreateUIDefinition
 
-Ett hanterat program kan konfigureras med hanterad identitet via [CreateUIDefinition. JSON](./create-uidefinition-overview.md). I [avsnittet utdata](./create-uidefinition-overview.md#outputs)kan du använda nyckeln `managedIdentity` för att åsidosätta egenskapen Identity för mallen för hanterade program. Nedan kommer att aktivera **systemtilldelad** identitet i det hanterade programmet. Mer komplexa identitets objekt kan skapas med hjälp av CreateUIDefinition-element för att be konsumenterna om indata. Dessa indata kan användas för att skapa hanterade program med **användardefinierad identitet**.
+Ett hanterat program kan konfigureras med hanterad identitet via [CreateUIDefinition.jspå](./create-uidefinition-overview.md). I [avsnittet utdata](./create-uidefinition-overview.md#outputs) `managedIdentity` kan du använda nyckeln för att åsidosätta egenskapen Identity för mallen för hanterade program. Nedan kommer att aktivera **systemtilldelad** identitet i det hanterade programmet. Mer komplexa identitets objekt kan skapas med hjälp av CreateUIDefinition-element för att be konsumenterna om indata. Dessa indata kan användas för att skapa hanterade program med **användardefinierad identitet**.
 
 ```json
 "outputs": {
@@ -130,7 +130,7 @@ CreateUIDefinition stöder en inbyggd [hanterad identitets kontroll](./microsoft
 
 > [!NOTE]
 > Marketplace-hanterade programmallar skapas automatiskt för kunder som går genom Azure Portal skapa upplevelse.
-> I dessa scenarier måste `managedIdentity` utmatnings nyckeln på CreateUIDefinition användas för att aktivera identitet.
+> I dessa scenarier `managedIdentity` måste utmatnings nyckeln på CreateUIDefinition användas för att aktivera identitet.
 
 Den hanterade identiteten kan också aktive ras via Azure Resource Manager mallar. Nedan kommer att aktivera **systemtilldelad** identitet i det hanterade programmet. Mer komplexa identitets objekt kan skapas med hjälp av Azure Resource Manager mallparametrar för att tillhandahålla indata. Dessa indata kan användas för att skapa hanterade program med **användardefinierad identitet**.
 
@@ -260,7 +260,7 @@ När du länkar distributionen av det hanterade programmet till befintliga resur
 }
 ```
 
-Den här CreateUIDefinition. JSON genererar en skapa användar upplevelse som har två fält. Det första fältet låter användaren ange i Azure-resurs-ID: t för den resurs som länkas till distributionen av hanterade program. Det andra är för en konsument att ange **användar tilldelad identitet** Azure-resurs-ID som har åtkomst till den länkade Azure-resursen. Den genererade upplevelsen skulle se ut så här:
+Den här CreateUIDefinition.jsskapar en användar upplevelse med två fält. Det första fältet låter användaren ange i Azure-resurs-ID: t för den resurs som länkas till distributionen av hanterade program. Det andra är för en konsument att ange **användar tilldelad identitet** Azure-resurs-ID som har åtkomst till den länkade Azure-resursen. Den genererade upplevelsen skulle se ut så här:
 
 ![Exempel på CreateUIDefinition med två indata: ett nätverks gränssnitt resurs-ID och en tilldelad identitets resurs-ID](./media/publish-managed-identity/network-interface-cuid.png)
 
@@ -327,8 +327,8 @@ Begär ande text parametrar:
 
 Parameter | Krävs | Beskrivning
 ---|---|---
-authorizationAudience | *Nej* | Mål resursens app-ID-URI. Det är också anspråk `aud` (Audience) för Utfärdad token. Standardvärdet är "https://management.azure.com/"
-userAssignedIdentities | *Nej* | Listan över användarspecifika hanterade identiteter för att hämta en token för. Om inget anges `listTokens` returnerar token för den systemtilldelade hanterade identiteten.
+authorizationAudience | *nej* | Mål resursens app-ID-URI. Det är också `aud` anspråk (Audience) för Utfärdad token. Standardvärdet är " https://management.azure.com/ "
+userAssignedIdentities | *nej* | Listan över användarspecifika hanterade identiteter för att hämta en token för. Om inget anges `listTokens` returnerar token för den systemtilldelade hanterade identiteten.
 
 
 Ett exempel svar kan se ut så här:

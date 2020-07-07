@@ -4,10 +4,10 @@ description: Övervakning av program prestanda för Java-program som körs på a
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82508045"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurera JVM args Java standalone agent för Azure Monitor Application Insights
@@ -20,7 +20,7 @@ Konfigurera [app Services](https://docs.microsoft.com/azure/app-service/configur
 
 ## <a name="spring-boot"></a>Spring Boot
 
-Lägg till JVM- `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` arg någonstans `-jar`före, till exempel:
+Lägg till JVM `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` -arg någonstans före `-jar` , till exempel:
 
 ```
 java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
@@ -34,7 +34,7 @@ Om du använder formuläret *ledn* lägger du till parametern `"-javaagent:path/
 ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar", "-jar", "<myapp.jar>"]
 ```
 
-Om du använder *Shell* -formuläret lägger du till JVM-arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` någonstans före `-jar`, till exempel:
+Om du använder *Shell* -formuläret lägger du till JVM-arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` någonstans före `-jar` , till exempel:
 
 ```
 ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
@@ -44,7 +44,7 @@ ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -
 
 ### <a name="tomcat-installed-via-apt-get-or-yum"></a>Tomcat installerat via `apt-get` eller`yum`
 
-Om du har installerat Tomcat `apt-get` via `yum`eller, bör du ha en- `/etc/tomcat8/tomcat8.conf`fil.  Lägg till den här raden i slutet av filen:
+Om du har installerat Tomcat via `apt-get` eller `yum` , bör du ha en-fil `/etc/tomcat8/tomcat8.conf` .  Lägg till den här raden i slutet av filen:
 
 ```
 JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"
@@ -52,20 +52,20 @@ JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW
 
 ### <a name="tomcat-installed-via-download-and-unzip"></a>Tomcat installerat via hämta och zippa upp
 
-Om du har installerat Tomcat via hämta och zippa [https://tomcat.apache.org](https://tomcat.apache.org)upp, bör du ha en- `<tomcat>/bin/catalina.sh`fil.  Skapa en ny fil i samma katalog med namnet `<tomcat>/bin/setenv.sh` med följande innehåll:
+Om du har installerat Tomcat via hämta och zippa upp [https://tomcat.apache.org](https://tomcat.apache.org) , bör du ha en-fil `<tomcat>/bin/catalina.sh` .  Skapa en ny fil i samma katalog med namnet `<tomcat>/bin/setenv.sh` med följande innehåll:
 
 ```
 CATALINA_OPTS="$CATALINA_OPTS -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"
 ```
 
-Om filen `<tomcat>/bin/setenv.sh` redan finns ändrar du filen och lägger till `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` i. `CATALINA_OPTS`
+Om filen `<tomcat>/bin/setenv.sh` redan finns ändrar du filen och lägger till `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` i `CATALINA_OPTS` .
 
 
 ## <a name="tomcat-8-windows"></a>Tomcat 8 (Windows)
 
 ### <a name="running-tomcat-from-the-command-line"></a>Köra Tomcat från kommando raden
 
-Leta upp filen `<tomcat>/bin/catalina.bat`.  Skapa en ny fil i samma katalog med namnet `<tomcat>/bin/setenv.bat` med följande innehåll:
+Leta upp filen `<tomcat>/bin/catalina.bat` .  Skapa en ny fil i samma katalog med namnet `<tomcat>/bin/setenv.bat` med följande innehåll:
 
 ```
 set CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar
@@ -77,18 +77,18 @@ Citationstecken behövs inte, men om du vill inkludera dem är rätt placering:
 set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"
 ```
 
-Om filen `<tomcat>/bin/setenv.bat` redan finns ändrar du bara filen och lägger till `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` i. `CATALINA_OPTS`
+Om filen `<tomcat>/bin/setenv.bat` redan finns ändrar du bara filen och lägger till `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` i `CATALINA_OPTS` .
 
 ### <a name="running-tomcat-as-a-windows-service"></a>Köra Tomcat som en Windows-tjänst
 
-Leta upp filen `<tomcat>/bin/tomcat8w.exe`.  Kör den körbara filen `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` och Lägg `Java Options` till på `Java` fliken.
+Leta upp filen `<tomcat>/bin/tomcat8w.exe` .  Kör den körbara filen och Lägg till `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` på `Java Options` `Java` fliken.
 
 
 ## <a name="jboss-eap-7"></a>JBoss EAP 7
 
 ### <a name="standalone-server"></a>Fristående server
 
-Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` till i den `JAVA_OPTS` befintliga miljö variabeln i `JBOSS_HOME/bin/standalone.conf` filen (Linux) `JBOSS_HOME/bin/standalone.conf.bat` eller (Windows):
+Lägg till i `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` den befintliga `JAVA_OPTS` miljö variabeln i filen `JBOSS_HOME/bin/standalone.conf` (Linux) eller `JBOSS_HOME/bin/standalone.conf.bat` (Windows):
 
 ```java    ...
     JAVA_OPTS="<b>-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar</b> -Xms1303m -Xmx1303m ..."
@@ -97,7 +97,7 @@ Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` till i de
 
 ### <a name="domain-server"></a>Domän Server
 
-Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` till i den `jvm-options` befintliga `JBOSS_HOME/domain/configuration/host.xml`i:
+Lägg till i `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` den befintliga `jvm-options` i `JBOSS_HOME/domain/configuration/host.xml` :
 
 ```xml
 ...
@@ -116,7 +116,7 @@ Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` till i de
 ...
 ```
 
-Om du kör flera hanterade servrar på en enda värd måste du lägga till `applicationinsights.agent.id` i `system-properties` för varje: `server`
+Om du kör flera hanterade servrar på en enda värd måste du lägga till i `applicationinsights.agent.id` `system-properties` för varje `server` :
 
 ```xml
 ...
@@ -138,7 +138,7 @@ Om du kör flera hanterade servrar på en enda värd måste du lägga till `appl
 ...
 ```
 
-Det angivna `applicationinsights.agent.id` värdet måste vara unikt. Den används för att skapa en under katalog under katalogen applicationinsights, eftersom varje JVM-process behöver sin egen lokala applicationinsights config och den lokala applicationinsights-logg filen. Om du rapporterar till Central insamlaren delas `applicationinsights.properties` filen av de flera hanterade servrarna, och därför krävs det `applicationinsights.agent.id` att du åsidosätter `agent.id` inställningen i den delade filen. `applicationinsights.agent.rollup.id`kan anges på samma sätt i serverns `system-properties` om du behöver åsidosätta `agent.rollup.id` inställningen per hanterad server.
+Det angivna `applicationinsights.agent.id` värdet måste vara unikt. Den används för att skapa en under katalog under katalogen applicationinsights, eftersom varje JVM-process behöver sin egen lokala applicationinsights config och den lokala applicationinsights-logg filen. Om du rapporterar till Central insamlaren `applicationinsights.properties` delas filen av de flera hanterade servrarna, och därför krävs det att du `applicationinsights.agent.id` åsidosätter `agent.id` inställningen i den delade filen. `applicationinsights.agent.rollup.id`kan anges på samma sätt i serverns `system-properties` om du behöver åsidosätta `agent.rollup.id` inställningen per hanterad server.
 
 
 ## <a name="jetty-9"></a>Jetty 9
@@ -153,7 +153,7 @@ Lägg till dessa rader i`start.ini`
 
 ## <a name="payara-5"></a>Payara 5
 
-Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` till i den `jvm-options` befintliga `glassfish/domains/domain1/config/domain.xml`i:
+Lägg till i `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` den befintliga `jvm-options` i `glassfish/domains/domain1/config/domain.xml` :
 
 ```xml
 ...
@@ -183,7 +183,7 @@ Efter det sparar och startar du om program servern.
 
 ## <a name="openliberty-18"></a>Openfrihet 18
 
-Skapa en ny fil `jvm.options` i Server katalogen (till exempel `<openliberty>/usr/servers/defaultServer`) och Lägg till den här raden:
+Skapa en ny fil `jvm.options` i Server katalogen (till exempel `<openliberty>/usr/servers/defaultServer` ) och Lägg till den här raden:
 ```
 -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar
 ```

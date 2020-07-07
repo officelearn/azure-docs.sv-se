@@ -7,13 +7,13 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: 7022c4587b425168fc5bd2182ed65c281633aabf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82177086"
 ---
-# <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrera Azure våren Cloud med lösningar för belastnings utjämning i Azure
+# <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrera Azure Spring Cloud med Azure Load Balance Solutions
 
 Azure våren Cloud stöder mikrotjänster på Azure.  Att öka verksamheten kan kräva flera data Center med hantering av flera instanser av Azure våren Cloud.
 
@@ -23,7 +23,7 @@ Azure tillhandahåller redan olika belastnings Utjämnings lösningar. Det finns
 2.  Integrera Azure våren Cloud med Azure App Gateway
 3.  Integrera Azure våren Cloud med Azures front dörr
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure våren Cloud: [så här skapar du en moln tjänst för Azure våren](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
 * Azure Traffic Manager: [så här skapar du en Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
@@ -40,7 +40,7 @@ Lägg till slut punkter i Traffic Manager:
 1.  Inmatat fullständigt kvalificerat domän namn (FQDN) för varje Azure våren Cloud offentlig slut punkt.
 1. Klicka på **OK**.
 
-    ![Traffic Manager 1](media/spring-cloud-load-balancers/traffic-manager-1.png) ![Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
+    ![Traffic Manager 1 ](media/spring-cloud-load-balancers/traffic-manager-1.png) ![ Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
 
 ### <a name="configure-custom-domain"></a>Konfigurera anpassad domän
 Så här slutför du konfigurationen:

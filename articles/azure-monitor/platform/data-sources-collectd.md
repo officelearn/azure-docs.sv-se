@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186432"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
@@ -45,12 +45,12 @@ Om du använder en version som samlats in före 5,5 använder du dessutom följa
        </URL>
     </Plugin>
 
-Den insamlade konfigurationen använder standard`write_http` -plugin-programmet för att skicka prestanda måtts data via port 26000 till Log Analytics-agenten för Linux. 
+Den insamlade konfigurationen använder standard- `write_http` plugin-programmet för att skicka prestanda måtts data via port 26000 till Log Analytics-agenten för Linux. 
 
 > [!NOTE]
 > Den här porten kan konfigureras till en anpassad port vid behov.
 
-Log Analytics agenten för Linux lyssnar också på port 26000 för insamlade mått och konverterar dem sedan till Azure Monitor schema mått. Följande är Log Analytics agent för Linux-konfiguration `collectd.conf`.
+Log Analytics agenten för Linux lyssnar också på port 26000 för insamlade mått och konverterar dem sedan till Azure Monitor schema mått. Följande är Log Analytics agent för Linux-konfiguration `collectd.conf` .
 
     <source>
       type http
@@ -79,7 +79,7 @@ Följande är grundläggande steg för att konfigurera insamling av insamlade da
 
 ### <a name="configure-collectd-to-forward-data"></a>Konfigurera insamlad för att vidarebefordra data 
 
-1. För att dirigera insamlade data till Log Analytics agenten för `oms.conf` Linux måste läggas till i den insamlade konfigurations katalogen. Filens mål är beroende av datorns Linux-distribution.
+1. För att dirigera insamlade data till Log Analytics agenten för Linux `oms.conf` måste läggas till i den insamlade konfigurations katalogen. Filens mål är beroende av datorns Linux-distribution.
 
     Om din uppsamlade konfigurations katalog finns i/etc/collectd.d/:
 

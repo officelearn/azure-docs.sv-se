@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 4672a92ceba5dc52c717f76a705d0fa508ab41fd
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515474"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Verifierar data kryptering för Azure Database for PostgreSQL
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig att kontrol lera att data kryptering med kund han
 
 1. Följ dessa steg om du vill kontrol lera att kundens nyckel används för kryptering:
 
-    * I Azure Portal navigerar du till **Azure Key Vault** -> **nycklar**
+    * I Azure Portal navigerar du till **Azure Key Vault**  ->  **nycklar**
     * Välj den nyckel som används för server kryptering.
     * Ange status för nyckeln som **är aktive rad** till **Nej**.
   

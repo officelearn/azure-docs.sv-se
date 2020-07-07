@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.openlocfilehash: 18831832f82cdbc8cec69e368f006f7acd4836c1
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205266"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Felsöka Apache Oozie i Azure HDInsight
@@ -36,7 +36,7 @@ Jobbets status ändras till **inaktive**rad. Information för jobbet visar `RunH
 
 ### <a name="cause"></a>Orsak
 
-De Azure Blob Storage-adresser som används i **Job. XML-** filen innehåller inte lagrings containern eller lagrings konto namnet. Blob Storage-formatet måste vara `wasbs://containername@storageaccountname.blob.core.windows.net`.
+De Azure Blob Storage-adresser som används i **job.xml** -filen innehåller inte lagrings containern eller lagrings konto namnet. Blob Storage-formatet måste vara `wasbs://containername@storageaccountname.blob.core.windows.net` .
 
 ### <a name="resolution"></a>Lösning
 
@@ -44,7 +44,7 @@ De Azure Blob Storage-adresser som används i **Job. XML-** filen innehåller in
 
 ---
 
-## <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie tillåts inte personifiera &lt;användare&gt;
+## <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie tillåts inte personifiera &lt; användare&gt;
 
 ### <a name="issue"></a>Problem
 
@@ -81,7 +81,7 @@ Sqoop kan inte läsa in den databas driv rutin som krävs för att komma åt dat
 
 ### <a name="resolution"></a>Lösning
 
-När du använder Sqoop från ett Oozie-jobb måste du inkludera databas driv rutinen med de andra resurserna, t. ex. Workflow. XML, som används av jobbet. Referera också till arkivet som innehåller databas driv rutinen från `<sqoop>...</sqoop>` avsnittet i arbets flödes. xml.
+När du använder Sqoop från ett Oozie-jobb måste du inkludera databas driv rutinen med de andra resurserna, till exempel den workflow.xml, som används av jobbet. Referera också till arkivet som innehåller databas driv rutinen från `<sqoop>...</sqoop>` avsnittet i workflow.xml.
 
 För till exempel att jobb exemplet [använder Hadoop Oozie-arbetsflöden](hdinsight-use-oozie-linux-mac.md)använder du följande steg:
 
@@ -91,7 +91,7 @@ För till exempel att jobb exemplet [använder Hadoop Oozie-arbetsflöden](hdins
     hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
     ```
 
-2. Ändra `workflow.xml` för att lägga till följande XML på en ny rad ovan `</sqoop>`:
+2. Ändra `workflow.xml` för att lägga till följande XML på en ny rad ovan `</sqoop>` :
 
     ```xml
     <archive>mssql-jdbc-7.0.0.jre8.jar</archive>

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82169576"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Snabb start: utveckla på Azure Kubernetes service (AKS) med Helm
@@ -19,7 +19,7 @@ ms.locfileid: "82169576"
 
 Den här artikeln visar hur du använder Helm för att paketera och köra ett program på AKS. Mer information om hur du installerar ett befintligt program med hjälp av Helm finns [i installera befintliga program med Helm i AKS][helm-existing].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -94,7 +94,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
-I den här snabb starten används [ett exempel på Node. js-program från Azure dev Spaces-lagringsplatsen][example-nodejs]. Klona programmet från GitHub och navigera till `dev-spaces/samples/nodejs/getting-started/webfrontend` katalogen.
+I den här snabb starten används [ett exempel Node.js program från Azure dev Spaces-lagringsplatsen][example-nodejs]. Klona programmet från GitHub och navigera till `dev-spaces/samples/nodejs/getting-started/webfrontend` katalogen.
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -149,7 +149,7 @@ Gör följande uppdateringar för *webfrontend/Values. yaml*:
 * Ändra `image.repository` till`<acrLoginServer>/webfrontend`
 * Ändra `service.type` till`LoadBalancer`
 
-Ett exempel:
+Till exempel:
 
 ```yml
 # Default values for webfrontend.
@@ -168,7 +168,7 @@ service:
 ...
 ```
 
-Uppdatera `appVersion` till `v1` i *webfrontend/Chart. yaml*. Exempel
+Uppdatera `appVersion` till `v1` i *webfrontend/Chart. yaml*. Till exempel
 
 ```yml
 apiVersion: v2

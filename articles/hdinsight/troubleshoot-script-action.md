@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188454"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Felsöka skript åtgärder i Azure HDInsight
@@ -25,13 +25,13 @@ Du kan använda Apache Ambari Web UI för att visa information som loggats av sk
 
 ### <a name="apache-ambari-web-ui"></a>Apache Ambari-webbgränssnitt
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
 1. Välj **Ops** -posten från fältet överst på sidan. En lista visar aktuella och tidigare åtgärder som utförs på klustret via Ambari.
 
     ![Ambari Web UI-fältet med OPS valt](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
 
-1. Hitta de poster som har **kört\_Customscriptaction** i kolumnen **åtgärder** . Dessa poster skapas när skript åtgärderna körs.
+1. Hitta de poster som har **kört \_ customscriptaction** i kolumnen **åtgärder** . Dessa poster skapas när skript åtgärderna körs.
 
     ![Åtgärds åtgärder för Apache Ambari-skript](./media/troubleshoot-script-action/ambari-script-action.png)
 
@@ -41,7 +41,7 @@ Du kan använda Apache Ambari Web UI för att visa information som loggats av sk
 
 Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggarna i klustrets lagrings konto.
 
-* Lagrings loggarna är tillgängliga `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`på.
+* Lagrings loggarna är tillgängliga på `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` .
 
     ![Skript åtgärds loggar](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
@@ -53,7 +53,7 @@ Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggar
 
     * **Zookeeper-nod**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
-* Alla **STDOUT** och **stderr** för motsvarande värd överförs till lagrings kontot. Det finns en **output-\*. txt** och **errors\*-. txt** för varje skript åtgärd. Filen **output-*. txt** innehåller information om URI: n för skriptet som kördes på värden. Följande text är ett exempel på den här informationen:
+* Alla **STDOUT** och **stderr** för motsvarande värd överförs till lagrings kontot. Det finns en **output- \* . txt** och **errors- \* . txt** för varje skript åtgärd. Filen **output-*. txt** innehåller information om URI: n för skriptet som kördes på värden. Följande text är ett exempel på den här informationen:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -84,7 +84,7 @@ ImportError: cannot import name BlobService
 
 __Orsak__. Det här felet uppstår om du uppgraderar python-Azure Storage-klienten som ingår i HDInsight-klustret. HDInsight förväntar sig Azure Storage 0.20.0-klient.
 
-__Lösning__. För att lösa det här felet ansluter du manuellt till varje klusternod med `ssh`hjälp av. Kör följande kommando för att installera om rätt version av lagrings klienten:
+__Lösning__. För att lösa det här felet ansluter du manuellt till varje klusternod med hjälp av `ssh` . Kör följande kommando för att installera om rätt version av lagrings klienten:
 
 ```bash
 sudo pip install azure-storage==0.20.0

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: d0fbdcb877e91a703306f15fdc7507fd19d534f4
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205136"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurera moln mått och loggar för Azure API Management egen värd-Gateway
@@ -28,11 +28,11 @@ Den lokala gatewayen måste associeras med en API Management-tjänst och kräver
 ## <a name="metrics"></a>Mått
 Som standard avger gatewayen för egen värd ett antal mått genom [Azure Monitor](https://azure.microsoft.com/services/monitor/), samma som den hanterade gatewayen [i molnet](api-management-howto-use-azure-monitor.md). 
 
-Funktionen kan aktive ras eller inaktive `telemetry.metrics.cloud` ras med nyckeln i ConfigMap för gateway-distributionen. Nedan visas en uppdelning av de tillgängliga konfigurationerna:
+Funktionen kan aktive ras eller inaktive ras med `telemetry.metrics.cloud` nyckeln i ConfigMap för gateway-distributionen. Nedan visas en uppdelning av de tillgängliga konfigurationerna:
 
-| Field  | Standardvärde | Beskrivning |
+| Fält  | Default | Beskrivning |
 | ------------- | ------------- | ------------- |
-| telemetri. Metrics. Cloud  | `true` | Aktiverar loggning via Azure Monitor. Värdet kan vara `true`, `false`. |
+| telemetri. Metrics. Cloud  | `true` | Aktiverar loggning via Azure Monitor. Värdet kan vara `true` , `false` . |
 
 
 Här är en exempel konfiguration:
@@ -49,7 +49,7 @@ Här är en exempel konfiguration:
 
 Den egen värdbaserade gatewayen avger för närvarande följande mått genom Azure Monitor:
 
-| Mått  | Beskrivning |
+| Metric  | Beskrivning |
 | ------------- | ------------- |
 | Begäranden  | Antal API-begäranden under perioden |
 | Varaktighet för gateway-begäranden | Antalet millisekunder från att gatewayen fick begäran till då svaret har skickats fullständigt |

@@ -4,10 +4,10 @@ description: Använd Azure Backup Server för att säkerhetskopiera system tills
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192373"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Säkerhetskopiera system tillstånd och Återställ till Bare Metal genom att använda Azure Backup Server
@@ -25,36 +25,36 @@ I följande tabell sammanfattas vad du kan säkerhetskopiera och återställa. I
 
 |Backup|Problem|Återställa från Azure Backup Server säkerhets kopia|Återställa systemtillståndssäkerhetskopia|Återställning utan operativsystem|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**Fildata**<br /><br />Regelbunden säkerhetskopiering av data<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorade fildata|Y|N|N|
-|**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR-/systemtillståndssäkerhetskopia|Saknad eller skadad operativsystem|N|Y|Y|
-|**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorad Server (data volymer är intakta)|N|N|Y|
-|**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorad server (datavolymer förlorade)|Y|N|Y<br /><br />BMR, följt av regelbunden återställning av säkerhetskopierade fildata|
-|**SharePoint-data**<br /><br />Azure Backup Server säkerhets kopiering av Server grupps data<br /><br />BMR-/systemtillståndssäkerhetskopia|Borttappad webbplats, listor, list objekt, dokument|Y|N|N|
-|**SharePoint-data**<br /><br />Azure Backup Server säkerhets kopiering av Server grupps data<br /><br />BMR-/systemtillståndssäkerhetskopia|Saknad eller skadad operativsystem|N|Y|Y|
+|**Fildata**<br /><br />Regelbunden säkerhetskopiering av data<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorade fildata|J|N|N|
+|**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR-/systemtillståndssäkerhetskopia|Saknad eller skadad operativsystem|N|J|Y|
+|**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorad Server (data volymer är intakta)|N|N|J|
+|**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorad server (datavolymer förlorade)|J|N|J<br /><br />BMR, följt av regelbunden återställning av säkerhetskopierade fildata|
+|**SharePoint-data**<br /><br />Azure Backup Server säkerhets kopiering av Server grupps data<br /><br />BMR-/systemtillståndssäkerhetskopia|Borttappad webbplats, listor, list objekt, dokument|J|N|N|
+|**SharePoint-data**<br /><br />Azure Backup Server säkerhets kopiering av Server grupps data<br /><br />BMR-/systemtillståndssäkerhetskopia|Saknad eller skadad operativsystem|N|J|Y|
 |**SharePoint-data**<br /><br />Azure Backup Server säkerhets kopiering av Server grupps data<br /><br />BMR-/systemtillståndssäkerhetskopia|Haveriberedskap|N|N|N|
-|Windows Server 2012 R2 Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR-/systemtillståndssäkerhetskopia av värd|Förlorad VM|Y|N|N|
-|Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR-/systemtillståndssäkerhetskopia av värd|Saknad eller skadad operativsystem|N|Y|Y|
-|Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR-/systemtillståndssäkerhetskopia av värd|Förlorad Hyper-V-värd (virtuella datorer orörda)|N|N|Y|
-|Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR-/systemtillståndssäkerhetskopia av värd|Förlorad Hyper-V-värd (virtuella datorer förlorade)|N|N|Y<br /><br />BMR, följt av regelbunden Azure Backup Server återställning|
-|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorade appdata|Y|N|N|
-|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR-/systemtillståndssäkerhetskopia|Saknad eller skadad operativsystem|N|Y|Y|
-|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorad server (databas/transaktionsloggar orörda)|N|N|Y|
-|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorad server (databas/transaktionsloggar förlorade)|N|N|Y<br /><br />BMR-återställning, följt av regelbunden Azure Backup Server återställning|
+|Windows Server 2012 R2 Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR-/systemtillståndssäkerhetskopia av värd|Förlorad VM|J|N|N|
+|Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR-/systemtillståndssäkerhetskopia av värd|Saknad eller skadad operativsystem|N|J|Y|
+|Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR-/systemtillståndssäkerhetskopia av värd|Förlorad Hyper-V-värd (virtuella datorer orörda)|N|N|J|
+|Hyper-V<br /><br />Azure Backup Server säkerhets kopiering av Hyper-V-värd eller gäst<br /><br />BMR-/systemtillståndssäkerhetskopia av värd|Förlorad Hyper-V-värd (virtuella datorer förlorade)|N|N|J<br /><br />BMR, följt av regelbunden Azure Backup Server återställning|
+|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorade appdata|J|N|N|
+|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR-/systemtillståndssäkerhetskopia|Saknad eller skadad operativsystem|N|J|Y|
+|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorad server (databas/transaktionsloggar orörda)|N|N|J|
+|SQL Server/Exchange<br /><br />Azure Backup Server säkerhets kopiering av app<br /><br />BMR-/systemtillståndssäkerhetskopia|Förlorad server (databas/transaktionsloggar förlorade)|N|N|J<br /><br />BMR-återställning, följt av regelbunden Azure Backup Server återställning|
 
 ## <a name="how-system-state-backup-works"></a>Hur säkerhetskopiering av systemtillstånd fungerar
 
-När en säkerhets kopiering av system tillstånd körs kommunicerar backup-servern med Windows Server Backup för att begära en säkerhets kopia av serverns system tillstånd. Som standard använder säkerhets kopierings servern och Windows Server Backup den enhet som har mest ledigt utrymme. Information om den här enheten sparas i filen *PSDataSourceConfig. XML* .
+När en säkerhets kopiering av system tillstånd körs kommunicerar backup-servern med Windows Server Backup för att begära en säkerhets kopia av serverns system tillstånd. Som standard använder säkerhets kopierings servern och Windows Server Backup den enhet som har mest ledigt utrymme. Information om den här enheten sparas i *PSDataSourceConfig.xml* -filen.
 
 Du kan anpassa den enhet som säkerhets kopierings servern använder för säkerhets kopiering av system tillstånd:
 
 1. Gå till *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*på den skyddade servern.
-1. Öppna filen *PSDataSourceConfig. XML* för redigering.
-1. Ändra \<FilesToProtect\> -värdet för enhets beteckningen.
+1. Öppna *PSDataSourceConfig.xml* -filen för redigering.
+1. Ändra värdet \<FilesToProtect\> för enhetsbeteckningen.
 1. Spara och stäng filen.
 
 Om en skydds grupp är inställd för att skydda datorns system tillstånd kör du en konsekvens kontroll. Om en avisering genereras väljer du **ändra skydds grupp** i aviseringen och slutför sedan sidorna i guiden. Kör sedan en annan konsekvenskontroll.
 
-Om skydds servern finns i ett kluster kan en kluster enhet väljas som den enhet som har mest ledigt utrymme. Om ägarskapet växlas till en annan nod och en säkerhets kopiering av system tillstånd körs, är enheten inte tillgänglig och säkerhets kopieringen Miss lyckas. I det här scenariot ändrar du *PSDataSourceConfig. XML* så att den pekar på en lokal enhet.
+Om skydds servern finns i ett kluster kan en kluster enhet väljas som den enhet som har mest ledigt utrymme. Om ägarskapet växlas till en annan nod och en säkerhets kopiering av system tillstånd körs, är enheten inte tillgänglig och säkerhets kopieringen Miss lyckas. I det här scenariot ändrar du *PSDataSourceConfig.xml* så att den pekar på en lokal enhet.
 
 Därefter skapar Windows Server Backup en mapp med namnet *WindowsImageBackup* i roten i mappen Restore. När Windows Server Backup skapar säkerhets kopian placeras alla data i den här mappen. När säkerhets kopieringen är klar överförs filen till datorn för säkerhets kopierings servern. Notera följande information:
 
@@ -109,7 +109,7 @@ När säkerhets kopieringen är klar överförs filen till datorn för säkerhet
 
 Säkerhetskopiera system tillstånd och Bare Metal:
 
-1. Om du vill öppna sidan Skapa guiden Ny skyddsgrupp går du till säkerhets kopierings servern administratörskonsol och väljer **skydds** > **åtgärder** > **skapa skydds grupp**.
+1. Om du vill öppna sidan Skapa guiden Ny skyddsgrupp går du till säkerhets kopierings servern administratörskonsol och väljer **skydds**  >  **åtgärder**  >  **skapa skydds grupp**.
 
 1. Välj **servrar**på sidan **Välj typ av skydds grupp** och välj sedan **Nästa**.
 
@@ -203,7 +203,7 @@ Så här återställer du systemet:
 
 1. På sidan **alternativ för system återställning** väljer **du Återställ datorn med hjälp av en system avbildning som du skapade tidigare**.
 
-1. På sidan **Välj en säkerhets kopia av system avbildning** väljer du **Välj en system** > avbildning**Avancerad** > **sökning för en system avbildning i nätverket**. Välj **Ja**om en varning visas. Gå till resurs Sök vägen, ange autentiseringsuppgifterna och välj sedan återställnings punkten. Systemet söker efter de säkerhets kopior som är tillgängliga i återställnings punkten. Välj den återställnings punkt som du vill använda.
+1. På sidan **Välj en säkerhets kopia av system avbildning** väljer du **Välj en system**avbildning  >  **Avancerad**  >  **sökning för en system avbildning i nätverket**. Välj **Ja**om en varning visas. Gå till resurs Sök vägen, ange autentiseringsuppgifterna och välj sedan återställnings punkten. Systemet söker efter de säkerhets kopior som är tillgängliga i återställnings punkten. Välj den återställnings punkt som du vill använda.
 
 1. På sidan **Välj hur du vill återställa säkerhets kopian** väljer du **Formatera och partitionera om diskar**. Verifiera inställningarna på nästa sida.
 
@@ -233,7 +233,7 @@ Köra återställning på säkerhets kopierings Server:
 
 Köra Windows Server Backup:
 
-1. Välj **åtgärder** > **Återställ** > **den här servern** > **Nästa**.
+1. Välj **åtgärder**  >  **Återställ**  >  **den här servern**  >  **Nästa**.
 
 1. Välj **en annan server**, Välj sidan **Ange plats typ** och välj sedan **delad fjärrmapp**. Ange sökvägen till den mapp som innehåller återställnings punkten.
 

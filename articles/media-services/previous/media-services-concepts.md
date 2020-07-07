@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160230"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services begrepp 
@@ -191,7 +191,7 @@ Med progressiv nedladdning kan du starta uppspelning av media innan hela filen h
 >[!NOTE]
 >Du måste dekryptera krypterade resurser om du vill att de ska vara tillgängliga för progressiv nedladdning.
 
-För att ge användarna en URL för progressiv nedladdning måste du först skapa en OnDemandOrigin-lokaliserare. När du skapar en positionerare får du bas sökvägen till till gången. Du måste lägga till namnet på MP4-filen. Ett exempel:
+För att ge användarna en URL för progressiv nedladdning måste du först skapa en OnDemandOrigin-lokaliserare. När du skapar en positionerare får du bas sökvägen till till gången. Du måste lägga till namnet på MP4-filen. Till exempel:
 
 `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
@@ -209,25 +209,25 @@ I följande lista beskrivs olika strömnings format och ger exempel:
 
 {namn på slutpunkt för direktuppspelning-namn på mediaservicekonto}.streaming.mediaservices.windows.net/lokalisator-ID}/{filnamn}.ism/Manifest
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
 
 * MPEG DASH
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = mpd-Time-CSF)
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = mpd-Time-CSF)
 
 * Apple HTTP Live Streaming (HLS) v4
 
 {namn på slutpunkt för direktuppspelning-namn på mediaservicekonto}.streaming.mediaservices.windows.net/{lokalisator-ID}/{filnamn}.ism/Manifest(format=m3u8-aapl)
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL)
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL)
 
 * Apple HTTP Live Streaming (HLS) v3
 
 {namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = M3U8-AAPL-v3)
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL-v3)
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL-v3)
 
 ## <a name="additional-notes"></a>Ytterligare information
 

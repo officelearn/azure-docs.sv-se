@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 2d78a7e0eaed27fec7f813fa3e6bffaffe5a6540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186177"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azures säkerhets bas linje för Azure Database for MariaDB
@@ -50,7 +50,7 @@ Så här konfigurerar du Azure Database for MariaDB brand Väggs regler:https://
 
 Så här konfigurerar du en privat länk för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
 
-Så här aktiverar du NSG Flow- https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal loggar: så här aktiverar och använder du trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal så här aktiverar och använder du trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 
 
@@ -86,7 +86,7 @@ Så här konfigurerar du DDoS-skydd:https://docs.microsoft.com/azure/virtual-net
 
 **Vägledning**: när din Azure Database for MariaDB-Server är skyddad till en privat slut punkt kan du distribuera virtuella datorer i samma virtuella nätverk. Du kan sedan konfigurera en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Så här aktiverar du NSG Flow- https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal loggar: så här aktiverar och använder du trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal så här aktiverar och använder du trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 
 
@@ -164,7 +164,7 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Använd automatiserade verktyg för att övervaka konfigurationer för nätverks resurser och identifiera ändringar
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till dina Azure Database for MariaDB-instanser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
-Så här visar och hämtar du Azure aktivitets logg händelser https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view : så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här visar och hämtar du Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
 
@@ -190,7 +190,7 @@ Så här visar och hämtar du Azure aktivitets logg händelser https://docs.micr
 **Vägledning**: Aktivera diagnostikinställningar och Server loggar och mata in loggar för att samla in säkerhets data som genereras av Azure Database for MariaDB instanser. I Azure Monitor använder du Log Analytics arbets ytor för att fråga och utföra analyser och använda Azure Storage konton för långsiktig lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part.
 Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
-Så här konfigurerar och får du åtkomst till gransknings https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal loggar för Azure Database for MariaDB: så här integrerar du Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal så här integrerar du Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
 
@@ -202,7 +202,7 @@ Så här konfigurerar och får du åtkomst till gransknings https://docs.microso
 
 **Vägledning**: Aktivera diagnostikinställningar på Azure Database for MariaDB instanser för åtkomst till gransknings-, säkerhets-och diagnostikloggar. Se till att du specifikt aktiverar gransknings loggen för MariaDB. Aktivitets loggar, som är automatiskt tillgängliga, innehåller händelse källa, datum, användare, tidsstämpel, käll adresser, mål adresser och andra användbara element. Du kan också aktivera inställningar för Azure aktivitets loggs diagnostik och skicka loggarna till samma Log Analytics-arbetsyta eller lagrings konto.
 
-Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs konfigurera och få åtkomst till gransknings loggar för Azure Database for MariaDB https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal : så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs Konfigurera och få åtkomst till gransknings loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 
 
@@ -222,7 +222,7 @@ Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB:
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurera säkerhets logg lagrings kvarhållning
 
 **Vägledning**: i Azure Monitor för arbets ytan Log Analytics som används för att hålla dina Azure Database for MariaDB loggar, anger du kvarhållningsperioden enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig/Arkiv lagring.
-Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period : lagra resurs loggar i ett Azure Storage konto:https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
+Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period lagra resurs loggar i ett Azure Storage konto:https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
 
 
 
@@ -896,7 +896,7 @@ Så här ger Key Vault autentisering med en hanterad identitet:https://docs.micr
 
 För Azure-Virtual Machines eller-webb program som körs på Azure App Service används för att få åtkomst till din Azure Database for MariaDB-Server använder du Hanterad tjänstidentitet tillsammans med Azure Key Vault för att lagra och hämta autentiseringsuppgifter för Azure Database for MariaDB Server.  Se till att Key Vault mjuk borttagning har Aktiver ATS.
 
-Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod. Konfigurera hanterade identiteter: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm. Så här integrerar du med Azure Managed Identities https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity:.
+Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod. Konfigurera hanterade identiteter: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm . Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity .
 
 
 

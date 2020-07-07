@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 601194d3a8cc789c51b8e127001ab2367dceeee7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82148223"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program
@@ -102,30 +102,30 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 * Konfiguration av klient del
   * IP-192.168.14.9
 * Avsöknings port
-  * Port 620<strong>&lt;nr&gt;</strong>
+  * Port 620<strong> &lt; nr &gt; </strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
-  * 32<strong>&lt;nr&gt; </strong> TCP
-  * 36<strong>&lt;nr&gt; </strong> TCP
-  * 39<strong>&lt;nr&gt; </strong> TCP
-  * 81<strong>&lt;nr&gt; </strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * 32<strong> &lt; nr &gt; </strong> TCP
+  * 36<strong> &lt; nr &gt; </strong> TCP
+  * 39<strong> &lt; nr &gt; </strong> TCP
+  * 81<strong> &lt; nr &gt; </strong> TCP
+  * 5<strong> &lt; nr &gt; </strong>13 TCP
+  * 5<strong> &lt; nr &gt; </strong>14 TCP
+  * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
 * Konfiguration av klient del
   * IP-192.168.14.10
 * Avsöknings port
-  * Port 621<strong>&lt;nr&gt;</strong>
+  * Port 621<strong> &lt; nr &gt; </strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
-  * 32<strong>&lt;nr&gt; </strong> TCP
-  * 33<strong>&lt;nr&gt; </strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * 32<strong> &lt; nr &gt; </strong> TCP
+  * 33<strong> &lt; nr &gt; </strong> TCP
+  * 5<strong> &lt; nr &gt; </strong>13 TCP
+  * 5<strong> &lt; nr &gt; </strong>14 TCP
+  * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 * Server dels konfiguration
   * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
@@ -263,7 +263,7 @@ Anvisningarna i det här avsnittet gäller endast om du använder Azure NetApp F
 1. Verifiera NFS-domän inställningen. Kontrol lera att domänen är konfigurerad som standard Azure NetApp Files domän, dvs. **`defaultv4iddomain.com`** mappningen är inställd på **ingen**.  
 
     > [!IMPORTANT]
-    > Se till att ange att NFS-domänen `/etc/idmapd.conf` på den virtuella datorn ska matcha standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`**. Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (d.v.s. den virtuella datorn) och NFS-servern, t. ex. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de `nobody`virtuella datorerna som.  
+    > Se till att ange att NFS-domänen på `/etc/idmapd.conf` den virtuella datorn ska matcha standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`** . Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (d.v.s. den virtuella datorn) och NFS-servern, t. ex. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de virtuella datorerna som `nobody` .  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -275,7 +275,7 @@ Anvisningarna i det här avsnittet gäller endast om du använder Azure NetApp F
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** verifiera `nfs4_disable_idmapping`. Den måste anges till **Y**. Kör monterings kommandot för att `nfs4_disable_idmapping` skapa en katalog struktur där finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
+4. **[A]** verifiera `nfs4_disable_idmapping` . Den måste anges till **Y**. Kör monterings kommandot för att skapa en katalog struktur där `nfs4_disable_idmapping` finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -289,7 +289,7 @@ Anvisningarna i det här avsnittet gäller endast om du använder Azure NetApp F
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-   Mer information om hur du ändrar `nfs4_disable_idmapping` parametern finns i https://access.redhat.com/solutions/1749883.
+   Mer information om hur du ändrar `nfs4_disable_idmapping` parametern finns i https://access.redhat.com/solutions/1749883 .
 
 ### <a name="create-pacemaker-cluster"></a>Skapa pacemaker-kluster
 
@@ -891,7 +891,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
 ## <a name="install-database"></a>Installera databas
 
-I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda alla databaser som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda alla databaser som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux][sap-hana-ha] . For a list of supported databases, see [SAP Note 1928533][1928533] .
 
 1. Kör installationen av SAP Database instance
 
@@ -925,7 +925,7 @@ Följ dessa steg om du vill installera en SAP-Programserver.
 
    Uppdatera den SAP HANA säkra lagringen så att den pekar på det virtuella namnet på installations programmet för SAP HANA system replikering.
 
-   Kör följande kommando för att lista posterna som \<sapsid>ADM
+   Kör följande kommando för att lista posterna som \<sapsid> ADM
 
    ```
    hdbuserstore List
@@ -1089,7 +1089,7 @@ Följ dessa steg om du vill installera en SAP-Programserver.
    [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    ```
 
-   Om du bara avdödar meddelande servern en gång, startas den om av `sapstart`. Om du tar bort det ofta räcker pacemaker att flytta ASCS-instansen till den andra noden. Kör följande kommandon som rot för att rensa resurs statusen för ASCS-och ERS-instansen efter testet.
+   Om du bara avdödar meddelande servern en gång, startas den om av `sapstart` . Om du tar bort det ofta räcker pacemaker att flytta ASCS-instansen till den andra noden. Kör följande kommandon som rot för att rensa resurs statusen för ASCS-och ERS-instansen efter testet.
 
    ```
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00

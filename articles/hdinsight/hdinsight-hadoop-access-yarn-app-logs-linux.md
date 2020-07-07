@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192509"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Åtkomst Apache Hadoop garn program loggar på Linux-baserade HDInsight
@@ -48,17 +48,17 @@ Funktionen för insamling av loggar ger åtkomst till program loggar mer determi
 /app-logs/<user>/logs/<applicationId>
 ```
 
-I sökvägen `user` är namnet på den användare som startade programmet. `applicationId` Är den unika identifierare som tilldelas ett program av garn RM.
+I sökvägen `user` är namnet på den användare som startade programmet. `applicationId`Är den unika identifierare som tilldelas ett program av garn RM.
 
-De sammanställda loggarna går inte att läsa direkt, eftersom de skrivs i ett TFile, binärt format som indexeras av container. Använd form av `ResourceManager` garn loggar eller CLI-verktyg för att visa dessa loggar som oformaterad text för program eller behållare av intresse.
+De sammanställda loggarna går inte att läsa direkt, eftersom de skrivs i ett TFile, binärt format som indexeras av container. Använd form av garn `ResourceManager` loggar eller CLI-verktyg för att visa dessa loggar som oformaterad text för program eller behållare av intresse.
 
 ## <a name="yarn-logs-in-an-esp-cluster"></a>Garn loggar i ett ESP-kluster
 
 Två konfigurationer måste läggas till i den anpassade `mapred-site` i Ambari.
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-1. I Ambari-användargränssnittet navigerar du till **MapReduce2** > **configs** > **Advanced** > **Custom mapred-site**.
+1. I Ambari-användargränssnittet navigerar du till **MapReduce2**  >  **configs**  >  **Advanced**  >  **Custom mapred-site**.
 
 1. Lägg till *någon* av följande uppsättningar med egenskaper:
 
@@ -91,7 +91,7 @@ Två konfigurationer måste läggas till i den anpassade `mapred-site` i Ambari.
     yarn top
     ```
 
-    Notera program-ID: t `APPLICATIONID` från kolumnen vars loggar ska laddas ned.
+    Notera program-ID: t från `APPLICATIONID` kolumnen vars loggar ska laddas ned.
 
     ```output
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -113,7 +113,7 @@ Två konfigurationer måste läggas till i den anpassade `mapred-site` i Ambari.
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
     ```
 
-    Ange &lt;applicationId->, &lt;användare-som-startat-program>, &lt;containerId> och &lt;Work-Node-Address> information när du kör dessa kommandon.
+    Ange &lt; applicationId->, &lt; användare-som-startat-program>, &lt; containerId> och &lt; Work-Node-Address> information när du kör dessa kommandon.
 
 ### <a name="other-sample-commands"></a>Andra exempel kommandon
 
@@ -151,13 +151,13 @@ Två konfigurationer måste läggas till i den anpassade `mapred-site` i Ambari.
 
 GARN `ResourceManager` gränssnittet körs på klustrets huvudnoden. Den nås via Ambari-webbgränssnittet. Använd följande steg för att Visa garn loggarna:
 
-1. Navigera till `https://CLUSTERNAME.azurehdinsight.net`i webbläsaren. Ersätt KLUSTERNAMN med namnet på ditt HDInsight-kluster.
+1. Navigera till i webbläsaren `https://CLUSTERNAME.azurehdinsight.net` . Ersätt KLUSTERNAMN med namnet på ditt HDInsight-kluster.
 
 2. I listan över tjänster till vänster väljer du **garn**.
 
     ![Apache Ambari garn-tjänsten vald](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
-3. I list rutan **snabb länkar** väljer du en av klustrets huvud-noder och väljer **`ResourceManager Log`** sedan.
+3. I list rutan **snabb länkar** väljer du en av klustrets huvud-noder och väljer sedan **`ResourceManager Log`** .
 
     ![Snabb Länkar för Apache Ambari garn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 

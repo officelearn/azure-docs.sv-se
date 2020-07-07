@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188165"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurera Apache Spark-inställningar
@@ -36,9 +36,9 @@ När du skapar ett nytt kluster finns det flera Spark-versioner att välja mella
 
 Apache Spark har tre platser för system konfiguration:
 
-* Spark-egenskaperna styr de flesta program parametrarna och kan anges med hjälp `SparkConf` av ett objekt, eller genom Java system egenskaper.
+* Spark-egenskaperna styr de flesta program parametrarna och kan anges med hjälp av ett `SparkConf` objekt, eller genom Java system egenskaper.
 * Miljövariabler kan användas för att ange inställningar per dator, till exempel IP-adress, via `conf/spark-env.sh` skriptet på varje nod.
-* Loggning kan konfigureras via `log4j.properties`.
+* Loggning kan konfigureras via `log4j.properties` .
 
 När du väljer en viss version av Spark innehåller klustret standard konfigurations inställningarna.  Du kan ändra standard konfigurations värden för Spark genom att använda en anpassad Spark-konfigurationsfil.  Ett exempel på detta visas nedan.
 
@@ -60,7 +60,7 @@ Verifiera de aktuella inställningarna för HDInsight-klustret innan du utför p
 
 Apache Ambari Web UI visas med en instrument panel med användnings mått för nyckel kluster resurser.  Ambari-instrumentpanelen visar Apache Spark konfiguration och andra installerade tjänster. På instrument panelen finns fliken **konfigurations historik** där du kan visa information om installerade tjänster, inklusive Spark.
 
-Om du vill se konfigurations värden för Apache Spark väljer du **konfigurations historik**och väljer sedan **Spark2**.  Välj fliken **konfigurationer** och välj sedan länken `Spark` (eller `Spark2`, beroende på din version) i tjänst listan.  Du ser en lista över konfigurations värden för klustret:
+Om du vill se konfigurations värden för Apache Spark väljer du **konfigurations historik**och väljer sedan **Spark2**.  Välj fliken **konfigurationer** och välj sedan `Spark` länken (eller `Spark2` , beroende på din version) i tjänst listan.  Du ser en lista över konfigurations värden för klustret:
 
 ![Spark-konfigurationer](./media/apache-spark-settings/spark-configurations.png)
 
@@ -85,7 +85,7 @@ Följande diagram visar viktiga Spark-objekt: driv rutins programmet och dess ti
 
 Spark-jobb använder arbets resurser, särskilt minne, så det är vanligt att justera Spark-konfigurationsinställningar för körning av arbetsnoder.
 
-Tre nyckel parametrar som ofta justeras för att justera Spark-konfigurationer för att förbättra `spark.executor.instances`program `spark.executor.cores`kraven är `spark.executor.memory`, och. En utförar är en process som startas för ett Spark-program. En utförar körs på Worker-noden och ansvarar för aktiviteterna för programmet. Antalet arbetsnoder och arbetarnas Node-storlek bestämmer antalet körningar och utförar storlekar. De här värdena lagras i `spark-defaults.conf` kluster huvudnoderna.  Du kan redigera dessa värden i ett kluster som körs genom att välja **anpassade Spark-standarder** i Ambari-webbgränssnittet.  När du har gjort ändringar uppmanas du att ange användar gränssnittet för att **starta om** alla berörda tjänster.
+Tre nyckel parametrar som ofta justeras för att justera Spark-konfigurationer för att förbättra program kraven är `spark.executor.instances` , `spark.executor.cores` och `spark.executor.memory` . En utförar är en process som startas för ett Spark-program. En utförar körs på Worker-noden och ansvarar för aktiviteterna för programmet. Antalet arbetsnoder och arbetarnas Node-storlek bestämmer antalet körningar och utförar storlekar. De här värdena lagras i `spark-defaults.conf` kluster huvudnoderna.  Du kan redigera dessa värden i ett kluster som körs genom att välja **anpassade Spark-standarder** i Ambari-webbgränssnittet.  När du har gjort ändringar uppmanas du att ange användar gränssnittet för att **starta om** alla berörda tjänster.
 
 > [!NOTE]  
 > Dessa tre konfigurations parametrar kan konfigureras på kluster nivå (för alla program som körs i klustret) och också anges för varje enskilt program.
@@ -112,7 +112,7 @@ I följande lista visas minnes parametrarna för utförar i Key Spark.
 
 |Parameter |Beskrivning|
 |---|---|
-|Spark. utförar. Memory|Definierar den totala mängden minne som är tillgängligt för en utförar.|
+|spark.executor. Memory|Definierar den totala mängden minne som är tillgängligt för en utförar.|
 |Spark. Storage. memoryFraction|(standard ~ 60%) definierar mängden minne som är tillgängligt för lagring av beständiga RDD.|
 |Spark. blanda. memoryFraction|(standard ~ 20%) definierar mängden minne som är reserverat för blandad.|
 |Spark. Storage. unrollFraction och Spark. Storage. safetyFraction|(totalt ~ 30% av det totala minnet) – dessa värden används internt av Spark och bör inte ändras.|

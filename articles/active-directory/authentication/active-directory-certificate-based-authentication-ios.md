@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144075"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory certifikatbaserad autentisering på iOS
@@ -73,7 +73,7 @@ Mer information finns i [anpassa AD FS inloggnings sida](https://technet.microso
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Använd modern autentisering med Office-appar
 
-Vissa Office-appar med modern autentisering har `prompt=login` Aktiver ATS skicka till Azure AD i sin begäran. Som standard översätter Azure AD `prompt=login` i begäran till ADFS som `wauth=usernamepassworduri` (uppmanar ADFS att göra U/P-autentisering) och `wfresh=0` (uppmanar ADFS att ignorera SSO-tillstånd och göra en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för de här apparna ändrar du standard beteendet för Azure AD.
+Vissa Office-appar med modern autentisering har Aktiver ATS skicka `prompt=login` till Azure AD i sin begäran. Som standard översätter Azure AD `prompt=login` i begäran till ADFS som `wauth=usernamepassworduri` (uppmanar ADFS att göra U/P-autentisering) och `wfresh=0` (uppmanar ADFS att ignorera SSO-tillstånd och göra en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för de här apparna ändrar du standard beteendet för Azure AD.
 
 Om du vill uppdatera standard beteendet ställer du in "*PromptLoginBehavior*" i dina federerade domän inställningar på *inaktive rad*. Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) -cmdlet: en för att utföra den här uppgiften, som du ser i följande exempel:
 

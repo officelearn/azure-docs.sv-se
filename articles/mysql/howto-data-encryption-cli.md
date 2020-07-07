@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 3c33fdb114356af7707c1aae2eddefd81bf10b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185837"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Data kryptering för Azure Database for MySQL med hjälp av Azure CLI
@@ -132,7 +132,7 @@ Den här Azure Resource Manager-mallen skapar en Azure Database for MySQL-server
 ### <a name="for-an-existing-server"></a>För en befintlig server
 Du kan också använda Azure Resource Manager mallar för att aktivera data kryptering på befintliga Azure Database for MySQL-servrar.
 
-* Skicka resurs-ID: t för den Azure Key Vault nyckel som du kopierade `Uri` tidigare under egenskapen i objektet egenskaper.
+* Skicka resurs-ID: t för den Azure Key Vault nyckel som du kopierade tidigare under `Uri` egenskapen i objektet egenskaper.
 
 * Använd *2020-01-01 – för hands* version som API-version.
 

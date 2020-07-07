@@ -1,6 +1,6 @@
 ---
 title: Aktivera automatisk generering av ämnen i Apache Kafka – Azure HDInsight
-description: Lär dig hur du konfigurerar Apache Kafka på HDInsight för att automatiskt skapa ämnen. Du kan konfigurera Kafka genom att `auto.create.topics.enable` ställa in på Sant via Ambari. Eller när klustret skapas via PowerShell eller Resource Manager-mallar.
+description: Lär dig hur du konfigurerar Apache Kafka på HDInsight för att automatiskt skapa ämnen. Du kan konfigurera Kafka genom att ställa in `auto.create.topics.enable` på Sant via Ambari. Eller när klustret skapas via PowerShell eller Resource Manager-mallar.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: 88dc3e4d761f9b4df63dfa07a24298398f7b0187
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82231279"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Så här konfigurerar du Apache Kafka på HDInsight för att automatiskt skapa ämnen
@@ -39,13 +39,13 @@ Gör så här om du vill aktivera automatisk generering av ämnen i ett befintli
 
     ![Fliken Konfiguration av Apache Ambari-tjänst](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-1. Ange ett värde i fältet filter `auto.create`.
+1. Ange ett värde i fältet filter `auto.create` .
 
     ![Sök filter fält för Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     Den här inställningen filtrerar listan med egenskaper och visar `auto.create.topics.enable` inställningen.
 
-1. Ändra värdet för `auto.create.topics.enable` till `true`och välj sedan **Spara**. Lägg till en anteckning och välj sedan **Spara** igen.
+1. Ändra värdet för `auto.create.topics.enable` till `true` och välj sedan **Spara**. Lägg till en anteckning och välj sedan **Spara** igen.
 
     ![Bild av filen Auto. Create. topics. enable Entry](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
@@ -58,7 +58,7 @@ Gör så här om du vill aktivera automatisk generering av ämnen i ett befintli
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
-När du skapar ett Kafka-kluster med hjälp av en Azure Resource Manager-mall `auto.create.topics.enable` kan du direkt ange genom `kafka-broker`att lägga till det i en. Följande JSON-kodfragment visar hur du ställer in det här `true`värdet på:
+När du skapar ett Kafka-kluster med hjälp av en Azure Resource Manager-mall kan du direkt ange `auto.create.topics.enable` genom att lägga till det i en `kafka-broker` . Följande JSON-kodfragment visar hur du ställer in det här värdet på `true` :
 
 ```json
 "clusterDefinition": {

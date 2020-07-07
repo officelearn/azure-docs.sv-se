@@ -8,10 +8,10 @@ ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: c3b1cf01cbaa8de8ec33bbf9c19ee991ae898d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82182760"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Konflikttyper och matchningsprinciper
@@ -35,7 +35,7 @@ Azure Cosmos DB erbjuder en flexibel princip driven mekanism för att lösa Skri
   Om två eller flera objekt står i konflikt med åtgärderna Infoga eller Ersätt, blir objektet med det högsta värdet för matchnings Sök vägen för konflikten den vinnare. Systemet fastställer vinnare om flera objekt har samma numeriska värde för matchnings Sök vägen för konflikten. Alla regioner är garanterat konvergerade till en enda vinnare och har samma version av det allokerade objektet. När borttagnings konflikter är inblandade är den borttagna versionen alltid WINS över antingen infoga eller Ersätt konflikter. Detta inträffar oavsett vad värdet för konflikt lösnings Sök vägen är.
 
   > [!NOTE]
-  > Senaste Skriv-WINS är standard lösnings principen för konflikt lösning `_ts` och använder timestamp för följande API: er: SQL, MongoDB, Cassandra, Gremlin och Table. Anpassad numerisk egenskap är endast tillgänglig för SQL API.
+  > Senaste Skriv-WINS är standard lösnings principen för konflikt lösning och använder timestamp `_ts` för följande API: er: SQL, MongoDB, Cassandra, Gremlin och Table. Anpassad numerisk egenskap är endast tillgänglig för SQL API.
 
   Läs mer i [exempel som använder LWW konflikt lösnings principer](how-to-manage-conflicts.md).
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 15cdd4c53105998488d2ae1f544e34c1e07a157a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82147130"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server 
@@ -210,14 +210,14 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
 1. Distribuera de virtuella datorerna. 
 1. Skapa ytterligare nätverks gränssnitt och koppla nätverks gränssnitten till motsvarande virtuella datorer.  
 
-   Varje virtuell dator har tre nätverks gränssnitt som motsvarar de tre virtuella Azure-undernäten (`client`, `storage` och `hana`). 
+   Varje virtuell dator har tre nätverks gränssnitt som motsvarar de tre virtuella Azure-undernäten ( `client` , `storage` och `hana` ). 
 
    Mer information finns i [skapa en virtuell Linux-dator i Azure med flera nätverks gränssnitts kort](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics).  
 
 > [!IMPORTANT]
 > För SAP HANA arbets belastningar är låg latens kritiskt. För att uppnå låg latens kan du arbeta med din Microsoft-representant för att se till att de virtuella datorerna och Azure NetApp Files volymerna distribueras i nära närhet. När du registrerar [nya SAP HANA system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) som använder SAP HANA Azure NetApp Files, så skicka in nödvändig information. 
  
-Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det virtuella Azure-nätverket och de tre virtuella Azure-undernäten: `client`, `storage` och. `hana` När du distribuerar de virtuella datorerna väljer du klient under nätet så att klient nätverks gränssnittet är det primära gränssnittet på de virtuella datorerna. Du måste också konfigurera en explicit väg till det Azure NetApp Files delegerade under nätet via gatewayen för lagrings under nätet. 
+Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det virtuella Azure-nätverket och de tre virtuella Azure-undernäten: `client` , `storage` och `hana` . När du distribuerar de virtuella datorerna väljer du klient under nätet så att klient nätverks gränssnittet är det primära gränssnittet på de virtuella datorerna. Du måste också konfigurera en explicit väg till det Azure NetApp Files delegerade under nätet via gatewayen för lagrings under nätet. 
 
 > [!IMPORTANT]
 > Kontrol lera att det OS du väljer är SAP-certifierat för SAP HANA på de angivna VM-typerna som du använder. En lista över SAP HANA certifierade VM-typer och OS-versioner för dessa typer finns på webbplatsen [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) . Klicka i informationen om den virtuella dator typen som visas för att hämta den fullständiga listan med SAP HANA operativ system versioner som stöds för den typen.  
@@ -234,9 +234,9 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
 
    När du distribuerar de virtuella datorerna genereras nätverks gränssnitts namnet automatiskt. I dessa anvisningar för enkelhetens skull kommer vi att referera till de automatiskt genererade nätverks gränssnitten som är kopplade till klient under nätet för Azures virtuella nätverk, som **hanadb1-client**, **hanadb2-client**och **hanadb3-client**. 
 
-3. Skapa tre `storage` nätverks gränssnitt, ett för varje virtuell dator för det virtuella nätverkets undernät (i det här exemplet **hanadb1-Storage**, **hanadb2-Storage**och **hanadb3-Storage**).  
+3. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `storage` virtuella nätverkets undernät (i det här exemplet **hanadb1-Storage**, **hanadb2-Storage**och **hanadb3-Storage**).  
 
-4. Skapa tre `hana` nätverks gränssnitt, ett för varje virtuell dator för det virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
+4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana` virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
 
 5. Koppla de nyligen skapade virtuella nätverks gränssnitten till motsvarande virtuella datorer genom att utföra följande steg:  
 
@@ -246,19 +246,19 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
 
     c. I fönstret **Översikt** väljer du **stoppa** för att frigöra den virtuella datorn.  
 
-    d. Välj **nätverk**och Anslut sedan nätverks gränssnittet. I list rutan **bifoga nätverks gränssnitt** väljer du redan skapade nätverks gränssnitt för- `storage` och `hana` -undernät.  
+    d. Välj **nätverk**och Anslut sedan nätverks gränssnittet. I list rutan **bifoga nätverks gränssnitt** väljer du redan skapade nätverks gränssnitt för- `storage` och- `hana` undernät.  
     
     e. Välj **Spara**. 
  
     f. Upprepa steg b till e för de återstående virtuella datorerna (i vårt exempel **hanadb2** och **hanadb3**).
  
-    g. Lämna kvar de virtuella datorerna i stoppat tillstånd för tillfället. Därefter aktiverar vi [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) för alla nyligen anslutna nätverks gränssnitt.  
+    ex. Lämna kvar de virtuella datorerna i stoppat tillstånd för tillfället. Därefter aktiverar vi [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) för alla nyligen anslutna nätverks gränssnitt.  
 
-6. Aktivera accelererat nätverk för de ytterligare nätverks gränssnitten för `storage` - `hana` och-undernätet genom att utföra följande steg:  
+6. Aktivera accelererat nätverk för de ytterligare nätverks gränssnitten för- `storage` och- `hana` undernätet genom att utföra följande steg:  
 
     a. Öppna [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) i [Azure Portal](https://portal.azure.com/#home).  
 
-    b. Kör följande kommandon för att aktivera accelererat nätverk för ytterligare nätverks gränssnitt, som är kopplade till- `storage` och `hana` -undernät.  
+    b. Kör följande kommandon för att aktivera accelererat nätverk för ytterligare nätverks gränssnitt, som är kopplade till- `storage` och- `hana` undernät.  
 
     <pre><code>
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
@@ -306,7 +306,7 @@ Konfigurera och Förbered ditt operativ system genom att utföra följande steg:
 
 2. **[A]** ändra inställningar för DHCP-och moln konfiguration för nätverks gränssnittet för lagring för att undvika oavsiktliga värdnamn ändringar.  
 
-    Följande instruktioner förutsätter att lagrings nätverks gränssnittet är `eth1`. 
+    Följande instruktioner förutsätter att lagrings nätverks gränssnittet är `eth1` . 
 
     <pre><code>
     vi /etc/sysconfig/network/dhcp
@@ -320,7 +320,7 @@ Konfigurera och Förbered ditt operativ system genom att utföra följande steg:
 
 2. **[A]** Lägg till en nätverks väg så att kommunikationen till Azure NetApp Files skickas via nätverks gränssnittet för lagring.  
 
-    Följande instruktioner förutsätter att lagrings nätverks gränssnittet är `eth1`.  
+    Följande instruktioner förutsätter att lagrings nätverks gränssnittet är `eth1` .  
 
     <pre><code>
     vi /etc/sysconfig/network/ifroute-<b>eth1</b>
@@ -407,7 +407,7 @@ Konfigurera och Förbered ditt operativ system genom att utföra följande steg:
 3. **[A]** verifiera inställningen för NFS-domänen. Kontrol lera att domänen är konfigurerad som standard Azure NetApp Files domän, dvs. **`defaultv4iddomain.com`** mappningen är inställd på **ingen**.  
 
     > [!IMPORTANT]
-    > Se till att ange att NFS-domänen `/etc/idmapd.conf` på den virtuella datorn ska matcha standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`**. Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (d.v.s. den virtuella datorn) och NFS-servern, t. ex. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de `nobody`virtuella datorerna som.  
+    > Se till att ange att NFS-domänen på `/etc/idmapd.conf` den virtuella datorn ska matcha standard domän konfigurationen på Azure NetApp Files: **`defaultv4iddomain.com`** . Om det finns ett matchnings fel mellan domän konfigurationen på NFS-klienten (d.v.s. den virtuella datorn) och NFS-servern, t. ex. Azure NetApp-konfigurationen, så visas behörigheterna för filer på Azure NetApp-volymer som är monterade på de virtuella datorerna som `nobody` .  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -421,7 +421,7 @@ Konfigurera och Förbered ditt operativ system genom att utföra följande steg:
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** verifiera `nfs4_disable_idmapping`. Den måste anges till **Y**. Kör monterings kommandot för att `nfs4_disable_idmapping` skapa en katalog struktur där finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
+4. **[A]** verifiera `nfs4_disable_idmapping` . Den måste anges till **Y**. Kör monterings kommandot för att skapa en katalog struktur där `nfs4_disable_idmapping` finns. Du kan inte skapa katalogen manuellt under/sys/modules eftersom åtkomst är reserverad för kernel/driv rutiner.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -518,7 +518,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
 
 ### <a name="prepare-for-hana-installation"></a>Förbered för HANA-installation
 
-1. **[A]** före installationen av Hana anger du rot lösen ordet. Du kan inaktivera rot lösen ordet när installationen har slutförts. Kör som `root` - `passwd`kommando.  
+1. **[A]** före installationen av Hana anger du rot lösen ordet. Du kan inaktivera rot lösen ordet när installationen har slutförts. Kör som- `root` kommando `passwd` .  
 
 2. **[1]** kontrol lera att du kan logga in via SSH till **hanadb2** och **hanadb3**, utan att uppmanas att ange ett lösen ord.  
 
@@ -563,7 +563,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
      * För **rot användar lösen ord**: Ange rot användarens lösen ord
      * För roller för värd hanadb2: ange **1** (för arbetare)
      * För **värd växlings gruppen** för värd hanadb2 [standard]: Tryck på RETUR för att acceptera standardvärdet
-     * För **lagrings partitions nummer** för värd- <assign automatically> hanadb2 [<>]: Tryck på RETUR för att acceptera standardvärdet
+     * För **lagrings partitions nummer** för värd-hanadb2 [<<assign automatically>>]: Tryck på RETUR för att acceptera standardvärdet
      * För **arbets grupp** för värd hanadb2 [standard]: Tryck på RETUR för att acceptera standardvärdet
      * För **Välj roller** för värd hanadb3: ange **2** (för vänte läge)
      * För **värd växlings gruppen** för värd hanadb3 [standard]: Tryck på RETUR för att acceptera standardvärdet
@@ -585,9 +585,9 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
      * För vill **du fortsätta (j/n)**: validera sammanfattningen och om allt ser bra ut anger du **y**
 
 
-2. **[1]** kontrol lera global. ini  
+2. **[1]** kontrol lera global.ini  
 
-   Visa global. ini och se till att konfigurationen för den interna SAP HANA kommunikationen mellan noderna är på plats. Verifiera **kommunikations** avsnittet. Det ska ha adress utrymmet för `hana` under nätet och `listeninterface` ska vara inställt på `.internal`. Verifiera **internal_hostname_resolution** avsnittet. Den bör ha IP-adresserna för de HANA-virtuella datorer som tillhör `hana` under nätet.  
+   Visa global.ini och se till att konfigurationen för den interna SAP HANA kommunikationen mellan noderna är på plats. Verifiera **kommunikations** avsnittet. Det ska ha adress utrymmet för `hana` under nätet och `listeninterface` ska vara inställt på `.internal` . Verifiera **internal_hostname_resolution** avsnittet. Den bör ha IP-adresserna för de HANA-virtuella datorer som tillhör `hana` under nätet.  
 
    <pre><code>
     sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
@@ -602,7 +602,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
     <b>10.23.3.6</b> = <b>hanadb3</b>
    </code></pre>
 
-3. **[1]** Lägg till värd mappning för att säkerställa att klientens IP-adresser används för klient kommunikation. Lägg till `public_host_resolution`avsnittet och Lägg till motsvarande IP-adresser från klient under nätet.  
+3. **[1]** Lägg till värd mappning för att säkerställa att klientens IP-adresser används för klient kommunikation. Lägg till avsnittet `public_host_resolution` och Lägg till motsvarande IP-adresser från klient under nätet.  
 
    <pre><code>
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
@@ -641,14 +641,14 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
 
    Mer information finns i [NETAPP SAP-program på Microsoft Azure med Azure NetApp Files][anf-sap-applications-azure]. 
 
-   Från och med SAP HANA 2,0-system kan du ange parametrarna i `global.ini`. Mer information finns i SAP NOTE [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
+   Från och med SAP HANA 2,0-system kan du ange parametrarna i `global.ini` . Mer information finns i SAP NOTE [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
    
    För SAP HANA 1,0 Systems-versioner SPS12 och tidigare kan parametrarna anges under installationen, enligt beskrivningen i SAP NOTE [2267798](https://launchpad.support.sap.com/#/notes/2267798).  
 
 7. Lagrings utrymmet som används av Azure NetApp Files har en fil storleks begränsning på 16 terabyte (TB). SAP HANA är inte implicit medveten om lagrings begränsningen och skapar inte automatiskt en ny datafil när fil storleks gränsen på 16 TB nås. I takt med att SAP HANA försöker växa till filen bortom 16 TB kommer det här försöket att resultera i fel och till sist i en index server krasch. 
 
    > [!IMPORTANT]
-   > För att förhindra SAP HANA att öka datafilerna utöver [16 TB-gränsen](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) för underlag rings systemet anger du följande parametrar i `global.ini`.  
+   > För att förhindra SAP HANA att öka datafilerna utöver [16 TB-gränsen](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) för underlag rings systemet anger du följande parametrar i `global.ini` .  
    > - datavolume_striping = sant
    > - datavolume_striping_size_gb = 15000 mer information finns i SAP NOTE [2400005](https://launchpad.support.sap.com/#/notes/2400005).
    > Tänk på SAP NOTE [2631285](https://launchpad.support.sap.com/#/notes/2631285). 
@@ -708,7 +708,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
    </code></pre>
 
    > [!IMPORTANT]
-   > När en nod upplever kernel-panik, Undvik fördröjningar med SAP HANA redundans `kernel.panic` genom att ställa in på 20 sekunder på *alla* Hana-virtuella datorer. Konfigurationen görs i `/etc/sysctl`. Starta om de virtuella datorerna för att aktivera ändringen. Om den här ändringen inte utförs kan redundansväxlingen ta 10 minuter när en nod är i kernel-panik.  
+   > När en nod upplever kernel-panik, Undvik fördröjningar med SAP HANA redundans genom att ställa in `kernel.panic` på 20 sekunder på *alla* Hana-virtuella datorer. Konfigurationen görs i `/etc/sysctl` . Starta om de virtuella datorerna för att aktivera ändringen. Om den här ändringen inte utförs kan redundansväxlingen ta 10 minuter när en nod är i kernel-panik.  
 
 2. Avsluta namnserver genom att göra följande:
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184154"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Kom igång med Reliable Services i Java
@@ -40,7 +40,7 @@ Börja med att skapa ett Service Fabric-program. I Service Fabric SDK för Linux
 $ yo azuresfjava
 ```
 
-Följ instruktionerna för att skapa en **tillförlitlig tillstånds lös tjänst**. Ge programmet namnet "HelloWorldApplication" och tjänsten "HelloWorld" i den här självstudien. Resultatet inkluderar kataloger för `HelloWorldApplication` och. `HelloWorld`
+Följ instruktionerna för att skapa en **tillförlitlig tillstånds lös tjänst**. Ge programmet namnet "HelloWorldApplication" och tjänsten "HelloWorld" i den här självstudien. Resultatet inkluderar kataloger för `HelloWorldApplication` och `HelloWorld` .
 
 ```bash
 HelloWorldApplication/
@@ -67,7 +67,7 @@ HelloWorldApplication/
 └── uninstall.sh
 ```
 ### <a name="service-registration"></a>Tjänst registrering
-Tjänst typer måste registreras med Service Fabric Runtime. Tjänst typen definieras i `ServiceManifest.xml` och tjänst klassen som implementerar. `StatelessService` Tjänst registreringen utförs i den huvudsakliga start punkten för processen. I det här exemplet är `HelloWorldServiceHost.java`processens huvud start punkt:
+Tjänst typer måste registreras med Service Fabric Runtime. Tjänst typen definieras i `ServiceManifest.xml` och tjänst klassen som implementerar `StatelessService` . Tjänst registreringen utförs i den huvudsakliga start punkten för processen. I det här exemplet är processens huvud start punkt `HelloWorldServiceHost.java` :
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -87,7 +87,7 @@ public static void main(String[] args) throws Exception {
 
 Öppna **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService. java**. Den här klassen definierar tjänst typen och kan köra vilken kod som helst. Tjänst-API: et tillhandahåller två start punkter för din kod:
 
-* En öppen start punkt metod, anropad `runAsync()`, där du kan börja köra alla arbets belastningar, inklusive tids krävande beräknings arbets belastningar.
+* En öppen start punkt metod, anropad `runAsync()` , där du kan börja köra alla arbets belastningar, inklusive tids krävande beräknings arbets belastningar.
 
 ```java
 @Override
@@ -105,7 +105,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Den här självstudien `runAsync()` fokuserar på Start punkt metoden. Det är här du kan börja köra koden direkt.
+Den här självstudien fokuserar på `runAsync()` Start punkt metoden. Det är här du kan börja köra koden direkt.
 
 ### <a name="runasync"></a>RunAsync
 Plattformen anropar den här metoden när en instans av en tjänst placeras och är klar att köras. För en tillstånds lös tjänst innebär det att när tjänst instansen öppnas. En avbrotts-token anges för att koordineras när tjänst instansen måste stängas. I Service Fabric kan den här öppna/stäng-cykeln för en tjänst instans ske många gånger över hela livs längden för tjänsten. Detta kan inträffa av olika orsaker, inklusive:
@@ -120,7 +120,7 @@ Den här dirigeringen hanteras av Service Fabric för att hålla tjänsten hög 
 `runAsync()`bör inte blockera synkront. Din implementering av runAsync ska returnera en CompletableFuture som gör att körningen kan fortsätta. Om din arbets belastning behöver implementera en tids krävande uppgift som ska utföras i CompletableFuture.
 
 #### <a name="cancellation"></a>Annullering
-Annullering av din arbets belastning är en samarbets insats som dirigeras av den angivna avbrotts-token. Systemet väntar tills åtgärden har slutförts (genom slutförd, annullering eller fel) innan den flyttas. Det är viktigt att du följer token för uppsägning, slutför allt arbete och `runAsync()` avslutar så snabbt som möjligt när systemet begär uppsägning. Följande exempel visar hur du hanterar en annullerings händelse:
+Annullering av din arbets belastning är en samarbets insats som dirigeras av den angivna avbrotts-token. Systemet väntar tills åtgärden har slutförts (genom slutförd, annullering eller fel) innan den flyttas. Det är viktigt att du följer token för uppsägning, slutför allt arbete och avslutar `runAsync()` så snabbt som möjligt när systemet begär uppsägning. Följande exempel visar hur du hanterar en annullerings händelse:
 
 ```java
 @Override
@@ -183,7 +183,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`fungerar på samma sätt i tillstånds känsliga och tillstånds lösa tjänster. Men i en tillstånds känslig tjänst utför plattformen ytterligare arbete för din räkning innan den körs `RunAsync()`. Detta arbete kan omfatta att se till att de pålitliga tillstånds hanteraren och pålitliga samlingar är klara att använda.
+`RunAsync()`fungerar på samma sätt i tillstånds känsliga och tillstånds lösa tjänster. Men i en tillstånds känslig tjänst utför plattformen ytterligare arbete för din räkning innan den körs `RunAsync()` . Detta arbete kan omfatta att se till att de pålitliga tillstånds hanteraren och pålitliga samlingar är klara att använda.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Tillförlitliga samlingar och tillförlitliga tillstånds hanterare
 ```java

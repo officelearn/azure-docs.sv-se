@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 4936f765052d6993e5a372bde6336e00b19a24f6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82509269"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Avancerat skydd för Azure Database for MySQL
@@ -27,7 +27,7 @@ Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som ä
 > Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MySQL distribueras för Generell användning och minnesoptimerade servrar.
 
 ## <a name="set-up-threat-detection"></a>Konfigurera hot identifiering
-1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 2. Gå till konfigurations sidan för den Azure Database for MySQL-server som du vill skydda. I säkerhets inställningarna väljer du **Avancerat skydd (för hands version)**.
 3. På konfigurations sidan för **Advanced Threat Protection (för hands version)** :
 

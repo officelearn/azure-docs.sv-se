@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233490"
 ---
 # <a name="azure-api-management-faqs"></a>Vanliga frågor och svar om Azure API Management
@@ -80,8 +80,8 @@ Så här kan du lägga till en användare i gruppen Administratörer:
 Nu kan den nyligen tillagda deltagaren använda Azure PowerShell- [cmdletar](https://docs.microsoft.com/powershell/azure/overview). Så här loggar du in som administratör:
 
 1. Använd `Connect-AzAccount` cmdleten för att logga in.
-2. Ange kontexten till den prenumeration som har tjänsten med hjälp av `Set-AzContext -SubscriptionID <subscriptionGUID>`.
-3. Hämta en enkel inloggnings-URL med hjälp `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`av.
+2. Ange kontexten till den prenumeration som har tjänsten med hjälp av `Set-AzContext -SubscriptionID <subscriptionGUID>` .
+3. Hämta en enkel inloggnings-URL med hjälp av `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>` .
 4. Använd URL: en för att få åtkomst till administrations portalen.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Varför är den princip som jag vill lägga till otillgänglig i princip redigeraren?
@@ -109,7 +109,7 @@ Ja. Se snabb starts mallar för [Azure API Management Service](https://aka.ms/ap
 Ja. Detta kan göras via PowerShell eller genom att skicka direkt till API: et. Detta inaktiverar verifiering av certifikat kedjan och gör att du kan använda självsignerade eller privat signerade certifikat när du kommunicerar från API Management till Server dels tjänsterna.
 
 #### <a name="powershell-method"></a>PowerShell-metod ####
-Använd [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (för ny server del) eller [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (för befintlig server del) PowerShell-cmdletar och ange `-SkipCertificateChainValidation` parametern till. `True`
+Använd [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (för ny server del) eller [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (för befintlig server del) PowerShell-cmdletar och ange `-SkipCertificateChainValidation` parametern till `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

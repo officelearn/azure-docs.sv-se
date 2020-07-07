@@ -9,10 +9,10 @@ ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176710"
 ---
 # <a name="azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage fråga om acceleration (för hands version)
@@ -69,7 +69,7 @@ Fråga om acceleration är också utformad för data bearbetnings program. De h�
 
 Ett exempel på hur ett program kan integrera frågans acceleration finns i [filtrera data med hjälp av Azure Data Lake Storage fråga acceleration](data-lake-storage-query-acceleration-how-to.md).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 På grund av den ökade beräknings belastningen i Azure Data Lake Storages tjänsten skiljer sig pris modellen för att använda frågans acceleration från den normala Azure Data Lake Storage transaktions modellen. För fråga acceleration debiteras en kostnad för mängden data som genomsöks samt en kostnad för den mängd data som returneras till anroparen. Mer information finns i [Azure Data Lake Storage Gen2 prissättning](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 

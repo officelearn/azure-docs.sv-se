@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 5abc3395152e03520eaff14b02d150892abf0e22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184222"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Bearbeta och analysera JSON-dokument med hjälp av Apache Hive i Azure HDInsight
@@ -56,7 +56,7 @@ Lär dig att bearbeta och analysera JavaScript Object Notation-filer (JSON) med 
 }
 ```
 
-Filen finns på `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Mer information om hur du använder Azure Blob Storage med HDInsight finns i [använda HDFS-kompatibla Azure Blob Storage med Apache Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standard behållaren för klustret.
+Filen finns på `wasb://processjson@hditutorialdata.blob.core.windows.net/` . Mer information om hur du använder Azure Blob Storage med HDInsight finns i [använda HDFS-kompatibla Azure Blob Storage med Apache Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standard behållaren för klustret.
 
 I den här artikeln använder du Apache Hive-konsolen. Instruktioner för hur du öppnar Hive-konsolen finns i [använda Apache Ambari Hive-vy med Apache Hadoop i HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
@@ -86,7 +86,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-Rå JSON-filen finns på `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Hive-tabellen i **StudentsRaw** pekar på det obehandlade JSON-dokument som inte är förenklat.
+Rå JSON-filen finns på `wasb://processjson@hditutorialdata.blob.core.windows.net/` . Hive-tabellen i **StudentsRaw** pekar på det obehandlade JSON-dokument som inte är förenklat.
 
 Hive-tabellen för **StudentsOneLine** lagrar data i HDInsight-standardfilsystemet under **/JSON/Students/** -sökvägen.
 
@@ -127,7 +127,7 @@ Här är utdata när du kör den här frågan i konsol fönstret:
 Det finns begränsningar för get_json_object UDF:
 
 * Eftersom varje fält i frågan kräver omparsning av frågan, påverkas prestandan.
-* **GET\_JSON_OBJECT ()** returnerar sträng representationen för en matris. Om du vill konvertera matrisen till en Hive-matris måste du använda reguljära uttryck för att ersätta hakparenteserna "[" och "]" och sedan måste du också anropa Split för att hämta matrisen.
+* **Hämta \_ JSON_OBJECT ()** returnerar sträng representationen för en matris. Om du vill konvertera matrisen till en Hive-matris måste du använda reguljära uttryck för att ersätta hakparenteserna "[" och "]" och sedan måste du också anropa Split för att hämta matrisen.
 
 Den här konverteringen är varför Hive-wikin rekommenderar att du använder **json_tuple**.  
 
@@ -146,7 +146,7 @@ Utdata från det här skriptet i Hive-konsolen:
 
 ![Apache Hive JSON-frågeresultat](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-UDF använder syntaxen för [sido visning](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) i Hive, som gör att\_JSON-tupel kan skapa en virtuell tabell genom att använda UDT-funktionen på varje rad i den ursprungliga tabellen. `json_tuple` Komplexa JSON blir för svårhanterligt på grund av den upprepade användningen av **sido visning**. Dessutom går det inte att hantera kapslade JSON- **JSON_TUPLE** .
+`json_tuple`UDF använder syntaxen för [sido visning](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) i Hive, som gör att JSON- \_ tupel kan skapa en virtuell tabell genom att använda UDT-funktionen på varje rad i den ursprungliga tabellen. Komplexa JSON blir för svårhanterligt på grund av den upprepade användningen av **sido visning**. Dessutom går det inte att hantera kapslade JSON- **JSON_TUPLE** .
 
 ### <a name="use-a-custom-serde"></a>Använd en anpassad SerDe
 

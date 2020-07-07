@@ -15,10 +15,10 @@ ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202884"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Skydda SPA-backend med OAuth 2,0, Azure Active Directory B2C och Azure API Management
@@ -31,7 +31,7 @@ Vi ska se hur API Management kan användas i ett förenklat scenario med Azure F
 
 För att få skydd i djupet använder vi EasyAuth för att validera token igen inuti Server dels-API: et.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att följa stegen i den här artikeln måste du ha:
 * Ett Azure (StorageV2) Generell användning v2-lagrings konto som värd för frontend JS-appen med en sida
 * En Azure API Management-instans 
@@ -68,7 +68,7 @@ Här är en snabb översikt över stegen:
    * Valfritt API Management Developer-portalen (om du inte kör Azure API Management på förbruknings nivån längre fram i det här scenariot senare).
 1. Ange WebApp/webb-API för alla 3 program och ange alternativet Tillåt implicit flöde till Ja endast för klient dels klienten.
 1. Nu anger du app-ID-URI: n och väljer något unikt och relevant för den tjänst som skapas.
-1. Använd plats hållare för svars-URL: er för https://localhosttillfället, som vi uppdaterar dessa URL: er senare.
+1. Använd plats hållare för svars-URL: er för tillfället https://localhost , som vi uppdaterar dessa URL: er senare.
 1. Klicka på Skapa och upprepa sedan steg 2-5 för var och en av de tre apparna ovan, och registrera AppID URI, namn och program-ID för senare användning för alla tre apparna.
 1. Öppna programmet API Management Developer-portalen i listan med program och välj fliken *nycklar* (under Allmänt) och klicka sedan på generera nyckel för att generera en auth-nyckel
 1. När du klickar på Spara registrerar du nyckeln på ett säkert sätt för senare användning – Observera att den här platsen är den enda chansen att visa och kopiera den här nyckeln.
@@ -148,12 +148,12 @@ Här är en snabb översikt över stegen:
 5. Växla tillbaka till fliken HttpTrigger1, klicka på Hämta funktions webb adress och kopiera sedan den URL som visas.
 
    > [!NOTE]
-   > Bindningarna som du nyss skapade ger dig bara funktioner för att svara på anonyma HTTP GET-begäranden till den URL som du nyss kopierade. (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`) Nu har vi ett skalbart Server lös https-API som kan returnera en mycket enkel nytto Last.
+   > Bindningarna som du nyss skapade ger dig bara funktioner för att svara på anonyma HTTP GET-begäranden till den URL som du nyss kopierade. ( `https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey` ) Nu har vi ett skalbart Server lös https-API som kan returnera en mycket enkel nytto Last.
    > Nu kan du testa att anropa det här API: et från en webbläsare med hjälp av URL: en ovan. du kan också ta bort filen Code = Secret i URL: en och bevisa att Azure Functions returnerar ett 401-fel.
 
 ## <a name="configure-and-secure-the-function-api"></a>Konfigurera och skydda funktions-API: et
 1. Två extra områden i Function-appen måste konfigureras (autentiserings-och nätverks begränsningar).
-1. Börja med att konfigurera autentisering/auktorisering, så klicka på namnet på Function-appen (bredvid ikonen &lt;Z&gt; -funktioner) för att Visa översikts sidan.
+1. Börja med att konfigurera autentisering/auktorisering, så klicka på namnet på Function-appen (bredvid &lt; &gt; ikonen Z-funktioner) för att Visa översikts sidan.
 1. Välj sedan fliken "plattforms funktioner" och välj "autentisering/auktorisering".
 1. Aktivera funktionen för App Service autentisering.
 1. Under "autentiseringsproviders" väljer du "Azure Active Directory" och väljer Avancerat från växeln hanterings läge.
@@ -257,12 +257,12 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
 1. Öppna bladet Azure AD B2C och gå till program registreringen för Developer-portalen
 1. Ange "svars-URL"-posten till den som du antecknade när du konfigurerade redirect_uri av auth Code-tilldelningen i API Management tidigare.
 
-   Nu när OAuth 2,0 `Echo API`-användarauktorisering har Aktiver ATS på, hämtar Developer-konsolen en åtkomsttoken för användaren innan du anropar API: et.
+   Nu när OAuth 2,0-användarauktorisering har Aktiver ATS på `Echo API` , hämtar Developer-konsolen en åtkomsttoken för användaren innan du anropar API: et.
 
 1. Bläddra till en åtgärd under `Echo API` i Developer-portalen och välj **prova** att öppna Developer-konsolen.
 1. Observera ett nytt objekt i avsnittet **auktorisering** , som motsvarar den auktoriseringsservern som du nyss lade till.
 1. Välj **auktoriseringskod** i list rutan auktorisering och du uppmanas att logga in på Azure AD-klienten. Om du redan har loggat in med kontot kanske du inte uppmanas att göra det.
-1. Efter lyckad inloggning läggs en `Authorization: Bearer` rubrik till i begäran med en åtkomsttoken från Azure AD B2C kodad i base64. 
+1. Efter lyckad inloggning `Authorization: Bearer` läggs en rubrik till i begäran med en åtkomsttoken från Azure AD B2C kodad i base64. 
 1. Välj **Skicka** och du kan anropa API: et.
 
    > [!NOTE]
@@ -283,7 +283,7 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
 ## <a name="build-the-javascript-spa-to-consume-the-api"></a>Bygg in Java Script SPA för att använda API: et
 1. Öppna bladet lagrings konton i Azure Portal 
 1. Välj det konto som du skapade och välj bladet "statisk webbplats" från avsnittet Inställningar (om du inte ser alternativet "statisk webbplats" kontrollerar du att du har skapat ett v2-konto).
-1. Ange funktionen för statisk webb värd till "aktive rad" och ange index dokument namnet till "index. html" och klicka sedan på "Spara".
+1. Ställ in funktionen för statisk webb värd till "aktive rad" och ange index dokument namnet till "index.html" och klicka sedan på "Spara".
 1. Anteckna innehållet i den primära slut punkten, eftersom den här platsen är den plats där klient dels platsen finns. 
 
    > [!NOTE]
@@ -291,7 +291,7 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
 
 ## <a name="upload-the-js-spa-sample"></a>Överför SPA-exemplet för JS
 1. På bladet lagrings konto väljer du bladet "blobs" från avsnittet BLOB service och klickar på den $web behållare som visas i den högra rutan.
-1. Spara koden nedan till en fil lokalt på din dator som index. html och ladda upp filen index. html till $web-behållaren.
+1. Spara koden nedan till en fil lokalt på datorn som index.html och överför sedan filen index.html till $web-behållaren.
 
    ```html
    <!doctype html>
@@ -415,7 +415,7 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
 
 ## <a name="configure-the-js-spa-for-azure-ad-b2c"></a>Konfigurera JS SPA för Azure AD B2C
 1. Nu vet vi var allt är: vi kan konfigurera SPA med lämplig API Management-API-adress och rätt Azure AD B2C program/klient-ID
-1. Gå tillbaka till bladet Azure Portal lagring och klicka på index. html och välj sedan redigera BLOB 
+1. Gå tillbaka till bladet Azure Portal lagring och klicka på index.html och välj sedan redigera BLOB 
 1. Uppdatera auth-informationen så att den matchar ditt frontend-program som du registrerade i B2C tidigare, och Observera att värdena "b2cScopes" är för API-Server delen.
 1. Du hittar webApi-nyckeln och API-URL: en i API Management test fönstret för API-åtgärden.
 1. Skapa en prenumerations nyckel för APIM per rubrik till API Management tillbaka till bladet API Management, Välj prenumerationer och klicka på Lägg till prenumeration och spara sedan posten. Om du klickar på ellipsen (...) bredvid den skapade raden kan du Visa nycklarna så att du kan kopiera den primära nyckeln.

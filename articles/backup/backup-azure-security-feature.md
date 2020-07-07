@@ -5,15 +5,15 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186778"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
 
-Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara och intrång, ökar. De här säkerhets problemen kan vara dyra, i termer av både Money och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av en Azure Recovery Services-agent och Azure Backup Server. Dessa funktioner omfattar:
+Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara och intrång, ökar. De här säkerhets problemen kan vara dyra, i termer av både Money och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av en Azure Recovery Services-agent och Azure Backup Server. Funktionerna är:
 
 - **Förebyggande**. Ytterligare ett lager med autentisering läggs till när en kritisk åtgärd som att ändra en lösen fras utförs. Den här verifieringen är till för att säkerställa att sådana åtgärder bara kan utföras av användare som har giltiga autentiseringsuppgifter för Azure.
 - **Aviseringar**. Ett e-postmeddelande skickas till prenumerations administratören när en kritisk åtgärd som att ta bort säkerhetskopierade data utförs. Det här e-postmeddelandet garanterar att användaren snabbt meddelas om sådana åtgärder.
@@ -88,8 +88,8 @@ Som en del av att lägga till ett extra lager av autentisering för kritiska åt
 
 För att ta emot den här PIN-koden:
 
-1. Logga in på Azure Portal.
-2. Bläddra till **Recovery Services** > **Settings** > **Egenskaper**för valv inställningar.
+1. Logga in på Azure-portalen.
+2. Bläddra till **Recovery Services egenskaper för valv**  >  **Inställningar**  >  **Properties**.
 3. Klicka på **generera**under **säkerhets-PIN**. Då öppnas ett blad som innehåller PIN-koden som ska anges i användar gränssnittet för Azure Recovery Services-agenten.
     Den här PIN-koden är bara giltig i fem minuter och genereras automatiskt efter den perioden.
 

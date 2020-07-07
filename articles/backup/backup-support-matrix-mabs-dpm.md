@@ -4,10 +4,10 @@ description: I den här artikeln sammanfattas Azure Backup support när du anvä
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193283"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
@@ -50,7 +50,7 @@ Mer information:
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-**Scenario** | **Agent** | **Location**
+**Scenario** | **Gent** | **Position**
 --- | --- | ---
 **Säkerhetskopiera lokala datorer/arbets belastningar** | DPM/MABS Protection Agent körs på de datorer som du vill säkerhetskopiera.<br/><br/> MARS-agenten på DPM/MABS-servern.<br/> Den lägsta versionen av Microsoft Azure Recovery Services agenten eller Azure Backup Agent som krävs för att aktivera den här funktionen är 2.0.8719.0.  | DPM/MABS måste köras lokalt.
 
@@ -58,7 +58,7 @@ Mer information:
 
 DPM/MABS kan distribueras som sammanfattas i följande tabell.
 
-**Distribution** | **Support** | **Information**
+**Distribution** | **Support** | **Detaljer**
 --- | --- | ---
 **Distribuerad lokalt** | Fysisk server<br/><br/>Hyper-V VM<br/><br/> Virtuell VMware-dator | Om DPM/MABS installeras som en virtuell VMware-dator, säkerhetskopierar den bara virtuella VMware-datorer och arbets belastningar som körs på dessa virtuella datorer.
 **Distribuerad som en Azure Stack VM** | Endast MABS | DPM kan inte användas för att säkerhetskopiera Azure Stack virtuella datorer.
@@ -80,10 +80,10 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 ## <a name="management-support"></a>Hanterings support
 
-**Problem** | **Information**
+**Problem** | **Detaljer**
 --- | ---
 **Installation** | Installera DPM/MABS på en dator med ett enda syfte.<br/><br/> Installera inte DPM/MABS på en domänkontrollant på en dator med rollen som program server roll på en dator som kör Microsoft Exchange Server eller System Center Operations Manager eller på en klusternod.<br/><br/> [Granska alla system krav för DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
-**Domain** | DPM/MABS ska vara ansluten till en domän. Installera först och Anslut sedan till DPM/MABS till en domän. Det finns inte stöd för att flytta DPM/MABS till en ny domän efter distribution.
+**Domän** | DPM/MABS ska vara ansluten till en domän. Installera först och Anslut sedan till DPM/MABS till en domän. Det finns inte stöd för att flytta DPM/MABS till en ny domän efter distribution.
 **Storage** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-uppgradering** | Du kan installera MABS v3 direkt eller uppgradera till MABS v3 från MABS v2. [Läs mer](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Flyttar MABS** | Det finns stöd för att flytta MABS till en ny server samtidigt som lagringen behålls om du använder MB.<br/><br/> Servern måste ha samma namn som originalet. Du kan inte ändra namnet om du vill behålla samma lagringspool och använda samma MABS-databas för att lagra data återställnings punkter.<br/><br/> Du behöver en säkerhets kopia av MABS-databasen eftersom du behöver återställa den.
@@ -92,7 +92,7 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 Du kan distribuera MABS på en Azure Stack VM så att du kan hantera säkerhets kopiering av Azure Stack virtuella datorer och arbets belastningar från en enda plats.
 
-**Komponent** | **Information**
+**Komponent** | **Detaljer**
 --- | ---
 **MABS på Azure Stack VM** | Minst storlek a2. Vi rekommenderar att du börjar med en Windows Server 2012 R2-eller Windows Server 2016-avbildning från Azure Marketplace.<br/><br/> Installera inte något annat på den virtuella datorn MABS.
 **MABS-lagring** | Använd ett separat lagrings konto för den virtuella MABS-datorn. MARS-agenten som körs på MABS behöver tillfällig lagring för en cache-plats och för att lagra data som återställs från molnet.
@@ -148,16 +148,16 @@ Anslutning till Azure Backups tjänsten krävs för att säkerhets kopieringarna
 
 **MABS till Azure** | **Prenumeration** | **Säkerhetskopiering/återställning**
 --- | --- | ---
-Ansluten | Active | Säkerhetskopiera till DPM/MABS disk.<br/><br/> Säkerhetskopiera till Azure.<br/><br/> Återställ från disk.<br/><br/> Återställ från Azure.
+Ansluten | Aktiv | Säkerhetskopiera till DPM/MABS disk.<br/><br/> Säkerhetskopiera till Azure.<br/><br/> Återställ från disk.<br/><br/> Återställ från Azure.
 Ansluten | Upphört/avetablerats | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Om prenumerationen har upphört att gälla kan du återställa från disk eller Azure.<br/><br/> Om prenumerationen är inaktive rad kan du inte återställa från disk eller Azure. Azures återställnings punkter tas bort.
-Ingen anslutning under mer än 15 dagar | Active | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Du kan återställa från disk eller Azure.
+Ingen anslutning under mer än 15 dagar | Aktiv | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Du kan återställa från disk eller Azure.
 Ingen anslutning under mer än 15 dagar | Upphört/avetablerats | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Om prenumerationen har upphört att gälla kan du återställa från disk eller Azure.<br/><br/> Om prenumerationen är inaktive rad kan du inte återställa från disk eller Azure. Azures återställnings punkter tas bort.
 
 ## <a name="dpmmabs-storage-support"></a>Stöd för DPM/MABS-lagring
 
 Data som säkerhets kopie ras till DPM/MABS lagras på den lokala disk lagringen.
 
-**Storage** | **Information**
+**Storage** | **Detaljer**
 --- | ---
 **MB** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-lagring på virtuell Azure-dator** | Data lagras på Azure-diskar som är anslutna till den virtuella DPM-MABS och som hanteras i DPM/MABS. Antalet diskar som kan användas för DPM/MABS-lagringspoolen begränsas av storleken på den virtuella datorn.<br/><br/> A2 VM: 4 diskar; A3 VM: 8 diskar; A4 VM: 16 diskar, med en maximal storlek på 1 TB för varje disk. Detta avgör den totala tillgängliga lagringspoolen för säkerhets kopiering.<br/><br/> Mängden data som du kan säkerhetskopiera beror på antalet och storleken på de anslutna diskarna.

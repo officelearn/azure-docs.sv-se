@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: a7ae1a0f77d0d19fc48695ddc5cc3d3a14d65ab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195136"
 ---
 # <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>Översikt över Azure Data Lake Storage Gen2 i HDInsight
@@ -63,7 +63,7 @@ URI-schemat ger SSL-krypterad åtkomst.
 
 `<PATH>`är sökvägen till filen eller katalogen HDFS.
 
-Om värden för `<FILE_SYSTEM_NAME>` och `<ACCOUNT_NAME>` inte anges används standard fil systemet. För filerna i standard fil systemet använder du en relativ sökväg eller en absolut sökväg. Till exempel kan `hadoop-mapreduce-examples.jar` filen som medföljer HDInsight-kluster refereras till genom att använda någon av följande sökvägar:
+Om värden för `<FILE_SYSTEM_NAME>` och `<ACCOUNT_NAME>` inte anges används standard fil systemet. För filerna i standard fil systemet använder du en relativ sökväg eller en absolut sökväg. Till exempel `hadoop-mapreduce-examples.jar` kan filen som medföljer HDInsight-kluster refereras till genom att använda någon av följande sökvägar:
 
 ```
 abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
@@ -71,7 +71,7 @@ abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduc
 ```
 
 > [!NOTE]
-> Fil namnet är `hadoop-examples.jar` i HDInsight-versionerna 2,1 och 1,6-kluster. När du arbetar med filer utanför HDInsight kan du se att de flesta verktyg inte känner igen ABFS-formatet utan förväntar sig ett grundläggande Sök vägs format, `example/jars/hadoop-mapreduce-examples.jar`till exempel.
+> Fil namnet är `hadoop-examples.jar` i HDInsight-versionerna 2,1 och 1,6-kluster. När du arbetar med filer utanför HDInsight kan du se att de flesta verktyg inte känner igen ABFS-formatet utan förväntar sig ett grundläggande Sök vägs format, till exempel `example/jars/hadoop-mapreduce-examples.jar` .
 
 Mer information finns i [använd Azure Data Lake Storage Gen2-URI](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 

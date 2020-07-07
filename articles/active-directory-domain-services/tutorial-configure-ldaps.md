@@ -7,18 +7,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 60248d1326d872734a49a93a689625cf2603f929
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601708"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024867"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
-För att kommunicera med din Azure Active Directory Domain Services (Azure AD DS)-hanterade domän används LDAP (Lightweight Directory Access Protocol). Som standard är LDAP-trafiken inte krypterad, vilket är ett säkerhets problem i många miljöer. Med Azure AD DS kan du konfigurera den hanterade domänen för att använda säkra LDAP-protokoll (Lightweight Directory Access Protocol). När du använder säker LDAP krypteras trafiken. Säkert LDAP kallas även LDAP över Secure Sockets Layer (SSL)/Transport Layer Security (TLS).
+För att kommunicera med din Azure Active Directory Domain Services (Azure AD DS)-hanterade domän används LDAP (Lightweight Directory Access Protocol). Som standard är LDAP-trafiken inte krypterad, vilket är ett säkerhets problem i många miljöer.
+
+Med Azure AD DS kan du konfigurera den hanterade domänen för att använda säkra LDAP-protokoll (Lightweight Directory Access Protocol). När du använder säker LDAP krypteras trafiken. Säkert LDAP kallas även LDAP över Secure Sockets Layer (SSL)/Transport Layer Security (TLS).
 
 Den här självstudien visar hur du konfigurerar LDAPs för en Azure AD DS-hanterad domän.
 
@@ -68,7 +69,11 @@ Det certifikat som du begär eller skapar måste uppfylla följande krav. Din ha
 * **Nyckel användning** – certifikatet måste konfigureras för *digitala signaturer* och *nyckelchiffrering*.
 * **Certifikat syfte** – certifikatet måste vara giltigt för TLS-serverautentisering.
 
-Det finns flera tillgängliga verktyg för att skapa ett självsignerat certifikat, till exempel OpenSSL, knapp verktyg, MakeCert, [New-SelfSignedCertificate-][New-SelfSignedCertificate] cmdlet osv. I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med cmdleten [New-SelfSignedCertificate][New-SelfSignedCertificate] . Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *aaddscontoso.com*:
+Det finns flera tillgängliga verktyg för att skapa ett självsignerat certifikat som OpenSSL, knapp verktyg, MakeCert, [New-SelfSignedCertificate-][New-SelfSignedCertificate] cmdlet osv.
+
+I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med cmdleten [New-SelfSignedCertificate][New-SelfSignedCertificate] .
+
+Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your managed domain
@@ -108,7 +113,9 @@ Om du vill använda säker LDAP krypteras nätverks trafiken med PKI (Public Key
     * Den här offentliga nyckeln används för att *kryptera* den säkra LDAP-trafiken. Den offentliga nyckeln kan distribueras till klient datorer.
     * Certifikat utan privat nyckel använder *. CER* -filformat.
 
-Dessa två nycklar, *privata* och *offentliga* nycklar, ser till att endast lämpliga datorer kan kommunicera med varandra. Om du använder en offentlig certifikat utfärdare eller en företags certifikat utfärdare, utfärdas ett certifikat som innehåller den privata nyckeln och kan tillämpas på en hanterad domän. Den offentliga nyckeln bör redan vara känd och betrodd av klient datorerna. I den här självstudien har du skapat ett självsignerat certifikat med den privata nyckeln, så du måste exportera lämpliga privata och offentliga komponenter.
+Dessa två nycklar, *privata* och *offentliga* nycklar, ser till att endast lämpliga datorer kan kommunicera med varandra. Om du använder en offentlig certifikat utfärdare eller en företags certifikat utfärdare, utfärdas ett certifikat som innehåller den privata nyckeln och kan tillämpas på en hanterad domän. Den offentliga nyckeln bör redan vara känd och betrodd av klient datorerna.
+
+I den här självstudien har du skapat ett självsignerat certifikat med den privata nyckeln, så du måste exportera lämpliga privata och offentliga komponenter.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Exportera ett certifikat för Azure AD DS
 
@@ -148,7 +155,9 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 
 ### <a name="export-a-certificate-for-client-computers"></a>Exportera ett certifikat för klient datorer
 
-Klient datorerna måste ha förtroende för utfärdaren av det säkra LDAP-certifikatet för att kunna ansluta till den hanterade domänen med hjälp av LDAP. Klient datorerna behöver ett certifikat för att kunna kryptera data som dekrypteras av Azure AD DS. Om du använder en offentlig certifikat utfärdare bör datorn automatiskt lita på dessa certifikat utfärdare och ha motsvarande certifikat. I den här självstudien använder du ett självsignerat certifikat och genererade ett certifikat som innehåller den privata nyckeln i föregående steg. Nu ska vi exportera och sedan installera det självsignerade certifikatet i det betrodda certifikat arkivet på klient datorn:
+Klient datorerna måste ha förtroende för utfärdaren av det säkra LDAP-certifikatet för att kunna ansluta till den hanterade domänen med hjälp av LDAP. Klient datorerna behöver ett certifikat för att kunna kryptera data som dekrypteras av Azure AD DS. Om du använder en offentlig certifikat utfärdare bör datorn automatiskt lita på dessa certifikat utfärdare och ha motsvarande certifikat.
+
+I den här självstudien använder du ett självsignerat certifikat och genererade ett certifikat som innehåller den privata nyckeln i föregående steg. Nu ska vi exportera och sedan installera det självsignerade certifikatet i det betrodda certifikat arkivet på klient datorn:
 
 1. Gå tillbaka till MMC för *certifikat (lokal dator) > personliga > certifikat* arkiv. Det självsignerade certifikatet som skapades i ett föregående steg visas, till exempel *aaddscontoso.com*. Högerklicka på det här certifikatet och välj sedan **alla aktiviteter > exportera...**
 1. I **guiden Exportera certifikat**väljer du **Nästa**.
@@ -186,7 +195,10 @@ Med ett digitalt certifikat som har skapats och exporter ATS som innehåller den
 
 1. Välj mappikonen bredvid **. PFX-fil med säkert LDAP-certifikat**. Bläddra till sökvägen till *. PFX* -fil och välj sedan det certifikat som skapades i ett föregående steg som innehåller den privata nyckeln.
 
-    Som anges i föregående avsnitt om certifikat krav kan du inte använda ett certifikat från en offentlig certifikat utfärdare med default *. onmicrosoft.com* -domänen. Microsoft äger *onmicrosoft.com* -domänen, så en offentlig certifikat utfärdare utfärdar inget certifikat. Kontrol lera att certifikatet har rätt format. Om det inte är det genererar Azure-plattformen certifikat verifierings fel när du aktiverar säker LDAP.
+    > [!IMPORTANT]
+    > Som anges i föregående avsnitt om certifikat krav kan du inte använda ett certifikat från en offentlig certifikat utfärdare med default *. onmicrosoft.com* -domänen. Microsoft äger *onmicrosoft.com* -domänen, så en offentlig certifikat utfärdare utfärdar inget certifikat.
+    >
+    > Kontrol lera att certifikatet har rätt format. Om det inte är det genererar Azure-plattformen certifikat verifierings fel när du aktiverar säker LDAP.
 
 1. Ange **lösen ordet för att dekryptera. PFX-fil** anges i föregående steg när certifikatet exporterades till en *. PFX* -fil.
 1. Välj **Spara** för att aktivera säker LDAP.
@@ -195,7 +207,9 @@ Med ett digitalt certifikat som har skapats och exporter ATS som innehåller den
 
 Ett meddelande visas om att säker LDAP konfigureras för den hanterade domänen. Du kan inte ändra andra inställningar för den hanterade domänen förrän åtgärden har slutförts.
 
-Det tar några minuter att aktivera säker LDAP för din hanterade domän. Om det säkra LDAP-certifikatet som du anger inte uppfyller de krav som krävs kan åtgärden för att aktivera säker LDAP för den hanterade domänen Miss lyckas. Några vanliga orsaker till fel är om domän namnet är felaktigt eller om certifikatet upphör snart att gälla eller redan har gått ut. Du kan återskapa certifikatet med giltiga parametrar och sedan Aktivera säker LDAP med det uppdaterade certifikatet.
+Det tar några minuter att aktivera säker LDAP för din hanterade domän. Om det säkra LDAP-certifikatet som du anger inte uppfyller de krav som krävs kan åtgärden för att aktivera säker LDAP för den hanterade domänen Miss lyckas.
+
+Några vanliga orsaker till fel är om domän namnet är felaktigt eller om certifikatet upphör snart att gälla eller redan har gått ut. Du kan återskapa certifikatet med giltiga parametrar och sedan Aktivera säker LDAP med det uppdaterade certifikatet.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Lås säker LDAP-åtkomst via Internet
 
@@ -204,7 +218,7 @@ När du aktiverar säker LDAP-åtkomst över Internet till din hanterade domän,
 Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via TCP-port 636 från en angiven uppsättning IP-adresser. En standard regel för *denyall* med lägre prioritet gäller för all annan inkommande trafik från Internet, så bara de angivna adresserna kan nå din hanterade domän med hjälp av säker LDAP.
 
 1. I Azure Portal väljer du *resurs grupper* i navigeringen till vänster.
-1. Välj resurs grupp, till exempel *myResourceGroup*, och välj sedan din nätverks säkerhets grupp, till exempel *aaads-NSG*.
+1. Välj din resurs grupp, till exempel *myResourceGroup*, och välj sedan din nätverks säkerhets grupp, till exempel *aaads-NSG*.
 1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **inställningar > inkommande säkerhets regler**till vänster i fönstret nätverks säkerhets grupp.
 1. Välj **Lägg till**och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
 
@@ -269,7 +283,7 @@ Om du vill fråga efter en speciell behållare direkt från **trädvyn > träd**
 Om du har lagt till en DNS-post i den lokala värd filen på datorn för att testa anslutningen för den här självstudien tar du bort posten och lägger till en formell post i din DNS-zon. Utför följande steg för att ta bort posten från den lokala värd filen:
 
 1. Öppna *anteckningar* som administratör på den lokala datorn
-1. Bläddra till och öppna filen *C:\WINDOWS\SYSTEM32\DRIVERS\ETC*
+1. Bläddra till och öppna filen *C:\Windows\System32\drivers\etc\hosts*
 1. Ta bort raden för den post som du har lagt till, till exempel`168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Nästa steg

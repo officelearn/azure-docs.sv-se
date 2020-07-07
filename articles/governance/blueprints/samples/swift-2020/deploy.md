@@ -3,12 +3,11 @@ title: Distribuera SWIFT-CSCF v2020 skiss-exempel
 description: Distribuera steg för CSCF v2020 skiss-exempel, inklusive information om skiss artefakt parameter.
 ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 971b69dcc5c64d7e51e9237e09ee8474551ac43a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 84d219f47df99e5bb87bab13b9ff43b79484117f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657064"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044268"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Distribuera det SWIFT-CSCF v2020-skiss exemplet
 
@@ -62,7 +61,7 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundläggande inställningar
+   - Grunderna
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
      - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
@@ -93,7 +92,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 |Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[För hands version \] : granska Swift CSP-CSCF v2020-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[För hands version \] : granska Swift CSP-CSCF v2020-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[För hands version \] : granska Swift CSP-CSCF v2020-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|ID för anslutna arbets ytor|En semikolonavgränsad lista med de arbetsyte-ID: n som Log Analytics agenten ska vara ansluten till|
 |\[För hands version \] : granska Swift CSP-CSCF v2020-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över användare som ska ingå i administratörs gruppen för en virtuell Windows-dator|En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. T. ex. administratör; Mina Användare1; myUser2|
 |\[För hands version \] : granska Swift CSP-CSCF v2020-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Domän namn (FQDN)|Det fullständigt kvalificerade domän namnet (FQDN) som de virtuella Windows-datorerna ska anslutas till|

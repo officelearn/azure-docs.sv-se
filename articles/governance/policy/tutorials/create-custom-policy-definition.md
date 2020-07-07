@@ -3,12 +3,11 @@ title: 'Självstudie: skapa en anpassad princip definition'
 description: I den här självstudien får du en anpassad princip definition för Azure Policy att använda anpassade affärs regler på dina Azure-resurser.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: bff5596049a141f06f5c189f2e5673efed1ed6bf
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
-ms.translationtype: MT
+ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970832"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044625"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
 
@@ -31,7 +30,7 @@ Metoden för att skapa en anpassad princip följer de här stegen:
 > - Fastställa vilken effekt som ska användas
 > - Skapa principdefinitionen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -66,7 +65,7 @@ Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska tit
 
 ### <a name="arm-templates"></a>ARM-mallar
 
-Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) som innehåller egenskapen som du vill hantera.
+Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) som innehåller egenskapen som du vill hantera.
 
 #### <a name="existing-resource-in-the-portal"></a>Befintlig resurs i portalen
 

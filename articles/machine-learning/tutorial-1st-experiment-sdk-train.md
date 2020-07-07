@@ -11,12 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.openlocfilehash: 2a65579ea7ea1a8e1611b604fa64f6b108c88784
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667118"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025156"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudie: träna din första ML-modell
 
@@ -176,8 +175,10 @@ print("Best run_id: " + minimum_rmse_runid)
 print("Best run_id rmse: " + str(minimum_rmse))
 ```
 
-    Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
-    Best run_id rmse: 57.234760283951765
+```output
+Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
+Best run_id rmse: 57.234760283951765
+```
 
 Använd det bästa körnings-ID: t för att hämta den enskilda körningen med hjälp av `Run` konstruktorn tillsammans med experiment-objektet. Anropa sedan `get_file_names()` för att se alla filer som är tillgängliga för nedladdning från den här körningen. I det här fallet överför du bara en fil för varje körning under utbildningen.
 
@@ -187,7 +188,9 @@ best_run = Run(experiment=experiment, run_id=minimum_rmse_runid)
 print(best_run.get_file_names())
 ```
 
-    ['model_alpha_0.1.pkl']
+```output
+['model_alpha_0.1.pkl']
+```
 
 Anropa `download()` på objektet kör och ange modell fil namnet som ska hämtas. Som standard laddas den här funktionen ned till den aktuella katalogen.
 

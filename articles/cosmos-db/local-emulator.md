@@ -6,12 +6,11 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 227e60486f0a6712b0d29de47983bad737481bd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800553"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028239"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -64,9 +63,11 @@ Du kan ladda ned och installera Azure Cosmos-emulatorn från [Microsoft Download
 
 Starta Azure Cosmos-emulatorn genom att välja Start-knappen eller trycka på Windows-tangenten. Börja skriva **Azure Cosmos-emulatorn**och välj emulatorn från listan över program.
 
-![Välj Start-knappen eller tryck på Windows-tangenten, börja skriva * * Azure Cosmos-emulator * * och välj emulatorn från listan över program](./media/local-emulator/database-local-emulator-start.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Välj Start-knappen eller tryck på Windows-tangenten, börja skriva Azure Cosmos-emulatorn och välj emulatorn från listan över program":::
 
-När emulatorn körs visas en ikon i aktivitetsfältets meddelandefält i Windows. ![Avisering om aktivitets fältet i Azure Cosmos DB lokalt emulator](./media/local-emulator/database-local-emulator-taskbar.png)
+När emulatorn körs visas en ikon i aktivitetsfältets meddelandefält i Windows. 
+
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Avisering om aktivitets fältet i Azure Cosmos DB lokalt emulator":::
 
 Azure Cosmos-emulatorn körs som standard på den lokala datorn ("localhost") som lyssnar på port 8081.
 
@@ -222,7 +223,7 @@ Starta emulatorn från en administratörs kommando tolk med "/EnableGremlinEndpo
 
 För att hämta ett certifikat som ska användas med språk och körningar som inte integrerar med Windows Certificate Store måste du exportera det med Windows Certificate Manager. Du kan starta den genom att köra certlm. msc eller följa anvisningarna i steg för steg i [Exportera Azure Cosmos-emulatorns certifikat](./local-emulator-export-ssl-certificates.md). När certifikathanteraren körs öppnar du personliga certifikat som du ser nedan och exporterar certifikatet med det egna namnet ”DocumentDBEmulatorCertificate” som en BASE-64-kodad X.509-fil (.cer).
 
-![TLS/SSL-certifikat för lokal emulator Azure Cosmos DB](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-ssl_certificate.png" alt-text="TLS/SSL-certifikat för lokal emulator Azure Cosmos DB":::
 
 Följ instruktionerna i avsnittet [om att lägga till ett certifikat i Java CA-certifikatarkiv](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X.509-certifikatet till standardcertifikatarkivet för Java. När certifikatet har importer ATS till certifikat arkivet kommer klienter för SQL och Azure Cosmos DBs API för MongoDB att kunna ansluta till Azure Cosmos-emulatorn.
 
@@ -266,7 +267,7 @@ Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emu
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade TLS/SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat TLS/SSL-certifikat. | Microsoft.Azure.Cosmos.Emulator.exe/FailOnSslCertificateNameMismatch  | |
 | GenCert | Skapa och installera ett nytt självsignerat TLS/SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | Microsoft.Azure.Cosmos.Emulator.exe/GenCert =\<dns-names\> |\<dns-names\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
 | DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | Microsoft.Azure.Cosmos.Emulator.exe/DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
-| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
+| Tangent |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
 | EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/EnableRateLimiting | |
 | DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/DisableRateLimiting | |
 | NoUI | Visa inte emulatorns användargränssnitt. | Microsoft.Azure.Cosmos.Emulator.exe/NoUI | |
@@ -470,7 +471,7 @@ Om du arbetar med Linux, .NET-reläer på OpenSSL för att utföra verifieringen
    update-ca-certificates
    ```
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
 Använd följande steg om du arbetar med Mac:
 

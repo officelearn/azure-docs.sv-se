@@ -5,12 +5,11 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: 2bc160418df7cb2d68f474da541f8f81ebb819fc
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250340"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054771"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Självstudie: importera SQL BACPAC-filer med ARM-mallar
 
@@ -112,8 +111,8 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
 
     Det finns två definierade resurser i mallen:
 
-   * `Microsoft.Sql/servers`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. Se [mallreferensen](/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL.servers/databases`. Se [mallreferensen](/azure/templates/microsoft.sql/servers/databases).
 
         Det är bra om du har grundläggande förståelse av mallen innan du anpassar den.
 1. Välj **Arkiv**  >  **Spara som** om du vill spara en kopia av filen på den lokala datorn med namnet *azuredeploy.jspå*.
@@ -194,7 +193,7 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
 
         ![Mall med SQL Database tillägg](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-        Information om resursdefinitionen finns i [tilläggsreferensen för SQL Database](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Här följer några viktiga element:
+        Information om resursdefinitionen finns i [tilläggsreferensen för SQL Database](/azure/templates/microsoft.sql/servers/databases/extensions). Här följer några viktiga element:
 
         * **dependsOn**: tilläggs resursen måste skapas efter att databasen har skapats.
         * **storageKeyType**: ange vilken typ av lagrings nyckel som ska användas. Värdet kan vara antingen `StorageAccessKey` eller `SharedAccessKey`. Använd `StorageAccessKey` i den här självstudien.

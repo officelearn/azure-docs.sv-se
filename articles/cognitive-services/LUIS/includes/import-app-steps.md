@@ -7,16 +7,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/22/2020
 ms.author: diberry
-ms.openlocfilehash: 2cf588ed120b353958cc708189c86481cd247d8e
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.openlocfilehash: 37f1b85b4ce8510d5e288df985a55dba659f0c9b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445939"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035928"
 ---
 1. I [Luis-portalen](https://www.luis.ai)väljer du **+ ny app för konversation**på sidan **Mina appar** och **importerar sedan som JSON**. Hitta den sparade JSON-filen från föregående steg. Du behöver inte ändra namnet på appen. Välj **färdig**
 
-1. I avsnittet **Hantera** går du till fliken **versioner** , väljer `sentiment` version, väljer **klon** för att klona versionen och ger den ett nytt namn och `ml-entity` väljer sedan **klar** för att slutföra klonings processen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
+1. I avsnittet **Hantera** går du till fliken **versioner** , väljer `0.1` version, väljer **klon** för att klona versionen och ger den ett nytt namn och `ml-entity` väljer sedan **klar** för att slutföra klonings processen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
     > [!TIP]
     > Att klona till en ny version är en bra metod innan du ändrar appen. När du är klar med en ändring i en version exporterar du versionen (som en. JSON-eller. lu-fil) och kontrollerar filen i käll kontroll systemet.

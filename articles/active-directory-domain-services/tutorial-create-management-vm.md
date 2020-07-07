@@ -7,22 +7,21 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f0b6e66a0d3a78a62fe105a175a7a519d0b37ccd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: afeac24a5d3c21fce120512813d68c49a505c6c1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733423"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024612"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 
 Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP och Kerberos/NTLM-autentisering som är helt kompatibelt med Windows Server Active Directory. Du administrerar den här hanterade domänen med samma verktyg för fjärrserveradministration (RSAT) som med en lokal Active Directory Domain Services domän. Eftersom Azure AD DS är en hanterad tjänst finns det några administrativa uppgifter som du inte kan utföra, till exempel att använda Remote Desktop Protocol (RDP) för att ansluta till domän kontrol Lanterna.
 
-Den här självstudien visar hur du skapar en virtuell Windows Server-dator i Azure och installerar de verktyg som krävs för att administrera en hanterad Azure AD DS-domän.
+Den här självstudien visar hur du konfigurerar en virtuell Windows Server-dator i Azure och installerar de verktyg som krävs för att administrera en hanterad Azure AD DS-domän.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förstå de tillgängliga administrativa uppgifterna i en hanterad domän
@@ -75,7 +74,7 @@ Den hanterade domänen är låst och du har inte behörighet att utföra vissa a
 
 ## <a name="sign-in-to-the-windows-server-vm"></a>Logga in på den virtuella Windows Server-datorn
 
-I den föregående själv studie kursen har en virtuell Windows Server-dator skapats och anslutits till den hanterade domänen. Vi använder den virtuella datorn för att installera hanterings verktygen. Om det behövs [följer du stegen i självstudien för att skapa och ansluta en virtuell Windows Server-dator till en hanterad domän][create-join-windows-vm].
+I den föregående själv studie kursen har en virtuell Windows Server-dator skapats och anslutits till den hanterade domänen. Använd den virtuella datorn för att installera hanterings verktygen. Om det behövs [följer du stegen i självstudien för att skapa och ansluta en virtuell Windows Server-dator till en hanterad domän][create-join-windows-vm].
 
 > [!NOTE]
 > I den här självstudien använder du en virtuell Windows Server-dator i Azure som är ansluten till den hanterade domänen. Du kan också använda en Windows-klient, till exempel Windows 10, som är ansluten till den hanterade domänen.
@@ -97,7 +96,7 @@ Om det behövs kan du tillåta att webbläsaren öppnar popup-fönster för att 
 
 ## <a name="install-active-directory-administrative-tools"></a>Installera Active Directory administrations verktyg
 
-Hanterade domäner hanteras med samma administrativa verktyg som lokala AD DS-miljöer, till exempel Active Directory Administrationscenter (ADAC) eller AD PowerShell. Dessa verktyg kan installeras som en del av funktionen verktyg för fjärrserveradministration (RSAT) på Windows Server-och klient datorer. Medlemmar i gruppen *AAD DC-administratörer* kan sedan administrera hanterade domäner via fjärr anslutning med hjälp av dessa AD administrations verktyg från en dator som är ansluten till den hanterade domänen.
+Du använder samma administrativa verktyg i en hanterad domän som lokala AD DS-miljöer, till exempel Active Directory Administrationscenter (ADAC) eller AD PowerShell. Dessa verktyg kan installeras som en del av funktionen verktyg för fjärrserveradministration (RSAT) på Windows Server-och klient datorer. Medlemmar i gruppen *AAD DC-administratörer* kan sedan administrera hanterade domäner via fjärr anslutning med hjälp av dessa AD administrations verktyg från en dator som är ansluten till den hanterade domänen.
 
 Slutför följande steg för att installera Active Directory administrations verktyg på en domänansluten virtuell dator:
 
@@ -125,7 +124,7 @@ När de administrativa verktygen är installerade ska vi se hur de används för
     ![Lista över administrations verktyg som är installerade på servern](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Välj **Active Directory Administrationscenter**.
-1. Om du vill utforska den hanterade domänen väljer du domän namnet i den vänstra rutan, till exempel *aaddscontoso.com*. Två behållare med namnet *AADDC datorer* och *AADDC-användare* visas överst i listan.
+1. Om du vill utforska den hanterade domänen väljer du domän namnet i den vänstra rutan, till exempel *aaddscontoso*. Två behållare med namnet *AADDC datorer* och *AADDC-användare* visas överst i listan.
 
     ![Visa en lista över tillgängliga behållare i den hanterade domänen](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
@@ -135,7 +134,7 @@ När de administrativa verktygen är installerade ska vi se hur de används för
 
     ![Visa listan över Azure AD DS-domän användare i Active Directory Administrationscenter](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
-1. Om du vill se de datorer som är anslutna till den hanterade domänen väljer du behållaren **AADDC Computers** . En post för den aktuella virtuella datorn, till exempel *myVM*, visas. Dator konton för alla datorer som är anslutna till den hanterade domänen lagras i behållaren för *AADDC-datorer* .
+1. Om du vill se de datorer som är anslutna till den hanterade domänen väljer du behållaren **AADDC Computers** . En post för den aktuella virtuella datorn, till exempel *myVM*, visas. Dator konton för alla enheter som är anslutna till den hanterade domänen lagras i behållaren för *AADDC-datorer* .
 
 Vanliga Active Directory Administrationscenter åtgärder som att återställa användar kontots lösen ord eller hantera grupp medlemskap är tillgängliga. Dessa åtgärder fungerar bara för användare och grupper som skapats direkt i den hanterade domänen. Identitets information synkroniseras bara *från* Azure AD till Azure AD DS. Det går inte att skriva tillbaka från Azure AD DS till Azure AD. Du kan inte ändra lösen ord eller hanterad grupp medlemskap för användare som synkroniseras från Azure AD och som synkroniseras igen.
 
@@ -150,7 +149,7 @@ I den här självstudiekursen lärde du dig att:
 > * Installera Active Directory administrations verktyg på en virtuell Windows Server-dator
 > * Använd Active Directory Administrationscenter för att utföra vanliga uppgifter
 
-Aktivera säkert Lightweight Directory Access Protocol (LDAPs) för att på ett säkert sätt interagera med din hanterade domän.
+För att på ett säkert sätt interagera med din hanterade domän från andra program, aktivera säkert Lightweight Directory Access Protocol (LDAPs).
 
 > [!div class="nextstepaction"]
 > [Konfigurera säker LDAP för din hanterade domän](tutorial-configure-ldaps.md)

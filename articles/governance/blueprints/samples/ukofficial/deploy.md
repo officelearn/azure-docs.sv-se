@@ -3,12 +3,11 @@ title: Distribuera brittiska officiella & NHS-skiss exempel
 description: Distribuera steg för de officiella och brittiska NHS-skiss exemplen, inklusive information om skiss artefakt parameter.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 7fa78eab463c9a3202b2ec08e1952e275e51b20d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.openlocfilehash: 2ac2d17c08b3f585f86d1b2d339c3c7cf52844ce
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005592"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037179"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuera de NHSa skiss exemplen från Storbritannien och Storbritannien
 
@@ -19,7 +18,7 @@ Följande steg måste vidtas för att distribuera de NHS i Storbritannien och St
 > - Markera din kopia av exemplet som **publicerad**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
@@ -62,7 +61,7 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundläggande inställningar
+   - Grunderna
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
      - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
@@ -93,17 +92,17 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|Skiss initiativ för NHS Storbritannien eller Storbritannien|Principtilldelning |Resurs typer för att granska diagnostikloggar (princip: skiss initiativ för brittisk eller brittisk NHS) |Lista över resurs typer som ska granskas om diagnostisk logg inställning är antecknings aktive rad.  För acceptabla värden, se [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas \[till\]i området (princip: för hands version: Distribuera Log Analytics agent för virtuella Linux-datorer |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till \[i\]området (princip: för hands version: Distribuera Log Analytics agent för virtuella Windows-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Skiss initiativ för NHS Storbritannien eller Storbritannien|Principtilldelning |Resurs typer för att granska diagnostikloggar (princip: skiss initiativ för brittisk eller brittisk NHS) |Lista över resurs typer som ska granskas om diagnostisk logg inställning är antecknings aktive rad.  För acceptabla värden, se [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../../../azure-monitor/platform/resource-logs-schema.md). |
+|\[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i området (princip: för \[ hands version \] : Distribuera Log Analytics agent för virtuella Linux-datorer |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i området (princip: för \[ hands version \] : Distribuera Log Analytics agent för virtuella Windows-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har granskat stegen för att distribuera NHS-skisserna från Storbritannien och Storbritannien kan du gå till följande artiklar om du vill veta mer om översikt och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [Officiella och brittiska NHS-ritningar – översikt](./index.md)
-> [Storbritannien och Storbritannien NHS ritningar – kontroll mappning](./control-mapping.md)
+> [Officiella och brittiska NHS-ritningar – översikt](./index.md) 
+>  [Officiella och brittiska NHS-ritningar – kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

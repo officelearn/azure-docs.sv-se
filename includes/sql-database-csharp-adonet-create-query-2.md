@@ -4,18 +4,17 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 7943ea13d93fa68b76d333bda5438fb5738f5cd1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67187421"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050274"
 ---
 ## <a name="c-program-example"></a>C#-programexempel
 
-I följande avsnitt i den här artikeln finns ett C#-program som använder ADO.NET för att skicka Transact-SQL-instruktioner (T-SQL) till SQL-databasen. C#-programmet visar följande åtgärder:
+Nästa avsnitt i den här artikeln visar ett C#-program som använder ADO.NET för att skicka Transact-SQL-uttryck (T-SQL) till SQL Database. C#-programmet visar följande åtgärder:
 
-- [Ansluter till SQL-databasen med ADO.NET](#cs_1_connect)
+- [Ansluta till SQL Database med ADO.NET](#cs_1_connect)
 - [Metoder som returnerar instruktioner för T-SQL](#cs_2_return)
     - Skapa tabeller
     - Fyll i tabeller med data
@@ -82,7 +81,7 @@ C#-programmet är logiskt en .cs-fil och fysiskt uppdelad i flera kodblock som g
 
 <a name="cs_1_connect"/>
 
-### <a name="connect-to-sql-database-using-adonet"></a>Anslut till SQL-databasen med ADO.NET
+### <a name="connect-to-sql-database-using-adonet"></a>Ansluta till SQL Database med ADO.NET
 
 ```csharp
 using System;

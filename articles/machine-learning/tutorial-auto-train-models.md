@@ -11,12 +11,11 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 440c2b0f0c9e89cff03e92fb650dabe1e2c88e1f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: cf1732b88867074fe1f672e193ce404a4ef83e54
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558357"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023490"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +33,7 @@ I den här självstudien får du lära dig följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du *självstudierna/regression-automl-NYC-taxi-data/regression-Automated-ml. ipynb* Notebook med samma Notebook-Server.
@@ -71,16 +70,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<style scoped>. dataframe TBODY tr: endast-av-Type {vertikalt-align: mitten;}. dataframe TBODY tr {vertikalt-align: Top;}. dataframe thead {text – align: Right;}</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -116,8 +106,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4,84</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,84</td>
       <td>– 73,94</td>
@@ -140,8 +130,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0,69</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,81</td>
       <td>– 73,96</td>
@@ -164,8 +154,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0,45</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,91</td>
@@ -188,8 +178,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,81</td>
       <td>40,70</td>
       <td>– 73,82</td>
@@ -212,8 +202,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,92</td>
@@ -236,8 +226,8 @@ green_taxi_df.head(10)
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
       <td>1,10</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,95</td>
@@ -260,8 +250,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0,90</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,76</td>
       <td>– 73,87</td>
@@ -284,8 +274,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3,30</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,91</td>
@@ -308,8 +298,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1,19</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,95</td>
@@ -332,8 +322,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0,65</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,94</td>
@@ -372,16 +362,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<style scoped>. dataframe TBODY tr: endast-av-Type {vertikalt-align: mitten;}. dataframe TBODY tr {vertikalt-align: Top;}. dataframe thead {text – align: Right;}</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -417,8 +398,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4,84</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,84</td>
       <td>– 73,94</td>
@@ -441,8 +422,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0,69</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,81</td>
       <td>– 73,96</td>
@@ -465,8 +446,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0,45</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,91</td>
@@ -489,8 +470,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,81</td>
       <td>40,70</td>
       <td>– 73,82</td>
@@ -513,8 +494,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,92</td>
@@ -537,8 +518,8 @@ green_taxi_df.head(10)
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
       <td>1,10</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,95</td>
@@ -561,8 +542,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0,90</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,76</td>
       <td>– 73,87</td>
@@ -585,8 +566,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3,30</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,91</td>
@@ -609,8 +590,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1,19</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,95</td>
@@ -633,8 +614,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0,65</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,94</td>
@@ -677,16 +658,7 @@ green_taxi_df.describe()
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<style scoped>. dataframe TBODY tr: endast-av-Type {vertikalt-align: mitten;}. dataframe TBODY tr {vertikalt-align: Top;}. dataframe thead {text – align: Right;}</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -859,7 +831,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. `Workspace.from_config()`läser filen **config. JSON** och läser in autentiseringsinformationen till ett objekt med namnet `ws` . `ws` används i resten av koden i den här självstudien.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. `Workspace.from_config()`läser filen **config.jspå** och läser in autentiseringsinformationen till ett objekt med namnet `ws` . `ws` används i resten av koden i den här självstudien.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -895,7 +867,7 @@ För att träna en modell automatiskt gör du följande:
 
 Definiera experiment parametern och modell inställningarna för träning. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med dessa standardinställningar tar cirka 5-20 min, men om du vill ha en kortare körnings tid minskar du `experiment_timeout_minutes` parametern.
 
-|Egenskap| Värde i den här självstudien |Description|
+|Egenskap| Värde i den här självstudien |Beskrivning|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
 |**experiment_timeout_minutes**|20|Den maximala tid i minuter som alla iterationer kombineras kan ta innan experimentet avslutas.|
@@ -946,44 +918,46 @@ experiment = Experiment(ws, "taxi-experiment")
 local_run = experiment.submit(automl_config, show_output=True)
 ```
 
-    Running on local machine
-    Parent Run ID: AutoML_1766cdf7-56cf-4b28-a340-c4aeee15b12b
-    Current status: DatasetFeaturization. Beginning to featurize the dataset.
-    Current status: DatasetEvaluation. Gathering dataset statistics.
-    Current status: FeaturesGeneration. Generating features for the dataset.
-    Current status: DatasetFeaturizationCompleted. Completed featurizing the dataset.
-    Current status: DatasetCrossValidationSplit. Generating individually featurized CV splits.
-    Current status: ModelSelection. Beginning model selection.
+```output
+Running on local machine
+Parent Run ID: AutoML_1766cdf7-56cf-4b28-a340-c4aeee15b12b
+Current status: DatasetFeaturization. Beginning to featurize the dataset.
+Current status: DatasetEvaluation. Gathering dataset statistics.
+Current status: FeaturesGeneration. Generating features for the dataset.
+Current status: DatasetFeaturizationCompleted. Completed featurizing the dataset.
+Current status: DatasetCrossValidationSplit. Generating individually featurized CV splits.
+Current status: ModelSelection. Beginning model selection.
 
-    ****************************************************************************************************
-    ITERATION: The iteration being evaluated.
-    PIPELINE: A summary description of the pipeline being evaluated.
-    DURATION: Time taken for the current iteration.
-    METRIC: The result of computing score on the fitted pipeline.
-    BEST: The best observed score thus far.
-    ****************************************************************************************************
+****************************************************************************************************
+ITERATION: The iteration being evaluated.
+PIPELINE: A summary description of the pipeline being evaluated.
+DURATION: Time taken for the current iteration.
+METRIC: The result of computing score on the fitted pipeline.
+BEST: The best observed score thus far.
+****************************************************************************************************
 
-     ITERATION   PIPELINE                                       DURATION      METRIC      BEST
-             0   StandardScalerWrapper RandomForest             0:00:16       0.8746    0.8746
-             1   MinMaxScaler RandomForest                      0:00:15       0.9468    0.9468
-             2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.9303    0.9468
-             3   StandardScalerWrapper LightGBM                 0:00:10       0.9424    0.9468
-             4   RobustScaler DecisionTree                      0:00:09       0.9449    0.9468
-             5   StandardScalerWrapper LassoLars                0:00:09       0.9440    0.9468
-             6   StandardScalerWrapper LightGBM                 0:00:10       0.9282    0.9468
-             7   StandardScalerWrapper RandomForest             0:00:12       0.8946    0.9468
-             8   StandardScalerWrapper LassoLars                0:00:16       0.9439    0.9468
-             9   MinMaxScaler ExtremeRandomTrees                0:00:35       0.9199    0.9468
-            10   RobustScaler ExtremeRandomTrees                0:00:19       0.9411    0.9468
-            11   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9077    0.9468
-            12   StandardScalerWrapper LassoLars                0:00:15       0.9433    0.9468
-            13   MinMaxScaler ExtremeRandomTrees                0:00:14       0.9186    0.9468
-            14   RobustScaler RandomForest                      0:00:10       0.8810    0.9468
-            15   StandardScalerWrapper LassoLars                0:00:55       0.9433    0.9468
-            16   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9026    0.9468
-            17   StandardScalerWrapper RandomForest             0:00:13       0.9140    0.9468
-            18   VotingEnsemble                                 0:00:23       0.9471    0.9471
-            19   StackEnsemble                                  0:00:27       0.9463    0.9471
+ ITERATION   PIPELINE                                       DURATION      METRIC      BEST
+         0   StandardScalerWrapper RandomForest             0:00:16       0.8746    0.8746
+         1   MinMaxScaler RandomForest                      0:00:15       0.9468    0.9468
+         2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.9303    0.9468
+         3   StandardScalerWrapper LightGBM                 0:00:10       0.9424    0.9468
+         4   RobustScaler DecisionTree                      0:00:09       0.9449    0.9468
+         5   StandardScalerWrapper LassoLars                0:00:09       0.9440    0.9468
+         6   StandardScalerWrapper LightGBM                 0:00:10       0.9282    0.9468
+         7   StandardScalerWrapper RandomForest             0:00:12       0.8946    0.9468
+         8   StandardScalerWrapper LassoLars                0:00:16       0.9439    0.9468
+         9   MinMaxScaler ExtremeRandomTrees                0:00:35       0.9199    0.9468
+        10   RobustScaler ExtremeRandomTrees                0:00:19       0.9411    0.9468
+        11   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9077    0.9468
+        12   StandardScalerWrapper LassoLars                0:00:15       0.9433    0.9468
+        13   MinMaxScaler ExtremeRandomTrees                0:00:14       0.9186    0.9468
+        14   RobustScaler RandomForest                      0:00:10       0.8810    0.9468
+        15   StandardScalerWrapper LassoLars                0:00:55       0.9433    0.9468
+        16   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9026    0.9468
+        17   StandardScalerWrapper RandomForest             0:00:13       0.9140    0.9468
+        18   VotingEnsemble                                 0:00:23       0.9471    0.9471
+        19   StackEnsemble                                  0:00:27       0.9463    0.9471
+```
 
 ## <a name="explore-the-results"></a>Utforska resultaten
 
@@ -1048,11 +1022,13 @@ print("Model Accuracy:")
 print(1 - mean_abs_percent_error)
 ```
 
-    Model MAPE:
-    0.14353867606052823
+```output
+Model MAPE:
+0.14353867606052823
 
-    Model Accuracy:
-    0.8564613239394718
+Model Accuracy:
+0.8564613239394718
+```
 
 
 Från de två noggrannhets måtten för förutsägelse ser du att modellen är ganska lämplig vid förutsägelse av taxi biljett från data uppsättningens funktioner, vanligt vis inom +-$4,00 och cirka 15% fel.

@@ -5,12 +5,11 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79473004"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054499"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Självstudie: publicera Azure-hanterade program på Marketplace
 
@@ -44,7 +43,7 @@ Ett erbjudande för ett hanterat program motsvarar ett produktklasserbjudande fr
 
 1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-1. I navigerings fönstret till vänster väljer du **+ nytt erbjudande** > för**Azure-program**.
+1. I navigerings fönstret till vänster väljer du **+ nytt erbjudande**för  >  **Azure-program**.
 
 1. I vyn **Redigerare** kan du se de formulär du behöver. De olika formulären beskrivs längre fram i den här artikeln.
 
@@ -70,7 +69,7 @@ En SKU är den minsta köpbara enheten i ett erbjudande. Du kan använda en SKU 
 
 En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som en egen köpbar enhet i Azure Portal.
 
-1. Välj **SKU** > **ny SKU**.
+1. Välj **SKU**  >  **ny SKU**.
 
 1. Ange ett **SKU-ID**. Ett SKU-ID är en unik identifierare för en SKU i ett erbjudande. ID:t visas i produktens webbadresser, Resource Manager-mallar och faktureringsrapporter. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID:t får inte avslutas med ett bindestreck och får innehålla högst 50 tecken. När ett erbjudande lanseras är det här fältet låst. Du kan ha flera SKU:er i ett erbjudande. Du behöver en SKU för varje avbildning som du tänker publicera.
 
@@ -96,7 +95,7 @@ En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som e
    * Vill du **Anpassa tillåtna kund åtgärder?**: Välj **Ja** om du vill ange vilka åtgärder som konsumenter kan utföra på de hanterade resurserna.
    * **Tillåtna kund åtgärder**: om du väljer **Ja** för den föregående inställningen kan du ange vilka åtgärder som tillåts för konsumenter genom att använda [neka-tilldelningar för Azure-resurser](../../role-based-access-control/deny-assignments.md).
 
-     Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer `Microsoft.Compute/virtualMachines/restart/action` kan du lägga till dem i de tillåtna åtgärderna. `*/read` Åtgärden tillåts automatiskt så att du inte behöver ta med den inställningen.
+     Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna. `*/read`Åtgärden tillåts automatiskt så att du inte behöver ta med den inställningen.
    * **PrincipalId**: den här egenskapen är Azure Active Directory-ID (Azure AD-ID) för en användare, en användargrupp eller ett program som beviljas åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheterna.
    * **Rolldefinition**: Den här egenskapen är en lista med alla inbyggda RBAC-roller (rollbaserade åtkomstkontroller) som tillhandahålls av Azure AD. Välj den roll som är mest lämplig för hantering av resurserna för kundens räkning.
    * **Principinställningar**: Använd [Azure Policy](../../governance/policy/overview.md) på det hanterade programmet och ange efterlevnadskrav för de distribuerade lösningarna. Välj vilka principer du vill använda bland de tillgängliga alternativen. I fältet **Principparametrar** anger du en JSON-sträng med parametervärdena. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../../governance/policy/samples/index.md).
@@ -172,6 +171,6 @@ När du har fyllt i alla avsnitt väljer du **Publicera** för att påbörja pro
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om vad som händer när du har klickat på **publicera**finns i [publicera Azure-program erbjudande](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+* Information om vad som händer när du har klickat på **publicera**finns i [publicera Azure-program erbjudande](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 * En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
 * Information om hur du publicerar en tjänstkatalog för hanterade program finns i [Skapa och publicera en tjänstkatalog för hanterade program](publish-service-catalog-app.md).

@@ -7,20 +7,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ac7af2f4500f6702dcacad546b0985e41159dc6e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 8123608cbf2c1a4cbe0dc51d81d42b288bf2a91d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734681"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024935"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en Azure Active Directory Domain Services hanterad domän
 
 Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP, Kerberos/NTLM-autentisering som är helt kompatibelt med Windows Server Active Directory. Med en Azure AD DS-hanterad domän kan du tillhandahålla funktioner för domän anslutning och hantering av virtuella datorer i Azure. Den här självstudien visar hur du skapar en virtuell Windows Server-dator och ansluter den till en hanterad domän.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Windows Server-dator
@@ -110,7 +109,7 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
 
 1. Det tar några sekunder att skapa under nätet. När den har skapats väljer du *X* för att stänga under näts fönstret.
 1. Gå tillbaka till fönstret **nätverk** för att skapa en virtuell dator och välj det undernät som du skapade i den nedrullningsbara menyn, till exempel *hantering*. Se till att du väljer rätt undernät och distribuera inte den virtuella datorn i samma undernät som den hanterade domänen.
-1. För **offentlig IP-** adress väljer du *ingen* på den nedrullningsbara menyn, eftersom du använder Azure-skydds för att ansluta till-hanteringen och behöver inte någon offentlig IP-adress tilldelad.
+1. För **offentlig IP-adress**väljer du *ingen* på den nedrullningsbara menyn. När du använder Azure-skydds i den här självstudien för att ansluta till-hanteringen behöver du inte någon offentlig IP-adress som tilldelats den virtuella datorn.
 1. Lämna de andra alternativen som standardvärden och välj sedan **hantering**.
 1. Ange att **startdiagnostik** ska *stängas av*. Lämna de andra alternativen som standardvärden och välj sedan **Granska + skapa**.
 1. Granska inställningarna för den virtuella datorn och välj sedan **skapa**.
@@ -121,7 +120,7 @@ Det tar några minuter att skapa den virtuella datorn. I Azure Portal visas dist
 
 ## <a name="connect-to-the-windows-server-vm"></a>Anslut till den virtuella Windows Server-datorn
 
-Använd en Azure skydds-värd för att på ett säkert sätt ansluta till dina virtuella datorer. Med Azure skydds distribueras en hanterad värd till det virtuella nätverket och tillhandahåller webbaserade RDP-eller SSH-anslutningar till virtuella datorer. Inga offentliga IP-adresser krävs för de virtuella datorerna, och du behöver inte öppna regler för nätverks säkerhets grupper för extern fjärrtrafik. Du ansluter till virtuella datorer med hjälp av Azure Portal från webbläsaren.
+Använd en Azure skydds-värd för att på ett säkert sätt ansluta till dina virtuella datorer. Med Azure skydds distribueras en hanterad värd till det virtuella nätverket och tillhandahåller webbaserade RDP-eller SSH-anslutningar till virtuella datorer. Inga offentliga IP-adresser krävs för de virtuella datorerna, och du behöver inte öppna regler för nätverks säkerhets grupper för extern fjärrtrafik. Du ansluter till virtuella datorer med hjälp av Azure Portal från webbläsaren. Om det behövs [skapar du en Azure skydds-värd][azure-bastion].
 
 Utför följande steg för att använda en skydds-värd för att ansluta till din virtuella dator:
 
@@ -152,7 +151,9 @@ När den virtuella datorn har skapats och en webbaserad RDP-anslutning har etabl
 
     ![Ange den hanterade domänen som ska anslutas](./media/join-windows-vm/join-domain.png)
 
-1. Ange domänautentiseringsuppgifter för att ansluta till domänen. Använd autentiseringsuppgifterna för en användare som är en del av den hanterade domänen. Kontot måste vara en del av den hanterade domänen eller Azure AD-klient-konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning. Kontoautentiseringsuppgifter kan anges på något av följande sätt:
+1. Ange domänautentiseringsuppgifter för att ansluta till domänen. Ange autentiseringsuppgifter för en användare som är en del av den hanterade domänen. Kontot måste vara en del av den hanterade domänen eller Azure AD-klient-konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning.
+
+    Kontoautentiseringsuppgifter kan anges på något av följande sätt:
 
     * **UPN-format** (rekommenderas) – ange suffixet User Principal Name (UPN) för användar kontot, enligt konfigurationen i Azure AD. UPN-suffixet för användaren *contosoadmin* skulle till exempel vara `contosoadmin@aaddscontoso.onmicrosoft.com` . Det finns ett par vanliga användnings fall där UPN-formatet kan användas på ett tillförlitligt sätt för att logga in på domänen snarare än *sAMAccountName* -formatet:
         * Om en användares UPN-prefix är långt, till exempel *deehasareallylongname*, kan *sAMAccountName* skapas automatiskt.
@@ -180,7 +181,7 @@ När den virtuella Windows Server-datorn har startats om flyttas alla principer 
 
 I nästa självstudie använder du den här virtuella Windows Server-datorn för att installera hanterings verktygen som du kan använda för att administrera den hanterade domänen. Om du inte vill fortsätta i den här själv studie serien läser du följande rensnings steg för att [ta bort den virtuella datorn](#delete-the-vm). Annars [fortsätter du till nästa självstudie](#next-steps).
 
-### <a name="un-join-the-vm-from-the-managed-domain"></a>Ta bort anslutningen till den virtuella datorn från den hanterade domänen
+### <a name="unjoin-the-vm-from-the-managed-domain"></a>Ta en anslutning till den virtuella datorn från den hanterade domänen
 
 Ta bort den virtuella datorn från den hanterade domänen genom att följa stegen igen för att [ansluta den virtuella datorn till en domän](#join-the-vm-to-the-managed-domain). I stället för att ansluta till den hanterade domänen väljer du att ansluta till en arbets grupp, till exempel standard *arbets gruppen*. När den virtuella datorn har startats om tas datorobjektet bort från den hanterade domänen.
 
@@ -220,7 +221,7 @@ Försök att ansluta den virtuella Windows Server-datorn till den hanterade dom�
 * Kontrol lera att det användar konto som du anger tillhör den hanterade domänen.
 * Bekräfta att kontot ingår i den hanterade domänen eller Azure AD-klienten. Konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning.
 * Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `contosoadmin@aaddscontoso.onmicrosoft.com` . Om det finns många användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt, kan *sAMAccountName* för ditt konto skapas automatiskt. I dessa fall kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
-* Kontrol lera att du har [aktiverat][password-sync] Lösenordssynkronisering till din hanterade domän. Utan det här konfigurations steget finns inte de nödvändiga lösen ords hasharna i den hanterade domänen för att korrekt autentisera ditt inloggnings försök.
+* Kontrol lera att du har [aktiverat][password-sync] Lösenordssynkronisering till din hanterade domän. Utan det här konfigurations steget finns inte nödvändiga lösen ords-hashar i den hanterade domänen för att autentisera ditt inloggnings försök på rätt sätt.
 * Vänta tills Lösenordssynkronisering har slutförts. När ett användar kontos lösen ord ändras uppdaterar en automatisk Bakgrundssynkronisering från Azure AD lösen ordet i Azure AD DS. Det tar lite tid för lösen ordet att vara tillgängligt för domän kopplings användning.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,22 +7,23 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 1e3b94208c3ead6e7ed4e15dac7c32b50025064a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733814"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024782"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera virtuella nätverk för en Azure Active Directory Domain Services hanterad domän
 
-För att tillhandahålla anslutning till användare och program distribueras en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän till ett virtuellt nätverk i Azure. Det här virtuella nätverkets undernät bör endast användas för de hanterade domän resurser som tillhandahålls av Azure-plattformen. När du skapar dina egna virtuella datorer och program, bör de inte distribueras till samma undernät för virtuellt nätverk. I stället bör du skapa och distribuera dina program till ett separat virtuellt nätverks under nät eller i ett separat virtuellt nätverk som peer-kopplas till det virtuella Azure AD DS-nätverket.
+För att tillhandahålla anslutning till användare och program distribueras en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän till ett virtuellt nätverk i Azure. Det här virtuella nätverkets undernät bör endast användas för de hanterade domän resurser som tillhandahålls av Azure-plattformen.
+
+När du skapar dina egna virtuella datorer och program, bör de inte distribueras till samma undernät för virtuellt nätverk. I stället bör du skapa och distribuera dina program till ett separat virtuellt nätverks under nät eller i ett separat virtuellt nätverk som peer-kopplas till det virtuella Azure AD DS-nätverket.
 
 I den här självstudien får du lära dig hur du skapar och konfigurerar ett dedikerat virtuellt nätverks under nät eller hur du peer-koppla ett annat nätverk till Azure AD DS-hanterad domäns virtuella nätverk.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förstå de virtuella nätverks anslutnings alternativen för domänanslutna resurser till Azure AD DS
@@ -39,7 +40,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
-* Du behöver *Global administratörs* behörighet i Azure AD-klienten för att aktivera Azure AD DS.
+* Du behöver *Global administratörs* behörighet i Azure AD-klienten för att konfigurera Azure AD DS.
 * Du behöver *deltagar* behörighet i din Azure-prenumeration för att skapa de nödvändiga Azure AD DS-resurserna.
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
     * Vid behov skapar och konfigurerar den första självstudien [en Azure Active Directory Domain Services hanterad domän][create-azure-ad-ds-instance].
@@ -54,16 +55,20 @@ I föregående självstudie skapade du en hanterad domän som använde vissa sta
 
 När du skapar och kör virtuella datorer som behöver använda den hanterade domänen måste nätverks anslutningen tillhandahållas. Den här nätverks anslutningen kan tillhandahållas på något av följande sätt:
 
-* Skapa ytterligare ett virtuellt nätverks under nät i den hanterade standard domänens virtuella nätverk. Det här ytterligare under nätet är den plats där du skapar och ansluter dina virtuella datorer.
+* Skapa ytterligare ett undernät för virtuellt nätverk i den hanterade domänens virtuella nätverk. Det här ytterligare under nätet är den plats där du skapar och ansluter dina virtuella datorer.
     * Eftersom de virtuella datorerna ingår i samma virtuella nätverk kan de automatiskt utföra namn matchning och kommunicera med Azure AD DS-domän kontrol Lanterna.
 * Konfigurera peering för virtuella Azure-nätverk från den hanterade domänens virtuella nätverk till ett eller flera separata virtuella nätverk. Dessa separata virtuella nätverk är den plats där du skapar och ansluter till dina virtuella datorer.
     * När du konfigurerar peering för virtuella nätverk måste du också konfigurera DNS-inställningar för att använda namn matchning tillbaka till Azure AD DS-domän kontrol Lanterna.
 
-Du använder vanligt vis bara ett av dessa alternativ för nätverks anslutning. Valet är ofta att välja hur du vill hantera separata Azure-resurser. Om du vill hantera Azure AD DS och anslutna virtuella datorer som en resurs grupp kan du skapa ytterligare ett virtuellt nätverks under nät för virtuella datorer. Om du vill separera hanteringen av Azure AD DS och alla anslutna virtuella datorer kan du använda peering för virtuella nätverk. Du kan också välja att använda peering för virtuella nätverk för att tillhandahålla anslutning till befintliga virtuella datorer i Azure-miljön som är anslutna till ett befintligt virtuellt nätverk.
+Normalt använder du bara ett av dessa alternativ för nätverks anslutning. Valet är ofta att välja hur du vill hantera separata Azure-resurser.
+
+* Om du vill hantera Azure AD DS och anslutna virtuella datorer som en resurs grupp kan du skapa ytterligare ett virtuellt nätverks under nät för virtuella datorer.
+* Om du vill separera hanteringen av Azure AD DS och alla anslutna virtuella datorer kan du använda peering för virtuella nätverk.
+    * Du kan också välja att använda peering för virtuella nätverk för att tillhandahålla anslutning till befintliga virtuella datorer i Azure-miljön som är anslutna till ett befintligt virtuellt nätverk.
 
 I den här självstudien behöver du bara konfigurera ett sådant alternativ för anslutning till virtuellt nätverk.
 
-Mer information om hur du planerar och konfigurerar det virtuella nätverket finns i [nätverks överväganden för Azure Active Directory Domain Services] [nätverks överväganden].
+Mer information om hur du planerar och konfigurerar det virtuella nätverket finns i [nätverks överväganden för Azure Active Directory Domain Services][network-considerations].
 
 ## <a name="create-a-virtual-network-subnet"></a>Skapa ett undernät för virtuellt nätverk
 
@@ -95,7 +100,9 @@ När du skapar en virtuell dator som behöver använda den hanterade domänen, s
 
 Du kan ha ett befintligt virtuellt Azure-nätverk för virtuella datorer eller vill hålla ditt virtuella nätverk för hanterad domän separat. För att kunna använda den hanterade domänen behöver virtuella datorer i andra virtuella nätverk ett sätt att kommunicera med Azure AD DS-domän kontrol Lanterna. Den här anslutningen kan tillhandahållas med hjälp av Azure Virtual Network-peering.
 
-Med peering av virtuella Azure-nätverk är två virtuella nätverk kopplade samman, utan att det krävs någon VPN-enhet (virtuellt privat nätverk). Med hjälp av nätverks-peering kan du snabbt ansluta virtuella nätverk och definiera trafikflöden i Azure-miljön. Mer information om peering finns i [Översikt över Azure Virtual Network-peering][peering-overview].
+Med peering av virtuella Azure-nätverk är två virtuella nätverk kopplade samman, utan att det krävs någon VPN-enhet (virtuellt privat nätverk). Med hjälp av nätverks-peering kan du snabbt ansluta virtuella nätverk och definiera trafikflöden i Azure-miljön.
+
+Mer information om peering finns i [Översikt över Azure Virtual Network-peering][peering-overview].
 
 Slutför följande steg för att peer-koppla ett virtuellt nätverk till den hanterade domänens virtuella nätverk:
 
@@ -159,3 +166,4 @@ Om du vill se den här hanterade domänen i praktiken skapar du och ansluter en 
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [peering-overview]: ../virtual-network/virtual-network-peering-overview.md
+[network-considerations]: network-considerations.md

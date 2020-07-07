@@ -5,12 +5,11 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b62cca48323d4e12a92c89d64ab67bf5b783c36f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: d770632958e046eb2b3494999d564bb4a6956b04
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82183847"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054482"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Självstudie: skapa flera resurs instanser med ARM-mallar
 
@@ -37,15 +36,15 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/) är en lagrings plats för ARM-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Skapa ett standardlagringskonto). Mallen definierar en Azure Storage-kontoresurs.
 
-1. Från Visual Studio **Code väljer**>du**Öppna fil**.
+1. Från Visual Studio **Code väljer du** > **Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Välj **Öppna** för att öppna filen.
-4. Det finns en resurs med namnet ”Microsoft.Storage/storageAccounts” definierad i mallen. Jämför mallen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
-5. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy. JSON** på den lokala datorn.
+4. Det finns en resurs med namnet ”Microsoft.Storage/storageAccounts” definierad i mallen. Jämför mallen med [mallreferensen](/azure/templates/Microsoft.Storage/storageAccounts). Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+5. Välj **Arkiv** > **Spara som** för att spara filen som **azuredeploy.jspå** den lokala datorn.
 
 ## <a name="edit-the-template"></a>Redigera mallen
 

@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebbb73b6fc4e2a934c7c4235cfcdc39b8fa81b60
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
-ms.translationtype: MT
+ms.openlocfilehash: cd71789d6c2fb54007f3d6623ba8d14f98383b5a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126391"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027655"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Shopify plus
 
@@ -115,7 +114,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -139,11 +138,31 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-shopify-plus-sso"></a>Konfigurera Shopify plus SSO
 
-Om du vill konfigurera enkel inloggning på **Shopify plus** -sidan måste du skicka **URL: en för appens Federations-metadata** till [Shopify plus support-teamet](mailto:plus-user-management@shopify.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill visa fullständiga steg läser du [Shopify-dokumentationen om hur du konfigurerar SAML-integreringar](https://help.shopify.com/en/manual/shopify-plus/saml).
+
+Om du vill konfigurera enkel inloggning på **Shopify plus** -sidan kopierar du **URL: en för appens federationens metadata** från Azure Active Directory. Logga sedan in på [organisationens administratör](https://shopify.plus) och gå till **användarens**  >  **säkerhet**. Välj **Konfigurera konfiguration**och klistra in URL: en för din app Federation-metadata i avsnittet **metadata-URL för identitetsprovider** . Välj **Lägg till** för att slutföra det här steget.
 
 ### <a name="create-shopify-plus-test-user"></a>Skapa Shopify plus-test användare
 
-I det här avsnittet skapar du en användare som heter B. Simon i Shopify plus. Arbeta med [Shopify plus support teamet](mailto:plus-user-management@shopify.com) för att lägga till användarna i Shopify plus-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i Shopify plus. Gå tillbaka till avsnittet **användare** och Lägg till en användare genom att ange deras e-post och behörigheter. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="enforce-saml-authentication"></a>Framtvinga SAML-autentisering
+
+> [!NOTE]
+> Vi rekommenderar att du testar integrationen genom att använda enskilda användare innan du använder dem på ett brett spektrum.
+
+Enskilda användare:
+1. Gå till en enskild användares sida i Shopify plus med en e-postdomän som hanteras av Azure AD och verifieras i Shopify plus.
+1. I avsnittet SAML-autentisering väljer du **Redigera**, Välj **obligatoriskt**och välj sedan **Spara**.
+1. Testa att den här användaren kan logga in via idP-initierade och SP-initierade flöden.
+
+För alla användare under en e-postdomän:
+1. Gå tillbaka till sidan **säkerhet** .
+1. Välj **krävs** för inställningen för SAML-autentisering. Detta tillämpar SAML för alla användare med den e-postdomänen över Shopify plus.
+1. Välj **Spara**.
+
+> [!IMPORTANT]
+> Att aktivera SAML för alla användare under en e-postdomän påverkar alla användare som använder det här programmet. Användare kan inte logga in med hjälp av sin vanliga inloggnings sida. De kommer bara att kunna komma åt appen via Azure Active Directory. Shopify tillhandahåller inte en inloggnings-URL för säkerhets kopiering där användarna kan logga in med sitt normala användar namn och lösen ord. Du kan kontakta Shopify-supporten om du vill inaktivera SAML om det behövs.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -155,7 +174,7 @@ När du klickar på panelen Shopify plus i åtkomst panelen, bör du loggas in a
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

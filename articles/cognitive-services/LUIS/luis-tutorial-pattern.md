@@ -2,19 +2,18 @@
 title: 'Självstudie: mönster – LUIS'
 description: Använd mönster för att öka avsikt och enhets förutsägelse samtidigt som du ger färre exempel yttranden i den här självstudien. Mönstret anges som en mall uttryck exempel som innehåller syntax för att identifiera entiteter och text som kan ignoreras.
 ms.topic: tutorial
-ms.date: 05/07/2020
-ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.date: 07/06/2020
+ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592924"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039508"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudie: Lägg till vanliga mönster mal len uttryck format för att förbättra förutsägelser
 
 I den här självstudien använder du mönster för att öka avsikt och enhets förutsägelse, vilket gör att du kan ange färre exempel yttranden. Mönstret är en mall som uttryck tilldelas till en avsikt, som innehåller syntax för att identifiera entiteter och text som kan ignoreras.
 
-**I de här självstudierna får du lära dig att**
+**I den här guiden får du lära dig att:**
 
 > [!div class="checklist"]
 > * Skapa ett mönster
@@ -37,14 +36,12 @@ Ett mönster används som en kombination av text matchning och maskin inlärning
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importera exempel App och klon till ny version
 
-Använd följande steg:
+Gör så här:
 
-1.  Ladda ned och spara [app-JSON-filen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Ladda ned och spara [app-JSON-filen](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
-1. Importera JSON till en ny app i Luis- [portalen](https://www.luis.ai). På sidan **Mina appar** väljer du **+ ny app för konversation**och väljer sedan **Importera som JSON**. Välj den fil som du laddade ned i föregående steg.
-
-1. Välj den aktiva versionen på fliken **versioner** i avsnittet **Hantera** och välj sedan **klona**. Namnge den klonade versionen `patterns` . Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
+1. Importera JSON till en ny app i Luis- [portalen](https://www.luis.ai). På sidan **Mina appar** väljer du **+ ny app för konversation**och väljer sedan **Importera som JSON**. Välj den fil som du laddade ned i föregående steg, namnge appen, `Patterns tutorial` .
 
 ## <a name="create-new-intents-and-their-utterances"></a>Skapa nya avsikter och deras yttranden
 
@@ -67,8 +64,6 @@ De två avsikterna hittar chefen eller chefens direkt rapporter baserat på uttr
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    Oroa dig inte om keyPhrase-entiteten är märkt i yttranden för avsikten i stället för medarbetarentiteten. Båda förutsägs korrekt i rutan Text och i slutpunkten.
 
 1. Välj **Intents** (Avsikter) i det vänstra navigeringsfältet.
 
@@ -109,50 +104,50 @@ De två avsikterna hittar chefen eller chefens direkt rapporter baserat på uttr
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -171,9 +166,9 @@ De två avsikterna hittar chefen eller chefens direkt rapporter baserat på uttr
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -190,32 +185,28 @@ De två avsikterna hittar chefen eller chefens direkt rapporter baserat på uttr
     }
     ```
 
-Poängen för de två främsta syftena är nära men den högsta avsikten är inte märkbart hög (över 60%) och är inte tillräckligt långt än nästa avsikts resultat.
+Rätt Top-avsikt förväntades, `OrgChart-Manager` men poängen är inte över 70% och är inte tillräckligt lång för nästa högsta avsikt. Använd mönster för att göra den korrekta avsiktens poäng betydligt högre procentuellt och längre ifrån den näst högsta poängen.
 
-Eftersom LUIS-utbildningen inte är exakt samma gång varje gång (det finns en variant av variationen) kan de två främsta poängen inverteras vid nästa utbildning. Resultatet är att fel avsikt kan returneras.
-
-Använd mönster för att göra den korrekta avsiktens poäng betydligt högre procentuellt och längre ifrån den näst högsta poängen.
-
-Lämna det här andra webbläsarfönstret öppet. Du använder det igen senare i den här kursen.
+Lämna det här andra webbläsarfönstret öppet. Du kommer att använda den igen senare i självstudien.
 
 ## <a name="template-utterances"></a>Mallyttranden
-På grund av typen av mänsklig resurs ämnes domän finns det några vanliga sätt att fråga om medarbetar relationer i organisationer. Till exempel:
+På grund av typen av mänsklig resurs ämnes domän finns det några vanliga sätt att fråga om medarbetar relationer i organisationer. Ett exempel:
 
 |Yttranden|
 |--|
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-Dessa yttranden ligger för nära varandra för att fastställa den kontextuella unikheten hos respektive yttrande utan att ge många yttrandeexmpel. Genom att lägga till ett mönster för en avsikt lär sig LUIS vanliga yttrandemönster för en avsikt utan att ge många yttrandeexempel.
+Dessa yttranden är för nära för att fastställa den sammanhangsbaserade unika kontexten för var och en utan att tillhandahålla _många_ uttryck-exempel. Genom att lägga till ett mönster för ett avsikts sätt lär sig LUIS vanliga uttryck-mönster för en avsikt utan att du behöver tillhandahålla många uttryck-exempel.
 
 Exempel på mallyttranden för den här avsikten är:
 
 |Exempel på mallyttranden|syntaxbetydelse|
 |--|--|
-|`Who does {Employee} report to[?]`|utbytbara`{Employee}`<br>Ignorera`[?]`|
-|`Who reports to {Employee}[?]`|utbytbara`{Employee}`<br>Ignorera`[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|utbytbara`{EmployeeListEntity}`<br>Ignorera`[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|utbytbara`{EmployeeListEntity}`<br>Ignorera`[?]`|
 
-Syntaxen `{Employee}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Valfri syntax, `[?]` , markerar ord eller [interpunktion](luis-reference-application-settings.md#punctuation-normalization) som är valfria. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
+Syntaxen `{EmployeeListEntity}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Valfri syntax, `[?]` , markerar ord eller [interpunktion](luis-reference-application-settings.md#punctuation-normalization) som är valfria. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
 
 När syntaxen ser ut som ett reguljärt uttryck är det inte ett reguljärt uttryck. Endast syntax inom klamrar, `{}`, och hakparentes, `[]`, stöds. De kan kapslas upp till två nivåer.
 
@@ -233,25 +224,25 @@ För att ett mönster ska matchas med en uttryck måste _först_ entiteterna i u
 
     |Mallyttranden|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
 
-    Dessa mallar yttranden inkluderar entiteten **anställda** med klammerns notation.
+    Dessa mallar yttranden inkluderar entiteten **EmployeeListEntity** med klammerns notation.
 
 1. Medan du fortfarande finns på sidan mönster väljer du **schema för organisations schema** , och anger sedan följande mall yttranden:
 
     |Mallyttranden|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Frågeslutpunkt där mönster används
 
@@ -261,7 +252,7 @@ Nu när mönstren har lagts till i appen, träna, publicera och fråga appen på
 
 1. När publiceringen är klar växlar du tillbaka till fliken slut punkts-URL i webbläsarens flik.
 
-1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med:`Who is the boss of Jill Jones?`
+1. Gå till slutet av webb adressen i adress fältet och kontrol lera att din fråga fortfarande `Who is the boss of Jill Jones?` skickar in URL: en för en ny förutsägelse.
 
     ```json
     {
@@ -270,50 +261,50 @@ Nu när mönstren har lagts till i appen, träna, publicera och fråga appen på
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -332,9 +323,9 @@ Nu när mönstren har lagts till i appen, träna, publicera och fråga appen på
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -351,7 +342,7 @@ Nu när mönstren har lagts till i appen, träna, publicera och fråga appen på
     }
     ```
 
-Avsikten med avsikten är nu avsevärt mer tryggt och den näst högsta avsikten är betydligt lägre. Dessa två avsikter vänder inte sig på vippa vid träning.
+Avsikten med avsikten är nu avsevärt mer tryggt och den näst högsta avsikten är mycket låg. Dessa två avsikter vänder inte sig på vippa vid träning.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Arbeta med valfri text och fördefinierade entiteter
 
@@ -372,8 +363,8 @@ Exempel mal yttranden som tillåter denna valfria information:
 
 |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
 |:--|:--|
-|OrgChart-Manager (Organisationsschema-Chef)|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager (Organisationsschema-Chef)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager (Organisationsschema-Chef)|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager (Organisationsschema-Chef)|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria texten enkel att lägga till i mallyttrandet och kan kapslas upp till en andra nivå, `[[]]`, och innehåller entiteter eller text.
@@ -383,9 +374,10 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
 
 **Fråga: Varför är inte fördefinierat tal ett mallyttrande om 3 mars förutsägs både som talet `3` och datumet `March 3`?** Mallyttrandet använder kontextuellt ett datum, antingen bokstavligen som i `March 3` eller abstraheras som `in a month`. Ett datum innehåller ett tal men ett tal kanske inte nödvändigtvis ses som ett datum. Använd alltid entiteten som bäst representerar den typ du vill ska returneras i resultatet för förutsägelse-JSON.
 
-**Fråga: Hur är det med dåligt uttryckta yttranden som `Who will {Employee}['s] manager be on March 3?`?** Grammatiskt olika verbtempus som det här där `will` och `be` är åtskilda måste vara ett nytt mallyttrande. Det befintliga mallyttrandet kommer inte att matcha det. Avsikten för yttrandet har inte ändrats men ordets placering i yttrandet har ändrats. Den här ändringen påverkar förutsägelsen i LUIS. Du kan [gruppera och eller](#use-the-or-operator-and-groups) verben för att kombinera dessa yttranden.
+**Fråga: Hur är det med dåligt uttryckta yttranden som `Who will {EmployeeListEntity}['s] manager be on March 3?`?** Grammatiskt olika verbtempus som det här där `will` och `be` är åtskilda måste vara ett nytt mallyttrande. Det befintliga mallyttrandet kommer inte att matcha det. Avsikten för yttrandet har inte ändrats men ordets placering i yttrandet har ändrats. Den här ändringen påverkar förutsägelsen i LUIS. Du kan [gruppera och eller](#use-the-or-operator-and-groups) verben för att kombinera dessa yttranden.
 
-**Kom ihåg: entiteter hittas först, sedan matchas mönstret.**
+> [!CAUTION]
+> **Kom ihåg: entiteter hittas först, sedan matchas mönstret.**
 
 ### <a name="add-new-pattern-template-utterances"></a>Lägga till nya mallyttranden för mönster
 
@@ -393,9 +385,9 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
 
     |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
     |--|--|
-    |OrgChart-Manager (Organisationsschema-Chef)|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager (Organisationsschema-Chef)|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager (Organisationsschema-Chef)|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager (Organisationsschema-Chef)|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 2. Välj **träna** i navigerings fältet för att träna appen.
 
@@ -403,7 +395,7 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
 
 4. Ange flera testyttranden för att verifiera att mönstret matchas och avsiktspoängen är mycket höga.
 
-    När du har angett det första yttrandet väljer du **Inspect** (Granska) under resultatet så att du kan se alla förutsägelseresultat. Varje uttryck bör ha ett **organisations schema som organisations chef** och ska extrahera värdena för enheterna för anställda och datetimeV2.
+    När du har angett det första yttrandet väljer du **Inspect** (Granska) under resultatet så att du kan se alla förutsägelseresultat. Varje uttryck bör ha ett **schema för organisations chef** och ska extrahera värdena för `EmployeeListEntity` `datetimeV2` entiteterna och.
 
     |Yttrande|
     |--|
@@ -425,18 +417,21 @@ Användningen av mönster har angetts:
 
 Flera av de tidigare mallarna yttranden är mycket nära. Använd **gruppen** `()` och **eller** `|` syntaxen för att minska mallen yttranden.
 
-Följande 2-mönster kan kombineras i ett enda mönster med hjälp av gruppen `()` och eller `|` syntaxen.
+Följande två mönster kan kombineras i ett enda mönster med hjälp av gruppen `()` och eller `|` syntaxen.
 
 |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
 |--|--|
-|OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager (Organisationsschema-Chef)|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager (Organisationsschema-Chef)|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 Den nya mallens uttryck kommer att vara:
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 Detta använder en **grupp** som omger de nödvändiga verben och de valfria `in` och `on` med en **eller** ett rör mellan dem.
+
+> [!NOTE]
+> När du använder _or_ -symbolen, `|` (pipe), måste du separera pipe-symbolen med ett blank steg före och efter den i exempel mal len.
 
 1. På sidan **mönster** väljer du filtret **organisations hanterare** . Begränsa listan genom att söka efter `manager` .
 
@@ -444,7 +439,7 @@ Detta använder en **grupp** som omger de nödvändiga verben och de valfria `in
 
 1. Ändra mallyttrandet till: 
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
 2. Välj **träna** i navigerings fältet för att träna appen.
 

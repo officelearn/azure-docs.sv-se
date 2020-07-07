@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fef2d7e3afb0cdda3c3c3e2506b39ba542e0760
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
-ms.translationtype: MT
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956893"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026839"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Akamai
 
@@ -79,7 +78,7 @@ Akamai EAA-programmet konfigureras separat på Azure AD-portalen. Administratör
 
 • Du kan definiera enskilda CA-principer
 
-• Alla appar visas på panelen 0365 Rutmärket och myApps.microsoft.com.
+• Alla appar visas på panelen O365 Rutmärket och myApps.microsoft.com.
 
 **Nack delar**:
 
@@ -87,7 +86,7 @@ Akamai EAA-programmet konfigureras separat på Azure AD-portalen. Administratör
 
 ![Integrations scenario 2](./media/header-akamai-tutorial/scenario2.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 

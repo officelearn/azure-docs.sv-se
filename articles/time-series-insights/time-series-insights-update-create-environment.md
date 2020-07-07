@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ccb9c7aff6eb59c4883bc3218e205fb7877e86e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 08649a537ac8f9de5f444ca3e4fe5ed509910294
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618388"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045849"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights för hands versions miljö
 
@@ -84,7 +83,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights för h
 
 1. I fönstret **skapa Time Series Insights miljö** går du till fliken **grundläggande** och anger följande parametrar:
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | ---|
     | **Miljönamn** | Ange ett unikt namn för förhands gransknings miljön för Azure Time Series Insights. |
     | **Prenumeration** | Ange den prenumeration där du vill skapa Azure Time Series Insights för hands versions miljön. Ett bra tips är att använda samma prenumeration som resten av IoT-resurserna som skapas av enhets simulatorn. |
@@ -104,7 +103,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights för h
 
 1. Ange följande parametrar på fliken **händelse källa** :
 
-   | Parameter | Action |
+   | Parameter | Åtgärd |
    | --- | --- |
    | **Vill du skapa en händelse källa?** | Välj **Ja**.|
    | **Namn** | Ange ett unikt värde för händelse källans namn. |
@@ -156,7 +155,7 @@ Nu när du har distribuerat Time Series Insights miljön börjar du strömma dat
 
 1. Välj **+ ny simulering**. Ange de parametrar som krävs efter att installations sidan för **simulering** har lästs in.
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Namn** | Ange ett unikt namn för en simulator. |
     | **Beskrivning** | Ange en definition. |
@@ -204,7 +203,7 @@ I det här avsnittet utför du grundläggande analys på dina tidsseriedata med 
 
 ## <a name="define-and-apply-a-model"></a>Definiera och tillämpa en modell
 
-I det här avsnittet tillämpar du en modell för att strukturera data. För att slutföra modellen definierar du typer, hierarkier och instanser. Läs mer om data modellering i [tids serie modellen](./time-series-insights-update-tsm.md).
+I det här avsnittet tillämpar du en modell för att strukturera data. För att slutföra modellen definierar du typer, hierarkier och instanser. Läs mer om data modellering i [tids serie modellen](./concepts-model-overview.md).
 
 1. I utforskaren väljer du fliken **Modell**:
 
@@ -214,7 +213,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
 1. Ange följande parametrar:
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | ---|
     | **Namn** | Ange **hiss** |
     | **Beskrivning** | Ange **Detta är en typ definition för hissen** |
@@ -223,30 +222,30 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
    Välj **+ Lägg till variabel** och fyll i följande värden för den första variabeln i hiss typen. Du kommer att skriva tre variabler totalt.
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Namn** | Ange **Genomsnittlig temperatur**. |
-    | **Metod** | Välj **numerisk** |
+    | **Variant** | Välj **numerisk** |
     | **Värde** | Välj från förval: Välj **temperatur (dubbel)**. <br /> Obs! det kan ta några minuter innan **värdet** fylls i automatiskt efter att Azure Time Series Insights för hands versionen börjar ta emot händelser.|
     | **Sammansättningsåtgärd** | Expandera **Avancerade alternativ**. <br /> Välj **AVG**. |
 
     Välj **Använd**. Sedan, **+ Lägg till variabel** igen och ange följande värden:
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Namn** | Ange **genomsnittlig vibration**. |
-    | **Metod** | Välj **numerisk** |
+    | **Variant** | Välj **numerisk** |
     | **Värde** | Välj från förval: Välj **vibrationer (dubbel)**. <br /> Obs! det kan ta några minuter innan **värdet** fylls i automatiskt efter att Azure Time Series Insights för hands versionen börjar ta emot händelser.|
     | **Sammansättningsåtgärd** | Expandera **Avancerade alternativ**. <br /> Välj **AVG**. |
 
     Välj **Använd**. Sedan, **+ Lägg till variabel** igen och ange följande värden för den tredje och sista variabeln:
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Namn** | Ange **basyta**. |
-    | **Metod** | Välj **kategoriska** |
+    | **Variant** | Välj **kategoriska** |
     | **Värde** | Välj från förval: Välj **basyta (dubbel)**. <br /> Obs! det kan ta några minuter innan **värdet** fylls i automatiskt efter att Azure Time Series Insights för hands versionen börjar ta emot händelser.|
-    | **Kategorier** | <span style="text-decoration: underline">Etikett </span>   -  <span style="text-decoration: underline">värden</span> <br /> Lägre: 1, 2, 3, 4 <br /> Mellan: 5, 6, 7, 8, 9 <br /> Versal: 10, 11, 12, 13, 14, 15 |
+    | **Kategorier** | <span style="text-decoration: underline">Etikett</span>   -  <span style="text-decoration: underline">Värden</span> <br /> Lägre: 1, 2, 3, 4 <br /> Mellan: 5, 6, 7, 8, 9 <br /> Versal: 10, 11, 12, 13, 14, 15 |
     | **Standard kategori** | Ange **okänd** |
 
     [![Lägg till typer av variabler.](media/v2-update-provision/tsi-add-type-variables.png)](media/v2-update-provision/tsi-add-type-variables.png#lightbox)
@@ -261,7 +260,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
    
    I fönstret **Redigera hierarki** anger du följande parametrar:
 
-   | Parameter | Action |
+   | Parameter | Åtgärd |
    | --- | ---|
    | **Namn** | Ange **Platshierarkin**. |
    |**Nivåer**| Ange **land** som namn på den första nivån <br> Välj **+ Lägg till nivå** <br> Ange **stad** för den andra nivån och välj sedan **+ Lägg till nivå** <br> Ange **build** som namn på den tredje och den slutgiltiga nivån |
@@ -272,7 +271,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
 1. Navigera till **instanser**. Under **åtgärder** längst till höger, och välj Penn ikonen för att redigera den första instansen med följande värden:
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Typ** | Välj **hiss**. |
     | **Namn** | Ange **hiss 1**|
@@ -280,10 +279,10 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     Navigera till **instans fälten** och ange följande värden:
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Land/region** | Ange **USA** |
+    | **Land** | Ange **USA** |
     | **Fax** | Ange **Seattle** |
     | **Byggnad** | Ange **områdes nål** |
 
@@ -293,25 +292,25 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     **För hiss 2:**
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Typ** | Välj **hiss**. |
     | **Namn** | Ange **hiss 2**|
     | **Beskrivning** | Ange **instansen för hiss 2** |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Land/region** | Ange **USA** |
+    | **Land** | Ange **USA** |
     | **Fax** | Ange **Seattle** |
     | **Byggnad** | Ange **Pacific Science Center** |
 
     **För hiss 3:**
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Typ** | Välj **hiss**. |
     | **Namn** | Ange **hiss 3**|
     | **Beskrivning** | Ange **instansen för hiss 3** |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Land/region** | Ange **USA** |
+    | **Land** | Ange **USA** |
     | **Fax** | Ange **New York** |
     | **Byggnad** | Ange **Empire-tillstånds byggnad** |
 
@@ -349,15 +348,15 @@ I den här självstudiekursen lärde du dig att:
 
 Nu när du vet hur du skapar din egen Azure Time Series Insights-miljö (förhandsversion) kan du lära dig mer om viktiga begrepp i Azure Time Series Insights.
 
-Läs om lagringskonfiguration för Azure Time Series Insights:
+Läs om Azure Time Series Insights:
 
 > [!div class="nextstepaction"]
-> [Lagring och inkommande för Azure Time Series Insights (förhandsversion)](./time-series-insights-update-storage-ingress.md)
+> [Översikt över Azure Time Series Insights data inmatning](./concepts-ingestion-overview.md)
 
 Läs mer om Time Series-modeller:
 
 > [!div class="nextstepaction"]
-> [Datamodellering för Azure Time Series Insights (förhandsversion)](./time-series-insights-update-tsm.md)
+> [Datamodellering för Azure Time Series Insights (förhandsversion)](./concepts-model-overview.md)
 
 Lär dig mer om hur du ansluter din miljö till Power BI
 

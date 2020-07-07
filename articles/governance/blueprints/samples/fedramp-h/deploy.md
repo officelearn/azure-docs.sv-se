@@ -3,12 +3,11 @@ title: Distribuera FedRAMP High skiss-exempel
 description: Distribuera steg för FedRAMP-exemplet med hög skiss, inklusive information om skiss artefakts parametrar.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 96b033c153789b3edbfb6a197981fe3d56f12076
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
-ms.translationtype: MT
+ms.openlocfilehash: c4b2915222bc2d1772a2772c719d5d6cc4b59657
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517142"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044812"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Distribuera FedRAMP-exemplet för hög skiss
 
@@ -91,10 +90,10 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 I följande tabell visas en lista över Skissernas artefakt parametrar:
 
-|Artefakt namn|Artefakt typ|Parameternamn|Description|
+|Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
 |\[För hands version \] : granska FedRAMP hög kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Log Analytics arbetsyte-ID som virtuella datorer ska konfigureras för|Detta är ID (GUID) för Log Analytics arbets ytan som de virtuella datorerna ska konfigureras för.|
-|\[För hands version \] : granska FedRAMP hög kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[För hands version \] : granska FedRAMP hög kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[För hands version \] : granska FedRAMP hög kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över användare som ska undantas från gruppen Administratörer för virtuella Windows-datorer|En semikolonavgränsad lista med medlemmar som ska uteslutas i den lokala gruppen Administratörer. T. ex. administratör; Mina Användare1; myUser2|
 |\[För hands version \] : granska FedRAMP hög kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över användare som ska ingå i administratörs gruppen för en virtuell Windows-dator|En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. T. ex. administratör; Mina Användare1; myUser2|
 |\[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Log Analytics arbets yta för Linux VM Scale Sets (VMSS)|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|

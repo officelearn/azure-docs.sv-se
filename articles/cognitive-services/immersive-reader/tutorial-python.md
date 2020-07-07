@@ -4,23 +4,22 @@ titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du ett python-program som startar den fördjupade läsaren.
 services: cognitive-services
 author: dylankil
-manager: nitinme
+manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
 ms.custom: tracking-python
-ms.openlocfilehash: fb95e21f9df5cf5eded03ea51f56bab86bbbecb3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.openlocfilehash: ea9e6e1f06bacd28a4e9894039de824c3a5b4af4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609139"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044948"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Självstudie: starta den fördjupade läsaren med python-exempelprojektet
 
-I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett python-webbprogram som startar den fördjupade läsaren. I de här självstudierna får du lära dig att
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett python-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en python-webbapp med pip, kolv, Jinja och virtuell miljö med ett exempel projekt
@@ -217,7 +216,7 @@ sudo nano /etc/paths
 - Gå till slutet av filen och ange den sökväg som du vill lägga till som sista objekt i listan, `PATH=$PATH:/usr/local/bin` t. ex..
 - Tryck på CTRL-x för att avsluta.
 - Ange `Y` för att spara den ändrade bufferten.
-- Det är allt. Testa det genom att skriva följande i nytt terminalfönster: `echo $PATH` .
+- Klart! Testa det genom att skriva följande i nytt terminalfönster: `echo $PATH` .
 
 Installations flaska.
 

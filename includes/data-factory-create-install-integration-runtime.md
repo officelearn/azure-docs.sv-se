@@ -4,12 +4,11 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 20397339c1675686f2a670dc60899bfd4bd4c3ba
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76989100"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050271"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
@@ -131,7 +130,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
     f. Ange användarnamnet.
 
-    g. Ange lösen ordet som är kopplat till för användar namnet.
+    ex. Ange lösen ordet som är kopplat till för användar namnet.
 
     h. Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server. Du ser en grön bockmarkering om anslutningen är klar. Om anslutningen inte lyckats får du ett felmeddelande. Åtgärda eventuella problem och se till att Integration Runtime kan ansluta till SQL Server.    
 

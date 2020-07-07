@@ -6,12 +6,11 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 80692cce114b18148340cfbe9070123c6990b708
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185055"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055791"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Självstudie: Använd Resource Manager-mal len referens
 
@@ -42,7 +41,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/) är en lagrings plats för ARM-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Skapa ett standardlagringskonto). Mallen definierar en Azure Storage-kontoresurs.
 
-1. Från Visual Studio **Code väljer**>du**Öppna fil**.
+1. Från Visual Studio **Code väljer du** > **Öppna fil**.
 1. I **Filnamn** klistrar du in följande URL:
 
     ```url
@@ -50,7 +49,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     ```
 
 1. Välj **Öppna** för att öppna filen.
-1. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy. JSON** på den lokala datorn.
+1. Välj **Arkiv** > **Spara som** för att spara filen som **azuredeploy.jspå** den lokala datorn.
 
 ## <a name="understand-the-schema"></a>Förstå schemat
 
@@ -75,7 +74,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="find-the-template-reference"></a>Leta upp mallreferensen
 
-1. Bläddra till [referens för Azure-mall](https://docs.microsoft.com/azure/templates/).
+1. Bläddra till [referens för Azure-mall](/azure/templates/).
 1. I rutan **Filtrera efter rubrik** anger du **lagrings konton**och väljer de första **lagrings kontona** under **referens > lagring**.
 
     ![Resource Manager, mallreferens, lagringskonto](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)

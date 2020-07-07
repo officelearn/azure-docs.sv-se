@@ -7,12 +7,11 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bf200a8c7da6910f9d844c9b72e926e8103df6bc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391799"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027891"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Koda med Azure Digitals dubbla API: er
 
@@ -285,6 +284,7 @@ Lägg till en ny `using` instruktion överst eftersom du behöver den inbyggda .
 
 ```csharp
 using System.Text.Json;
+using Azure.DigitalTwins.Core.Serialization;
 ```
 
 Lägg sedan till följande kod i slutet av- `Main` metoden för att skapa och initiera tre digitala dubbla, baserade på den här modellen.
@@ -315,7 +315,7 @@ Observera att det inte uppstår något fel när de dubblarna skapas den andra g�
 
 Sedan kan du skapa **relationer** mellan de dubbla som du har skapat, för att ansluta dem till ett **dubbel diagram**. [Dubbla grafer](concepts-twins-graph.md) används för att representera hela miljön.
 
-Om du vill kunna skapa relationer lägger du till en `using` instruktion för Relations bas typen i SDK:
+Om du vill kunna skapa relationer lägger du till en `using` instruktion för Relations bastypen i SDK: hoppa över detta om det redan har lagts till.
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```

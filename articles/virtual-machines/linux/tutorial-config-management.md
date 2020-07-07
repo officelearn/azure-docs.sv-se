@@ -15,12 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: cac17d15d792622d9a26ff7c228ce1f0ba76bbc4
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239296"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027604"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Linux-dator i Azure
 
@@ -29,7 +28,7 @@ Med Azure [ändringsspårning](../../automation/change-tracking.md) kan du enkel
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Hantera Windows-uppdateringar
+> * Hantera Linux-uppdateringar
 > * Övervaka ändringar och inventering
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell

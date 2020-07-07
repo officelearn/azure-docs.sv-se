@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: c2972d13b25d167c2144c4f66e36822e85e29690
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321006"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045458"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Självstudie: indexera Azure SQL-data med .NET SDK
 
@@ -253,4 +252,4 @@ Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser
 Nu när du har lärt dig grunderna i SQL Database indexering, tar vi en närmare titt på indexerings konfigurationen.
 
 > [!div class="nextstepaction"]
-> [Konfigurera en SQL Database-indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Konfigurera en SQL Database indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

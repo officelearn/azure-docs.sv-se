@@ -4,14 +4,13 @@ description: Hitta Azure CLI-exempel för några vanliga App Service scenarier. 
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254505"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054550"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>CLI-exempel för Azure App Service
 
@@ -25,7 +24,8 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | [Skapa en app med kontinuerlig distribution från GitHub](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app med kontinuerlig publicering från en GitHub-lagringsplats som du äger. |
 | [Skapa en app och distribuera kod från en lokal Git-lagringsplats](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app och konfigurerar kodöverföring från en lokal Git-lagringsplats. |
 | [Skapa en app och distribuera kod till en mellanlagringsmiljö](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app med ett distributionsfack för att mellanlagra kodändringar. |
-| [Skapa en ASP.NET Core-app i en Docker-container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app i Linux och läser in en Docker-avbildning från Docker Hub. |
+| [Skapa en ASP.NET Core-app i en Docker-container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app i Linux och läser in en Docker-avbildning från Docker Hub. |
+| [Skapa en app och exponera den med en privat slut punkt](./scripts/cli-deploy-privateendpoint.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service app och en privat slut punkt |
 |**Konfigurera app**||
 | [Mappa en anpassad domän till en app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och mappar ett anpassat domännamn till den. |
 | [Binda ett anpassat TLS/SSL-certifikat till en app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och binder TLS/SSL-certifikatet för ett anpassat domän namn till den. |

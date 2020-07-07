@@ -3,12 +3,11 @@ title: Distribuera HIPAA HITRUST skiss-exempel
 description: Distribuera steg för HIPAA HITRUST skiss-exemplet inklusive information om skiss artefakt parameter.
 ms.date: 12/03/2019
 ms.topic: sample
-ms.openlocfilehash: a4277dbbf40a9ab8651598203e9279bca00eb164
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: b3101d67e281f3b613b95e3f3ef5f620ae44cec7
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75472305"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044846"
 ---
 # <a name="deploy-the-hipaa-hitrust-blueprint-sample"></a>Distribuera HIPAA HITRUST skiss-exemplet
 
@@ -19,7 +18,7 @@ För att distribuera HIPAA HITRUST skiss-exemplet måste följande steg vidtas:
 > - Markera din kopia av exemplet som **publicerad**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
@@ -62,7 +61,7 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundläggande inställningar
+   - Grunderna
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
      - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
@@ -93,14 +92,14 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Linux-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget |En tom matris kan användas för att ange inga valfria parametrar:`[]` |
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget |En tom matris kan användas för att ange inga valfria parametrar:`[]` |
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Windows-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[För\]hands version: granska HiTRUST HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Log Analytics arbetsyte-ID som virtuella datorer ska konfigureras för |Detta är ID (GUID) för Log Analytics arbets ytan som de virtuella datorerna ska konfigureras för. |
-|\[För\]hands version: granska HiTRUST HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över resurs typer som ska ha diagnostiska loggar aktiverade |Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
-|\[För\]hands version: granska HiTRUST HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Administratörsgruppen |Grupp. Exempel: `Administrator; myUser1; myUser2` |
-|\[För\]hands version: granska HiTRUST HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över användare som ska ingå i administratörs gruppen för en virtuell Windows-dator |En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. Exempel: `Administrator; myUser1; myUser2` |
+|\[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Linux-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget |En tom matris kan användas för att ange inga valfria parametrar:`[]` |
+|\[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget |En tom matris kan användas för att ange inga valfria parametrar:`[]` |
+|\[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Log Analytics arbets yta för virtuella Windows-datorer |Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[För hands version \] : granska HiTRUST HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Log Analytics arbetsyte-ID som virtuella datorer ska konfigureras för |Detta är ID (GUID) för Log Analytics arbets ytan som de virtuella datorerna ska konfigureras för. |
+|\[För hands version \] : granska HiTRUST HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över resurs typer som ska ha diagnostiska loggar aktiverade |Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[För hands version \] : granska HiTRUST HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Administratörsgruppen |Grupp. Exempel: `Administrator; myUser1; myUser2` |
+|\[För hands version \] : granska HiTRUST HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav |Principtilldelning |Lista över användare som ska ingå i administratörs gruppen för en virtuell Windows-dator |En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. Exempel: `Administrator; myUser1; myUser2` |
 |Distribuera Avancerat skydd på lagrings konton |Principtilldelning |Verkan |Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md). |
 |Distribuera granskning på SQL-servrar |Principtilldelning |Värdet i dagar för kvarhållningsperioden (0 anger obegränsad kvarhållning) |Retentions dagar (valfritt, _180_ dagar om inget anges) |
 |Distribuera granskning på SQL-servrar |Principtilldelning |Resurs grupp namn för lagrings konto för SQL Server-granskning |Granskning skriver databas händelser till en Gransknings logg i ditt Azure Storage konto (ett lagrings konto skapas i varje region där ett SQL Server skapas som delas av alla servrar i regionen). Viktigt – för att granskningen ska fungera korrekt tar du inte bort eller byter namn på resurs gruppen eller lagrings kontona. |
@@ -112,8 +111,8 @@ Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 Nu när du har granskat stegen för att distribuera HITRUST HIPAA-exemplet kan du gå till följande artiklar för att lära dig mer om översikt och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [HiTRUST HIPAA-ritningar – översikt](./index.md)
-> [HiTRUST HIPAA ritningar-kontroll mappning](./control-mapping.md)
+> [HiTRUST HIPAA-ritningar – översikt](./index.md) 
+>  [HiTRUST HIPAA-ritningar-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

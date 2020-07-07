@@ -14,12 +14,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5527fbfc05eb5aadf5c5775fb9987a88d5ba81bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 8e5c03876de8ca078c6e89b8ca101602e4e4cf52
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460451"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045747"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer med Azure CLI
 
@@ -38,7 +37,7 @@ Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.
 
 ## <a name="vm-networking-overview"></a>Nätverksöversikt för VM
 
-Med virtuella Azure-nätverk skyddas nätverksanslutningar mellan virtuella datorer, Internet och andra Azure-tjänster, till exempel Azure SQL-databas. Virtuella nätverk är uppdelade i logiska segment som kallas undernät. Undernät används för att kontrollera nätverksflödet och som en säkerhetsgräns. När du distribuerar en virtuell dator ingår vanligtvis ett virtuellt nätverksgränssnitt som är anslutet till ett undernät.
+Virtuella Azure-nätverk möjliggör säkra nätverks anslutningar mellan virtuella datorer, Internet och andra Azure-tjänster, till exempel Azure SQL Database. Virtuella nätverk är uppdelade i logiska segment som kallas undernät. Undernät används för att kontrollera nätverksflödet och som en säkerhetsgräns. När du distribuerar en virtuell dator ingår vanligtvis ett virtuellt nätverksgränssnitt som är anslutet till ett undernät.
 
 I den här självstudiekursen skapas följande virtuella nätverksresurser:
 

@@ -3,12 +3,11 @@ title: Exempel kontroller för ISO 27001 ASE/SQL-arbetsbelastning
 description: Styra mappningen av exempel på arbets belastningen ISO 27001 App Service-miljön/SQL Database till Azure Policy och RBAC.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 6311d5090c884c70bded7fcf754bc968a5b47b32
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: 518c6b86ac658273d428a328b433b35d667d7056
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918608"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044761"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Kontroll mappning av exemplet ISO 27001 ASE/SQL arbets belastnings skiss
 
@@ -28,7 +27,7 @@ Att ha bara en Azure-prenumerations ägare tillåter inte administrativ redundan
 
 ## <a name="a821-classification-of-information"></a>En. 8.2.1-klassificering av information
 
-Azures [tjänst för SQL sårbarhets bedömning](/azure/sql-database/sql-vulnerability-assessment) kan hjälpa dig att identifiera känsliga data som lagras i dina databaser och innehåller rekommendationer för att klassificera dessa data. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition för att granska att sårbarheter som identifieras under genomsökningen av SQL sårbarhets bedömning åtgärdas.
+Azures [tjänst för SQL sårbarhets bedömning](../../../../azure-sql/database/sql-vulnerability-assessment.md) kan hjälpa dig att identifiera känsliga data som lagras i dina databaser och innehåller rekommendationer för att klassificera dessa data. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition för att granska att sårbarheter som identifieras under genomsökningen av SQL sårbarhets bedömning åtgärdas.
 
 - \[För hands version \] : övervaka resultat av SQL sårbarhets bedömning i Azure Security Center
 

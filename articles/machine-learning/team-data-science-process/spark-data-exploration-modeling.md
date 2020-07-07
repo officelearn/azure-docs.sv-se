@@ -11,12 +11,11 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: d3761977d3234e19f0df24aec45451b234a569e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84332026"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027519"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark
 
@@ -24,7 +23,7 @@ Lär dig hur du använder HDInsight Spark för att träna maskin inlärnings mod
 
 Det här exemplet demonstrerar de olika stegen i [team data science-processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). En delmängd av NYC taxi-resan och biljett 2013-datauppsättningen används för att läsa in, utforska och förbereda data. Sedan kan du använda Spark-MLlib, binära klassificerings-och Regressions modeller för att förutsäga om ett tips kommer att betalas för resan och uppskatta Tip-mängden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver ett Azure-konto och ett Spark 1,6-kluster (eller Spark 2,0) för att slutföra den här genom gången. Mer information om hur du uppfyller dessa krav finns i [Översikt över data vetenskap med Spark på Azure HDInsight](spark-overview.md) . Avsnittet innehåller också en beskrivning av NYC 2013 taxi-data som används här och instruktioner om hur man kör kod från en Jupyter-anteckningsbok i Spark-klustret. 
 
@@ -50,36 +49,37 @@ Om du vill spara modeller eller filer i WASB måste sökvägen anges korrekt. St
 
 I följande kod exempel anges platsen för de data som ska läsas och sökvägen för den modell lagrings katalog som modellens utdata sparas i:
 
+```python
+# SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
 
-    # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
+# LOCATION OF TRAINING DATA
+taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
 
-    # LOCATION OF TRAINING DATA
-    taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
-
-    # SET THE MODEL STORAGE DIRECTORY PATH 
-    # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
-    modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
-
+# SET THE MODEL STORAGE DIRECTORY PATH 
+# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
+modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
+```
 
 ### <a name="import-libraries"></a>Importera bibliotek
 
 Konfigurations krav kräver också att du importerar nödvändiga bibliotek. Ange Spark-kontext och importera nödvändiga bibliotek med följande kod:
 
-    # IMPORT LIBRARIES
-    import pyspark
-    from pyspark import SparkConf
-    from pyspark import SparkContext
-    from pyspark.sql import SQLContext
-    import matplotlib
-    import matplotlib.pyplot as plt
-    from pyspark.sql import Row
-    from pyspark.sql.functions import UserDefinedFunction
-    from pyspark.sql.types import *
-    import atexit
-    from numpy import array
-    import numpy as np
-    import datetime
-
+```python
+# IMPORT LIBRARIES
+import pyspark
+from pyspark import SparkConf
+from pyspark import SparkContext
+from pyspark.sql import SQLContext
+import matplotlib
+import matplotlib.pyplot as plt
+from pyspark.sql import Row
+from pyspark.sql.functions import UserDefinedFunction
+from pyspark.sql.types import *
+import atexit
+from numpy import array
+import numpy as np
+import datetime
+```
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Förinställt Spark-kontext och PySpark MAGICS
 
@@ -107,63 +107,65 @@ Det första steget i data vetenskaps processen är att mata in data som ska anal
 
 Här är koden för data inmatning.
 
-    # INGEST DATA
+```python
+# INGEST DATA
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # IMPORT FILE FROM PUBLIC BLOB
-    taxi_train_file = sc.textFile(taxi_train_file_loc)
+# IMPORT FILE FROM PUBLIC BLOB
+taxi_train_file = sc.textFile(taxi_train_file_loc)
 
-    # GET SCHEMA OF THE FILE FROM HEADER
-    schema_string = taxi_train_file.first()
-    fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
-    fields[7].dataType = IntegerType() #Pickup hour
-    fields[8].dataType = IntegerType() # Pickup week
-    fields[9].dataType = IntegerType() # Weekday
-    fields[10].dataType = IntegerType() # Passenger count
-    fields[11].dataType = FloatType() # Trip time in secs
-    fields[12].dataType = FloatType() # Trip distance
-    fields[19].dataType = FloatType() # Fare amount
-    fields[20].dataType = FloatType() # Surcharge
-    fields[21].dataType = FloatType() # Mta_tax
-    fields[22].dataType = FloatType() # Tip amount
-    fields[23].dataType = FloatType() # Tolls amount
-    fields[24].dataType = FloatType() # Total amount
-    fields[25].dataType = IntegerType() # Tipped or not
-    fields[26].dataType = IntegerType() # Tip class
-    taxi_schema = StructType(fields)
+# GET SCHEMA OF THE FILE FROM HEADER
+schema_string = taxi_train_file.first()
+fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
+fields[7].dataType = IntegerType() #Pickup hour
+fields[8].dataType = IntegerType() # Pickup week
+fields[9].dataType = IntegerType() # Weekday
+fields[10].dataType = IntegerType() # Passenger count
+fields[11].dataType = FloatType() # Trip time in secs
+fields[12].dataType = FloatType() # Trip distance
+fields[19].dataType = FloatType() # Fare amount
+fields[20].dataType = FloatType() # Surcharge
+fields[21].dataType = FloatType() # Mta_tax
+fields[22].dataType = FloatType() # Tip amount
+fields[23].dataType = FloatType() # Tolls amount
+fields[24].dataType = FloatType() # Total amount
+fields[25].dataType = IntegerType() # Tipped or not
+fields[26].dataType = IntegerType() # Tip class
+taxi_schema = StructType(fields)
 
-    # PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
-    taxi_header = taxi_train_file.filter(lambda l: "medallion" in l)
-    taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
-            .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
-                            float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
-                            float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
-
-
-    # CREATE DATA FRAME
-    taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
-
-    # CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
-    taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
-        .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
-        .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
-        .drop('direct_distance').drop('surcharge')\
-        .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
+# PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
+taxi_header = taxi_train_file.filter(lambda l: "medallion" in l)
+taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
+        .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
+                        float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
+                        float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 
 
-    # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
-    taxi_df_train_cleaned.cache()
-    taxi_df_train_cleaned.count()
+# CREATE DATA FRAME
+taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 
-    # REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
-    taxi_df_train_cleaned.registerTempTable("taxi_train")
+# CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
+taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
+    .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
+    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
+    .drop('direct_distance').drop('surcharge')\
+    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+
+# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+taxi_df_train_cleaned.cache()
+taxi_df_train_cleaned.count()
+
+# REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
+taxi_df_train_cleaned.registerTempTable("taxi_train")
+
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+```
 
 **UTDATAPARAMETRAR**
 
@@ -184,43 +186,49 @@ Utdata visualiseras automatiskt när du har kört koden.
 
 Den här frågan hämtar antalet resor per passagerare. 
 
-    # PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
+```sql
+# PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
-    # HIVEQL QUERY AGAINST THE sqlContext
-    %%sql -q -o sqlResults
-    SELECT passenger_count, COUNT(*) as trip_counts 
-    FROM taxi_train 
-    WHERE passenger_count > 0 and passenger_count < 7 
-    GROUP BY passenger_count 
+# HIVEQL QUERY AGAINST THE sqlContext
+%%sql -q -o sqlResults
+SELECT passenger_count, COUNT(*) as trip_counts 
+FROM taxi_train 
+WHERE passenger_count > 0 and passenger_count < 7 
+GROUP BY passenger_count 
+```
 
 Den här koden skapar en lokal data ram från frågans utdata och ritar data. `%%local`Magic skapar en lokal data ram, `sqlResults` som kan användas för att rita med matplotlib. 
 
 > [!NOTE]
 > Detta PySpark Magic används flera gånger i den här genom gången. Om mängden data är stor, bör du prova att skapa en data ram som kan passa i det lokala minnet.
 
-    #CREATE LOCAL DATA-FRAME AND USE FOR MATPLOTLIB PLOTTING
+```python
+#CREATE LOCAL DATA-FRAME AND USE FOR MATPLOTLIB PLOTTING
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
-    %%local
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+%%local
 
-    # USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
-    # CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
-    sqlResults
+# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
+# CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+sqlResults
+```
 
 Här är koden för att rita upp resor efter antal passagerare
 
-    # PLOT PASSENGER NUMBER VS. TRIP COUNTS
-    %%local
-    import matplotlib.pyplot as plt
-    %matplotlib inline
+```python
+# PLOT PASSENGER NUMBER VS. TRIP COUNTS
+%%local
+import matplotlib.pyplot as plt
+%matplotlib inline
 
-    x_labels = sqlResults['passenger_count'].values
-    fig = sqlResults[['trip_counts']].plot(kind='bar', facecolor='lightblue')
-    fig.set_xticklabels(x_labels)
-    fig.set_title('Counts of trips by passenger count')
-    fig.set_xlabel('Passenger count in trips')
-    fig.set_ylabel('Trip counts')
-    plt.show()
+x_labels = sqlResults['passenger_count'].values
+fig = sqlResults[['trip_counts']].plot(kind='bar', facecolor='lightblue')
+fig.set_xticklabels(x_labels)
+fig.set_title('Counts of trips by passenger count')
+fig.set_xlabel('Passenger count in trips')
+fig.set_ylabel('Trip counts')
+plt.show()
+```
 
 **UTDATAPARAMETRAR**
 
@@ -232,49 +240,52 @@ Du kan välja bland flera olika typer av visualiseringar (tabell, cirkel, linje,
 
 Använd en SQL-fråga för att sampla data.
 
-    #PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
+```sql
+# PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
 
-    # HIVEQL QUERY AGAINST THE sqlContext
-    %%sql -q -o sqlResults
-    SELECT fare_amount, passenger_count, tip_amount, tipped 
-    FROM taxi_train 
-    WHERE passenger_count > 0 
-    AND passenger_count < 7 
-    AND fare_amount > 0 
-    AND fare_amount < 200 
-    AND payment_type in ('CSH', 'CRD') 
-    AND tip_amount > 0 
-    AND tip_amount < 25
+# HIVEQL QUERY AGAINST THE sqlContext
+%%sql -q -o sqlResults
+SELECT fare_amount, passenger_count, tip_amount, tipped 
+FROM taxi_train 
+WHERE passenger_count > 0 
+AND passenger_count < 7 
+AND fare_amount > 0 
+AND fare_amount < 200 
+AND payment_type in ('CSH', 'CRD') 
+AND tip_amount > 0 
+AND tip_amount < 25
+```
 
 Den här kod cellen använder SQL-frågan för att skapa tre data områden.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
-    %%local
+```python
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+%%local
 
-    # HISTOGRAM OF TIP AMOUNTS AND PASSENGER COUNT
-    ax1 = sqlResults[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
-    ax1.set_title('Tip amount distribution')
-    ax1.set_xlabel('Tip Amount ($)')
-    ax1.set_ylabel('Counts')
-    plt.suptitle('')
-    plt.show()
+# HISTOGRAM OF TIP AMOUNTS AND PASSENGER COUNT
+ax1 = sqlResults[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
+ax1.set_title('Tip amount distribution')
+ax1.set_xlabel('Tip Amount ($)')
+ax1.set_ylabel('Counts')
+plt.suptitle('')
+plt.show()
 
-    # TIP BY PASSENGER COUNT
-    ax2 = sqlResults.boxplot(column=['tip_amount'], by=['passenger_count'])
-    ax2.set_title('Tip amount by Passenger count')
-    ax2.set_xlabel('Passenger count')
-    ax2.set_ylabel('Tip Amount ($)')
-    plt.suptitle('')
-    plt.show()
+# TIP BY PASSENGER COUNT
+ax2 = sqlResults.boxplot(column=['tip_amount'], by=['passenger_count'])
+ax2.set_title('Tip amount by Passenger count')
+ax2.set_xlabel('Passenger count')
+ax2.set_ylabel('Tip Amount ($)')
+plt.suptitle('')
+plt.show()
 
-    # TIP AMOUNT BY FARE AMOUNT, POINTS ARE SCALED BY PASSENGER COUNT
-    ax = sqlResults.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(sqlResults.passenger_count))
-    ax.set_title('Tip amount by Fare amount')
-    ax.set_xlabel('Fare Amount ($)')
-    ax.set_ylabel('Tip Amount ($)')
-    plt.axis([-2, 100, -2, 20])
-    plt.show()
-
+# TIP AMOUNT BY FARE AMOUNT, POINTS ARE SCALED BY PASSENGER COUNT
+ax = sqlResults.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(sqlResults.passenger_count))
+ax.set_title('Tip amount by Fare amount')
+ax.set_xlabel('Fare Amount ($)')
+ax.set_ylabel('Tip Amount ($)')
+plt.axis([-2, 100, -2, 20])
+plt.show()
+```
 
 **UTDATAPARAMETRAR** 
 
@@ -299,24 +310,26 @@ Det här avsnittet beskriver och innehåller koden för procedurer som används 
 
 Den här koden visar hur du skapar en ny funktion genom att diskretisering timmar till trafik tids Bucken och sedan cachelagra den resulterande data ramen i minnet. Om elastiska distribuerade data uppsättningar (RDD) och data ramar används flera gånger, leder cachelagring till förbättrade körnings tider. Därför cachelagrar vi RDD och data ramar i flera steg i genom gången. 
 
-    # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
-    sqlStatement = """
-        SELECT *,
-        CASE
-         WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
-         WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
-         WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
-         WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
-        END as TrafficTimeBins
-        FROM taxi_train 
-    """
-    taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
+```python
+# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
+sqlStatement = """
+    SELECT *,
+    CASE
+     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
+     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
+     WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
+     WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
+    END as TrafficTimeBins
+    FROM taxi_train 
+"""
+taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
 
-    # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
-    # THE .COUNT() GOES THROUGH THE ENTIRE DATA-FRAME,
-    # MATERIALIZES IT IN MEMORY, AND GIVES THE COUNT OF ROWS.
-    taxi_df_train_with_newFeatures.cache()
-    taxi_df_train_with_newFeatures.count()
+# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+# THE .COUNT() GOES THROUGH THE ENTIRE DATA-FRAME,
+# MATERIALIZES IT IN MEMORY, AND GIVES THE COUNT OF ROWS.
+taxi_df_train_with_newFeatures.cache()
+taxi_df_train_with_newFeatures.count()
+```
 
 **UTDATAPARAMETRAR**
 
@@ -331,46 +344,48 @@ Det här avsnittet visar hur du kan indexera eller koda kategoriska-funktioner f
 
 Här är koden för att indexera och koda kategoriska-funktioner:
 
-    # INDEX AND ENCODE CATEGORICAL FEATURES
+```python
+# INDEX AND ENCODE CATEGORICAL FEATURES
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES    
-    from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
+# LOAD PYSPARK LIBRARIES    
+from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 
-    # INDEX AND ENCODE VENDOR_ID
-    stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
-    model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is the cleaned one from above
-    indexed = model.transform(taxi_df_train_with_newFeatures)
-    encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
-    encoded1 = encoder.transform(indexed)
+# INDEX AND ENCODE VENDOR_ID
+stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
+model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is the cleaned one from above
+indexed = model.transform(taxi_df_train_with_newFeatures)
+encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
+encoded1 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE RATE_CODE
-    stringIndexer = StringIndexer(inputCol="rate_code", outputCol="rateIndex")
-    model = stringIndexer.fit(encoded1)
-    indexed = model.transform(encoded1)
-    encoder = OneHotEncoder(dropLast=False, inputCol="rateIndex", outputCol="rateVec")
-    encoded2 = encoder.transform(indexed)
+# INDEX AND ENCODE RATE_CODE
+stringIndexer = StringIndexer(inputCol="rate_code", outputCol="rateIndex")
+model = stringIndexer.fit(encoded1)
+indexed = model.transform(encoded1)
+encoder = OneHotEncoder(dropLast=False, inputCol="rateIndex", outputCol="rateVec")
+encoded2 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE PAYMENT_TYPE
-    stringIndexer = StringIndexer(inputCol="payment_type", outputCol="paymentIndex")
-    model = stringIndexer.fit(encoded2)
-    indexed = model.transform(encoded2)
-    encoder = OneHotEncoder(dropLast=False, inputCol="paymentIndex", outputCol="paymentVec")
-    encoded3 = encoder.transform(indexed)
+# INDEX AND ENCODE PAYMENT_TYPE
+stringIndexer = StringIndexer(inputCol="payment_type", outputCol="paymentIndex")
+model = stringIndexer.fit(encoded2)
+indexed = model.transform(encoded2)
+encoder = OneHotEncoder(dropLast=False, inputCol="paymentIndex", outputCol="paymentVec")
+encoded3 = encoder.transform(indexed)
 
-    # INDEX AND TRAFFIC TIME BINS
-    stringIndexer = StringIndexer(inputCol="TrafficTimeBins", outputCol="TrafficTimeBinsIndex")
-    model = stringIndexer.fit(encoded3)
-    indexed = model.transform(encoded3)
-    encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
-    encodedFinal = encoder.transform(indexed)
+# INDEX AND TRAFFIC TIME BINS
+stringIndexer = StringIndexer(inputCol="TrafficTimeBins", outputCol="TrafficTimeBinsIndex")
+model = stringIndexer.fit(encoded3)
+indexed = model.transform(encoded3)
+encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
+encodedFinal = encoder.transform(indexed)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR**
 
@@ -384,90 +399,94 @@ Det här avsnittet innehåller kod som visar hur du kan indexera kategoriska tex
 
 Här är koden för att indexera och koda text funktioner för binär klassificering.
 
-    # FUNCTIONS FOR BINARY CLASSIFICATION
+```python
+# FUNCTIONS FOR BINARY CLASSIFICATION
 
-    # LOAD LIBRARIES
-    from pyspark.mllib.regression import LabeledPoint
-    from numpy import array
+# LOAD LIBRARIES
+from pyspark.mllib.regression import LabeledPoint
+from numpy import array
 
-    # INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
-    def parseRowIndexingBinary(line):
-        features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
-                             line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
-                             line.trip_distance, line.fare_amount])
-        labPt = LabeledPoint(line.tipped, features)
-        return  labPt
+# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+def parseRowIndexingBinary(line):
+    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
+                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+                         line.trip_distance, line.fare_amount])
+    labPt = LabeledPoint(line.tipped, features)
+    return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
-    def parseRowOneHotBinary(line):
-        features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-                                            line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-                                            line.vendorVec.toArray(), line.rateVec.toArray(), 
-                                            line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
-        labPt = LabeledPoint(line.tipped, features)
-        return  labPt
-
+# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
+def parseRowOneHotBinary(line):
+    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
+                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
+    labPt = LabeledPoint(line.tipped, features)
+    return  labPt
+```
 
 Här är koden för att koda och indexera kategoriska text funktioner för linjär Regressions analys.
 
-    # FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
+```python
+# FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
-    def parseRowIndexingRegression(line):
-        features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
-                             line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
-                             line.trip_distance, line.fare_amount])
+# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+def parseRowIndexingRegression(line):
+    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
+                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+                         line.trip_distance, line.fare_amount])
 
-        labPt = LabeledPoint(line.tip_amount, features)
-        return  labPt
+    labPt = LabeledPoint(line.tip_amount, features)
+    return  labPt
 
-    # INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
-    def parseRowOneHotRegression(line):
-        features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-                                            line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-                                            line.vendorVec.toArray(), line.rateVec.toArray(), 
-                                            line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
-        labPt = LabeledPoint(line.tip_amount, features)
-        return  labPt
-
+# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
+def parseRowOneHotRegression(line):
+    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
+                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
+    labPt = LabeledPoint(line.tip_amount, features)
+    return  labPt
+```
 
 ### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Skapa en slumpmässig under sampling av data och dela upp den i utbildning och testnings uppsättningar
 
 Den här koden skapar en slumpmässig sampling av data (25% används här). Även om det inte krävs för det här exemplet på grund av storleken på data uppsättningen, visar vi hur du kan prova här så att du vet hur du använder det för ditt eget problem när det behövs. När exempel är stora kan samplingen Spara avsevärd tid och utbildnings modeller. Nästa steg är att dela exemplet i en utbildnings del (75% här) och en test del (25% här) för användning i klassificerings-och Regressions modellering.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.sql.functions import rand
+# LOAD PYSPARK LIBRARIES
+from pyspark.sql.functions import rand
 
-    # SPECIFY SAMPLING AND SPLITTING FRACTIONS
-    samplingFraction = 0.25;
-    trainingFraction = 0.75; testingFraction = (1-trainingFraction);
-    seed = 1234;
-    encodedFinalSampled = encodedFinal.sample(False, samplingFraction, seed=seed)
+# SPECIFY SAMPLING AND SPLITTING FRACTIONS
+samplingFraction = 0.25;
+trainingFraction = 0.75; testingFraction = (1-trainingFraction);
+seed = 1234;
+encodedFinalSampled = encodedFinal.sample(False, samplingFraction, seed=seed)
 
-    # SPLIT SAMPLED DATA-FRAME INTO TRAIN/TEST
-    # INCLUDE RAND COLUMN FOR CREATING CROSS-VALIDATION FOLDS (FOR USE LATER IN AN ADVANCED TOPIC)
-    dfTmpRand = encodedFinalSampled.select("*", rand(0).alias("rand"));
-    trainData, testData = dfTmpRand.randomSplit([trainingFraction, testingFraction], seed=seed);
+# SPLIT SAMPLED DATA-FRAME INTO TRAIN/TEST
+# INCLUDE RAND COLUMN FOR CREATING CROSS-VALIDATION FOLDS (FOR USE LATER IN AN ADVANCED TOPIC)
+dfTmpRand = encodedFinalSampled.select("*", rand(0).alias("rand"));
+trainData, testData = dfTmpRand.randomSplit([trainingFraction, testingFraction], seed=seed);
 
-    # FOR BINARY CLASSIFICATION TRAINING AND TESTING
-    indexedTRAINbinary = trainData.map(parseRowIndexingBinary)
-    indexedTESTbinary = testData.map(parseRowIndexingBinary)
-    oneHotTRAINbinary = trainData.map(parseRowOneHotBinary)
-    oneHotTESTbinary = testData.map(parseRowOneHotBinary)
+# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+indexedTRAINbinary = trainData.map(parseRowIndexingBinary)
+indexedTESTbinary = testData.map(parseRowIndexingBinary)
+oneHotTRAINbinary = trainData.map(parseRowOneHotBinary)
+oneHotTESTbinary = testData.map(parseRowOneHotBinary)
 
-    # FOR REGRESSION TRAINING AND TESTING
-    indexedTRAINreg = trainData.map(parseRowIndexingRegression)
-    indexedTESTreg = testData.map(parseRowIndexingRegression)
-    oneHotTRAINreg = trainData.map(parseRowOneHotRegression)
-    oneHotTESTreg = testData.map(parseRowOneHotRegression)
+# FOR REGRESSION TRAINING AND TESTING
+indexedTRAINreg = trainData.map(parseRowIndexingRegression)
+indexedTESTreg = testData.map(parseRowIndexingRegression)
+oneHotTRAINreg = trainData.map(parseRowOneHotRegression)
+oneHotTESTreg = testData.map(parseRowOneHotRegression)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR**
 
@@ -482,34 +501,36 @@ Funktions skalning, även kallat data normalisering, säkerställer att funktion
 
 Här är koden för att skala variabler för användning med den vanliga linjära SGD-algoritmen.
 
-    # FEATURE SCALING
+```python
+# FEATURE SCALING
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.regression import LabeledPoint
-    from pyspark.mllib.linalg import Vectors
-    from pyspark.mllib.feature import StandardScaler, StandardScalerModel
-    from pyspark.mllib.util import MLUtils
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.regression import LabeledPoint
+from pyspark.mllib.linalg import Vectors
+from pyspark.mllib.feature import StandardScaler, StandardScalerModel
+from pyspark.mllib.util import MLUtils
 
-    # SCALE VARIABLES FOR REGULARIZED LINEAR SGD ALGORITHM
-    label = oneHotTRAINreg.map(lambda x: x.label)
-    features = oneHotTRAINreg.map(lambda x: x.features)
-    scaler = StandardScaler(withMean=False, withStd=True).fit(features)
-    dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
-    oneHotTRAINregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
+# SCALE VARIABLES FOR REGULARIZED LINEAR SGD ALGORITHM
+label = oneHotTRAINreg.map(lambda x: x.label)
+features = oneHotTRAINreg.map(lambda x: x.features)
+scaler = StandardScaler(withMean=False, withStd=True).fit(features)
+dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
+oneHotTRAINregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
 
-    label = oneHotTESTreg.map(lambda x: x.label)
-    features = oneHotTESTreg.map(lambda x: x.features)
-    scaler = StandardScaler(withMean=False, withStd=True).fit(features)
-    dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
-    oneHotTESTregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
+label = oneHotTESTreg.map(lambda x: x.label)
+features = oneHotTESTreg.map(lambda x: x.features)
+scaler = StandardScaler(withMean=False, withStd=True).fit(features)
+dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
+oneHotTESTregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR**
 
@@ -519,29 +540,31 @@ Tids åtgång för att köra ovanför cell: 13,17 sekunder
 
 Den tid det tar för utbildning och testning av ML-algoritmer kan minskas genom att cachelagra de indata från ram-objekten som används för klassificering, regression och skalade funktioner.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # FOR BINARY CLASSIFICATION TRAINING AND TESTING
-    indexedTRAINbinary.cache()
-    indexedTESTbinary.cache()
-    oneHotTRAINbinary.cache()
-    oneHotTESTbinary.cache()
+# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+indexedTRAINbinary.cache()
+indexedTESTbinary.cache()
+oneHotTRAINbinary.cache()
+oneHotTESTbinary.cache()
 
-    # FOR REGRESSION TRAINING AND TESTING
-    indexedTRAINreg.cache()
-    indexedTESTreg.cache()
-    oneHotTRAINreg.cache()
-    oneHotTESTreg.cache()
+# FOR REGRESSION TRAINING AND TESTING
+indexedTRAINreg.cache()
+indexedTESTreg.cache()
+oneHotTRAINreg.cache()
+oneHotTESTreg.cache()
 
-    # SCALED FEATURES
-    oneHotTRAINregScaled.cache()
-    oneHotTESTregScaled.cache()
+# SCALED FEATURES
+oneHotTRAINregScaled.cache()
+oneHotTESTregScaled.cache()
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR** 
 
@@ -567,36 +590,37 @@ Koden i det här avsnittet visar hur du tränar, utvärderar och sparar en logis
 
 **Träna logistik Regressions modellen med hjälp av ka och dess parameter Svep**
 
-    # LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
+```python
+# LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
 
-    # GET ACCURACY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
+# GET ACCURACY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD LIBRARIES
-    from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
-    from sklearn.metrics import roc_curve,auc
-    from pyspark.mllib.evaluation import BinaryClassificationMetrics
-    from pyspark.mllib.evaluation import MulticlassMetrics
+# LOAD LIBRARIES
+from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
+from sklearn.metrics import roc_curve,auc
+from pyspark.mllib.evaluation import BinaryClassificationMetrics
+from pyspark.mllib.evaluation import MulticlassMetrics
 
 
-    # CREATE MODEL WITH ONE SET OF PARAMETERS
-    logitModel = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, iterations=20, initialWeights=None, 
-                                                   regParam=0.01, regType='l2', intercept=True, corrections=10, 
-                                                   tolerance=0.0001, validateData=True, numClasses=2)
+# CREATE MODEL WITH ONE SET OF PARAMETERS
+logitModel = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, iterations=20, initialWeights=None, 
+                                               regParam=0.01, regType='l2', intercept=True, corrections=10, 
+                                               tolerance=0.0001, validateData=True, numClasses=2)
 
-    # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-    # NOTE: There are 20 coefficient terms for the 10 features, 
-    #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
-    print("Coefficients: " + str(logitModel.weights))
-    print("Intercept: " + str(logitModel.intercept))
+# PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
+# NOTE: There are 20 coefficient terms for the 10 features, 
+#       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+print("Coefficients: " + str(logitModel.weights))
+print("Intercept: " + str(logitModel.intercept))
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR** 
 
@@ -608,49 +632,51 @@ Tids åtgång för att köra ovanför cell: 14,43 sekunder
 
 **Utvärdera den binära klassificerings modellen med standard mått**
 
-    #EVALUATE LOGISTIC REGRESSION MODEL WITH LBFGS
+```python
+#EVALUATE LOGISTIC REGRESSION MODEL WITH LBFGS
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # PREDICT ON TEST DATA WITH MODEL
-    predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitModel.predict(lp.features)), lp.label))
+# PREDICT ON TEST DATA WITH MODEL
+predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitModel.predict(lp.features)), lp.label))
 
-    # INSTANTIATE METRICS OBJECT
-    metrics = BinaryClassificationMetrics(predictionAndLabels)
+# INSTANTIATE METRICS OBJECT
+metrics = BinaryClassificationMetrics(predictionAndLabels)
 
-    # AREA UNDER PRECISION-RECALL CURVE
-    print("Area under PR = %s" % metrics.areaUnderPR)
+# AREA UNDER PRECISION-RECALL CURVE
+print("Area under PR = %s" % metrics.areaUnderPR)
 
-    # AREA UNDER ROC CURVE
-    print("Area under ROC = %s" % metrics.areaUnderROC)
-    metrics = MulticlassMetrics(predictionAndLabels)
+# AREA UNDER ROC CURVE
+print("Area under ROC = %s" % metrics.areaUnderROC)
+metrics = MulticlassMetrics(predictionAndLabels)
 
-    # OVERALL STATISTICS
-    precision = metrics.precision()
-    recall = metrics.recall()
-    f1Score = metrics.fMeasure()
-    print("Summary Stats")
-    print("Precision = %s" % precision)
-    print("Recall = %s" % recall)
-    print("F1 Score = %s" % f1Score)
+# OVERALL STATISTICS
+precision = metrics.precision()
+recall = metrics.recall()
+f1Score = metrics.fMeasure()
+print("Summary Stats")
+print("Precision = %s" % precision)
+print("Recall = %s" % recall)
+print("F1 Score = %s" % f1Score)
 
 
-    ## SAVE MODEL WITH DATE-STAMP
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
-    dirfilename = modelDir + logisticregressionfilename;
-    logitModel.save(sc, dirfilename);
+## SAVE MODEL WITH DATE-STAMP
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
+dirfilename = modelDir + logisticregressionfilename;
+logitModel.save(sc, dirfilename);
 
-    # OUTPUT PROBABILITIES AND REGISTER TEMP TABLE
-    logitModel.clearThreshold(); # This clears threshold for classification (0.5) and outputs probabilities
-    predictionAndLabelsDF = predictionAndLabels.toDF()
-    predictionAndLabelsDF.registerTempTable("tmp_results");
+# OUTPUT PROBABILITIES AND REGISTER TEMP TABLE
+logitModel.clearThreshold(); # This clears threshold for classification (0.5) and outputs probabilities
+predictionAndLabelsDF = predictionAndLabels.toDF()
+predictionAndLabelsDF.registerTempTable("tmp_results");
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+```
 
 **UTDATAPARAMETRAR** 
 
@@ -672,38 +698,40 @@ Tids åtgång för att köra ovanför cell: 57,61 sekunder
 
 *PredictionAndLabelsDF* är registrerad som en tabell *tmp_results*i föregående cell. *tmp_results* kan användas för att utföra frågor och utmatnings resultat i sqlResults data-ram för att rita. Här är koden.
 
-    # QUERY RESULTS                              
-    %%sql -q -o sqlResults
-    SELECT * from tmp_results
-
+```python
+# QUERY RESULTS                              
+%%sql -q -o sqlResults
+SELECT * from tmp_results
+```
 
 Här är koden för att göra förutsägelser och rita ROC-kurvan.
 
-    # MAKE PREDICTIONS AND PLOT ROC-CURVE
+```python
+# MAKE PREDICTIONS AND PLOT ROC-CURVE
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    %matplotlib inline
-    from sklearn.metrics import roc_curve,auc
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+%matplotlib inline
+from sklearn.metrics import roc_curve,auc
 
-    # MAKE PREDICTIONS
-    predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
-    prob = predictions_pddf["probability"] 
-    fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
-    roc_auc = auc(fpr, tpr)
+# MAKE PREDICTIONS
+predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
+prob = predictions_pddf["probability"] 
+fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
+roc_auc = auc(fpr, tpr)
 
-    # PLOT ROC CURVE
-    plt.figure(figsize=(5,5))
-    plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
-    plt.plot([0, 1], [0, 1], 'k--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('ROC Curve')
-    plt.legend(loc="lower right")
-    plt.show()
-
+# PLOT ROC CURVE
+plt.figure(figsize=(5,5))
+plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.legend(loc="lower right")
+plt.show()
+```
 
 **UTDATAPARAMETRAR**
 
@@ -713,48 +741,50 @@ Här är koden för att göra förutsägelser och rita ROC-kurvan.
 
 Koden i det här avsnittet visar hur du tränar, utvärderar och sparar en slumpmässig skogs modell som förutsäger om ett tips är betalt för en resa i NYC taxi-resan och pris data uppsättningen.
 
-    #PREDICT WHETHER A TIP IS PAID OR NOT USING RANDOM FOREST
+```python
+#PREDICT WHETHER A TIP IS PAID OR NOT USING RANDOM FOREST
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.tree import RandomForest, RandomForestModel
-    from pyspark.mllib.util import MLUtils
-    from pyspark.mllib.evaluation import BinaryClassificationMetrics
-    from pyspark.mllib.evaluation import MulticlassMetrics
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.tree import RandomForest, RandomForestModel
+from pyspark.mllib.util import MLUtils
+from pyspark.mllib.evaluation import BinaryClassificationMetrics
+from pyspark.mllib.evaluation import MulticlassMetrics
 
-    # SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+# SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 
-    # TRAIN RANDOMFOREST MODEL
-    rfModel = RandomForest.trainClassifier(indexedTRAINbinary, numClasses=2, 
-                                           categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                           numTrees=25, featureSubsetStrategy="auto",
-                                           impurity='gini', maxDepth=5, maxBins=32)
-    ## UN-COMMENT IF YOU WANT TO PRINT TREES
-    #print('Learned classification forest model:')
-    #print(rfModel.toDebugString())
+# TRAIN RANDOMFOREST MODEL
+rfModel = RandomForest.trainClassifier(indexedTRAINbinary, numClasses=2, 
+                                       categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                       numTrees=25, featureSubsetStrategy="auto",
+                                       impurity='gini', maxDepth=5, maxBins=32)
+## UN-COMMENT IF YOU WANT TO PRINT TREES
+#print('Learned classification forest model:')
+#print(rfModel.toDebugString())
 
-    # PREDICT ON TEST DATA AND EVALUATE
-    predictions = rfModel.predict(indexedTESTbinary.map(lambda x: x.features))
-    predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
+# PREDICT ON TEST DATA AND EVALUATE
+predictions = rfModel.predict(indexedTESTbinary.map(lambda x: x.features))
+predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
 
-    # AREA UNDER ROC CURVE
-    metrics = BinaryClassificationMetrics(predictionAndLabels)
-    print("Area under ROC = %s" % metrics.areaUnderROC)
+# AREA UNDER ROC CURVE
+metrics = BinaryClassificationMetrics(predictionAndLabels)
+print("Area under ROC = %s" % metrics.areaUnderROC)
 
-    # PERSIST MODEL IN BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    rfclassificationfilename = "RandomForestClassification_" + datestamp;
-    dirfilename = modelDir + rfclassificationfilename;
+# PERSIST MODEL IN BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+rfclassificationfilename = "RandomForestClassification_" + datestamp;
+dirfilename = modelDir + rfclassificationfilename;
 
-    rfModel.save(sc, dirfilename);
+rfModel.save(sc, dirfilename);
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR**
 
@@ -766,42 +796,43 @@ Tids åtgång för att köra ovanför cell: 31,09 sekunder
 
 Koden i det här avsnittet visar hur du tränar, utvärderar och sparar en modell modell för tonings förstärkning som förutsäger om ett tips är betalt för en resa i NYC taxi-resan och pris data uppsättningen.
 
-    #PREDICT WHETHER A TIP IS PAID OR NOT USING GRADIENT BOOSTING TREES
+```python
+#PREDICT WHETHER A TIP IS PAID OR NOT USING GRADIENT BOOSTING TREES
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 
-    # SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+# SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 
-    gbtModel = GradientBoostedTrees.trainClassifier(indexedTRAINbinary, categoricalFeaturesInfo=categoricalFeaturesInfo, numIterations=5)
-    ## UNCOMMENT IF YOU WANT TO PRINT TREE DETAILS
-    #print('Learned classification GBT model:')
-    #print(bgtModel.toDebugString())
+gbtModel = GradientBoostedTrees.trainClassifier(indexedTRAINbinary, categoricalFeaturesInfo=categoricalFeaturesInfo, numIterations=5)
+## UNCOMMENT IF YOU WANT TO PRINT TREE DETAILS
+#print('Learned classification GBT model:')
+#print(bgtModel.toDebugString())
 
-    # PREDICT ON TEST DATA AND EVALUATE
-    predictions = gbtModel.predict(indexedTESTbinary.map(lambda x: x.features))
-    predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
+# PREDICT ON TEST DATA AND EVALUATE
+predictions = gbtModel.predict(indexedTESTbinary.map(lambda x: x.features))
+predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
 
-    # AREA UNDER ROC CURVE
-    metrics = BinaryClassificationMetrics(predictionAndLabels)
-    print("Area under ROC = %s" % metrics.areaUnderROC)
+# AREA UNDER ROC CURVE
+metrics = BinaryClassificationMetrics(predictionAndLabels)
+print("Area under ROC = %s" % metrics.areaUnderROC)
 
-    # PERSIST MODEL IN A BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp;
-    dirfilename = modelDir + btclassificationfilename;
+# PERSIST MODEL IN A BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp;
+dirfilename = modelDir + btclassificationfilename;
 
-    gbtModel.save(sc, dirfilename)
+gbtModel.save(sc, dirfilename)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR**
 
@@ -830,44 +861,46 @@ Koden i det här avsnittet visar hur du använder skalade funktioner för att tr
 > [!TIP]
 > I vår miljö kan det finnas problem med konvergensen av LinearRegressionWithSGD-modeller, och parametrarna måste ändras/optimeras noggrant för att få en giltig modell. Skalning av variabler bidrar avsevärt till konvergens.
 
-    #PREDICT TIP AMOUNTS USING LINEAR REGRESSION WITH SGD
+```python
+#PREDICT TIP AMOUNTS USING LINEAR REGRESSION WITH SGD
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD LIBRARIES
-    from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel
-    from pyspark.mllib.evaluation import RegressionMetrics
-    from scipy import stats
+# LOAD LIBRARIES
+from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel
+from pyspark.mllib.evaluation import RegressionMetrics
+from scipy import stats
 
-    # USE SCALED FEATURES TO TRAIN MODEL
-    linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
+# USE SCALED FEATURES TO TRAIN MODEL
+linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
 
-    # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-    # NOTE: There are 20 coefficient terms for the 10 features, 
-    #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
-    print("Coefficients: " + str(linearModel.weights))
-    print("Intercept: " + str(linearModel.intercept))
+# PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
+# NOTE: There are 20 coefficient terms for the 10 features, 
+#       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+print("Coefficients: " + str(linearModel.weights))
+print("Intercept: " + str(linearModel.intercept))
 
-    # SCORE ON SCALED TEST DATA-SET & EVALUATE
-    predictionAndLabels = oneHotTESTregScaled.map(lambda lp: (float(linearModel.predict(lp.features)), lp.label))
-    testMetrics = RegressionMetrics(predictionAndLabels)
+# SCORE ON SCALED TEST DATA-SET & EVALUATE
+predictionAndLabels = oneHotTESTregScaled.map(lambda lp: (float(linearModel.predict(lp.features)), lp.label))
+testMetrics = RegressionMetrics(predictionAndLabels)
 
-    # PRINT TEST METRICS
-    print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-    print("R-sqr = %s" % testMetrics.r2)
+# PRINT TEST METRICS
+print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+print("R-sqr = %s" % testMetrics.r2)
 
-    # SAVE MODEL WITH DATE-STAMP IN THE DEFAULT BLOB FOR THE CLUSTER
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
-    dirfilename = modelDir + linearregressionfilename;
+# SAVE MODEL WITH DATE-STAMP IN THE DEFAULT BLOB FOR THE CLUSTER
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
+dirfilename = modelDir + linearregressionfilename;
 
-    linearModel.save(sc, dirfilename)
+linearModel.save(sc, dirfilename)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR**
 
@@ -885,46 +918,48 @@ Tids åtgång för att köra ovanför cell: 58,42 sekunder
 
 Koden i det här avsnittet visar hur du tränar, utvärderar och sparar en slumpmässig skogs regression som förutsäger Tip-mängden för NYC taxi-resan.
 
-    #PREDICT TIP AMOUNTS USING RANDOM FOREST
+```python
+#PREDICT TIP AMOUNTS USING RANDOM FOREST
 
-    # RECORD START TIME
-    timestart= datetime.datetime.now()
+# RECORD START TIME
+timestart= datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.tree import RandomForest, RandomForestModel
-    from pyspark.mllib.util import MLUtils
-    from pyspark.mllib.evaluation import RegressionMetrics
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.tree import RandomForest, RandomForestModel
+from pyspark.mllib.util import MLUtils
+from pyspark.mllib.evaluation import RegressionMetrics
 
 
-    ## TRAIN MODEL
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
-    rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                        numTrees=25, featureSubsetStrategy="auto",
-                                        impurity='variance', maxDepth=10, maxBins=32)
-    ## UN-COMMENT IF YOU WANT TO PRING TREES
-    #print('Learned classification forest model:')
-    #print(rfModel.toDebugString())
+## TRAIN MODEL
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                    numTrees=25, featureSubsetStrategy="auto",
+                                    impurity='variance', maxDepth=10, maxBins=32)
+## UN-COMMENT IF YOU WANT TO PRING TREES
+#print('Learned classification forest model:')
+#print(rfModel.toDebugString())
 
-    ## PREDICT AND EVALUATE ON TEST DATA-SET
-    predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
-    predictionAndLabels = oneHotTESTreg.map(lambda lp: lp.label).zip(predictions)
+## PREDICT AND EVALUATE ON TEST DATA-SET
+predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
+predictionAndLabels = oneHotTESTreg.map(lambda lp: lp.label).zip(predictions)
 
-    # TEST METRICS
-    testMetrics = RegressionMetrics(predictionAndLabels)
-    print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-    print("R-sqr = %s" % testMetrics.r2)
+# TEST METRICS
+testMetrics = RegressionMetrics(predictionAndLabels)
+print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+print("R-sqr = %s" % testMetrics.r2)
 
-    # SAVE MODEL IN BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    rfregressionfilename = "RandomForestRegression_" + datestamp;
-    dirfilename = modelDir + rfregressionfilename;
+# SAVE MODEL IN BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+rfregressionfilename = "RandomForestRegression_" + datestamp;
+dirfilename = modelDir + rfregressionfilename;
 
-    rfModel.save(sc, dirfilename);
+rfModel.save(sc, dirfilename);
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR**
 
@@ -940,43 +975,45 @@ Koden i det här avsnittet visar hur du tränar, utvärderar och sparar en model
 
 **Träna och utvärdera**
 
-    #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
+```python
+#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
-    # RECORD START TIME
-    timestart= datetime.datetime.now()
+# RECORD START TIME
+timestart= datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
-    from pyspark.mllib.util import MLUtils
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
+from pyspark.mllib.util import MLUtils
 
-    ## TRAIN MODEL
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
-    gbtModel = GradientBoostedTrees.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo, 
-                                                    numIterations=10, maxBins=32, maxDepth = 4, learningRate=0.1)
+## TRAIN MODEL
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+gbtModel = GradientBoostedTrees.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo, 
+                                                numIterations=10, maxBins=32, maxDepth = 4, learningRate=0.1)
 
-    ## EVALUATE A TEST DATA-SET
-    predictions = gbtModel.predict(indexedTESTreg.map(lambda x: x.features))
-    predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
+## EVALUATE A TEST DATA-SET
+predictions = gbtModel.predict(indexedTESTreg.map(lambda x: x.features))
+predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
 
-    # TEST METRICS
-    testMetrics = RegressionMetrics(predictionAndLabels)
-    print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-    print("R-sqr = %s" % testMetrics.r2)
+# TEST METRICS
+testMetrics = RegressionMetrics(predictionAndLabels)
+print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+print("R-sqr = %s" % testMetrics.r2)
 
-    # SAVE MODEL IN BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
-    dirfilename = modelDir + btregressionfilename;
-    gbtModel.save(sc, dirfilename)
+# SAVE MODEL IN BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
+dirfilename = modelDir + btregressionfilename;
+gbtModel.save(sc, dirfilename)
 
-    # CONVERT RESULTS TO DF AND REGISTER TEMP TABLE
-    test_predictions = sqlContext.createDataFrame(predictionAndLabels)
-    test_predictions.registerTempTable("tmp_results");
+# CONVERT RESULTS TO DF AND REGISTER TEMP TABLE
+test_predictions = sqlContext.createDataFrame(predictionAndLabels)
+test_predictions.registerTempTable("tmp_results");
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **UTDATAPARAMETRAR**
 
@@ -990,29 +1027,32 @@ Tids åtgång för att köra ovanför cell: 34,52 sekunder
 
 *tmp_results* registreras som en Hive-tabell i föregående cell. Resultat från tabellen är utdata till *sqlResults* data-ram för att rita. Här är koden
 
-    # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
+```python
+# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
-    # SELECT RESULTS
-    %%sql -q -o sqlResults
-    SELECT * from tmp_results
+# SELECT RESULTS
+%%sql -q -o sqlResults
+SELECT * from tmp_results
+```
 
 Här är koden för att rita data med hjälp av Jupyter-servern.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    %matplotlib inline
-    import numpy as np
+```python
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+%matplotlib inline
+import numpy as np
 
-    # PLOT 
-    ax = test_predictions_pddf.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
-    fit = np.polyfit(test_predictions_pddf['_1'], test_predictions_pddf['_2'], deg=1)
-    ax.set_title('Actual vs. Predicted Tip Amounts ($)')
-    ax.set_xlabel("Actual")
-    ax.set_ylabel("Predicted")
-    ax.plot(test_predictions_pddf['_1'], fit[0] * test_predictions_pddf['_1'] + fit[1], color='magenta')
-    plt.axis([-1, 20, -1, 20])
-    plt.show(ax)
-
+# PLOT 
+ax = test_predictions_pddf.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
+fit = np.polyfit(test_predictions_pddf['_1'], test_predictions_pddf['_2'], deg=1)
+ax.set_title('Actual vs. Predicted Tip Amounts ($)')
+ax.set_xlabel("Actual")
+ax.set_ylabel("Predicted")
+ax.plot(test_predictions_pddf['_1'], fit[0] * test_predictions_pddf['_1'] + fit[1], color='magenta')
+plt.axis([-1, 20, -1, 20])
+plt.show(ax)
+```
 
 **UTDATAPARAMETRAR**
 
@@ -1022,37 +1062,41 @@ Här är koden för att rita data med hjälp av Jupyter-servern.
 
 Används `unpersist()` för att ta bort cachelagrade objekt i minnet.
 
-    # REMOVE ORIGINAL DFs
-    taxi_df_train_cleaned.unpersist()
-    taxi_df_train_with_newFeatures.unpersist()
+```python
+# REMOVE ORIGINAL DFs
+taxi_df_train_cleaned.unpersist()
+taxi_df_train_with_newFeatures.unpersist()
 
-    # FOR BINARY CLASSIFICATION TRAINING AND TESTING
-    indexedTRAINbinary.unpersist()
-    indexedTESTbinary.unpersist()
-    oneHotTRAINbinary.unpersist()
-    oneHotTESTbinary.unpersist()
+# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+indexedTRAINbinary.unpersist()
+indexedTESTbinary.unpersist()
+oneHotTRAINbinary.unpersist()
+oneHotTESTbinary.unpersist()
 
-    # FOR REGRESSION TRAINING AND TESTING
-    indexedTRAINreg.unpersist()
-    indexedTESTreg.unpersist()
-    oneHotTRAINreg.unpersist()
-    oneHotTESTreg.unpersist()
+# FOR REGRESSION TRAINING AND TESTING
+indexedTRAINreg.unpersist()
+indexedTESTreg.unpersist()
+oneHotTRAINreg.unpersist()
+oneHotTESTreg.unpersist()
 
-    # SCALED FEATURES
-    oneHotTRAINregScaled.unpersist()
-    oneHotTESTregScaled.unpersist()
+# SCALED FEATURES
+oneHotTRAINregScaled.unpersist()
+oneHotTESTregScaled.unpersist()
+```
 
 ## <a name="save-the-models"></a>Spara modellerna
 
 Om du vill förbruka en oberoende data uppsättning som beskrivs i avsnittet [Poäng och utvärdera Spark-skapade maskin inlärnings modeller](spark-model-consumption.md) måste du kopiera och klistra in dessa fil namn som innehåller de sparade modeller som skapats här i den Jupyter Notebook. Här är koden för att skriva ut Sök vägarna för att modellera filer som du behöver där.
 
-    # MODEL FILE LOCATIONS FOR CONSUMPTION
-    print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
-    print "linearRegFileLoc = modelDir + \"" + linearregressionfilename + "\"";
-    print "randomForestClassificationFileLoc = modelDir + \"" + rfclassificationfilename + "\"";
-    print "randomForestRegFileLoc = modelDir + \"" + rfregressionfilename + "\"";
-    print "BoostedTreeClassificationFileLoc = modelDir + \"" + btclassificationfilename + "\"";
-    print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
+```python
+# MODEL FILE LOCATIONS FOR CONSUMPTION
+print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
+print "linearRegFileLoc = modelDir + \"" + linearregressionfilename + "\"";
+print "randomForestClassificationFileLoc = modelDir + \"" + rfclassificationfilename + "\"";
+print "randomForestRegFileLoc = modelDir + \"" + rfregressionfilename + "\"";
+print "BoostedTreeClassificationFileLoc = modelDir + \"" + btclassificationfilename + "\"";
+print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
+```
 
 **UTDATAPARAMETRAR**
 

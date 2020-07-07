@@ -11,12 +11,11 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: b8263e0445f7997469ba9165decbaccfa9ed2d6e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918934"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027859"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks
 
@@ -41,11 +40,11 @@ Den här självstudien omfattar följande uppgifter:
 
 > [!Note]
 > * Den här självstudien beskriver en metod för att implementera den rekommenderade [lösnings arkitekturen](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) för API: t för avvikelse identifiering.
-> * Den här självstudien kan inte utföras med en kostnads fri utvärderings version av API: t för avvikelse detektor eller Azure Databricks. 
+> * Den här självstudien kan inte utföras med en prenumeration på kostnads fri nivå ( `F0` ) för API: et för avvikelse detektor eller Azure Databricks. 
 
 Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/) om du inte har någon.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett [Azure Event Hubs-namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) och händelsehubben.
 

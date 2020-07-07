@@ -3,12 +3,11 @@ title: 'Självstudie: extrahera strukturerade data med Machine Learning-entitet 
 description: Extrahera strukturerade data från en uttryck med hjälp av enheten för maskin inlärning. Om du vill öka extraherings precisionen lägger du till underentiteter med funktioner.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611024"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045611"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Självstudie: extrahera strukturerade data från User uttryck med Machine Learning-entiteter i Language Understanding (LUIS)
 
@@ -108,7 +107,7 @@ Att lägga till en lista med kända storlekar som klient programmet känner av k
 
 1. Välj **entiteter** i den vänstra menyn och välj sedan **+ skapa**.
 
-1. Ange enhets namnet `SizeListentity` så att det är enkelt att identifiera jämfört med det som `SizePhraselist` skapades i föregående avsnitt.
+1. Ange entitetsnamnet som `SizeListentity` och ange typen som **lista** så att det är enkelt att identifiera jämfört med det som `SizePhraselist` skapades i föregående avsnitt.
 
 1. Lägg till de storlekar som klient programmet förväntar sig: `Small` ,, `Medium` `Large` och `XLarge` Lägg sedan till synonymer för var och en. Synonymerna ska vara de termer som en användare anger i Chat-roboten. Entiteten extraheras med en List-entitet när den matchade exakt det normaliserade värdet eller synonymerna.
 

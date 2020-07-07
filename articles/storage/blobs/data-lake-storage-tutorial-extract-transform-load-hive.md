@@ -8,27 +8,26 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014918"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045305"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure HDInsight
 
-I den här självstudien ska du utföra en ETL-åtgärd: extrahera, transformera och läsa in data. Du använder en CSV-datafil med rådata, importerar den till ett Azure HDInsight-kluster, transformerar den med Apache Hive och läser in den till en Azure SQL-databas med Apache Sqoop.
+I den här självstudien ska du utföra en ETL-åtgärd: extrahera, transformera och läsa in data. Du tar en rå CSV-datafil, importerar den till ett Azure HDInsight-kluster, omvandlar den till Apache Hive och läser in den i Azure SQL Database med Apache Sqoop.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Extrahera och ladda upp data till ett HDInsight-kluster.
 > * Transformera data med hjälp av Apache Hive.
-> * Läs in data till en Azure SQL-databas med hjälp av Sqoop.
+> * Läs in data till Azure SQL Database med Sqoop.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Ett Azure Data Lake Storage Gen2-lagringskonto som har konfigurerats för HDInsight**
 
@@ -38,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
     Se [snabb start: kom igång med Apache Hadoop och Apache Hive i Azure HDInsight med hjälp av Azure Portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database**: du använder en Azure SQL-databas som mål data lager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: du använder Azure SQL Database som mål data lager. Om du inte har en databas i SQL Database kan du läsa [skapa en databas i Azure SQL Database i Azure Portal](../../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**: om du inte har installerat Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -224,7 +223,7 @@ Som en del av Apache Hive-jobbet importerar du data från CSV-filen till en Apac
 
 ## <a name="create-a-sql-database-table"></a>Skapa en SQL-databastabell
 
-Du behöver namnet på servern från SQL-databasen för den här åtgärden. Slutför stegen nedan för att hitta namnet på servern.
+Du behöver Server namnet från SQL Database för den här åtgärden. Slutför stegen nedan för att hitta namnet på servern.
 
 1. Gå till [Azure Portal](https://portal.azure.com).
 
@@ -300,7 +299,7 @@ Du behöver namnet på servern från SQL-databasen för den här åtgärden. Slu
 
 ## <a name="export-and-load-the-data"></a>Exportera och läsa in data
 
-I föregående avsnitt kopierade du transformerade data på platsen `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` till tabellen du skapade i Azure SQL-databasen.
+I föregående avsnitt kopierade du transformerade data på platsen `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` till tabellen som du skapade i Azure SQL Database.
 
 1. Använd följande kommando för att verifiera att Sqoop kan se din SQL-databas:
 

@@ -6,12 +6,11 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: e076128a5be453028635b1657bf3f90980863148
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: a2687e9c943df8454ff42a17f44866dcdb7f4730
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650172"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055893"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Distribuera ett hanterat program för en tjänstkatalog med PowerShell
 
@@ -33,10 +32,10 @@ Det här skriptet använder följande kommando för att distribuera det hanterad
 
 | Kommando | Obs! |
 |---|---|
-| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Skapa ett hanterat program. Ange definitions-ID och parametrar för mallen. |
+| [New-AzManagedApplication](/powershell/module/az.resources/new-azmanagedapplication) | Skapa ett hanterat program. Ange definitions-ID och parametrar för mallen. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till hanterade program finns i [Azure Managed Application overview](../overview.md) (Översikt över Azure Managed Application).
-* Mer information om PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Mer information om PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/get-started-azureps).

@@ -6,12 +6,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 878a8d660495c932cc8fa44bb1ed06e79576729b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: f119fe4b4547bda8249a3620baf938dd8b83c235
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650060"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056056"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Hämta resurser från en hanterad resursgrupp och ändra storleken på virtuella datorer med Azure CLI
 
@@ -33,12 +32,12 @@ Det här skriptet använder följande kommandon för att distribuera det hantera
 
 | Kommando | Obs! |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | Visar en lista med hanterade program. Ange frågevärden om du vill förfina resultatvisningen. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | Visar resurserna. Ange en resursgrupp och frågevärden om du vill förfina resultatvisningen. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Uppdatera storleken på en virtuell dator. |
+| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | Visar en lista med hanterade program. Ange frågevärden om du vill förfina resultatvisningen. |
+| [az resource list](/cli/azure/resource#az-resource-list) | Visar resurserna. Ange en resursgrupp och frågevärden om du vill förfina resultatvisningen. |
+| [az vm resize](/cli/azure/vm#az-vm-resize) | Uppdatera storleken på en virtuell dator. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till hanterade program finns i [Azure Managed Application overview](../overview.md) (Översikt över Azure Managed Application).
-* Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+* Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).

@@ -7,12 +7,11 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 77cf98cae943b8652e20ed48fd41ed717d1e4fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: ba90bb89d731c343dfcb3778433d444f2d9a617a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262131"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025870"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurera en CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps
 
@@ -26,14 +25,14 @@ Den här artikeln visar hur du konfigurerar en CI-pipeline i Azure DevOps för e
 
 För att använda build-uppgiften måste vi först installera den i Azure DevOps-organisationen. Leta reda på tillägget **Azure Cosmos DB-emulator** i [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) och klicka på **Get it free** (Skaffa det kostnadsfritt).
 
-![Hitta och installera Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps Marketplace](./media/tutorial-setup-ci-cd/addExtension_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_1.png" alt-text="Hitta och installera Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps Marketplace":::
 
 Välj sedan den organisation där du vill installera tillägget. 
 
 > [!NOTE]
 > Om du vill installera ett tillägg i en Azure DevOps-organisation måste du vara konto ägare eller projekt samlings administratör. Om du saknar behörigheter, men du är kontomedlem, kan du istället begära tillägg. [Läs mer.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
-![Välj en Azure DevOps-organisation där du vill installera ett tillägg](./media/tutorial-setup-ci-cd/addExtension_2.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Välj en Azure DevOps-organisation där du vill installera ett tillägg":::
 
 ## <a name="create-a-build-definition"></a>Skapa en byggesdefinition
 
@@ -41,11 +40,11 @@ Nu när tillägget har installerats loggar du på ditt Azure DevOps-konto och hi
 
 1. Du kan skapa en ny build-definition genom att gå till fliken **Build** (Bygg) i Azure DevOps. Välj **+ ny.** \> **Ny bygg-pipeline**
 
-   ![Skapa en ny bygg-pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Skapa en ny bygg-pipeline":::
 
 2. Välj **källa**, **Team project** (Teamprojekt), **Repository** (Lagringsplats) och **Default branch for manual and scheduled builds** (Standardgren för manuella och schemalagda byggen). När du har valt de alternativ som krävs väljer du **Continue** (Fortsätt)
 
-   ![Välja teamprojekt, lagringsplats och gren för bygg-pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Välja teamprojekt, lagringsplats och gren för bygg-pipeline":::
 
 3. Välj slutligen den mall du vill använda för bygg-pipeline. Vi väljer **ASP.NET**-mallen i den här kursen. Nu har du en pipeline för bygge som du kan konfigurera för att använda Azure Cosmos DB emulatorns build-aktivitet. 
 
@@ -65,7 +64,7 @@ Start-CosmosDbEmulator
 
 1. Välj sedan **+** symbolen bredvid Agent jobbet för att lägga till emulatorns Bygg-aktivitet. Sök efter **cosmos** i sökrutan, välj **Azure Cosmos DB-emulatorn** och lägg till den i agentjobbet. Build-uppgiften startar en container med en instans av Cosmos DB-emulatorn som redan körs på den. Azure Cosmos DB-emulatoruppgiften ska placeras före alla andra uppgifter som förväntar att emulatorns ska köras.
 
-   ![Lägga till emulatorns build-uppgift i build-definitionen](./media/tutorial-setup-ci-cd/addExtension_3.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Lägga till emulatorns build-uppgift i build-definitionen":::
 
 I den här självstudiekursen lägger du till uppgiften i början för att se till att emulatorn är tillgänglig innan våra tester körs.
 
@@ -140,21 +139,21 @@ namespace todo.Tests
 
 Gå till körningsalternativen i Visual Studio-Test-uppgiften. I alternativet **Settings file** (Inställningsfil) anger du att testerna har konfigurerats med **.runsettings**-filen. I alternativet **Override test run parameters** (Åsidosätt testkörningsparametrar) lägger du till i `-endpoint $(CosmosDbEmulator.Endpoint)`. När du gör det konfigureras Test-uppgiften så att den refererar till emulatorns build-uppgift, istället för den som definieras i **.runsettings**-filen.  
 
-![Åsidosätt slutpunktsvariabeln med slutpunkten för emulatorns build-uppgift](./media/tutorial-setup-ci-cd/addExtension_5.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Åsidosätt slutpunktsvariabeln med slutpunkten för emulatorns build-uppgift":::
 
 ## <a name="run-the-build"></a>Kör bygget
 
 **Spara och köplacera** nu bygget. 
 
-![Spara och kör bygget](./media/tutorial-setup-ci-cd/runBuild_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Spara och kör bygget":::
 
 Observera när bygget har startats att Cosmos DB-emulatoruppgiften har börjat hämta Docker-avbildningen med emulatorn installerad. 
 
-![Spara och kör bygget](./media/tutorial-setup-ci-cd/runBuild_4.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Spara och kör bygget":::
 
 Observera när bygget har slutförts att testet godkänns, och att allt körs mot Cosmos DB-emulatorn från build-uppgiften!
 
-![Spara och kör bygget](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Spara och kör bygget":::
 
 ## <a name="set-up-using-yaml"></a>Konfigurera med YAML
 

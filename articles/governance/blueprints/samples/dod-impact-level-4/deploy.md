@@ -3,12 +3,11 @@ title: DoD effekt nivå 4 skiss exempel
 description: Distribuera steg för DoD-effekt på nivå 4, inklusive information om skiss artefakts parametrar.
 ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 2dc6c4ae70ce18a75f277495665ed5afdce2713c
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
-ms.translationtype: MT
+ms.openlocfilehash: bb2599399284b2be5a9a7f88ef1d0244812ec4b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800417"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044982"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Distribuera DoD-effekt nivå 4-skiss exemplet
 
@@ -109,7 +108,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att ange inga valfria parametrar:\[\]|
 |\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|Medlemmar som ska ingå i den lokala gruppen Administratörer|En semikolonavgränsad lista med medlemmar som ska uteslutas i den lokala gruppen Administratörer. T. ex. administratör; Mina Användare1; myUser2|
 |\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|Medlemmar som ska uteslutas i den lokala gruppen Administratörer|En semikolonavgränsad lista med medlemmar som ska ingå i den lokala gruppen Administratörer. T. ex. administratör; Mina Användare1; myUser2|
-|\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|Log Analytics arbetsyte-ID som virtuella datorer ska konfigureras för|Detta är ID (GUID) för Log Analytics arbets ytan som de virtuella datorerna ska konfigureras för.|
 |\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|Långsiktig Geo-redundant säkerhets kopiering ska aktive ras för Azure SQL-databaser|Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md).|
 |\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser|Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md).|
@@ -128,7 +127,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras|Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md).|
 |\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration|Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md).|
 |\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration|Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md).|
-|\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration|Information om princip effekter finns på [förstå Azure Policys effekter] (.. /.. /.. /policy/concepts/effects.
+|\[För hands version \] : DoD-effekt nivå 4|Principtilldelning|MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration|Information om princip effekter finns i [förstå Azure policys effekter](../../../policy/concepts/effects.md).|
 
 ## <a name="next-steps"></a>Nästa steg
 

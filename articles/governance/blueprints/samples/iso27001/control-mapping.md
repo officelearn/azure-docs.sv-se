@@ -3,12 +3,11 @@ title: ISO 27001-skiss exempel kontroller
 description: Kontroll mappning av ISO 27001-skiss exemplet. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 1f4998a84d7079b55e2668a43b7e7359429d54d8
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: 013a871b52a9e81d7051c3b148c258cecc139070
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919203"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044676"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Kontroll mappning av ISO 27001-skiss exemplet
 
@@ -28,7 +27,7 @@ Att ha bara en Azure-prenumerations ägare tillåter inte administrativ redundan
 
 ## <a name="a821-classification-of-information"></a>En. 8.2.1-klassificering av information
 
-Azures [tjänst för SQL sårbarhets bedömning](/azure/sql-database/sql-vulnerability-assessment) kan hjälpa dig att identifiera känsliga data som lagras i dina databaser och innehåller rekommendationer för att klassificera dessa data. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition för att granska att sårbarheter som identifieras under genomsökningen av SQL sårbarhets bedömning åtgärdas.
+Azures [tjänst för SQL sårbarhets bedömning](../../../../azure-sql/database/sql-vulnerability-assessment.md) kan hjälpa dig att identifiera känsliga data som lagras i dina databaser och innehåller rekommendationer för att klassificera dessa data. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition för att granska att sårbarheter som identifieras under genomsökningen av SQL sårbarhets bedömning åtgärdas.
 
 - \[För hands version \] : övervaka resultat av SQL sårbarhets bedömning i Azure Security Center
 

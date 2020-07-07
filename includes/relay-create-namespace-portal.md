@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76020978"
 ---
 1. Logga in på [Azure-portalen][Azure portal].
-1. Välj **Skapa en resurs**. Välj sedan **integration** > **Relay**. Om du inte ser **Relay** i listan väljer du **Visa alla** i det övre högra hörnet.
+1. Välj **Skapa en resurs**. Välj sedan **integration**  >  **Relay**. Om du inte ser **Relay** i listan väljer du **Visa alla** i det övre högra hörnet.
 1. Välj **skapa**och ange ett namn för namn området i fältet **namn** . Azure Portal kontrollerar om namnet är tillgängligt.
 1. Välj en Azure-prenumeration där du vill skapa namn området.
 1. För [resurs grupp](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)väljer du en befintlig resurs grupp där namn området ska placeras eller skapar en ny.  

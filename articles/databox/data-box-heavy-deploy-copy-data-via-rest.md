@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9f3ba0a7e9f7cf72b0eade16679d980fe2207f98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a57dc6c57e10c82f9548490c4c2e98fd87f677af
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80297215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849426"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er  
 
@@ -34,7 +34,7 @@ Innan du börjar ska du kontrollera att:
 2. Du har fått din Data Box Heavy-enhet och orderstatusen på portalen är **Levererad**.
 3. Du har granskat [systemkraven för Data Box Blob-lagring](data-box-system-requirements-rest.md) och känner till versioner av API:er, SDK:er och verktyg som stöds.
 4. Du har åtkomst till en värddator som innehåller de data som du vill kopiera till Data Box Heavy. Värddatorn måste
-    - Kör ett [operativ system som stöds](data-box-system-requirements.md).
+    - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
     - Vara ansluten till en höghastighetsnätverk. För snabbast kopieringshastighet kan två 40-GbE-anslutningar (en per nod) användas parallellt. Om du inte har någon tillgänglig 40-GbE-anslutning rekommenderar vi att du har minst två 10 GbE-anslutningar (en per nod). 
 5. [Ladda ned AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) på värddatorn. Du använder AzCopy för att kopiera data till Azure Data Box Blob-lagring från värddatorn.
 
@@ -92,7 +92,7 @@ Använda Azure-portalen för att ladda ned certifikatet.
 
 1. Logga in i Azure-portalen.
 2. Gå till din Data Box-order och navigera till **Allmänt > Enhetsinformation**.
-3. Under **Autentiseringsuppgifter för enheten** går du till **API-åtkomst** till enheten. Klicka på **Hämta**. Den här åtgärden hämtar ett ** \<beställnings namn>. cer** -certifikatfil. **Spara** den här filen. Du installerar det här certifikatet på den klient- eller värddatorn som du kommer att använda för att ansluta till enheten.
+3. Under **Autentiseringsuppgifter för enheten** går du till **API-åtkomst** till enheten. Klicka på **Hämta**. Den här åtgärden hämtar en ** \<your order name> . cer** -certifikatfil. **Spara** den här filen. Du installerar det här certifikatet på den klient- eller värddatorn som du kommer att använda för att ansluta till enheten.
 
     ![Ladda ned certifikat i Azure-portalen](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
@@ -102,7 +102,7 @@ Att komma åt Data Box-enhet Blob Storage via HTTPS kräver ett TLS/SSL-certifik
 
 Viss information för vissa program beskrivs i det här avsnittet. Mer information om andra program finns i dokumentationen för programmet och det operativ system som används.
 
-Följ dessa steg om du vill `.cer` importera filen till rot arkivet för en Windows-eller Linux-klient. I ett Windows-system kan du använda Windows PowerShell eller Windows Server-gränssnittet för att importera och installera certifikatet på systemet.
+Följ dessa steg om du vill importera `.cer` filen till rot arkivet för en Windows-eller Linux-klient. I ett Windows-system kan du använda Windows PowerShell eller Windows Server-gränssnittet för att importera och installera certifikatet på systemet.
 
 #### <a name="use-windows-powershell"></a>Använda Windows PowerShell
 
@@ -137,10 +137,10 @@ Metoden för att importera ett certifikat varierar beroende på distribution.
 
 Flera, till exempel Ubuntu och Debian, använder `update-ca-certificates` kommandot.  
 
-- Byt namn på den base64-kodade certifikat filen `.crt` till att ha ett tillägg och `/usr/local/share/ca-certificates directory`kopiera den till.
+- Byt namn på den base64-kodade certifikat filen till att ha ett `.crt` tillägg och kopiera den till `/usr/local/share/ca-certificates directory` .
 - Kör kommandot `update-ca-certificates`.
 
-De `update-ca-trust` senaste versionerna av RHEL, Fedora och CentOS använder kommandot.
+De senaste versionerna av RHEL, Fedora och CentOS använder `update-ca-trust` kommandot.
 
 - Kopiera certifikat filen till `/etc/pki/ca-trust/source/anchors` katalogen.
 - Kör `update-ca-trust`.
@@ -197,16 +197,19 @@ Använd AzCopy för att ladda upp alla filer i en mapp till Blob-lagring i Windo
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
-
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 Ersätt `<key>` med din kontonyckel. Du hämtar kontonyckeln genom att gå till Azure-portalen och sedan till ditt lagringskonto. Gå till **Inställningar > Åtkomstnycklar**, välj en nyckel och klistra in den i AzCopy-kommandot.
 
@@ -221,16 +224,21 @@ Använd AzCopy för att ladda upp filer baserat på den tid då de senaste ändr
 Om du bara vill kopiera källresurser som inte finns i målet, så ange båda parametrarna `--exclude-older` och `--exclude-newer` (Linux) eller `/XO` och `/XN` (Windows) i AzCopy-kommandot. AzCopy överför bara uppdaterade data utifrån deras tidsstämplar.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 Om det uppstår några fel under anslutnings-eller kopierings åtgärden, se [Felsöka problem med data Box-enhet Blob Storage](data-box-troubleshoot-rest.md).
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57f412f93d9dbe2d9967c5cbc7dc50b1ee8bd61f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73177015"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Självstudie: Azure Active Directory integrering med Picturepark
 
@@ -34,7 +34,7 @@ Genom att integrera Picturepark med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Picturepark behöver du följande objekt:
 
@@ -109,12 +109,11 @@ Utför följande steg för att konfigurera enkel inloggning med Picturepark i Az
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
 
-    |  |
-    |--|
-    | `https://<companyname>.current-picturepark.com`|
-    | `https://<companyname>.picturepark.com`|
-    | `https://<companyname>.next-picturepark.com`|
-    | |
+    ```http
+        https://<companyname>.current-picturepark.com
+        https://<companyname>.picturepark.com
+        https://<companyname>.next-picturepark.com
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Picturepark client support team](https://picturepark.com/company/picturepark-customer-support) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -188,7 +187,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension` . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -240,7 +239,7 @@ För att Azure AD-användare ska kunna logga in på Picturepark måste de tillha
    
     ![Skapa användare](./media/picturepark-tutorial/ic795069.png "Skapa användare")
    
-    a. I text rutan **e-postadress** anger du användarens `BrittaSimon@contoso.com` **e-postadress** .  
+    a. I text rutan **e-postadress** anger du användarens **e-postadress** `BrittaSimon@contoso.com` .  
    
     b. I text rutorna **lösen** ord och **Bekräfta lösen ord** skriver du **lösen ordet** för BrittaSimon. 
    
@@ -252,7 +251,7 @@ För att Azure AD-användare ska kunna logga in på Picturepark måste de tillha
    
     f. I text rutan **land** väljer du användarens **land/region** .
   
-    g. I **zip** -text rutan skriver du ortns **post nummer** .
+    ex. I **zip** -text rutan skriver du ortns **post nummer** .
    
     h. Skriv **Orts namnet** för användaren i text rutan **stad** .
 

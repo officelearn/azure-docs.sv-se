@@ -4,14 +4,16 @@ description: Skapa snabbt och kör en Jupyter-anteckningsbok på Azure Notebooks
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 01d1035f794287e679b6ebc84fa9498b184b4791
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561082"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832108"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Snabb start: skapa och dela en antecknings bok i Azure Notebooks för hands version
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 I den här snabb starten skapar du och kör en Jupyter Notebook på Azure Notebooks och delar sedan den bärbara datorn med andra. Med Jupyter kan du enkelt kombinera markdown text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbets yta, antecknings boken. Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation.
 
@@ -19,8 +21,6 @@ I den här snabb starten skapar du och kör en Jupyter Notebook på Azure Notebo
 Inga.
 
 ## <a name="create-a-new-project-and-notebook"></a>Skapa ett nytt projekt och en ny antecknings bok
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Gå till [Azure Notebooks-platsen ( https://notebooks.azure.com) ](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 

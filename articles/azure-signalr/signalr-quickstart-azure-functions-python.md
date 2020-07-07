@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: tracking-python
-ms.openlocfilehash: 4078edcadf3985e3b4dd392f726ca2e8d171b8b1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d77faf8cf4f859c0ef933d28119bd024ace86ac8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559068"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832499"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med python
 
@@ -73,7 +73,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. I **local.settings.json** klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
-1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *Function. JSON* definierar de bindningar som används i funktionen och * \_ \_ init \_ \_ . py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
+1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *function.jspå* definierar de bindningar som används i funktionen, och * \_ \_ init \_ \_ . py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
 
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **messages** (meddelanden) – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
@@ -101,4 +101,4 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 I den här snabb starten har du skapat och kört ett program utan server i real tid i VS Code. Som nästa steg ska du lära dig mer om hur du distribuerar Azure Functions via VS Code.
 
 > [!div class="nextstepaction"]
-> [Distribuera Azure Functions med VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)
+> [Distribuera Azure Functions med VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)

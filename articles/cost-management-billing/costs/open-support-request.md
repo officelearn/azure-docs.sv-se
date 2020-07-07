@@ -7,12 +7,12 @@ ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 38efc86d1bdc185f39d3ea502a64d0f3cf7edcc0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 1befd0cc85044097a64b5988e6f763ce89ca3ec9
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849710"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Skapa en supportbegäran för Cloudyn
 
@@ -38,7 +38,7 @@ När supportbegäran har skapats läggs den till i supportkön. Svarstiden varie
 
 Om du vill skapa en supportbegäran för Cost Management ska **Problemtyp** vara **Azure Cost Management**.
 
-Om du vill kontrollera statusen för ett ärende du har skapat går du till [Alla supportbegäranden](../../azure-portal/supportability/how-to-create-azure-support-request.md#all-support-requests).
+Om du vill kontrollera statusen för ett ärende du har skapat går du till [Alla supportbegäranden](../../azure-portal/supportability/how-to-manage-azure-support-request.md#view-support-requests).
 
 Om du är en äldre Cloudyn-användare utan ett Azure-konto kan du öppna en supportbegäran på https://support.microsoft.com/oas/default.aspx?prid=16451.
 

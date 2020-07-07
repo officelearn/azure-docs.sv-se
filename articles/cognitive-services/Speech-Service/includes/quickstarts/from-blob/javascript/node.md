@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
-ms.author: dapine
-ms.openlocfilehash: 19aa7b839b1c673451f51524a9461aba8222c0d2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.author: trbye
+ms.openlocfilehash: bc5c5bf6a6baf32a74413272334fe6070b0a7a5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980426"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838899"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -24,7 +24,7 @@ Innan du börjar ska du se till att:
 
 Det första steget är att se till att projektet är öppet i din favorit redigerare.
 
-Anropa filen index. js.
+Anropa filen index.js.
 
 ## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
@@ -423,7 +423,7 @@ request.end();
 
 Nu är du redo att bygga din app och testa vår tal igenkänning med röst tjänsten.
 
-**Starta din app** -kör Node index. js.
+**Starta din app** -kör Node index.js.
 
 ## <a name="next-steps"></a>Nästa steg
 

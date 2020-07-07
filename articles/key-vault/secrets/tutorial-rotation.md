@@ -1,6 +1,6 @@
 ---
-title: Självstudie med en rotation med enkel användare/enstaka lösen ord
-description: I den här självstudien får du lära dig hur du automatiserar rotationen av en hemlighet för resurser som använder autentisering med enkel användare eller enstaka lösen ord.
+title: Rotations guide för resurser med en uppsättning autentiseringsuppgifter för autentisering
+description: I den här självstudien får du lära dig hur du automatiserar rotationen av en hemlighet för resurser som använder en uppsättning autentiseringsuppgifter för autentisering.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bff8c040f4cfed612278dd83ebb354b31a3a1f3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183219"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801452"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatisera rotationen av en hemlighet för resurser som använder autentisering med enkel användare/enstaka lösen ord
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser som använder en uppsättning autentiseringsuppgifter för autentisering
 
 Det bästa sättet att autentisera till Azure-tjänster är genom att använda en [hanterad identitet](../general/managed-identity.md), men det finns vissa scenarier där det inte är ett alternativ. I dessa fall används åtkomst nycklar eller hemligheter. Du bör regelbundet rotera åtkomst nycklar eller hemligheter.
 
-Den här självstudien visar hur du automatiserar den periodiska rotationen av hemligheter för databaser och tjänster som använder autentisering med enkel användare eller enstaka lösen ord. Mer specifikt roterar SQL Server lösen ord som lagras i Azure Key Vault genom att använda en funktion som utlöses av Azure Event Grid meddelande:
+Den här självstudien visar hur du automatiserar den periodiska rotationen av hemligheter för databaser och tjänster som använder en uppsättning autentiseringsuppgifter för autentisering. Mer specifikt roterar SQL Server lösen ord som lagras i Azure Key Vault genom att använda en funktion som utlöses av Azure Event Grid meddelande:
 
 ![Diagram över rotations lösning](../media/rotate1.png)
 
@@ -176,7 +176,7 @@ Du hittar den fullständiga koden på [GitHub](https://github.com/jlichwa/azure-
 
 1. Hämta zip-filen för funktionen app från [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip).
 
-1. Ladda upp filen simplerotationsample-FN. zip till Azure Cloud Shell.
+1. Ladda upp simplerotationsample-fn.zip-filen till Azure Cloud Shell.
 
    ![Ladda upp filen](../media/rotate4.png)
 1. Använd det här Azure CLI-kommandot för att distribuera zip-filen till Function-appen:
@@ -197,7 +197,7 @@ Kopiera funktions appens `eventgrid_extension` nyckel:
 
    ![eventgrid_extension nyckel](../media/rotate7.png)
 
-Använd den kopierade `eventgrid_extension` nyckeln och ditt PRENUMERATIONS-ID i följande kommando för att skapa en `SecretNearExpiry` Event Grid prenumeration för händelser:
+Använd den kopierade `eventgrid_extension` nyckeln och ditt prenumerations-ID i följande kommando för att skapa en Event Grid prenumeration för `SecretNearExpiry` händelser:
 
 ```azurecli
 az eventgrid event-subscription create --name simplerotation-eventsubscription --source-resource-id "/subscriptions/<subscription-id>/resourceGroups/simplerotation/providers/Microsoft.KeyVault/vaults/simplerotation-kv" --endpoint "https://simplerotation-fn.azurewebsites.net/runtime/webhooks/EventGrid?functionName=SimpleRotation&code=<extension-key>" --endpoint-type WebHook --included-event-types "Microsoft.KeyVault.SecretNearExpiry"
@@ -217,12 +217,12 @@ $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
 az keyvault secret set --name sqluser --vault-name simplerotation-kv --value "Simple123" --tags "UserID=azureuser" "DataSource=simplerotation-sql.database.windows.net" --expires $tomorrowDate
 ```
 
-Att skapa en hemlighet med ett kort utgångs datum publicerar `SecretNearExpiry` omedelbart en händelse, vilket i sin tur utlöser funktionen för att rotera hemligheten.
+Att skapa en hemlighet med ett kort utgångs datum publicerar omedelbart en `SecretNearExpiry` händelse, vilket i sin tur utlöser funktionen för att rotera hemligheten.
 
 ## <a name="test-and-verify"></a>Testa och verifiera
-Efter några minuter bör `sqluser` hemligheten roteras automatiskt.
+Efter några minuter `sqluser` bör hemligheten roteras automatiskt.
 
-Om du vill kontrol lera att hemligheten har roterats går du till **Key Vault** > **hemligheter**:
+Om du vill kontrol lera att hemligheten har roterats går du till **Key Vault**  >  **hemligheter**:
 
 ![Gå till hemligheter](../media/rotate8.png)
 
@@ -250,7 +250,7 @@ Du hittar käll koden för webb programmet på [GitHub](https://github.com/jlich
 Slutför följande steg för att distribuera webbappen:
 
 1. Hämta zip-filen för funktionen app från [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip).
-1. Ladda upp filen simplerotationsample-app. zip till Azure Cloud Shell.
+1. Ladda upp simplerotationsample-app.zip-filen till Azure Cloud Shell.
 1. Använd det här Azure CLI-kommandot för att distribuera zip-filen till Function-appen:
 
    ```azurecli

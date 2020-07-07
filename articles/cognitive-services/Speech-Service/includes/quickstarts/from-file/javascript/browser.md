@@ -3,15 +3,15 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: b5bdbb76a822f8b6d5134da819828b3dee518165
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.author: trbye
+ms.openlocfilehash: bb30eb13d91981ad18f69afabcca8015c50d699b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83806219"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85839056"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -168,7 +168,7 @@ Innan du kan initiera ett `SpeechRecognizer` objekt måste du skapa en konfigura
 Nu måste du skapa ett `AudioConfig` objekt som pekar på ljud filen. Infoga den här koden i `startRecognizeOnceAsyncButton.addEventListener()` metoden, precis under din tal konfiguration.
 
 ```JavaScript
-        var audioConfig  = SpeechSDK.AudioConfig.fromFile(audioFile);
+        var audioConfig  = SpeechSDK.AudioConfig.fromWavFileInput(audioFile);
 ```
 
 ## <a name="initialize-a-speechrecognizer"></a>Initiera en SpeechRecognizer

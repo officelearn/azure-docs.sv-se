@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 3613d190ef079d0e477d42b426a224d8e4dda7e6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f26f0ab6da398dcdee307f89b27cca780d08af85
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400702"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838928"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -34,7 +34,9 @@ Skapa en fil med namnet *QuickStart.py* och klistra in följande python-kod i de
 
 ## <a name="build-and-run-app"></a>Skapa och kör app
 
-Nu är du redo att testa appen och verifiera tal igenkännings funktionen med hjälp av tal tjänsten.
+Nu är du redo att testa tal igenkänning med hjälp av tal tjänsten. 
+
+Om du kör detta på macOS och det är den första python-app som du har skapat som använder en mikrofon, behöver du förmodligen ge Terminal åtkomst till mikrofonen. Öppna **Systeminställningar** och välj **säkerhet & sekretess**. Välj sedan **Sekretess** och leta upp **mikrofonen** i listan. Sist väljer du **Terminal** och spara. 
 
 1. **Starta appen** – från kommando raden skriver du:
     ```bash
@@ -45,4 +47,3 @@ Nu är du redo att testa appen och verifiera tal igenkännings funktionen med hj
 ## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
-

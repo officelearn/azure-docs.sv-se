@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: e9df6d2e7a8219d16e7b60f7c3b8d826a87e6110
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ac09aae724cf7481245ba9e898b52945b394cae
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80348858"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856525"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudie: Använd dynamisk konfiguration i en ASP.NET Core app
 
-ASP.NET Core har ett anslutnings Bart konfigurations system som kan läsa konfigurations data från en mängd olika källor. Den kan hantera ändringar dynamiskt utan att ett program har startats om. ASP.NET Core stöder bindning av konfigurations inställningar till starkt skrivna .NET-klasser. Den infogar dem i koden med hjälp av de olika `IOptions<T>` mönstren. Ett av dessa mönster, i `IOptionsSnapshot<T>`synnerhet, laddar automatiskt om programmets konfiguration när underliggande data ändras. Du kan mata in `IOptionsSnapshot<T>` i kontrollanter i ditt program för att få åtkomst till den senaste konfiguration som lagras i Azure App Configuration.
+ASP.NET Core har ett anslutnings Bart konfigurations system som kan läsa konfigurations data från en mängd olika källor. Den kan hantera ändringar dynamiskt utan att ett program har startats om. ASP.NET Core stöder bindning av konfigurations inställningar till starkt skrivna .NET-klasser. Den infogar dem i koden med hjälp av de olika `IOptions<T>` mönstren. Ett av dessa mönster, i synnerhet `IOptionsSnapshot<T>` , laddar automatiskt om programmets konfiguration när underliggande data ändras. Du kan mata in `IOptionsSnapshot<T>` i kontrollanter i ditt program för att få åtkomst till den senaste konfiguration som lagras i Azure App Configuration.
 
 Du kan också konfigurera appens konfiguration ASP.NET Core klient bibliotek för att uppdatera en uppsättning konfigurations inställningar dynamiskt med hjälp av ett mellanprogram. Konfigurations inställningarna uppdateras med konfigurations lagret varje gång så länge webbappen tar emot begär Anden.
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera ditt program för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Mata in den senaste konfigurationen i dina programs kontrollanter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -113,9 +113,9 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
     ```
     ---
 
-    `ConfigureRefresh` Metoden används för att ange inställningarna som används för att uppdatera konfigurations data med appens konfigurations Arkiv när en uppdatering aktive ras. `refreshAll` Parametern till `Register` metoden indikerar att alla konfigurations värden ska uppdateras om kontroll nyckeln ändras.
+    `ConfigureRefresh`Metoden används för att ange inställningarna som används för att uppdatera konfigurations data med appens konfigurations Arkiv när en uppdatering aktive ras. `refreshAll`Parametern till `Register` metoden indikerar att alla konfigurations värden ska uppdateras om kontroll nyckeln ändras.
 
-    `SetCacheExpiration` Metoden åsidosätter också förfallo tiden för standardcachen på 30 sekunder, vilket anger en tid på 5 minuter i stället. Detta minskar antalet begär Anden som görs till app-konfigurationen.
+    `SetCacheExpiration`Metoden åsidosätter också förfallo tiden för standardcachen på 30 sekunder, vilket anger en tid på 5 minuter i stället. Detta minskar antalet begär Anden som görs till app-konfigurationen.
 
     > [!NOTE]
     > I test syfte kanske du vill minska förfallo tiden för cachen.
@@ -217,7 +217,7 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
     ```
     ---
     
-    Mellanprogram använder den uppdaterings konfiguration som anges i `AddAzureAppConfiguration` -metoden `Program.cs` i för att utlösa en uppdatering för varje begäran som tas emot av ASP.net Core webbappen. För varje begäran utlöses en uppdaterings åtgärd och klient biblioteket kontrollerar om det cachelagrade värdet för den registrerade konfigurations inställningen har upphört att gälla. Om den har gått ut uppdateras den.
+    Mellanprogram använder den uppdaterings konfiguration som anges i `AddAzureAppConfiguration` -metoden i `Program.cs` för att utlösa en uppdatering för varje begäran som tas emot av ASP.net Core webbappen. För varje begäran utlöses en uppdaterings åtgärd och klient biblioteket kontrollerar om det cachelagrade värdet för den registrerade konfigurations inställningen har upphört att gälla. Om den har gått ut uppdateras den.
 
 ## <a name="use-the-latest-configuration-data"></a>Använda senaste konfigurationsdata
 
@@ -227,7 +227,7 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
     using Microsoft.Extensions.Options;
     ```
 
-2. Uppdatera `HomeController` klassen som ska tas `Settings` emot via beroende insprutning och använd dess värden.
+2. Uppdatera `HomeController` klassen som ska tas emot `Settings` via beroende insprutning och använd dess värden.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -310,11 +310,16 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
 
 1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i kommando gränssnittet:
 
+```console
         dotnet build
+```
 
 1. När skapandet har slutförts kör du följande kommando för att köra webbappen lokalt:
 
+```console
         dotnet run
+```
+
 1. Öppna ett webbläsarfönster och gå till den URL som visas i `dotnet run` utdata.
 
     ![Starta snabb starts app lokalt](./media/quickstarts/aspnet-core-app-launch-local-before.png)
@@ -323,7 +328,7 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
 
 1. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:BackgroundColor | green |
     | TestApp:Settings:FontColor | lightGray |

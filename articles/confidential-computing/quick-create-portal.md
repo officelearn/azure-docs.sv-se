@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 905c76a3c5399ecae8acb2a18d35006306afcb2f
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 3cf772fb10ee41887d76976b30e9bebaba51a2f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801265"
+ms.locfileid: "85830476"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Snabb start: Distribuera en virtuell Azure-dator med konfidentiella data behandling i Azure Portal
 
@@ -22,7 +22,7 @@ Kom igång med Azures konfidentiella data behandling genom att använda Azure Po
 Den här själv studie kursen rekommenderas för dig om du är intresse rad av att distribuera en konfidentiell virtuell dator med anpassad konfiguration. I annat fall rekommenderar vi att du följer [distributions stegen för den virtuella datorn för den konfidentiella beräkningen för Microsofts kommersiella marknads](quick-create-marketplace.md)plats.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) innan du börjar.
 
@@ -32,7 +32,7 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Välj **skapa en resurs**längst upp.
 
@@ -127,8 +127,7 @@ ssh azureadmin@40.55.55.555
 
 Du hittar den offentliga IP-adressen för den virtuella datorn i Azure Portal i avsnittet Översikt på den virtuella datorn.
 
-[!div class="mx-imgBorder"]
-![IP-adress i Azure Portal](media/quick-create-portal/public-ip-virtual-machine.png)
+:::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="IP-adress i Azure Portal":::
 
 Om du kör på Windows och inte har något BASH-gränssnitt kan du installera en SSH-klient som t.ex. PuTTY.
 

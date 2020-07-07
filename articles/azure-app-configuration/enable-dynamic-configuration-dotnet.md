@@ -8,16 +8,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7780bdbc92868f62e8d066d171b2a04fe06a981d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b6081e6bad1382ca2b3a8349036234c0c01cb13
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80245811"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856510"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Självstudie: Använd dynamisk konfiguration i en .NET Framework app
 
-App Configuration .NET-klient biblioteket stöder uppdatering av en uppsättning konfigurations inställningar på begäran utan att ett program startas om. Detta kan implementeras genom att först hämta en instans `IConfigurationRefresher` av från alternativen för konfigurationsprovidern och sedan anropa `Refresh` den instansen var som helst i din kod.
+App Configuration .NET-klient biblioteket stöder uppdatering av en uppsättning konfigurations inställningar på begäran utan att ett program startas om. Detta kan implementeras genom att först hämta en instans av `IConfigurationRefresher` från alternativen för konfigurationsprovidern och sedan anropa den `Refresh` instansen var som helst i din kod.
 
 För att hålla inställningarna uppdaterade och undvika för många anrop till konfigurations arkivet används ett cacheminne för varje inställning. Tills det cachelagrade värdet för en inställning har gått ut uppdateras inte värdet, även om värdet har ändrats i konfigurations arkivet. Standard förfallo tiden för varje begäran är 30 sekunder, men den kan åsidosättas om det behövs.
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera din .NET Framework-app för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Mata in den senaste konfigurationen i ditt program.
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -38,9 +38,9 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** > **+ skapa** > **nyckel värde** om du vill lägga till följande nyckel/värde-par:
+6. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -50,14 +50,14 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-a-net-framework-console-app"></a>Skapa en .NET Framework-konsol-app
 
-1. Starta Visual Studio och välj **fil** > **nytt** > **projekt**.
+1. Starta Visual Studio och välj **fil**  >  **nytt**  >  **projekt**.
 
 1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Nästa**.
 
 1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4.7.1** eller högre. Klicka på **Skapa**.
 
 ## <a name="reload-data-from-app-configuration"></a>Läsa in data på nytt från App Configuration
-1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du och lägger till *Microsoft. Extensions. Configuration. AzureAppConfiguration* NuGet-paketet i projektet. Om du inte hittar det markerar du kryss rutan **Inkludera för hands version** .
+1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du och lägger till *Microsoft.Extensions.Configuration. AzureAppConfiguration* NuGet-paket till ditt projekt. Om du inte hittar det markerar du kryss rutan **Inkludera för hands version** .
 
 1. Öppna *program.cs*och Lägg till en referens till .net Core app Configuration-providern.
 
@@ -95,10 +95,10 @@ I den här guiden får du lära dig att:
         PrintMessage().Wait();
     }
     ```
-    `ConfigureRefresh` Metoden används för att ange inställningarna som används för att uppdatera konfigurations data med appens konfigurations Arkiv när en uppdatering aktive ras. En instans av `IConfigurationRefresher` kan hämtas genom att anropa `GetRefresher` metoden på de alternativ som ges `AddAzureAppConfiguration` till metoden, och `Refresh` metoden i den här instansen kan användas för att utlösa en uppdaterings åtgärd var som helst i koden.
+    `ConfigureRefresh`Metoden används för att ange inställningarna som används för att uppdatera konfigurations data med appens konfigurations Arkiv när en uppdatering aktive ras. En instans av `IConfigurationRefresher` kan hämtas genom att anropa `GetRefresher` metoden på de alternativ som ges till `AddAzureAppConfiguration` metoden, och `Refresh` metoden i den här instansen kan användas för att utlösa en uppdaterings åtgärd var som helst i koden.
 
     > [!NOTE]
-    > Standard-cachens förfallo tid för en konfigurations inställning är 30 sekunder, men kan åsidosättas genom att `SetCacheExpiration` anropa metoden på Options-initieraren som skickades som `ConfigureRefresh` ett argument till metoden.
+    > Standard-cachens förfallo tid för en konfigurations inställning är 30 sekunder, men kan åsidosättas genom `SetCacheExpiration` att anropa metoden på Options-initieraren som skickades som ett argument till `ConfigureRefresh` metoden.
 
 1. Lägg till en metod `PrintMessage()` med namnet som utlöser en manuell uppdatering av konfigurations data från App-konfigurationen.
 
@@ -119,11 +119,15 @@ I den här guiden får du lära dig att:
 
 1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Om du använder Windows PowerShell kör du följande kommando:
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
 1. Starta om Visual Studio om du vill att ändringen ska börja gälla. 
 
@@ -135,7 +139,7 @@ I den här guiden får du lära dig att:
 
 1. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App konfiguration – uppdaterad |
 

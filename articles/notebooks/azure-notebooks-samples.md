@@ -3,23 +3,23 @@ title: Exempel på Jupyter Notebooks för Azure Notebooks för hands version
 description: Exempel är ett bra sätt att uppleva Jupyter Notebooks som körs i kostnads fria Azure Notebooks moln tjänster.
 ms.topic: sample
 ms.date: 01/11/2019
-ms.openlocfilehash: f67c37d0ffe0e90e13e05bb50ed6c523e0b3a14e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 397e40f628e6e935fef74d2225d2e477aac7b276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75646321"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834003"
 ---
 # <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Identifiera och Använd exempel antecknings böcker i Azure Notebooks för hands version
 
-Internet har många samlingar av intressanta och användbara Jupyter-anteckningsböcker som du enkelt kan ta med i Azure Notebooks. Den här artikeln innehåller en lista över viktiga exempel.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Internet har många samlingar av intressanta och användbara Jupyter-anteckningsböcker som du enkelt kan ta med i Azure Notebooks. Den här artikeln innehåller en lista över viktiga exempel.
 
 När du har identifierat en antecknings bok som du vill utforska finns det några detaljer som du vill förstå:
 
 - Om en antecknings bok redan finns i Azure Notebooks använder du knappen **klona** på instrument panelen för projektet för att skapa en kopia av projektet i ditt eget konto.
-- Vissa antecknings böcker kräver att vissa paket körs. Även om du kan `!pip install` använda (python) `install.packages` eller (R) för att installera paket från en bärbar dator kan du också [Konfigurera ett Azure Notebooks-projekt med lämplig miljö](configure-manage-azure-notebooks-projects.md).
+- Vissa antecknings böcker kräver att vissa paket körs. Även om du kan använda `!pip install` (python) eller `install.packages` (R) för att installera paket från en bärbar dator kan du också [Konfigurera ett Azure Notebooks-projekt med lämplig miljö](configure-manage-azure-notebooks-projects.md).
 
 ## <a name="great-sample-notebooks"></a>Bra exempel på bärbara datorer
 

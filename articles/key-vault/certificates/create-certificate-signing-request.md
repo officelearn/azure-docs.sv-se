@@ -10,16 +10,16 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 9772ea320ff28325ffdc8cdcb6e35947b182d1b3
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849495"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Skapa och sammanfoga CSR i Key Vault
 
-Azure Key Vault stöder för att skapa begäran om certifikat signering med ett privat offentligt nyckel par och få det signerat av valfri certifikat utfärdare. Det kan vara interna företags certifikat utfärdare eller extern offentlig CA. En begäran om certifikat signering (även CSR eller certifierings förfrågan) är ett meddelande som skickas av användaren till en certifikat utfärdare (CA) för att begära utfärdande av ett digitalt certifikat.
+Azure Key Vault stöder lagring av digitala certifikat som utfärdats av valfri certifikat utfärdare i ditt nyckel valv. Det har stöd för att skapa en begäran om certifikat signering med ett privat offentligt nyckel par som kan signeras av en vald certifikat utfärdare. Det kan vara interna företags certifikat utfärdare eller extern offentlig CA. En begäran om certifikat signering (även CSR eller certifierings förfrågan) är ett meddelande som skickas av användaren till en certifikat utfärdare (CA) för att begära utfärdande av ett digitalt certifikat.
 
 Mer allmän information om certifikat finns i [Azure Key Vault certifikat](/azure/key-vault/certificates/about-certificates).
 

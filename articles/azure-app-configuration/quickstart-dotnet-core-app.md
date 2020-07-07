@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 420d9b48013f5f6debe588667fe1cc0390517e66
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7cabe5b0564ec63335800a999bebec67ec970587
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80245386"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856774"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabb start: skapa en .NET Core-app med app-konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-konsol för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.Net Core SDK](https://dotnet.microsoft.com/download) – även tillgängligt i [Azure Cloud Shell](https://shell.azure.com).
@@ -27,9 +27,9 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-ko
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren** > **skapa** > **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
+6. Välj **konfigurations Utforskaren**  >  **skapa**  >  **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -70,7 +70,7 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Uppdatera `Main` metoden för att använda app-konfiguration genom att `builder.AddAzureAppConfiguration()` anropa-metoden.
+4. Uppdatera `Main` metoden för att använda app-konfiguration genom att anropa- `builder.AddAzureAppConfiguration()` metoden.
 
     ```csharp
     static void Main(string[] args)
@@ -99,7 +99,9 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 
     Om du använder macOS eller Linux kör du följande kommando:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
     Starta om kommando tolken så att ändringen börjar gälla. Skriv ut värdet för miljövariabeln för att kontrol lera att den är korrekt inställd.
 

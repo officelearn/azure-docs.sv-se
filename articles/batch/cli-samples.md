@@ -1,30 +1,23 @@
 ---
-title: Azure CLI-exempel
-description: Azure CLI-exempel för Azure Batch tjänst. Lär dig hur du skapar ett batch-konto och lägger till ett program.
+title: Azure CLI-exempel för Azure Batch
+description: Lär dig hur du skapar ett batch-konto och lägger till ett program med hjälp av Azure CLI.
 ms.topic: sample
-ms.date: 01/29/2018
+ms.date: 07/01/2020
 ms.custom: mvc
-ms.openlocfilehash: 59fc944024e2d51b16193db01ff06f2d434ad1e7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ff18043f4d411a70be7ad7f4d373d7c6a8b0e4e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725762"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832278"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Azure CLI-exempel för Azure Batch
 
-Följande tabell innehåller länkar till Azure CLI-exempel för Azure Batch.
+I följande exempel visas hur du arbetar med batch med hjälp av Azure CLI.
 
-|  |  |
-|---|---|
-|**Skapa ett Batch-konto**||
-| [Skapa ett Batch-konto i Batch-tjänstläge](./scripts/batch-cli-sample-create-account.md) | Skapar ett Batch-konto i standardläget och kopplar det till ett lagringskonto. |
-| [Skapa ett Batch-konto i användarprenumerationsläge](./scripts/batch-cli-sample-create-user-subscription-account.md) | Skapar ett Batch-konto i användarprenumerationsläge. |
-|**Lägga till ett program**||
-| [Lägga till ett program i ett Batch-konto](./scripts/batch-cli-sample-add-application.md) | Lägger till ett program och laddar upp paketerade binärfiler.|
-|**Skapa och hantera pooler med beräkningsnoder**||
-| [Skapa och hantera en Linux-pool](./scripts/batch-cli-sample-manage-linux-pool.md) | Visar hur du skapar, ändrar storlek på och hanterar en Linux-pool. |
-| [Skapa och hantera en Windows-pool](./scripts/batch-cli-sample-manage-windows-pool.md) | Visar hur du skapar, ändrar storlek på och hanterar en Windows-pool. |
-|**Köra jobb och uppgifter**||
-| [Köra ett jobb och aktiviteter med Batch](./scripts/batch-cli-sample-run-job.md) | Visar hur du kör ett jobb och lägger till aktiviteter. |
-
+- [Skapa ett batch-konto i standard läget och koppla det till ett lagrings konto](./scripts/batch-cli-sample-create-account.md)
+- [Skapa ett Batch-konto i användarprenumerationsläge](./scripts/batch-cli-sample-create-user-subscription-account.md)
+- [Lägga till ett program i ett batch-konto och överföra paketerade binärfiler](./scripts/batch-cli-sample-add-application.md)
+- [Skapa och hantera en Linux-pool](./scripts/batch-cli-sample-manage-linux-pool.md)
+- [Skapa och hantera en Windows-pool](./scripts/batch-cli-sample-manage-windows-pool.md)
+- [Köra ett jobb och aktiviteter med Batch](./scripts/batch-cli-sample-run-job.md)

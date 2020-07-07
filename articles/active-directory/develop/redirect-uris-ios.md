@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: c25de9a41678af7391fc271b1dc3413c332ce8b6
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830357"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Använda omdirigerings-URI: er med Microsoft Authentication Library för iOS och macOS
 
@@ -40,10 +40,12 @@ Omdirigerings-URI: erna måste vara olika för varje iOS-app. På så sätt kan 
 
 Följande program registrering i Azure Portal:
 
-    Client ID: ABCDE-12345 (this is a single client ID)
-    RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
+* Klient-ID: `ABCDE-12345` (detta är ett enda klient-ID)
+* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
 
-APP1 använder omdirigera `msauth.com.contoso.app1://auth` APP2 använder `msauth.com.contoso.app2://auth` App3 använder`msauth.com.contoso.app1://auth`
+APP1 använder omdirigering `msauth.com.contoso.app1://auth` . \
+APP2 använder `msauth.com.contoso.app2://auth` . \
+App3 använder `msauth.com.contoso.app1://auth` .
 
 ### <a name="migrating-from-adal-to-msal"></a>Migrera från ADAL till MSAL
 
@@ -70,7 +72,6 @@ När du migrerar kod som använde Azure AD Authentication Library (ADAL) till MS
         </dict>
     </array>
     ```
-    
 
 MSAL kontrollerar om din omdirigerings-URI registrerar sig korrekt och returnerar ett fel om det inte är det.
     

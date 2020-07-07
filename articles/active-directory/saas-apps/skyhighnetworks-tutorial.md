@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med skyhigh-nätverk | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och skyhigh-nätverk.
+title: 'Självstudie: Azure Active Directory integrering med MVISION Cloud Azure AD SSO-konfiguration | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och MVISION-molnet i Azure AD SSO-konfigurationen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,99 +11,78 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 92f3f101807171e71d40171dfa2bd3f006363ae0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a519ab6558db95ecf86b7595dbbb13a970460043
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67090378"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85806898"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Självstudie: Azure Active Directory integrering med skyhigh-nätverk
+# <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Självstudie: integrera MVISION Cloud Azure AD SSO-konfiguration med Azure Active Directory
 
-I den här självstudien får du lära dig att integrera skyhigh-nätverk med Azure Active Directory (Azure AD).
-Att integrera skyhigh-nätverk med Azure AD ger följande fördelar:
+I den här självstudien får du lära dig hur du integrerar MVISION Cloud Azure AD SSO-konfiguration med Azure Active Directory (Azure AD). När du integrerar MVISION Cloud Azure AD SSO-konfiguration med Azure AD kan du:
 
-* Du kan styra Azure AD som har åtkomst till skyhigh-nätverk.
-* Du kan göra det möjligt för användarna att logga in automatiskt till skyhigh-nätverk (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till MVISION Cloud Azure AD SSO-konfiguration.
+* Gör det möjligt för användarna att logga in automatiskt till MVISION Cloud Azure AD SSO-konfiguration med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med skyhigh-nätverk behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Skyhigh nätverk enkel inloggning aktive rad prenumeration
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få en månads kostnads fri utvärderings version [här](https://azure.microsoft.com/pricing/free-trial/).
+* MVISION Cloud Azure AD SSO-konfiguration enkel inloggning (SSO) aktive rad prenumeration.
+
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Skyhigh Networks stöder **SP-och IDP** -INITIERAd SSO
+* MVISION Cloud Azure AD SSO-konfiguration stöder **SP-och IDP** -INITIERAd SSO
+* När du har konfigurerat Dropbox kan du framtvinga kontroll över sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-skyhigh-networks-from-the-gallery"></a>Lägga till skyhigh-nätverk från galleriet
+## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Lägga till MVISION Cloud Azure AD SSO-konfiguration från galleriet
 
-Om du vill konfigurera integreringen av skyhigh-nätverk i Azure AD måste du lägga till skyhigh-nätverk från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integrering av MVISION Cloud Azure AD SSO-konfigurationen i Azure AD måste du lägga till MVISION Cloud Azure AD SSO-konfiguration från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till skyhigh-nätverk från galleriet:**
-
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
-
-    ![Azure Active Directory-knappen](common/select-azuread.png)
-
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. I rutan Sök skriver du **skyhigh Networks**, väljer **skyhigh Networks** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
-
-     ![Skyhigh-nätverk i resultat listan](common/search-new-app.png)
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **MVision Cloud Azure AD SSO Configuration** i sökrutan.
+1. Välj **MVision Cloud Azure AD SSO-konfiguration** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med skyhigh-nätverk baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i skyhigh-nätverk upprättas.
+Konfigurera och testa Azure AD SSO med MVISION Cloud Azure AD SSO-konfiguration med hjälp av en test användare som kallas **Britta Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i MVISION Cloud AD SSO-konfiguration.
 
-Om du vill konfigurera och testa enkel inloggning med skyhigh-nätverk i Azure AD måste du slutföra följande Bygg stenar:
+Om du vill konfigurera och testa Azure AD SSO med MVISION Cloud Azure AD SSO-konfiguration, fyller du i följande Bygg stenar:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera skyhigh Networks Single Sign-on](#configure-skyhigh-networks-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa skyhigh Networks testa användare](#create-skyhigh-networks-test-user)** – för att få en motsvarighet till Britta Simon i skyhigh-nätverk som är länkat till Azure AD-representation av användare.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+    4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Konfigurera MVision Cloud Azure AD SSO-konfiguration SSO](#configure-mvision-cloud-azure-ad-sso-configuration-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa MVision Cloud Azure AD SSO-konfiguration testa användare](#create-mvision-cloud-azure-ad-sso-configuration-test-user)** – för att få en motsvarighet till Britta Simon i MVision Cloud Azure AD SSO-konfiguration som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-Utför följande steg för att konfigurera enkel inloggning med skyhigh-nätverk i Azure AD:
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Datadog** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **skyhigh Networks** Application Integration väljer du **enkel inloggning**.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
-
-    ![Information om enkel inloggning för skyhigh Networks-domäner och URL: er](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
@@ -111,30 +90,21 @@ Utför följande steg för att konfigurera enkel inloggning med skyhigh-nätverk
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för skyhigh Networks-domäner och URL: er](common/metadata-upload-additional-signon.png)
+    ![MVISION Cloud Azure AD SSO konfigurations domän och enkel inloggnings information för URL: er](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [skyhigh Networks client support team](mailto:support@skyhighnetworks.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [MVision Cloud Azure AD SSO Configuration Client support team](mailto:support@skyhighnetworks.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-7. I avsnittet **Konfigurera skyhigh nätverk** kopierar du lämpliga URL: er enligt ditt krav.
+7. I avsnittet **Konfigurera MVision Cloud AD SSO-konfiguration** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
-
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
-
-### <a name="configure-skyhigh-networks-single-sign-on"></a>Konfigurera enkel inloggning för skyhigh-nätverk
-
-Om du vill konfigurera enkel inloggning på **skyhigh Networks** -sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för skyhigh Networks](mailto:support@skyhighnetworks.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -163,15 +133,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till skyhigh-nätverk.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till MVISION Cloud Azure AD SSO-konfiguration.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **skyhigh nätverk**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **MVision Cloud Azure AD SSO Configuration**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **skyhigh-nätverk**.
+2. I listan program väljer du **MVision Cloud Azure AD SSO-konfiguration**.
 
-    ![Skyhigh Networks-länken i listan program](common/all-applications.png)
+    ![Länken MVISION Cloud Azure AD SSO Configuration i listan program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -187,15 +157,21 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-skyhigh-networks-test-user"></a>Skapa skyhigh Networks test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i skyhigh-nätverk. Arbeta med [skyhigh Networks support team](mailto:support@skyhighnetworks.com) för att lägga till användare i skyhigh Networks-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+## <a name="configure-mvision-cloud-azure-ad-sso-configuration-sso"></a>Konfigurera MVISION Cloud Azure AD SSO SSO
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+Om du vill konfigurera enkel inloggning på **MVision Cloud Azure AD SSO-konfigurations** sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [MVision Cloud Azure AD SSO Configuration support team](mailto:support@skyhighnetworks.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+
+### <a name="create-mvision-cloud-azure-ad-sso-configuration-test-user"></a>Skapa MVISION Cloud Azure AD SSO-konfiguration test användare
+
+I det här avsnittet skapar du en användare som heter B. Simon i MVISION Cloud Azure AD SSO-konfiguration. Arbeta med [MVision Cloud Azure AD SSO Configuration support team](mailto:support@skyhighnetworks.com) för att lägga till användarna i MVision-molnet konfigurations plattform för enkel inloggning i Azure AD. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen skyhigh Networks på åtkomst panelen bör du loggas in automatiskt på de skyhigh-nätverk som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på ikonen MVISION Cloud Azure AD SSO i åtkomst panelen, bör du loggas in automatiskt till MVISION Cloud Azure AD SSO-konfigurationen som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -204,3 +180,7 @@ När du klickar på panelen skyhigh Networks på åtkomst panelen bör du loggas
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova MVISION Cloud Azure AD SSO Configuration med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

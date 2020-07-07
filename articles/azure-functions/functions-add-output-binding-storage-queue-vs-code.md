@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 68d1e4e7fdf50ef3ec228b7e7ca4e620a47afb05
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d41c018e07f792fd0af4027229449d8352aa6c55
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849983"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta Azure Functions till Azure Storage med Visual Studio Code
 
@@ -38,14 +38,14 @@ Den här artikeln förutsätter att du redan har loggat in på Azure-prenumerati
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
-I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. För att ansluta till ditt lagrings konto när funktionen körs lokalt måste du hämta appinställningar till filen Local. Settings. JSON. 
+I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. Om du vill ansluta till ditt lagrings konto när du kör funktionen lokalt måste du hämta inställningarna för appen till local.settings.jspå filen. 
 
 1. Tryck på F1-tangenten för att öppna kommando paletten och Sök sedan efter och kör kommandot `Azure Functions: Download Remote Settings....` . 
 
 1. Välj den Function-app som du skapade i föregående artikel. Välj **Ja om** du vill skriva över de befintliga lokala inställningarna. 
 
     > [!IMPORTANT]  
-    > Eftersom den innehåller hemligheter publiceras inte filen Local. Settings. JSON och tas inte med i käll kontrollen.
+    > Eftersom den innehåller hemligheter publiceras inte local.settings.jspå filen och tas inte med i käll kontrollen.
 
 1. Kopiera värdet `AzureWebJobsStorage` , som är nyckeln för värdet för anslutnings strängen för lagrings kontot. Använd den här anslutningen för att kontrol lera att utgående bindning fungerar som förväntat.
 
@@ -57,7 +57,7 @@ Eftersom du använder en kö för lagring av utdata måste du ha installerat til
 
 Ditt projekt har kon figurer ATS för att använda [tilläggs](functions-bindings-register.md#extension-bundles)paket, som automatiskt installerar en fördefinierad uppsättning tilläggs paket. 
 
-Användnings paket för tillägg aktive ras i Host. JSON-filen i projekt roten, som visas på följande sätt:
+Användnings paket för tillägg aktive ras i host.jspå filen i roten för projektet, som visas på följande sätt:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -68,7 +68,7 @@ Användnings paket för tillägg aktive ras i Host. JSON-filen i projekt roten, 
 Med undantag för HTTP-och timer-utlösare implementeras bindningar som tilläggs paket. Kör följande [dotNet Lägg till paket](/dotnet/core/tools/dotnet-add-package) kommando i terminalfönstret för att lägga till lagrings tilläggs paketet i projektet.
 
 ```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 ```
 
 ::: zone-end
@@ -77,7 +77,7 @@ Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
-I functions kräver varje typ av bindning en `direction` , `type` , och en unik `name` för att definieras i function. JSON-filen. Hur du definierar dessa attribut beror på språket i din Function-app.
+I functions kräver varje typ av bindning en `direction` , `type` , och en unik `name` för att definieras i function.jspå filen. Hur du definierar dessa attribut beror på språket i din Function-app.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 

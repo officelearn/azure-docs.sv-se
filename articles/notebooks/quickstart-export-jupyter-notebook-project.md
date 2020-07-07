@@ -3,23 +3,23 @@ title: Exportera ett Jupyter Notebook-projekt från Azure Notebooks för hands v
 description: Exportera snabbt ett Jupyter Notebook-projekt.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: 31e32a6ebb39429078c7c6747bc6b10f177699ac
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ad37db7e9bdb1251a3e62bd567960979f556b489
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802725"
+ms.locfileid: "85832040"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Snabb start: exportera ett Jupyter Notebook-projekt i Azure Notebooks för hands version
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 I den här snabb starten ska du ladda ned ett Azure Notebooks-projekt för användning i andra Jupyter Notebook-lösningar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Ett befintligt Azure Notebooks-projekt.
 
 ## <a name="export-an-azure-notebooks-project"></a>Exportera ett Azure Notebooks-projekt
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -32,30 +32,20 @@ Ett befintligt Azure Notebooks-projekt.
 1. Du kan också klicka på knappen "Ladda ned projekt" på sidan för att ladda ned alla filer för ett specifikt projekt.
 
 När du har hämtat dina projektfiler kan du använda dem med andra Jupyter Notebook-lösningar. Vissa alternativ som beskrivs i avsnitten nedan är: 
-- [Visual Studio-koden](#use-notebooks-in-visual-studio-code)
+- [Visuell Studio-kod](#use-notebooks-in-visual-studio-code)
 - [Visual Studio-Codespaces](#use-notebooks-in-visual-studio-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
 
-## <a name="download-the-requirements-file-used-by-azure-notebooks"></a>Hämta filen med krav som används av Azure Notebooks
+## <a name="create-an-environment-for-notebooks"></a>Skapa en miljö för antecknings böcker
 
-Om du vill skapa en miljö som matchar Azure Notebooks för hands versionen kan du använda **AzureNotebooksRequirements.txt** filen som finns i GitHub.
+Om du vill skapa en miljö som matchar Azure Notebooks för hands versionen kan du använda skript filen som anges i GitHub.
 
-1. Navigera till Azure Notebooks [GitHub-lagringsplatsen](https://github.com/microsoft/AzureNotebooks) eller så kan du [komma åt filen direkt](https://aka.ms/aznbrequirementstxt).
-1. Ladda ned **AzureNotebooksRequirements.txt** -filen som innehåller paket beroenden för Azure Notebookss miljön. 
-1. Från en kommando tolk navigerar du till den katalog som du vill använda för dina projekt och använder krav filen för att installera lämpliga paket.
+1. Navigera till Azure Notebooks [GitHub-lagringsplatsen](https://github.com/microsoft/AzureNotebooks) eller [få direkt åtkomst till mappen miljö](https://aka.ms/aznbrequirementstxt).
+1. Från en kommando tolk navigerar du till den katalog som du vill använda för dina projekt.
+1. Hämta innehållet i miljömappen och följ anvisningarna i README för att installera Azure Notebooks-paket beroenden.
 
-    > [!Note]
-    > Det är inte obligatoriskt, vanligt vis vill du skapa en ny virtuell miljö för paket installation enligt nedan.
-
-    ```bash
-    cd your-project-dir
-    python -m venv .venv
-    python -m pip install -r AzureNotebooksRequirements.txt
-    ```
-
-Mer information om filer för krav finns i [pip-dokumenten]( https://pip.pypa.io/en/stable/user_guide/#requirements-files).
 
 ## <a name="use-notebooks-in-visual-studio-code"></a>Använda antecknings böcker i Visual Studio Code
 
@@ -65,7 +55,7 @@ Mer information om filer för krav finns i [pip-dokumenten]( https://pip.pypa.io
 
 När du har [laddat ned](#export-an-azure-notebooks-project) dina projektfiler kan du använda vs Code. Anvisningar om hur du använder VS Code med Jupyter Notebooks finns i avsnittet [arbeta med Jupyter-anteckningsböcker i Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support) och [data science i självstudier för Visual Studio Code](https://code.visualstudio.com/docs/python/data-science-tutorial) .
 
-Du kan också använda [Azure Notebooks krav](#download-the-requirements-file-used-by-azure-notebooks) med Visual Studio Code för att skapa en miljö som matchar Azure Notebooks för hands versionen.
+Du kan också använda det [Azure Notebooks miljö skriptet](#create-an-environment-for-notebooks) med Visual Studio Code för att skapa en miljö som matchar Azure Notebooks för hands versionen.
 
 ## <a name="use-notebooks-in-visual-studio-codespaces"></a>Använda antecknings böcker i Visual Studio Codespaces
 
@@ -107,3 +97,11 @@ GitHub tillhandahåller ett kostnads fritt, käll kontrolls sätt att lagra ante
 1. [Hämta](#export-an-azure-notebooks-project) dina projektfiler.
 1. [Skapa en GitHub-lagringsplats](https://help.github.com/github/getting-started-with-github/create-a-repo) för att lagra dina antecknings böcker. 
 1. [Lägg till dina filer](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) till lagrings platsen.
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Lär dig mer om python i Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Lär dig mer om Azure Machine Learning-och Jupyter-anteckningsböcker](../machine-learning/how-to-run-jupyter-notebooks.md)
+- [Lär dig mer om Visual Studio-Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Läs mer om Azure Lab Services](https://azure.microsoft.com/services/lab-services/)
+- [Lär dig mer om GitHub](https://help.github.com/github/getting-started-with-github/)

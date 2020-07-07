@@ -4,20 +4,20 @@ description: Lär dig hur du skapar och kör en Jupyter Notebook i Azure Noteboo
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e677fca9291bb5247071c3970b7db3f36a6bdceb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561756"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834139"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och kör en Jupyter-anteckningsbok med python
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Den här självstudien vägleder dig genom processen att använda Azure Notebooks för att skapa en komplett Jupyter-anteckningsbok som visar enkel linjär regression. I den här självstudien får du bekanta dig med användar gränssnittet för Jupyter Notebook, vilket innefattar att skapa olika celler, köra celler och presentera antecknings boken som ett bild spel.
 
 Den slutförda antecknings boken finns på [GitHub Azure Notebooks-exempel](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Den här själv studie kursen börjar dock med ett nytt projekt och en tom antecknings bok så att du kan skapa det steg för steg.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 I den här guiden får du lära dig att:
 
@@ -51,26 +51,26 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-the-data-file"></a>Skapa data filen
 
-Den linjära Regressions modell som du skapar i den bärbara datorn ritar data från en fil i projektet som kallas *cricket_chirps. csv*. Du kan skapa den här filen antingen genom att kopiera den från [GitHub Azure Notebooks-exempel](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)eller genom att ange data direkt. I följande avsnitt beskrivs båda metoderna.
+Den linjära Regressions modell som du skapar i antecknings boken hämtar data från en fil i projektet med namnet *cricket_chirps.csv*. Du kan skapa den här filen antingen genom att kopiera den från [GitHub Azure Notebooks-exempel](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)eller genom att ange data direkt. I följande avsnitt beskrivs båda metoderna.
 
 ### <a name="upload-the-data-file"></a>Ladda upp data filen
 
 1. På instrument panelen för projektet i Azure Notebooks väljer du **Ladda upp**  >  **från URL**
-1. I popup-fönstret anger du följande URL i **fil-URL: en** och *cricket_chirps. csv* i **fil namn**och väljer sedan **Slutför**.
+1. I popup-fönstret anger du följande URL i **fil-URL** och *cricket_chirps.csv* i **fil namn**och väljer sedan **färdig**.
 
     ```url
     https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
     ```
 
-1. Filen *cricket_chirps. csv* bör nu visas i projektets fil lista:
+1. Den *cricket_chirps.csv* filen ska nu visas i projektets fillista:
 
     ![Nyligen skapad CSV-fil som visas i projekt fil listan](media/tutorial/csv-file-in-project.png)
 
 ### <a name="create-a-file-from-scratch"></a>Skapa en fil från grunden
 
 1. På instrument panelen för projektet i Azure Notebooks väljer du **+ ny**  >  **tom fil**
-1. Ett fält visas i projektets fil lista. Ange *cricket_chirps. csv* och tryck på RETUR.
-1. Högerklicka på *cricket_chirps. csv* och välj **Redigera fil**.
+1. Ett fält visas i projektets fil lista. Ange *cricket_chirps.csv* och tryck på RETUR.
+1. Högerklicka på *cricket_chirps.csv* och välj **Redigera fil**.
 1. I redigeraren som visas anger du följande data:
 
     ```csv
@@ -111,12 +111,12 @@ I en bärbar dator kan du alltid använda kommandon som `!pip install` i en kod 
 
 1. På instrument panelen för projektet väljer du **projekt inställningar**.
 1. I popup-fönstret som visas väljer du fliken **miljö** och väljer sedan **+ Lägg till**.
-1. I den första List rutan (åtgärden) under **miljö konfigurations steg**väljer du **krav. txt**.
-1. I den andra List rutan (fil namnet) väljer du *krav. txt* (filen du skapade).
+1. I den första List rutan (åtgärden) under **miljö konfigurations steg**väljer du **Requirements.txt**.
+1. I den andra List rutan (fil namnet) väljer du *requirements.txt* (filen som du skapade).
 1. I den tredje List rutan (python-versionen) väljer du **python version 3,6**.
 1. Välj **Spara**.
 
-![Fliken projekt inställningar miljö som anger en fil med kraven. txt](media/tutorial/tutorial-requirements-txt.png)
+![Fliken projekt inställningar miljö som anger en requirements.txt-fil](media/tutorial/tutorial-requirements-txt.png)
 
 Med det här installations steget på plats kommer alla antecknings böcker som du kör i projektet att köras i en miljö där dessa paket är installerade.
 
@@ -127,7 +127,7 @@ Med data filen Ready och projekt miljö uppsättningen kan du nu skapa och öppn
 1. På instrument panelen för projektet väljer du **+ ny**  >  **antecknings bok**.
 1. I popup-fönstret anger du *linjär regression exempel – cricket Chirps. ipynb* för **objekt namn**, väljer du **python 3,6** för språket och väljer sedan **nytt**.
 1. När den nya antecknings boken visas i fil listan väljer du den för att starta antecknings boken. En ny flik i webbläsaren öppnas automatiskt.
-1. Eftersom du har en *Requirements. txt* -fil i miljö inställningarna visas meddelandet "väntar på att din behållare ska slutföras". Du kan välja **OK** för att stänga meddelandet och fortsätta arbeta i antecknings boken. Du kan dock inte köra kod celler förrän miljön har kon figurer ATS fullständigt.
+1. Eftersom du har en *requirements.txt* -fil i miljö inställningarna visas meddelandet "väntar på att din behållare ska slutföras". Du kan välja **OK** för att stänga meddelandet och fortsätta arbeta i antecknings boken. Du kan dock inte köra kod celler förrän miljön har kon figurer ATS fullständigt.
 1. Antecknings boken öppnas i Jupyter-gränssnittet med en enda tom kod cell som standard.
 
     [![Inledande vy av en ny antecknings bok i Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
@@ -152,7 +152,7 @@ Jupyter innehåller en inbyggd rundtur i de primära GRÄNSSNITTs elementen. Sta
 
 Grupper med Meny kommandon är följande:
 
-| Meny | Description |
+| Meny | Beskrivning |
 | --- | --- |
 | Fil | Kommandon för att hantera Notebook-filen, inklusive kommandon för att skapa och kopiera antecknings böcker, Visa en förhands granskning och ladda ned antecknings boken i olika format. |
 | Redigera | Vanliga kommandon för att klippa ut, kopiera och klistra in celler, söka efter och ersätta värden, hantera cell bilagor och infoga bilder.  |

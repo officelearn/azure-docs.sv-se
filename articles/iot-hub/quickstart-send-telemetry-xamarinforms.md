@@ -1,6 +1,6 @@
 ---
 title: Snabbstart – Skicka telemetri till Azure IoT Hub | Microsoft Docs
-description: I den här snabb starten kör du ett exempel på Xamarin Forms-program för att skicka simulerad telemetri till en IoT-hubb och läsa telemetri från IoT Hub för bearbetning i molnet.
+description: I den här snabb starten kör du ett exempel på Xamarin. Forms-program för att skicka simulerad telemetri till en IoT-hubb och läsa telemetri från IoT Hub för bearbetning i molnet.
 author: cmaneu
 manager: philmea
 ms.author: chmaneu
@@ -10,32 +10,32 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-ms.date: 05/20/2020
-ms.openlocfilehash: d2292a65ef25f6450d6810b50366daa622b92bc8
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.date: 07/01/2020
+ms.openlocfilehash: 4178ee38ca179f179824a13130121b997f4f5f14
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802743"
+ms.locfileid: "85807832"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarin-forms"></a>Snabb start: skicka telemetri från en enhet till en IoT Hub (Xamarin-formulär)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarinforms"></a>Snabb start: skicka telemetri från en enhet till en IoT Hub (Xamarin. Forms)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning. I den här artikeln skickar du telemetri från ett simulerat program till IoT Hub. Sedan kan du visa data från ett program på serversidan.
 
-I den här artikeln används ett fördefinierat Xamarin formulär program för att skicka Telemetrin och ett CLI-verktyg för att läsa Telemetrin från IoT Hub.
+I den här artikeln används ett fördefinierat Xamarin. Forms-program för att skicka Telemetrin och ett CLI-verktyg för att läsa Telemetrin från IoT Hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ladda ned kodexemplet från [Azure-exemplen](https://github.com/Azure-Samples/azure-iot-samples-xamarin/archive/master.zip)
 
-- Den senaste versionen av [Visual Studio 2019](https://visualstudio.microsoft.com/) eller [Visual Studio för Mac](https://visualstudio.microsoft.com/) med verktyg för Xamarin Forms installerad. Den här snabb starten har testats med Visual Studio 16.6.0.
+- Den senaste versionen av [Visual Studio 2019](https://visualstudio.microsoft.com/) eller [Visual Studio för Mac](https://visualstudio.microsoft.com/) med verktyg för Xamarin. Forms installerad. Den här snabb starten har testats med Visual Studio 16.6.0.
 
 - Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -116,7 +116,7 @@ Följande skärm bild visar vilken typ av telemetri som visas i det lokala termi
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapar du en IoT-hubb, registrerat en enhet, skickade simulerad telemetri till hubben från ett Xamarin Forms-program och läser Telemetrin från hubben. 
+I den här snabb starten skapar du en IoT-hubb, registrerat en enhet, skickade simulerad telemetri till hubben från ett Xamarin. Forms-program och läser Telemetrin från hubben. 
 
 Om du vill veta hur du kan styra den simulerade enheten från ett serverdelsprogram fortsätter du till nästa snabbstart.
 

@@ -4,18 +4,18 @@ description: Skapa ett nytt projekt i Azure Notebooks för hands versionen som �
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559738"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832907"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Snabb start: skapa ett projekt med en anpassad miljö i Azure Notebooks för hands version
 
-Ett projekt i Azure Notebooks är en samling filer, till exempel bärbara datorer, datafiler, dokumentation, bilder och så vidare, tillsammans med en miljö som kan konfigureras med vissa installations kommandon. Genom att definiera miljön med projektet har alla som klonar projektet till sitt eget Azure Notebooks-konto all information de behöver för att återskapa den nödvändiga miljön.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Ett projekt i Azure Notebooks är en samling filer, till exempel bärbara datorer, datafiler, dokumentation, bilder och så vidare, tillsammans med en miljö som kan konfigureras med vissa installations kommandon. Genom att definiera miljön med projektet har alla som klonar projektet till sitt eget Azure Notebooks-konto all information de behöver för att återskapa den nödvändiga miljön.
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
@@ -52,9 +52,9 @@ Ett projekt i Azure Notebooks är en samling filer, till exempel bärbara datore
 
 1. Kommandot **+ Add** skapar ett steg som definieras av en åtgärd och en målfil som väljs från filerna i projektet. Följande åtgärder stöds:
 
-   | Åtgärd | Description |
+   | Åtgärd | Beskrivning |
    | --- | --- |
-   | Krav. txt | Python-projekt definierar deras beroenden i en Requirements. txt-fil. Med det här alternativet väljer du lämplig fil från projektets fillista och väljer även python-versionen i den ytterligare List rutan som visas. Om det behövs väljer du **Avbryt** för att återgå till projektet, laddar upp eller skapar filen och återgår sedan till fliken **projekt inställningar**  >  **miljö** och skapar ett nytt steg. Med det här steget på plats körs en antecknings bok i projektet automatiskt`pip install -r <file>` |
+   | Requirements.txt | Python-projekt definierar deras beroenden i en requirements.txt-fil. Med det här alternativet väljer du lämplig fil från projektets fillista och väljer även python-versionen i den ytterligare List rutan som visas. Om det behövs väljer du **Avbryt** för att återgå till projektet, laddar upp eller skapar filen och återgår sedan till fliken **projekt inställningar**  >  **miljö** och skapar ett nytt steg. Med det här steget på plats körs en antecknings bok i projektet automatiskt`pip install -r <file>` |
    | Gränssnitts skript | Används för att ange ett bash-gränssnitts skript (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön. |
    | Miljö. yml | Ett python-projekt som använder Conda för att hantera en miljö använder en miljö *. yml* -fil för att beskriva beroenden. Med det här alternativet väljer du lämplig fil i listan över projektets filer. |
 
@@ -73,4 +73,4 @@ Ett projekt i Azure Notebooks är en samling filer, till exempel bärbara datore
 > [Hantera och konfigurera projekt i Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa en kör en Jupyter-anteckningsbok för att göra linjär regression](tutorial-create-run-jupyter-notebook.md)
+> [Självstudie: skapa och kör en Jupyter-anteckningsbok för linjär regression](tutorial-create-run-jupyter-notebook.md)

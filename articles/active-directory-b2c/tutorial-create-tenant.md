@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6b445d1e795cfb34452f48bfb5ed375f6a284e1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 044a2d2cb23e36234256b9b19363462e542176fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85385050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806858"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudie: Skapar en Azure Active Directory B2C-klientorganisation
 
@@ -51,8 +51,8 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 1. På sidan **skapa en katalog** anger du följande:
 
-   - **Organisations namn** – ange namnet på din organisation.
-   - **Första domän namn** – ange ett domän namn. Som standard läggs namnet till med *. onmicrosoft.com*. Du kan ändra detta senare genom att lägga till ett domän namn som din organisation redan använder, till exempel "contoso.com".
+   - **Organisations namn** – ange ett namn för din Azure AD B2C-klient.
+   - **Första domän namn** – ange ett domän namn för Azure AD B2C klient organisationen.
    - **Land eller region** – Välj land eller region i listan. Det går inte att ändra det här valet senare.
    - **Prenumeration** – välj din prenumeration i listan.
    - **Resurs grupp** – Välj en resurs grupp som ska innehålla klient organisationen. Eller Välj **Skapa ny**, ange ett **namn** för resurs gruppen, Välj **resurs gruppens plats**och välj sedan **OK**.

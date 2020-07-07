@@ -3,14 +3,16 @@ title: Klona en Jupyter-anteckningsbok från GitHub med Azure Notebooks för han
 description: Klona snabbt en Jupyter-anteckningsbok från en GitHub-lagringsplats och kör den i ditt Azure Notebooks-konto.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77064605"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833094"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Snabb start: klona en bärbar dator i Azure Notebooks för hands version
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 I den här snabb starten kopierar du en Jupyter-anteckningsbok som lagras i GitHub till ett Azure Notebooks-konto. 
 
@@ -18,12 +20,10 @@ GitHub-databaser tillhandahåller lagrings-och versions kontroll för Jupyter-an
 
 Eftersom din Azure Notebooks klon är i molnet kan du dela den med medarbetare, som inte behöver göra några lokala kopior eller ha Jupyter installerade på sina datorer. Du kan också klona en antecknings bok som är en utgångs punkt för ett eget projekt eller hämta filer. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Inga.
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Klona Azure Cognitive Services-anteckningsböcker
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -37,7 +37,7 @@ Inga.
 
 1. I fönstret **överför GitHub-lagringsplats** som visas anger eller anger du följande information och väljer sedan **Importera**:
 
-   - **GitHub-lagringsplats**: Microsoft/kognitivt-Services-Notebooks (det här namnet klonar Jupyter-anteckningsböcker för Azure [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)Cognitive Services på).
+   - **GitHub-lagringsplats**: Microsoft/kognitivt-Services-Notebooks (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services på [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) ).
    - **Klona rekursivt**: (rensad)
    - **Projekt namn**: Cognitive Services klon
    - **Projekt-ID**: kognitiv-Services-Clone
@@ -63,7 +63,7 @@ Inga.
 
     ![Köra Jupyter Notebook som är klonad från GitHub](media/quickstarts/clone-notebook-result.png)
 
-1. När du är klar med antecknings boken väljer du **Arkiv** > **Stäng och stoppa** för att stänga antecknings boken och webbläsarfönstret.
+1. När du är klar med antecknings boken väljer du **Arkiv**  >  **Stäng och stoppa** för att stänga antecknings boken och webbläsarfönstret.
 
 1. Om du vill dela en enskild antecknings bok i projektet högerklickar du på antecknings boken och väljer **Kopiera länk** (kortkommando: y):
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: c60f9df87930519684c6c29b1194624342b11528
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555062"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851736"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Självstudie: köra Python-skript via Azure Data Factory med Azure Batch
 
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 * En installerad [python](https://www.python.org/downloads/) -distribution för lokal testning.
 * [Azure](https://pypi.org/project/azure/) - `pip` paketet.
-* [Data uppsättningen Iris. csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
+* [iris.csv data uppsättning](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Ett Azure Batch-konto och ett länkat Azure Storage-konto. Mer information om hur du skapar och länkar batch-konton till lagrings konton finns i [skapa ett batch-konto](quick-create-portal.md#create-a-batch-account) .
 * Ett Azure Data Factory konto. Se [skapa en data fabrik](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) för mer information om hur du skapar en data fabrik via Azure Portal.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
@@ -116,27 +116,27 @@ I det här avsnittet ska du skapa och validera en pipeline med hjälp av python-
 1. I rutan **fabriks resurser** väljer du knappen + (plus) och väljer sedan **pipeline**
 1. På fliken **Allmänt** anger du namnet på pipelinen som "kör python"
 
-    ![](./media/run-python-batch-azure-data-factory/create-pipeline.png)
+    ![På fliken Allmänt anger du namnet på pipelinen som "kör python"](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
 1. I rutan **aktiviteter** expanderar du **batch-tjänsten**. Dra den anpassade aktiviteten från **aktivitets** verktygs lådan till pipelinens designer-yta.
 1. På fliken **Allmänt** anger du **testPipeline** som namn
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    ![På fliken Allmänt anger du testPipeline som namn](./media/run-python-batch-azure-data-factory/create-custom-task.png)
 1. På fliken **Azure Batch** lägger du till det **Batch-konto** som skapades i föregående steg och **testar anslutningen** för att kontrol lera att det lyckades
 
-    ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    ![På fliken Azure Batch lägger du till batch-kontot som skapades i föregående steg och testar sedan anslutning](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
 1. På fliken **Inställningar** anger du kommandot `python main.py` .
 1. För den **länkade resurs tjänsten**lägger du till det lagrings konto som skapades i föregående steg. Testa anslutningen för att säkerställa att den lyckas.
 1. I **mappsökvägen**väljer du namnet på den **Azure Blob Storage** -behållare som innehåller python-skriptet och tillhör ande indata. Detta laddar ned de valda filerna från behållaren till poolens noder innan python-skriptet körs.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
+    ![I mappsökvägen väljer du namnet på Azure Blob Storage-behållaren](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet för pipelinen. Bekräfta att pipelinen har verifierats. Du stänger utdata från verifieringen genom att välja &gt;&gt; (högerpil).
 1. Klicka på **Felsök** för att testa pipelinen och se till att den fungerar korrekt.
 1. Klicka på **publicera** för att publicera pipelinen.
 1. Klicka på **Utlös** för att köra python-skriptet som en del av en batch-process.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
+    ![Klicka på utlösare för att köra python-skriptet som en del av en batch-process](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ### <a name="monitor-the-log-files"></a>Övervaka loggfilerna
 

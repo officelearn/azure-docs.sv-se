@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
-ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0174c40a0fada0f78cc8d52f5c45b991c3851da0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80064485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850565"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Självstudie: använda Apache Kafka Streams-API i Azure HDInsight
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera Kafka-ämnen
 > * Kör koden
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Kafka på HDInsight 3.6-klustret. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
@@ -47,7 +47,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Exempel programmet [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)finns i i `Streaming` under katalogen. Programmet består av två filer:
+Exempel programmet finns [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i i under `Streaming` katalogen. Programmet består av två filer:
 
 * `pom.xml`: Den här filen definierar projektberoenden, Java-version och paketeringsmetoder.
 * `Stream.java`: Den här filen implementerar strömningslogiken.
@@ -153,7 +153,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Installera [JQ](https://stedolan.github.io/jq/), en JSON-processor med kommando rad. I den öppna SSH-anslutningen anger du följande kommando för `jq`att installera:
+2. Installera [JQ](https://stedolan.github.io/jq/), en JSON-processor med kommando rad. I den öppna SSH-anslutningen anger du följande kommando för att installera `jq` :
 
     ```bash
     sudo apt -y install jq
@@ -172,7 +172,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     ```
 
     > [!Note]  
-    > Om du utför den här processen utanför klustret finns det en annan procedur för att lagra kluster namnet. Hämta kluster namnet i gemener från Azure Portal. Ersätt sedan kluster namnet för `<clustername>` i följande kommando och kör det:. `export clusterName='<clustername>'`  
+    > Om du utför den här processen utanför klustret finns det en annan procedur för att lagra kluster namnet. Hämta kluster namnet i gemener från Azure Portal. Ersätt sedan kluster namnet för `<clustername>` i följande kommando och kör det: `export clusterName='<clustername>'` .  
 
 5. Använd följande kommandon för att hämta värdar för Apache Kafka-meddelandeköer och Apache Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
 
@@ -232,19 +232,21 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
 
     De utdata som genereras liknar följande text:
 
-        dwarfs  13635
-        ago     13664
-        snow    13636
-        dwarfs  13636
-        ago     13665
-        a       13803
-        ago     13666
-        a       13804
-        ago     13667
-        ago     13668
-        jumped  13640
-        jumped  13641
-   
+    ```output
+    dwarfs  13635
+    ago     13664
+    snow    13636
+    dwarfs  13636
+    ago     13665
+    a       13803
+    ago     13666
+    a       13804
+    ago     13667
+    ago     13668
+    jumped  13640
+    jumped  13641
+    ```
+
     Parametern `--from-beginning` konfigurerar konsumenten för att börja vid början av posterna i ämnet. Antalet ökar varje gång ett ord påträffas, så det här ämnet innehåller flera poster för varje ord med ett ökande antal.
 
 4. Använd __Ctrl + C__ om du vill avsluta producenten. Fortsätt att använda __Ctrl + C__ för att avsluta programmet och konsumenten.

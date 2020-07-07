@@ -3,18 +3,18 @@ title: Logga in på Azure Notebooks för hands version
 description: Logga in snabbt i Azure Notebooks för hands version och ange ett användar-ID, vilket ger dig möjlighet att komma åt sparade projekt och dela antecknings böcker med andra.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75647024"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830425"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Snabb start: Logga in och ange ett användar-ID för Azure Notebooks för hands version
 
-Även om du alltid kan visa Azure Notebooks utan att logga in, måste du logga in för att köra antecknings böcker, komma åt sparade projekt och antecknings böcker och dela dina antecknings böcker med andra.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Även om du alltid kan visa Azure Notebooks utan att logga in, måste du logga in för att köra antecknings böcker, komma åt sparade projekt och antecknings böcker och dela dina antecknings böcker med andra.
 
 ## <a name="sign-in"></a>Logga in
 

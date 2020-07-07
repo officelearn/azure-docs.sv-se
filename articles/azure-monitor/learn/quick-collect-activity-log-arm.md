@@ -7,25 +7,28 @@ ms.custom: subject-armqs
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: ce7c8df0fcea66d21ba2640ba26213a49efcb1c0
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 26e8c40c35b130510f1bf8ae1456cb15907b345c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851921"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Snabb start: skicka Azure aktivitets logg till Log Analytics arbets yta med en ARM-mall
+
 Aktivitets loggen är en plattforms logg i Azure som ger inblick i händelser på prenumerations nivå. Detta inkluderar sådan information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Den här snabb starten visar hur du använder Azure Resource Manager mallar (ARM-mallar) för att skapa en Log Analytics arbets yta och en diagnostisk inställning för att skicka aktivitets loggen till Azure Monitor loggar där du kan analysera den med hjälp av [logg frågor](../log-query/log-query-overview.md) och aktivera andra funktioner som [logg aviseringar](../platform/alerts-log-query.md) och [arbets böcker](../platform/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Om du vill köra kommandona från den lokala datorn installerar du Azure CLI eller Azure PowerShell modulerna. Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli) och [Installera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
 
 ### <a name="review-the-template"></a>Granska mallen
+
 Följande mall skapar en tom Log Analytics-arbetsyta. Spara den här mallen som *CreateWorkspace.jspå*.
 
 ```json
@@ -130,9 +133,10 @@ Den här mallen definierar en resurs:
 - [Microsoft. OperationalInsights/arbets ytor](/azure/templates/microsoft.operationalinsights/workspaces)
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
+
 Distribuera mallen med valfri standard metod för att [distribuera en arm-mall](../../azure-resource-manager/templates/deploy-portal.md) som i följande exempel med CLI och PowerShell. Ersätt exempel värden för **resurs grupp**, **workspaceName**och **plats** med lämpliga värden för din miljö. Arbets ytans namn måste vara unikt bland alla Azure-prenumerationer.
 
-# <a name="cli"></a>[CLI](#tab/CLI1)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az login
@@ -144,7 +148,7 @@ az deployment group create \
 
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
 Connect-AzAccount
@@ -155,15 +159,16 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 ---
 
 ### <a name="validate-the-deployment"></a>Verifiera distributionen
+
 Kontrol lera att arbets ytan har skapats med något av följande kommandon. Ersätt exempel värden för **resurs grupp** och **workspaceName** med de värden som du använde ovan.
 
-# <a name="cli"></a>[CLI](#tab/CLI2)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az monitor log-analytics workspace show --resource-group my-workspace-01 --workspace-name my-resource-group
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
 Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-resource-group
@@ -174,6 +179,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 ## <a name="create-diagnostic-setting"></a>Skapa diagnostiskinställning
 
 ### <a name="review-the-template"></a>Granska mallen
+
 Följande mall skapar en diagnostisk inställning som skickar aktivitets loggen till en Log Analytics-arbetsyta. Spara den här mallen som *CreateDiagnosticSetting.jspå*.
 
 ```json
@@ -241,16 +247,17 @@ Den här mallen definierar en resurs:
 - [Microsoft. Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
-Distribuera mallen med valfri standard metod för att [distribuera en arm-mall](/azure-resource-manager/templates/deploy-portal) som i följande exempel med CLI och PowerShell. Ersätt exempel värden för **resurs grupp**, **workspaceName**och **plats** med lämpliga värden för din miljö. Arbets ytans namn måste vara unikt bland alla Azure-prenumerationer.
 
-# <a name="cli"></a>[CLI](#tab/CLI3)
+Distribuera mallen med valfri standard metod för att [distribuera en arm-mall](../../azure-resource-manager/templates/deploy-portal.md) som i följande exempel med CLI och PowerShell. Ersätt exempel värden för **resurs grupp**, **workspaceName**och **plats** med lämpliga värden för din miljö. Arbets ytans namn måste vara unikt bland alla Azure-prenumerationer.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az deployment sub create --name CreateDiagnosticSetting --location eastus --template-file CreateDiagnosticSetting.json --parameters settingName='Send Activity log to workspace' workspaceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01'
 
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell3)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
 New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
@@ -258,6 +265,7 @@ New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -Tem
 ---
 
 ### <a name="validate-the-deployment"></a>Verifiera distributionen
+
 Kontrol lera att den diagnostiska inställningen har skapats med något av följande kommandon. Ersätt exempel värdena för prenumerationen och inställnings namnet med de värden som du använde ovan.
 
 > [!NOTE]
@@ -267,13 +275,13 @@ Kontrol lera att den diagnostiska inställningen har skapats med något av följ
 az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-0000-0000-000000000000' --name 'Send Activity log to workspace'
 ```
 
-
-
 ## <a name="generate-log-data"></a>Generera logg data
+
 Endast nya aktivitets logg poster skickas till Log Analytics arbets ytan, så utför vissa åtgärder i prenumerationen som ska loggas, till exempel starta eller stoppa en virtuell dator eller skapa eller ändra en annan resurs. Du kan behöva vänta några minuter för att den diagnostiska inställningen ska skapas och för att data ska kunna skrivas till arbets ytan. Efter den här fördröjningen kommer alla händelser som skrivs till aktivitets loggen att skickas till arbets ytan inom några sekunder.
 
 ## <a name="retrieve-data-with-a-log-query"></a>Hämta data med en logg fråga
-Använd Azure Portal för att använda Log Analytics för att hämta data från arbets ytan. I Azure Portal söker du efter och väljer **övervaka**. 
+
+Använd Azure Portal för att använda Log Analytics för att hämta data från arbets ytan. I Azure Portal söker du efter och väljer **övervaka**.
 
 ![Azure Portal](media/quick-collect-activity-log/azure-portal-monitor.png)
 
@@ -294,17 +302,16 @@ Testa en mer komplex fråga, till exempel `AzureActivity | summarize count() by 
 ![Komplex fråga](media/quick-collect-activity-log/query-02.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
+
 Om du planerar att fortsätta arbeta med efterföljande snabb starter och självstudier, kanske du vill lämna dessa resurser på plats. När de inte längre behövs tar du bort resurs gruppen, som tar bort aviserings regeln och relaterade resurser. Ta bort resurs gruppen med hjälp av Azure CLI eller Azure PowerShell
 
-
- 
-# <a name="cli"></a>[CLI](#tab/CLI3)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az group delete --name my-resource-group
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell3)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
 Remove-AzResourceGroup -Name my-resource-group
@@ -313,8 +320,8 @@ Remove-AzResourceGroup -Name my-resource-group
 ---
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabb starten konfigurerade du aktivitets loggen så att den skickas till en Log Analytics-arbetsyta. Nu kan du konfigurera andra data så att de samlas in i arbets ytan där du kan analysera dem tillsammans med hjälp av [logg frågor](../log-query/log-query-overview.md) i Azure Monitor och utnyttja funktioner som [logg aviseringar](../platform/alerts-log-query.md) och [arbets böcker](../platform/workbooks-overview.md). Du bör börja med att samla in [resurs loggar](../platform/resource-logs.md) från dina Azure-resurser som kompletterar data i aktivitets loggen och ger insyn i de åtgärder som utfördes i varje resurs.
 
+I den här snabb starten konfigurerade du aktivitets loggen så att den skickas till en Log Analytics-arbetsyta. Nu kan du konfigurera andra data så att de samlas in i arbets ytan där du kan analysera dem tillsammans med hjälp av [logg frågor](../log-query/log-query-overview.md) i Azure Monitor och utnyttja funktioner som [logg aviseringar](../platform/alerts-log-query.md) och [arbets böcker](../platform/workbooks-overview.md). Du bör börja med att samla in [resurs loggar](../platform/resource-logs.md) från dina Azure-resurser som kompletterar data i aktivitets loggen och ger insyn i de åtgärder som utfördes i varje resurs.
 
 > [!div class="nextstepaction"]
 > [Samla in och analysera resurs loggar med Azure Monitor](tutorial-resource-logs.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 1dd716a279f7a09e7d9152ee34ff5c7bdac201dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82188250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849921"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
 
@@ -102,7 +102,7 @@ Om du vill göra lokala efter att du har skapat din modell: serialisera modellen
 
 ### <a name="install-and-maintain-r-packages"></a>Installera och underhålla R-paket
 
-De flesta R-paket som du använder krävs på Edge-noden eftersom de flesta stegen i dina R-skript körs där. Om du vill installera ytterligare R-paket på Edge-noden kan du `install.packages()` använda-metoden i R.
+De flesta R-paket som du använder krävs på Edge-noden eftersom de flesta stegen i dina R-skript körs där. Om du vill installera ytterligare R-paket på Edge-noden kan du använda- `install.packages()` metoden i R.
 
 Om du bara använder rutiner för skalnings bibliotek behöver du vanligt vis inte ytterligare R-paket. Du kan behöva ytterligare paket för **rxExec** -eller **RxDataStep** -körning på datanoderna.
 
@@ -114,7 +114,9 @@ Tillgängligt minne till ML-tjänster kan ändras när ett MapReduce-jobb körs.
 
 Tillgängligt minne till ML-tjänster kan ändras med hjälp av Hadoop-växlar i anropet till **RxHadoopMR**:
 
-    hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
+```r
+hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"
+```
 
 ### <a name="scale-your-cluster"></a>Skala klustret
 
@@ -134,7 +136,7 @@ En Desktop IDE kan komma åt klustret via en fjärran sluten MapReduce eller Spa
 
 Öppna R-konsolen på Edge-noden genom att skriva **R** i kommando tolken. När du använder-konsol gränssnittet är det praktiskt att utveckla R-skript i en text redigerare. Klipp ut och klistra in avsnitt i skriptet i R-konsolen efter behov.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Priserna som är associerade med ett ML-kluster med ML-tjänster struktureras på samma sätt som andra typer av HDInsight-kluster. De baseras på storleken på de underliggande virtuella datorerna över namn-, data-och Edge-noderna. Core – timme lyfter också. Mer information finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

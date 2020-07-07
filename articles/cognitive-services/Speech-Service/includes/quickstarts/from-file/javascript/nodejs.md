@@ -3,15 +3,15 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 199111d88d1d5d0dfd3b52f62ad60297e9771c20
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.author: trbye
+ms.openlocfilehash: 66422657aefa5bca2e7f20852a19faca63db5a15
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83806490"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85839071"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -21,7 +21,7 @@ Innan du börjar:
 
 ## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
-Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Skapa en index. js-fil och Lägg till den här koden.
+Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Skapa en index.js-fil och Lägg till den här koden.
 
 Var noga med att fylla i värdena för `subscriptionKey` , `servcieRegion` och `filename` .
 

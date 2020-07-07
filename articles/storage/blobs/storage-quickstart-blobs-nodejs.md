@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 025b2b66ffd6d9f62de6bf6debf7d4067cd52ab4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 18afd9faf21e5de4831d54d0870b64e79d29cb0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261247"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833307"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script V12 SDK i Node.js
 
@@ -20,7 +20,7 @@ I den här snabb starten lär du dig att hantera blobbar med hjälp av Node.js. 
 
 [API-referens dokumentation](/javascript/api/@azure/storage-blob)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)  |  [Paket (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob)  |  [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -71,9 +71,9 @@ Skapa ett JavaScript-program med namnet *BLOB-snabb start-V12*.
         }
     }
     ```
-    
+
     Du kan ange ett eget namn för `author` fältet, om du vill.
-   
+
 ### <a name="install-the-package"></a>Installera paketet
 
 När du fortfarande är i *BLOB-snabb start-V12-* katalogen, installerar du Azure Blob Storage-klient biblioteket för JavaScript-paket med hjälp av `npm install` kommandot. Det här kommandot läser *package.jspå* filen och installerar Azure Blob Storage-V12 för JavaScript-paket och alla bibliotek som det är beroende av.
@@ -95,12 +95,12 @@ Från projekt katalogen:
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
     const uuidv1 = require('uuid/v1');
-    
+
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');
         // Quick start code goes here
     }
-    
+
     main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
     ```
 
@@ -309,7 +309,7 @@ I den här snabb starten har du lärt dig att ladda upp, ladda ned och lista blo
 För självstudier, exempel, snabb starter och annan dokumentation går du till:
 
 > [!div class="nextstepaction"]
-> [Dokumentation om Azure för Java Script](/azure/javascript/)
+> [Dokumentation om Azure för Java Script](/azure/developer/javascript/)
 
 * Mer information finns i [klient biblioteket för Azure Blob Storage för Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
 * Om du vill se exempel appar för Blob Storage kan du fortsätta till [Azure Blob Storage-V12 JavaScript-exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).

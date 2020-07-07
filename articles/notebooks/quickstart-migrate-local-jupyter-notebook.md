@@ -3,14 +3,16 @@ title: Migrera en lokal Jupyter-anteckningsbok till Azure Notebooks för hands v
 description: Du kan snabbt överföra en Jupyter-anteckningsbok till Azure Notebooks för hands version från din lokala dator eller en webb-URL och sedan dela den för samarbete.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c961ad67260cee2809e0bba1e79f2c709183dea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77064333"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832125"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Snabb start: Migrera en lokal Jupyter-anteckningsbok i Azure Notebooks för hands version
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 I den här snabb starten migrerar du en Jupyter-anteckningsbok från den lokala datorn eller en annan tillgänglig fil-URL till Azure Notebooks. 
 
@@ -18,15 +20,13 @@ Jupyter-anteckningsböcker på din dator är bara tillgängliga för dig. Du kan
 
 Genom att migrera dina lokala eller databasbaserade antecknings böcker till Azure Notebooks kan du genast dela dem med dina medarbetare, som bara behöver en webbläsare för att visa och köra dina antecknings böcker. Om de loggar in på Azure Notebooks kan de också göra ändringar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En [Jupyter Notebook](https://jupyter-notebook.readthedocs.io) på din lokala dator eller en annan tillgänglig fil-URL. 
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Skapa ett projekt på Azure Notebooks
 
 Den här snabb starten visar migrering av en bärbar dator från den lokala datorn eller en annan tillgänglig fil-URL. Om du vill migrera antecknings böcker från en GitHub-lagringsplats, se [snabb start: klona en bärbar dator](quickstart-clone-jupyter-notebook.md).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. (Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
@@ -56,7 +56,7 @@ Den här snabb starten visar migrering av en bärbar dator från den lokala dato
 
      ![Popup-menyn Ladda upp från URL](media/quickstarts/upload-from-url-popup.png)
 
-1. Öppna och kör den nyligen uppladdade antecknings boken för att verifiera innehållet och åtgärden. När du är klar väljer du **fil** > **stanna och stänger** för att stänga antecknings boken.
+1. Öppna och kör den nyligen uppladdade antecknings boken för att verifiera innehållet och åtgärden. När du är klar väljer du **fil**  >  **stanna och stänger** för att stänga antecknings boken.
 
 1. Om du vill dela en länk till din uppladdade antecknings bok högerklickar du på filen i projektet och väljer **Kopiera länk** (kortkommando: y) och klistrar sedan in länken i lämpligt meddelande. Alternativt kan du dela projektet som helhet med hjälp av **resurs** kontrollen på projekt sidan.
 

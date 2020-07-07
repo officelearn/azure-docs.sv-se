@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628801"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
@@ -83,26 +83,26 @@ Du aktiverar lokal cache per webb-app genom att använda den här inställningen
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Ändra storleks inställningen i lokalt cacheminne
-Som standard är den lokala cachestorleken **1 GB**. Detta omfattar de/installation-och/siteextensions-mappar som kopieras från innehålls arkivet, samt alla lokalt skapade loggar och datamappar. Använd appens inställning `WEBSITE_LOCAL_CACHE_SIZEINMB`för att öka den här gränsen. Du kan öka storleken upp till **2 GB** (2000 MB) per app. Observera att det tar längre tid att läsa in den lokala cachen när storleken ökar.
+Som standard är den lokala cachestorleken **1 GB**. Detta omfattar de/installation-och/siteextensions-mappar som kopieras från innehålls arkivet, samt alla lokalt skapade loggar och datamappar. Använd appens inställning för att öka den här gränsen `WEBSITE_LOCAL_CACHE_SIZEINMB` . Du kan öka storleken upp till **2 GB** (2000 MB) per app. Observera att det tar längre tid att läsa in den lokala cachen när storleken ökar.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Metod tips för att använda App Service lokal cache
 Vi rekommenderar att du använder lokal cache tillsammans med funktionen för [mellanlagrings miljöer](../app-service/deploy-staging-slots.md) .
 
-* Lägg till inställningen `WEBSITE_LOCAL_CACHE_OPTION` för *tröga* appar med `Always` värdet till **produktions** platsen. Om du använder `WEBSITE_LOCAL_CACHE_SIZEINMB`, kan du även lägga till den som en trög inställning för din produktions plats.
+* Lägg till inställningen för *tröga* appar `WEBSITE_LOCAL_CACHE_OPTION` med värdet `Always` till **produktions** platsen. Om du använder `WEBSITE_LOCAL_CACHE_SIZEINMB` , kan du även lägga till den som en trög inställning för din produktions plats.
 * Skapa en **mellanlagringsplats** och publicera på mellanlagrings platsen. Normalt anger du inte mellanlagringsplatsen för att använda lokal cache för att möjliggöra en sömlös bygge-distribution-test-livscykel för mellanlagring om du får fördelarna med lokal cache för produktions platsen.
 * Testa din webbplats mot mellanlagrings platsen.  
 * När du är klar utfärdar du en [växlings åtgärd](../app-service/deploy-staging-slots.md#Swap) mellan dina mellanlagrings-och produktions platser.  
 * Tröga inställningar är namn och fästis till en plats. Så när mellanlagringsplatsen har växlats till produktion, ärver den de lokala cache-apparna. Den nyligen utbytta produktions platsen kommer att köras mot den lokala cachen efter några minuter och kommer att värmas upp som en del av plats uppvärmnings efter växling. När plats växlingen är klar körs din produktions plats mot det lokala cacheminnet.
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Hur kan jag se om det lokala cacheminnet gäller för min app?
 Om din app behöver ett högpresterande, tillförlitligt innehålls lager, använder inte innehålls lagringen för att skriva kritiska data vid körning och är mindre än 2 GB i Total storlek, och svaret är "Ja"! Om du vill få Total storlek på dina/installation-och/siteextensions-mappar kan du använda webbplats tillägget "Azure Web Apps disk Usage".
 
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Hur vet jag om min webbplats har växlat till att använda det lokala cacheminnet?
-Om du använder funktionen Local cache med mellanlagrings miljöer slutförs inte växlings åtgärden förrän den lokala cachen har värmts upp. Om du vill kontrol lera om platsen körs mot lokal cache kan du kontrol lera variabeln `WEBSITE_LOCALCACHE_READY`för arbets process miljön. Använd instruktionerna på sidan [arbets process miljö variabel](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) för att komma åt variabeln för arbets process miljön på flera instanser.  
+Om du använder funktionen Local cache med mellanlagrings miljöer slutförs inte växlings åtgärden förrän den lokala cachen har värmts upp. Om du vill kontrol lera om platsen körs mot lokal cache kan du kontrol lera variabeln för arbets process miljön `WEBSITE_LOCALCACHE_READY` . Använd instruktionerna på sidan [arbets process miljö variabel](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) för att komma åt variabeln för arbets process miljön på flera instanser.  
 
-### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Jag publicerade bara nya ändringar, men appen verkar inte ha dem. Varför det?
+### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Jag publicerade bara nya ändringar, men appen verkar inte ha dem. Varför?
 Om din app använder lokal cache måste du starta om platsen för att få de senaste ändringarna. Vill du inte publicera ändringar på en produktions plats? Se plats alternativen i avsnittet tidigare metod tips.
 
 ### <a name="where-are-my-logs"></a>Var finns mina loggar?

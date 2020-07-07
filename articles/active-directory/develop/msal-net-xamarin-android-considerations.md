@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652674"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Att tänka på när du använder Xamarin Android med MSAL.NET
@@ -33,7 +33,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-I MSAL 4,2 och senare kan du också ställa in den här funktionen på nivån `PublicClientApplication`. Det gör du med hjälp av motringning:
+I MSAL 4,2 och senare kan du också ställa in den här funktionen på nivån `PublicClientApplication` . Det gör du med hjälp av motringning:
 
 ```csharp
 // Requires MSAL.NET 4.2 or later
@@ -43,7 +43,7 @@ var pca = PublicClientApplicationBuilder
   .Build();
 ```
 
-Om du använder [CurrentActivityPlugin](https://github.com/jamesmontemagno/CurrentActivityPlugin)ser din `PublicClientApplication` Builder-kod ut som i följande exempel.
+Om du använder [CurrentActivityPlugin](https://github.com/jamesmontemagno/CurrentActivityPlugin) `PublicClientApplication` ser din Builder-kod ut som i följande exempel.
 
 ```csharp
 // Requires MSAL.NET 4.2 or later
@@ -54,7 +54,7 @@ var pca = PublicClientApplicationBuilder
 ```
 
 ## <a name="ensure-that-control-returns-to-msal"></a>Se till att kontrollen återgår till MSAL 
-När den interaktiva delen av autentiserings flödet slutar ser du till att kontrollen går tillbaka till MSAL. På Android åsidosätter du `OnActivityResult` metoden för `Activity`. Anropa sedan `SetAuthenticationContinuationEventArgs` metoden för `AuthenticationContinuationHelper` MSAL-klassen. 
+När den interaktiva delen av autentiserings flödet slutar ser du till att kontrollen går tillbaka till MSAL. På Android åsidosätter du `OnActivityResult` metoden för `Activity` . Anropa sedan `SetAuthenticationContinuationEventArgs` metoden för MSAL- `AuthenticationContinuationHelper` klassen. 
 
 Här är ett exempel:
 
@@ -73,7 +73,7 @@ protected override void OnActivityResult(int requestCode,
 Den här raden säkerställer att kontrollen återgår till MSAL i slutet av den interaktiva delen av autentiseringsschemat.
 
 ## <a name="update-the-android-manifest"></a>Uppdatera Android-manifestet
-Filen *AndroidManifest. XML* ska innehålla följande värden:
+*AndroidManifest.xml* -filen ska innehålla följande värden:
 
 <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
 ```
@@ -90,9 +90,9 @@ Filen *AndroidManifest. XML* ska innehålla följande värden:
  </activity>
 ```
 
-Ersätt det paket namn som du registrerade i Azure Portal för `android:host=` värdet. Ersätt den nyckel-hash som du registrerade i Azure Portal för `android:path=` värdet. Signaturens hash ska *inte* vara URL-kodad. Se till att ett inledande snedstreck (`/`) visas i början av signaturens hash.
+Ersätt det paket namn som du registrerade i Azure Portal för `android:host=` värdet. Ersätt den nyckel-hash som du registrerade i Azure Portal för `android:path=` värdet. Signaturens hash ska *inte* vara URL-kodad. Se till att ett inledande snedstreck ( `/` ) visas i början av signaturens hash.
 
-Du kan också [skapa aktiviteten i kod](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) i stället för att manuellt redigera *AndroidManifest. XML*. Skapa en aktivitet i kod genom att först skapa en klass som inkluderar `Activity` attributet och `IntentFilter` attributet. 
+Du kan också [skapa aktiviteten i kod](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) i stället för att manuellt redigera *AndroidManifest.xml*. Skapa en aktivitet i kod genom att först skapa en klass som inkluderar `Activity` attributet och `IntentFilter` attributet. 
 
 Här är ett exempel på en klass som representerar värdena i XML-filen:
 
@@ -109,7 +109,7 @@ Här är ett exempel på en klass som representerar värdena i XML-filen:
 
 ### <a name="xamarinforms-43x-manifest"></a>Xamarin. Forms 4.3. X-manifest
 
-Xamarin. Forms 4.3. x genererar kod som anger `package` attributet till `com.companyname.{appName}` i *AndroidManifest. XML*. Om du använder `DataScheme` som `msal{client_id}`kan du vilja ändra värdet så att det matchar värdet för `MainActivity.cs` namn området.
+Xamarin. Forms 4.3. x genererar kod som anger `package` attributet till `com.companyname.{appName}` i *AndroidManifest.xml*. Om du använder `DataScheme` som `msal{client_id}` kan du vilja ändra värdet så att det matchar värdet för `MainActivity.cs` namn området.
 
 ## <a name="use-the-embedded-web-view-optional"></a>Använda den inbäddade webb visningen (valfritt)
 
@@ -140,12 +140,12 @@ Felsöka build-problem:
 - Kontrol lera att Xamarin. Android. support. v4 uppdateras automatiskt till version 25.4.0.2. Vid behov kan du uppdatera till version 25.4.0.2.
 - Se till att alla Xamarin. Android. support paket är mål version 25.4.0.2.
 - Rengör eller återskapa programmet.
-- I Visual Studio kan du försöka ange maximalt antal parallella projekt versioner till 1. Det gör du genom att välja **alternativ** > **projekt och lösningar** > **build och kör** > **maximalt antal parallella projekt versioner**.
-- Om du skapar från kommando raden och ditt kommando använder `/m`, kan du försöka ta bort det här elementet från kommandot.
+- I Visual Studio kan du försöka ange maximalt antal parallella projekt versioner till 1. Det gör du genom att välja **alternativ**  >  **projekt och lösningar**  >  **build och kör**  >  **maximalt antal parallella projekt versioner**.
+- Om du skapar från kommando raden och ditt kommando använder `/m` , kan du försöka ta bort det här elementet från kommandot.
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Fel: namnet AuthenticationContinuationHelper finns inte i den aktuella kontexten
 
-Om ett fel indikerar att `AuthenticationContinuationHelper` inte finns i den aktuella kontexten kan Visual Studio ha uppdaterat filen Android. CSPROJ * felaktigt. Ibland innehåller * \<HintPath>* fil Sök vägen felaktigt *netstandard13* i stället för *monoandroid90*.
+Om ett fel indikerar att `AuthenticationContinuationHelper` inte finns i den aktuella kontexten kan Visual Studio ha uppdaterat filen Android. CSPROJ * felaktigt. Ibland *\<HintPath>* innehåller fil Sök vägen felaktigt *netstandard13* i stället för *monoandroid90*.
 
 Det här exemplet innehåller en korrekt fil Sök väg:
 

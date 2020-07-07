@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.openlocfilehash: ead79ca0a37a270f03a305064c80426553db59ca
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628545"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>Scenario: klusternoden tar slut på disk utrymme i Azure HDInsight
@@ -22,7 +22,7 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 Ett jobb kan Miss lyckas med ett fel meddelande som liknar:`/usr/hdp/2.6.3.2-14/hadoop/libexec/hadoop-config.sh: fork: No space left on device.`
 
-Eller så kan du få Apache Ambari-aviseringar `local-dirs usable space is below configured utilization percentage`som liknar:.
+Eller så kan du få Apache Ambari-aviseringar som liknar: `local-dirs usable space is below configured utilization percentage` .
 
 ## <a name="cause"></a>Orsak
 
@@ -32,14 +32,14 @@ Apache garn Application cache kan ha använt allt tillgängligt disk utrymme. Sp
 
 1. Använd Ambari UI för att avgöra vilken nod som håller på att ta slut på disk utrymme.
 
-1. Bestäm vilken mapp i oroande-noden som bidrar till det mesta av disk utrymmet. Använd `df` först SSH till noden och sedan Visa disk användning för alla monteringar. Det är `/mnt` vanligt vis en temporär disk som används av oss. Du kan ange i en mapp och sedan skriva `sudo du -hs` för att Visa sammanfattade fil storlekar under en mapp. Om du ser en mapp liknande `/mnt/resource/hadoop/yarn/local/usercache/livy/appcache/application_1537280705629_0007`innebär det att programmet fortfarande körs. Detta kan bero på RDD beständighet eller mellanliggande blandade filer.
+1. Bestäm vilken mapp i oroande-noden som bidrar till det mesta av disk utrymmet. Använd först SSH till noden och sedan `df` Visa disk användning för alla monteringar. Det är vanligt vis `/mnt` en temporär disk som används av oss. Du kan ange i en mapp och sedan skriva `sudo du -hs` för att Visa sammanfattade fil storlekar under en mapp. Om du ser en mapp liknande `/mnt/resource/hadoop/yarn/local/usercache/livy/appcache/application_1537280705629_0007` innebär det att programmet fortfarande körs. Detta kan bero på RDD beständighet eller mellanliggande blandade filer.
 
 1. Du kan åtgärda problemet genom att avsluta programmet, vilket frigör disk utrymme som används av programmet.
 
 1. Om problemet inträffar ofta på arbetsnoderna kan du justera inställningarna för lokalt cacheminne för garn i klustret.
 
     Öppna Ambari-ANVÄNDARGRÄNSSNITTET navigera till garn--> configs--> Avancerat.  
-    Lägg till följande 2-egenskaper i avsnittet anpassad yarn-site. xml och spara:
+    Lägg till följande två egenskaper i avsnittet anpassad yarn-site.xml och spara:
 
     ```
     yarn.nodemanager.localizer.cache.target-size-mb=2048

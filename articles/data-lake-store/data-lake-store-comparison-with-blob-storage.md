@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691728"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämföra Azure Data Lake Storage Gen1 och Azure Blob Storage
@@ -22,7 +22,7 @@ I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |
 | Syfte |Optimerad lagring för Big data Analytics-arbetsbelastningar |Allmän objekt lagring för en mängd olika lagrings scenarier, inklusive big data Analytics |
-| Användnings fall |Batch, interaktiv, strömnings analys och maskin inlärnings data, till exempel loggfiler, IoT-data, klicka på strömmar, stora data uppsättningar |Alla typer av text eller binära data, t. ex. Programserver del, säkerhets kopierings data, medie lagring för strömning och generella användnings data. Dessutom är fullständig support för analys arbets belastningar. batch, interaktiv, strömnings analys och maskin inlärnings data, till exempel loggfiler, IoT-data, klicka på strömmar, stora data uppsättningar |
+| Användningsfall |Batch, interaktiv, strömnings analys och maskin inlärnings data, till exempel loggfiler, IoT-data, klicka på strömmar, stora data uppsättningar |Alla typer av text eller binära data, t. ex. Programserver del, säkerhets kopierings data, medie lagring för strömning och generella användnings data. Dessutom är fullständig support för analys arbets belastningar. batch, interaktiv, strömnings analys och maskin inlärnings data, till exempel loggfiler, IoT-data, klicka på strömmar, stora data uppsättningar |
 | Viktiga begrepp |Data Lake Storage Gen1-kontot innehåller mappar, vilket i sin tur innehåller data som lagras som filer |Lagrings kontot har behållare, vilket i sin tur har data i form av blobbar |
 | Struktur |Hierarkiskt fil system |Objekt Arkiv med platt namn område |
 | API |REST API över HTTPS |REST API över HTTP/HTTPS |
@@ -34,7 +34,7 @@ I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake 
 | Data åtgärder – granskning |Få. Mer information finns [här](data-lake-store-diagnostic-logs.md) . |Tillgänglig |
 | Vilande data kryptering |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv</li></ul></ul> |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv (för hands version)</li></ul><li>Kryptering av klientsidan</li></ul> |
 | Hanterings åtgärder (till exempel konto skapa) |[Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering |[Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering |
-| SDK: er för utvecklare |.NET, Java, python, Node. js |.NET, Java, python, Node. js, C++, ruby, PHP, go, Android, iOS |
+| SDK: er för utvecklare |.NET, Java, python, Node.js |.NET, Java, python, Node.js, C++, ruby, PHP, go, Android, iOS |
 | Analys arbets belastnings prestanda |Optimerade prestanda för arbets belastningar med parallell analys. Högt data flöde och IOPS. |Optimerade prestanda för arbets belastningar med parallell analys. |
 | Storleks begränsningar |Inga begränsningar för konto storlekar, fil storlekar eller antal filer |För vissa gränser, se [skalbarhets mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md) och [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md). Större konto gränser tillgängliga genom att kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/) |
 | GEO-redundans |Lokalt redundant (flera kopior av data i en Azure-region) |Lokalt redundant (LRS), zon redundant (ZRS), globalt redundant (GRS), Läs åtkomst globalt redundant (RA-GRS). Mer information finns [här](../storage/common/storage-redundancy.md) |

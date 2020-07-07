@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83739217"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Konfigurera en arbets telefon som en metod för verifiering av två faktorer
@@ -41,7 +41,7 @@ Du kan konfigurera din arbets telefon så att den fungerar som en metod för ver
     >[!Note]
     >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
 
-4. Välj **Done** (Klar).
+4. Välj **Klar**.
 
 ## <a name="next-steps"></a>Nästa steg
 

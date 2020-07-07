@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83741176"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
@@ -69,7 +69,7 @@ Beroende på din typ av konto kan organisationen välja att du måste använda t
 
 - **Icke-Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för andra konton än Microsoft-konton (till exempel alain@gmail.com). Icke-Microsoft-konton kan inte använda termen tvåfaktorsverifiering, men du ska kunna hitta funktionen bland inställningarna för **säkerhet** eller **inloggning**. Microsoft Authenticator-appen fungerar med alla konton som har stöd för TOTP-standarder. Mer information om hur du lägger till dina icke-Microsoft-konton finns i [Lägga till icke-Microsoft-konton](user-help-auth-app-add-non-ms-account.md).
 
-## <a name="in-this-section"></a>I det här avsnittet
+## <a name="in-this-section"></a>Innehåll i det här avsnittet
 
 | Artikel | Beskrivning |
 | ------ | ------------ |

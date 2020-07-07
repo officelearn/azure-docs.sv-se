@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628954"
 ---
 # <a name="templates"></a>Mallar
@@ -32,7 +32,7 @@ Du kan komma igång med att skapa en Data Factory pipeline från en mall på fö
 
     ![Öppna mallgalleriet från översikts Sidan](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  På fliken författare i Resursläsaren väljer **+** du och sedan **pipeline från mallen** för att öppna mallgalleriet.
+1.  På fliken författare i Resursläsaren väljer du **+** och sedan **pipeline från mallen** för att öppna mallgalleriet.
 
     ![Öppna mallgalleriet från fliken författare](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -56,7 +56,7 @@ Data Factory använder Azure Resource Manager mallar för att spara mallar för 
 
     -   [Delta kopia från databas](solution-template-delta-copy-with-control-table.md)
 
-    -   Kopiera från \<källa\> till \<mål\>
+    -   Kopiera från \<source\> till\<destination\>
 
         -   [Från Amazon S3 till Azure Data Lake Store gen 2](solution-template-migration-s3-azure.md)
 

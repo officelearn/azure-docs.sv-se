@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 4da54318bea21daf9ec363be61bea18adaa2ce63
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629042"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Delta kopia från en databas med en kontroll tabell
@@ -114,7 +114,7 @@ Mallen definierar följande parametrar:
 
     ![Ange den lagrade procedur aktiviteten](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. Skriv innehållet ** \@{Activity (' LookupCurrentWaterMark '). output. firstRow. NewWatermarkValue}** och välj sedan **Slutför**.  
+10. Skriv innehållet ** \@ {Activity (' LookupCurrentWaterMark '). output. FirstRow. NewWatermarkValue}** och välj sedan **Slutför**.  
 
     ![Skriv innehållet för parametrarna för den lagrade proceduren](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
 ms.openlocfilehash: cedd302453e75c037f17cc47d8e00a06d3f3a8cd
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83996811"
 ---
 Gå till Azure Portal och <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" skapa en ny formulär igenkännings resurs " target="_blank"> skapa en ny formulär igenkännings resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . I fönstret **skapa** anger du följande information:

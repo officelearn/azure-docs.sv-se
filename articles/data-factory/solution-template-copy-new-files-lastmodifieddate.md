@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629073"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory
@@ -84,12 +84,12 @@ Mallen definierar sex parametrar:
     ![Skapa utlösaren](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 10. Ange värdet för **utlösarens körnings parametrar** enligt följande och välj **Slutför**.
-    - **FolderPath_Source** = **SourceFolder**.  Du kan ersätta med din mapp i käll data lagret.
-    - **Directory_Source** = **undermappen**.  Du kan ersätta med din undermapp i käll data lagret.
-    - **FolderPath_Destination** = **destinationfolder**.  Du kan ersätta med din mapp i mål data lagret.
-    - **Directory_Destination** = **undermappen**.  Du kan ersätta med din undermapp i mål data lagret.
-    - **LastModified_From** =  **LastModified_From\@trigger (). outputs. windowStartTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöstes senast.
-    - **LastModified_To** = **LastModified_To\@trigger (). outputs. windowEndTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöses för tillfället.
+    - **FolderPath_Source**  =  **SourceFolder**.  Du kan ersätta med din mapp i käll data lagret.
+    - **Directory_Source**  =  **undermappen**.  Du kan ersätta med din undermapp i käll data lagret.
+    - **FolderPath_Destination**  =  **destinationfolder**.  Du kan ersätta med din mapp i mål data lagret.
+    - **Directory_Destination**  =  **undermappen**.  Du kan ersätta med din undermapp i mål data lagret.
+    - **LastModified_From**  =   ** \@ trigger (). outputs. windowStartTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöstes senast.
+    - **LastModified_To**  =  ** \@ trigger (). outputs. windowEndTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöses för tillfället.
     
     ![Indataparametrar](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     
@@ -107,4 +107,4 @@ Mallen definierar sex parametrar:
     
 ## <a name="next-steps"></a>Nästa steg
 
-- [Introduktion till Azure Data Factory](introduction.md)
+- [introduktion till Azure Data Factory](introduction.md)

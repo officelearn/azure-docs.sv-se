@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83738650"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurera en Authenticator-app som metod med tvåstegsverifiering
@@ -65,7 +65,7 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
     >[!Note]
     >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
 
-9. Välj **Done** (Klar).
+9. Välj **Klar**.
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-use-verification-codes"></a>Konfigurera appen Microsoft Authenticator att använda verifierings koder
 
@@ -107,7 +107,7 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
     >[!Note]
     >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
 
-9. Välj **Done** (Klar).
+9. Välj **Klar**.
 
 ## <a name="next-steps"></a>Nästa steg
 

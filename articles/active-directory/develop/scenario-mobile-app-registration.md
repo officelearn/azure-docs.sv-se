@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652646"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrera mobilappar som anropar webb-API: er
@@ -50,7 +50,7 @@ Den här funktionen gör att din app kan hämta enkel inloggning (SSO) via Micro
 
 Registrerings portalen för appar ger en förhands granskning som hjälper dig att beräkna den asynkrona svars-URI: n för iOS-och Android-program:
 
-1. I app Registration-portalen väljer du **autentisering** > **testa den nya upplevelsen**.
+1. I app Registration-portalen väljer **Authentication**  >  **du autentisering testa den nya upplevelsen**.
 
    ![Bladet autentisering, där du väljer en ny upplevelse](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
@@ -73,7 +73,7 @@ När du slutför stegen beräknas omdirigerings-URI: n, som i följande bild.
 Om du föredrar att konfigurera omdirigerings-URI: n manuellt kan du göra det via applikations manifestet. Här är det rekommenderade formatet för manifestet:
 
 - **iOS**:`msauth.<BUNDLE_ID>://auth` 
-  - Ange till exempel`msauth.com.yourcompany.appName://auth`
+  - Ange till exempel `msauth.com.yourcompany.appName://auth`
 - **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Du kan generera Android-signaturens hash med hjälp av versions nyckeln eller fel söknings nyckeln via kommando kommandot.
 

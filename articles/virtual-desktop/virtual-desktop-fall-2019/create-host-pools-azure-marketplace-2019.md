@@ -9,10 +9,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: cd309b7c3b37e338b1d8e69635247cc90511b34f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204752"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
@@ -33,7 +33,7 @@ Uppgifterna i den här självstudien innehåller:
 > * Anslut de virtuella datorerna till Active Directory-domänen.
 > * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En klient i virtuellt skriv bord. En tidigare [självstudie](tenant-setup-azure-active-directory.md) skapar en klient.
 * [PowerShell-modul för Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
@@ -58,7 +58,7 @@ Så här kör du Azure Marketplace-erbjudandet för att etablera en ny adresspoo
 
 Efter det följer du anvisningarna i nästa avsnitt för att ange informationen för lämpliga flikar.
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grunderna
 
 Det här kan du göra på fliken **grundläggande** :
 

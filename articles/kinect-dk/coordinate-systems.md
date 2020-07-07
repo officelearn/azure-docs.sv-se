@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, sensor, SDK, djup kamera, TOF, principer, prestanda, ogiltighet
 ms.openlocfilehash: 4bb1c3b79862b918870cff786042d9b4c66270d1
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277448"
 ---
 # <a name="azure-kinect-dk-coordinate-systems"></a>Azure Kinect DK koordinera system
@@ -48,6 +48,6 @@ Gyroscope-ursprunget `[0,0,0]` är identiskt med djup kamerans ursprung. Ursprun
 
 ![IMU koordinera system](./media/concepts/concepts-coordinate-systems/coordinate-systems-gyroscope.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Lär dig mer om Azure Kinect sensor SDK](about-sensor-sdk.md)

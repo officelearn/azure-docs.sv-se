@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529347"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
@@ -41,7 +41,7 @@ För att undvika avsaknad av sekundära index kan du lagra flera kopior av varje
 Följande två filter villkor (en sökning efter anställnings-ID och en sökning efter e-postadress) anger båda punkt frågor:  
 
 * $filter = (PartitionKey EQ Sales) och (RowKey EQ empid_000223)  
-* $filter = (PartitionKey EQ Sales) och (RowKey EQemail_jonesj@contoso.com)  
+* $filter = (PartitionKey EQ Sales) och (RowKey EQ email_jonesj@contoso.com )  
 
 Om du frågar efter ett antal anställdas entiteter kan du ange ett intervall som sorterats i anställnings-ID-ordning, eller ett intervall som sorterats i e-postadressen genom att fråga efter entiteter med lämpligt prefix i **RowKey**.  
 
@@ -97,7 +97,7 @@ För att undvika avsaknad av sekundära index kan du lagra flera kopior av varje
 Följande två filter villkor (en sökning efter anställnings-ID och en sökning efter e-postadress) anger båda punkt frågor:  
 
 * $filter = (PartitionKey EQ empid_Sales) och (RowKey EQ 000223)
-* $filter = (PartitionKey EQ email_Sales) och (RowKey EQjonesj@contoso.com)  
+* $filter = (PartitionKey EQ email_Sales) och (RowKey EQ jonesj@contoso.com )  
 
 Om du frågar efter ett antal anställdas entiteter kan du ange ett intervall som sorterats i anställnings-ID-ordning, eller ett intervall som sorterats i e-postadressen genom att fråga efter entiteter med lämpligt prefix i **RowKey**.  
 
@@ -263,7 +263,7 @@ I en Relations databas normaliserar du vanligt vis data för att ta bort dubblet
 ![Avdelnings enhet och entitet för anställd](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Lösning
-I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Ett exempel:  
+I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Till exempel:  
 
 ![Avdelnings enhet](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -588,7 +588,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-EmployeeTable är ett CloudTable-objekt som implementerar en CreateQuery\<ITableEntity> ()-metod som returnerar en TableQuery\<ITableEntity->. Objekt av den här typen implementerar en IQueryable och tillåter att både LINQ Query-uttryck och punkt notation används.
+EmployeeTable är ett CloudTable-objekt som implementerar en CreateQuery \<ITableEntity> ()-metod som returnerar en TableQuery \<ITableEntity> . Objekt av den här typen implementerar en IQueryable och tillåter att både LINQ Query-uttryck och punkt notation används.
 
 Hämtar flera entiteter och uppnår genom att ange en fråga med en **WHERE** -sats. För att undvika en tabells ökning bör du alltid inkludera värdet **PartitionKey** i WHERE-satsen och om möjligt **RowKey** -värdet för att undvika tabell-och partitions ökningar. Tabell tjänsten har stöd för en begränsad uppsättning jämförelse operatorer (större än, större än eller lika med, mindre än, mindre än eller lika med, lika med och inte lika med) som ska användas i WHERE-satsen. 
 

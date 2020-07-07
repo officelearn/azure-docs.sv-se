@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: f5572611b99245fd62b4e0a9d73e6ed728e42f5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79530656"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Starta om Azure Database for MariaDB server med Azure CLI
@@ -20,14 +20,14 @@ Servern kommer att startas om när tjänsten är upptagen. Tjänsten kan till ex
 
 Tiden som krävs för att slutföra en omstart beror på återställnings processen för MariaDB. För att minska omstarts tiden rekommenderar vi att du minimerar mängden aktivitet som inträffar på servern innan du startar om.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange `az --version`i kommando tolken för Azure CLI. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
+> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange i kommando tolken för Azure CLI `az --version` . Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## <a name="restart-the-server"></a>Starta om servern

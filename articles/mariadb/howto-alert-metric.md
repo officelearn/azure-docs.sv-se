@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 683b89b29265159b0316d427a7ae616bf3766f7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529025"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Använd Azure Portal för att konfigurera aviseringar för mått för Azure Database for MariaDB
@@ -38,7 +38,7 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
 3. Välj **Lägg till mått avisering** (+ ikon).
 
-4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i den information som krävs:
+4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i nödvändig information:
 
    ![Lägg till mått aviserings formulär](./media/howto-alert-metric/4-add-rule-form.png)
 

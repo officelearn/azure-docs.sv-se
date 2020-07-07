@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79530146"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Avancerat skydd för Azure Database for MariaDB
@@ -26,7 +26,7 @@ Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som ä
 > Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US gov, IOWA, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland Central, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.
 
 ## <a name="set-up-threat-detection"></a>Konfigurera hot identifiering
-1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 2. Gå till konfigurations sidan för den Azure Database for MariaDB-server som du vill skydda. I säkerhets inställningarna väljer du **Avancerat skydd (för hands version)**.
 3. På konfigurations sidan för **Advanced Threat Protection (för hands version)** :
 

@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 46bfab6935d08ac28ced7f392892ade6f68a0492
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79530860"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Skapa och hantera Azure Database for MariaDB VNet-tjänstens slut punkter med Azure CLI
 
 VNet-tjänstslutpunkter och regler utökar det privata adressutrymmet för ett virtuellt nätverk till din Azure Database for MariaDB-server. Med hjälp av ett bekvämt kommando rads gränssnitt (CLI) för kommando tolken kan du skapa, uppdatera, ta bort, lista och Visa VNet-tjänstens slut punkter och regler för att hantera servern. En översikt över Azure Database for MariaDB VNet-tjänstens slut punkter, inklusive begränsningar, finns i [Azure Database for MariaDB serverns VNet-slutpunkter](concepts-data-access-security-vnet.md). VNet-tjänstens slut punkter är tillgängliga i alla regioner som stöds för Azure Database for MariaDB.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här instruktions guiden behöver du:
 - Installera [Azure CLI](/cli/azure/install-azure-cli) eller Använd Azure Cloud Shell i webbläsaren.
 - En [Azure Database for MariaDB Server och databas](quickstart-create-mariadb-server-database-using-azure-cli.md).

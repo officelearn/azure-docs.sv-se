@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79503132"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Konfigurera proxyinställningar för mobilitets tjänsten för haveri beredskap i Azure till Azure
@@ -51,7 +51,7 @@ Mobilitets tjänsten identifierar automatiskt proxyinställningarna från miljö
 I det här fallet tillhandahåller kunden anpassade programproxy-inställningar i mobilitets tjänstens konfigurations fil ProxyInfo. conf. Med den här metoden kan kunder bara tillhandahålla proxy för mobilitets tjänsten eller en annan proxy för Azure Site Recovery mobilitets tjänst än en proxy (eller ingen proxy) för resten av programmen på datorn.
 
 ## <a name="proxy-template"></a>Mall för proxy
-ProxyInfo. conf innehåller följande mall [proxy] address =http://1.2.3.4 port = 5678 BypassList = hypervrecoverymanager. windowsazure. com, login. microsoftonline. com, blob. Core. Windows. net. BypassList har inte stöd för jokertecken som "*. windows.net", men om du ger windows.net är det tillräckligt tillräckligt för att kringgå. 
+ProxyInfo. conf innehåller följande mall [proxy] address = http://1.2.3.4 port = 5678 BypassList = hypervrecoverymanager. windowsazure. com, login. microsoftonline. com, blob. Core. Windows. net. BypassList har inte stöd för jokertecken som "*. windows.net", men om du ger windows.net är det tillräckligt tillräckligt för att kringgå. 
 
 ## <a name="next-steps"></a>Nästa steg:
 - Läs [nätverks vägledning](site-recovery-azure-to-azure-networking-guidance.md) för replikering av virtuella Azure-datorer.

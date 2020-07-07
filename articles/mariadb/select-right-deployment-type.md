@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 4c7eb5e4f22cb432a9d17e6eafa653e62e1f9129
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529908"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Välj rätt MariaDB Server-alternativ i Azure
@@ -34,8 +34,8 @@ De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 |            | Azure-databas för MariaDB | MariaDB på virtuella Azure-datorer    |
 |:-------------------|:-----------------------------|:--------------------|
 | Service nivå avtal (SLA)                | Erbjuder SLA med 99,99% tillgänglighet| Upp till 99,95% tillgänglighet med två eller fler instanser i samma tillgänglighets uppsättning.<br/><br/>99,9% tillgänglighet med en enskild instans av en virtuell dator med Premium Storage.<br/><br/>99,99% med Tillgänglighetszoner med flera instanser i flera tillgänglighets uppsättningar.<br/><br/>Se [Virtual Machines service avtal](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
-| Uppdatering av operativ system        | Automatisk  | Hanteras av kunder |
-| MariaDB korrigering     | Automatisk  | Hanteras av kunder |
+| Uppdatering av operativ system        | Automatiskt  | Hanteras av kunder |
+| MariaDB korrigering     | Automatiskt  | Hanteras av kunder |
 | Hög tillgänglighet | Modellen med hög tillgänglighet (HA) baseras på inbyggda funktioner för redundansväxling för när ett avbrott på nod-nivå sker. I sådana fall skapar tjänsten automatiskt en ny instans och kopplar lagring till den här instansen. | Kunders arkitekt, implementera, testa och underhålla hög tillgänglighet. Funktioner kan omfatta Always on-redundanskluster, Always on-gruppreplikering, logg överföring eller transaktionell replikering.|
 | Zon redundans | Stöds inte för närvarande | Virtuella Azure-datorer kan konfigureras för att köras i olika tillgänglighets zoner. För en lokal lösning måste kunderna skapa, hantera och underhålla ett eget sekundärt Data Center.|
 | Hybrid scenarier | Med [datareplikering](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)kan du synkronisera data från en extern MariaDB-server till tjänsten Azure Database for MariaDB. Den externa servern kan vara lokalt, i virtuella datorer eller i en databas tjänst som är värd för andra moln leverantörer.<br/><br/> Med funktionen [Läs replik](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) kan du replikera data från en Azure Database for MariaDB huvud server till upp till fem skrivskyddade replik servrar. Replikerna är antingen inom samma Azure-region eller i flera regioner. Skrivskyddade repliker uppdateras asynkront med BinLog-replikering.<br/><br/>Läs replikering mellan regioner är för närvarande en offentlig för hands version.| Hanteras av kunder

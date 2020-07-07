@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 444d7f1574cf1517b01250bcb9d810731030182d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79527800"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Server koncept i Azure Database for MariaDB
@@ -40,9 +40,9 @@ Följande element hjälper till att säkerställa säker åtkomst till din datab
 |||
 | :--| :--|
 | **Autentisering och auktorisering** | Azure Database for MariaDB Server stöder inbyggd MySQL-autentisering. Du kan ansluta och autentisera till en server med serverns Administratörs inloggning. |
-| **Protokollhanterare** | Tjänsten har stöd för ett Message-baserat protokoll som används av MySQL. |
+| **Protokoll** | Tjänsten har stöd för ett Message-baserat protokoll som används av MySQL. |
 | **TCP/IP** | Protokollet stöds över TCP/IP och över UNIX-domänsuffix. |
-| **Vägg** | För att skydda dina data förhindrar en brand Väggs regel all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Se [Azure Database for MariaDB Server brand Väggs regler](./concepts-firewall-rules.md). |
+| **Brandvägg** | För att skydda dina data förhindrar en brand Väggs regel all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Se [Azure Database for MariaDB Server brand Väggs regler](./concepts-firewall-rules.md). |
 | **SSL** | Tjänsten har stöd för att tvinga SSL-anslutningar mellan dina program och databas servern. Se [Konfigurera SSL-anslutning i ditt program för att ansluta till Azure Database for MariaDB på ett säkert sätt](./howto-configure-ssl.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Hur gör jag för att hantera en server?

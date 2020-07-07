@@ -10,10 +10,10 @@ caps.latest.revision: 42
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: dadb50bd0663f47e6a1bf3d58b5187c8b466964d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79528378"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Definitions schema för Azure-Cloud Services (. csdef-fil)
@@ -24,7 +24,7 @@ Som standard installeras den Azure-diagnostik konfigurations schema filen i `C:\
 Standard tillägget för tjänst definitions filen är. csdef.
 
 ## <a name="basic-service-definition-schema"></a>Grundläggande tjänst definitions schema
-Tjänst definitions filen måste innehålla ett `ServiceDefinition` -element. Tjänst definitionen måste innehålla minst ett roll element (`WebRole` eller `WorkerRole`). Den kan innehålla upp till 25 roller som definierats i en enda definition och du kan blanda roll typer. Tjänst definitionen innehåller också det valfria `NetworkTrafficRules` element som begränsar vilka roller som kan kommunicera med angivna interna slut punkter. Tjänst definitionen innehåller också det valfria `LoadBalancerProbes` element som innehåller kunddefinierade hälso avsökningar av slut punkter.
+Tjänst definitions filen måste innehålla ett- `ServiceDefinition` element. Tjänst definitionen måste innehålla minst ett roll `WebRole` element (eller `WorkerRole` ). Den kan innehålla upp till 25 roller som definierats i en enda definition och du kan blanda roll typer. Tjänst definitionen innehåller också det valfria `NetworkTrafficRules` element som begränsar vilka roller som kan kommunicera med angivna interna slut punkter. Tjänst definitionen innehåller också det valfria `LoadBalancerProbes` element som innehåller kunddefinierade hälso avsökningar av slut punkter.
 
 Det grundläggande formatet för tjänst definitions filen är följande.
 
@@ -59,7 +59,7 @@ I följande avsnitt beskrivs schemat:
 - [NetworkTrafficRules-schema](schema-csdef-networktrafficrules.md)
 
 ##  <a name="servicedefinition-element"></a><a name="ServiceDefinition"></a>Service definition-element
-`ServiceDefinition` Elementet är det översta elementet i tjänst definitions filen.
+`ServiceDefinition`Elementet är det översta elementet i tjänst definitions filen.
 
 I följande tabell beskrivs attributen för- `ServiceDefinition` elementet.
 

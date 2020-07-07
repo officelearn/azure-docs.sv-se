@@ -10,15 +10,15 @@ caps.latest.revision: 12
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79528429"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Roll schema för Azure Cloud Services-konfiguration
 
-`Role` Elementet i konfigurations filen anger antalet roll instanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurations inställningar och tumavtrycken för alla certifikat som är associerade med en roll.
+`Role`Elementet i konfigurations filen anger antalet roll instanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurations inställningar och tumavtrycken för alla certifikat som är associerade med en roll.
 
 Mer information om konfigurations schema för Azure-tjänsten finns i [konfigurations schema för moln tjänst (klassisk)](schema-cscfg-file.md). Mer information om definitions schema för Azure-tjänsten finns i [definitions schema för moln tjänst (klassisk)](schema-csdef-file.md).
 
@@ -52,7 +52,7 @@ I följande tabell beskrivs `Role` elementets underordnade element.
 | ------- | ----------- |
 | Instanser | Krävs. Anger antalet instanser som ska distribueras för rollen. Antalet instanser definieras av ett heltal för `count` attributet.|
 | Inställningen   | Valfritt. Anger ett inställnings namn och-värde i en samling inställningar för en roll. Inställnings namnet definieras av en sträng för `name` attributet och värdet Setting definieras av en sträng för `value` attributet.|
-| Certifikat | Valfritt. Anger namn, tumavtryck och algoritm för ett tjänst certifikat som ska associeras med rollen. Certifikat namnet definieras av en sträng för `name` attributet. Tumavtryck för certifikatet definieras av en sträng med hexadecimala tal som inte innehåller några blank `thumbprint` steg för attributet. De hexadecimala talen måste representeras med siffror och versaler i alfabetet. Certifikatets algoritm definieras av en sträng för `thumbprintAlgorithm` attributet.|
+| Certifikat | Valfritt. Anger namn, tumavtryck och algoritm för ett tjänst certifikat som ska associeras med rollen. Certifikat namnet definieras av en sträng för `name` attributet. Tumavtryck för certifikatet definieras av en sträng med hexadecimala tal som inte innehåller några blank steg för `thumbprint` attributet. De hexadecimala talen måste representeras med siffror och versaler i alfabetet. Certifikatets algoritm definieras av en sträng för `thumbprintAlgorithm` attributet.|
 
 ## <a name="see-also"></a>Se även
 [Konfigurations schema för moln tjänst (klassisk)](schema-cscfg-file.md)

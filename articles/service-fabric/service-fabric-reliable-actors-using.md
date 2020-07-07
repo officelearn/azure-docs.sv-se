@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79502279"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementera service nivå funktioner i aktörs tjänsten
 
-Som det beskrivs i [Service lager](service-fabric-reliable-actors-platform.md#service-layering)är aktörs tjänsten en tillförlitlig tjänst. Du kan skriva en egen tjänst som är härledd `ActorService`från. Du kan även implementera funktioner på service nivå på samma sätt som när du ärver en tillstånds känslig tjänst, till exempel:
+Som det beskrivs i [Service lager](service-fabric-reliable-actors-platform.md#service-layering)är aktörs tjänsten en tillförlitlig tjänst. Du kan skriva en egen tjänst som är härledd från `ActorService` . Du kan även implementera funktioner på service nivå på samma sätt som när du ärver en tillstånds känslig tjänst, till exempel:
 
 - Säkerhets kopiering och återställning av tjänsten.
 - Delade funktioner för alla aktörer, till exempel en krets brytare.
@@ -89,12 +89,12 @@ static class Program
 
 ## <a name="actor-service-methods"></a>Aktörs tjänst metoder
 
-Aktörs tjänsten implementerar `IActorService` (c#) eller `ActorService` (Java), som i sin tur implementerar `IService` (c#) `Service` eller (Java). Det här gränssnittet används av Reliable Services fjärr kommunikation, som tillåter fjärran rop på tjänst metoder. Den innehåller metoder på service nivå som kan anropas via fjärr anslutning via tjänstens fjärr kommunikation. Du kan använda den för att [räkna upp](service-fabric-reliable-actors-enumerate.md) och [ta bort](service-fabric-reliable-actors-delete-actors.md) aktörer.
+Aktörs tjänsten implementerar `IActorService` (c#) eller `ActorService` (Java), som i sin tur implementerar `IService` (c#) eller `Service` (Java). Det här gränssnittet används av Reliable Services fjärr kommunikation, som tillåter fjärran rop på tjänst metoder. Den innehåller metoder på service nivå som kan anropas via fjärr anslutning via tjänstens fjärr kommunikation. Du kan använda den för att [räkna upp](service-fabric-reliable-actors-enumerate.md) och [ta bort](service-fabric-reliable-actors-delete-actors.md) aktörer.
 
 
 ## <a name="custom-actor-service"></a>Anpassad aktörs tjänst
 
-Med hjälp av lambda-registreringen kan du registrera en egen anpassad aktörs tjänst som är härledd `ActorService` från (C#) `FabricActorService` och (Java). Du kan sedan implementera egna funktioner på tjänst nivå genom att skriva en tjänst klass som ärver `ActorService` (C#) eller `FabricActorService` (Java). En anpassad aktörs tjänst ärver alla aktörs körnings funktioner `ActorService` från (C#) `FabricActorService` eller (Java). Den kan användas för att implementera egna tjänst metoder.
+Med hjälp av lambda-registreringen kan du registrera en egen anpassad aktörs tjänst som är härledd från `ActorService` (C#) och `FabricActorService` (Java). Du kan sedan implementera egna funktioner på tjänst nivå genom att skriva en tjänst klass som ärver `ActorService` (C#) eller `FabricActorService` (Java). En anpassad aktörs tjänst ärver alla aktörs körnings funktioner från `ActorService` (C#) eller `FabricActorService` (Java). Den kan användas för att implementera egna tjänst metoder.
 
 ```csharp
 class MyActorService : ActorService
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implementera säkerhets kopiering och återställning av aktör
 
-En anpassad aktörs tjänst kan exponera en metod för att säkerhetskopiera aktörs data genom att dra nytta av fjärrlyssnaren för `ActorService`fjärr kommunikation som redan finns i. Ett exempel finns i [säkerhets kopierings-och återställnings aktörer](service-fabric-reliable-actors-backup-and-restore.md).
+En anpassad aktörs tjänst kan exponera en metod för att säkerhetskopiera aktörs data genom att dra nytta av fjärrlyssnaren för fjärr kommunikation som redan finns i `ActorService` . Ett exempel finns i [säkerhets kopierings-och återställnings aktörer](service-fabric-reliable-actors-backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Skådespelare som använder en stack för fjärran vändning v2 (gränssnitts kompatibel)
 

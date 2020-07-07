@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594737"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda version 2 av Azures tillägg för anpassat skript med virtuella Linux-datorer
@@ -112,13 +112,13 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 | Name | Värde/exempel | Datatyp | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | datum |
+| apiVersion | 2019-03-01 | date |
 | utgivare | Microsoft. Compute. Extensions | sträng |
 | typ | CustomScript | sträng |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (t. ex.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matris |
-| commandToExecute (t. ex.) | python MyPythonScript.py \<My-param1> | sträng |
-| -skriptet | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | sträng |
+| commandToExecute (t. ex.) | python-MyPythonScript.py\<my-param1> | sträng |
+| skript | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | sträng |
 | skipDos2Unix (t. ex.) | falskt | boolean |
 | tidsstämpel (t. ex.) | 123456789 | 32-bitars heltal |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
@@ -132,7 +132,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 * `commandToExecute`: (**krävs** om skript inte har angetts, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord.
 * `script`: (**krävs** om commandToExecute inte har angetts, sträng) ett base64-kodat (och eventuellt gzip'ed) skript som körs av/bin/sh.
 * `fileUris`: (valfritt, sträng mat ris) URL: er för fil (er) som ska hämtas.
-* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste `fileUris` alla vara URL: er för Azure-blobar.
+* `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter `fileUris` för lagring måste alla vara URL: er för Azure-blobar.
 * `storageAccountKey`: (valfritt, sträng) åtkomst nyckeln för lagrings kontot
 * `managedIdentity`: (valfritt, JSON-objekt) den [hanterade identiteten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för nedladdning av fil (er)
   * `clientId`: (valfritt, sträng) klient-ID: t för den hanterade identiteten
@@ -152,10 +152,10 @@ Offentliga inställningar skickas i klartext till den virtuella dator där skrip
 
 Standardvärdet är false, vilket innebär att dos2unix **-konverteringen körs.**
 
-Den tidigare versionen av CustomScript, Microsoft. OSTCExtensions. CustomScriptForLinux, konverterar automatiskt DOS-filer till UNIX-filer genom `\r\n` att översätta `\n`till. Den här översättningen finns fortfarande och är på som standard. Den här konverteringen tillämpas på alla filer som laddats ned från fileUris eller skript inställningen baserat på något av följande kriterier.
+Den tidigare versionen av CustomScript, Microsoft. OSTCExtensions. CustomScriptForLinux, konverterar automatiskt DOS-filer till UNIX-filer genom `\r\n` att översätta till `\n` . Den här översättningen finns fortfarande och är på som standard. Den här konverteringen tillämpas på alla filer som laddats ned från fileUris eller skript inställningen baserat på något av följande kriterier.
 
-* `.sh`Om tillägget är en av `.txt` `.py`,, eller `.pl` kommer att konverteras. Skript inställningen matchar alltid det här kriteriet eftersom det antas vara ett skript som körs med/bin/sh och som sparas som script.sh på den virtuella datorn.
-* Om filen börjar med `#!`.
+* Om tillägget är en av, `.sh` , `.txt` `.py` eller `.pl` kommer att konverteras. Skript inställningen matchar alltid det här kriteriet eftersom det antas vara ett skript som körs med/bin/sh och som sparas som script.sh på den virtuella datorn.
+* Om filen börjar med `#!` .
 
 Dos2unix-omvandlingen kan hoppas över genom att ange skipDos2Unix till true.
 
@@ -448,7 +448,7 @@ Här kan du se:
 * Tillägget laddar ned filen och resultatet av det.
 * Kommandot som körs och resultatet.
 
-Du kan också hämta körnings statusen för det anpassade skript tillägget, inklusive de faktiska argument som skickas `commandToExecute` som med hjälp av Azure CLI:
+Du kan också hämta körnings statusen för det anpassade skript tillägget, inklusive de faktiska argument som skickas som med `commandToExecute` hjälp av Azure CLI:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM

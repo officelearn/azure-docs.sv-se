@@ -10,10 +10,10 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: f53a6b63c744b0e3e41f7ad22270cd842da57674
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796582"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Skapa en avbildnings version från en virtuell dator i Azure med hjälp av Azure CLI
@@ -54,13 +54,13 @@ Bild definitioner skapa en logisk gruppering för avbildningar. De används för
 
 Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. 
 
-Se till att bild definitionen är av rätt typ. Om du har generaliserat den virtuella datorn (med Sysprep för Windows eller waagent för Linux) bör du skapa en generaliserad avbildnings definition med hjälp av `--os-state generalized`. Om du vill använda den virtuella datorn utan att ta bort befintliga användar konton skapar du en specialiserad `--os-state specialized`avbildnings definition med hjälp av.
+Se till att bild definitionen är av rätt typ. Om du har generaliserat den virtuella datorn (med Sysprep för Windows eller waagent för Linux) bör du skapa en generaliserad avbildnings definition med hjälp av `--os-state generalized` . Om du vill använda den virtuella datorn utan att ta bort befintliga användar konton skapar du en specialiserad avbildnings definition med hjälp av `--os-state specialized` .
 
 Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Skapa en bild definition i galleriet med hjälp av [AZ sig-bild-definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [SPECIALISERAd](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS-avbildning. Använd `--os-type Windows`om du vill skapa en definition för avbildningar med hjälp av ett Windows-operativsystem. 
+I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [SPECIALISERAd](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS-avbildning. Använd om du vill skapa en definition för avbildningar med hjälp av ett Windows-operativsystem `--os-type Windows` . 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -99,7 +99,7 @@ az sig image-version create \
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom `--storage-account-type  premium_lrs`att lägga till eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `--storage-account-type  premium_lrs` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
 >
 
 ## <a name="next-steps"></a>Nästa steg

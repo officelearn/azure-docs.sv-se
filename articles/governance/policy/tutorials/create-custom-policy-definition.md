@@ -3,12 +3,12 @@ title: 'Självstudie: skapa en anpassad princip definition'
 description: I den här självstudien får du en anpassad princip definition för Azure Policy att använda anpassade affärs regler på dina Azure-resurser.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bff5596049a141f06f5c189f2e5673efed1ed6bf
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888146"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970832"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
 
@@ -31,7 +31,7 @@ Metoden för att skapa en anpassad princip följer de här stegen:
 > - Fastställa vilken effekt som ska användas
 > - Skapa principdefinitionen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -53,7 +53,7 @@ Utifrån affärs kraven är Azure-resursen som ska granskas med Azure Policy ett
 Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
 - Azure Policy-tillägg för VS Code
-- Mallar för Resurshanteraren
+- Azure Resource Manager mallar (ARM-mallar)
   - Exportera befintlig resurs
   - Skapandeupplevelse
   - Snabbstartsmallar (GitHub)
@@ -64,7 +64,7 @@ Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska tit
 
 [Vs Code-tillägget](../how-to/extension-for-vscode.md#search-for-and-view-resources) kan användas för att söka efter resurser i din miljö och se Resource Manager-egenskaperna för varje resurs.
 
-### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
+### <a name="arm-templates"></a>ARM-mallar
 
 Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) som innehåller egenskapen som du vill hantera.
 
@@ -144,12 +144,11 @@ Den här informationen talar om egenskapstypen och bekräftar även att **suppor
 
 #### <a name="quickstart-templates-on-github"></a>Snabbstartsmallar på GitHub
 
-[Azure-snabbstartsmallarna](https://github.com/Azure/azure-quickstart-templates) på GitHub har hundratals Resource Manager-mallar som skapats för olika resurser. Dessa mallar kan vara ett bra sätt att hitta resursegenskapen du letar efter. Vissa egenskaper kanske verkar vara det du letar efter, men styr något annat.
+[Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates) på GitHub har HUNDRATALs arm-mallar som skapats för olika resurser. Dessa mallar kan vara ett bra sätt att hitta resursegenskapen du letar efter. Vissa egenskaper kanske verkar vara det du letar efter, men styr något annat.
 
 #### <a name="resource-reference-docs"></a>Resursreferensdokument
 
-För att validera att **supportsHttpsTrafficOnly** är rätt egenskap kontrollerar du Resource Manager-mallreferensen för [lagringskontoresursen](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) på lagringsprovidern.
-Egenskapsobjektet har en lista med giltiga parametrar. Om du väljer länken [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) visas en tabell över godkända egenskaper. **supportsHttpsTrafficOnly** finns och beskrivningen matchar vad vi är intresserade av för att uppfylla affärskraven.
+För att verifiera att **supportsHttpsTrafficOnly** är rätt egenskap, kontrollerar du referensen för arm-mallen för [lagrings konto resursen](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) på lagringsprovidern. Egenskapsobjektet har en lista med giltiga parametrar. Om du väljer länken [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) visas en tabell över godkända egenskaper. **supportsHttpsTrafficOnly** finns och beskrivningen matchar vad vi är intresserade av för att uppfylla affärskraven.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
@@ -219,7 +218,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. Resultatet av Azure-resursens diagram kan dock också innehålla information om [alias](../concepts/definition-structure.md#aliases) genom att _projicera_ _alias_ -matrisen:
+Resultatet ser ut ungefär som vi ser i ARM-mallarna och i Azure Resource Explorer. Resultatet av Azure-resursens diagram kan dock också innehålla information om [alias](../concepts/definition-structure.md#aliases) genom att _projicera_ _alias_ -matrisen:
 
 ```kusto
 Resources

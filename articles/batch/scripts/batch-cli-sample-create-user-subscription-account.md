@@ -3,12 +3,12 @@ title: Exempel på Azure CLI-skript – skapa batch-konto – användar prenumer
 description: Det här skriptet skapar ett Batch-konto i användarprenumerationsläge. Det här kontot allokerar datornoder till din prenumeration.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: 9f3919574dd7dcbe932c71dfcea2ac52ec906c6c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e589361da8442107f06a0933a1f1ac79a88945ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681880"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964086"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI-exempel: Skapa ett Batch-konto i användarprenumerationsläge
 
@@ -38,8 +38,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [skapa az-rolltilldelning](/cli/azure/role) | Skapa en ny rolltilldelning för en användare, grupp eller tjänstens huvudnamn. |
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create) | Skapar ett nyckelvalv. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) | Uppdatera säkerhetsprincipen för angivna nyckelvalvet. |
+| [az keyvault create](/cli/azure/keyvault#az-keyvault-create) | Skapar ett nyckelvalv. |
+| [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) | Uppdatera säkerhetsprincipen för angivna nyckelvalvet. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Skapar Batch-kontot.  |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |

@@ -1,16 +1,16 @@
 ---
 title: Organisera dina resurser med hanterings grupper – Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
-ms.date: 04/15/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773159"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963690"
 ---
-# <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
+# <a name="what-are-azure-management-groups"></a>Vad är Azures hanterings grupper?
 
 Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Med Azures hanteringsgrupper får du en hanteringsnivå över prenumerationsnivån. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsvillkor för hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen. Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har.
 Alla prenumerationer i en hanteringsgrupp måste ha förtroende för samma Azure Active Directory-klientorganisation.
@@ -199,6 +199,4 @@ Läs mer om hanteringslösningar här:
 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](./create.md)
 - [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](./manage.md)
-- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](/powershell/module/az.resources#resources)
-- [Granska hanteringsgrupper i REST API](/rest/api/resources/managementgroups)
-- [Granska hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)
+- Se alternativ för [att skydda din resurs-hierarki](./how-to/protect-resource-hierarchy.md)

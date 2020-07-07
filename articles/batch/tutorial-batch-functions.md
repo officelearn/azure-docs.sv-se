@@ -6,18 +6,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117173"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963860"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Självstudie: utlösa ett batch-jobb med Azure Functions
 
 I den här självstudien får du lära dig hur du utlöser ett batch-jobb med hjälp av Azure Functions. Vi går igenom ett exempel där dokument som har lagts till i en Azure Storage BLOB-behållare har optisk tecken igenkänning (OCR) som tillämpas på dem via Azure Batch. För att förenkla OCR-bearbetningen konfigurerar vi en Azure-funktion som kör ett batch-OCR-jobb varje gång en fil läggs till i BLOB-behållaren.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Ett Azure Batch-konto och ett länkat Azure Storage-konto. Mer information om hur du skapar och länkar konton finns i [skapa ett batch-konto](quick-create-portal.md#create-a-batch-account) .
@@ -40,13 +40,13 @@ I det här avsnittet ska du använda Batch Explorer för att skapa batch-poolen 
     1. Ange skalnings typen till **fast storlek**och ange antalet dedikerade noder till 3.
     1. Välj **Ubuntu 18,04-LTS** som operativ system.
     1. Välj `Standard_f2s_v2` som storlek på den virtuella datorn.
-    1. Aktivera start uppgiften och Lägg till kommandot `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Se till att ange användar identiteten som **Standard användare för aktiviteten (admin)**, vilket gör att start aktiviteter kan innehålla `sudo`kommandon med.
+    1. Aktivera start uppgiften och Lägg till kommandot `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"` . Se till att ange användar identiteten som **Standard användare för aktiviteten (admin)**, vilket gör att start aktiviteter kan innehålla kommandon med `sudo` .
     1. Välj **OK**.
 ### <a name="create-a-job"></a>Skapa ett jobb
 
 1. Skapa ett jobb på poolen genom att välja **jobb** i det vänstra fältet och sedan knappen **Lägg till** ovanför sökformuläret. 
     1. Välj ett ID och visnings namn. Vi ska använda `ocr-job` det här exemplet.
-    1. Ange poolen till `ocr-pool`eller det namn som du har valt för poolen.
+    1. Ange poolen till `ocr-pool` eller det namn som du har valt för poolen.
     1. Välj **OK**.
 
 
@@ -55,10 +55,10 @@ I det här avsnittet ska du använda Batch Explorer för att skapa batch-poolen 
 Här skapar du Blob-behållare som lagrar dina indata och utdatafiler för OCR-batchjobbet.
 
 1. Logga in för att Storage Explorer med dina Azure-autentiseringsuppgifter.
-1. Skapa två BLOB-behållare (en för indatafiler, en för utdatafiler) med hjälp av det lagrings konto som är kopplat till ditt batch-konto genom att följa stegen i [skapa en BLOB-behållare](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
+1. Skapa två BLOB-behållare (en för indatafiler, en för utdatafiler) med hjälp av det lagrings konto som är kopplat till ditt batch-konto genom att följa stegen i [skapa en BLOB-behållare](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
 
 I det här exemplet är indatafilen namngiven `input` och är där alla dokument utan OCR ursprungligen laddas upp för bearbetning. Behållaren utdata heter `output` och är där batch-jobbet skriver bearbetade dokument med OCR.  
-    * I det här exemplet ska vi anropa vår container för `input`indata och vår behållare `output`för utdata.  
+    * I det här exemplet ska vi anropa vår container för indata `input` och vår behållare för utdata `output` .  
     * Indatafilen är där alla dokument utan OCR laddas upp första gången.  
     * Behållaren utdata är där batch-jobbet skriver dokument med OCR.  
 
@@ -68,13 +68,13 @@ Skapa en signatur för delad åtkomst för din utmatnings behållare i Storage E
 
 I det här avsnittet ska du skapa Azure-funktionen som utlöser batch-jobbet OCR när en fil laddas upp till din indatafil.
 
-1. Följ stegen i [skapa en funktion som utlöses av Azure Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) för att skapa en funktion.
+1. Följ stegen i [skapa en funktion som utlöses av Azure Blob Storage](../azure-functions/functions-create-storage-blob-triggered-function.md) för att skapa en funktion.
     1. När du uppmanas att ange ett lagrings konto använder du samma lagrings konto som du länkade till ditt batch-konto.
     1. Välj .NET för **körnings stack**. Vi skriver vår funktion i C# för att utnyttja batch .NET SDK.
 1. När den BLOB-utlöst funktionen har skapats använder du [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) och [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) från GitHub i funktionen.
     * `run.csx`körs när en ny BLOB läggs till i BLOB-behållaren för inflöde.
     * `function.proj`visar en lista över de externa biblioteken i funktions koden, till exempel batch .NET SDK.
-1. Ändra värdena för plats hållaren för variablerna `Run()` i `run.csx` filens funktion för att återspegla dina autentiseringsuppgifter för batch och lagring. Du hittar autentiseringsuppgifterna för batch-och lagrings kontot i Azure Portal i avsnittet **nycklar** i batch-kontot.
+1. Ändra värdena för plats hållaren för variablerna i `Run()` `run.csx` filens funktion för att återspegla dina autentiseringsuppgifter för batch och lagring. Du hittar autentiseringsuppgifterna för batch-och lagrings kontot i Azure Portal i avsnittet **nycklar** i batch-kontot.
     * Hämta autentiseringsuppgifterna för batch-och lagrings kontot i Azure Portal i avsnittet **nycklar** i batch-kontot. 
 
 ## <a name="trigger-the-function-and-retrieve-results"></a>Utlös funktionen och hämta resultat
@@ -111,4 +111,4 @@ I den här självstudiekursen lärde du dig att:
 
 * Fler exempel på hur du använder .NET API för att schemalägga och bearbeta batch-arbetsbelastningar finns i [exemplen på GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Om du vill se fler Azure Functions utlösare som du kan använda för att köra batch-arbetsbelastningar, se [Azure Functions-dokumentationen](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+* Om du vill se fler Azure Functions utlösare som du kan använda för att köra batch-arbetsbelastningar, se [Azure Functions-dokumentationen](../azure-functions/functions-triggers-bindings.md).

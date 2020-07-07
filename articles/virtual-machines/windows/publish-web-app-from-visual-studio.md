@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583363"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET-webbapp till en virtuell Azure-dator från Visual Studio
 
 Det här dokumentet beskriver hur du publicerar ett ASP.NET-webbprogram på en virtuell Azure-dator med hjälp av funktionen för **Microsoft Azure Virtual Machines** publicering i Visual Studio 2019.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att kunna använda Visual Studio för att publicera ett ASP.NET-projekt till en virtuell Azure-dator måste den virtuella datorn konfigureras på rätt sätt.
 
 - Datorn måste vara konfigurerad för att köra ett ASP.NET-webbprogram och ha WebDeploy installerat. Mer information finns i [skapa en virtuell ASP.net-dator med WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
@@ -69,7 +69,7 @@ I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET-webbprogra
 
 11. Om publiceringen lyckas startas en webbläsare för att öppna URL: en för den nyligen publicerade platsen.
 
-**Resultatet!**
+**Lyckades!**
 
 Nu har du publicerat din webbapp på en virtuell Azure-dator.
 

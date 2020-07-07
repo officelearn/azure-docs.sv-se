@@ -8,10 +8,10 @@ ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: af5561a010ca1c2d45cf10a37a3b302d5e224158
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512563"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Azure File Sync nätverks överväganden
@@ -48,7 +48,7 @@ Du kan isolera dina fil servrar från den flesta Internet-platsen av säkerhets 
 
 Azure File Sync kräver IP-adressintervall för följande tjänster, som identifieras av deras tjänst koder:
 
-| Tjänst | Description | Tjänsttagg |
+| Tjänst | Beskrivning | Tjänsttagg |
 |---------|-------------|-------------|
 | Azure File Sync | Den Azure File Sync tjänsten, som representeras av objektet Storage Sync service, ansvarar för kärn aktiviteten för synkronisering av data mellan en Azure-filresurs och en Windows-filserver. | `StorageSyncService` |
 | Azure Files | Alla data som synkroniseras via Azure File Sync lagras i Azure-filresursen. Filer som har ändrats på dina Windows-filservrar replikeras till Azure-filresursen och filer som skiktas på din lokala fil Server laddas sömlöst ned när en användare begär dem. | `Storage` |

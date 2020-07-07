@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791501"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
 I Azure HDInsight finns det flera kluster typer och tekniker som kan köra Apache Hive-frågor. Välj lämplig kluster typ för att optimera prestanda för dina arbets belastnings behov.
 
-Välj till exempel **interaktiv fråga** kluster typ för att optimera för `ad hoc`interaktiva frågor. Välj Apache **Hadoop** kluster typ för att optimera för Hive-frågor som används som en batch-process. **Spark** -och **HBase** -kluster typer kan också köra Hive-frågor. Mer information om att köra Hive-frågor på olika typer av HDInsight-kluster finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Välj till exempel **interaktiv fråga** kluster typ för att optimera för `ad hoc` interaktiva frågor. Välj Apache **Hadoop** kluster typ för att optimera för Hive-frågor som används som en batch-process. **Spark** -och **HBase** -kluster typer kan också köra Hive-frågor. Mer information om att köra Hive-frågor på olika typer av HDInsight-kluster finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 HDInsight-kluster av typen Hadoop-kluster är inte optimerade för prestanda som standard. I den här artikeln beskrivs några av de vanligaste prestanda optimerings metoderna i Hive som du kan använda för dina frågor.
 
@@ -122,7 +122,7 @@ Mer information finns i [partitionerade tabeller](https://cwiki.apache.org/confl
 
 ## <a name="use-the-orcfile-format"></a>Använd ORCFile-formatet
 
-Hive stöder olika fil format. Exempel:
+Hive stöder olika fil format. Till exempel:
 
 * **Text**: standard fil formatet och fungerar med de flesta scenarier.
 * **Avro**: fungerar bra för samverkans scenarier.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Exempel:
+Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Till exempel:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

@@ -1,7 +1,7 @@
 ---
-title: Skicka push-meddelanden med Azure Notification Hubs och Node. js
-description: Lär dig hur du använder Notification Hubs för att skicka push-meddelanden från ett Node. js-program.
-keywords: push-meddelande, push-meddelanden, Node. js-push, iOS-push
+title: Skicka push-meddelanden med Azure Notification Hubs och Node.js
+description: Lär dig hur du använder Notification Hubs för att skicka push-meddelanden från ett Node.js program.
+keywords: push-meddelande, push-meddelanden, node.js push, iOS-push
 services: notification-hubs
 documentationcenter: nodejs
 author: sethmanheim
@@ -18,13 +18,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592017"
 ---
-# <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hubs och Node. js
+# <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hubs och Node.js
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
@@ -33,7 +33,7 @@ ms.locfileid: "82592017"
 > [!IMPORTANT]
 > Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan du skapa ett kostnads fritt utvärderings konto på bara några minuter via den [kostnads fria utvärderings versionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
 
-Den här guiden visar hur du skickar push-meddelanden med hjälp av Azure Notification Hubs direkt från ett [Node. js](https://nodejs.org) -program.
+Den här guiden visar hur du skickar push-meddelanden med hjälp av Azure Notification Hubs direkt från ett [Node.js](https://nodejs.org) program.
 
 Scenarierna som omfattas inkluderar sändning av push-meddelanden till program på följande plattformar:
 
@@ -46,19 +46,19 @@ Scenarierna som omfattas inkluderar sändning av push-meddelanden till program p
 
 Azure Notification Hubs tillhandahåller en lättanvänd, skalbar infrastruktur med flera plattformar som du kan använda för att skicka push-meddelanden till mobila enheter. Mer information om tjänst infrastrukturen finns på sidan [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
 
-## <a name="create-a-nodejs-application"></a>Skapa ett Node. js-program
+## <a name="create-a-nodejs-application"></a>Skapa ett Node.js program
 
-Det första steget i den här självstudien är att skapa ett nytt tomt Node. js-program. Instruktioner för hur du skapar ett Node. js-program finns i [skapa och distribuera ett Node. js-program till Azure Web Site][nodejswebsite], [Node. js-moln tjänsten][Node.js Cloud Service] med Windows PowerShell eller [webbplats med WebMatrix][webmatrix].
+Det första steget i den här självstudien är att skapa ett nytt tomt Node.js-program. Anvisningar om hur du skapar ett Node.js program finns i [skapa och distribuera ett Node.js program till Azure Web Site][nodejswebsite], [Node.js moln tjänst][Node.js Cloud Service] med Windows PowerShell eller [webbplats med WebMatrix][webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Konfigurera programmet så att det använder Notification Hubs
 
-Om du vill använda Azure Notification Hubs måste du ladda ned och använda [Azure-paketet](https://www.npmjs.com/package/azure)Node. js, som innehåller en inbyggd uppsättning hjälp bibliotek som kommunicerar med rest-tjänsterna för push-meddelanden.
+Om du vill använda Azure Notification Hubs måste du hämta och använda Node.js [Azure-paketet](https://www.npmjs.com/package/azure), som innehåller en inbyggd uppsättning hjälp bibliotek som kommunicerar med rest-tjänsterna för push-meddelanden.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Hämta paketet med hjälp av Node Pack Manager (NPM)
 
 1. Använd ett kommando rads gränssnitt som **PowerShell** (Windows), **Terminal** (Mac) eller **bash** (Linux) och navigera till mappen där du skapade det tomma programmet.
 2. Kör `npm install azure-sb` i kommando fönstret.
-3. Du kan köra kommandot `ls` eller `dir` manuellt för att kontrol lera att `node_modules` en mapp har skapats.
+3. Du kan köra `ls` kommandot eller manuellt `dir` för att kontrol lera att en `node_modules` mapp har skapats.
 4. I den mappen hittar du **Azure** -paketet som innehåller de bibliotek som du behöver för att komma åt Notification Hub.
 
 > [!NOTE]
@@ -73,7 +73,7 @@ var azure = require('azure-sb');
 
 ### <a name="set-up-an-azure-notification-hub-connection"></a>Konfigurera en Azure Notification Hub-anslutning
 
-Med `NotificationHubService` objektet kan du arbeta med Notification Hub. Följande kod skapar ett `NotificationHubService` objekt för Notification Hub med namnet. `hubname` Lägg till det nära `server.js` filens överkant efter instruktionen att importera Azure-modulen:
+`NotificationHubService`Med objektet kan du arbeta med Notification Hub. Följande kod skapar ett `NotificationHubService` objekt för Notification Hub med namnet `hubname` . Lägg till det nära `server.js` filens överkant efter instruktionen att importera Azure-modulen:
 
 ```javascript
 var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
@@ -83,7 +83,7 @@ Hämta anslutnings `connectionstring` värdet från [Azure portalen] genom att u
 
 1. Klicka på **Bläddra**i det vänstra navigerings fönstret.
 2. Välj **Notification Hubs**och leta upp hubben som du vill använda för exemplet. Du kan referera till [Windows Store komma igång-kursen](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) om du behöver hjälp med att skapa en ny Notification Hub.
-3. Välj **Inställningar**.
+3. Välj **inställningar**.
 4. Klicka på **åtkomst principer**. Du ser både delade och fullständiga åtkomst anslutnings strängar.
 
 ![Azure Portal-Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
@@ -93,7 +93,7 @@ Hämta anslutnings `connectionstring` värdet från [Azure portalen] genom att u
 
 ## <a name="general-architecture"></a>Allmän arkitektur
 
-`NotificationHubService` Objektet visar följande objekt instanser för att skicka push-meddelanden till vissa enheter och program:
+`NotificationHubService`Objektet visar följande objekt instanser för att skicka push-meddelanden till vissa enheter och program:
 
 - **Android** – Använd `GcmService` objektet, som finns på`notificationHubService.gcm`
 - **iOS** – Använd `ApnsService` objektet som är tillgängligt på`notificationHubService.apns`
@@ -102,7 +102,7 @@ Hämta anslutnings `connectionstring` värdet från [Azure portalen] genom att u
 
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Gör så här: skicka push-meddelanden till Android-program
 
-`GcmService` Objektet innehåller en `send` metod som kan användas för att skicka push-meddelanden till Android-program. `send` Metoden accepterar följande parametrar:
+`GcmService`Objektet innehåller en `send` metod som kan användas för att skicka push-meddelanden till Android-program. `send`Metoden accepterar följande parametrar:
 
 - **Taggar** – tag-ID. Om ingen tagg anges skickas meddelandet till alla klienter.
 - **Nytto Last** – meddelandets JSON eller rå data nytto Last.
@@ -110,7 +110,7 @@ Hämta anslutnings `connectionstring` värdet från [Azure portalen] genom att u
 
 Mer information om nytto Last formatet finns i [nytto Last dokumentationen](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
-I följande kod används den `GcmService` instans som exponeras `NotificationHubService` av för att skicka ett push-meddelande till alla registrerade klienter.
+I följande kod används den `GcmService` instans som exponeras av `NotificationHubService` för att skicka ett push-meddelande till alla registrerade klienter.
 
 ```javascript
 var payload = {
@@ -127,7 +127,7 @@ notificationHubService.gcm.send(null, payload, function(error){
 
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>Gör så här: skicka push-meddelanden till iOS-program
 
-På `ApnsService` samma sätt som med Android-program som beskrivs ovan tillhandahåller `send` objektet en metod som kan användas för att skicka push-meddelanden till iOS-program. `send` Metoden accepterar följande parametrar:
+På samma sätt som med Android-program som beskrivs ovan `ApnsService` tillhandahåller objektet en `send` metod som kan användas för att skicka push-meddelanden till iOS-program. `send`Metoden accepterar följande parametrar:
 
 - **Taggar** – tag-ID. Om ingen tagg anges skickas meddelandet till alla klienter.
 - **Nytto Last** – meddelandets JSON-eller sträng nytto Last.
@@ -135,7 +135,7 @@ På `ApnsService` samma sätt som med Android-program som beskrivs ovan tillhand
 
 Mer information om nytto Last formatet finns i avsnittet **meddelande innehåll** i [guiden UserNotifications](https://developer.apple.com/documentation/usernotifications).
 
-I följande kod används den `ApnsService` instans som exponeras `NotificationHubService` av för att skicka ett aviserings meddelande till alla klienter:
+I följande kod används den `ApnsService` instans som exponeras av `NotificationHubService` för att skicka ett aviserings meddelande till alla klienter:
 
 ```javascript
 var payload={
@@ -150,16 +150,16 @@ notificationHubService.apns.send(null, payload, function(error){
 
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Gör så här: skicka push-meddelanden till Windows Phone program
 
-`MpnsService` Objektet innehåller en `send` metod som kan användas för att skicka push-meddelanden till Windows Phone program. `send` Metoden accepterar följande parametrar:
+`MpnsService`Objektet innehåller en `send` metod som kan användas för att skicka push-meddelanden till Windows Phone program. `send`Metoden accepterar följande parametrar:
 
 - **Taggar** – tag-ID. Om ingen tagg anges skickas meddelandet till alla klienter.
 - **Nytto Last** – meddelandets XML-nytto Last.
-- **TargetName** -  TargetName`toast` för popup-meddelanden. `token`för panel meddelanden.
+- **TargetName**  -  TargetName `toast` för popup-meddelanden. `token`för panel meddelanden.
 - **NotificationClass** – meddelandets prioritet. Se avsnittet **http-huvud element** i [push-meddelanden från ett Server](https://msdn.microsoft.com/library/hh221551.aspx) dokument för giltiga värden.
 - **Alternativ** – valfria begärandehuvuden.
 - **Motringning** – funktionen motringning.
 
-En lista över giltiga `TargetName`alternativ `NotificationClass` och rubrik alternativ finns i push- [meddelanden från en server](https://msdn.microsoft.com/library/hh221551.aspx) sida.
+En lista över giltiga `TargetName` `NotificationClass` alternativ och rubrik alternativ finns i [push-meddelanden från en server](https://msdn.microsoft.com/library/hh221551.aspx) sida.
 
 Följande exempel kod använder den `MpnsService` instans som exponeras av `NotificationHubService` för att skicka ett push-meddelande för popup:
 
@@ -174,7 +174,7 @@ notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
 
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Gör så här: skicka push-meddelanden till Universell Windows-plattform-program (UWP)
 
-`WnsService` Objektet innehåller en `send` metod som kan användas för att skicka push-meddelanden till universell Windows-plattform program.  `send` Metoden accepterar följande parametrar:
+`WnsService`Objektet innehåller en `send` metod som kan användas för att skicka push-meddelanden till universell Windows-plattform program.  `send`Metoden accepterar följande parametrar:
 
 - **Taggar** – tag-ID. Om ingen tagg anges skickas meddelandet till alla registrerade klienter.
 - **Nytto Last** – nytto lasten i XML-meddelandet.
@@ -184,7 +184,7 @@ notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
 
 En lista över giltiga typer och begärandehuvuden finns i begäran om [Push Notification Service och svars rubriker](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
-I följande kod används den `WnsService` instans som exponeras `NotificationHubService` av för att skicka ett push-meddelande med popup-meddelanden till en UWP-app:
+I följande kod används den `WnsService` instans som exponeras av `NotificationHubService` för att skicka ett push-meddelande med popup-meddelanden till en UWP-app:
 
 ```javascript
 var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
@@ -197,7 +197,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med exempel kodfragmenten ovan kan du enkelt skapa tjänst infrastruktur för att leverera push-meddelanden till en mängd olika enheter. Nu när du har lärt dig grunderna i att använda Notification Hubs med Node. js, följer du dessa länkar om du vill veta mer om hur du kan utöka dessa funktioner ytterligare.
+Med exempel kodfragmenten ovan kan du enkelt skapa tjänst infrastruktur för att leverera push-meddelanden till en mängd olika enheter. Nu när du har lärt dig grunderna för att använda Notification Hubs med node.js kan du följa dessa länkar för att lära dig mer om hur du kan utöka dessa funktioner ytterligare.
 
 - Se MSDN-referensen för [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx).
 - Besök [Azure SDK för Node] -lagringsplatsen på GitHub för fler exempel och implementerings information.

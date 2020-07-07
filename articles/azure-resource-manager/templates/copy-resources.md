@@ -4,10 +4,10 @@ description: Använd kopierings åtgärd och matriser i en Azure Resource Manage
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583396"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Resurs upprepning i ARM-mallar
@@ -189,7 +189,7 @@ Egenskapen mode godkänner också **Parallel**, vilket är standardvärdet.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Är beroende av resurser i en slinga
 
-Du anger att en resurs distribueras efter en annan resurs med hjälp av `dependsOn` -elementet. Om du vill distribuera en resurs som är beroende av resurs samlingen i en slinga, anger du namnet på kopierings slingan i dependsOn-elementet. I följande exempel visas hur du distribuerar tre lagrings konton innan du distribuerar den virtuella datorn. Den fullständiga definitionen av virtuell dator visas inte. Observera att kopierings elementet har namn inställt på `storagecopy` och dependsOn-elementet för den virtuella datorn också är `storagecopy`inställt på.
+Du anger att en resurs distribueras efter en annan resurs med hjälp av- `dependsOn` elementet. Om du vill distribuera en resurs som är beroende av resurs samlingen i en slinga, anger du namnet på kopierings slingan i dependsOn-elementet. I följande exempel visas hur du distribuerar tre lagrings konton innan du distribuerar den virtuella datorn. Den fullständiga definitionen av virtuell dator visas inte. Observera att kopierings elementet har namn inställt på `storagecopy` och dependsOn-elementet för den virtuella datorn också är inställt på `storagecopy` .
 
 ```json
 {
@@ -248,7 +248,7 @@ Anta till exempel att du vanligt vis definierar en data uppsättning som en unde
   ]
 ```
 
-Om du vill skapa mer än en data uppsättning flyttar du den utanför data fabriken. Data uppsättningen måste vara på samma nivå som data fabriken, men den är fortfarande en underordnad resurs till data fabriken. Du bevarar relationen mellan data uppsättningen och data fabriken genom egenskaperna typ och namn. Eftersom typen inte längre kan härledas från dess position i mallen måste du ange den fullständigt kvalificerade typen i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Om du vill skapa mer än en data uppsättning flyttar du den utanför data fabriken. Data uppsättningen måste vara på samma nivå som data fabriken, men den är fortfarande en underordnad resurs till data fabriken. Du bevarar relationen mellan data uppsättningen och data fabriken genom egenskaperna typ och namn. Eftersom typen inte längre kan härledas från dess position i mallen måste du ange den fullständigt kvalificerade typen i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}` .
 
 Om du vill upprätta en överordnad/underordnad relation med en instans av data fabriken anger du ett namn för den data uppsättning som innehåller namnet på den överordnade resursen. Använd formatet `{parent-resource-name}/{child-resource-name}`.
 

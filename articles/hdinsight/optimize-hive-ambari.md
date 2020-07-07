@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ce3916ef1155224a91c0736c3dabe907ae8d2611
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796374"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Optimera Apache Hive med Apache Ambari i Azure HDInsight
@@ -46,7 +46,7 @@ Som en prestanda rikt linje sänker du båda parametrarna för att förbättra s
 
 Om du till exempel vill ange fyra Mapper-uppgifter för en data storlek på 128 MB anger du båda parametrarna till 32 MB vardera (33 554 432 byte).
 
-1. Om du vill ändra gräns parametrarna navigerar du till fliken **configs** i Tez-tjänsten. Expandera panelen **Allmänt** och leta upp parametrarna `tez.grouping.max-size` och. `tez.grouping.min-size`
+1. Om du vill ändra gräns parametrarna navigerar du till fliken **configs** i Tez-tjänsten. Expandera panelen **Allmänt** och leta upp `tez.grouping.max-size` `tez.grouping.min-size` parametrarna och.
 
 1. Ange båda parametrarna till **33 554 432** byte (32 MB).
 
@@ -58,11 +58,11 @@ Dessa ändringar påverkar alla Tez-jobb på servern. Om du vill få ett optimal
 
 Apache ORC och fästfunktionen ger både höga prestanda. Hive kan dock ha för få Minskare som standard, vilket orsakar Flask halsar.
 
-Anta till exempel att du har en indata-storlek på 50 GB. Dessa data i ORC-format med Fästnings komprimering är 1 GB. Hive beräknar antalet dereducerare som behövs som: (antal byte indata till Mapper/ `hive.exec.reducers.bytes.per.reducer`).
+Anta till exempel att du har en indata-storlek på 50 GB. Dessa data i ORC-format med Fästnings komprimering är 1 GB. Hive beräknar antalet dereducerare som behövs som: (antal byte indata till Mapper/ `hive.exec.reducers.bytes.per.reducer` ).
 
 Med standardinställningarna är det här exemplet fyra reducerare.
 
-`hive.exec.reducers.bytes.per.reducer` Parametern anger antalet byte som bearbetas per minskning. Standardvärdet är 64 MB. Att justera det här värdet nedåt ökar parallellt och kan förbättra prestandan. Om du finjusterar för lågt kan du också skapa för många reducerare, vilket kan påverka prestanda negativt. Den här parametern baseras på dina specifika data krav, komprimerings inställningar och andra miljö faktorer.
+`hive.exec.reducers.bytes.per.reducer`Parametern anger antalet byte som bearbetas per minskning. Standardvärdet är 64 MB. Att justera det här värdet nedåt ökar parallellt och kan förbättra prestandan. Om du finjusterar för lågt kan du också skapa för många reducerare, vilket kan påverka prestanda negativt. Den här parametern baseras på dina specifika data krav, komprimerings inställningar och andra miljö faktorer.
 
 1. Om du vill ändra parametern navigerar du till fliken Hive- **konfiguration** och letar upp **data per minsknings** parameter på sidan Inställningar.
 
@@ -74,7 +74,7 @@ Med standardinställningarna är det här exemplet fyra reducerare.
   
     Med en indata storlek på 1 024 MB, med 128 MB data per minskning, finns det åtta Minskare (1024/128).
 
-1. Ett felaktigt värde för **data per minsknings** parameter kan resultera i ett stort antal avreducerare, vilket negativt påverkar frågans prestanda. Ange `hive.exec.reducers.max` ett lämpligt värde om du vill begränsa det maximala antalet avreducerare. Standardvärdet är 1009.
+1. Ett felaktigt värde för **data per minsknings** parameter kan resultera i ett stort antal avreducerare, vilket negativt påverkar frågans prestanda. Ange ett lämpligt värde om du vill begränsa det maximala antalet avreducerare `hive.exec.reducers.max` . Standardvärdet är 1009.
 
 ## <a name="enable-parallel-execution"></a>Aktivera parallell körning
 
@@ -90,7 +90,7 @@ En Hive-fråga körs i en eller flera steg. Om de oberoende faserna kan köras p
 
 Hive bearbetar data rad för rad. Vectorization dirigerar Hive för att bearbeta data i block om 1 024 rader i stället för en rad i taget. Vectorization kan bara användas för fil formatet ORC.
 
-1. Om du vill aktivera en Vector-frågekörningen navigerar du till fliken Hive- **konfiguration** och söker efter `hive.vectorized.execution.enabled` -parametern. Standardvärdet är true för Hive 0.13.0 eller senare.
+1. Om du vill aktivera en Vector-frågekörningen navigerar du till fliken Hive- **konfiguration** och söker efter- `hive.vectorized.execution.enabled` parametern. Standardvärdet är true för Hive 0.13.0 eller senare.
 
 1. Om du vill aktivera vektorbaserad körning för frågans minsknings sida anger du `hive.vectorized.execution.reduce.enabled` parametern till true. Standardvärdet är false.
 
@@ -100,7 +100,7 @@ Hive bearbetar data rad för rad. Vectorization dirigerar Hive för att bearbeta
 
 Som standard följer Hive en uppsättning regler för att hitta en optimal plan för frågekörningen. Kostnads baserad optimering (CBO) utvärderar flera planer för att köra en fråga. Och tilldelar varje plan en kostnad och bestämmer sedan billigaste-planen för att köra en fråga.
 
-Om du vill aktivera CBO navigerar du till**Inställningar** för **Hive** > **konfiguration** > och letar reda på **Aktivera kostnads baserad optimering**och byter sedan växlings knappen till **på**.
+Om du vill aktivera CBO navigerar du till inställningar för **Hive**-  >  **konfiguration**  >  **Settings** och letar reda på **Aktivera kostnads baserad optimering**och byter sedan växlings knappen till **på**.
 
 ![Kostnads baserad, HDInsight-baserad optimering](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
 
@@ -108,7 +108,7 @@ Följande ytterligare konfigurations parametrar ökar prestanda för Hive-frågo
 
 * `hive.compute.query.using.stats`
 
-    När värdet är true använder Hive statistik som lagrats i dess metaarkiv för att besvara enkla `count(*)`frågor som.
+    När värdet är true använder Hive statistik som lagrats i dess metaarkiv för att besvara enkla frågor som `count(*)` .
 
     ![Apache Hive beräknings fråga med statistik](./media/optimize-hive-ambari/hive-compute-query-using-stats.png)
 
@@ -134,29 +134,29 @@ De tillgängliga komprimerings typerna är:
 
 | Format | Verktyg | Integritetsalgoritm | Fil namns tillägg | Delbara? |
 | --- | --- | --- | --- | --- |
-| Gzip | Gzip | DEFLATE | `.gz` | Inga |
+| Gzip | Gzip | DEFLATE | `.gz` | Nej |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | Ja |
 | LZO | `Lzop` | LZO | `.lzo` | Ja, om det är indexerat |
-| Snappy | E.t. | Snappy | Snappy | Inga |
+| Snappy | Saknas | Snappy | Snappy | Nej |
 
 Som en allmän regel är det viktigt att det går att dela upp komprimerings metoden, annars får några av mapparna skapats. Om indata är text, `bzip2` är det bästa alternativet. För ORC-format är fästfunktionen det snabbaste komprimerings alternativet.
 
-1. Om du vill aktivera mellanliggande komprimering navigerar du till fliken Hive- **konfigurationer** och `hive.exec.compress.intermediate` anger sedan parametern till true. Standardvärdet är false.
+1. Om du vill aktivera mellanliggande komprimering navigerar du till fliken Hive- **konfigurationer** och anger sedan `hive.exec.compress.intermediate` parametern till true. Standardvärdet är false.
 
     ![Hive exec komprimera mellanliggande](./media/optimize-hive-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]  
     > Om du vill komprimera mellanliggande filer väljer du en komprimerings-codec med lägre CPU-kostnad, även om codecen inte har en hög komprimerings effekt.
 
-1. Om du vill ange den mellanliggande komprimerings- `mapred.map.output.compression.codec` codecen `hive-site.xml` lägger `mapred-site.xml` du till den anpassade egenskapen i filen eller.
+1. Om du vill ange den mellanliggande komprimerings-codecen lägger du till den anpassade egenskapen `mapred.map.output.compression.codec` i `hive-site.xml` `mapred-site.xml` filen eller.
 
 1. Så här lägger du till en anpassad inställning:
 
-    a. Navigera till **Hive** > -**konfigurationar** > **Avancerad** > **anpassad Hive-plats**.
+    a. Navigera till **Hive**  >  -**konfigurationar**  >  **Avancerad**  >  **anpassad Hive-plats**.
 
     b. Välj **Lägg till egenskap...** längst ned i fönstret för den anpassade Hive-platsen.
 
-    c. I fönstret Lägg till egenskap anger `mapred.map.output.compression.codec` du som nyckel och `org.apache.hadoop.io.compress.SnappyCodec` som värde.
+    c. I fönstret Lägg till egenskap anger du `mapred.map.output.compression.codec` som nyckel och `org.apache.hadoop.io.compress.SnappyCodec` som värde.
 
     d. Välj **Lägg till**.
 
@@ -171,9 +171,9 @@ Som en allmän regel är det viktigt att det går att dela upp komprimerings met
 
 Den slutliga Hive-utdata kan också komprimeras.
 
-1. Om du vill komprimera den slutliga Hive-utdata navigerar du till fliken Hive- **konfiguration** och anger `hive.exec.compress.output` sedan parametern till true. Standardvärdet är false.
+1. Om du vill komprimera den slutliga Hive-utdata navigerar du till fliken Hive- **konfiguration** och anger sedan `hive.exec.compress.output` parametern till true. Standardvärdet är false.
 
-1. Om du vill välja komprimerings-codecen `mapred.output.compression.codec` för utdata lägger du till den anpassade egenskapen i fönstret anpassad Hive-plats, enligt beskrivningen i föregående avsnitt: steg 3.
+1. Om du vill välja komprimerings-codecen för utdata lägger du till den `mapred.output.compression.codec` anpassade egenskapen i fönstret anpassad Hive-plats, enligt beskrivningen i föregående avsnitt: steg 3.
 
     ![Apache Hive anpassad egenskap ADD2](./media/optimize-hive-ambari/hive-custom-property2.png)
 
@@ -193,17 +193,17 @@ Hive gör det möjligt att skapa dynamiska partitioner när poster infogas i en 
 
 1. För att Hive ska kunna utföra dynamiska partitioner `hive.exec.dynamic.partition` ska parametervärdet vara sant (standardvärdet).
 
-1. Ändra läget för dynamisk partition till *strict*. I strikt läge måste minst en partition vara statisk. Den här inställningen förhindrar frågor utan partitions filtret i WHERE-satsen, det vill säga *strikt* förhindrar frågor som genomsöker alla partitioner. Gå till fliken Hive- **konfiguration** och ange `hive.exec.dynamic.partition.mode` sedan **strikt**. Standardvärdet är icke- **strikt**.
+1. Ändra läget för dynamisk partition till *strict*. I strikt läge måste minst en partition vara statisk. Den här inställningen förhindrar frågor utan partitions filtret i WHERE-satsen, det vill säga *strikt* förhindrar frågor som genomsöker alla partitioner. Gå till fliken Hive- **konfiguration** och ange sedan `hive.exec.dynamic.partition.mode` **strikt**. Standardvärdet är icke- **strikt**.
 
-1. Ändra `hive.exec.max.dynamic.partitions` parametern om du vill begränsa antalet dynamiska partitioner som ska skapas. Standardvärdet är 5000.
+1. Ändra parametern om du vill begränsa antalet dynamiska partitioner som ska skapas `hive.exec.max.dynamic.partitions` . Standardvärdet är 5000.
 
-1. Om du vill begränsa det totala antalet dynamiska partitioner per nod ändrar `hive.exec.max.dynamic.partitions.pernode`du. Standardvärdet är 2000.
+1. Om du vill begränsa det totala antalet dynamiska partitioner per nod ändrar du `hive.exec.max.dynamic.partitions.pernode` . Standardvärdet är 2000.
 
 ## <a name="enable-local-mode"></a>Aktivera lokalt läge
 
 Lokalt läge gör det möjligt för Hive att utföra alla aktiviteter för ett jobb på en enskild dator. Eller ibland i en enda process. Den här inställningen förbättrar frågans prestanda om indata är små. När du startar uppgifter för frågor förbrukar vi en betydande del av den övergripande körningen av frågan.
 
-Om du vill aktivera lokalt läge lägger `hive.exec.mode.local.auto` du till parametern i den anpassade Hive-plats panelen, enligt beskrivningen i steg 3 i avsnittet [Aktivera mellanliggande komprimering](#enable-intermediate-compression) .
+Om du vill aktivera lokalt läge lägger du till `hive.exec.mode.local.auto` parametern i den anpassade Hive-plats panelen, enligt beskrivningen i steg 3 i avsnittet [Aktivera mellanliggande komprimering](#enable-intermediate-compression) .
 
 ![Apache Hive exec-läge lokalt Auto](./media/optimize-hive-ambari/hive-exec-mode-local-auto.png)
 
@@ -248,4 +248,4 @@ Ytterligare rekommendationer för att optimera Hive-körnings motorn:
 * [Optimera Apache Hive-frågor i Azure HDInsight](./hdinsight-hadoop-optimize-hive-query.md)
 * [Optimera kluster](./optimize-hive-ambari.md)
 * [Optimera Apache HBase](./optimize-hbase-ambari.md)
-* [Optimera Apache gris](./optimize-pig-ambari.md)
+* [Optimera Apache Pig](./optimize-pig-ambari.md)

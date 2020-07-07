@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791875"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapacitets planering och skalning för Azure Service Fabric
@@ -38,7 +38,7 @@ Om du använder automatisk skalning via skalnings uppsättningar för virtuella 
 
 ## <a name="vertical-scaling-considerations"></a>Överväganden vid vertikal skalning
 
-[Lodrät skalning](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) en nodtyp i Azure Service Fabric kräver ett antal steg och överväganden. Exempel:
+[Lodrät skalning](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) en nodtyp i Azure Service Fabric kräver ett antal steg och överväganden. Till exempel:
 
 * Klustret måste vara felfritt innan skalningen. Annars kommer du att göra klustret ytterligare.
 * Silver hållbarhets nivån eller större krävs för alla Service Fabric klusternoder som är värdar för tillstånds känsliga tjänster.
@@ -48,7 +48,7 @@ Om du använder automatisk skalning via skalnings uppsättningar för virtuella 
 
 Vertikal skalning en skalnings uppsättning för en virtuell dator är en destruktiv åtgärd. Skala i stället horisontellt klustret genom att lägga till en ny skalnings uppsättning med önskad SKU. Migrera sedan dina tjänster till önskad SKU för att slutföra en säker vertikal skalnings åtgärd. Att ändra en resurs-SKU för en virtuell dators skalnings uppsättning är en destruktiv åtgärd eftersom den avbildningen av värdarna, vilket tar bort allt lokalt sparat tillstånd.
 
-Klustret använder Service Fabric- [nodens egenskaper och placerings begränsningar](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) för att bestämma var du ska vara värd för programmets tjänster. När du skalar den primära nodtypen lodrätt måste du deklarera identiska egenskaps `"nodeTypeRef"`värden för. Du hittar dessa värden i Service Fabric-tillägget för skalnings uppsättningar för virtuella datorer. 
+Klustret använder Service Fabric- [nodens egenskaper och placerings begränsningar](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) för att bestämma var du ska vara värd för programmets tjänster. När du skalar den primära nodtypen lodrätt måste du deklarera identiska egenskaps värden för `"nodeTypeRef"` . Du hittar dessa värden i Service Fabric-tillägget för skalnings uppsättningar för virtuella datorer. 
 
 Följande kodfragment i en Resource Manager-mall visar de egenskaper som du deklarerar. Det har samma värde för de nyligen etablerade skalnings uppsättningar som du skalar till och stöds bara som en tillfällig tillstånds känslig tjänst för klustret.
 
@@ -123,7 +123,7 @@ Om du vill skala i manuellt uppdaterar du kapaciteten i SKU-egenskapen för öns
 }
 ```
 
-Du måste förbereda noden för avstängning för skalning i program mässigt. Hitta noden som ska tas bort (den högsta instans-noden). Exempel:
+Du måste förbereda noden för avstängning för skalning i program mässigt. Hitta noden som ska tas bort (den högsta instans-noden). Till exempel:
 
 ```csharp
 using (var client = new FabricClient())
@@ -140,7 +140,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Inaktivera och ta bort noden genom att använda samma `FabricClient` instans (`client` i det här fallet) och Node-instansen (`instanceIdString` i det här fallet) som du använde i föregående kod:
+Inaktivera och ta bort noden genom att använda samma `FabricClient` instans ( `client` i det här fallet) och Node-instansen ( `instanceIdString` i det här fallet) som du använde i föregående kod:
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);

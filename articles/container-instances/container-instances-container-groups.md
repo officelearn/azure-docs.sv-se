@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
 ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583829"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container Instances
@@ -79,7 +79,7 @@ Du kan också distribuera behållar grupper till ett [virtuellt Azure-nätverk][
 
 Du kan ange externa volymer som ska monteras i en behållar grupp. Volymer som stöds är:
 * [Azure-filresurs][azure-files]
-* [Hemlighet][secret]
+* [Icke][secret]
 * [Tom katalog][empty-directory]
 * [Klonad git-lagrings platsen][volume-gitrepo]
 

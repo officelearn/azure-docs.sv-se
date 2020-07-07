@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: b7de5755a9a1e49b994e7efa7fc4bca58cc6cfd9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82584035"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Hantera brand Väggs regler för Azure Database for PostgreSQL-storskalig (citus)
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en citus-koordinator (disscale) från en angiven IP-adress eller ett intervall med IP-adresser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här instruktions guiden behöver du:
 - En Server grupp [skapar en Server grupp för Azure Database for PostgreSQL – storskalig (citus)](quickstart-create-hyperscale-portal.md).
 

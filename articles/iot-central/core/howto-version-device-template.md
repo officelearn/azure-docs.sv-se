@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 772521a8d3181721270d7fe4dbd11b7807c8d90e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583668"
 ---
 # <a name="create-a-new-device-template-version"></a>Skapa en ny version av enhets mal len
@@ -30,7 +30,7 @@ Du måste publicera alla ändringar i enhets mal len, oavsett om de kräver en v
 
 ## <a name="versioning-rules"></a>Versions regler
 
-I det här avsnittet sammanfattas de versions regler som gäller för enhets mallar. Både DCMs och gränssnitt har versions nummer. I följande kodfragment visas DCM för en miljö sensor enhet. DCM har två gränssnitt: **DeviceInformation** och **EnvironmentalSensor**. Du kan se versions numren i slutet av`@id` fälten. Om du vill visa den här informationen i IoT Central användar gränssnitt väljer du **Visa identitet** i redigeraren för enhets mal len.
+I det här avsnittet sammanfattas de versions regler som gäller för enhets mallar. Både DCMs och gränssnitt har versions nummer. I följande kodfragment visas DCM för en miljö sensor enhet. DCM har två gränssnitt: **DeviceInformation** och **EnvironmentalSensor**. Du kan se versions numren i slutet av `@id` fälten. Om du vill visa den här informationen i IoT Central användar gränssnitt väljer du **Visa identitet** i redigeraren för enhets mal len.
 
 ```json
 {

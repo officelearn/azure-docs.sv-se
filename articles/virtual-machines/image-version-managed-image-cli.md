@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 6f49ece874ea52227e6531193fc53b3bea525702
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796608"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrera från en hanterad avbildning till en avbildnings version med hjälp av Azure CLI
@@ -36,7 +36,7 @@ När du arbetar med den här artikeln ersätter du resurs gruppen och VM-namnen 
 
 ## <a name="create-an-image-definition"></a>Skapa en avbildnings definition
 
-Eftersom hanterade avbildningar alltid är generaliserade avbildningar skapar du en avbildnings definition `--os-state generalized` med hjälp av för en generaliserad avbildning.
+Eftersom hanterade avbildningar alltid är generaliserade avbildningar skapar du en avbildnings definition med hjälp av `--os-state generalized` för en generaliserad avbildning.
 
 Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. 
 
@@ -44,7 +44,7 @@ Mer information om de värden som du kan ange för en bild definition finns i [b
 
 Skapa en bild definition i galleriet med hjälp av [AZ sig-bild-definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [GENERALISERAd](./linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS-avbildning. Använd `--os-type Windows`om du vill skapa en definition för avbildningar med hjälp av ett Windows-operativsystem. 
+I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [GENERALISERAd](./linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS-avbildning. Använd om du vill skapa en definition för avbildningar med hjälp av ett Windows-operativsystem `--os-type Windows` . 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -92,7 +92,7 @@ az sig image-version create \
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra alla dina avbildnings versions repliker i [zon redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom `--storage-account-type standard_zrs` att lägga till den när du skapar avbildnings versionen.
+> Du kan också lagra alla dina avbildnings versions repliker i [zon redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `--storage-account-type standard_zrs` den när du skapar avbildnings versionen.
 >
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 811daf9b1bf5bf26419385517a67cd22cb8346e6
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e5debf66b91ebd73bb4a4972a907ef7a283f0044
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570133"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965923"
 ---
 [Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  [Paket (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../../build-training-data-set.md) för tips och alternativ för att sätta samman din tränings data uppsättning. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
@@ -82,9 +82,9 @@ De här kodfragmenten visar hur du utför följande uppgifter med formulär tolk
 Här ska du autentisera två klient objekt med de prenumerationsfiler som du definierade ovan. Du använder ett **AzureKeyCredential** -objekt, så om det behövs kan du uppdatera API-nyckeln utan att skapa nya klient objekt.
 
 ```python
-form_recognizer_client = FormRecognizerClient(endpoint=self.endpoint, credential=AzureKeyCredential(self.key))
+form_recognizer_client = FormRecognizerClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
-form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self.key))
+form_training_client = FormTrainingClient(endpoint, AzureKeyCredential(key))
 ```
 
 ## <a name="define-variables"></a>Definiera variabler
@@ -231,7 +231,7 @@ Träna anpassade modeller för att identifiera alla fält och värden som finns 
 I följande kod används Training-klienten med funktionen **begin_training** för att träna en modell på en specifik uppsättning dokument.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=False)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=False)
 model = poller.result()
 ```
 
@@ -262,7 +262,7 @@ Du kan också träna anpassade modeller genom att manuellt märka utbildnings do
 > För att träna med etiketter måste du ha särskilda etikett informations filer (* \<filename\>.pdf.labels.jspå*) i din Blob Storage-behållare tillsammans med utbildnings dokumenten. [Formulär tolkens exempel etikett verktyg](../../quickstarts/label-tool.md) innehåller ett användar gränssnitt som hjälper dig att skapa etikettfiler. När du har gjort det kan du anropa funktionen **begin_training** med parametern *use_training_labels* inställd på `true` .
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=True)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=True)
 model = poller.result()
 ```
 

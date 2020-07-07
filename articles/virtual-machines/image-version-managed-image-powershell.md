@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: e00538d1112492c5b7f9fc0f91c86df6d3500701
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796595"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrera från en hanterad avbildning till en bild för ett delat avbildnings Galleri
@@ -33,7 +33,7 @@ När du arbetar med den här artikeln ersätter du resurs gruppen och VM-namnen 
 
 ## <a name="get-the-gallery"></a>Hämta galleriet
 
-Du kan visa alla gallerier och bild definitioner efter namn. Resultaten är i formatet `gallery\image definition\image version`.
+Du kan visa alla gallerier och bild definitioner efter namn. Resultaten är i formatet `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -52,11 +52,11 @@ $gallery = Get-AzGallery `
 
 Bild definitioner skapa en logisk gruppering för avbildningar. De används för att hantera information om avbildningen. Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. 
 
-När du gör en avbildnings definition ser du till att har all rätt information. Eftersom hanterade avbildningar alltid är generaliserade bör du `-OsState generalized`ställa in. 
+När du gör en avbildnings definition ser du till att har all rätt information. Eftersom hanterade avbildningar alltid är generaliserade bör du ställa in `-OsState generalized` . 
 
 Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för ett generaliserat Windows-operativsystem. Använd `-OsType Linux`om du vill skapa en definition för avbildningar med hjälp av ett Linux-operativsystem. 
+Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för ett generaliserat Windows-operativsystem. Använd om du vill skapa en definition för avbildningar med hjälp av ett Linux-operativsystem `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -107,7 +107,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-Det kan ta en stund att replikera avbildningen till alla mål regioner, så vi har skapat ett jobb så att vi kan spåra förloppet. Om du vill se förloppet `$job.State`skriver du.
+Det kan ta en stund att replikera avbildningen till alla mål regioner, så vi har skapat ett jobb så att vi kan spåra förloppet. Om du vill se förloppet skriver du `$job.State` .
 
 ```azurepowershell-interactive
 $job.State
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version. 
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom `-StorageAccountType Premium_LRS`att lägga till eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
 >
 
 ## <a name="delete-the-managed-image"></a>Ta bort den hanterade avbildningen

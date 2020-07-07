@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: efce2eb33bb95a3dc13cec4cbe0ea89d1a2c3452
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796751"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>Skapa en virtuell dator med en generaliserad avbildning 
@@ -22,7 +22,7 @@ Skapa en virtuell dator från en generaliserad avbildning som lagras i ett delat
 
 När du har en generaliserad avbildnings version kan du skapa en eller flera nya virtuella datorer. Använda cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . 
 
-I det här exemplet använder vi bild Definitions-ID: t för att se till att den nya virtuella datorn kommer att använda den senaste versionen av en avbildning. Du kan också använda en speciell version med hjälp av avbildningens versions `Set-AzVMSourceImage -Id`-ID för. Om du till exempel vill använda bild versionen *1.0.0* typ `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`:. 
+I det här exemplet använder vi bild Definitions-ID: t för att se till att den nya virtuella datorn kommer att använda den senaste versionen av en avbildning. Du kan också använda en speciell version med hjälp av avbildningens versions-ID för `Set-AzVMSourceImage -Id` . Om du till exempel vill använda bild versionen *1.0.0* typ: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 
 Tänk på att om du använder en angiven avbildnings version kan Automation inte köras om den angivna avbildnings versionen inte är tillgänglig eftersom den har tagits bort eller tagits bort från regionen. Vi rekommenderar att du använder bild Definitions-ID: t för att skapa din nya virtuella dator, om inte en speciell avbildnings version krävs.
 

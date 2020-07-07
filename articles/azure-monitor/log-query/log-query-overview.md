@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82591660"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Översikt över logg frågor i Azure Monitor
@@ -76,7 +76,7 @@ I [Kom igång med logg frågor i Azure Monitor](get-started-queries.md) finns en
 
 
 ## <a name="what-is-log-analytics"></a>Vad är Log Analytics?
-Log Analytics är det primära verktyget i Azure Portal för att skriva logg frågor och analysera resultaten interaktivt. Även om en loggfråga används någon annanstans i Azure Monitor skriver du vanligtvis och testar frågan först med Log Analytics.
+Log Analytics är det primära verktyget i Azure-portalen för skrivande av loggfrågor och interaktiv analys av deras resultat. Även om en loggfråga används någon annanstans i Azure Monitor skriver du vanligtvis och testar frågan först med Log Analytics.
 
 Du kan starta Log Analytics från flera platser i Azure Portal. Omfattningen av de data som är tillgängliga för Log Analytics bestäms av hur du startar den. Mer information finns i [fråge omfånget](scope.md) .
 

@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.openlocfilehash: 5e59872a4da0136232652008a2980601428eeab6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796790"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Skapa en virtuell dator från en generaliserad avbildnings version med hjälp av CLI
@@ -32,7 +32,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Om du vill använda den senaste versionen av avbildningen `--image` anger du ID för avbildnings definitionen. 
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Om du vill använda den senaste versionen av avbildningen anger du `--image` ID för avbildnings definitionen. 
 
 Ersätt resurs namn efter behov i det här exemplet. 
 
@@ -54,7 +54,7 @@ az vm create\
    --generate-ssh-keys
 ```
 
-Du kan också använda en speciell version med hjälp av avbildningens versions- `--image` ID för parametern. Om du till exempel vill använda bild versionen *1.0.0* typ `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`:.
+Du kan också använda en speciell version med hjälp av avbildningens versions-ID för `--image` parametern. Om du till exempel vill använda bild versionen *1.0.0* typ: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` .
 
 ## <a name="next-steps"></a>Nästa steg
 

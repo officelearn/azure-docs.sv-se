@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796933"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>Kopiera en bild från ett annat galleri
@@ -39,7 +39,7 @@ Du behöver information från käll avbildnings definitionen så att du kan skap
 
 Visa information om befintliga gallerier, bild definitioner och avbildnings versioner med hjälp av cmdleten [Get-AzResource](/powershell/module/az.resources/get-azresource) .
 
-Resultaten är i formatet `gallery\image definition\image version`.
+Resultaten är i formatet `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource `
@@ -47,7 +47,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceGroupName
 ```
 
-När du har all information du behöver kan du hämta ID för käll avbildnings versionen med hjälp av [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). I det här `1.0.0` exemplet hämtar vi avbildnings versionen av `myImageDefinition` definitionen i `myGallery` käll galleriet i `myResourceGroup` resurs gruppen.
+När du har all information du behöver kan du hämta ID för käll avbildnings versionen med hjälp av [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). I det här exemplet hämtar vi `1.0.0` avbildnings versionen av `myImageDefinition` definitionen i `myGallery` käll galleriet i `myResourceGroup` resurs gruppen.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -147,7 +147,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-Det kan ta en stund att replikera avbildningen till alla mål regioner, så vi har skapat ett jobb så att vi kan spåra förloppet. Om du vill se förloppet för jobbet skriver `$job.State`du.
+Det kan ta en stund att replikera avbildningen till alla mål regioner, så vi har skapat ett jobb så att vi kan spåra förloppet. Om du vill se förloppet för jobbet skriver du `$job.State` .
 
 ```azurepowershell-interactive
 $job.State
@@ -156,7 +156,7 @@ $job.State
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom `-StorageAccountType Premium_LRS`att lägga till eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
 >
 
 

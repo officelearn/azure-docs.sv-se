@@ -8,10 +8,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 68d2b864b0e825756fbcd8e43fee3d6289c77c36
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512861"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurera nätverksslutpunkter i Azure File Sync
@@ -25,7 +25,7 @@ Den här artikeln fokuserar på hur du konfigurerar nätverks slut punkter för 
 
 Vi rekommenderar att du läser [Azure File Sync nätverks överväganden](storage-sync-files-networking-overview.md) innan du läser den här guiden.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 Den här artikeln förutsätter att:
 - Du har en Azure-prenumeration. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Du har redan skapat en Azure-filresurs i ett lagrings konto som du vill ansluta till från den lokala platsen. Information om hur du skapar en Azure-filresurs finns i [skapa en Azure-fil resurs](storage-how-to-create-file-share.md).

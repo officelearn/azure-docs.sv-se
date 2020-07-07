@@ -8,10 +8,10 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509973"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurera DNS-vidarebefordring för Azure Files
@@ -38,7 +38,7 @@ Om du konfigurerar DNS-vidarebefordran för Azure Files måste du köra en virtu
 
 I den här guiden visas stegen för att konfigurera DNS-vidarebefordran för Azure Storage-slutpunkten, så förutom Azure Files, kommer DNS-namn matchnings begär Anden för alla andra Azure Storage-tjänster (Azure Blob Storage, Azure Table Storage, Azure Queue Storage osv.) att vidarebefordras till Azures privata DNS-tjänst. Ytterligare slut punkter för andra Azure-tjänster kan också läggas till om du vill. DNS-vidarebefordring tillbaka till dina lokala DNS-servrar konfigureras också, vilket aktiverar moln resurser i det virtuella nätverket (till exempel en DFS-N-Server) för att lösa lokala dator namn. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan konfigurera DNS-vidarebefordran till Azure Files måste du utföra följande steg:
 
 - Ett lagrings konto som innehåller en Azure-filresurs som du vill montera. Information om hur du skapar ett lagrings konto och en Azure-filresurs finns i [skapa en Azure-filresurs](storage-how-to-create-file-share.md).
@@ -110,7 +110,7 @@ New-AzDnsForwarder `
 
 Du kanske också tycker att det är användbart/nödvändigt att tillhandahålla flera ytterligare parametrar:
 
-| Parameternamn | Typ | Description |
+| Parameternamn | Typ | Beskrivning |
 |----------------|------|-------------|
 | `DnsServerResourceGroupName` | `string` | Som standard kommer DNS-servrarna att distribueras till samma resurs grupp som det virtuella nätverket. Om du inte vill använda den här parametern kan du välja en alternativ resurs grupp som du vill distribuera till. |
 | `DnsForwarderRootName` | `string` | Som standard har DNS-servrarna som distribueras i Azure namn `DnsFwder-*` , där asterisken fylls med en iterator. Den här parametern ändrar roten för det namnet (t. ex. `DnsFwder` ). |

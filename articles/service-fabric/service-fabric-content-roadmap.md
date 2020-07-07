@@ -4,10 +4,10 @@ description: Lär dig mer om grundläggande begrepp och viktiga områden i Azure
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791858"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vill du veta mer om Service Fabric?
@@ -17,22 +17,22 @@ Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att
 [Service Fabric terminologi](service-fabric-technical-overview.md), [program modell](service-fabric-application-model.md)och [programmerings modeller som stöds](service-fabric-choose-framework.md) innehåller fler begrepp och beskrivningar, men här är grunderna.
 
 ### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>Design tid: tjänst typ, service paket och manifest, program typ, programpaket och manifest
-En tjänst typ är namnet/versionen som tilldelats en tjänsts kod paket, data paket och konfigurations paket. Detta definieras i en ServiceManifest. XML-fil. Tjänst typen består av körbar kod och tjänst konfigurations inställningar, som läses in vid körning och statiska data som används av tjänsten.
+En tjänst typ är namnet/versionen som tilldelats en tjänsts kod paket, data paket och konfigurations paket. Detta definieras i en ServiceManifest.xml-fil. Tjänst typen består av körbar kod och tjänst konfigurations inställningar, som läses in vid körning och statiska data som används av tjänsten.
 
-Ett tjänst paket är en disk katalog som innehåller tjänst typens ServiceManifest. XML-fil, som refererar till koden, statiska data och konfigurations paketen för tjänst typen. Ett tjänst paket kan till exempel referera till kod, statiska data och konfigurations paket som utgör en databas tjänst.
+Ett tjänst paket är en disk katalog som innehåller tjänst typens ServiceManifest.xml fil, som refererar till koden, statiska data och konfigurations paketen för tjänst typen. Ett tjänst paket kan till exempel referera till kod, statiska data och konfigurations paket som utgör en databas tjänst.
 
-En program typ är namnet/versionen som tilldelas till en samling tjänst typer. Detta definieras i en ApplicationManifest. XML-fil.
+En program typ är namnet/versionen som tilldelas till en samling tjänst typer. Detta definieras i en ApplicationManifest.xml-fil.
 
 ![Service Fabric program typer och tjänst typer][cluster-imagestore-apptypes]
 
-Programpaketet är en disk katalog som innehåller program typens ApplicationManifest. XML-fil, som refererar till tjänst paketen för varje tjänst typ som utgör program typen. Ett programpaket för en e-postprograms typ kan till exempel innehålla referenser till ett Queue Service-paket, ett klient dels tjänst paket och ett databas tjänst paket.  
+Programpaketet är en disk katalog som innehåller programmets typ ApplicationManifest.xml fil, som refererar till tjänst paketen för varje tjänst typ som utgör program typen. Ett programpaket för en e-postprograms typ kan till exempel innehålla referenser till ett Queue Service-paket, ett klient dels tjänst paket och ett databas tjänst paket.  
 
 Filerna i program paket katalogen kopieras till Service Fabric klustrets avbildnings arkiv. Du kan sedan skapa ett namngivet program från den här program typen, som sedan körs i klustret. När du har skapat ett namngivet program kan du skapa en namngiven tjänst från en av program typens tjänst typer. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>Kör tid: kluster och noder, namngivna program, namngivna tjänster, partitioner och repliker
 Ett [Service Fabric kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. Kluster kan skalas upp till tusentals datorer.
 
-En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placeringsegenskaper. Varje dator eller virtuell dator har en Windows-tjänst som startar `FabricHost.exe`automatiskt, som börjar köras vid start och sedan startar två körbara `Fabric.exe` filer `FabricGateway.exe`: och. Dessa två körbara filer utgör noden. I utvecklings-eller testnings scenarier kan du vara värd för flera noder på en dator eller en virtuell dator genom `Fabric.exe` att `FabricGateway.exe`köra flera instanser av och.
+En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placeringsegenskaper. Varje dator eller virtuell dator har en Windows-tjänst som startar automatiskt, `FabricHost.exe` som börjar köras vid start och sedan startar två körbara filer: `Fabric.exe` och `FabricGateway.exe` . Dessa två körbara filer utgör noden. I utvecklings-eller testnings scenarier kan du vara värd för flera noder på en dator eller en virtuell dator genom att köra flera instanser av `Fabric.exe` och `FabricGateway.exe` .
 
 Ett namngivet program är en samling med namngivna tjänster som utför en viss funktion eller funktion. En tjänst utför en fullständig och fristående funktion (den kan starta och köra oberoende av andra tjänster) och består av kod, konfiguration och data. När ett programpaket har kopierats till avbildnings arkivet skapar du en instans av programmet i klustret genom att ange programpaketets program typ (med hjälp av namn/version). Varje program typ instans tilldelas ett URI-namn som ser ut som *Fabric:/MyNamedApp*. I ett kluster kan du skapa flera namngivna program från en enda program typ. Du kan också skapa namngivna program från olika program typer. Varje namngivet program hanteras och versioner sker oberoende av varandra.
 
@@ -66,7 +66,7 @@ Varför har tillstånds känsliga mikrotjänster tillsammans med tillstånds lö
 ## <a name="supported-programming-models"></a>Programmeringsmodeller som stöds
 Service Fabric erbjuder flera olika sätt att skriva och hantera dina tjänster. Tjänster kan använda Service Fabric API: er för att dra full nytta av plattformens funktioner och program ramverk. Tjänster kan också vara alla kompilerade körbara program som skrivits på valfritt språk och som finns på ett Service Fabric-kluster. Mer information finns i [programmerings modeller som stöds](service-fabric-choose-framework.md).
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 Som standard distribuerar Service Fabric och aktiverar tjänster som processer. Service Fabric kan även distribuera tjänster i [behållare](service-fabric-containers-overview.md). Det är viktigt att du blandar tjänster i processer och tjänster i behållare i samma program. Service Fabric stöder distribution av Linux-behållare och Windows-behållare på Windows Server 2016. Du kan distribuera befintliga program, tillstånds lösa tjänster eller tillstånds känsliga tjänster i behållare. 
 
 ### <a name="reliable-services"></a>Reliable Services
@@ -105,7 +105,7 @@ För att skapa verkliga molnbaserade tjänster är det viktigt att kontrol lera 
 * [Failover-scenario](service-fabric-testability-scenarios.md#failover-test)– en version av kaos-testscenariot som är riktad till en speciell tjänstmall samtidigt som andra tjänster inte påverkas.
 
 ## <a name="clusters"></a>Kluster
-Ett [Service Fabric kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. Kluster kan skalas upp till tusentals datorer. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placeringsegenskaper. Varje dator eller virtuell dator har en tjänst `FabricHost.exe`för automatisk start som börjar köras vid start och sedan startar två körbara filer: Fabric. exe och FabricGateway. exe. Dessa två körbara filer utgör noden. För testnings scenarier kan du vara värd för flera noder på en enskild dator eller virtuell dator genom att `Fabric.exe` köra `FabricGateway.exe`flera instanser av och.
+Ett [Service Fabric kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. Kluster kan skalas upp till tusentals datorer. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placeringsegenskaper. Varje dator eller virtuell dator har en tjänst för automatisk start `FabricHost.exe` som börjar köras vid start och sedan startar två körbara filer: Fabric.exe och FabricGateway.exe. Dessa två körbara filer utgör noden. För testnings scenarier kan du vara värd för flera noder på en enskild dator eller virtuell dator genom att köra flera instanser av `Fabric.exe` och `FabricGateway.exe` .
 
 Service Fabric kluster kan skapas på virtuella eller fysiska datorer som kör Windows Server eller Linux. Du kan distribuera och köra Service Fabric program i valfri miljö där du har en uppsättning Windows Server-eller Linux-datorer som är sammankopplade: lokalt, på Microsoft Azure eller på någon annan moln leverantör.
 
@@ -143,7 +143,7 @@ Med jämna mellanrum släpps nya versioner av Service Fabric Runtime. Utföra k�
 
 Ett Service Fabric-kluster är en resurs som du äger, men som hanteras delvis av Microsoft. Microsoft ansvarar för att korrigera det underliggande operativ systemet och utföra infrastruktur uppdateringar i klustret. Du kan ange att klustret ska ta emot automatiska Fabric-uppgraderingar, när Microsoft släpper en ny version eller väljer att välja en infrastruktur version som stöds som du vill använda. Uppgraderingar av infrastruktur resurser och konfigurationer kan ställas in via Azure Portal eller via Resource Manager. Mer information finns i [uppgradera ett Service Fabric-kluster](service-fabric-cluster-upgrade.md). 
 
-Ett fristående kluster är en resurs som du helt äger. Du ansvarar för korrigering av underliggande operativ system och att initiera Fabric-uppgraderingar. Om klustret kan ansluta till [https://www.microsoft.com/download](https://www.microsoft.com/download)kan du ange att klustret automatiskt ska ladda ned och etablera det nya Service Fabric Runtime-paketet. Sedan initierar du uppgraderingen. Om klustret inte kan komma [https://www.microsoft.com/download](https://www.microsoft.com/download)åt kan du hämta det nya Runtime-paketet manuellt från en ansluten Internet-dator och sedan starta uppgraderingen. Om du vill ha mer information kan du läsa [uppgradera ett fristående Service Fabric kluster](service-fabric-cluster-upgrade-windows-server.md).
+Ett fristående kluster är en resurs som du helt äger. Du ansvarar för korrigering av underliggande operativ system och att initiera Fabric-uppgraderingar. Om klustret kan ansluta till [https://www.microsoft.com/download](https://www.microsoft.com/download) kan du ange att klustret automatiskt ska ladda ned och etablera det nya Service Fabric Runtime-paketet. Sedan initierar du uppgraderingen. Om klustret inte kan komma åt [https://www.microsoft.com/download](https://www.microsoft.com/download) kan du hämta det nya Runtime-paketet manuellt från en ansluten Internet-dator och sedan starta uppgraderingen. Om du vill ha mer information kan du läsa [uppgradera ett fristående Service Fabric kluster](service-fabric-cluster-upgrade-windows-server.md).
 
 ## <a name="health-monitoring"></a>Hälsoövervakning
 Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) som har utformats för att flagga kluster och program villkor i fel tillstånd för specifika entiteter (till exempel klusternoder och tjänst repliker). Hälso modellen använder hälso rapporter (system komponenter och övervaknings rapporter). Målet är enkelt och snabbt att diagnostisera och reparera. Service Writers måste tänka på både hälso tillstånd och hur man [utformar hälso rapporter](service-fabric-report-health.md#design-health-reporting). Alla villkor som kan påverka hälsan bör rapporteras, särskilt om det kan hjälpa till att flagga problem nära roten. Hälso informationen kan spara tid och ansträngning för fel sökning och undersökning när tjänsten är igång och körs i produktions skala.

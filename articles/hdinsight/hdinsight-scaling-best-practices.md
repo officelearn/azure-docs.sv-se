@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82592068"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
@@ -35,7 +35,7 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
-|[Klassisk Azure-CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
+|[Klassisk Azure CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure Portal](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
 
 ![Alternativet Azure Portal skalnings kluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
@@ -120,13 +120,13 @@ Du kan prova tre saker för att undvika att köra jobb som inte körs under en n
 Om du vill se en lista över väntande och pågående jobb kan du använda garn **Resource Manager-gränssnittet**med hjälp av följande steg:
 
 1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/).  Klustret öppnas på en ny Portal sida.
-2. I huvudvyn navigerar du till **kluster instrument paneler** > **Ambari start**. Ange dina autentiseringsuppgifter för klustret.
+2. I huvudvyn navigerar du till **kluster instrument paneler**  >  **Ambari start**. Ange dina autentiseringsuppgifter för klustret.
 3. Välj **garn** i listan över tjänster på den vänstra menyn i AMBARI-användargränssnittet.  
 4. På sidan garn väljer du **snabb länkar** och hovring över den aktiva Head-noden och väljer sedan **Resource Manager-användargränssnittet**.
 
     ![Apache Ambari snabb länkar Resource Manager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-Du får direkt åtkomst till Resource Manager-ANVÄNDARGRÄNSSNITTET `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`med.
+Du får direkt åtkomst till Resource Manager-ANVÄNDARGRÄNSSNITTET med `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 Du ser en lista över jobb, tillsammans med deras aktuella status. I skärm bilden finns ett jobb som körs för tillfället:
 
@@ -138,7 +138,7 @@ Om du vill avsluta programmet manuellt kör du följande kommando från SSH-grä
 yarn application -kill <application_id>
 ```
 
-Exempel:
+Till exempel:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -162,7 +162,7 @@ org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create director
 org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Du kan granska namn-nodens loggar från `/var/log/hadoop/hdfs/` mappen, vid den tidpunkt då klustret skalades, för att se när det angivits i fel säkert läge. Loggfilerna heter `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
+Du kan granska namn-nodens loggar från `/var/log/hadoop/hdfs/` mappen, vid den tidpunkt då klustret skalades, för att se när det angivits i fel säkert läge. Loggfilerna heter `Hadoop-hdfs-namenode-<active-headnode-name>.*` .
 
 Den bakomliggande orsaken var att Hive är beroende av temporära filer i HDFS vid körning av frågor. När HDFS går in i fel säkert läge kan Hive inte köra frågor eftersom det inte går att skriva till HDFS. Temporära filer i HDFS finns på den lokala enheten som monteras på de enskilda arbetsnoderna VM. Filerna replikeras bland andra arbetsnoder vid tre repliker, minst.
 
@@ -171,7 +171,7 @@ Den bakomliggande orsaken var att Hive är beroende av temporära filer i HDFS v
 Det finns flera sätt att förhindra att HDInsight lämnas i fel säkert läge:
 
 * Stoppa alla Hive-jobb innan du skalar ned HDInsight. Du kan också schemalägga skalnings processen för att undvika konflikter med körning av Hive-jobb.
-* Rensa Hives tillfälliga `tmp` katalogfiler manuellt i HDFS innan du skalar ned.
+* Rensa Hives tillfälliga katalogfiler manuellt `tmp` i HDFS innan du skalar ned.
 * Skala bara ned HDInsight till tre arbetsnoder, minimum. Undvik att gå så lågt som en arbetsnod.
 * Kör kommandot för att lämna fel säkert läge vid behov.
 
@@ -187,7 +187,7 @@ Om du stoppar Hive-jobb före skalning, bidrar till att minimera antalet virtuel
 
 Om Hive har lämnat kvar temporära filer kan du rensa filerna manuellt innan du skalar ned för att undvika fel säkert läge.
 
-1. Kontrol lera vilken plats som används för temporära Hive-filer genom att `hive.exec.scratchdir` titta på konfigurations egenskapen. Den här parametern anges inom `/etc/hive/conf/hive-site.xml`:
+1. Kontrol lera vilken plats som används för temporära Hive-filer genom att titta på `hive.exec.scratchdir` konfigurations egenskapen. Den här parametern anges inom `/etc/hive/conf/hive-site.xml` :
 
     ```xml
     <property>
@@ -198,7 +198,7 @@ Om Hive har lämnat kvar temporära filer kan du rensa filerna manuellt innan du
 
 1. Stoppa Hive-tjänster och se till att alla frågor och jobb är slutförda.
 
-1. Ange innehållet i den tillfälliga katalogen `hdfs://mycluster/tmp/hive/` som finns ovan för att se om den innehåller några filer:
+1. Ange innehållet i den tillfälliga katalogen som finns ovan `hdfs://mycluster/tmp/hive/` för att se om den innehåller några filer:
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive

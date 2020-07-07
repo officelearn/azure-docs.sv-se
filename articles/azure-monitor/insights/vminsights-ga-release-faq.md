@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
 ms.openlocfilehash: df96ceb47bf33b734f2127bade50af18713a97a0
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82581373"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor for VMs allmänt tillgängliga (GA)
@@ -44,17 +44,17 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>Vad ska jag göra med prestanda räknarna i min arbets yta om jag installerar VMInsights-lösningen?
 
-Den tidigare metoden för att aktivera Azure Monitor for VMs använda prestanda räknare i din arbets yta. Den aktuella versionen lagrar dessa data i en tabell med `InsightsMetrics`namnet. Du kan välja att inaktivera dessa prestanda räknare i din arbets yta om du inte längre behöver använda dem. 
+Den tidigare metoden för att aktivera Azure Monitor for VMs använda prestanda räknare i din arbets yta. Den aktuella versionen lagrar dessa data i en tabell med namnet `InsightsMetrics` . Du kan välja att inaktivera dessa prestanda räknare i din arbets yta om du inte längre behöver använda dem. 
 
 >[!NOTE]
->Om du har varnings regler som refererar till dessa räknare `Perf` i tabellen måste du uppdatera dem för att referera till nya data som lagras `InsightsMetrics` i tabellen. Se vår dokumentation för exempel på logg frågor som du kan använda för att referera till den här tabellen.
+>Om du har varnings regler som refererar till dessa räknare i `Perf` tabellen måste du uppdatera dem för att referera till nya data som lagras i `InsightsMetrics` tabellen. Se vår dokumentation för exempel på logg frågor som du kan använda för att referera till den här tabellen.
 >
 
-Om du bestämmer dig för att hålla prestanda räknarna aktiverade debiteras du för de data som matas in och lagras i `Perf` tabellen baserat på [Log Analytics priser [(.https://azure.microsoft.com/pricing/details/monitor/)
+Om du bestämmer dig för att hålla prestanda räknarna aktiverade debiteras du för de data som matas in och lagras i `Perf` tabellen baserat på [Log Analytics priser [( https://azure.microsoft.com/pricing/details/monitor/) .
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>Hur påverkar den här ändringen mina varnings regler?
 
-Om du har skapat [logg aviseringar](../platform/alerts-unified-log.md) som frågar `Perf` tabell mål prestanda räknare som har Aktiver ATS i arbets ytan, bör du uppdatera reglerna så att de `InsightsMetrics` refererar till tabellen i stället. Den här vägledningen gäller även för alla logg Sök `ServiceMapComputer_CL` regler `ServiceMapProcess_CL`som använder och, eftersom dessa data uppsättningar `VMComputer` flyttas `VMProcess` till och tabeller.
+Om du har skapat [logg aviseringar](../platform/alerts-unified-log.md) som frågar `Perf` tabell mål prestanda räknare som har Aktiver ATS i arbets ytan, bör du uppdatera reglerna så att de refererar till `InsightsMetrics` tabellen i stället. Den här vägledningen gäller även för alla logg Sök regler som använder `ServiceMapComputer_CL` och `ServiceMapProcess_CL` , eftersom dessa data uppsättningar flyttas till `VMComputer` och `VMProcess` tabeller.
 
 Vi kommer att uppdatera dessa vanliga frågor och svar och vår dokumentation för att inkludera exempel på loggs öknings varningar för de data uppsättningar som vi samlar in.
 
@@ -70,23 +70,23 @@ Det är bra. Du kommer att se prompter i Azure Portal när du visar Azure Monito
 
 Om du väljer att aktivera prestanda räknarna manuellt i arbets ytan kan du se data i några av våra prestanda diagram som visas från Azure Monitor. När den nya lösningen lanseras uppdaterar vi våra prestanda diagram för att fråga data som lagras i `InsightsMetrics` tabellen. Om du vill se data från tabellen i dessa diagram måste du uppgradera till den nya versionen av Azure Monitor for VMs.
 
-Ändringarna för att flytta data från `ServiceMapComputer_CL` och `ServiceMapProcess_CL` påverkar både tjänstkarta och Azure Monitor for VMS, så du måste ändå planera för den här uppdateringen.
+Ändringarna för att flytta data från `ServiceMapComputer_CL` och `ServiceMapProcess_CL` påverkar både Tjänstkarta och Azure Monitor for VMS, så du måste ändå planera för den här uppdateringen.
 
 Om du väljer att inte uppgradera till **VMInsights** -lösningen kommer vi fortsätta att tillhandahålla äldre versioner av arbets böckerna för prestanda som refererar till data i `Perf` tabellen.  
 
 ## <a name="will-the-service-map-data-sets-also-be-stored-in-insightsmetrics"></a>Kommer Tjänstkarta data uppsättningar också att lagras i InsightsMetrics?
 
-Data uppsättningarna kommer inte att dupliceras om du använder båda lösningarna. `VMComputer` Båda erbjudandena delar de data uppsättningar som ska lagras i (tidigare ServiceMapComputer_CL), `VMProcess` (tidigare ServiceMapProcess_CL), `VMConnection`och `VMBoundPort` tabeller för att lagra de kart data uppsättningar som vi samlar in.  
+Data uppsättningarna kommer inte att dupliceras om du använder båda lösningarna. Båda erbjudandena delar de data uppsättningar som ska lagras i `VMComputer` (tidigare ServiceMapComputer_CL), `VMProcess` (tidigare ServiceMapProcess_CL), `VMConnection` och `VMBoundPort` tabeller för att lagra de kart data uppsättningar som vi samlar in.  
 
-`InsightsMetrics` Tabellen kommer att lagra data uppsättningar för virtuella datorer, processer och tjänster som vi samlar in och kommer bara att fyllas i om du använder Azure Monitor for VMS och lösningen för VM-insikter. Tjänstkarta lösning samlar inte in eller lagrar data i `InsightsMetrics` tabellen.
+`InsightsMetrics`Tabellen kommer att lagra data uppsättningar för virtuella datorer, processer och tjänster som vi samlar in och kommer bara att fyllas i om du använder Azure Monitor for VMS och lösningen för VM-insikter. Tjänstkarta lösning samlar inte in eller lagrar data i `InsightsMetrics` tabellen.
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-in-my-workspace"></a>Får jag dubbla avgifter om jag har Tjänstkarta-och VMInsights-lösningar i min arbets yta?
 
-Nej, de två lösningarna delar mappnings data uppsättningar som vi lagrar `VMComputer` i (tidigare ServiceMapComputer_CL) `VMProcess` , (tidigare ServiceMapProcess_CL) `VMConnection`, och `VMBoundPort`. Du debiteras inte för dessa data om du har båda lösningarna på arbets ytan.
+Nej, de två lösningarna delar mappnings data uppsättningar som vi lagrar i `VMComputer` (tidigare ServiceMapComputer_CL), `VMProcess` (tidigare ServiceMapProcess_CL), `VMConnection` och `VMBoundPort` . Du debiteras inte för dessa data om du har båda lösningarna på arbets ytan.
 
 ## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data"></a>Om jag tar bort antingen Tjänstkarta-eller VMInsights-lösningen tas mina data bort?
 
-Nej, de två lösningarna delar mappnings data uppsättningar som vi lagrar `VMComputer` i (tidigare ServiceMapComputer_CL) `VMProcess` , (tidigare ServiceMapProcess_CL) `VMConnection`, och `VMBoundPort`. Om du tar bort en av lösningarna märker dessa data uppsättningar att det fortfarande finns en lösning på plats som använder data och den finns kvar i arbets ytan Log Analytics. Du måste ta bort båda lösningarna från din arbets yta för att data ska kunna tas bort från den.
+Nej, de två lösningarna delar mappnings data uppsättningar som vi lagrar i `VMComputer` (tidigare ServiceMapComputer_CL), `VMProcess` (tidigare ServiceMapProcess_CL), `VMConnection` och `VMBoundPort` . Om du tar bort en av lösningarna märker dessa data uppsättningar att det fortfarande finns en lösning på plats som använder data och den finns kvar i arbets ytan Log Analytics. Du måste ta bort båda lösningarna från din arbets yta för att data ska kunna tas bort från den.
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>Hälso funktionen är i begränsad offentlig för hands version
 
@@ -100,9 +100,9 @@ Vi planerar att starta om denna hälso funktion i 2020 efter Azure Monitor for V
 
 Befintliga kunder som använder hälso funktionen fortsätter att ha åtkomst till den, men den erbjuds inte till nya kunder.  
 
-För att få åtkomst till funktionen kan du lägga till följande funktions `feature.vmhealth=true` flagga i Azure Portal- [https://portal.azure.com](https://portal.azure.com)URL: en. Exempel `https://portal.azure.com/?feature.vmhealth=true`.
+För att få åtkomst till funktionen kan du lägga till följande funktions flagga `feature.vmhealth=true` i Azure Portal-URL: en [https://portal.azure.com](https://portal.azure.com) . Exempel `https://portal.azure.com/?feature.vmhealth=true` .
 
-Du kan också använda den här korta URL: en, som ställer in funktions [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview)flaggan automatiskt:.
+Du kan också använda den här korta URL: en, som ställer in funktions flaggan automatiskt: [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview) .
 
 Som en befintlig kund kan du fortsätta att använda hälso funktionen på virtuella datorer som är anslutna till en befintlig installation av arbets ytan med hälso funktionen.  
 

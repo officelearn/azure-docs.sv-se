@@ -1,24 +1,24 @@
 ---
 title: 'Snabb start: ny princip tilldelning med mallar'
-description: I den här snabb starten använder du en Resource Manager-mall för att skapa en princip tilldelning för att identifiera icke-kompatibla resurser.
+description: I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa en princip tilldelning som identifierar icke-kompatibla resurser.
 ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 7b9e372e8b86e1ac5b0a99d0aba77982896b4d11
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c3a37e9086744fb45c8d1e4ebe3bd16da7a83770
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757457"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971155"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av en Resource Manager-mall
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-azure-resource-manager-template"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av en Azure Resource Manager mall
 
 Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status.
 Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar. Efter den här genomgången kommer du att kunna identifiera virtuella datorer som inte använder hanterade diskar. De är _inkompatibla_ med principtilldelningen.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -28,7 +28,7 @@ I den här snabb starten skapar du en princip tilldelning och tilldelar en inbyg
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
 :::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
 
@@ -43,15 +43,15 @@ Den resurs som definierats i mallen är:
 
 1. Logga in på Azure-portalen och öppna mallen genom att välja följande bild:
 
-   [![Distribuera princip mal len till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera ARM-mallen för att tilldela en Azure Policy till Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Välj eller ange följande värden:
 
    | Name | Värde |
    |------|-------|
    | Prenumeration | Välj din Azure-prenumeration. |
-   | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. I skärm bilden är resurs gruppens namn _mypolicyquickstarts \< datum i MMDD \> RG_. |
-   | Plats | Välj en region. Välj till exempel **USA, centrala**. |
+   | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. I skärm bilden är resurs gruppens namn _mypolicyquickstart \<Date in MMDD\> RG_. |
+   | Location | Välj en region. Välj till exempel **USA, centrala**. |
    | Princip tilldelnings namn | Ange ett princip tilldelnings namn. Du kan använda princip definitions visningen om du vill. Granska till exempel **virtuella datorer som inte använder hanterade diskar**. |
    | RG namn | Ange ett resurs grupps namn som du vill tilldela principen till. I den här snabb starten använder du standardvärdet **[resourceGroup (). name]**. **[resourceGroup ()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** är en mall-funktion som hämtar resurs gruppen. |
    | ID för princip definition | Ange **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-B460-a2d36003525a**. |
@@ -63,7 +63,7 @@ Vissa ytterligare resurser:
 
 - Du hittar fler exempel på mallar i [Azure snabb starts mall](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Om du vill se mal linne Reference går du till [referens för Azure-mallar](/azure/templates/microsoft.authorization/allversions).
-- Information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentation](../../azure-resource-manager/management/overview.md).
+- Information om hur du utvecklar Resource Manager-mallar (ARM-mallar) finns i [Resource Manager-dokumentationen](../../azure-resource-manager/management/overview.md).
 - Information om distribution på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen

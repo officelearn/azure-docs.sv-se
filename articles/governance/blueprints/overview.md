@@ -3,12 +3,12 @@ title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864512"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970934"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -18,20 +18,20 @@ Skisser är en deklarativ metod för att dirigera distribution av flera resursma
 
 - Rolltilldelningar
 - Principtilldelningar
-- Azure Resource Manager-mallar
+- Azure Resource Manager mallar (ARM-mallar)
 - Resursgrupper
 
 Azure Blueprints-tjänsten backas av det globalt distribuerade [Azure Cosmos DB](../../cosmos-db/introduction.md). Skissobjekt replikeras till flera Azure-regioner. Den här replikeringen ger låg latens, hög tillgänglighet och konsekvent åtkomst till dina skiss objekt, oavsett vilken region Azure-ritningar distribuerar dina resurser till.
 
-## <a name="how-its-different-from-resource-manager-templates"></a>Så här skiljer de sig från Resource Manager-mallar
+## <a name="how-its-different-from-arm-templates"></a>Så här skiljer den sig från ARM-mallar
 
-Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resursgrupper, principer, rolltilldelningar och Resource Manager-malldistributioner. En skiss är ett paket för att ta med var och en av dessa _artefakt_ typer och låter dig skapa och version av paketet, inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
+Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resurs grupper, principer, roll tilldelningar och distributioner av ARM-mallar. En skiss är ett paket för att ta med var och en av dessa _artefakt_ typer och låter dig skapa och version av paketet, inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
 
-Nästan allt som du vill inkludera för distribution i Azure-ritningar kan utföras med en Resource Manager-mall. Men en Resource Manager-mall är ett dokument som inte finns inbyggt i Azure – var och en är lagrad lokalt eller i källkontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
+Nästan allt som du vill inkludera för distribution i Azure-ritningar kan utföras med en ARM-mall. En ARM-mall är dock ett dokument som inte finns internt i Azure – varje lagras antingen lokalt eller i käll kontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
 
 Med Azure-ritningar bevaras relationen mellan skiss definitionen (vad _ska_ distribueras) och skiss tilldelningen (vad _som distribuerades_ ). Den här anslutningen har stöd för förbättrad spårning och granskning av distributioner. Azure-ritningar kan också uppgradera flera prenumerationer samtidigt som styrs av samma skiss.
 
-Du behöver inte välja mellan en Resource Manager-mall och en skiss. Varje skiss kan bestå av noll eller flera Resource Manager-mall-_artefakter_. Det här stödet innebär att tidigare ansträngningar för att utveckla och underhålla ett bibliotek med Resource Manager-mallar kan återanvändas i Azure-ritningar.
+Du behöver inte välja mellan en ARM-mall och en skiss. Varje skiss kan bestå av noll eller fler _artefakter_för ARM-mallar. Det här stödet innebär att tidigare ansträngningar för att utveckla och underhålla ett bibliotek med ARM-mallar kan återanvändas i Azure-ritningar.
 
 ## <a name="how-its-different-from-azure-policy"></a>Hur det skiljer sig från Azure Policy
 
@@ -49,8 +49,8 @@ En skiss består av _artefakter_. Azure-ritningar stöder för närvarande följ
 
 |Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
-|Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar. |
-|Azure Resource Manager-mall | Prenumeration, resursgrupp | Mallar, inklusive kapslade och länkade mallar, används för att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
+|Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Dessa resurs grupper för plats hållare gör det möjligt att organisera resurser exakt som du vill att de ska vara strukturerade och ger en omfattnings gräns för inkluderade principer och roll tilldelnings artefakter och ARM-mallar. |
+|ARM-mall | Prenumeration, resursgrupp | Mallar, inklusive kapslade och länkade mallar, används för att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
 |Principtilldelning | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till den prenumeration som skissen är tilldelad till. Principen eller initiativet måste vara inom omfånget för skissdefinitionens plats. Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen. |
 |Rolltilldelning | Prenumeration, resursgrupp | Lägg till en befintlig användare eller grupp till en inbyggd roll för att se till att rätt personer alltid har rätt åtkomst till dina resurser. Rolltilldelningar kan definieras för hela prenumerationen eller kapslade till en specifik resursgrupp som ingår i skissen. |
 
@@ -60,9 +60,7 @@ När du skapar en skissdefinition ska du definiera var skissen har sparats. Skis
 
 ### <a name="blueprint-parameters"></a>Skissparametrar
 
-Skisser kan skicka parametrar till antingen en princip/ett initiativ eller en Azure Resource Manager-mall.
-När en _artefakt_ läggs till i en skiss kan författaren besluta sig för att tillhandahålla ett angivet värde för varje skisstilldelning eller tillåta att varje skisstilldelning anger ett värde för tilldelningstiden.
-Tack vare den här flexibiliteten får du möjlighet att definiera ett förinställt värde för alla användare av skissen eller göra det möjligt för beslutet att göras vid tidpunkten för tilldelningen.
+Ritningar kan skicka parametrar till antingen en princip/ett initiativ eller en ARM-mall. När en _artefakt_ läggs till i en skiss kan författaren besluta sig för att tillhandahålla ett angivet värde för varje skisstilldelning eller tillåta att varje skisstilldelning anger ett värde för tilldelningstiden. Tack vare den här flexibiliteten får du möjlighet att definiera ett förinställt värde för alla användare av skissen eller göra det möjligt för beslutet att göras vid tidpunkten för tilldelningen.
 
 > [!NOTE]
 > En skiss kan ha sina egna parametrar, men de kan för närvarande bara skapas om en skiss genereras från REST API:et i stället för via portalen.
@@ -71,8 +69,8 @@ Mer information finns [Skissparametrar](./concepts/parameters.md).
 
 ### <a name="blueprint-publishing"></a>Publicering av skiss
 
-När en skiss först skapas betraktas den som att den är i **utkastläge**. När den är redo att tilldelas måste den vara **publicerad**. Publicering kräver att du definierar en **versionssträng** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken) tillsammans med valfria **Ändra anteckningar**. **Versionen** särskiljer den från framtida ändringar i samma skiss och gör att varje version ska tilldelas. Den här versionshanteringen innebär också att olika **versioner** i samma skiss kan tilldelas till samma prenumeration. När ytterligare ändringar görs i skissen finns den **publicerade**
-**versionen** fortfarande, precis som de **opublicerade ändringarna**. När ändringarna har slutförts är den uppdaterade skissen **publicerad** med en ny och unik **version** och kan nu också tilldelas.
+När en skiss först skapas betraktas den som att den är i **utkastläge**. När den är redo att tilldelas måste den vara **publicerad**. Publicering kräver att du definierar en **versionssträng** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken) tillsammans med valfria **Ändra anteckningar**. **Versionen** särskiljer den från framtida ändringar i samma skiss och gör att varje version ska tilldelas. Den här versionshanteringen innebär också att olika **versioner** i samma skiss kan tilldelas till samma prenumeration. När ytterligare ändringar görs i skissen finns den **publicerade** 
+ **versionen** fortfarande, precis som de **opublicerade ändringarna**. När ändringarna har slutförts är den uppdaterade skissen **publicerad** med en ny och unik **version** och kan nu också tilldelas.
 
 ## <a name="blueprint-assignment"></a>Skisstilldelning
 

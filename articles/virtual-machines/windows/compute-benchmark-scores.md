@@ -10,10 +10,10 @@ ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
 ms.openlocfilehash: c3e0fdc398d3b0b851c6f548119858e6c41a5a19
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583916"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Beräkna benchmark-Poäng för virtuella Windows-datorer
@@ -25,9 +25,9 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 | Storlek | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_A1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2660 0 @ 2.20 GHz | 12 | 14,2 | 0.3 | 
-| Standard_A1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 9 | 13.2 | 0.6 | 
+| Standard_A1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 9 | 13.2 | 0,6 | 
 | Standard_A1_v2 | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 10 | 14,1 | 0.7 | 
-| Standard_A2_v2 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2660 0 @ 2.20 GHz | 14 | 28,9 | 0.6 | 
+| Standard_A2_v2 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2660 0 @ 2.20 GHz | 14 | 28,9 | 0,6 | 
 | Standard_A2_v2 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 10 | 27,4 | 1.6 | 
 | Standard_A2_v2 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 17 | 28,9 | 1.8 | 
 | Standard_A2m_v2 | 2 | 1 | Intel (R) Xeon (R) CPU E5-2660 0 @ 2.20 GHz | 14 | 29,0 | 0,5 | 
@@ -56,8 +56,8 @@ Följande SPECInt benchmark-resultat visar beräknings prestanda för utvalda vi
 
 | Storlek | Virtuella processorer | NUMA-noder | Processor | Körningar | Genomsnittlig bas taxa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_B1ms | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 9 | 6.3 | 0.2 | 
-| Standard_B1ms | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 47 | 6.4 | 0.2 | 
+| Standard_B1ms | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 9 | 6.3 | 0,2 | 
+| Standard_B1ms | 1 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 47 | 6.4 | 0,2 | 
 | Standard_B2ms | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 36 | 19,8 | 0,8 | 
 | Standard_B2s | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 2 | 13,0 | 0.0 | 
 | Standard_B2s | 2 | 1 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 29 | 13,0 | 0,5 | 

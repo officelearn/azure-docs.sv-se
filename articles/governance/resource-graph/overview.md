@@ -3,12 +3,12 @@ title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
 ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: 055bb0be75de4d5f6a5a27c5fb3b218fda8777d7
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565678"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970611"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
@@ -29,7 +29,7 @@ I den här dokumentationen går vi igenom varje funktion i detalj.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Hur kompletterar Resource Graph Resurshantering i Azure
 
-Azure Resource Manager stöder för närvarande frågor över grundläggande resurs fält, specifikt resurs namn, ID, typ, resurs grupp, prenumeration och plats. Resource Manager tillhandahåller också anläggningar för att anropa enskilda resurs leverantörer för detaljerade egenskaper en resurs i taget.
+Resource Manager stöder för närvarande frågor över grundläggande resurs fält, specifikt resurs namn, ID, typ, resurs grupp, prenumeration och plats. Resource Manager tillhandahåller också anläggningar för att anropa enskilda resurs leverantörer för detaljerade egenskaper en resurs i taget.
 
 Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. En lista över resurs typer som stöds finns i [referensen tabell och resurs typ](./reference/supported-tables-resources.md). Ett alternativt sätt att se resurs typer som stöds är via [schema läsaren i Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 

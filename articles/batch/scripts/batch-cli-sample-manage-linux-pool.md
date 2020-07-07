@@ -3,12 +3,12 @@ title: Exempel på Azure CLI-skript – Linux-pool i batch
 description: Det här skriptet visar några av de kommandon som är tillgängliga i Azure CLI för att skapa och hantera en pool med Linux-datornoder i Azure Batch.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: e39deaf2cb897e01ac69b26a7855d7227904539a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 21236ef2f314cb1306adc7346e620b80db540034
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681877"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964071"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>CLI-exempel: Skapa och hantera en Linux-pool i Azure Batch
 
@@ -40,14 +40,14 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Skapar Batch-kontot. |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
 | [az batch pool node-agent-skus list](../batch-linux-nodes.md#list-of-virtual-machine-images) | Visar en lista över tillgängliga SKU:er för nodagent och avbildningsinformation.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | Skapar en pool med beräkningsnoder.  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-resize) | Ändrar storlek på hur många virtuella datorer som körs i den angivna poolen.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-show) | Visar egenskaperna för en pool.  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#az-batch-node-list) | Visar en lista med alla beräkningsnoder i den angivna poolen.  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#az-batch-node-reboot) | Startar om den angivna beräkningsnoden.  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az-batch-node-delete) | Tar bort de listade noderna från den angivna poolen.  |
+| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | Skapar en pool med beräkningsnoder.  |
+| [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) | Ändrar storlek på hur många virtuella datorer som körs i den angivna poolen.  |
+| [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) | Visar egenskaperna för en pool.  |
+| [az batch node list](/cli/azure/batch/node#az-batch-node-list) | Visar en lista med alla beräkningsnoder i den angivna poolen.  |
+| [az batch node reboot](/cli/azure/batch/node#az-batch-node-reboot) | Startar om den angivna beräkningsnoden.  |
+| [az batch node delete](/cli/azure/batch/node#az-batch-node-delete) | Tar bort de listade noderna från den angivna poolen.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).

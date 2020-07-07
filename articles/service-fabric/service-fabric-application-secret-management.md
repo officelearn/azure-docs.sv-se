@@ -4,10 +4,10 @@ description: Lär dig hur du skyddar hemliga värden i ett Service Fabric progra
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583232"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Hantera krypterade hemligheter i Service Fabric program
@@ -24,9 +24,9 @@ Att konfigurera ett krypterings certifikat och använda det för att kryptera he
 * [Konfigurera ett krypterings certifikat och kryptera hemligheter på Linux-kluster.][secret-management-linux-specific-link]
 
 ## <a name="specify-encrypted-secrets-in-an-application"></a>Ange krypterade hemligheter i ett program
-I föregående steg beskrivs hur du krypterar en hemlighet med ett certifikat och skapar en Base64 64-kodad sträng för användning i ett program. Den här Base-64-kodade strängen kan anges som en krypterad [parameter][parameters-link] i en tjänsts inställningar. XML eller som en krypterad [miljö variabel][environment-variables-link] i en tjänsts ServiceManifest. xml.
+I föregående steg beskrivs hur du krypterar en hemlighet med ett certifikat och skapar en Base64 64-kodad sträng för användning i ett program. Den här Base-64-kodade strängen kan anges som en krypterad [parameter][parameters-link] i en tjänsts Settings.xml eller som en krypterad [miljö variabel][environment-variables-link] i en tjänsts ServiceManifest.xml.
 
-Ange en krypterad [parameter][parameters-link] i tjänstens inställningar. XML-konfigurationsfil med `IsEncrypted` attributet angivet till: `true`
+Ange en krypterad [parameter][parameters-link] i tjänstens Settings.xml konfigurations fil med `IsEncrypted` attributet angivet till `true` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -36,7 +36,7 @@ Ange en krypterad [parameter][parameters-link] i tjänstens inställningar. XML-
   </Section>
 </Settings>
 ```
-Ange en krypterad [miljö variabel][environment-variables-link] i tjänstens ServiceManifest. XML-fil med `Type` attributet inställt på `Encrypted`:
+Ange en krypterad [miljö variabel][environment-variables-link] i tjänstens ServiceManifest.xml fil med `Type` attributet angivet till `Encrypted` :
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -45,7 +45,7 @@ Ange en krypterad [miljö variabel][environment-variables-link] i tjänstens Ser
 </CodePackage>
 ```
 
-Hemligheterna bör också inkluderas i ditt Service Fabric-program genom att ange ett certifikat i applikations manifestet. Lägg till ett **SecretsCertificate** -element i **ApplicationManifest. XML** och inkludera det önskade certifikatets tumavtryck.
+Hemligheterna bör också inkluderas i ditt Service Fabric-program genom att ange ett certifikat i applikations manifestet. Lägg till ett **SecretsCertificate** -element i **ApplicationManifest.xml** och inkludera det önskade certifikatets tumavtryck.
 
 ```xml
 <ApplicationManifest … >
@@ -64,8 +64,8 @@ Hemligheterna bör också inkluderas i ditt Service Fabric-program genom att ang
 ### <a name="inject-application-secrets-into-application-instances"></a>Mata in program hemligheter i program instanser
 Vi rekommenderar att distribution till olika miljöer är så automatiserat som möjligt. Detta kan åstadkommas genom att utföra hemlig kryptering i en build-miljö och tillhandahålla krypterade hemligheter som parametrar när du skapar program instanser.
 
-#### <a name="use-overridable-parameters-in-settingsxml"></a>Använd åsidosättningsbar-parametrar i Settings. XML
-Konfigurations filen Settings. XML tillåter åsidosättningsbar-parametrar som kan tillhandahållas när programmet skapas. Använd `MustOverride` attributet i stället för att ange ett värde för en parameter:
+#### <a name="use-overridable-parameters-in-settingsxml"></a>Använd åsidosättningsbar-parametrar i Settings.xml
+Settings.xml konfigurations filen tillåter åsidosättningsbar-parametrar som kan tillhandahållas när programmet skapas. Använd `MustOverride` attributet i stället för att ange ett värde för en parameter:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -76,7 +76,7 @@ Konfigurations filen Settings. XML tillåter åsidosättningsbar-parametrar som 
 </Settings>
 ```
 
-Om du vill åsidosätta värden i Settings. XML deklarerar du en parameter för åsidosättning för tjänsten i ApplicationManifest. XML:
+Om du vill åsidosätta värden i Settings.xml, deklarera en parameter för åsidosättning för tjänsten i ApplicationManifest.xml:
 
 ```xml
 <ApplicationManifest ... >
@@ -99,13 +99,13 @@ Om du vill åsidosätta värden i Settings. XML deklarerar du en parameter för 
 
 Du kan nu ange värdet som en *program parameter* när du skapar en instans av programmet. Att skapa en program instans kan skriptas med PowerShell eller skrivas i C# för enkel integrering i en build-process.
 
-Med PowerShell anges parametern till `New-ServiceFabricApplication` kommandot som en hash- [tabell](https://technet.microsoft.com/library/ee692803.aspx):
+Med PowerShell anges parametern till `New-ServiceFabricApplication` kommandot som en [hash-tabell](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-Med C# anges program parametrar i en `ApplicationDescription` som: `NameValueCollection`
+Med C# anges program parametrar i en `ApplicationDescription` som `NameValueCollection` :
 
 ```csharp
 FabricClient fabricClient = new FabricClient();

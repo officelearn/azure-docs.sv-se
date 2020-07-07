@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 469019eb1e90654d1953156337593d5de99b46c0
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796686"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Optimera Apache-gris med Apache Ambari i Azure HDInsight
 
 Apache Ambari är ett webb gränssnitt för att hantera och övervaka HDInsight-kluster. En introduktion till Ambari-webbgränssnitt finns i [Hantera HDInsight-kluster med hjälp av Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
-Apache gris-egenskaper kan ändras från Ambari-webbgränssnittet för att justera gris-frågor. Om du ändrar egenskaper för gris från Ambari ändras egenskaperna för svinen `/etc/pig/2.4.2.0-258.0/pig.properties` direkt i filen.
+Apache gris-egenskaper kan ändras från Ambari-webbgränssnittet för att justera gris-frågor. Om du ändrar egenskaper för gris från Ambari ändras egenskaperna för svinen direkt i `/etc/pig/2.4.2.0-258.0/pig.properties` filen.
 
 1. Om du vill ändra egenskaper för gris navigerar du till fliken **konfigurations** inställningar för svin och expanderar sedan fönstret **Avancerat gris-Properties** .
 
@@ -35,7 +35,7 @@ Apache gris-egenskaper kan ändras från Ambari-webbgränssnittet för att juste
 
 Det finns två körnings motorer tillgängliga för att köra gris-skript: MapReduce och Tez. Tez är en optimerad motor och är mycket snabbare än MapReduce.
 
-1. Om du vill ändra körnings motorn går du till fönstret **Avancerat gris-Properties** och letar `exectype`upp egenskapen.
+1. Om du vill ändra körnings motorn går du till fönstret **Avancerat gris-Properties** och letar upp egenskapen `exectype` .
 
 1. Standardvärdet är **MapReduce**. Ändra den till **Tez**.
 
@@ -45,15 +45,15 @@ På samma sätt som Hive, används lokalt läge för att påskynda jobb med rela
 
 1. Aktivera lokalt läge genom att ange `pig.auto.local.enabled` **True**. Standardvärdet är false.
 
-1. Jobb med en indata-storlek som är `pig.auto.local.input.maxbytes` mindre än egenskap svärdet anses vara små jobb. Standardvärdet är 1 GB.
+1. Jobb med en indata-storlek som är mindre än `pig.auto.local.input.maxbytes` egenskap svärdet anses vara små jobb. Standardvärdet är 1 GB.
 
 ## <a name="copy-user-jar-cache"></a>Kopiera användarens jar-cache
 
-Gris kopierar JAR-filerna som krävs av UDF: er till en distribuerad cache för att göra dem tillgängliga för aktiviteter. Dessa JAR v7 ändras inte ofta. Om `pig.user.cache.enabled` inställningen är aktive rad kan jar v7 placeras i ett cacheminne för att återanvända dem för jobb som körs av samma användare. Den här inställningen resulterar i en mindre ökning av jobbets prestanda.
+Gris kopierar JAR-filerna som krävs av UDF: er till en distribuerad cache för att göra dem tillgängliga för aktiviteter. Dessa JAR v7 ändras inte ofta. Om inställningen är aktive rad `pig.user.cache.enabled` kan jar v7 placeras i ett cacheminne för att återanvända dem för jobb som körs av samma användare. Den här inställningen resulterar i en mindre ökning av jobbets prestanda.
 
-1. Om du vill aktivera `pig.user.cache.enabled` anger du True. Standardvärdet är false.
+1. Om du vill aktivera anger `pig.user.cache.enabled` du True. Standardvärdet är false.
 
-1. Om du vill ange bas Sök vägen för den cachelagrade `pig.user.cache.location` jar v7 anger du bas Sök vägen. Standardvärdet är `/tmp`.
+1. Om du vill ange bas Sök vägen för den cachelagrade jar v7 anger `pig.user.cache.location` du bas Sök vägen. Standardvärdet är `/tmp`.
 
 ## <a name="optimize-performance-with-memory-settings"></a>Optimera prestanda med minnes inställningar
 
@@ -73,15 +73,15 @@ Gris genererar temporära filer under jobb körningen. Komprimering av de tempor
 
 ## <a name="enable-split-combining"></a>Aktivera delnings kombination
 
-När den är aktive rad kombineras små filer för färre kart aktiviteter. Den här inställningen förbättrar effektiviteten hos jobb med många små filer. Om du vill aktivera `pig.noSplitCombination` anger du True. Standardvärdet är false.
+När den är aktive rad kombineras små filer för färre kart aktiviteter. Den här inställningen förbättrar effektiviteten hos jobb med många små filer. Om du vill aktivera anger `pig.noSplitCombination` du True. Standardvärdet är false.
 
 ## <a name="tune-mappers"></a>Finjustera mappningar
 
-Antalet Mapper styrs genom att egenskapen `pig.maxCombinedSplitSize`ändras. Den här egenskapen anger storleken på de data som ska bearbetas av en enskild kart aktivitet. Standardvärdet är fil systemets standard block storlek. Att öka det här värdet resulterar i ett lägre antal Mapper-aktiviteter.
+Antalet Mapper styrs genom att egenskapen ändras `pig.maxCombinedSplitSize` . Den här egenskapen anger storleken på de data som ska bearbetas av en enskild kart aktivitet. Standardvärdet är fil systemets standard block storlek. Att öka det här värdet resulterar i ett lägre antal Mapper-aktiviteter.
 
 ## <a name="tune-reducers"></a>Finjustera dämpare
 
-Antalet dereducerare beräknas baserat på parametern `pig.exec.reducers.bytes.per.reducer`. Parametern anger antalet byte som bearbetas per minskning, som standard 1 GB. Om du vill begränsa det maximala antalet avreducerare ställer `pig.exec.reducers.max` du in egenskapen som standard 999.
+Antalet dereducerare beräknas baserat på parametern `pig.exec.reducers.bytes.per.reducer` . Parametern anger antalet byte som bearbetas per minskning, som standard 1 GB. Om du vill begränsa det maximala antalet avreducerare ställer du in `pig.exec.reducers.max` egenskapen som standard 999.
 
 ## <a name="next-steps"></a>Nästa steg
 

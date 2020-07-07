@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
 ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791125"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och kör anpassade tillgänglighets test med Azure Functions
@@ -45,7 +45,7 @@ Kopiera koden nedan till filen Run. CSX (det ersätter den befintliga koden). De
 >![Azure Functions Run. CSX i Azure Portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> För den slut punkts adress som du `EndpointAddress= https://dc.services.visualstudio.com/v2/track`använder:. Om inte din resurs finns i en region som Azure Government eller Azure Kina, i vilket fall läser du den här artikeln om hur [du åsidosätter standard slut punkterna](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) och väljer lämplig telemetri-kanal slut punkt för din region.
+> För den slut punkts adress som du använder: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . Om inte din resurs finns i en region som Azure Government eller Azure Kina, i vilket fall läser du den här artikeln om hur [du åsidosätter standard slut punkterna](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) och väljer lämplig telemetri-kanal slut punkt för din region.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -160,7 +160,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 För att se till att allt fungerar kan du titta på diagrammet på fliken tillgänglighet i din Application Insights-resurs.
 
 > [!NOTE]
-> Om du har implementerat din egen affärs logik i runAvailabilityTest. CSX visas lyckade resultat som i skärm bilderna nedan, om du inte gjorde det visas misslyckade resultat. Test som skapas `TrackAvailability()` med visas med **anpassad** bredvid test namnet.
+> Om du har implementerat din egen affärs logik i runAvailabilityTest. CSX visas lyckade resultat som i skärm bilderna nedan, om du inte gjorde det visas misslyckade resultat. Test som skapas med `TrackAvailability()` visas med **anpassad** bredvid test namnet.
 
 >[!div class="mx-imgBorder"]
 >![Fliken tillgänglighet med lyckade resultat](media/availability-azure-functions/availability-custom.png)

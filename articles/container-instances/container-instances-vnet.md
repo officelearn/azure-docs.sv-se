@@ -5,13 +5,13 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: danlep
 ms.openlocfilehash: 7e54690efc7955eaaa88ca87a6f7a086dd3e19a4
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583652"
 ---
-# <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållar instanser i ett virtuellt Azure-nätverk
+# <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera containerinstanser i ett virtuellt Azure-nätverk
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) ger säker, privat nätverk för dina Azure-resurser och lokala resurser. Genom att distribuera behållar grupper till ett virtuellt Azure-nätverk kan dina behållare kommunicera säkert med andra resurser i det virtuella nätverket.
 
@@ -34,13 +34,13 @@ Om du vill distribuera till ett nytt virtuellt nätverk och låta Azure Skapa n�
 * Namn på undernät
 * Undernätsprefixets i CIDR-format
 
-Prefixen för det virtuella nätverket och under nätet anger adress utrymmen för det virtuella nätverket respektive undernät. Dessa värden representeras i CIDR-notation (Classless Inter-Domain routing), `10.0.0.0/16`till exempel. Mer information om hur du arbetar med undernät finns i [lägga till, ändra eller ta bort ett virtuellt nätverks under nät](../virtual-network/virtual-network-manage-subnet.md).
+Prefixen för det virtuella nätverket och under nätet anger adress utrymmen för det virtuella nätverket respektive undernät. Dessa värden representeras i CIDR-notation (Classless Inter-Domain routing), till exempel `10.0.0.0/16` . Mer information om hur du arbetar med undernät finns i [lägga till, ändra eller ta bort ett virtuellt nätverks under nät](../virtual-network/virtual-network-manage-subnet.md).
 
 När du har distribuerat din första behållar grupp med den här metoden kan du distribuera till samma undernät genom att ange det virtuella nätverket och under nät namnen, eller nätverks profilen som Azure skapar automatiskt åt dig. Eftersom Azure delegerar under nätet till Azure Container Instances kan du *bara* distribuera behållar grupper till under nätet.
 
 ### <a name="example"></a>Exempel
 
-Följande kommando för [AZ container Create][az-container-create] anger inställningar för ett nytt virtuellt nätverk och undernät. Ange namnet på en resurs grupp som har skapats i en region där distributioner av container grupper i ett virtuellt nätverk är [tillgängliga](container-instances-region-availability.md#availability---virtual-network-deployment). Det här kommandot distribuerar den offentliga Microsoft [ACI-HelloWorld-][aci-helloworld] behållaren som kör en liten Node. js-webbserver som betjänar en statisk webb sida. I nästa avsnitt ska du distribuera en andra behållar grupp till samma undernät och testa kommunikationen mellan de två behållar instanserna.
+Följande kommando för [AZ container Create][az-container-create] anger inställningar för ett nytt virtuellt nätverk och undernät. Ange namnet på en resurs grupp som har skapats i en region där distributioner av container grupper i ett virtuellt nätverk är [tillgängliga](container-instances-region-availability.md#availability---virtual-network-deployment). Det här kommandot distribuerar den offentliga Microsoft [ACI-HelloWorld-][aci-helloworld] behållaren som kör en liten Node.js-webbserver som betjänar en statisk webb sida. I nästa avsnitt ska du distribuera en andra behållar grupp till samma undernät och testa kommunikationen mellan de två behållar instanserna.
 
 ```azurecli
 az container create \
@@ -77,13 +77,13 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-Utdata visar behållar gruppens IP-adress i det privata under nätet. Exempel:
+Utdata visar behållar gruppens IP-adress i det privata under nätet. Till exempel:
 
 ```console
 10.0.0.4
 ```
 
-Ange `CONTAINER_GROUP_IP` nu till den IP-adress som du hämtade `az container show` med kommandot och kör följande `az container create` kommando. Den här andra behållaren, *commchecker*, kör en Alpine Linux-baserad avbildning och körs `wget` mot den första behållar gruppens privata undernät-IP-adress.
+Ange nu `CONTAINER_GROUP_IP` till den IP-adress som du hämtade med `az container show` kommandot och kör följande `az container create` kommando. Den här andra behållaren, *commchecker*, kör en Alpine Linux-baserad avbildning och körs `wget` mot den första behållar gruppens privata undernät-IP-adress.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -98,7 +98,7 @@ az container create \
   --subnet aci-subnet
 ```
 
-När den här andra behållar distributionen har slutförts hämtar du dess loggar så att du kan `wget` se resultatet av kommandot som körs:
+När den här andra behållar distributionen har slutförts hämtar du dess loggar så att du kan se resultatet av `wget` kommandot som körs:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name commchecker
@@ -111,7 +111,7 @@ Connecting to 10.0.0.4 (10.0.0.4:80)
 index.html           100% |*******************************|  1663   0:00:00 ETA
 ```
 
-Logg resultatet bör visa att `wget` det gick att ansluta och hämta index filen från den första behållaren med dess privata IP-adress på det lokala under nätet. Nätverks trafiken mellan de två behållar grupperna fanns kvar i det virtuella nätverket.
+Logg resultatet bör visa att det `wget` gick att ansluta och hämta index filen från den första behållaren med dess privata IP-adress på det lokala under nätet. Nätverks trafiken mellan de två behållar grupperna fanns kvar i det virtuella nätverket.
 
 ### <a name="example---yaml"></a>Exempel – YAML
 
@@ -124,7 +124,7 @@ Om du till exempel använder en YAML-fil kan du distribuera till ett virtuellt n
   * `ports`: Portarna som ska öppnas, om det finns några.
   * `protocol`: Protokollet (TCP eller UDP) för den öppnade porten.
 * `networkProfile`: Nätverks inställningar för det virtuella nätverket och under nätet.
-  * `id`: Fullständig Resource Manager-resurs-ID för `networkProfile`.
+  * `id`: Fullständig Resource Manager-resurs-ID för `networkProfile` .
 
 Om du vill hämta ID för nätverks profilen kör du kommandot [AZ Network Profile List][az-network-profile-list] och anger namnet på den resurs grupp som innehåller det virtuella nätverket och det delegerade under nätet.
 
@@ -139,7 +139,7 @@ Exempel på utdata:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-När du har nätverks profil-ID: t kopierar du följande YAML till en ny fil med namnet *VNet-Deploy-ACI. yaml*. Ersätt `networkProfile`värdet med det `id` ID som du precis hämtade under och spara sedan filen. Den här YAML skapar en behållar grupp med namnet *appcontaineryaml* i ditt virtuella nätverk.
+När du har nätverks profil-ID: t kopierar du följande YAML till en ny fil med namnet *VNet-Deploy-ACI. yaml*. `networkProfile`Ersätt `id` värdet med det ID som du precis hämtade under och spara sedan filen. Den här YAML skapar en behållar grupp med namnet *appcontaineryaml* i ditt virtuella nätverk.
 
 ```YAML
 apiVersion: '2018-10-01'
@@ -170,7 +170,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Distribuera behållar gruppen med kommandot [AZ container Create][az-container-create] , och ange namnet på yaml-filen `--file` för parametern:
+Distribuera behållar gruppen med kommandot [AZ container Create][az-container-create] , och ange namnet på yaml-filen för `--file` parametern:
 
 ```azurecli
 az container create --resource-group myResourceGroup \

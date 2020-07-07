@@ -10,10 +10,10 @@ ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 1ccf03deee2a2f72c1eb2008e1acc5bf67d16447
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796777"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Skapa en virtuell dator med hjälp av en specialiserad avbildnings version med Azure CLI
@@ -36,7 +36,7 @@ az sig image-definition list \
 
 Skapa den virtuella datorn med [AZ VM Create](/cli/azure/vm#az-vm-create) med hjälp av parametern--specialiserad för att indikera att avbildningen är en specialiserad avbildning. 
 
-Använd bild Definitions-ID `--image` : t för för att skapa den virtuella datorn från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa den virtuella datorn från en angiven version genom att ange avbildningens versions `--image`-ID för. 
+Använd bild Definitions-ID: t för för `--image` att skapa den virtuella datorn från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa den virtuella datorn från en angiven version genom att ange avbildningens versions-ID för `--image` . 
 
 I det här exemplet skapar vi en virtuell dator från den senaste versionen av *myImageDefinition* -avbildningen.
 

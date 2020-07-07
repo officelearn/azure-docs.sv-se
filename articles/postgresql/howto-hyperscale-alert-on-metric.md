@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 3/16/2020
 ms.openlocfilehash: 8bf887b8d86131e0b358056fc1744a8d144be3fc
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82584111"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-storskalig skalning (citus)
@@ -39,7 +39,7 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
 3. Välj **ny varnings regel** (+ ikon).
 
-4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i den information som krävs:
+4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i nödvändig information:
 
    ![Lägg till mått aviserings formulär](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
 
@@ -104,7 +104,7 @@ När disken närmar sig utrymmes gränsen kan du prova dessa tekniker för att f
 * Överväg att [lägga till noder](howto-hyperscale-scaling.md#add-worker-nodes) i Server gruppen och balansera om Shards. Ombalansering distribuerar data mellan flera datorer.
 * Överväg att [växa kapaciteten](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) för arbetsnoder. Varje arbets tagare kan ha upp till 2 TiB lagrings utrymme. Du bör dock försöka lägga till noder innan du ändrar storlek på noder eftersom det är snabbare att lägga till noder.
 
-### <a name="cpu-usage"></a>CPU-användning
+### <a name="cpu-usage"></a>Processoranvändning
 
 Övervakning av processor användning är användbart för att upprätta en bas linje för prestanda. Du kanske till exempel märker att CPU-användningen vanligt vis är cirka 40-60%. Om CPU-användningen plötsligt börjar Hovra runt 95% kan du identifiera en avvikelse. CPU-användningen kan återspegla ekologisk tillväxt, men kan också visa en lösa fråga. När du skapar en CPU-avisering kan du ange en lång agg regerings kornig het för att fånga långvariga ökningar och ignorera tillfälliga toppar.
 

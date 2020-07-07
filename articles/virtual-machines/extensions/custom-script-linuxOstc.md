@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: 1ca20f2c8cda84c241391f67ac542faa4a1f5ecd
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594720"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Använd Azures anpassade skript tillägg version 1 med virtuella Linux-datorer
@@ -120,12 +120,12 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 | Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | utgivare | Microsoft. OSTCExtensions | sträng |
 | typ | CustomScriptForLinux | sträng |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (t. ex.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matris |
-| commandToExecute (t. ex.) | python MyPythonScript.py \<My-param1\> | sträng |
+| commandToExecute (t. ex.) | python-MyPythonScript.py\<my-param1\> | sträng |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
 | storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | sträng |

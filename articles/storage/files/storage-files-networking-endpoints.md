@@ -8,10 +8,10 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0859b034cf0caa60039fbf9eb4dd9be54448a940
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510318"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurera Azure Files nätverks slut punkter
@@ -25,7 +25,7 @@ Den här artikeln fokuserar på hur du konfigurerar ett lagrings kontos slut pun
 
 Vi rekommenderar att du läser [Azure Files nätverks överväganden](storage-files-networking-overview.md) innan du läser den här guiden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Den här artikeln förutsätter att du redan har skapat en Azure-prenumeration. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Den här artikeln förutsätter att du redan har skapat en Azure-filresurs i ett lagrings konto som du vill ansluta till lokalt. Information om hur du skapar en Azure-filresurs finns i [skapa en Azure-fil resurs](storage-how-to-create-file-share.md).
 - Om du tänker använda Azure PowerShell [installerar du den senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps).
@@ -155,5 +155,5 @@ När du begränsar lagrings kontot till specifika virtuella nätverk kan du till
 
 ## <a name="see-also"></a>Se även
 - [Azure Files nätverks överväganden](storage-files-networking-overview.md)
-- [Konfigurera DNS-vidarebefordring för Azure Files](storage-files-networking-dns.md)
+- [Konfigurera DNS-vidarebefordran för Azure Files](storage-files-networking-dns.md)
 - [Konfigurerar S2S VPN för Azure Files](storage-files-configure-s2s-vpn.md)

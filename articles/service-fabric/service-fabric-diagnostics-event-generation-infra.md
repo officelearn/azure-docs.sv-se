@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791824"
 ---
 # <a name="monitoring-the-cluster"></a>Övervaka klustret
@@ -18,7 +18,7 @@ Det är viktigt att övervaka på kluster nivå för att avgöra om maskin varan
 
 Service Fabric visar flera strukturerade plattforms händelser, som [Service Fabric händelser](service-fabric-diagnostics-events.md), via EventStore och olika logg kanaler direkt. 
 
-I Windows är Service Fabric-händelser tillgängliga från en enda ETW-Provider med en uppsättning relevant `logLevelKeywordFilters` som används för att välja mellan drift-och data & meddelande kanaler – det här är hur vi avgränsar utgående Service Fabric händelser som ska filtreras efter behov.
+I Windows är Service Fabric-händelser tillgängliga från en enda ETW-Provider med en uppsättning relevant som `logLevelKeywordFilters` används för att välja mellan drift-och Data & meddelande kanaler – det här är hur vi avgränsar utgående Service Fabric händelser som ska filtreras efter behov.
 
 * **Drift** Hög nivå åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som kommer, ett nytt program som distribueras eller en uppgraderings återställning osv. Se den fullständiga listan med händelser [här](service-fabric-diagnostics-event-generation-operational.md).  
 

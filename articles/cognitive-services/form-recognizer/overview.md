@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f5d0e9a851c41fa88461ed790ad3fe4e89d0fa21
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563258"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957147"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -57,18 +57,20 @@ Formulär tolken kan också Extrahera text-och tabell strukturer (rad-och kolumn
 
 Kom igång genom att följa en snabb start för att extrahera data från dina formulär. Vi rekommenderar att du använder den kostnads fria tjänsten när du lär dig tekniken. Kom ihåg att antalet fria sidor är begränsat till 500 per månad.
 
-* Anpassa – träna en modell till dina formulär
-  * Träna utan etiketter
-    * [Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning](quickstarts/curl-train-extract.md)
-    * [Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python](quickstarts/python-train-extract.md)
-  * Träna med etiketter
-    * [Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter](quickstarts/label-tool.md)
-    * [Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python](quickstarts/python-labeled-data.md)
-* Färdiga inleveranser – extrahera data från amerikanska försäljnings kvitton
-  * [Snabb start: extrahera kvitto data med hjälp av sväng](quickstarts/curl-receipts.md)
-  * [Snabb start: extrahera kvitto data med hjälp av python](quickstarts/python-receipts.md)
-* Layout – Extrahera text-och tabell struktur från formulär
-  * [Snabb start: extrahera layout data med python](quickstarts/python-layout.md)
+* [Snabb start för klient bibliotek](./quickstarts/client-library.md) (alla språk, flera scenarier)
+* Snabb start för webb gränssnitt
+  * [Träna med etiketter – exempel på etikett verktyg](quickstarts/label-tool.md)
+* REST-snabb starter
+  * Träna anpassade modeller och extrahera formulär data
+    * [Träna utan etiketter – sväng](quickstarts/curl-train-extract.md)
+    * [Träna utan etiketter – python](quickstarts/python-train-extract.md)
+    * [Träna med etiketter – python](quickstarts/python-labeled-data.md)
+  * Extrahera data från USA Sales-kvitton
+    * [Extrahera kvitto data – sväng](quickstarts/curl-receipts.md)
+    * [Extrahera kvitto data – python](quickstarts/python-receipts.md)
+  * Extrahera text-och tabell struktur från formulär
+    * [Extrahera layoutinformation – python](quickstarts/python-layout.md)
+
 
 ### <a name="review-the-rest-apis"></a>Granska REST-API: erna
 

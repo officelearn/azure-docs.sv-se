@@ -2,7 +2,7 @@
 title: Azure PowerShell skript exempel
 description: Använd Azure PowerShell-skript exempel som hjälper dig att skapa och hantera Azure SQL Database och Azure SQL-hanterade instans resurser.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: cb8abf563834e23472589cd65bfe4196131d0138
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718588"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987331"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Azure PowerShell exempel för Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 Följande tabell innehåller länkar till Azure PowerShell-exempelskript för Azure SQL Database.
 
-| |  |
+|Länk|Beskrivning|
 |---|---|
 |**Skapa och konfigurera enskilda databaser och elastiska pooler**||
 | [Skapa en enskild databas och konfigurera en brand Väggs regel på server nivå](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet skapar en enskild databas och konfigurerar en IP-brandväggsregel på server nivå. |
@@ -64,7 +64,7 @@ Läs mer om [Azure PowerShell-API: et för en databas](single-database-manage.md
 
 Följande tabell innehåller länkar till exempel Azure PowerShell skript för Azure SQL-hanterad instans.
 
-| |  |
+|Länk|Beskrivning|
 |---|---|
 |**Skapa och konfigurera hanterade instanser**||
 | [Skapa och hantera en hanterad instans](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Det här PowerShell-skriptet visar hur du skapar och hanterar en hanterad instans med hjälp av Azure PowerShell. |

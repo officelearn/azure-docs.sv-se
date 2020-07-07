@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402667"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918934"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks
 
@@ -45,7 +45,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/) om du inte har någon.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett [Azure Event Hubs-namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) och händelsehubben.
 
@@ -61,7 +61,7 @@ Information om hur du skapar ett namn område och händelsehubben finns i [snabb
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azure Portal](https://portal.azure.com/).
 
-1. I Azure Portal väljer du **skapa en resurs** > **analys** > **Azure Databricks**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](../media/tutorials/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
@@ -96,7 +96,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
 
    * Ange ett namn för klustret.
    * I den här artikeln skapar du ett kluster med **5,2** Runtime. Välj inte **5,3** Runtime.
-   * Kontrol lera att kryss rutan **Avsluta \_ \_ efter minuter av inaktivitet** är markerad. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+   * Kontrol lera att kryss rutan **Avsluta efter \_ \_ minuter av inaktivitet** är markerad. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
      Välj **Skapa kluster**. 
 4. Det tar flera minuter att skapa klustret. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
@@ -123,7 +123,7 @@ Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare
 
 I den här självstudien använder du Twitter-API:er för att skicka tweets till Event Hubs. Du använder också [Apache Spark Event Hubs-anslutningsprogram](https://github.com/Azure/azure-event-hubs-spark) för att läsa och skriva data till Azure Event Hubs. Använd dessa API:er som en del av klustret, lägg till dem som bibliotek i Azure Databricks och koppla dem sedan till ditt Spark-kluster. Följande instruktioner visar hur du lägger till biblioteken i den **delade** mappen på din arbets yta.
 
-1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. Välj **skapa** > **bibliotek**på snabb menyn.
+1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. Välj **skapa**  >  **bibliotek**på snabb menyn.
 
    ![Dialog rutan Lägg till bibliotek](../media/tutorials/databricks-add-library-option.png "Dialog rutan Lägg till bibliotek")
 
@@ -155,7 +155,7 @@ I den här självstudien använder du [Azure Cognitive Services avvikelse igenk�
 
 2. Välj **+ Skapa en resurs**.
 
-3. Under Azure Marketplace väljer du **AI + Machine Learning** > **Se alla** > **Cognitive Services-mer** > **avvikelse detektor**. Eller så kan du använda [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) för att gå till dialog rutan **skapa** direkt.
+3. Under Azure Marketplace väljer du **AI + Machine Learning**  >  **Se alla**  >  **Cognitive Services-mer**  >  **avvikelse detektor**. Eller så kan du använda [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) för att gå till dialog rutan **skapa** direkt.
 
     ![Skapa avvikelse detektor resurs](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Skapa avvikelse detektor resurs")
 
@@ -165,7 +165,7 @@ I den här självstudien använder du [Azure Cognitive Services avvikelse igenk�
     |---------|---------|
     |Name     | Ett namn för avvikelse detektor resursen.        |
     |Prenumeration     | Den Azure-prenumeration som resursen ska associeras med.        |
-    |Plats     | En Azure-plats.        |
+    |Location     | En Azure-plats.        |
     |Prisnivå     | En pris nivå för tjänsten. Mer information om priser för avvikelse detektor finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
     |Resursgrupp     | Ange om du vill skapa en ny resursgrupp eller välja en befintlig.        |
 
@@ -300,6 +300,7 @@ pool.shutdown()
 
 Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment. Varje händelse i utdatan är en kombination av tidsstämpel och antal "gilla" s som matas in i Event Hubs.
 
+```output
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
     Sent event: {"timestamp":"2019-04-24T09:38:48.000Z","favorite":1}
@@ -318,6 +319,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdat
 
     ...
     ...
+```
 
 ## <a name="read-tweets-from-event-hubs"></a>Läs tweets från Event Hubs
 
@@ -423,16 +425,18 @@ object AnomalyDetector extends Serializable {
 
 Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment.
 
-    import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
-    import java.net.URL
-    import java.sql.Timestamp
-    import com.google.gson.{Gson, GsonBuilder, JsonParser}
-    import javax.net.ssl.HttpsURLConnection
-    defined class Point
-    defined class Series
-    defined class AnomalySingleResponse
-    defined class AnomalyBatchResponse
-    defined object AnomalyDetector
+```scala
+import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
+import java.net.URL
+import java.sql.Timestamp
+import com.google.gson.{Gson, GsonBuilder, JsonParser}
+import javax.net.ssl.HttpsURLConnection
+defined class Point
+defined class Series
+defined class AnomalySingleResponse
+defined class AnomalyBatchResponse
+defined object AnomalyDetector
+```
 
 Förbered sedan en agg regerings funktion för framtida användning.
 ```scala
@@ -495,11 +499,13 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
 
 Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment.
 
-    import org.apache.spark.sql.Row
-    import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
-    import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
-    import scala.collection.immutable.ListMap
-    defined class AnomalyDetectorAggregationFunction
+```scala
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
+import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
+import scala.collection.immutable.ListMap
+defined class AnomalyDetectorAggregationFunction
+```
 
 Läs sedan in data från händelsehubben för avvikelse identifiering. Ersätt plats hållaren med värden för Azure-Event Hubs som du skapade tidigare.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9135873b61abf5a5ebd0d9c4d7f52ae314ee12
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 8fef2d7e3afb0cdda3c3c3e2506b39ba542e0760
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84675682"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956893"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Akamai
 
@@ -87,7 +87,7 @@ Akamai EAA-programmet konfigureras separat på Azure AD-portalen. Administratör
 
 ![Integrations scenario 2](./media/header-akamai-tutorial/scenario2.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -102,7 +102,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 #### <a name="important"></a>Viktigt
 
-Alla inställningar som anges nedan är desamma för **integrerings scenario 1** och **Scenario 2**. För **integrations scenario 2** har du KONFIGURERAT enskilda IDP i Akamai-EAA och URL-egenskapen måste ändras så att den pekar på programmets URL.
+Alla inställningar som anges nedan är desamma för **integrerings scenario 1** och **Scenario 2**. För **integrerings scenario 2** måste du konfigurera enskilda IDP i Akamai-EAA och URL-egenskapen måste ändras så att den pekar på programmets URL.
 
 ![Viktigt](./media/header-akamai-tutorial/important.png)
 
@@ -170,7 +170,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

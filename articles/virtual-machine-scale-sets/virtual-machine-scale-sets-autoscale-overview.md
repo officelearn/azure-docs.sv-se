@@ -6,15 +6,15 @@ ms.author: avverma
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 05/29/2018
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 90777b8303f2d31168e489c8e2a7ca3a779a11e6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 11207dceb29c779c081c140ee8cd362d8a217acf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856752"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med VM-skalningsuppsättningar i Azure
 En skalnings uppsättning i en virtuell Azure-dator kan öka eller minska antalet virtuella dator instanser som kör ditt program automatiskt. Det här automatiserade och elastiska beteendet minskar hanterings omkostnaderna för att övervaka och optimera programmets prestanda. Du skapar regler som definierar acceptabla prestanda för en positiv kund upplevelse. När de definierade tröskelvärdena är uppfyllda vidtar autoskalning-regler åtgärder för att justera kapaciteten för din skalnings uppsättning. Du kan också schemalägga händelser för att automatiskt öka eller minska kapaciteten för skalnings uppsättningen vid fasta tidpunkter. Den här artikeln innehåller en översikt över vilka prestanda mått som är tillgängliga och vilka åtgärder som kan utföras i autoskalning.

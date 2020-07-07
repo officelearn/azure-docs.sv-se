@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85603357"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921937"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
 
@@ -32,7 +32,7 @@ Här är några av uppgifterna:
 > - Lägga till fästa poster
 > - Integrera anpassad sökning i en webbsida
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Om du vill hämta en nyckel [skapar du en anpassad sökning i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) i Azure Portal.
 - Om du inte redan har installerat Visual Studio 2017 eller senare kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/).
@@ -60,11 +60,11 @@ Så här skapar du en instans för anpassad sökning i Bing:
 
 Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du lägga till dem på fliken **Aktiv**.
 
-1.       På sidan **Konfiguration** klickar du på fliken **Aktiv** och anger webbadressen till en eller flera webbplatser som du vill inkludera i sökningen.
+1. På sidan **Konfiguration** klickar du på fliken **Aktiv** och anger webbadressen till en eller flera webbplatser som du vill inkludera i sökningen.
 
     ![Skärmbild av aktiv Definition Editor-flik](../media/customSrchEditor.png)
 
-2.       Ange en fråga för att bekräfta att din instans returnerar resultat i förhandsgranskningsfönstret till höger. Bing returnerar endast resultat för offentliga webbplatser som den har indexerat.
+2. Ange en fråga för att bekräfta att din instans returnerar resultat i förhandsgranskningsfönstret till höger. Bing returnerar endast resultat för offentliga webbplatser som den har indexerat.
 
 ## <a name="add-blocked-entries"></a>Lägga till blockerade poster
 

@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 2829f451b90a20c5ad399796b0485c6e533bbb23
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 28eb88a40139352b475851003a1092954a97ef64
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562290"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954323"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Guiden **Importera data** är ett Azure Portal verktyg som vägleder dig genom s
 
 Guiden innehåller också sidor för AI-berikning så att du kan extrahera text och struktur från bildfiler och ostrukturerad text. Innehålls bearbetning med AI inkluderar optisk tecken läsning (OCR), nyckel fras och enhets extrahering och bild analys.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha följande:
 
@@ -275,4 +275,4 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 Använd en portal guide för att skapa en färdig webb program som körs i en webbläsare. Du kan prova den här guiden på det lilla index som du nyss skapade, eller använda en av de inbyggda exempel data uppsättningarna för en rikare Sök upplevelse.
 
 > [!div class="nextstepaction"]
-> [Skapa en Sök-app i portalen](search-create-app-portal.md)
+> [Skapa en demo-app i portalen](search-create-app-portal.md)

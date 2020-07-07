@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80436921"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight
@@ -41,7 +41,7 @@ Ett av följande format kan användas för att komma åt data som lagras i Azure
 
 [Skalbarhets mål för standard lagrings konton](../../storage/common/scalability-targets-standard-account.md) visar de aktuella gränserna för Azure Storage-konton. Om programmets behov överskrider skalbarhets målen för ett enda lagrings konto kan programmet byggas för att använda flera lagrings konton och sedan partitionera data objekt över dessa lagrings konton.
 
-[Azure-lagringsanalys](../../storage/storage-analytics.md) tillhandahåller mått för alla lagrings tjänster och Azure Portal kan konfigureras samla in mått som ska visualiseras genom diagram. Aviseringar kan skapas för att meddela när tröskelvärden har nåtts för lagrings resurs mått.
+[Azure-lagringsanalys](../../storage/storage-analytics.md)   tillhandahåller mått för alla lagrings tjänster och Azure Portal kan konfigureras samla in mått som ska visualiseras genom diagram. Aviseringar kan skapas för att meddela när tröskelvärden har nåtts för lagrings resurs mått.
 
 Azure Storage erbjuder [mjuk borttagning för BLOB-objekt](../../storage/blobs/storage-blob-soft-delete.md) för att hjälpa till att återställa data när de av misstag har ändrats eller tagits bort av ett program eller en annan lagrings konto användare.
 
@@ -94,11 +94,11 @@ Azure Data Lake Storage Gen2 är det senaste lagrings erbjudandet. Den kombinera
 
 ADLS gen 2 bygger på [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) och gör att du kan konfigurera gränssnitt med data med hjälp av både fil systemet och objekt lagrings paradigm. Funktioner från [Azure Data Lake Storage gen1](../../data-lake-store/index.yml), till exempel semantiska fil system, säkerhet på filnivå och skala kombineras med låg kostnad, nivå lagring, hög tillgänglighet/haveri beredskap och ett stort eko system för SDK/verktyg från [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). I Data Lake Storage Gen2 bibehålls alla kvaliteter för objekt lagring samtidigt som du lägger till fördelarna med ett fil system gränssnitt som är optimerat för analys arbets belastningar.
 
-En grundläggande funktion i data Lake Storage Gen2 är att lägga till ett [hierarkiskt namn område](../../storage/data-lake-storage/namespace.md) till Blob Storage-tjänsten, som organiserar objekt/filer i en hierarki med kataloger för att utföra data åtkomst.Den hierarkiska strukturen aktiverar åtgärder som att byta namn på eller ta bort en katalog för att vara enkla atomiska metadata-åtgärder i katalogen i stället för att räkna upp och bearbeta alla objekt som delar namn prefixet för katalogen.
+En grundläggande funktion i Data Lake Storage Gen2 är att lägga till ett [hierarkiskt namn område](../../storage/data-lake-storage/namespace.md)   till Blob Storage-tjänsten, som organiserar objekt/filer i en hierarki med kataloger för att utföra data åtkomst.Den hierarkiska strukturen aktiverar åtgärder som att byta namn på eller ta bort en katalog för att vara enkla atomiska metadata-åtgärder i katalogen i stället för att räkna upp och bearbeta alla objekt som delar namn prefixet för katalogen.
 
 Tidigare var molnbaserad analys en kompromiss i områden med prestanda, hantering och säkerhet. De viktigaste funktionerna i Azure Data Lake Storage (ADLS) Gen2 är följande:
 
-- **Hadoop-kompatibel åtkomst**: Azure Data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS-drivrutinen](../../storage/data-lake-storage/abfs-driver.md) är tillgänglig i alla Apache Hadoop miljöer som ingår i [Azure HDInsight](../index.yml). Med den här driv rutinen kan du komma åt data som lagras i Data Lake Storage Gen2.
+- **Hadoop-kompatibel åtkomst**: Azure Data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS-drivrutinen](../../storage/data-lake-storage/abfs-driver.md)   är tillgänglig i alla Apache Hadoop miljöer som ingår i [Azure HDInsight](../index.yml). Med den här driv rutinen kan du komma åt data som lagras i Data Lake Storage Gen2.
 
 - **En supermängd av POSIX-behörigheter**: säkerhets modellen för data Lake Gen2 har fullt stöd för ACL-och POSIX-behörigheter tillsammans med viss detaljerad kornig het för data Lake Storage Gen2. Inställningarna kan konfigureras via administrations verktyg eller ramverk som Hive och Spark.
 
@@ -106,7 +106,7 @@ Tidigare var molnbaserad analys en kompromiss i områden med prestanda, hanterin
 
 - **Fungerar med Blob Storage-verktyg, ramverk och appar**: data Lake Storage Gen2 fortsätter att fungera med en bred uppsättning verktyg, ramverk och program som finns idag för Blob Storage.
 
-- **Optimerad driv rutin**: Azure Blob filesystem-drivrutinen (ABFS) är [optimerad](../../storage/data-lake-storage/abfs-driver.md) för stor data analys. Motsvarande REST-API: er är anslutna via DFS-slutpunkten dfs.core.windows.net.
+- **Optimerad driv rutin**: Azure Blob filesystem-drivrutinen (ABFS) är [optimerad](../../storage/data-lake-storage/abfs-driver.md)   för stor data analys. Motsvarande REST-API: er är anslutna via DFS-slutpunkten dfs.core.windows.net.
 
 Ett av följande format kan användas för att komma åt data som lagras i ADLS Gen2:
 - `abfs:///`: Åtkomst till standard Data Lake Storage för klustret.
@@ -128,7 +128,7 @@ Azure Storage nycklar som läggs till i Hadoop-konfigurationsfilerna och upprät
 hadoop credential create fs.azure.account.key.account.blob.core.windows.net -value <storage key> -provider jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks/file
 ```
 
-**Så här lägger du till sökvägen ovan till site. XML eller Ambari-konfigurationen under anpassad Core-site:**
+**Så här lägger du till sökvägen ovan till core-site.xml eller till Ambari-konfigurationen under anpassad Core-site:**
 
 ```xml
 <property>
@@ -141,7 +141,7 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 ```
 
 > [!Note]
-> Du kan också lägga till egenskapen för provider-sökvägen i Distcp-kommando raden i stället för att lagra nyckeln på kluster nivå på site. xml på följande sätt:
+> Du kan också lägga till egenskapen för provider-sökvägen i Distcp-kommando raden i stället för att lagra nyckeln på kluster nivå på core-site.xml enligt följande:
 
 ```bash
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
@@ -183,9 +183,9 @@ HDInsight har som standard fullständig åtkomst till data i de Azure Storage ko
 
 Det finns tre viktiga saker att komma ihåg om användningen av SAS-token i Azure:
 
-1. När SAS-token skapas med behörigheterna Läs + lista kommer användare som har åtkomst till BLOB-behållaren med den SAS-token inte att kunna skriva och ta bort data. Användare som har åtkomst till BLOB-behållaren med den SAS-token och försöker utföra en Skriv-eller borttagnings `"This request is not authorized to perform this operation"`åtgärd, kommer att få ett meddelande som.
+1. När SAS-token skapas med behörigheterna Läs + lista kommer användare som har åtkomst till BLOB-behållaren med den SAS-token inte att kunna skriva och ta bort data. Användare som har åtkomst till BLOB-behållaren med den SAS-token och försöker utföra en Skriv-eller borttagnings åtgärd, kommer att få ett meddelande som `"This request is not authorized to perform this operation"` .
 
-2. När SAS- `READ + LIST + WRITE` token genereras med behörigheter (begränsa `DELETE` endast), kommandon som `hadoop fs -put` första skrivning till en `\_COPYING\_` fil och försök sedan att byta namn på filen. Denna HDFS-åtgärd mappas `copy+delete` till en for WASB. Eftersom `DELETE` behörigheten inte angavs skulle "placering" att fungera. `\_COPYING\_` Åtgärden är en Hadoop-funktion som är avsedd att ge en viss samtidighets kontroll. För närvarande finns det inget sätt att begränsa bara åtgärden "ta bort" utan att även påverka "Skriv"-åtgärder.
+2. När SAS-token genereras med `READ + LIST + WRITE` behörigheter (begränsa `DELETE` endast), kommandon som `hadoop fs -put` första skrivning till en `\_COPYING\_` fil och försök sedan att byta namn på filen. Denna HDFS-åtgärd mappas till en `copy+delete` for WASB. Eftersom `DELETE` behörigheten inte angavs skulle "placering" att fungera. `\_COPYING\_`Åtgärden är en Hadoop-funktion som är avsedd att ge en viss samtidighets kontroll. För närvarande finns det inget sätt att begränsa bara åtgärden "ta bort" utan att även påverka "Skriv"-åtgärder.
 
 3. Tyvärr fungerar inte ShellDecryptionKeyProvider-providern (Hadoop Credential Provider och dekrypteringsnyckel) med SAS-token och så den för närvarande inte kan skyddas från synlighet.
 

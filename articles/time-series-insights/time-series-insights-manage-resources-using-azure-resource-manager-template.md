@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536326"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights resurser med Azure Resource Manager-mallar
@@ -64,8 +64,8 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
      | eventHubNamespaceName | Namn området för käll händelse navet. |
      | eventHubName | Namnet på käll händelse navet. |
      | consumerGroupName | Namnet på den konsument grupp som Time Series Insights tjänsten använder för att läsa data från händelsehubben. **Obs:** För att undvika resurs konkurrens måste den här konsument gruppen vara dedikerad till Time Series Insights tjänsten och inte delas med andra läsare. |
-     | environmentName | Namnet på miljön. Namnet får inte innehålla: `<`, `>` `%` `&` `:` `\\` `?`,,,,, `/`, och eventuella kontroll tecken. Alla andra tecken tillåts.|
-     | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla: `<`, `>` `%` `&` `:` `\\` `?`,,,,, `/`, och eventuella kontroll tecken. Alla andra tecken tillåts. |
+     | environmentName | Namnet på miljön. Namnet får inte innehålla:,,,,,, `<` `>` `%` `&` `:` `\\` `?` `/` , och eventuella kontroll tecken. Alla andra tecken tillåts.|
+     | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla:,,,,,, `<` `>` `%` `&` `:` `\\` `?` `/` , och eventuella kontroll tecken. Alla andra tecken tillåts. |
 
     <div id="optional-parameters"></div>
 
@@ -148,7 +148,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Skapa en ny resurs grupp om det inte finns någon.
 
-   * Om du inte har en befintlig resurs grupp skapar du en ny resurs grupp med kommandot **New-AzResourceGroup** . Ange namnet på den resurs grupp och plats som du vill använda. Ett exempel:
+   * Om du inte har en befintlig resurs grupp skapar du en ny resurs grupp med kommandot **New-AzResourceGroup** . Ange namnet på den resurs grupp och plats som du vill använda. Till exempel:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -166,7 +166,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Testa distributionen.
 
-   * Verifiera distributionen genom att `Test-AzResourceGroupDeployment` köra cmdleten. När du testar distributionen ska du ange parametrar exakt som du skulle göra när du utför distributionen.
+   * Verifiera distributionen genom att köra `Test-AzResourceGroupDeployment` cmdleten. När du testar distributionen ska du ange parametrar exakt som du skulle göra när du utför distributionen.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json

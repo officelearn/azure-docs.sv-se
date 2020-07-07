@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335745"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i Durable Functions-telefon verifierings exempel
@@ -40,16 +40,16 @@ Den här artikeln vägleder dig genom följande funktioner i exempel appen:
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>E4_SmsPhoneVerification Orchestrator-funktion
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Det kanske inte är uppenbart först, men den här Orchestrator-funktionen är helt deterministisk. Det är deterministiskt eftersom `CurrentUtcDateTime` egenskapen används för att beräkna timerns förfallo tid och returnerar samma värde vid varje uppspelning vid den här punkten i Orchestrator-koden. Detta är viktigt för att se till att samma `winner` resultat från varje upprepat anrop `Task.WhenAny`till.
+> Det kanske inte är uppenbart först, men den här Orchestrator-funktionen är helt deterministisk. Det är deterministiskt eftersom `CurrentUtcDateTime` egenskapen används för att beräkna timerns förfallo tid och returnerar samma värde vid varje uppspelning vid den här punkten i Orchestrator-koden. Detta är viktigt för att se till att samma `winner` resultat från varje upprepat anrop till `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Funktionen **E4_SmsPhoneVerification** använder standard *funktionen. JSON* för Orchestrator functions.
+Funktionen **E4_SmsPhoneVerification** använder standard *function.jspå* för Orchestrator-funktioner.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/function.json)]
 
@@ -58,7 +58,7 @@ Här är den kod som implementerar funktionen:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Det kanske inte är uppenbart först, men den här Orchestrator-funktionen är helt deterministisk. Det är deterministiskt eftersom `currentUtcDateTime` egenskapen används för att beräkna timerns förfallo tid och returnerar samma värde vid varje uppspelning vid den här punkten i Orchestrator-koden. Detta är viktigt för att se till att samma `winner` resultat från varje upprepat anrop `context.df.Task.any`till.
+> Det kanske inte är uppenbart först, men den här Orchestrator-funktionen är helt deterministisk. Det är deterministiskt eftersom `currentUtcDateTime` egenskapen används för att beräkna timerns förfallo tid och returnerar samma värde vid varje uppspelning vid den här punkten i Orchestrator-koden. Detta är viktigt för att se till att samma `winner` resultat från varje upprepat anrop till `context.df.Task.any` .
 
 ---
 
@@ -78,7 +78,7 @@ Användaren får ett SMS-meddelande med en fyrsiffrig kod. De har 90 sekunder p�
 
 Funktionen **E4_SendSmsChallenge** använder Twilio-bindningen för att skicka SMS-meddelandet med den fyrsiffriga koden till slutanvändaren.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
@@ -87,7 +87,7 @@ Funktionen **E4_SendSmsChallenge** använder Twilio-bindningen för att skicka S
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*Funktionen. JSON* definieras enligt följande:
+*function.jspå* definieras enligt följande:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
 
@@ -118,9 +118,9 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-Orchestrator-funktionen tar emot det angivna telefonnumret och skickar omedelbart ett SMS-meddelande med en slumpmässigt genererad kontroll kod &mdash; på 4 siffror till exempel *2168*. Funktionen väntar sedan 90 sekunder för ett svar.
+Orchestrator-funktionen tar emot det angivna telefonnumret och skickar omedelbart ett SMS-meddelande med en slumpmässigt genererad kontroll kod på 4 siffror till &mdash; exempel *2168*. Funktionen väntar sedan 90 sekunder för ett svar.
 
-Om du vill svara med koden kan du använda [ `RaiseEventAsync` (.net) eller `raiseEvent` (Java Script)](durable-functions-instance-management.md) i en annan funktion eller anropa **sendEventUrl** http post webhook som refereras i 202-svaret ovan `{eventName}` , som ersätter med namnet på händelsen `SmsChallengeResponse`:
+Om du vill svara med koden kan du använda [ `RaiseEventAsync` (.net) eller `raiseEvent` (Java Script)](durable-functions-instance-management.md) i en annan funktion eller anropa **sendEventUrl** http post webhook som refereras i 202-svaret ovan, som ersätter `{eventName}` med namnet på händelsen `SmsChallengeResponse` :
 
 ```
 POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -130,7 +130,7 @@ Content-Type: application/json
 2168
 ```
 
-Om du skickar detta innan timern upphör att gälla, slutförs dirigeringen och `output` fältet är inställt `true`på, vilket indikerar en lyckad verifiering.
+Om du skickar detta innan timern upphör att gälla, slutförs dirigeringen och `output` fältet är inställt på `true` , vilket indikerar en lyckad verifiering.
 
 ```
 GET http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -156,7 +156,7 @@ Content-Length: 145
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet har visat några av de avancerade funktionerna i Durable Functions, `WaitForExternalEvent` särskilt `CreateTimer` och API: er. Du har sett hur dessa kan kombineras med `Task.WaitAny` för att implementera ett tillförlitligt tids gräns system, vilket ofta är användbart för att interagera med riktiga personer. Du kan lära dig mer om hur du använder Durable Functions genom att läsa en serie artiklar som erbjuder djupgående täckning av specifika ämnen.
+Det här exemplet har visat några av de avancerade funktionerna i Durable Functions, särskilt `WaitForExternalEvent` och `CreateTimer` API: er. Du har sett hur dessa kan kombineras med `Task.WaitAny` för att implementera ett tillförlitligt tids gräns system, vilket ofta är användbart för att interagera med riktiga personer. Du kan lära dig mer om hur du använder Durable Functions genom att läsa en serie artiklar som erbjuder djupgående täckning av specifika ämnen.
 
 > [!div class="nextstepaction"]
 > [Gå till den första artikeln i serien](durable-functions-bindings.md)

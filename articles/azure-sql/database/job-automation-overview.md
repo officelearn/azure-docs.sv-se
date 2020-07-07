@@ -2,7 +2,8 @@
 title: Jobbautomation
 description: Använda jobb automatisering för att köra Transact-SQL-skript (T-SQL) i en uppsättning med en eller flera databaser
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
@@ -10,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b27eac1a8b5989734d3451bf21c5b13dd5cc0af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220568"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984667"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +55,8 @@ Det är värt att notera några skillnader mellan SQL-agenten (tillgängligt lok
 
 | |Elastiska jobb |SQL Agent |
 |---------|---------|---------|
-|Omfång | Valfritt antal databaser i Azure SQL Database och/eller informations lager i samma Azure-moln som jobb agenten. Mål kan vara på olika servrar, prenumerationer och/eller regioner. <br><br>Målgrupper kan bestå av enskilda databaser eller informationslagerdatabaser, eller alla databaser i en server, pool eller shardkarta (dynamiskt uppräknade vid jobbkörningen). | En enskild databas i samma instans som SQL-agenten. |
-|API:er och verktyg som stöds | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
+|**Omfång** | Valfritt antal databaser i Azure SQL Database och/eller informations lager i samma Azure-moln som jobb agenten. Mål kan vara på olika servrar, prenumerationer och/eller regioner. <br><br>Målgrupper kan bestå av enskilda databaser eller informationslagerdatabaser, eller alla databaser i en server, pool eller shardkarta (dynamiskt uppräknade vid jobbkörningen). | En enskild databas i samma instans som SQL-agenten. |
+|**API:er och verktyg som stöds** | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## <a name="sql-agent-jobs"></a>SQL Agent-jobb
 

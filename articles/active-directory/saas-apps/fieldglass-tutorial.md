@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975e345f4d11ba16b5a74c44645f110110ca8d43
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 05a5c405095a3c045a3bf1dd7c62486ffda73825
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607328"
+ms.locfileid: "85798974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Självstudie: Azure Active Directory integrering med Fieldglass
 
@@ -35,7 +35,7 @@ Integreringen av Fieldglass med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Fieldglass behöver du följande:
 
@@ -110,10 +110,10 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
     
-        ```https
-        https://www.fieldglass.net/<company name>
-        https://<company name>.fgvms.com/<company name>
-        ```
+    ```http
+    https://www.fieldglass.net/<company name>
+    https://<company name>.fgvms.com/<company name>
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [kundsupporten för Fieldglass](https://www.fieldglass.com/customer-support) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

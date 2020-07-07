@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73100163"
 ---
 # <a name="common-issues"></a>Vanliga problem
@@ -42,7 +42,7 @@ sudo docker logs eventgridmodule
 
 * Om dess modul-till-modul-kommunikation sker kontrollerar du att anropet görs på port **4438** och att namnet på modulen matchar vad som distribueras. 
 
-  Till exempel, om Event Grid modul har distribuerats med namnet **eventgridmodule** ska din URL vara **https://eventgridmodule:4438**. Kontrol lera att Skift läge och port nummer är korrekta.
+  Till exempel, om Event Grid modul har distribuerats med namnet **eventgridmodule** ska din URL vara **https://eventgridmodule:4438** . Kontrol lera att Skift läge och port nummer är korrekta.
     
 * Om det är från en modul som inte är IoT kontrollerar du att Event Grid porten är mappad till värddatorn under distributionen, till exempel
 
@@ -64,7 +64,7 @@ sudo docker logs eventgridmodule
 
 * Om dess modul-till-modul-kommunikation sker kontrollerar du att anropet görs på port **5888** och att namnet på modulen matchar vad som distribueras. 
 
-  Till exempel, om Event Grid modul har distribuerats med namnet **eventgridmodule** ska din URL vara **http://eventgridmodule:5888**. Kontrol lera att Skift läge och port nummer är korrekta.
+  Till exempel, om Event Grid modul har distribuerats med namnet **eventgridmodule** ska din URL vara **http://eventgridmodule:5888** . Kontrol lera att Skift läge och port nummer är korrekta.
     
 * Om det är från en modul som inte är IoT kontrollerar du att Event Grid porten är mappad till värddatorn under distributionen, till exempel
 
@@ -84,7 +84,7 @@ sudo docker logs eventgridmodule
 
 Som standard konfigureras Event Grid-modulen att autentisera klienter med certifikat som utfärdats av IoT Edge Security daemon. Kontrol lera att klienten presenterar ett certifikat som är kopplat till den här kedjan.
 
-**IoTSecurity** -klassen [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) i visar hur du hämtar certifikat från IoT Edge Security daemon och använder det för att konfigurera utgående samtal.
+**IoTSecurity** -klassen i [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) visar hur du hämtar certifikat från IoT Edge Security daemon och använder det för att konfigurera utgående samtal.
 
 Om den inte är en produktions miljö har du möjlighet att inaktivera klientautentisering. Information om hur du gör detta finns i [säkerhet och autentisering](security-authentication.md) .
 
@@ -108,4 +108,4 @@ Vanliga orsaker till detta är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Rapportera eventuella problem, förslag med att använda Event Grid på IoT Edge [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues)på.
+Rapportera eventuella problem, förslag med att använda Event Grid på IoT Edge på [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .

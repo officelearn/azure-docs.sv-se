@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80518174"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT Plug and Play för hands versioner, kvoter och begränsningar
@@ -22,14 +22,14 @@ I den här artikeln beskrivs de IoT-Plug and Play gränser, kvoter och begränsn
 
 För den allmänt tillgängliga för hands versionen gäller följande gränser och kvoter för en IoT-hubb:
 
-| Begränsningar, begränsningar och begränsning | Värde | Obs! |
+| Begränsningar, begränsningar och begränsning | Värde | Anteckningar |
 |-----|-----|-----|
 | Antalet enhets kapacitets modeller (DCMs) eller gränssnitt som kan registreras per hubb | 1500 ||
 | Maximalt antal gränssnitt som kan registreras per enhet | 40 ||
 | Maximalt antal DCMs som kan registreras per enhet | 1 ||
 | Maximal storlek för gränssnitt/DCM-fil | 512 kB ||
 | Maximal storlek för ett gränssnitts namn | 256 tecken ||
-| Maximal storlek för ett egenskaps namn  | 64 byte, 7 nivåer i djup (och den första nivån är reserverad för `$iotin`) | Tillåtna tecken: a-z, A-Z, 0-9 (inte som det första tecknet) och under streck. |
+| Maximal storlek för ett egenskaps namn  | 64 byte, 7 nivåer i djup (och den första nivån är reserverad för `$iotin` ) | Tillåtna tecken: a-z, A-Z, 0-9 (inte som det första tecknet) och under streck. |
 | Maximal storlek för ett egenskaps värde | 512 byte ||
 | Maximal storlek för kommando namn | 100 byte ||
 | Enhetens dubbla storlek | Samma som [IoT Hub gränser](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||

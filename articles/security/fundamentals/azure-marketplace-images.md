@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
 ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80548660"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Säkerhets rekommendationer för Azure Marketplace-avbildningar
@@ -41,9 +41,9 @@ Kör alltid en säkerhets sårbarhets identifiering på avbildningen innan du sk
 | Säkerhet                                                     | Ta med de senaste versionerna av de nödvändiga biblioteken: </br> -OpenSSL v 1.0 eller senare </br> – Python 2,5 eller senare (python 2.6 + är starkt rekommenderat) </br> – Python pyasn1-paket om det inte redan har installerats </br> -d. OpenSSL v 1,0 eller senare                                                                |
 | Säkerhet                                                     | Rensa poster i bash/shell-historik.                                                                                                                                                                                                                                             |
 | Nätverk                                                   | Inkludera SSH-servern som standard. Ange SSH Keep Alive till sshd-konfigurationen med följande alternativ: ClientAliveInterval 180.                                                                                                                                                        |
-| Nätverk                                                   | Ta bort eventuell anpassad nätverks konfiguration från avbildningen. Ta bort kommandot matcha. conf `rm /etc/resolv.conf`:.                                                                                                                                                                                |
-| Distribution                                                   | Installera den senaste Azure Linux-agenten.</br> – Installera med hjälp av RPM-eller deb-paketet.  </br> -Du kan också använda processen för manuell installation, men installations paketen rekommenderas och föredras. </br> – Om du installerar agenten manuellt från GitHub-lagringsplatsen kopierar du `waagent` först filen `/usr/sbin` till och kör (som rot): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Agent konfigurations filen placeras på `/etc/waagent.conf`. |
-| Distribution                                                   | Se till att Azure-supporten kan ge våra partners till gång till serie konsolens utdata vid behov och ange lämplig tids gräns för montering av OS-diskar från moln lagring Lägg till följande parametrar till avbildnings start raden för kernel `console=ttyS0 earlyprintk=ttyS0 rootdelay=300`:. |
+| Nätverk                                                   | Ta bort eventuell anpassad nätverks konfiguration från avbildningen. Ta bort kommandot matcha. conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
+| Distribution                                                   | Installera den senaste Azure Linux-agenten.</br> – Installera med hjälp av RPM-eller deb-paketet.  </br> -Du kan också använda processen för manuell installation, men installations paketen rekommenderas och föredras. </br> – Om du installerar agenten manuellt från GitHub-lagringsplatsen kopierar du först `waagent` filen till `/usr/sbin` och kör (som rot): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Agent konfigurations filen placeras på `/etc/waagent.conf` . |
+| Distribution                                                   | Se till att Azure-supporten kan ge våra partners till gång till serie konsolens utdata vid behov och ange lämplig tids gräns för montering av OS-diskar från moln lagring Lägg till följande parametrar till avbildnings start raden för kernel: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` . |
 | Distribution                                                   | Ingen växlings-partition på OS-disken. Du kan begära växling för att skapa en lokal resurs disk av Linux-agenten.         |
 | Distribution                                                   | Skapa en enda rotnod för OS-disken.      |
 | Distribution                                                   | endast 64-bitars operativ system.                                                                                                                                                                                                                                                          |

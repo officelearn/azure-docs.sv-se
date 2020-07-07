@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c07c518b4898f64e7ef726ec173c7e31083dae7d
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: df057ec236b32b1a7e7c0e2b089a6df88433e7ba
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605503"
+ms.locfileid: "85799181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Självstudie: Azure Active Directory integrering med itslearning
 
@@ -34,7 +34,7 @@ Genom att integrera itslearning med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med itslearning behöver du följande objekt:
 
@@ -107,10 +107,10 @@ Utför följande steg för att konfigurera enkel inloggning med itslearning i Az
 
     a. I rutan **Inloggnings-URL** anger du följande URL: 
     
-        ```https
-        https://www.itslearning.com/index.aspx
-        https://us1.itslearning.com/index.aspx
-        ```
+    ```http
+    https://www.itslearning.com/index.aspx
+    https://us1.itslearning.com/index.aspx
+    ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du URL:en: `urn:mace:saml2v2.no:services:com.itslearning`
 

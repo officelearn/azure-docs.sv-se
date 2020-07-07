@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233218"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Skapa en CI/CD-pipeline för GitHub-lagrings platsen med Azure DevOps starter
@@ -34,10 +34,10 @@ Du kommer att:
 > * Granska Azure Pipelines-CI/CD-pipelinen
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
-* Åtkomst till en GitHub eller extern git-lagrings platsen som innehåller .NET, Java, PHP, Node. js, python eller statisk webb kod.
+* Åtkomst till en GitHub eller extern git-lagrings platsen som innehåller .NET, Java, PHP, Node.js, python eller statisk webb kod.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

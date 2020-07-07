@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
 ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461675"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure App Service
@@ -41,7 +41,7 @@ Det spelar ingen roll om du förlorar dina prenumerations nycklar. Azure Key Vau
 ## <a name="restrict-incoming-source-ip-addresses"></a>Begränsa inkommande käll-IP-adresser
 [App Service miljöer](../../app-service/environment/intro.md) har en funktion för integrering av virtuella nätverk som hjälper dig att begränsa inkommande käll-IP-adresser via nätverks säkerhets grupper (NSG: er). Om du inte är bekant med Azure Virtual Networks (virtuella nätverk), är det här en funktion som gör att du kan placera många av dina Azure-resurser i ett nätverk som inte är Internet och som du styr åtkomsten till. Mer information finns i [integrera din app med en Azure-Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).
 
-För App Service i Windows kan du också begränsa IP-adresser dynamiskt genom att konfigurera Web. config. Mer information finns i [dynamisk IP-säkerhet](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+För App Service i Windows kan du också begränsa IP-adresser dynamiskt genom att konfigurera web.config. Mer information finns i [dynamisk IP-säkerhet](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582689"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Slut punkts fel för direkt uppspelning (ursprung) 
@@ -34,7 +34,7 @@ Begäran innehåller ogiltig information och avvisas av dessa felkoder och av n�
 |MPE_ENC_ENCRYPTION_NOT_SPECIFIED_IN_URL |0x8088024C|Begäran saknar en krypterings kod i URL: en. CMAF-begäranden kräver en krypterings tag i URL: en. Andra protokoll som har kon figurer ATS med fler än en krypterings typ kräver också krypterings tag gen för untvetydighet. |
 |MPE_STORAGE_BAD_URL_SYNTAX |0x808900E9|Begäran om lagrings utrymme för att uppfylla begäran misslyckades med ett felaktigt fel i begäran. |
 
-## <a name="403-forbidden"></a>403 förbud
+## <a name="403-forbidden"></a>403 – Förbjuden
 
 Begäran tillåts inte på grund av en av följande orsaker:
 
@@ -68,7 +68,7 @@ Begäran tillåts inte på grund av en av följande orsaker:
 
 ## <a name="409-conflict"></a>409 konflikt
 
-Det ID som angetts för en resurs på `PUT` en `POST` eller en åtgärd har gjorts av en befintlig resurs. Använd ett annat ID för resursen för att lösa det här problemet.
+Det ID som angetts för en resurs på en `PUT` eller en `POST` åtgärd har gjorts av en befintlig resurs. Använd ett annat ID för resursen för att lösa det här problemet.
 
 |Felkod|HEXADECIMALT värde |Felbeskrivning|
 |---|---|---|

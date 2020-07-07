@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81533997"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell moln miljö
@@ -34,7 +34,7 @@ Med det globala molnet distribueras Azure Active Directory (Azure AD) i följand
 
 Den här guiden visar hur du loggar in på arbets-och skol konton, hämtar en åtkomsttoken och anropar Microsoft Graph API i [Azure Government moln](https://azure.microsoft.com/global-infrastructure/government/) miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du uppfyller dessa krav.
 
@@ -66,7 +66,7 @@ Följande självstudier visar hur du skapar en .NET Core 2,2 MVC-webbapp. Appen 
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Så här aktiverar du ditt MSAL. js-program för suveräna moln:
+Så här aktiverar du MSAL.js program för suveräna moln:
 
 ### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 
@@ -101,7 +101,7 @@ Följ stegen i [guiden JavaScript-självstudie](tutorial-v2-javascript-spa.md#cr
 
 ### <a name="step-4-configure-your-javascript-spa"></a>Steg 4: Konfigurera ditt Java Script SPA
 
-Lägg till `index.html` program registrerings informationen i filen som skapades under projekt installationen. Lägg till följande kod högst upp i `<script></script>` taggarna i bröd texten i `index.html` filen:
+`index.html`Lägg till program registrerings informationen i filen som skapades under projekt installationen. Lägg till följande kod högst upp i `<script></script>` taggarna i bröd texten i `index.html` filen:
 
 ```javascript
 const msalConfig = {
@@ -125,7 +125,7 @@ I den koden:
 - `Enter_the_Application_Id_here`är **programmets (klient) ID-** värdet för det program som du har registrerat.
 - `Enter_the_Tenant_Info_Here`är inställt på något av följande alternativ:
     - Om ditt program har stöd **för konton i den här organisations katalogen**ersätter du värdet med klient-ID eller klient namn (till exempel contoso.Microsoft.com).
-    - Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet `organizations`med.
+    - Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet med `organizations` .
 
     För att hitta autentiserings slut punkter för alla nationella moln, se [Azure AD-autentiseringens slut punkter](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
@@ -184,7 +184,7 @@ Här är ett exempel på en diagram slut punkt med omfattningen:
 
 ## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
-MSAL för iOS och macOS kan användas för att hämta tokens i nationella moln, men det krävs ytterligare konfiguration när du skapar `MSALPublicClientApplication`.
+MSAL för iOS och macOS kan användas för att hämta tokens i nationella moln, men det krävs ytterligare konfiguration när du skapar `MSALPublicClientApplication` .
 
 Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här, amerikanska myndigheter) kan du skriva:
 
@@ -207,7 +207,7 @@ MSALPublicClientApplication *application =
 
 ## <a name="swift"></a>[Swift](#tab/swift)
 
-MSAL för iOS och macOS kan användas för att hämta tokens i nationella moln, men det krävs ytterligare konfiguration när du skapar `MSALPublicClientApplication`.
+MSAL för iOS och macOS kan användas för att hämta tokens i nationella moln, men det krävs ytterligare konfiguration när du skapar `MSALPublicClientApplication` .
 
 Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här, amerikanska myndigheter) kan du skriva:
 

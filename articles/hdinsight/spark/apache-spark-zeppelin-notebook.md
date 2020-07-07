@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 931114a56d774c506b0b33fe4f4fc39e564c06c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195102"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight
 
 HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.org/) -anteckningsböcker. Använd antecknings böckerna för att köra Apache Spark-jobb. I den här artikeln får du lära dig hur du använder Zeppelin Notebook i ett HDInsight-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* URI-schemat för klustrets primära lagring. Schemat är `wasb://` för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Blob Storage är URI: `wasbs://`n.  Mer information finns i [Kräv säker överföring i Azure Storage](../../storage/common/storage-require-secure-transfer.md) .
+* URI-schemat för klustrets primära lagring. Schemat är `wasb://` för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Blob Storage är URI: n `wasbs://` .  Mer information finns i [Kräv säker överföring i Azure Storage](../../storage/common/storage-require-secure-transfer.md) .
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Starta en Apache Zeppelin-anteckningsbok
 
@@ -33,7 +33,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
    >
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. Skapa en ny anteckningsbok. I fönstret sidhuvud navigerar du till **anteckningsbok** > **Skapa ny anteckning**.
+2. Skapa en ny anteckningsbok. I fönstret sidhuvud navigerar du till **anteckningsbok**  >  **Skapa ny anteckning**.
 
     ![Skapa en ny Zeppelin-anteckningsbok](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Skapa en ny Zeppelin-anteckningsbok")
 
@@ -43,7 +43,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
 
     ![Status för Zeppelin Notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Status för Zeppelin Notebook")
 
-4. Läs in exempeldata i en tillfällig tabell. När du skapar ett Spark-kluster i HDInsight kopieras exempel data filen `hvac.csv`till det associerade lagrings kontot under. `\HdiSamples\SensorSampleData\hvac`
+4. Läs in exempeldata i en tillfällig tabell. När du skapar ett Spark-kluster i HDInsight kopieras exempel data filen `hvac.csv` till det associerade lagrings kontot under `\HdiSamples\SensorSampleData\hvac` .
 
     I det tomma stycket som skapas som standard i den nya antecknings boken klistrar du in följande kodfragment.
 
@@ -93,7 +93,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
 
     ![Köra ett Spark SQL-uttryck med hjälp av notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Köra ett Spark SQL-uttryck med hjälp av notebook1")
 
-7. Du kan också köra Spark SQL-uttryck med variabler i frågan. Nästa fragment visar hur du definierar en variabel, `Temp`, i frågan med de möjliga värden som du vill fråga efter. Första gången du kör frågan fylls en listruta automatiskt med de värden som du har angett för variabeln.
+7. Du kan också köra Spark SQL-uttryck med variabler i frågan. Nästa fragment visar hur du definierar en variabel, `Temp` , i frågan med de möjliga värden som du vill fråga efter. Första gången du kör frågan fylls en listruta automatiskt med de värden som du har angett för variabeln.
 
     ```sql
     %sql  
@@ -125,7 +125,7 @@ I den här artikeln får du se hur du använder [Spark-CSV-](https://search.mave
 
     ![Ändra tolknings settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Ändra tolknings settings1")
 
-3. Navigera till nyckel `livy.spark.jars.packages`och ange dess värde i formatet `group:id:version`. Så om du vill använda [Spark-CSV-](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paketet måste du ange värdet för nyckeln till `com.databricks:spark-csv_2.10:1.4.0`.
+3. Navigera till nyckel `livy.spark.jars.packages` och ange dess värde i formatet `group:id:version` . Så om du vill använda [Spark-CSV-](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paketet måste du ange värdet för nyckeln till `com.databricks:spark-csv_2.10:1.4.0` .
 
     ![Ändra tolknings settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Ändra tolknings settings2")
 
@@ -153,9 +153,9 @@ Den här åtgärden sparar antecknings boken som en JSON-fil på nedladdnings pl
 
 ## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Använd `Shiro` för att konfigurera åtkomst till Zeppelin-tolkar i Enterprise Security Package-kluster (ESP)
 
-Som anges ovan stöds inte `%sh` tolken från HDInsight 4,0 och senare. Eftersom `%sh` tolkaren ger upphov till potentiella säkerhets problem, t. ex. åtkomst till flikar med Shell-kommandon, har den tagits bort från HDInsight 3,6 ESP-kluster också. Det innebär `%sh` att tolken inte är tillgänglig när du klickar på **Skapa ny anteckning** eller i tolknings gränssnittet som standard.
+Som anges ovan `%sh` stöds inte tolken från HDInsight 4,0 och senare. Eftersom `%sh` tolkaren ger upphov till potentiella säkerhets problem, t. ex. åtkomst till flikar med Shell-kommandon, har den tagits bort från HDInsight 3,6 ESP-kluster också. Det innebär `%sh` att tolken inte är tillgänglig när du klickar på **Skapa ny anteckning** eller i tolknings gränssnittet som standard.
 
-Privilegierade domän användare kan använda `Shiro.ini` filen för att kontrol lera åtkomsten till tolknings gränssnittet. Endast dessa användare kan skapa nya `%sh` tolkar och ange behörigheter för varje ny `%sh` tolk. Använd följande steg för att `shiro.ini` kontrol lera åtkomsten med hjälp av filen:
+Privilegierade domän användare kan använda `Shiro.ini` filen för att kontrol lera åtkomsten till tolknings gränssnittet. Endast dessa användare kan skapa nya `%sh` tolkar och ange behörigheter för varje ny `%sh` tolk. Använd följande steg för att kontrol lera åtkomsten med hjälp av `shiro.ini` filen:
 
 1. Definiera en ny roll med hjälp av ett befintligt domän grupp namn. I följande exempel `adminGroupName` är en grupp privilegierade användare i AAD. Använd inte specialtecken eller blank steg i grupp namnet. Tecknen efter `=` ger behörighet för den här rollen. `*`innebär att gruppen har fullständig behörighet.
 
@@ -164,7 +164,7 @@ Privilegierade domän användare kan använda `Shiro.ini` filen för att kontrol
     adminGroupName = *
     ```
 
-2. Lägg till den nya rollen för åtkomst till Zeppelin-tolkar. I följande exempel får alla användare i `adminGroupName` åtkomst till Zeppelin-tolkar och kan skapa nya tolkar. Du kan infoga flera roller mellan hakparenteserna i `roles[]`, avgränsade med kommatecken. Användare som har nödvändig behörighet kan komma åt Zeppelin-tolkar.
+2. Lägg till den nya rollen för åtkomst till Zeppelin-tolkar. I följande exempel får alla användare i `adminGroupName` åtkomst till Zeppelin-tolkar och kan skapa nya tolkar. Du kan infoga flera roller mellan hakparenteserna i `roles[]` , avgränsade med kommatecken. Användare som har nödvändig behörighet kan komma åt Zeppelin-tolkar.
 
     ```
     [urls]
@@ -191,9 +191,9 @@ I sådana fall måste du utföra följande steg innan du kan börja köra jobb f
 
 ### <a name="validate-service"></a>Verifiera tjänst
 
-Om du vill validera tjänsten från Ambari navigerar `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` du till där kluster namn är namnet på klustret.
+Om du vill validera tjänsten från Ambari navigerar du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` där kluster namn är namnet på klustret.
 
-För att verifiera tjänsten från en kommando rad, SSH till Head-noden. Växla användare till Zeppelin med kommandot `sudo su zeppelin`. Status kommandon:
+För att verifiera tjänsten från en kommando rad, SSH till Head-noden. Växla användare till Zeppelin med kommandot `sudo su zeppelin` . Status kommandon:
 
 |Kommando |Beskrivning |
 |---|---|
@@ -207,18 +207,18 @@ För att verifiera tjänsten från en kommando rad, SSH till Head-noden. Växla 
 |---|---|
 |Zeppelin-Server|/usr/hdp/current/zeppelin-server/|
 |Serverloggar|/var/log/zeppelin|
-|Konfigurations tolk, `Shiro`, site. XML, log4j|/usr/HDP/Current/Zeppelin-Server/conf eller/etc/Zeppelin/conf|
+|Konfigurations tolk, `Shiro` site.xml, log4j|/usr/HDP/Current/Zeppelin-Server/conf eller/etc/Zeppelin/conf|
 |PID-katalog|/var/run/zeppelin|
 
 ### <a name="enable-debug-logging"></a>Aktivera fel söknings loggning
 
 1. Navigera till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` där kluster namn är namnet på klustret.
 
-1. Navigera till **config** > **Advanced Zeppelin-log4j-Properties** > **log4j_properties_content**.
+1. Navigera till **config**  >  **Advanced Zeppelin-log4j-Properties**  >  **log4j_properties_content**.
 
-1. Ändra `log4j.appender.dailyfile.Threshold = INFO` till `log4j.appender.dailyfile.Threshold = DEBUG`.
+1. Ändra `log4j.appender.dailyfile.Threshold = INFO` till `log4j.appender.dailyfile.Threshold = DEBUG` .
 
-1. Lägg `log4j.logger.org.apache.zeppelin.realm=DEBUG`till.
+1. Lägg till `log4j.logger.org.apache.zeppelin.realm=DEBUG` .
 
 1. Spara ändringar och starta om tjänsten.
 

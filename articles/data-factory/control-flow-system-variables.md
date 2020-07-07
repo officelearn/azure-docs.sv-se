@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.openlocfilehash: 2690ded0ac45719cb1082c85ab535c91ad491172
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417971"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systemvariabler som stöds av Azure Data Factory
@@ -41,8 +41,8 @@ Dessa systemvariabler kan refereras var som helst i utlösaren JSON om utlösare
 
 | Variabelnamn | Beskrivning |
 | --- | --- |
-| @trigger().scheduledTime |Tid när utlösaren schemalades för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut skulle den här variabeln `2017-06-01T22:20:00Z`till `2017-06-01T22:25:00Z`exempel `2017-06-01T22:30:00Z` returneras.|
-| @trigger(). StartTime |Tid när utlösaren **faktiskt** startade för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut kan den här variabeln till exempel returnera `2017-06-01T22:20:00.4061448Z`något `2017-06-01T22:25:00.7958577Z`som `2017-06-01T22:30:00.9935483Z` liknar detta. (Obs: tidsstämpeln är som standard i ISO 8601-format)|
+| @trigger().scheduledTime |Tid när utlösaren schemalades för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut skulle den här variabeln till exempel returneras `2017-06-01T22:20:00Z` `2017-06-01T22:25:00Z` `2017-06-01T22:30:00Z` .|
+| @trigger(). StartTime |Tid när utlösaren **faktiskt** startade för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut kan den här variabeln till exempel returnera något som liknar detta `2017-06-01T22:20:00.4061448Z` `2017-06-01T22:25:00.7958577Z` `2017-06-01T22:30:00.9935483Z` . (Obs: tidsstämpeln är som standard i ISO 8601-format)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Utlösare för rullande fönster
 Dessa systemvariabler kan refereras var som helst i utlösaren JSON om utlösaren är av typen: "TumblingWindowTrigger".

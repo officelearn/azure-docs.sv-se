@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212201"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich push
@@ -105,7 +105,7 @@ På hög nivå:
    > [!NOTE]
    > valfritt Se [hur du kan bädda in och få åtkomst till resurser med hjälp av Visual C#](https://support.microsoft.com/kb/319292) för mer information om hur du lägger till och hämtar projekt resurser.
 
-7. I `NotificationsController.cs`omdefinierar du NotificationsController med följande kodfragment. Detta skickar ett inledande tyst meddelande-ID till enheten och gör det möjligt att hämta avbildningen på klient sidan:
+7. I `NotificationsController.cs` omdefinierar du NotificationsController med följande kodfragment. Detta skickar ett inledande tyst meddelande-ID till enheten och gör det möjligt att hämta avbildningen på klient sidan:
 
     ```csharp
     // Return http response with image binary
@@ -147,7 +147,7 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
 2. Klicka på **funktioner**, aktivera **bakgrunds lägen**och markera kryss rutan **fjärraviseringar** .
 
     ![][IOS3]
-3. Öppna `Main.storyboard`och kontrol lera att du har en Visa kontrollant (kallas start visare i den här självstudien) från guiden [meddela användaren](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+3. Öppna `Main.storyboard` och kontrol lera att du har en Visa kontrollant (kallas start visare i den här självstudien) från guiden [meddela användaren](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
 4. Lägg till en **navigerings kontroll** på din storyboard och kontrol lera att du använder den för att **dra den till** en trädvy. Kontrol lera att den **initiala View-kontrollanten** i attribut kontroll bara är markerad för navigerings kontroll enheten.
 5. Lägg till en **View-kontrollant** i storyboard och Lägg till en **bildvy**. Det här är sidan användare ser när de väljer att lära sig mer genom att klicka på meddelandet. Din storyboard bör se ut så här:
 
@@ -161,13 +161,13 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;
     @property (strong) UIImage* imagePayload;
     ```
-10. I `imageViewController.m`lägger du till följande i slutet av `viewDidload`:
+10. I `imageViewController.m` lägger du till följande i slutet av `viewDidload` :
 
     ```objc
     // Display the UI Image in UI Image View
     [self.myImage setImage:self.imagePayload];
     ```
-11. I `AppDelegate.m`importerar du den avbildnings styrenhet som du skapade:
+11. I `AppDelegate.m` importerar du den avbildnings styrenhet som du skapade:
 
     ```objc
     #import "imageViewController.h"
@@ -189,7 +189,7 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
 
     @end
     ```
-13. I `AppDelegate`kontrollerar du att din App registrerar sig för meddelanden om `application: didFinishLaunchingWithOptions`tyst meddelande i:
+13. I `AppDelegate` kontrollerar du att din App registrerar sig för meddelanden om tyst meddelande i `application: didFinishLaunchingWithOptions` :
 
     ```objc
     // Software version
@@ -233,7 +233,7 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
     return YES;
     ```
 
-14. Ersätt följande implementering för `application:didRegisterForRemoteNotificationsWithDeviceToken` att ta ändringar i STORYBOARD-gränssnittet i kontot:
+14. Ersätt följande implementering för `application:didRegisterForRemoteNotificationsWithDeviceToken` att ta ändringar i storyboard-gränssnittet i kontot:
 
     ```objc
     // Access navigation controller which is at the root of window

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478284"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurera katastrof återställning för ett IIS-baserat webb program med flera nivåer
@@ -26,7 +26,7 @@ En felfri lösning för haveri beredskap stöder modellerings återställnings p
 
 Den här artikeln beskriver hur du skyddar ett webb program som baseras på Internet Information Services (IIS) med hjälp av [Azure Site Recovery](site-recovery-overview.md). Artikeln beskriver metod tips för att replikera ett IIS-baserat webb program med tre nivåer till Azure, hur du gör en haveri beredskap och hur du växlar över programmet till Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att du vet hur du gör följande uppgifter:
 
@@ -63,13 +63,13 @@ Scenario | Till en sekundär plats | Till Azure
 Hyper-V | Ja | Ja
 VMware | Ja | Ja
 Fysisk server | Nej | Ja
-Azure|Ej tillämpligt|Ja
+Azure|NA|Ja
 
 ## <a name="replicate-virtual-machines"></a>Replikera virtuella datorer
 
 Om du vill starta replikeringen av alla virtuella IIS-webbservergrupper till Azure, följer du anvisningarna i [testa redundans till Azure i Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Om du använder en statisk IP-adress kan du ange den IP-adress som du vill att den virtuella datorn ska ta. Ange IP-adressen genom att gå till**mål-IP**för **beräknings-och nätverks inställningar** > .
+Om du använder en statisk IP-adress kan du ange den IP-adress som du vill att den virtuella datorn ska ta. Ange IP-adressen genom att gå till mål-IP för **beräknings-och nätverks inställningar**  >  **TARGET IP**.
 
 ![Skärm bild som visar hur du ställer in mål-IP i fönstret Site Recovery beräkning och nätverk](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -97,7 +97,7 @@ För att IIS-webbgruppen ska fungera korrekt kan du behöva utföra några åtg�
 #### <a name="dns-update"></a>DNS-uppdatering
 Om DNS har kon figurer ATS för dynamisk DNS-uppdatering, uppdaterar virtuella datorer vanligt vis DNS med den nya IP-adressen när de startar. Om du vill lägga till ett explicit steg för att uppdatera DNS med de nya IP-adresserna för de virtuella datorerna lägger du till ett [skript för att uppdatera IP-adresser i DNS](https://aka.ms/asr-dns-update) som en åtgärd efter redundansväxlingen i återställnings Plans grupper.  
 
-#### <a name="connection-string-in-an-applications-webconfig"></a>Anslutnings sträng i ett programs Web. config
+#### <a name="connection-string-in-an-applications-webconfig"></a>Anslutnings sträng i ett programs web.config
 Anslutnings strängen anger den databas som webbplatsen kommunicerar med. Om anslutnings strängen innehåller namnet på den virtuella databas datorn behövs inga ytterligare steg efter redundansväxlingen. Programmet kan kommunicera automatiskt med-databasen. Om IP-adressen för den virtuella databas datorn bevaras, behöver den inte heller uppdatera anslutnings strängen. 
 
 Om anslutnings strängen refererar till den virtuella databas datorn genom att använda en IP-adress måste den uppdateras efter redundansväxlingen. Följande anslutnings sträng pekar till exempel på databasen med IP-127.0.1.2:

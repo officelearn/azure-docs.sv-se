@@ -8,10 +8,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80545955"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utför Azure Table Storage-åtgärder med Azure PowerShell 
@@ -31,10 +31,10 @@ Den här instruktions artikeln beskriver vanliga åtgärder för Azure Table Sto
 
 Den här instruktions artikeln visar hur du skapar ett nytt Azure Storage konto i en ny resurs grupp så att du enkelt kan ta bort det när du är klar. Om du hellre vill använda ett befintligt lagrings konto kan du göra det i stället.
 
-I exemplen krävs AZ PowerShell `Az.Storage (1.1.0 or greater)` - `Az.Resources (1.2.0 or greater)`moduler och. Kör `Get-Module -ListAvailable Az*` för att hitta versionen i ett PowerShell-fönster. Om inget visas, eller om du behöver uppgradera, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps).
+I exemplen krävs AZ PowerShell-moduler `Az.Storage (1.1.0 or greater)` och `Az.Resources (1.2.0 or greater)` . Kör för att hitta versionen i ett PowerShell-fönster `Get-Module -ListAvailable Az*` . Om inget visas, eller om du behöver uppgradera, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Om du använder den här Azure-funktionen från PowerShell måste `Az` du ha installerat modulen. Den aktuella versionen av `AzTable` är inte kompatibel med den äldre AzureRM-modulen.
+> Om du använder den här Azure-funktionen från PowerShell måste du ha `Az` installerat modulen. Den aktuella versionen av `AzTable` är inte kompatibel med den äldre AzureRM-modulen.
 > Följ de [senaste installations anvisningarna för att installera AZ-modulen](/powershell/azure/install-az-ps) om det behövs.
 
 När Azure PowerShell har installerats eller uppdaterats måste du installera module **AzTable**, som har kommandon för att hantera entiteterna. Om du vill installera den här modulen kör du PowerShell som administratör och använder kommandot **install-module** .
@@ -91,7 +91,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>Skapa en ny tabell
 
-Använd cmdleten [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) för att skapa en tabell. I det här exemplet kallas `pshtesttable`tabellen.
+Använd cmdleten [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) för att skapa en tabell. I det här exemplet kallas tabellen `pshtesttable` .
 
 ```powershell
 $tableName = "pshtesttable"

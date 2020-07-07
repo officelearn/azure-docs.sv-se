@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: dsindona
 ms.openlocfilehash: 0952c1d4b6955ff20f06afc6eaded18fbd105708
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80387809"
 ---
 # <a name="build-your-landing-page"></a>Bygg din landnings sida
@@ -26,7 +26,7 @@ Du kan referera till landnings sidan över flera marknadsförings taktiker. Du k
 *   Händelser
 *   Webbsändningar
 *   Sociala medier
-*   White paper-faktablad
+*   Rapporter
 *   Tekniska utbildningar
 *   Pressmeddelanden
 

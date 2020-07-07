@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232316"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
@@ -31,7 +31,7 @@ Privileged Identity Management (PIM) kan du se när viktiga händelser inträffa
 
 E-postmeddelanden som skickas från Privileged Identity Management för både Azure AD och Azures resurs roller har följande avsändar-e-post adress:
 
-- E-post adress: **Azure-\@noreply Microsoft.com**
+- E-post adress: **Azure-noreply \@ Microsoft.com**
 - Visnings namn: Microsoft Azure
 
 Dessa e-postmeddelanden innehåller ett **PIM** -prefix på ämnes raden. Här är ett exempel:

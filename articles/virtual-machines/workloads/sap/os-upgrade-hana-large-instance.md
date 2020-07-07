@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192424"
 ---
 # <a name="operating-system-upgrade"></a>Uppgradering av operativ system
@@ -96,7 +96,7 @@ SAP på Azure HANA stora instanser (typ I) kan vara i ett icke startbart tillst�
 
 *   Kör `multipath -ll` kommando.
 *   Hämta det LUN-ID vars storlek är ungefär 50G eller Använd kommandot:`fdisk -l | grep mapper`
-*   Uppdatera `/etc/default/grub_installdevice` filen med rad `/dev/mapper/<LUN ID>`. Exempel:/dev/mapper/3600a09803830372f483f495242534a56
+*   Uppdatera `/etc/default/grub_installdevice` filen med rad `/dev/mapper/<LUN ID>` . Exempel:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >LUN-ID varierar från server till server.
 
@@ -119,7 +119,7 @@ En omstart krävs för att göra ändringar på plats. Kör `lsmod` kommandot oc
 
 
 ### <a name="kernel-parameters"></a>Kernel-parametrar
-   Kontrol lera att rätt inställning för `transparent_hugepage`, `numa_balancing`, `processor.max_cstate` `ignore_ce` och `intel_idle.max_cstate` tillämpas.
+   Kontrol lera att rätt inställning för `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` och `intel_idle.max_cstate` tillämpas.
 
 * intel_idle. max_cstate = 1
 * processor. max_cstate = 1

@@ -7,10 +7,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71315849"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Metod tips för att hantera U-SQL-sammansättningar i en CI/CD-pipeline
@@ -30,12 +30,12 @@ Använd följande om du vill hantera C#-sammansättningens käll kod och DDL-skr
 Ett U-SQL Database-projekt kan referera till ett klass bibliotek (för U-SQL Application)-projekt. Du kan skapa sammansättningar som registrerats i U-SQL-databasen med refererad C#-källkod från det här klass biblioteket (för U-SQL Application)-projekt.
 
 Följ dessa steg om du vill skapa projekt och lägga till referenser.
-1. Skapa ett klass bibliotek (för U-SQL Application)-projekt genom att välja **Arkiv** > **nytt** > **projekt**. Projektet finns under **Azure Data Lake > U-SQL** -noden.
+1. Skapa ett klass bibliotek (för U-SQL Application)-projekt genom att välja **Arkiv**  >  **nytt**  >  **projekt**. Projektet finns under **Azure Data Lake > U-SQL** -noden.
 
    ![Data Lake verktyg för Visual Studio – skapa C#-klass biblioteks projekt](./media/data-lake-analytics-cicd-manage-assemblies/create-c-sharp-class-library-project.png)
 1. Lägg till din användardefinierade C#-kod i klass biblioteket (för U-SQL Application)-projektet.
 
-1. Skapa ett U-SQL-projekt genom att välja **Arkiv** > **nytt** > **projekt**. Projektet finns under **Azure Data Lake** > **U-SQL-** noden.
+1. Skapa ett U-SQL-projekt genom att välja **Arkiv**  >  **nytt**  >  **projekt**. Projektet finns under **Azure Data Lake**  >  **U-SQL-** noden.
 
    ![Data Lake verktyg för Visual Studio – skapa U-SQL Database-projekt](media/data-lake-analytics-cicd-manage-assemblies/create-u-sql-database-project.png)
 1. Lägg till en referens i C#-klass biblioteks projektet för U-SQL Database-projektet.
@@ -54,19 +54,19 @@ Följ dessa steg om du vill skapa projekt och lägga till referenser.
 
 7. Lägg till **hanterade beroenden** och **Ytterligare filer**, om det finns några. När du lägger till ytterligare filer använder verktyget den relativa sökvägen för att kontrol lera att det går att hitta sammansättningarna på den lokala datorn och på Build-datorn senare.
 
-_DeployTempDirectory i redigerings fönstret längst ned är en fördefinierad variabel som pekar på verktyget för mappen för att bygga utdata. ** \@** Under mappen för att bygga utdata har varje sammansättning en undermapp med namnet med sammansättnings namnet. Alla DLL-filer och ytterligare filer finns i undermappen.
+** \@ _DeployTempDirectory** i redigerings fönstret längst ned är en fördefinierad variabel som pekar på verktyget för mappen för att bygga utdata. Under mappen för att bygga utdata har varje sammansättning en undermapp med namnet med sammansättnings namnet. Alla DLL-filer och ytterligare filer finns i undermappen.
 
 ## <a name="build-a-u-sql-database-project"></a>Bygg ett U-SQL Database-projekt
 
-Build-utdata för ett U-SQL Database-projekt är ett U-SQL-databasens distributions paket. Den har namnet med suffixet `.usqldbpack`. `.usqldbpack` Paketet är en. zip-fil som innehåller alla DDL-instruktioner i ett enda U-SQL-skript i DDL-mappen. Alla inbyggda DLL-filer och ytterligare filer för sammansättningar finns i Temp-mappen.
+Build-utdata för ett U-SQL Database-projekt är ett U-SQL-databasens distributions paket. Den har namnet med suffixet `.usqldbpack` . `.usqldbpack`Paketet är en. zip-fil som innehåller alla DDL-instruktioner i ett enda U-SQL-skript i DDL-mappen. Alla inbyggda DLL-filer och ytterligare filer för sammansättningar finns i Temp-mappen.
 
 ## <a name="deploy-a-u-sql-database"></a>Distribuera en U-SQL-databas
 
-`.usqldbpack` Paketet kan distribueras till antingen ett lokalt konto eller ett Azure Data Lake Analytics-konto. Använd Visual Studio eller SDK för distribution. 
+`.usqldbpack`Paketet kan distribueras till antingen ett lokalt konto eller ett Azure Data Lake Analytics-konto. Använd Visual Studio eller SDK för distribution. 
 
 ### <a name="deploy-a-u-sql-database-in-visual-studio"></a>Distribuera en U-SQL-databas i Visual Studio
 
-Du kan distribuera en U-SQL-databas med ett U-SQL Database-projekt eller `.usqldbpack` ett paket i Visual Studio.
+Du kan distribuera en U-SQL-databas med ett U-SQL Database-projekt eller ett `.usqldbpack` paket i Visual Studio.
 
 #### <a name="deploy-by-using-a-u-sql-database-project"></a>Distribuera med hjälp av ett U-SQL Database-projekt
 
@@ -82,7 +82,7 @@ Du kan distribuera en U-SQL-databas med ett U-SQL Database-projekt eller `.usqld
 
 ### <a name="deploy-a-u-sql-database-in-azure-devops"></a>Distribuera en U-SQL-databas i Azure DevOps
 
-`PackageDeploymentTool.exe`tillhandahåller programmerings-och kommando rads gränssnitt som hjälper till att distribuera U-SQL-databaser. SDK ingår i [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)som finns på `build/runtime/PackageDeploymentTool.exe`.
+`PackageDeploymentTool.exe`tillhandahåller programmerings-och kommando rads gränssnitt som hjälper till att distribuera U-SQL-databaser. SDK ingår i [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)som finns på `build/runtime/PackageDeploymentTool.exe` .
 
 I Azure DevOps kan du använda en kommando rad uppgift och denna SDK för att konfigurera en automatiserings pipeline för U-SQL Database-uppdateringen. [Lär dig mer om SDK och hur du konfigurerar en CI/CD-pipeline för distribution av U-SQL-databasen](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-pipelines).
 

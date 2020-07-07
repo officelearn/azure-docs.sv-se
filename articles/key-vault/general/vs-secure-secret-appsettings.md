@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
 ms.openlocfilehash: bcacd5d2ed9e325383ec7ae75002ae0a6213111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429764"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Spara hemliga program inställningar för ett webb program på ett säkert sätt
@@ -22,7 +22,7 @@ ms.locfileid: "81429764"
 ## <a name="overview"></a>Översikt
 Den här artikeln beskriver hur du säkert sparar konfigurations inställningar för hemliga program för Azure-program.
 
-Traditionellt har alla konfigurations inställningar för webb program sparats i konfigurationsfiler, till exempel Web. config. Den här övningen leder till att kontrol lera hemliga inställningar som till exempel moln uppgifter för offentliga käll kontrolls system, t. ex. GitHub. Under tiden kan det vara svårt att följa säkerhets praxis på grund av den omkostnader som krävs för att ändra käll koden och konfigurera om utvecklings inställningarna.
+Traditionellt har alla konfigurations inställningar för webb program sparats i konfigurationsfiler som Web.config. Den här övningen leder till att kontrol lera hemliga inställningar som till exempel moln uppgifter för offentliga käll kontrolls system, t. ex. GitHub. Under tiden kan det vara svårt att följa säkerhets praxis på grund av den omkostnader som krävs för att ändra käll koden och konfigurera om utvecklings inställningarna.
 
 För att säkerställa att utvecklings processen är säker skapas verktygs-och Ramverks bibliotek för att spara inställningar för program hemlighet på ett säkert sätt med minimal eller ingen käll kods ändring.
 
@@ -87,7 +87,7 @@ Om du redan har skapat din webbapp ger du webbappen åtkomst till den Key Vault 
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Lägg till din Key Vault-URL i launchsettings. JSON-filen. Miljö variabel namnet *KEYVAULT_ENDPOINT* definieras i den kod som du lade till i steg 6.
+6. Lägg till din Key Vault-URL i launchsettings.jspå filen. Miljö variabel namnet *KEYVAULT_ENDPOINT* definieras i den kod som du lade till i steg 6.
 
     ![Lägg till Key Vault URL som en projekt miljö variabel](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
@@ -117,7 +117,7 @@ Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du ti
     </root>
     ```
 
-3. Definiera den hemliga filen som en konfigurations byggare i din Web. config-fil. Lägg till det här avsnittet i avsnittet *appSettings* .
+3. Definiera den hemliga filen som konfigurations verktyg i Web.configs filen. Lägg till det här avsnittet i avsnittet *appSettings* .
 
     ```xml
     <configBuilders>
@@ -151,7 +151,7 @@ Följ anvisningarna från avsnittet ASP.NET Core om du vill konfigurera ett Key 
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. Definiera Key Vault Configuration Builder i Web. config. Lägg till det här avsnittet i avsnittet *appSettings* . Ersätt *vaultName* till Key Vault namnet om Key Vault finns i en offentlig Azure-eller fullständig URI om du använder det suveräna molnet.
+2. Definiera Key Vault Configuration Builder i Web.config. Lägg till det här avsnittet i avsnittet *appSettings* . Ersätt *vaultName* till Key Vault namnet om Key Vault finns i en offentlig Azure-eller fullständig URI om du använder det suveräna molnet.
 
     ```xml
     <configSections>

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82627593"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrera SQL Server Agent jobb till ADF med SSMS
@@ -31,15 +31,15 @@ För utvalda SQL Agent-jobb med tillämpliga jobb stegs typer i allmänhet kan *
     > Paket platsen för fil systemet stöds bara.
 - Migrera tillämpliga jobb med tillämpliga jobb steg till motsvarande ADF-resurser enligt nedan:
 
-|Objekt för SQL Agent-jobb  |ADF-resurs  |Obs!|
+|Objekt för SQL Agent-jobb  |ADF-resurs  |Anteckningar|
 |---------|---------|---------|
-|SQL Agent-jobb|pipeline     |Namnet på pipelinen *skapas för \<jobb namnet>*. <br> <br> Inbyggda Agent jobb är inte tillämpliga: <li> Underhålls jobb för SSIS-Server <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
-|SSIS jobb steg|Kör SSIS-paket-aktivitet|<li> Namnet på aktiviteten kommer att vara \<ett steg namn>. <li> Det proxy-konto som används i jobb steget migreras som Windows-autentisering för aktiviteten. <li> *Körnings alternativ* förutom att *använda 32-bitars körning* som definierats i jobb steget ignoreras i migreringen. <li> *Verifieringen* som definierats i jobb steget kommer att ignoreras i migreringen.|
-|schedule      |schema-utlösare        |Namnet på schema utlösaren kommer att *skapas \<för>schema namn *. <br> <br> Alternativen nedan i SQL-agentens jobb schema kommer att ignoreras i migreringen: <li> Intervall på den andra nivån. <li> *Starta automatiskt när SQL Server Agent startar* <li> *Starta när CPU: er blir inaktiv* <li> *veckodag* och *helg dag*<time zone> <br> Nedan visas skillnaderna efter att jobb schema för SQL-Agent migreras till ADF schema utlösare: <li> ADF schema utlösare efterföljande körningar är oberoende av körnings status för den Antecedent Utlös ande körningen. <li> Den återkommande konfigurationen av ADF-scheman skiljer sig från den dagliga frekvensen i SQL Agent-jobbet.|
+|SQL Agent-jobb|pipeline     |Namnet på pipelinen *som ska genereras för \<job name> *. <br> <br> Inbyggda Agent jobb är inte tillämpliga: <li> Underhålls jobb för SSIS-Server <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
+|SSIS jobb steg|Kör SSIS-paket-aktivitet|<li> Namnet på aktiviteten blir \<step name> . <li> Det proxy-konto som används i jobb steget migreras som Windows-autentisering för aktiviteten. <li> *Körnings alternativ* förutom att *använda 32-bitars körning* som definierats i jobb steget ignoreras i migreringen. <li> *Verifieringen* som definierats i jobb steget kommer att ignoreras i migreringen.|
+|schedule      |schema-utlösare        |Namnet på schema utlösaren *skapas för \<schedule name> *. <br> <br> Alternativen nedan i SQL-agentens jobb schema kommer att ignoreras i migreringen: <li> Intervall på den andra nivån. <li> *Starta automatiskt när SQL Server Agent startar* <li> *Starta när CPU: er blir inaktiv* <li> *veckodag* och *helg dag*<time zone> <br> Nedan visas skillnaderna efter att jobb schema för SQL-Agent migreras till ADF schema utlösare: <li> ADF schema utlösare efterföljande körningar är oberoende av körnings status för den Antecedent Utlös ande körningen. <li> Den återkommande konfigurationen av ADF-scheman skiljer sig från den dagliga frekvensen i SQL Agent-jobbet.|
 
 - Skapa Azure Resource Manager ARM-mallar i den lokala mappen utdata och distribuera dem direkt eller senare manuellt. Mer information om ADF Resource Manager-mallar finns i [resurs typer för Microsoft. DataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Funktionen som beskrivs i den här artikeln kräver SQL Server Management Studio version 18,5 eller senare. För att få den senaste versionen av SSMS, se [Ladda ned SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 
@@ -57,8 +57,8 @@ Funktionen som beskrivs i den här artikeln kräver SQL Server Management Studio
     1. Uppdatera sökvägen till käll katalogen. Giltiga sökvägar är sökvägar eller sökvägar till överordnade mappar i paket.
     1. Uppdatera sökvägen till målmappen. Standard är en relativ sökväg till standard lagrings kontot, som väljs i steg 1.
     1. Ta bort en vald mappning via **ta bort mappning**.
-![step2](media/how-to-migrate-ssis-job-ssms/step2.png)
-![step2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+![step2 ](media/how-to-migrate-ssis-job-ssms/step2.png)
+ ![ step2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Välj tillämpliga jobb som ska migreras och konfigurera inställningarna för motsvarande *utförda SSIS-paket-aktivitet*.
 

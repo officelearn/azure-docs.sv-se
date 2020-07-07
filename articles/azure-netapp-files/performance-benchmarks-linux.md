@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: b-juche
 ms.openlocfilehash: b763a734866dd5fed5bf0500d4d52b9324c92a79
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82614595"
 ---
 # <a name="azure-netapp-files-performance-benchmarks-for-linux"></a>Azure NetApp Files prestanda mått för Linux
@@ -47,13 +47,13 @@ I den här grafen visas minskningar i 10% i taget, från ren läsning till ren s
 
 ## <a name="linux-scale-up"></a>Linux-skalbarhet  
 
-Linux 5,3-kernel möjliggör skalbart nätverk för enkel klient för NFS-`nconnect`. Graferna i det här avsnittet visar verifierings test resultaten för monterings alternativet på klient sidan med NFSv3. Funktionen är tillgänglig på SUSE (från och med SLES12SP4) och Ubuntu (från och med 19,10-versionen). Det påminner om både SMB Multichannel och Oracle Direct NFS.
+Linux 5,3-kernel möjliggör skalbart nätverk för enkel klient för NFS- `nconnect` . Graferna i det här avsnittet visar verifierings test resultaten för monterings alternativet på klient sidan med NFSv3. Funktionen är tillgänglig på SUSE (från och med SLES12SP4) och Ubuntu (från och med 19,10-versionen). Det påminner om både SMB Multichannel och Oracle Direct NFS.
 
 Diagrammen jämför fördelarna med `nconnect` en icke ansluten monterad volym. I diagrammen genererade FIO arbets belastningen från en enda D32s_v3 instans i Azure-regionen USA – west2.
 
 ### <a name="linux-read-throughput"></a>Läs data flöde för Linux  
 
-Följande diagram visar sekventiella läsningar av ~ 3 500 MiB/s-läsningar med `nconnect`, ungefär 2,3 x`nconnect`icke-.
+Följande diagram visar sekventiella läsningar av ~ 3 500 MiB/s-läsningar med `nconnect` , ungefär 2,3 x icke- `nconnect` .
 
 ![Läs data flöde för Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
@@ -65,13 +65,13 @@ I följande diagram visas sekventiella skrivningar. De anger att `nconnect` har 
 
 ### <a name="linux-read-iops"></a>Linux Read IOPS  
 
-Följande diagram visar slumpmässiga läsningar av ~ 200 000 Read IOPS med, `nconnect`ungefär 3x som inte är`nconnect`.
+Följande diagram visar slumpmässiga läsningar av ~ 200 000 Read IOPS med `nconnect` , ungefär 3x som inte är `nconnect` .
 
 ![Linux Read IOPS](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### <a name="linux-write-iops"></a>Linux Skriv IOPS  
 
-Följande diagram visar slumpmässiga skrivningar på ~ 135 000 Skriv IOPS med, ungefär `nconnect`3x som inte är`nconnect`.
+Följande diagram visar slumpmässiga skrivningar på ~ 135 000 Skriv IOPS med `nconnect` , ungefär 3x som inte är `nconnect` .
 
 ![Linux Skriv IOPS](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 

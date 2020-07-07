@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
 ms.openlocfilehash: 697dc68018ced08e22efdc179f84a2c968f953a2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85563866"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Azure PowerShell exempel för API för Azure Cosmos DB MongoDB
@@ -23,7 +23,7 @@ Följande tabell innehåller länkar till exempel Azure PowerShell skript för A
 > [!NOTE]
 > I exemplen används [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) -hanterings-cmdletar. Sök efter uppdateringar `Az.CosmosDB` regelbundet.
 
-|Uppgift | Description |
+|Uppgift | Beskrivning |
 |---|---|
 |[Skapa ett konto, en databas och en samling](scripts/powershell/mongodb/ps-mongodb-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, en databas och en samling. |
 |[Lista eller hämta databaser eller samlingar](scripts/powershell/mongodb/ps-mongodb-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista eller hämta databas eller samling. |

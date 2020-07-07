@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 258fc30f3e4a4ba374ada89c03b824ff5e27718e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612273"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Kopiera eller säkerhetskopiera Azure Stream Analytics-jobb
@@ -25,7 +25,7 @@ Du kan kopiera eller säkerhetskopiera de distribuerade Azure Stream Analytics j
 
 * Installera [Azure Stream Analytics-tillägget för Visual Studio Code](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension) eller [Azure Stream Analytics Tools för Visual Studio](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension).  
 
-## <a name="visual-studio-code"></a>Visual Studio-koden
+## <a name="visual-studio-code"></a>Visuell Studio-kod
 
 1. Klicka på **Azure** -ikonen i aktivitets fältet i Visual Studio Code och expandera **Stream Analytics** nod. Dina jobb bör visas under prenumerationerna.
 
@@ -39,7 +39,7 @@ Du kan kopiera eller säkerhetskopiera de distribuerade Azure Stream Analytics j
 
     ![Exportera ASA-jobb i Visual Studio Code](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
 
-3. Om du vill publicera jobbet till en annan region eller säkerhets kopia med ett annat namn väljer du **Välj bland dina prenumerationer att publicera** i Frågeredigeraren (\*. asaql) och följer instruktionerna.
+3. Om du vill publicera jobbet till en annan region eller säkerhets kopia med ett annat namn väljer du **Välj bland dina prenumerationer att publicera** i Frågeredigeraren ( \* . asaql) och följer instruktionerna.
 
     ![Publicera till Azure i Visual Studio Code](./media/quick-create-vs-code/submit-job.png)
 
@@ -47,7 +47,7 @@ Du kan kopiera eller säkerhetskopiera de distribuerade Azure Stream Analytics j
 
 1. Följ avsnittet [Exportera ett distribuerat Azure Stream Analytics till projekt instruktioner](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project).
 
-2. Öppna \*. asaql-filen i Frågeredigeraren, Välj **Skicka till Azure** i skript redigeraren och följ instruktionerna för att publicera jobbet till en annan region eller säkerhets kopia med ett nytt namn.
+2. Öppna \* . asaql-filen i Frågeredigeraren, Välj **Skicka till Azure** i skript redigeraren och följ instruktionerna för att publicera jobbet till en annan region eller säkerhets kopia med ett nytt namn.
 
 ## <a name="next-steps"></a>Nästa steg
 

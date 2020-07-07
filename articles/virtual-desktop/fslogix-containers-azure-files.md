@@ -9,15 +9,15 @@ ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611984"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
-Tjänsten Windows Virtual Desktop rekommenderar FSLogix profil behållare som en användar profil lösning. FSLogix är utformad för centrala profiler i fjärrdatorer, till exempel Windows Virtual Desktop. Den lagrar en fullständig användar profil i en enda behållare. Vid inloggningen är den här behållaren dynamiskt kopplad till dator miljön med inbyggd virtuell hård disk (VHD) och virtuell Hyper-V-hårddisk (VHDX) som stöds. Användar profilen är omedelbart tillgänglig och visas i systemet precis som en inbyggd användar profil. I den här artikeln beskrivs hur FSLogix profil behållare används med Azure Files-funktionen i det virtuella Windows-skrivbordet.
+Tjänsten Windows Virtual Desktop rekommenderar FSLogix profil behållare som en användar profil lösning. FSLogix är utformat för att roama profiler i fjärrdatormiljöer, till exempel Windows Virtual Desktop. Det lagrar en fullständig användarprofil i en enskild container. Vid inloggningen är den här behållaren dynamiskt kopplad till dator miljön med inbyggd virtuell hård disk (VHD) och virtuell Hyper-V-hårddisk (VHDX) som stöds. Användar profilen är omedelbart tillgänglig och visas i systemet precis som en inbyggd användar profil. I den här artikeln beskrivs hur FSLogix profil behållare används med Azure Files-funktionen i det virtuella Windows-skrivbordet.
 
 >[!NOTE]
 >Om du letar efter jämförelse material om de olika lagrings alternativen för FSLogix Profile container på Azure, se [lagrings alternativ för FSLogix profil behållare](store-fslogix-profile.md).
@@ -47,13 +47,13 @@ Befintliga och äldre Microsoft-lösningar för användar profiler följde med o
 
 I följande tabell visas fördelarna och begränsningarna för tidigare användar profil tekniker.
 
-| Teknologi | Moderna inställningar | Win32-inställningar | OS-inställningar | Användardata | Stöds på Server-SKU: n | Server dels lagring på Azure | Server dels lagring lokalt | Versions stöd | Efterföljande inloggnings tid |Obs!|
+| Teknologi | Moderna inställningar | Win32-inställningar | OS-inställningar | Användardata | Stöds på Server-SKU: n | Server dels lagring på Azure | Server dels lagring lokalt | Versions stöd | Efterföljande inloggnings tid |Anteckningar|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Användar profil diskar (UPD)** | Ja | Ja | Ja | Ja | Ja | Inga | Ja | Win 7 + | Ja | |
-| **Central användar profil (RUP), underhålls läge** | Inga | Ja | Ja | Ja | Ja| Inga | Ja | Win 7 + | Inga | |
-| **Enterprise State Roaming (ESR)** | Ja | Inga | Ja | Inga | Se kommentarer | Ja | Inga | Win 10 | Inga | Funktioner på Server-SKU men saknar stöd för användar gränssnitt |
-| **User Experience Virtualization (UE-V)** | Ja | Ja | Ja | Inga | Ja | Inga | Ja | Win 7 + | Inga |  |
-| **OneDrive-molnappar** | Inga | Inga | Inga | Ja | Se kommentarer | Se kommentarer  | Se kommentarer | Win 10-RS3 | Inga | Inte testat på Server-SKU. Backend-lagring på Azure är beroende av Sync-klienten. Backend-lokal kräver en sync-klient. |
+| **Användar profil diskar (UPD)** | Ja | Ja | Ja | Ja | Ja | Nej | Ja | Win 7 + | Ja | |
+| **Central användar profil (RUP), underhålls läge** | Nej | Ja | Ja | Ja | Ja| Nej | Ja | Win 7 + | Nej | |
+| **Enterprise State Roaming (ESR)** | Ja | Nej | Ja | Nej | Se kommentarer | Ja | Nej | Win 10 | Nej | Funktioner på Server-SKU men saknar stöd för användar gränssnitt |
+| **User Experience Virtualization (UE-V)** | Ja | Ja | Ja | Nej | Ja | Nej | Ja | Win 7 + | Nej |  |
+| **OneDrive-molnappar** | Nej | Nej | Nej | Ja | Se kommentarer | Se kommentarer  | Se kommentarer | Win 10-RS3 | Nej | Inte testat på Server-SKU. Backend-lagring på Azure är beroende av Sync-klienten. Backend-lokal kräver en sync-klient. |
 
 #### <a name="performance"></a>Prestanda
 

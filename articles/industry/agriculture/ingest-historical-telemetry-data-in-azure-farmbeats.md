@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613276"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
@@ -27,9 +27,9 @@ Innan du fortsätter med den här artikeln måste du kontrol lera att du har ins
 
 Du måste aktivera partner integrering till din Azure FarmBeats-instans. Det här steget skapar en klient som har åtkomst till din Azure FarmBeats-instans som din enhets partner och ger dig följande värden som krävs i följande steg:
 
-- API-slut punkt: Detta är Datahub-URL, till exempel\<https://Datahub>. azurewebsites.net
+- API-slut punkt: Detta är Datahub-URL, till exempel https:// \<datahub> . azurewebsites.net
 - Klientorganisations-ID
-- Klientorganisations-ID
+- Klient-ID
 - Klienthemlighet
 - EventHub-anslutningssträng
 
@@ -42,7 +42,7 @@ Följ de här stegen:
 
 2. **Om du använder FarmBeats version 1.2.7 eller senare hoppar du över steg a, b och c och går till steg 3.** Du kan kontrol lera FarmBeats-versionen genom att välja **inställnings** ikonen i det övre högra hörnet av FARMBEATS-användargränssnittet.
 
-      a.  Gå till **Azure Active Directory** > **app-registreringar**
+      a.  Gå till **Azure Active Directory**  >  **app-registreringar**
 
       b. Välj den **app-registrering** som skapades som en del av din FarmBeats-distribution. Det får samma namn som din FarmBeats-Datahub.
 
@@ -70,7 +70,7 @@ Följ de här stegen:
 
     ```
 
-7. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från sidan **Azure Active Directory** > **Översikt** .
+7. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från sidan **Azure Active Directory**  >  **Översikt** .
 
     ```azurepowershell-interactive 
 
@@ -109,7 +109,7 @@ Följ de här stegen:
 |   DeviceModelId     |     ID för associerad enhets modell.  |
 |  HardwareId          | Unikt ID för enheten, till exempel MAC-adressen.
 |  ReportingInterval        |   Rapport intervall i sekunder.
-|  Plats            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
+|  Location            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
 |ParentDeviceId       |    ID för den överordnade enhet som enheten är ansluten till. Till exempel en nod som är ansluten till en gateway. En nod har parentDeviceId som gateway.  |
 |    Name            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
 |     Beskrivning       |      Ange en meningsfull beskrivning. |
@@ -129,7 +129,7 @@ Följ de här stegen:
 |    **Mäta**      |          |
 | HardwareId          |   Unikt ID för sensorn som anges av tillverkaren.|
 |  SensorModelId     |    ID för associerad sensor modell.|
-| Plats          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
+| Location          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
 |   Port > namn        |  Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som det definieras i enhets modellen.|
 |    DeviceID  |    ID för den enhet som sensorn är ansluten till. |
 | Name            |   Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.|
@@ -140,13 +140,13 @@ Mer information om objekt finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagg
 
 ### <a name="api-request-to-create-metadata"></a>API-begäran för att skapa metadata
 
-Om du vill göra en API-begäran kombinerar du HTTP-metoden (POST), URL: en till API-tjänsten och URI: n till en resurs att fråga, skicka data till, skapa eller ta bort en begäran. Sedan lägger du till en eller flera huvuden för HTTP-begäran. URL-adressen till API-tjänsten är API-slutpunkten, det vill säga Datahub-\<URL: en (https://yourdatahub>. azurewebsites.net).
+Om du vill göra en API-begäran kombinerar du HTTP-metoden (POST), URL: en till API-tjänsten och URI: n till en resurs att fråga, skicka data till, skapa eller ta bort en begäran. Sedan lägger du till en eller flera huvuden för HTTP-begäran. URL-adressen till API-tjänsten är API-slutpunkten, det vill säga Datahub-URL: en (https:// \<yourdatahub> . azurewebsites.net).
 
 ### <a name="authentication"></a>Autentisering
 
 FarmBeats Datahub använder Bearer-autentisering, som behöver följande autentiseringsuppgifter som genererades i föregående avsnitt:
 
-- Klientorganisations-ID
+- Klient-ID
 - Klienthemlighet
 - Klientorganisations-ID
 

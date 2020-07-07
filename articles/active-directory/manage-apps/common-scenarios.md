@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763643"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisera program hantering med Azure AD
@@ -89,6 +89,6 @@ Identiteten kan bara vara ditt kontroll plan om den kan ansluta allt över molne
 - [Programhantering](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Programetablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
 - [Hybrid säker åtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Identitetsstyrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
+- [Identitets styrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
 - [Microsoft identitetsplattform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [Identitets säkerhet](https://docs.microsoft.com/azure/active-directory/conditional-access/index)

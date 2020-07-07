@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a2fd4a4649b38434d196e8f4203966efdff876
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 21428738873f60d2173df53f5b9f1d108ee5eff4
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606570"
+ms.locfileid: "85798733"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-experience-cloud"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med erfarenhets moln
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig att integrera erfarenhets moln med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -86,32 +86,32 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **identifierare** anger du en URL med följande mönster:
     
-        ```https
-        https://<cluster>.medallia.com/sso/<company>
-        https://<cluster>.medallia.ca/sso/<company>
-        https://<cluster>.medallia.eu/sso/<company>
-        https://<cluster>.medallia.au/sso/<company>
-        ```
+    ```http
+    https://<cluster>.medallia.com/sso/<company>
+    https://<cluster>.medallia.ca/sso/<company>
+    https://<cluster>.medallia.eu/sso/<company>
+    https://<cluster>.medallia.au/sso/<company>
+    ```
 
     b. I text rutan **svars-URL** skriver du en URL med följande mönster:
 
-        ```https
-        https://<cluster>.medallia.com/sso/<company>/logonSubmit.do
-        https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do
-        https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do
-        https://<cluster>.medallia.au/sso/<company>/logonSubmit.do
-        ```
+    ```http
+    https://<cluster>.medallia.com/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.au/sso/<company>/logonSubmit.do
+    ```
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:
 
-        ```https
-        https://<cluster>.medallia.com/sso/<company>
-        https://<cluster>.medallia.ca/sso/<company>
-        https://<cluster>.medallia.eu/sso/<company>
-        https://<cluster>.medallia.au/sso/<company>
-        ```
+    ```http
+    https://<cluster>.medallia.com/sso/<company>
+    https://<cluster>.medallia.ca/sso/<company>
+    https://<cluster>.medallia.eu/sso/<company>
+    https://<cluster>.medallia.au/sso/<company>
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [support teamet för moln klient](mailto:support@medallia.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

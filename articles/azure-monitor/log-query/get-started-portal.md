@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80055510"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798263"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Självstudie: kom igång med Log Analytics frågor
 
@@ -37,6 +37,7 @@ För att slutföra de flesta av stegen i den här självstudien kan du använda 
 Du kan också använda en egen miljö om du använder Azure Monitor för att samla in loggdata på minst en Azure-resurs. Öppna en Log Analytics arbets yta genom att välja **loggar**i Azure Monitor vänster-navigering. 
 
 ## <a name="understand-the-schema"></a>Förstå schemat
+ 
 Ett *schema* är en samling tabeller grupperade under logiska kategorier. Demo schemat har flera kategorier från övervaknings lösningar. Kategorin **LogManagement** innehåller till exempel Windows-och Syslog-händelser, prestanda data och agent pulsslag.
 
 Schema tabellerna visas på fliken **tabeller** i arbets ytan Log Analytics. Tabellerna innehåller kolumner, var och en med en datatyp som visas med ikonen bredvid kolumn namnet. **Händelse** tabellen innehåller till exempel text kolumner som **dator** och numeriska kolumner som **EventCategory**.
@@ -50,6 +51,7 @@ Log Analytics öppnas med en ny tom fråga i **Frågeredigeraren**.
 ![Log Analytics](media/get-started-portal/homepage.png)
 
 ### <a name="write-a-query"></a>Skriv en fråga
+
 Azure Monitor logg frågor använder en version av Kusto-frågespråket. Frågor kan inledas med antingen ett tabell namn eller ett [Sök](/azure/kusto/query/searchoperator) kommando. 
 
 Följande fråga hämtar alla poster från **händelse** tabellen:
@@ -86,13 +88,13 @@ Om du vill använda kontrollen **tidsintervall** väljer du den i det översta f
 - Om frågan uttryckligen ställer in ett filter för **TimeGenerated**, visar tids väljaren **set i Query**och är inaktive rad för att förhindra en konflikt.
 
 ### <a name="run-a-query"></a>Kör en fråga
-Om du vill köra en fråga placerar du markören någonstans i frågan och väljer **Kör** i det översta fältet **eller trycker på**+**RETUR**. Frågan körs tills den hittar en tom rad.
+Om du vill köra en fråga placerar du markören någonstans i frågan och väljer **Kör** i det översta fältet **eller trycker på** + **RETUR**. Frågan körs tills den hittar en tom rad.
 
 ## <a name="filter-results"></a>Filtrera resultat
 Log Analytics begränsar resultatet till högst 10 000 poster. En allmän fråga som `Event` returnerar för många resultat för att vara användbar. Du kan filtrera frågeresultaten antingen genom att begränsa tabell elementen i frågan eller genom att uttryckligen lägga till ett filter i resultatet. Filtrering genom tabell elementen returnerar en ny resultat uppsättning, medan ett explicit filter används för den befintliga resultat uppsättningen.
 
 ### <a name="filter-by-restricting-table-elements"></a>Filtrera genom att begränsa tabell element
-Filtrera `Event` frågeresultat till **fel** händelser genom att begränsa tabell element i frågan:
+Filtrera `Event` Frågeresultat till **fel** händelser genom att begränsa tabell element i frågan:
 
 1. I frågeresultaten väljer du den nedrullningsbara pilen bredvid alla poster som har **fel** i kolumnen **EventLevelName** . 
    
@@ -118,7 +120,7 @@ Filtrera `Event` frågeresultaten till **fel** händelser genom att filtrera fr�
    
 1. Välj **filter**.
    
-   ![Filter](media/get-started-portal/filter.png)
+   ![Filtrera](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Sortera, gruppera och Välj kolumner
 Om du vill sortera frågeresultaten efter en speciell kolumn, t. ex. **TimeGenerated [UTC]**, väljer du kolumn rubriken. Välj rubriken igen om du vill växla mellan stigande och fallande ordning.
@@ -156,6 +158,7 @@ Du kan ändra egenskaperna för vyn, till exempel x-och y-axlar, eller grupperin
 Du kan också ställa in den önskade vyn i själva frågan med operatorn [Render](/azure/kusto/query/renderoperator) .
 
 ## <a name="pin-results-to-a-dashboard"></a>Fästa resultat på en instrument panel
+
 Om du vill fästa en resultat tabell eller ett diagram från Log Analytics till en delad Azure-instrumentpanel väljer du **Fäst på instrument panelen** i det översta fältet. 
 
 ![Fäst vid instrumentpanelen](media/get-started-portal/pin-dashboard.png)
@@ -171,9 +174,11 @@ En tabell eller ett diagram som du fäster på en delad instrument panel har fö
 - Diagram med många diskreta kategorier grupperar automatiskt mindre fyllda kategorier till en **annan** lager plats.
 
 ## <a name="save-load-or-export-queries"></a>Spara, Läs in eller exportera frågor
+
 När du har skapat en fråga kan du spara eller dela frågan eller resultatet med andra. 
 
 ### <a name="save-queries"></a>Spara frågor
+
 Så här sparar du en fråga:
 
 1. Välj **Spara** i det översta fältet.

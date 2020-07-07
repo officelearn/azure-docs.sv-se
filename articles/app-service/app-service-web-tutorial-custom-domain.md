@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559926"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986839"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Omdirigera standard-URL:en till en anpassad katalog
 > * Automatisera domänmappning med skript
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -95,9 +95,7 @@ När du ser följande meddelande har skalningsåtgärden slutförts.
 
 ## <a name="get-domain-verification-id"></a>Hämta ID för domän verifiering
 
-Om du vill lägga till en anpassad domän i din app måste du verifiera din ägande av domänen genom att lägga till ett verifierings-ID som en TXT-post med din domän leverantör. I det vänstra navigerings fönstret på din app-sida klickar du på **resurs läsaren** under **utvecklingsverktyg**och klickar sedan på **gå**.
-
-I JSON-vyn för appens egenskaper söker du efter `customDomainVerificationId`och kopierar dess värde inuti de dubbla citat tecknen. Du behöver det här verifierings-ID: t för nästa steg.
+Om du vill lägga till en anpassad domän i din app måste du verifiera din ägande av domänen genom att lägga till ett verifierings-ID som en TXT-post med din domän leverantör. Klicka på **anpassade domäner** under **Inställningar**i det vänstra navigerings fönstret på din app-sida. Kopiera värdet för anpassad domän verifierings-ID härifrån. Du behöver det här verifierings-ID: t för nästa steg.
 
 ## <a name="map-your-domain"></a>Mappa din domän
 
@@ -114,18 +112,20 @@ Du kan mappa ett anpassat DNS-namn till App Service med antingen en **CNAME-post
 
 I kursexemplet lägger du till en CNAME-post för `www`-underdomänen (till exempel `www.contoso.com`).
 
+Om du har en annan under domän än `www` ersätter du `www` med under domänen (till exempel med `sub` om din anpassade domän är `sub.constoso.com` ).
+
 #### <a name="access-dns-records-with-domain-provider"></a>Använda DNS-poster med domänleverantör
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Mappa en under domän till appens standard domän namn (`<app_name>.azurewebsites.net`där `<app_name>` är namnet på din app). Skapa en CNAME-mappning för `www` under domänen genom att skapa två poster:
+Mappa en under domän till appens standard domän namn ( `<app_name>.azurewebsites.net` där `<app_name>` är namnet på din app). Skapa en CNAME-mappning för under `www` domänen genom att skapa två poster:
 
 | Posttyp | Värd | Värde | Kommentarer |
 | - | - | - |
 | CNAME | `www` | `<app_name>.azurewebsites.net` | Själva domän mappningen. |
-| TXT | `asuid.www` | [Verifierings-ID: t som du fick tidigare](#get-domain-verification-id) | App Service använder `asuid.<subdomain>` txt-posten för att verifiera din ägande av den anpassade domänen. |
+| TXT | `asuid.www` | [Verifierings-ID: t som du fick tidigare](#get-domain-verification-id) | App Service använder txt- `asuid.<subdomain>` posten för att verifiera din ägande av den anpassade domänen. |
 
 När du har lagt till CNAME-och TXT-posterna ser sidan DNS-poster ut som i följande exempel:
 
@@ -149,7 +149,7 @@ Välj **Verifiera**.
 
 Sidan **Lägg till anpassad domän** visas.
 
-Se till att **post typen hostname** är inställd på **CNAME (www\.-example.com eller någon under domän)**.
+Se till att **post typen hostname** är inställd på **CNAME (www- \. example.com eller någon under domän)**.
 
 Välj **Lägg till anpassad domän**.
 
@@ -196,8 +196,8 @@ För att mappa en A-post till en app, vanligt vis till rot domänen, skapar du t
 
 | Posttyp | Värd | Värde | Kommentarer |
 | - | - | - |
-| A | `@` | IP-adress från [Kopiera appens IP-adress](#info) | Själva domän mappningen (`@` representerar vanligt vis rot domänen). |
-| TXT | `asuid` | [Verifierings-ID: t som du fick tidigare](#get-domain-verification-id) | App Service använder `asuid.<subdomain>` txt-posten för att verifiera din ägande av den anpassade domänen. Använd `asuid`för rot domänen. |
+| A | `@` | IP-adress från [Kopiera appens IP-adress](#info) | Själva domän mappningen ( `@` representerar vanligt vis rot domänen). |
+| TXT | `asuid` | [Verifierings-ID: t som du fick tidigare](#get-domain-verification-id) | App Service använder txt- `asuid.<subdomain>` posten för att verifiera din ägande av den anpassade domänen. Använd för rot domänen `asuid` . |
 
 > [!NOTE]
 > Om du vill lägga till en underdomän (t.ex. `www.contoso.com`) med en A-post i stället för en rekommenderad [CNAME-post](#map-a-cname-record) bör A-posten och TXT-posten se ut som följande tabell i stället:
@@ -257,7 +257,7 @@ I kursexemplet mappar du ett [DNS-namn med jokertecken](https://en.wikipedia.org
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Lägg till en CNAME-post för att mappa ett jokertecken till appens standard domän`<app_name>.azurewebsites.net`namn ().
+Lägg till en CNAME-post för att mappa ett jokertecken till appens standard domän namn ( `<app_name>.azurewebsites.net` ).
 
 För `*.contoso.com`-domänexemplet mappar CNAME-posten namnet `*` till `<app_name>.azurewebsites.net`.
 
@@ -281,7 +281,7 @@ Ange ett fullständigt kvalificerat domännamn som matchar domänen med jokertec
 
 Knappen **Lägg till anpassad domän** är aktive rad.
 
-Se till att **post typen hostname** är inställd på **CNAME-post (\.www-example.com eller under domän)**.
+Se till att **post typen hostname** är inställd på **CNAME-post (www- \. example.com eller under domän)**.
 
 Välj **Lägg till anpassad domän**.
 
@@ -289,7 +289,7 @@ Välj **Lägg till anpassad domän**.
 
 Det kan ta lite tid innan den nya anpassade domänen visas på sidan **anpassade domäner** för appen. Försök att uppdatera webbläsaren så att informationen uppdateras.
 
-Välj **+** ikonen igen för att lägga till en annan anpassad domän som matchar domänen med jokertecken. Du kan till exempel lägga till `sub2.contoso.com`.
+Välj **+** ikonen igen för att lägga till en annan anpassad domän som matchar domänen med jokertecken. Lägg exempelvis till `sub2.contoso.com`.
 
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
@@ -325,7 +325,7 @@ Längst ned på sidan pekar den virtuella rotkatalogen `/` till `site\wwwroot` s
 
 ![Anpassa virtuell katalog](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-När åtgärden har slutförts ska din app returnera rätt sida på rot Sök vägen (till exempel `http://contoso.com`).
+När åtgärden har slutförts ska din app returnera rätt sida på rot Sök vägen (till exempel `http://contoso.com` ).
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

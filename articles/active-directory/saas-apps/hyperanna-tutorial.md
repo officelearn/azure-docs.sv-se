@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f1ff2247cb3b8f673f187f688e80bde8559c0a4
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 208a494c98a5f3eb22742b0ba6748efa0dd59e1a
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606079"
+ms.locfileid: "85798748"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Självstudie: integrera med Azure Active Directory
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Anna med Azure Acti
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -85,7 +85,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I text rutan **svars-URL** skriver du en URL med något av följande mönster:
 
-    ```https
+    ```http
     https://microsoft.hyperanna.com/userservice/auth/saml
     https://anna.hyperanna.com/userservice/auth/saml
     ```
@@ -94,9 +94,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I text rutan **inloggnings-URL** skriver du en URL med något av följande mönster:
 
-    ```https
-    `https://microsoft.hyperanna.com/
-    `https://anna.hyperanna.com/
+    ```http
+    https://microsoft.hyperanna.com/
+    https://anna.hyperanna.com/
     ```
 
 4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.

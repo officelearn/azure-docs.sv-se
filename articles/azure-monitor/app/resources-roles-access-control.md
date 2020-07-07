@@ -4,10 +4,10 @@ description: Ägare, deltagare och läsare av organisationens insikter.
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628251"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resurser, roller och åtkomst kontroll i Application Insights

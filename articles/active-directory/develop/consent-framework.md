@@ -14,13 +14,13 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
 ms.openlocfilehash: e706c0eeb848b6cd14a3c14de821ca59a9c52ee9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611372"
 ---
-# <a name="azure-active-directory-consent-framework"></a>Ramverk för Azure Active Directory medgivande
+# <a name="azure-active-directory-consent-framework"></a>Ramverk för Azure Active Directory-medgivande
 
 Den Azure Active Directory (Azure AD) medgivande ramverket gör det enkelt att utveckla webb-och interna klient program med flera innehavare. Dessa program tillåter inloggning av användar konton från en Azure AD-klient som skiljer sig från den plats där programmet har registrerats. De kan också behöva åtkomst till webb-API: er som Microsoft Graph-API (för att få åtkomst till Azure AD, Intune och tjänster i Office 365) och andra API: er för Microsoft-tjänster, förutom dina egna webb-API: er.
 
@@ -40,7 +40,7 @@ Följande steg visar hur medgivande upplevelsen fungerar för både programutvec
 
 1. Tänk på att programmets behörigheter har uppdaterats, att programmet körs och att en användare kommer att använda det för första gången. Först måste programmet hämta en auktoriseringskod från Azure AD- `/authorize` slutpunkten. Auktoriseringskoden kan sedan användas för att få en ny åtkomst och uppdatera token.
 
-1. Om användaren inte redan är autentiserad, ombeds användaren att `/authorize` logga in med Azure AD-slutpunkten.
+1. Om användaren inte redan är autentiserad, `/authorize` ombeds användaren att logga in med Azure AD-slutpunkten.
 
     ![Användare eller administratör logga in på Azure AD](./media/consent-framework/usersignin.png)
 
@@ -60,7 +60,7 @@ Följande steg visar hur medgivande upplevelsen fungerar för både programutvec
       ![Bevilja behörighet för uttryckligt administratörs medgivande](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
-   > Att bevilja explicit medgivande med hjälp av knappen **bevilja behörigheter** krävs för närvarande för program med en enda sida (Spa) som använder ADAL. js. Annars misslyckas programmet när åtkomsttoken begärs.
+   > Att bevilja explicit medgivande med hjälp av knappen **bevilja behörigheter** krävs för närvarande för program med en enda sida (Spa) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs.
 
 ## <a name="next-steps"></a>Nästa steg
 

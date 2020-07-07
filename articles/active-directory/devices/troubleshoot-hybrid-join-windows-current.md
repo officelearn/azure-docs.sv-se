@@ -1,5 +1,5 @@
 ---
-title: Felsöka hybrid Azure Active Directory anslutna enheter
+title: Felsöka Azure Active Directory-hybridanslutna enheter
 description: Felsöka hybrid Azure Active Directory anslutna Windows 10-och Windows Server 2016-enheter.
 services: active-directory
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611321"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka Azure Active Directory-hybridanslutna enheter
 
 Innehållet i den här artikeln gäller enheter som kör Windows 10 eller Windows Server 2016.
 
@@ -132,7 +132,7 @@ I fältet "fel fas" anges fasen för kopplings felet medan klient ErrorCode ange
 
 Använd Loggboken loggar för att hitta fasen och felkoden för kopplings felen.
 
-1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga** > **Microsoft** > **Windows** > **användar enhets registrering**
+1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga**  >  **Microsoft**  >  **Windows**  >  **användar enhets registrering**
 2. Sök efter händelser med följande eventIDs 304, 305, 307.
 
 ![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/1.png)
@@ -156,10 +156,10 @@ Möjliga orsaker till problemet:
    - Ett giltigt SCP-objekt krävs i AD-skogen, som enheten tillhör, som pekar på ett verifierat domän namn i Azure AD.
    - Information finns i avsnittet [Konfigurera en tjänst anslutnings punkt](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Det gick inte att ansluta och hämta metadata för identifiering från identifierings slut punkten.
-   - Enheten ska kunna komma åt `https://enterpriseregistration.windows.net`, i system kontexten, för att identifiera slut punkterna för registrering och auktorisering.
+   - Enheten ska kunna komma åt `https://enterpriseregistration.windows.net` , i system kontexten, för att identifiera slut punkterna för registrering och auktorisering.
    - Om den lokala miljön kräver en utgående proxy måste IT-administratören se till att enhetens dator konto kan identifiera och tyst autentisera till den utgående proxyn.
 - Det gick inte att ansluta till användar sfär slut punkten och utföra sfär identifiering. (Endast Windows 10 version 1809 och senare)
-   - Enheten ska kunna komma åt `https://login.microsoftonline.com`, i system kontexten, för att utföra sfär identifiering för den verifierade domänen och fastställa domän typen (hanterad/federerad).
+   - Enheten ska kunna komma åt `https://login.microsoftonline.com` , i system kontexten, för att utföra sfär identifiering för den verifierade domänen och fastställa domän typen (hanterad/federerad).
    - Om den lokala miljön kräver en utgående proxy, måste IT-administratören se till att SYSTEM kontexten på enheten kan identifiera och tyst autentisera till den utgående proxyn.
 
 **Vanliga felkoder:**
@@ -172,7 +172,7 @@ Möjliga orsaker till problemet:
    - Lösning: hitta underfelet nedan för att undersöka ytterligare.
 - **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
    - Orsak: tids gränsen för åtgärden nåddes under identifieringen.
-   - Lösning: kontrol lera `https://enterpriseregistration.windows.net` att är tillgängligt i system kontexten. Mer information finns i avsnittet krav på [nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
+   - Lösning: kontrol lera att `https://enterpriseregistration.windows.net` är tillgängligt i system kontexten. Mer information finns i avsnittet krav på [nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
    - Orsak: det gick inte att identifiera allmän sfär. Det gick inte att fastställa domän typ (hanterad/federerad) från STS.
    - Lösning: hitta underfelet nedan för att undersöka ytterligare.
@@ -207,7 +207,7 @@ Sök efter "DRS Discovery test" i avsnittet "diagnostikdata" i sammanfognings st
 
 Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen.
 
-1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga** > **Microsoft** > **Windows** > **användar enhets registrering**
+1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga**  >  **Microsoft**  >  **Windows**  >  **användar enhets registrering**
 2. Sök efter händelser med följande eventIDs 201
 
 ![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/5.png)
@@ -252,7 +252,7 @@ Orsaker till problemet:
 
 Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och Server fel meddelande.
 
-1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga** > **Microsoft** > **Windows** > **användar enhets registrering**
+1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga**  >  **Microsoft**  >  **Windows**  >  **användar enhets registrering**
 2. Sök efter händelser med följande eventID 305
 
 ![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/3.png)
@@ -273,7 +273,7 @@ Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och 
 
 - **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
    - Orsak: allmän nätverks tids gräns.
-   - Lösning: kontrol lera `https://login.microsoftonline.com` att är tillgängligt i system kontexten. Se till att den lokala identitets leverantören är tillgänglig i SYSTEM kontexten. Mer information finns i [krav för nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
+   - Lösning: kontrol lera att `https://login.microsoftonline.com` är tillgängligt i system kontexten. Se till att den lokala identitets leverantören är tillgänglig i SYSTEM kontexten. Mer information finns i [krav för nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586)
    - Orsak: anslutningen med auth-slutpunkten avbröts.
    - Lösning: försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats.
@@ -282,7 +282,7 @@ Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och 
    - Lösning: kontrol lera skevningen för klient tiden. Försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Orsak: försöket att ansluta till `https://login.microsoftonline.com` misslyckades.
-   - Lösning: kontrol lera nätverks anslutningen `https://login.microsoftonline.com`till.
+   - Lösning: kontrol lera nätverks anslutningen till `https://login.microsoftonline.com` .
 
 ##### <a name="other-errors"></a>Andra fel
 
@@ -327,7 +327,7 @@ Fältet "registrerings typ" anger vilken typ av koppling som utförs.
 
 Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen.
 
-1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga** > **Microsoft** > **Windows** > **användar enhets registrering**
+1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga**  >  **Microsoft**  >  **Windows**  >  **användar enhets registrering**
 2. Sök efter händelser med följande eventIDs 204
 
 ![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/4.png)
@@ -363,10 +363,10 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 
 - **WININET_E_TIMEOUT** (0x80072ee2/-2147012894)
    - Orsak: allmän nätverks tids gräns vid försök att registrera enheten på DRS
-   - Lösning: kontrol lera nätverks anslutningen `https://enterpriseregistration.windows.net`till.
+   - Lösning: kontrol lera nätverks anslutningen till `https://enterpriseregistration.windows.net` .
 - **WININET_E_NAME_NOT_RESOLVED** (0x80072EE7/-2147012889)
    - Orsak: Server namnet eller adressen kunde inte matchas.
-   - Lösning: kontrol lera nätverks anslutningen `https://enterpriseregistration.windows.net`till. Se till att DNS-matchningen för värd namnet är korrekt i n/w och på enheten.
+   - Lösning: kontrol lera nätverks anslutningen till `https://enterpriseregistration.windows.net` . Se till att DNS-matchningen för värd namnet är korrekt i n/w och på enheten.
 - **WININET_E_CONNECTION_ABORTED** (0x80072EFE/-2147012866)
    - Orsak: anslutningen till servern avslutades onormalt.
    - Lösning: försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats.
@@ -387,9 +387,9 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Steg 5: samla in loggar och kontakta Microsoft Support
 
-Hämta filen auth. zip från[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Hämta filen Auth.zip från[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Zippa upp filerna och Byt namn på de inkluderade filerna **Start-auth. txt** och **Stop-auth. txt** till **Start-auth. cmd** och **Stop-auth. cmd**.
+1. Zippa upp filerna och Byt namn på de inkluderade filerna **start-auth.txt** och **stop-auth.txt** till **Start-auth. cmd** och **Stop-auth. cmd**.
 1. Kör **Start-auth. cmd**från en upphöjd kommando tolk.
 1. Använd switch-konto för att växla till en annan session med problem användaren.
 1. Återskapa problemet.

@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613293"
 ---
 # <a name="imagery-partner-integration"></a>Bildpartnerintegration
@@ -34,7 +34,7 @@ Du måste använda följande autentiseringsuppgifter i drönare-partner program 
 
 - API-slutpunkt
 - Klientorganisations-ID
-- Klientorganisations-ID
+- Klient-ID
 - Klienthemlighet
 
 ## <a name="api-development"></a>API-utveckling
@@ -49,7 +49,7 @@ Mer information om Azure AD finns [Azure Active Directory](https://docs.microsof
 
 FarmBeats Datahub använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
 
-- Klientorganisations-ID
+- Klient-ID
 - Klienthemlighet
 - Klientorganisations-ID
 
@@ -91,7 +91,7 @@ Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-a
 
 **Sidfot** | **Beskrivning och exempel**
 --- | ---
-Content-Type  | Formatet för begäran (Content-Type: Application/<format>). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
+Content-Type  | Formatet för begäran (Content-Type: Application/ <format> ). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
 Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare <åtkomst-token>
 Acceptera  | Svars formatet. För FarmBeats Datahub-API: er är formatet JSON. Acceptera: Application/JSON
 

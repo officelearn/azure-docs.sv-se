@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610793"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
@@ -33,7 +33,7 @@ Följande steg beskriver hur du återställer din Windows Server-konfiguration t
 
     ![Återställa data](./media/backup-azure-restore-windows-server/recover.png)
 
-3. I rutan **komma igång** , för att återställa data till samma server eller dator, väljer du **den här servern (`<server name>`)** och klickar på **Nästa**.
+3. I rutan **komma igång** , för att återställa data till samma server eller dator, väljer du **den här servern ( `<server name>` )** och klickar på **Nästa**.
 
     ![Välj detta Server alternativ för att återställa data till samma dator](./media/backup-azure-restore-system-state/samemachine.png)
 
@@ -107,7 +107,7 @@ Den terminologi som används i dessa steg omfattar:
 
     ![Klicka på knappen Återställ för att bekräfta återställnings processen](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
-12. Kopiera katalogen *WindowsImageBackup* till en icke-kritisk volym på servern (till exempel D:\). Vanligt vis är Windows OS-volymen den kritiska volymen.
+12. Kopiera katalogen *WindowsImageBackup* till en icke-kritisk volym på servern (till exempel D: \) . Vanligt vis är Windows OS-volymen den kritiska volymen.
 
 13. Slutför återställnings processen genom att använda följande avsnitt för att [tillämpa de återställda filerna för system tillstånd på en Windows-Server](#apply-restored-system-state-on-a-windows-server).
 

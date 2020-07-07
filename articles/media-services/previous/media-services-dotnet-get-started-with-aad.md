@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
 ms.openlocfilehash: 8fbe8e0cbf2768af973a0ccc9e237fb770b27a74
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612307"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Använd Azure AD-autentisering för att komma åt Azure Media Services API med .NET
@@ -28,7 +28,7 @@ ms.locfileid: "82612307"
 
 Från och med windowsazure. Media Services 4.0.0.4 stöder Azure Media Services autentisering baserat på Azure Active Directory (Azure AD). Det här avsnittet visar hur du använder Azure AD-autentisering för att komma åt Azure Media Services API med Microsoft .NET.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Mer information finns i [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).
@@ -56,14 +56,14 @@ Du kan också välja att ersätta standard implementeringen av **AzureAdTokenPro
 ## <a name="install-and-configure-azure-media-services-net-sdk"></a>Installera och konfigurera Azure Media Services .NET SDK
 
 >[!NOTE]
->Om du vill använda Azure AD-autentisering med Media Services .NET SDK måste du ha det senaste [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) -paketet. Lägg också till en referens till sammansättningen **Microsoft. IdentityModel. clients. ActiveDirectory** . Om du använder en befintlig app inkluderar du sammansättningen **Microsoft. windowsazure. Media Services. client. Common. Authentication. dll** .
+>Om du vill använda Azure AD-autentisering med Media Services .NET SDK måste du ha det senaste [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) -paketet. Lägg också till en referens till sammansättningen **Microsoft. IdentityModel. clients. ActiveDirectory** . Om du använder en befintlig app inkluderar du **Microsoft.WindowsAzure.MediaServices.Client.Common.Authentication.dll** sammansättningen.
 
 1. Skapa ett nytt C#-konsolprogram i Visual Studio.
 2. Använd NuGet-paketet [windowsazure. Media Services](https://www.nuget.org/packages/windowsazure.mediaservices) för att installera **Azure Media Services .NET SDK**.
 
     Utför följande steg för att lägga till referenser med NuGet: i **Solution Explorer**högerklickar du på projekt namnet och väljer sedan **Hantera NuGet-paket**. Sök sedan efter **windowsazure. Media Services** och välj **Installera**.
 
-    ELLER
+    \- eller -
 
     Kör följande kommando i **Package Manager-konsolen** i Visual Studio.
 

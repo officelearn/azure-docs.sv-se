@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb7778ce25fd1ff01cfd7d2e1af7991bb38b1f47
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: d47a70f2e086c5322e8ecd53cbf352c672528ebc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605678"
+ms.locfileid: "85798921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Självstudie: Azure Active Directory integration med information CloudSuite
 
@@ -35,7 +35,7 @@ Att integrera information i CloudSuite med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med information CloudSuite behöver du följande objekt:
 
@@ -109,21 +109,21 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med inf
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-        ```https
-        http://mingle-sso.inforcloudsuite.com
-        http://mingle-sso.se1.inforcloudsuite.com
-        http://mingle-sso.eu1.inforcloudsuite.com
-        http://mingle-sso.se2.inforcloudsuite.com
-        ```
+    ```http
+    http://mingle-sso.inforcloudsuite.com
+    http://mingle-sso.se1.inforcloudsuite.com
+    http://mingle-sso.eu1.inforcloudsuite.com
+    http://mingle-sso.se2.inforcloudsuite.com
+    ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-        ```https
-        https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
-        ```
+    ```http
+    https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
+    ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -131,12 +131,12 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med inf
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
-        ```https
-        https://mingle-portal.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
-        ```
+    ```http
+    https://mingle-portal.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [information CloudSuite-klientens support team](mailto:support@infor.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

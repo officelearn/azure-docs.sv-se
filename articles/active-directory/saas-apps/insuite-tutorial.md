@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1226d181a47f48e294d8a7da4c42467c9ade488
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b15dcb403b1caac1f317f840f15cd89a3b496705
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608653"
+ms.locfileid: "85798501"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-insuite"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med insvit
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar insviten med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -84,19 +84,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **inloggnings-URL** skriver du en URL med något av följande mönster:
 
-        ```https
-        https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
-        https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
-        ```
+    ```http
+    https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+    https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+    ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `DreamArts_insuite_TENANTNAME`
 
     c. I text rutan **svars-URL** skriver du en URL med något av följande mönster:
 
-        ```https
-        https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
-        https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
-        ```
+    ```http
+    https://<CUSTOMER_NAME>.m.diol.jp/cgi-bin/saml_sso.cgi
+    https://<CUSTOMER_NAME>.dacl.jp/cgi-bin/saml_sso.cgi
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Hämta de här värdena genom att kontakta [support teamet för klient support](mailto:e-support@dreamarts.co.jp) . Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

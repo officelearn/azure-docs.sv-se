@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611423"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Schema referens guide för språket för arbets flödes definition i Azure Logic Apps
@@ -39,19 +39,19 @@ Här är en övergripande struktur för en arbets flödes definition:
 |-----------|----------|-------------|
 | `definition` | Ja | Start element för arbets flödes definitionen |
 | `$schema` | Endast när externt refererar till en arbets flödes definition | Platsen för JSON-schemafilen som beskriver språk versionen för arbets flödes definitionen, som du hittar här: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| `actions` | Inga | Definitionerna för en eller flera åtgärder som ska köras vid arbets flödets körning. Mer information finns i [utlösare och åtgärder](#triggers-actions). <p><p>Högsta antal åtgärder: 250 |
-| `contentVersion` | Inga | Versions numret för arbets flödes definitionen, som är "1.0.0.0" som standard. Ange ett värde som ska användas för att identifiera och bekräfta rätt definition när du distribuerar ett arbets flöde. |
-| `outputs` | Inga | Definitionerna för de utdata som ska returneras från en arbets flödes körning. Mer information finns i [utdata](#outputs). <p><p>Högsta antal utdata: 10 |
-| `parameters` | Inga | Definitionerna för en eller flera parametrar som skickar värdena som ska användas i din Logic Apps-körning. Mer information finns i [parametrar](#parameters). <p><p>Högsta antal parametrar: 50 |
-| `staticResults` | Inga | Definitionerna för ett eller flera statiska resultat som returneras av åtgärder som modellerade utdata när statiska resultat är aktiverade för dessa åtgärder. I varje åtgärds definition refererar `runtimeConfiguration.staticResult.name` attributet till motsvarande definition i `staticResults`. Mer information finns i [statiska resultat](#static-results). |
-| `triggers` | Inga | Definitionerna för en eller flera utlösare som instansierar arbets flödet. Du kan definiera mer än en utlösare, men endast med arbets flödets definitions språk, inte visuellt via Logic Apps designer. Mer information finns i [utlösare och åtgärder](#triggers-actions). <p><p>Högsta antal utlösare: 10 |
+| `actions` | Nej | Definitionerna för en eller flera åtgärder som ska köras vid arbets flödets körning. Mer information finns i [utlösare och åtgärder](#triggers-actions). <p><p>Högsta antal åtgärder: 250 |
+| `contentVersion` | Nej | Versions numret för arbets flödes definitionen, som är "1.0.0.0" som standard. Ange ett värde som ska användas för att identifiera och bekräfta rätt definition när du distribuerar ett arbets flöde. |
+| `outputs` | Nej | Definitionerna för de utdata som ska returneras från en arbets flödes körning. Mer information finns i [utdata](#outputs). <p><p>Högsta antal utdata: 10 |
+| `parameters` | Nej | Definitionerna för en eller flera parametrar som skickar värdena som ska användas i din Logic Apps-körning. Mer information finns i [parametrar](#parameters). <p><p>Högsta antal parametrar: 50 |
+| `staticResults` | Nej | Definitionerna för ett eller flera statiska resultat som returneras av åtgärder som modellerade utdata när statiska resultat är aktiverade för dessa åtgärder. I varje åtgärds definition `runtimeConfiguration.staticResult.name` refererar attributet till motsvarande definition i `staticResults` . Mer information finns i [statiska resultat](#static-results). |
+| `triggers` | Nej | Definitionerna för en eller flera utlösare som instansierar arbets flödet. Du kan definiera mer än en utlösare, men endast med arbets flödets definitions språk, inte visuellt via Logic Apps designer. Mer information finns i [utlösare och åtgärder](#triggers-actions). <p><p>Högsta antal utlösare: 10 |
 ||||
 
 <a name="triggers-actions"></a>
 
 ## <a name="triggers-and-actions"></a>Utlösare och åtgärder
 
-I en arbets flödes definition `triggers` definierar `actions` avsnitten och de anrop som inträffar under arbets flödets körning. Syntax och mer information om dessa avsnitt finns i [arbets flödes utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md).
+I en arbets flödes definition `triggers` `actions` definierar avsnitten och de anrop som inträffar under arbets flödets körning. Syntax och mer information om dessa avsnitt finns i [arbets flödes utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 <a name="parameters"></a>
 
@@ -74,13 +74,13 @@ Här är den allmänna strukturen för en parameter definition:
 },
 ```
 
-| Attribut | Krävs | Typ | Beskrivning |
+| Attribut | Obligatorisk | Typ | Description |
 |-----------|----------|------|-------------|
 | <*parameter-Name*> | Ja | Sträng | Namnet på den parameter som du vill definiera |
 | <*parameter-typ*> | Ja | int, Float, String, bool, array, Object, SecureString, secureobject <p><p>**Obs**: för alla lösen ord, nycklar och hemligheter använder du `securestring` typerna eller `secureobject` eftersom `GET` åtgärden inte returnerar dessa typer. Mer information om hur du skyddar parametrar finns i [säkerhets rekommendationer för åtgärder och indataparametrar](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Parameterns typ |
-| <*standard-parameter-Value*> | Ja | Samma som`type` | Det standard parameter värde som ska användas om inget värde anges när arbets flödet instansieras. `defaultValue` Attributet krävs så att Logic Apps Designer kan visa parametern korrekt, men du kan ange ett tomt värde. |
-| <*matris – med-tillåts-parameter-Values*> | Inga | Matris | En matris med värden som parametern kan acceptera |
-| <*Parameter-Beskrivning*> | Inga | JSON-objekt | Alla andra parameter uppgifter, till exempel en beskrivning av parametern |
+| <*standard-parameter-Value*> | Ja | Samma som`type` | Det standard parameter värde som ska användas om inget värde anges när arbets flödet instansieras. `defaultValue`Attributet krävs så att Logic Apps Designer kan visa parametern korrekt, men du kan ange ett tomt värde. |
+| <*matris – med-tillåts-parameter-Values*> | Nej | Matris | En matris med värden som parametern kan acceptera |
+| <*Parameter-Beskrivning*> | Nej | JSON-objekt | Alla andra parameter uppgifter, till exempel en beskrivning av parametern |
 ||||
 
 Skapa sedan en [Azure Resource Manager mall](../azure-resource-manager/templates/overview.md) för arbets flödes definitionen, definiera mallparametrar som godkänner de värden som du vill ha vid distributionen, Ersätt hårdkodad-värden med referenser till mall-eller arbets flödes definitions parametrar efter behov och lagra värdena som ska användas vid distributionen i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md). På så sätt kan du enkelt ändra dessa värden genom parameter filen utan att behöva uppdatera och distribuera om din Logic app. För information som är känslig eller måste skyddas, t. ex. användar namn, lösen ord och hemligheter, kan du lagra dessa värden i Azure Key Vault och låta parameter filen hämta dessa värden från ditt nyckel valv. Mer information och exempel på hur du definierar parametrar på mall-och arbets flödes definitions nivåer finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
@@ -89,7 +89,7 @@ Skapa sedan en [Azure Resource Manager mall](../azure-resource-manager/templates
 
 ## <a name="static-results"></a>Statiska resultat
 
-I- `staticResults` attributet definierar du en åtgärds modell `outputs` och `status` att åtgärden returnerar när åtgärdens statiska resultat-inställning är aktive rad. I åtgärdens definition refererar `runtimeConfiguration.staticResult.name` attributet till namnet på den statiska resultat definitionen i. `staticResults` Lär dig hur du kan testa Logi Kap par [med blå data genom att konfigurera statiska resultat](../logic-apps/test-logic-apps-mock-data-static-results.md).
+I `staticResults` -attributet definierar du en åtgärds modell `outputs` och `status` att åtgärden returnerar när åtgärdens statiska resultat-inställning är aktive rad. I åtgärdens definition `runtimeConfiguration.staticResult.name` refererar attributet till namnet på den statiska resultat definitionen i `staticResults` . Lär dig hur du kan testa Logi Kap par [med blå data genom att konfigurera statiska resultat](../logic-apps/test-logic-apps-mock-data-static-results.md).
 
 ```json
 "definition": {
@@ -112,16 +112,16 @@ I- `staticResults` attributet definierar du en åtgärds modell `outputs` och `s
 }
 ```
 
-| Attribut | Krävs | Typ | Beskrivning |
+| Attribut | Obligatorisk | Typ | Description |
 |-----------|----------|------|-------------|
-| <*statiskt resultat-definition-namn*> | Ja | Sträng | Namnet på en statisk resultat definition som en åtgärds definition kan referera till via `runtimeConfiguration.staticResult` ett objekt. Mer information finns i [konfigurations inställningar för körning](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Du kan använda valfritt unikt namn. Som standard läggs det här unika namnet till med ett nummer, vilket ökar efter behov. |
-| <*utdata-attribut-och-Values-returnerade*> | Ja | Varierar | Kraven för dessa attribut varierar beroende på olika villkor. Om till exempel `status` är `Succeeded`, innehåller `outputs` attributet attribut och värden som returneras som bildutdata av åtgärden. `status` Om `Failed`är, `outputs` inkluderar attributet `errors` attributet, som är en matris med ett eller flera fel `message` objekt som innehåller fel information. |
-| <*rubrik – värden*> | Inga | JSON | Alla rubrik värden som returneras av åtgärden |
+| <*statiskt resultat-definition-namn*> | Ja | Sträng | Namnet på en statisk resultat definition som en åtgärds definition kan referera till via ett `runtimeConfiguration.staticResult` objekt. Mer information finns i [konfigurations inställningar för körning](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Du kan använda valfritt unikt namn. Som standard läggs det här unika namnet till med ett nummer, vilket ökar efter behov. |
+| <*utdata-attribut-och-Values-returnerade*> | Ja | Det varierar | Kraven för dessa attribut varierar beroende på olika villkor. Om till exempel `status` är `Succeeded` , `outputs` innehåller attributet attribut och värden som returneras som bildutdata av åtgärden. Om `status` är `Failed` , `outputs` inkluderar attributet `errors` attributet, som är en matris med ett eller flera fel `message` objekt som innehåller fel information. |
+| <*rubrik – värden*> | Nej | JSON | Alla rubrik värden som returneras av åtgärden |
 | <*status-kod-returnerad*> | Ja | Sträng | Status koden som returnerades av åtgärden |
 | <*åtgärds status*> | Ja | Sträng | Åtgärdens status, till exempel `Succeeded` eller`Failed` |
 |||||
 
-I den här definitionen för HTTP-åtgärder är `runtimeConfiguration.staticResult.name` attributet exempelvis referenser `HTTP0` i `staticResults` attributet där de blå utdata för åtgärden definieras. `runtimeConfiguration.staticResult.staticResultOptions` Attributet anger att den statiska resultat inställningen är `Enabled` i http-åtgärden.
+I den här definitionen för HTTP-åtgärder `runtimeConfiguration.staticResult.name` är attributet exempelvis referenser i `HTTP0` `staticResults` attributet där de blå utdata för åtgärden definieras. `runtimeConfiguration.staticResult.staticResultOptions`Attributet anger att den statiska resultat inställningen är `Enabled` i http-åtgärden.
 
 ```json
 "actions": {
@@ -142,7 +142,7 @@ I den här definitionen för HTTP-åtgärder är `runtimeConfiguration.staticRes
 },
 ```
 
-HTTP-åtgärden returnerar utdata i `HTTP0` definitionen inuti. `staticResults` I det här exemplet är `OK`den blå utdatan i status koden. För rubrik värden är `"Content-Type": "application/JSON"`resultatet av den blå. För åtgärdens status är `Succeeded`den blå utmatningen.
+HTTP-åtgärden returnerar utdata i `HTTP0` definitionen inuti `staticResults` . I det här exemplet är den blå utdatan i status koden `OK` . För rubrik värden är resultatet av den blå `"Content-Type": "application/JSON"` . För åtgärdens status är den blå utmatningen `Succeeded` .
 
 ```json
 "definition": {
@@ -178,7 +178,7 @@ Med JSON kan du ha exakta värden som finns i design läge, till exempel:
 "rainbowColorsCount": 7
 ```
 
-Du kan också ha värden som inte finns förrän kör tid. För att representera dessa värden kan du använda *uttryck*som utvärderas vid körning. Ett uttryck är en sekvens som kan innehålla en eller flera [funktioner](#functions), [operatorer](#operators), [variabler](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), explicita värden eller konstanter. I arbets flödes definitionen kan du använda ett uttryck var som helst i ett JSON-sträng värde genom att använda prefixet med at-\@sign (). När du utvärderar ett uttryck som representerar ett JSON-värde extraheras uttrycks \@ texten genom att det tas bort och alltid resulterar i ett annat JSON-värde.
+Du kan också ha värden som inte finns förrän kör tid. För att representera dessa värden kan du använda *uttryck*som utvärderas vid körning. Ett uttryck är en sekvens som kan innehålla en eller flera [funktioner](#functions), [operatorer](#operators), [variabler](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), explicita värden eller konstanter. I arbets flödes definitionen kan du använda ett uttryck var som helst i ett JSON-sträng värde genom att använda prefixet med at-sign ( \@ ). När du utvärderar ett uttryck som representerar ett JSON-värde extraheras uttrycks texten genom att det tas bort \@ och alltid resulterar i ett annat JSON-värde.
 
 För den tidigare definierade `customerName` egenskapen kan du till exempel hämta egenskap svärdet genom att använda funktionen [Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) i ett uttryck och tilldela värdet till `accountName` egenskapen:
 
@@ -187,7 +187,7 @@ För den tidigare definierade `customerName` egenskapen kan du till exempel häm
 "accountName": "@parameters('customerName')"
 ```
 
-Med hjälp av \@ *String-interpolation* kan du också använda flera uttryck inuti strängar som omsluts av tecken-{}och klammerparenteserna (). Här är syntaxen:
+Med hjälp av *String-interpolation* kan du också använda flera uttryck inuti strängar som omsluts av \@ tecken-och klammerparenteserna ( {} ). Här är syntaxen:
 
 ```json
 @{ "<expression1>", "<expression2>" }
@@ -199,7 +199,7 @@ Resultatet är alltid en sträng, vilket gör den här funktionen liknande som `
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-Om du har en tecken sträng som börjar med ett \@ tecken, ska du \@ använda det \@ som ett escape-tecken som ett escape-tecken i ett tecken.\@\@
+Om du har en tecken sträng som börjar med ett \@ tecken, ska du använda det \@ \@ som ett escape-tecken som ett escape-tecken i ett tecken.\@\@
 
 Följande exempel visar hur uttryck utvärderas:
 
@@ -207,7 +207,7 @@ Följande exempel visar hur uttryck utvärderas:
 |------------|--------|
 | "Sophia Owen" | Returnera följande tecken: ' Sophia Owen ' |
 | "matris [1]" | Returnera följande tecken: ' matris [1] ' |
-| "\@\@" | Returnera dessa tecken som en tecken sträng:\@ |
+| "\@\@" | Returnera dessa tecken som en tecken sträng: \@ |
 | " \@" | Returnera dessa tecken som en sträng med två tecken: \@ |
 |||
 
@@ -222,13 +222,13 @@ Följande exempel visar hur följande uttryck utvärderas:
 
 | JSON-uttryck | Resultat |
 |-----------------|--------|
-| "\@parametrar (' myBirthMonth ')" | Returnera den här strängen: "januari" |
-| "\@{parameters (' myBirthMonth ')}" | Returnera den här strängen: "januari" |
-| "\@parametrar (' myAge ')" | Returnera det här talet: 42 |
-| "\@{parameters (' myAge ')}" | Returnera det här talet som en sträng: "42" |
-| "Min ålder är \@{parameters (' myAge ')}" | Returnera den här strängen: "min ålder är 42" |
-| "\@concat (" min ålder är ", sträng (parametrar (' myAge '))))" | Returnera den här strängen: "min ålder är 42" |
-| "Min ålder är \@ \@{parameters (' myAge ')}" | Returnera den här strängen, som innehåller uttrycket: "min ålder är \@{parameters (' myAge ')} ' |
+| " \@ parametrar (' myBirthMonth ')" | Returnera den här strängen: "januari" |
+| " \@ {Parameters (' myBirthMonth ')}" | Returnera den här strängen: "januari" |
+| " \@ parametrar (' myAge ')" | Returnera det här talet: 42 |
+| " \@ {Parameters (' myAge ')}" | Returnera det här talet som en sträng: "42" |
+| "Min ålder är \@ {Parameters (' myAge ')}" | Returnera den här strängen: "min ålder är 42" |
+| " \@ concat (" min ålder är ", sträng (parametrar (' myAge '))))" | Returnera den här strängen: "min ålder är 42" |
+| "Min ålder är \@ \@ {Parameters (' myAge ')}" | Returnera den här strängen, som innehåller uttrycket: "min ålder är \@ {Parameters (' myAge ')} ' |
 |||
 
 När du arbetar visuellt i Logic Apps Designer kan du skapa uttryck genom uttrycks verktyget, till exempel:
@@ -262,7 +262,7 @@ När du är klar visas uttrycket för motsvarande egenskap i arbets flödes defi
 I `outputs` avsnittet definierar du de data som arbets flödet kan returnera när du har kört klart. Om du till exempel vill spåra en speciell status eller ett värde från varje körning anger du att arbets flödets utdata returnerar dessa data.
 
 > [!NOTE]
-> När du svarar på inkommande begär Anden från en tjänsts REST API ska du `outputs`inte använda. Använd i stället `Response` åtgärds typen. Mer information finns i [arbets flödes utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md).
+> När du svarar på inkommande begär Anden från en tjänsts REST API ska du inte använda `outputs` . Använd i stället `Response` Åtgärds typen. Mer information finns i [arbets flödes utlösare och åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 Här är den allmänna strukturen för en utmatnings definition:
 
@@ -292,7 +292,7 @@ I [uttryck](#expressions) och [funktioner](#functions)utför operatorer olika up
 
 | Operator | Uppgift |
 |----------|------|
-| ' | Om du vill använda en stränglitteral som inmatad eller i uttryck och funktioner radbryts strängen endast med enkla citat tecken, till `'<myString>'`exempel. Använd inte dubbla citat tecken (""), som står i konflikt med JSON-formateringen runt ett helt uttryck. Exempel: <p>**Ja**: längd (' Hej ') </br>**Nej**: längd ("Hej") <p>När du skickar matriser eller tal behöver du inte figursätta interpunktion. Exempel: <p>**Ja**: längd ([1, 2, 3]) </br>**Nej**: längd ("[1, 2, 3]") |
+| ' | Om du vill använda en stränglitteral som inmatad eller i uttryck och funktioner radbryts strängen endast med enkla citat tecken, till exempel `'<myString>'` . Använd inte dubbla citat tecken (""), som står i konflikt med JSON-formateringen runt ett helt uttryck. Till exempel: <p>**Ja**: längd (' Hej ') </br>**Nej**: längd ("Hej") <p>När du skickar matriser eller tal behöver du inte figursätta interpunktion. Till exempel: <p>**Ja**: längd ([1, 2, 3]) </br>**Nej**: längd ("[1, 2, 3]") |
 | [] | Om du vill referera till ett värde vid en speciell position (index) i en matris använder du hakparenteser. Till exempel för att hämta det andra objektet i en matris: <p>`myArray[1]` |
 | . | Om du vill referera till en egenskap i ett objekt använder du punkt operatorn. Till exempel för att hämta `name` egenskapen för ett `customer` JSON-objekt: <p>`"@parameters('customer').name"` |
 | ? | Om du vill referera till null-egenskaper i ett objekt utan körnings fel använder du operatorn frågetecken. Om du till exempel vill hantera null-utdata från en utlösare kan du använda det här uttrycket: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |

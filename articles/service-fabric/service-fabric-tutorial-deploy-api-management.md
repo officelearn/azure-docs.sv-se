@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80292146"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrera API Management med Service Fabric i Azure
@@ -25,7 +25,7 @@ Den här artikeln visar hur du konfigurerar [Azure API Management](../api-manage
 > [!IMPORTANT]
 > Den här funktionen är tillgänglig på nivån **Premium** och **developer** of API Management på grund av det nödvändiga stödet för virtuellt nätverk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -134,7 +134,7 @@ Ange ett beskrivande **DisplayName** och en **beskrivning** av produkten. I den 
 
 * **DisplayName** kan vara valfritt namn för din API. I den här artikeln använder du "Service Fabric app".
 * **name** är ett unikt och beskrivande namn för API:et, till exempel ”service-fabric-app”. Det visas i utvecklar- och utgivarportalerna.
-* **serviceUrl** refererar till HTTP-tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen. Det här URL-värdet används inte för Service Fabric-serverdelar. Du kan ange ett valfritt värde här. I den här artikeln, till exempel "http\/:/servicefabric".
+* **serviceUrl** refererar till HTTP-tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen. Det här URL-värdet används inte för Service Fabric-serverdelar. Du kan ange ett valfritt värde här. I den här artikeln, till exempel "http: \/ /servicefabric".
 * **path** läggs till baswebbadressen för API-hanteringstjänsten. Baswebbadressen är gemensam för alla API:er som har en API Management-tjänstinstans som värd. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare.
 * **protocol** anger vilka protokoll som kan användas för åtkomst till API:et. I den här artikeln listar du **http** och **https**.
 * **sökväg** är ett suffix för API:et. I den här artikeln använder du "MyApp".
@@ -147,7 +147,7 @@ Fyll i följande värden för att lägga till en API-åtgärd i klientdelen:
 
 * I **displayName** och **description** beskrivs åtgärden. I den här artikeln använder du "values".
 * **method** anger HTTP-verbet.  I den här artikeln anger du **Hämta**.
-* **urlTemplate** läggs till i baswebbadressen för API:et och identifierar en enskild HTTP-åtgärd.  I den här artikeln använder `/api/values` du om du har lagt till .net- `getMessage` Server dels tjänsten eller om du har lagt till Java-backend-tjänsten.  Som standard gäller att den webbsökväg som anges här är den webbsökväg som skickas till Service Fabric- serverdelstjänsten. Om du använder samma webbsökväg här som tjänsten använder, till exempel ”/ api/values”, fungerar åtgärden utan ytterligare ändringar. Du kan också ange en annan webbsökväg här än den webbadress som används av Service Fabric-serverdelstjänsten. I så fall måste du också ange en sökvägsomskrivning i din åtgärdsprincip senare.
+* **urlTemplate** läggs till i baswebbadressen för API:et och identifierar en enskild HTTP-åtgärd.  I den här artikeln använder `/api/values` du om du har lagt till .NET-Server dels tjänsten eller `getMessage` om du har lagt till Java-backend-tjänsten.  Som standard gäller att den webbsökväg som anges här är den webbsökväg som skickas till Service Fabric- serverdelstjänsten. Om du använder samma webbsökväg här som tjänsten använder, till exempel ”/ api/values”, fungerar åtgärden utan ytterligare ändringar. Du kan också ange en annan webbsökväg här än den webbadress som används av Service Fabric-serverdelstjänsten. I så fall måste du också ange en sökvägsomskrivning i din åtgärdsprincip senare.
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
@@ -190,7 +190,7 @@ Fyll i följande tomma parametrar i *apim.parameters.json* för din distribution
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
+|apimSku|Utvecklare|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN %6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -303,7 +303,7 @@ Läs mer om hur du använder [API Management](/azure/api-management/import-and-p
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-vice-Fabric-scripts-and-templates/BLOB/Master/templates/service-integration/Network-APIM. Parameters. JSONn
+vice-Fabric-scripts-and-templates/BLOB/Master/templates/service-integration/network-apim.parameters.jspån
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

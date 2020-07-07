@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333952"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
@@ -30,7 +30,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |Kanada     |✓         |✓         |
 |Chile     |✓         |✓         |
 |Colombia      |✓         |✓         |
-|Mexiko     |✓         |✓         |
+|Mexico     |✓         |✓         |
 |Peru       |✓         |✓         | 
 |USA     |✓         |✓        |
 |+ Puerto Rico     |✓         |✓         |
@@ -43,10 +43,10 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |---------|:---------:|:---------:|
 |Australien     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|Hongkong     |✓         |✓         |
+|Folkrepubliken Kinas särskilda administrativa region Hongkong     |✓         |✓         |
 |Indien   |✓         |✓         |
 |Indonesien     |✓         |✓         |
-|Kazakhstan    |✓         |✓         |
+|Kazakstan    |✓         |✓         |
 |Folkrepubliken Kinas särskilda administrativa region Macao     |✓         |✓         |
 |Malaysia     |✓         |✓         |
 |Nya Zeeland     |✓         |✓         |
@@ -81,7 +81,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |Island     |✓         |✓         |
 |Irland     |✓         |✓         |
 |Italien     |✓         |✓        |
-|Kazakhstan    |✓         |✓        |
+|Kazakstan    |✓         |✓        |
 |Lettland     |✓         |✓         |
 |Lesotho     |✓         |✓         |
 |Liechtenstein      |✓         |✓         |

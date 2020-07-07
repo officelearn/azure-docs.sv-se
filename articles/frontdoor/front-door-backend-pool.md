@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293475"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Server delar och backend-pooler i Azures front dörr
@@ -43,7 +43,7 @@ Backend-arbetsdelar på klient sidan hänvisar till värd namnet eller den offen
 
 Begär Anden som vidarebefordras av front dörren till en server del är ett värd huvud fält som server delen använder för att hämta mål resursen. Värdet för det här fältet kommer normalt från Server dels-URI: n och har värden och porten.
 
-Till exempel har en begäran som gjorts `www.contoso.com` för ha värd rubriken www.contoso.com. Om du använder Azure Portal för att konfigurera server delen är standardvärdet för det här fältet värd namnet för Server delen. Om Server delen är contoso-westus.azurewebsites.net, i Azure Portal, kommer det automatiskt ifyllda värdet för värd rubriken för Server delen att vara contoso-westus.azurewebsites.net. Men om du använder Azure Resource Manager mallar eller någon annan metod utan att ange det här fältet, skickar front dörren det inkommande värd namnet som värde för värd huvudet. Om begäran har gjorts för www\.-contoso.com och din server del är contoso-westus.azurewebsites.net som har ett tomt huvud fält, kommer klient dörren att ange värd rubriken som www\.-contoso.com.
+Till exempel har en begäran som gjorts för `www.contoso.com` ha värd rubriken www.contoso.com. Om du använder Azure Portal för att konfigurera server delen är standardvärdet för det här fältet värd namnet för Server delen. Om Server delen är contoso-westus.azurewebsites.net, i Azure Portal, kommer det automatiskt ifyllda värdet för värd rubriken för Server delen att vara contoso-westus.azurewebsites.net. Men om du använder Azure Resource Manager mallar eller någon annan metod utan att ange det här fältet, skickar front dörren det inkommande värd namnet som värde för värd huvudet. Om begäran har gjorts för www \. -contoso.com och din server del är contoso-westus.azurewebsites.net som har ett tomt huvud fält, kommer klient dörren att ange värd rubriken som www- \. contoso.com.
 
 De flesta Server Server delar (Azure Web Apps, Blob Storage och Cloud Services) kräver att värd huvudet matchar Server delens domän. Dock använder klient dels värden som dirigerar till Server delen ett annat värdnamn, till exempel www.contoso.net.
 
@@ -67,7 +67,7 @@ En backend-pool definierar hur de olika Server delarna ska utvärderas via häls
 ### <a name="health-probes"></a>Hälsotillståndsavsökningar
 Front dörren skickar regelbundna HTTP/HTTPS-avsöknings begär anden till var och en av dina konfigurerade Server delar. Avsöknings begär Anden fastställer närhet och hälsan för varje server del för att belastningsutjämna dina slut användar förfrågningar. Hälso avsöknings inställningar för en backend-pool definierar hur vi avsöker hälso tillståndet för app-arbetsdelar. Följande inställningar är tillgängliga för belastnings Utjämnings konfiguration:
 
-- **Sökväg**: den URL som används för avsöknings begär Anden för alla Server delar i backend-poolen. Om t. ex. en av dina Server delar är contoso-westus.azurewebsites.net och sökvägen är inställd på/PROBE/test.aspx, skickas begär Anden om hälso avsökningar till http\://contoso-westus.azurewebsites.net/PROBE/test.aspx i front dörrs miljöer.
+- **Sökväg**: den URL som används för avsöknings begär Anden för alla Server delar i backend-poolen. Om t. ex. en av dina Server delar är contoso-westus.azurewebsites.net och sökvägen är inställd på/PROBE/test.aspx, skickas begär Anden om hälso avsökningar till http//contoso-westus.azurewebsites.net/probe/test.aspx i front dörrs miljöer \: .
 
 - **Protokoll**: definierar om hälso avsöknings förfrågningar ska skickas från Front dörren till dina Server delar med http-eller HTTPS-protokoll.
 

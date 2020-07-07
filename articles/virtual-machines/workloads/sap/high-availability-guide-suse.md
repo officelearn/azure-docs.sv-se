@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 05effb7d2e64c5f27acabad4b086ba27d6849cc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348822"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program
@@ -91,32 +91,32 @@ NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HA
 * Konfiguration av klient del
   * IP-10.0.0.7
 * Avsöknings port
-  * Port 620<strong>&lt;nr&gt;</strong>
+  * Port 620<strong> &lt; nr &gt; </strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 36<strong> &lt; nr &gt; </strong> TCP
+    * 39<strong> &lt; nr &gt; </strong> TCP
+    * 81<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
 * Konfiguration av klient del
   * IP-10.0.0.8
 * Avsöknings port
-  * Port 621<strong>&lt;nr&gt;</strong>
+  * Port 621<strong> &lt; nr &gt; </strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 33<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 * Server dels konfiguration
   * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
@@ -156,7 +156,7 @@ Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla
    9. Administratörens användar namn och administratörs lösen ord  
       En ny användare skapas som kan användas för att logga in på datorn.
    10. Undernät-ID  
-   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/**&lt;prenumerations-&gt;ID**/resourceGroups/**&lt;resurs grupp namn&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtuellt nätverks namn&gt;**/subnets/**&lt;under näts namn&gt; **
+   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/** &lt; PRENUMERATIONS &gt; -ID**/ResourceGroups/** &lt; resurs grupp namn &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; virtuellt nätverks namn &gt; **/subnets/** &lt; under näts namn &gt; **
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
@@ -175,7 +175,7 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
    SLES för SAP-program 12 SP1 används  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Lägg till minst en datadisk till båda virtuella datorerna  
-   Data diskarna används för/usr/SAP/`<SAPSID`>-katalogen
+   Data diskarna används för/usr/SAP/>- `<SAPSID` katalogen
 1. Skapa belastningsutjämnare (intern, standard):  
    1. Skapa IP-adresser för klient delen
       1. IP-10.0.0.7 för ASCS
@@ -803,7 +803,7 @@ Följande tester är en kopia av test fallen i Best Practices-handböcker för S
 
 1. Testa HAGetFailoverConfig, HACheckConfig och HACheckFailoverConfig
 
-   Kör följande kommandon som \<sapsid>adm på NODEN där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: det finns inte tillräckligt med minne, det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
+   Kör följande kommandon som \<sapsid> adm på noden där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: det finns inte tillräckligt med minne, det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
 
    <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
    
@@ -915,7 +915,7 @@ Följande tester är en kopia av test fallen i Best Practices-handböcker för S
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Kör följande kommandon som \<sapsid>ADM för att migrera ASCS-instansen.
+   Kör följande kommandon som \<sapsid> ADM för att MIGRERA ASCS-instansen.
 
    <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
    
@@ -1034,7 +1034,7 @@ Följande tester är en kopia av test fallen i Best Practices-handböcker för S
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Skapa ett köobjekt genom att t. ex. Redigera en användare i Transaction su01. Kör följande kommandon som \<sapsid>adm på den nod där ASCS-instansen körs. Kommandona stoppar ASCS-instansen och startar den igen. Om du använder en arkitektur för Server 1, förväntas det att ta bort det här testet. Om du använder Server 2 arkitektur för Server 2 kommer kön att behållas. 
+   Skapa ett köobjekt genom att t. ex. Redigera en användare i Transaction su01. Kör följande kommandon som \<sapsid> adm på den nod där ASCS-instansen körs. Kommandona stoppar ASCS-instansen och startar den igen. Om du använder en arkitektur för Server 1, förväntas det att ta bort det här testet. Om du använder Server 2 arkitektur för Server 2 kommer kön att behållas. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

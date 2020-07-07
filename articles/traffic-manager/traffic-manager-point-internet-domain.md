@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: rohink
 ms.openlocfilehash: 6c5c5c185063caf8ca258ad70a70903c9b583e07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294845"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Peka företagets Internetdomän mot en Azure Traffic Manager-domän
@@ -25,7 +25,7 @@ Om du till exempel vill peka namnet `www.contoso.com` till Traffic Manager DNS-n
 
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
 
-Alla trafik begär Anden *till\.www-contoso.com* får dirigeras till *contoso.trafficmanager.net*.
+Alla trafik begär anden till *www- \. contoso.com* får dirigeras till *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
 > Du kan inte peka en andranivådomän, t.ex. *contoso.com*, på Traffic Manager-domänen. DNS-protokollstandarder tillåter inte CNAME-poster för andra nivåns domännamn.

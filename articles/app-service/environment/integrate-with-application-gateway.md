@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80476901"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrera en ILB App Service-miljö med Azure Application Gateway #
@@ -33,14 +33,14 @@ I den här genomgången kommer du att:
 * Konfigurera din app för att respektera det anpassade domän namnet.
 * Redigera det offentliga DNS-värdnamnet som pekar på din Application Gateway.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill integrera din Application Gateway med din ILB-App Service-miljön behöver du:
 
 * Ett ILB-App Service-miljön.
 * En app som körs i ILB-App Service-miljön.
 * Ett Internet-dirigerbart domän namn som ska användas med din app i ILB-App Service-miljön.
-* ILB-adressen som ILB-App Service-miljön använder. Den här informationen finns i App Service-miljön-portalen under **Inställningar** > **IP-adresser**:
+* ILB-adressen som ILB-App Service-miljön använder. Den här informationen finns i App Service-miljön-portalen under **Inställningar**  >  **IP-adresser**:
 
     ![Exempel lista med IP-adresser som används av ILB-App Service-miljön][9]
     
@@ -56,7 +56,7 @@ Du kan inte heller ange den gateway i under nätet som ILB-App Service-miljön a
 
 ## <a name="configuration-steps"></a>Konfigurationssteg ##
 
-1. I Azure Portal går du till **nytt** > **nätverks** > **Application Gateway**.
+1. I Azure Portal går du till **nytt**  >  **nätverks**  >  **Application Gateway**.
 
 2. I avsnittet **grundläggande** :
 

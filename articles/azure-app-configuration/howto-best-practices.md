@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
 ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348667"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Metod tips för Azure App konfiguration
@@ -32,7 +32,7 @@ Konfiguration av appar innehåller två alternativ för att ordna nycklar:
 
 Du kan använda antingen ett eller båda alternativen för att gruppera dina nycklar.
 
-*Viktiga prefix* är start delarna av nycklar. Du kan logiskt gruppera en uppsättning nycklar genom att använda samma prefix i deras namn. Prefix kan innehålla flera komponenter som är anslutna med en avgränsare, till `/`exempel liknande en URL-sökväg, för att bilda ett namn område. Sådana hierarkier är användbara när du lagrar nycklar för många program, komponent tjänster och miljöer i ett konfigurations lager för appar.
+*Viktiga prefix* är start delarna av nycklar. Du kan logiskt gruppera en uppsättning nycklar genom att använda samma prefix i deras namn. Prefix kan innehålla flera komponenter som är anslutna med en avgränsare, till exempel `/` liknande en URL-sökväg, för att bilda ett namn område. Sådana hierarkier är användbara när du lagrar nycklar för många program, komponent tjänster och miljöer i ett konfigurations lager för appar.
 
 Ett viktigt att tänka på är att nycklarna är vad din program kod refererar till för att hämta värdena för motsvarande inställningar. Nycklar bör inte ändras eller så måste du ändra koden varje stund.
 
@@ -62,7 +62,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 Om du vill komma åt ett konfigurations lager för appar kan du använda dess anslutnings sträng, som finns i Azure Portal. Eftersom anslutnings strängar innehåller autentiseringsinformation anses de vara hemligheter. Dessa hemligheter måste lagras i Azure Key Vault och din kod måste autentiseras för att Key Vault ska kunna hämta dem.
 
-Ett bättre alternativ är att använda funktionen hanterade identiteter i Azure Active Directory. Med hanterade identiteter behöver du bara slut punkts-URL: en för programmets konfiguration för att starta åtkomst till appens konfigurations lager. Du kan bädda in webb adressen i din program kod (till exempel i filen *appSettings. JSON* ). Mer information finns i [integrera med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md) .
+Ett bättre alternativ är att använda funktionen hanterade identiteter i Azure Active Directory. Med hanterade identiteter behöver du bara slut punkts-URL: en för programmets konfiguration för att starta åtkomst till appens konfigurations lager. Du kan bädda in webb adressen i din program kod (till exempel i *appsettings.jspå* fil). Mer information finns i [integrera med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md) .
 
 ## <a name="app-or-function-access-to-app-configuration"></a>App-eller funktions åtkomst till app-konfiguration
 

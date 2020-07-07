@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
 ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550271"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Läge för delad enhet för Android-enheter
@@ -35,8 +35,8 @@ Delad enhets läge tillhandahåller även Microsoft-identitet för hantering av 
 
 För att skapa en app för delad enhets läge fungerar utvecklare och moln enhets administratörer tillsammans:
 
-- Utvecklare skriver en app med ett enda konto (appar med flera konton stöds inte i läget för delad enhet), `"shared_device_mode_supported": true` lägger till i appens konfiguration och skriver kod för att hantera saker som delade enhets utloggning.
-- Enhets administratörer förbereder enheten för delning genom att installera Authenticator-appen och ställa in enheten till delat läge med hjälp av Authenticator-appen. Endast användare som är i rollen som [moln enhets administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) kan lagra en enhet i delat läge med hjälp av [Authenticator-appen](../user-help/user-help-auth-app-overview.md). Du kan konfigurera medlemskap för dina organisations roller i Azure Portal via: **Azure Active Directory** > **roller och administratörer** > **moln enhets administratör**.
+- Utvecklare skriver en app med ett enda konto (appar med flera konton stöds inte i läget för delad enhet), lägger till i `"shared_device_mode_supported": true` appens konfiguration och skriver kod för att hantera saker som delade enhets utloggning.
+- Enhets administratörer förbereder enheten för delning genom att installera Authenticator-appen och ställa in enheten till delat läge med hjälp av Authenticator-appen. Endast användare som är i rollen som [moln enhets administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) kan lagra en enhet i delat läge med hjälp av [Authenticator-appen](../user-help/user-help-auth-app-overview.md). Du kan konfigurera medlemskap för dina organisations roller i Azure Portal via: **Azure Active Directory**  >  **roller och administratörer**  >  **moln enhets administratör**.
 
  Den här artikeln fokuserar främst på vad utvecklare bör tänka på.
 

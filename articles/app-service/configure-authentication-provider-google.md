@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80519946"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda Google-inloggning
@@ -25,8 +25,8 @@ För att slutföra proceduren i det här avsnittet måste du ha ett Google-konto
 ## <a name="register-your-application-with-google"></a><a name="register"> </a>Registrera ditt program med Google
 
 1. Följ Google-dokumentationen på [Google-inloggningen för appar på Server sidan](https://developers.google.com/identity/sign-in/web/server-side-flow) för att skapa ett klient-ID och klient hemlighet. Du behöver inte göra några kod ändringar. Använd bara följande information:
-    - För **behöriga JavaScript-ursprung**använder `https://<app-name>.azurewebsites.net` du med namnet på din app i * \<App-Name->*.
-    - Använd `https://<app-name>.azurewebsites.net/.auth/login/google/callback`för **auktoriserad omdirigerings-URI**.
+    - För **behöriga JavaScript-ursprung**använder `https://<app-name>.azurewebsites.net` du med namnet på din app i *\<app-name>* .
+    - Använd för **auktoriserad omdirigerings-URI** `https://<app-name>.azurewebsites.net/.auth/login/google/callback` .
 1. Kopiera app-ID och appens hemliga värden.
 
     > [!IMPORTANT]
@@ -35,7 +35,7 @@ För att slutföra proceduren i det här avsnittet måste du ha ett Google-konto
 ## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Lägga till Google information till ditt program
 
 1. Gå till din App Service-app i [Azure Portal].
-1. Välj **Inställningar** > **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
+1. Välj **Inställningar**  >  **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
 1. Välj **Google**och klistra in i app-ID och appens hemliga värden som du har fått tidigare. Aktivera alla omfattningar som krävs av ditt program.
 1. Välj **OK**.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: a7107eae5c798deb78d4d35eccdf4adcf5273335
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80388907"
 ---
 # <a name="about-migration"></a>Om migrering
@@ -40,9 +40,9 @@ Förutom att använda Site Recovery för haveri beredskap för lokala och virtue
 - Vid migrering replikerar du lokala datorer till Azure, eller virtuella Azure-datorer till en sekundär region. Sedan kan du inte återställa den virtuella datorn från den primära platsen till den sekundära och slutföra migreringsprocessen. I den här processen ingår ingen återställning efter fel.  
 
 
-## <a name="migration-scenarios"></a> Migreringsscenarier
+## <a name="migration-scenarios"></a>Migreringsscenarier
 
-**Scenario** | **Information**
+**Scenario** | **Detaljer**
 --- | ---
 **Migrera från lokal plats till Azure** | Du kan migrera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar till Azure. För att göra detta slutför du nästan samma steg som för fullständig haveri beredskap. Du växlar bara tillbaka datorer från Azure till den lokala platsen.
 **Migrera mellan Azure-regioner** | Du kan migrera virtuella Azure-datorer från en Azure-region till en annan. När migreringen är klar kan du konfigurera haveri beredskap för virtuella Azure-datorer nu i den sekundära regionen som du migrerade till.

@@ -13,10 +13,10 @@ ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
 ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294392"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Aktivera Anslutning till fjärrskrivbord för en roll i Azure Cloud Services med Visual Studio
@@ -47,7 +47,7 @@ När du använder Visual Studio 2017 version 15,4 och tidigare kan du använda a
    > [!Note]
    > De certifikat som du behöver för en fjärr skrivbords anslutning skiljer sig från de certifikat som du använder för andra Azure-åtgärder. Remote Access-certifikatet måste ha en privat nyckel.
 
-5. Välj ett certifikat i listan eller Välj ** &lt;skapa... &gt;**. Om du skapar ett nytt certifikat anger du ett eget namn för det nya certifikatet när du uppmanas till det och väljer **OK**. Det nya certifikatet visas i list rutan.
+5. Välj ett certifikat i listan eller Välj ** &lt; skapa. &gt; **... Om du skapar ett nytt certifikat anger du ett eget namn för det nya certifikatet när du uppmanas till det och väljer **OK**. Det nya certifikatet visas i list rutan.
 
 6. Ange ett användar namn och ett lösen ord. Du kan inte använda ett befintligt konto. Använd inte "administratör" som användar namn för det nya kontot.
 
@@ -86,7 +86,7 @@ Du kan distribuera ett Cloud Service-projekt från en build-Server (till exempel
 
 Om du vill använda RDP-tillägget från Azure DevOps Services inkluderar du följande information i din build-pipeline:
 
-1. Ta `/p:ForceRDPExtensionOverPlugin=true` med i dina MSBuild-argument för att se till att distributionen fungerar med RDP-tillägget i stället för RDP-plugin-programmet. Ett exempel:
+1. Ta med `/p:ForceRDPExtensionOverPlugin=true` i dina MSBuild-argument för att se till att distributionen fungerar med RDP-tillägget i stället för RDP-plugin-programmet. Till exempel:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None

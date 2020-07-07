@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582734"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Slut punkter för direkt uppspelning (ursprung) i Azure Media Services
@@ -34,25 +34,25 @@ Se till att du också läser avsnittet [dynamisk förpackning](dynamic-packaging
 
 ## <a name="naming-convention"></a>Namngivnings konvention
 
-Värd namn formatet för strömnings-URL: en `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`är: `servicename` , där = namn på direkt uppspelnings slut punkt eller Live-händelseloggen.
+Värd namn formatet för strömnings-URL: en är: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net` , där `servicename` = namn på direkt uppspelnings slut punkt eller Live-händelseloggen.
 
-När du använder standard slut punkten `servicename` för direkt uppspelning utelämnas så att URL `{accountname}-{regionname}.streaming.azure.net`: en är:.
+När du använder standard slut punkten för direkt uppspelning `servicename` utelämnas så att URL: en är: `{accountname}-{regionname}.streaming.azure.net` .
 
 ### <a name="limitations"></a>Begränsningar
 
 * Slut punktens namn för direkt uppspelning har ett max värde på 24 tecken.
-* Namnet ska följa det här [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönstret `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`:.
+* Namnet ska följa det här [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönstret: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 ## <a name="types"></a>Typer
 
-Det finns två typer av **direkt uppspelnings slut punkter** : **standard** (för hands version) och **Premium**. Typen definieras av antalet skalnings enheter (`scaleUnits`) som du allokerar för slut punkten för direkt uppspelning.
+Det finns två typer av **direkt uppspelnings slut punkter** : **standard** (för hands version) och **Premium**. Typen definieras av antalet skalnings enheter ( `scaleUnits` ) som du allokerar för slut punkten för direkt uppspelning.
 
 I tabellen beskrivs typerna:
 
 |Typ|Skalningsenheter|Beskrivning|
 |--------|--------|--------|  
-|**Standard**|0|Standard slut punkten för direkt uppspelning är en **standard** typ – den kan ändras till Premium-typen genom `scaleUnits`att justera.|
-|**Premium**|> 0|**Premium** Slut punkter för direkt uppspelning passar för avancerade arbets belastningar och tillhandahåller dedikerad och skalbar bandbredds kapacitet. Du flyttar till en **Premium** typ genom att `scaleUnits` justera (enheter för strömning). `scaleUnits`ge dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. När du använder **Premium** -typen ger varje aktive rad enhet ytterligare bandbredds kapacitet till appen. |
+|**Standard**|0|Standard slut punkten för direkt uppspelning är en **standard** typ – den kan ändras till Premium-typen genom att justera `scaleUnits` .|
+|**Premium**|> 0|**Premium** Slut punkter för direkt uppspelning passar för avancerade arbets belastningar och tillhandahåller dedikerad och skalbar bandbredds kapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits` (enheter för strömning). `scaleUnits`ge dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. När du använder **Premium** -typen ger varje aktive rad enhet ytterligare bandbredds kapacitet till appen. |
 
 > [!NOTE]
 > För kunder som vill leverera innehåll till stora Internet-åhörare rekommenderar vi att du aktiverar CDN på slut punkten för direkt uppspelning.
@@ -81,21 +81,21 @@ Det här avsnittet innehåller information om några av egenskaperna för ström
 
 - `accessControl`: Används för att konfigurera följande säkerhets inställningar för den här strömnings slut punkten: Akamai för signatur huvud och IP-adresser som tillåts att ansluta till den här slut punkten. Den här egenskapen kan bara anges när `cdnEnabled` har angetts till false.
 
-- `cdnEnabled`: Anger om Azure CDN integrering för den här slut punkten för direkt uppspelning är aktive rad (inaktive rad som standard). Om du anger `cdnEnabled` till sant inaktive ras följande konfigurationer: `customHostNames` och `accessControl`.
+- `cdnEnabled`: Anger om Azure CDN integrering för den här slut punkten för direkt uppspelning är aktive rad (inaktive rad som standard). Om du anger `cdnEnabled` till sant inaktive ras följande konfigurationer: `customHostNames` och `accessControl` .
 
     Alla data Center stöder inte Azure CDN-integrering. Gör så här för att kontrol lera om data centret har Azure CDN-integrering tillgänglig:
 
-  - Försök att ange `cdnEnabled` värdet sant.
-  - Kontrol lera det returnerade resultatet `HTTP Error Code 412` för en (PreconditionFailed) med ett meddelande om att det inte går att ange egenskapen CdnEnabled för strömmande slut punkt till True eftersom CDN-funktionen inte är tillgänglig i den aktuella regionen.
+  - Försök att ange värdet `cdnEnabled` sant.
+  - Kontrol lera det returnerade resultatet för en `HTTP Error Code 412` (PreconditionFailed) med ett meddelande om att det inte går att ange egenskapen CdnEnabled för strömmande slut punkt till True eftersom CDN-funktionen inte är tillgänglig i den aktuella regionen.
 
     Om du får det här felet stöder inte data centret det. Prova ett annat data Center.
 
-- `cdnProfile`: Om `cdnEnabled` är inställt på Sant kan du också `cdnProfile` skicka värden. `cdnProfile`är namnet på CDN-profilen där CDN-slutpunkten kommer att skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är NULL och `cdnEnabled` sant används standardvärdet "AzureMediaStreamingPlatformCdnProfile". Om den angivna `cdnProfile` redan finns skapas en slut punkt under den. Om profilen inte finns skapas en ny profil automatiskt.
-- `cdnProvider`: När CDN har Aktiver ATS kan du också `cdnProvider` skicka värden. `cdnProvider`styr vilken provider som ska användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" och "StandardAkamai". Om inget värde anges och `cdnEnabled` är sant används "StandardVerizon" (det är standardvärdet).
+- `cdnProfile`: Om `cdnEnabled` är inställt på Sant kan du också skicka `cdnProfile` värden. `cdnProfile`är namnet på CDN-profilen där CDN-slutpunkten kommer att skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är NULL och `cdnEnabled` Sant används standardvärdet "AzureMediaStreamingPlatformCdnProfile". Om den angivna `cdnProfile` redan finns skapas en slut punkt under den. Om profilen inte finns skapas en ny profil automatiskt.
+- `cdnProvider`: När CDN har Aktiver ATS kan du också skicka `cdnProvider` värden. `cdnProvider`styr vilken provider som ska användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" och "StandardAkamai". Om inget värde anges och `cdnEnabled` är sant används "StandardVerizon" (det är standardvärdet).
 - `crossSiteAccessPolicies`: Används för att ange åtkomst principer mellan platser för olika klienter. Mer information finns i [Specifikation över domän princip fil](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) och [göra en tjänst tillgänglig över domän gränser](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). Inställningarna gäller endast för Smooth Streaming.
-- `customHostNames`: Används för att konfigurera en slut punkt för direkt uppspelning för att acceptera trafik som dirigerats till ett anpassat värdnamn. Den här egenskapen är giltig för slut punkter för standard-och Premium-direktuppspelning och `cdnEnabled`kan ställas in när: false.
+- `customHostNames`: Används för att konfigurera en slut punkt för direkt uppspelning för att acceptera trafik som dirigerats till ett anpassat värdnamn. Den här egenskapen är giltig för slut punkter för standard-och Premium-direktuppspelning och kan ställas in när `cdnEnabled` : false.
 
-    Ägande rätten till domän namnet måste bekräftas av Media Services. Media Services verifierar domän namnets ägarskap genom att kräva en `CName` post som innehåller Media Services-konto-ID som en komponent som ska läggas till i domänen som används. Som exempel, för att "sports.contoso.com" ska användas som ett anpassat värdnamn för strömnings slut punkten måste en post för `<accountId>.contoso.com` vara konfigurerad för att peka på ett av Media Services verifierings värd namn. Verifierings värd namnet består av verifydns. \<media services-> för DNS-zon.
+    Ägande rätten till domän namnet måste bekräftas av Media Services. Media Services verifierar domän namnets ägarskap genom att kräva en `CName` post som innehåller Media Services-konto-ID som en komponent som ska läggas till i domänen som används. Som exempel, för att "sports.contoso.com" ska användas som ett anpassat värdnamn för strömnings slut punkten måste en post för vara `<accountId>.contoso.com` konfigurerad för att peka på ett av Media Services verifierings värd namn. Verifierings värd namnet består av verifydns. \<mediaservices-dns-zone> .
 
     Följande är de DNS-zoner som förväntas användas i verifiera-posten för olika Azure-regioner.
   
@@ -109,11 +109,11 @@ Det här avsnittet innehåller information om några av egenskaperna för ström
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
 
-    Till exempel bevisar en `CName` post som mappar "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" till "verifydns.Media.Azure.net" att Media Services-ID: t 945a4c4e-28ea-45cd-8ccb-a519f6b700ad har ägandet av contoso.com-domänen, vilket innebär att alla namn under contoso.com ska användas som ett anpassat värdnamn för en strömnings slut punkt under det kontot. Om du vill hitta medie tjänstens ID-värde går du till [Azure Portal](https://portal.azure.com/) och väljer ditt medie tjänst konto. **Konto-ID** visas längst upp till höger på sidan.
+    Till exempel `CName` bevisar en post som mappar "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" till "verifydns.Media.Azure.net" att Media Services-ID: t 945a4c4e-28ea-45cd-8ccb-a519f6b700ad har ägandet av contoso.com-domänen, vilket innebär att alla namn under contoso.com ska användas som ett anpassat värdnamn för en strömnings slut punkt under det kontot. Om du vill hitta medie tjänstens ID-värde går du till [Azure Portal](https://portal.azure.com/) och väljer ditt medie tjänst konto. **Konto-ID** visas längst upp till höger på sidan.
 
     Om det finns ett försök att ange ett anpassat värdnamn utan en korrekt verifiering av `CName` posten, kommer DNS-svaret att Miss lyckas och cachelagras under en viss tid. När en riktig post är på plats kan det ta en stund tills det cachelagrade svaret har verifierats igen. Beroende på DNS-providern för den anpassade domänen tar det var som helst från några minuter till en timme för att omverifiera posten.
 
-    `CName` Förutom det som mappar `<accountId>.<parent domain>` till `verifydns.<mediaservices-dns-zone>`måste du skapa en annan `CName` som mappar det anpassade värd namnet (till exempel `sports.contoso.com`) till din Media Services direkt slut punkts värdnamn (till exempel `amstest-usea.streaming.media.azure.net`).
+    Förutom det `CName` som mappar `<accountId>.<parent domain>` till `verifydns.<mediaservices-dns-zone>` måste du skapa en annan `CName` som mappar det anpassade värd namnet (till exempel `sports.contoso.com` ) till din Media Services direkt slut punkts värdnamn (till exempel `amstest-usea.streaming.media.azure.net` ).
 
     > [!NOTE]
     > Slut punkter för direkt uppspelning som finns i samma data Center kan inte dela samma anpassade värd namn.
@@ -130,7 +130,7 @@ Det här avsnittet innehåller information om några av egenskaperna för ström
     - Stoppar: övergår till stoppat tillstånd
     - Tar bort: tas bort
 
-- `scaleUnits`: Ger dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. Om du behöver flytta till en **Premium** -typ justerar `scaleUnits`du.
+- `scaleUnits`: Ger dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. Om du behöver flytta till en **Premium** -typ justerar du `scaleUnits` .
 
 ## <a name="why-use-multiple-streaming-endpoints"></a>Varför ska jag använda flera slut punkter för direkt uppspelning?
 

@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0eca73b5acae715283c05125181e12729ed5a772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335577"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Lägg till ett symbol lager till en karta med Azure Maps Android SDK
 
 Den här artikeln visar hur du återger punkt data från en data källa som ett symbol lager på en karta med hjälp av Azure Maps Android SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa stegen i den här artikeln fullständigt måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 
@@ -27,7 +27,7 @@ Om du vill följa stegen i den här artikeln fullständigt måste du installera 
 
 Följ stegen nedan om du vill lägga till en markör på kartan med symbol skiktet:
 
-1. Redigera **res** > **layout** > **activity_main. XML** så att det ser ut som i följande XML:
+1. Redigera **res**  >  **layout**  >  **activity_main.xml** så att det ser ut som i följande XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8e014e7a1c564377582e4503218c4129619daa91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80410741"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault tillägg för virtuell dator för Windows
@@ -34,7 +34,7 @@ Key Vault VM-tillägget stöder följande versioner av Windows:
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som offentlig information. Tillägget kräver en lista över övervakade certifikat, avsöknings frekvens och mål certifikat arkivet. Mer specifikt:  
+Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som offentlig information. Tillägget kräver en lista över övervakade certifikat, avsöknings frekvens och mål certifikat arkivet. Specifikt:  
 
 ```json
     {
@@ -65,7 +65,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 ```
 
 > [!NOTE]
-> URL: er för dina observerade certifikat bör `https://myVaultName.vault.azure.net/secrets/myCertName`ha formatet.
+> URL: er för dina observerade certifikat bör ha formatet `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
 > Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` sökvägen inte fungerar. Mer information om certifikat hittar du här: [Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
@@ -89,7 +89,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver uppdatering av certifikat. Tillägget kan distribueras till enskilda virtuella datorer eller skalnings uppsättningar för virtuella datorer. Schemat och konfigurationen är gemensamma för båda typerna av mallar. 
 
-JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` datorer under objekt.
+JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella datorer under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objekt.
 
 ```json
     {

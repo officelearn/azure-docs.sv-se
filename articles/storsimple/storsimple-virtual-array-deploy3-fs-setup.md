@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80297649"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuera virtuell StorSimple-matris – Ställ in som fil server via Azure Portal
@@ -70,7 +70,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
 6. På sidan **enhets inställningar** :
    
    1. Tilldela enheten ett unikt **namn** . Namnet kan innehålla 1-15 tecken och får innehålla bokstäver, siffror och bindestreck.
-   2. Klicka på ikonen ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) **fil Server** för den **typ** av enhet som du skapar. Med en fil Server kan du skapa delade mappar.
+   2. Klicka på ikonen **fil Server** ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) för den **typ** av enhet som du skapar. Med en fil Server kan du skapa delade mappar.
    3. Eftersom enheten är en fil server måste du ansluta enheten till en domän. Ange ett **domän namn**.
    4. Klicka på **Använd**.
 7. En dialog ruta visas. Ange autentiseringsuppgifterna för domänen i det angivna formatet. Klicka på kryss ikonen. Domänautentiseringsuppgifter verifieras. Ett fel meddelande visas om autentiseringsuppgifterna är felaktiga.
@@ -90,7 +90,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    
    På **webbproxy-** sidan:
    
-   1. Ange **webbproxy-URL** i det här formatet *:&lt;http://Host-IP Address eller&gt;FQDN:P ort nummer*. Observera att HTTPS-URL: er inte stöds.
+   1. Ange **webbproxy-URL** i det här formatet: *http:// &lt; host-IP Address eller FQDN &gt; :P ort nummer*. Observera att HTTPS-URL: er inte stöds.
    2. Ange **autentisering** som **Basic** eller **none**.
    3. Om du använder autentisering måste du också ange ett **användar namn** och **lösen ord**.
    4. Klicka på **Använd**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
@@ -185,7 +185,7 @@ Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://port
    3. En **typ** för resursen. Typen kan vara på **nivå** av eller **lokalt fäst**, med nivån standard. För arbets belastningar som kräver lokala garantier, låg fördröjning och högre prestanda väljer du en **lokalt fäst** resurs. För alla andra data väljer du en **nivå** resurs.
       En lokalt fäst resurs är tjockt etablerad och säkerställer att de primära data på resursen förblir lokala för enheten och inte spiller i molnet. En nivå resurs på den andra handen är tunt etablerad. När du skapar en nivå resurs har 10% av utrymmet tillhandahållits på den lokala nivån och 90% av utrymmet är etablerad i molnet. Om du till exempel har allokerat en 1 TB-volym skulle 100 GB finnas i det lokala utrymmet och 900 GB används i molnet när data nivåerna. Detta innebär i sin tur att om du tar bort allt lokalt utrymme på enheten kan du inte etablera en nivå resurs.
    
-   4. I fältet **ange fullständiga standard behörigheter till** tilldelar du behörigheterna till användaren eller gruppen som har åtkomst till den här resursen. Ange namnet på användaren eller användar gruppen i *john\@contoso.com* -format. Vi rekommenderar att du använder en användar grupp (i stället för en enskild användare) för att tillåta administratörs behörighet att få åtkomst till dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
+   4. I fältet **ange fullständiga standard behörigheter till** tilldelar du behörigheterna till användaren eller gruppen som har åtkomst till den här resursen. Ange namnet på användaren eller användar gruppen i *john \@ contoso.com* -format. Vi rekommenderar att du använder en användar grupp (i stället för en enskild användare) för att tillåta administratörs behörighet att få åtkomst till dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
    
    5. Klicka på **Lägg till** för att skapa resursen. 
     
@@ -203,7 +203,7 @@ Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://port
 Du måste nu ansluta till en eller flera resurser som du skapade i föregående steg. Utför de här stegen på Windows Server-värden som är ansluten till din virtuella StorSimple-matris.
 
 #### <a name="to-connect-to-the-share"></a>Så här ansluter du till resursen
-1. Tryck ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) på + R. I fönstret kör anger du *namnet &lt;&gt; på&#92;&#92;fil servern* som sökväg, ersätter *fil Server namnet* med det enhets namn som du har tilldelat till fil servern. Klicka på **OK**.
+1. Tryck på ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. I fönstret kör anger du * &lt; namnet &gt; på&#92;&#92;fil servern* som sökväg, ersätter *fil Server namnet* med det enhets namn som du har tilldelat till fil servern. Klicka på **OK**.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Då öppnas Utforskaren. Du bör nu kunna se de resurser du har skapat som mappar. Välj och dubbelklicka på en resurs (mapp) för att visa innehållet.

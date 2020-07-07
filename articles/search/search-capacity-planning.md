@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546265"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Justera kapaciteten i Azure Kognitiv sökning
@@ -86,10 +86,10 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 | **1 replik** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 repliker** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 repliker** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Ej tillämpligt |
-| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Ej tillämpligt |
-| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Ej tillämpligt |
-| **12 repliker** |12 SU |24 SU |36 SU |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |
+| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Saknas |
+| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Saknas |
+| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Saknas |
+| **12 repliker** |12 SU |24 SU |36 SU |Saknas |Saknas |Saknas |
 
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).
 

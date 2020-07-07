@@ -4,10 +4,10 @@ description: Lär dig hur du paketerar ett befintligt program som en körbar gä
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80520487"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
@@ -22,18 +22,18 @@ När du packar en befintlig körbar fil som en [gäst fil](service-fabric-guest-
 
 I Visual Studio finns en Service Fabric tjänstmall som hjälper dig att distribuera en körbar gäst fil till ett Service Fabric-kluster.
 
-1. Välj **Arkiv** > **nytt projekt**och skapa ett Service Fabric-program.
+1. Välj **Arkiv**  >  **nytt projekt**och skapa ett Service Fabric-program.
 2. Välj **gäst-körbara filer** som tjänst mal len.
 3. Klicka på **Bläddra** för att välja mappen med den körbara filen och fyll i resten av parametrarna för att skapa tjänsten.
    * *Kod pakets beteende*. Kan ställas in så att allt innehåll i din mapp kopieras till Visual Studio-projektet, vilket är användbart om den körbara filen inte ändras. Om du förväntar dig att den körbara filen ska ändras och du vill kunna hämta nya versioner dynamiskt, kan du välja att länka till mappen i stället. Du kan använda länkade mappar när du skapar programprojektet i Visual Studio. Detta länkar till käll platsen inifrån projektet, vilket gör det möjligt för dig att uppdatera den körbara gäst filen på käll platsen. Dessa uppdateringar blir en del av programpaketet när de skapas.
    * *Programmet* anger den körbara fil som ska köras för att starta tjänsten.
    * *Argument* anger de argument som ska skickas till den körbara filen. Det kan vara en lista över parametrar med argument.
    * *WorkingFolder* anger arbets katalogen för processen som ska startas. Du kan ange tre värden:
-     * `CodeBase`anger att arbets katalogen ska ställas in på kod katalogen i programpaketet (`Code` katalogen som visas i den föregående fil strukturen).
-     * `CodePackage`anger att arbets katalogen ska ställas in på programmets rot (`GuestService1Pkg` visas i föregående fil struktur).
+     * `CodeBase`anger att arbets katalogen ska ställas in på kod katalogen i programpaketet ( `Code` katalogen som visas i den föregående fil strukturen).
+     * `CodePackage`anger att arbets katalogen ska ställas in på programmets rot ( `GuestService1Pkg` visas i föregående fil struktur).
      * `Work`anger att filerna placeras i en under katalog som kallas arbete.
 4. Namnge tjänsten och klicka på **OK**.
-5. Om tjänsten behöver en slut punkt för kommunikation kan du nu lägga till protokollet, porten och typen i filen ServiceManifest. xml. Till exempel: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Om tjänsten behöver en slut punkt för kommunikation kan du nu lägga till protokollet, porten och typen i ServiceManifest.xml-filen. Exempel: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Du kan nu använda paketet och publicera åtgärden mot ditt lokala kluster genom att felsöka lösningen i Visual Studio. När du är klar kan du publicera programmet i ett fjärran slutet kluster eller checka in lösningen till käll kontroll.
 7. Läs [kontrol lera att programmet körs](#check-your-running-application) för att se hur du kan visa den körbara gäst tjänsten som körs i Service Fabric Explorer.
 
@@ -137,7 +137,7 @@ Följande avsnitt går igenom de olika delarna av filen som du behöver uppdater
 </ServiceTypes>
 ```
 
-* Du kan välja valfritt namn som du vill använda `ServiceTypeName`. Värdet används i `ApplicationManifest.xml` filen för att identifiera tjänsten.
+* Du kan välja valfritt namn som du vill använda `ServiceTypeName` . Värdet används i `ApplicationManifest.xml` filen för att identifiera tjänsten.
 * Ange `UseImplicitHost="true"`. Det här attributet anger Service Fabric att tjänsten är baserad på en självständig app, vilket innebär att alla Service Fabric behöver göra är att starta den som en process och övervaka dess hälsa.
 
 #### <a name="update-codepackage"></a>Uppdatera CodePackage
@@ -147,7 +147,7 @@ CodePackage-elementet anger platsen (och versionen) för tjänst koden.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-`Name` Elementet används för att ange namnet på den katalog i programpaketet som innehåller tjänst koden. `CodePackage`har också `version` attributet. Detta kan användas för att ange versionen av koden och kan även användas för att uppgradera tjänst koden med hjälp av infrastrukturen för program livs cykel hantering i Service Fabric.
+`Name`Elementet används för att ange namnet på den katalog i programpaketet som innehåller tjänst koden. `CodePackage`har också `version` attributet. Detta kan användas för att ange versionen av koden och kan även användas för att uppgradera tjänst koden med hjälp av infrastrukturen för program livs cykel hantering i Service Fabric.
 
 #### <a name="optional-update-setupentrypoint"></a>Valfritt: uppdatera SetupEntrypoint
 
@@ -176,15 +176,15 @@ I föregående exempel kör SetupEntryPoint en kommando fil `LaunchConfig.cmd` s
 </EntryPoint>
 ```
 
-`EntryPoint` Elementet i tjänst manifest filen används för att ange hur tjänsten ska startas.
+`EntryPoint`Elementet i tjänst manifest filen används för att ange hur tjänsten ska startas.
 
-`ExeHost` Elementet anger den körbara filen (och argument) som ska användas för att starta tjänsten. Du kan också lägga till `IsExternalExecutable="true"` attributet för `ExeHost` att ange att programmet är en extern körbar fil utanför kod paketet. Till exempel `<ExeHost IsExternalExecutable="true">`.
+`ExeHost`Elementet anger den körbara filen (och argument) som ska användas för att starta tjänsten. Du kan också lägga till `IsExternalExecutable="true"` attributet för `ExeHost` att ange att programmet är en extern körbar fil utanför kod paketet. Till exempel `<ExeHost IsExternalExecutable="true">`.
 
 * `Program`Anger namnet på den körbara fil som ska starta tjänsten.
 * `Arguments`anger de argument som ska skickas till den körbara filen. Det kan vara en lista över parametrar med argument.
 * `WorkingFolder`anger arbets katalogen för processen som ska startas. Du kan ange tre värden:
-  * `CodeBase`anger att arbets katalogen ska ställas in på kod katalogen i programpaketet (`Code` katalogen i föregående fil struktur).
-  * `CodePackage`anger att arbets katalogen ska ställas in till roten för programpaketet (`GuestService1Pkg` i föregående fil struktur).
+  * `CodeBase`anger att arbets katalogen ska ställas in på kod katalogen i programpaketet ( `Code` katalogen i föregående fil struktur).
+  * `CodePackage`anger att arbets katalogen ska ställas in till roten för programpaketet ( `GuestService1Pkg` i föregående fil struktur).
     * `Work`anger att filerna placeras i en under katalog som kallas arbete.
 
 WorkingFolder är användbart för att ange rätt arbets katalog så att relativa sökvägar kan användas av antingen programmet eller initierings skripten.
@@ -198,12 +198,12 @@ WorkingFolder är användbart för att ange rätt arbets katalog så att relativ
 
 ```
 
-I föregående exempel anger `Endpoint` elementet de slut punkter som programmet kan lyssna på. I det här exemplet lyssnar programmet Node. js på http på port 3000.
+I föregående exempel `Endpoint` anger elementet de slut punkter som programmet kan lyssna på. I det här exemplet lyssnar Node.jss programmet på http på port 3000.
 
 Dessutom kan du be Service Fabric att publicera slut punkten till Naming Service så att andra tjänster kan identifiera slut punkts adressen för den här tjänsten. På så sätt kan du kommunicera mellan tjänster som är körbara gäst program.
-Adressen till den publicerade slut punkten är av `UriScheme://IPAddressOrFQDN:Port/PathSuffix`typen. `UriScheme`och `PathSuffix` är valfria attribut. `IPAddressOrFQDN`är IP-adressen eller det fullständiga domän namnet för den nod som den körbara filen ska placeras på och den beräknas åt dig.
+Adressen till den publicerade slut punkten är av typen `UriScheme://IPAddressOrFQDN:Port/PathSuffix` . `UriScheme`och `PathSuffix` är valfria attribut. `IPAddressOrFQDN`är IP-adressen eller det fullständiga domän namnet för den nod som den körbara filen ska placeras på och den beräknas åt dig.
 
-I följande exempel visas en slut punkt som `http://10.1.4.92:3000/myapp/` liknar publicerad för tjänst instansen när tjänsten har distribuerats i Service Fabric Explorer. Eller om det är en lokal dator visas `http://localhost:3000/myapp/`.
+I följande exempel visas en slut punkt som liknar `http://10.1.4.92:3000/myapp/` publicerad för tjänst instansen när tjänsten har distribuerats i Service Fabric Explorer. Eller om det är en lokal dator visas `http://localhost:3000/myapp/` .
 
 ```xml
 <Endpoints>
@@ -228,7 +228,7 @@ När du har konfigurerat `Servicemanifest.xml` filen måste du göra några änd
 
 #### <a name="servicemanifestimport"></a>Service manifest import
 
-I- `ServiceManifestImport` elementet kan du ange en eller flera tjänster som du vill ta med i appen. Tjänsterna refereras till `ServiceManifestName`, som anger namnet på den katalog där `ServiceManifest.xml` filen finns.
+I `ServiceManifestImport` -elementet kan du ange en eller flera tjänster som du vill ta med i appen. Tjänsterna refereras till `ServiceManifestName` , som anger namnet på den katalog där `ServiceManifest.xml` filen finns.
 
 ```xml
 <ServiceManifestImport>
@@ -239,7 +239,7 @@ I- `ServiceManifestImport` elementet kan du ange en eller flera tjänster som du
 ## <a name="set-up-logging"></a>Konfigurera loggning
 
 För körbara gäst program är det bra att kunna se konsol loggar för att ta reda på om program-och konfigurations skripten visar eventuella fel.
-Omdirigering av konsol kan konfigureras i `ServiceManifest.xml` filen med hjälp av `ConsoleRedirection` -elementet.
+Omdirigering av konsol kan konfigureras i `ServiceManifest.xml` filen med hjälp av- `ConsoleRedirection` elementet.
 
 > [!WARNING]
 > Använd aldrig konsolens omdirigerings policy i ett program som distribueras i produktion eftersom detta kan påverka programmets redundans. Använd *endast* detta för lokal utveckling och fel sökning.  
@@ -291,7 +291,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 En Service Fabric tjänst kan distribueras i olika "konfigurationer". Den kan till exempel distribueras som en enda eller flera instanser, eller så kan den distribueras på ett sådant sätt att det finns en instans av tjänsten på varje nod i Service Fabric klustret.
 
-`InstanceCount` Parametern för `New-ServiceFabricService` cmdleten används för att ange hur många instanser av tjänsten som ska startas i Service Fabric klustret. Du kan ställa in `InstanceCount` värdet, beroende på vilken typ av program du distribuerar. De två vanligaste scenarierna är:
+`InstanceCount`Parametern för `New-ServiceFabricService` cmdleten används för att ange hur många instanser av tjänsten som ska startas i Service Fabric klustret. Du kan ställa in `InstanceCount` värdet, beroende på vilken typ av program du distribuerar. De två vanligaste scenarierna är:
 
 * `InstanceCount = "1"`. I det här fallet distribueras bara en instans av tjänsten i klustret. Service Fabric Scheduler bestämmer vilken nod tjänsten ska distribueras på.
 * `InstanceCount ="-1"`. I det här fallet distribueras en instans av tjänsten på varje nod i Service Fabric klustret. Resultatet har en (och endast en) instans av tjänsten för varje nod i klustret.

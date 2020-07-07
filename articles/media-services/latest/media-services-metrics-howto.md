@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382944"
 ---
 # <a name="monitor-media-services-metrics"></a>Övervaka Media Services-mått
@@ -26,7 +26,7 @@ Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och 
 
 Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklusive att lägga till dem i portalen, komma åt dem via REST API eller genom att fråga dem med hjälp av Azure CLI. Den här artikeln visar hur du övervakar mått med Azure Portal-diagram och Azure CLI.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md)
 - Granska [övervaknings Media Services mått och diagnostikloggar](media-services-metrics-diagnostic-logs.md)
@@ -40,7 +40,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
     Fönstret **Välj en resurs** visas till höger med listan över resurser som är tillgängliga för dig. I det här fallet visas:
 
     * &lt;Media Services konto namn&gt;
-    * &lt;Media Services konto namn&gt;/&lt;strömmande slut punkts namn&gt;
+    * &lt;Media Services konto namn &gt; / &lt; strömmande slut punkts namn&gt;
     * &lt;lagrings konto namn&gt;
 
     Markera resursen och tryck på **Använd**. Mer information om resurser och mått som stöds finns i [övervaka Media Services mått](media-services-metrics-diagnostic-logs.md).

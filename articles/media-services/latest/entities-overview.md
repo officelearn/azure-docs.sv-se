@@ -14,17 +14,17 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80584538"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
 
 I det här avsnittet beskrivs OData-frågealternativen och sid brytnings stöd som är tillgängligt när du visar Azure Media Services v3-entiteter.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 * Egenskaper för entiteter av `Datetime` typen är alltid i UTC-format.
 * Blank steg i frågesträngen ska vara URL-kodat innan du skickar en begäran.
@@ -45,7 +45,7 @@ Intervall operatorer:
 - `ge`: Testa om ett fält är *större än eller lika* med ett konstant värde.
 - `le`: Testa om ett fält är *mindre än eller lika* med ett konstant värde.
 
-## <a name="filter"></a>Filter
+## <a name="filter"></a>Filtrera
 
 Använd `$filter` för att ange en OData filter-parameter för att bara hitta de objekt som du är intresse rad av.
 
@@ -64,26 +64,26 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Sortera efter
 
-Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Ett exempel:  
+Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Till exempel:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Om du vill sortera resultaten i stigande eller fallande ordning, lägger du till `asc` antingen `desc` eller till fält namnet, avgränsat med ett blank steg. Till exempel: `$orderby properties/created desc`.
+Om du vill sortera resultaten i stigande eller fallande ordning, lägger du till antingen `asc` eller `desc` till fält namnet, avgränsat med ett blank steg. Exempel: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Hoppa över token
 
-Om ett fråge svar innehåller många objekt returnerar tjänsten ett `$skiptoken` (`@odata.nextLink`)-värde som du använder för att hämta nästa sida med resultat. Använd den för att bläddra igenom hela resultat uppsättningen.
+Om ett fråge svar innehåller många objekt returnerar tjänsten ett `$skiptoken` ()- `@odata.nextLink` värde som du använder för att hämta nästa sida med resultat. Använd den för att bläddra igenom hela resultat uppsättningen.
 
 I Media Services v3 kan du inte konfigurera sid storleken. Sid storleken varierar beroende på typ av entitet. Läs de enskilda avsnitten som följer efter information.
 
 Om entiteter skapas eller tas bort när du växlar genom samlingen visas ändringarna i de returnerade resultaten (om dessa ändringar finns i den del av samlingen som inte har hämtats).
 
 > [!TIP]
-> Använd `nextLink` alltid för att räkna upp samlingen och är inte beroende av en viss sid storlek.
+> Använd alltid `nextLink` för att räkna upp samlingen och är inte beroende av en viss sid storlek.
 >
-> `nextLink` Värdet är bara tillgängligt om det finns mer än en sida med entiteter.
+> `nextLink`Värdet är bara tillgängligt om det finns mer än en sida med entiteter.
 
 Tänk på följande exempel på WHERE `$skiptoken` används. Se till att ersätta *amstestaccount* med ditt konto namn och ange värdet för *API-version* till den senaste versionen.
 
@@ -156,13 +156,13 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 Följande tabell visar hur du kan använda filtrerings-och sorterings alternativen för olika entiteter:
 
-|Entitetsnamn|Egenskapsnamn|Filter|Beställa|
+|Entitetsnamn|Egenskapsnamn|Filtrera|Beställa|
 |---|---|---|---|
 |[Tillgångar](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
 ||egenskaper. alternateId |`eq`||
 ||egenskaper. assetId |`eq`||
 ||egenskaper. skapad| `eq`, `gt`, `lt`| `asc` och `desc`|
-|[Principer för innehålls nyckel](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+|[Principer för innehållsnycklar](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. Beskrivning    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||egenskaper. lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
@@ -171,10 +171,10 @@ Följande tabell visar hur du kan använda filtrerings-och sorterings alternativ
 ||egenskaper. State        | `eq`, `ne`        |                         |
 ||egenskaper. skapad      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
 ||egenskaper. lastModified | `gt`, `ge`, `lt`, `le` | `asc` och `desc`| 
-|[Strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+|[Positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. slut tid    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-|[Strömmande principer](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+|[Principer för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 |[Transformering](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` och `desc`|
 || egenskaper. skapad      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|

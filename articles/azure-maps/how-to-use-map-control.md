@@ -9,13 +9,13 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 6becb504671c1fa380207fda9d7d553fca8ceddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335238"
 ---
-# <a name="use-the-azure-maps-map-control"></a>Använda kart kontrollen Azure Maps
+# <a name="use-the-azure-maps-map-control"></a>Använda kartkontrollen i Azure Maps
 
 Med Kartkontroll på klient sidans JavaScript-bibliotek kan du återge kartor och inbäddade Azure Maps funktioner i ditt webb-eller mobil program.
 
@@ -27,7 +27,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
 
 2. Läs in Azure Maps Web SDK. Du kan välja ett av två alternativ.
 
-    * Använd den globalt värdbaserade CDN-versionen av Azure Maps Web SDK genom att lägga till referenser till Java Script och `<head>` StyleSheet i HTML-filens element:
+    * Använd den globalt värdbaserade CDN-versionen av Azure Maps Web SDK genom att lägga till referenser till Java Script och StyleSheet i `<head>` HTML-filens element:
 
         ```HTML
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
@@ -38,7 +38,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
 
         > **NPM installera Azure-Maps-Control**
 
-       Lägg sedan till referenser till filen med Azure Maps-formatmall och skript källa `<head>` till filens element:
+       Lägg sedan till referenser till filen med Azure Maps-formatmall och skript källa till `<head>` filens element:
 
         ```HTML
         <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
@@ -67,7 +67,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </style>
    ```
 
-4. Lägg till ett `<div>` -element i sidans huvuddel och ge det ett `id` av **myMap**.
+4. Lägg till ett-element i sidans huvuddel `<div>` och ge det ett `id` av **myMap**.
 
    ```HTML
     <body>
@@ -75,7 +75,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </body>
    ```
 
-5. Om du vill initiera kart kontrollen definierar du en ny skript-tagg i HTML-texten. Skicka `id` in på kartan `<div>` eller en `HTMLElement` (till exempel `document.getElementById('myMap')`) som den första parametern när du skapar en instans av `Map` klassen. Använd dina egna Azure Maps konto nyckel-eller Azure Active Directory-autentiseringsuppgifter (AAD) för att autentisera kartan med hjälp av [autentiserings alternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
+5. Om du vill initiera kart kontrollen definierar du en ny skript-tagg i HTML-texten. Skicka in på `id` kartan `<div>` eller en `HTMLElement` (till exempel `document.getElementById('myMap')` ) som den första parametern när du skapar en instans av `Map` klassen. Använd dina egna Azure Maps konto nyckel-eller Azure Active Directory-autentiseringsuppgifter (AAD) för att autentisera kartan med hjälp av [autentiserings alternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
 
    Om du behöver skapa ett konto eller hitta din nyckel följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
 
@@ -183,7 +183,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
 
 ## <a name="localizing-the-map"></a>Lokalisera kartan
 
-Azure Maps tillhandahåller två olika sätt att ställa in språk och regional vy för den renderade kartan. Det första alternativet är att lägga till den här informationen i `atlas` det globala namn området, vilket leder till att alla instanser av kart kontroll i appen används som standard för de här inställningarna. Följande ställer in språket på franska ("fr-FR") och den regionala vyn till "Auto":
+Azure Maps tillhandahåller två olika sätt att ställa in språk och regional vy för den renderade kartan. Det första alternativet är att lägga till den här informationen i det globala `atlas` namn området, vilket leder till att alla instanser av kart kontroll i appen används som standard för de här inställningarna. Följande ställer in språket på franska ("fr-FR") och den regionala vyn till "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -207,7 +207,7 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!Note]
-> Med webb-SDK är det möjligt att läsa in flera kart instanser på samma sida med olika språk-och region inställningar. Dessutom kan de här inställningarna uppdateras när kartan har lästs in med `setStyle` hjälp av kartans funktion. 
+> Med webb-SDK är det möjligt att läsa in flera kart instanser på samma sida med olika språk-och region inställningar. Dessutom kan de här inställningarna uppdateras när kartan har lästs in med hjälp av `setStyle` kartans funktion. 
 
 Här är ett exempel på Azure Maps med språket "fr-FR" och den regionala vyn inställt på "Auto".
 
@@ -233,7 +233,7 @@ När du använder modulen tjänster måste domänen för tjänsterna anges när 
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Ändra URL-domänen till om du vill `atlas.azure.us`få åtkomst till Azure Maps rest-tjänster direkt. Om du till exempel använder Search API-tjänsten, ändra URL-domänen från `https://atlas.microsoft.com/search/` till `https://atlas.azure.us/search/`.
+Ändra URL-domänen till om du vill få åtkomst till Azure Maps REST-tjänster direkt `atlas.azure.us` . Om du till exempel använder Search API-tjänsten, ändra URL-domänen från `https://atlas.microsoft.com/search/` till `https://atlas.azure.us/search/` .
 
 ## <a name="next-steps"></a>Nästa steg
 

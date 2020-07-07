@@ -14,10 +14,10 @@ ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582206"
 ---
 # <a name="manage-assets"></a>Hantera tillgångar
@@ -32,7 +32,7 @@ I Azure Media Services är en [till gång](https://docs.microsoft.com/rest/api/m
 
 Det här avsnittet innehåller en översikt över hur du överför filer till en till gång och utför andra vanliga åtgärder. Den innehåller också länkar till kod exempel och närliggande ämnen.
 
-## <a name="prerequisite"></a>Krav 
+## <a name="prerequisite"></a>Förutsättning 
 
 Innan du börjar utveckla bör du gå igenom följande:
 
@@ -43,9 +43,9 @@ Innan du börjar utveckla bör du gå igenom följande:
 
 När de digitala filerna har överförts till lagring och associerats med en till gång kan de användas i Media Services kodning, strömning och analys av innehålls arbets flöden. En av vanliga Media Services arbets flöden är att ladda upp, koda och strömma en fil. Det här avsnittet beskriver de allmänna stegen.
 
-1. Använd Media Services v3 API för att skapa en ny ”indataresurs”. Den här åtgärden skapar en container i det lagringskonto som associeras med ditt Media Services-konto. API: et returnerar behållarens namn (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Använd Media Services v3 API för att skapa en ny ”indataresurs”. Den här åtgärden skapar en container i det lagringskonto som associeras med ditt Media Services-konto. API: et returnerar behållarens namn (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"` ).
 
-    Om du redan har en BLOB-behållare som du vill koppla till en till gång kan du ange behållar namnet när du skapar till gången. Media Services stöder för närvarande endast blobar i containerroten och inte med sökvägar i filnamnet. Därmed fungerar en container med namnet ”input.mp4”. Men en behållare med fil namnet "videor/Inputs/input. mp4" fungerar inte.
+    Om du redan har en BLOB-behållare som du vill koppla till en till gång kan du ange behållar namnet när du skapar till gången. Media Services stöder för närvarande endast blobar i containerroten och inte med sökvägar i filnamnet. Därmed fungerar en container med namnet ”input.mp4”. Men en behållare med fil namnet "videor/indata/input.mp4" fungerar inte.
 
     Du kan använda Azure CLI för att ladda upp direkt till valfritt lagringskonto och container som du har rättigheter till i din prenumeration.
 
@@ -58,7 +58,7 @@ När de digitala filerna har överförts till lagring och associerats med en til
 
     Du kan använda Media Services API för att [lista URL:er för tillgångscontainern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
 
-    **AssetContainerSas. listContainerSas** använder en [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) -parameter som du anger `expiryTime`. Tiden måste anges till < 24 timmar.
+    **AssetContainerSas. listContainerSas** använder en [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) -parameter som du anger `expiryTime` . Tiden måste anges till < 24 timmar.
 
     [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returnerar flera SAS-URL: er eftersom det finns två lagrings konto nycklar för varje lagrings konto. Ett lagrings konto har två nycklar eftersom det hjälper till med redundans och sömlös rotation av lagrings konto nycklar. Den första SAS-URL: en representerar den första lagrings konto nyckeln och den andra SAS-URL: en representerar den andra nyckeln.
 3. Använd Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att ladda upp filer till till gångs behållaren.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80351064"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Storage Explorer
@@ -37,17 +37,17 @@ Om du vill hämta tidigare versioner av Storage Explorer kan du besöka [sidan u
    * Blobar
       * Öppna för redigering och uppladdning
       * Ladda upp, inklusive dra & släpp
-      * Hämta
+      * Ladda ned
       * Kopiera & klistra in #1249
       * Ta bort
    * ADLS Gen2 blobbar
       * Ladda upp, inklusive dra & släpp
-      * Hämta
+      * Ladda ned
       * Kopiera & klistra in
       * Ta bort, inklusive ta bort mapp
    * Managed Disks
       * Ladda upp
-      * Hämta
+      * Ladda ned
       * Kopiera & klistra in
 
    Dessutom har flera vanliga begärda funktioner lagts till i den integrerade AzCopy-miljön:
@@ -1201,7 +1201,7 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 * Utökad autentisering som låter Storage Explorer använda samma konto arkiv som Visual Studio 2017. Om du vill använda den här funktionen måste du logga in igen på dina konton och ange dina filtrerade prenumerationer igen.
 * För Azure Stack konton som skyddas av AAD kommer Storage Explorer nu att hämta Azure Stack prenumerationer när mål Azure Stack är aktive rad. Du behöver inte längre skapa en anpassad inloggnings miljö.
 * Flera genvägar har lagts till för att möjliggöra snabbare navigering. Detta omfattar att växla mellan olika paneler och att flytta mellan redigerare. Se menyn Visa för mer information.
-* Storage Explorer feedback finns nu på GitHub. Du kan komma till vår ärende sida genom att klicka på knappen feedback längst ned till vänster eller genom [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)att gå till. Du kan göra förslag, rapportera problem, ställa frågor eller lämna andra former av feedback.
+* Storage Explorer feedback finns nu på GitHub. Du kan komma till vår ärende sida genom att klicka på knappen feedback längst ned till vänster eller genom att gå till [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues) . Du kan göra förslag, rapportera problem, ställa frågor eller lämna andra former av feedback.
 * Om du kör problem med TLS/SSL-certifikat och inte kan hitta det felande certifikatet kan du nu starta Storage Explorer från kommando raden med `--ignore-certificate-errors` flaggan. När den startas med den här flaggan kommer Storage Explorer att ignorera TLS/SSL-certifikat fel.
 * Det finns nu ett nedladdnings alternativ i snabb menyn för blob-och fil objekt.
 * Förbättrat stöd för hjälpmedel och skärm läsare. Om du använder hjälpmedels funktioner, se vår [hjälpmedels dokumentation](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) för mer information.
@@ -1627,7 +1627,7 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 * Du kan nu logga in till Azure Active Directory (AAD) baserade Azure Stack-konton.
 * Du kan nu ladda upp arkivfiler över 32 MB till Premium Storage-konton
 * Förbättrat stöd för hjälpmedel
-* Nu kan du lägga till betrodda Base-64-kodade X. 509 TLS/SSL-certifikat genom&gt; att gå till&gt; redigera-SSL-certifikat – importera certifikat
+* Nu kan du lägga till betrodda Base-64-kodade X. 509 TLS/SSL-certifikat genom att gå till redigera- &gt; SSL-certifikat – &gt; Importera certifikat
 
 #### <a name="fixes"></a>Korrigeringar
 
@@ -1730,7 +1730,7 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 * Vi har lagt till en omfångs sökning med vår nya förbättrade under Strängs sökning, så du har nu två alternativ för att söka:
     * Global sökning – ange en sökterm i text rutan Sök efter
     * Begränsad sökning – Klicka på förstorings glas ikonen bredvid en nod och Lägg sedan till en sökterm i slutet av sökvägen eller högerklicka och välj "Sök härifrån"
-* Vi har lagt till olika teman: Light (standard), mörk, Högkontrast svart och Högkontrast vitt. Gå till redigera-&gt; teman för att ändra dina inställningar
+* Vi har lagt till olika teman: Light (standard), mörk, Högkontrast svart och Högkontrast vitt. Gå till redigera- &gt; teman för att ändra dina inställningar
 * Du kan ändra blobb-och fil egenskaper
 * Vi stöder nu kodade (base64) och uncoded Queue-meddelanden
 * I Linux krävs ett 64-bitars operativ system nu. I den här versionen stöder vi bara 64-bitars Ubuntu 16.04.1 LTS
@@ -1889,7 +1889,7 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 
 #### <a name="known-issues"></a>Kända problem
 
-* Tabeller: lägga till, redigera eller importera en entitet som har en egenskap med ett tvetydigt numeriskt värde, t. ex. "1" eller "1,0", och användaren försöker skicka den som `Edm.String`en, kommer värdet att komma tillbaka via klient-API: et som en EDM. dubbel
+* Tabeller: lägga till, redigera eller importera en entitet som har en egenskap med ett tvetydigt numeriskt värde, t. ex. "1" eller "1,0", och användaren försöker skicka den som en `Edm.String` , kommer värdet att komma tillbaka via klient-API: et som en EDM. dubbel
 
 03/31/2016
 
@@ -1912,11 +1912,11 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 
 * Förbättringar av prestanda och tillförlitlighet
 
-### <a name="known-issues-amp-mitigations"></a>Begränsningar vid &amp; kända problem
+### <a name="known-issues-amp-mitigations"></a>Begränsningar vid kända problem &amp;
 
 * Hämtning av stora BLOB-filer fungerar inte korrekt – vi rekommenderar att du använder AzCopy medan vi löser problemet
 * Kontoautentiseringsuppgifter kommer inte att hämtas eller cachelagras om det inte går att hitta eller skriva till arbetsmappen
-* Om vi lägger till, redigerar eller importerar en entitet som har en egenskap med ett tvetydigt numeriskt värde, t. ex. "1" eller "1,0", och användaren försöker skicka den som en `Edm.String`, kommer värdet att komma tillbaka via klient-API: et som en EDM. dubbel
+* Om vi lägger till, redigerar eller importerar en entitet som har en egenskap med ett tvetydigt numeriskt värde, t. ex. "1" eller "1,0", och användaren försöker skicka den som en `Edm.String` , kommer värdet att komma tillbaka via klient-API: et som en EDM. dubbel
 * När du importerar CSV-filer med Multiline-poster kan data bli chopped eller kodade
 
 02/03/2016

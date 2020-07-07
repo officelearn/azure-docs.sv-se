@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80297709"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000-seriens program vara, hög tillgänglighet och nätverks krav
@@ -63,7 +63,7 @@ Följande program varu krav gäller för de valfria StorSimple-komponenterna (St
 
 Din StorSimple-enhet är en låst enhet. Portar måste dock öppnas i brand väggen för att tillåta iSCSI-, moln-och hanterings trafik. I följande tabell visas de portar som måste öppnas i brand väggen. I den här tabellen avser *i* eller *inkommande* den riktning som inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| Port nr<sup>1, 2</sup> | In eller ut | Port omfång | Krävs | Obs! |
+| Port nr<sup>1, 2</sup> | In eller ut | Port omfång | Obligatorisk | Anteckningar |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Ut |WAN |Nej |<ul><li>Utgående port används för Internet åtkomst för att hämta uppdateringar.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Ut |WAN |Ja |<ul><li>Utgående port används för att komma åt data i molnet.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li><li>Den här porten används också både på styrenheten för skräp insamling.</li></ul> |
@@ -233,7 +233,7 @@ StorSimple Device Model 8600 innehåller ett EBOD-hölje (Extended) förutom den
 * Se till att båda modulerna för EBOD hölje-styrenhet, både SAS-kablar och alla hård diskar installeras hela tiden.
 * Om en modul för EBOD höljen Miss lyckas, begär en ersättning omedelbart.
 * Om en modul för EBOD höljen Miss lyckas, se till att den andra Controller-modulen är aktiv innan du byter ut den felande modulen. För att kontrol lera att en kontrollant är aktiv, går du till [identifiera den aktiva styrenheten på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Under en EBOD kan du kontinuerligt övervaka status för komponenten i StorSimple Enhetshanteraren-tjänsten genom att komma åt **övervakaren** > **maskin varu hälsa**.
+* Under en EBOD kan du kontinuerligt övervaka status för komponenten i StorSimple Enhetshanteraren-tjänsten genom att komma åt **övervakaren**  >  **maskin varu hälsa**.
 * Om en SAS-kabel Miss lyckas eller kräver en ersättning (Microsoft Support bör vara engagerad för att göra en sådan bestämning), se till att du bara tar bort SAS-kabeln som kräver ersättning.
 * Ta inte bort både SAS-kablarna samtidigt från systemet vid någon tidpunkt.
 

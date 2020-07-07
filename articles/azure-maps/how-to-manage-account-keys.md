@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 42247cc576e55c7c504e9832017af336439b11b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335553"
 ---
 # <a name="manage-your-azure-maps-account"></a>Hantera ditt Azure Maps konto
 
 Du kan hantera ditt Azure Maps-konto via Azure Portal. När du har ett konto kan du implementera API: erna på din webbplats eller i ett mobil program.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-new-account"></a>Skapa ett nytt konto
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 2. Välj **Skapa en resurs** i det övre vänstra hörnet i Azure-portalen.
 
-3. Sök efter och välj **kartor**. Välj sedan **skapa**.
+3. Sök efter och välj **kartor**. Välj sedan **Skapa**.
 
 4. Ange informationen för ditt nya konto.
 

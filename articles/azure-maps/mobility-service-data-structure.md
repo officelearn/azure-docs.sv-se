@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478700"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Data strukturer i Azure Maps Mobility Service
@@ -23,7 +23,7 @@ I den här artikeln beskrivs begreppet tunnelbane linje i [Azure Maps Mobility S
 
 Mobilitets tjänstens data grupperas efter stödda Metro-områden. Metro-områden följer inte stads gränser. Ett tunnelbane område kan innehålla flera städer, tätt ifylld stad och omgivande städer. Ett land/region kan i själva verket vara ett tunnelbane område. 
 
-Är ett Metro-områdens ID som kan användas för att anropa API: t för att [Hämta information om Metro-ytan](https://aka.ms/AzureMapsMobilityMetroAreaInfo). `metroID` Använd Azure Maps "Get Metro"-API för att begära överförings typer, transit myndigheter, aktiva aviseringar och ytterligare information för den valda tunnelbane linje. Du kan också begära de tunnelbane områden och metroIDs som stöds. Metro-områdes-ID: n kan komma att ändras.
+`metroID`Är ett Metro-områdens ID som kan användas för att anropa API: t för att [Hämta information om Metro-ytan](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Använd Azure Maps "Get Metro"-API för att begära överförings typer, transit myndigheter, aktiva aviseringar och ytterligare information för den valda tunnelbane linje. Du kan också begära de tunnelbane områden och metroIDs som stöds. Metro-områdes-ID: n kan komma att ändras.
 
 **metroID:** 522 **Namn:** Seattle-Tacoma-Bellevue
 

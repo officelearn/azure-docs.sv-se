@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80298808"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemkrav för StorSimple Virtual Array
@@ -89,7 +89,7 @@ Endast Azure Block Blob-lagring stöds. Page blobbar stöds inte. Mer informatio
 ## <a name="networking-requirements"></a>Nätverks krav
 I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta iSCSI-, SMB-, moln-eller hanterings trafik. I den här tabellen avser *i* eller *inkommande* den riktning som inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| **Port nr<sup>1</sup>** | **In eller ut** | **Port omfång** | **Obligatoriskt** | **Obs!** |
+| **Port nr<sup>1</sup>** | **In eller ut** | **Port omfång** | **Obligatoriskt** | **Anteckningar** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Ut |WAN |Nej |Utgående port används för Internet åtkomst för att hämta uppdateringar. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
 | TCP 443 (HTTPS) |Ut |WAN |Ja |Utgående port används för att komma åt data i molnet. <br></br>Den utgående webbproxyn är användare konfigurerbar. |

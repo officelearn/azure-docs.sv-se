@@ -13,24 +13,24 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382961"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Koda med en anpassad transformering – Azure CLI
 
 När du kodar med Azure Media Services kan du snabbt komma igång med en av de rekommenderade inbyggda för inställningarna, baserat på bransch metod tips, som visas i snabb starten av [strömmande filer](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) . Du kan också bygga en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 När du skapar anpassade för inställningar gäller följande aspekter:
 
 * Alla värden för höjd och bredd på AVC-innehåll måste vara en multipel av 4.
 * I Azure Media Services v3 är alla kodnings bit hastigheter i bitar per sekund. Detta skiljer sig från för inställningarna med våra v2-API: er, som använde kilobit/sekund som enhet. Om bit hastigheten i v2 exempelvis angavs som 128 (kilobit/sekund), skulle den vara inställd på 128000 (bitar/sekund) i v3.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
@@ -44,7 +44,7 @@ I följande exempel definieras begär ande texten för en ny transformering. Vi 
 
 I det här exemplet lägger vi först till ett AacAudio-lager för ljud kodningen och två H264Video-lager för video kodningen. I video lager tilldelar vi etiketter så att de kan användas i utdatafilernas namn. Nu vill vi att utdata även ska innehålla miniatyrer. I exemplet nedan anger vi bilder i PNG-format, genererade med 50% av upplösningen för Indataporten och vid tre tidsstämplar – {25%, 50%, 75} av den angivna videons längd. Slutligen anger vi formatet för utdatafilerna – ett för video + ljud och en annan för miniatyr bilderna. Eftersom vi har flera H264Layers måste vi använda makron som producerar unika namn per lager. Vi kan antingen använda ett `{Label}` eller `{Bitrate}` -makro, exemplet visar det tidigare.
 
-Vi kommer att spara den här transformeringen i en fil. I det här exemplet namnger vi filen `customPreset.json`.
+Vi kommer att spara den här transformeringen i en fil. I det här exemplet namnger vi filen `customPreset.json` .
 
 ```json
 {

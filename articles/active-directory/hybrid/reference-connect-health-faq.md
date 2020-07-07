@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331081"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
@@ -68,10 +68,10 @@ Azure AD Connect Health stöds inte i Tyskland-molnet, förutom [rapport funktio
 
 | Roller | Funktioner | Stöds i tyskt moln |
 | ------ | --------------- | --- |
-| Anslut hälsa för synkronisering | Övervakning/Insight/Alerts/analys | Inga |
+| Anslut hälsa för synkronisering | Övervakning/Insight/Alerts/analys | Nej |
 |  | Fel rapport för synkronisering | Ja |
-| Anslut hälsa för ADFS | Övervakning/Insight/Alerts/analys | Inga |
-| Anslut hälsa för tillägg | Övervakning/Insight/Alerts/analys | Inga |
+| Anslut hälsa för ADFS | Övervakning/Insight/Alerts/analys | Nej |
+| Anslut hälsa för tillägg | Övervakning/Insight/Alerts/analys | Nej |
 
 Konfigurera [installations kravet](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) enligt detta för att säkerställa att agent anslutningen för Connect Health för synkronisering är korrekt.
 
@@ -107,7 +107,7 @@ Läs mer om hur du [konfigurerar HTTP-proxy för hälso agenter](how-to-connect-
 
 Om du behöver konfigurera en proxy under agent registreringen kan du behöva ändra proxyinställningarna i Internet Explorer i förväg.
 
-1. Öppna Internet Explorer > **Inställningar** > **Internet alternativ** > **anslutningar** > **LAN-inställningar**.
+1. Öppna Internet Explorer > **Inställningar**  >  **Internet alternativ**  >  **anslutningar**  >  **LAN-inställningar**.
 2. Välj **Använd en proxyserver för ditt lokala nätverk**.
 3. Välj **Avancerat** om du har olika proxy-portar för http och https/Secure.
 
@@ -192,7 +192,7 @@ CheckForMS17-010
 
 **F: Varför genereras inte AD FS-granskningar?**
 
-Använd PowerShell-cmdleten <i>Get-ADFSProperties-AuditLevel</i> för att säkerställa att gransknings loggar inte är inaktiverat. Läs mer om [AD FS gransknings loggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observera att om det finns avancerade gransknings inställningar som skickas till ADFS-servern skrivs eventuella ändringar med Auditpol. exe över (händelse om programmet som genereras inte har kon figurer ATS). I det här fallet ställer du in den lokala säkerhets principen för att logga program som skapats och lyckats.
+Använd PowerShell-cmdleten <i>Get-ADFSProperties-AuditLevel</i> för att säkerställa att gransknings loggar inte är inaktiverat. Läs mer om [AD FS gransknings loggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observera att om det finns avancerade gransknings inställningar som skickas till ADFS-servern skrivs eventuella ändringar med auditpol.exe över (händelse om programmet som genereras inte har kon figurer ATS). I det här fallet ställer du in den lokala säkerhets principen för att logga program som skapats och lyckats.
 
 **F: När blir agent certifikatet automatiskt förnyat innan det upphör att gälla?**
 Agent certifieringen kommer att förnyas automatiskt **6 månader** innan dess förfallo datum. Om den inte förnyas bör du kontrol lera att agentens nätverks anslutning är stabil. Du kan även lösa problemet genom att starta om Agent tjänsterna eller uppdatera till den senaste versionen.

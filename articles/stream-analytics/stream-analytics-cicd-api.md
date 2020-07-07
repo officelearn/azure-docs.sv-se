@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80292009"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementera CI/CD för Stream Analytics på IoT Edge med API: er
@@ -24,7 +24,7 @@ REST-API: er kan anropas från både Linux och Windows. Följande kommandon demo
 
 ### <a name="linux"></a>Linux
 
-För Linux kan du använda `Curl` eller `Wget` -kommandon:
+För Linux kan du använda `Curl` eller- `Wget` kommandon:
 
 ```bash
 curl -u { <username:password> }  -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" { <url> }   
@@ -55,7 +55,7 @@ echo $response
  
 Om du vill skapa Stream Analytics jobb anropar du metoden för att skicka med hjälp av Stream Analytics API.
 
-|Metod|URL för begäran|
+|Metod|Begärans-URL|
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
@@ -142,7 +142,7 @@ Mer information finns i API- [dokumentationen](/rest/api/streamanalytics/stream-
  
 Om du vill publicera ett Stream Analytics jobb på IoT Edge anropar du POST-metoden med hjälp av Edge-paketets publicerings-API.
 
-|Metod|URL för begäran|
+|Metod|Begärans-URL|
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 

@@ -5,17 +5,17 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80421336"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-Server till Azure med Azure Backup Server
 
 Den här artikeln beskriver hur du konfigurerar Microsoft Azure Backup Server (MABS) för att säkerhetskopiera en Microsoft Exchange-Server till Azure.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter kontrollerar du att Azure Backup Server är [installerat och förberett](backup-azure-microsoft-azure-backup.md).
 
@@ -53,7 +53,7 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
     När du har valt det här alternativet körs konsekvens kontroll av säkerhets kopiering på MABS för att undvika den I/O-trafik som genereras genom att köra **eseutil** -kommandot på Exchange-servern.
 
    > [!NOTE]
-   > Om du vill använda det här alternativet måste du kopiera filerna Ese. dll och eseutil. exe till katalogen C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin på MABS-servern. Annars utlöses följande fel:  
+   > Om du vill använda det här alternativet måste du kopiera Ese.dll och Eseutil.exe filer till katalogen C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin på MABS-servern. Annars utlöses följande fel:  
    > ![Eseutil-fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -68,10 +68,10 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 11. Granska det tillgängliga disk utrymmet och klicka sedan på **Nästa**.
 12. Välj den tid då MABS-servern ska skapa den inledande replikeringen och klicka sedan på **Nästa**.
 13. Välj alternativ för konsekvens kontroll och klicka sedan på **Nästa**.
-14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Ett exempel:
+14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Till exempel:
 
     ![Ange skydds data online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Ett exempel:
+15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Till exempel:
 
     ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

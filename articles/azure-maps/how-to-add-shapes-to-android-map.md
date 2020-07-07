@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7a793ff35675c876dc429976ebee96887b12735a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335595"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Lägga till en form till en karta med Azure Maps Android SDK
 
 Den här artikeln visar hur du återger former på en karta med Azure Maps Android SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 
@@ -28,7 +28,7 @@ För att slutföra processen i den här artikeln måste du installera [Azure Map
 
 Du kan lägga till en linje i kartan med ett **linje lager**och följa stegen nedan för att lägga till en linje på kartan.
 
-1. Redigera **res > layout > activity_main. XML** så att det ser ut som på bilden nedan:
+1. Redigera **> för res > activity_main.xml** så att det ser ut som på bilden nedan:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +185,7 @@ Om du kör programmet nu bör du se en linje på kartan som visas nedan:
 
 Med **polygon-lagret** kan du återge ytan på polygonen till kartan. Följ stegen nedan om du vill lägga till en polygon på kartan.
 
-1. Redigera **res > layout > activity_main. XML** så att det ser ut som på bilden nedan:
+1. Redigera **> för res > activity_main.xml** så att det ser ut som på bilden nedan:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

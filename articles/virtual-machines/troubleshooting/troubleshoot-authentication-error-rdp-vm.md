@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80420819"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Felsöka autentiseringsfel när du använder RDP för att ansluta till virtuella Azure-datorer
@@ -163,7 +163,7 @@ Om kommunikationen mellan DOMÄNKONTROLLANTen och den virtuella datorn är god, 
 
 Om föregående kommandon inte löste kommunikations problemet till domänen kan du ansluta den till domänen igen. Det gör du genom att följa dessa steg:
 
-1. Skapa ett skript som heter unjoin. ps1 med hjälp av följande innehåll och distribuera skriptet som ett anpassat skript tillägg på Azure Portal:
+1. Skapa ett skript som heter Unjoin.ps1 med hjälp av följande innehåll och distribuera skriptet som ett anpassat skript tillägg på Azure Portal:
 
     ```cmd
     cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
@@ -171,7 +171,7 @@ Om föregående kommandon inte löste kommunikations problemet till domänen kan
     
     Det här skriptet tar den virtuella datorn från domänen tvång och startar om den 10 sekunder senare. Sedan måste du rensa dator-objektet på domän sidan.
 
-2.  När rensningen är färdig ansluter du den här virtuella datorn till domänen. Det gör du genom att skapa ett skript som heter JoinDomain. ps1 med hjälp av följande innehåll och sedan distribuera skriptet som ett anpassat skript tillägg på Azure Portal: 
+2.  När rensningen är färdig ansluter du den här virtuella datorn till domänen. Det gör du genom att skapa ett skript som heter JoinDomain.ps1 med hjälp av följande innehåll och sedan distribuera skriptet som ett anpassat skript tillägg på Azure Portal: 
 
     ```cmd
     cmd /c "netdom join <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10"

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80300984"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Startfel – det här är inte en startbar disk
@@ -59,7 +59,7 @@ Det här fel meddelandet innebär att start processen för operativ systemet int
 
 Virtuella datorer i generation 1 bör först kontrol lera att OS-partitionen som innehåller BCD-arkivet är markerad som *aktiv*. Om du har en virtuell dator i generation 2 kan du gå vidare till [Reparera diskpartitionen](#fix-the-disk-partition), eftersom *status* flaggan var inaktuell i senare generation.
 
-1. Öppna en kommando tolk med förhöjd behörighet *(cmd. exe)*.
+1. Öppna en kommando tolk med förhöjd behörighet *(cmd.exe)*.
 2. Starta DiskPart-verktyget genom att ange *DiskPart* .
 3. Ange *list disk* för att visa en lista över diskarna i systemet och identifiera den anslutna OS-VHD: n.
 4. När den anslutna OS-VHD: n finns anger du markera disk *#* för att välja disken.  Se bild 2, där disk 1 är den anslutna OS-VHD: n.
@@ -96,7 +96,7 @@ Virtuella datorer i generation 1 bör först kontrol lera att OS-partitionen som
 
 ### <a name="fix-the-disk-partition"></a>Åtgärda diskpartitionen
 
-1. Öppna en kommando tolk med förhöjd behörighet (cmd. exe).
+1. Öppna en kommando tolk med förhöjd behörighet (cmd.exe).
 2. Använd följande kommando för att köra *chkdsk* på diskarna och åtgärda fel:
 
    `chkdsk <DRIVE LETTER>: /f`

@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550258"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Läge för delad enhet för iOS-enheter
@@ -45,7 +45,7 @@ För att skapa en app för delad enhets läge fungerar utvecklare och moln enhet
 
 1. [**Krävs endast under offentlig för hands version**] En användare med rollen som [moln enhets administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) måste sedan starta [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md) och ansluta sin enhet till organisationen.
 
-    Konfigurera medlemskap för organisations roller i Azure Portal: **Azure Active Directory** > **roller och administratörer** > **moln enhets administratör**
+    Konfigurera medlemskap för organisations roller i Azure Portal: **Azure Active Directory**  >  **roller och administratörer**  >  **moln enhets administratör**
 
 Följande avsnitt hjälper dig att uppdatera programmet så att det stöder delat enhets läge.
 
@@ -92,7 +92,7 @@ Att identifiera delad enhets läge är viktigt för ditt program. Många program
 
 Använd `getDeviceInformationWithParameters:completionBlock:` API: et i `MSALPublicClientApplication` för att avgöra om en app körs på en enhet i delat enhets läge.
 
-Följande kodfragment visar exempel på hur du `getDeviceInformationWithParameters:completionBlock:` använder API: et.
+Följande kodfragment visar exempel på hur du använder API: `getDeviceInformationWithParameters:completionBlock:` et.
 
 #### <a name="swift"></a>Swift
 

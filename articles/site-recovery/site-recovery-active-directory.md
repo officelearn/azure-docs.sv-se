@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546521"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera katastrof återställning för Active Directory och DNS
@@ -22,7 +22,7 @@ Du kan använda [Site Recovery](site-recovery-overview.md) för att skapa en kat
 
 Den här artikeln beskriver hur du skapar en katastrof återställnings lösning för Active Directory. Det innehåller nödvändiga komponenter och instruktioner för redundans. Du bör vara bekant med Active Directory och Site Recovery innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du replikerar till Azure förbereder du [Azure-resurser](tutorial-prepare-azure.md), inklusive en prenumeration, ett Azure-Virtual Network, ett lagrings konto och ett Recovery Services-valv.
 - Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
@@ -139,7 +139,7 @@ Om Virtualization-skydd utlöses efter ett redundanstest, kan ett eller flera av
 > [!IMPORTANT]
 > Några av de konfigurationer som beskrivs i det här avsnittet är inte standardkonfigurationer för domänkontrollanter eller standard. Om du inte vill göra dessa ändringar i en produktionsavdelning kan du skapa en domänkontrollant som är dedikerad för Site Recovery redundanstest. Gör ändringarna endast på den dedikerade domänkontrollanten.
 
-1. I kommando tolken kör du följande kommando för att kontrol lera `SYSVOL` om mappen `NETLOGON` och mappen delas:
+1. I kommando tolken kör du följande kommando för att kontrol lera om `SYSVOL` mappen och `NETLOGON` mappen delas:
 
     `NET SHARE`
 
@@ -181,7 +181,7 @@ Om föregående villkor är uppfyllda är det troligt att domänkontrollanten fu
 
 Om du kör domänkontrollanten och DNs på samma virtuella dator kan du hoppa över den här proceduren.
 
-Om DNS inte finns på samma virtuella dator som domänkontrollanten måste du skapa en virtuell DNS-dator för redundanstest. Du kan använda en ny DNS-server och skapa alla zoner som krävs. Om din Active Directory domän exempelvis `contoso.com`, kan du skapa en DNS-zon med namnet. `contoso.com` De poster som motsvarar Active Directory måste uppdateras i DNS på följande sätt:
+Om DNS inte finns på samma virtuella dator som domänkontrollanten måste du skapa en virtuell DNS-dator för redundanstest. Du kan använda en ny DNS-server och skapa alla zoner som krävs. Om din Active Directory domän exempelvis `contoso.com` , kan du skapa en DNS-zon med namnet `contoso.com` . De poster som motsvarar Active Directory måste uppdateras i DNS på följande sätt:
 
 1. Se till att dessa inställningar är på plats innan någon annan virtuell dator i återställnings planen startar:
 

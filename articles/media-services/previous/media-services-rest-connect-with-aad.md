@@ -15,10 +15,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
 ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295448"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Använda Azure AD-autentisering för att ansluta till API:et för Media Services med REST
@@ -47,9 +47,9 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > För närvarande har Media Services stöd för Azure Access Control-tjänsternas autentiserings modell. Access Control autentisering kommer dock att föråldras den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - [Skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).
 - Läs artikeln om att [komma åt Azure Media Services API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md) .
 - Installera [Postman](https://www.getpostman.com/) rest-klienten för att köra REST-API: erna som visas i den här artikeln. 
@@ -64,7 +64,7 @@ Du måste samla in följande data punkter för att få åtkomst till Media Servi
 
 |Inställningen|Exempel|Beskrivning|
 |---|-------|-----|
-|Azure Active Directory klient domän|microsoft.onmicrosoft.com|Azure AD som en STS-slutpunkt (Secure token service) skapas med följande format: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD utfärdar en JWT för att få åtkomst till resurser (en åtkomsttoken).|
+|Azure Active Directory klient domän|microsoft.onmicrosoft.com|Azure AD som en STS-slutpunkt (Secure token service) skapas med följande format: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> . Azure AD utfärdar en JWT för att få åtkomst till resurser (en åtkomsttoken).|
 |Slutpunkt för REST-API:t|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Detta är den slut punkt mot vilken alla Media Services REST API samtal i ditt program görs.|
 |Klient-ID (program-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID för Azure AD-program (klient). Klient-ID krävs för att hämta åtkomsttoken. |
 |Klienthemlighet|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD-programnycklar (klient hemlighet). Klient hemligheten krävs för att få åtkomst-token.|
@@ -115,7 +115,7 @@ Följ dessa steg för att hämta informationen:
 
    ![API-åtkomst](./media/connect-with-rest/connect-with-rest03.png)
 
-Du kan lägga till värden för AD-anslutnings parametrar i din Web. config-eller app. config-fil för senare användning i din kod.
+Du kan lägga till värden för AD-anslutnings parametrar till din web.config eller app.config fil, för senare användning i koden.
 
 > [!IMPORTANT]
 > **Klient nyckeln** är en viktig hemlighet och bör skyddas korrekt i ett nyckel valv eller krypteras i produktionen.

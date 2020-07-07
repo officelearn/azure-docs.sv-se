@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333512"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Felsöka problem med Log Analytics-agenten för Windows 
@@ -58,7 +58,7 @@ Det finns flera sätt som du kan kontrol lera om agenten lyckas kommunicera med 
 
     ![TestCloudConnection verktygs körnings resultat](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Filtrera *Operations Manager* händelse loggen efter **händelse källor** - *Hälsotjänst moduler*, *HealthService*och *service Connector* och filtrera efter **händelse nivå** *Varning* och *fel* för att bekräfta om den har skrivna händelser från följande tabell. Om de är det, granskar du lösnings stegen som ingår för varje möjlig händelse.
+- Filtrera *Operations Manager* händelse loggen efter **händelse källor**  -  *Hälsotjänst moduler*, *HealthService*och *service Connector* och filtrera efter **händelse nivå** *Varning* och *fel* för att bekräfta om den har skrivna händelser från följande tabell. Om de är det, granskar du lösnings stegen som ingår för varje möjlig händelse.
 
     |Händelse-ID |Källa |Beskrivning |Lösning |
     |---------|-------|------------|-----------|
@@ -68,7 +68,7 @@ Det finns flera sätt som du kan kontrol lera om agenten lyckas kommunicera med 
     |2127 |Hälsotjänst moduler |Fel vid sändning av mottagna data felkod |Om det bara inträffar regelbundet under dagen kan det vara en slumpmässig avvikelse som kan ignoreras. Övervaka för att förstå hur ofta det sker. Om det inträffar ofta under dagen kontrollerar du först nätverks konfigurationen och proxyinställningarna. Om beskrivningen inkluderar HTTP-felkod 404 och det är första gången som agenten försöker skicka data till tjänsten, kommer den att innehålla ett 500-fel med en inre 404-felkod. 404 betyder att lagrings området för den nya arbets ytan fortfarande håller på att tillhandahållas. Vid nästa försök kommer data att skrivas till arbets ytan som förväntat. Ett HTTP-fel 403 kan tyda på problem med behörighet eller autentiseringsuppgifter. Det finns mer information i 403-fel som hjälper dig att felsöka problemet.|
     |4000 |Service Connector |DNS-namnmatchning misslyckades |Datorn kunde inte matcha Internet adressen som användes när data skickades till tjänsten. Detta kan vara inställningar för DNS-matchare på datorn, felaktiga proxyinställningar eller kanske ett tillfälligt DNS-problem med leverantören. Om det inträffar regelbundet kan det bero på ett tillfälligt nätverksrelaterade problem.|
     |4001 |Service Connector |Det gick inte att ansluta till tjänsten. |Felet kan uppstå om agenten inte kan kommunicera direkt eller via en brand vägg/proxyserver till Azure Monitor tjänsten. Verifiera inställningarna för agent proxy eller att nätverks brand väggen/proxyn tillåter TCP-trafik från datorn till tjänsten.|
-    |4002 |Service Connector |Tjänsten returnerade HTTP-statuskod 403 som svar på en fråga. Kontakta tjänst administratören för hälso tillståndet för tjänsten. Frågan kommer att göras senare. |Det här felet skrivs under agentens inledande registrerings fas och du ser en URL som liknar följande: *https://\<workspaceID>. OMS.OpInsights.Azure.com/AgentService.svc/AgentTopologyRequest*. Felkoden 403 betyder att den är förbjuden och kan orsakas av ett felanget arbetsyte-ID eller nyckel, eller så är data och tid felaktigt på datorn. Om tiden är +/-15 minuter från aktuell tid, Miss lyckas onboarding. Korrigera detta genom att uppdatera datum och/eller tidszon för Windows-datorn.|
+    |4002 |Service Connector |Tjänsten returnerade HTTP-statuskod 403 som svar på en fråga. Kontakta tjänst administratören för hälso tillståndet för tjänsten. Frågan kommer att göras senare. |Det här felet skrivs under agentens inledande registrerings fas och du ser en URL som liknar följande: *https:// \<workspaceID> . OMS.OpInsights.Azure.com/AgentService.svc/AgentTopologyRequest*. Felkoden 403 betyder att den är förbjuden och kan orsakas av ett felanget arbetsyte-ID eller nyckel, eller så är data och tid felaktigt på datorn. Om tiden är +/-15 minuter från aktuell tid, Miss lyckas onboarding. Korrigera detta genom att uppdatera datum och/eller tidszon för Windows-datorn.|
 
 ## <a name="data-collection-issues"></a>Problem med data insamling
 
@@ -91,7 +91,7 @@ Heartbeat
 
 Om frågan returnerar resultat måste du bestämma om en viss datatyp inte samlas in och vidarebefordras till tjänsten. Detta kan orsakas av att agenten inte tar emot en uppdaterad konfiguration från tjänsten, eller något annat problem som hindrar agenten från att fungera normalt. Utför följande steg för att ytterligare felsöka.
 
-1. Öppna en kommando tolk med förhöjd behörighet på datorn och starta om Agent tjänsten `net stop healthservice && net start healthservice`genom att skriva.
+1. Öppna en kommando tolk med förhöjd behörighet på datorn och starta om Agent tjänsten genom att skriva `net stop healthservice && net start healthservice` .
 2. Öppna händelse loggen *Operations Manager* och Sök efter **händelse-id** *7023, 7024, 7025, 7028* och *1210* från **händelse källan** *HealthService*.  Dessa händelser anger att agenten tar emot konfiguration från Azure Monitor och att datorn övervakas aktivt. Händelse beskrivningen för händelse-ID 1210 anges också på den sista raden alla lösningar och insikter som ingår i övervaknings området på agenten.  
 
     ![Beskrivning av händelse-ID 1210](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)

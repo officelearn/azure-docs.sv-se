@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295481"
 ---
 # <a name="url-redirect"></a>URL-omdirigering
@@ -40,13 +40,13 @@ Du kan ange det protokoll som ska användas för omdirigering. Detta gör att en
 - **Matchnings förfrågan**: det här alternativet behåller protokollet som används av den inkommande begäran. En HTTP-begäran är alltså fortfarande HTTP och en HTTPS-begäran är kvar som omdirigering av HTTPS-post.
 
 ## <a name="destination-host"></a>Målvärd
-Som en del av konfigureringen av en Omdirigerad routning kan du också ändra värdnamn eller domän för omdirigerings förfrågan. Du kan ange det här fältet om du vill ändra värd namnet i URL: en för omdirigeringen eller på annat sätt bevara värd namnet från den inkommande begäran. Därför kan du använda det här fältet för att dirigera om `https://www.contoso.com/*` alla förfrågningar `https://www.fabrikam.com/*`som skickas till.
+Som en del av konfigureringen av en Omdirigerad routning kan du också ändra värdnamn eller domän för omdirigerings förfrågan. Du kan ange det här fältet om du vill ändra värd namnet i URL: en för omdirigeringen eller på annat sätt bevara värd namnet från den inkommande begäran. Därför kan du använda det här fältet för att dirigera om alla förfrågningar `https://www.contoso.com/*` som skickas till `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>Målsökväg
-I de fall där du vill ersätta Sök vägs segmentet för en URL som en del av omdirigeringen kan du ange det här fältet med värdet för ny sökväg. Annars kan du välja att bevara värdet för sökvägen som en del av omdirigeringen. Därför kan du använda det här fältet för att omdirigera alla begär Anden `https://www.contoso.com/\*` som `https://www.contoso.com/redirected-site`skickas till till.
+I de fall där du vill ersätta Sök vägs segmentet för en URL som en del av omdirigeringen kan du ange det här fältet med värdet för ny sökväg. Annars kan du välja att bevara värdet för sökvägen som en del av omdirigeringen. Därför kan du använda det här fältet för att omdirigera alla begär Anden som skickas till `https://www.contoso.com/\*` till `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>Parametrar för frågesträng
-Du kan även ersätta Frågesträngens parametrar i den omdirigerade URL: en. För att ersätta en befintlig frågesträng från URL: en för inkommande begäran anger du fältet till Ersätt och anger sedan lämpligt värde. Annars kan du behålla den ursprungliga uppsättningen frågesträngar genom att ange fältet till "Preserve". Som exempel kan du använda det här fältet för att omdirigera all trafik som skickas `https://www.contoso.com/foo/bar` till `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`till. 
+Du kan även ersätta Frågesträngens parametrar i den omdirigerade URL: en. För att ersätta en befintlig frågesträng från URL: en för inkommande begäran anger du fältet till Ersätt och anger sedan lämpligt värde. Annars kan du behålla den ursprungliga uppsättningen frågesträngar genom att ange fältet till "Preserve". Som exempel kan du använda det här fältet för att omdirigera all trafik som skickas till `https://www.contoso.com/foo/bar` till `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 
 
 ## <a name="destination-fragment"></a>Målcachen
 Målcachen är den del av URL: en som finns efter ' # ', som vanligt vis används av webbläsare för att landa på ett speciellt avsnitt på en sida. Du kan ange det här fältet om du vill lägga till ett fragment i omdirigerings-URL: en.

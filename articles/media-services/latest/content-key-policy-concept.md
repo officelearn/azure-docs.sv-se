@@ -13,10 +13,10 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80585994"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
@@ -47,7 +47,7 @@ Vanligt vis associerar du din innehålls nyckel princip med din [streaming Locat
 
 ## <a name="example"></a>Exempel
 
-För att komma till nyckeln använder `GetPolicyPropertiesWithSecretsAsync`du, som du ser i [Hämta en signerings nyckel från den befintliga princip](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exemplet.
+För att komma till nyckeln använder du `GetPolicyPropertiesWithSecretsAsync` , som du ser i [Hämta en signerings nyckel från den befintliga princip](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exemplet.
 
 ## <a name="filtering-ordering-paging"></a>Filtrering, sortering, växling
 

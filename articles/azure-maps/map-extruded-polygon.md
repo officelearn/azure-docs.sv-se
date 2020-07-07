@@ -10,42 +10,42 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 7405098bd4924333aafcd1c285eb2f37bb1d4f75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334549"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Lägg till ett polygon extrusion-lager på kartan
 
-Den här artikeln visar hur du använder polygon extrusion-lagret för att återge områden `Polygon` i `MultiPolygon` och funktions Geometries som extruderade former. Azure Maps Web SDK stöder åter givning av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar kan omvandlas till polygoner när de återges på kartan. Alla funktioner i Geometries kan uppdateras enkelt vid omslutning med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) -klass.
+Den här artikeln visar hur du använder polygon extrusion-lagret för att återge områden i `Polygon` och `MultiPolygon` funktions Geometries som extruderade former. Azure Maps Web SDK stöder åter givning av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar kan omvandlas till polygoner när de återges på kartan. Alla funktioner i Geometries kan uppdateras enkelt vid omslutning med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) -klass.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Använda ett polygon extrusion-lager
 
-Anslut [polygon extrusion-skiktet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) till en data källa. Sedan läser du in den på kartan. Polygon extrusion-lagret återger områdena i en `Polygon` -och `MultiPolygon` -funktioner som extruderade former. Egenskaperna `height` och `base` för polygonens extrusion-lager definierar bas avståndet från den malda formens och höjden i **meter**. Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med hjälp av skikt klassen polygon extrusion.
+Anslut [polygon extrusion-skiktet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) till en data källa. Sedan läser du in den på kartan. Polygon extrusion-lagret återger områdena i en- `Polygon` och- `MultiPolygon` funktioner som extruderade former. `height`Egenskaperna och `base` för polygonens extrusion-lager definierar bas avståndet från den malda formens och höjden i **meter**. Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med hjälp av skikt klassen polygon extrusion.
 
 > [!Note]
-> `base` Värdet som definieras i polygon extrusion-lagret ska vara mindre än eller lika med för `height`.
+> `base`Värdet som definieras i polygon extrusion-lagret ska vara mindre än eller lika med för `height` .
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Extruderad polygon" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Penn <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>förskjutande polygon</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.</iframe>
+Se Penn <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>förskjutande polygon</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.</iframe>
 
 
 ## <a name="add-data-driven-polygons"></a>Lägg till data drivna polygoner
 
-En choropleth-karta kan återges med hjälp av polygon extrusion-lagret. Ange egenskaperna `height` och `fillColor` för extrusion-lagrets mått för den statistiska variabeln i funktionen `Polygon` och `MultiPolygon` Geometries. I följande kod exempel visas en extruderad choropleth karta för U. S baserat på måttet för populationens densitet per tillstånd.
+En choropleth-karta kan återges med hjälp av polygon extrusion-lagret. Ange `height` egenskaperna och `fillColor` för extrusion-lagrets mått för den statistiska variabeln i `Polygon` `MultiPolygon` funktionen och Geometries. I följande kod exempel visas en extruderad choropleth karta för U. S baserat på måttet för populationens densitet per tillstånd.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Karta över extruderad choropleth" src="https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Penn <a href='https://codepen.io/azuremaps/pen/eYYYNox'>choropleth-kartan</a> genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+Se Penn <a href='https://codepen.io/azuremaps/pen/eYYYNox'>choropleth-kartan</a> genom att Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="add-a-circle-to-the-map"></a>Lägg till en cirkel till kartan
 
-Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle). En extruderad cirkel kan återges på kartan genom att skapa `point` en funktion med en `subType` egenskap av `Circle` och en numrerad `Radius` egenskap som representerar radien i **meter**. Ett exempel:
+Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle). En extruderad cirkel kan återges på kartan genom att skapa en `point` funktion med en `subType` egenskap av `Circle` och en numrerad `Radius` egenskap som representerar radien i **meter**. Till exempel:
 
 ```Javascript
 {
@@ -66,7 +66,7 @@ Azure Maps Web SDK konverterar dessa `Point` funktioner till `Polygon` funktione
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Drönare luft rummets polygon" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>polygon drönare-luft rummets polygon</a> med Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+Se <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>polygon drönare-luft rummets polygon</a> med Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-a-polygon-extrusion-layer"></a>Anpassa ett polygon extrusion-lager
@@ -75,7 +75,7 @@ Polygon extrusion-lagret har flera format alternativ. Här är ett verktyg för 
 
 <br/>
 
-<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> av Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg

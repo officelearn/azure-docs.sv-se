@@ -9,13 +9,13 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4c47335689401ebce98224992c74c3396821a1dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334161"
 ---
-# <a name="read-and-write-spatial-data"></a>Läsa och skriva spatialdata
+# <a name="read-and-write-spatial-data"></a>Läsa och skriva rumsliga data
 
 I tabellen nedan visas de spatiala fil format som stöds för läsning och skrivning av åtgärder med den spatiala IO-modulen.
 
@@ -34,36 +34,36 @@ I följande avsnitt beskrivs alla olika verktyg för att läsa och skriva spatia
 
 ## <a name="read-spatial-data"></a>Läs spatialdata
 
-`atlas.io.read` Funktionen är huvud funktionen som används för att läsa vanliga avstånds data format som KML, GPX, GeoRSS, interjson och CSV-filer med spatialdata. Den här funktionen kan också läsa komprimerade versioner av dessa format, som en zip-fil eller en KMZ-fil. KMZ-filformatet är en komprimerad version av KML som också kan omfatta till gångar som bilder. Alternativt kan Read-funktionen ta i en URL som pekar på en fil i något av dessa format. URL: er ska finnas på en CORS-aktiverad slut punkt, eller så ska en proxyserver anges i Läs alternativen. Proxy-tjänsten används för att läsa in resurser i domäner som inte är CORS-aktiverade. Funktionen Read returnerar ett löfte för att lägga till avbildnings ikonerna i kartan och bearbetar data asynkront för att minimera påverkan till UI-tråden.
+`atlas.io.read`Funktionen är huvud funktionen som används för att läsa vanliga avstånds data format som KML, GPX, GeoRSS, interjson och CSV-filer med spatialdata. Den här funktionen kan också läsa komprimerade versioner av dessa format, som en zip-fil eller en KMZ-fil. KMZ-filformatet är en komprimerad version av KML som också kan omfatta till gångar som bilder. Alternativt kan Read-funktionen ta i en URL som pekar på en fil i något av dessa format. URL: er ska finnas på en CORS-aktiverad slut punkt, eller så ska en proxyserver anges i Läs alternativen. Proxy-tjänsten används för att läsa in resurser i domäner som inte är CORS-aktiverade. Funktionen Read returnerar ett löfte för att lägga till avbildnings ikonerna i kartan och bearbetar data asynkront för att minimera påverkan till UI-tråden.
 
 När du läser en komprimerad fil, antingen som en zip-eller KMZ, kommer den att zippas och genomsökas efter den första giltiga filen. Till exempel doc. KML eller en fil med ett annat giltigt tillägg, till exempel:. KML,. XML, interjson,. JSON,. csv,. tsv eller. txt. Sedan är bilder som refereras i KML-och GeoRSS-filer förinstallerade för att säkerställa att de är tillgängliga. Otillgängliga bilddata kan läsa in en alternativ återställnings avbildning eller tas bort från formaten. Avbildningar som extraherats från KMZ-filer konverteras till data-URI: er.
 
-Resultatet från funktionen Read är ett `SpatialDataSet` objekt. Det här objektet utökar FeatureCollection-klassen för polyjson. Det kan enkelt skickas till ett `DataSource` as-är att återge dess funktioner på en karta. Innehåller `SpatialDataSet` inte bara funktions information, men den kan även innehålla KML-Språköverlägg, bearbeta mått och annan information som beskrivs i följande tabell.
+Resultatet från funktionen Read är ett `SpatialDataSet` objekt. Det här objektet utökar FeatureCollection-klassen för polyjson. Det kan enkelt skickas till ett `DataSource` as-är att återge dess funktioner på en karta. `SpatialDataSet`Innehåller inte bara funktions information, men den kan även innehålla KML-Språköverlägg, bearbeta mått och annan information som beskrivs i följande tabell.
 
 | Egenskapsnamn | Typ | Beskrivning | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Avgränsnings ruta för alla data i data uppsättningen. |
 | `features` | `Feature[]` | Interjson-funktioner i data uppsättningen. |
 | `groundOverlays` | `(atlas.layer.ImageLayer | atlas.layers.OgcMapLayer)[]` | En matris med KML-GroundOverlays. |
-| `icons` | Post&lt;sträng, sträng&gt; | En uppsättning ikon-URL: er. Nyckel = ikon namn, värde = URL. |
+| `icons` | Post &lt; sträng, sträng&gt; | En uppsättning ikon-URL: er. Nyckel = ikon namn, värde = URL. |
 | properties | valfri | Egenskaps information som anges på dokument nivå för en spatial data uppsättning. |
 | `stats` | `SpatialDataSetStats` | Statistik om innehåll och bearbetnings tid för en spatial data uppsättning. |
 | `type` | `'FeatureCollection'` | Skrivskyddat värde för polyjson-typ. |
 
 ## <a name="examples-of-reading-spatial-data"></a>Exempel på att läsa spatialdata
 
-Följande kod visar hur du läser en spatial data uppsättning och återger den på kartan med hjälp av `SimpleDataLayer` -klassen. Koden använder en GPX-fil som en URL pekar på.
+Följande kod visar hur du läser en spatial data uppsättning och återger den på kartan med hjälp av- `SimpleDataLayer` klassen. Koden använder en GPX-fil som en URL pekar på.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Enkel inläsning av spatialdata' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se spatialdata för att <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>läsa in spatialdata enkelt</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Enkel inläsning av spatialdata' src='//codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se spatialdata för att <a href='https://codepen.io/azuremaps/pen/yLNXrZx/'>läsa in spatialdata enkelt</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Nästa kod demonstration visar hur du läser och läser in KML, eller KMZ, på kartan. KML kan innehålla mark överlägg som är i form av en `ImageLyaer` eller. `OgcMapLayer` Dessa överlägg måste läggas till i kartan separat från funktionerna. Om data uppsättningen däremot har anpassade ikoner, måste dessa ikoner läsas in på Maps-resurserna innan funktionerna läses in.
+Nästa kod demonstration visar hur du läser och läser in KML, eller KMZ, på kartan. KML kan innehålla mark överlägg som är i form av en `ImageLyaer` eller `OgcMapLayer` . Dessa överlägg måste läggas till i kartan separat från funktionerna. Om data uppsättningen däremot har anpassade ikoner, måste dessa ikoner läsas in på Maps-resurserna innan funktionerna läses in.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Läs in KML på kartan' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se KML för Penn <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>inläsning på kartan</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Läs in KML på kartan' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se KML för Penn <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>inläsning på kartan</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Du kan också ange en proxy-tjänst för åtkomst till kors domän till gångar som kanske inte har CORS aktiverat. Funktionen Read kommer att försöka komma åt filer på en annan domän med CORS först. Efter första gången det inte går att få åtkomst till en resurs i en annan domän med CORS, begär det bara ytterligare filer om en proxyserver har angetts. Funktionen Read lägger till fil-URL: en i slutet av den angivna proxy-URL: en. Det här kodfragmentet visar hur du skickar en proxyserver till Read-funktionen:
@@ -85,18 +85,18 @@ Demon nedan visar hur du läser en avgränsad fil och återger den på kartan. I
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägg till en avgränsad fil' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>Lägg till en avgränsad fil</a> med Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägg till en avgränsad fil' src='//codepen.io/azuremaps/embed/ExjXBEb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ExjXBEb/'>Lägg till en avgränsad fil</a> med Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="write-spatial-data"></a>Skriv spatialdata
 
-Det finns två huvudsakliga Skriv funktioner i den spatiala IO-modulen. `atlas.io.write` Funktionen genererar en sträng, medan `atlas.io.writeCompressed` funktionen genererar en komprimerad ZIP-fil. Den komprimerade ZIP-filen innehåller en text baserad fil med spatialdata i den. Båda dessa funktioner returnerar ett löfte för att lägga till data i filen. Dessutom kan båda skriva följande data `SpatialDataSet`:, `DataSource` `ImageLayer`,, `OgcMapLayer`, samling, funktion, geometri eller en matris med valfri kombination av dessa data typer. När du skriver med hjälp av någon av funktionerna kan du ange önskat fil format. Om fil formatet inte anges skrivs data som KML.
+Det finns två huvudsakliga Skriv funktioner i den spatiala IO-modulen. `atlas.io.write`Funktionen genererar en sträng, medan `atlas.io.writeCompressed` funktionen genererar en komprimerad ZIP-fil. Den komprimerade ZIP-filen innehåller en text baserad fil med spatialdata i den. Båda dessa funktioner returnerar ett löfte för att lägga till data i filen. Dessutom kan båda skriva följande data:,,, `SpatialDataSet` `DataSource` `ImageLayer` `OgcMapLayer` , samling, funktion, geometri eller en matris med valfri kombination av dessa data typer. När du skriver med hjälp av någon av funktionerna kan du ange önskat fil format. Om fil formatet inte anges skrivs data som KML.
 
 Verktyget nedan visar de flesta av de Skriv alternativ som kan användas med `atlas.io.write` funktionen.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Skriv alternativ för spatialdata' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för att <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>skriva till spatialdata</a> genom att Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Skriv alternativ för spatialdata' src='//codepen.io/azuremaps/embed/YzXxXPG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för att <a href='https://codepen.io/azuremaps/pen/YzXxXPG/'>skriva till spatialdata</a> genom att Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="example-of-writing-spatial-data"></a>Exempel på att skriva spatialdata
@@ -105,7 +105,7 @@ I följande exempel kan du dra och släppa och sedan läsa in spatialdata på ka
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Dra och släpp spatialdata på kartan' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>Dra och släpp spatialdata</a> i pennan på kartan genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Dra och släpp spatialdata på kartan' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>Dra och släpp spatialdata</a> i pennan på kartan genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Du kan också ange en proxy-tjänst för åtkomst till kors domän till gångar som kanske inte har CORS aktiverat. Det här kodfragmentet visar att du kan inkludera en proxy-tjänst:
@@ -124,7 +124,7 @@ atlas.io.read(data, {
 
 ## <a name="read-and-write-well-known-text-wkt"></a>Läs-och skriv välkänd text (well)
 
-[Välkänd text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (well) är en Open GEOSPATIAL CONSORTIUM (OGC) standard för att representera avstånds Geometries som text. Många geospatiala system stöder well, till exempel Azure SQL och Azure PostgreSQL med hjälp av PostGIS-plugin-programmet. Precis som de flesta OGC-standarder formateras koordinaterna som "longitud latitud" för att anpassas till "x"-konventionen. Som exempel kan en punkt vid longitud-110 och latitud 45 skrivas som `POINT(-110 45)` ett well-format.
+[Välkänd text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (well) är en Open GEOSPATIAL CONSORTIUM (OGC) standard för att representera avstånds Geometries som text. Många geospatiala system stöder well, till exempel Azure SQL och Azure PostgreSQL med hjälp av PostGIS-plugin-programmet. Precis som de flesta OGC-standarder formateras koordinaterna som "longitud latitud" för att anpassas till "x"-konventionen. Som exempel kan en punkt vid longitud-110 och latitud 45 skrivas som ett `POINT(-110 45)` well-format.
 
 Välkänd text kan läsas med hjälp av `atlas.io.ogc.WKT.read` funktionen och skrivas med hjälp av `atlas.io.ogc.WKT.write` funktionen.
 
@@ -134,24 +134,24 @@ Följande kod visar hur du läser den välkända text strängen `POINT(-122.3400
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Läs välkänd text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se den <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>välbekanta Skriv texten</a> för pennan genom att<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Läs välkänd text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se den <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>välbekanta Skriv texten</a> för pennan genom att Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Följande kod visar Läs-och skriv-välkänd text och tillbaka.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Läs-och skriv välkänd text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Skriv <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>-och skriv-välkänd text</a> för pennan genom att Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Läs-och skriv välkänd text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Skriv <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>-och skriv-välkänd text</a> för pennan genom att Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Läs-och skriv GML
 
-GML är en spatial XML-filspecifikation som ofta används som ett tillägg till andra XML-specifikationer. Det `atlas.io.core.GmlWriter.write` går att skriva data från en XML-fil med GML-Taggar med hjälp av funktionen. XML-filen som innehåller GML kan läsas med hjälp `atlas.io.core.GmlReader.read` av funktionen. Funktionen Read har två alternativ:
+GML är en spatial XML-filspecifikation som ofta används som ett tillägg till andra XML-specifikationer. Det går att skriva data från en XML-fil med GML-Taggar med hjälp av `atlas.io.core.GmlWriter.write` funktionen. XML-filen som innehåller GML kan läsas med hjälp av `atlas.io.core.GmlReader.read` funktionen. Funktionen Read har två alternativ:
 
-- `isAxisOrderLonLat` Alternativet-axel ordningen för koordinaterna "latitud, longitud" eller "longitud, latitud" kan variera mellan data mängder och det är inte alltid väl definierat. Som standard läser GMLs läsaren koordinatens data som "latitud, longitud", men om du ställer in det här alternativet på sant så läses det som "longitud, latitud".
-- `propertyTypes` Alternativet – det här alternativet är en uppslags tabell med nyckel värden där nyckeln är namnet på en egenskap i data uppsättningen. Värdet är objekt typen för att konvertera värdet till vid parsning. De typ värden som stöds är `string`: `number`, `boolean`,, `date`och. Om en egenskap inte finns i uppslags tabellen eller om typen inte har definierats, kommer egenskapen att parsas som en sträng.
+- `isAxisOrderLonLat`Alternativet-axel ordningen för koordinaterna "latitud, longitud" eller "longitud, latitud" kan variera mellan data mängder och det är inte alltid väl definierat. Som standard läser GMLs läsaren koordinatens data som "latitud, longitud", men om du ställer in det här alternativet på sant så läses det som "longitud, latitud".
+- `propertyTypes`Alternativet – det här alternativet är en uppslags tabell med nyckel värden där nyckeln är namnet på en egenskap i data uppsättningen. Värdet är objekt typen för att konvertera värdet till vid parsning. De typ värden som stöds är: `string` , `number` , `boolean` , och `date` . Om en egenskap inte finns i uppslags tabellen eller om typen inte har definierats, kommer egenskapen att parsas som en sträng.
 
-`atlas.io.read` Funktionen kommer att `atlas.io.core.GmlReader.read` användas som standard när den identifierar att indata är XML, men data inte är en av de andra stödda XML-formaten för att hantera avstånd.
+`atlas.io.read`Funktionen kommer att användas som standard `atlas.io.core.GmlReader.read` när den identifierar att indata är XML, men data inte är en av de andra stödda XML-formaten för att hantera avstånd.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -178,13 +178,13 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett OGC-kart skikt](spatial-io-add-ogc-map-layer.md)
+> [Lägga till ett OGC-kartskikt](spatial-io-add-ogc-map-layer.md)
 
 > [!div class="nextstepaction"]
 > [Ansluta till en WFS-tjänst](spatial-io-connect-wfs-service.md)
 
 > [!div class="nextstepaction"]
-> [Utnyttja kärn åtgärder](spatial-io-core-operations.md)
+> [Använda kärnåtgärder](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Information om data format som stöds](spatial-io-supported-data-format-details.md)
+> [Information om dataformat som stöds](spatial-io-supported-data-format-details.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c07e161042a497a232cbd5e3f11128893a095381
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550349"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Konfigurera behållar skapande alternativ för IoT Edge moduler
@@ -52,15 +52,15 @@ IoT Edge distributions manifestet accepterar skapande alternativ som är formate
 
 I det här edgeHub-exemplet används parametern **HostConfig. PortBindings** för att mappa exponerade portar på behållaren till en port på värd enheten.
 
-Om du använder tilläggen för Azure IoT-verktyg för Visual Studio eller Visual Studio Code, kan du skriva Create-alternativen i JSON-format i filen **Deployment. template. JSON** . När du sedan använder tillägget för att skapa IoT Edge-lösningen eller genererar distributions manifestet, kommer det att stringify JSON åt dig i det format som IoT Edge runtime förväntar sig. Ett exempel:
+Om du använder tilläggen för Azure IoT-verktyg för Visual Studio eller Visual Studio Code, kan du skriva alternativen för att skapa i JSON-format i filen **deployment.template.js** . När du sedan använder tillägget för att skapa IoT Edge-lösningen eller genererar distributions manifestet, kommer det att stringify JSON åt dig i det format som IoT Edge runtime förväntar sig. Till exempel:
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
 ```
 
-Ett tips för att skriva skapande alternativ är att använda `docker inspect` kommandot. Som en del av utvecklings processen kör du modulen lokalt med `docker run <container name>`. När modulen fungerar som du vill ha den, kör `docker inspect <container name>`du. Det här kommandot matar ut informationen i modulen i JSON-format. Hitta de parametrar som du har konfigurerat och kopiera JSON. Ett exempel:
+Ett tips för att skriva skapande alternativ är att använda `docker inspect` kommandot. Som en del av utvecklings processen kör du modulen lokalt med `docker run <container name>` . När modulen fungerar som du vill ha den, kör du `docker inspect <container name>` . Det här kommandot matar ut informationen i modulen i JSON-format. Hitta de parametrar som du har konfigurerat och kopiera JSON. Till exempel:
 
-[![Resultat från Docker-inspektion](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png) av edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+[![Resultat från Docker-inspektion av edgeHub ](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 
@@ -75,11 +75,11 @@ Alternativen för att skapa behållare möjliggör många scenarier, men här ä
 Om modulen behöver kommunicera med en tjänst utanför IoT Edge-lösningen och inte använder meddelanderoutning för att göra det, måste du mappa en värd port till en modul-port.
 
 >[!TIP]
->Den här port mappningen krävs inte för modul-till-modul-kommunikation på samma enhet. Om modul A behöver fråga ett API som finns i modul B, kan det göra det utan någon port mappning. Modul B måste exponera en port i dess Dockerfile, till exempel: `EXPOSE 8080`. Sedan kan modul A fråga API: et med hjälp av modul B: s namn `http://ModuleB:8080/api`, till exempel:.
+>Den här port mappningen krävs inte för modul-till-modul-kommunikation på samma enhet. Om modul A behöver fråga ett API som finns i modul B, kan det göra det utan någon port mappning. Modul B måste exponera en port i dess Dockerfile, till exempel: `EXPOSE 8080` . Sedan kan modul A fråga API: et med hjälp av modul B: s namn, till exempel: `http://ModuleB:8080/api` .
 
 Se först till att en port i modulen exponeras för att lyssna efter anslutningar. Du kan göra detta med hjälp av en [Visa](https://docs.docker.com/engine/reference/builder/#expose) -instruktion i Dockerfile. Till exempel `EXPOSE 8080`. Den exponerande instruktionen använder som standard TCP-protokoll om inget värde anges eller om du kan ange UDP.
 
-Använd sedan inställningen **PortBindings** i gruppen **HostConfig** i Docker-behållaren för att [skapa alternativ](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) för att mappa exponerade portar i modulen till en port på värd enheten. Om du till exempel exponerar Port 8080 i modulen och vill mappa den till port 80 av värd enheten, skulle skapande alternativen i filen Template. JSON se ut som i följande exempel:
+Använd sedan inställningen **PortBindings** i gruppen **HostConfig** i Docker-behållaren för att [skapa alternativ](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) för att mappa exponerade portar i modulen till en port på värd enheten. Om du till exempel exponerar Port 8080 i modulen och vill mappa den till port 80 av värd enheten, skulle skapande alternativen i template.jspå filen se ut som i följande exempel:
 
 ```json
 "createOptions": {
@@ -109,7 +109,7 @@ Du kan deklarera hur mycket av värd resurserna en modul kan använda. Den här 
 * **MemorySwap**: total minnes gräns (minne och växling). Till exempel 536870912 byte = 512 MB
 * **CpuPeriod**: längden på en processor period i mikrosekunder. Standardvärdet är 100000, så till exempel värdet 25000 begränsar en behållare till 25% av processor resurserna.
 
-I formatet Template. JSON skulle dessa värden se ut som i följande exempel:
+I template.jsi format skulle dessa värden se ut som i följande exempel:
 
 ```json
 "createOptions": {

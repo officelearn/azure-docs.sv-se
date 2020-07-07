@@ -7,17 +7,17 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 6547bcf2061213cd01550367171d432900693ea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80584134"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
 I den här artikeln beskrivs hur du aktiverar replikering av lokala virtuella VMware-datorer (VM) till Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att systemet uppfyller följande kriterier:
 
@@ -49,7 +49,7 @@ Tänk på följande när du replikerar virtuella VMware-datorer:
 
 Innan du utför stegen i det här avsnittet kan du läsa följande information:
 
-- Azure Site Recovery replikeras nu direkt till hanterade diskar för alla nya replikeringar. Processervern skriver replikeringsinställningarna till ett cache Storage-konto i mål regionen. De här loggarna används för att skapa återställnings punkter i replik Managed disks `asrseeddisk`som har namngivnings konventionen.
+- Azure Site Recovery replikeras nu direkt till hanterade diskar för alla nya replikeringar. Processervern skriver replikeringsinställningarna till ett cache Storage-konto i mål regionen. De här loggarna används för att skapa återställnings punkter i replik Managed disks som har namngivnings konventionen `asrseeddisk` .
 - PowerShell-stöd för replikering till hanterade diskar är tillgängligt från och med [AZ. RecoveryServices-modul version 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview)
 - Vid redundansväxlingen används den återställnings punkt som du väljer för att skapa den mål hanterade disken.
 - Virtuella datorer som tidigare har kon figurer ATS för replikering till mål lagrings konton påverkas inte.
@@ -57,7 +57,7 @@ Innan du utför stegen i det här avsnittet kan du läsa följande information:
 
 Följ dessa steg om du vill aktivera replikering:
 
-1. Gå till **steg 2: replikera program** > **källan**. När du har aktiverat replikering för första gången väljer du **+ Replikera** i valvet för att aktivera replikering för ytterligare virtuella datorer.
+1. Gå till **steg 2: replikera program**  >  **källan**. När du har aktiverat replikering för första gången väljer du **+ Replikera** i valvet för att aktivera replikering för ytterligare virtuella datorer.
 1. På **käll** sidan > **källa**väljer du konfigurations servern.
 1. För **dator typ**väljer du **Virtual Machines** eller **fysiska datorer**.
 1. I **vCenter/vSphere Hypervisor** väljer du den vCenter-server som hanterar vSphere-värden, eller så väljer du värden. Den här inställningen är inte relevant om du replikerar fysiska datorer.
@@ -75,16 +75,16 @@ Följ dessa steg om du vill aktivera replikering:
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Aktivera fönstret Replication Target":::
 
-1. För **virtuella datorer** > **väljer du virtuella datorer**och väljer varje virtuell dator som du vill replikera. Du kan bara välja virtuella datorer för vilka replikering kan aktive ras. Välj sedan **OK**. Om du inte kan se eller välja en viss virtuell dator, se [käll datorn inte i Azure Portal](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) för att lösa problemet.
+1. För **virtuella datorer**  >  **väljer du virtuella datorer**och väljer varje virtuell dator som du vill replikera. Du kan bara välja virtuella datorer för vilka replikering kan aktive ras. Välj sedan **OK**. Om du inte kan se eller välja en viss virtuell dator, se [käll datorn inte i Azure Portal](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) för att lösa problemet.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Aktivera replikering Välj Virtual Machines-fönstret":::
 
-1. För **Egenskaper** > **Konfigurera egenskaper**väljer du det konto som processervern använder för att automatiskt installera Site Recovery mobilitets tjänsten på den virtuella datorn. Välj också vilken typ av mål för hanterad disk som ska användas för replikering baserat på dina data omsättnings mönster.
+1. För **Egenskaper**  >  **Konfigurera egenskaper**väljer du det konto som processervern använder för att automatiskt installera Site Recovery mobilitets tjänsten på den virtuella datorn. Välj också vilken typ av mål för hanterad disk som ska användas för replikering baserat på dina data omsättnings mönster.
 1. Som standard replikeras alla diskar för en virtuell käll dator. Om du vill utesluta diskar från replikering avmarkerar du kryss rutan **Inkludera** för diskar som du inte vill replikera. Välj sedan **OK**. Du kan ange ytterligare egenskaper senare. [Läs mer](vmware-azure-exclude-disk.md) om att utesluta diskar.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Aktivera fönstret Konfigurera egenskaper för replikering":::
 
-1. I **replikeringsinställningar** > **Konfigurera replikeringsinställningar**kontrollerar du att rätt replikeringsprincip är markerad. Du kan ändra inställningarna för replikeringsprincip i **Inställningar** > **Replication policies** > _principer för princip namn_ > **Redigera inställningar**. Ändringar som tillämpas på en princip gäller även för replikering och nya virtuella datorer.
+1. I **replikeringsinställningar**  >  **Konfigurera replikeringsinställningar**kontrollerar du att rätt replikeringsprincip är markerad. Du kan ändra inställningarna för replikeringsprincip i **Inställningar**  >  **Replication policies**  >  _principer för princip namn_  >  **Redigera inställningar**. Ändringar som tillämpas på en princip gäller även för replikering och nya virtuella datorer.
 1. Aktivera **konsekvens för flera virtuella**datorer om du vill samla in virtuella datorer i en replikeringsgrupp. Ange ett namn för gruppen och välj sedan **OK**.
 
    > [!NOTE]
@@ -93,15 +93,15 @@ Följ dessa steg om du vill aktivera replikering:
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Fönstret aktivera replikering":::
 
-1. Välj **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** på **Inställningar** > **jobb** > **Site Recovery jobb**. När jobbet **Slutför skydd** har körts är den virtuella datorn klar för redundans.
+1. Välj **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** på **Inställningar**  >  **jobb**  >  **Site Recovery jobb**. När jobbet **Slutför skydd** har körts är den virtuella datorn klar för redundans.
 
 ## <a name="view-and-manage-vm-properties"></a>Visa och hantera egenskaper för virtuella datorer
 
 Kontrol lera sedan egenskaperna för den virtuella käll datorn. Kom ihåg att namnet på den virtuella Azure-datorn måste följa kraven för den [virtuella Azure-datorn](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-1. Gå till **Inställningar** > **replikerade objekt**och välj sedan den virtuella datorn. Sidan **Essentials** visar information om den virtuella datorns inställningar och status.
+1. Gå till **Inställningar**  >  **replikerade objekt**och välj sedan den virtuella datorn. Sidan **Essentials** visar information om den virtuella datorns inställningar och status.
 1. I **Egenskaper**kan du Visa information om replikering och redundans för den virtuella datorn.
-1. I **beräknings-och nätverks** > **beräknings egenskaper**kan du ändra flera egenskaper för virtuella datorer.
+1. I **beräknings-och nätverks**  >  **beräknings egenskaper**kan du ändra flera egenskaper för virtuella datorer.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Fönstret Egenskaper för beräkning och nätverk":::
 

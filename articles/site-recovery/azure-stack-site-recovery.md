@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar haveri beredskap till Azure för Azure
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478509"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera virtuella Azure Stack-datorer till Azure
@@ -38,10 +38,10 @@ Med de här stegen slutförda kan du köra en fullständig redundans till Azure 
 
 ![Arkitektur](./media/azure-stack-site-recovery/architecture.png)
 
-**Position** | **Komponent** |**Information**
+**Position** | **Komponent** |**Detaljer**
 --- | --- | ---
 **Konfigurationsserver** | Körs på en enskild Azure Stack virtuell dator. | I varje prenumeration ställer du in en virtuell konfigurations Server. Den här virtuella datorn kör följande Site Recoverys komponenter:<br/><br/> – Konfigurations Server: samordnar kommunikationen mellan både lokalt och Azure och hanterar datareplikering. -Processerver: fungerar som en gateway för replikering. Den tar emot replikeringsdata, optimerar med cachelagring, komprimering och kryptering; och skickar den till Azure Storage.<br/><br/> Om de virtuella datorer som du vill replikera överskrider de gränser som anges nedan, kan du konfigurera en separat fristående processerver. [Läs mer](vmware-azure-set-up-process-server-scale.md).
-**Mobilitets tjänst** | Installeras på varje virtuell dator som du vill replikera. | I stegen i den här artikeln förbereder vi ett konto så att mobilitets tjänsten installeras automatiskt på en virtuell dator när replikering är aktiverat. Om du inte vill installera tjänsten automatiskt finns det ett antal andra metoder som du kan använda. [Läs mer](vmware-azure-install-mobility-service.md).
+**Mobilitetstjänsten** | Installeras på varje virtuell dator som du vill replikera. | I stegen i den här artikeln förbereder vi ett konto så att mobilitets tjänsten installeras automatiskt på en virtuell dator när replikering är aktiverat. Om du inte vill installera tjänsten automatiskt finns det ett antal andra metoder som du kan använda. [Läs mer](vmware-azure-install-mobility-service.md).
 **Azure** | I Azure behöver du ett Recovery Services-valv, ett lagrings konto och ett virtuellt nätverk. |  Replikerade data lagras i lagrings kontot. Virtuella Azure-datorer läggs till i Azure-nätverket när redundansväxlingen sker.
 
 
@@ -56,11 +56,11 @@ Replikeringen fungerar på följande sätt:
 7. Replikerade datorer kommunicerar med konfigurations servern (port HTTPS 443 inkommande, för hantering av replikering. Datorer skickar replikeringsdata till processervern (port HTTPS 9443 inkommande – kan ändras).
 8. Trafik replikeras till offentliga Azure Storage-slutpunkter, över Internet. Du kan även använda Azure ExpressRoute offentlig peering. Replikering av trafik via en plats-till-plats-VPN från en lokal plats till Azure stöds inte.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här är vad du behöver för att konfigurera det här scenariot.
 
-**Krav** | **Information**
+**Krav** | **Detaljer**
 --- | ---
 **Azure-prenumerations konto** | Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
 **Behörigheter för Azure-konto** | Det Azure-konto du använder måste ha behörighet att:<br/><br/> -Skapa ett Recovery Service-valv<br/><br/> -Skapa en virtuell dator i resurs gruppen och det virtuella nätverk som du använder för scenariot<br/><br/> – Skriv till det lagrings konto som du anger<br/><br/> Tänk på följande:<br/><br/> – Om du skapar ett konto är du administratör för din prenumeration och kan utföra alla åtgärder.<br/><br/> – Om du använder en befintlig prenumeration och inte är administratör måste du arbeta med administratören för att tilldela behörigheter för ägare eller deltagare.<br/><br/> – Läs [den här artikeln](site-recovery-role-based-linked-access-control.md)om du behöver mer detaljerade behörigheter.
@@ -80,7 +80,7 @@ Det här är vad du behöver för att konfigurera det här scenariot.
 Se till att de virtuella datorerna kör ett av de operativ system som sammanfattas i tabellen.
 
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 **64-bitars Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (från SP1)
 **CentOS** | 5,2 till 5,11, 6,1 till 6,9, 7,0 till 7,3
@@ -101,7 +101,7 @@ Du måste ha mobilitets tjänsten installerad för varje virtuell dator som du v
         - Ange värdet 1.
         - Gör detta genom att skriva följande i kommando tolken: **REG ADD HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system/V LocalAccountTokenFilterPolicy/t REG_DWORD/d 1**.
 - I Windows-brandväggen på den virtuella datorn som du vill replikera, Tillåt fil-och skrivar delning och WMI.
-    - Det gör du genom att köra **WF. msc** för att öppna konsolen Windows-brandväggen. Högerklicka på **regler** > för inkommande**trafik ny regel**. Välj **fördefinierad**och välj **fil-och skrivar delning** i listan. Slutför guiden och välj att tillåta anslutningen > **slutföras**.
+    - Det gör du genom att köra **WF. msc** för att öppna konsolen Windows-brandväggen. Högerklicka på **regler för inkommande**  >  **trafik ny regel**. Välj **fördefinierad**och välj **fil-och skrivar delning** i listan. Slutför guiden och välj att tillåta anslutningen > **slutföras**.
     - För domän datorer kan du använda ett grup princip objekt för att göra detta.
 
 
@@ -137,21 +137,21 @@ Hitta IP-adressen för varje dator som du vill replikera:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Steg 2: skapa ett valv och välj ett mål för replikering
 
-1. I Azure Portal väljer du **skapa ett resurs** > **hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
+1. I Azure Portal väljer du **skapa ett resurs**  >  **hanterings verktyg**  >  **säkerhets kopiering och Site Recovery**.
 2. I **Namn** anger du ett eget namn som identifierar valvet.
 3. I **resurs grupp**skapar eller väljer du en resurs grupp. Vi använder **conto sorg**.
 4. Ange Azure-regionen i **plats**. Använder vi **Europa, västra**.
-5. Om du snabbt vill komma åt valvet från instrument panelen väljer du **Fäst på instrument panelen** > **skapa**.
+5. Om du snabbt vill komma åt valvet från instrument panelen väljer du **Fäst på instrument panelen**  >  **skapa**.
 
    ![Skapa ett nytt valv](./media/azure-stack-site-recovery/new-vault-settings.png)
 
-   Det nya valvet visas på **instrument panelen** > **alla resurser**och på huvud sidan **Recovery Services valv** .
+   Det nya valvet visas på **instrument panelen**  >  **alla resurser**och på huvud sidan **Recovery Services valv** .
 
 ### <a name="select-a-replication-goal"></a>Väljer ett replikeringsmål
 
 1. I **Recovery Services valv** > ange ett valv namn. Vi använder **ContosoVMVault**.
 2. I **Komma igång** väljer du Site Recovery. Välj sedan **Förbered infrastrukturen**.
-3. I **skydds mål** > **där**finns datorerna väljer du **lokalt**.
+3. I **skydds mål**  >  **där**finns datorerna väljer du **lokalt**.
 4. I **Till vilken plats ska dina datorer replikeras?** väljer du **Till Azure**.
 5. I **är dina datorer virtualiserade**väljer du **inte virtualiserad/övrigt**. Välj sedan **OK**.
 
@@ -161,7 +161,7 @@ Hitta IP-adressen för varje dator som du vill replikera:
 
 Konfigurera Configuration Server-datorn, registrera den i valvet och identifiera datorer som du vill replikera.
 
-1. Klicka på **Förbered infrastruktur** > **källa**.
+1. Klicka på **Förbered infrastruktur**  >  **källa**.
 2. I **Förbered källa** klickar du på **+Konfigurationsserver**.
 
     ![Konfigurera källan](./media/azure-stack-site-recovery/plus-config-srv.png)
@@ -186,13 +186,13 @@ Installera konfigurations servern nu:
 > [!NOTE]
 > Konfigurations servern kan också installeras från kommando raden. [Läs mer](physical-manage-configuration-server.md#install-from-the-command-line).
 >
-> Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart väljer du **konfigurations servrar** > ***Server namn*** > **Uppdatera server**.
+> Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart väljer du **konfigurations servrar**  >  ***Server namn***  >  **Uppdatera server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Steg 4: Konfigurera mål miljön
 
 Välj och kontrollera målresurserna.
 
-1. I **Förbered infrastruktur** > **mål**väljer du den Azure-prenumeration som du vill använda.
+1. I **Förbered infrastruktur**  >  **mål**väljer du den Azure-prenumeration som du vill använda.
 2. Ange mål distributions modell.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk. Om du inte hittar dem måste du skapa minst ett lagrings konto och ett virtuellt nätverk för att kunna slutföra guiden.
 
@@ -201,7 +201,7 @@ Välj och kontrollera målresurserna.
 
 ### <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
-1. Klicka på **Förbered** > **replikeringsinställningar**för infrastruktur.
+1. Klicka på **Förbered**  >  **replikeringsinställningar**för infrastruktur.
 2. I **Skapa replikeringsprincip** anger du ett principnamn.
 3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO).
     - Återställnings punkter för replikerade data skapas i enlighet med tids uppsättningen.
@@ -224,7 +224,7 @@ Du kan hoppa över det här steget just nu. Klicka på Ja i list rutan **distrib
 
 Se till att du har slutfört alla aktiviteter i [steg 1: Förbered dator](#step-1-prepare-azure-stack-vms). Aktivera sedan replikering på följande sätt:
 
-1. Välj **Replikera program** > **källa**.
+1. Välj **Replikera program**  >  **källa**.
 2. I **Källa** väljer du konfigurationsservern.
 3. I **typ av dator**väljer du **fysiska datorer**.
 4. Välj processerver (konfigurationsserver). Klicka sedan på **OK**.
@@ -237,17 +237,17 @@ Se till att du har slutfört alla aktiviteter i [steg 1: Förbered dator](#step-
     - Använd den interna IP-adressen för datorn.
     - Om du anger den offentliga IP-adressen kanske replikeringen inte fungerar som förväntat.
 
-10. I **Egenskaper** > **Konfigurera egenskaper**väljer du det konto som processervern ska använda för att automatiskt installera mobilitets tjänsten på datorn.
-11. I **replikeringsinställningar** > **konfigurerar du replikeringsinställningar**, kontrollerar att rätt replikeringsprincip är markerad.
+10. I **Egenskaper**  >  **Konfigurera egenskaper**väljer du det konto som processervern ska använda för att automatiskt installera mobilitets tjänsten på datorn.
+11. I **replikeringsinställningar**  >  **konfigurerar du replikeringsinställningar**, kontrollerar att rätt replikeringsprincip är markerad.
 12. Klicka på **Aktivera replikering**.
-13. Spåra förloppet för jobbet **Aktivera skydd** i **Inställningar** > **jobb** > **Site Recovery jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
+13. Spåra förloppet för jobbet **Aktivera skydd** i **Inställningar**  >  **jobb**  >  **Site Recovery jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 > [!NOTE]
 > Site Recovery installerar mobilitetstjänsten när replikering är aktiverad för en virtuell dator.
 >
 > Det kan ta 15 minuter eller längre innan ändringarna träder i kraft och visas på portalen.
 >
-> Om du vill övervaka de virtuella datorer som du lägger till kontrollerar du den senaste identifierade tiden för virtuella datorer i **konfigurations servrarna** > **senaste kontakt på**. Om du vill lägga till virtuella datorer utan att vänta på den schemalagda identifieringen markerar du konfigurationsservern (välj den inte) och väljer **Uppdatera**.
+> Om du vill övervaka de virtuella datorer som du lägger till kontrollerar du den senaste identifierade tiden för virtuella datorer i **konfigurations servrarna**  >  **senaste kontakt på**. Om du vill lägga till virtuella datorer utan att vänta på den schemalagda identifieringen markerar du konfigurationsservern (välj den inte) och väljer **Uppdatera**.
 
 
 ## <a name="step-6-run-a-disaster-recovery-drill"></a>Steg 6: köra en granskning av haveri beredskap
@@ -282,11 +282,11 @@ När du kör ett redundanstest händer följande:
 
 Kör ett redundanstest för en virtuell dator på följande sätt:
 
-1. I **Inställningar** > **replikerade objekt**klickar du på den virtuella datorn > **+ testa redundansväxlingen**.
+1. I **Inställningar**  >  **replikerade objekt**klickar du på den virtuella datorn > **+ testa redundansväxlingen**.
 2. I den här genom gången ska vi välja att använda den **senaste bearbetade** återställnings punkten.
 3. I **redundanstestning**väljer du Azure-nätverket.
 4. Starta redundansväxlingen genom att klicka på **OK**.
-5. Följ förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på jobbet **testa redundans** i *valv namn* > **Inställningar** > **jobb** >**Site Recovery jobb**.
+5. Följ förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på jobbet **testa redundans** i *valv namn*  >  **Inställningar**  >  **jobb**  > **Site Recovery jobb**.
 6. När redundansväxlingen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrol lera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och att den körs.
 7. Du bör nu kunna ansluta till den replikerade virtuella datorn i Azure. [Läs mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 8. Vill du ta bort virtuella Azure-datorer som skapades under redundanstestningen klickar du på **Rensa redundanstestning** på den virtuella datorn. I **anteckningar**sparar du alla observationer som är kopplade till redundanstest.
@@ -300,11 +300,11 @@ Innan du kör en redundansväxling, om du vill ansluta till datorn i Azure efter
 Kör sedan en redundansväxling på följande sätt:
 
 
-1. I **Inställningar** > **replikerade objekt**klickar du på datorn > **redundans**.
+1. I **Inställningar**  >  **replikerade objekt**klickar du på datorn > **redundans**.
 2. Välj den återställnings punkt som du vill använda.
 3. I **redundanstestning**väljer du Azure-nätverket.
 4. Välj **Stäng datorn innan du påbörjar redundans**. Med den här inställningen försöker Site Recovery stänga av käll datorn innan redundansväxlingen påbörjas. Redundansväxlingen fortsätter dock även om avstängningen Miss lyckas.
-5. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet för redundans på sidan **Jobb**.
+5. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet för redundansväxlingen på **jobb** sidan.
 6. När redundansväxlingen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Om du har för berett för att ansluta efter redundansväxlingen kontrollerar du att den virtuella datorn har rätt storlek, är ansluten till rätt nätverk och kör.
 7. När du har verifierat den virtuella datorn klickar du på **genomför** för att slutföra redundansväxlingen. Detta tar bort alla tillgängliga återställnings punkter.
 
@@ -321,7 +321,7 @@ När den primära platsen är igång igen kan du växla tillbaka från Azure til
 3. Navigera till den virtuella datorn i Azure Portal (med namnet på den virtuella datorn).
 4. I **diskar**klickar du på disk namnet och samlar in inställningar.
 
-    - Som exempel kan VHD-URI: n som används i vårt `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` test: delas upp för att hämta följande indataparametrar som används för att hämta den virtuella hård disken.
+    - Som exempel kan VHD-URI: n som används i vårt test: `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` delas upp för att hämta följande indataparametrar som används för att hämta den virtuella hård disken.
         - Lagrings konto: 502055westcentralus
         - Behållare: wahv9b8d2ceb284fb59287
         - VHD-namn: copied-3676553984. VHD

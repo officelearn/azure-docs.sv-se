@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.custom: seodec18
 ms.openlocfilehash: 23094ec71dac5780def10e16b90de0b818ef3c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80284899"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Data frågor i Azure Time Series Insights för hands version
@@ -38,7 +38,7 @@ Följande kärn-API: er stöds.
 ## <a name="environment-apis"></a>Miljö-API: er
 
 * [Hämta miljöer API](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get): returnerar listan över miljöer som anroparen har behörighet att komma åt.
-* [Hämta tillgänglighets-API för miljöer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): returnerar fördelningen av antal händelser över händelsens tidsstämpel `$ts`. Det här API: et hjälper till att avgöra om det finns några händelser i miljön genom att returnera antalet händelser som är brutna i tidsintervall, om sådana finns.
+* [Hämta tillgänglighets-API för miljöer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): returnerar fördelningen av antal händelser över händelsens tidsstämpel `$ts` . Det här API: et hjälper till att avgöra om det finns några händelser i miljön genom att returnera antalet händelser som är brutna i tidsintervall, om sådana finns.
 * [Hämta API för händelse schema](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): Returnerar metadata för händelse schema för ett angivet Sök omfång. Med detta API kan du hämta alla metadata och egenskaper som är tillgängliga i schemat för angivet Sök omfång.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>Time Series-modell – fråga (TSM-Q) API: er

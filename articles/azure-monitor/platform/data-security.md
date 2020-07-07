@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
 ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333348"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics data säkerhet
@@ -56,7 +56,7 @@ Som en del av ditt [prenumerations avtal](https://azure.microsoft.com/support/le
 
 I följande tabell visas några av de tillgängliga lösningarna och innehåller exempel på den typ av data som samlas in.
 
-| **Lösa** | **Data typer** |
+| **Lösning** | **Datatyper** |
 | --- | --- |
 | Kapacitet och prestanda |Prestanda data och metadata |
 | Uppdateringshantering |Metadata och tillstånds data |

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a4d761abf54682ed0263922d0a118debc9eccf0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334358"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Ange kart stil med Azure Maps Android SDK
@@ -20,14 +20,14 @@ ms.locfileid: "80334358"
 Den här artikeln visar två sätt att ange kart stilar med hjälp av Azure Maps Android SDK. Azure Maps har sex olika typer av kartor att välja mellan. Mer information om mappnings format som stöds finns i [mappnings format som stöds i Azure Maps](./supported-map-styles.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 
 
 ## <a name="set-map-style-in-the-layout"></a>Ange kart stil i layouten
 
-Du kan ange en kart stil i layout filen för din aktivitets klass. Redigera **res > layout > activity_main. XML**, så det ser ut ungefär så här:
+Du kan ange en kart stil i layout filen för din aktivitets klass. Redigera **activity_main.xmlför res > > **, så att det ser ut som på bilden nedan:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ Du kan ange en kart stil i layout filen för din aktivitets klass. Redigera **re
 </FrameLayout>
 ```
 
-`mapcontrol_style` Attributet ovan anger kart formatet till **grayscale_dark**. 
+`mapcontrol_style`Attributet ovan anger kart formatet till **grayscale_dark**. 
 
 <center>
 

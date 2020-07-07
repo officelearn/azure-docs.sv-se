@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
 ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294856"
 ---
 # <a name="how-traffic-manager-works"></a>Så här fungerar Traffic Manager
@@ -34,7 +34,7 @@ När en klient försöker ansluta till en tjänst måste den först matcha tjän
 
 ## <a name="traffic-manager-example"></a>Traffic Manager exempel
 
-Contoso Corp har utvecklat en ny partner Portal. URL: en för den här `https://partners.contoso.com/login.aspx`portalen är. Programmet finns i tre regioner i Azure. För att förbättra tillgängligheten och maximera globala prestanda använder de Traffic Manager för att distribuera klient trafik till den närmast tillgängliga slut punkten.
+Contoso Corp har utvecklat en ny partner Portal. URL: en för den här portalen är `https://partners.contoso.com/login.aspx` . Programmet finns i tre regioner i Azure. För att förbättra tillgängligheten och maximera globala prestanda använder de Traffic Manager för att distribuera klient trafik till den närmast tillgängliga slut punkten.
 
 För att uppnå den här konfigurationen slutförs följande steg:
 
@@ -49,7 +49,7 @@ För att uppnå den här konfigurationen slutförs följande steg:
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Hur klienter ansluter med hjälp av Traffic Manager
 
-När en klient begär sidan `https://partners.contoso.com/login.aspx`från föregående exempel utför klienten följande steg för att lösa DNS-namnet och upprätta en anslutning:
+När en klient begär sidan från föregående exempel `https://partners.contoso.com/login.aspx` utför klienten följande steg för att lösa DNS-namnet och upprätta en anslutning:
 
 ![Anslutnings etablering med hjälp av Traffic Manager][2]
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80586982"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Gateway-djupgående och bästa praxis för Apache Hive i Azure HDInsight
@@ -30,11 +30,11 @@ Följande diagram ger en tydlig illustration av hur gatewayen ger en abstraktion
 
 Motivation att placera en gateway framför HDInsight-kluster är att tillhandahålla ett gränssnitt för tjänst identifiering och användarautentisering. De autentiseringsmekanismer som tillhandahålls av gatewayen är särskilt relevanta för ESP-aktiverade kluster.
 
-För tjänst identifiering är fördelen med Gateway att varje komponent i klustret kan nås som en annan slut punkt under Gateway-webbplatsen ( `clustername.azurehdinsight.net/hive2`), i stället för en mängd `host:port` par.
+För tjänst identifiering är fördelen med Gateway att varje komponent i klustret kan nås som en annan slut punkt under Gateway-webbplatsen ( `clustername.azurehdinsight.net/hive2` ), i stället för en mängd `host:port` par.
 
-För autentisering gör det möjligt för användare att autentisera med hjälp `username:password` av ett Credential-par. För ESP-aktiverade kluster skulle den här autentiseringsuppgiften vara användarens domän användar namn och lösen ord. Autentisering till HDInsight-kluster via gatewayen kräver inte att klienten skaffar en Kerberos-biljett. Eftersom gatewayen accepterar `username:password` autentiseringsuppgifter och hämtar användarens Kerberos-biljett för användarens räkning, kan säkra anslutningar göras till gatewayen från valfri klient värd, inklusive klienter som är anslutna till olika AA-DDS-domäner än (ESP)-klustret.
+För autentisering gör det möjligt för användare att autentisera med hjälp av ett `username:password` Credential-par. För ESP-aktiverade kluster skulle den här autentiseringsuppgiften vara användarens domän användar namn och lösen ord. Autentisering till HDInsight-kluster via gatewayen kräver inte att klienten skaffar en Kerberos-biljett. Eftersom gatewayen accepterar `username:password` autentiseringsuppgifter och hämtar användarens Kerberos-biljett för användarens räkning, kan säkra anslutningar göras till gatewayen från valfri klient värd, inklusive klienter som är anslutna till olika AA-DDS-domäner än (ESP)-klustret.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 Gatewayen är en enskild tjänst (belastning bal anse rad över två värdar) som ansvarar för vidarebefordran av förfrågningar och autentisering. Gatewayen kan bli en Flask hals för Hive-frågor som överskrider en viss storlek. Prestanda försämring av frågor kan observeras när mycket stora **urvals** frågor körs på gatewayen via ODBC eller JDBC. "Mycket stor" innebär frågor som utgör mer än 5 GB data över rader eller kolumner. Den här frågan kan innehålla en lång lista med rader och eller ett brett kolumn antal.
 
@@ -54,7 +54,7 @@ I Enterprise Security Pack-aktiverade kluster kan tillräckligt komplexa Apache 
 
 Det finns flera platser för att undvika och förstå prestanda problem som en del av ovanstående beteende. Använd följande check lista när du upplever frågor om prestanda försämring över HDInsight-gatewayen:
 
-* Använd **begränsnings** satsen när du kör stora **urvals** frågor. **Begränsnings** satsen minskar antalet rader som rapporteras till klient värden. **Begränsnings** satsen påverkar endast generering av resultat och ändrar inte frågeplan. Använd konfigurationen `hive.limit.optimize.enable`om du vill tillämpa **begränsnings** satsen i frågeuttrycket. **Gränsen** kan kombineras med en förskjutning med hjälp av argument formen **Limit x, y**.
+* Använd **begränsnings** satsen när du kör stora **urvals** frågor. **Begränsnings** satsen minskar antalet rader som rapporteras till klient värden. **Begränsnings** satsen påverkar endast generering av resultat och ändrar inte frågeplan. Använd konfigurationen om du vill tillämpa **begränsnings** satsen i frågeuttrycket `hive.limit.optimize.enable` . **Gränsen** kan kombineras med en förskjutning med hjälp av argument formen **Limit x, y**.
 
 * Namnge dina kolumner med intresse när du kör **Select** -frågor i stället för att använda **Select \* **. Om du väljer färre kolumner sänks mängden data som ska läsas.
 
@@ -72,11 +72,11 @@ Det finns flera platser för att undvika och förstå prestanda problem som en d
 
 * Överväg att använda Apache Hive LLAP när du kör interaktiva arbets belastningar, eftersom LLAP kan ge en smidigare upplevelse för att snabbt returnera frågeresultat
 
-* Överväg att öka antalet tillgängliga trådar för Hive Metaarkiv-tjänsten med hjälp `hive.server2.thrift.max.worker.threads`av. Den här inställningen är särskilt relevant när ett stort antal samtidiga användare skickar frågor till klustret
+* Överväg att öka antalet tillgängliga trådar för Hive Metaarkiv-tjänsten med hjälp av `hive.server2.thrift.max.worker.threads` . Den här inställningen är särskilt relevant när ett stort antal samtidiga användare skickar frågor till klustret
 
 * Minska antalet återförsök som används för att komma åt gatewayen från alla externa verktyg. Om flera återförsök används bör du överväga att följa en exponentiell säkerhets kopiering av återförsöks princip
 
-* Överväg att aktivera komprimering av Hive med `hive.exec.compress.output` konfigurationerna och `hive.exec.compress.intermediate`.
+* Överväg att aktivera komprimering av Hive med konfigurationerna `hive.exec.compress.output` och `hive.exec.compress.intermediate` .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
 ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80283267"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
@@ -46,7 +46,7 @@ Normalt skyddas nätverk med brand väggar och nätverks säkerhets grupper (NSG
 Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar kan du tillåta följande Site Recovery webb adresser:
 
 
-**ADRESSER** | **Information**
+**URL** | **Detaljer**
 --- | ---
 *.blob.core.windows.net | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du tillåta åtkomst till de angivna URL: erna för lagrings konton (t. ex.: cache1.blob.core.windows.net och cache2.blob.core.windows.net) i stället för *. blob.core.windows.net
 login.microsoftonline.com | Krävs för auktorisering och autentisering till Site Recovery tjänst-URL: er.

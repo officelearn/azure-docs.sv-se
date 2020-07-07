@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80283862"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Använd kart funktionen i Azure Monitor for VMs för att förstå program komponenter
@@ -114,7 +114,7 @@ Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden s
 ![Översikt över mappning av direkt virtuell dator](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Du kan också komma åt en karta för en angiven instans från vyn **instanser** för skalnings uppsättningen för den virtuella datorn. I avsnittet **Inställningar** , gå till **instans** > **insikter**.
+>Du kan också komma åt en karta för en angiven instans från vyn **instanser** för skalnings uppsättningen för den virtuella datorn. I avsnittet **Inställningar** , gå till **instans**  >  **insikter**.
 
 ## <a name="view-a-map-from-azure-monitor"></a>Visa en karta från Azure Monitor
 

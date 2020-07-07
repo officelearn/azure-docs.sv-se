@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582765"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
@@ -48,7 +48,7 @@ Om du har särskilda krav (till exempel om du vill ange olika protokoll, behöve
 
 ## <a name="get-a-streaming-policy-definition"></a>Hämta en definition för strömnings princip  
 
-Om du vill se definitionen av en strömmande princip använder du [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) och anger namnet på principen. Ett exempel:
+Om du vill se definitionen av en strömmande princip använder du [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) och anger namnet på principen. Till exempel:
 
 ### <a name="rest"></a>REST
 

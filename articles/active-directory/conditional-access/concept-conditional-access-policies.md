@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295315"
 ---
 # <a name="building-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
@@ -115,10 +115,10 @@ Administratörer kan välja att kräva en av de tidigare kontrollerna eller alla
 En princip för villkorlig åtkomst måste innehålla minst följande för att kunna tillämpas:
 
 - **Namnet** på principen.
-- **Tilldelningar**
+- **Kopplingar**
    - **Användare och/eller grupper** som principen ska tillämpas på.
    - **Molnappar eller åtgärder** för att tillämpa principen på.
-- **Åtkomstkontroller**
+- **Åtkomst kontroller**
    - **Bevilja** eller **blockera** kontroller
 
 ![Tom princip för villkorlig åtkomst](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)

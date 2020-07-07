@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.custom: seodec18
 ms.openlocfilehash: 040f84288c66f4506919e775b9ea41324b617cfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437899"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Styra Azure App Service trafik med Azure Traffic Manager
@@ -40,7 +40,7 @@ Tänk på följande när du använder Azure Traffic Manager med Azure:
 * För distributioner i samma region som använder App Service tillsammans med en annan Azure-moln tjänst kan du kombinera båda typerna av slut punkter för att aktivera hybrid scenarier.
 * Du kan bara ange en App Service slut punkt per region i en profil. När du väljer en app som en slut punkt för en region blir de återstående apparna i den regionen otillgängliga för val av profilen.
 * De App Service slut punkter som du anger i en Azure Traffic Manager-profil visas under avsnittet **domän namn** på sidan Konfigurera för appen i profilen, men det går inte att konfigurera där.
-* När du har lagt till en app i en profil **visas URL:** en för den anpassade domänen i appens Portal sida om du har konfigurerat en. Annars visas URL: en för Traffic Manager profil (till exempel `contoso.trafficmanager.net`). Både det direkta domän namnet för appen och Traffic Manager URL visas på appens konfigurations sida under avsnittet **domän namn** .
+* När du har lagt till en app i en profil **visas URL:** en för den anpassade domänen i appens Portal sida om du har konfigurerat en. Annars visas URL: en för Traffic Manager profil (till exempel `contoso.trafficmanager.net` ). Både det direkta domän namnet för appen och Traffic Manager URL visas på appens konfigurations sida under avsnittet **domän namn** .
 * Dina anpassade domän namn fungerar som förväntat, men förutom att lägga till dem i dina appar måste du även konfigurera DNS-mappningen så att den pekar på Traffic Manager-URL: en. Information om hur du konfigurerar en anpassad domän för en App Service-app finns i [Konfigurera ett anpassat domän namn i Azure App Service med Traffic Manager-integrering](configure-domain-traffic-manager.md).
 * Du kan bara lägga till appar som är i standard-eller Premium-läge till en Azure Traffic Manager-profil.
 * Om du lägger till en app i en Traffic Manager-profil startas appen om.

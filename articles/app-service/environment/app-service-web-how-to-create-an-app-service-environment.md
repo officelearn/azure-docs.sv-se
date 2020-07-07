@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80477792"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Så här skapar du en App Service-miljön v1 
@@ -26,7 +26,7 @@ App Service-miljön (ASE) är ett premium tjänst alternativ för Azure App Serv
 ### <a name="before-you-create-your-ase"></a>Innan du skapar din ASE
 Det är viktigt att vara medveten om de saker som du inte kan ändra. De aspekter som du inte kan ändra om din ASE när den har skapats är:
 
-* Plats
+* Location
 * Prenumeration
 * Resursgrupp
 * VNet används
@@ -36,7 +36,7 @@ Det är viktigt att vara medveten om de saker som du inte kan ändra. De aspekte
 När du väljer ett VNet och anger ett undernät kontrollerar du att det är tillräckligt stort för att kunna hantera framtida tillväxt. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Skapa en App Service-miljön v1
-Om du vill skapa en app service-miljön v1 kan du söka i Azure Marketplace efter ***App Service-miljön v1***eller gå igenom **skapa en resurs** -> **webb och mobilt** -> **App Service-miljön**. Så här skapar du en ASEv1:
+Om du vill skapa en app service-miljön v1 kan du söka i Azure Marketplace efter ***App Service-miljön v1***eller gå igenom **skapa en resurs**  ->  **webb och mobilt**  ->  **App Service-miljön**. Så här skapar du en ASEv1:
 
 1. Ange namnet på din ASE. Det namn som du anger för ASE kommer att användas för de appar som skapas i ASE. Om namnet på ASE är appsvcenvdemo skulle under domän namnet vara: *appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*skulle den vara adresserbar vid *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Du kan inte använda blank steg i namnet på din ASE. Om du använder versaler i namnet blir domän namnet den totala gemena versionen av det namnet. Om du använder en ILB används inte ditt ASE-namn i under domänen, men anges i stället uttryckligen när ASE skapas.
    

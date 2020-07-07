@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582679"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
@@ -27,12 +27,12 @@ Processen att skapa en **positionerare för direktuppspelning** kallas för publ
 När du skapar en **strömmande positionerare**måste du ange ett **till gångs** namn och ett namn för en **strömmande princip** . Mer information finns i följande avsnitt:
 
 * [Tillgångar](assets-concept.md)
-* [Principer för direktuppspelning](streaming-policy-concept.md)
-* [Viktiga innehållsprinciper](content-key-policy-concept.md)
+* [Strömmande principer](streaming-policy-concept.md)
+* [Principer för innehålls nyckel](content-key-policy-concept.md)
 
 Du kan också ange start-och slut tid för din plats för strömning, som endast tillåter att användaren spelar upp innehållet mellan dessa tider (till exempel mellan 5/1/2019 och 5/5/2019).  
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 * Det går inte att uppdatera **strömmande positionerare** . 
 * Egenskaperna för **strömmande positionerare** som är av typen datetime är alltid i UTC-format.
@@ -56,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>Krypterade 
+### <a name="encrypted"></a>Krypterad 
 
 Om du behöver Kryptera ditt innehåll med CENC-kryptering ställer du in principen på "Predefined_MultiDrmCencStreaming". Widevine-krypteringen tillämpas på en STRECKs ström och PlayReady som är smidigare. Nyckeln skickas till en uppspelnings klient baserat på de konfigurerade DRM-licenserna.
 
@@ -101,8 +101,8 @@ Använd följande åtgärder om du vill hämta strömmande positionerare baserad
 ## <a name="see-also"></a>Se även
 
 * [Tillgångar](assets-concept.md)
-* [Principer för direktuppspelning](streaming-policy-concept.md)
-* [Viktiga innehållsprinciper](content-key-policy-concept.md)
+* [Strömmande principer](streaming-policy-concept.md)
+* [Principer för innehålls nyckel](content-key-policy-concept.md)
 * [Självstudie: Ladda upp, koda och strömma videor med .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Nästa steg

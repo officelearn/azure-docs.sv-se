@@ -9,29 +9,29 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335381"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visa trafik data på kartan med Azure Maps Android SDK
 
 Flödes data och incident data är de två typer av trafik data som kan visas på kartan. Den här guiden visar hur du visar båda typerna av trafik data. Incident data består av punkt-och linjebaserade data för sådant som konstruktioner, väg stängningar och olyckor. Flow-data visar mått för trafik flödet på resan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-account-with-azure-maps)och [Skaffa en prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) och läsa in en karta.
 
 ## <a name="incidents-traffic-data"></a>Incident trafik data 
 
-Du måste importera följande bibliotek för att kunna anropa `setTraffic` och: `incidents`
+Du måste importera följande bibliotek för att kunna anropa `setTraffic` och `incidents` :
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- Följande kodfragment visar hur du visar trafik data på kartan. Vi skickar ett booleskt värde till- `incidents` metoden och skickar det till- `setTraffic` metoden. 
+ Följande kodfragment visar hur du visar trafik data på kartan. Vi skickar ett booleskt värde till `incidents` -metoden och skickar det till- `setTraffic` metoden. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,14 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## <a name="flow-traffic-data"></a>Flöda trafik data
 
-Du måste först importera följande bibliotek för att kunna anropa `setTraffic` och: `flow`
+Du måste först importera följande bibliotek för att kunna anropa `setTraffic` och `flow` :
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Använd följande kodfragment för att ställa in trafik flödes data. Precis som koden i föregående avsnitt skickar vi returvärdet för `flow` metoden till- `setTraffic` metoden. Det finns fyra värden som kan skickas till `flow`och varje värde utlöser `flow` sig för att returnera respektive värde. Returvärdet från `flow` skickas sedan som argumentet till `setTraffic`. Se tabellen nedan för följande fyra värden:
+Använd följande kodfragment för att ställa in trafik flödes data. Precis som koden i föregående avsnitt skickar vi returvärdet för `flow` metoden till- `setTraffic` metoden. Det finns fyra värden som kan skickas till `flow` och varje värde utlöser `flow` sig för att returnera respektive värde. Returvärdet från skickas `flow` sedan som argumentet till `setTraffic` . Se tabellen nedan för följande fyra värden:
 
 | | |
 | :-- | :-- |
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Du kan använda koden nedan för att få incidenter för en speciell funktion. När du klickar på en funktion söker kod logiken efter incidenter och skapar ett meddelande om incidenten. Ett meddelande visas längst ned på skärmen med information.
 
-1. Först måste du redigera **> layout för res > activity_main. XML**, så att det ser ut som på samma sätt. Du kan ersätta `mapcontrol_centerLat`, `mapcontrol_centerLng`, och `mapcontrol_zoom` med önskade värden. Åter kallelse är zoomnings nivån ett värde mellan 0 och 22. På zoomnings nivå 0 passar hela världen på en enda panel.
+1. Först måste du redigera **> layout för resurs > activity_main.xml**, så att det ser ut som på samma sätt. Du kan ersätta `mapcontrol_centerLat` , `mapcontrol_centerLng` , och `mapcontrol_zoom` med önskade värden. Åter kallelse är zoomnings nivån ett värde mellan 0 och 22. På zoomnings nivå 0 passar hela världen på en enda panel.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -221,7 +221,7 @@ Du kan använda koden nedan för att få incidenter för en speciell funktion. N
    }
    ```
 
-3. När du har införlivat ovanstående kod i programmet kan du klicka på en funktion och se information om trafik incidenter. Beroende på latitud-, longitud-och zoomnings nivå värden som du använde i din **activity_main. XML-** fil ser du resultat som liknar följande bild:
+3. När du har införlivat ovanstående kod i programmet kan du klicka på en funktion och se information om trafik incidenter. Beroende på latitud-, longitud-och zoomnings nivå värden som du använde i **activity_main.xml** -filen visas resultat som liknar följande bild:
 
    <center>
 

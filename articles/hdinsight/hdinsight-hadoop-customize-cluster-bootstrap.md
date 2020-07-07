@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
 ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80529354"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med hjälp av bootstrap
@@ -27,26 +27,26 @@ Det finns tre metoder för att ange inställningar för konfigurations fil när 
 
 Med dessa programmerings metoder kan du till exempel konfigurera alternativ i följande filer:
 
-* clusterIdentity. XML
-* Site. XML
-* Gateway. XML
-* HBase-ENV. XML
-* HBase-site. XML
-* HDFS-site. XML
-* Hive-ENV. XML
-* Hive-site. XML
+* clusterIdentity.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
+* hbase-site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred – plats
-* Oozie-site. XML
-* Oozie-ENV. XML
-* Storm-site. XML
-* Tez-site. XML
-* webhcat-site. XML
-* yarn-site. XML
+* oozie-site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
+* webhcat-site.xml
+* yarn-site.xml
 * Server. Properties (Kafka-Broker-konfiguration)
 
 Information om hur du installerar ytterligare komponenter i HDInsight-kluster under skapande tiden finns i [Anpassa HDInsight-kluster med skript åtgärd (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -86,7 +86,7 @@ Du hittar ett fullständigt fungerande PowerShell-skript i [bilagan](#appendix-p
 **Så här kontrollerar du ändringen:**
 
 1. Navigera till `https://CLUSTERNAME.azurehdinsight.net/` där `CLUSTERNAME` är namnet på klustret.
-1. I den vänstra menyn navigerar du till **Hive** > -**konfigurationer** > **Avancerat**.
+1. I den vänstra menyn navigerar du till **Hive**-  >  **konfigurationer**  >  **Avancerat**.
 1. Expandera **Avancerad Hive-plats**.
 1. Leta upp **Hive. metaarkiv. client. socket. timeout** och bekräfta att värdet är **90s**.
 
@@ -147,7 +147,7 @@ Exempel på en Resource Manager-mall för att växla konfiguration i spark2 – 
 
 ## <a name="appendix-powershell-sample"></a>Bilaga: PowerShell-exempel
 
-Det här PowerShell-skriptet skapar ett HDInsight-kluster och anpassar en Hive-inställning. Se till att ange värden för `$nameToken`, `$httpPassword`och `$sshPassword`.
+Det här PowerShell-skriptet skapar ett HDInsight-kluster och anpassar en Hive-inställning. Se till att ange värden för `$nameToken` , `$httpPassword` och `$sshPassword` .
 
 ```powershell
 ####################################

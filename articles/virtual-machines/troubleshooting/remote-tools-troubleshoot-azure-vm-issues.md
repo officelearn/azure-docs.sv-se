@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422608"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Använd fjärrverktyg för att felsöka problem med Azure VM
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!NOTE]
 >* Kommandot måste köras på en dator som finns i samma virtuella nätverk.
->* DIP eller värdnamn kan användas för att ersätta \<dator>.
+>* DIP eller värdnamn kan användas för att ersätta \<computer> .
 >* Parametern-s ser till att kommandot anropas med hjälp av system kontot (administratörs behörighet).
 >* PsExec använder TCP-portarna 135 och 445. Därför måste de två portarna vara öppna i brand väggen.
 
@@ -212,9 +212,9 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 >
 >För RDFE-VM: ar måste du ha en slut punkt som har en privat port 5986 och en offentlig port. Du måste också öppna den offentliga porten på NSG.
 
-1. Öppna Registereditorn från en annan virtuell dator i samma virtuella nätverk (regedit. exe).
+1. Öppna Registereditorn (regedit.exe) från en annan virtuell dator i samma virtuella nätverk.
 
-2. Välj **fil** > **Anslut nätverks register**.
+2. Välj **fil**  >  **Anslut nätverks register**.
 
    ![Registereditorn](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 

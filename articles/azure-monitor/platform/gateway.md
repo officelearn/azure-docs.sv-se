@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80298341"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
@@ -72,13 +72,13 @@ Log Analytics Gateway finns på följande språk:
 - Kinesiska (traditionell)
 - Tjeckiska
 - Nederländska
-- Svenska
+- Engelska
 - Franska
 - Tyska
 - Ungerska
 - Italienska
 - Japanska
-- Koreansk
+- Koreanska
 - Polska
 - Portugisiska (Brasilien)
 - Portugisiska (Portugal)
@@ -97,8 +97,8 @@ Följande tabell visar ungefär hur många agenter som kan kommunicera med en ga
 
 |Gateway |Agenter som stöds (ungefärligt)|  
 |--------|----------------------------------|  
-|CPU: Intel Xeon-Processor E5-2660 \@ v3 2,6 GHz 2 kärnor<br> Minne: 4 GB<br> Nätverks bandbredd: 1 Gbit/s| 600|  
-|CPU: Intel Xeon-Processor E5-2660 \@ v3 2,6 GHz 4 kärnor<br> Minne: 8 GB<br> Nätverks bandbredd: 1 Gbit/s| 1000|  
+|CPU: Intel Xeon-Processor E5-2660 v3 \@ 2,6 GHz 2 kärnor<br> Minne: 4 GB<br> Nätverks bandbredd: 1 Gbit/s| 600|  
+|CPU: Intel Xeon-Processor E5-2660 v3 \@ 2,6 GHz 4 kärnor<br> Minne: 8 GB<br> Nätverks bandbredd: 1 Gbit/s| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Ladda ned Log Analytics Gateway
 
@@ -117,13 +117,13 @@ Följ dessa steg om du vill hämta Log Analytics gatewayen från Azure Portal:
 eller 
 
 1. I bladet arbets yta väljer du **Avancerade inställningar**under **Inställningar**.
-1. Gå till **anslutna källor** > **Windows-servrar** och välj **Ladda ned Log Analytics Gateway**.
+1. Gå till **anslutna källor**  >  **Windows-servrar** och välj **Ladda ned Log Analytics Gateway**.
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Installera Log Analytics Gateway med hjälp av installations guiden
 
 Följ dessa steg om du vill installera en gateway med installations guiden. 
 
-1. I målmappen dubbelklickar du på **Log Analytics Gateway. msi**.
+1. I målmappen dubbelklickar du på **Log Analytics gateway.msi**.
 1. På sidan **Välkommen** klickar du på **Nästa**.
 
    ![Skärm bild av Välkomst sidan i guiden Gateway-installation](./media/gateway/gateway-wizard01.png)
@@ -153,7 +153,7 @@ Den hämtade filen för gatewayen är ett Windows Installer-paket som stöder ty
  
 I följande tabell beskrivs de parametrar som stöds av installations programmet.
 
-|Parametrar| Obs!|
+|Parametrar| Anteckningar|
 |----------|------| 
 |Port | TCP-portnummer för gateway att lyssna på |
 |PROGRAMPROXYFILEN | IP-adress för proxyserver |
@@ -260,13 +260,13 @@ Om du vill konfigurera en integrering uppdaterar du konfigurationen av systemets
 
    `netsh winhttp set proxy <proxy>:<port>`
 
-När du har slutfört integrationen med Log Analytics tar du bort ändringen genom `netsh winhttp reset proxy`att köra. I drift konsolen använder du sedan alternativet **Konfigurera proxyserver** för att ange Log Analytics Gateway-server. 
+När du har slutfört integrationen med Log Analytics tar du bort ändringen genom att köra `netsh winhttp reset proxy` . I drift konsolen använder du sedan alternativet **Konfigurera proxyserver** för att ange Log Analytics Gateway-server. 
 
 1. Välj **anslutning**under **Operations Management Suite**i Operations Manager-konsolen och välj sedan **Konfigurera proxyserver**.
 
    ![Skärm bild av Operations Manager, som visar valet konfigurera proxyserver](./media/gateway/scom01.png)
 
-1. Välj **Använd en proxyserver för att få åtkomst till Operations Management Suite** och ange sedan IP-adressen för den Log Analytics Gateway-servern eller den virtuella IP-adressen för belastningsutjämnaren. Var noga med att börja med prefixet `http://`.
+1. Välj **Använd en proxyserver för att få åtkomst till Operations Management Suite** och ange sedan IP-adressen för den Log Analytics Gateway-servern eller den virtuella IP-adressen för belastningsutjämnaren. Var noga med att börja med prefixet `http://` .
 
    ![Skärm bild av Operations Manager, som visar proxyserverns adress](./media/gateway/scom02.png)
 
@@ -288,7 +288,7 @@ Konfigurera vissa servrar eller grupper så att de använder Log Analytics Gatew
 1. I fältet **Sök efter** anger du **Hälsotjänst** och väljer den i listan. Välj **OK**.  
 1. Sök efter **inställnings regel för Advisor**. 
 1. I verktygsfältet Operations Manager väljer du **åsidosättningar** och pekar sedan på **Åsidosätt det Rule\For ett särskilt objekt av klassen: Hälsotjänst** och väljer ett objekt i listan.  Eller skapa en anpassad grupp som innehåller hälso tjänst objekt för de servrar som du vill tillämpa åsidosättningen på. Tillämpa sedan åsidosättningen på den anpassade gruppen.
-1. I dialog rutan **Egenskaper för åsidosättning** lägger du till en bock i kolumnen **Åsidosätt** bredvid parametern **WebProxyAddress** .  I fältet **Åsidosätt värde** anger du URL: en för Log Analytics Gateway-servern. Var noga med att börja med prefixet `http://`.  
+1. I dialog rutan **Egenskaper för åsidosättning** lägger du till en bock i kolumnen **Åsidosätt** bredvid parametern **WebProxyAddress** .  I fältet **Åsidosätt värde** anger du URL: en för Log Analytics Gateway-servern. Var noga med att börja med prefixet `http://` .  
 
     >[!NOTE]
     > Du behöver inte aktivera regeln. Den hanteras redan automatiskt med en åsidosättning i Microsoft System Center Advisor Secure referens override Management Pack som är riktad mot Microsoft System Center Advisor Monitoring Server Group.

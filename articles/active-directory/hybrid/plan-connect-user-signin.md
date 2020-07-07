@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331271"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect user sign-in options (Alternativ för användarinloggning i Azure AD Connect)
@@ -112,7 +112,7 @@ Mer information finns i kompatibilitetslistan för [Azure AD från tredje part](
 ### <a name="understanding-user-principal-name"></a>Förstå User Principal Name
 I Active Directory är standardsuffixet för User Principal Name (UPN) DNS-namnet för den domän där användar kontot skapades. I de flesta fall är detta domän namnet som är registrerat som företags domänen på Internet. Du kan dock lägga till fler UPN-suffix genom att använda Active Directory domäner och förtroenden.
 
-Användarens UPN har formatet username@domain. Till exempel för en Active Directory domän med namnet "contoso.com" kan en användare med namnet John ha UPN-"john@contoso.com". Användarens UPN baseras på RFC 822. Även om UPN och e-post delar samma format, kan värdet för UPN för en användare eller inte vara detsamma som användarens e-postadress.
+Användarens UPN har formatet username@domain . Till exempel för en Active Directory domän med namnet "contoso.com" kan en användare med namnet John ha UPN-" john@contoso.com ". Användarens UPN baseras på RFC 822. Även om UPN och e-post delar samma format, kan värdet för UPN för en användare eller inte vara detsamma som användarens e-postadress.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Användarens huvud namn i Azure AD
 I guiden Azure AD Connect används attributet userPrincipalName eller så kan du ange attributet (i en anpassad installation) som ska användas från lokalt som User Principal Name i Azure AD. Detta är det värde som används för att logga in på Azure AD. Om värdet för userPrincipalName-attributet inte motsvarar en verifierad domän i Azure AD, ersätter Azure AD det med ett default. onmicrosoft.com-värde.
@@ -126,7 +126,7 @@ Inloggnings upplevelsen i Azure AD beror på om Azure AD kan matcha User Princip
 Azure AD Connect listar de UPN-suffix som har definierats för domänerna och försöker matcha dem med en anpassad domän i Azure AD. Sedan hjälper det dig med lämplig åtgärd som måste vidtas.
 Inloggnings sidan för Azure AD visar de UPN-suffix som har definierats för lokala Active Directory och visar motsvarande status för varje suffix. Status värden kan vara något av följande:
 
-| Status | Beskrivning | Åtgärd krävs |
+| Stat | Beskrivning | Åtgärd krävs |
 |:--- |:--- |:--- |
 | Kontrol |Azure AD Connect hittade en matchande verifierad domän i Azure AD. Alla användare för den här domänen kan logga in med sina lokala autentiseringsuppgifter. |Ingen åtgärd krävs. |
 | Inte verifierad |Azure AD Connect hittade en matchande anpassad domän i Azure AD, men den har inte verifierats. UPN-suffixet för användare av den här domänen kommer att ändras till default. onmicrosoft.com-suffixet efter synkronisering om domänen inte har verifierats. | [Verifiera den anpassade domänen i Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
@@ -151,15 +151,15 @@ Vi rekommenderar starkt att du behåller standardattributet userPrincipalName. O
 #### <a name="different-custom-domain-states-and-their-effect-on-the-azure-sign-in-experience"></a>Olika anpassade domän tillstånd och deras inverkan på Azures inloggnings upplevelse
 Det är mycket viktigt att förstå relationen mellan de anpassade domän tillstånden i din Azure AD-katalog och de UPN-suffix som definieras lokalt. Vi går igenom de olika möjliga Azures inloggnings upplevelser när du konfigurerar synkronisering med hjälp av Azure AD Connect.
 
-För följande information antar vi att vi är intresserade av UPN-suffixet contoso.com, som används i den lokala katalogen som en del av UPN, till exempel user@contoso.com.
+För följande information antar vi att vi är intresserade av UPN-suffixet contoso.com, som används i den lokala katalogen som en del av UPN, till exempel user@contoso.com .
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Snabb inställningar/Password-hash-synkronisering
 
 | Status | Inverkan på användarens inloggnings upplevelse i Azure |
 |:---:|:--- |
-| Inte tillagt |I det här fallet har ingen anpassad domän för contoso.com lagts till i Azure AD-katalogen. Användare som har UPN lokalt med suffixet @contoso.com kan inte använda sina lokala UPN för att logga in på Azure. De måste i stället använda ett nytt UPN som tillhandahålls av Azure AD genom att lägga till suffixet för standard Azure AD-katalogen. Om du till exempel synkroniserar användare till Azure AD-katalogen azurecontoso.onmicrosoft.com får den lokala användaren user@contoso.com ett UPN för. user@azurecontoso.onmicrosoft.com |
+| Inte tillagt |I det här fallet har ingen anpassad domän för contoso.com lagts till i Azure AD-katalogen. Användare som har UPN lokalt med suffixet kan @contoso.com inte använda sina lokala UPN för att logga in på Azure. De måste i stället använda ett nytt UPN som tillhandahålls av Azure AD genom att lägga till suffixet för standard Azure AD-katalogen. Om du till exempel synkroniserar användare till Azure AD-katalogen azurecontoso.onmicrosoft.com får den lokala användaren user@contoso.com ett UPN för user@azurecontoso.onmicrosoft.com . |
 | Inte verifierad |I det här fallet har vi en anpassad domän-contoso.com som har lagts till i Azure AD-katalogen. Men det har inte verifierats ännu. Om du går vidare med att synkronisera användare utan att verifiera domänen, tilldelas användarna ett nytt UPN av Azure AD, precis som i scenariot "inte tillagt". |
-| Kontrol |I det här fallet har vi en anpassad domän-contoso.com som redan har lagts till och verifierats i Azure AD som UPN-suffix. Användarna kan använda sina lokala User Principal Name, till exempel user@contoso.comför att logga in på Azure när de har synkroniserats till Azure AD. |
+| Kontrol |I det här fallet har vi en anpassad domän-contoso.com som redan har lagts till och verifierats i Azure AD som UPN-suffix. Användarna kan använda sina lokala User Principal Name, till exempel user@contoso.com för att logga in på Azure när de har synkroniserats till Azure AD. |
 
 ###### <a name="ad-fs-federation"></a>AD FS Federation
 Du kan inte skapa en federation med default. onmicrosoft.com-domänen i Azure AD eller en overifierad anpassad domän i Azure AD. Om du använder guiden Azure AD Connect och väljer en overifierad domän för att skapa en federation med, uppmanas Azure AD Connect att ange de nödvändiga posterna som ska skapas där din DNS är värd för domänen. Mer information finns i [Verifiera att Azure AD-domänen har valts för Federation](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation).
@@ -168,7 +168,7 @@ Om du valde Federations alternativet för användar inloggning **med AD FS**mås
 
 | Status | Inverkan på användarens inloggnings upplevelse i Azure |
 |:---:|:--- |
-| Inte tillagt |I det här fallet gick det Azure AD Connect inte att hitta någon matchande anpassad domän för UPN-suffixet contoso.com i Azure AD-katalogen. Du måste lägga till en anpassad domän contoso.com om du vill att användarna ska logga in med hjälp av AD FS med sitt lokala UPN (t user@contoso.com. ex.). |
+| Inte tillagt |I det här fallet gick det Azure AD Connect inte att hitta någon matchande anpassad domän för UPN-suffixet contoso.com i Azure AD-katalogen. Du måste lägga till en anpassad domän contoso.com om du vill att användarna ska logga in med hjälp av AD FS med sitt lokala UPN (t user@contoso.com . ex.). |
 | Inte verifierad |I det här fallet visas Azure AD Connect med lämplig information om hur du kan verifiera din domän i ett senare skede. |
 | Kontrol |I det här fallet kan du fortsätta med konfigurationen utan någon ytterligare åtgärd. |
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80545634"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge
@@ -36,7 +36,7 @@ I Azure IoT Edge självstudier skapar du ett distributions manifest genom att g�
 
 På en hög nivå är ett distributions manifest en lista över moduler som kon figurer ATS med deras önskade egenskaper. Ett distributions manifest talar om för en IoT Edge enhet (eller en grupp av enheter) vilka moduler som ska installeras och hur de ska konfigureras. Distributions manifest innehåller de *önskade egenskaperna* för varje modul med dubbla. IoT Edge enheterna rapporterar de *rapporterade egenskaperna* för varje modul.
 
-Två moduler krävs i varje distributions manifest: `$edgeAgent`, och `$edgeHub`. Dessa moduler är en del av IoT Edge runtime som hanterar IoT Edges enheten och modulerna som körs på den. Mer information om dessa moduler finns i [förstå IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
+Två moduler krävs i varje distributions manifest: `$edgeAgent` , och `$edgeHub` . Dessa moduler är en del av IoT Edge runtime som hanterar IoT Edges enheten och modulerna som körs på den. Mer information om dessa moduler finns i [förstå IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
 Förutom de två körnings modulerna kan du lägga till upp till 20 moduler som du kan köra på en IoT Edge enhet.
 

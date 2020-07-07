@@ -8,10 +8,10 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80477686"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för en App Service-miljö #
@@ -114,7 +114,7 @@ Förutom de ASE funktionella beroendena finns det några extra objekt relaterade
 -   Kudu
 -   Tillägg
 -   Process Utforskaren
--   Konsolen
+-   Konsol
 
 När du använder en ILB-ASE går det inte att komma åt SCM-platsen utanför VNet. Vissa funktioner fungerar inte från App-portalen eftersom de behöver åtkomst till SCM-platsen för en app. Du kan ansluta till SCM-platsen direkt i stället för att använda portalen. 
 
@@ -177,9 +177,9 @@ När de inkommande och utgående kraven tas i beaktande bör NSG: er se ut ungef
 
 ![Ingående säkerhetsregler][4]
 
-En standard regel gör att IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernätet. En annan standard regel aktiverar belastningsutjämnaren, även kallat offentlig VIP, för att kommunicera med ASE. Om du vill se standard reglerna väljer du **standard regler** bredvid ikonen **Lägg till** . Om du anger en neka alla Else-regler innan standard reglerna förhindras trafik mellan VIP-och ASE. Om du vill förhindra trafik som kommer inifrån VNet lägger du till en egen regel för att tillåta inkommande. Använd en källa som är lika med AzureLoadBalancer med målet **och ett** port intervall för **\***. Eftersom NSG-regeln används för ASE-undernätet behöver du inte vara särskilt i målet.
+En standard regel gör att IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernätet. En annan standard regel aktiverar belastningsutjämnaren, även kallat offentlig VIP, för att kommunicera med ASE. Om du vill se standard reglerna väljer du **standard regler** bredvid ikonen **Lägg till** . Om du anger en neka alla Else-regler innan standard reglerna förhindras trafik mellan VIP-och ASE. Om du vill förhindra trafik som kommer inifrån VNet lägger du till en egen regel för att tillåta inkommande. Använd en källa som är lika med AzureLoadBalancer med målet **och ett** port intervall för **\*** . Eftersom NSG-regeln används för ASE-undernätet behöver du inte vara särskilt i målet.
 
-Om du har tilldelat en IP-adress till din app, se till att du behåller portarna öppna. Om du vill se portarna väljer du **App Service-miljön** > **IP-adresser**.  
+Om du har tilldelat en IP-adress till din app, se till att du behåller portarna öppna. Om du vill se portarna väljer du **App Service-miljön**  >  **IP-adresser**.  
 
 Alla objekt som visas i följande utgående regler behövs, förutom det sista objektet. De ger nätverks åtkomst till ASE-beroenden som nämnts tidigare i den här artikeln. Om du blockerar någon av dem slutar ASE att fungera. Det sista objektet i listan gör att ASE kan kommunicera med andra resurser i ditt VNet.
 
@@ -194,11 +194,11 @@ Tvingad tunnel trafik är när du ställer in vägar i ditt VNet så att utgåen
 När du skapar en ASE i portalen skapar vi också en uppsättning routningstabeller i under nätet som skapas med ASE.  De vägarna säger bara att du skickar utgående trafik direkt till Internet.  
 Följ dessa steg om du vill skapa samma vägar manuellt:
 
-1. Gå till Azure Portal. Välj **nätverks** > **väg tabeller**.
+1. Gå till Azure Portal. Välj **nätverks**  >  **väg tabeller**.
 
 2. Skapa en ny routningstabell i samma region som ditt VNet.
 
-3. I användar gränssnittet för din routningstabell väljer du **vägar** > **Lägg till**.
+3. I användar gränssnittet för din routningstabell väljer du **vägar**  >  **Lägg till**.
 
 4. Ange **nästa hopp typ** till **Internet** och **adressprefixet** till **0.0.0.0/0**. Välj **Spara**.
 

@@ -8,17 +8,17 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473986"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Snabb start: hantera blobbar med Java V8 SDK
 
 I den här snabb starten lär du dig att hantera blobbar med hjälp av Java. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar. Du ska också skapa, ange behörigheter för och ta bort behållare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -53,7 +53,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-Det här exempelprogrammet skapar en testfil i din standardkatalog (*C:\Användare\<användare>\AppData\Local\Temp* för Windows-användare), laddar upp den till bloblagringen, listar blobarna i containern och laddar sedan ned filen med ett nytt namn så att du kan jämföra den gamla och den nya filen.
+Det här exempel programmet skapar en test fil i standard katalogen (*C:\Users \<user> \AppData\Local\Temp*, för Windows-användare), laddar upp den till Blob Storage, listar blobarna i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
 
 Kör exemplet med hjälp av Maven på kommandoraden. Öppna ett gränssnitt och gå till **blobAzureApp** i den klonade katalogen. Ange sedan `mvn compile exec:java`.
 
@@ -72,7 +72,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Kontrollera att exempelfilen finns i standardkatalogen (*C:\Användare\<användare>\AppData\Local\Temp* för Windows-användare) innan du fortsätter. Kopiera URL:en för blobben från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i filen i blobblagringen. Om du jämför exempelfilen i katalogen med det innehåll som lagras i bloblagringen märker du att de är likadana.
+Innan du fortsätter kontrollerar du din standard katalog (*C:\Users \<user> \AppData\Local\Temp*, för Windows-användare) för exempel filen. Kopiera URL:en för blobben från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i filen i blobblagringen. Om du jämför exempelfilen i katalogen med det innehåll som lagras i bloblagringen märker du att de är likadana.
 
   >[!NOTE]
   >Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i blobblagringen. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
@@ -197,5 +197,5 @@ sourceFile.deleteOnExit();
 I den här artikeln har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Java. För att få mer information om hur du arbetar med Java fortsätter du till vår lagringsplats för GitHub-källkod.
 
 > [!div class="nextstepaction"]
-> [Java API-referens](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
-> [kod exempel för Java](../common/storage-samples-java.md)
+> [Java API-referens](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy) 
+>  [Kod exempel för Java](../common/storage-samples-java.md)

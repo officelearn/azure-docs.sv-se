@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335719"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagera på Azure Maps händelser med Event Grid 
@@ -82,7 +82,7 @@ Program som hanterar Azure Mapss gräns händelser bör följa några rekommende
 
 * Konfigurera flera prenumerationer för att dirigera händelser till samma händelse hanterare. Det är viktigt att inte anta att händelser kommer från en viss källa. Kontrol lera alltid meddelande ämnet för att se till att meddelandet kommer från den källa som du förväntar dig.
 * Använd `X-Correlation-id` fältet i svars huvudet för att förstå om informationen om objekt är aktuell. Meddelanden kan tas emot i rätt ordning eller efter en fördröjning.
-* När en GET-eller a POST-begäran i det geometriska API: t anropas med läges parametern inställt på `EnterAndExit`, genereras en retur-eller Exit-händelse för varje geometri i det avgränsnings värde som statusen har ändrats från det föregående API-anropet för polystängsel.
+* När en GET-eller a POST-begäran i det geometriska API: t anropas med läges parametern inställt på `EnterAndExit` , genereras en retur-eller Exit-händelse för varje geometri i det avgränsnings värde som statusen har ändrats från det föregående API-anropet för polystängsel.
 
 ## <a name="next-steps"></a>Nästa steg
 

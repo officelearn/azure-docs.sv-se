@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80618977"
 ---
 # <a name="action-rules-preview"></a>Åtgärds regler (förhands granskning)
@@ -150,7 +150,7 @@ Du kan visa och hantera dina åtgärds regler från List visningen:
 
 Härifrån kan du aktivera, inaktivera eller ta bort åtgärds regler i skala genom att markera kryss rutan bredvid dem. När du väljer en åtgärds regel öppnas konfigurations sidan. Sidan hjälper dig att uppdatera åtgärds regelns definition och aktivera eller inaktivera den.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 Logg aviseringar som du skapar med alternativet [antal resultat](alerts-unified-log.md) genererar en enskild varnings instans genom att använda hela Sök resultatet (som kan sträcka sig över flera datorer). I det här scenariot, om en åtgärds regel använder filtret för **aviserings kontext (nytto Last)** , fungerar det på varnings instansen så länge det finns en matchning. I scenario 2, som beskrivs tidigare, om Sök resultaten för den genererade logg aviseringen innehåller både **dator-01** och **dator-02**, ignoreras hela meddelandet. Ingen avisering har genererats för **dator-02** alls.
 
@@ -160,7 +160,7 @@ Om du vill använda logg aviseringar med åtgärds regler skapar du logg aviseri
 
 ![Åtgärds regler och logg aviseringar (antal resultat)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>När jag konfigurerar en åtgärds regel skulle jag vilja se alla eventuella överlappande åtgärds regler så att jag undviker dubbla meddelanden. Är det möjligt att göra detta?
 

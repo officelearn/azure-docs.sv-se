@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82509677"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
@@ -66,7 +66,7 @@ Transaktioner integreras internt i Azure Cosmos DB JavaScript-programmerings mod
 Lagrade procedurer och utlösare körs alltid på den primära repliken av en Azure Cosmos-behållare. Den här funktionen garanterar att läsningar från lagrade procedurer ger [stark konsekvens](consistency-levels-tradeoffs.md). Frågor som använder användardefinierade funktioner kan köras på den primära eller sekundära repliken. Lagrade procedurer och utlösare är avsedda att stödja transaktions skrivningar – ingångs bara Läs logik är bäst implementerad som logik på program sidan och frågor med hjälp av [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md): er, vilket hjälper dig att fylla databas data flödet. 
 
 > [!TIP]
-> Frågor som körs i en lagrad procedur eller utlösare kanske inte ser ändringar av objekt som gjorts av samma skript transaktion. Den här instruktionen gäller både SQL-frågor, `getContent().getCollection.queryDocuments()`till exempel, och även integrerade språk frågor, till `getContext().getCollection().filter()`exempel.
+> Frågor som körs i en lagrad procedur eller utlösare kanske inte ser ändringar av objekt som gjorts av samma skript transaktion. Den här instruktionen gäller både SQL-frågor, till exempel `getContent().getCollection.queryDocuments()` , och även integrerade språk frågor, till exempel `getContext().getCollection().filter()` .
 
 ## <a name="bounded-execution"></a>Begränsad körning
 
@@ -82,7 +82,7 @@ Azure Cosmos DB kan användas med två typer av utlösare:
 
 ### <a name="pre-triggers"></a>Förutlösare
 
-Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att en åtgärd utförs på ett Azure Cosmos-objekt. Du kan till exempel ange en förutlösare när du skapar ett objekt. Då körs förutlösaren innan objektet skapas. Förutlösare kan inte ha några indataparametrar. Om det behövs kan det begärda objektet användas för att uppdatera dokumenttexten från den ursprungliga begäran. När utlösare har registrerats kan användarna ange vilka åtgärder som de kan köras med. Om en utlösare skapades `TriggerOperation.Create`med innebär det att det inte är tillåtet att använda utlösaren i en ersättnings åtgärd. Exempel finns i artikeln om [att skriva utlösare](how-to-write-stored-procedures-triggers-udfs.md#triggers) .
+Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att en åtgärd utförs på ett Azure Cosmos-objekt. Du kan till exempel ange en förutlösare när du skapar ett objekt. Då körs förutlösaren innan objektet skapas. Förutlösare kan inte ha några indataparametrar. Om det behövs kan det begärda objektet användas för att uppdatera dokumenttexten från den ursprungliga begäran. När utlösare har registrerats kan användarna ange vilka åtgärder som de kan köras med. Om en utlösare skapades med `TriggerOperation.Create`, innebär det att det inte är tillåtet att använda utlösaren i en ersättningsåtgärd. Exempel finns i artikeln om [att skriva utlösare](how-to-write-stored-procedures-triggers-udfs.md#triggers) .
 
 ### <a name="post-triggers"></a>Efterutlösare
 

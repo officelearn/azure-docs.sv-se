@@ -4,10 +4,10 @@ description: Använd Azure Resource Manager för att flytta virtuella datorer ti
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744641"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Flytta vägledning för virtuella datorer
@@ -37,9 +37,9 @@ Om [mjuk borttagning](../../../backup/backup-azure-security-feature-cloud.md) ä
 2. Gör så här om du vill flytta virtuella datorer som kon figurer ATS med Azure Backup:
 
    1. Hitta platsen för den virtuella datorn.
-   2. Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1`. Till exempel *AzureBackupRG_westus2_1*
+   2. Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1` . Till exempel *AzureBackupRG_westus2_1*
    3. I Azure Portal markerar du **Visa dolda typer**.
-   4. Hitta resursen med typen **Microsoft. Compute/restorePointCollections** som har namngivnings mönstret `AzureBackup_<name of your VM that you're trying to move>_###########`.
+   4. Hitta resursen med typen **Microsoft. Compute/restorePointCollections** som har namngivnings mönstret `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Ta bort den här resursen. Den här åtgärden tar bara bort direkta återställnings punkter, inte säkerhetskopierade data i valvet.
    6. När borttagnings åtgärden har slutförts kan du flytta den virtuella datorn.
 
@@ -49,7 +49,7 @@ Om [mjuk borttagning](../../../backup/backup-azure-security-feature-cloud.md) ä
 ### <a name="powershell"></a>PowerShell
 
 * Hitta platsen för den virtuella datorn.
-* Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1` till exempel AzureBackupRG_westus2_1
+* Hitta en resurs grupp med följande namn mönster: till `AzureBackupRG_<location of your VM>_1` exempel AzureBackupRG_westus2_1
 * Om i PowerShell använder du `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdleten
 * Hitta resursen med den typ `Microsoft.Compute/restorePointCollections` som har namngivnings mönstret`AzureBackup_<name of your VM that you're trying to move>_###########`
 * Ta bort den här resursen. Den här åtgärden tar bara bort direkta återställnings punkter, inte säkerhetskopierade data i valvet.
@@ -57,7 +57,7 @@ Om [mjuk borttagning](../../../backup/backup-azure-security-feature-cloud.md) ä
 ### <a name="azure-cli"></a>Azure CLI
 
 * Hitta platsen för den virtuella datorn.
-* Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1` till exempel AzureBackupRG_westus2_1
+* Hitta en resurs grupp med följande namn mönster: till `AzureBackupRG_<location of your VM>_1` exempel AzureBackupRG_westus2_1
 * Om i CLI använder du`az resource list -g AzureBackupRG_<location of your VM>_1`
 * Hitta resursen med den typ `Microsoft.Compute/restorePointCollections` som har namngivnings mönstret`AzureBackup_<name of your VM that you're trying to move>_###########`
 * Ta bort den här resursen. Den här åtgärden tar bara bort direkta återställnings punkter, inte säkerhetskopierade data i valvet.

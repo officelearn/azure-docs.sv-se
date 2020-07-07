@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 93813dfaecf40fcb5cab0856d013fb890118886c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580678"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Användarsituationer i förhandsversionen av Azure Time Series Insights
@@ -60,13 +60,13 @@ Det finns tre huvudsakliga sätt att interagera med data som lagras i Time Serie
 
   * Lär dig mer om delnings-URL: er och det nya användar gränssnittet genom att granska [visualisera data i Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md).
 
-* Det tredje sättet att starta är att använda de kraftfulla API: erna för att fråga data som lagras i Time Series Insights. Time Series Insights har temporala operatörer som `from`, `to` `first`, och `last`. Det innehåller agg `average`regeringar och transformeringar som, `min` `max` `split by` `order by`,,, och. `DateHistogram` Den har också filter operatorer som `has`, `in` `and` `or` `greater than`,,, och `REGEX`. Alla dessa operatörer gör det möjligt för underordnade program att snabbt hitta intressanta trender och mönster i dina data. Använd dem för att fylla i Homegrown-visualiseringar för att upptäcka avvikelser.
+* Det tredje sättet att starta är att använda de kraftfulla API: erna för att fråga data som lagras i Time Series Insights. Time Series Insights har temporala operatörer som `from` , `to` , `first` och `last` . Det innehåller agg regeringar och transformeringar som,,,, `average` `min` `max` `split by` `order by` och `DateHistogram` . Den har också filter operatorer som,,,, `has` `in` `and` `or` `greater than` och `REGEX` . Alla dessa operatörer gör det möjligt för underordnade program att snabbt hitta intressanta trender och mönster i dina data. Använd dem för att fylla i Homegrown-visualiseringar för att upptäcka avvikelser.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Drift analys och process effektivitet
 
 Använd Time Series Insights för att övervaka hälsa, användning och prestanda för utrustning i stor skala. Time Series Insights är ett enkelt sätt att mäta drifts effektiviteten. Time Series Insights hjälper till att hantera olika och oförutsägbara IoT-arbetsbelastningar utan att offra inmatnings-eller frågans prestanda.
 
-[![Översikt](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[![:](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 Strömning och kontinuerlig bearbetning av data som kommer från operativa processer kan omvandlas till alla företag om den kombineras med rätt teknik eller lösning. Dessa lösningar är ofta en kombination av flera system. De möjliggör utforskning och analys av data som ändras konstant, särskilt i IoT-sfären, och som delar ett gemensamt mönster.
 
@@ -86,7 +86,7 @@ Time Series Insights erbjuder data utforskning i nära real tid och till gångs 
 
 Integrera med avancerade analys tjänster som Machine Learning och Azure Databricks. Time Series Insights ingress av rå data från miljon tals enheter. Den lägger till sammanhangsbaserade data som kan förbrukas sömlöst av en serie Azure Analytics-tjänster.
 
-[![Analytics](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
+[![Analys](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
 
 Avancerad analys och maskin inlärning förbrukar och bearbetar stora mängder data. Dessa data används för att fatta data drivna beslut och utföra förutsägelse analyser. I IoT-användningsfall lär sig avancerade analys algoritmer från data som samlas in från miljon tals enheter. Dessa enheter överför data flera gånger varje sekund. Data som samlas in från IoT-enheter är RAW. Den saknar sammanhangsbaserad information, till exempel enhetens plats och enhetens enhets läsning. Det innebär att rå data är svåra att förbruka direkt för avancerad analys.
 

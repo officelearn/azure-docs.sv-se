@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: bca6cbe2a605131083536b3e709943fe2353f38f
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 078892691bfaec62f71f9d601a42de3f80221149
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565069"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958165"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -66,7 +66,7 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 ### <a name="december-2019"></a>December 2019
 
-+ [Skapa app (för hands version)](search-create-app-portal.md) är en ny guide i portalen som genererar en nedladdnings bar HTML-fil. Filen levereras med inbäddat skript som återger en fungerande "localhost"-webbapp som är knutet till ett index i din Sök tjänst. Sidor kan konfigureras i guiden och kan innehålla ett sökfält, resultat område, navigerings fält för navigering och stöd för typeahead-frågor. Du kan ändra HTML-koden offline för att utöka eller anpassa arbets flödet eller utseendet.
++ [Skapa demo program (förhands granskning)](search-create-app-portal.md) är en ny guide i portalen som genererar en nedladdnings bar HTML-fil med fråga (skrivskyddad) åtkomst till ett index. Filen levereras med inbäddat skript som återger en fungerande "localhost"-webbapp som är knutet till ett index i din Sök tjänst. Sidor kan konfigureras i guiden och kan innehålla ett sökfält, resultat område, navigerings fält för navigering och stöd för typeahead-frågor. Du kan ändra HTML-koden offline för att utöka eller anpassa arbets flödet eller utseendet. En demo app är inte enkelt att utöka till att omfatta säkerhets-och värd lager som vanligt vis behövs i produktions scenarier. Du bör tänka på det som ett verifierings-och testnings verktyg i stället för en kort klipp till en fullständig klient app.
 
 + [Skapa en privat slut punkt för säkra anslutningar (förhands granskning)](service-create-private-endpoint.md) förklarar hur du konfigurerar en privat länk för säkra anslutningar till din Sök tjänst. Den här förhands gransknings funktionen är tillgänglig på begäran och använder [Azures privata länk](../private-link/private-link-overview.md) och [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) som en del av lösningen.
 

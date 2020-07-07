@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: fb24100eaebc54b98adf2f09fa3e557e4d6fa0be
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580651"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Övervaka och finjustera Azure Database for PostgreSQL-storskalig (citus)
@@ -28,7 +28,7 @@ Förutom att visa diagram över måtten kan du konfigurera aviseringar. Steg fö
 
 De här måtten är tillgängliga för citus-noder (storskalig):
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Metric|Mått visnings namn|Enhet|Beskrivning|
 |---|---|---|---|
 |active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|

@@ -7,13 +7,13 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82732010"
 ---
-# <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Övervaka körnings status, granska utlösnings historik och konfigurera aviseringar för Azure Logic Apps
+# <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Övervaka körningsstatus, granska utlösarhistorik och konfigurera aviseringar för Azure Logic Apps
 
 När du har [skapat och kört en Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md)kan du kontrol lera att appens körnings status, kör [Historik](#review-runs-history), [utlösnings historik](#review-trigger-history)och prestanda. Konfigurera [aviseringar](#add-azure-alerts)om du vill få meddelanden om fel eller andra möjliga problem. Du kan till exempel skapa en avisering som identifierar "när fler än fem körningar går sönder om en timme."
 
@@ -24,13 +24,13 @@ För händelse övervakning i real tid och bättre fel sökning, ställer du in 
 
 <a name="review-runs-history"></a>
 
-## <a name="review-runs-history"></a>Granska körnings historik
+## <a name="review-runs-history"></a>Granska körningshistorik
 
 Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och körs en separat arbets flödes instans för varje objekt eller händelse i Logic Appss motorn. Som standard körs varje arbets flödes instans parallellt så att inget arbets flöde måste vänta innan en körning påbörjas. Du kan granska vad som hände under körningen, inklusive status för varje steg i arbets flödet plus indata och utdata för varje steg.
 
 1. I [Azure Portal](https://portal.azure.com)kan du söka efter och öppna din Logic app i Logic App Designer.
 
-   Om du vill hitta din Logic app går du till rutan för Azure Search `logic apps`, anger och väljer **Logic Apps**.
+   Om du vill hitta din Logic app går du till rutan för Azure Search, anger `logic apps` och väljer **Logic Apps**.
 
    ![Sök efter och välj tjänsten Logic Apps](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -90,13 +90,13 @@ Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och k�
 
 <a name="review-trigger-history"></a>
 
-## <a name="review-trigger-history"></a>Granska utlösarens historik
+## <a name="review-trigger-history"></a>Granska utlösarhistorik
 
 Varje Logic app-körning börjar med en utlösare. I utlösarens historik visas alla utlösare försök att din Logi Kap par och information om indata och utdata för varje Utlös ande försök.
 
 1. I [Azure Portal](https://portal.azure.com)kan du söka efter och öppna din Logic app i Logic App Designer.
 
-   Om du vill hitta din Logic app går du till rutan för Azure Search `logic apps`, anger och väljer **Logic Apps**.
+   Om du vill hitta din Logic app går du till rutan för Azure Search, anger `logic apps` och väljer **Logic Apps**.
 
    ![Sök efter och välj tjänsten Logic Apps](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -140,7 +140,7 @@ Varje Logic app-körning börjar med en utlösare. I utlösarens historik visas 
 
 Om du vill få aviseringar baserat på vissa mått eller överskridna tröskelvärden för din Logic app, ställer du in [aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md). Lär dig mer om [mått i Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Följ dessa steg om du vill konfigurera aviseringar utan att använda [Azure Monitor](../log-analytics/log-analytics-overview.md).
 
-1. På din Logic app-meny, under **övervakning**, väljer du **aviseringar** > **ny aviserings regel**.
+1. På din Logic app-meny, under **övervakning**, väljer du **aviseringar**  >  **ny aviserings regel**.
 
    ![Lägg till en avisering för din Logic app](./media/monitor-logic-apps/add-new-alert-rule.png)
 
@@ -162,7 +162,7 @@ Om du vill få aviseringar baserat på vissa mått eller överskridna tröskelv�
 
    1. För **sammansättnings typ**väljer du **Count**.
 
-   1. Ange `1`för **tröskel värde**.
+   1. Ange för **tröskel värde** `1` .
 
    1. Under **villkors förhands granskning**bekräftar du att villkoret verkar vara korrekt.
 

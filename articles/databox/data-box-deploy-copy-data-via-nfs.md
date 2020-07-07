@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 81732f13b85a7c0b514aad61c40802f4547957c2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 2b5789acfbb088ca8dbeb731b1ce7748041233cb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219130"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960541"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudie: kopiera data till Azure Data Box via NFS
 
@@ -27,14 +27,14 @@ I den här guiden får du lära dig att:
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 
 1. Du har slutfört [Självstudie: Konfigurera Azure Data Box](data-box-deploy-set-up.md).
 2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**.
 3. Du har en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste
-    - Kör ett [operativ system som stöds](data-box-system-requirements.md).
+    - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
     - Vara ansluten till en höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en anslutning på 10 GbE inte är tillgänglig kan en datalänk på 1 GbE användas, men i så fall påverkas kopieringshastigheten. 
 
 ## <a name="connect-to-data-box"></a>Ansluta till Data Box
@@ -48,7 +48,7 @@ Under blockblob- och sidblobresurser är entiteter på första nivån containrar
 
 I följande tabell visas UNC-sökvägen till filresurser på din Data Box och Azure Storage-sökvägens URL som data har överförts till. URL:en till den sista Azure Storage-sökvägen kan härledas från sökvägen till UNC-resursen.
  
-|                   |                                                            |
+| Azure Storage-typ| Data Box-enhet resurser                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure Block blobs | <li>UNC-sökväg till resurser: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure-sidblobar  | <li>UNC-sökväg till resurser: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -58,7 +58,7 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
 
 1. Ange IP-adresserna för de tillåtna klienterna som har åtkomst till resursen. I det lokala webbgränssnittet går du till sidan **Anslut och kopiera**. Under **NFS-inställningar** klickar du på **NFS-klientåtkomst**. 
 
-    ![Konfigurera NFS-klientåtkomst 1](media/data-box-deploy-copy-data/nfs-client-access.png)
+    ![Konfigurera NFS-klientåtkomst 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
 
@@ -96,7 +96,7 @@ När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Gr
     Om du t. ex. kopierar `SampleFile.txt` och så `Samplefile.Txt` bevaras ärendet i namnet när det kopieras till data Box-enhet, men den andra filen kommer att skriva över den första som dessa betraktas som en fil.
 
 > [!IMPORTANT]
-> Se till att du underhåller en kopia av käll informationen tills du kan bekräfta att Data Box-enhet har överfört dina data till Azure Storage.
+> Se till att du behåller en kopia av dina källdata tills du kan bekräfta att Data Box-enheten har överfört dina data till Azure Storage.
 
 Om du använder en Linux-värddator använder du en kopieringsverktyg som liknar Robocopy. Några av alternativen som är tillgängliga i Linux är [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) eller [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -139,7 +139,19 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 > [!IMPORTANT]
 > Följande Linux-filtyper stöds inte: symboliska länkar, paketfiler, blockera filer, Sockets och pipes. Dessa filtyper resulterar i problem under **Förbered för att skicka** steget.
 
-Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned felfilerna för felsökning. Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
+Om det finns några fel visas ett meddelande under kopierings processen.
+
+![Hämta och Visa fel vid anslutning och kopiering](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Välj **Hämta ärende lista**.
+
+![Hämta och Visa fel vid anslutning och kopiering](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Öppna listan för att visa information om felet och välj lösnings-URL: en för att visa den rekommenderade lösningen.
+
+![Hämta och Visa fel vid anslutning och kopiering](media/data-box-deploy-copy-data/view-errors-3.png)
+
+Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
 
 För att säkerställa dataintegriteten beräknas kontrollsumman infogat när data kopieras. När kopieringen är klar kontrollerar du det använda utrymmet och det lediga utrymmet på enheten.
 
@@ -151,7 +163,7 @@ I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

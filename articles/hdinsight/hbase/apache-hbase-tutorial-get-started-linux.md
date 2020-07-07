@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81390268"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958369"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Självstudie: använda Apache HBase i Azure HDInsight
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 > * Använd HBase REST API:er med Curl
 > * Kontrollera klusterstatus
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -48,7 +48,7 @@ I följande procedur används en Azure Resource Manager-mall för att skapa ett 
     |---|---|
     |Prenumeration|Välj din Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Skapa en Azure-resurs hanterings grupp eller Använd en befintlig.|
-    |Plats|Ange platsen för resurs gruppen. |
+    |Location|Ange platsen för resurs gruppen. |
     |ClusterName|Ange ett namn för HBase-klustret.|
     |Inloggningsnamn och lösenord för klustret|Standard inloggnings namnet är **admin**.|
     |SSH-användarnamn och lösenord|Standardanvändarnamnet är **sshuser**.|
@@ -108,7 +108,7 @@ I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-1. Använd `scan` kommandot för att genomsöka och `Contacts` returnera tabell data. Ange följande kommando:
+1. Använd `scan` kommandot för att genomsöka och returnera `Contacts` tabell data. Ange följande kommando:
 
     ```hbase
     scan 'Contacts'
@@ -122,7 +122,7 @@ I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable
     get 'Contacts', '1000'
     ```
 
-    Du ser liknande resultat som när du `scan` använder kommandot eftersom det bara finns en rad.
+    Du ser liknande resultat som när du använder `scan` kommandot eftersom det bara finns en rad.
 
     Mer information om HBase Table-schemat finns i [Introduktion till Apache HBase schema design](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Fler HBase-kommandon finns i [referensguiden för Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
@@ -138,22 +138,31 @@ HBase innehåller flera metoder för att läsa in data i tabeller.  Mer informat
 
 En exempeldatafil finns i en offentlig blob-container, `wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt`.  Innehållet i datafilen är:
 
-    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
-    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
-    3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
-    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+`8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.`
+
+`16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz`
+
+`4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta`
+
+`16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.`
+
+`3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive`
+
+`3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle`
+
+`10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street`
+
+`4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street`
+
+`4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.`
+
+`16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive`
 
 Du kan även skapa en textfil och överföra filen till ditt eget lagringskonto. Anvisningar finns i [överföra data för Apache Hadoop jobb i HDInsight](../hdinsight-upload-data.md).
 
-I den här proceduren `Contacts` används HBase-tabellen som du skapade i den senaste proceduren.
+I den här proceduren används `Contacts` HBase-tabellen som du skapade i den senaste proceduren.
 
-1. Kör följande kommando från den öppna ssh-anslutningen för att transformera data filen till StoreFiles och lagra på en relativ sökväg som anges av `Dimporttsv.bulk.output`.
+1. Kör följande kommando från den öppna ssh-anslutningen för att transformera data filen till StoreFiles och lagra på en relativ sökväg som anges av `Dimporttsv.bulk.output` .
 
     ```bash
     hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
@@ -194,15 +203,15 @@ Du kan fråga efter data i HBase-tabeller med hjälp av [Apache Hive](https://hi
     SELECT count(rowkey) AS rk_count FROM hbasecontacts;
     ```
 
-1. Om du vill avsluta Beeline `!exit`använder du.
+1. Om du vill avsluta Beeline använder du `!exit` .
 
-1. Använd `exit`om du vill avsluta ssh-anslutningen.
+1. Använd om du vill avsluta ssh-anslutningen `exit` .
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Använd HBase REST API:er med Curl
 
 REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
-1. Ställ in miljö variabel för enkel användning. Redigera kommandona nedan genom att `MYPASSWORD` ersätta med lösen ordet för kluster inloggning. Ersätt `MYCLUSTERNAME` med namnet på ditt HBase-kluster. Ange sedan kommandona.
+1. Ställ in miljö variabel för enkel användning. Redigera kommandona nedan genom `MYPASSWORD` att ersätta med lösen ordet för kluster inloggning. Ersätt `MYCLUSTERNAME` med namnet på ditt HBase-kluster. Ange sedan kommandona.
 
     ```bash
     export password='MYPASSWORD'
@@ -262,14 +271,14 @@ Mer information om HBase Rest finns i [Referensguiden för Apache HBase](https:/
 > Thrift stöds inte av HBase i HDInsight.
 >
 > När du använder Curl eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange användarnamn och lösenord för HDInsight-klustrets administratör. Du måste också använda klustrets namn som en del av den URI (Uniform Resource Identifier) som används för att skicka begäranden till servern.
-> 
->   
->        curl -u <UserName>:<Password> \
->        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
->   
->    Du bör få ett svar som liknar följande svar:
->   
->        {"status":"ok","version":"v1"}
+>
+> `curl -u <UserName>:<Password> \`
+>
+> `-G https://<ClusterName>.azurehdinsight.net/templeton/v1/status`
+>
+> Du bör få ett svar som liknar följande svar:
+>
+> `{"status":"ok","version":"v1"}`
 
 ## <a name="check-cluster-status"></a>Kontrollera klusterstatus
 
@@ -277,7 +286,7 @@ HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster
 
 **Så här får du åtkomst till HBase Master UI**
 
-1. Logga in på Ambari- `https://CLUSTERNAME.azurehdinsight.net` webbgränssnittet `CLUSTERNAME` på där är namnet på ditt HBase-kluster.
+1. Logga in på Ambari-webbgränssnittet på `https://CLUSTERNAME.azurehdinsight.net` där `CLUSTERNAME` är namnet på ditt HBase-kluster.
 
 1. Välj **HBase** på menyn till vänster.
 
@@ -295,13 +304,13 @@ HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret. Du kan använda kommandot `disable 'Contacts'`HBase. Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
+Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret. Du kan använda kommandot HBase `disable 'Contacts'` . Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien.
-1. Klicka på **ta bort**. Klicka på **Ja**.
+1. Klicka på **Ta bort**. Klicka på **Ja**.
 
 ## <a name="next-steps"></a>Nästa steg
 

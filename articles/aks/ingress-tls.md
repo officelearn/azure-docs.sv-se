@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 04/27/2020
 ms.openlocfilehash: 59f1b63a5c72ed5583b88af9e42bf5337f358b47
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561904"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingress-styrenhet på Azure Kubernetes service (AKS)
@@ -38,7 +38,7 @@ Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller sena
 
 ## <a name="create-an-ingress-controller"></a>Skapa en ingångs kontroll enhet
 
-Om du vill skapa en ingångs kontroll `helm` använder du kommandot för att installera *nginx-ingress*. För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
+Om du vill skapa en ingångs kontroll använder du `helm` kommandot för att installera *nginx-ingress*. För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
 
 Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Server-noder bör inte köra ingresskontrollanten. En nodväljare anges med parametern `--set nodeSelector` för att instruera Kubernetes-schemaläggaren att köra NGINX-ingresskontrollanten på en Linux-baserad nod.
 
@@ -65,7 +65,7 @@ helm install nginx stable/nginx-ingress \
 
 Under installationen skapas en offentlig Azure-IP-adress för ingångs styrenheten. Den här offentliga IP-adressen är statisk för den ingångs kontrollens livs längd. Om du tar bort ingångs kontrollen går den offentliga IP-adresstilldelning förlorad. Om du sedan skapar ytterligare en ingångs kontroll, tilldelas en ny offentlig IP-adress. Om du vill behålla användningen av den offentliga IP-adressen kan du i stället skapa en ingångs [kontroll enhet med en statisk offentlig IP-adress][aks-ingress-static-tls].
 
-Använd `kubectl get service` kommandot för att hämta den offentliga IP-adressen. Det tar några minuter innan IP-adressen tilldelas till tjänsten.
+Använd kommandot för att hämta den offentliga IP-adressen `kubectl get service` . Det tar några minuter innan IP-adressen tilldelas till tjänsten.
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -140,9 +140,9 @@ Mer information om cert Manager-konfiguration finns i [cert-Manager-projektet][c
 
 ## <a name="create-a-ca-cluster-issuer"></a>Skapa en certifikat utfärdare för kluster utfärdare
 
-Innan certifikaten kan utfärdas kräver certifikat hanteraren en [utfärdare][cert-manager-issuer] eller en [ClusterIssuer][cert-manager-cluster-issuer] -resurs. Dessa Kubernetes-resurser är identiska i funktioner, `Issuer` men fungerar i ett enda namn område `ClusterIssuer` och fungerar i alla namn områden. Mer information finns i dokumentationen om [cert Manager-utfärdaren][cert-manager-issuer] .
+Innan certifikaten kan utfärdas kräver certifikat hanteraren en [utfärdare][cert-manager-issuer] eller en [ClusterIssuer][cert-manager-cluster-issuer] -resurs. Dessa Kubernetes-resurser är identiska i funktioner, men `Issuer` fungerar i ett enda namn område och `ClusterIssuer` fungerar i alla namn områden. Mer information finns i dokumentationen om [cert Manager-utfärdaren][cert-manager-issuer] .
 
-Skapa en kluster utfärdare, till exempel `cluster-issuer.yaml`, med hjälp av följande exempel manifest. Uppdatera e-postadressen med en giltig adress från din organisation:
+Skapa en kluster utfärdare, till exempel `cluster-issuer.yaml` , med hjälp av följande exempel manifest. Uppdatera e-postadressen med en giltig adress från din organisation:
 
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
@@ -161,7 +161,7 @@ spec:
           class: nginx
 ```
 
-Använd `kubectl apply` kommandot för att skapa utfärdaren.
+Använd kommandot för att skapa utfärdaren `kubectl apply` .
 
 ```console
 kubectl apply -f cluster-issuer.yaml
@@ -171,7 +171,7 @@ kubectl apply -f cluster-issuer.yaml
 
 En ingångs kontroll och en certifikat hanterings lösning har kon figurer ATS. Nu ska vi köra två demo program i ditt AKS-kluster. I det här exemplet används Helm för att distribuera två instanser av ett enkelt *Hello World* -program.
 
-Om du vill se en ingångs kontroll i praktiken kör du två demo program i ditt AKS-kluster. I det här exemplet använder `kubectl apply` du för att distribuera två instanser av ett enkelt *Hello World* -program.
+Om du vill se en ingångs kontroll i praktiken kör du två demo program i ditt AKS-kluster. I det här exemplet använder du `kubectl apply` för att distribuera två instanser av ett enkelt *Hello World* -program.
 
 Skapa en *AKS-HelloWorld-One. yaml-* fil och kopiera i följande exempel yaml:
 
@@ -249,7 +249,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-Kör de två demo programmen med `kubectl apply`:
+Kör de två demo programmen med `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -263,9 +263,9 @@ Båda programmen körs nu på ditt Kubernetes-kluster. De är dock konfigurerade
 I följande exempel, trafik till adressen *Hello-World-ingress. MY_CUSTOM_DOMAIN* dirigeras till *AKS-HelloWorld-* tjänsten. Trafik till adressen *Hello-World-ingress. MY_CUSTOM_DOMAIN/Hello-World-Two* dirigeras till tjänsten *AKS-HelloWorld-två* . Trafik till *Hello – värld – ingress. MY_CUSTOM_DOMAIN/static* dirigeras till tjänsten med namnet *AKS-HelloWorld* för statiska till gångar.
 
 > [!NOTE]
-> Om du har konfigurerat ett fullständigt domän namn för IP-adressen för ingångs enheten i stället för en anpassad domän använder du FQDN i stället för *Hello-World-ingress. MY_CUSTOM_DOMAIN*. Om ditt FQDN till exempel är *demo-AKS-ingress.eastus.cloudapp.Azure.com*ersätter du *Hello-World-ingress. MY_CUSTOM_DOMAIN* med *demo-AKS-ingress.eastus.cloudapp.Azure.com* i `hello-world-ingress.yaml`.
+> Om du har konfigurerat ett fullständigt domän namn för IP-adressen för ingångs enheten i stället för en anpassad domän använder du FQDN i stället för *Hello-World-ingress. MY_CUSTOM_DOMAIN*. Om ditt FQDN till exempel är *demo-AKS-ingress.eastus.cloudapp.Azure.com*ersätter du *Hello-World-ingress. MY_CUSTOM_DOMAIN* med *demo-AKS-ingress.eastus.cloudapp.Azure.com* i `hello-world-ingress.yaml` .
 
-Skapa en fil med `hello-world-ingress.yaml` namnet med hjälp av nedanstående exempel yaml. Uppdatera *värdarna* och *värden* till det DNS-namn som du skapade i föregående steg.
+Skapa en fil med namnet `hello-world-ingress.yaml` med hjälp av nedanstående exempel yaml. Uppdatera *värdarna* och *värden* till det DNS-namn som du skapade i föregående steg.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -346,7 +346,7 @@ I den här artikeln används Helm för att installera ingångs komponenter, cert
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Ta bort exempel namn området och alla resurser
 
-Om du vill ta bort hela exempel namnområdet `kubectl delete` använder du kommandot och anger namn på namn området. Alla resurser i namn området tas bort.
+Om du vill ta bort hela exempel namnområdet använder du `kubectl delete` kommandot och anger namn på namn området. Alla resurser i namn området tas bort.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -360,7 +360,7 @@ Alternativt är en mer detaljerad metod att ta bort de enskilda resurserna som s
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-Visar en lista med Helm- `helm list` versioner med kommandot. Leta efter diagram med namnet *nginx* och *cert Manager*, som visas i följande exempel på utdata:
+Visar en lista med Helm-versioner med `helm list` kommandot. Leta efter diagram med namnet *nginx* och *cert Manager*, som visas i följande exempel på utdata:
 
 ```
 $ helm list --namespace ingress-basic

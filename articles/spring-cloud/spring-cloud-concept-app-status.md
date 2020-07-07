@@ -1,5 +1,5 @@
 ---
-title: Förstå app-status i Azure våren Cloud
+title: Förstå appstatus i Azure Spring Cloud
 description: Lär dig app status-kategorierna i Azure våren Cloud
 author: MikeDodaro
 ms.service: spring-cloud
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82569009"
 ---
-# <a name="understanding-app-status-in-azure-spring-cloud"></a>Förstå app-status i Azure våren Cloud
+# <a name="understanding-app-status-in-azure-spring-cloud"></a>Förstå appstatus i Azure Spring Cloud
 
 Azure våren Cloud-gränssnittet ger information om statusen för program som körs.  Det finns ett **Apps** -alternativ för varje resurs grupp i en prenumeration som visar allmänna status för program typer.  För varje program typ visas **program instanser**.
 
@@ -42,7 +42,7 @@ Om du vill visa allmän status för en program typ väljer du **appar** i det v�
 | Uppdatera | Resursen uppdateras. |
 | Lyckades | Har tillhandahållit resurser och distribuerat binärfilen. |
 | Misslyckades | Det gick inte att uppnå det *slutförda* målet. |
-| Rader | Resursen tas bort. Detta förhindrar åtgärden och resursen är inte tillgänglig i denna status. |
+| Tas bort | Resursen tas bort. Detta förhindrar åtgärden och resursen är inte tillgänglig i denna status. |
 
 ## <a name="app-instances-status"></a>Status för App-instanser
 

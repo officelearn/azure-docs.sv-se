@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561026"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
@@ -25,10 +25,10 @@ I den här artikeln får du lära dig hur du använder de inbyggda Azure IoT Edg
 
 * **Azure IoT Edge-avbildning av modul** tar din IoT Edge lösnings kod och skapar behållar avbildningarna.
 * **Azure IoT Edge-push module-avbildningar** pushar modul avbildningar till det behållar register som du har angett.
-* **Azure IoT Edge-generera distributions manifestet** tar en distribution. template. JSON-fil och variablerna och genererar sedan den slutliga IoT Edge distributions manifest filen.
+* **Azure IoT Edge-generera distributions manifestet** tar en deployment.template.jspå filen och variablerna och genererar sedan den slutliga IoT Edge distributions manifest filen.
 * **Azure IoT Edge-Deploy till IoT Edge-enheter** hjälper dig att skapa IoT Edge-distributioner till en eller flera IoT Edge enheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
 * En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C#-moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md).
@@ -54,7 +54,7 @@ I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen s�
 >
 >Mer information finns i [skapa en pipeline för bygge](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Logga in på din Azure DevOps-organisation (**https\/:/dev.Azure.com/{Your Organization}/**) och öppna projektet som innehåller din IoT Edge lösnings lagrings plats.
+1. Logga in på din Azure DevOps-organisation (**https: \/ /dev.Azure.com/{Your Organization}/**) och öppna projektet som innehåller din IoT Edge lösnings lagrings plats.
 
    I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**. Databasen innehåller **IoTEdgeSolution** som har koden för en modul med namnet **filtermodule**.
 
@@ -84,7 +84,7 @@ I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen s�
 
      ![Konfigurera bygga Gent pool](./media/how-to-ci-cd/configure-env.png)
 
-5. Din pipeline är förkonfigurerad med ett jobb som kallas **Agent jobb 1**. Välj plus tecknet**+**() för att lägga till tre aktiviteter i jobbet: **Azure IoT Edge** två gånger, **Kopiera filer** en gång och **publicera Bygg artefakter** en gång. (Hovra över namnet på varje uppgift för att se knappen **Lägg till** .)
+5. Din pipeline är förkonfigurerad med ett jobb som kallas **Agent jobb 1**. Välj plus tecknet ( **+** ) för att lägga till tre aktiviteter i jobbet: **Azure IoT Edge** två gånger, **Kopiera filer** en gång och **publicera Bygg artefakter** en gång. (Hovra över namnet på varje uppgift för att se knappen **Lägg till** .)
 
    ![Lägg till Azure IoT Edge uppgift](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -96,23 +96,23 @@ I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen s�
 
    * **Visnings namn**: acceptera standard **avbildningarna för Azure IoT Edge-build-modulen**.
    * **Åtgärd**: Godkänn standard **avbildningarna för build-modulen**.
-   * **. template. JSON-fil**: Välj ellipsen (**...**) och navigera till filen **Deployment. template. JSON** i lagrings platsen som innehåller din IoT Edge-lösning.
+   * **.template.jspå fil**: Välj ellipsen (**...**) och navigera till **deployment.template.jspå** filen i lagrings platsen som innehåller din IoT Edge lösning.
    * **Standard plattform**: Välj lämplig plattform för dina moduler baserat på din mål IoT Edge enhet.
-   * **Utdata**-variabler: variabler för utdata innehåller ett referens namn som du kan använda för att konfigurera fil Sök vägen där din Deployment. JSON-fil kommer att skapas. Ange referens namnet till något som du kan komma ihåg som **Edge**.
+   * **Utmatnings**variabler: utdata-variablerna innehåller ett referens namn som du kan använda för att konfigurera fil Sök vägen där deployment.jsfilen ska skapas. Ange referens namnet till något som du kan komma ihåg som **Edge**.
 
 
-   Dessa konfigurationer använder avbildnings lagrings platsen och taggen som definieras i `module.json` filen för att namnge och tagga avbildningen av modulen. Med hjälp av **module-avbildningar** kan du även ersätta variablerna med det exakta `module.json` värdet som du definierar i filen. I Visual Studio eller Visual Studio Code anger du det faktiska värdet i en `.env` fil. I Azure-pipeline ställer du in värdet på fliken **pipeline-variabler** . Välj fliken **variabler** och konfigurera namn och värde enligt följande:
+   Dessa konfigurationer använder avbildnings lagrings platsen och taggen som definieras i `module.json` filen för att namnge och tagga avbildningen av modulen. Med hjälp av **module-avbildningar** kan du även ersätta variablerna med det exakta värdet som du definierar i `module.json` filen. I Visual Studio eller Visual Studio Code anger du det faktiska värdet i en `.env` fil. I Azure-pipeline ställer du in värdet på fliken **pipeline-variabler** . Välj fliken **variabler** och konfigurera namn och värde enligt följande:
 
     * **ACR_ADDRESS**: din Azure Container Registry adress. 
 
-    Om du har andra variabler i ditt projekt kan du ange namn och värde på den här fliken. **Bygg avbildningar** identifierar endast variabler i `${VARIABLE}` format. Se till att du använder det här formatet `**/module.json` i dina filer.
+    Om du har andra variabler i ditt projekt kan du ange namn och värde på den här fliken. **Bygg avbildningar** identifierar endast variabler i `${VARIABLE}` format. Se till att du använder det här formatet i dina `**/module.json` filer.
     
 7. Välj den andra **Azure IoT Edge** uppgiften för att redigera den. Den här uppgiften push-överför alla modulblad till det behållar register som du väljer.
 
    * **Visnings namn**: visnings namnet uppdateras automatiskt när åtgärds fältet ändras.
    * **Åtgärd**: Använd List rutan för att välja **push module-avbildningar**.
    * **Behållarens register typ**: Välj den typ av behållar register som du använder för att lagra dina modulblad. Formuläret ändras beroende på vilken register typ du väljer. Om du väljer **Azure Container Registry**använder du List rutan för att välja Azure-prenumerationen och namnet på behållar registret. Om du väljer **allmän container Registry**väljer du **ny** för att skapa en anslutning till en register tjänst.
-   * **. template. JSON-fil**: Välj ellipsen (**...**) och navigera till filen **Deployment. template. JSON** i lagrings platsen som innehåller din IoT Edge-lösning.
+   * **.template.jspå fil**: Välj ellipsen (**...**) och navigera till **deployment.template.jspå** filen i lagrings platsen som innehåller din IoT Edge lösning.
    * **Standard plattform**: Välj samma plattform som de inbyggda modul avbildningarna.
 
    Om du har flera behållar register som ska vara värdar för dina modulblad, måste du duplicera den här uppgiften, välja ett annat behållar register och använda **bypass-modulen** i de avancerade inställningarna för att kringgå avbildningarna som inte är för det aktuella registret.
@@ -120,13 +120,13 @@ I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen s�
 8. Välj aktiviteten **Kopiera filer** för att redigera den. Använd den här aktiviteten för att kopiera filer till en artefakt uppsamlings katalog.
 
    * **Visnings namn**: kopiera filer till: släpp mapp.
-   * **Innehåll**: Lägg till två rader i det här `deployment.template.json` avsnittet `**/module.json`och. Dessa två typer av filer är de indata som genereras för att generera IoT Edge distributions manifestet. Måste kopieras till utsamlings platsen för artefakter och publiceras för versions pipelinen.
-   * **Målmapp**: Lägg till variabeln `$(Build.ArtifactStagingDirectory)`. Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen.
+   * **Innehåll**: Lägg till två rader i det här avsnittet `deployment.template.json` och `**/module.json` . Dessa två typer av filer är de indata som genereras för att generera IoT Edge distributions manifestet. Måste kopieras till utsamlings platsen för artefakter och publiceras för versions pipelinen.
+   * **Målmapp**: Lägg till variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen.
 
 9. Välj aktiviteten **publicera Bygg artefakter** för att redigera den. Tillhandahåll katalog Sök vägen för artefakt mellanlagring till aktiviteten så att sökvägen kan publiceras i en versions pipeline.
 
    * **Visnings namn**: publicera artefakt: släpp.
-   * **Sökväg att publicera**: Lägg till variabeln `$(Build.ArtifactStagingDirectory)`. Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen.
+   * **Sökväg att publicera**: Lägg till variabeln `$(Build.ArtifactStagingDirectory)` . Se [build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) för att lära dig mer om beskrivningen.
    * **Artefakt namn**: drop.
    * **Artefakt publicerings plats**: Azure-pipeliner.
 
@@ -172,7 +172,7 @@ Skapa en ny pipeline och Lägg till ett nytt stadium
 
 8. I **dev** -fasen bör du se ett standard **Agent jobb**. Du kan konfigurera information om Agent jobbet, men distributions aktiviteten är plattforms okänslig så att du kan använda antingen **värdbaserade VS2017** eller **värdbaserad Ubuntu 1604** i **agenten** (eller någon annan agent som hanteras av dig själv).
 
-9. Välj plus tecknet (**+**) för att lägga till två aktiviteter. Sök efter och Lägg till **Azure IoT Edge** två gånger.
+9. Välj plus tecknet ( **+** ) för att lägga till två aktiviteter. Sök efter och Lägg till **Azure IoT Edge** två gånger.
 
     ![Lägg till aktiviteter för dev](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -180,17 +180,17 @@ Skapa en ny pipeline och Lägg till ett nytt stadium
 
     * **Visnings namn**: visnings namnet uppdateras automatiskt när åtgärds fältet ändras.
     * **Åtgärd**: Använd List rutan för att välja **generera distributions manifest**. Om du ändrar åtgärd svärdet uppdateras även uppgifts visnings namnet så att det matchar.
-    * **. template. JSON-fil**: Lägg till `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`sökvägen. Sökvägen publiceras från build-pipeline.
+    * **.template.jspå fil**: Lägg till sökvägen `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json` . Sökvägen publiceras från build-pipeline.
     * **Standard plattform**: Välj samma värde när du skapar module-avbildningarna.
-    * **Sökväg för utdata**: Lägg till `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`sökvägen. Den här sökvägen är den slutliga IoT Edge distributions manifest filen.
+    * **Sökväg för utdata**: Lägg till sökvägen `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` . Den här sökvägen är den slutliga IoT Edge distributions manifest filen.
 
-    De här konfigurationerna ersätter modulens bild-URL `deployment.template.json` : er i filen. Med **generera distributions manifestet** kan du också ersätta variablerna med det exakta värdet som `deployment.template.json` du definierade i filen. I VS/VS Code anger du det faktiska värdet i en `.env` fil. I Azure-pipeline ställer du in värdet i fliken release-pipeline variabler. flytta till fliken variabler och konfigurera namnet och värdet enligt följande.
+    De här konfigurationerna ersätter modulens bild-URL: er i `deployment.template.json` filen. Med **generera distributions manifestet** kan du också ersätta variablerna med det exakta värdet som du definierade i `deployment.template.json` filen. I VS/VS Code anger du det faktiska värdet i en `.env` fil. I Azure-pipeline ställer du in värdet i fliken release-pipeline variabler. flytta till fliken variabler och konfigurera namnet och värdet enligt följande.
 
     * **ACR_ADDRESS**: din Azure Container Registry adress.
     * **ACR_PASSWORD**: ditt Azure Container Registry lösen ord.
     * **ACR_USER**: ditt Azure Container Registry användar namn.
 
-    Om du har andra variabler i projektet kan du ange namn och värde i den här fliken. Det **genererade distributions manifestet** kan bara identifiera variablerna som är i `${VARIABLE}` smak, se till att du `*.template.json` använder dem i dina filer.
+    Om du har andra variabler i projektet kan du ange namn och värde i den här fliken. Det **genererade distributions manifestet** kan bara identifiera variablerna som är i `${VARIABLE}` smak, se till att du använder dem i dina `*.template.json` filer.
 
     ![Konfigurera variabler för versions pipeline](./media/how-to-ci-cd/configure-variables.png)
 
@@ -203,7 +203,7 @@ Skapa en ny pipeline och Lägg till ett nytt stadium
     * **Välj en/flera enhet**: Välj om du vill att versions pipelinen ska distribueras till en enhet eller flera enheter.
       * Om du distribuerar till en enda enhet anger du **IoT Edge enhets-ID**.
       * Om du distribuerar till flera enheter anger du enhetens **mål villkor**. Mål villkoret är ett filter som matchar en uppsättning IoT Edge enheter i IoT Hub. Om du vill använda enhets koder som villkor måste du uppdatera motsvarande enhets koder med IoT Hub enhets-till-enhet. Uppdatera **IoT Edge distributions-ID** och **IoT Edge distributions prioritet** i de avancerade inställningarna. Mer information om hur du skapar en distribution för flera enheter finns i [förstå IoT Edge automatiska distributioner](module-deployment-monitoring.md).
-    * Expandera avancerade inställningar, Välj **IoT Edge distributions-ID**, och `$(System.TeamProject)-$(Release.EnvironmentName)`Lägg variabeln. Detta mappar projektet och versions namnet med ditt IoT Edge-distributions-ID.
+    * Expandera avancerade inställningar, Välj **IoT Edge distributions-ID**, och Lägg variabeln `$(System.TeamProject)-$(Release.EnvironmentName)` . Detta mappar projektet och versions namnet med ditt IoT Edge-distributions-ID.
 
 12. Välj **Spara** för att spara ändringarna i den nya versions pipelinen. Gå tillbaka till vyn pipeline genom att välja **pipeline** på menyn.
 

@@ -9,10 +9,10 @@ ms.date: 03/27/2020
 ms.topic: how-to
 manager: philmea
 ms.openlocfilehash: 9ca1c8f4a8e92babf65ec049b3784882bd3af689
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744982"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Hantera IoT Central från Azure PowerShell
@@ -21,9 +21,9 @@ ms.locfileid: "82744982"
 
 I stället för att skapa och hantera IoT Central-program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) kan du använda [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) för att hantera dina program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -48,7 +48,7 @@ Install-Module Az.IotCentral
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Använd cmdleten [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) för att skapa ett IoT Central-program i din Azure-prenumeration. Exempel:
+Använd cmdleten [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) för att skapa ett IoT Central-program i din Azure-prenumeration. Till exempel:
 
 ```powershell
 # Create a resource group for the IoT Central application
@@ -69,9 +69,9 @@ Skriptet skapar först en resurs grupp i regionen USA, östra för programmet. I
 |Parameter         |Beskrivning |
 |------------------|------------|
 |ResourceGroupName |Resurs gruppen som innehåller programmet. Den här resurs gruppen måste redan finnas i din prenumeration. |
-|Plats |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **Australien**, **Asien och Stillahavsområdet**, **Europa**, **USA**, **Storbritannien**och **Japan** . |
+|Location |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **Australien**, **Asien och Stillahavsområdet**, **Europa**, **USA**, **Storbritannien**och **Japan** . |
 |Name              |Namnet på programmet i Azure Portal. |
-|Underdomän         |Under domänen i programmets URL. I exemplet är `https://mysubdomain.azureiotcentral.com`programmets URL. |
+|Underdomän         |Under domänen i programmets URL. I exemplet är programmets URL `https://mysubdomain.azureiotcentral.com` . |
 |Sku               |För närvarande kan du använda antingen **ST1** eller **ST2**. Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Mall          | Den program mal len som ska användas. Se tabellen nedan för mer information. |
 |DisplayName       |Namnet på programmet som det visas i användar gränssnittet. |
@@ -94,7 +94,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 ## <a name="remove-an-application"></a>Ta bort ett program
 
-Använd cmdleten [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) för att ta bort ett IoT Central-program. Exempel:
+Använd cmdleten [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) för att ta bort ett IoT Central-program. Till exempel:
 
 ```powershell
 Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `

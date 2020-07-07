@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115286"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961106"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
 
 Den här artikeln beskriver hur du använder inbyggda Jupyter-anteckningsböcker för att importera exempel på detalj handels data till Azure Cosmos DB. Du kommer att se hur du använder SQL-och Azure Cosmos DB Magic-kommandon för att köra frågor, analysera data och visualisera resultaten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Aktivera stöd för bärbara datorer när du skapar ett Azure Cosmos-konto](enable-notebooks.md)
 
@@ -235,7 +235,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
 
    I utdata visas världs kartan med olika färger. Färgerna som är mörkare till ljusare motsvarar de länder/regioner som har högst intäkter till lägsta intäkter.
 
-   ![Visualisering av intäkts karta för länder/regioner](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualisering av intäkts karta för länder/regioner":::
 
 1. Nu ska vi se ett annat fall av data visualisering. Behållaren WebsiteData innehåller en lista över användare som har visat ett objekt, lagt till i sin varukorg och köpt objektet. Vi ska Rita in konverterings takten för de köpta objekten. Kör följande kod i en ny cell för att visualisera konverterings takten för varje objekt:
 

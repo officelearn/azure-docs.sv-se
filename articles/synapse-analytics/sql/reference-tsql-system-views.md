@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: f58c34a46f4eb1bffe4516f2a6f9f17a799fbfb3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82786605"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Systemvyer som stöds i Synapse SQL
@@ -132,19 +132,19 @@ Följande DMV: er gäller SQL-poolen, men måste köras genom att ansluta till *
 * [sys. stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys. symmetric_keys](/sql/relational-databases/system-catalog-views/sys-symmetric-keys-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys. synonymer](/sql/relational-databases/system-catalog-views/sys-synonyms-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. syscharsets](/sql/relational-databases/system-compatibility-views/sys-syscharsets-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. SYSCOLUMNS](/sql/relational-databases/system-compatibility-views/sys-syscolumns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. sysdatabases](/sql/relational-databases/system-compatibility-views/sys-sysdatabases-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. syslanguages](/sql/relational-databases/system-compatibility-views/sys-syslanguages-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. SysObject](/sql/relational-databases/system-compatibility-views/sys-sysobjects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. sysreferences](/sql/relational-databases/system-compatibility-views/sys-sysreferences-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. system_columns](/sql/relational-databases/system-catalog-views/sys-system-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. system_objects](/sql/relational-databases/system-catalog-views/sys-system-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. system_parameters](/sql/relational-databases/system-catalog-views/sys-system-parameters-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. system_sql_modules](/sql/relational-databases/system-catalog-views/sys-system-sql-modules-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. system_views](/sql/relational-databases/system-catalog-views/sys-system-views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. systypes](/sql/relational-databases/system-compatibility-views/sys-systypes-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys. sysusers](/sql/relational-databases/system-compatibility-views/sys-sysusers-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.syscharset](/sql/relational-databases/system-compatibility-views/sys-syscharsets-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.syskolumner](/sql/relational-databases/system-compatibility-views/sys-syscolumns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.sysdatabaser](/sql/relational-databases/system-compatibility-views/sys-sysdatabases-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.sysspråk](/sql/relational-databases/system-compatibility-views/sys-syslanguages-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.sysobjekt](/sql/relational-databases/system-compatibility-views/sys-sysobjects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.sysreferenser](/sql/relational-databases/system-compatibility-views/sys-sysreferences-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.system_columns](/sql/relational-databases/system-catalog-views/sys-system-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.system_objects](/sql/relational-databases/system-catalog-views/sys-system-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.system_parameters](/sql/relational-databases/system-catalog-views/sys-system-parameters-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.system_sql_modules](/sql/relational-databases/system-catalog-views/sys-system-sql-modules-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.system_views](/sql/relational-databases/system-catalog-views/sys-system-views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.systyper](/sql/relational-databases/system-compatibility-views/sys-systypes-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys.sysanvändare](/sql/relational-databases/system-compatibility-views/sys-sysusers-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys. tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys. types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys. views](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)

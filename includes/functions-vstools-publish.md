@@ -9,10 +9,10 @@ ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: db6f5927e1cbdb3527014ccbb277c7ec20b02600
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84231602"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
@@ -36,7 +36,7 @@ ms.locfileid: "84231602"
     | ------------ |  ------- | -------------------------------------------------- |
     | **Namn** | Globalt unikt namn | Namn som unikt identifierar din nya funktionsapp. Acceptera det här namnet eller ange ett nytt namn. Giltiga tecken är: `a-z` , `0-9` , och `-` . |
     | **Prenumeration** | Din prenumeration | Den Azure-prenumeration som ska användas. Godkänn denna prenumeration eller Välj en ny i list rutan. |
-    | **[Resursgrupp](../articles/azure-resource-manager/management/overview.md)** | Namnet på din resurs grupp |  Resurs gruppen där du vill skapa din Function-app. Välj en befintlig resurs grupp i den nedrullningsbara listan eller Välj **ny** för att skapa en ny resurs grupp.|
+    | **[Resurs grupp](../articles/azure-resource-manager/management/overview.md)** | Namnet på din resurs grupp |  Resurs gruppen där du vill skapa din Function-app. Välj en befintlig resurs grupp i den nedrullningsbara listan eller Välj **ny** för att skapa en ny resurs grupp.|
     | **[Värd plan](../articles/azure-functions/functions-scale.md)** | Namn på din värd plan | Välj **nytt** om du vill konfigurera en server lös plan. Se till att välja **förbrukningen** under **storlek**. När du publicerar projektet till en Function-app som körs i en [förbruknings plan](../articles/azure-functions/functions-scale.md#consumption-plan)betalar du bara för körningar av Functions-appen. Andra värd planer ådrar sig högre kostnader. Om du kör i en annan plan än **förbrukningen**måste du hantera [skalningen av din Function-app](../articles/azure-functions/functions-scale.md).  |
     | **Position** | Platsen för App Service | Välj en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller andra tjänster som dina funktioner har åtkomst till. |
     | **[Azure Storage](../articles/storage/common/storage-account-create.md)** | Allmänt lagrings konto | Ett Azure Storage-konto krävs av Functions-körningen. Välj **nytt** om du vill konfigurera ett allmänt lagrings konto. Du kan också välja ett befintligt konto som uppfyller [kraven för lagrings kontot](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |

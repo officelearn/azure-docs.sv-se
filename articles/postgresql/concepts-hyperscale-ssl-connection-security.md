@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 791eed9419375c7245488b8ec61a1c5481be382e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580563"
 ---
 # <a name="configure-tls-in-azure-database-for-postgresql---hyperscale-citus"></a>Konfigurera TLS i Azure Database for PostgreSQL-storskalig (citus)
@@ -26,10 +26,10 @@ På samma sätt inkluderar anslutnings strängar som är fördefinierade i inst�
 Vissa program ramverk som använder PostgreSQL för sina databas tjänster aktiverar inte TLS som standard under installationen. Om din PostgreSQL-Server framtvingar TLS-anslutningar men programmet inte har kon figurer ATS för TLS, kan det hända att programmet inte kan ansluta till din databas server. Mer information om hur du aktiverar TLS-anslutningar finns i programmets dokumentation.
 
 ## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>Program som kräver certifikat verifiering för TLS-anslutning
-I vissa fall kräver program en lokal certifikat fil som genereras från en betrodd certifikat utfärdare (. cer) för att ansluta på ett säkert sätt. Certifikatet för att ansluta till en Azure Database for PostgreSQL-storskalig (citus) finns på https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem. Ladda ned certifikat filen och spara den på önskad plats.
+I vissa fall kräver program en lokal certifikat fil som genereras från en betrodd certifikat utfärdare (. cer) för att ansluta på ett säkert sätt. Certifikatet för att ansluta till en Azure Database for PostgreSQL-storskalig (citus) finns på https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem . Ladda ned certifikat filen och spara den på önskad plats.
 
 ### <a name="connect-using-psql"></a>Anslut med psql
-I följande exempel visas hur du ansluter till din citus-koordinator-nod med hjälp av kommando rads verktyget psql. Använd inställningen `sslmode=verify-full` anslutnings sträng för att framtvinga verifiering av TLS-certifikat. Överför sökvägen till den lokala certifikat filen till `sslrootcert` -parametern.
+I följande exempel visas hur du ansluter till din citus-koordinator-nod med hjälp av kommando rads verktyget psql. Använd `sslmode=verify-full` inställningen anslutnings sträng för att framtvinga verifiering av TLS-certifikat. Överför sökvägen till den lokala certifikat filen till- `sslrootcert` parametern.
 
 Nedan visas ett exempel på anslutnings strängen psql:
 ```

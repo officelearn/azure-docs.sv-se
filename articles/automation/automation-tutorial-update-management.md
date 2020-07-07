@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
 ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204896"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
@@ -61,7 +61,7 @@ Följ stegen nedan för att ställa in aviseringar så att du kan se status för
 
 5. Klicka på **Lägg till villkor** för att välja den signal som är lämplig för uppdaterings distributionen. I följande tabell visas information om de två tillgängliga signalerna.
 
-    |Signalnamn|Dimensioner|Description
+    |Signalnamn|Dimensioner|Beskrivning
     |---|---|---|
     |`Total Update Deployment Runs`|– Namnet på uppdateringsdistributionen<br>-Status    |Aviseringar om den övergripande statusen för en uppdaterings distribution.|
     |`Total Update Deployment Machine Runs`|– Namnet på uppdateringsdistributionen</br>– Status</br>– Måldator</br>-Uppdatera körnings-ID för distribution    |Aviseringar om status för en uppdaterings distribution som är riktad mot specifika datorer.|

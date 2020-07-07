@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Använd REST API: er för att kopiera till Blob Storage'
+title: 'Självstudie: kopiera till Blob Storage via REST-API: er'
 titleSuffix: Azure Data Box
 description: Lär dig hur du kopierar data till en Azure Data Box Blob-lagring via REST-API:er
 services: databox
@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: aa59d2dea4456b977afee92103fa66d6afe9bf31
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 50c4daabe3dc980937f52db7e56cd778890b84d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219145"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960696"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er  
+# <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Självstudie: Använd REST API: er för att kopiera data till Azure Data Box Blob Storage  
 
 Den här självstudien beskriver procedurer för att ansluta till Azure Data Box Blob-lagring via REST-API:er genom *http* eller *https*. När anslutningen har upprättats beskrivs de steg som krävs för att kopiera data till Data Box Blob-lagring och förbereda Data Box för transport.
 
@@ -28,15 +28,15 @@ I den här guiden får du lära dig att:
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien: konfigurera Azure Data Box](data-box-deploy-set-up.md).
+1. Du har slutfört självstudien [: Konfigurera Azure Data Box](data-box-deploy-set-up.md).
 2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**.
 3. Du har granskat [systemkraven för Data Box Blob-lagring](data-box-system-requirements-rest.md) och känner till versioner av API:er, SDK:er och verktyg som stöds.
 4. Du har åtkomst till en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste
-    * Kör ett [operativ system som stöds](data-box-system-requirements.md).
+    * Köra ett [operativsystem som stöds](data-box-system-requirements.md).
     * Vara ansluten till en höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en anslutning på 10 GbE inte är tillgänglig kan en datalänk på 1 GbE användas, men i så fall påverkas kopieringshastigheten.
 5. [Ladda ned AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) på värddatorn. Du använder AzCopy för att kopiera data till Azure Data Box Blob-lagring från värddatorn.
 
@@ -153,7 +153,7 @@ När du är ansluten till Data Box-lagringen är nästa steg att kopiera data. G
 * Om data som laddas upp av Data Box samtidigt laddas upp av andra program utanför Data Box kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 
 > [!IMPORTANT]
-> Se till att du underhåller en kopia av käll informationen tills du kan bekräfta att Data Box-enhet har överfört dina data till Azure Storage.
+> Se till att du behåller en kopia av dina källdata tills du kan bekräfta att Data Box-enheten har överfört dina data till Azure Storage.
 
 I den här självstudien används AzCopy för att kopiera data till Data Box Blob-lagring. Du kan även använda Azure Storage Explorer (om du föredrar ett GUI-baserat verktyg) eller partnerprogramvara för att kopiera data.
 
@@ -186,15 +186,19 @@ Använd AzCopy för att ladda upp alla filer i en mapp till Blob-lagring i Windo
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 Ersätt `<key>` med din kontonyckel. Du hämtar kontonyckeln genom att gå till Azure-portalen och sedan till ditt lagringskonto. Gå till **Inställningar > Åtkomstnycklar**, välj en nyckel och klistra in den i AzCopy-kommandot.
 
@@ -209,16 +213,21 @@ Använd AzCopy för att ladda upp filer baserat på den tid då de senaste ändr
 Om du bara vill kopiera källresurser som inte finns i målet, så ange båda parametrarna `--exclude-older` och `--exclude-newer` (Linux) eller `/XO` och `/XN` (Windows) i AzCopy-kommandot. AzCopy överför bara uppdaterade data utifrån deras tidsstämplar.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 Om det uppstår några fel under anslutnings-eller kopierings åtgärden, se [Felsöka problem med data Box-enhet Blob Storage](data-box-troubleshoot-rest.md).
 
@@ -230,7 +239,7 @@ I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561046"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Viktig information om Azure Data Box Edge/Azure Data Box Gateway för allmän tillgänglighet
@@ -42,7 +42,7 @@ Följande tabell innehåller en sammanfattning av kända problem för den Data B
 
 | Nej. | Funktion | Problem | Lösning/kommentarer |
 | --- | --- | --- | --- |
-| **1.** |Filtyper | Följande filtyper stöds inte: Character-filer, blockera filer, Sockets, Pipes, symboliska länkar.  |Om de här filerna kopieras skapas 0-långa filer som skapas på NFS-resursen. Filerna är i ett fel tillstånd och rapporteras också i *error. XML*. <br> Symboliska länkar till kataloger resulterar i att kataloger aldrig markeras som offline. Det innebär att du kanske inte ser det grå korset i de kataloger som anger att katalogerna är offline och att allt tillhör ande innehåll har laddats upp fullständigt till Azure. |
+| **1.** |Filtyper | Följande filtyper stöds inte: Character-filer, blockera filer, Sockets, Pipes, symboliska länkar.  |Om de här filerna kopieras skapas 0-långa filer som skapas på NFS-resursen. Filerna är i ett fel tillstånd och rapporteras också i *error.xml*. <br> Symboliska länkar till kataloger resulterar i att kataloger aldrig markeras som offline. Det innebär att du kanske inte ser det grå korset i de kataloger som anger att katalogerna är offline och att allt tillhör ande innehåll har laddats upp fullständigt till Azure. |
 | **2.** |Borttagning | På grund av ett fel i den här versionen, om en NFS-resurs tas bort, går det inte att ta bort resursen. Resurs statusen kommer att visas *när du tar bort*.  |Detta inträffar bara när resursen använder ett fil namn som inte stöds. |
 | **3.** |Kopiera | Data kopieringen misslyckades med felet: den begärda åtgärden kunde inte slutföras på grund av en begränsning i fil systemet.  |Den alternativa data strömmen (ADS) som är associerad med fil storleken större än 128 KB stöds inte.   |
 

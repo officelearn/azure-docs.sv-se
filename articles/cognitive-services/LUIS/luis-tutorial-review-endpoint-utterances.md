@@ -3,13 +3,13 @@ title: 'Självstudie: granska slut punkt yttranden-LUIS'
 description: I den här självstudien får du förbättra app-förutsägelserna genom att verifiera eller korrigera yttranden som mottagits via LUIS HTTP-slutpunkten som LUIS är osäker på. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: c2df8cdba3422c522aa4ccf1fe4138a510355d12
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 07/02/2020
+ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445940"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959062"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudie: åtgärda osäker förutsägelse genom att granska slut punkts yttranden
 I den här självstudien får du förbättra appens förutsägelser genom att verifiera eller korrigera yttranden, som tas emot via HTTPS-slutpunkten LUIS, som LUIS är osäker på. Du bör granska slut punkt yttranden som en vanlig del av ditt schemalagda LUIS-underhåll.
@@ -35,11 +35,16 @@ Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrand
 
 ## <a name="download-json-file-for-app"></a>Ladda ned JSON-fil för appen
 
-Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 ## <a name="import-json-file-for-app"></a>Importera JSON-fil för appen
 
-[!INCLUDE [Import app steps](includes/import-app-steps.md)]
+
+1. I [Luis-portalen](https://www.luis.ai)väljer du **+ ny app för konversation**på sidan **Mina appar** och **importerar sedan som JSON**. Hitta den sparade JSON-filen från föregående steg. Du behöver inte ändra namnet på appen. Välj **färdig**
+
+1. Välj **build** och **avsikt** för att se avsikterna, de viktigaste Bygg stenarna för en Luis-app.
+
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="Ändra från sidan versioner till sidan avsikter.":::
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Träna appen att tillämpa enhets ändringarna på appen
 
@@ -77,15 +82,11 @@ Granska slut punkts yttranden för korrekt justerat syfte. Även om det finns en
 
 1. I avsnittet **build** i portalen väljer du **Granska slut punkt yttranden** i det vänstra navigerings fältet. Listan filtreras efter avsikten **ApplyForJob**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Skärmbild av knappen Granska slutpunktstalindata i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Skärm bild av knappen granska slut punkt yttranden i det vänstra navigerings fältet.":::
 
-    Den här uttryck `I'm looking for a job with Natural Language Processing` är inte i rätt avsikt.
+    Den här uttryck, `I'm looking for a job with Natural Language Processing` , finns inte i rätt avsikt, _GetJobInformation_. Det har blivit oförutsägbart som _ApplyForJob_ på grund av likheten mellan jobb namn och verb i båda syftena.
 
-1.  Om du vill justera den här uttryck väljer du rätt **justerat avsikt** för i raden uttryck `GetJobInformation` . Lägg till den ändrade uttryck i appen genom att markera bock markeringen.
-
-    > [!div class="mx-imgBorder"]
-    > ![Skärmbild av knappen Granska slutpunktstalindata i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+1.  Om du vill justera den här uttryck väljer du rätt **justerat avsikt** för `GetJobInformation` . Lägg till den ändrade uttryck i appen genom att markera bock markeringen.
 
     Granska återstående yttranden i det här syftet och korrigera den justerade avsikten vid behov. Använd den inledande uttryck-tabellen i den här självstudien för att visa den justerade avsikten.
 
@@ -110,37 +111,37 @@ Om du vill kontrol lera det korrekt justerade exemplet yttranden förbättrad ap
             "topIntent": "GetJobInformation",
             "intents": {
                 "GetJobInformation": {
-                    "score": 0.903607249
-                },
-                "EmployeeFeedback": {
-                    "score": 0.0312187821
+                    "score": 0.901367366
                 },
                 "ApplyForJob": {
-                    "score": 0.0230276529
+                    "score": 0.0307973567
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0296942145
                 },
                 "MoveEmployee": {
-                    "score": 0.008322801
-                },
-                "Utilities.Stop": {
-                    "score": 0.004480808
+                    "score": 0.00739785144
                 },
                 "FindForm": {
-                    "score": 0.00425248267
+                    "score": 0.00449316856
+                },
+                "Utilities.Stop": {
+                    "score": 0.00417657848
                 },
                 "Utilities.StartOver": {
-                    "score": 0.004224336
+                    "score": 0.00407167152
                 },
                 "Utilities.Help": {
-                    "score": 0.00373591436
+                    "score": 0.003662492
                 },
                 "None": {
-                    "score": 0.0034621188
+                    "score": 0.00335733569
                 },
                 "Utilities.Cancel": {
-                    "score": 0.00230977475
+                    "score": 0.002225436
                 },
                 "Utilities.Confirm": {
-                    "score": 0.00112078607
+                    "score": 0.00107437756
                 }
             },
             "entities": {
@@ -156,7 +157,7 @@ Om du vill kontrol lera det korrekt justerade exemplet yttranden förbättrad ap
                                 "timex": "PRESENT_REF",
                                 "resolution": [
                                     {
-                                        "value": "2019-12-05 23:23:53"
+                                        "value": "2020-07-02 21:45:50"
                                     }
                                 ]
                             }

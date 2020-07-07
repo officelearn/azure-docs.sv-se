@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 0789a866ebda270f3e5e8b150e072c7aedea7f04
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790617"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure Kubernetes service (AKS)
@@ -29,7 +29,7 @@ AKS-kluster tjänstens huvud namn måste ha behörighet att hantera nätverks re
 
 ## <a name="create-an-internal-load-balancer"></a>Skapa en intern lastbalanserare
 
-Skapa en intern belastningsutjämnare genom att skapa ett tjänst manifest som heter `internal-lb.yaml` med tjänst typen *Loadbalancer* och *Azure-belastningsutjämnaren – intern* anteckning som visas i följande exempel:
+Skapa en intern belastningsutjämnare genom att skapa ett tjänst manifest `internal-lb.yaml` som heter med tjänst typen *Loadbalancer* och *Azure-belastningsutjämnaren – intern* anteckning som visas i följande exempel:
 
 ```yaml
 apiVersion: v1
@@ -54,7 +54,7 @@ kubectl apply -f internal-lb.yaml
 
 En Azure Load Balancer skapas i resurs gruppen för noden och är ansluten till samma virtuella nätverk som AKS-klustret.
 
-När du visar tjänst informationen visas IP-adressen för den interna belastningsutjämnaren i kolumnen *extern IP-* adress. I det här sammanhanget är *externt* i förhållande till belastningsutjämnarens externa gränssnitt, inte att det får en offentlig, extern IP-adress. Det kan ta en minut eller två för IP-adressen att ändras från * \<väntar\> * till en faktisk intern IP-adress, som visas i följande exempel:
+När du visar tjänst informationen visas IP-adressen för den interna belastningsutjämnaren i kolumnen *extern IP-* adress. I det här sammanhanget är *externt* i förhållande till belastningsutjämnarens externa gränssnitt, inte att det får en offentlig, extern IP-adress. Det kan ta en minut eller två för IP-adressen att ändras från *\<pending\>* till en faktisk intern IP-adress, som visas i följande exempel:
 
 ```
 $ kubectl get service internal-app
@@ -106,7 +106,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Du kan behöva ge tjänstens huvud namn för ditt AKS-kluster rollen *nätverks deltagare* till resurs gruppen där dina virtuella Azure-nätverks resurser distribueras. Visa tjänstens huvud namn med [AZ AKS show][az-aks-show], till `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`exempel. Om du vill skapa en roll tilldelning använder du kommandot [AZ roll tilldelning skapa][az-role-assignment-create] .
+> Du kan behöva ge tjänstens huvud namn för ditt AKS-kluster rollen *nätverks deltagare* till resurs gruppen där dina virtuella Azure-nätverks resurser distribueras. Visa tjänstens huvud namn med [AZ AKS show][az-aks-show], till exempel `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"` . Om du vill skapa en roll tilldelning använder du kommandot [AZ roll tilldelning skapa][az-role-assignment-create] .
 
 ## <a name="specify-a-different-subnet"></a>Ange ett annat undernät
 
@@ -132,7 +132,7 @@ spec:
 
 När alla tjänster som använder den interna belastningsutjämnaren tas bort, tas även belastningsutjämnaren bort.
 
-Du kan också ta bort en tjänst direkt som med en Kubernetes-resurs, `kubectl delete service internal-app`till exempel, som också tar bort den underliggande Azure Load Balancer.
+Du kan också ta bort en tjänst direkt som med en Kubernetes-resurs, till exempel `kubectl delete service internal-app` , som också tar bort den underliggande Azure Load Balancer.
 
 ## <a name="next-steps"></a>Nästa steg
 

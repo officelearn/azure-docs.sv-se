@@ -6,22 +6,22 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790855"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Uppgradera konfigurationen av ett fristående kluster 
 
 För alla moderna system är möjligheten att uppgradera nyckeln till den långsiktiga framgången av produkten. Ett Azure Service Fabric-kluster är en resurs som du äger. I den här artikeln beskrivs hur du uppgraderar konfigurations inställningarna för det fristående Service Fabric klustret.
 
-## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Anpassa kluster inställningarna i filen ClusterConfig. JSON
-Fristående kluster konfigureras via filen *ClusterConfig. JSON* . Läs mer om de olika inställningarna i [konfigurations inställningar för ett fristående Windows-kluster](service-fabric-cluster-manifest.md).
+## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Anpassa kluster inställningarna i ClusterConfig.jspå filen
+Fristående kluster konfigureras via *ClusterConfig.jsi* filen. Läs mer om de olika inställningarna i [konfigurations inställningar för ett fristående Windows-kluster](service-fabric-cluster-manifest.md).
 
-Du kan lägga till, uppdatera eller ta bort inställningar i `fabricSettings` avsnittet i avsnittet [kluster egenskaper](./service-fabric-cluster-manifest.md#cluster-properties) i *ClusterConfig. JSON*. 
+Du kan lägga till, uppdatera eller ta bort inställningar i `fabricSettings` avsnittet i avsnittet [kluster egenskaper](./service-fabric-cluster-manifest.md#cluster-properties) i *ClusterConfig.jspå*. 
 
-Följande JSON lägger till exempel till en ny inställning *MaxDiskQuotaInMB* i avsnittet *diagnostik* under `fabricSettings`:
+Följande JSON lägger till exempel till en ny inställning *MaxDiskQuotaInMB* i avsnittet *diagnostik* under `fabricSettings` :
 
 ```json
       {
@@ -35,7 +35,7 @@ Följande JSON lägger till exempel till en ny inställning *MaxDiskQuotaInMB* i
       }
 ```
 
-När du har ändrat inställningarna i ClusterConfig. JSON-filen testar du [kluster konfigurationen](#test-the-cluster-configuration) och [uppgraderar sedan kluster konfigurationen](#upgrade-the-cluster-configuration) för att tillämpa inställningarna på klustret. 
+När du har ändrat inställningarna i ClusterConfig.jspå filen [testar du kluster konfigurationen](#test-the-cluster-configuration) och [uppgraderar sedan kluster konfigurationen](#upgrade-the-cluster-configuration) för att tillämpa inställningarna på klustret. 
 
 ## <a name="test-the-cluster-configuration"></a>Testa kluster konfigurationen
 Innan du påbörjar konfigurations uppgraderingen kan du testa den nya kluster konfigurations-JSON genom att köra följande PowerShell-skript i det fristående paketet:

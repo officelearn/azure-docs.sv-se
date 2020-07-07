@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580643"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
@@ -25,7 +25,7 @@ Med Azure Logic Apps och fil system anslutningen kan du skapa automatiserade upp
 
 Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt beskrivningen i det här exempel scenariot: kopiera en fil som laddas upp till Dropbox till en fil resurs och skicka sedan ett e-postmeddelande. För att på ett säkert sätt ansluta och komma åt lokala system använder Logic Apps den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Information om anslutningsspecifika teknisk information finns i referens för [fil system anslutning](/connectors/filesystem/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -72,8 +72,8 @@ Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt bes
    | -------- | -------- | ----- | ----------- |
    | **Anslutnings namn** | Ja | <*anslutnings namn*> | Det namn som du vill använda för anslutningen |
    | **Rotmapp** | Ja | <*rot-mapp-namn*> | Rotmappen för ditt fil system, till exempel om du har installerat din lokala datagateway, till exempel en lokal mapp på datorn där den lokala datagatewayen är installerad, eller mappen för en nätverks resurs som datorn har åtkomst till. <p>Exempelvis: `\\PublicShare\\DropboxFiles` <p>Rotmappen är den överordnade huvudmappen som används för relativa sökvägar för alla filrelaterade åtgärder. |
-   | **Autentiseringstyp** | Inga | <*typ av autentisering*> | Den typ av autentisering som fil systemet använder: **Windows** |
-   | **Användar** | Ja | <*domain*>domän\\*username* användar<namn> <p>ELLER <p><*lokalt*>\\dator<*användar namn*> | Användar namnet för den dator där du har fil systemets mapp. <p>Om din fil system katalog finns på samma dator som den lokala datagatewayen kan du använda <*användar namn* för *lokal dator*>\\<>. |
+   | **Autentiseringstyp** | Nej | <*typ av autentisering*> | Den typ av autentisering som fil systemet använder: **Windows** |
+   | **Användar** | Ja | <*domain* > \\ domän < *användar namn*> <p>\- eller - <p><*lokal* > \\ dator < *användar namn*> | Användar namnet för den dator där du har fil systemets mapp. <p>Om din fil system katalog finns på samma dator som den lokala datagatewayen kan du använda <användar namn för *lokal dator* > \\ < *username*>. |
    | **Lösenord** | Ja | <*ditt lösen ord*> | Lösen ordet för datorn där du har fil systemet |
    | **nyckeln** | Ja | <*installerat – Gateway-namn*> | Namnet på din tidigare installerade Gateway |
    |||||

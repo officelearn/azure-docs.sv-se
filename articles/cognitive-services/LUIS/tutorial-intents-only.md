@@ -3,18 +3,18 @@ title: 'Självstudie: förutsäga-LUIS'
 description: Skapa en anpassad app som förutsäger en användares avsikt baserat på uttryck (text) i den här självstudien.
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588976"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959867"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Självstudie: Bygg en LUIS-app för att fastställa användar avsikter
 
 I den här självstudien skapar du en anpassad app som förutsäger en användares avsikt baserat på uttryck (text).
 
-**I de här självstudierna får du lära dig att**
+**I den här guiden får du lära dig att:**
 
 > [!div class="checklist"]
 > * Skapa en ny app
@@ -113,9 +113,8 @@ För att klassificera en uttryck behöver avsikten exempel på användar-yttrand
 
     `get a medium vegetarian pizza for delivery`
 
-    Detta är inte exakt detsamma som ett exempel på en uttryck, så det är ett bra test för att se om LUIS kan lära sig vad som ska förväntas i detta syfte.
-
-    Den sista frågesträngsparametern är `query`, yttrande**frågan**. Det här yttrandet är inte identiskt med något av exempelyttrandena. Det är ett bra test och bör returnera avsikten `OrderPizza` som avsikten med högst poäng.
+  
+    Frågesträngparametern är `query` , uttryck- **frågan** skickas i URI: n. Det här yttrandet är inte identiskt med något av exempelyttrandena. Detta bör vara ett bra test för att kontrol lera om LUIS lär sig och förutsäger `OrderPizza` avsikten som den främsta bedömnings avsikten.
 
     ```JSON
     {

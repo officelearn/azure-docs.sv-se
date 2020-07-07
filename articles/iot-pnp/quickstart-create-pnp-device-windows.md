@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3d0a054e587a8f067be33913b05d2962b970fb1a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: b02455c153c6205b87a64a388d5588c3c431e0c9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321621"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963520"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play förhands gransknings enhet (Windows)
 
@@ -21,7 +21,7 @@ ms.locfileid: "85321621"
 
 En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en IoT plug and Play-enhet. Ett DCM är ofta kopplat till en produkt-SKU. Funktionerna som definieras i DCM är indelade i återanvändbara gränssnitt. Du kan generera Skeleton-enhets kod från ett DCM-kort. Den här snabb starten visar hur du använder VS Code i Windows för att skapa en IoT Plug and Play-enhet med hjälp av ett DCM.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du installera följande program vara på den lokala datorn:
 
@@ -78,7 +78,7 @@ I den här snabb starten använder du [Vcpkg](https://github.com/microsoft/vcpkg
 1. Installera Azure IoT C-Vcpkg för enhets-SDK:
 
     ```cmd
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use-prov-client]
     ```
 
 ## <a name="author-your-model"></a>Redigera din modell
@@ -87,7 +87,7 @@ I den här snabb starten använder du en befintlig funktions modell för exempel
 
 1. Skapa en `pnp_app` mapp på den lokala enheten. Du använder den här mappen för enhets modellens filer och enhets koden stub.
 
-1. Ladda [ned exempel](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/EnvironmentalSensor.interface.json) [filen med enhets kapacitets modellen och gränssnittet](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/SampleDevice.model.json) och spara filerna i `pnp_app` mappen.
+1. Hämta [enhetens kapacitets modell](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/SampleDevice.capabilitymodel.json) och [gränssnitts exempel](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensor.interface.json) filer och spara dem i `pnp_app` mappen.
 
     > [!TIP]
     > Om du vill ladda ned en fil från GitHub navigerar du till filen, högerklickar på **RAW**och väljer sedan **Spara länk som**.

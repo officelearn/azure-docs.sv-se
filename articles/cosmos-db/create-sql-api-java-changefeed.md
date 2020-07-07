@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 8028b1f301a3c7fb4ca39c8920824091a4065118
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: ccbafcfcbf13809b84883352c5a31835c6988d51
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261961"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962704"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Så här skapar du ett Java-program som använder Azure Cosmos DB SQL API och ändra flödes processor
 
@@ -23,7 +23,7 @@ Den här instruktions guiden vägleder dig genom ett enkelt Java-program som anv
 > Den här självstudien gäller endast Azure Cosmos DB Java SDK v4. Se Azure Cosmos DB Java SDK v4- [viktig](sql-api-sdk-java-v4.md)information, [maven-lagringsplatsen](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4- [prestanda tips](performance-tips-java-sdk-v4-sql.md)och Azure Cosmos DB [fel söknings guide](troubleshoot-java-sdk-v4-sql.md) för Java SDK v4 för mer information. Om du använder en äldre version än v4 kan du läsa om hur du uppgraderar till v4 i [Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide.
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * URI och nyckel för ditt Azure Cosmos DB konto
 
@@ -57,7 +57,7 @@ mvn clean package
 
 1. Som första kontroll bör du ha ett Azure Cosmos DB-konto. Öppna **Azure Portal** i webbläsaren, gå till ditt Azure Cosmos DB-konto och navigera till **datautforskaren**i det vänstra fönstret.
 
-    ![Azure Cosmos DB konto](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
+   :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Azure Cosmos DB konto":::
 
 1. Kör appen i terminalen med följande kommando:
 
@@ -77,9 +77,7 @@ mvn clean package
     * **InventoryContainer – pktype** – en materialiserad vy av inventerings posten, optimerad för frågor över objekt```type```
     * **InventoryContainer – leasing** avtal – en container container krävs alltid för ändrings flödet. lån spårar appens förlopp vid läsning av ändrings flödet.
 
-
-    ![Tomma behållare](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
-
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Tomma behållare":::
 
 1. I terminalen bör du nu se en prompt
 
@@ -97,7 +95,7 @@ mvn clean package
 
     Gå tillbaka till Azure Portal Datautforskaren i webbläsaren. Under behållaren **InventoryContainer-Leases** , klickar du på **objekt** för att se dess innehåll. Du ser att Change feed-processorn har fyllt i leasing containern, dvs. processorn har tilldelat ```SampleHost_1``` arbetaren ett lån på vissa partitioner i **InventoryContainer**.
 
-    ![Lån](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Lån":::
 
 1. Tryck på RETUR igen i terminalen. Detta kommer att utlösa 10 dokument som ska infogas i **InventoryContainer**. Varje dokument infogning visas i ändra feed som JSON. följande callback-kod hanterar dessa händelser genom att spegla JSON-dokumenten till en materialiserad vy:
 
@@ -107,15 +105,15 @@ mvn clean package
 
 1. Tillåt att koden kör 5-10sec. Gå sedan tillbaka till Azure Portal Datautforskaren och gå till **InventoryContainer > objekt**. Du bör se att objekten infogas i lager behållaren. Anteckna partitionsnyckel ( ```id``` ).
 
-    ![Feed-behållare](media/create-sql-api-java-changefeed/cosmos_items.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Feed-behållare":::
 
 1. Nu går du till Datautforskaren navigera till **InventoryContainer-pktype > objekt**. Detta är den materialiserade vyn – objekten i denna behållares spegel **InventoryContainer** eftersom de infogades program mässigt av ändrings flödet. Anteckna partitionsnyckel ( ```type``` ). Den här materialiserade vyn är optimerad för frågor som filtrerar över ```type``` , vilket skulle vara ineffektivt på **InventoryContainer** eftersom den är partitionerad ```id``` .
 
-    ![Materialiserad vy](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Materialiserad vy":::
 
 1. Vi håller på att ta bort ett dokument från både **InventoryContainer** och **InventoryContainer-pktype** med bara ett enda ```upsertItem()``` anrop. Börja med att titta på Azure Portal Datautforskaren. Vi tar bort dokumentet som ```/type == "plums"``` är inringat i rött under
 
-    ![Materialiserad vy](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Materialiserad vy":::
 
     Tryck på RETUR igen för att anropa funktionen ```deleteDocument()``` i exempel koden. Den här funktionen, som visas nedan, upsertar en ny version av dokumentet med ```/ttl == 5``` , som anger TTL-värdet (Time-to-Live) till 5Sec. 
     

@@ -4,10 +4,10 @@ description: Lär dig mer om identitets-och åtkomst koncepten i Azure VMware-l�
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ce85b60b38db86af14b9e9aa06e568436dc76658
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82740959"
 ---
 # <a name="azure-vmware-solution-avs-identity-concepts"></a>Identitets koncept för Azure VMware-lösning (AVS)
@@ -29,10 +29,10 @@ Behörigheterna CloudAdmin och CloudGlobalAdmin visas i tabellen nedan.
 |  Certifikat            |  --  |        --       |  Microsoft certifikat hantering.  |
 |  Innehållsbibliotek         | En CloudAdmin-användare har behörighet att skapa och använda filer i ett innehålls bibliotek.    |         Aktive rad med SSO.         |  Microsoft distribuerar filer i innehålls biblioteket till ESXi-värdar.  |
 |  Datacenter              |  --  |        --          |  Microsoft utför alla data Center åtgärder.  |
-|  Datalager               | Data lager. AllocateSpace, data lager. browse, data lager. config, data lager. DeleteFile, data lager. FileManagement, data lager. UpdateVirtualMachineMetadata     |    --    |   -- |
+|  Datalager               | Data lager. AllocateSpace, data lager. browse, Datastore.Config, data lager. DeleteFile, data lager. FileManagement, data lager. UpdateVirtualMachineMetadata     |    --    |   -- |
 |  ESX Agent Manager       |  --  |         --       |  Microsoft utför alla åtgärder.  |
 |  Mapp                  |  En CloudAdmin-användare har alla mappbehörigheter.     |  --  |  --  |
-|  Global                  |  Global. CancelTask, global. GlobalTag, global. Health, global. LogEvent, global. ManageCustomFields, global. ServiceManagers, global. SetCustomField, global. SystemTag         |                  |    |
+|  Global                  |  Global. CancelTask, global. GlobalTag, global. Health, global. LogEvent, global. ManageCustomFields, global. ServiceManagers, global. SetCustomField, Global.SystemTag         |                  |    |
 |  Värd                    |  Host. HBR. HbrManagement      |        --          |  Microsoft utför alla andra värd åtgärder.  |
 |  InventoryService        |  InventoryService. taggning      |        --          |  --  |
 |  Nätverk                 |  Nätverk. tilldela    |                  |  Microsoft utför alla andra nätverks åtgärder.  |

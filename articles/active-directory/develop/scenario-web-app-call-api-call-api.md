@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 12802ab6dcfbbe5a1c5576ab672ead864dd0b4ae
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82559872"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>En webbapp som anropar webb-API: er: anropa ett webb-API
@@ -28,7 +28,7 @@ Att anropa ett skyddat webb-API beror på vilket språk och ramverk du väljer:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Här är den `HomeController`förenklade koden för åtgärden. Den här koden hämtar en token för att anropa Microsoft Graph. Koden har lagts till för att visa hur du anropar Microsoft Graph som ett REST API. URL: en för Microsoft Graph-API: n finns i filen appSettings. JSON och läses i en variabel med `webOptions`namnet:
+Här är den förenklade koden för åtgärden `HomeController` . Den här koden hämtar en token för att anropa Microsoft Graph. Koden har lagts till för att visa hur du anropar Microsoft Graph som ett REST API. URL: en för Microsoft Graph-API: n finns i appsettings.jspå filen och läses i en variabel med namnet `webOptions` :
 
 ```json
 {

@@ -3,12 +3,12 @@ title: 'Snabb start: din första portal fråga'
 description: I den här snabb starten följer du stegen för att köra din första fråga från Azure Portal med Azure Resource Graph Explorer.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148046"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958815"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
 
@@ -90,11 +90,11 @@ Prova följande exempel på instrument paneler för att tillhandahålla exempel 
 
 - [Resurs diagram Utforskare – exempel på instrument panel #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Exempel bild för instrument panelens exempel #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Exempel bild för instrument panelens exempel #1" lightbox="./media/arge-sample1-large.png":::
 
 - [Resurs diagram Utforskare – exempel på instrument panel #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Exempel bild för instrument panelens exempel #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exempel bild för instrument panelens exempel #2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Antal och diagram i exempel skärmarna ovan, beror på din Azure-miljö.

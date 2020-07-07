@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562074"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions-proxyservrar
@@ -61,23 +61,23 @@ Du kan använda `localhost` för att referera till en funktion inuti samma Funct
 
  
 >[!Note]  
->Om din funktion använder auktoriseringsregler *-, admin-eller sys* -nivåer måste du ange koden och clientId, enligt den ursprungliga funktions webb adressen. I det här fallet skulle referensen se ut `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` : Vi rekommenderar att du lagrar dessa nycklar i [program inställningar] och refererar till dem i dina proxyservrar. På så sätt undviker du att lagra hemligheter i käll koden. 
+>Om din funktion använder auktoriseringsregler *-, admin-eller sys* -nivåer måste du ange koden och clientId, enligt den ursprungliga funktions webb adressen. I det här fallet skulle referensen se ut: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` vi rekommenderar att du lagrar dessa nycklar i [program inställningar] och refererar till dem i dina proxyservrar. På så sätt undviker du att lagra hemligheter i käll koden. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parametrar för referens förfrågan
 
 Du kan använda parametrarna för begäran som indata till URL-egenskapen för Server delen eller som en del av att ändra begär Anden och svar. Vissa parametrar kan bindas från den vägfil som anges i Bask proxy-konfigurationen, och andra kan komma från egenskaperna för den inkommande begäran.
 
 #### <a name="route-template-parameters"></a>Parametrar för Route-mall
-Parametrar som används i flödes mal len är tillgängliga för referenser till namn. Parameter namnen omges av klammerparenteser ({}).
+Parametrar som används i flödes mal len är tillgängliga för referenser till namn. Parameter namnen omges av klammerparenteser ( {} ).
 
-Om en proxyserver till exempel har en vägfil, till exempel `/pets/{petId}`, kan Server delens URL innehålla värdet `{petId}`, som i. `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}` Om väg mal len avslutas i ett jokertecken, till exempel `/api/{*restOfPath}`, är värdet `{restOfPath}` en sträng representation av återstående Sök vägs segment från den inkommande begäran.
+Om en proxyserver till exempel har en vägfil, till exempel `/pets/{petId}` , kan Server delens URL innehålla värdet `{petId}` , som i `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}` . Om väg mal len avslutas i ett jokertecken, till exempel `/api/{*restOfPath}` , är värdet `{restOfPath}` en sträng representation av återstående Sök vägs segment från den inkommande begäran.
 
 #### <a name="additional-request-parameters"></a>Parametrar för ytterligare begäran
 Förutom parametrar för väg mal len kan följande värden användas i konfigurations värden:
 
 * **{Request. Method}**: http-metoden som används på den ursprungliga begäran.
-* **{Request. headers\< . Huvud\>}**: en rubrik som kan läsas från den ursprungliga begäran. Ersätt * \<huvud\> * med namnet på rubriken som du vill läsa. Om rubriken inte finns med i begäran kommer värdet vara den tomma strängen.
-* **{Request. QueryString.\< ParameterName\>}**: en frågesträngparametern som kan läsas från den ursprungliga begäran. Ersätt * \<ParameterName\> * med namnet på den parameter som du vill läsa. Om parametern inte finns med i begäran kommer värdet vara den tomma strängen.
+* **{Request. headers. \<HeaderName\> }**: en rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte finns med i begäran kommer värdet vara den tomma strängen.
+* **{Request. QueryString. \<ParameterName\> }**: en frågesträngparametern som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med i begäran kommer värdet vara den tomma strängen.
 
 ### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>Referera till parametrar för backend-svar
 
@@ -85,7 +85,7 @@ Svars parametrar kan användas som en del av att ändra svaret till klienten. F�
 
 * **{Server del. Response. StatusCode}**: den HTTP-statuskod som returneras av backend-svaret.
 * **{Server del. Response. statusReason}**: http-orsaks frasen som returneras i Server delens svar.
-* **{Server del. Response.\< headers. Huvud\>}**: en rubrik som kan läsas från Server delens svar. Ersätt * \<huvud\> * med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret är värdet den tomma strängen.
+* **{Server del. Response. headers. \<HeaderName\> }**: en rubrik som kan läsas från Server delens svar. Ersätt *\<HeaderName\>* med namnet på den rubrik som du vill läsa. Om rubriken inte ingår i svaret är värdet den tomma strängen.
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Referens program inställningar
 
@@ -98,24 +98,24 @@ Till exempel har en backend-URL på *https://%ORDER_PROCESSING_HOST%/api/orders*
 
 ## <a name="troubleshoot-proxies"></a><a name="debugProxies"></a>Felsöka proxyservrar
 
-Genom att lägga till `"debug":true` flaggan till en proxy i `proxies.json` din aktive ras fel söknings loggning. Loggarna lagras i `D:\home\LogFiles\Application\Proxies\DetailedTrace` och kan nås via avancerade verktyg (kudu). Alla HTTP-svar kommer också att `Proxy-Trace-Location` innehålla en rubrik med en URL för att komma åt logg filen.
+Genom att lägga till flaggan `"debug":true` till en proxy i din `proxies.json` aktive ras fel söknings loggning. Loggarna lagras i `D:\home\LogFiles\Application\Proxies\DetailedTrace` och kan nås via avancerade verktyg (kudu). Alla HTTP-svar kommer också att innehålla en `Proxy-Trace-Location` rubrik med en URL för att komma åt logg filen.
 
-Du kan felsöka en proxyserver från klient sidan genom att lägga till `Proxy-Trace-Enabled` en huvud uppsättning `true`i. Detta kommer också att logga en spårning till fil systemet och returnera spårnings-URL: en som en rubrik i svaret.
+Du kan felsöka en proxyserver från klient sidan genom att lägga till en `Proxy-Trace-Enabled` huvud uppsättning i `true` . Detta kommer också att logga en spårning till fil systemet och returnera spårnings-URL: en som en rubrik i svaret.
 
 ### <a name="block-proxy-traces"></a>Blockera proxy-spår
 
 Av säkerhets skäl kanske du inte vill att någon ska kunna anropa tjänsten för att generera en spårning. De kommer inte att kunna komma åt spårnings innehållet utan dina inloggnings uppgifter, men om du genererar spårning förbrukar resurserna och exponeras att du använder funktions-proxy.
 
-Inaktivera spår helt genom att `"debug":false` lägga till dem i en viss `proxies.json`proxy i.
+Inaktivera spår helt genom att lägga till `"debug":false` dem i en viss proxy i `proxies.json` .
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
-De proxyservrar som du konfigurerar lagras i en *proxy. JSON* -fil som finns i roten i en Function app-katalog. Du kan redigera den här filen manuellt och distribuera den som en del av din app när du använder någon av de [distributions metoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) som stöds av functions. 
+De proxyservrar som du konfigurerar lagras i en *proxies.jspå* en fil som finns i roten i en Function app-katalog. Du kan redigera den här filen manuellt och distribuera den som en del av din app när du använder någon av de [distributions metoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) som stöds av functions. 
 
 > [!TIP] 
-> Om du inte har konfigurerat någon av distributions metoderna kan du också arbeta med filen *proxys. JSON* i portalen. Gå till din Function-app, Välj **plattforms funktioner**och välj sedan **App Service Editor**. Genom att göra det kan du Visa hela fil strukturen för din Function-app och sedan göra ändringar.
+> Om du inte har konfigurerat någon av distributions metoderna kan du också arbeta med *proxies.js* filen i portalen. Gå till din Function-app, Välj **plattforms funktioner**och välj sedan **App Service Editor**. Genom att göra det kan du Visa hela fil strukturen för din Function-app och sedan göra ändringar.
 
-*Proxys. JSON* definieras av ett objekt i proxyn, som består av namngivna proxyservrar och deras definitioner. Om Redigeraren stöder det kan du också referera till ett JSON- [schema](http://json.schemastore.org/proxies) för kod komplettering. En exempel fil kan se ut så här:
+*Proxies.jspå* definieras av ett objekt i proxyn, som består av namngivna proxyservrar och deras definitioner. Om Redigeraren stöder det kan du också referera till ett JSON- [schema](http://json.schemastore.org/proxies) för kod komplettering. En exempel fil kan se ut så här:
 
 ```json
 {
@@ -142,11 +142,11 @@ Varje proxy har ett eget namn, till exempel *Proxy1* i föregående exempel. Mot
 * **responseOverrides**: ett objekt som definierar omvandlingar till klient svaret. Se [definiera ett responseOverrides-objekt].
 
 > [!NOTE] 
-> Egenskapen *Route* i Azure Functions-proxyservrar följer inte egenskapen *routePrefix* för Funktionsapp-värd konfigurationen. Om du vill inkludera ett prefix som `/api`, måste det ingå i egenskapen *Route* .
+> Egenskapen *Route* i Azure Functions-proxyservrar följer inte egenskapen *routePrefix* för Funktionsapp-värd konfigurationen. Om du vill inkludera ett prefix som `/api` , måste det ingå i egenskapen *Route* .
 
 ### <a name="disable-individual-proxies"></a><a name="disableProxies"></a>Inaktivera enskilda proxyservrar
 
-Du kan inaktivera enskilda proxyservrar genom att `"disabled": true` lägga till `proxies.json` dem i proxyn i filen. Detta gör att alla begär Anden som uppfyller matchCondition kan returnera 404.
+Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true` dem i proxyn i `proxies.json` filen. Detta gör att alla begär Anden som uppfyller matchCondition kan returnera 404.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",
@@ -184,8 +184,8 @@ Proxyservrar läser alla strängar från en JSON-fil med hjälp av \ som en Esca
 RequestOverrides-objektet definierar ändringar som gjorts i begäran när backend-resursen anropas. Objektet definieras av följande egenskaper:
 
 * **Server del. Request.-metod**: http-metoden som används för att anropa Server delen.
-* **backend. Request. QueryString. ParameterName\>: en frågesträngparametern som kan anges för anropet till Server \<** delen. Ersätt * \<ParameterName\> * med namnet på den parameter som du vill ange. Observera att om en tom sträng anges, inkluderas parametern fortfarande i backend-begäran.
-* **backend. Request. header. Huvud\>: en rubrik som kan anges för anropet till Server \<** delen. Ersätt * \<huvud\> * med namnet på rubriken som du vill ange. Observera att om en tom sträng anges, inkluderas parametern fortfarande i backend-begäran.
+* **Server del. Request. QueryString \<ParameterName\> .**: en frågesträngparametern som kan anges för anropet till Server delen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill ange. Observera att om en tom sträng anges, inkluderas parametern fortfarande i backend-begäran.
+* **backend. Request. headers \<HeaderName\> .**: en rubrik som kan anges för anropet till Server delen. Ersätt *\<HeaderName\>* med namnet på den rubrik som du vill ange. Observera att om en tom sträng anges, inkluderas parametern fortfarande i backend-begäran.
 
 Värden kan referera till program inställningar och parametrar från den ursprungliga klient förfrågan.
 
@@ -217,7 +217,7 @@ RequestOverrides-objektet definierar ändringar som görs i svaret som skickas t
 * **Response. StatusCode**: den HTTP-statuskod som ska returneras till klienten.
 * **Response. statusReason**: den http-orsaks fras som ska returneras till klienten.
 * **Response. Body**: sträng representationen för bröd texten som ska returneras till klienten.
-* **Response. headers. Huvud\>: en rubrik som kan anges för svaret på \<** klienten. Ersätt * \<huvud\> * med namnet på rubriken som du vill ange. Om du anger en tom sträng tas inte rubriken med i svaret.
+* **Response. headers \<HeaderName\> .**: en rubrik som kan anges för svaret på klienten. Ersätt *\<HeaderName\>* med namnet på den rubrik som du vill ange. Om du anger en tom sträng tas inte rubriken med i svaret.
 
 Värden kan referera till program inställningar, parametrar från den ursprungliga klientbegäran och parametrar från Server delens svar.
 

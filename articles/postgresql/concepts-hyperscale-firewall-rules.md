@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: 127840738d8fb8db00a7efc0b0d8fe393138488d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580926"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)
@@ -32,7 +32,7 @@ En citus-kontroll för Server grupps brand väggar som kan ansluta till gruppens
 
 När brand väggen blockerar anslutningar kan det orsaka program fel. Genom att använda PostgreSQL JDBC-drivrutinen, till exempel, genererar vi ett fel som detta:
 
-> Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: allvarligt: ingen PG\_HBA. conf-post för värden "123.45.67.890", användare "citus", databas "citus", SSL
+> java.util.concurrent.ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: allvarligt: ingen PG \_ HBA. conf-post för värden "123.45.67.890", User "citus", Database "citus", SSL
 
 Se [skapa och hantera brand Väggs regler](howto-hyperscale-manage-firewall-using-portal.md) för att lära dig hur reglerna definieras.
 
@@ -44,7 +44,7 @@ När åtkomst till Microsoft Azure-databasen för PostgreSQL-tjänsten (citus) i
 * **Användaren är inte auktoriserad eller ett felaktigt lösen ord användes:** Om en användare inte har behörighet på servern eller om lösen ordet som används är felaktigt nekas anslutningen till servern. Att skapa en brand Väggs inställning ger bara klienter möjlighet att försöka ansluta till servern. varje klient måste ändå ange nödvändiga säkerhets uppgifter.
 
 Om du till exempel använder en JDBC-klient kan följande fel uppstå.
-> Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: OÅTERKALLELIG: lösenordsautentisering misslyckades för användaren "YOURUSERNAME"
+> java.util.concurrent.ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: OÅTERKALLELIGt: lösenordsautentiseringen misslyckades för användaren "YOURUSERNAME"
 
 * **Dynamisk IP-adress:** Om du har en Internetanslutning med dynamisk IP-adressering och du har problem med att passera brandväggen kan du prova någon av följande lösningar:
 

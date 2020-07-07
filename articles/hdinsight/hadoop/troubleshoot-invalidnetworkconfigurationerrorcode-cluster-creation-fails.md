@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780444"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Det går inte att skapa kluster med InvalidNetworkConfigurationErrorCode i Azure HDInsight
@@ -32,11 +32,11 @@ Felet pekar på ett problem med den anpassade DNS-konfigurationen. DNS-servrar i
 
 ### <a name="resolution"></a>Lösning
 
-1. Använd SSH i den virtuella datorn som är en del av klustret och kör kommandot `hostname -f`. Detta returnerar värdens fullständigt kvalificerade domän namn (enligt `<host_fqdn>` anvisningarna nedan).
+1. Använd SSH i den virtuella datorn som är en del av klustret och kör kommandot `hostname -f` . Detta returnerar värdens fullständigt kvalificerade domän namn (enligt `<host_fqdn>` anvisningarna nedan).
 
-1. Kör sedan kommandot `nslookup <host_fqdn>` (till exempel `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Om det här kommandot matchar namnet på en IP-adress innebär det att din DNS-server fungerar som den ska. I det här fallet kan du generera ett support ärende med HDInsight och vi undersöker ditt problem. I support ärendet inkluderar du de fel söknings steg som du utförde. Detta hjälper oss att lösa problemet snabbare.
+1. Kör sedan kommandot (till `nslookup <host_fqdn>` exempel `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net` ). Om det här kommandot matchar namnet på en IP-adress innebär det att din DNS-server fungerar som den ska. I det här fallet kan du generera ett support ärende med HDInsight och vi undersöker ditt problem. I support ärendet inkluderar du de fel söknings steg som du utförde. Detta hjälper oss att lösa problemet snabbare.
 
-1. Om kommandot ovan inte returnerar en IP-adress kan du köra `nslookup <host_fqdn> 168.63.129.16` (till exempel `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Om det här kommandot kan matcha IP-adressen innebär det att antingen att DNS-servern inte vidarebefordrar frågan till Azures DNS, eller om den inte är en del av samma virtuella nätverk som klustret.
+1. Om kommandot ovan inte returnerar en IP-adress kan du köra `nslookup <host_fqdn> 168.63.129.16` (till exempel `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16` ). Om det här kommandot kan matcha IP-adressen innebär det att antingen att DNS-servern inte vidarebefordrar frågan till Azures DNS, eller om den inte är en del av samma virtuella nätverk som klustret.
 
 1. Om du inte har en virtuell Azure-dator som kan fungera som en anpassad DNS-server i klustrets virtuella nätverk måste du först lägga till detta. Skapa en virtuell dator i det virtuella nätverket, som kommer att konfigureras som DNS-vidarebefordrare.
 

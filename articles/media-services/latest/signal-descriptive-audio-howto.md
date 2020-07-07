@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72392194"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Signals beskrivande ljud spår
@@ -25,7 +25,7 @@ Du kan lägga till en berättarröst i videon för att hjälpa visuellt synskada
 
 Den här artikeln visar hur du kodar en video, laddar upp en ljudfil med enbart ljudfiler (AAC-codec) som innehåller beskrivande ljud i utmatnings till gången och redigerar. ISM-filen för att inkludera det beskrivande ljudet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 - Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
@@ -48,7 +48,7 @@ Den här funktionen utför följande åtgärder:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-Om du behöver skicka namnet på den skapade Indatakällan till andra metoder, se till att använda `Name` egenskapen på objektet till gångs objekt som returnerades från `CreateInputAssetAsync`, till exempel inputAsset.Name. 
+Om du behöver skicka namnet på den skapade Indatakällan till andra metoder, se till att använda `Name` egenskapen på objektet till gångs objekt som returnerades från `CreateInputAssetAsync` , till exempel inputAsset.Name. 
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Skapa en utgående till gång för att lagra resultatet av kodnings jobbet
 
@@ -56,9 +56,9 @@ Utmatnings [till gången](https://docs.microsoft.com/rest/api/media/assets) lagr
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Om du behöver skicka namnet på den skapade till gången till andra metoder, se till att använda `Name` egenskapen på objektet till gångs objekt som returnerades `CreateIOutputAssetAsync`från, till exempel outputAsset.Name. 
+Om du behöver skicka namnet på den skapade till gången till andra metoder, se till att använda `Name` egenskapen på objektet till gångs objekt som returnerades från `CreateIOutputAssetAsync` , till exempel outputAsset.Name. 
 
-När det gäller den här artikeln skickar du `outputAsset.Name` värdet till- `SubmitJobAsync` och `UploadAudioIntoOutputAsset` -funktionerna.
+När det gäller den här artikeln skickar du `outputAsset.Name` värdet till- `SubmitJobAsync` och- `UploadAudioIntoOutputAsset` funktionerna.
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Skapa en transformering och ett jobb som kodar den överförda filen
 
@@ -142,7 +142,7 @@ När ditt kodnings jobb är färdigt innehåller utmatnings till gången de file
 1. Leta upp. ISM-filen i behållaren och klicka på **Redigera BLOB** (i det högra fönstret). 
 1. Redigera. ISM-filen genom att lägga till information om den överförda MP4-filen (AAC-codec) som innehåller beskrivande ljud och trycka på **Spara** när du är färdig.
 
-    För att signalera de beskrivande ljud spåren måste du lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Det är ditt ansvar att ange dessa parametrar korrekt för att signalera ljud spår som ljud beskrivning. Du kan till exempel `<param name="accessibility" value="description" />` lägga `<param name="role" value="alternate" />` till och till. ISM-filen för ett särskilt ljud spår, som du ser i följande exempel.
+    För att signalera de beskrivande ljud spåren måste du lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Det är ditt ansvar att ange dessa parametrar korrekt för att signalera ljud spår som ljud beskrivning. Du kan till exempel lägga till `<param name="accessibility" value="description" />` och `<param name="role" value="alternate" />` till. ISM-filen för ett särskilt ljud spår, som du ser i följande exempel.
  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -233,7 +233,7 @@ I den här artikeln används Azure Media Player till att testa strömningen.
 > [!NOTE]
 > Om en spelare finns på en HTTPS-webbplats uppdaterar du URL:en till ”HTTPS”.
 
-1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. I rutan **URL:** klistrar du in en av de strömmande URL-värdena som du fick från ditt program. 
  
      Du kan klistra in URL:en i formatet HLS, Dash eller Smooth så växlar Azure Media Player automatiskt till ett lämpligt strömningsprotokoll för uppspelning på din enhet.

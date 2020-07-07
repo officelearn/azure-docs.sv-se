@@ -17,10 +17,10 @@ ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763133"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Konfiguration med ett klick för enkel inloggning
@@ -37,7 +37,7 @@ Funktionen SSO med enkel klickning är utformad för att konfigurera enkel inlog
 - Mer effektiv och korrekt SSO-konfiguration.
 - Ingen partner kommunikation eller support krävs för installationen. Programmet innehåller användar gränssnittet för SAML-konfigurationen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En aktiv prenumeration av programmet som ska konfigureras med SSO. Du måste också ha administratörs behörighet.
 - **Mina appar säker inloggnings tillägg** från Microsoft installerat i webbläsaren. Mer information finns i [komma åt och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).

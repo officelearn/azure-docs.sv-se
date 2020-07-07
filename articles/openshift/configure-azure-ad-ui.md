@@ -9,10 +9,10 @@ ms.author: asabbour
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
 ms.openlocfilehash: 6b6248aac35c22b9ffd2cd95df41e84986356259
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205318"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Konfigurera Azure Active Directory autentisering för ett Azure Red Hat OpenShift 4-kluster (portal)
@@ -24,7 +24,7 @@ Om du väljer att installera och använda CLI lokalt kräver den här självstud
 Konstruera klustrets **OAuth-callback-URL** och anteckna den. Se till att ersätta **Aro-RG** med resurs gruppens namn och **Aro-kluster** med ditt kluster namn.
 
 > [!NOTE]
-> `AAD` Avsnittet i OAuth-callback-URL: en ska matcha namnet på den OAuth-identitetsprovider som du kommer att konfigurera senare.
+> `AAD`Avsnittet i OAuth-callback-URL: en ska matcha namnet på den OAuth-identitetsprovider som du kommer att konfigurera senare.
 
 ```azurecli-interactive
 domain=$(az aro show -g aro-rg -n aro-cluster --query clusterProfile.domain -o tsv)
@@ -58,7 +58,7 @@ Du kan använda valfria anspråk för att:
 * Ändra beteendet för vissa anspråk som Azure AD returnerar i tokens.
 * Lägg till och få till gång till anpassade anspråk för ditt program.
 
-Vi konfigurerar OpenShift för att använda `email` anspråket och återgår `upn` till att ange önskat användar namn genom att `upn` lägga till som en del av den ID-token som returneras av Azure Active Directory.
+Vi konfigurerar OpenShift för att använda `email` anspråket och återgår till `upn` att ange önskat användar namn genom att lägga till `upn` som en del av den ID-token som returneras av Azure Active Directory.
 
 Navigera till **token-konfiguration (för hands version)** och klicka på **Lägg till valfritt anspråk**. Välj **ID** och kontrol lera **e-postmeddelandena** och **UPN** -anspråk.
 
@@ -80,7 +80,7 @@ az aro list-credentials \
   --resource-group aro-rg
 ```
 
-Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword`.
+Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword` .
 
 ```json
 {
@@ -98,14 +98,14 @@ Du kan hitta kluster konsolens URL genom att köra följande kommando, som ser u
     --query "consoleProfile.url" -o tsv
 ```
 
-Starta konsol-URL: en i en webbläsare och logga `kubeadmin` in med autentiseringsuppgifterna.
+Starta konsol-URL: en i en webbläsare och logga in med `kubeadmin` autentiseringsuppgifterna.
 
 Navigera till **Administration**, klicka på **kluster inställningar**och välj sedan fliken **global konfiguration** . Rulla för att välja **OAuth**.
 
 Rulla ned till Välj **Lägg till** under **identitets leverantörer** och välj **OpenID Anslut**.
 ![Välj OpenID Anslut från List rutan identitets leverantörer](media/aro4-oauth-idpdrop.png)
 
-Fyll i namnet som **AAD**, **klient-ID** : t som **program-ID** och **klient hemlighet**. **Utfärdar-URL: en** är formaterad som sådan `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`:. Ersätt plats hållaren med klient-ID: t som du hämtade tidigare.
+Fyll i namnet som **AAD**, **klient-ID** : t som **program-ID** och **klient hemlighet**. **Utfärdar-URL: en** är formaterad som sådan: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Ersätt plats hållaren med klient-ID: t som du hämtade tidigare.
 
 ![Fyll i OAuth-information](media/aro4-oauth-idp-1.png)
 

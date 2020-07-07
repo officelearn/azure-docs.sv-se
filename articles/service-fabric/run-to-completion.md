@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431298"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
@@ -22,7 +22,7 @@ Innan du fortsätter med den här artikeln rekommenderar vi att du får bekanta 
 > RunToCompletion-semantik stöds för närvarande inte för tjänster som skrivits med hjälp av [Reliable Services][reliable-services-link] programmerings modell.
  
 ## <a name="runtocompletion-semantics-and-specification"></a>RunToCompletion semantik och specifikation
-RunToCompletion-semantiken kan anges som en **ExecutionPolicy** när [du importerar ServiceManifest][application-and-service-manifests-link]. Den angivna principen ärvs av alla CodePackages som omfattar ServiceManifest. Följande ApplicationManifest. XML-kodfragment innehåller ett exempel.
+RunToCompletion-semantiken kan anges som en **ExecutionPolicy** när [du importerar ServiceManifest][application-and-service-manifests-link]. Den angivna principen ärvs av alla CodePackages som omfattar ServiceManifest. Följande ApplicationManifest.xml-kodfragment innehåller ett exempel.
 
 ```xml
 <ServiceManifestImport>
@@ -47,7 +47,7 @@ Nu ska vi titta på ett komplett exempel med RunToCompletion-semantik.
 >
 > Det här exemplet hänvisar till mcr.microsoft.com/windows/nanoserver:1809. Windows Server-behållare är inte kompatibla i alla versioner av ett värd operativ system. Mer information finns i [kompatibilitet med Windows container version](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Följande ServiceManifest. XML beskriver ett ServicePack som består av två CodePackages, som representerar behållare. *RunToCompletionCodePackage1* loggar bara ett meddelande i **STDOUT** och avslutas. *RunToCompletionCodePackage2* pingar loopback-adressen för en stund och avslutas sedan med slut koden **0**, **1** eller **2**.
+Följande ServiceManifest.xml beskriver ett ServicePack som består av två CodePackages, som representerar behållare. *RunToCompletionCodePackage1* loggar bara ett meddelande i **STDOUT** och avslutas. *RunToCompletionCodePackage2* pingar loopback-adressen för en stund och avslutas sedan med slut koden **0**, **1** eller **2**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ Följande ServiceManifest. XML beskriver ett ServicePack som består av två Cod
 </ServiceManifest>
 ```
 
-Följande ApplicationManifest. XML beskriver ett program baserat på ServiceManifest. xml som beskrivs ovan. Den anger **RunToCompletion** - **ExecutionPolicy** för *WindowsRunToCompletionServicePackage* med en omstarts princip för **onFailure**. Vid aktivering av *WindowsRunToCompletionServicePackage*startas dess komponent-CodePackages. *RunToCompletionCodePackage1* bör avslutas när den första aktiveringen är klar. *RunToCompletionCodePackage2* kan dock Miss Missing **(slutkod som inte är noll)**, vilket innebär att den startas om sedan principen för omstart är **onFailure**.
+Följande ApplicationManifest.xml beskriver ett program baserat på ServiceManifest.xml som beskrivs ovan. Den anger **RunToCompletion** - **ExecutionPolicy** för *WindowsRunToCompletionServicePackage* med en omstarts princip för **onFailure**. Vid aktivering av *WindowsRunToCompletionServicePackage*startas dess komponent-CodePackages. *RunToCompletionCodePackage1* bör avslutas när den första aktiveringen är klar. *RunToCompletionCodePackage2* kan dock Miss Missing **(slutkod som inte är noll)**, vilket innebär att den startas om sedan principen för omstart är **onFailure**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

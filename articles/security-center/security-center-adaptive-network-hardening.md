@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
 ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80385086"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Anpassad nätverks härdning i Azure Security Center
@@ -39,7 +39,7 @@ Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 14
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visa aviseringar och regler för anpassad nätverks härdning
 
-1. I Security Center väljer du **nätverk** -> **anpassad härdning av nätverk**. De virtuella nätverks datorerna visas under tre separata flikar:
+1. I Security Center väljer du **nätverk**  ->  **anpassad härdning av nätverk**. De virtuella nätverks datorerna visas under tre separata flikar:
    * **Felaktiga resurser**: virtuella datorer som för närvarande har rekommendationer och aviseringar som har utlösts genom att köra algoritmen för anpassad nätverks härdning. 
    * **Felfria resurser**: virtuella datorer utan aviseringar och rekommendationer.
    * Ej **genomsökta resurser**: virtuella datorer som den anpassningsbara algoritmen för nätverks härdning inte kan köras på på grund av någon av följande orsaker:
@@ -119,7 +119,7 @@ Du kan lägga till en regel för "Tillåt" som inte rekommenderades av Security 
 
 1. Klicka på **Lägg till regel** (finns i det övre vänstra hörnet).
 
-   ![Lägg till regel](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
+   ![lägg till regel](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
 1. I fönstret **ny regel** anger du informationen och klickar på **Lägg till**.
 

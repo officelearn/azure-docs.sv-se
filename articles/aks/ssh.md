@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 70ebcb1f340ba28cf80ad3e24a464aad5584b3a4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207164"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till AKS-klusternoder (Azure Kubernetes Service) vid underhåll eller felsökning
@@ -149,7 +149,7 @@ Om du vill skapa en SSH-anslutning till en AKS-nod kör du en hjälp-Pod i ditt 
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
-1. När Terminal-sessionen är ansluten till behållaren installerar du en SSH-klient med `apt-get`hjälp av:
+1. När Terminal-sessionen är ansluten till behållaren installerar du en SSH-klient med hjälp av `apt-get` :
 
     ```console
     apt-get update && apt-get install openssh-client -y
@@ -194,7 +194,7 @@ Om du vill skapa en SSH-anslutning till en AKS-nod kör du en hjälp-Pod i ditt 
 
 ## <a name="remove-ssh-access"></a>Ta bort SSH-åtkomst
 
-När du är `exit` färdig, SSH-sessionen `exit` och den interaktiva container-sessionen. När den här behållarobjektet stängs tas Pod som används för SSH-åtkomst från AKS-klustret bort.
+När du är färdig, `exit` SSH-sessionen och `exit` den interaktiva container-sessionen. När den här behållarobjektet stängs tas Pod som används för SSH-åtkomst från AKS-klustret bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

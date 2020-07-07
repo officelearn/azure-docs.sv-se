@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437508"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
@@ -29,7 +29,7 @@ Den här artikeln visar hur du konfigurerar haveriberedskap till en sekundär pl
 > * Aktivera replikering för en virtuell dator
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen gör du följande:
 
@@ -64,7 +64,7 @@ Förbereda VMM:er på följande sätt:
 
 Välj vad och vart du vill replikera.
 
-1. Klicka på **Site Recovery** > **steg 1: förbereda infrastrukturen** > **skydds mål**.
+1. Klicka på **Site Recovery**  >  **steg 1: förbereda infrastrukturen**  >  **skydds mål**.
 2. Välj **Till återställningsplats** och **Ja, med Hyper-V**.
 3. Välj **Ja** för att indikera att du använder VMM för att hantera Hyper-V-värdar.
 4. Välj **Ja** om du har en sekundär VMM-server. Om du distribuerar replikering mellan moln på en enda VMM-server klickar du på **Nej**. Klicka sedan på **OK**.
@@ -74,7 +74,7 @@ Välj vad och vart du vill replikera.
 
 Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och registrera servrarna i valvet.
 
-1. Klicka på **Förbered infrastruktur** > **källa**.
+1. Klicka på **Förbered infrastruktur**  >  **källa**.
 2. I **Förbered källa** klickar du på **+ VMM** för att lägga till en VMM-server.
 3. I **Lägg till server** kontrollerar du att **System Center VMM-server** visas i **Servertyp**.
 4. Ladda ned installationsfilen för Azure Site Recovery-providern.
@@ -98,21 +98,21 @@ Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och r
 6. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på **Nästa**.
 7. I **proxyanslutning** anger du hur den provider som körs på VMM-servern ska ansluta till Azure.
    - Du kan ange att providern ska ansluta direkt till Internet eller via en proxy. Ange proxyinställningar efter behov.
-   - Om du använder en proxy skapas ett RunAs-konto (DRAProxyAccount) i VMM automatiskt med de angivna proxyautentiseringsuppgifterna. Konfigurera proxyservern så att det här kontot kan autentiseras. Du kan ändra inställningarna för runas-kontot i VMM-konsolen > **Inställningar** > **säkerhets** > **Kör som-konton**.
+   - Om du använder en proxy skapas ett RunAs-konto (DRAProxyAccount) i VMM automatiskt med de angivna proxyautentiseringsuppgifterna. Konfigurera proxyservern så att det här kontot kan autentiseras. Du kan ändra inställningarna för runas-kontot i VMM-konsolen > **Inställningar**  >  **säkerhets**  >  **Kör som-konton**.
    - Starta om VMM-tjänsten för att uppdatera ändringarna.
 8. I **Registreringsnyckel** väljer du den nyckel som du laddade ned kopierade till VMM-servern.
 9. Krypteringsinställningen är inte relevant för det här scenariot. 
 10. I **Servernamn** anger du ett eget namn som identifierar VMM-servern i valvet. I ett kluster anger du namnet på VMM-klusterrollen.
 11. I **Synkronisera molnmetadata** väljer du om du vill synkronisera metadata för alla moln på VMM-servern. Den här åtgärden behöver bara göras en gång på varje server. Om du inte vill synkronisera alla moln lämnar du den här inställningen avmarkerad. Du kan synkronisera varje moln individuellt i molnegenskaperna i VMM-konsolen.
-12. Slutför processen genom att klicka på **Nästa**. Efter registreringen hämtar Site Recovery metadata från VMM-servern. Servern visas i **servrar** > **VMM-servrar** i valvet.
-13. När servern visas i valvet väljer du VMM-servern i **källans** > **förberedelse källa** och väljer det moln som Hyper-V-värden finns i. Klicka sedan på **OK**.
+12. Slutför processen genom att klicka på **Nästa**. Efter registreringen hämtar Site Recovery metadata från VMM-servern. Servern visas i **servrar**  >  **VMM-servrar** i valvet.
+13. När servern visas i valvet väljer du VMM-servern i **källans**  >  **förberedelse källa** och väljer det moln som Hyper-V-värden finns i. Klicka sedan på **OK**.
 
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 
 Välj VMM-målservern och molnet:
 
-1. Klicka på **Förbered infrastruktur** > **mål**och välj mål-VMM-servern.
+1. Klicka på **Förbered infrastruktur**  >  **mål**och välj mål-VMM-servern.
 2. VMM-moln som är synkroniserade med Site Recovery visas. Välj målmolnet.
 
    ![Mål](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
@@ -122,7 +122,7 @@ Välj VMM-målservern och molnet:
 
 Innan du börjar bör du se till att alla värdar som använder principen har samma operativsystem. Om värdarna kör olika versioner av Windows Server behöver du flera replikeringsprinciper.
 
-1. Skapa en ny replikeringsprincip genom att klicka på **Förbered infrastruktur** > **replikeringsinställningar** > **+ skapa och koppla**.
+1. Skapa en ny replikeringsprincip genom att klicka på **Förbered infrastruktur**  >  **replikeringsinställningar**  >  **+ skapa och koppla**.
 2. I **skapa och associera princip**anger du ett princip namn. Käll- och måltypen ska vara **Hyper-V**.
 3. I **Hyper-V-värdversion** väljer du vilket operativsystem som körs på värden.
 4. I **Autentiseringstyp** och **Autentiseringsport** anger du hur trafik autentiseras mellan primär- och återställnings-Hyper-V-värdservrarna.
@@ -145,7 +145,7 @@ Innan du börjar bör du se till att alla värdar som använder principen har sa
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-1. Klicka på **Replikera program** > **källa**. 
+1. Klicka på **Replikera program**  >  **källa**. 
 2. I **Källa** väljer du VMM-servern och det moln där de Hyper-V-värdar som du vill replikera finns. Klicka sedan på **OK**.
 3. I **Mål** kontrollerar du den sekundära VMM-servern och molnet.
 4. I **Virtuella datorer** väljer du de virtuella datorer du vill skydda i listan.

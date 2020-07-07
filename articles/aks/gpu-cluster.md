@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/27/2020
 ms.openlocfilehash: 242fefb3b153d11e23d66f26049d0b68c0a4bf4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80383998"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Använd GPU: er för beräknings intensiva arbets belastningar i Azure Kubernetes service (AKS)
@@ -36,7 +36,7 @@ Skapa först en resurs grupp för klustret med kommandot [AZ Group Create][az-gr
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa nu ett AKS-kluster med kommandot [AZ AKS Create][az-aks-create] . I följande exempel skapas ett kluster med en enda nod med storlek `Standard_NC6`:
+Skapa nu ett AKS-kluster med kommandot [AZ AKS Create][az-aks-create] . I följande exempel skapas ett kluster med en enda nod med storlek `Standard_NC6` :
 
 ```azurecli-interactive
 az aks create \
@@ -129,7 +129,7 @@ NAME                       STATUS   ROLES   AGE   VERSION
 aks-nodepool1-28993262-0   Ready    agent   13m   v1.12.7
 ```
 
-Använd nu kommandot [kubectl beskriver Node][kubectl-describe] för att bekräfta att GPU: erna är schedulable. I avsnittet *kapacitet* ska GPU: en lista som `nvidia.com/gpu:  1`.
+Använd nu kommandot [kubectl beskriver Node][kubectl-describe] för att bekräfta att GPU: erna är schedulable. I avsnittet *kapacitet* ska GPU: en lista som `nvidia.com/gpu:  1` .
 
 Följande komprimerade exempel visar att en GPU är tillgänglig på noden med namnet *AKS-nodepool1-18821093-0*:
 
@@ -185,7 +185,7 @@ Non-terminated Pods:         (9 in total)
 
 Om du vill se hur GPU fungerar schemalägger du en GPU-aktiverad arbets belastning med lämplig resurs förfrågan. I det här exemplet ska vi köra ett [Tensorflow](https://www.tensorflow.org/) -jobb mot [MNIST-datauppsättningen](http://yann.lecun.com/exdb/mnist/).
 
-Skapa en fil med namnet *samples-TF-mnist-demo. yaml* och klistra in följande yaml-manifest. Följande jobb manifest innehåller en resurs gräns på `nvidia.com/gpu: 1`:
+Skapa en fil med namnet *samples-TF-mnist-demo. yaml* och klistra in följande yaml-manifest. Följande jobb manifest innehåller en resurs gräns på `nvidia.com/gpu: 1` :
 
 > [!NOTE]
 > Om du får ett versions matchnings fel vid anrop till driv rutiner, till exempel om CUDA-drivrutinen inte är tillräcklig för CUDA runtime-version, går du igenom diagrammets diagram mat ris kompatibilitet för NVIDIA-drivrutinen-[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
@@ -242,7 +242,7 @@ NAME                          READY   STATUS      RESTARTS   AGE
 samples-tf-mnist-demo-mtd44   0/1     Completed   0          4m39s
 ```
 
-Använd nu kommandot [kubectl logs][kubectl-logs] för att Visa Pod-loggarna. I följande exempel Pod loggar bekräfta att rätt GPU- `Tesla K80`enhet har identifierats. Ange namnet på din egen pod:
+Använd nu kommandot [kubectl logs][kubectl-logs] för att Visa Pod-loggarna. I följande exempel Pod loggar bekräfta att rätt GPU-enhet har identifierats `Tesla K80` . Ange namnet på din egen pod:
 
 ```console
 $ kubectl logs samples-tf-mnist-demo-smnr6

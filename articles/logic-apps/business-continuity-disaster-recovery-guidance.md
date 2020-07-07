@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437701"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Verksamhets kontinuitet och haveri beredskap för Azure Logic Apps
@@ -234,7 +234,7 @@ För att undvika att flera gånger läser samma data måste din Logic app komma 
 
 * Logi Kap par som fungerar med Server-, tjänst-eller system sidan använder egenskaps värden eller inställningar som finns på servern, tjänsten eller system sidan.
 
-  Till exempel kräver en frågetyp-baserad utlösare som läser en rad från en databas att raden har en `isRead` kolumn som är inställd på `FALSE`. Varje gång som utlösaren läser en rad uppdaterar Logic-appen raden genom att ändra `isRead` kolumnen från `FALSE` till. `TRUE`
+  Till exempel kräver en frågetyp-baserad utlösare som läser en rad från en databas att raden har en `isRead` kolumn som är inställd på `FALSE` . Varje gång som utlösaren läser en rad uppdaterar Logic-appen raden genom `isRead` att ändra kolumnen från `FALSE` till `TRUE` .
 
   Den här metoden fungerar på samma sätt för Service Bus köer eller ämnen som innehåller köer där en utlösare kan läsa och låsa ett meddelande medan Logic app bearbetar meddelandet. När Logic-appen slutför bearbetningen tar utlösaren bort meddelandet från kön eller ämnet.
 
@@ -341,7 +341,7 @@ Du kan ställa in loggning för din Logi Kap par körning och skicka de resulter
 
 * Om du vill använda dessa data med Azure Log Analytics kan du göra data tillgängliga för både den primära och den sekundära platsen genom att ställa in din Logic Apps **diagnostikinställningar** och skicka data till flera Log Analytics arbets ytor. Mer information finns i [konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-* Om du vill skicka data till Azure Storage eller Azure Event Hubs kan du göra data tillgängliga för både den primära och sekundära platsen genom att ställa in GEO-redundans. Mer information finns i dessa artiklar:<p>
+* Om du vill skicka data till Azure Storage eller Azure Event Hubs kan du göra data tillgängliga för både den primära och sekundära platsen genom att ställa in GEO-redundans. Mer information finns i de här artiklarna:<p>
 
   * [Återställning av Azure Blob Storage haveri beredskap och konto redundans](../storage/common/storage-disaster-recovery-guidance.md)
   * [Azure Event Hubs geo-katastrof återställning](../event-hubs/event-hubs-geo-dr.md)

@@ -7,10 +7,10 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72750429"
 ---
 # <a name="legal-notices"></a>Juridisk information
@@ -19,7 +19,7 @@ Microsoft och alla bidrags givare ger dig en licens till Microsoft-dokumentation
 
 Microsoft, Windows, Microsoft Azure och/eller andra Microsoft-produkter och tjänster som nämns i dokumentationen kan vara varumärken eller registrerade varumärken som tillhör Microsoft i USA och/eller andra länder.
 Licenserna för det här projektet ger dig inte behörighet att använda några namn, logotyper eller varumärken som tillhör Microsoft.
-Microsofts rikt linjer för allmänt varumärke finns på [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653).
+Microsofts rikt linjer för allmänt varumärke finns på [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653) .
 
 Sekretess information finns på[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 

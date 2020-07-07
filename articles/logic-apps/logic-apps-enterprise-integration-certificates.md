@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450164"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Förbättra säkerheten för B2B-meddelanden med hjälp av certifikat
@@ -88,7 +88,7 @@ När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integrati
    | **Namn** | <*certifikat-namn*> | Certifikatets namn, som är "privateCert" i det här exemplet | 
    | **Certifikat typ** | Privat | Ditt certifikats typ |
    | **Certifikatmallens** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . När du använder ett nyckel valv för den privata nyckeln är den överförda filen det offentliga certifikatet. | 
-   | **Resurs grupp** | <*integrering – konto – resurs grupp*> | Integrations kontots resurs grupp, som är "MyResourceGroup" i det här exemplet | 
+   | **Resursgrupp** | <*integrering – konto – resurs grupp*> | Integrations kontots resurs grupp, som är "MyResourceGroup" i det här exemplet | 
    | **Key Vault** | <*Key-valv-namn*> | Ditt Azure Key Vault-namn |
    | **Nyckelnamn** | <*nyckel namn*> | Nyckelns namn |
    ||||

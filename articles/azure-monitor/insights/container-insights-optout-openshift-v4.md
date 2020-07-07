@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du kan stoppa övervakningen av dit
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 768c4db8d72778b555a4f343cf2e23b8fa861991
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82196444"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Så här stoppar du övervakning av v4-kluster för Azure och Red Hat OpenShift
@@ -39,13 +39,13 @@ När du har aktiverat övervakning av ditt Azure Red Hat OpenShift och Red Hat O
 
     `helm delete azmon-containers-release-1`
 
-    Detta tar bort versionen från klustret. Du kan kontrol lera genom att `helm list` köra kommandot:
+    Detta tar bort versionen från klustret. Du kan kontrol lera genom att köra `helm list` kommandot:
 
     ```
     NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
     ```
 
-Konfigurations ändringen kan ta några minuter att slutföra. Eftersom Helm spårar dina versioner även efter att du har tagit bort dem, kan du granska ett klusters historik och till och med ta `helm rollback`bort en version med.
+Konfigurations ändringen kan ta några minuter att slutföra. Eftersom Helm spårar dina versioner även efter att du har tagit bort dem, kan du granska ett klusters historik och till och med ta bort en version med `helm rollback` .
 
 ## <a name="next-steps"></a>Nästa steg
 

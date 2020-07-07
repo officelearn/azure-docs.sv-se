@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
 ms.openlocfilehash: 01e46d144c287569687bb79e7e9cb67b4923b78a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85552893"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-gremlin-api"></a>Azure CLI-exempel för Azure Cosmos DB Gremlin-API
 
 Följande tabell innehåller länkar till exempel på Azure CLI-skript för Azure Cosmos DB Gremlin-API. Referens sidor för alla Azure Cosmos DB CLI-kommandon är tillgängliga i [Azure CLI-referensen](/cli/azure/cosmosdb). Alla Azure Cosmos DB CLI-skript exempel finns i [Azure Cosmos DB CLI GitHub-lagringsplatsen](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-|Uppgift | Description |
+|Uppgift | Beskrivning |
 |---|---|
 | [Skapa ett Azure Cosmos-konto, en databas och en graf](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure Cosmos DB konto, en databas och en graf för Gremlin-API. |
 | [Ändra data flöde](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Uppdatera RU/s i en databas och graf.|

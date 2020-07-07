@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 28eeb446e55213f1ffa0a638878f6432fd15a05a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72392246"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Använda Apache Zeppelin för att köra Apache Phoenix frågor över Apache HBase i Azure HDInsight
@@ -23,13 +23,13 @@ Apache Zeppelin är en webbaserad antecknings bok med öppen källkod som gör a
 
 HDInsight-användare kan använda Apache Zeppelin för att fråga Phoenix-tabeller. Apache Zeppelin är integrerat med HDInsight-kluster och det finns inga ytterligare steg att använda det. Skapa helt enkelt en Zeppelin-anteckningsbok med JDBC-tolken och börja skriva dina Phoenix SQL-frågor
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Apache HBase-kluster i HDInsight. Se [Kom igång med Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="create-an-apache-zeppelin-note"></a>Skapa en Apache Zeppelin-anteckning
 
-1. Ersätt `CLUSTERNAME` med namnet på klustret i följande URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin`. Ange sedan URL-adressen i en webbläsare. Ange ditt användar namn och lösen ord för kluster inloggning.
+1. Ersätt `CLUSTERNAME` med namnet på klustret i följande URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin` . Ange sedan URL-adressen i en webbläsare. Ange ditt användar namn och lösen ord för kluster inloggning.
 
 1. Välj **Skapa ny anteckning**på sidan Zeppelin.
 

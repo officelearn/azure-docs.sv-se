@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 22ab4433d84db926733fd0b18035875e63322dda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81451694"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Lagra autentiseringsuppgifter i Azure Key Vault
@@ -25,7 +25,7 @@ Du kan lagra autentiseringsuppgifter för data lager och beräkningar i en [Azur
 
 För närvarande har alla aktivitets typer förutom anpassad aktivitet stöd för den här funktionen. För kopplings konfiguration är det specifikt att se avsnittet "egenskaper för länkad tjänst" i [varje anslutnings avsnitt](copy-activity-overview.md#supported-data-stores-and-formats) för mer information.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här funktionen använder den hanterade identiteten för Data Factory. Lär dig hur det fungerar från [hanterad identitet för Data Factory](data-factory-service-identity.md) och se till att data fabriken har en associerad.
 
@@ -42,14 +42,14 @@ Om du vill referera till en autentiseringsuppgift som lagras i Azure Key Vault m
 
 Följande egenskaper stöds för Azure Key Vault länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **AzureKeyVault**. | Ja |
 | baseUrl | Ange Azure Key Vault-URL. | Ja |
 
 **Använda redigerings gränssnittet:**
 
-Välj **anslutningar** -> **länkade tjänster** -> **ny**. I ny länkad tjänst söker du efter och väljer Azure Key Vault:
+Välj **anslutningar**  ->  **länkade tjänster**  ->  **ny**. I ny länkad tjänst söker du efter och väljer Azure Key Vault:
 
 ![Sök Azure Key Vault](media/store-credentials-in-key-vault/search-akv.png)
 
@@ -75,7 +75,7 @@ Välj den etablerade Azure Key Vault där dina autentiseringsuppgifter lagras. D
 
 Följande egenskaper stöds när du konfigurerar ett fält i en länkad tjänst som refererar till en Key Vault-hemlighet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för fältet måste anges till: **AzureKeyVaultSecret**. | Ja |
 | secretName | Namnet på hemligheten i Azure Key Vault. | Ja |

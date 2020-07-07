@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431038"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps-kvalitet för columnstore
@@ -80,8 +80,8 @@ Trim_reason_desc anger om radgrupps har trimmats (trim_reason_desc = NO_TRIM bet
 Det maximala minne som krävs för att komprimera en radgrupps är ungefär
 
 - 72 MB +
-- \#rader \* \#kolumner \* 8 byte +
-- \#rader \* \#korta-sträng-kolumner \* 32 byte +
+- \#rader \* \# kolumner \* 8 byte +
+- \#rader \* \# korta-sträng-kolumner \* 32 byte +
 - \#långa sträng kolumner \* 16 MB för komprimerings ord lista
 
 där korta strängar använder sträng data typer för <= 32 byte och Long-String-columns använder sträng data typer på > 32 byte.

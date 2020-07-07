@@ -1,23 +1,23 @@
 ---
 title: 'Snabb start: skapa en delad fråga med mallar'
-description: I den här snabb starten använder du en Resource Manager-mall för att skapa en delad resurs diagrams fråga som räknar virtuella datorer av OS.
-ms.date: 04/28/2020
+description: I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa en delad resurs diagram fråga som räknar virtuella datorer av operativ systemet.
+ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 050cf26da2054883fceaa08b11f94c6af4c85a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234334"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969815"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-a-resource-manager-template"></a>Snabb start: skapa en delad fråga med hjälp av en Resource Manager-mall
+# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Snabb start: skapa en delad fråga med hjälp av en Azure Resource Manager mall
 
-Resurs diagram frågor kan sparas som en _privat fråga_ eller en _delad fråga_. En privat fråga sparas i användarens Portal profil och är inte synlig för andra. En delad fråga är ett Resource Manager-objekt som kan delas med andra via behörigheter och rollbaserad åtkomst. En delad fråga ger gemensam och konsekvent körning av resurs identifiering. Den här snabb starten använder en Resource Manager-mall för att skapa en delad fråga.
+Resurs diagram frågor kan sparas som en _privat fråga_ eller en _delad fråga_. En privat fråga sparas i användarens Portal profil och är inte synlig för andra. En delad fråga är ett Resource Manager-objekt som kan delas med andra via behörigheter och rollbaserad åtkomst. En delad fråga ger gemensam och konsekvent körning av resurs identifiering. I den här snabb starten används en Azure Resource Manager-mall (ARM-mall) för att skapa en delad fråga.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -27,7 +27,7 @@ I den här snabb starten skapar du en delad fråga som heter _antal virtuella da
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
+Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
 :::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
 
@@ -42,7 +42,7 @@ Den resurs som definierats i mallen är:
 
 1. Logga in på Azure-portalen och öppna mallen genom att välja följande bild:
 
-   [![Distribuera princip mal len till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera ARM-mallen för att skapa en delad fråga till Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Välj eller ange följande värden:
 
@@ -50,7 +50,7 @@ Den resurs som definierats i mallen är:
    |------|-------|
    | Prenumeration | Välj din Azure-prenumeration. |
    | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. |
-   | Plats | Välj en region. Välj till exempel **USA, centrala**. |
+   | Location | Välj en region. Välj till exempel **USA, centrala**. |
    | Frågenamn | Lämna standardvärdet **antal virtuella datorer per operativ system**. |
    | Fråga kod | Låt standardvärdet vara kvar`Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
    | Beskrivning av fråga | Lämna standardvärdet **den här delade frågan räknar alla virtuella dator resurser och sammanfattar av OS-typen.** |
@@ -62,7 +62,7 @@ Vissa ytterligare resurser:
 
 - Du hittar fler exempel på mallar i [Azure snabb starts mall](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Om du vill se mal linne Reference går du till [referens för Azure-mallar](/azure/templates/microsoft.resourcegraph/allversions).
-- Information om hur du utvecklar Resource Manager-mallar finns i [Azure Resource Manager-dokumentation](../../azure-resource-manager/management/overview.md).
+- Information om hur du utvecklar ARM-mallar finns i [Azure Resource Manager-dokumentation](../../azure-resource-manager/management/overview.md).
 - Information om distribution på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen

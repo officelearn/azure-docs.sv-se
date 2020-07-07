@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80410490"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
@@ -70,7 +70,7 @@ En RADIUS-server kan också integreras med andra externa identitets system. Dett
 
 ![punkt-till-plats](./media/point-to-site-about/p2s.png "Punkt-till-plats")
 
-## <a name="what-are-the-client-configuration-requirements"></a>Vilka är klient konfigurations kraven?
+## <a name="what-are-the-client-configuration-requirements"></a>Vilka är klientkonfigurationskraven?
 
 >[!NOTE]
 >För Windows-klienter måste du ha administratörs behörighet på klient enheten för att kunna initiera VPN-anslutningen från klient enheten till Azure.

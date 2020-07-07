@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72436046"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installera TmaxSoft OpenFrame på Azure
@@ -96,7 +96,7 @@ Sol förmörkelse för Windows: en utvecklings plattform som stöds av TmaxSoft<
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Planera på att ägna några dagar åt att sätta samman all nödvändig program vara och slutföra alla manuella processer.
 
@@ -104,11 +104,11 @@ Innan du börjar ska du göra följande:
 
 - Hämta installations mediet för OpenFrame från TmaxSoft. Om du är en befintlig TmaxSoft-kund kontaktar du din TmaxSoft-representant för en licensierad kopia. Annars kan du begära en utvärderings version från [TmaxSoft](https://www.tmaxsoft.com/contact/).
 
-- Begär den OpenFrame-dokumentationen genom att skicka <support@tmaxsoft.com>e-post till.
+- Begär den OpenFrame-dokumentationen genom att skicka e-post till <support@tmaxsoft.com> .
 
 - Skaffa en Azure-prenumeration om du inte redan har en. Du kan också skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Valfri. Konfigurera en plats-till-plats-VPN-tunnel eller en hopp som begränsar åtkomsten till den virtuella Azure-datorn till de användare som tillåts i din organisation. Det här steget är inte obligatoriskt, men det är en bra metod.
+- Valfritt. Konfigurera en plats-till-plats-VPN-tunnel eller en hopp som begränsar åtkomsten till den virtuella Azure-datorn till de användare som tillåts i din organisation. Det här steget är inte obligatoriskt, men det är en bra metod.
 
 ## <a name="set-up-a-vm-on-azure-for-openframe-and-tibero"></a>Konfigurera en virtuell dator på Azure för OpenFrame och Tibero
 
@@ -145,20 +145,20 @@ Du kan konfigurera OpenFrame-miljön med olika distributions mönster, men i fö
 
 Om du använder ett Windows-operativsystem behöver du PuTTYgen för att generera ett offentligt/privat nyckel par.
 
-Den offentliga nyckeln kan delas fritt, men den privata nyckeln bör hållas helt hemlig och ska aldrig delas med en annan part. När du har genererat nycklarna måste du klistra in den **offentliga SSH-nyckeln** i konfigurationen, och ladda upp den till den virtuella Linux-datorn. Den lagras inuti behöriga\_nycklar i \~/.ssh-katalogen för användar kontots Hem Katalog. Den virtuella Linux-datorn kan sedan identifiera och verifiera anslutningen när du har angett den associerade **privata SSH-nyckeln** i SSH-klienten (i vårt exempel SparaTillFil).
+Den offentliga nyckeln kan delas fritt, men den privata nyckeln bör hållas helt hemlig och ska aldrig delas med en annan part. När du har genererat nycklarna måste du klistra in den **offentliga SSH-nyckeln** i konfigurationen, och ladda upp den till den virtuella Linux-datorn. Den lagras inuti behöriga \_ nycklar i/.ssh- \~ katalogen för användar kontots Hem Katalog. Den virtuella Linux-datorn kan sedan identifiera och verifiera anslutningen när du har angett den associerade **privata SSH-nyckeln** i SSH-klienten (i vårt exempel SparaTillFil).
 
 När du ger nya individer åtkomst till den virtuella datorn: 
 
 - Varje ny person genererar egna offentliga/privata nycklar med PuTTYgen.
 - Enskilda personer lagrar sina egna privata nycklar separat och skickar informationen om den offentliga nyckeln till administratören för den virtuella datorn.
-- Administratören klistrar in innehållet i den offentliga nyckeln i filen med \~/.ssh/Authorized\_-nycklar.
+- Administratören klistrar in innehållet i den offentliga nyckeln i filen med \~ /.ssh/Authorized- \_ nycklar.
 - Den nya personen ansluter via SparaTillFil.
 
 **Så här skapar du ett offentligt/privat nyckel par**
 
-1.  Ladda ned PuTTYgen <https://www.putty.org/> från och installera det med alla standardinställningar.
+1.  Ladda ned PuTTYgen från <https://www.putty.org/> och installera det med alla standardinställningar.
 
-2.  Öppna PuTTYgen genom att leta upp katalogen SparaTillFil-installation i mappen C\\: programfiler\\.
+2.  Öppna PuTTYgen genom att leta upp katalogen SparaTillFil-installation i mappen C: \\ programfiler \\ .
 
     ![SparaTillFil-gränssnitt](media/puttygen-01.png)
 
@@ -166,7 +166,7 @@ När du ger nya individer åtkomst till den virtuella datorn:
 
     ![Dialog rutan för SparaTillFil-nyckel Generator](media/puttygen-02.png)
 
-4.  När du har genererat, sparar du både den offentliga och den privata nyckeln. Klistra in innehållet i den offentliga nyckeln i avsnittet **offentlig nyckel för SSH** i fönstret **skapa grundläggande information \> om virtuella datorer** (visas i steg 6 och 7 i föregående avsnitt).
+4.  När du har genererat, sparar du både den offentliga och den privata nyckeln. Klistra in innehållet i den offentliga nyckeln i avsnittet **offentlig nyckel för SSH** i fönstret **skapa \> grundläggande information om virtuella datorer** (visas i steg 6 och 7 i föregående avsnitt).
 
     ![Dialog rutan för SparaTillFil-nyckel Generator](media/puttygen-03.png)
 
@@ -189,11 +189,11 @@ När du ger nya individer åtkomst till den virtuella datorn:
 
 6. Öppna PuTTY.
 
-7. För **värdnamn**skriver du ditt användar namn och den offentliga IP-adress som du kopierade. Till exempel **username\@publicip**.
+7. För **värdnamn**skriver du ditt användar namn och den offentliga IP-adress som du kopierade. Till exempel **username \@ publicip**.
 
     ![Dialog rutan SparaTillFil-konfiguration](media/putty-01.png)
 
-8. Klicka på **anslutningens \> \> SSH-autentisering**i rutan **kategori** . Ange sökvägen till den **privata nyckel** filen.
+8. Klicka på **anslutningens \> SSH- \> autentisering**i rutan **kategori** . Ange sökvägen till den **privata nyckel** filen.
 
     ![Dialog rutan SparaTillFil-konfiguration](media/putty-02.png)
 
@@ -207,7 +207,7 @@ När du ger nya individer åtkomst till den virtuella datorn:
 
 Nu när den virtuella datorn har skapats och du är inloggad måste du utföra några installations steg och installera de nödvändiga för installations paketen.
 
-1. Mappa namnet **ofdemo** till den lokala IP-adressen genom att använda vi för att redigera värd filen`vi /etc/hosts`(). Under förutsättning att vår IP-adress är 192.168.96.148 ofdemo är detta före ändringen:
+1. Mappa namnet **ofdemo** till den lokala IP-adressen genom att använda vi för att redigera värd filen ( `vi /etc/hosts` ). Under förutsättning att vår IP-adress är 192.168.96.148 ofdemo är detta före ändringen:
 
     ```vi
     127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
@@ -256,7 +256,7 @@ Nu när den virtuella datorn har skapats och du är inloggad måste du utföra n
 
      - dos2unix
      - glibc
-     - glibc. i686 glibc. x86\_64
+     - glibc. i686 glibc. x86 \_ 64
      - libaio
      - ncurses
 
@@ -269,7 +269,7 @@ Nu när den virtuella datorn har skapats och du är inloggad måste du utföra n
 
      - gcc
      - gcc-c + +
-     - libaio-devel. x86\_64
+     - libaio-devel. x86 \_ 64
      - strace
      - ltrace
      - gdb
@@ -308,14 +308,14 @@ Tibero tillhandahåller flera viktiga funktioner i OpenFrame-miljön på Azure:
 **Så här installerar du Tibero**
 
 1. Kontrol lera att den binära installations filen Tibero finns och granska versions numret.
-2. Kopiera Tibero-programvaran till Tibero-användarkontot (oframe). Ett exempel:
+2. Kopiera Tibero-programvaran till Tibero-användarkontot (oframe). Till exempel:
 
     ```
     [oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
     [oframe7@ofdemo ~]$ mv license.xml /opt/tmaxdb/tibero6/license/
     ```
 
-3. Öppna. bash\_-profilen i vi`vi .bash_profile`() och klistra in följande i den:
+3. Öppna. bash- \_ profilen i vi ( `vi .bash_profile` ) och klistra in följande i den:
 
     ```
     # Tibero6 ENV
@@ -331,14 +331,14 @@ Tibero tillhandahåller flera viktiga funktioner i OpenFrame-miljön på Azure:
     source .bash_profile
     ```
 
-5. Generera tips filen (en konfigurations fil för Tibero) och öppna den sedan i vi. Ett exempel:
+5. Generera tips filen (en konfigurations fil för Tibero) och öppna den sedan i vi. Till exempel:
 
     ```
     [oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
     [oframe7@ofdemo ~]$ vi $TB_HOME/config/$TB_SID.tip
     ```
 
-6. Ändra \$TB\_Home/client/config/tbdsn. TBR och Lägg 127.0.0.1 i stället oflocalhost som visas:
+6. Ändra \$ TB \_ Home/client/config/tbdsn. TBR och Lägg 127.0.0.1 i stället oflocalhost som visas:
 
     ```
     TVSAM=( 
@@ -386,14 +386,14 @@ Tibero tillhandahåller flera viktiga funktioner i OpenFrame-miljön på Azure:
      ******************************************************************************
     ```
 
-8. Om du vill återvinna Tibero måste du först stänga av den `tbdown` med kommandot. Ett exempel:
+8. Om du vill återvinna Tibero måste du först stänga av den med `tbdown` kommandot. Till exempel:
 
     ```
     [oframe7@ofdemo ~]$$ tbdown 
     Tibero instance terminated (NORMAL mode).
     ```
 
-9. Starta Tibero med `tbboot`. Ett exempel:
+9. Starta Tibero med `tbboot` . Till exempel:
 
     ```
     [oframe7@ofdemo ~]$ tbboot
@@ -440,19 +440,19 @@ Program i OpenFrame kommunicerar med Tibero-databasen med hjälp av det ODBC-API
 
 Så här installerar du ODBC:
 
-1. Kontrol lera att installations filen unixODBC-2.3.4. tjär. gz finns eller Använd `wget unixODBC-2.3.4.tar.gz` kommandot. Ett exempel:
+1. Kontrol lera att installations filen unixODBC-2.3.4. tjär. gz finns eller Använd `wget unixODBC-2.3.4.tar.gz` kommandot. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
      ```
 
-2. Zippa upp binärfilen. Ett exempel:
+2. Zippa upp binärfilen. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf unixODBC-2.3.4.tar.gz
      ```
 
-3. Navigera till unixODBC-2.3.4-katalogen och generera make med hjälp av kontrollens maskin information. Ett exempel:
+3. Navigera till unixODBC-2.3.4-katalogen och generera make med hjälp av kontrollens maskin information. Till exempel:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
@@ -462,13 +462,13 @@ Så här installerar du ODBC:
 
 4. Kör make:`[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
-5. Kopiera den körbara filen i program katalogen efter kompilering. Ett exempel:
+5. Kopiera den körbara filen i program katalogen efter kompilering. Till exempel:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ make install
      ```
 
-6. Använd vi för att redigera bash-profilen`vi ~/.bash_profile`() och Lägg till följande:
+6. Använd vi för att redigera bash-profilen ( `vi ~/.bash_profile` ) och Lägg till följande:
 
      ```
      # UNIX ODBC ENV 
@@ -479,7 +479,7 @@ Så här installerar du ODBC:
      export ODBCSYSINI=$HOME
      ```
 
-7. Använd ODBC. Redigera följande filer på motsvarande sätt. Ett exempel:
+7. Använd ODBC. Redigera följande filer på motsvarande sätt. Till exempel:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
@@ -543,7 +543,7 @@ Den grundläggande program servern installeras före de enskilda tjänster som O
 
 **Så här installerar du OpenFrame Base**
 
-1. Kontrol lera att Tibero-installationen har slutförts och kontrol lera att det\_finns\_en\_konfigurations fil för OpenFrame-Base7 0 Linux\_x86\_64. bin och bas. Properties.
+1. Kontrol lera att Tibero-installationen har slutförts och kontrol lera att det finns en konfigurations fil för OpenFrame- \_ Base7 \_ 0 \_ Linux \_ x86 \_ 64. bin och bas. Properties.
 
 2. Uppdatera bash-profilen med följande Tibero information:
 
@@ -559,7 +559,7 @@ Den grundläggande program servern installeras före de enskilda tjänster som O
      ```
 
 3. Kör bash-profilen:`[oframe7@ofdemo ~]$ . .bash_profile`
-4. Se till att Tibero-processerna körs. Ett exempel:
+4. Se till att Tibero-processerna körs. Till exempel:
 
      ```linux
      [oframe7@ofdemo ~]$ ps -ef|grep tbsvr
@@ -602,7 +602,7 @@ Den grundläggande program servern installeras före de enskilda tjänster som O
      OPENFRAME_LICENSE_PATH=/opt/tmaxapp/license/OPENFRAME TMAX_LICENSE_PATH=/opt/tmaxapp/license/TMAX
      ```
 
-7. Kör installations programmet med hjälp av filen Base. Properties. Ett exempel:
+7. Kör installations programmet med hjälp av filen Base. Properties. Till exempel:
 
     ```
     [oframe7@ofdemo ~]$ chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin 
@@ -611,7 +611,7 @@ Den grundläggande program servern installeras före de enskilda tjänster som O
 
     När det är klart är meddelandet installationen slutförd diplayed.
 
-8. Verifiera bas katalog strukturen för OpenFrame med `ls -ltr` kommandot. Ett exempel:
+8. Verifiera bas katalog strukturen för OpenFrame med `ls -ltr` kommandot. Till exempel:
 
      ```
      [oframe7@ofdemo OpenFrame]$ ls -ltr
@@ -677,7 +677,7 @@ Batch-bildruta består av flera komponenter som simulerar stordatorer och använ
 
 **Installera batch**
 
-1. Kontrol lera att den grundläggande installationen lyckades och kontrol lera att OpenFrame\_Batch7\_0\_Fix2\_MVS\_Linux\_x86\_64. bin Installer-filen och batch. Properties-konfigurationsfilen finns:
+1. Kontrol lera att den grundläggande installationen lyckades och kontrol lera att OpenFrame \_ Batch7 \_ 0 \_ Fix2 \_ MVS \_ Linux \_ x86 \_ 64. bin Installer-filen och batch. Properties-konfigurationsfilen finns:
 
 2. I kommando tolken skriver `vi batch.properties` du för att redigera batch. Properties-filen med hjälp av vi.
 
@@ -706,7 +706,7 @@ Batch-bildruta består av flera komponenter som simulerar stordatorer och använ
      ./OpenFrame_Batch7_0_Fix2_MVS_Linux_x86_64.bin -f batch.properties
      ```
 
-5. När installationen är klar startar du de installerade OpenFrame-paketen genom `tmboot` att skriva i kommando tolken.
+5. När installationen är klar startar du de installerade OpenFrame-paketen genom att skriva `tmboot` i kommando tolken.
 
     ![tmboot-utdata](media/tmboot-01.png)
 
@@ -765,8 +765,8 @@ TACF Manager är en OpenFrame service-modul som styr användar åtkomsten till s
 
 **Så här installerar du TACF**
 
-1. Kontrol lera att OpenFrame\_Tacf7\_0\_Fix2\_Linux\_x86\_64. bin Installer-filen och TACF. Properties-konfigurationsfilen finns.
-2. Se till att batch-installationen lyckades och Använd sedan vi för att öppna filen TACF. Properties`vi tacf.properties`().
+1. Kontrol lera att OpenFrame \_ Tacf7 \_ 0 \_ Fix2 \_ Linux \_ x86 \_ 64. bin Installer-filen och TACF. Properties-konfigurationsfilen finns.
+2. Se till att batch-installationen lyckades och Använd sedan vi för att öppna filen TACF. Properties ( `vi tacf.properties` ).
 3. Ändra parametrarna för TACF:
 
      ```
@@ -849,7 +849,7 @@ TACF Manager är en OpenFrame service-modul som styr användar åtkomsten till s
      TMBOOT: SVR(tmsvr) is starting: Wed Sep  7 17:48:53 2016
      ```
 
-7. Kontrol lera att process statusen är klar med `tmadmin` i `si` kommandot. Ett exempel:
+7. Kontrol lera att process statusen är klar med `tmadmin` i `si` kommandot. Till exempel:
 
      ```
      [oframe7\@ofdemo \~]\$ tmadmin
@@ -909,7 +909,7 @@ Prosorteringen är ett verktyg som används i batch-transaktioner för att sorte
 
 **Installera prosorteringen**
 
-1. Kontrol lera att batch-installationen lyckades och kontrol lera att installations filen för **prosort-bin-prosorten\_2sp3-linux64-2123-opt. tjär. gz** finns.
+1. Kontrol lera att batch-installationen lyckades och kontrol lera att installations filen för **prosort-bin-prosorten \_ 2sp3-linux64-2123-opt. tjär. gz** finns.
 
 2. Kör installations programmet med hjälp av egenskaps filen. Skriv följande i kommandotolken:
 
@@ -923,7 +923,7 @@ Prosorteringen är ett verktyg som används i batch-transaktioner för att sorte
      mv prosort /opt/tmaxapp/prosort
      ```
 
-4. Skapa en licens under katalog och kopiera licens filen där. Ett exempel:
+4. Skapa en licens under katalog och kopiera licens filen där. Till exempel:
 
      ```
      cd /opt/tmaxapp/prosort 
@@ -931,7 +931,7 @@ Prosorteringen är ett verktyg som används i batch-transaktioner för att sorte
      cp /opt/tmaxsw/oflicense/prosort/license.xml /opt/tmaxapp/prosort/license
      ```
 
-5. Öppna bash. Profile i vi (`vi .bash_profile`) och uppdatera den på följande sätt:
+5. Öppna bash. Profile i vi ( `vi .bash_profile` ) och uppdatera den på följande sätt:
 
      ```bash
      #       PROSORT
@@ -947,7 +947,7 @@ Prosorteringen är ett verktyg som används i batch-transaktioner för att sorte
 
 6. Om du vill köra bash-profilen skriver du följande i kommando tolken:`. .bash_profile`
 
-7. Skapa konfigurations filen. Ett exempel:
+7. Skapa konfigurations filen. Till exempel:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/prosort/config 
@@ -956,14 +956,14 @@ Prosorteringen är ett verktyg som används i batch-transaktioner för att sorte
       /home/oframe7/prosort/config/gbg.tip generated
      ```
 
-8. Skapa den symboliska länken. Ett exempel:
+8. Skapa den symboliska länken. Till exempel:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/OpenFrame/util/ 
      oframe@oframe7home/oframe7/OpenFrame/util :  ln -s DFSORT SORT
      ```
 
-9. Verifiera prosorterings installationen genom att köra `prosort -h` kommandot. Ett exempel:
+9. Verifiera prosorterings installationen genom att köra `prosort -h` kommandot. Till exempel:
 
      ```
      oframe@oframe7: prosort -h
@@ -983,7 +983,7 @@ OFCOBOL är OpenFrame compiler som tolkar stordator programmets COBOL-program.
 
 **Så här installerar du OFCOBOL**
 
-1. Kontrol lera att batch-/online-installationen har slutförts och kontrol lera sedan\_att\_filen\_OpenFrame\_COBOL3\_0 40\_Linux x86 64. bin finns.
+1. Kontrol lera att batch-/online-installationen har slutförts och kontrol lera sedan att filen OpenFrame \_ COBOL3 \_ 0 \_ 40 \_ Linux \_ x86 \_ 64. bin finns.
 
 2. Om du vill köra installations programmet för OFCOBOL skriver du följande i kommando tolken:
 
@@ -1017,18 +1017,18 @@ OFCOBOL är OpenFrame compiler som tolkar stordator programmets COBOL-program.
      PRESS <ENTER> TO EXIT THE INSTALLER
      ```
 
-5. Öppna bash-profilen i vi (`vi .bash_profile`) och kontrol lera att har uppdaterats med OFCOBOL-variabler.
+5. Öppna bash-profilen i vi ( `vi .bash_profile` ) och kontrol lera att har uppdaterats med OFCOBOL-variabler.
 6. Kör bash-profilen. Skriv följande i kommandotolken:
 
      ```
       source ~/.bash_profile
      ```
 
-7. Kopiera OFCOBOL-licensen till den installerade mappen. Ett exempel:
+7. Kopiera OFCOBOL-licensen till den installerade mappen. Till exempel:
      ```
      mv licofcob.dat $OFCOB_HOME/license
      ```
-8. Gå till konfigurations filen OpenFrame tjclrun. conf och öppna den i vi. Ett exempel:
+8. Gå till konfigurations filen OpenFrame tjclrun. conf och öppna den i vi. Till exempel:
      ```
      [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
      [oframe7@ofdemo ~]$ vi tjclrun.conf
@@ -1043,7 +1043,7 @@ OFCOBOL är OpenFrame compiler som tolkar stordator programmets COBOL-program.
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
      :${OFCOB_HOME}/lib
      ```
-9. Granska filen OpenFrame\_COBOL\_InstallLog. log i vi och kontrol lera att det inte finns några fel. Ett exempel:
+9. Granska filen OpenFrame \_ COBOL \_ InstallLog. log i vi och kontrol lera att det inte finns några fel. Till exempel:
      ```
      [oframe7@ofdemo ~]$ vi $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
      …….. 
@@ -1055,7 +1055,7 @@ OFCOBOL är OpenFrame compiler som tolkar stordator programmets COBOL-program.
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Använd `ofcob --version` kommandot och granska versions numret för att verifiera installationen. Ett exempel:
+10. Använd `ofcob --version` kommandot och granska versions numret för att verifiera installationen. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1071,9 +1071,9 @@ OFASM är en OpenFrame-kompilator som tolkar stordatorernas sammansatta program.
 
 **Så här installerar du OFASM**
 
-1. Kontrol lera att batch-/online-installationen har slutförts och kontrol lera att\_filen\_OpenFrame\_ASM3\_0\_Linux x86 64. bin är tillgänglig.
+1. Kontrol lera att batch-/online-installationen har slutförts och kontrol lera att \_ filen OpenFrame ASM3 \_ 0 \_ Linux \_ x86 \_ 64. bin är tillgänglig.
 
-2. Kör installations programmet. Ett exempel:
+2. Kör installations programmet. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ ./OpenFrame_ASM3_0_Linux_x86_64.bin
@@ -1081,7 +1081,7 @@ OFASM är en OpenFrame-kompilator som tolkar stordatorernas sammansatta program.
 
 3. Läs licens avtalet och tryck på RETUR för att fortsätta.
 4. Godkänn licens avtalet.
-5. Kontrol lera att bash-profilen har uppdaterats med OFASM-variabler. Ett exempel:
+5. Kontrol lera att bash-profilen har uppdaterats med OFASM-variabler. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ source .bash_profile
@@ -1117,7 +1117,7 @@ OFASM är en OpenFrame-kompilator som tolkar stordatorernas sammansatta program.
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
-7. Öppna filen OpenFrame\_ASM\_InstallLog. log i vi och kontrol lera att det inte finns några fel. Ett exempel:
+7. Öppna filen OpenFrame \_ ASM \_ InstallLog. log i vi och kontrol lera att det inte finns några fel. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ vi 
@@ -1152,7 +1152,7 @@ OSC är den OpenFrame-miljö som liknar IBM-CICS som stöder höghastighets OLTP
 
 **Installera OSC**
 
-1. Kontrol lera att den grundläggande installationen har slutförts och kontrol lera sedan\_att\_det\_finns\_en\_konfigurations fil för OpenFrame OSC7 0 Fix2 Linux x86\_64. bin och filen OSC. Properties.
+1. Kontrol lera att den grundläggande installationen har slutförts och kontrol lera sedan att det finns en \_ konfigurations fil för OpenFrame OSC7 \_ 0 \_ Fix2 \_ Linux \_ x86 \_ 64. bin och filen OSC. Properties.
 2. Redigera följande parametrar i filen OSC. Properties:
      ```
      OPENFRAME_HOME=/opt/tmaxapp/OpenFrame OSC_SYS_OSC_NCS_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_NCS OSC_APP_OSC_TC_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_TC
@@ -1167,7 +1167,7 @@ OSC är den OpenFrame-miljö som liknar IBM-CICS som stöder höghastighets OLTP
      När du är klar visas meddelandet "installationen har slutförts".
 
 4. Kontrol lera att bash-profilen har uppdaterats med OSC-variabler.
-5. Granska filen OpenFrame\_OSC7\_0\_Fix2\_InstallLog. log. Det bör se ut ungefär så här:
+5. Granska filen OpenFrame \_ OSC7 \_ 0 \_ Fix2 \_ InstallLog. log. Det bör se ut ungefär så här:
 
      ```
      Summary 
@@ -1180,13 +1180,13 @@ OSC är den OpenFrame-miljö som liknar IBM-CICS som stöder höghastighets OLTP
      0 FatalError
      ```
 
-6. Använd vi för att öppna konfigurations filen ofsys. SEQ. Ett exempel:
+6. Använd vi för att öppna konfigurations filen ofsys. SEQ. Till exempel:
 
      ```
      vi $OPENFRAME_HOME/config/ofsys.seq
      ```
 
-7. Redigera parametrarna \#som visas \#i bas-och batch-avsnitten.
+7. \# \# Redigera parametrarna som visas i bas-och batch-avsnitten.
 
      ```
      Before changes
@@ -1224,7 +1224,7 @@ OSC är den OpenFrame-miljö som liknar IBM-CICS som stöder höghastighets OLTP
      TPFMAGENT      tmsvr
     ```
 
-8. Kopiera licens filen. Ett exempel:
+8. Kopiera licens filen. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ cp /home/oframe7/oflicense/ofonline/licosc.dat 
@@ -1238,7 +1238,7 @@ OSC är den OpenFrame-miljö som liknar IBM-CICS som stöder höghastighets OLTP
      -rwxrwxr-x. 1 oframe mqm 80 Sep  3 11:54 lictjes.da
      ```
 
-9. För att starta och stänga av OSC, initiera det CICS regions delade minnet genom `osctdlinit OSCOIVP1` att skriva i kommando tolken.
+9. För att starta och stänga av OSC, initiera det CICS regions delade minnet genom att skriva `osctdlinit OSCOIVP1` i kommando tolken.
 
 10. Kör `oscboot` för att starta OSC. Utdata ser ut ungefär så här:
 
@@ -1254,7 +1254,7 @@ OSC är den OpenFrame-miljö som liknar IBM-CICS som stöder höghastighets OLTP
           TMBOOT: TLM(tlm) is starting: Mon Sep 12 01:40:25 2016 
      ```
 
-11. Om du vill kontrol lera att process statusen är klar använder `tmadmin` du kommandot i si. Alla processer bör Visa RDY i kolumnen **status** .
+11. Om du vill kontrol lera att process statusen är klar använder du `tmadmin` kommandot i si. Alla processer bör Visa RDY i kolumnen **status** .
 
     ![Processer som visar RDY](media/tmadmin-02.png)
 
@@ -1268,13 +1268,13 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
 
 **Installera Apache Ant**
 
-1. Hämta Ant binärt med `wget` kommandot. Ett exempel:
+1. Hämta Ant binärt med `wget` kommandot. Till exempel:
 
      ```
      wget http://apache.mirror.cdnetworks.com/ant/binaries/apacheant-1.9.7-bin.tar.gz
      ```
 
-2. Använd `tar` verktyget för att extrahera den binära filen och flytta den till en lämplig plats. Ett exempel:
+2. Använd `tar` verktyget för att extrahera den binära filen och flytta den till en lämplig plats. Till exempel:
 
      ```
      tar -xvzf apache-ant-1.9.7-bin.tar.gz
@@ -1286,7 +1286,7 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
      ln -s apache-ant-1.9.7 ant
      ```
 
-4. Öppna bash-profilen i vi (`vi .bash_profile`) och uppdatera den med följande variabler:
+4. Öppna bash-profilen i vi ( `vi .bash_profile` ) och uppdatera den med följande variabler:
 
      ```
      # Ant ENV
@@ -1294,7 +1294,7 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
      export PATH=$HOME/ant/bin:$PATH
      ```
 
-5.  Använd modifierad miljö variabel. Ett exempel:
+5.  Använd modifierad miljö variabel. Till exempel:
 
      ```
      [oframe7\@ofdemo \~]\$ source \~/.bash\_profile
@@ -1302,14 +1302,14 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
 
 **Så här installerar du JEUS**
 
-1. Expandera installations programmet med hjälp `tar` av verktyget. Ett exempel:
+1. Expandera installations programmet med hjälp av `tar` verktyget. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf jeus704.tar.gz
      ```
 
-2. Skapa en **Jeus** -mapp`mkdir jeus7`() och zippa upp binärfilen.
-3. Ändra till **installations** katalogen (eller Använd parametern JEUS för din egen miljö). Ett exempel:
+2. Skapa en **Jeus** -mapp ( `mkdir jeus7` ) och zippa upp binärfilen.
+3. Ändra till **installations** katalogen (eller Använd parametern JEUS för din egen miljö). Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ cd jeus7/setup/
@@ -1330,7 +1330,7 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
      Total time: 0 seconds
      ```
 
-5.  Gör en säkerhets kopia av filen domän-config-Template. Properties. Ett exempel:
+5.  Gör en säkerhets kopia av filen domän-config-Template. Properties. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ cp domain-config-template.properties domain-configtemplate.properties.bkp
@@ -1345,7 +1345,7 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
 7. Ändra `jeus.password=jeusadmin nodename=Tmaxsoft` till`jeus.password=tmax1234 nodename=ofdemo`
 
 8. Kör `ant install` kommandot för att bygga JEUS.
-9.  Uppdatera profil filen.\_bash med JEUS-variablerna som visas:
+9.  Uppdatera \_ profil filen. bash med JEUS-variablerna som visas:
 
      ```
      # JEUS ENV 
@@ -1353,7 +1353,7 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
      export PATH
      ```
 
-10. Kör bash-profilen. Ett exempel:
+10. Kör bash-profilen. Till exempel:
 
      ```
      [oframe7@ofdemo setup]$ . .bash_profile
@@ -1382,12 +1382,12 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
      http://<IP>:<port>/webadmin/login
      ```
 
-     Inloggnings skärmen <http://192.168.92.133:9736/webadmin/login.> visas till exempel:
+     <http://192.168.92.133:9736/webadmin/login.>Inloggnings skärmen visas till exempel:
     
      ![JEUS webadmin inloggnings skärm](media/jeus-01.png)
 
      > [!NOTE]
-     > Om du får problem med port säkerhet öppnar du Port 9736 eller inaktiverar brand väggen (`systemctl stop firewall`).
+     > Om du får problem med port säkerhet öppnar du Port 9736 eller inaktiverar brand väggen ( `systemctl stop firewall` ).
 
 14. Om du vill ändra värdnamn för server1 klickar du på **lås & redigera**och klickar sedan på **server1**. I Server-fönstret ändrar du värdnamn enligt följande:
 
@@ -1413,8 +1413,8 @@ OFGW är en OpenFrame-gateway som stöder kommunikation mellan 3270-termin Ale m
 
 **Så här installerar du OFGW**
 
-1. Kontrol lera att JEUS har installerats och kontrol lera att filen OFGW7\_0\_1\_allmän. bin-installationsprogrammet finns.
-2. Kör installations programmet. Ett exempel:
+1. Kontrol lera att JEUS har installerats och kontrol lera att \_ filen OFGW7 0 \_ 1 \_ allmän. bin-installationsprogrammet finns.
+2. Kör installations programmet. Till exempel:
 
      ```
      [oframe7@ofdemo ~]$ ./OFGW7_0_1_Generic.bin
@@ -1447,8 +1447,8 @@ OFManager tillhandahåller drift-och hanterings funktioner för OpenFrame i webb
 
 **Så här installerar du OFManager**
 
-1. Kontrol lera att filen\_OFManager7 Generic. bin Installer finns.
-2. Kör installations programmet. Ett exempel:
+1. Kontrol lera att \_ filen OFManager7 Generic. bin Installer finns.
+2. Kör installations programmet. Till exempel:
 
      ```
      OFManager7_Generic.bin

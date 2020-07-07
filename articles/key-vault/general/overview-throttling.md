@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: f32a988ec0d75ca8d8eca04e69edd7226bf283b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432091"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Riktlinjer för begränsning i Azure Key Vault
@@ -39,7 +39,7 @@ Key Vault skapades ursprungligen med de gränser som angavs i [Azure Key Vault t
 1. Om din app innehåller flera noder som behöver läsa samma hemligheter, kan du överväga att använda ett mönster för utskrivning, där en entitet läser hemligheten från Key Vault och fläktar ut till alla noder.   Cachelagra bara hämtade hemligheter i minnet.
 Om du upptäcker att ovanstående fortfarande inte uppfyller dina behov kan du fylla i tabellen nedan och kontakta oss för att ta reda på vilken ytterligare kapacitet som kan läggas till (exempel som bara beskrivs i exempel).
 
-| Valv namn | Valv region | Objekt typ (hemligt, nyckel eller certifikat) | Åtgärd (er) * | Nyckel typ | Nyckel längd eller kurva | HSM-nyckel?| RPS för stabilt tillstånd krävs | Topp-RPS krävs |
+| Valvnamn | Valv region | Objekt typ (hemligt, nyckel eller certifikat) | Åtgärd (er) * | Nyckel typ | Nyckel längd eller kurva | HSM-nyckel?| RPS för stabilt tillstånd krävs | Topp-RPS krävs |
 |--|--|--|--|--|--|--|--|--|
 | https://mykeyvault.vault.azure.net/ | | Nyckel | Tecken | EC | P-256 | Nej | 200 | 1000 |
 

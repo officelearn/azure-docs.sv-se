@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437131"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Använda Azure Data Lake Storage Gen2 URI
@@ -33,7 +33,7 @@ Om det Data Lake Storage Gen2-kapabla konto som du vill adressera **inte har** a
 
 3. **Konto namn**: det namn som angavs för ditt lagrings konto när det skapades.
 
-4. **Sökvägar**: en omvänt snedstreck avgränsad`/`med en åter givning av katalog strukturen.
+4. **Sökvägar**: en omvänt snedstreck avgränsad `/` med en åter givning av katalog strukturen.
 
 5. **Fil namn**: namnet på den enskilda filen. Den här parametern är valfri om du adresserar en katalog.
 
@@ -41,7 +41,7 @@ Men om det konto som du vill adressera anges som standard fil system när kontot
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **Sökväg**: en omvänt snedstreck (`/`) för katalog strukturen.
+1. **Sökväg**: en omvänt snedstreck ( `/` ) för katalog strukturen.
 
 2. **Fil namn**: namnet på den enskilda filen.
 

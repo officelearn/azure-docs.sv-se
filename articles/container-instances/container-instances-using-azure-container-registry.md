@@ -7,17 +7,17 @@ ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81453531"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) är en Azure-baserad, hanterad behållare register tjänst som används för att lagra privata Docker-behållar avbildningar. Den här artikeln beskriver hur du hämtar behållar avbildningar som lagras i ett Azure Container Registry när du distribuerar till Azure Container Instances. Ett rekommenderat sätt att konfigurera register åtkomst är att skapa ett Azure Active Directory tjänstens huvud namn och lösen ord och lagra inloggnings uppgifterna i ett Azure Key Vault.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 **Azure Container Registry**: du behöver ett Azure Container Registry-och minst en behållar avbildning i registret – för att slutföra stegen i den här artikeln. Om du behöver ett register kan du läsa [skapa ett behållar register med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -40,7 +40,7 @@ Om du inte redan har ett valv i [Azure Key Vault](../key-vault/general/overview.
 
 Uppdatera `RES_GROUP` variabeln med namnet på en befintlig resurs grupp där nyckel valvet ska skapas och `ACR_NAME` med namnet på behållar registret. För det kortfattat antar kommandona i den här artikeln att ditt register, nyckel valv och behållar instanser skapas i samma resurs grupp.
 
- Ange ett namn för ditt nya nyckel valv i `AKV_NAME`. Valv namnet måste vara unikt inom Azure och måste innehålla 3-24 alfanumeriska tecken, börja med en bokstav, sluta med en bokstav eller en siffra och får inte innehålla flera bindestreck.
+ Ange ett namn för ditt nya nyckel valv i `AKV_NAME` . Valv namnet måste vara unikt inom Azure och måste innehålla 3-24 alfanumeriska tecken, börja med en bokstav, sluta med en bokstav eller en siffra och får inte innehålla flera bindestreck.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -92,7 +92,7 @@ Nu kan du referera till dessa hemligheter efter namn när du eller dina program 
 
 Nu när autentiseringsuppgifterna för tjänstens huvud namn lagras i Azure Key Vault hemligheter kan dina program och tjänster använda dem för att få åtkomst till ditt privata register.
 
-Hämta först registrets inloggnings Server namn genom att använda kommandot [AZ ACR show][az-acr-show] . Inloggnings serverns namn är bara gemener och `myregistry.azurecr.io`liknar.
+Hämta först registrets inloggnings Server namn genom att använda kommandot [AZ ACR show][az-acr-show] . Inloggnings serverns namn är bara gemener och liknar `myregistry.azurecr.io` .
 
 ```azurecli
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
@@ -112,7 +112,7 @@ az container create \
     --query ipAddress.fqdn
 ```
 
-`--dns-name-label` Värdet måste vara unikt i Azure, så att föregående kommando lägger till ett slumptal i BEHÅLLARENS DNS-namn etikett. Utdata från kommandot visar containerns fullständiga domännamn (FQDN), till exempel:
+`--dns-name-label`Värdet måste vara unikt i Azure, så att föregående kommando lägger till ett slumptal i behållarens DNS-namn etikett. Utdata från kommandot visar containerns fullständiga domännamn (FQDN), till exempel:
 
 ```output
 "aci-demo-25007.eastus.azurecontainer.io"

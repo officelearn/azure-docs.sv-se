@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792220"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Hantera samtidighet i Azure Kognitiv sökning
@@ -20,9 +20,9 @@ ms.locfileid: "72792220"
 När du hanterar Azure Kognitiv sökning-resurser, till exempel index och data källor, är det viktigt att uppdatera resurserna på ett säkert sätt, särskilt om resurser kan nås samtidigt av olika komponenter i ditt program. När två klienter samtidigt uppdaterar en resurs utan samordning är det möjligt att tävla. För att förhindra detta erbjuder Azure Kognitiv sökning en *optimistisk samtidighets modell*. Det finns inga lås på en resurs. I stället finns det en ETag för varje resurs som identifierar resurs versionen så att du kan ställa förfrågningar som förhindrar oavsiktlig överskrivning.
 
 > [!Tip]
-> Konceptuell kod i en [exempel C#-lösning](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) förklarar hur samtidighets kontroller fungerar i Azure kognitiv sökning. Koden skapar villkor som anropar samtidighets kontroll. Att läsa [kodfragmentet nedan](#samplecode) är förmodligen tillräckligt för de flesta utvecklare, men om du vill köra det kan du redigera appSettings. JSON för att lägga till tjänst namnet och en Admin-API-nyckel. Med en tjänst-URL `http://myservice.search.windows.net`, är `myservice`tjänstens namn.
+> Konceptuell kod i en [exempel C#-lösning](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) förklarar hur samtidighets kontroller fungerar i Azure kognitiv sökning. Koden skapar villkor som anropar samtidighets kontroll. Att läsa [kodfragmentet nedan](#samplecode) är förmodligen tillräckligt för de flesta utvecklare, men om du vill köra det redigerar du appsettings.jspå för att lägga till tjänst namnet och en Admin-API-nyckel. Med en tjänst-URL `http://myservice.search.windows.net` , är tjänstens namn `myservice` .
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Optimistisk samtidighet implementeras genom åtkomst villkors kontroller i API-anrop för att skriva till index, indexerare, data källor och synonymMap-resurser.
 
@@ -216,6 +216,6 @@ Försök att ändra något av följande exempel för att inkludera ETags-eller A
 
 ## <a name="see-also"></a>Se även
 
-[Vanliga](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-http[-status koder](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
-för HTTP-förfrågningar och svars rubriker[(REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Vanliga HTTP-förfrågningar och svarshuvuden](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
+ [HTTP-statuskod](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
+ [Index åtgärder (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

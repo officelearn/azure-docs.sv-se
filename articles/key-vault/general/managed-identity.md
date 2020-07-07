@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432130"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Tillhandahåll Key Vault autentisering med en hanterad identitet
@@ -26,7 +26,7 @@ Den här artikeln visar hur du skapar en hanterad identitet för ett App Service
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 För att slutföra den här guiden måste du ha följande resurser. 
 
@@ -77,7 +77,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-Anteckna `PrincipalId`, som kommer att behövas i nästa avsnitt.
+Anteckna `PrincipalId` , som kommer att behövas i nästa avsnitt.
 
 ```json
 {

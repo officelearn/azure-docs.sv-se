@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72793238"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Syntax-referens för OData-uttryck för Azure Kognitiv sökning
 
-Azure Kognitiv sökning använder [OData-uttryck](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) som parametrar i API: et. Oftast används OData-uttryck för parametrarna `$orderby` och. `$filter` Dessa uttryck kan vara komplexa, som innehåller flera satser, funktioner och operatorer. Men även enkla OData-uttryck som egenskaps Sök vägar används i många delar av Azure Kognitiv sökning REST API. Sök vägs uttryck används till exempel för att referera till underordnade fält i komplexa fält överallt i API: t, till exempel när du visar underordnade fält i en [förslags](index-add-suggesters.md)funktion, en [bedömnings funktion](index-add-scoring-profiles.md), `$select` parametern eller t.o.m. [fälts ökning i Lucene-frågor](query-lucene-syntax.md).
+Azure Kognitiv sökning använder [OData-uttryck](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) som parametrar i API: et. Oftast används OData-uttryck för `$orderby` `$filter` parametrarna och. Dessa uttryck kan vara komplexa, som innehåller flera satser, funktioner och operatorer. Men även enkla OData-uttryck som egenskaps Sök vägar används i många delar av Azure Kognitiv sökning REST API. Sök vägs uttryck används till exempel för att referera till underordnade fält i komplexa fält överallt i API: t, till exempel när du visar underordnade fält i en [förslags](index-add-suggesters.md)funktion, en [bedömnings funktion](index-add-scoring-profiles.md), `$select` parametern eller T.o.m. [fälts ökning i Lucene-frågor](query-lucene-syntax.md).
 
 I den här artikeln beskrivs alla dessa former av OData-uttryck med hjälp av en formell grammatik. Det finns också ett [interaktivt diagram](#syntax-diagram) som hjälper dig att visuellt utforska grammatiken.
 
@@ -39,7 +39,7 @@ Vi kan beskriva den delmängd av OData-språket som stöds av Azure Kognitiv sö
 - [`$filter`](search-query-odata-filter.md), som definieras av `filter_expression` regeln.
 - [`$orderby`](search-query-odata-orderby.md), som definieras av `order_by_expression` regeln.
 - [`$select`](search-query-odata-select.md), som definieras av `select_expression` regeln.
-- Fält Sök vägar, som definieras `field_path` av regeln. Fält Sök vägar används i hela API: et. De kan referera till fält på den översta nivån i ett index eller under fält med ett eller flera [komplexa fält](search-howto-complex-data-types.md) överordnade.
+- Fält Sök vägar, som definieras av `field_path` regeln. Fält Sök vägar används i hela API: et. De kan referera till fält på den översta nivån i ett index eller under fält med ett eller flera [komplexa fält](search-howto-complex-data-types.md) överordnade.
 
 När EBNF är ett bläddringsbar- [syntaxfel](https://en.wikipedia.org/wiki/Syntax_diagram) som gör det möjligt att interaktivt utforska grammatiken och relationerna mellan reglerna.
 

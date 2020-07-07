@@ -3,18 +3,18 @@ title: 'Snabb start: skapa en skiss med Azure CLI'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av Azure CLI.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7d144edca0794679e67358ff820e1508736ba723
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613670"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969676"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Snabb start: definiera och tilldela en Azure Blueprint med Azure CLI
 
-När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
+Genom att lära dig hur du skapar och tilldelar ritningar kan du definiera vanliga mönster för att utveckla återanvändbara och snabbt distribuerade konfigurationer baserat på Azure Resource Manager mallar (ARM-mallar), principer, säkerhet och mycket mer. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
@@ -46,14 +46,14 @@ Det här tillägget fungerar överallt där Azure CLI kan användas, inklusive [
 
 ## <a name="create-a-blueprint"></a>Skapa en skiss
 
-Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. Vi skapar en skiss med namnet ”MyBlueprint” för att konfigurera roll- och principtilldelningar för prenumerationen. Sedan lägger vi till en resursgrupp, en Resource Manager-mall och en rolltilldelning för resursgruppen.
+Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. Vi skapar en skiss med namnet ”MyBlueprint” för att konfigurera roll- och principtilldelningar för prenumerationen. Sedan lägger vi till en resurs grupp, en ARM-mall och en roll tilldelning i resurs gruppen.
 
 > [!NOTE]
 > När du använder Azure CLI skapas _skiss_ -objektet först. För varje _artefakt_ som ska läggas till som har parametrar, måste parametrarna definieras i förväg i den första _skissen_.
 
 1. Skapa det första _skissobjektet_. Parametern **parameters** Parameters tar en JSON-fil som innehåller alla parametrar för skiss nivå. Parametrarna anges vid tilldelning och används av artefakterna som lagts till i senare steg.
 
-   - JSON-fil – blueprintparms. JSON
+   - JSON-fil – blueprintparms.jspå
 
      ```json
      {
@@ -115,7 +115,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
      ```
 
      > [!NOTE]
-     > Använd filen filnamn _skiss. JSON_ när du importerar dina skiss definitioner.
+     > Använd fil namnet _blueprint.js_ när du importerar dina skiss definitioner.
      > Det här fil namnet används när du anropar [AZ skiss-import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
 
      Skiss-objektet skapas som standard i standard prenumerationen. Om du vill ange hanterings gruppen använder du parametern **ManagementGroup**. Om du vill ange prenumerationen använder du parameter **prenumeration**.
@@ -141,7 +141,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
 1. Lägg till principtilldelning för prenumerationen. I det här exemplet används den inbyggda principen _Lägg till tagg och standardvärdet i resursgrupper_ med ett GUID på `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
-   - JSON-fil – artifacts\policyTags.json
+   - JSON-fil – artifacts\policyTags.jspå
 
      ```json
      {
@@ -168,7 +168,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
 1. Lägg till en till principtilldelning för lagringstaggen (genom att återanvända parametern _storageAccountType_) för prenumerationen. Den här ytterligare principtilldelningsartefakten visar att en parameter som definierats för skissen kan användas av mer än en artefakt. I exemplet används **storageAccountType** för att ange en tagg på resursgruppen. Det här värdet anger information om lagringskontot som skapas i nästa steg. I det här exemplet används den inbyggda principen _Lägg till tagg och standardvärdet i resursgrupper_ med ett GUID på `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
-   - JSON-fil – artifacts\policyStorageTags.json
+   - JSON-fil – artifacts\policyStorageTags.jspå
 
      ```json
      {
@@ -193,9 +193,9 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
         --parameters artifacts\policyStorageTags.json
      ```
 
-1. Lägg till en mall under resursgruppen. Parametern **Template** för en Resource Manager-mall innehåller de normala JSON-komponenterna i mallen. Mallen återanvänder även skissparametrarna **storageAccountType**, **tagName** och **tagValue** genom att dem till mallen. Skiss parametrarna är tillgängliga för mallen genom att använda parameter **parametrar** och inuti mall-JSON som nyckel/värde-par används för att mata in värdet. Namn på skiss och mall kan vara identiska.
+1. Lägg till en mall under resursgruppen. Parametern **Template** för en arm-mall innehåller de normala JSON-komponenterna i mallen. Mallen återanvänder även skissparametrarna **storageAccountType**, **tagName** och **tagValue** genom att dem till mallen. Skiss parametrarna är tillgängliga för mallen genom att använda parameter **parametrar** och inuti mall-JSON som nyckel/värde-par används för att mata in värdet. Namn på skiss och mall kan vara identiska.
 
-   - JSON Azure Resource Manager mallfil-artifacts\templateStorage.json
+   - Filen JSON ARM-mall – artifacts\templateStorage.jspå
 
      ```json
      {
@@ -249,7 +249,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
      }
      ```
 
-   - Parameter fil för JSON Azure Resource Manager Template-artifacts\templateStorageParams.json
+   - Parameter fil för JSON ARM-mall – artifacts\templateStorageParams.jspå
 
      ```json
      {
@@ -303,7 +303,7 @@ När en skiss har publicerats med Azure CLI kan den tilldelas en prenumeration. 
 
 1. Kör skissdistributionen genom att tilldela den till en prenumeration. Eftersom **deltagar** -och **ägar** parametrarna kräver en matris med objectIds av de säkerhetsobjekt som ska tilldelas roll tilldelningen använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) för att samla in objectIds för användning i **parametrarna** för dina egna användare, grupper eller tjänstens huvud namn.
 
-   - JSON-fil – blueprintAssignment. JSON
+   - JSON-fil – blueprintAssignment.jspå
 
      ```json
      {

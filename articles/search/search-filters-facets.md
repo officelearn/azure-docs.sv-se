@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792902"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Så här skapar du ett aspekt filter i Azure Kognitiv sökning 
@@ -36,21 +36,21 @@ Facets är dynamiska och returneras i en fråga. Sök svaren tar med dem de aspe
 
 FACET kan beräknas över enskilda värde fält och samlingar. Fält som fungerar bäst i fasetter-navigeringen har låg kardinalitet: ett litet antal distinkta värden som upprepas i alla dokument i Sök sökkorpus (till exempel en lista över färger, länder/regioner eller märkes namn). 
 
-Fasettering aktive ras baserat på fält när du skapar indexet genom att ange `facetable` attributet till. `true` Du bör vanligt vis också ställa `filterable` in attributet `true` på för sådana fält så att ditt sökprogram kan filtrera efter de fälten baserat på FACET som slutanvändaren väljer. 
+Fasettering aktive ras baserat på fält när du skapar indexet genom `facetable` att ange attributet till `true` . Du bör vanligt vis också ställa in `filterable` attributet på `true` för sådana fält så att ditt sökprogram kan filtrera efter de fälten baserat på FACET som slutanvändaren väljer. 
 
 När du skapar ett index med hjälp av REST API, markeras alla [fält typer](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) som kan användas i fasetten navigering som `facetable` standard:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ Numeriska fält typer: `Edm.Int32`, `Edm.Int64`,`Edm.Double`
-+ Samlingar av ovanstående typer (till exempel `Collection(Edm.String)` eller) `Collection(Edm.Double)`
++ Numeriska fält typer: `Edm.Int32` , `Edm.Int64` ,`Edm.Double`
++ Samlingar av ovanstående typer (till exempel `Collection(Edm.String)` eller `Collection(Edm.Double)` )
 
-Du kan inte `Edm.GeographyPoint` använda `Collection(Edm.GeographyPoint)` eller fält i en fasett-navigering. FACET fungerar bäst på fält med låg kardinalitet. På grund av upplösningen av geo-koordinater är det sällsynt att två uppsättningar av co-koordinater kommer att vara identiska i en specifik data uppsättning. Därför stöds inte FACET för geo-koordinater. Du behöver ett stads-eller region fält för att fasetta efter plats.
+Du kan inte använda `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)` fält i en fasett-navigering. FACET fungerar bäst på fält med låg kardinalitet. På grund av upplösningen av geo-koordinater är det sällsynt att två uppsättningar av co-koordinater kommer att vara identiska i en specifik data uppsättning. Därför stöds inte FACET för geo-koordinater. Du behöver ett stads-eller region fält för att fasetta efter plats.
 
 ## <a name="set-attributes"></a>Ange attribut
 
-Indexera attribut som styr hur ett fält används läggs till i definitioner för enskilda fält i indexet. I följande exempel kan fält med låg kardinalitet, vara användbara för fasettering, bestå av: `category` (hotell, Motel, Hostel), `tags`och `rating`. Dessa fält har `filterable` attributen `facetable` och anges uttryckligen i följande exempel för att illustrera vad som är avsett. 
+Indexera attribut som styr hur ett fält används läggs till i definitioner för enskilda fält i indexet. I följande exempel kan fält med låg kardinalitet, vara användbara för fasettering, bestå av: `category` (hotell, Motel, Hostel), `tags` och `rating` . Dessa fält har `filterable` `facetable` attributen och anges uttryckligen i följande exempel för att illustrera vad som är avsett. 
 
 > [!Tip]
 > Som bästa praxis för prestanda-och lagrings optimering kan du inaktivera fasettering för fält som aldrig ska användas som aspekt. I synnerhet bör sträng fält för unika värden, t. ex. ett ID eller ett produkt namn, ställas in på `"facetable": false` för att förhindra att deras oavsiktliga (och ineffektiva) användning används i en fasett-navigering.
@@ -77,7 +77,7 @@ Indexera attribut som styr hur ett fält används läggs till i definitioner fö
 ```
 
 > [!Note]
-> Den här index definitionen kopieras från [skapa ett Azure kognitiv sökning-index med hjälp av REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiskt med undantag för ytliga skillnader i fält definitionerna. `filterable` Attributen `facetable` och läggs uttryckligen till i `category` `tags` `parkingIncluded` `smokingAllowed`fälten,,, och `rating` . I praktiken `filterable` och `facetable` aktive ras som standard i de här fälten när du använder REST API. När du använder .NET SDK måste dessa attribut aktive ras explicit.
+> Den här index definitionen kopieras från [skapa ett Azure kognitiv sökning-index med hjälp av REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiskt med undantag för ytliga skillnader i fält definitionerna. `filterable` `facetable` Attributen och läggs uttryckligen till i fälten,,, `category` `tags` `parkingIncluded` `smokingAllowed` och `rating` . I praktiken `filterable` och `facetable` aktive ras som standard i de här fälten när du använder REST API. När du använder .NET SDK måste dessa attribut aktive ras explicit.
 
 ## <a name="build-and-load-an-index"></a>Bygga och läsa in ett index
 
@@ -98,7 +98,7 @@ var sp = new SearchParameters()
 
 ### <a name="return-filtered-results-on-click-events"></a>Returnera filtrerade resultat vid klicknings händelser
 
-När slutanvändaren klickar på ett fasett-värde, ska hanteraren för händelsen Klickning använda ett filter uttryck för att använda ett filter uttryck för att realisera användarens avsikt. Om du `category` har fått en aspekt klickar du på kategorin "Motel" implementeras med ett uttryck som väljer en `$filter` typ av anpassningar. När en användare klickar på "Motel" för att ange att endast Motels ska visas, innehåller `$filter=category eq 'motel'`nästa fråga som programmet skickar.
+När slutanvändaren klickar på ett fasett-värde, ska hanteraren för händelsen Klickning använda ett filter uttryck för att använda ett filter uttryck för att realisera användarens avsikt. `category`Om du har fått en aspekt klickar du på kategorin "Motel" implementeras med ett `$filter` uttryck som väljer en typ av anpassningar. När en användare klickar på "Motel" för att ange att endast Motels ska visas, innehåller nästa fråga som programmet skickar `$filter=category eq 'motel'` .
 
 Följande kodfragment lägger till kategori till filtret om en användare väljer ett värde från kategori aspekten.
 
@@ -107,7 +107,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-Om användaren klickar på ett fasett-värde för ett samlings fält `tags`, till exempel värdet "pool", ska programmet använda följande syntax:`$filter=tags/any(t: t eq 'pool')`
+Om användaren klickar på ett fasett-värde för ett samlings fält `tags` , till exempel värdet "pool", ska programmet använda följande syntax:`$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Tips och lösningar
 

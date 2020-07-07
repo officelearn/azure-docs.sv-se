@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
 ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743991"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Snabb start: ansluta till en virtuell dator med en privat IP-adress och Azure skydds
 
 Den här snabb starts artikeln visar hur du ansluter till en virtuell dator med en privat IP-adress. När du ansluter via skydds behöver inte de virtuella datorerna någon offentlig IP-adress. Stegen i den här artikeln hjälper dig att distribuera skydds till ditt virtuella nätverk via den virtuella datorn i portalen. När tjänsten har tillhandahållits är RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk.
 
-## <a name="prerequisites"></a><a name="prereq"></a>Krav
+## <a name="prerequisites"></a><a name="prereq"></a>Förutsättningar
 
 * Ett virtuellt Azure-nätverk.
 * En virtuell Azure-dator som finns i det virtuella nätverket med port 3389 öppen.

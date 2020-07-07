@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437004"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrera Apache Kafka-arbetsbelastningar till Azure HDInsight 4,0
@@ -54,7 +54,7 @@ En fullständig lista över uppdateringar finns i [Apache Kafka 2,0 viktig infor
 
 ## <a name="kafka-client-compatibility"></a>Kompatibilitet för Kafka-klient
 
-Nya Kafka-mäklare har stöd för äldre klienter. [Oppa över-35 – hämtning av protokoll version](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introducerade en mekanism för dynamisk bestämning av funktionaliteten hos en Kafka [-Broker och oppa över-97: den förbättrade-klienten för klient-RPC](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) introducerade en ny autentiseringsprincip och garanterar Java-klienten. Tidigare var Kafka-klienten tvungen att samverka med en Broker av samma version eller en nyare version. Nu kan nyare versioner av Java-klienter och andra klienter som `librdkafka` har stöd för oppa över-35 som kan återgå till äldre typer av förfrågningar eller utlösa lämpliga fel om funktionen inte är tillgänglig.
+Nya Kafka-mäklare har stöd för äldre klienter. [Oppa över-35 – hämtning av protokoll version](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introducerade en mekanism för dynamisk bestämning av funktionaliteten hos en Kafka [-Broker och oppa över-97: den förbättrade-klienten för klient-RPC](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) introducerade en ny autentiseringsprincip och garanterar Java-klienten. Tidigare var Kafka-klienten tvungen att samverka med en Broker av samma version eller en nyare version. Nu kan nyare versioner av Java-klienter och andra klienter som har stöd för oppa över-35 som `librdkafka` kan återgå till äldre typer av förfrågningar eller utlösa lämpliga fel om funktionen inte är tillgänglig.
 
 ![Uppgradera Kafka-klientens kompatibilitet](./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png)
 

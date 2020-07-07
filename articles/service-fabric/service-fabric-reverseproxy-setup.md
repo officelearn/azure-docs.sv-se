@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80476666"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurera och konfigurera omvänd proxy i Azure Service Fabric
@@ -154,7 +154,7 @@ När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande
 
 ## <a name="enable-reverse-proxy-on-standalone-clusters"></a>Aktivera omvänd proxy i fristående kluster
 
-För fristående kluster aktiverar du omvänd proxy i filen ClusterConfig. JSON. Du kan aktivera omvänd proxy när klustret skapas eller genom att uppgradera konfigurationen för ett befintligt kluster. Mer information om inställningarna som är tillgängliga i ClusterConfig. JSON-filer finns i [Inställningar för fristående kluster](./service-fabric-cluster-manifest.md).
+För fristående kluster aktiverar du omvänd proxy i ClusterConfig.jspå filen. Du kan aktivera omvänd proxy när klustret skapas eller genom att uppgradera konfigurationen för ett befintligt kluster. Mer information om inställningarna som är tillgängliga i ClusterConfig.jspå filer finns i [Inställningar för fristående kluster](./service-fabric-cluster-manifest.md).
 
 Följande steg visar vilka inställningar som ska användas för att aktivera omvänd proxy och eventuellt för att skydda den omvända proxyn med ett X. 509-certifikat. 
 
@@ -221,7 +221,7 @@ Följande steg visar vilka inställningar som ska användas för att aktivera om
 
    Om du vill veta mer om hur du konfigurerar och hanterar certifikat för ett fristående kluster, samt mer information om hur du konfigurerar certifikat som används för att skydda omvänd proxy, se [X509-certifikatbaserad säkerhet](./service-fabric-windows-cluster-x509-security.md).
 
-När du har ändrat din ClusterConfig. JSON-fil för att aktivera omvänd proxy, följer du anvisningarna i [uppgradera kluster konfigurationen](service-fabric-cluster-config-upgrade-windows-server.md) för att skicka ändringarna till klustret.
+När du har ändrat din ClusterConfig.jspå fil för att aktivera omvänd proxy, följer du anvisningarna i [uppgradera kluster konfigurationen](service-fabric-cluster-config-upgrade-windows-server.md) för att skicka ändringarna till klustret.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Exponera omvänd proxy på en offentlig port via Azure Load Balancer
@@ -300,7 +300,7 @@ Följande JSON refererar till samma mall som används i [Aktivera omvänd proxy 
 
 ## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Anpassa beteendet för omvänd proxy med hjälp av infrastruktur inställningar
 
-Du kan anpassa beteendet för omvänd proxy via infrastruktur inställningarna i Resource Manager-mallen för kluster som finns i Azure eller i ClusterConfig. JSON-filen för fristående kluster. Inställningar som styr beteendet för omvänd proxy finns i avsnittet [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) i avsnittet **fabricSettings** under avsnittet kluster **Egenskaper** . 
+Du kan anpassa beteendet för omvänd proxy via infrastruktur inställningarna i Resource Manager-mallen för kluster som finns i Azure eller i ClusterConfig.jspå fil för fristående kluster. Inställningar som styr beteendet för omvänd proxy finns i avsnittet [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) i avsnittet **fabricSettings** under avsnittet kluster **Egenskaper** . 
 
 Du kan till exempel ange värdet för **DefaultHttpRequestTimeout** för att ange tids gränsen för begär anden till den omvända proxyn till 180 sekunder som i följande JSON:
 

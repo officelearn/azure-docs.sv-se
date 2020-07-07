@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536309"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Kundhanterad nyckeldiskkryptering
@@ -35,7 +35,7 @@ Du kan använda Azure Portal eller Azure CLI för att på ett säkert sätt rote
 |Kluster typ |OS-disk (hanterad disk) |Data disk (hanterad disk) |Temporär data disk (lokal SSD) |
 |---|---|---|---|
 |Kafka, HBase med accelererade skrivningar|[SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|SSE-kryptering + valfri CMK-kryptering|Valfri CMK-kryptering|
-|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|SSE-kryptering|Ej tillämpligt|Valfri CMK-kryptering|
+|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|SSE-kryptering|Saknas|Valfri CMK-kryptering|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Kom igång med Kundhanterade nycklar
 
@@ -62,7 +62,7 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
 ## <a name="create-key"></a>Skapa nyckel
 
-1. Från det nya nyckel valvet navigerar du till **Inställningar** > **nycklar** > **+ generera/importera**.
+1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **nycklar**  >  **+ generera/importera**.
 
     ![Generera en ny nyckel i Azure Key Vault](./media/disk-encryption/create-new-key.png "Generera en ny nyckel i Azure Key Vault")
 
@@ -80,7 +80,7 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
 ## <a name="create-access-policy"></a>Skapa åtkomst princip
 
-1. Från det nya nyckel valvet navigerar du till **Inställningar** > **åtkomst principer** > **+ Lägg till åtkomst princip**.
+1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **åtkomst principer**  >  **+ Lägg till åtkomst princip**.
 
     ![Skapa ny princip för Azure Key Vault åtkomst](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -153,7 +153,7 @@ New-AzResourceGroupDeployment `
   -managedIdentityName $managedIdentityName
 ```
 
-Innehållet i resurs hanterings mal len `azuredeploy.json`:
+Innehållet i resurs hanterings mal len `azuredeploy.json` :
 
 ```json
 {

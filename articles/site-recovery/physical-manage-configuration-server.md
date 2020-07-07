@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478976"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för fysiska servrar
@@ -20,7 +20,7 @@ Du konfigurerar en lokal konfigurations server när du använder tjänsten [Azur
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I tabellen sammanfattas kraven för distribution av den lokala konfigurations servern.
 
@@ -47,7 +47,7 @@ I tabellen sammanfattas kraven för distribution av den lokala konfigurations se
 Den senaste versionen av konfigurations serverns installations fil finns på Site Recovery Portal. Dessutom kan den hämtas direkt från [Microsoft Download Center](https://aka.ms/unifiedsetup).
 
 1. Logga in på Azure Portal och bläddra till Recovery Services-valvet.
-2. Bläddra till **Site Recovery infrastruktur** > **konfigurations servrar** (under för VMware & fysiska datorer).
+2. Bläddra till **Site Recovery infrastruktur**  >  **konfigurations servrar** (under för VMware & fysiska datorer).
 3. Klicka på knappen **+ servrar** .
 4. På sidan **Lägg till Server** klickar du på knappen Ladda ned för att ladda ned registrerings nyckeln. Du behöver den här nyckeln under installationen av konfigurations servern för att registrera den med Azure Site Recovery-tjänsten.
 5. Klicka på länken **hämta Microsoft Azure Site Recovery Unified setup** för att ladda ned den senaste versionen av konfigurations servern.
@@ -71,7 +71,7 @@ Den senaste versionen av konfigurations serverns installations fil finns på Sit
      ![Brandvägg](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
 
-    ![Krav](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Förutsättningar](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -87,7 +87,7 @@ Den senaste versionen av konfigurations serverns installations fil finns på Sit
 11. I **Sammanfattning** granskar du informationen och klickar på **Installera**. När installationen är klar skapas en lösenfras. Du behöver den när du aktiverar replikering. Kopiera lösenfrasen och förvara den på en säker plats.
 
 
-När registreringen är klar visas servern på bladet **Inställningar** > **servrar** i valvet.
+När registreringen är klar visas servern på bladet **Inställningar**  >  **servrar** i valvet.
 
 
 ## <a name="install-from-the-command-line"></a>Installera från kommando raden
@@ -110,20 +110,20 @@ Kör installations filen på följande sätt:
 
 |Parameternamn| Typ | Beskrivning| Värden|
 |-|-|-|-|
-| /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
-|/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
-|/MySQLCredsFilePath|Krävs|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
-|/VaultCredsFilePath|Krävs|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
-|/EnvType|Krävs|Typ av miljö som du vill skydda |VMware<br>NonVMware|
-|/PSIP|Krävs|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
-|/CSIP|Krävs|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
-|/PassphraseFilePath|Krävs|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
-|/BypassProxy|Valfri|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
-|/ProxySettingsFilePath|Valfri|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
-|DataTransferSecurePort|Valfri|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
-|/SkipSpaceCheck|Valfri|Hoppa över utrymmeskontroll för cachedisk| |
-|/AcceptThirdpartyEULA|Krävs|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
-|/ShowThirdpartyEULA|Valfri|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
+| /ServerMode|Obligatorisk|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
+|/InstallLocation|Obligatorisk|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
+|/MySQLCredsFilePath|Obligatorisk|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
+|/VaultCredsFilePath|Obligatorisk|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
+|/EnvType|Obligatorisk|Typ av miljö som du vill skydda |VMware<br>NonVMware|
+|/PSIP|Obligatorisk|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
+|/CSIP|Obligatorisk|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
+|/PassphraseFilePath|Obligatorisk|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
+|/BypassProxy|Valfritt|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
+|/ProxySettingsFilePath|Valfritt|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
+|DataTransferSecurePort|Valfritt|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
+|/SkipSpaceCheck|Valfritt|Hoppa över utrymmeskontroll för cachedisk| |
+|/AcceptThirdpartyEULA|Obligatorisk|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
+|/ShowThirdpartyEULA|Valfritt|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
 
 
 
@@ -151,7 +151,7 @@ ProxyPassword="Password"
 Du kan ändra proxyinställningarna för Configuration Server-datorn på följande sätt:
 
 1. Logga in på konfigurations servern.
-2. Starta cspsconfigtool. exe med hjälp av genvägen på Skriv bordet.
+2. Starta cspsconfigtool.exe med hjälp av genvägen på Skriv bordet.
 3. Klicka på fliken **valv registrering** .
 4. Hämta en ny valv registrerings fil från portalen och ange den som indata för verktyget.
 
@@ -172,7 +172,7 @@ Du kan ändra proxyinställningarna för Configuration Server-datorn på följan
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Omregistrera en konfigurations server med samma valv
 1. Logga in på konfigurations servern.
-2. Starta cspsconfigtool. exe med hjälp av genvägen på Skriv bordet.
+2. Starta cspsconfigtool.exe med hjälp av genvägen på Skriv bordet.
 3. Klicka på fliken **valv registrering** .
 4. Ladda ned en ny registrerings fil från portalen och ange den som indata för verktyget.
       ![registrera-konfiguration-Server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
@@ -202,7 +202,7 @@ Du kan ändra proxyinställningarna för Configuration Server-datorn på följan
     reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
     net stop dra
     ```
-3. Starta cspsconfigtool. exe med hjälp av genvägen på Skriv bordet.
+3. Starta cspsconfigtool.exe med hjälp av genvägen på Skriv bordet.
 4. Klicka på fliken **valv registrering** .
 5. Ladda ned en ny registrerings fil från portalen och ange den som indata för verktyget.
 6. Ange information om proxyservern och klicka på knappen **Registrera** .  
@@ -217,7 +217,7 @@ Du kan ändra proxyinställningarna för Configuration Server-datorn på följan
 
 ## <a name="upgrade-a-configuration-server"></a>Uppgradera en konfigurations Server
 
-Du kör samlade uppdateringar för att uppdatera konfigurations servern. Uppdateringar kan tillämpas för upp till N-4-versioner. Ett exempel:
+Du kör samlade uppdateringar för att uppdatera konfigurations servern. Uppdateringar kan tillämpas för upp till N-4-versioner. Till exempel:
 
 - Om du kör 9,7, 9,8, 9,9 eller 9,10 – kan du uppgradera direkt till 9,11.
 - Om du kör 9,6 eller tidigare och du vill uppgradera till 9,11 måste du först uppgradera till version 9,7. före 9,11.
@@ -242,7 +242,7 @@ Uppgradera servern på följande sätt:
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Ta bort konfigurations servern från Azure Portal
-1. I Azure Portal bläddrar du till **Site Recovery infrastruktur** > **konfigurations servrar** från menyn valv.
+1. I Azure Portal bläddrar du till **Site Recovery infrastruktur**  >  **konfigurations servrar** från menyn valv.
 2. Klicka på den konfigurations server som du vill inaktivera.
 3. Klicka på knappen **ta bort** på sidan information om konfigurations servern.
 4. Bekräfta borttagningen av servern genom att klicka på **Ja** .
@@ -303,7 +303,7 @@ För distributioner av Configuration server före maj 2016 har certifikatet för
 
 ### <a name="renew-the-certificate"></a>Förnya certifikatet
 
-1. Öppna **Site Recovery infrastruktur** > **konfigurations Server**i valvet och klicka på konfigurations servern som krävs.
+1. Öppna **Site Recovery infrastruktur**  >  **konfigurations Server**i valvet och klicka på konfigurations servern som krävs.
 2. Förfallo datumet visas under **konfigurations serverns hälsa**
 3. Klicka på **Förnya certifikat**. 
 

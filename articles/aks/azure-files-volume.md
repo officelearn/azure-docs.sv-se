@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 144d93cbb3b66f260dbd9d92863ca5fb13ed00a5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207674"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure Files resurs i Azure Kubernetes service (AKS) manuellt
@@ -69,7 +69,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Montera fil resursen som en volym
 
-Om du vill montera Azure Files resursen i din POD konfigurerar du volymen i behållar specifikationen. skapa en ny `azure-files-pod.yaml` fil med namnet med följande innehåll. Om du har ändrat namnet på fil resursen eller det hemliga namnet uppdaterar du *resurs* namn och *secretName*. Om du vill kan du `mountPath`uppdatera, vilket är sökvägen till fil resursen som är monterad i pod. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
+Om du vill montera Azure Files resursen i din POD konfigurerar du volymen i behållar specifikationen. skapa en ny fil `azure-files-pod.yaml` med namnet med följande innehåll. Om du har ändrat namnet på fil resursen eller det hemliga namnet uppdaterar du *resurs* namn och *secretName*. Om du vill kan du uppdatera `mountPath` , vilket är sökvägen till fil resursen som är monterad i pod. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
 
 ```yaml
 apiVersion: v1
@@ -161,7 +161,7 @@ spec:
 
 Om du använder ett kluster av version 1.8.0-1.8.4 kan du ange en säkerhets kontext med värdet för *runAsUser* inställt på *0*. Mer information om säkerhets kontexten för Pod finns i [Konfigurera en säkerhets kontext][kubernetes-security-context].
 
-Om du vill uppdatera monterings alternativen skapar du en *azurefile-Mount-Options-PV. yaml-* fil med en *PersistentVolume*. Ett exempel:
+Om du vill uppdatera monterings alternativen skapar du en *azurefile-Mount-Options-PV. yaml-* fil med en *PersistentVolume*. Till exempel:
 
 ```yaml
 apiVersion: v1
@@ -187,7 +187,7 @@ spec:
   - nobrl
 ```
 
-Skapa en *azurefile-Mount-Options-PVC. yaml-* fil med en *PersistentVolumeClaim* som använder *PersistentVolume*. Ett exempel:
+Skapa en *azurefile-Mount-Options-PVC. yaml-* fil med en *PersistentVolumeClaim* som använder *PersistentVolume*. Till exempel:
 
 ```yaml
 apiVersion: v1
@@ -219,7 +219,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-Uppdatera din container specifikation för att referera till din *PersistentVolumeClaim* och uppdatera din POD. Ett exempel:
+Uppdatera din container specifikation för att referera till din *PersistentVolumeClaim* och uppdatera din POD. Till exempel:
 
 ```yaml
 ...

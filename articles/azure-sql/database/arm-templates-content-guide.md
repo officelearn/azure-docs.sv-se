@@ -1,9 +1,8 @@
 ---
-title: Azure Resource Manager-mallar
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Azure Resource Manager mallar – Azure SQL Database & SQL-hanterad instans
 description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure SQL Database och Azure SQL-hanterad instans.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,23 +11,23 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 76b9b1301a0aeee24b698b15a3871754de8ca0b9
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718809"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983647"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Azure Resource Manager mallar för Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Med Azure Resource Manager mallar kan du definiera din infrastruktur som kod och distribuera dina lösningar till Azure-molnet för Azure SQL Database och Azure SQL-hanterad instans.
+Med Azure Resource Manager-mallar kan du definiera din infrastruktur som kod och distribuera dina lösningar till Azure-molnet för Azure SQL Database och Azure SQL Managed Instance.
 
 ## <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
 
 Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azure SQL Database.
 
-| |  |
+|Länk |Beskrivning|
 |---|---|
 | [SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Den här Azure Resource Manager-mallen skapar en enda databas i Azure SQL Database och konfigurerar IP-brandvägg på server nivå. |
 | [Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Den här Azure Resource Manager-mallen skapar en server för Azure SQL Database. |
@@ -47,7 +46,7 @@ Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azu
 
 Följande tabell innehåller länkar till Azure Resource Manager mallar för Azure SQL-hanterad instans.
 
-| |  |
+|Länk|Beskrivning|
 |---|---|
 | [SQL-hanterad instans i ett nytt VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Den här Azure Resource Manager-mallen skapar ett nytt konfigurerat virtuellt Azure-nätverk och en hanterad instans i det virtuella nätverket. |
 | [Nätverks miljö för SQL-hanterad instans](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Den här distributionen skapar ett konfigurerat virtuellt Azure-nätverk med två undernät, ett som kommer att vara dedikerat till dina hanterade instanser och ett annat där du kan placera andra resurser (till exempel virtuella datorer, App Service miljöer osv.). Den här mallen skapar en korrekt konfigurerad nätverks miljö där du kan distribuera hanterade instanser. |

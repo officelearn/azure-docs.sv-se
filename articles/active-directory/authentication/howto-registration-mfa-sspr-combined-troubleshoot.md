@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450946"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Felsöka kombinerad säkerhets informations registrering
@@ -30,7 +30,7 @@ Händelserna som loggas för kombinerad registrering finns i kategorin autentise
 
 I följande tabell visas alla gransknings händelser som har genererats vid kombinerad registrering:
 
-| Aktivitet | Status | Orsak | Beskrivning |
+| Aktivitet | Status | Anledning | Beskrivning |
 | --- | --- | --- | --- |
 | Användaren registrerade all nödvändig säkerhets information | Klart | Användaren registrerade all nödvändig säkerhets information. | Den här händelsen inträffar när en användare har slutfört registreringen.|
 | Användaren registrerade all nödvändig säkerhets information | Fel | Användaren avbröt registreringen av säkerhets information. | Den här händelsen inträffar när en användare avbryter registreringen från avbrotts läge.|
@@ -60,7 +60,7 @@ När en användare registrerar ett telefonnummer och/eller en mobilapp i den nya
 
 Om en administratör aktiverar för hands versionen registreras användarna genom den nya upplevelsen och administratören inaktiverar förhands granskningen. användare kan vara osäkert registrerade för Multi-Factor Authentication även.
 
-Om en användare som har slutfört en kombinerad registrering går till den aktuella självbetjänings registrerings sidan för lösen ords [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)återställning (SSPR) på, uppmanas användaren att utföra Multi-Factor Authentication innan de kan komma åt sidan. Det här steget förväntas från en teknisk synpunkt, men det är nytt för användare som tidigare har registrerats för SSPR. Även om det här extra steget förbättrar användarens säkerhets position genom att tillhandahålla en annan säkerhets nivå kan administratörer vilja återställa sina användare så att de inte längre kan utföra Multi-Factor Authentication.  
+Om en användare som har slutfört en kombinerad registrering går till den aktuella självbetjänings registrerings sidan för lösen ords återställning (SSPR) på [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) , uppmanas användaren att utföra Multi-Factor Authentication innan de kan komma åt sidan. Det här steget förväntas från en teknisk synpunkt, men det är nytt för användare som tidigare har registrerats för SSPR. Även om det här extra steget förbättrar användarens säkerhets position genom att tillhandahålla en annan säkerhets nivå kan administratörer vilja återställa sina användare så att de inte längre kan utföra Multi-Factor Authentication.  
 
 ### <a name="how-to-roll-back-users"></a>Återställa användare
 
@@ -68,7 +68,7 @@ Om du, som administratör, vill återställa en användares Multi-Factor Authent
 
 Stegen nedan hjälper dig att återställa en användare eller grupp av användare.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 1. Installera lämpliga Azure AD PowerShell-moduler. I ett PowerShell-fönster kör du följande kommandon för att installera modulerna:
 
@@ -150,7 +150,7 @@ Kör följande kommando i ett PowerShell-fönster och ange platser för skript o
 Slutför de här stegen för att inaktivera den uppdaterade upplevelsen för dina användare:
 
 1. Logga in på Azure Portal som användar administratör.
-2. Gå till **Azure Active Directory** > **användar inställningar** > **Hantera inställningar för åtkomst panelens för hands versions funktioner**.
+2. Gå till **Azure Active Directory**  >  **användar inställningar**  >  **Hantera inställningar för åtkomst panelens för hands versions funktioner**.
 3. Under **användare kan använda för hands versions funktioner för att registrera och hantera säkerhets information**, ange Selector till **none**och välj **Spara**.
 
 Användarna kommer inte längre att uppmanas att registrera sig genom att använda den uppdaterade versionen.

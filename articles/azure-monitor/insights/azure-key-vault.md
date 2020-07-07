@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455486"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
@@ -50,7 +50,7 @@ Använd följande instruktioner för att installera och konfigurera Azure Key Va
 8. Klicka på *Spara* för att aktivera loggning av diagnostik till Log Analytics arbets ytan.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Aktivera Key Vault diagnostik med PowerShell
-Följande PowerShell-skript innehåller ett exempel på hur du kan `Set-AzDiagnosticSetting` använda för att aktivera resurs loggning för Key Vault:
+Följande PowerShell-skript innehåller ett exempel på hur du kan använda `Set-AzDiagnosticSetting` för att aktivera resurs loggning för Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -132,10 +132,10 @@ Så här använder du den uppdaterade lösningen:
 2. Aktivera Azure Key Vault-lösningen genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md)
 3. Uppdatera eventuella sparade frågor, instrument paneler eller aviseringar för att använda den nya data typen
    + Typen är ändra från: nyckel valv till AzureDiagnostics. Du kan använda ResourceType för att filtrera till Key Vault loggar.
-   + I stället för `KeyVaults`: använder du`AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + I stället för: `KeyVaults` använder du`AzureDiagnostics | where ResourceType'=="VAULTS"`
    + Fält: (fält namn är Skift läges känsliga)
-   + För alla fält med suffixet \_s, \_d eller \_g i namnet ändrar du det första symbolen till gemener
-   + För fält som har suffixet \_o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen. Till exempel lagras UPN för anroparen i ett fält`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + För alla fält med suffixet \_ s, \_ d eller \_ g i namnet ändrar du det första symbolen till gemener
+   + För fält som har suffixet \_ o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen. Till exempel lagras UPN för anroparen i ett fält`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    + Fältet CallerIpAddress ändrades till CallerIPAddress
    + Fältet RemoteIPCountry finns inte längre
 4. Ta bort den *Key Vault-analys (föråldrade)* lösningen. Om du använder PowerShell använder du`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`

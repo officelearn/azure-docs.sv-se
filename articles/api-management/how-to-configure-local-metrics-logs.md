@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205071"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurera lokala mått och loggar för Azure API Management egen värd-Gateway
@@ -122,7 +122,7 @@ spec:
     app: sputnik-metrics
 ```
 
-Spara konfigurationerna till en fil med `metrics.yaml` namnet och Använd kommandot nedan för att distribuera allt till klustret:
+Spara konfigurationerna till en fil med namnet `metrics.yaml` och Använd kommandot nedan för att distribuera allt till klustret:
 
 ```console
 kubectl apply -f metrics.yaml
@@ -136,7 +136,7 @@ NAME                                   READY   STATUS    RESTARTS   AGE
 sputnik-metrics-f6d97548f-4xnb7        2/2     Running   0          1m
 ```
 
-Kör kommandot nedan för att kontrol lera att tjänsterna körs. Anteckna `CLUSTER-IP` och `PORT` av tjänsten med statistik, vi behöver den senare. Du kan gå till Prometheus-instrumentpanelen `EXTERNAL-IP` med `PORT`hjälp av dess och.
+Kör kommandot nedan för att kontrol lera att tjänsterna körs. Anteckna `CLUSTER-IP` och `PORT` av tjänsten med statistik, vi behöver den senare. Du kan gå till Prometheus-instrumentpanelen med hjälp av dess `EXTERNAL-IP` och `PORT` .
 
 ```console
 kubectl get services
@@ -147,14 +147,14 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 ### <a name="configure-the-self-hosted-gateway-to-emit-metrics"></a>Konfigurera den egen värdbaserade gatewayen för att generera mått
 
-Nu när både statistik-och Prometheus har distribuerats kan vi uppdatera konfigurationerna för den egna värdbaserade gatewayen för att börja generera mått via statistik. Funktionen kan aktive ras eller inaktive `telemetry.metrics.local` ras med nyckeln i ConfigMap för lokal gateway-distribution med ytterligare alternativ. Nedan visas en uppdelning av tillgängliga alternativ:
+Nu när både statistik-och Prometheus har distribuerats kan vi uppdatera konfigurationerna för den egna värdbaserade gatewayen för att börja generera mått via statistik. Funktionen kan aktive ras eller inaktive ras med `telemetry.metrics.local` nyckeln i ConfigMap för lokal gateway-distribution med ytterligare alternativ. Nedan visas en uppdelning av tillgängliga alternativ:
 
-| Field  | Standardvärde | Beskrivning |
+| Fält  | Default | Beskrivning |
 | ------------- | ------------- | ------------- |
-| telemetri. Metrics. local  | `none` | Aktiverar loggning via statistik. Värdet kan vara `none`, `statsd`. |
+| telemetri. Metrics. local  | `none` | Aktiverar loggning via statistik. Värdet kan vara `none` , `statsd` . |
 | telemetri. Metrics. local. statal. Endpoint  | saknas | Anger den statistikbaserade slut punkten. |
 | telemetri. Metrics. local. statal. sampling  | saknas | Anger samplings frekvens för mått. Värdet kan vara mellan 0 och 1. t. ex.,`0.5`|
-| telemetri. Metrics. local. statal. tag-format  | saknas | [Etikett format](https://github.com/prometheus/statsd_exporter#tagging-extensions)för statistik för exportör. Värdet kan vara `none`, `librato`, `dogStatsD`, `influxDB`. |
+| telemetri. Metrics. local. statal. tag-format  | saknas | [Etikett format](https://github.com/prometheus/statsd_exporter#tagging-extensions)för statistik för exportör. Värdet kan vara `none` , `librato` , `dogStatsD` , `influxDB` . |
 
 Här är en exempel konfiguration:
 
@@ -185,11 +185,11 @@ kubectl rollout restart deployment/<deployment-name>
 
 ### <a name="view-the-metrics"></a>Visa måtten
 
-Nu har vi allt distribuerat och konfigurerat, den egna värdbaserade gatewayen bör rapportera mått via statistik. Prometheus kommer att hämta måtten från statistik. Gå till Prometheus-instrumentpanelen med `EXTERNAL-IP` hjälp `PORT` av och i Prometheus-tjänsten. 
+Nu har vi allt distribuerat och konfigurerat, den egna värdbaserade gatewayen bör rapportera mått via statistik. Prometheus kommer att hämta måtten från statistik. Gå till Prometheus-instrumentpanelen med hjälp av `EXTERNAL-IP` och `PORT` i Prometheus-tjänsten. 
 
 Gör vissa API-anrop via den egen värdbaserade gatewayen, om allt är korrekt konfigurerat, bör du kunna visa nedanstående mått:
 
-| Mått  | Beskrivning |
+| Metric  | Beskrivning |
 | ------------- | ------------- |
 | Begäranden  | Antal API-begäranden under perioden |
 | DurationInMS | Antalet millisekunder från att gatewayen fick begäran till då svaret har skickats fullständigt |
@@ -198,20 +198,20 @@ Gör vissa API-anrop via den egen värdbaserade gatewayen, om allt är korrekt k
 
 ## <a name="logs"></a>Loggar
 
-Den egen värdbaserade gatewayen matar ut loggar `stdout` till `stderr` och som standard. Du kan enkelt visa loggarna med följande kommando:
+Den egen värdbaserade gatewayen matar ut loggar till `stdout` och `stderr` som standard. Du kan enkelt visa loggarna med följande kommando:
 
 ```console
 kubectl logs <pod-name>
 ```
 
-Om din egen värdbaserade Gateway distribueras i Azure Kubernetes-tjänsten kan du aktivera [Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) för att samla `stdout` in `stderr` och från dina arbets belastningar och visa loggarna i Log Analytics. 
+Om din egen värdbaserade Gateway distribueras i Azure Kubernetes-tjänsten kan du aktivera [Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) för att samla in `stdout` och `stderr` från dina arbets belastningar och visa loggarna i Log Analytics. 
 
-Den egna värdbaserade gatewayen stöder också ett antal protokoll, `localsyslog`inklusive `rfc5424`, och `journal`. I tabellen nedan sammanfattas alla alternativ som stöds. 
+Den egna värdbaserade gatewayen stöder också ett antal protokoll `localsyslog` , inklusive, `rfc5424` och `journal` . I tabellen nedan sammanfattas alla alternativ som stöds. 
 
-| Field  | Standardvärde | Beskrivning |
+| Fält  | Default | Beskrivning |
 | ------------- | ------------- | ------------- |
-| telemetri. logs. STD  | `text` | Aktiverar loggning till standard strömmar. Värdet kan vara `none`, `text`,`json` |
-| telemetri. logs. local  | `none` | Aktiverar lokal loggning. Värdet kan vara `none`, `auto` `localsyslog`,, `rfc5424`,`journal`  |
+| telemetri. logs. STD  | `text` | Aktiverar loggning till standard strömmar. Värdet kan vara `none` , `text` ,`json` |
+| telemetri. logs. local  | `none` | Aktiverar lokal loggning. Värdet kan vara `none` ,,, `auto` `localsyslog` `rfc5424` ,`journal`  |
 | telemetri. logs. local. localsyslog. Endpoint  | saknas | Anger localsyslog-slutpunkt.  |
 | telemetri. logs. local. localsyslog. Facility  | saknas | Anger localsyslog [Facility-kod](https://en.wikipedia.org/wiki/Syslog#Facility). t. ex.,`7` 
 | telemetri. logs. local. rfc5424. Endpoint  | saknas | Anger rfc5424-slutpunkt.  |

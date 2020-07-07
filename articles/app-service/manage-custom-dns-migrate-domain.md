@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535697"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
@@ -21,7 +21,7 @@ När du migrerar en Live-plats och dess DNS-domännamn till App Service, betjän
 
 Om du inte är oroar över stillestånds tid i DNS-matchning, se [mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktionen:
 
@@ -40,9 +40,9 @@ När du slutligen migrerar ditt anpassade DNS-namn från den gamla platsen till 
 
 ### <a name="create-domain-verification-record"></a>Skapa domän verifierings post
 
-Om du vill verifiera domän ägarskapet lägger du till en TXT-post. TXT-posten mappar från _awverify.&lt; under domän>_ till _ &lt;APPNAME>. azurewebsites.net_. 
+Om du vill verifiera domän ägarskapet lägger du till en TXT-post. TXT-posten mappar från _awverify. &lt; under domän>_ till _ &lt; appname>. azurewebsites.net_. 
 
-Den TXT-post du behöver beror på den DNS-post som du vill migrera. Exempel finns i följande tabell (`@` vanligt vis representerar rot domänen):
+Den TXT-post du behöver beror på den DNS-post som du vill migrera. Exempel finns i följande tabell ( `@` vanligt vis representerar rot domänen):
 
 | Exempel på DNS-post | TXT-värd | TXT-värde |
 | - | - | - |
@@ -69,7 +69,7 @@ På sidan **anpassade domäner** väljer du **+** ikonen bredvid **Lägg till v�
 
 ![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Ange det fullständigt kvalificerade domän namnet som du har lagt till TXT-posten för, `www.contoso.com`till exempel. För en domän med jokertecken \*(till exempel. contoso.com) kan du använda alla DNS-namn som matchar domänen med jokertecken. 
+Ange det fullständigt kvalificerade domän namnet som du har lagt till TXT-posten för, till exempel `www.contoso.com` . För en domän med jokertecken (till exempel \* . contoso.com) kan du använda alla DNS-namn som matchar domänen med jokertecken. 
 
 Välj **Verifiera**.
 
@@ -114,7 +114,7 @@ För `contoso.com` rot domän exemplet mappar du om A-eller CNAME-posten som exe
 | FQDN-exempel | Posttyp | Värd | Värde |
 | - | - | - | - |
 | contoso.com (rot) | A | `@` | IP-adress från [Kopiera appens IP-adress](#info) |
-| www\.-contoso.com (sub) | CNAME | `www` | _&lt;APPNAME>. azurewebsites.net_ |
+| www \. -contoso.com (sub) | CNAME | `www` | _&lt;APPNAME>. azurewebsites.net_ |
 | \*. contoso.com (jokertecken) | CNAME | _\*_ | _&lt;APPNAME>. azurewebsites.net_ |
 
 Spara inställningarna.
@@ -125,7 +125,7 @@ DNS-frågor ska börja matcha till din App Service-app omedelbart efter det att 
 
 Du kan migrera en aktiv anpassad domän i Azure, mellan prenumerationer eller inom samma prenumeration. En sådan migrering utan drift stopp kräver att käll appen och mål appen tilldelas samma anpassade domän vid en viss tidpunkt. Därför måste du kontrol lera att de två apparna inte har distribuerats till samma distributions enhet (internt kallat ett webb utrymme). Ett domän namn kan bara tilldelas en app i varje distributions enhet.
 
-Du kan hitta distributions enheten för din app genom att titta på domän namnet för FTP/S-URL `<deployment-unit>.ftp.azurewebsites.windows.net`: en. Kontrol lera och se till att distributions enheten skiljer sig mellan käll appen och mål programmet. Distributions enheten för en app bestäms av [App Service plan](overview-hosting-plans.md) den finns i. Den väljs slumpmässigt av Azure när du skapar planen och kan inte ändras. Azure ser bara till att två planer finns i samma distributions enhet när du [skapar dem i samma resurs grupp *och* samma region](app-service-plan-manage.md#create-an-app-service-plan), men det finns ingen logik för att se till att planerna är i olika distributions enheter. Det enda sättet att skapa en plan i en annan distributions enhet är att fortsätta att skapa en plan i en ny resurs grupp eller region tills du får en annan distributions enhet.
+Du kan hitta distributions enheten för din app genom att titta på domän namnet för FTP/S-URL: en `<deployment-unit>.ftp.azurewebsites.windows.net` . Kontrol lera och se till att distributions enheten skiljer sig mellan käll appen och mål programmet. Distributions enheten för en app bestäms av [App Service plan](overview-hosting-plans.md) den finns i. Den väljs slumpmässigt av Azure när du skapar planen och kan inte ändras. Azure ser bara till att två planer finns i samma distributions enhet när du [skapar dem i samma resurs grupp *och* samma region](app-service-plan-manage.md#create-an-app-service-plan), men det finns ingen logik för att se till att planerna är i olika distributions enheter. Det enda sättet att skapa en plan i en annan distributions enhet är att fortsätta att skapa en plan i en ny resurs grupp eller region tills du får en annan distributions enhet.
 
 ## <a name="next-steps"></a>Nästa steg
 

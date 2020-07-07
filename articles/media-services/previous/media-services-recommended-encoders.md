@@ -10,10 +10,10 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 3c42070525fc60e45b976620513929c3d5a32341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535102"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
@@ -94,4 +94,4 @@ Longevity-verifiering
 7. Stoppa Live-händelsen
 8. Registrera till gångs-ID, publicerad strömmande URL för Live-arkivet och de inställningar och den version som används i din Live Encoder
 
-Skicka slutligen dina inspelade inställningar och Live Archive-parametrarna till Media Services via amsstreaming@microsoft.come-post. Vid inleverans utför Media Services verifierings test på exemplen från din Live Encoder. Du kan kontakta Media Services om du har frågor om den här processen.
+Skicka slutligen dina inspelade inställningar och Live Archive-parametrarna till Media Services via e-post amsstreaming@microsoft.com . Vid inleverans utför Media Services verifierings test på exemplen från din Live Encoder. Du kan kontakta Media Services om du har frågor om den här processen.

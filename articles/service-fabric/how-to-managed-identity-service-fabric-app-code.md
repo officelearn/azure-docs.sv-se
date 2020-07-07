@@ -4,10 +4,10 @@ description: Använda hanterade identiteter i Azure Service Fabric program kod f
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461573"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Hur du utnyttjar ett Service Fabric programmets hanterade identitet för att få åtkomst till Azure-tjänster
@@ -52,8 +52,8 @@ där:
 | ------- | ----------- |
 | `GET` | HTTP-verbet som anger att du vill hämta data från slut punkten. I det här fallet en OAuth-åtkomsttoken. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | Den hanterade identitets slut punkten för Service Fabric program som tillhandahålls via miljövariabeln IDENTITY_ENDPOINT. |
-| `api-version` | En frågesträngparametern, som anger API-versionen för den hanterade identitets-token-tjänsten. för närvarande är `2019-07-01-preview`det enda godkända värdet och kan komma att ändras. |
-| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Detta kommer att avspeglas som `aud` mål för den utfärdade token. I det här exemplet begärs en token för åtkomst till Azure Key Vault, vars app-\/ID-URI är https:/Vault.Azure.net/. |
+| `api-version` | En frågesträngparametern, som anger API-versionen för den hanterade identitets-token-tjänsten. för närvarande är det enda godkända värdet `2019-07-01-preview` och kan komma att ändras. |
+| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Detta kommer att avspeglas som `aud` mål för den utfärdade token. I det här exemplet begärs en token för åtkomst till Azure Key Vault, vars app-ID-URI är https: \/ /Vault.Azure.net/. |
 | `Secret` | Ett huvud fält för HTTP-begäran som krävs av den Service Fabric Managed Identity token-tjänsten för att Service Fabric Services ska kunna autentisera anroparen. Det här värdet tillhandahålls av SF-körningen via IDENTITY_HEADER-miljövariabeln. |
 
 
@@ -73,9 +73,9 @@ där:
 | Element | Beskrivning |
 | ------- | ----------- |
 | `token_type` | Typ av token; i det här fallet är en "Bearer"-åtkomsttoken, vilket innebär att presentatören ("Bearer") för denna token är det avsedda ämnet för token. |
-| `access_token` | Den begärda åtkomsttoken. När du anropar en skyddad REST API, bäddas token `Authorization` in i fältet begär ande huvud som en "Bearer"-token, vilket gör att API: et kan autentisera anroparen. | 
+| `access_token` | Den begärda åtkomsttoken. När du anropar en skyddad REST API, bäddas token in i `Authorization` fältet begär ande huvud som en "Bearer"-token, vilket gör att API: et kan autentisera anroparen. | 
 | `expires_on` | Tidsstämpeln för förfallo datum för åtkomsttoken. representeras som antalet sekunder från "1970-01-01T0:0: 0Z UTC" och motsvarar tokens `exp` anspråk. I det här fallet upphör token att gälla den 2019-08-08T06:10:11 + 00:00 (i RFC 3339)|
-| `resource` | Resursen som åtkomsttoken utfärdades för, anges via `resource` frågesträngparametern för begäran. motsvarar token ' AUD '-anspråk. |
+| `resource` | Resursen för vilken åtkomsttoken utfärdades, som anges via frågesträngparametern `resource` ' AUD '-anspråk, motsvarar token ' '-anspråk. |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>Skaffa en åtkomsttoken med hjälp av C #

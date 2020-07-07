@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 1508adda761fcba7ba70df3bb212d3eb4e32f242
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72754947"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimera lagrings kostnaden i Azure Cosmos DB
@@ -39,7 +39,7 @@ Om du vill lagra omfattande medie typer, till exempel videor, bilder osv., har d
 
 ## <a name="check-storage-consumed"></a>Kontrol lera förbrukad lagring
 
-Om du vill kontrol lera lagrings användningen för en Azure Cosmos-behållare kan du köra en HEAD-eller GET-begäran på behållaren `x-ms-request-quota` och kontrol `x-ms-request-usage` lera rubrikerna och. När du arbetar med .NET SDK kan du också använda egenskaperna [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))och [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) för att hämta förbrukad lagring.
+Om du vill kontrol lera lagrings användningen för en Azure Cosmos-behållare kan du köra en HEAD-eller GET-begäran på behållaren och kontrol lera `x-ms-request-quota` `x-ms-request-usage` rubrikerna och. När du arbetar med .NET SDK kan du också använda egenskaperna [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))och [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) för att hämta förbrukad lagring.
 
 ## <a name="using-sdk"></a>Använda SDK
 

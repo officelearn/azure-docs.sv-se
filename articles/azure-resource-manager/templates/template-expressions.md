@@ -4,10 +4,10 @@ description: Beskriver deklarativ JSON-syntax för Azure Resource Manager mallar
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203836"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntax och uttryck i Azure Resource Manager mallar
@@ -29,7 +29,7 @@ Azure Resource Manager innehåller [funktioner](template-functions.md) som du ka
 },
 ```
 
-I uttrycket anropar syntaxen `resourceGroup()` en av de funktioner som Resource Manager tillhandahåller för användning i en mall. I det här fallet är det [resourceGroup](template-functions-resource.md#resourcegroup) -funktionen. Precis som i Java Script är funktions anrop formaterade `functionName(arg1,arg2,arg3)`som. Syntaxen `.location` hämtar en egenskap från det objekt som returnerades av funktionen.
+I uttrycket anropar syntaxen `resourceGroup()` en av de funktioner som Resource Manager tillhandahåller för användning i en mall. I det här fallet är det [resourceGroup](template-functions-resource.md#resourcegroup) -funktionen. Precis som i Java Script är funktions anrop formaterade som `functionName(arg1,arg2,arg3)` . Syntaxen `.location` hämtar en egenskap från det objekt som returnerades av funktionen.
 
 Mallens funktioner och deras parametrar är Skift läges känsliga. Resource Manager matchar till exempel **variabler (' var1 ')** och **variabler (' var1 ')** som samma. När den utvärderas, om inte funktionen uttryckligen ändrar Skift läge (t. ex. toUpper eller toLower), bevarar funktionen det fallet. Vissa resurs typer kan ha fall krav som är skilda från hur funktionerna utvärderas.
 
@@ -47,13 +47,13 @@ De flesta funktioner fungerar på samma sätt som när de distribueras till en r
 
 ## <a name="escape-characters"></a>Escape-tecken
 
-Om du vill att en litteral sträng ska börja med `[` en vänster hak paren tes `]`och sluta med en högerparentes, men inte ha den tolkas som ett uttryck, lägger du till en `[[`extra parentes för att starta strängen med. Till exempel variabeln:
+Om du vill att en litteral sträng ska börja med en vänster hak paren tes `[` och sluta med en högerparentes `]` , men inte ha den tolkas som ett uttryck, lägger du till en extra parentes för att starta strängen med `[[` . Till exempel variabeln:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Matchar `[test value]`.
+Matchar `[test value]` .
 
 Om den litterala strängen inte slutar med en hak paren tes, ska du inte undanta den första parentesen. Till exempel variabeln:
 
@@ -61,7 +61,7 @@ Om den litterala strängen inte slutar med en hak paren tes, ska du inte undanta
 "demoVar2": "[test] value"
 ```
 
-Matchar `[test] value`.
+Matchar `[test] value` .
 
 Om du vill undanta dubbla citat tecken i ett uttryck, till exempel lägga till ett JSON-objekt i mallen, använder du omvänt snedstreck.
 
@@ -93,7 +93,7 @@ När du skickar parameter värden beror användningen av escape-tecken på var p
 }
 ```
 
-Om du använder standardvärdet returneras `[test value]`mallen.
+Om du använder standardvärdet returneras mallen `[test value]` .
 
 Men om du skickar ett parameter värde via kommando raden tolkas tecknen bokstavligen. Distribuera den tidigare mallen med:
 
@@ -101,13 +101,13 @@ Men om du skickar ett parameter värde via kommando raden tolkas tecknen bokstav
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[[test value]"
 ```
 
-Returnerar `[[test value]`. Använd i stället:
+Returnerar `[[test value]` . Använd i stället:
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-Samma formatering gäller när du skickar värden i från en parameter fil. Tecknen tolkas bokstavligen. När den används med föregående mall returnerar `[test value]`följande parameter fil:
+Samma formatering gäller när du skickar värden i från en parameter fil. Tecknen tolkas bokstavligen. När den används med föregående mall returnerar följande parameter fil `[test value]` :
 
 ```json
 {

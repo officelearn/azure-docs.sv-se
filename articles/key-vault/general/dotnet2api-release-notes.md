@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431922"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2,0 – viktig information och migrations guide
@@ -36,7 +36,7 @@ Key Vault certifikat hanterar x509-certifikat och stöder följande beteenden:
 * **.NET Framework 4.5.2** stöds av 2,0-versionen av Azure Key Vault .net-biblioteket
 * **.Net Standard 1,4** stöds av 2,0-versionen av Azure Key Vault .net-biblioteket
 
-## <a name="namespaces"></a>Namnområden
+## <a name="namespaces"></a>Namnrymder
 
 * Namn området för **modeller** ändras från **Microsoft. Azure. nyckel valv** till **Microsoft. Azure. nyckel valv. modeller**.
 * **Microsoft. Azure. nyckel valvet. internt** namn område har släppts.
@@ -49,12 +49,12 @@ Key Vault certifikat hanterar x509-certifikat och stöder följande beteenden:
 
 * *Hemligheten* ändrades till *SecretBundle*
 * *Ord listan* har ändrats till *IDictionary*
-* *Lista\<T>, string [] har* ändrats *till\<ilist T>*
+* *Lista \<T> , sträng [] har* ändrats *till \<T> ilist*
 * *NextList* ändrades till *NextPageLink*
 
 ## <a name="return-types"></a>Retur typer
 
-* I **list** -och **SecretList** returneras nu *iPage\<T>* istället för *ListKeysResponseMessage*
+* I **list** -och **SecretList** returneras nu *iPage \<T> * i stället för *ListKeysResponseMessage*
 * Den genererade **BackupKeyAsync** returnerar nu *BackupKeyResult*, som innehåller *värde* (back upp BLOB). Tidigare har metoden omslutits och returnerade bara värdet.
 
 ## <a name="exceptions"></a>Undantag

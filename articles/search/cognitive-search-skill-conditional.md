@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792050"
 ---
 # <a name="conditional-cognitive-skill"></a>Villkorlig kognitiva kunskaper
@@ -72,7 +72,7 @@ Följande objekt är giltiga värden för ett uttryck:
         "= !true"
     ```
 
--   Uttryck som använder numeriska operatorer (+,- \*,,,/,%) <br/>
+-   Uttryck som använder numeriska operatorer (+,-, \* ,,/,%) <br/>
     Exempel: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -87,9 +87,9 @@ Indata är skiftlägeskänsliga.
 
 | Indata   | Beskrivning |
 |-------------|-------------|
-| moduletype   | Indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar villkoret som ska utvärderas. Det här villkoret bör utvärderas till ett booleskt värde (*Sant* eller *falskt*).   <br/>  Exempel: <br/> "= sant" <br/> "= $ (/Document/Language) = = ' fr ' ' <br/> "= $ (/Document/Pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
-| whenTrue    | Den här indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *Sant*. Konstanter strängar ska returneras inom enkla citat tecken ("och"). <br/>Exempel värden: <br/> "="-kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/entities/\*)" <br/> |
-| whenFalse   | Den här indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *false*. <br/>Exempel värden: <br/> "="-kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/entities/\*)" <br/>
+| moduletype   | Indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar villkoret som ska utvärderas. Det här villkoret bör utvärderas till ett booleskt värde (*Sant* eller *falskt*).   <br/>  Exempel: <br/> "= sant" <br/> "= $ (/Document/Language) = = ' fr ' ' <br/> "= $ (/Document/Pages/ \* /Language) = = $ (/Document/expectedLanguage)" <br/> |
+| whenTrue    | Den här indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *Sant*. Konstanter strängar ska returneras inom enkla citat tecken ("och"). <br/>Exempel värden: <br/> "="-kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/entities/ \* )" <br/> |
+| whenFalse   | Den här indatatypen är ett [utvärderat fält](#evaluated-fields) som representerar värdet som ska returneras om villkoret utvärderas till *false*. <br/>Exempel värden: <br/> "="-kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/entities/ \* )" <br/>
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
 Det finns ett enda utdata som bara kallas "utdata". Den returnerar värdet *whenFalse* om villkoret är falskt eller *whenTrue* om villkoret är sant.

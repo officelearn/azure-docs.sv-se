@@ -14,17 +14,17 @@ ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc
 ms.openlocfilehash: 7db4fa2a780a3a1f53ecd73a40c247583cb6a79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233890"
 ---
-# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Skapa en CI/CD-pipeline i Azure-pipelines för Node. js med Azure DevOps starter
+# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Skapa en CI/CD-pipeline i Azure-pipelines för Node.js med Azure DevOps starter
 
 I den här snabb starten skapar du en NodeJS progressiv webbapp (PWA) med [GatsbyJS](https://www.gatsbyjs.org/) och den förenklade skapande upplevelsen för Azure DevOps starter. När du är färdig har du en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för din PWA i Azure-pipelines. Azure DevOps starter ställer upp vad du behöver för att utveckla, distribuera och övervaka.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - En [Azure DevOps](https://azure.microsoft.com/services/devops/) -organisation.
@@ -45,11 +45,11 @@ DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Az
 
 1. Välj Node.js-exempelprogrammet.   
 
-    ![Välj Node. js-exemplet](_img/azure-devops-project-nodejs/select-nodejs.png) 
+    ![Välj Node.js exemplet](_img/azure-devops-project-nodejs/select-nodejs.png) 
 
-1. Exempelramverket som är standard är **Express.js**. Ändra valet till **enkel Node. js-app** och välj sedan **Nästa**. 
+1. Exempelramverket som är standard är **Express.js**. Ändra valet till **enkel Node.js app** och välj sedan **Nästa**. 
 
-    ![Välj den enkla Node. js-appen](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
+    ![Välj den enkla Node.js-appen](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
 
 1. De distributions mål som är tillgängliga i det här steget styrs av program ramverket som valts i steg 2. I det här exemplet är **Windows Web Apps** standard distributions målet. Lämna **Web App for containers** ange och välj **Nästa**.
 
@@ -108,7 +108,7 @@ DevOps starter skapar en git-lagringsplats i Azure databaser eller GitHub. I det
     rmdir Application
     ```
 
-1. Använd Gatsby CLI för att generera en PWA-exempel. Kör `gatsby new` från terminalen för att starta PWA-guiden och `gatsby-starter-blog` Välj för din start-mall. Det bör likna det här exemplet:
+1. Använd Gatsby CLI för att generera en PWA-exempel. Kör `gatsby new` från terminalen för att starta PWA-guiden och välj `gatsby-starter-blog` för din start-mall. Det bör likna det här exemplet:
 
     ```powershell
     c:\myproject> gatsby new
@@ -120,16 +120,16 @@ DevOps starter skapar en git-lagringsplats i Azure databaser eller GitHub. I det
         (Use a different starter)
     ```
     
-1. Nu har du en mapp med `my-gatsby-project`namnet. Byt namn på `Application` den till och `Dockerfile` kopiera den till den.
+1. Nu har du en mapp med namnet `my-gatsby-project` . Byt namn på den till `Application` och kopiera den `Dockerfile` till den.
     
     ```powershell
     mv my-gatsby-project Application
     mv Dockerfile Application
     ```
     
-1. Öppna Dockerfile i din favorit redigerare och ändra den första raden från `FROM node:8` till. `FROM node:12` Den här ändringen säkerställer att din behållare använder Node. js version 12. x i stället för version 8. x. GatsbyJS kräver fler moderna versioner av Node. js.
+1. Öppna Dockerfile i din favorit redigerare och ändra den första raden från `FROM node:8` till `FROM node:12` . Den här ändringen säkerställer att din behållare använder Node.js version 12. x i stället för version 8. x. GatsbyJS kräver fler moderna versioner av Node.js.
 
-1. Öppna sedan Package. JSON-filen i programmappen och redigera [fältet skript](https://docs.npmjs.com/files/package.json#scripts) för att se till att utvecklings-och produktions servrarna lyssnar på alla tillgängliga nätverks gränssnitt (till exempel 0.0.0.0) och port 80. Utan de här inställningarna kan behållar App Service inte dirigera trafik till din Node. js-app som körs i din behållare. `scripts` Fältet bör se ut ungefär så här. Mer specifikt vill du ändra `develop`-, `serve`-och `start` -målen från standardvärdena.
+1. Öppna sedan package.jsfilen i programmappen och redigera [fältet skript](https://docs.npmjs.com/files/package.json#scripts) för att se till att utvecklings-och produktions servrarna lyssnar på alla tillgängliga nätverks gränssnitt (till exempel 0.0.0.0) och port 80. Utan de här inställningarna kan behållar App Service inte dirigera trafik till Node.js-appen som körs i behållaren. `scripts`Fältet bör se ut ungefär så här. Mer specifikt vill du ändra `develop` -, `serve` -och- `start` målen från standardvärdena.
 
     ```json
       "scripts": {
@@ -145,9 +145,9 @@ DevOps starter skapar en git-lagringsplats i Azure databaser eller GitHub. I det
     
 ## <a name="edit-your-cicd-pipelines"></a>Redigera dina CI/CD-pipeliner
 
-1. Innan du genomför koden i föregående avsnitt gör du några ändringar i pipelinen för build och release. Redigera din "Build pipeline" och uppdatera noden så att Node. js version 12. x används. Ange fältet **aktivitets version** till 1. x och **versions** fältet till 12. x.
+1. Innan du genomför koden i föregående avsnitt gör du några ändringar i pipelinen för build och release. Redigera din "Build pipeline" och uppdatera noden så att den använder Node.js version 12. x. Ange fältet **aktivitets version** till 1. x och **versions** fältet till 12. x.
 
-    ![Uppdatera Node. js till 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+    ![Uppdatera Node.js till 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
 
 1. I den här snabb starten skapar vi inte enhets test och vi inaktiverar de här stegen i vår versions pipeline. När du skriver tester kan du återaktivera de här stegen. Högerklicka för att välja de aktiviteter som är märkta med **Installera test beroenden** och **Kör enhets test** och inaktivera dem.
 

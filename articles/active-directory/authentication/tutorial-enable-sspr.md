@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de9abcca8d5b02b58bd5d4550dcb100a90853f7f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505978"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983157"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Självstudie: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord
 
@@ -33,7 +33,7 @@ I den här guiden får du lära du dig hur man:
 > * Konfigurera autentiseringsmetoder och registrerings alternativ
 > * Testa SSPR-processen som en användare
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -79,6 +79,7 @@ När användarna behöver låsa upp sitt konto eller återställa sitt lösen or
     * *E-post*
     * *Mobiltelefon*
     * *Arbetstelefon*
+    * *Säkerhetsfrågor*
 
 1. Om du vill använda autentiseringsmetoder väljer du **Spara**.
 

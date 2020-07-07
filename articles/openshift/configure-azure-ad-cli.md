@@ -9,10 +9,10 @@ ms.author: asabbour
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
 ms.openlocfilehash: 45da3034891e5a82fb8423adb6bcd5e867f9d4e2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205006"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Konfigurera Azure Active Directory autentisering för ett Azure Red Hat OpenShift 4-kluster (CLI)
@@ -24,7 +24,7 @@ Hämta dina företagsspecifika URL: er som ska användas för att konfigurera Az
 Konstruera klustrets OAuth-callback-URL och lagra den i en variabel **oauthCallbackURL**. Se till att ersätta **Aro-RG** med resurs gruppens namn och **Aro-kluster** med ditt kluster namn.
 
 > [!NOTE]
-> `AAD` Avsnittet i OAuth-callback-URL: en ska matcha namnet på den OAuth-identitetsprovider som du kommer att konfigurera senare.
+> `AAD`Avsnittet i OAuth-callback-URL: en ska matcha namnet på den OAuth-identitetsprovider som du kommer att konfigurera senare.
 
 ```azurecli-interactive
 domain=$(az aro show -g aro-rg -n aro-cluster --query clusterProfile.domain -o tsv)
@@ -36,7 +36,7 @@ oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2
 
 ## <a name="create-an-azure-active-directory-application-for-authentication"></a>Skapa ett Azure Active Directory-program för autentisering
 
-Skapa ett Azure Active Directory program och hämta den skapade program identifieraren. Ersätt ** \<ClientSecret>** med ett säkert lösen ord.
+Skapa ett Azure Active Directory program och hämta den skapade program identifieraren. Ersätt **\<ClientSecret>** med ett säkert lösen ord.
 
 ```azurecli-interactive
 az ad app create \
@@ -74,9 +74,9 @@ Du kan använda valfria anspråk för att:
 - Ändra beteendet för vissa anspråk som Azure AD returnerar i tokens.
 - Lägg till och få till gång till anpassade anspråk för ditt program.
 
-Vi konfigurerar OpenShift för att använda `email` anspråket och återgår `upn` till att ange önskat användar namn genom att `upn` lägga till som en del av den ID-token som returneras av Azure Active Directory.
+Vi konfigurerar OpenShift för att använda `email` anspråket och återgår till `upn` att ange önskat användar namn genom att lägga till `upn` som en del av den ID-token som returneras av Azure Active Directory.
 
-Skapa en **manifest. JSON** -fil för att konfigurera Azure Active Directory-programmet.
+Skapa en **manifest.jspå** fil för att konfigurera Azure Active Directory programmet.
 
 ```bash
 cat > manifest.json<< EOF
@@ -97,7 +97,7 @@ EOF
 
 ## <a name="update-the-azure-active-directory-applications-optionalclaims-with-a-manifest"></a>Uppdatera Azure Active Directory programmets optionalClaims med ett manifest
 
-Ersätt ** \<AppID>** med det ID du fick tidigare.
+Ersätt **\<AppID>** med det ID du fick tidigare.
 
 ```azurecli-interactive
 az ad app update \
@@ -109,7 +109,7 @@ az ad app update \
 
 Vi måste definiera rätt omfattningar för att kunna läsa användar informationen från Azure Active Directory.
 
-Ersätt ** \<AppID>** med det ID du fick tidigare.
+Ersätt **\<AppID>** med det ID du fick tidigare.
 
 Lägg till behörighet för **Azure Active Directory graf. user. Read** -omfång för att aktivera inloggning och läsa användar profil.
 
@@ -139,7 +139,7 @@ az aro list-credentials \
   --resource-group aro-rg
 ```
 
-Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword`.
+Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword` .
 
 ```json
 {
@@ -148,13 +148,13 @@ Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword`.
 }
 ```
 
-Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. `$apiServer` Variabeln angavs [tidigare](). Ersätt ** \<kubeadmin-lösenordet>** med det lösen ord som du hämtade.
+Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. `$apiServer`Variabeln angavs [tidigare](). Ersätt **\<kubeadmin password>** med det lösen ord du hämtade.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-Skapa en OpenShift-hemlighet för att lagra Azure Active Directory programmets hemlighet, och Ersätt ** \<ClientSecret>** med den hemlighet som du hämtade tidigare.
+Skapa en OpenShift-hemlighet för att lagra Azure Active Directory program hemligheten och Ersätt **\<ClientSecret>** med den hemlighet som du hämtade tidigare.
 
 ```azurecli-interactive
 oc create secret generic openid-client-secret-azuread \
@@ -162,7 +162,7 @@ oc create secret generic openid-client-secret-azuread \
   --from-literal=clientSecret=<ClientSecret>
 ```    
 
-Skapa en **OIDC. yaml** -fil för att konfigurera OpenShift OpenID-autentisering mot Azure Active Directory. Ersätt ** \<AppID>** och ** \<TenantId>** med de värden som du hämtade tidigare.
+Skapa en **OIDC. yaml** -fil för att konfigurera OpenShift OpenID-autentisering mot Azure Active Directory. Ersätt **\<AppID>** och **\<TenantId>** med de värden som du hämtade tidigare.
 
 ```bash
 cat > oidc.yaml<< EOF

@@ -8,22 +8,22 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454245"
 ---
 # <a name="manage-server-administrators"></a>Hantera serveradministratörer
 
 Server administratörer måste vara en giltig användare eller säkerhets grupp i Azure Active Directory (Azure AD) för den klient där-servern finns. Du kan använda **Analysis Services administratörer** för servern i Azure Portal, Server egenskaper i SSMS, PowerShell eller REST API för att hantera Server administratörer. 
 
-Använd `obj:groupid@tenantid`om du vill lägga till en **säkerhets grupp**.
+Använd om du vill lägga till en **säkerhets grupp** `obj:groupid@tenantid` .
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Lägga till Server administratörer med hjälp av Azure Portal
 
 1. Klicka på **Analysis Services administratörer**på din server i portalen.
-2. I ** \<Server namn>-Analysis Services administratörer**klickar du på **Lägg till**.
+2. ** \<servername> Analysis Services administratörer**klickar du på **Lägg till**.
 3. I **Lägg till Server administratörer**väljer du användar konton från din Azure AD eller bjuder in externa användare via e-postadress.
 
     ![Server administratörer i Azure Portal](./media/analysis-services-server-admins/aas-manage-users-admins.png)

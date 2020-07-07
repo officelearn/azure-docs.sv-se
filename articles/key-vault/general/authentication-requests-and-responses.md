@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430895"
 ---
 # <a name="authentication-requests-and-responses"></a>Autentisering, begäranden och svar
@@ -23,7 +23,7 @@ Azure Key Vault stöder JSON-formaterade begär Anden och svar. Begär anden til
 
 Det här avsnittet beskriver information om Azure Key Vault tjänsten. Allmän information om hur du använder Azure REST-gränssnitt, inklusive autentisering/auktorisering och hur du hämtar en åtkomsttoken finns i [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure).
 
-## <a name="request-url"></a>URL för begäran  
+## <a name="request-url"></a>Begärans-URL  
  Nyckel hanterings åtgärder använder http-post, GET, PATCH, skicka och HTTP POST och kryptografiska åtgärder mot befintliga nyckel objekt Använd HTTP POST. Klienter som inte stöder vissa HTTP-verb kan också använda HTTP POST med rubriken X-HTTP-REQUEST för att ange avsett verb. begär Anden som normalt inte kräver en brödtext bör innehålla en tom brödtext när HTTP POST används, till exempel när POST används i stället för DELETE.  
 
  Följande är exempel på webb adresser för att arbeta med objekt i Azure Key Vault:  
@@ -41,7 +41,7 @@ Det här avsnittet beskriver information om Azure Key Vault tjänsten. Allmän i
   Nycklar lagras alltid under/Keys sökväg, hemligheter lagras alltid under/Secrets-sökvägen.  
 
 ## <a name="api-version"></a>API-version  
- Tjänsten Azure Key Vault stöder protokoll versioner för att ge kompatibilitet med äldre klienter, även om alla funktioner inte är tillgängliga för dessa klienter. Klienterna måste använda `api-version` frågesträngparametern för att ange vilken version av protokollet som de stöder eftersom det inte finns något standardvärde.  
+ Tjänsten Azure Key Vault stöder protokoll versioner för att ge kompatibilitet med äldre klienter, även om alla funktioner inte är tillgängliga för dessa klienter. Klienterna måste använda frågesträngparametern `api-version` för att ange vilken version av protokollet som de stöder eftersom det inte finns något standardvärde.  
 
  Azure Key Vault protokoll versioner följer ett schema för datum numrering med hjälp av {ÅÅÅÅ}. {MM}. {DD}-format.  
 
@@ -113,5 +113,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   auktorisering: adressen till OAuth2 som kan användas för att hämta en åtkomsttoken för begäran.  
 
--   resurs: namnet på resursen (`https://vault.azure.net`) som ska användas i auktoriseringsbegäran.  
+-   resurs: namnet på resursen ( `https://vault.azure.net` ) som ska användas i auktoriseringsbegäran.  
 

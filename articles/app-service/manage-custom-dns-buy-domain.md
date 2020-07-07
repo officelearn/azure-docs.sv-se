@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535714"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köpa ett anpassat domännamn för Azure App Service
@@ -18,7 +18,7 @@ App Service domäner är toppnivå domäner som hanteras direkt i Azure. De gör
 
 Information om virtuella Azure-datorer eller Azure Storage finns i [tilldela App Service domän till Azure VM eller Azure Storage](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage). Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -91,7 +91,7 @@ På sidan **anpassade domäner** klickar du på **Köp domän**.
 
 ### <a name="configure-the-domain-purchase"></a>Konfigurera domän köpet
 
-På sidan **App Service domän** , i rutan **Sök efter domän** , anger du det domän namn som du vill köpa och skriver `Enter`. De föreslagna tillgängliga domänerna visas strax under text rutan. Välj en eller flera domäner som du vill köpa.
+På sidan **App Service domän** , i rutan **Sök efter domän** , anger du det domän namn som du vill köpa och skriver `Enter` . De föreslagna tillgängliga domänerna visas strax under text rutan. Välj en eller flera domäner som du vill köpa.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
@@ -140,7 +140,7 @@ Du kan också se de valda värd namnen på sidan **anpassade domäner** i avsnit
 > En **osäker etikett för** din anpassade domän innebär att den inte har bundits till ett TLS/SSL-certifikat, och att alla https-förfrågningar från en webbläsare till din anpassade domän får ett fel eller en varning, beroende på webbläsaren. Om du vill konfigurera TLS-bindning, se [skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
 >
 
-Om du vill testa värd namnen navigerar du till de listade värd namnen i webbläsaren. I exemplet i föregående skärm bild kan du försöka navigera till _kontoso.net_ och _www\.-kontoso.net_.
+Om du vill testa värd namnen navigerar du till de listade värd namnen i webbläsaren. I exemplet i föregående skärm bild kan du försöka navigera till _kontoso.net_ och _www- \. kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Tilldela värdnamn till appen
 
@@ -168,10 +168,10 @@ Se till att den köpta domänen visas i avsnittet **App Service domäner** , men
 Välj **Lägg till värddatornamn**.
 
 ### <a name="configure-hostname"></a>Konfigurera värdnamn
-I dialog rutan **Lägg till värdnamn** anger du det fullständigt kvalificerade domän namnet för din app service domän eller under domän. Ett exempel:
+I dialog rutan **Lägg till värdnamn** anger du det fullständigt kvalificerade domän namnet för din app service domän eller under domän. Till exempel:
 
 - kontoso.net
-- www\.-kontoso.net
+- www- \. kontoso.net
 - abc.kontoso.net
 
 När du är klar väljer du **Verifiera**. Post typen hostname väljs automatiskt åt dig.
@@ -235,7 +235,7 @@ I Azure hanteras DNS-poster för en App Service domän med hjälp av [Azure DNS]
 
 ### <a name="open-app-service-domain"></a>Öppna App Service domän
 
-I Azure Portal väljer du **alla tjänster** > **App Service domäner**på den vänstra menyn.
+I Azure Portal väljer du **alla tjänster**  >  **App Service domäner**på den vänstra menyn.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -255,7 +255,7 @@ När du har köpt App Service-domänen har du fem dagar på dig att avbryta köp
 
 ### <a name="open-app-service-domain"></a>Öppna App Service domän
 
-I Azure Portal väljer du **alla tjänster** > **App Service domäner**på den vänstra menyn.
+I Azure Portal väljer du **alla tjänster**  >  **App Service domäner**på den vänstra menyn.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -287,4 +287,4 @@ När åtgärden har slutförts släpps domänen från din prenumeration och är 
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Dirigera standard-URL:en till en anpassad katalog
 
-Som standard dirigerar App Service webbegäranden till rotkatalogen för din appkod. För att dirigera dem till en under katalog, t `public`. ex., se [direkt standard-URL till en anpassad katalog](app-service-web-tutorial-custom-domain.md#virtualdir).
+Som standard dirigerar App Service webbegäranden till rotkatalogen för din appkod. För att dirigera dem till en under katalog, t. ex `public` ., se [direkt standard-URL till en anpassad katalog](app-service-web-tutorial-custom-domain.md#virtualdir).

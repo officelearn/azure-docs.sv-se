@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du kan stoppa övervakningen av dit
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: e1d3200af62ad185fa942fa2c8f7f3b4e6bfd89b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82196197"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Så här stoppar du övervakning av Azure Red Hat OpenShift v3-kluster
@@ -22,7 +22,7 @@ Om du inte känner till konceptet att distribuera resurser med hjälp av en mall
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. För att identifiera din version, `az --version`kör. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Skapa mallen
 
@@ -65,7 +65,7 @@ Om du väljer att använda Azure CLI måste du först installera och använda CL
     }
     ```
 
-2. Spara filen som **OptOutTemplate. JSON** i en lokal mapp.
+2. Spara den här filen som **OptOutTemplate.jspå** en lokal mapp.
 
 3. Klistra in följande JSON-syntax i filen:
 
@@ -88,7 +88,7 @@ Om du väljer att använda Azure CLI måste du först installera och använda CL
 
     ![Sidan behållar egenskaper](media/container-insights-optout-openshift/cluster-properties-page.png)
 
-5. Spara filen som **OptOutParam. JSON** i en lokal mapp.
+5. Spara den här filen som **OptOutParam.jspå** en lokal mapp.
 
 6. Nu är det dags att distribuera den här mallen.
 

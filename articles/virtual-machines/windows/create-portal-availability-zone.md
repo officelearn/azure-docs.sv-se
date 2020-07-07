@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: b8a5f6543bc265605361b7875fad5232d428e27e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82209000"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Skapa en virtuell Windows-dator i en tillgänglighets zon med Azure Portal
@@ -40,7 +40,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
     ![Välj en VM-storlek](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. Under **Inställningar** > **hög tillgänglighet**väljer du en av de numrerade zonerna i list rutan **tillgänglighets zon** , behåller de återstående standardvärdena och klickar på **OK**.
+5. Under **Inställningar**  >  **hög tillgänglighet**väljer du en av de numrerade zonerna i list rutan **tillgänglighets zon** , behåller de återstående standardvärdena och klickar på **OK**.
 
     ![Välj en tillgänglighets zon](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 

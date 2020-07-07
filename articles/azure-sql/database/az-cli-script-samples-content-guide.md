@@ -3,7 +3,7 @@ title: Exempel på Azure CLI-skript
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Exempel på Azure CLI-skript för att skapa och hantera Azure SQL Database och Azure SQL-hanterad instans
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples, mvc, sqldbrb=2
 ms.devlang: azurecli
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: cc762c3c10c087a8c0db5bd17f9c38b8f9d26134
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251547"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982813"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure CLI-exempel för Azure SQL Database-och SQL-hanterad instans 
  
@@ -35,7 +35,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 Följande tabell innehåller länkar till exempel på Azure CLI-skript för att hantera enskilda databaser och databaser i Azure SQL Database. 
 
-| | |
+|Område|Beskrivning|
 |---|---|
 |**Skapa databaser i Azure SQL Database**||
 | [Skapa en databas och konfigurera en brandväggsregel](scripts/create-and-configure-database-cli.md) | Skapar en SQL Database och konfigurerar en brand Väggs regel på server nivå. |
@@ -63,7 +63,7 @@ Läs mer om [Azure CLI-API: et för en databas](single-database-manage.md#the-az
 
 Följande tabell innehåller länkar till exempel på Azure CLI-skript för Azure SQL-hanterad instans.
 
-| | |
+|Område|Beskrivning|
 |---|---|
 | **Skapa en SQL-hanterad instans**||
 | [Skapa en SQL-hanterad instans](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| Skapar en SQL-hanterad instans. |

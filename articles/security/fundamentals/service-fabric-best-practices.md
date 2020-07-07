@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461658"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Metodtips för Azure Service Fabric-säkerhet
@@ -87,7 +87,7 @@ Ange ett [kluster certifikat](../../service-fabric/service-fabric-windows-cluste
 
 Följ också dessa metoder:
 -   Skapa certifikat för produktions kluster genom att använda en korrekt konfigurerad Windows Server Certificate service. Du kan också hämta certifikaten från en godkänd certifikat utfärdare (CA).
--   Använd aldrig ett temporärt certifikat eller test certifikat för produktions kluster om certifikatet har skapats med hjälp av MakeCert. exe eller ett liknande verktyg.
+-   Använd aldrig ett temporärt certifikat eller test certifikat för produktions kluster om certifikatet har skapats med hjälp av MakeCert.exe eller ett liknande verktyg.
 -   Använd ett självsignerat certifikat för test kluster, men inte för produktions kluster.
 
 Om klustret är oskyddat kan vem som helst ansluta till klustret anonymt och utföra hanterings åtgärder. Därför bör du alltid säkra produktions kluster genom att använda X. 509-certifikat eller Windows-säkerhet.
@@ -99,7 +99,7 @@ Service Fabric skyddar också resurserna som används av program. Resurser som f
 
 -   Använd en Active Directory domän grupp eller användare: kör tjänsten under autentiseringsuppgifterna för ett Active Directory användar-eller grupp konto. Se till att du använder Active Directory lokalt i din domän och inte Azure Active Directory. Få åtkomst till andra resurser i domänen som har beviljats behörigheter genom att använda en domän användare eller grupp. Till exempel resurser som fil resurser.
 
--   Tilldela en säkerhets åtkomst princip för HTTP-och HTTPS-slutpunkter: ange egenskapen **SecurityAccessPolicy** för att tillämpa en **runas** -princip på en tjänst när tjänst manifestet deklarerar slut punkts resurser med http. Portar som tilldelas HTTP-slutpunkterna är korrekt åtkomst kontrollerade listor för det RunAs-användarkonto som tjänsten körs under. När principen inte har angetts har http. sys inte åtkomst till tjänsten och du kan få problem med anrop från klienten.
+-   Tilldela en säkerhets åtkomst princip för HTTP-och HTTPS-slutpunkter: ange egenskapen **SecurityAccessPolicy** för att tillämpa en **runas** -princip på en tjänst när tjänst manifestet deklarerar slut punkts resurser med http. Portar som tilldelas HTTP-slutpunkterna är korrekt åtkomst kontrollerade listor för det RunAs-användarkonto som tjänsten körs under. När principen inte har angetts har http.sys inte åtkomst till tjänsten och du kan få problem med anrop från klienten.
 
 Information om hur du använder säkerhets principer i ett Service Fabric kluster finns i [Konfigurera säkerhets principer för ditt program](../../service-fabric/service-fabric-application-runas-security.md).
 

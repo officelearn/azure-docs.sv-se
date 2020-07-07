@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5c42d65b5e2c46fcdbe1b0725f2ebce881722db3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72299986"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Table Storage och anslutna Visual Studio-tjänster (Cloud Services-projekt)
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du kommer igång med Azure Table Storage i Visua
 
 Med tjänsten Azure Table Storage kan du lagra stora mängder strukturerade data. Tjänsten är ett NoSQL-datalager som accepterar autentiserade anrop inifrån och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data.
 
-För att komma igång måste du först skapa en tabell i ditt lagrings konto. Vi visar dig hur du skapar en Azure-tabell i kod och hur du utför grundläggande tabell-och entitets åtgärder, till exempel att lägga till, ändra, läsa och läsa tabell enheter. Exemplen skrivs i C\# -kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+För att komma igång måste du först skapa en tabell i ditt lagrings konto. Vi visar dig hur du skapar en Azure-tabell i kod och hur du utför grundläggande tabell-och entitets åtgärder, till exempel att lägga till, ändra, läsa och läsa tabell enheter. Exemplen skrivs i C- \# kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 **Obs:** Några av de API: er som utför anrop till Azure Storage är asynkrona. Se [asynkron programmering med async och await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden nedan förutsätter att asynkrona programmerings metoder används.
 
@@ -89,7 +89,7 @@ Om du vill lägga till en entitet i en tabell skapar du en klass som definierar 
         public string PhoneNumber { get; set; }
     }
 
-Tabell åtgärder som involverar entiteter görs med **CloudTable** -objektet som du skapade tidigare i "Access-tabeller in Code". Objektet **TableOperation** representerar den åtgärd som ska utföras. I följande kod exempel visas hur du skapar ett **CloudTable** -objekt och ett **CustomerEntity** -objekt. För att förbereda åtgärden skapas en **TableOperation** för att infoga entiteten kund i tabellen. Slutligen körs åtgärden genom att anropa **CloudTable. ExecuteAsync**.
+Tabell åtgärder som involverar entiteter görs med **CloudTable** -objektet som du skapade tidigare i "Access-tabeller in Code". Objektet **TableOperation** representerar den åtgärd som ska utföras. I följande kod exempel visas hur du skapar ett **CloudTable** -objekt och ett **CustomerEntity** -objekt. För att förbereda åtgärden skapas en **TableOperation** för att infoga entiteten kund i tabellen. Slutligen körs åtgärden genom att anropa **CloudTable.ExecuteAsync**.
 
     // Create a new customer entity.
     CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -104,7 +104,7 @@ Tabell åtgärder som involverar entiteter görs med **CloudTable** -objektet so
 
 
 ## <a name="insert-a-batch-of-entities"></a>Infoga en batch med entiteter
-Du kan infoga flera entiteter i en tabell i en enda Skriv åtgärd. Följande kod exempel skapar två entiteter ("Jeff Svensson" och "ben Svensson"), lägger till dem i ett **TableBatchOperation** -objekt med hjälp av metoden INSERT och startar sedan åtgärden genom att anropa **CloudTable. ExecuteBatchAsync**.
+Du kan infoga flera entiteter i en tabell i en enda Skriv åtgärd. Följande kod exempel skapar två entiteter ("Jeff Svensson" och "ben Svensson"), lägger till dem i ett **TableBatchOperation** -objekt med hjälp av metoden INSERT och startar sedan åtgärden genom att anropa **CloudTable.ExecuteBatchAsync**.
 
     // Create the batch operation.
     TableBatchOperation batchOperation = new TableBatchOperation();

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458291"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Åtkomst Key Vault hemlighet när du distribuerar Azure Managed Applications
@@ -36,7 +36,7 @@ I den här artikeln beskrivs hur du konfigurerar Key Vault att arbeta med hanter
 
 ## <a name="add-service-as-contributor"></a>Lägg till tjänst som deltagare
 
-1. Välj **åtkomst kontroll (IAM)**.
+1. Välj **Åtkomstkontroll (IAM)** .
 
    ![Välj åtkomst kontroll](./media/key-vault-access/access-control.png)
 

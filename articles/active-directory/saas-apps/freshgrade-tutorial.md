@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c7a6716bbc4b297973c8bfb0305434ee08a4730
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b2bceac127645717947d1da712d1e3699a04bee0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606400"
+ms.locfileid: "85799215"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Självstudie: Azure Active Directory integrering med FreshGrade
 
@@ -34,7 +34,7 @@ Integreringen av FreshGrade med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med FreshGrade behöver du följande:
 
@@ -107,17 +107,17 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fr
 
      a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
 
-        ```https        
-        https://<subdomain>.freshgrade.com/login
-        https://<subdomain>.onboarding.freshgrade.com/login
-        ```
+    ```http       
+    https://<subdomain>.freshgrade.com/login
+    https://<subdomain>.onboarding.freshgrade.com/login
+    ```
 
     b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster:
     
-        ```https
-        https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
-        https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
-        ```
+    ```http
+    https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
+    https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för FreshGrade](mailto:support@freshgrade.com) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

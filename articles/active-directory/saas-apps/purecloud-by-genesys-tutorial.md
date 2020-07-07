@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0433b7287fc00da09fcf303fbcb8d74bf4e3b196
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78897769"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800122"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med PureCloud av gener
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar PureCloud av gener 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -87,35 +87,35 @@ Följ dessa steg om du vill aktivera Azure AD SSO i Azure Portal:
 
     a. I rutan **identifierare** anger du en URL som motsvarar din region:
 
-    | |
-    |--|
-    | `https://login.mypurecloud.com/saml` |
-    | `https://login.mypurecloud.de/saml` |
-    | `https://login.mypurecloud.jp/saml` |
-    | `https://login.mypurecloud.ie/saml` |
-    | `https://login.mypurecloud.au/saml` |
+    ```http
+    https://login.mypurecloud.com/saml
+    https://login.mypurecloud.de/saml
+    https://login.mypurecloud.jp/saml
+    https://login.mypurecloud.ie/saml
+    https://login.mypurecloud.au/saml
+    ```
 
     b. I rutan **svars-URL** anger du en URL som motsvarar din region:
 
-    | |
-    |--|
-    | `https://login.mypurecloud.com/saml` |
-    | `https://login.mypurecloud.de/saml` |
-    | `https://login.mypurecloud.jp/saml` |
-    | `https://login.mypurecloud.ie/saml` |
-    | `https://login.mypurecloud.com.au/saml`|
+    ```http
+    https://login.mypurecloud.com/saml
+    https://login.mypurecloud.de/saml
+    https://login.mypurecloud.jp/saml
+    https://login.mypurecloud.ie/saml
+    https://login.mypurecloud.com.au/saml
+    ```
 
 1. Välj **Ange ytterligare URL: er** och gör följande om du vill konfigurera programmet i läget **SP** -initierat:
 
     I rutan **inloggnings-URL** anger du en URL som motsvarar din region:
     
-    | |
-    |--|
-    | `https://login.mypurecloud.com` |
-    | `https://login.mypurecloud.de` |
-    | `https://login.mypurecloud.jp` |
-    | `https://login.mypurecloud.ie` |
-    | `https://login.mypurecloud.com.au` |
+    ```http
+    https://login.mypurecloud.com
+    https://login.mypurecloud.de
+    https://login.mypurecloud.jp
+    https://login.mypurecloud.ie
+    https://login.mypurecloud.com.au
+    ```
 
 1. PureCloud by Genesys-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärm bild visar en lista över standardattribut:
 
@@ -144,7 +144,7 @@ I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du användar namnet i följande format: username@companydomain.extension. Till exempel: `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du användar namnet i följande format: username@companydomain.extension . Exempel: `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och anteckna värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -212,7 +212,7 @@ Om du vill att Azure AD-användare ska kunna logga in på PureCloud av gener, m�
 
     a. I rutan **fullständigt namn** anger du namnet på en användare. Till exempel: **B. Simon**.
 
-    b. I rutan **e-post** anger du användarens e-postadress. Till exempel: **b. simon\@contoso.com**.
+    b. I rutan **e-post** anger du användarens e-postadress. Till exempel: **b. simon \@ contoso.com**.
 
     c. Välj **Skapa**.
 

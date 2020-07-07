@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a230292775d40834d541a7488a96ac8cef6e2c5a
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: c7b62a65d3f0b3b4006c55f5323b1feb69cca9f1
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605533"
+ms.locfileid: "85799861"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Självstudie: Azure Active Directory integrering med Insignia SAML SSO
 
@@ -34,7 +34,7 @@ Genom att integrera Insignia SAML SSO med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Insignia SAML SSO behöver du följande objekt:
 
@@ -107,11 +107,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med In
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
     
-        ```https
-        https://<customername>.insigniails.com/ils
-        https://<customername>.insigniails.com/
-        https://<customername>.insigniailsusa.com/
-        ```
+    ```http
+    https://<customername>.insigniails.com/ils
+    https://<customername>.insigniails.com/
+    https://<customername>.insigniailsusa.com/
+    ```
     
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<customername>.insigniailsusa.com/<uniqueid>`
 

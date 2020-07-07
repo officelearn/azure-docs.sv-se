@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09bb4cfb62217ffa16d30170ce2aa5e065a7eae6
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: c8529e1ea08707d9a60ec43d3fa569bdc7f5b7bf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607917"
+ms.locfileid: "85799331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Självstudie: Azure Active Directory integration med Brightspace av Desire2Learn
 
@@ -35,7 +35,7 @@ Genom att integrera Brightspace by Desire2Learn med Azure AD får du följande f
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna konfigurera Azure AD-integrering med Brightspace by Desire2Learn:
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Brigh
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
-        ```https
-        https://<companyname>.tenants.brightspace.com/samlLogin
-        https://<companyname>.desire2learn.com/shibboleth-sp
-        ```
+    ```http
+    https://<companyname>.tenants.brightspace.com/samlLogin
+    https://<companyname>.desire2learn.com/shibboleth-sp
+    ```
 
     b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 

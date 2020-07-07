@@ -4,20 +4,16 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
-ms.openlocfilehash: 01dabff80f0c7e46e183a05a000251797d490e32
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: f12fbe3ea9fa07c5ba8498a1f0b846a72647f5da
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929542"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805834"
 ---
 ## <a name="create-an-azure-resource"></a>Skapa en Azure-resurs
 
 Börja använda API för automatiska förslag i Bing genom att skapa någon av följande Azure-resurser.
-
-### <a name="trial-resource"></a>[Utvärderings resurs](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * Ingen Azure-prenumeration krävs.
-   * Gäller i sju dagar utan kostnad. När du har registrerat dig är en utvärderings nyckel och en slut punkt tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
 ### <a name="bing-autosuggest-resource"></a>[Automatiska förslag i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)
    * Tillgängligt via Azure Portal tills du tar bort resursen.

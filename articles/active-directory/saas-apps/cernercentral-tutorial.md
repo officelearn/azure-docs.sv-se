@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92f0895cbad547dbbb4ab040e69f1963c95df425
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 4690269775d68b23fd7b7d8c14b94c6188832934
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607505"
+ms.locfileid: "85799293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Självstudie: Azure Active Directory integrering med CERN Central
 
@@ -35,7 +35,7 @@ Att integrera CERN Central med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med CERN Central behöver du följande objekt:
 
@@ -109,17 +109,17 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med CE
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-        ```https
-        https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata
-        https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata
-        ```
+    ```http
+    https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata
+    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata
+    ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-        ```https
-        https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso
-        https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso
-        ```
+    ```http
+    https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso
+    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [CERN Central client support team](mailto:SISupport@cbre.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

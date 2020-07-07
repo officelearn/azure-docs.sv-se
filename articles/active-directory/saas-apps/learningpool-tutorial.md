@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bc0b395fcc874190b67bd99262c3a1c9294c0ac
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 173fab91681943576f9a4afeba8d38a99e22996f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74229282"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Självstudie: Azure Active Directory integrering med Learningpool Act
 
@@ -35,7 +35,7 @@ Integreringen av Learningpool Act med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Learningpool Act behöver du följande:
 
@@ -110,11 +110,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Learn
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
     
-    | |
-    |--|
-    | `https://<subdomain>.Learningpool.com/shibboleth` |
-    | `https://<subdomain>.preview.Learningpool.com/shibboleth` |
-    | | |
+    ```http
+    https://<subdomain>.Learningpool.com/shibboleth
+    https://<subdomain>.preview.Learningpool.com/shibboleth
+    ```
 
     > [!NOTE]
     > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [kundsupporten för Learningpool Act](https://www.learningpool.com/support) och be om det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -149,7 +148,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Learn
 
     f. Klicka på **OK**
 
-    g. Klicka på **Spara**.
+    ex. Klicka på **Spara**.
 
 7. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -187,7 +186,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

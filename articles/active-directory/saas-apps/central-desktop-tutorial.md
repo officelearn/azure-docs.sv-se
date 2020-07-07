@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3747c16d67d7ecbe9496e438e8d1eb1cd51ca1
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 6e2fa19c7c2525eadc0eb8008d66cf37b3526d72
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607947"
+ms.locfileid: "85799657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Självstudie: Azure Active Directory integrering med central Desktop
 
@@ -35,7 +35,7 @@ Integreringen av Central Desktop med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Central Desktop behöver du följande:
 
@@ -110,10 +110,10 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ce
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster:
     
-        ```https
-        https://<companyname>.centraldesktop.com/saml2-metadata.php
-        https://<companyname>.imeetcentral.com/saml2-metadata.php
-        ```
+    ```http
+    https://<companyname>.centraldesktop.com/saml2-metadata.php
+    https://<companyname>.imeetcentral.com/saml2-metadata.php
+    ```
 
     c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<companyname>.centraldesktop.com/saml2-assertion.php`
 

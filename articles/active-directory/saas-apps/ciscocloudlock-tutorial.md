@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7095608427a429c26ac5f7b83577d66912e5d773
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 397fe8c111870f4a1a6489e6502ff4365f80d1e3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607382"
+ms.locfileid: "85799589"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>Självstudie: integrera infrastrukturen för moln säkerhet med Azure Active Directory
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Cloud Security Fabr
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -85,17 +85,17 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I rutan **Inloggnings-URL** anger du en URL: 
 
-        ```https
-        https://platform.cloudlock.com
-        https://app.cloudlock.com
-        ```
+      ```http
+      https://platform.cloudlock.com
+      https://app.cloudlock.com
+      ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
 
-        ```https
-        https://platform.cloudlock.com/gate/saml/sso/<subdomain>
-        https://app.cloudlock.com/gate/saml/sso/<subdomain>
-        ```
+      ```http
+      https://platform.cloudlock.com/gate/saml/sso/<subdomain>
+      https://app.cloudlock.com/gate/saml/sso/<subdomain>
+      ```
 
     > [!NOTE]
     > Identifierarvärdet är inte verkligt. Uppdatera värdet med den faktiska identifieraren. Kontakta [support teamet för Cloud Security Fabric-klienten](mailto:support@cloudlock.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

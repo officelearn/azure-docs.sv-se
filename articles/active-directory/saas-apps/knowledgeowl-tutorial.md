@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc5ae5532acdd66e091891c55e3cebb79cb3d227
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9e3931baa8bab6f21d0edfefd17b95f7ecf3f7be
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608639"
+ms.locfileid: "85799827"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med KnowledgeOwl
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar KnowledgeOwl med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -86,34 +86,34 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
-        ```https
-        https://app.knowledgeowl.com/sp        
-        https://app.knowledgeowl.com/sp/id/<unique ID>
-        ```
+    ```http
+    https://app.knowledgeowl.com/sp
+    https://app.knowledgeowl.com/sp/id/<unique ID>
+    ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
     
-        ```https
-        https://subdomain.knowledgeowl.com/help/saml-login
-        https://subdomain.knowledgeowl.com/docs/saml-login
-        https://subdomain.knowledgeowl.com/home/saml-login
-        https://privatedomain.com/help/saml-login
-        https://privatedomain.com/docs/saml-login
-        https://privatedomain.com/home/saml-login
-        ```
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     
-        ```https
-        https://subdomain.knowledgeowl.com/help/saml-login
-        https://subdomain.knowledgeowl.com/docs/saml-login
-        https://subdomain.knowledgeowl.com/home/saml-login
-        https://privatedomain.com/help/saml-login
-        https://privatedomain.com/docs/saml-login
-        https://privatedomain.com/home/saml-login
-        ```
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Du måste uppdatera värdet från den faktiska identifieraren, svars-URL: en och inloggnings-URL: en som beskrivs senare i självstudien.
@@ -190,7 +190,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     f. I text rutan **utloggnings-URL för IDP** klistrar du in URL-värdet för **utloggning** , som du har kopierat från Azure Portal
 
-    g. Överför det hämtade certifikatet från Azure Portal genom att klicka på **IDP-certifikatet för uppladdning**.
+    ex. Överför det hämtade certifikatet från Azure Portal genom att klicka på **IDP-certifikatet för uppladdning**.
 
     h. Klicka på **MAPPA SAML-attribut** för att mappa attribut och utför följande steg:
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9800e2c4e5c99ea86ec7bf27a5925b7c96b5384
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: aed7c6ece045ab75571c9146c235c69f5c8d19a0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608032"
+ms.locfileid: "85799997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Självstudie: Azure Active Directory integrering med Ariba
 
@@ -35,7 +35,7 @@ Genom att integrera Ariba med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med Ariba:
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ar
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
     
-        ```https
-        https://<subdomain>.sourcing.ariba.com
-        https://<subdomain>.supplier.ariba.com
-        ```
+    ```http
+    https://<subdomain>.sourcing.ariba.com
+    https://<subdomain>.supplier.ariba.com
+    ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `http://<subdomain>.procurement-2.ariba.com`
 

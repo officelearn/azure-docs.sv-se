@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
-ms.openlocfilehash: 40432d4bad0070f9de21ec61020d976f0014e00c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9a8ea8ff03c495411910c775e5161b8ab216097a
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80550018"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805772"
 ---
 Använd den här snabb starten för att börja hämta Image Insights från tjänsten Visuell sökning i Bing, med Java-klientens bibliotek. Även om Visuell sökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för den här snabb starten på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch).
 
@@ -22,17 +22,17 @@ Använd Visuell sökning i Bing klient bibliotek för Java för att:
 * Ladda upp en bild för att skicka en begäran om visuella sökningar.
 * Hämta taggar för bild insikter och visuella Sök taggar.
 
-[Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [artefakt (maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch)  |  [Artefakt (maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Den aktuella versionen av [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle build-verktyget](https://gradle.org/install/)eller någon annan beroende hanterare
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, `BING_SEARCH_V7_SUBSCRIPTION_KEY`med namnet.
+När du har fått en nyckel från resursen [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `BING_SEARCH_V7_SUBSCRIPTION_KEY` .
 
 ### <a name="create-a-new-gradle-project"></a>Skapa ett nytt Gradle-projekt
 
@@ -82,7 +82,7 @@ Skapa en mapp för avbildningen som du vill överföra till API: et. Placera avb
 mkdir -p src/main/resources
 ``` 
 
-Navigera till den nya mappen och skapa en fil med namnet *BingVisualSearchSample. java*. Öppna det i önskat redigerings program eller IDE och Lägg till följande `import` -uttryck:
+Navigera till den nya mappen och skapa en fil med namnet *BingVisualSearchSample. java*. Öppna det i önskat redigerings program eller IDE och Lägg till följande- `import` uttryck:
 
 [!code-java[Import statements](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=imports)]
 
@@ -93,7 +93,7 @@ public class BingVisualSearchSample {
 }
 ```
 
-I programmets `main` Metod skapar du variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln. Skapa sedan en `byte[]` för avbildningen som ska laddas upp. Skapa ett `try` block för de metoder som du definierar senare och Läs in avbildningen och konvertera den till byte med `toByteArray()`.
+I programmets `main` metod skapar du variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln. Skapa sedan en `byte[]` för avbildningen som ska laddas upp. Skapa ett `try` block för de metoder som du definierar senare och Läs in avbildningen och konvertera den till byte med `toByteArray()` .
 
 [!code-java[Main method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=main)]
 
@@ -123,7 +123,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med Visuell sökning
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Den här snabb starten förutsätter att du har [skapat en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din `BING_SEARCH_V7_SUBSCRIPTION_KEY`visuell sökning i Bing nyckel, med namnet.
+> Den här snabb starten förutsätter att du har [skapat en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din visuell sökning i Bing nyckel, med namnet `BING_SEARCH_V7_SUBSCRIPTION_KEY` .
 
 
 I din huvud metod måste du se till att använda din prenumerations nyckel för att instansiera ett [BingVisualSearchAPI](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable) -objekt.
@@ -134,7 +134,7 @@ BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKe
 
 ## <a name="send-a-visual-search-request"></a>Skicka en begäran om visuella sökningar
 
-I en ny metod skickar du bildens byte-matris (som skapades i- `main()` metoden) med hjälp av klientens [bingImages (). visualSearch ()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) -metod. 
+I en ny metod skickar du bildens byte-matris (som skapades i `main()` -metoden) med hjälp av klientens [bingImages (). visualSearch ()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) -metod. 
 
 [!code-java[visualSearch() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=visualSearch)]
 
@@ -144,7 +144,7 @@ Kontrol lera om [ImageKnowledge](https://docs.microsoft.com/java/api/com.microso
 
 [!code-java[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printVisualSearchResults)]
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Du kan bygga appen med:
 
@@ -162,7 +162,7 @@ gradle run
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

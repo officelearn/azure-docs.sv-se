@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-ms.openlocfilehash: b48d11e15d452b72426c5b83d387f9e004e95dc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1563cc9baff0be844f7a654f8b028356c285b40
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80293931"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Självstudie: Azure Active Directory integration med Promaster (av Inlogik)
 
@@ -33,7 +33,7 @@ Genom att integrera Promaster (med Inlogik) med Azure AD får du följande förd
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Promaster (av Inlogik) behöver du följande objekt:
 
@@ -94,29 +94,26 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Pr
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-    | |
-    |-|-|
-    | `https://secure.inlogik.com/<COMPANYNAME>`|
-    | `https://<CUSTOMDOMAIN>/SAMLBASE`|
-    | |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>
+    https://<CUSTOMDOMAIN>/SAMLBASE
+    ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |-|-|
-    | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
-    | `https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs`|
-    | |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>/saml/acs
+    https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs
+    ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |-|-|
-    | `https://secure.inlogik.com/<COMPANYNAME>`|
-    | `https://<CUSTOMDOMAIN>/SAMLBASE`|
-    | |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>
+    https://<CUSTOMDOMAIN>/SAMLBASE
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Hämta de här värdena genom att kontakta [ProInlogiks-klient support teamet](https://www.inlogik.com/contact) . Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -133,7 +130,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

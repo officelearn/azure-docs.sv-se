@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 7ed2f4fa72617aa20ef085d64759119db650b288
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5097292ba722567e16c4573d46a70edb326c3ab5
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67094179"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>Självstudie: Azure Active Directory integrering med Powerschool prestanda frågor
 
@@ -34,7 +34,7 @@ Att integrera Powerschool prestanda i Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Powerschool prestanda, behöver du följande objekt:
 
@@ -107,11 +107,10 @@ Utför följande steg för att konfigurera enkel inloggning med Powerschool pres
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     
-    | |
-    |-|
-    | `https://ola.performancematters.com/ola/?clientcode=<Client Code>`|
-    | `https://unify.performancematters.com/?idp=<IDP>`|
-    | |
+    ```https
+        https://ola.performancematters.com/ola/?clientcode=<Client Code>
+        https://unify.performancematters.com/?idp=<IDP>
+    ```
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Powerschool-supporten](mailto:pmsupport@powerschoo.com) för att få fram värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

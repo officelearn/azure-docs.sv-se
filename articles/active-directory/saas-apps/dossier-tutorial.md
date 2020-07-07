@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: e7233ea2d9d49d9a030f11f45e8aeba3fb0927c2
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 8b9e65ed634243e60808e91d621cfe8c912b914e
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608867"
+ms.locfileid: "85799986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Självstudie: Azure Active Directory integration med dokumentation
 
@@ -34,7 +34,7 @@ Att integrera dokumentation med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med dokumentation behöver du följande objekt:
 
@@ -107,10 +107,10 @@ Utför följande steg för att konfigurera enkel inloggning med dokumentation f�
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
 
-        ```https
-        https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
-        https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
-        ```
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
+    https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
+    ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `Dossier/<CLIENTNAME>`
 
@@ -119,10 +119,10 @@ Utför följande steg för att konfigurera enkel inloggning med dokumentation f�
 
     c. I textrutan **Svars-URL** skriver du en URL med följande mönster: 
     
-        ```https
-        https://<SUBDOMAIN>.dossiersystems.com/azuresso
-        https://dossier.<CLIENTDOMAINNAME>/azuresso
-        ```
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso
+    https://dossier.<CLIENTDOMAINNAME>/azuresso
+    ```
 
 
     > [!NOTE]

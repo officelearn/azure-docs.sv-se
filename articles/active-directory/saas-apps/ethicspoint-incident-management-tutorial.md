@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 917e70374007d230c4a675f882457b05ba3a021b
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 01ad3a1fb23aac9badefcef7414521e014476eef
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607026"
+ms.locfileid: "85799578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Självstudie: Azure Active Directory integration med EthicsPoint incident hantering (EPIM)
 
@@ -35,7 +35,7 @@ Integreringen av EthicsPoint Incident Management (EPIM) med Azure AD medför fö
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att konfigurera Azure AD-integrering med EthicsPoint Incident Management (EPIM):
 
@@ -108,10 +108,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Ethic
 
     a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     
-        ```https
-        https://<companyname>.navexglobal.com
-        https://<companyname>.ethicspointvp.com
-        ```
+    ```http
+    https://<companyname>.navexglobal.com
+    https://<companyname>.ethicspointvp.com
+    ```
 
     b. I rutan **identifierare** anger du en URL med följande mönster:`https://<companyname>.navexglobal.com/adfs/services/trust`
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901022e31a917cd499d9a1daf5903c72e96aa9f0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 7a502a8273aef3df3488764ea7b01c21c512ba43
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367214"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800238"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med MongoDB Cloud
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig att integrera MongoDB Cloud med Azure
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att komma igång:
 
@@ -101,11 +101,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Förutom föregående attribut förväntar sig Cloud-MongoDB några fler attribut att skickas tillbaka i SAML-svaret. Dessa attribut har också fyllts i automatiskt, men du kan granska dem enligt dina krav.
     
-    | Namn | |  Källattribut|
-    | ---------------| --------------- | --------- |
-    | e-post | | user.userprincipalname |
-    | firstName | | user.givenname |
-    | lastName | | user.surname |
+    | Name | Källattribut|
+    | ---------------| --------- |
+    | e-post | user.userprincipalname |
+    | firstName | user.givenname |
+    | lastName | user.surname |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata**. Välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -122,7 +122,7 @@ I det här avsnittet skapar du en test användare i Azure Portal som kallas B. S
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan lösen ordet.
    1. Välj **Skapa**.
 

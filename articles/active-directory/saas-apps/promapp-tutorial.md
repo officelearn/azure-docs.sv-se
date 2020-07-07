@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 581c850801c153996031378cbf470457264cad3d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3caf67ef436093e63683c270f7121a2861242aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76984497"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800892"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med nintex Promapp
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig att integrera nintex-Promapp med Azur
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -84,14 +84,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     1. I rutan **identifierare** anger du en URL i det här mönstret:
 
-        | |
-        |--|
-        | `https://go.promapp.com/TENANTNAME/`|
-        | `https://au.promapp.com/TENANTNAME/`|
-        | `https://us.promapp.com/TENANTNAME/`|
-        | `https://eu.promapp.com/TENANTNAME/`|
-        | `https://ca.promapp.com/TENANTNAME/`|
-        |   |
+        ```https
+        https://go.promapp.com/TENANTNAME/
+        https://au.promapp.com/TENANTNAME/
+        https://us.promapp.com/TENANTNAME/
+        https://eu.promapp.com/TENANTNAME/
+        https://ca.promapp.com/TENANTNAME/
+        ```
 
        > [!NOTE]
        > Azure AD-integrering med nintex Promapp är för närvarande endast konfigurerad för autentisering som initierats av tjänsten. (Det vill säga till en nintex Promapp-URL initiera autentiseringsprocessen.) Men fältet **svars-URL** är ett obligatoriskt fält.
@@ -123,7 +122,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -186,7 +185,7 @@ När du klickar på panelen nintex Promapp på åtkomst panelen, bör du loggas 
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova nintex Promapp med Azure AD](https://aad.portal.azure.com/)
 

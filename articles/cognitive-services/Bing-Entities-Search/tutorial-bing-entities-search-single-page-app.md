@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 33c5cbd47213d021d374f52c1dadaf20d508ae37
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a376c5d223121774b6c707b3bdc8edce42649e42
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608576"
+ms.locfileid: "85800065"
 ---
 # <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
@@ -56,7 +56,7 @@ I den här självstudien diskuterar vi endast vissa delar av källkoden. Den ful
 > [!NOTE]
 > Den här självstudien liknar i stora delar [självstudien om enkelsidiga app för Webbsökning i Bing](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), men den behandlar endast entitetssökresultat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för API: et för Bing-sökning och Bing Maps. 
 
@@ -540,15 +540,18 @@ I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Ändra slutpunkten för webbsökning i Bing i HTML-filen till:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Ändra sedan Webbsökning i Bing-slutpunkten i HTML-filen till: \
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Slutligen startar du CORS-proxyn med följande kommando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 

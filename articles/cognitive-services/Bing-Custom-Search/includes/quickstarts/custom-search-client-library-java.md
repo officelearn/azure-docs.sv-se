@@ -8,38 +8,38 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: 32e02d3a7c1af6d15e7f381807d80f19b94da38f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: db7a32ac06e41a72314d3d73208c0d7e1b652649
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80587074"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805765"
 ---
 Kom igång med Anpassad sökning i Bing klient bibliotek för Java. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med API för anpassad Bing-sökning kan du skapa skräddarsydda, annons fria Sök upplevelser för ämnen som du bryr dig om. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingCustomSearch)
 
 Använd Anpassad sökning i Bing klient bibliotek för Java för att:
 
-* Hitta Sök resultat på webben från Anpassad sökning i Bing-instansen. 
+* Hitta Sök resultat på webben från Anpassad sökning i Bing-instansen.
 
-[Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [artefakt (maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch)  |  [Artefakt (maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/).
 * Den aktuella versionen av [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Gradle build-verktyget](https://gradle.org/install/)eller någon annan beroende hanterare.
 * En instans av anpassad Bing-sökning. Se [snabb start: skapa din första anpassad sökning i Bing-instans](../../quick-start.md) för mer information.
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, `AZURE_BING_CUSTOM_SEARCH_API_KEY`med namnet.
+När du har fått en nyckel från resursen [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `AZURE_BING_CUSTOM_SEARCH_API_KEY` .
 
 ### <a name="create-a-new-gradle-project"></a>Skapa ett nytt Gradle-projekt
 
 > [!TIP]
 > Om du inte använder Gradle kan du hitta klient biblioteks informationen för andra beroende hanterare på [maven Central-lagringsplatsen](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den.
 
 ```console
 mkdir myapp && cd myapp
@@ -53,9 +53,9 @@ gradle init --type basic
 
 Välj en **DSL** när du uppmanas till det och välj **Kotlin**.
 
-## <a name="install-the-client-library"></a>Installera klient biblioteket 
+## <a name="install-the-client-library"></a>Installera klient biblioteket
 
-Leta upp *build. gradle. KTS* och öppna den med önskad IDE-eller text redigerare. Kopiera sedan i den här build-konfigurationen. Se till att inkludera klient biblioteket Under `dependencies`:
+Leta upp *build. gradle. KTS* och öppna den med önskad IDE-eller text redigerare. Kopiera sedan i den här build-konfigurationen. Se till att inkludera klient biblioteket Under `dependencies` :
 
 ```kotlin
 plugins {
@@ -80,7 +80,7 @@ Skapa en mapp för din exempel App. Kör följande kommando från arbets katalog
 mkdir src/main/java
 ```
 
-Navigera till den nya mappen och skapa en fil med namnet *BingCustomSearchSample. java*. Öppna den och Lägg till följande `import` -uttryck:
+Navigera till den nya mappen och skapa en fil med namnet *BingCustomSearchSample. java*. Öppna den och Lägg till följande- `import` uttryck:
 
 
 [!code-java[import statements](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=imports)]
@@ -92,7 +92,7 @@ public class BingCustomSearchSample {
 }
 ```
 
-I-klassen skapar du en `main` -Metod och en variabel för resurs nyckeln. Om du har skapat miljövariabeln när du har startat programmet stänger du och öppnar redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln. Du definierar metoderna senare.
+I-klassen skapar du en- `main` metod och en variabel för resurs nyckeln. Om du har skapat miljövariabeln när du har startat programmet stänger du och öppnar redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln. Du definierar metoderna senare.
 
 [!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=main)]
 
@@ -111,7 +111,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med Anpassad söknin
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Huvud metoden bör innehålla ett [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) -objekt som tar din nyckel och anropar dess `authenticate()`.
+Huvud metoden bör innehålla ett [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) -objekt som tar din nyckel och anropar dess `authenticate()` .
 
 ```java
 BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKey);
@@ -119,11 +119,11 @@ BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKe
 
 ## <a name="get-search-results-from-your-custom-search-instance"></a>Få Sök Resultat från din anpassade Sök instans
 
-Använd klientens [BingCustomInstances. search ()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) -funktion för att skicka en Sök fråga till din anpassade instans. Ange `withCustomConfig` som anpassat KONFIGURATIONS-ID eller Använd som `1`standard. När du har skaffat ett svar från API: et kontrollerar du om det finns några Sök resultat. I så fall får du det första Sök resultatet genom att anropa svarets `webPages().value().get()` funktion och skriva ut resultatets namn och URL. 
+Använd klientens [BingCustomInstances. search ()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) -funktion för att skicka en Sök fråga till din anpassade instans. Ange `withCustomConfig` som anpassat konfigurations-ID eller Använd som standard `1` . När du har skaffat ett svar från API: et kontrollerar du om det finns några Sök resultat. I så fall får du det första Sök resultatet genom att anropa svarets `webPages().value().get()` funktion och skriva ut resultatets namn och URL.
 
 [!code-java[call the custom search API](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=runSample)]
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Bygg appen med följande kommando från projektets huvud katalog:
 
@@ -141,7 +141,7 @@ gradle run
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

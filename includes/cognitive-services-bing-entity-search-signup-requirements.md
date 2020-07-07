@@ -4,20 +4,16 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/08/2020
-ms.openlocfilehash: 748f6dea8f6d057274c8e6c9f04690be05218f0c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b085e3da5f4f390e8e392a36a8d4a5154d091803
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805376"
 ---
 ## <a name="create-an-azure-resource"></a>Skapa en Azure-resurs
 
 Börja använda API för entitetsökning i Bing genom att skapa någon av följande Azure-resurser.
-
-### <a name="trial-resource"></a>[Utvärderings resurs](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * Ingen Azure-prenumeration krävs.
-   * Gäller i sju dagar utan kostnad. När du har registrerat dig är en utvärderings nyckel och en slut punkt tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
 ### <a name="bing-entity-search-resource"></a>[Entitetssökning i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch)
    * Tillgängligt via Azure Portal tills du tar bort resursen.

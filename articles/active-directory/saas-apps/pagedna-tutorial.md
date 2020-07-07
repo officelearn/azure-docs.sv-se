@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 34e496ea9d2a89894951856a19854bff18f20a8b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68227470"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Självstudie: Azure Active Directory integrering med PageDNA
 
@@ -35,7 +35,7 @@ Genom att integrera PageDNA med Azure AD får du följande fördelar:
 
 Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med PageDNA behöver du följande objekt:
 
@@ -110,21 +110,19 @@ Utför följande steg för att konfigurera enkel inloggning med PageDNA i Azure 
 
     1. I rutan **inloggnings-URL** anger du en URL genom att använda något av följande mönster:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>` |
-        | `https://<your domain>` |
-        | `https://<your domain>/<your site>` |
-        | `https://www.nationsprint.com/<your site>` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>
+        https://<your domain>
+        https://<your domain>/<your site>
+        https://www.nationsprint.com/<your site>
+        ```
 
     1. I rutan **identifierare (enhets-ID)** anger du en URL genom att använda något av följande mönster:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-        | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>/saml2ep.cgi
+        https://www.nationsprint.com/<your site>/saml2ep.cgi
+        ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [PageDNA support-teamet](mailto:success@pagedna.com)om du vill hämta dessa värden. Du kan också se de mönster som visas i fönstret **grundläggande konfiguration av SAML** i Azure Portal.
@@ -149,7 +147,7 @@ Om du vill konfigurera enkel inloggning på PageDNA-sidan skickar du det nedladd
 
 I det här avsnittet skapar du en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure Portal i det vänstra fönstret väljer du **Azure Active Directory**   > **användare** > **alla användare**.
+1. I Azure Portal i det vänstra fönstret väljer du **Azure Active Directory**    >  **användare**  >  **alla användare**.
 
     ![Alternativen användare och alla användare](common/users.png)
 
@@ -163,7 +161,7 @@ I det här avsnittet skapar du en testanvändare i Azure-portalen med namnet Bri
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I rutan **användar namn** anger du **BrittaSimon\@\<\< yourcompanydomain>. tillägg>**. Till exempel **BrittaSimon\@contoso.com**.
+    1. I rutan **användar namn** anger du **BrittaSimon \@ \<yourcompanydomain> . \<extension> **. Till exempel **BrittaSimon \@ contoso.com**.
 
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
@@ -173,7 +171,7 @@ I det här avsnittet skapar du en testanvändare i Azure-portalen med namnet Bri
 
 I det här avsnittet aktiverar du User Britta Simon till att använda enkel inloggning med Azure genom att ge användaren åtkomst till PageDNA.
 
-1. I Azure Portal väljer du **företags program** > **alla program** > **PageDNA**.
+1. I Azure Portal väljer du **företags program**  >  **alla program**  >  **PageDNA**.
 
     ![Fönstret företags program](common/enterprise-applications.png)
 

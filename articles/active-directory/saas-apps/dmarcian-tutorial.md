@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845a09610fa7855dfa2be71e3736371f8f45078f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: e8ad669f092fac0cc2e737d93ccc9d225ef57adf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607142"
+ms.locfileid: "85799555"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>Självstudie: integrera dmarcian med Azure Active Directory
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar dmarcian med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -85,29 +85,29 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
-        ```https
-        https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        ```
+    ```http
+    https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    ```
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-        ```https
-        https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
-        https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
-        https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
-        ```
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
+    ```
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     
-        ```https
-        https://us.dmarcian.com/login/<ACCOUNT_ID>
-        https://dmarcian-eu.com/login/<ACCOUNT_ID>
-        https://dmarciam-ap.com/login/<ACCOUNT_ID>
-        ```
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>
+    https://dmarciam-ap.com/login/<ACCOUNT_ID>
+    ```
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Du kommer att uppdatera de här värdena med faktisk identifierare, svars-URL och inloggnings-URL. Detta förklaras senare i självstudien.

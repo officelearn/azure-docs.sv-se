@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/01/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 8115f8e767d1bdcbacb74e90606526c98b0820f7
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 0c7fe0629724217f36d3b28e74aaafdfd15c9a61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799249"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrera en JavaScript-app med en sida från implicit beviljande till auth Code Flow
 
@@ -99,4 +99,4 @@ Om du vill lära dig mer om Java Script-program med en enda sida på Microsofts 
 
 <!-- LINKS - external -->
 [msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_app_publicclientapplication_.publicclientapplication.html
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html

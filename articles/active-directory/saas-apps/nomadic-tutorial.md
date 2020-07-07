@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 259d20474ef075f6247878b2b7798c6fa8e608aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 07e6e0d1a7d358deebba7b4857b6afebcfb3be1c
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73161277"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Självstudie: Azure Active Directory integrering med Nomadic
 
@@ -34,7 +34,7 @@ Genom att integrera Nomadic med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Nomadic behöver du följande objekt:
 
@@ -109,10 +109,10 @@ Utför följande steg för att konfigurera enkel inloggning med Nomadic i Azure 
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
     
-    | |
-    |--|
-    | `https://<company name>.nomadic.fm/auth/saml2/sp` |
-    | `https://<company name>.staging.nomadic.fm/auth/saml2/sp` |
+    ```http
+    https://<company name>.nomadic.fm/auth/saml2/sp
+    https://<company name>.staging.nomadic.fm/auth/saml2/sp
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Nomadic client support team](mailto:help@nomadic.fm) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -153,7 +153,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

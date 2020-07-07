@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 94946b4b6d0f0fc9c94cac7aca1e971b3f6262f9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 95bf939feaad39d261e03938a3c7dd12a76cdd99
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673228"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85806136"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för 64-bitars Java 8-JRE. Om du bara vill att paket namnet ska komma igång på egen hand är Java SDK inte tillgängligt i maven Central-lagringsplatsen. Oavsett om du använder Gradle eller en `pom.xml` beroende fil måste du lägga till en anpassad databas som pekar på `https://csspeechstorage.blob.core.windows.net/maven/` (se nedan för paketets namn).
 
@@ -31,7 +31,7 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
   - Mac: macOS X version 10,13 eller senare
   - Linux: 64-endast bit på Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -40,24 +40,24 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
 
   - På Ubuntu kör du följande kommandon för att installera de nödvändiga paketen:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.0 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
 
   - På Debian 9 kör du följande kommandon för att installera de nödvändiga paketen:
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.2 libasound2
-        ```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
 
   - På RHEL/CentOS kör du följande kommandon för att installera de nödvändiga paketen:
 
-        ```sh
-        sudo yum update
-        sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
-        ```
+    ```sh
+    sudo yum update
+    sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
+    ```
 
 > [!NOTE]
 > - På RHEL/CentOS 7 följer du anvisningarna för [hur du konfigurerar RHEL/CentOS 7 för tal-SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).

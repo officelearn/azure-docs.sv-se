@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eba47dede77f6d8dd19bde99a94de3ff5900f99
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 97448bb99af3a451fbb59e446fa47aa7f871b845
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732809"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800249"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Självstudie: integrera enkel inloggning med Azure AD (SSO) med Netsuite
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar Netsuite med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -89,16 +89,16 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
 
 1. I avsnittet **grundläggande SAML-konfiguration** , i text rutan **svars-URL** , anger du en URL i något av följande format:
 
-    ||
-    |-|
-    | `https://<Instance ID>.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.na1.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.na2.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.sandbox.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.na1.sandbox.NetSuite.com/saml2/acs`|
-    | `https://<Instance ID>.na2.sandbox.NetSuite.com/saml2/acs`|
+    ```https
+    https://<Instance ID>.NetSuite.com/saml2/acs
+    https://<Instance ID>.na1.NetSuite.com/saml2/acs
+    https://<Instance ID>.na2.NetSuite.com/saml2/acs
+    https://<Instance ID>.sandbox.NetSuite.com/saml2/acs
+    https://<Instance ID>.na1.sandbox.NetSuite.com/saml2/acs
+    https://<Instance ID>.na2.sandbox.NetSuite.com/saml2/acs
+    ```
 
-    * Du får ** < `Instance ID` ** värdet i avsnittet Netsuite-konfiguration, som beskrivs senare i självstudien vid steg 8 under Netsuite-konfiguration. Du hittar den exakta domänen (till exempel system.na0.netsuite.com i det här fallet).
+    * Du får **<`Instance ID`>** värdet i avsnittet Netsuite-konfiguration, som beskrivs senare i självstudien vid steg 8 under Netsuite-konfiguration. Du hittar den exakta domänen (till exempel system.na0.netsuite.com i det här fallet).
 
         ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/domain-value.png)
 
@@ -130,14 +130,14 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
 
 I det här avsnittet skapar du en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** > **användare** > **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**  >  **användare**  >  **alla användare**.
 
 1. Välj **ny användare** överst på skärmen.
 
 1. I fönstret **användar** egenskaper följer du dessa steg:
 
    a. I rutan **namn** anger du **B. Simon**.  
-   b. I rutan **användar namn** anger du username@companydomain.extension (till exempel B.Simon@contoso.com).  
+   b. I rutan **användar namn** anger du username@companydomain.extension (till exempel B.Simon@contoso.com ).  
    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.  
    d. Välj **Skapa**.
 
@@ -166,7 +166,7 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
 1. Öppna en ny flik i webbläsaren och logga in på företags platsen för Netsuite som administratör.
 
-2. I det övre navigerings fältet väljer du **konfiguration**och väljer sedan **företags** > **aktiverings funktioner**.
+2. I det övre navigerings fältet väljer du **konfiguration**och väljer sedan **företags**  >  **aktiverings funktioner**.
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-setupsaml.png)
 
@@ -200,7 +200,7 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
     c. Välj **Skicka**.
 
-9. I det övre navigerings fältet i Netsuite väljer du **installation**och sedan **företags** > **information**.
+9. I det övre navigerings fältet i Netsuite väljer du **installation**och sedan **företags**  >  **information**.
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-com.png)
 
@@ -232,7 +232,7 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
     ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/ns-sso.png)
 
-    g. Välj **SAML enkel inloggning**och välj sedan **Lägg till**.
+    ex. Välj **SAML enkel inloggning**och välj sedan **Lägg till**.
 
     h. Välj **Spara**.
 
@@ -268,7 +268,7 @@ När du väljer Netsuite-panelen på åtkomst panelen, bör du loggas in automat
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Testa Netsuite med Azure AD](https://aad.portal.azure.com/)
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

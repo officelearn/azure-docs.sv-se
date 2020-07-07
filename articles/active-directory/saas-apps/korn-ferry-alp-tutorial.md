@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab11c4fe957ab81dde3fb4f75a4dd82a6d4e5d2
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 83efecea84073020e87b25a83a3a26c6d25ea08c
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608729"
+ms.locfileid: "85799772"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Självstudie: Azure Active Directory integrering med korn färj-ALP
 
@@ -35,7 +35,7 @@ När du integrerar Korn Ferry ALP med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Korn Ferry ALP behöver du följande objekt:
 
@@ -108,19 +108,19 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Korn Fe
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
 
-        ```https
-        https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
-        https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
-        https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
-        ```
+    ```http
+    https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
+    https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
+    https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
+    ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
     
-        ```https
-        https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
-        https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
-        https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
-        ```
+    ```http
+    https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
+    https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
+    https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för Korn Ferry ALP-klienten](mailto:noreply@kornferry.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

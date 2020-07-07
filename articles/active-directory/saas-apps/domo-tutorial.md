@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba0bdd58dfcadf4c524e9c386aac94628f77c8a
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 7a791fb2e40e46c1081dbb50a85af780d45f528e
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608793"
+ms.locfileid: "85799538"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-domo"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Domo
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Domo med Azure Acti
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -87,19 +87,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
 
-        ```https
-        https://<companyname>.domo.com` |
-        https://<companyname>.beta.domo.com` |
-        https://<companyname>.demo.domo.com` |
-        https://<companyname>.dev.domo.com` |
-        https://<companyname>.fastage1.domo.com` |
-        https://<companyname>.frdev.domo.com` |
-        https://<companyname>.gastage.domo.com` |
-        https://<companyname>.load.domo.com` |
-        https://<companyname>.local.domo.com` |
-        https://<companyname>.qa.domo.com` |
-        https://<companyname>.stage.domo.com` |
-        ```
+    ```http
+    https://<companyname>.domo.com
+    https://<companyname>.beta.domo.com
+    https://<companyname>.demo.domo.com
+    https://<companyname>.dev.domo.com
+    https://<companyname>.fastage1.domo.com
+    https://<companyname>.frdev.domo.com
+    https://<companyname>.gastage.domo.com
+    https://<companyname>.load.domo.com
+    https://<companyname>.local.domo.com
+    https://<companyname>.qa.domo.com
+    https://<companyname>.stage.domo.com
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Domo](mailto:support@domo.com) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

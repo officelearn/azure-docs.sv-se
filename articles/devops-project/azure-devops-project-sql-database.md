@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318632"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Självstudie: Distribuera ASP.NET-appen och Azure SQL Database kod med hjälp av Azure DevOps starter
@@ -33,10 +33,10 @@ I de här självstudierna får du:
 > * Granska CI-pipelinen
 > * Granska CD-pipelinen
 > * Genomföra ändringar av Azure Repos och distribuera dem automatiskt till Azure
-> * Anslut till Azure SQL Database 
+> * Ansluta till Azure SQL Database 
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -140,7 +140,7 @@ Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som a
 
 1. När versionen har slutförts kan du uppdatera ditt program för att verifiera dina ändringar.
 
-## <a name="connect-to-azure-sql-database"></a>Anslut till Azure SQL Database
+## <a name="connect-to-azure-sql-database"></a>Ansluta till Azure SQL Database
 
 Du måste ha rätt behörighet för att kunna ansluta till Azure SQL Database.
 
@@ -184,7 +184,7 @@ Du kan även ändra dessa bygg- och versionspipelines för att tillgodose ditt t
 > * Granska CI-pipelinen
 > * Granska CD-pipelinen
 > * Genomföra ändringar av Azure Repos och distribuera dem automatiskt till Azure
-> * Anslut till Azure SQL Database 
+> * Ansluta till Azure SQL Database 
 > * Rensa resurser
 
 Mer information om CI/CD-pipelinen finns i:
@@ -192,6 +192,6 @@ Mer information om CI/CD-pipelinen finns i:
 > [!div class="nextstepaction"]
 > [Definiera din CD-pipeline med flera steg](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3308/player]

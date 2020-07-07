@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f77f00870af7b9d1788d96391264bdf9b4ee73c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b3c8062bf40e8c97e93f237237dcd7c6923d59dd
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607709"
+ms.locfileid: "85799655"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Självstudie: integrera Carbonite Endpoint backup med Azure Active Directory
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig att integrera Carbonite Endpoint back
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -84,28 +84,28 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **identifierare** skriver du en av följande URL: er:
 
-        ```https
-        https://red-us.mysecuredatavault.com
-        https://red-apac.mysecuredatavault.com
-        https://red-fr.mysecuredatavault.com
-        https://red-emea.mysecuredatavault.com
-        https://kamino.mysecuredatavault.com
-        ```
+    ```http
+    https://red-us.mysecuredatavault.com
+    https://red-apac.mysecuredatavault.com
+    https://red-fr.mysecuredatavault.com
+    https://red-emea.mysecuredatavault.com
+    https://kamino.mysecuredatavault.com
+    ```
 
     b. I text rutan **svars-URL** skriver du en av följande URL: er:
 
-        ```https
-        https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
-        ```
+    ```http
+    https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
+    ```
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I text rutan **inloggnings-URL** skriver du en av följande URL: er:
 
-    ```https
+    ```http
     https://red-us.mysecuredatavault.com/
     https://red-apac.mysecuredatavault.com/
     https://red-fr.mysecuredatavault.com/

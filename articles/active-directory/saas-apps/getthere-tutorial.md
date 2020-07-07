@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d8ce37da0992ab3ac2c02f9c48c9c79ee40ae8
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 45fc683bb894fdafae7f88e112971d1c8378e50b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608691"
+ms.locfileid: "85799889"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-getthere"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GetThere
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar GetThere med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -87,19 +87,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL: 
 
-        ```https
-        getthere.com
-        http://idp.getthere.com
-        ```
+    ```http
+    getthere.com
+    http://idp.getthere.com
+    ```
 
     b. Skriv någon av följande URL: er i text rutan **svars-URL** :
 
-        ```https
-        https://wx1.getthere.net/login/saml/post.act
-        https://gtx2-gcte2.getthere.net/login/saml/post.act
-        https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act
-        https://wx1.getthere.net/login/saml/ssoaavalidate.act
-        ```
+    ```http
+    https://wx1.getthere.net/login/saml/post.act
+    https://gtx2-gcte2.getthere.net/login/saml/post.act
+    https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act
+    https://wx1.getthere.net/login/saml/ssoaavalidate.act
+    ```
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 

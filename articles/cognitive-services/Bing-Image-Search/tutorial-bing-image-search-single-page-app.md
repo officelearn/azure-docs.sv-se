@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6a88ca1f028efcb3b9614df532b6d2dcc9dcfac8
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943890"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800912"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
@@ -31,7 +31,7 @@ I den här självstudieappen visas hur du:
 
 Den fullständiga källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/).
 * Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i GitHub-exemplets readme-fil.
@@ -390,15 +390,18 @@ I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Ändra slutpunkten för webbsökning i Bing i HTML-filen till:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Ändra sedan Webbsökning i Bing-slutpunkten i HTML-filen till: \
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Slutligen startar du CORS-proxyn med följande kommando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 

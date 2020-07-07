@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ad80956cf7d6324487da5d0fabc2e93a5b4bf52f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67094112"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800265"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Självstudie: Azure Active Directory integrering med Predictix-pris rapportering
 
@@ -36,7 +36,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Predictix-pris rapportering behöver du:
 
@@ -57,7 +57,7 @@ Om du vill ställa in integreringen av Predictix-pris rapportering i Azure AD m�
 
     ![Välj Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företags program** > **alla program**:
+2. Gå till **företags program**  >  **alla program**:
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -111,11 +111,10 @@ Utför följande steg för att konfigurera enkel inloggning med Predictix-pris r
 
     1. I rutan **identifierare (enhets-ID)** anger du en URL i det här mönstret:
 
-        | |
-        |--|
-        | `https://<companyname-pricing>.predictix.com` |
-        | `https://<companyname-pricing>.dev.predictix.com` |
-        | |
+        ```https
+        https://<companyname-pricing>.predictix.com
+        https://<companyname-pricing>.dev.predictix.com
+        ```
 
     > [!NOTE]
     > Dessa värden är plats hållare. Du måste använda den faktiska inloggnings-URL: en och identifieraren. Kontakta [support teamet för Predictix pris rapportering](https://www.infor.com/company/customer-center/) för att hämta värdena. Du kan också se de mönster som visas i dialog rutan **grundläggande SAML-konfiguration** i Azure Portal.
@@ -156,7 +155,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I rutan **användar namn** anger du **BrittaSimon@\<\< yourcompanydomain>. tillägg>**. (Till exempel BrittaSimon@contoso.com.)
+    1. I rutan **användar namn** anger du **BrittaSimon@ \<yourcompanydomain> . \<extension> **. (Till exempel BrittaSimon@contoso.com .)
 
     1. Välj **Visa lösen ord**och skriv sedan ned värdet i rutan **lösen ord** .
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c1ee9d301d983404c23f4c710ea771599942df49
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 17dc6ef4b1c86e0ae0301783c2c524062e85fb5a
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607069"
+ms.locfileid: "85799291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Självstudie: Azure Active Directory integrering med Form.com
 
@@ -34,7 +34,7 @@ När du integrerar Form.com med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Form.com behöver du följande:
 
@@ -111,10 +111,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Form.
 
     c. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
     
-        ```https
-        https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action
-        https://<subdomain>.form.com/Member/UserAccount/SAML2.action
-        ```
+    ```http
+    https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action
+    https://<subdomain>.form.com/Member/UserAccount/SAML2.action
+    ```
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Form.com-klientens supportteam](https://form.com/about/company/contact-us/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

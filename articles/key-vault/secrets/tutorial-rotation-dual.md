@@ -1,6 +1,6 @@
 ---
-title: Rotations kurs för dubbla autentiseringsuppgifter
-description: I den här självstudien får du lära dig hur du automatiserar rotationen av en hemlighet för resurser som använder autentisering med dubbla autentiseringsuppgifter.
+title: Rotations guide för resurser med två uppsättningar autentiseringsuppgifter
+description: I den här självstudien får du lära dig hur du automatiserar rotationen av en hemlighet för resurser som använder två uppsättningar autentiseringsuppgifter för autentisering.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 9ab8a35808f94c04c1d57cd18a8d45b5a59c5160
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: ba9ff0ead1131b091aa1a5ece2ecf94d2319a968
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85487001"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800705"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-dual-credential-authentication"></a>Automatisera rotationen av en hemlighet för resurser som använder autentisering med dubbla autentiseringsuppgifter
+# <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser med två uppsättningar autentiseringsuppgifter för autentisering
 
 Det bästa sättet att autentisera till Azure-tjänster är genom att använda en [hanterad identitet](../general/managed-identity.md), men det finns vissa scenarier där det inte är ett alternativ. I dessa fall används åtkomst nycklar eller lösen ord. Åtkomst nycklar och lösen ord bör roteras ofta.
 
-Den här självstudien visar hur du automatiserar den periodiska rotationen av hemligheter för databaser och tjänster som använder autentisering med dubbla autentiseringsuppgifter. Mer specifikt roterar Azure Storage konto nycklar som lagras i Azure Key Vault som hemligheter med hjälp av en funktion som utlöses av Azure Event Grid meddelande. :
+Den här självstudien visar hur du automatiserar den periodiska rotationen av hemligheter för databaser och tjänster som använder två uppsättningar autentiseringsuppgifter för autentisering. Mer specifikt roterar Azure Storage konto nycklar som lagras i Azure Key Vault som hemligheter med hjälp av en funktion som utlöses av Azure Event Grid meddelande. :
 
 > [!NOTE]
 > Lagrings konto nycklar kan hanteras automatiskt i Key Vault genom att tillhandahålla signatur-token för delad åtkomst till lagrings kontot. Det finns tjänster som kräver anslutnings strängen för lagrings kontot med åtkomst nyckeln och för det scenariot rekommenderas den här lösningen
@@ -35,7 +35,7 @@ I ovanstående lösning lagrar Azure Key Vault lagrings konto enskilda åtkomst 
 1. Function-appen identifierar en alternativ nyckel (förutom senaste) och anropar lagrings kontot för att återskapa det
 1. Function-appen lägger till ny återskapad nyckel till Azure Key Vault som ny version av hemligheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure Key Vault
 * Två Azure Storage konton
@@ -47,7 +47,7 @@ Nedan kan du använda distributions länken, om du inte har befintliga nyckel va
 
 1. Under **resurs grupp**väljer du **Skapa ny**. Namnge gruppen **akvrotation** och klicka på **OK**.
 1. Välj **Granska + skapa**.
-1. Välj **skapa**
+1. Välj **Skapa**
 
     ![Skapa en resursgrupp](../media/secrets/rotation-dual/dual-rotation-1.png)
 
@@ -91,7 +91,7 @@ Funktionen appens rotations funktioner kräver dessa komponenter och konfigurati
 1. I **hemligt namn**skriver du ett hemligt namn där åtkomst nycklar ska lagras
 1. I **lagrings platsen-URL**skriver du funktions kod GitHub Location ( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** )
 1. Välj **Granska + skapa**.
-1. Välj **skapa**
+1. Välj **Skapa**
 
    ![Granska + skapa](../media/secrets/rotation-dual/dual-rotation-2.png)
 
@@ -165,7 +165,7 @@ Att lägga till ytterligare lagrings konto nycklar för rotering till befintlig 
 1. I **Funktionsapp namn**skriver du namnet på appens funktion
 1. I **hemligt namn**skriver du ett hemligt namn där åtkomst nycklar ska lagras
 1. Välj **Granska + skapa**.
-1. Välj **skapa**
+1. Välj **Skapa**
 
    ![Granska + skapa](../media/secrets/rotation-dual/dual-rotation-7.png)
 
@@ -203,7 +203,7 @@ az storage account keys list -n akvrotationstorage
 
 ## <a name="available-key-vault-dual-credential-rotation-functions"></a>Tillgängliga Key Vaults rotations funktioner för dubbla autentiseringsuppgifter
 
-- [Lagrings konto](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
+- [Lagringskonto](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## <a name="learn-more"></a>Läs mer

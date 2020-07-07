@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 0a6a1bd5e56f94a97779a85eafd0d46473cc2d0c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 227e60486f0a6712b0d29de47983bad737481bd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800553"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -233,11 +233,13 @@ Från installations platsen kan du använda kommando raden för att starta och s
 
 ### <a name="command-line-syntax"></a>Syntax för kommandorad
 
-    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```
 
 Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emulator.exe /?` i kommandotolken.
 
-|**Alternativet** | **Beskrivning** | **Kommandoprompt**| **Argument**|
+|**Alternativ** | **Beskrivning** | **Kommandoprompt**| **Argument**|
 |---|---|---|---|
 |[Inga argument] | Startar Azure Cosmos-emulatorn med standardinställningar. |Microsoft.Azure.Cosmos.Emulator.exe| |
 |[Hjälp] |Visar en lista över kommandoradsargument som stöds.|Microsoft.Azure.Cosmos.Emulator.exe/? | |
@@ -418,7 +420,7 @@ Om du stänger det interaktiva gränssnittet stängs emulatorns behållare när 
 
 Öppna Datautforskaren genom att gå till följande URL i webbläsaren. Emulatorns slutpunkt finns i svarsmeddelandet ovan.
 
-    https://<emulator endpoint provided in response>/_explorer/index.html
+** \: https // ** \<emulator endpoint provided in response> **/_explorer/index.html**
 
 Om du har ett .NET-klient program som körs på en Linux Docker-behållare och om du kör Azure Cosmos-emulatorn på en värddator, följer du nedanstående avsnitt för Linux för att importera certifikatet till Linux Docker-behållaren.
 

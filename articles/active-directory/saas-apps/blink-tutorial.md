@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79538d2855ad3ef344543f9148baf5953e84d1d9
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 04002cb62190addac2c3d71e320501846c873c87
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607944"
+ms.locfileid: "85799725"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med blink
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar blinkar med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -85,10 +85,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I text rutan **inloggnings-URL** skriver du en URL med något av följande mönster:
     
-        ```https
-        https://app.joinblink.com
-        https://<SUBDOMAIN>.joinblink.com
-        ```
+    ```http
+    https://app.joinblink.com
+    https://<SUBDOMAIN>.joinblink.com
+    ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://api.joinblink.com/saml/o-<TENANTID>`
 

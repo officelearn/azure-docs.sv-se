@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ffa0176c4dde6334e70b9a56b066a677d1610b48
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 128c4d1699e6e243a5c1c1573892efa516adade1
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73160206"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Självstudie: Azure Active Directory integrering med Periscope-data
 
@@ -34,7 +34,7 @@ Integreringen av Periscope Data med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Periscope Data behöver du följande:
 
@@ -107,10 +107,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
     a. I textrutan **Inloggnings-URL** anger du någon av följande URL:er:
     
-    | |
-    |--|
-    | `https://app.periscopedata.com/` |
-    | `https://app.periscopedata.com/app/<SITENAME>` |
+    ```https
+    https://app.periscopedata.com/
+    https://app.periscopedata.com/app/<SITENAME>
+    ```
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://app.periscopedata.com/<SITENAME>/sso`
 
@@ -125,7 +125,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
 1. I ett annat webbläsarfönster loggar du in på Periscope Data som administratör.
 
-2. Öppna kugg hjuls menyn längst ned till vänster och öppna menyn **fakturerings** > **säkerhet** och utför följande steg. Endast administratörer har åtkomst till de här inställningarna.
+2. Öppna kugg hjuls menyn längst ned till vänster och öppna menyn **fakturerings**  >  **säkerhet** och utför följande steg. Endast administratörer har åtkomst till de här inställningarna.
 
     ![Konfigurera information för Periscope Data](./media/periscope-data-tutorial/configure01.png)
 
@@ -141,7 +141,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
     f. Hitta den första taggen i XML-filen, kopiera värdet för **entityId** och klistra in det i text rutan **utfärdare** .
 
-    g. Leta upp taggen **IDPSSODescriptor** med SAML-protokoll. I det avsnittet letar du upp taggen **KeyDescriptor** med **use=signing**. Kopiera värdet för **X509Certificate** och klistra in det i textrutan **Certifikat**.
+    ex. Leta upp taggen **IDPSSODescriptor** med SAML-protokoll. I det avsnittet letar du upp taggen **KeyDescriptor** med **use=signing**. Kopiera värdet för **X509Certificate** och klistra in det i textrutan **Certifikat**.
 
     h. Platser med flera utrymmen kan välja standardutrymmet från listrutan **Default Space** (Standardutrymme). Det här blir det utrymme som nya användare läggs till i när de loggar in på Periscope Data för första gången och etableras via enkel inloggning med Active Directory.
 
@@ -167,7 +167,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -220,7 +220,7 @@ För att göra det möjligt för Azure AD-användare att logga in på Periscope 
 
     b. I text rutan **efter namn** anger du det senaste namnet på användaren som **Simon**.
 
-    c. I text rutan **e-postadress** anger du e-postmeddelandet som **\@brittasimon contoso.com**.
+    c. I text rutan **e-postadress** anger du e-postmeddelandet som **brittasimon \@ contoso.com**.
 
     d. Klicka på **Lägg till**.
 

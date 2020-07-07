@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c6e36bdbb3d58878e6afa28610ab2b214f47de20
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76988268"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800733"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudie: Skapa en enkelsidig app med videosökning
 Med API för videosökning i Bing kan du söka på webben och få videoresultat som är relevanta för en sökfråga. I de här självstudierna skapar vi ett enkelsidigt program som använder API för sökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
@@ -138,7 +138,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` Till exempel kan parametern i ett faktiskt API-anrop `strict`vara, eller `moderate`, med `moderate` standardvärdet.
+Till exempel `SafeSearch` kan parametern i ett faktiskt API-anrop vara `strict` , eller `moderate` , med `moderate` standardvärdet.
 
 ## <a name="performing-the-request"></a>Utföra förfrågan
 Beroende på frågan, alternativsträngen och API-nyckeln använder funktionen `BingWebSearch` ett `XMLHttpRequest`-objekt för att göra begäran till slutpunkten för Bing-sökningen. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
@@ -393,15 +393,18 @@ I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Ändra slutpunkten för webbsökning i Bing i HTML-filen till:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Ändra sedan Webbsökning i Bing-slutpunkten i HTML-filen till: \
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Slutligen startar du CORS-proxyn med följande kommando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 

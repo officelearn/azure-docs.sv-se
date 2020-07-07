@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: bc3ea2f6fddc233a69d96c0c885ab310ed1e77c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be1aa932e246992bd5826ac502ab2ac5b8d52ddf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67094152"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Självstudie: Azure Active Directory integrering med Predictix sortiment
 
@@ -35,7 +35,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Predictix sortiments planering måste du ha:
 
@@ -56,7 +56,7 @@ Om du vill ställa in integreringen av Predictix sortiments planering i Azure AD
 
     ![Välj Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företags program** > **alla program**:
+2. Gå till **företags program**  >  **alla program**:
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -106,19 +106,17 @@ Följ dessa steg för att konfigurera enkel inloggning för Azure AD med Predict
 
     1. I rutan **inloggnings-URL** anger du en URL i det här mönstret:
 
-       | |
-        |--|
-        | `https://<sub-domain>.ap.predictix.com/sso/request`|
-        | `https://<sub-domain>.dev.ap.predictix.com/`|
-        | |
+        ```https
+        https://<sub-domain>.ap.predictix.com/sso/request
+        https://<sub-domain>.dev.ap.predictix.com/
+        ```
 
     1. I rutan **identifierare (enhets-ID)** anger du en URL i det här mönstret:
 
-        | |
-        |--|
-        | `https://<sub-domain>.ap.predictix.com`|
-        | `https://<sub-domain>.dev.ap.predictix.com`|
-        | |
+        ```https
+        https://<sub-domain>.ap.predictix.com
+        https://<sub-domain>.dev.ap.predictix.com
+        ```
 
     > [!NOTE]
     > Dessa värden är plats hållare. Du måste använda den faktiska inloggnings-URL: en och identifieraren. Kontakta [support teamet för Predictix sortiment](https://www.infor.com/support) för att hämta värdena. Du kan också se de mönster som visas i dialog rutan **grundläggande SAML-konfiguration** i Azure Portal.
@@ -159,7 +157,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I rutan **användar namn** anger du **BrittaSimon@\<\< yourcompanydomain>. tillägg>**. (Till exempel BrittaSimon@contoso.com.)
+    1. I rutan **användar namn** anger du **BrittaSimon@ \<yourcompanydomain> . \<extension> **. (Till exempel BrittaSimon@contoso.com .)
 
     1. Välj **Visa lösen ord**och skriv sedan ned värdet i rutan **lösen ord** .
 

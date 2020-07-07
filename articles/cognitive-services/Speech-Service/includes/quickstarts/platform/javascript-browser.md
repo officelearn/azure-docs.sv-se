@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: fa8bf79c047911ca283bf60261bba0cbdd6816a7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 53cabaec21daafb910b958bb4b573dd033ca6283
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980201"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035736"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Java Script för användning med en webb sida.
 
@@ -27,11 +26,12 @@ Skapa en ny, tom mapp. Om du vill värdbasera exemplet på en webbserver ser du 
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Packa upp Speech SDK för JavaScript i den mappen
 
-Ladda ned Speech SDK som ett [.zip-paket](https://aka.ms/csspeech/jsbrowserpackage) och packa upp det i den nya mappen. Detta resulterar i att fyra filer packas upp:
+Ladda ned Speech SDK som ett [.zip-paket](https://aka.ms/csspeech/jsbrowserpackage) och packa upp det i den nya mappen. Detta resulterar i att fem filer packas upp:
 * `microsoft.cognitiveservices.speech.sdk.bundle.js`En läslig version av talet SDK.
 * `microsoft.cognitiveservices.speech.sdk.bundle.js.map`En mappnings fil som används för att felsöka SDK-kod.
 * `microsoft.cognitiveservices.speech.sdk.bundle.d.ts`Objekt definitioner som ska användas med TypeScript
 * `microsoft.cognitiveservices.speech.sdk.bundle-min.js`En minified-version av talet SDK.
+* `speech-processor.js`Kod för att förbättra prestanda i vissa webbläsare.
 
 ## <a name="create-an-indexhtml-page"></a>Skapa en index.html-sida
 

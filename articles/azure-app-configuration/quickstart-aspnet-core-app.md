@@ -8,12 +8,11 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 537dabe09c41012b9e15998ce3af8198dcfb62d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 2dc2143619594c8fd46fa4e838b97a3ecde95653
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80245782"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027723"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration
 
@@ -31,9 +30,9 @@ I den här snabb starten ska du använda Azure App konfiguration för att centra
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren** > **skapa** > **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
+6. Välj **konfigurations Utforskaren**  >  **skapa**  >  **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:BackgroundColor | Vit |
     | TestApp:Settings:FontSize | 24 |
@@ -56,11 +55,11 @@ dotnet new mvc --no-https
 
 ## <a name="add-secret-manager"></a>Lägga till Secret Manager
 
-Om du vill använda Secret Manager lägger `UserSecretsId` du till ett-element i *. CSPROJ* -filen.
+Om du vill använda Secret Manager lägger du till ett- `UserSecretsId` element i *. CSPROJ* -filen.
 
 1. Öppna *. CSPROJ* -filen.
 
-1.  Lägg till `UserSecretsId` ett-element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget.
+1.  Lägg till ett- `UserSecretsId` element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget.
 
     > [!IMPORTANT]
     > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
@@ -141,7 +140,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Uppdatera `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att `config.AddAzureAppConfiguration()` anropa-metoden.
+1. Uppdatera `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att anropa- `config.AddAzureAppConfiguration()` metoden.
 
     > [!IMPORTANT]
     > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
@@ -175,7 +174,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
     ---
 
-1. Gå till * <app root>/views/Home* och öppna *index. cshtml*. Ersätt dess innehåll med följande kod:
+1. Gå till * <app root> /views/Home* och öppna *index. cshtml*. Ersätt dess innehåll med följande kod:
 
     ```HTML
     @using Microsoft.Extensions.Configuration
@@ -187,14 +186,14 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
         }
         h1 {
             color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"];
+            font-size: @Configuration["TestApp:Settings:FontSize"]px;
         }
     </style>
 
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-1. Gå till * <app root>/views/Shared* och öppna *_Layout. cshtml*. Ersätt dess innehåll med följande kod:
+1. Gå till * <app root> /views/Shared* och öppna *_Layout. cshtml*. Ersätt dess innehåll med följande kod:
 
     ```HTML
     <!DOCTYPE html>
@@ -235,7 +234,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     dotnet run
     ```
 
-1. Om du arbetar på den lokala datorn kan du använda en webbläsare för att navigera `http://localhost:5000`till. Det här är standard-URL: en för webbappen som finns lokalt.  
+1. Om du arbetar på den lokala datorn kan du använda en webbläsare för att navigera till `http://localhost:5000` . Det här är standard-URL: en för webbappen som finns lokalt.  
 
 Om du arbetar i Azure Cloud Shell väljer du knappen för *förhands granskning* följt av *Konfigurera*.  
 

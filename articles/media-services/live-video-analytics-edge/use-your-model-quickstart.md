@@ -3,12 +3,11 @@ title: Analysera direktsänd video med din egen modell – Azure
 description: I den här snabb starten ska du använda dator vision för att analysera direktsända video flöden från en (simulerad) IP-kamera.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b8f83b9e3c450612c742a831ac800343b3bbbc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
-ms.translationtype: MT
+ms.openlocfilehash: e19c5bd6b44f9a4dd225f6a849ee9aaf62fa6273
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816688"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027672"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Snabb start: analysera direktsänd video med din egen modell
 
@@ -190,7 +189,7 @@ I följande meddelanden definierar modulen live video analys program egenskapern
 
 ### <a name="mediasessionestablished-event"></a>MediaSessionEstablished-händelse
 
-När ett medie diagram instansieras försöker RTSP-Källnoden ansluta till RTSP-servern som körs i behållaren rtspsim-live55. Om anslutningen lyckas skrivs följande händelse ut. Händelse typen är `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished` .
+När ett medie diagram instansieras försöker RTSP-Källnoden ansluta till RTSP-servern som körs i behållaren rtspsim-live555. Om anslutningen lyckas skrivs följande händelse ut. Händelse typen är `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished` .
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:

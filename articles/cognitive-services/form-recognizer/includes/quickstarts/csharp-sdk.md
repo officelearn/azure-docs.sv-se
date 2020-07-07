@@ -9,16 +9,15 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: a1015c1a2d0722d2525d2184790ee9391de25613
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: HT
+ms.openlocfilehash: c4a8950e5aaa56f739fb3f6f780fbcfef80e2ec6
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85805750"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035560"
 ---
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer)  |  [Exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
 * En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../../build-training-data-set.md) för tips och alternativ för att sätta samman din tränings data uppsättning. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
@@ -199,7 +198,7 @@ Det returnerade värdet är en samling **FormPage** -objekt: en för varje sida 
                 $" {table.ColumnCount} columns.");
             foreach (FormTableCell cell in table.Cells)
             {
-                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})"
+                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})" +
                     $" contains text: '{cell.Text}'.");
             }
         }

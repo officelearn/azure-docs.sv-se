@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 364da4bb5f3f76f0a8a189db5aa59cca305470ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 4170671b1dbcb8d2932b54f101cf5691b2461e31
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70197191"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035908"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Kopiera dina autentiseringsuppgifter från Azure-portalen
 
@@ -21,7 +20,7 @@ Exempelprogrammet måste autentisera åtkomsten till lagringskontot. Lägg till 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Leta rätt på ditt lagringskonto.
-3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Här kan du visa åtkomstnycklarna för kontot och den fullständiga anslutningssträngen för varje nyckel.   
+3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Här kan du visa åtkomstnycklarna för kontot och den fullständiga anslutningssträngen för varje nyckel.
 4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att välja **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
 
     ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure-portalen](media/storage-copy-connection-string-portal/portal-connection-string.png)

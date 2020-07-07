@@ -4,14 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 75fad463f5697ae9c8e0a1aeec16e91f1b6c05b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 4e3b87055246c3060ab9a35e6a112782275633ae
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85838855"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035845"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
@@ -41,7 +40,7 @@ Skapa en ny fil i mappen, med namnet `index.html` och öppna filen med en textre
 Om du vill värdbasera webbsidan på en webbserver kan du ange en tokenkälla för demoappen.
 På så sätt lämnar prenumerationen aldrig servern och tillåter att användare använder talfunktioner utan att själva behöva ange en auktoriseringskod.
 
-Skapa en ny fil med namnet `token.php`. I det här exemplet förutsätter vi att webbservern stöder PHP-skriptspråket. Ange följande kod:
+Skapa en ny fil med namnet `token.php`. I det här exemplet antar vi att webb servern stöder PHP-skript språket med aktive rad vändning. Ange följande kod:
 
 ```php
 <?php

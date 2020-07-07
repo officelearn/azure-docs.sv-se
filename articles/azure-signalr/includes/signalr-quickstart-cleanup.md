@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: anthonychu
 ms.service: signalr
 ms.topic: include
@@ -9,7 +9,6 @@ ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 1e01db73f58c77ff62f7abe707884fc2649fd042
 ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "67187710"

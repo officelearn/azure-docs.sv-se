@@ -5,16 +5,15 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 76b2b465354df5b06ecd93986aec71530d175fe6
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: 0644dad9e8e6f2999acfa24ea1088207f6d5e692
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562917"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028041"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analysera formulär för nyckel/värde-par och tabeller
 
-Sedan använder du din nya tränade modell för att analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **[analys formulärets](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API genom att köra följande kod i ett nytt Python-skript. Innan du kör skriptet gör du följande ändringar:
+Sedan använder du din nya tränade modell för att analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **[analys formulärets](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** API genom att köra följande kod i ett nytt Python-skript. Innan du kör skriptet gör du följande ändringar:
 
 1. Ersätt `<file path>` med fil Sök vägen för ditt formulär (till exempel C:\temp\file.pdf). Detta kan också vara webb adressen till en fjärrfil. I den här snabb starten kan du använda filerna under mappen **test** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Ersätt `<model_id>` med modell-ID: t som du fick i föregående avsnitt.

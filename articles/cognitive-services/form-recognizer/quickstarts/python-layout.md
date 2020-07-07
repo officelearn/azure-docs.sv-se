@@ -10,12 +10,11 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: c84e36f668a9b5cd7fdb61103300d971fdf6c0fa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: 62cbaec3e4eaffb9ff3b29e97516ed7e039b38ff
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563080"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028101"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: Extrahera text-och layoutinformation med hjälp av formulär tolken REST API med python
 
@@ -30,7 +29,7 @@ För att slutföra den här snabb starten måste du ha:
 - Ett formulär dokument. Du kan ladda ned en bild från [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten.
 
 > [!NOTE]
-> I den här snabb starten används ett lokalt lagrat dokument. Information om hur du använder fjärrfiler som används av URL: er finns i [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync).
+> I den här snabb starten används ett lokalt lagrat dokument. Information om hur du använder fjärrfiler som används av URL: er finns i [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
 
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
@@ -39,7 +38,7 @@ För att slutföra den här snabb starten måste du ha:
 
 ## <a name="analyze-the-form-layout"></a>Analysera formulärlayouten
 
-Du börjar analysera layouten genom att anropa API: et för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
+Du börjar analysera layouten genom att anropa API: et för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)** med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<path to your form>` med sökvägen till ditt lokala formulär dokument.
@@ -90,7 +89,7 @@ https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e
 
 ## <a name="get-the-layout-results"></a>Hämta layout resultatet
 
-När du har anropat API för **analys av layout** anropar du API: et för att **[analysera utdata](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. I den här koden används åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
+När du har anropat API för **analys av layout** anropar du API: et för att **[analysera utdata](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeLayoutResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. I den här koden används åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
 
 ```python
 n_tries = 10
@@ -283,4 +282,4 @@ Se följande faktura bild och dess motsvarande JSON-utdata. Utdatan har kort ATS
 I den här snabb starten använde du formulär tolken REST API med python för att extrahera textens layout för en faktura. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)

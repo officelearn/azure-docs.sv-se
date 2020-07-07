@@ -8,14 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 07/06/2020
 ms.author: aahi
-ms.openlocfilehash: fd8b1d0ea1562bd1f390815f9d7228bd6b2801eb
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: 0402ed6177ca7f9d10cbb7d2a81352af0108b828
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610922"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027956"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av PHP
 <a name="HOLTop"></a>
@@ -256,7 +255,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
+## <a name="extract-key-phrases"></a>Extrahering av diskussionsämne
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 1. Skapa ett nytt PHP-projekt i valfri IDE.

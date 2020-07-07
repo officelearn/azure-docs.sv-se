@@ -9,26 +9,27 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/20/2020
-ms.openlocfilehash: 670cebe1c0f1c9002e33b729d0db9ee9f9a01283
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 2579249cc088063d98bb101c7a5b5118e4b07722
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682526"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027060"
 ---
-# <a name="quickstart-deploy-cognitive-search-using-a-resource-manager-template"></a>Snabb start: Distribuera Kognitiv sökning med en Resource Manager-mall
+# <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>Snabb start: Distribuera Kognitiv sökning med en ARM-mall
 
-Den här artikeln vägleder dig genom processen för att använda en Resource Manager-mall för att distribuera en Azure Kognitiv sökning-resurs i Azure Portal.
+Den här artikeln vägleder dig genom processen för att använda en Azure Resource Manager-mall (ARM-mall) för att distribuera en Azure Kognitiv sökning-resurs i Azure Portal.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Krav
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-a-cognitive-search-service"></a>Skapa en Kognitiv sökning-tjänst
-
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
@@ -36,15 +37,15 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 
 Den Azure-resurs som definierats i den här mallen:
 
-- [Microsoft. search/searchServices](https://docs.microsoft.com/azure/templates/Microsoft.Search/2015-08-19/searchServices): skapa en Azure kognitiv sökning-tjänst
+- [Microsoft. search/searchServices](/azure/templates/Microsoft.Search/searchServices): skapa en Azure kognitiv sökning-tjänst
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar en Azure Kognitiv sökning-resurs.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
-Portalen visar ett formulär som gör att du enkelt kan ange parameter värden. Vissa parametrar fylls i automatiskt med standardvärdena från mallen. Du måste ange din prenumeration, resurs grupp, plats och tjänst namn. Om du vill använda Cognitive Services i en pipeline för [AI-anrikning](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) , till exempel för att analysera binära bildfiler för text, väljer du en plats som erbjuder både Kognitiv sökning och Cognitive Services. Båda tjänsterna måste finnas i samma region för AI-arbetsbelastningar. När du har fyllt i formuläret måste du godkänna de allmänna villkoren och sedan välja knappen köp för att slutföra distributionen.
+Portalen visar ett formulär som gör att du enkelt kan ange parameter värden. Vissa parametrar fylls i automatiskt med standardvärdena från mallen. Du måste ange din prenumeration, resurs grupp, plats och tjänst namn. Om du vill använda Cognitive Services i en pipeline för [AI-anrikning](cognitive-search-concept-intro.md) , till exempel för att analysera binära bildfiler för text, väljer du en plats som erbjuder både Kognitiv sökning och Cognitive Services. Båda tjänsterna måste finnas i samma region för AI-arbetsbelastningar. När du har fyllt i formuläret måste du godkänna de allmänna villkoren och sedan välja knappen köp för att slutföra distributionen.
 
 > [!div class="mx-imgBorder"]
 > ![Azure Portal visning av mall](./media/search-get-started-arm/arm-portalscrnsht.png)
@@ -59,11 +60,9 @@ Andra Kognitiv sökning snabb starter och självstudier som bygger på den här 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Kognitiv sökning-tjänst med en Azure Resource Manager-mall och validerade distributionen. Om du vill veta mer om Kognitiv sökning och Azure Resource Manager fortsätter du till artiklarna nedan.
+I den här snabb starten skapade du en Kognitiv sökning tjänst med en ARM-mall och validerade distributionen. Om du vill veta mer om Kognitiv sökning och Azure Resource Manager fortsätter du till artiklarna nedan.
 
- - Läs en [Översikt över Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-what-is-azure-search)
- - [Skapa ett index](https://docs.microsoft.com/azure/search/search-get-started-portal) för Sök tjänsten
- - [Skapa en Sök-App](https://docs.microsoft.com/azure/search/search-create-app-portal) med hjälp av Portal guiden
- - [Skapa en färdigheter](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob) för att extrahera information från dina data
-
-
+- Läs en [Översikt över Azure kognitiv sökning](search-what-is-azure-search.md).
+- [Skapa ett index](search-get-started-portal.md) för Sök tjänsten.
+- [Skapa en demo-app](search-create-app-portal.md) med hjälp av Portal guiden.
+- [Skapa en färdigheter](cognitive-search-quickstart-blob.md) för att extrahera information från dina data.

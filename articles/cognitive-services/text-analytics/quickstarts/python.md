@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: 46fd431c14e6870058e415d619256f342d5f4ef4
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: feababd3d6f6845142a13ccb3b2b31b78315704b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610939"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027933"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabb start: använda python-REST API för att anropa tjänsten Textanalys kognitiv 
 <a name="HOLTop"></a>
@@ -219,7 +218,7 @@ Sentiment-poängen för ett dokument är mellan 0,0 och 1,0, med en högre poän
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
+## <a name="extract-key-phrases"></a>Extrahering av diskussionsämne
  
 Extrahera nyckel fraserna från en uppsättning dokument genom att lägga till i `/text/analytics/v3.0/keyPhrases` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
     

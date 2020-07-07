@@ -10,12 +10,11 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: 5a2b72e87f77d29e62336f0d3b9c2b956ec417e1
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: e4018561d8537194b0ce710fcf85573072f58d23
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563059"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028067"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
@@ -30,7 +29,7 @@ För att slutföra den här snabb starten måste du ha:
 - En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) för den här snabb starten.
 
 > [!NOTE]
-> Den här snabb starten använder ett fjärrkvitto som används av URL: en. Om du vill använda lokala filer i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync).
+> Den här snabb starten använder ett fjärrkvitto som används av URL: en. Om du vill använda lokala filer i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -38,7 +37,7 @@ För att slutföra den här snabb starten måste du ha:
 
 ## <a name="analyze-a-receipt"></a>Analysera ett kvitto
 
-Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitto](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** med hjälp av python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
+Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitto](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** med hjälp av python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
 1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
@@ -94,7 +93,7 @@ https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b07
 
 ## <a name="get-the-receipt-results"></a>Hämta kvitto resultat
 
-När du har anropat API för att **analysera kvitto** anropar du API: et för att **[analysera kvitto resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. Detta använder åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
+När du har anropat API för att **analysera kvitto** anropar du API: et för att **[analysera kvitto resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeReceiptResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. Detta använder åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
 
 ```python
 n_tries = 10
@@ -466,4 +465,4 @@ Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kor
 I den här snabb starten använde du formulär tolken REST API med python för att extrahera innehållet i en försäljnings leverans. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)

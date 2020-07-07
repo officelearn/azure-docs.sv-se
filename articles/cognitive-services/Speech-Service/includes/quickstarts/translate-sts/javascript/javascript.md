@@ -4,14 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 88d03e5b8090687930f729e3d55be1ece392ec30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: abd34ddf39bd8e64740d3edd4a2bf4f44851c07e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85839013"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035464"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
@@ -41,7 +40,7 @@ Skapa en ny fil i mappen, med namnet `index.html` och öppna filen med en textre
 Om du vill värdbasera webbsidan på en webbserver kan du ange en tokenkälla för demoappen.
 På så sätt lämnar prenumerationen aldrig servern och tillåter att användare använder talfunktioner utan att själva behöva ange en auktoriseringskod.
 
-Skapa en ny fil med namnet `token.php`. I det här exemplet förutsätter vi att webbservern stöder PHP-skriptspråket. Ange följande kod:
+Skapa en ny fil med namnet `token.php`. I det här exemplet antar vi att webb servern stöder PHP-skript språket med aktive rad vändning. Ange följande kod:
 
 ```php
 <?php
@@ -67,11 +66,11 @@ echo curl_exec($ch);
 
 ## <a name="build-and-run-the-sample-locally"></a>Skapa och köra exemplet lokalt
 
-Starta appen genom att dubbelklicka på index.html-filen eller öppna index.html med valfri webbläsare. Det visar ett enkelt användar gränssnitt som gör att du kan ange din prenumerations nyckel och din [region](../../../../regions.md) och utlösaren av inmatad text.
+Starta appen genom att dubbelklicka på index.html-filen eller öppna index.html med valfri webbläsare. Det visar ett enkelt användar gränssnitt som gör att du kan ange din prenumerations nyckel och din [region](../../../../regions.md) och utlösa text avskriften för indataports tal.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Skapa och köra exemplet via en webbserver
 
-Om du vill starta din app öppnar du din favorit webbläsare och pekar på den offentliga URL som du är värd för mappen på, anger din [region](../../../../regions.md)och utlöser syntesen av inmatad text. Om det har konfigurerats hämtas en token från tokenkällan.
+Starta din app genom att öppna din favorit webbläsare och peka på den offentliga URL som du är värd för mappen på, ange din [region](../../../../regions.md)och utlösa text avskriften för Indataporten. Om det har konfigurerats hämtas en token från tokenkällan.
 
 ## <a name="next-steps"></a>Nästa steg
 

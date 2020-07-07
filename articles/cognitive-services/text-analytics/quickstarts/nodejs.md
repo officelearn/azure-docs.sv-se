@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 8db6f32ddfd8d245fa6936f8ca99fa4dbb83999f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: 0cdd837f6c618846587878fac5145cb846dd8d36
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610991"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027967"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabb start: Använd Node.js för att anropa tjänsten Textanalys kognitiv  
 <a name="HOLTop"></a>
@@ -256,7 +255,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
+## <a name="extract-key-phrases"></a>Extrahering av diskussionsämne
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av nyckel fraser används för att snabbt identifiera huvud punkterna i ett dokument eller en text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 

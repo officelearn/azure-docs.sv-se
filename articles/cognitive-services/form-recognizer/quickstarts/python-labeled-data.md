@@ -10,12 +10,11 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: d9bb6ef7629d236120660912daaad82ad18b8480
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: b177063d4e50a310534ffa4c04557543c3354249
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563091"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028097"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python
 
@@ -30,7 +29,7 @@ För att slutföra den här snabb starten måste du ha:
 - En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
 
 > [!NOTE]
-> I den här snabb starten används fjärrdokument som används av URL: en. Om du vill använda lokala filer i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync).
+> I den här snabb starten används fjärrdokument som används av URL: en. Om du vill använda lokala filer i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -65,8 +64,8 @@ Alla dessa filer bör ha samma undermapp och ha följande format:
 
 Du behöver filer med OCR-resultat för att tjänsten ska kunna beakta motsvarande indatafiler för etiketterad utbildning. Följ stegen nedan om du vill hämta OCR-resultat för ett angivet käll formulär:
 
-1. Anropa API för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** i Read layout-behållaren med indatafilen som en del av begär ande texten. Spara ID: t som finns i svarets **Åtgärds plats** rubrik.
-1. Anropa API: t för att **[analysera layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** med ÅTGÄRDS-ID från föregående steg.
+1. Anropa API för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)** i Read layout-behållaren med indatafilen som en del av begär ande texten. Spara ID: t som finns i svarets **Åtgärds plats** rubrik.
+1. Anropa API: t för att **[analysera layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeLayoutResult)** med ÅTGÄRDS-ID från föregående steg.
 1. Hämta svaret och skriv innehållet till en fil. För varje käll formulär ska motsvarande OCR-fil ha det ursprungliga fil namnet bifogad med `.ocr.json` . OCR-JSON-utdata ska ha följande format. I [exempel-OCR-filen](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) finns ett fullständigt exempel. 
 
     ```json
@@ -197,7 +196,7 @@ För varje käll formulär bör motsvarande etikett fil ha det ursprungliga fil 
 
 ## <a name="train-a-model-using-labeled-data"></a>Träna en modell med hjälp av märkta data
 
-Om du vill träna en modell med märkta data anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
+Om du vill träna en modell med märkta data anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med slut punkts-URL: en för formulär igenkännings resursen.
 1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
@@ -561,4 +560,4 @@ Vi förstår att det här scenariot är viktigt för våra kunder och vi arbetar
 I den här snabb starten har du lärt dig hur du använder formulär tolken REST API med python för att träna en modell med manuellt märkta data. Sedan läser du API-referensens dokumentation för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

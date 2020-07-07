@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953182"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Använd Cloud Explorer för Visual Studio för Azure IoT Hub enhets hantering
@@ -22,7 +21,7 @@ ms.locfileid: "73953182"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Hanterings alternativ          | Aktivitet                    |
+| Hanterings alternativ          | Uppgift                    |
 |----------------------------|--------------------------------|
 | Direkta metoder             | Se till att en enhet fungerar som att starta eller stoppa sändning av meddelanden eller starta om enheten.                                        |
 | Läs enhetens dubbla           | Hämta rapporterat tillstånd för en enhet. Enheten rapporterar till exempel LAMPAn att blinka nu.                                    |
@@ -59,7 +58,7 @@ Cloud Explorer-komponenten från Visual Studio Installer för Visual Studio 2017
 
 ## <a name="sign-in-to-access-your-hub"></a>Logga in för att komma åt hubben
 
-1. I Visual Studio väljer du **Visa** > **Cloud Explorer** för att öppna Cloud Explorer.
+1. I Visual Studio väljer du **Visa**  >  **Cloud Explorer** för att öppna Cloud Explorer.
 
 1. Välj ikonen för konto hantering för att visa dina prenumerationer.
 
@@ -89,9 +88,9 @@ Gör så här om du vill redigera en enhet:
 
 1. Högerklicka på enheten och välj **Redigera enhets telefon**.
 
-   En **Azure-IoT-enhets-dubbla. JSON** -fil öppnas med enhetens innehåll.
+   En **azure-iot-device-twin.jspå** filen öppnas med enhetens innehåll.
 
-1. Gör vissa redigeringar av **taggar** eller **Egenskaper. önskade** fält till filen **Azure-IoT-Device-dubbla. JSON** .
+1. Gör vissa redigeringar av **taggar** eller **Egenskaper. önskade** fält till **azure-iot-device-twin.jsi** filen.
 
 1. Tryck på **CTRL + S** för att uppdatera enheten med dubbla.
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
 ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74122200"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Redundans och korrigering för Azure cache för Redis
@@ -59,13 +58,13 @@ Eftersom fullständig datasynkronisering sker innan processen upprepas, är det 
 
 ## <a name="additional-cache-load"></a>Ytterligare cache-belastning
 
-När en redundansväxling inträffar måste standard-och Premium-cachen replikera data från en nod till en annan. Den här replikeringen orsakar en belastnings ökning i både server minne och CPU. Om cache-instansen redan är hårt inläst kan klient programmen uppleva en ökad fördröjning. I extrema fall kan klient program ta emot timeout-undantag. För att minska effekten av den här extra belastningen [konfigurerar](cache-configure.md#memory-policies) du `maxmemory-reserved` inställningen för cacheminnet.
+När en redundansväxling inträffar måste standard-och Premium-cachen replikera data från en nod till en annan. Den här replikeringen orsakar en belastnings ökning i både server minne och CPU. Om cache-instansen redan är hårt inläst kan klient programmen uppleva en ökad fördröjning. I extrema fall kan klient program ta emot timeout-undantag. För att minska effekten av den här extra belastningen [konfigurerar](cache-configure.md#memory-policies) du inställningen för cacheminnet `maxmemory-reserved` .
 
 ## <a name="how-does-a-failover-affect-my-client-application"></a>Hur påverkar en redundansväxling mitt klient program?
 
 Antalet fel som visas av klient programmet beror på hur många åtgärder som var beroende av anslutningen vid redundansväxlingen. Alla anslutningar som dirigeras via noden som stängde dess anslutningar kommer att se fel. Många klient bibliotek kan utlösa olika typer av fel när anslutningar bryts, inklusive timeout-undantag, anslutnings undantag eller socket-undantag. Antalet och typen av undantag beror på var i kod Sök vägen som begäran kommer när cachen stänger dess anslutningar. Till exempel kan en åtgärd som skickar en begäran men inte har fått ett svar när redundansväxlingen inträffar kan få ett timeout-undantag. Nya begär Anden för det stängda anslutningsobjektet tar emot anslutnings undantag tills åter anslutningen har genomförts.
 
-De flesta klient bibliotek försöker återansluta till cachen om de är konfigurerade att göra det. Oväntade buggar kan dock ibland placera biblioteks objekt i ett oåterkalleligt tillstånd. Om felet kvarstår under längre tid än en förkonfigurerad tids period ska anslutningsobjektet återskapas. I Microsoft.NET och andra objektorienterade språk kan du återskapa anslutningen utan att starta om programmet genom att använda [ett\<Lazy T\> -mönster](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
+De flesta klient bibliotek försöker återansluta till cachen om de är konfigurerade att göra det. Oväntade buggar kan dock ibland placera biblioteks objekt i ett oåterkalleligt tillstånd. Om felet kvarstår under längre tid än en förkonfigurerad tids period ska anslutningsobjektet återskapas. I Microsoft.NET och andra objektorienterade språk kan du återskapa anslutningen utan att starta om programmet genom att använda [ett Lazy- \<T\> mönster](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
 ### <a name="how-do-i-make-my-application-resilient"></a>Hur gör jag för att göra programmet elastiskt?
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082566"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Förbereda nätverks mappning för haveri beredskap för virtuella Hyper-V-datorer till Azure
@@ -53,7 +52,7 @@ Nätverks mappningen fungerar på följande sätt:
 
 Här är ett exempel på hur du kan illustrera den här mekanismen. Låt oss ta en organisation med två platser i New York och Chicago.
 
-**Location** | **VMM-server** | **VM-nätverk** | **Mappad till**
+**Position** | **VMM-server** | **VM-nätverk** | **Mappad till**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1 – NewYork | Mappad till VMNetwork1 – Chicago
  |  | VMNetwork2 – NewYork | Inte mappad
@@ -73,12 +72,12 @@ Så här konfigureras VMM-moln i vår exempel organisation och de logiska nätve
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>Ej tillämpligt</p><p></p> | <p>LogicalNetwork1 – NewYork</p><p>LogicalNetwork1 – Chicago</p>
-SilverCloud2 | <p>Ej tillämpligt</p><p></p> | <p>LogicalNetwork1 – NewYork</p><p>LogicalNetwork1 – Chicago</p>
+GoldCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1 – NewYork</p><p>LogicalNetwork1 – Chicago</p>
+SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1 – NewYork</p><p>LogicalNetwork1 – Chicago</p>
 
 ### <a name="logical-and-vm-network-settings"></a>Inställningar för logiska och virtuella dator nätverk
 
-**Location** | **Logiskt nätverk** | **Associerat VM-nätverk**
+**Position** | **Logiskt nätverk** | **Associerat VM-nätverk**
 ---|---|---
 New York | LogicalNetwork1 – NewYork | VMNetwork1 – NewYork
 Chicago | LogicalNetwork1 – Chicago | VMNetwork1 – Chicago
@@ -90,10 +89,10 @@ I följande tabell visas de alternativ som är tillgängliga när du väljer det
 
 **Välj** | **Skyddat moln** | **Skyddar molnet** | **Tillgängligt mål nätverk**
 ---|---|---|---
-VMNetwork1 – Chicago | SilverCloud1 | SilverCloud2 | Tillgängligt
- | GoldCloud1 | GoldCloud2 | Tillgängligt
-VMNetwork2 – Chicago | SilverCloud1 | SilverCloud2 | Inte tillgängligt
- | GoldCloud1 | GoldCloud2 | Tillgängligt
+VMNetwork1 – Chicago | SilverCloud1 | SilverCloud2 | Tillgänglig
+ | GoldCloud1 | GoldCloud2 | Tillgänglig
+VMNetwork2 – Chicago | SilverCloud1 | SilverCloud2 | Inte tillgänglig
+ | GoldCloud1 | GoldCloud2 | Tillgänglig
 
 
 Om mål nätverket har flera undernät och ett av dessa undernät har samma namn som under nätet där den virtuella käll datorn finns, ansluts den virtuella replik datorn till det mål under nätet efter redundansväxlingen. Om det inte finns något målundernät med ett matchande namn ansluts den virtuella datorn till det första undernätet i nätverket.

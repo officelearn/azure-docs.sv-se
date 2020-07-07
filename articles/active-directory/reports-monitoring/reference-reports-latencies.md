@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74007711"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapporteringssvarstider
@@ -75,7 +74,7 @@ I följande tabell visas svars informationen för risk identifieringar.
 | Inloggningar från anonyma IP-adresser |5 minuter |15 minuter |2 timmar |
 | Inloggningar från okända platser |5 minuter |15 minuter |2 timmar |
 | Användare med läckta autentiseringsuppgifter |2 timmar |4 timmar |8 timmar |
-| Omöjliga resor till ovanliga platser |5 minuter |1 timme |8 timmar  |
+| Omöjliga resor till ovanliga platser |5 minuter |1 timme |8 timmar  |
 | Inloggningar från angripna enheter |2 timmar |4 timmar |8 timmar  |
 | Inloggningar från IP-adresser med misstänkt aktivitet |2 timmar |4 timmar |8 timmar  |
 

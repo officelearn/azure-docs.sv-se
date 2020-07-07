@@ -20,23 +20,22 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 2439d4f03184f8dbb85b229b3908dff95013b4bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113135"
 ---
-# <a name="odata-searchscore-function-in-azure-cognitive-search"></a>OData `search.score` -funktion i Azure kognitiv sökning
+# <a name="odata-searchscore-function-in-azure-cognitive-search"></a>OData- `search.score` funktion i Azure kognitiv sökning
 
-När du skickar en fråga till Azure Kognitiv sökning utan parametern [ **$OrderBy** ](search-query-odata-orderby.md), sorteras resultaten som kommer tillbaka i fallande ordning efter relevans-poäng. Även om du använder **$OrderBy**, kommer relevans poängen att användas för att avbryta band som standard. Men ibland är det praktiskt att använda relevans poängen som ett inledande sorterings villkor och andra villkor som slip-Break. `search.score` Funktionen gör det möjligt att göra detta.
+När du skickar en fråga till Azure Kognitiv sökning utan parametern [ **$OrderBy** ](search-query-odata-orderby.md), sorteras resultaten som kommer tillbaka i fallande ordning efter relevans-poäng. Även om du använder **$OrderBy**, kommer relevans poängen att användas för att avbryta band som standard. Men ibland är det praktiskt att använda relevans poängen som ett inledande sorterings villkor och andra villkor som slip-Break. `search.score`Funktionen gör det möjligt att göra detta.
 
 ## <a name="syntax"></a>Syntax
 
-Syntaxen för `search.score` i **$OrderBy** är `search.score()`. Funktionen `search.score` tar inga parametrar. Den kan användas med specifikationen `asc` eller `desc` sorterings ordningen, precis som andra satser i **$OrderBy** parameter. Den kan visas var som helst i listan med sorterings villkor.
+Syntaxen för `search.score` i **$OrderBy** är `search.score()` . Funktionen `search.score` tar inga parametrar. Den kan användas med `asc` `desc` specifikationen eller sorterings ordningen, precis som andra satser i **$OrderBy** parameter. Den kan visas var som helst i listan med sorterings villkor.
 
 ## <a name="example"></a>Exempel
 
-Sortera hotell i fallande ordning efter `search.score` och `rating`och sedan i stigande ordning efter avstånd från givna koordinater, så att de två hotellen med identiska klassificeringar visas först:
+Sortera hotell i fallande ordning efter `search.score` och och `rating` sedan i stigande ordning efter avstånd från givna koordinater, så att de två hotellen med identiska klassificeringar visas först:
 
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 

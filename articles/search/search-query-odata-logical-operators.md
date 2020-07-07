@@ -20,21 +20,20 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113182"
 ---
-# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Logiska OData-operatörer i Azure Kognitiv sökning `and`- `or`,,`not`
+# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Logiska OData-operatörer i Azure Kognitiv sökning- `and` , `or` ,`not`
 
-[OData filter-uttryck](query-odata-filter-orderby-syntax.md) i Azure kognitiv sökning är booleska uttryck som utvärderas till `true` eller `false`. Du kan skriva ett komplext filter genom att skriva en serie med [enklare filter](search-query-odata-comparison-operators.md) och skriva dem med hjälp av logiska operatorer från [booleska algebra](https://en.wikipedia.org/wiki/Boolean_algebra):
+[OData filter-uttryck](query-odata-filter-orderby-syntax.md) i Azure kognitiv sökning är booleska uttryck som utvärderas till `true` eller `false` . Du kan skriva ett komplext filter genom att skriva en serie med [enklare filter](search-query-odata-comparison-operators.md) och skriva dem med hjälp av logiska operatorer från [booleska algebra](https://en.wikipedia.org/wiki/Boolean_algebra):
 
-- `and`: En binär operator som utvärderar `true` till om både vänster och höger under uttryck utvärderas till `true`.
-- `or`: En binär operator som utvärderar `true` till om något av dess vänstra eller högra del uttryck utvärderas till `true`.
-- `not`: En unär operator som utvärderar `true` till om dess under uttryck utvärderas till `false`och vice versa.
+- `and`: En binär operator som utvärderar till `true` om både vänster och höger under uttryck utvärderas till `true` .
+- `or`: En binär operator som utvärderar till `true` om något av dess vänstra eller högra del uttryck utvärderas till `true` .
+- `not`: En unär operator som utvärderar till `true` om dess under uttryck utvärderas till `false` och vice versa.
 
-Dessa, tillsammans med [samlings `any` operatörerna `all`och ](search-query-odata-collection-operators.md), låter dig skapa filter som kan uttrycka mycket komplexa Sök kriterier.
+Dessa, tillsammans med [samlings operatörerna `any` och `all` ](search-query-odata-collection-operators.md), låter dig skapa filter som kan uttrycka mycket komplexa Sök kriterier.
 
 ## <a name="syntax"></a>Syntax
 
@@ -56,21 +55,21 @@ Ett interaktivt syntax diagram är också tillgängligt:
 > [!NOTE]
 > Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Det finns två former av logiska uttryck: Binary (`and`/`or`), där det finns två under uttryck och unära (`not`), där det bara finns ett. Under uttryck kan vara booleska uttryck av valfri typ:
+Det finns två former av logiska uttryck: Binary ( `and` / `or` ), där det finns två under uttryck och unära ( `not` ), där det bara finns ett. Under uttryck kan vara booleska uttryck av valfri typ:
 
 - Fält eller intervall-variabler av typen`Edm.Boolean`
-- Funktioner som returnerar värden av typen `Edm.Boolean`, t. `geo.intersects` ex. eller`search.ismatch`
+- Funktioner som returnerar värden av typen `Edm.Boolean` , t. ex. `geo.intersects` eller`search.ismatch`
 - [Jämförelse uttryck](search-query-odata-comparison-operators.md), till exempel`rating gt 4`
 - [Samlings uttryck](search-query-odata-collection-operators.md), till exempel`Rooms/any(room: room/Type eq 'Deluxe Room')`
-- Booleska litteraler `true` eller `false`.
-- Andra logiska uttryck som `and`konstrueras `or`med, `not`och.
+- Booleska litteraler `true` eller `false` .
+- Andra logiska uttryck som konstrueras med `and` , `or` och `not` .
 
 > [!IMPORTANT]
-> Det finns vissa situationer där inte alla typer av under uttryck kan användas med `and` / `or`, särskilt i lambda-uttryck. Mer information finns i [OData Collection-operatörer i Azure kognitiv sökning](search-query-odata-collection-operators.md#limitations) .
+> Det finns vissa situationer där inte alla typer av under uttryck kan användas med `and` / `or` , särskilt i lambda-uttryck. Mer information finns i [OData Collection-operatörer i Azure kognitiv sökning](search-query-odata-collection-operators.md#limitations) .
 
 ### <a name="logical-operators-and-null"></a>Logiska operatorer och`null`
 
-De flesta booleska uttryck, till exempel Functions och jämförelser kan inte skapa `null` värden, och logiska operatorer kan `null` inte användas för literalen direkt `x and null` (till exempel tillåts inte). `null`Booleska fält kan dock vara, så du måste vara medveten om hur operatorerna `and`, `or`och `not` fungerar i närvaron av null. Detta sammanfattas i följande tabell, där `b` är ett fält av typen: `Edm.Boolean`
+De flesta booleska uttryck, till exempel Functions och jämförelser kan inte skapa `null` värden, och logiska operatorer kan inte användas för `null` literalen direkt (till exempel `x and null` tillåts inte). Booleska fält kan dock vara `null` , så du måste vara medveten om hur `and` `or` `not` operatorerna, och fungerar i närvaron av null. Detta sammanfattas i följande tabell, där `b` är ett fält av typen `Edm.Boolean` :
 
 | Uttryck | Resultat när `b` är`null` |
 | --- | --- |
@@ -87,7 +86,7 @@ De flesta booleska uttryck, till exempel Functions och jämförelser kan inte sk
 | `b or true` | `true` |
 | `b or false` | `false` |
 
-När ett Boolean- `b` fält visas ensamt i ett filter uttryck, beter sig det som om `b eq true`det hade skrivits, så om `b` är `null`uttrycket utvärderas till. `false` `not b` Fungerar på samma sätt som `not (b eq true)`, så den utvärderas till `true`. På det här sättet `null` har fälten samma som `false`. Detta är konsekvent med hur de fungerar när de kombineras med andra uttryck `and` med `or`hjälp av och, som visas i tabellen ovan. Trots detta kommer en direkt jämförelse mellan `false` (`b eq false`) fortfarande att utvärderas `false`till. Med andra ord `null` är inte lika med `false`, även om det beter sig som det i booleska uttryck.
+När ett Boolean-fält visas ensamt `b` i ett filter uttryck, beter sig det som om det hade skrivits `b eq true` , så om `b` är `null` uttrycket utvärderas till `false` . Fungerar på samma sätt `not b` som `not (b eq true)` , så den utvärderas till `true` . På det här sättet `null` har fälten samma som `false` . Detta är konsekvent med hur de fungerar när de kombineras med andra uttryck med hjälp av `and` och `or` , som visas i tabellen ovan. Trots detta kommer en direkt jämförelse mellan `false` ( `b eq false` ) fortfarande att utvärderas till `false` . Med andra ord `null` är inte lika med `false` , även om det beter sig som det i booleska uttryck.
 
 ## <a name="examples"></a>Exempel
 

@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890964"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuera lösnings acceleratorn för fjärrövervakning lokalt – Visual Studio Code
@@ -35,9 +34,9 @@ För att slutföra den lokala distributionen behöver du följande verktyg insta
 * [.NET Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
 * [Nginx](https://nginx.org/en/download.html)
-* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Visuell Studio-kod](https://code.visualstudio.com/)
 * [VS Codes C#-tillägg](https://code.visualstudio.com/docs/languages/csharp)
-* [Node. js-V8](https://nodejs.org/) – den här program varan är nödvändig för de PC-CLI som skripten använder för att skapa Azure-resurser. Använd inte Node. js-v10
+* [Node.js V8](https://nodejs.org/) – den här program varan är nödvändig för de PC CLI-datorer som skripten använder för att skapa Azure-resurser. Använd inte Node.js v10
 
 > [!NOTE]
 > Visual Studio Code är tillgängligt för Windows, Mac och Ubuntu.
@@ -64,7 +63,7 @@ Följande steg visar hur du kör mikrotjänster för fjärr styrning i Visual St
 1. Starta Visual Studio Code.
 1. I VS Code, öppnar du mappen **Azure-IoT-PC-Remote-Monitoring – dotNet** .
 1. Skapa en ny mapp med namnet **. VSCode** i mappen **Azure-IoT-PCs-Remote-Monitoring-dotNet** .
-1. Kopiera filerna **starta. JSON** och **Tasks. JSON** från services\scripts\local\launch\idesettings\vscode till **. VSCode** -mappen som du nyss skapade.
+1. Kopiera filerna **launch.js** och **tasks.js** från services\scripts\local\launch\idesettings\vscode till mappen **. VSCode** som du nyss skapade.
 1. Öppna **fel söknings panelen** i vs Code och kör konfigurationen **Kör alla mikrotjänster** . Den här konfigurationen kör mikrotjänsten enhets simulering i Docker och kör övriga mikrotjänster i fel söknings programmet.
 
 Utdata från att köra **alla microsoervices** i fel söknings konsolen ser ut så här:
@@ -80,7 +79,7 @@ npm install
 npm start
 ```
 
-När starten är klar visar webbläsaren sidan **http:\//localhost: 3000/Dashboard**. Felen på den här sidan förväntas. Om du vill visa programmet utan fel slutför du följande steg.
+När starten är klar visar webbläsaren sidan **http: \/ /localhost: 3000/Dashboard**. Felen på den här sidan förväntas. Om du vill visa programmet utan fel slutför du följande steg.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurera och kör NGINX
 
@@ -93,7 +92,7 @@ Mer information om hur du kör **nginx**finns i [nginx för Windows](https://ngi
 
 ### <a name="connect-to-the-dashboard"></a>Ansluta till instrument panelen
 
-Öppna instrument panelen för fjärrövervakning genom att gå till http:\//localhost: 9000 i webbläsaren.
+Öppna instrument panelen för fjärrövervakning genom att gå till http: \/ /localhost: 9000 i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
 

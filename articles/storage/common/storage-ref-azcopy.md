@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74038096"
 ---
 # <a name="azcopy"></a>azcopy
@@ -21,9 +20,9 @@ AzCopy är ett kommando rads verktyg som flyttar data till och från Azure Stora
 
 ## <a name="synopsis"></a>Sammanfattning
 
-Det allmänna formatet för kommandon är: `azcopy [command] [arguments] --[flag-name]=[flag-value]`.
+Det allmänna formatet för kommandon är: `azcopy [command] [arguments] --[flag-name]=[flag-value]` .
 
-Information om hur du rapporterar problem eller Lär dig mer om verktyget [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy)finns i.
+Information om hur du rapporterar problem eller Lär dig mer om verktyget finns i [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) .
 
 ## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
 

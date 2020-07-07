@@ -20,10 +20,9 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113159"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>OData $orderby-syntax i Azure Kognitiv sökning
@@ -50,15 +49,15 @@ Ett interaktivt syntax diagram är också tillgängligt:
 > [!NOTE]
 > Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Varje sats har sorterings villkor, eventuellt följt av en sorterings riktning`asc` (för stigande eller `desc` för fallande). Om du inte anger någon riktning, är standardvärdet stigande. Sorterings villkoren kan antingen vara sökvägen till ett `sortable` fält eller ett anrop till endera [`geo.distance`](search-query-odata-geo-spatial-functions.md) eller- [`search.score`](search-query-odata-search-score-function.md) funktionerna.
+Varje sats har sorterings villkor, eventuellt följt av en sorterings riktning ( `asc` för stigande eller `desc` för fallande). Om du inte anger någon riktning, är standardvärdet stigande. Sorterings villkoren kan antingen vara sökvägen till ett `sortable` fält eller ett anrop till endera eller- [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) funktionerna.
 
 Om flera dokument har samma sorterings villkor och `search.score` funktionen inte används (till exempel om du sorterar efter ett numeriskt `Rating` fält och tre dokument har en klassificering på 4) bryts bindningarna av dokument poängen i fallande ordning. När dokument resultatet är detsamma (till exempel när det inte finns någon text Sök fråga som anges i begäran) är den relativa ordningen för de bundna dokumenten obestämd.
 
-Du kan ange flera sorterings villkor. Ordningen på uttryck avgör den slutliga sorterings ordningen. Om du till exempel vill sortera fallande efter poäng, följt av klassificering, skulle syntaxen vara `$orderby=search.score() desc,Rating desc`.
+Du kan ange flera sorterings villkor. Ordningen på uttryck avgör den slutliga sorterings ordningen. Om du till exempel vill sortera fallande efter poäng, följt av klassificering, skulle syntaxen vara `$orderby=search.score() desc,Rating desc` .
 
-Syntaxen för `geo.distance` i **$OrderBy** är samma som i **$filter**. När du `geo.distance` använder i **$OrderBy**måste det fält som det gäller för vara av typen `Edm.GeographyPoint` och det måste också vara `sortable`.
+Syntaxen för `geo.distance` i **$OrderBy** är samma som i **$filter**. När du använder `geo.distance` i **$OrderBy**måste det fält som det gäller för vara av typen `Edm.GeographyPoint` och det måste också vara `sortable` .
 
-Syntaxen för `search.score` i **$OrderBy** är `search.score()`. Funktionen `search.score` tar inga parametrar.
+Syntaxen för `search.score` i **$OrderBy** är `search.score()` . Funktionen `search.score` tar inga parametrar.
 
 ## <a name="examples"></a>Exempel
 

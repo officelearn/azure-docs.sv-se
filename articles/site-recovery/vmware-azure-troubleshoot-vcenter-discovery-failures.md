@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74091238"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Felsöka vCenter Server identifierings fel
@@ -46,8 +45,8 @@ I allmänhet används proxyn för att kommunicera med offentliga nätverk. till 
 
 Följande situationer inträffar när det här problemet uppstår:
 
-- VCenter Server \<vcenter-> kan inte nås på grund av felet: fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
-- VCenter Server \<vcenter-> kan inte uppnås på grund av felet: fjärrservern returnerade ett fel: det går inte att ansluta till fjärrservern.
+- VCenter-servern \<vCenter> kan inte nås på grund av felet: fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
+- Det går inte att hitta vCenter-servern på \<vCenter> grund av felet: fjärrservern returnerade ett fel: det går inte att ansluta till fjärrservern.
 - Det går inte att ansluta till vCenter/ESXi-servern.
 
 Så här löser du problemet:
@@ -73,7 +72,7 @@ För att DRA en konfiguration:
 
 3. Kör följande kommando från kommando tolken.
    
-   **DRCONFIGURATOR. EXE/Configure/AddBypassUrls [IP-adress/FQDN för vCenter Server som tillhandahölls vid tidpunkten för att lägga till vCenter]**
+   **DRCONFIGURATOR.EXE/Configure/AddBypassUrls [IP-adress/FQDN för vCenter Server som anges vid tidpunkten för att lägga till vCenter]**
 
 4. Starta om tjänsten för att DRA providern.
 

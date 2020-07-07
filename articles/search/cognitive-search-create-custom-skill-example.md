@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113812"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exempel: skapa en anpassad kunskap med hjälp av API för entitetsökning i Bing
@@ -33,9 +32,9 @@ I det här exemplet används en Azure-funktion som värd för ett webb-API, men 
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-1. I Visual Studio väljer du **nytt** > **projekt** på Arkiv-menyn.
+1. I Visual Studio väljer du **nytt**  >  **projekt** på Arkiv-menyn.
 
-1. I dialog rutan nytt projekt väljer du **installerad**, expanderar **Visual C#** > -**moln**, väljer **Azure Functions**, skriver ett namn för projektet och väljer **OK**. Namnet på Function-appen måste vara giltigt som C#-namn område, så Använd inte under streck, bindestreck eller andra icke-alfanumeriska tecken.
+1. I dialog rutan nytt projekt väljer du **installerad**, expanderar **Visual C#**  >  -**moln**, väljer **Azure Functions**, skriver ett namn för projektet och väljer **OK**. Namnet på Function-appen måste vara giltigt som C#-namn område, så Använd inte under streck, bindestreck eller andra icke-alfanumeriska tecken.
 
 1. Välj **Azure Functions v2 (.net Core)**. Du kan också göra det med version 1, men koden som skrivs nedan baseras på v2-mallen.
 
@@ -315,7 +314,7 @@ Se till att ange ditt eget *nyckel* värde i `key` konstanten baserat på den ny
 
 I det här exemplet ingår all nödvändig kod i en enda fil för enkelhetens skull. Du kan hitta en något mer strukturerad version av samma färdighet i [lagrings platsen för energi kunskaper](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
-Självklart kan du byta namn på filen från `Function1.cs` till. `BingEntitySearch.cs`
+Självklart kan du byta namn på filen från `Function1.cs` till `BingEntitySearch.cs` .
 
 ## <a name="test-the-function-from-visual-studio"></a>Testa funktionen från Visual Studio
 
@@ -375,7 +374,7 @@ Du bör se ett svar som liknar följande exempel:
 
 När du är nöjd med funktions beteendet kan du publicera den.
 
-1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **Skapa ny** > **publicera**.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **Skapa ny**  >  **publicera**.
 
 1. Om du inte redan har anslutit Visual Studio till ditt Azure-konto väljer du **Lägg till ett konto....**
 

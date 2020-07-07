@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73839171"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Använd Video Indexer redigeraren för att skapa projekt
@@ -57,7 +56,7 @@ Den här artikeln visar hur du skapar ett projekt från grunden och hur du skapa
 
     ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
-    Du kan skikta flera filter till frågan. **+** / Använd **-** knapparna för att lägga till/ta bort filter. Använd **Rensa filter** för att ta bort alla filter.
+    Du kan skikta flera filter till frågan. Använd **+** / **-** knapparna för att lägga till/ta bort filter. Använd **Rensa filter** för att ta bort alla filter.
 1. Om du vill lägga till videor markerar du dem och väljer sedan **Lägg till**.
 1. Nu visas alla videor som du har valt. Det här är de videor från vilka du ska välja klipp för ditt projekt.
 

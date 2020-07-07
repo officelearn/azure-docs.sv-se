@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
 ms.openlocfilehash: 36f39503ca32f1ee4b422ae7b1cf9abf48716f07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73648446"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Förstå skillnader mellan data formaten U-SQL och Spark
@@ -43,7 +42,7 @@ Efter den här omvandlingen kopierar du data som beskrivs i kapitlet [Flytta dat
 - Datasemantiken vid kopiering av filer görs kopian på byte-nivån. Samma data ska visas i [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) -kontot. Dock kan Spark tolka vissa tecken på olika sätt. Den kan till exempel använda en annan standard för en rad avgränsare i en CSV-fil.
     Om du däremot kopierar inskrivna data (från tabeller) kan Parquet och Spark ha olika precision och skala för några av de angivna värdena (till exempel ett float) och kan behandla null-värden på olika sätt. U-SQL har till exempel C#-semantik för null-värden, medan Spark har en tre-värdes logik för null-värden.
 
-- Data organisation (partitionering) U-SQL-tabeller tillhandahåller partitionering på två nivåer. Den yttre nivån (`PARTITIONED BY`) är av värde och mappar mest till Hive/Spark-partitionerings schema med hjälp av mapphierarkier. Du måste se till att null-värden mappas till rätt mapp. Den inre nivån (`DISTRIBUTED BY`) i U-SQL erbjuder 4 distributions scheman: resursallokering, intervall, hash och direkt hash.
+- Data organisation (partitionering) U-SQL-tabeller tillhandahåller partitionering på två nivåer. Den yttre nivån ( `PARTITIONED BY` ) är av värde och mappar mest till Hive/Spark-partitionerings schema med hjälp av mapphierarkier. Du måste se till att null-värden mappas till rätt mapp. Den inre nivån ( `DISTRIBUTED BY` ) i U-SQL erbjuder 4 distributions scheman: resursallokering, intervall, hash och direkt hash.
     Hive/Spark-tabeller stöder bara värde partitionering eller hash-partitionering, med en annan hash-funktion än U-SQL. När du matar ut dina U-SQL-tabell data kommer du förmodligen bara att kunna mappa till värdet partitionering för Spark och kan behöva göra ytterligare justeringar av datalayouten beroende på dina slutliga Spark-frågor.
 
 ## <a name="next-steps"></a>Nästa steg

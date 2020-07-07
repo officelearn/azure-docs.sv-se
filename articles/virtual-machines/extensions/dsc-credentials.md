@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: f7edbd0fd8791829a2d9ffaa4e7c0ee0e561cc5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73748966"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Skicka autentiseringsuppgifter till Azure DSCExtension-hanteraren
@@ -83,7 +82,7 @@ $vm | Update-AzVM
 
 Om du kör den här koden uppmanas du att ange autentiseringsuppgifter. När autentiseringsuppgiften har angetts lagras den kortfattat i minnet. När autentiseringsuppgiften har publicerats med cmdleten **set-AzVMDscExtension** överförs AUTENTISERINGSUPPGIFTEN via https till den virtuella datorn. I den virtuella datorn lagrar Azure autentiseringsuppgifterna som krypterats på disken med hjälp av det lokala VM-certifikatet. Autentiseringsuppgifterna dekrypteras i minnet och sedan krypteras det igen för att skicka det till DSC.
 
-Den här processen skiljer sig [från att använda säkra konfigurationer utan tilläggs hanterare](/powershell/scripting/dsc/pull-server/securemof). Azure-miljön ger dig ett sätt att överföra konfigurations data på ett säkert sätt via certifikat. När du använder DSC-tilläggs hanteraren behöver du inte ange **$CertificatePath** eller en **$CertificateID**/ **$Thumbprint** post i **ConfigurationData**.
+Den här processen skiljer sig [från att använda säkra konfigurationer utan tilläggs hanterare](/powershell/scripting/dsc/pull-server/securemof). Azure-miljön ger dig ett sätt att överföra konfigurations data på ett säkert sätt via certifikat. När du använder DSC-tilläggs hanteraren behöver du inte ange **$CertificatePath** eller en **$CertificateID** /  **$Thumbprint** post i **ConfigurationData**.
 
 ## <a name="next-steps"></a>Nästa steg
 

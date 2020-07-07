@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890851"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementera beteendet för enhets modellen
@@ -61,7 +60,7 @@ I följande exempel visas definitionen av objektet enhets tillstånd för en sim
 }
 ```
 
-Statusen för den simulerade enheten, som definieras i `InitialState` avsnittet, lagras i minnet av simulerings tjänsten. Tillståndsinformationen skickas som indata till `main` funktionen som definierats i **Chiller-01-State. js**. I det här exemplet kör simulerings tjänsten filen **Chiller-01-State. js** var femte sekund. Skriptet kan ändra statusen för den simulerade enheten.
+Statusen för den simulerade enheten, som definieras i `InitialState` avsnittet, lagras i minnet av simulerings tjänsten. Tillståndsinformationen skickas som indata till `main` funktionen som definierats i **chiller-01-state.js**. I det här exemplet kör simulerings tjänsten **chiller-01-state.js** -filen var femte sekund. Skriptet kan ändra statusen för den simulerade enheten.
 
 Följande visar dispositionen för en typisk `main` funktion:
 
@@ -76,13 +75,13 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-`context` Parametern har följande egenskaper:
+`context`Parametern har följande egenskaper:
 
 - `currentTime`som en sträng med format`yyyy-MM-dd'T'HH:mm:sszzz`
 - `deviceId`, till exempel`Simulated.Chiller.123`
 - `deviceModel`, till exempel`Chiller`
 
-`state` Parametern innehåller enhetens status som underhålls av enhets simulerings tjänsten. Det här värdet är `state` det objekt som returnerades av föregående `main`anrop till.
+`state`Parametern innehåller enhetens status som underhålls av enhets simulerings tjänsten. Det här värdet är det `state` objekt som returnerades av föregående anrop till `main` .
 
 I följande exempel visas en typisk implementering av `main` metoden för att hantera enhets status som underhålls av simulerings tjänsten:
 
@@ -156,7 +155,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-Du kan visa hela [Chiller-01-State. js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) på GitHub.
+Du kan visa hela [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) på GitHub.
 
 ## <a name="method-behavior"></a>Metod beteende
 
@@ -187,7 +186,7 @@ I följande exempel visas en lista över de metoder som stöds av en simulerad k
 
 Varje metod har en associerad JavaScript-fil som implementerar metodens beteende.
 
-Statusen för den simulerade enheten, som definieras i `InitialState` avsnittet i schemat, lagras i minnet av simulerings tjänsten. Tillståndsinformationen skickas som indata till `main` funktionen som definierats i JavaScript-filen när metoden anropas. Skriptet kan ändra statusen för den simulerade enheten.
+Statusen för den simulerade enheten, som definieras i avsnittet i `InitialState` schemat, lagras i minnet av simulerings tjänsten. Tillståndsinformationen skickas som indata till `main` funktionen som definierats i JavaScript-filen när metoden anropas. Skriptet kan ändra statusen för den simulerade enheten.
 
 Följande visar dispositionen för en typisk `main` funktion:
 
@@ -197,15 +196,15 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-`context` Parametern har följande egenskaper:
+`context`Parametern har följande egenskaper:
 
 - `currentTime`som en sträng med format`yyyy-MM-dd'T'HH:mm:sszzz`
 - `deviceId`, till exempel`Simulated.Chiller.123`
 - `deviceModel`, till exempel`Chiller`
 
-`state` Parametern innehåller enhetens status som underhålls av enhets simulerings tjänsten.
+`state`Parametern innehåller enhetens status som underhålls av enhets simulerings tjänsten.
 
-`properties` Parametern innehåller egenskaperna för den enhet som skrivs som rapporterade egenskaper till den IoT Hub enheten.
+`properties`Parametern innehåller egenskaperna för den enhet som skrivs som rapporterade egenskaper till den IoT Hub enheten.
 
 Det finns tre globala funktioner som du kan använda för att implementera beteendet för-metoden:
 
@@ -213,7 +212,7 @@ Det finns tre globala funktioner som du kan använda för att implementera betee
 - `updateProperty`så här uppdaterar du en enskild enhets egenskap.
 - `sleep`pausa körningen för att simulera en tids krävande aktivitet.
 
-I följande exempel visas en förkortad version av **IncreasePressure-Method. js** -skriptet som används av de simulerade kyl enheterna:
+I följande exempel visas en förkortad version av **IncreasePressure-method.js** -skriptet som används av de simulerade kyl enheterna:
 
 ```javascript
 function main(context, previousState, previousProperties) {

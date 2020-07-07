@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73954086"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera ExpressRoute med haveri beredskap för virtuella Azure-datorer
@@ -104,7 +103,7 @@ Företags distributioner har vanligt vis arbets belastningar som delas över fle
 
 #### <a name="spoke-to-hub"></a>Spoke till hub
 
-**Position** | **Inställning** | **Status**
+**Riktning** | **Inställning** | **Status**
 --- | --- | ---
 Spoke till hub | Tillåt virtuell nätverks adress | Enabled
 Spoke till hub | Tillåt vidarebefordrad trafik | Enabled
@@ -115,7 +114,7 @@ Spoke till hub | Använd ta bort gatewayer | Enabled
 
 #### <a name="hub-to-spoke"></a>Hub till spoke
 
-**Position** | **Inställning** | **Status**
+**Riktning** | **Inställning** | **Status**
 --- | --- | ---
 Hub till spoke | Tillåt virtuell nätverks adress | Enabled
 Hub till spoke | Tillåt vidarebefordrad trafik | Enabled

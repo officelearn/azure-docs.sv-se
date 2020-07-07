@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083959"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Konfigurera en processerver i Azure för återställning efter fel
@@ -28,7 +27,7 @@ Läs mer om [återställnings](vmware-azure-failback.md) [-och](vmware-azure-rep
 
 ## <a name="deploy-a-process-server-in-azure"></a>Distribuera en processerver i Azure
 
-1. I valvet > **Site Recovery infrastruktur**> **Hantera** > **konfigurations servrar**väljer du konfigurations servern.
+1. I valvet > **Site Recovery infrastruktur** >  **Hantera**  >  **konfigurations servrar**väljer du konfigurations servern.
 2. På sidan Server klickar du på **+ processerver**
 3. På sidan **Lägg till processerver** och välj att distribuera processervern i Azure.
 4. Ange Azure-inställningar, inklusive den prenumeration som används för redundans, en resurs grupp, Azure-regionen som används för redundans och det virtuella nätverk där de virtuella Azure-datorerna finns. Om du har använt flera Azure-nätverk behöver du en processerver i var och en.

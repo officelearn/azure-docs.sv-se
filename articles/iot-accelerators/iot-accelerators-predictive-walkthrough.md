@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73827419"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn Förutsägande underhåll
@@ -73,11 +72,11 @@ IoT Hub bekräftar enhetskommandona.
 ## <a name="machine-learning"></a>Machine Learning
 Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till arbets ytan Machine Learning från din lösnings panel på sidan [azureiotsolutions.com][lnk-azureiotsolutions] . Panelen är tillgänglig när lösningen har statusen **Redo**.
 
-Machine Learnings modellen är tillgänglig som en mall som visar hur du arbetar med telemetri som samlats in via IoT Solution Accelerator-tjänster. Microsoft har byggt en [Regressions modell][lnk_regression_model] av en flyg Plans motor baserat på offentligt tillgängliga data<sup>\[1\]</sup>och stegvisa anvisningar om hur du använder modellen.
+Machine Learnings modellen är tillgänglig som en mall som visar hur du arbetar med telemetri som samlats in via IoT Solution Accelerator-tjänster. Microsoft har byggt en [Regressions modell][lnk_regression_model] av en flyg Plans motor baserat på offentligt tillgängliga data<sup> \[ \] 1</sup>och stegvisa anvisningar om hur du använder modellen.
 
 Azure IoT-lösningsacceleratorn Förutsägande underhåll använder regressionsmodellen som skapats från den här mallen. Modellen distribueras till din Azure-prenumeration och görs tillgänglig via en automatiskt genererad API. Lösningen innehåller en delmängd av test data för 4 (av 100 totala) motorer och 4 (av totalt 21) data strömmar för sensor. Dessa data är tillräckliga för att tillhandahålla ett korrekt resultat från Trained Model.
 
-*\[1\] A. Saxena och K. Goebel (2008). Data uppsättningen "turbofan Engine degraderinging degradering", NASA Ames Prognostics data Centralhttps://c3.nasa.gov/dashlink/resources/139/)(, NASA Ames Research Center, Moffett Field, ca*
+*\[1 \] A. Saxena och K. Goebel (2008). Data uppsättningen "turbofan Engine degraderinging degradering", NASA Ames Prognostics data Central ( https://c3.nasa.gov/dashlink/resources/139/) , NASA Ames Research Center, Moffett Field, ca*
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har sett huvudkomponenterna i lösningsacceleratorn Förebyggande underhåll kanske du vill anpassa den.

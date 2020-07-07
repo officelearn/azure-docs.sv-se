@@ -20,19 +20,18 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113229"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>OData Collection-operatörer i Azure Kognitiv sökning `any` – och`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>OData Collection-operatörer i Azure Kognitiv sökning – `any` och`all`
 
-När du skriver ett [OData filter-uttryck](query-odata-filter-orderby-syntax.md) som ska användas med Azure kognitiv sökning är det ofta användbart att filtrera på samlings fält. Du kan åstadkomma detta med `any` operatorerna `all` och.
+När du skriver ett [OData filter-uttryck](query-odata-filter-orderby-syntax.md) som ska användas med Azure kognitiv sökning är det ofta användbart att filtrera på samlings fält. Du kan åstadkomma detta med `any` `all` operatorerna och.
 
 ## <a name="syntax"></a>Syntax
 
-Följande EBNF ([Extended backal-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i ett OData-uttryck som använder `any` eller `all`.
+Följande EBNF ([Extended backal-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i ett OData-uttryck som använder `any` eller `all` .
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -56,9 +55,9 @@ Ett interaktivt syntax diagram är också tillgängligt:
 Det finns tre typer av uttryck som filtrerar samlingar.
 
 - De två första itern över ett samlings fält och använder ett predikat som anges i form av ett lambda-uttryck för varje element i mängden.
-  - Ett uttryck som `all` använder `true` returnerar om predikatet är sant för varje element i mängden.
-  - Ett uttryck som `any` använder `true` returnerar om predikatet är sant för minst ett element i mängden.
-- Den tredje formen av samlings filtret `any` använder utan lambda-uttryck för att testa om ett samlings fält är tomt. Om samlingen innehåller element returneras `true`. Om samlingen är tom returneras `false`.
+  - Ett uttryck som använder `all` returnerar `true` om predikatet är sant för varje element i mängden.
+  - Ett uttryck som använder `any` returnerar `true` om predikatet är sant för minst ett element i mängden.
+- Den tredje formen av samlings filtret använder `any` utan lambda-uttryck för att testa om ett samlings fält är tomt. Om samlingen innehåller element returneras `true` . Om samlingen är tom returneras `false` .
 
 Ett **lambda-uttryck** i ett samlings filter är som bröd texten i en slinga i ett programmeringsspråk. Den definierar en variabel, som kallas **variabeln Range**, som innehåller det aktuella elementet i samlingen under iteration. Den definierar också ett annat booleskt uttryck som är de filter villkor som ska tillämpas på variabeln Range för varje element i samlingen.
 
@@ -72,7 +71,7 @@ Matcha dokument där varje element i `ratings` fältet faller mellan 3 och 5, in
 
     ratings/all(r: r ge 3 and r le 5)
 
-Matcha dokument där något av de geo-koordinaterna `locations` i fältet är inom den aktuella polygonen:
+Matcha dokument där något av de geo-koordinaterna i `locations` fältet är inom den aktuella polygonen:
 
     locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74132958"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Supportmatris för haveriberedskap av virtuella Hyper-V-datorer till en sekundär webbplats
@@ -24,7 +23,7 @@ I den här artikeln sammanfattas vad som stöds när du använder tjänsten [Azu
 
 ## <a name="host-servers"></a>Värd servrar
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 Windows Server 2012 R2 | Servrarna måste köra de senaste uppdateringarna.
 Windows Server 2016 |  VMM 2016-moln med en blandning av Windows Server 2016-och 2012 R2-värdar stöds inte för närvarande.<br/><br/> Distributioner som uppgraderas från System Center 2012 R2 VMM 2012 R2 till System Center 2016 stöds inte för närvarande.
@@ -56,10 +55,10 @@ Endast Linux-datorer med följande lagring kan replikeras:
 Värd-NIC-teamning | Ja 
 Värd-VLAN | Ja 
 Värd-IPv4 | Ja 
-Värd-IPv6 | Inga 
-Gäst-VM – NIC Teaming | Inga
+Värd-IPv6 | No 
+Gäst-VM – NIC Teaming | No
 Gäst-VM – IPv4 | Ja
-Gäst-VM-IPv6 | Inga
+Gäst-VM-IPv6 | No
 Gäst-VM – Windows/Linux-statisk IP-adress | Ja
 Gäst-VM-Multi-NIC | Ja
 
@@ -82,16 +81,16 @@ Multipath (MPIO) | Ja
 VMDK |  E.t.
 VHD/VHDX | Ja (upp till 16 diskar)
 Generation 2 VM | Ja
-Delad kluster disk | Inga
-Krypterad disk | Inga
+Delad kluster disk | No
+Krypterad disk | No
 UEFI| E.t.
-NFS | Inga
-SMB 3.0 | Inga
+NFS | No
+SMB 3.0 | No
 RDM | E.t.
 Disk > 1 TB | Ja
 Volym med Striped disk > 1 TB<br/><br/> LVM | Ja
 Lagringsutrymmen | Ja
-Snabb Lägg till/ta bort disk | Inga
+Snabb Lägg till/ta bort disk | No
 Uteslut disk | Ja
 Multipath (MPIO) | Ja
 
@@ -99,8 +98,8 @@ Multipath (MPIO) | Ja
 
 **Åtgärd** | **Stöds**
 --- | --- 
-Flytta valv över resurs grupper (inom eller mellan prenumerationer) |  Inga
-Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper (inom eller mellan prenumerationer) | Inga
+Flytta valv över resurs grupper (inom eller mellan prenumerationer) |  No
+Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper (inom eller mellan prenumerationer) | No
 
 ## <a name="azure-site-recovery-provider"></a>Azure Site Recovery Provider
 

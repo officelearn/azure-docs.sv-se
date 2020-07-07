@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73820117"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera den anslutna fabriks lösnings acceleratorn
@@ -61,7 +60,7 @@ Varje nod i topologin har en gemensam uppsättning egenskaper som definierar:
 
 ## <a name="topology-configuration-file"></a>Konfigurations fil för topologi
 
-För att konfigurera egenskaperna som anges i föregående avsnitt, använder den anslutna fabriks lösningen en konfigurations fil med namnet [ContosoTopologyDescription. JSON](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+För att konfigurera egenskaperna som anges i föregående avsnitt, använder den anslutna fabriks lösningen en konfigurations fil som heter [ContosoTopologyDescription.jspå](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
 Du kan hitta den här filen i lösningens käll kod i `WebApp/Contoso/Topology` mappen.
 
@@ -85,7 +84,7 @@ Följande fragment visar en översikt över `ContosoTopologyDescription.json` ko
 }
 ```
 
-De gemensamma egenskaperna för `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`och `<station_configuration>` är:
+De gemensamma egenskaperna för  `<global_configuration>` , `<factory_configuration>` , `<production_line_configuration>` och `<station_configuration>` är:
 
 * **Namn** (typ sträng)
 
@@ -99,11 +98,11 @@ De gemensamma egenskaperna för `<global_configuration>`, `<factory_configurati
 
   Sökvägen till en bild i WebApp-lösningen för att visa när information om noden topologi visas i instrument panelen.
 
-* **OeeOverall**, **OeePerformance**, **OeeAvailability**, **OeeQuality**, **Kpi1**, **Kpi2** (typ `<performance_definition>`)
+* **OeeOverall**, **OeePerformance**, **OeeAvailability**, **OeeQuality**, **Kpi1**, **Kpi2** (typ `<performance_definition>` )
 
   De här egenskaperna definierar minimalt värde, mål och maximala värden för den operativa figuren som används för att generera aviseringar. De här egenskaperna definierar också vilka åtgärder som ska utföras om en avisering identifieras.
 
-Objekten `<factory_configuration>` och `<production_line_configuration>` har en egenskap:
+`<factory_configuration>`Objekten och `<production_line_configuration>` har en egenskap:
 
 * **GUID** (typ sträng)
 
@@ -111,7 +110,7 @@ Objekten `<factory_configuration>` och `<production_line_configuration>` har en 
 
 `<factory_configuration>`har en egenskap:
 
-* **Plats** (typ `<location_definition>`)
+* **Plats** (typ `<location_definition>` )
 
   Anger var fabriken finns.
 
@@ -122,7 +121,7 @@ Objekten `<factory_configuration>` och `<production_line_configuration>` har en 
   Den här egenskapen måste anges till OPC UA Application URI för OPC UA-servern.
   Eftersom det måste vara globalt unikt av OPC UA-specifikationen används den här egenskapen för att identifiera noden för stationens topologi.
 
-* **OpcNodes**, som är en matris med OPC UA-noder ( `<opc_node_description>`typ)
+* **OpcNodes**, som är en matris med OPC UA-noder (typ `<opc_node_description>` )
 
 `<location_definition>`har egenskaper:
 
@@ -156,11 +155,11 @@ Objekten `<factory_configuration>` och `<production_line_configuration>` har en 
 
   Övre tröskelvärde som värdet kan uppnå. Om det aktuella värdet är över det här tröskelvärdet genereras en avisering.
 
-* **MinimumAlertActions** (typ `<alert_action>`)
+* **MinimumAlertActions** (typ `<alert_action>` )
 
   Definierar en uppsättning åtgärder som kan vidtas som svar på en minimal avisering.
 
-* **MaximumAlertActions** (typ `<alert_action>`)
+* **MaximumAlertActions** (typ `<alert_action>` )
 
   Definierar en uppsättning åtgärder som kan vidtas som svar på en maximal avisering.
 
@@ -246,11 +245,11 @@ Objekten `<factory_configuration>` och `<production_line_configuration>` har en 
 
   Om det aktuella värdet aktive ras ovanför det här värdet genereras en maximal avisering.
 
-* **MinimumAlertActions** (typ `<alert_action>`)
+* **MinimumAlertActions** (typ `<alert_action>` )
 
   Definierar en uppsättning åtgärder som kan vidtas som svar på en minimal avisering.
 
-* **MaximumAlertActions** (typ `<alert_action>`)
+* **MaximumAlertActions** (typ `<alert_action>` )
 
   Definierar en uppsättning åtgärder som kan vidtas som svar på en maximal avisering.
 
@@ -262,7 +261,7 @@ Alla egenskaper som används i konfigurations filen kan grupperas i olika katego
 
 ### <a name="visual-appearance"></a>Visuellt utseende
 
-Egenskaperna i den här kategorin definierar det visuella utseendet på den anslutna fabriks instrument panelen. Exempel på rekommendationer:
+Egenskaperna i den här kategorin definierar det visuella utseendet på den anslutna fabriks instrument panelen. Exempel:
 
 * Name
 * Beskrivning
@@ -282,7 +281,7 @@ OEE/KPI-siffrorna för den anslutna fabriks simuleringen är parameterstyrda av:
 * OPC UA Node-värden som ska ingå i beräkningen.
 * Hur talet beräknas från telemetri värden.
 
-Ansluten fabrik använder OEE-formlerna som publiceras av [http://www.oeefoundation.org](http://www.oeefoundation.org).
+Ansluten fabrik använder OEE-formlerna som publiceras av [http://www.oeefoundation.org](http://www.oeefoundation.org) .
 
 OPC UA Node-objekt i stationer möjliggör taggning för användning i OEE/KPI-beräkning. Egenskapen **relevans** anger för vilken OEE/KPI-bild som OPC UA-Node-värdet ska användas. Egenskapen **opcode** definierar hur värdet ingår i beräkningen.
 
@@ -313,7 +312,7 @@ Se [Vad är OPC Publisher](overview-opc-publisher.md) för mer information om hu
 
 Konfigurationen i `ContosoTopologyDescription.json` filen styr hur OEE/KPI-siffror beräknas. I följande exempel visas hur egenskaper i den här filen styr beräkningen av KPI1.
 
-I anslutna fabriks KPI1 används för att mäta antalet tillverkade produkter under den senaste timmen. Varje station (OPC UA-Server) i den anslutna fabriks simuleringen tillhandahåller en OPC`NodeId: "ns=2;i=385"`UA-nod () som ger telemetri för att beräkna denna KPI.
+I anslutna fabriks KPI1 används för att mäta antalet tillverkade produkter under den senaste timmen. Varje station (OPC UA-Server) i den anslutna fabriks simuleringen tillhandahåller en OPC UA-nod ( `NodeId: "ns=2;i=385"` ) som ger telemetri för att beräkna denna KPI.
 
 Konfigurationen för den här OPC UA-noden ser ut som i följande kodfragment:
 

@@ -14,17 +14,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888591"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Ladda upp filer till ett Media Services-konto med REST  
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
-> * [Portalen](media-services-portal-upload-files.md)
+> * [Portal](media-services-portal-upload-files.md)
 > 
 
 I Media Services överför du dina digitala filer till en tillgång. [Till gångs](https://docs.microsoft.com/rest/api/media/operations/asset) enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer.)  När filerna har laddats upp till till gången lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning. 
@@ -35,20 +34,20 @@ I den här självstudien får du lära dig hur du laddar upp en fil och annan å
 > * Konfigurera PostMan för alla uppladdnings åtgärder
 > * Ansluta till Media Services 
 > * Skapa en åtkomst princip med Skriv behörighet
-> * Skapa en till gång
+> * Skapa en tillgång
 > * Skapa en SAS-lokaliserare och skapa uppladdnings-URL: en
 > * Ladda upp en fil till Blob Storage med uppladdnings-URL
 > * Skapa en metadata i till gången för medie filen du överförde
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - [Skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).
 - Läs artikeln om att [komma åt Azure Media Services API med AAD-autentisering](media-services-use-aad-auth-to-access-ams-api.md) .
 - Mer information hittar du i [använda Azure AD-autentisering för att komma åt Media Services-API med rest](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) -artikel.
 - Konfigurera **Postman** enligt beskrivningen i [Konfigurera postman för Media Services REST API samtal](media-rest-apis-with-postman.md).
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 Följande överväganden gäller när du använder Media Services REST API:
  
@@ -72,8 +71,8 @@ Anvisningar om hur du konfigurerar Postman för den här självstudien finns i [
     ![Överför en fil](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Ange värdet för **MediaFileName** -miljövariabeln.
 
-    Ange fil namnet på det medium som du planerar att ladda upp. I det här exemplet ska vi ladda upp BigBuckBunny. mp4. 
-3. Granska filen **AzureMediaServices. postman_environment. JSON** . Du kommer att se att nästan alla åtgärder i samlingen kör ett "test"-skript. Skripten tar några värden som returneras av svaret och ställer in lämpliga miljövariabler.
+    Ange fil namnet på det medium som du planerar att ladda upp. I det här exemplet ska vi ladda upp BigBuckBunny.mp4. 
+3. Granska **AzureMediaServices.postman_environment.jsi** filen. Du kommer att se att nästan alla åtgärder i samlingen kör ett "test"-skript. Skripten tar några värden som returneras av svaret och ställer in lämpliga miljövariabler.
 
     Den första åtgärden får till exempel en åtkomsttoken och ställer in den på **AccessToken** -miljövariabeln som används i alla andra åtgärder.
 
@@ -87,7 +86,7 @@ Anvisningar om hur du konfigurerar Postman för den här självstudien finns i [
         ]
     }
     ```
-4. Till vänster i fönstret **Postman** klickar du på **1. Hämta AAD auth token** -> **Hämta Azure AD-token för tjänstens huvud namn**.
+4. Till vänster i fönstret **Postman** klickar du på **1. Hämta AAD auth token**  ->  **Hämta Azure AD-token för tjänstens huvud namn**.
 
     URL-delen fylls med **AzureADSTSEndpoint** -miljövariabeln (tidigare i självstudien anger du värden för miljövariabler som stöder samlingen).
 
@@ -110,14 +109,14 @@ Innan du överför filer till Blob Storage anger du åtkomst princip rättighete
 
 ### <a name="create-an-access-policy"></a>Skapa en åtkomst princip
 
-1. Välj **Access policy** -> **skapa Access policy för uppladdning**.
+1. Välj **Access policy**  ->  **skapa Access policy för uppladdning**.
 2. Tryck på **Skicka**.
 
     ![Överför en fil](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     Skriptet "test" hämtar Access Policy-ID och anger lämplig miljö variabel.
 
-## <a name="create-an-asset"></a>Skapa en till gång
+## <a name="create-an-asset"></a>Skapa en tillgång
 
 ### <a name="overview"></a>Översikt
 
@@ -129,9 +128,9 @@ Om din till gång är krypterad måste du skapa en **ContentKey** och länka den
 
 I det här exemplet skapar vi en okrypterad till gång. 
 
-### <a name="create-an-asset"></a>Skapa en till gång
+### <a name="create-an-asset"></a>Skapa en tillgång
 
-1. Välj **till gångar** -> **skapa till gång**.
+1. Välj **till gångar**  ->  **skapa till gång**.
 2. Tryck på **Skicka**.
 
     ![Överför en fil](./media/media-services-rest-upload-files/postman-create-asset.png)
@@ -152,7 +151,7 @@ En SAS-URL har följande format:
 
     {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 Vissa förutsättningar gäller:
 
@@ -162,7 +161,7 @@ Vissa förutsättningar gäller:
 
 ### <a name="create-a-sas-locator"></a>Skapa en SAS-positionerare
 
-1. Välj **Locator** -> **skapa SAS-positionerare**.
+1. Välj **Locator**  ->  **skapa SAS-positionerare**.
 2. Tryck på **Skicka**.
 
     Skriptet "test" skapar "överförings webb adress" baserat på det medie fil namn du angav och information om SAS-positionerare och anger lämplig miljö variabel.
@@ -186,7 +185,7 @@ Vi använder exempelvis Postman för att ladda upp en liten. mp4-fil. Det kan fi
 Uppladdnings förfrågan ingår inte i **AzureMedia** -samlingen. 
 
 Skapa och konfigurera en ny begäran:
-1. Tryck **+** på för att skapa en ny begäran-flik.
+1. Tryck på **+** för att skapa en ny begäran-flik.
 2. Välj åtgärden **Lägg** och klistra in **{{UploadURL}}** i URL: en.
 2. Lämna fliken **auktorisering** som är (ange inte till **Bearer-token**).
 3. På fliken **sidhuvud** anger du: **nyckel**: "x-MS-BLOB-Type" och **Value**: "BlockBlob".
@@ -200,7 +199,7 @@ Skapa och konfigurera en ny begäran:
 
 När filen har laddats upp måste du skapa en metadata i till gången för medie filen som du laddade upp i blob-lagringen som är kopplad till din till gång.
 
-1. Välj **AssetFiles** -> **CreateFileInfos**.
+1. Välj **AssetFiles**  ->  **CreateFileInfos**.
 2. Tryck på **Skicka**.
 
     ![Överför en fil](./media/media-services-rest-upload-files/postman-create-file-info.png)
@@ -211,7 +210,7 @@ Filen ska laddas upp och dess metadata har angetts.
 
 För att kontrol lera att filen har laddats upp kan du vilja fråga [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) och jämföra **ContentFileSize** (eller annan information) till det du förväntar dig att se i den nya till gången. 
 
-Följande **Get** -åtgärd hämtar till exempel fil data för din till gångs fil (i eller fall, filen BigBuckBunny. mp4). Frågan använder de [miljövariabler](postman-environment.md) som du anger tidigare.
+Följande **Get** -åtgärd hämtar till exempel fildata för din till gångs fil (i eller fall BigBuckBunny.mp4-filen). Frågan använder de [miljövariabler](postman-environment.md) som du anger tidigare.
 
     {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
 

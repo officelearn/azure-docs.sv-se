@@ -20,15 +20,14 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113117"
 ---
-# <a name="odata-searchin-function-in-azure-cognitive-search"></a>OData `search.in` -funktion i Azure kognitiv sökning
+# <a name="odata-searchin-function-in-azure-cognitive-search"></a>OData- `search.in` funktion i Azure kognitiv sökning
 
-Ett vanligt scenario i [OData filter-uttryck](query-odata-filter-orderby-syntax.md) är att kontrol lera om ett enskilt fält i varje dokument är lika med ett av många möjliga värden. Detta är till exempel hur vissa program implementerar [säkerhets trimning](search-security-trimming-for-azure-search.md) – genom att kontrol lera ett fält som innehåller ett eller flera huvud namns-ID: n mot en lista över huvud namns-ID: n som representerar den användare som utfärdar frågan. Ett sätt att skriva en fråga som detta är att använda [`eq`](search-query-odata-comparison-operators.md) operatorerna [`or`](search-query-odata-logical-operators.md) och:
+Ett vanligt scenario i [OData filter-uttryck](query-odata-filter-orderby-syntax.md) är att kontrol lera om ett enskilt fält i varje dokument är lika med ett av många möjliga värden. Detta är till exempel hur vissa program implementerar [säkerhets trimning](search-security-trimming-for-azure-search.md) – genom att kontrol lera ett fält som innehåller ett eller flera huvud namns-ID: n mot en lista över huvud namns-ID: n som representerar den användare som utfärdar frågan. Ett sätt att skriva en fråga som detta är att använda [`eq`](search-query-odata-comparison-operators.md) [`or`](search-query-odata-logical-operators.md) operatorerna och:
 
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
 
@@ -37,7 +36,7 @@ Det finns dock ett kortare sätt att skriva på detta med hjälp av `search.in` 
     group_ids/any(g: search.in(g, '123, 456, 789'))
 
 > [!IMPORTANT]
-> Förutom att vara kortare och enklare att läsa, `search.in` ger du också [prestanda för delar](#bkmk_performance) och undviker vissa [storleks begränsningar för filter](search-query-odata-filter.md#bkmk_limits) när det finns hundratals eller till och med tusentals värden som ska ingå i filtret. Av den anledningen rekommenderar vi starkt att du `search.in` använder i stället för en mer komplex disknutning av likhets uttryck.
+> Förutom att vara kortare och enklare att läsa, `search.in` ger du också [prestanda för delar](#bkmk_performance) och undviker vissa [storleks begränsningar för filter](search-query-odata-filter.md#bkmk_limits) när det finns hundratals eller till och med tusentals värden som ska ingå i filtret. Av den anledningen rekommenderar vi starkt att du använder `search.in` i stället för en mer komplex disknutning av likhets uttryck.
 
 > [!NOTE]
 > I version 4,01 av OData standard har nyligen lanserat [ `in` operatorn](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), som har samma beteende som `search.in` funktionen i Azure kognitiv sökning. Azure Kognitiv sökning stöder dock inte den här operatorn, så du måste använda `search.in` funktionen i stället.
@@ -61,7 +60,7 @@ Ett interaktivt syntax diagram är också tillgängligt:
 > [!NOTE]
 > Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-`search.in` Funktionen testar om ett angivet sträng fält eller intervall variabel är lika med en av en specifik lista med värden. Likheten mellan variabeln och varje värde i listan bestäms av Skift läges känsligt, på samma sätt som för `eq` operatorn. Därför är ett uttryck `search.in(myfield, 'a, b, c')` som motsvarar `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, men det `search.in` ger mycket bättre prestanda.
+`search.in`Funktionen testar om ett angivet sträng fält eller intervall variabel är lika med en av en specifik lista med värden. Likheten mellan variabeln och varje värde i listan bestäms av Skift läges känsligt, på samma sätt som för `eq` operatorn. Därför är ett uttryck som `search.in(myfield, 'a, b, c')` motsvarar `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'` , men det `search.in` ger mycket bättre prestanda.
 
 Det finns två överlagringar av `search.in` funktionen:
 
@@ -73,14 +72,14 @@ Parametrarna definieras i följande tabell:
 | Parameternamn | Typ | Beskrivning |
 | --- | --- | --- |
 | `variable` | `Edm.String` | En sträng fält referens (eller en intervall variabel över ett sträng samlings fält i fallet där `search.in` används inuti ett `any` eller `all` -uttryck). |
-| `valueList` | `Edm.String` | En sträng som innehåller en avgränsad lista med värden som ska `variable` matchas mot parametern. Om `delimiters` parametern inte anges, är standard avgränsarna blank steg och kommatecken. |
-| `delimiters` | `Edm.String` | En sträng där varje tecken behandlas som en avgränsare när `valueList` parametern tolkas. Standardvärdet för den här parametern `' ,'` är vilket innebär att alla värden med blank steg och/eller kommatecken mellan dem kommer att separeras. Om du behöver använda andra avgränsare än blank steg och kommatecken eftersom värdena innehåller dessa tecken kan du ange alternativa avgränsare, som `'|'` i den här parametern. |
+| `valueList` | `Edm.String` | En sträng som innehåller en avgränsad lista med värden som ska matchas mot `variable` parametern. Om `delimiters` parametern inte anges, är standard avgränsarna blank steg och kommatecken. |
+| `delimiters` | `Edm.String` | En sträng där varje tecken behandlas som en avgränsare när parametern tolkas `valueList` . Standardvärdet för den här parametern är `' ,'` vilket innebär att alla värden med blank steg och/eller kommatecken mellan dem kommer att separeras. Om du behöver använda andra avgränsare än blank steg och kommatecken eftersom värdena innehåller dessa tecken kan du ange alternativa avgränsare, som `'|'` i den här parametern. |
 
 <a name="bkmk_performance"></a>
 
 ### <a name="performance-of-searchin"></a>Prestanda för`search.in`
 
-Om du använder `search.in`kan du förväntar dig svars tid under andra när den andra parametern innehåller en lista över hundratals eller tusentals värden. Det finns ingen uttrycklig gräns för antalet objekt som du kan skicka till `search.in`, även om du fortfarande är begränsad till den maximala storleken för begäran. Svars tiden kommer dock att växa när antalet värden växer.
+Om du använder `search.in` kan du förväntar dig svars tid under andra när den andra parametern innehåller en lista över hundratals eller tusentals värden. Det finns ingen uttrycklig gräns för antalet objekt som du kan skicka till `search.in` , även om du fortfarande är begränsad till den maximala storleken för begäran. Svars tiden kommer dock att växa när antalet värden växer.
 
 ## <a name="examples"></a>Exempel
 

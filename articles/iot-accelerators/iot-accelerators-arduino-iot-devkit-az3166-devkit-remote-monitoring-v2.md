@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888869"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Anslut en IoT DevKit-enhet till lösningen för fjärr styrnings lösning
@@ -51,7 +50,7 @@ Så här konfigurerar du IoT Hub enhets anslutnings sträng på din DevKit-enhet
     * Håll ned knapp **A**.
     * Push och släpp knappen **Återställ** .
 
-1. Skärmen visar DevKit-ID och `Configuration`.
+1. Skärmen visar DevKit-ID och `Configuration` .
 
     ![Konfigurations läge för IoT-DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
@@ -63,7 +62,7 @@ Så här konfigurerar du IoT Hub enhets anslutnings sträng på din DevKit-enhet
 
 För att bygga och ladda upp enhets koden:
 
-1. Tryck `F1` på för att öppna kommando-paletten, skriv och välj **Azure IoT enhet Workbench: Ladda upp enhets kod**:
+1. Tryck på `F1` för att öppna kommando-paletten, skriv och välj **Azure IoT enhet Workbench: Ladda upp enhets kod**:
 
 1. VS Code kompilerar och laddar upp koden till din DevKit-enhet:
 

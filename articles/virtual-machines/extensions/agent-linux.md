@@ -16,10 +16,9 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74073856"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
@@ -48,7 +47,7 @@ Microsoft Azure Linux-agenten (waagent) hanterar Linux & FreeBSD-etablering och 
   * Säkerställer stabiliteten för nätverks gränssnittets namn
 * **Kernel**
   
-  * Konfigurerar virtuell NUMA (inaktivera för kernel-<`2.6.37`)
+  * Konfigurerar virtuell NUMA (inaktivera för kernel-<`2.6.37` )
   * Använder Hyper-V-entropi för/dev/Random
   * Konfigurerar SCSI-tidsgräns för rot enheten (som kan vara fjärran sluten)
 * **Diagnostik**
@@ -170,7 +169,7 @@ Default: y
 Detta gör att användaren kan aktivera eller inaktivera etablerings funktionerna i agenten. Giltiga värden är "y" eller "n". Om etableringen är inaktiverat bevaras SSH-värden och användar nycklar i avbildningen och all konfiguration som anges i Azures etablerings-API ignoreras.
 
 > [!NOTE]
-> Parametern `Provisioning.Enabled` är som standard "n" på Ubuntu Cloud-avbildningar som använder Cloud-Init för etablering.
+> Parametern är som `Provisioning.Enabled` standard "n" på Ubuntu Cloud-avbildningar som använder Cloud-Init för etablering.
 > 
 > 
 
@@ -195,7 +194,7 @@ Krypterings typen för det nya nyckel paret kan konfigureras av etableringen. Ss
 Type: String  
 Default: rsa
 ```
-Detta kan anges till en typ av krypteringsalgoritm som stöds av SSH daemon på den virtuella datorn. De värden som stöds vanligt vis är "RSA", "DSA" och "ECDSA". "SparaTillFil. exe" i Windows stöder inte "ECDSA". Så om du vill använda SparaTillFil. exe i Windows för att ansluta till en Linux-distribution, använder du "RSA" eller "DSA".
+Detta kan anges till en typ av krypteringsalgoritm som stöds av SSH daemon på den virtuella datorn. De värden som stöds vanligt vis är "RSA", "DSA" och "ECDSA". "putty.exe" i Windows stöder inte "ECDSA". Om du tänker använda putty.exe på Windows för att ansluta till en Linux-distribution använder du exempelvis "RSA" eller "DSA".
 
 **Etablering. MonitorHostName:**  
 ```
@@ -211,7 +210,7 @@ Default: n
 ```
 Om det här värdet anges avkodas waagent CustomData från base64.
 
-**Etablering. ExecuteCustomData**  
+**Provisioning.ExecuteCustomData**  
 ```
 Type: Boolean  
 Default: n

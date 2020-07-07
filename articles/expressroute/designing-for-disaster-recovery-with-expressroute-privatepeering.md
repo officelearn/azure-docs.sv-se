@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
 ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74076691"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Design för haveri beredskap med ExpressRoute privat peering
@@ -64,7 +63,7 @@ Du kan påverka Azure för att föredra en ExpressRoute-krets över en annan med
 
 Följande diagram illustrerar hur du påverkar ExpressRoute sökvägar med hjälp av mer speciell väg annonsering. I det här exemplet visas Contosos lokalt/24 IP-intervall som två/25 adress intervall via önskad sökväg (ExpressRoute 1) och som/24 via sökvägen (ExpressRoute 2).
 
-[![11.2]][2]
+[![2]][2]
 
 Eftersom/25 är mer särskilt jämfört med/24 skulle Azure skicka trafiken till 10.1.11.0/24 via ExpressRoute 1 i normalt tillstånd. Om båda anslutningarna för ExpressRoute 1 går ned skulle VNet se 10.1.11.0/24-väg annonsen endast via ExpressRoute 2; och därför används standby-kretsen i det här felet.
 
@@ -114,13 +113,13 @@ Scenario 1 illustreras i följande diagram. I diagrammet indikerar gröna linjer
 
 Du kan skapa scenariot med anslutnings vikt för att påverka virtuella nätverk för att föredra anslutning till den lokala peering-platsen ExpressRoute för den lokala nätverks bindnings trafiken. För att slutföra lösningen måste du se till att symmetriskt flöde för trafikflödet återställs. Du kan använda lokal inställning på iBGP-sessionen mellan BGP-routrarna (där ExpressRoute-kretsar avslutas på den lokala sidan) för att föredra en ExpressRoute-krets. Lösningen illustreras i följande diagram. 
 
-[![7,8]][8]
+[![8]][8]
 
 ### <a name="scenario-2"></a>Scenario 2
 
 Scenario 2 illustreras i följande diagram. I diagrammet indikerar gröna linjer sökvägar för trafikflöde mellan VNet1 och lokala nätverk. De blå linjerna indikerar vägar för trafikflöde mellan VNet2 och lokala nätverk. I stabilt läge (heldragna linjer i diagrammet) flödar all trafik mellan virtuella nätverk och lokala platser via Microsoft stamnät för den mesta delen, och flödar genom samtrafik mellan lokala platser endast i felläget (prickade linjer i diagrammet) för en ExpressRoute.
 
-[![1.9]][9]
+[![9]][9]
 
 Lösningen illustreras i följande diagram. Som det illustreras kan du skapa scenariot med hjälp av en mer speciell väg (alternativ 1) eller som lägga (alternativ 2) för att påverka val av VNet-sökväg. Om du vill påverka det lokala nätverks vägs valet för Azure-Bound, måste du konfigurera sammanlänkningen mellan den lokala platsen så att den blir mindre prioriterad. Howe du konfigurerar länken mellan anslutning som helst beror på routningsprotokollet som används i det lokala nätverket. Du kan använda lokal inställning med iBGP eller Metric med IGP (OSPF eller är-är).
 

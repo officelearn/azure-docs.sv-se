@@ -11,10 +11,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73667656"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory-Functions och systemvariabler
@@ -56,7 +55,7 @@ Du kan använda funktioner i Data Factory tillsammans med systemvariabler i föl
 
 1. Ange frågor för data urval (se kopplings artiklar som refereras till i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) ).
    
-   Syntaxen för att anropa en Data Factory-funktion är: ** $$ \<funktion>** för data urvals frågor och andra egenskaper i aktiviteten och data uppsättningarna.  
+   Syntaxen för att anropa en Data Factory-funktion är: **$$\<function>** för data urvals frågor och andra egenskaper i aktiviteten och data uppsättningarna.  
 2. Ange indata-beroenden med Data Factory-funktioner i indata-samlingen.
    
     $ $ behövs inte för att ange indata beroende uttryck.     
@@ -80,27 +79,27 @@ I följande tabeller visas alla funktioner i Azure Data Factory:
 | Tid |AddHours (X, Y) |X: DateTime <br/><br/>Y: int |Lägger till Y-timmar på den aktuella tiden X. <br/><br/>Exempel: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Tid |AddMinutes (X, Y) |X: DateTime <br/><br/>Y: int |Lägger till Y minuter till X.<br/><br/>Exempel: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
 | Tid |StartOfHour (X) |X: datetime |Hämtar start tiden för den timme som representeras av Tim komponenten i X. <br/><br/>Exempel: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Date |AddDays (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-dagar till X. <br/><br/>Exempel: 9/15/2013 12:00:00 PM + 2 dagar = 9/17/2013 12:00:00 PM.<br/><br/>Du kan subtrahera dagar genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Date |AddMonths (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-månader till X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Du kan subtrahera månader genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Date |AddQuarters (X, Y) |X: DateTime <br/><br/>Y: int |Lägger till Y * 3 månader till X.<br/><br/>Exempel: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Date |AddWeeks (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y * 7 dagar till X<br/><br/>Exempel: 9/15/2013 12:00:00 PM + 1 vecka = 9/22/2013 12:00:00 PM<br/><br/>Du kan subtrahera veckor genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Date |AddYears (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-år till X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Du kan subtrahera år genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Date |Dag (X) |X: DateTime |Hämtar dags komponenten för X.<br/><br/>Exempel: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Date |DayOfWeek (X) |X: DateTime |Hämtar dag i veckan-komponenten i X.<br/><br/>Exempel: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Date |DayOfYear (X) |X: DateTime |Hämtar den dag under året som representeras av års komponenten för X.<br/><br/>Exempel:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Date |DaysInMonth (X) |X: DateTime |Hämtar de dagar i månaden som representeras av månads komponenten för parametern X.<br/><br/>Exempel: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Date |EndOfDay (X) |X: DateTime |Hämtar datum/tid som representerar slutet på dagen (dag komponenten) för X.<br/><br/>Exempel: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Date |EndOfMonth (X) |X: DateTime |Hämtar slutet på månaden som representeras av month-komponenten för parametern X. <br/><br/>Exempel: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum och tid som motsvarar slutet av månad i september) |
-| Date |StartOfDay (X) |X: DateTime |Hämtar början på den dag som representeras av dags komponenten för parametern X.<br/><br/>Exempel: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| Datum |AddDays (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-dagar till X. <br/><br/>Exempel: 9/15/2013 12:00:00 PM + 2 dagar = 9/17/2013 12:00:00 PM.<br/><br/>Du kan subtrahera dagar genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Datum |AddMonths (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-månader till X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Du kan subtrahera månader genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Datum |AddQuarters (X, Y) |X: DateTime <br/><br/>Y: int |Lägger till Y * 3 månader till X.<br/><br/>Exempel: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Datum |AddWeeks (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y * 7 dagar till X<br/><br/>Exempel: 9/15/2013 12:00:00 PM + 1 vecka = 9/22/2013 12:00:00 PM<br/><br/>Du kan subtrahera veckor genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Datum |AddYears (X, Y) |X: DateTime<br/><br/>Y: int |Lägger till Y-år till X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Du kan subtrahera år genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Datum |Dag (X) |X: DateTime |Hämtar dags komponenten för X.<br/><br/>Exempel: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Datum |DayOfWeek (X) |X: DateTime |Hämtar dag i veckan-komponenten i X.<br/><br/>Exempel: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Datum |DayOfYear (X) |X: DateTime |Hämtar den dag under året som representeras av års komponenten för X.<br/><br/>Exempel:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Datum |DaysInMonth (X) |X: DateTime |Hämtar de dagar i månaden som representeras av månads komponenten för parametern X.<br/><br/>Exempel: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Datum |EndOfDay (X) |X: DateTime |Hämtar datum/tid som representerar slutet på dagen (dag komponenten) för X.<br/><br/>Exempel: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Datum |EndOfMonth (X) |X: DateTime |Hämtar slutet på månaden som representeras av month-komponenten för parametern X. <br/><br/>Exempel: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum och tid som motsvarar slutet av månad i september) |
+| Datum |StartOfDay (X) |X: DateTime |Hämtar början på den dag som representeras av dags komponenten för parametern X.<br/><br/>Exempel: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |Från (X) |X: sträng |Parsa sträng X till en datum tid. |
 | DateTime |Tick (X) |X: DateTime |Hämtar egenskapen ticks för parametern X. Ett skal är lika med 100 nanosekunder. Värdet för den här egenskapen representerar antalet Tick som har förflutit sedan 12:00:00 midnatt, 1 januari 0001. |
 | Text |Format (X) |X: sträng variabel |Formaterar texten (Använd `\\'` kombination till Escape `'` -tecken).|
 
 > [!IMPORTANT]
-> När du använder en funktion i en annan funktion behöver du inte använda **$$** prefix för funktionen Inner. Exempel: \\$ $text. format (' PartitionKey eq ' my_pkey_filter_value\\' och RowKey ge \\' {0: åååå-mm-dd hh: mm: SS}\\', Time. AddHours (SliceStart,-6)). I det här exemplet ser du **$$** att prefixet inte används för funktionen **Time. AddHours** . 
+> När du använder en funktion i en annan funktion behöver du inte använda **$$** prefix för funktionen Inner. Exempel: $ $Text. format (' PartitionKey EQ \\ ' my_pkey_filter_value \\ ' och RowKey ge \\ ' {0: åååå-mm-dd hh: mm: SS} \\ ', Time. AddHours (SliceStart,-6)). I det här exemplet ser **$$** du att prefixet inte används för funktionen **Time. AddHours** . 
 
 #### <a name="example"></a>Exempel
-I följande exempel bestäms indata-och utdataparametrar för Hive-aktiviteten med hjälp av system `Text.Format` variabeln Function och SliceStart. 
+I följande exempel bestäms indata-och utdataparametrar för Hive-aktiviteten med hjälp av `Text.Format` system variabeln Function och SliceStart. 
 
 ```json  
 {

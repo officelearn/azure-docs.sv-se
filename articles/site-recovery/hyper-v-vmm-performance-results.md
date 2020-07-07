@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73663175"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Test resultat för Hyper-V-replikering till en sekundär plats
@@ -175,10 +174,10 @@ I tabellen sammanfattas de prestanda mått och räknare som mättes i distributi
 | Processor |\Processor(_Total)\% processortid |
 | Tillgängligt minne |\Memory\Available MB |
 | IOPS |\PhysicalDisk (_Total) \ disk överföringar/SEK |
-| VM-Läs åtgärder/SEK |\Hyper-V virtuell lagrings enhet\<(VHD>) \Read åtgärder/SEK |
-| Åtgärder för VM-skrivning (IOPS)/SEK |\Hyper-V virtuell lagrings enhet\<(VHD>) \Write åtgärder/S |
-| Läst data flöde för virtuell dator |\Hyper-V virtuell lagrings enhet\<(VHD>) \Read byte/s |
-| Skriv data flöde för virtuell dator |\Hyper-V virtuell lagrings enhet\<(VHD>) \Write byte/s |
+| VM-Läs åtgärder/SEK |\Hyper-V Virtual Storage Device ( \<VHD> ) \Read-åtgärder/SEK |
+| Åtgärder för VM-skrivning (IOPS)/SEK |\Hyper-V Virtual Storage Device ( \<VHD> ) \Write-åtgärder/S |
+| Läst data flöde för virtuell dator |\Hyper-V virtuell lagrings enhet ( \<VHD> ) \Read byte/s |
+| Skriv data flöde för virtuell dator |\Hyper-V virtuell lagrings enhet ( \<VHD> ) \Write byte/s |
 
 ## <a name="next-steps"></a>Nästa steg
 

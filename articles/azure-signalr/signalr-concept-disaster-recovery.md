@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73747641"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Återhämtning och haveriberedskap
@@ -51,7 +50,7 @@ Det finns två sätt att göra det:
 
 ### <a name="through-config"></a>Med config
 
-Du bör redan känna till hur du ställer in anslutnings strängen för SignalR-tjänsten via miljövariabler/app-inställningar/Web. cofig i `Azure:SignalR:ConnectionString`en konfigurations post med namnet.
+Du bör redan känna till hur du ställer in anslutnings strängen för SignalR-tjänsten via miljövariabler/app-inställningar/Web. cofig i en konfigurations post med namnet `Azure:SignalR:ConnectionString` .
 Om du har flera slutpunkter kan du ange dem i flera config-poster, var och en i följande format:
 
 ```

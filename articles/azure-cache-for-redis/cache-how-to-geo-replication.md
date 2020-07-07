@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
 ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74129425"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Så här konfigurerar du geo-replikering för Azure cache för Redis
@@ -170,7 +169,7 @@ När du använder geo-replikering replikeras data från den primära länkade ca
 
 ### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Varför misslyckades åtgärden när jag försökte ta bort mitt länkade cacheminne?
 
-Geo-replikerade cacheminnen och deras resurs grupper kan inte tas bort när du har länkat tills du tar bort länken för geo-replikering. Om du försöker ta bort resurs gruppen som innehåller ett eller båda av de länkade cacheminnen tas de andra resurserna i resurs gruppen bort, men resurs gruppen stannar kvar i det `deleting` aktuella läget och eventuella länkade cacheminnen i resurs gruppen är i `running` läget. För att helt ta bort resurs gruppen och de länkade cacheminnena i den, tar du bort kopplingen mellan cacheminnena enligt beskrivningen i [ta bort en geo-replikeringslänk](#remove-a-geo-replication-link).
+Geo-replikerade cacheminnen och deras resurs grupper kan inte tas bort när du har länkat tills du tar bort länken för geo-replikering. Om du försöker ta bort resurs gruppen som innehåller ett eller båda av de länkade cacheminnen tas de andra resurserna i resurs gruppen bort, men resurs gruppen stannar kvar i det aktuella `deleting` läget och eventuella länkade cacheminnen i resurs gruppen är i `running` läget. För att helt ta bort resurs gruppen och de länkade cacheminnena i den, tar du bort kopplingen mellan cacheminnena enligt beskrivningen i [ta bort en geo-replikeringslänk](#remove-a-geo-replication-link).
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Vilken region ska jag använda för min sekundära länkade cache?
 

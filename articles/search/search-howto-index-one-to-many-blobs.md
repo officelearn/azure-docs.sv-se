@@ -10,10 +10,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74112263"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexera blobbar för att skapa flera Sök dokument
@@ -40,12 +39,12 @@ Anta att du har en index definition med följande fält:
 
 Och blob-behållaren har blobbar med följande struktur:
 
-_Blob1. JSON_
+_Blob1.jspå_
 
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
 
-_Blob2. JSON_
+_Blob2.jspå_
 
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
@@ -71,13 +70,13 @@ Den här installationen leder till Azure Kognitiv sökning-indexet som innehåll
 
 Om du antar samma index definition som i föregående exempel, säger du att BLOB-behållaren har blobbar med följande struktur:
 
-_Blob1. JSON_
+_Blob1.jspå_
 
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
 
-_Blob2. JSON_
+_Blob2.jspå_
 
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
@@ -90,17 +89,17 @@ När du skapar en indexerare med `delimitedText` **parsingMode**kan det vara nat
         "targetFieldName": "id"
     }
 
-Den här mappningen kommer dock _inte_ att resultera i 4 dokument som visas i indexet, `recordid` eftersom fältet inte är unikt i _blobbar_. Därför rekommenderar vi att du använder den implicita fält mappning som används från `AzureSearch_DocumentKey` egenskapen till nyckel index fältet för "1-till-många"-tolknings lägen.
+Den här mappningen kommer dock _inte_ att resultera i 4 dokument som visas i indexet, eftersom `recordid` fältet inte är unikt i _blobbar_. Därför rekommenderar vi att du använder den implicita fält mappning som används från `AzureSearch_DocumentKey` egenskapen till nyckel index fältet för "1-till-många"-tolknings lägen.
 
 Om du vill skapa en explicit fält mappning kontrollerar du att _sourceField_ är distinkt för varje enskild entitet **i alla blobbar**.
 
 > [!NOTE]
-> Den metod som används `AzureSearch_DocumentKey` av för att säkerställa unikhet per extraherad entitet kan ändras och därför bör du inte förlita dig på dess värde för programmets behov.
+> Den metod som används av `AzureSearch_DocumentKey` för att säkerställa unikhet per extraherad entitet kan ändras och därför bör du inte förlita dig på dess värde för programmets behov.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du inte redan är bekant med den grundläggande strukturen och arbets flödet för BLOB-indexering bör du granska [indexeringen av azure Blob Storage med azure kognitiv sökning](search-howto-index-json-blobs.md) först. Läs följande artiklar om du vill ha mer information om att parsa lägen för olika typer av BLOB-innehåll.
 
 > [!div class="nextstepaction"]
-> [Indexera CSV-blobbar](search-howto-index-csv-blobs.md)
-> [Indexera JSON-blobbar](search-howto-index-json-blobs.md)
+> [INDEXERA CSV-blobbar](search-howto-index-csv-blobs.md) 
+>  [INDEXERA JSON-blobbar](search-howto-index-json-blobs.md)

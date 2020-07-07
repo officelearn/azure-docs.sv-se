@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889843"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Metod tips och mönster för Azure-säkerhet
@@ -30,11 +29,11 @@ De bästa metoderna är avsedda att vara en resurs för IT-proffs. Detta kan var
 
 * [Metodtips för gränssäkerhet i Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Metodtips för databassäkerhet](database-best-practices.md)
-* [Metod tips för Azure Data Security och kryptering](data-encryption-best-practices.md)
-* [Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll](identity-management-best-practices.md)
-* [Metod tips för Azure nätverks säkerhet](network-best-practices.md)
+* [Metodtips för datasäkerhet och kryptering i Azure](data-encryption-best-practices.md)
+* [Metodtips för identitetshantering och åtkomstkontroll i Azure](identity-management-best-practices.md)
+* [Metodtips för nätverkssäkerhet i Azure](network-best-practices.md)
 * [Metodtips för operativ säkerhet i Azure](operational-best-practices.md)
-* [Metodtips för Azure PaaS](paas-deployments.md)
+* [Metod tips för Azure PaaS](paas-deployments.md)
 * [Metodtips för Azure Service Fabric-säkerhet](service-fabric-best-practices.md)
 * [Metodtips för säkerhet för virtuella Azure-datorer](iaas.md)
 * [Implementera en säker hybridnätverksarkitektur i Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)

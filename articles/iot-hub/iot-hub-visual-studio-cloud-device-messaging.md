@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74079482"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använd Cloud Explorer för Visual Studio för att skicka och ta emot meddelanden mellan enheten och IoT Hub
@@ -54,7 +53,7 @@ Cloud Explorer-komponenten från Visual Studio Installer för Visual Studio 2017
 
 Följ dessa steg för att få åtkomst till hubben:
 
-1. I Visual Studio väljer du **Visa** > **Cloud Explorer** för att öppna Cloud Explorer.
+1. I Visual Studio väljer du **Visa**  >  **Cloud Explorer** för att öppna Cloud Explorer.
 
 1. Välj ikonen för konto hantering för att visa dina prenumerationer.
 

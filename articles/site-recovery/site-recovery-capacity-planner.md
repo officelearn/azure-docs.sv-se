@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73936052"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för haveri beredskap för Hyper-V-VM 
@@ -77,7 +76,7 @@ Du kan köra verktyget i två lägen:
    * **Antal ytterligare processerver som krävs**: visar om det krävs ytterligare process servrar, utöver den processerver som körs på konfigurations servern som standard.
    * **100% ytterligare lagrings utrymme på källan**: visar om ytterligare lagrings utrymme krävs på käll platsen.
 
-      ![Resultat](./media/site-recovery-capacity-planner/output.png)
+      ![Utdata](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Kör den detaljerade planeraren
 
@@ -101,7 +100,7 @@ Du kan köra verktyget i två lägen:
 
    f. I **disk kapacitets användning (%)** anger du den genomsnittliga användningen.
 
-   g. I **daglig data ändrings hastighet (%)** anger du den dagliga data ändrings hastigheten för en käll Server.
+   ex. I **daglig data ändrings hastighet (%)** anger du den dagliga data ändrings hastigheten för en käll Server.
 
    h. I **avbilda storlek på virtuell Azure-dator**anger du storleken på den virtuella Azure-datorn som du vill mappa. Om du inte vill göra detta manuellt väljer du **Compute IaaS VM**. Om du anger en manuell inställning och sedan väljer **Compute IaaS VM**: ar, kan den manuella inställningen skrivas över. Beräknings processen identifierar automatiskt den bästa matchningen på storleken på den virtuella Azure-datorn.
 

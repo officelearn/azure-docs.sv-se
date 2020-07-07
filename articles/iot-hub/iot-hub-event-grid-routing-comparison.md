@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 877467b65d346c871dd93f4b3f96b2c1664fa4b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73906784"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Jämför meddelanderoutning och Event Grid för IoT Hub
@@ -32,9 +31,9 @@ Både meddelanderoutning och Event Grid aktivera aviserings konfiguration, finns
 | Funktion | IoT Hub meddelanderoutning | IoT Hub integration med Event Grid |
 | ------- | --------------- | ---------- |
 | **Enhets meddelanden och händelser** | Ja, meddelanderoutning kan användas för telemetridata, rapportera enhetens dubbla ändringar, livs cykel händelser för enheten och digitala dubbla ändrings händelser (en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)). | Ja, Event Grid kan användas för telemetridata, men kan också rapportera när enheter skapas, tas bort, anslutas och kopplas från IoT Hub |
-| **Ordning** | Ja, beställningen av händelser upprätthålls.  | Nej, ordningen på händelser är inte garanterad. | 
+| **Ordna profiler** | Ja, beställningen av händelser upprätthålls.  | Nej, ordningen på händelser är inte garanterad. | 
 | **Filtrering** | Omfattande filtrering av egenskaper för meddelande program, meddelande system egenskaper, meddelande text, enhetens dubbla Taggar och enhetens dubbla egenskaper. Filtrering tillämpas inte på digitala dubbla ändrings händelser. Exempel finns i syntax för meddelanderoutning för [meddelanden](iot-hub-devguide-routing-query-syntax.md). | Filtrering baserat på händelse typ, ämnes typ och attribut i varje händelse. Exempel finns i [förstå filtrerings händelser i Event Grid prenumerationer](../event-grid/event-filtering.md). När du prenumererar på telemetri-händelser kan du använda ytterligare filter för data för att filtrera på meddelande egenskaper, meddelande text och enhet i IoT Hub, innan du publicerar till Event Grid. Se [Filtrera händelser](../iot-hub/iot-hub-event-grid.md#filter-events). |
-| **Slutpunkter** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Service Bus-kö</li> <li>Service Bus ämnen</li></ul><br>Betalda IoT Hub SKU: er (S1, S2 och S3) är begränsade till 10 anpassade slut punkter. 100 vägar kan skapas per IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Anpassade ämnen</li> <li>Queue Storage</li> <li>Microsoft Flow</li> <li>Tjänster från tredje part via Webhooks</li></ul><br>500 slut punkter per IoT Hub stöds. Den senaste listan över slut punkter finns i [Event Grid händelse hanterare](../event-grid/overview.md#event-handlers). |
+| **Slut punkter** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Service Bus-kö</li> <li>Service Bus ämnen</li></ul><br>Betalda IoT Hub SKU: er (S1, S2 och S3) är begränsade till 10 anpassade slut punkter. 100 vägar kan skapas per IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Anpassade ämnen</li> <li>Queue Storage</li> <li>Microsoft Flow</li> <li>Tjänster från tredje part via Webhooks</li></ul><br>500 slut punkter per IoT Hub stöds. Den senaste listan över slut punkter finns i [Event Grid händelse hanterare](../event-grid/overview.md#event-handlers). |
 | **Kostnad** | Det finns ingen separat avgift för meddelanderoutning. Endast ingress av telemetri till IoT Hub debiteras. Om du till exempel har ett meddelande dirigerat till tre olika slut punkter debiteras du bara för ett meddelande. | Det kostar inget att IoT Hub. Event Grid erbjuder de första 100 000 åtgärderna per månad kostnads fritt och sedan $0,60 per miljon åtgärder efteråt. |
 
 ## <a name="similarities"></a>Likheter

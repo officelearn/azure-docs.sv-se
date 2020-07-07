@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 08/30/2019
 ms.openlocfilehash: d568a267952a22d2e7a6b7acb6d54cf41f803367
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70913961"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Testa din Azure Data Lake Analyticss kod
@@ -45,17 +44,17 @@ När du anropar `Initialize()` gränssnittet i U-SQL test SDK skapas en tillfäl
 
 ### <a name="manage-the-database-environment-for-testing"></a>Hantera databas miljön för testning
 
-Om dina U-SQL-skript använder eller frågar med U-SQL Database-objekt måste du initiera databas miljön innan du kör U-SQL-testfall. Den här metoden kan vara nödvändig när du anropar lagrade procedurer. `Initialize()` Gränssnittet i u-SQL test SDK hjälper dig att distribuera alla databaser som U-SQL-projektet refererar till i den tillfälliga lokala datarotmappen i test projektets arbets katalog.
+Om dina U-SQL-skript använder eller frågar med U-SQL Database-objekt måste du initiera databas miljön innan du kör U-SQL-testfall. Den här metoden kan vara nödvändig när du anropar lagrade procedurer. `Initialize()`Gränssnittet i u-SQL test SDK hjälper dig att distribuera alla databaser som U-SQL-projektet refererar till i den tillfälliga lokala datarotmappen i test projektets arbets katalog.
 
 Mer information om hur du hanterar projekt referenser i U-SQL-databasen för ett U-SQL-projekt finns i [referera till ett u-SQL Database-projekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 
 ### <a name="verify-test-results"></a>Verifiera test resultat
 
-`Run()` Gränssnittet returnerar ett jobb körnings resultat. *0* betyder lyckades och *1* innebär ett haveri. Du kan också använda C#-kontroll funktioner för att verifiera utdata.
+`Run()`Gränssnittet returnerar ett jobb körnings resultat. *0* betyder lyckades och *1* innebär ett haveri. Du kan också använda C#-kontroll funktioner för att verifiera utdata.
 
 ### <a name="run-test-cases-in-visual-studio"></a>Köra test ärenden i Visual Studio
 
-Ett U-SQL script test-projekt skapas ovanpå ett C#-test ramverk för enheter. När du har skapat projektet väljer du **testa** > **Windows** > **test Utforskaren**. Du kan köra test ärenden från **test Utforskaren**. Du kan också högerklicka på. cs-filen i enhets testet och välja **Kör tester**.
+Ett U-SQL script test-projekt skapas ovanpå ett C#-test ramverk för enheter. När du har skapat projektet väljer du **testa**  >  **Windows**  >  **test Utforskaren**. Du kan köra test ärenden från **test Utforskaren**. Du kan också högerklicka på. cs-filen i enhets testet och välja **Kör tester**.
 
 ## <a name="test-c-udos"></a>Testa C# Katalogentiteter
 
@@ -108,7 +107,7 @@ När du har anropat UDO-funktionerna kan du kontrol lera resultatet med hjälp a
 
 ### <a name="run-test-cases-in-visual-studio"></a>Köra test ärenden i Visual Studio
 
-När du har skapat projektet väljer du **testa** > **Windows** > **test Utforskaren**. Du kan köra test ärenden från **test Utforskaren**. Du kan också högerklicka på. cs-filen i enhets testet och välja **Kör tester**.
+När du har skapat projektet väljer du **testa**  >  **Windows**  >  **test Utforskaren**. Du kan köra test ärenden från **test Utforskaren**. Du kan också högerklicka på. cs-filen i enhets testet och välja **Kör tester**.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Köra test ärenden i Azure-pipelines<a name="run-test-cases-in-azure-devops"></a>
 
@@ -116,7 +115,7 @@ Test projekt för både **U-SQL-skript** och **c# Udo-test** projekt ärver c#-e
 
 ### <a name="run-u-sql-test-cases-in-azure-pipelines"></a>Kör U-SQL-testfall i Azure-pipeline
 
-För ett U-SQL-test, se till att `CPPSDK` du läser in på bygg datorn och överför sedan `CPPSDK` sökvägen till `USqlScriptTestRunner(cppSdkFolderFullPath: @"")`.
+För ett U-SQL-test, se till att du läser in `CPPSDK` på bygg datorn och överför sedan `CPPSDK` sökvägen till `USqlScriptTestRunner(cppSdkFolderFullPath: @"")` .
 
 #### <a name="what-is-cppsdk"></a>Vad är CPPSDK?
 
@@ -132,11 +131,11 @@ Det vanligaste sättet att förbereda CPPSDK-beroendet i Azure-pipeliner är fö
 
 1. Zip-mappen som innehåller CPPSDK-biblioteken.
 
-1. Checka in. zip-filen i käll kontroll systemet. Zip-filen säkerställer att du checkar in alla bibliotek i mappen CPPSDK så att filerna inte ignoreras på grund av `.gitignore` en fil.
+1. Checka in. zip-filen i käll kontroll systemet. Zip-filen säkerställer att du checkar in alla bibliotek i mappen CPPSDK så att filerna inte ignoreras på grund av en `.gitignore` fil.
 
 1. Zippa upp zip-filen i build-pipeline.
 
-1. Peka `USqlScriptTestRunner` på den här unzippade mappen på Build-datorn.
+1. Peka på `USqlScriptTestRunner` den här unzippade mappen på Build-datorn.
 
 ### <a name="run-c-udo-test-cases-in-azure-pipelines"></a>Kör C# UDO test väskor i Azure-pipelines
 

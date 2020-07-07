@@ -20,10 +20,9 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113095"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select-syntax i Azure Kognitiv sökning
@@ -52,16 +51,16 @@ Ett interaktivt syntax diagram är också tillgängligt:
 
 **$Select** -parametern finns i två former:
 
-1. En enda stjärna (`*`) som visar att alla hämtnings bara fält ska returneras, eller
+1. En enda stjärna ( `*` ) som visar att alla hämtnings bara fält ska returneras, eller
 1. En kommaavgränsad lista över fält Sök vägar, som identifierar vilka fält som ska returneras.
 
 När du använder det andra formuläret kan du bara ange hämtnings bara fält i listan.
 
-Om du anger ett komplext fält utan att uttryckligen ange dess underordnade fält, inkluderas alla hämtnings bara underordnade fält i frågeresultatet. Anta till exempel att indexet har ett `Address` fält med `Street`, `City`och `Country` under fält som alla kan hämtas. Om du anger `Address` i **$Select**kommer frågeresultatet att innehålla alla tre under fält.
+Om du anger ett komplext fält utan att uttryckligen ange dess underordnade fält, inkluderas alla hämtnings bara underordnade fält i frågeresultatet. Anta till exempel att indexet har ett `Address` fält med `Street` , `City` och `Country` under fält som alla kan hämtas. Om du anger `Address` i **$Select**kommer frågeresultatet att innehålla alla tre under fält.
 
 ## <a name="examples"></a>Exempel
 
-Inkludera fälten `HotelId`, `HotelName`och `Rating` den `City` översta nivån i resultaten, samt under fältet för `Address`:
+Inkludera `HotelId` fälten, `HotelName` och `Rating` den översta nivån i resultaten, samt `City` under fältet för `Address` :
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +77,7 @@ Ett exempel på resultat kan se ut så här:
 }
 ```
 
-Ta med `HotelName` fältet översta nivån i resultaten, samt alla `Address`under fält i `Type` och `BaseRate` under fälten för varje objekt i `Rooms` samlingen:
+Ta med `HotelName` fältet översta nivån i resultaten, samt alla under fält i och `Address` `Type` `BaseRate` under fälten för varje objekt i `Rooms` samlingen:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 

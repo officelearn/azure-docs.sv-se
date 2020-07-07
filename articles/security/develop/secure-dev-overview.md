@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68934870"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Säkra bästa metoder för utveckling i Azure
@@ -49,7 +48,7 @@ SDL-faserna är:
   - Frisläpp
   - Svar
 
-![Säkerhetsutvecklingslivscykel](./media/secure-dev-overview/01-sdl-phase.png)
+![Microsoft Security Development Lifecycle (SDL)](./media/secure-dev-overview/01-sdl-phase.png)
 
 I de här artiklarna grupperar vi SDL-faserna till design, utveckling och distribution.
 

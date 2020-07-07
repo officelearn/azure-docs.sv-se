@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
 ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70883922"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd serie konsolen för att komma åt GRUB och enanvändarläge
@@ -62,7 +61,7 @@ När du är i enanvändarläge lägger du till en ny användare med sudo-behöri
 Om RHEL inte kan starta normalt hamnar du i enanvändarläge automatiskt. Men om du inte har konfigurerat rot åtkomst för enanvändarläge, har du inget rot lösen ord och kan inte logga in. Det finns en lösning (se avsnittet "ange manuellt läge för enkel användare i RHEL"), men vi rekommenderar att du konfigurerar rot åtkomst initialt.
 
 ### <a name="grub-access-in-rhel"></a>GRUB-åtkomst i RHEL
-RHEL levereras med GRUB aktive rad. Om du vill ange GRUB startar du om den `sudo reboot`virtuella datorn genom att köra och trycker sedan på valfri tangent. Fönstret GRUB visas. Om den inte är det kontrollerar du att följande rader finns i din GRUB-fil`/etc/default/grub`():
+RHEL levereras med GRUB aktive rad. Om du vill ange GRUB startar du om den virtuella datorn genom att köra `sudo reboot` och trycker sedan på valfri tangent. Fönstret GRUB visas. Om den inte är det kontrollerar du att följande rader finns i din GRUB-fil ( `/etc/default/grub` ):
 
 **För RHEL 8**
 
@@ -91,7 +90,7 @@ Rot användaren är inaktive rad som standard. Single-User-läget i RHEL kräver
 1. Aktivera lösen ordet för rot användaren genom att göra följande:
     * Kör `passwd root` (ange ett starkt rot lösen ord).
 1. Se till att rot användaren bara kan logga in via ttyS0 genom att göra följande:  
-    a. Kör `edit /etc/ssh/sshd_config`och se till att PermitRootLogIn är inställt på `no`.  
+    a. Kör `edit /etc/ssh/sshd_config` och se till att PermitRootLogIn är inställt på `no` .  
     b. Kör `edit /etc/securetty file` endast för att tillåta inloggning via ttyS0.
 
 Nu kan du logga in med rot lösen ordet om systemet startar i enanvändarläge.
@@ -127,26 +126,26 @@ Om du inte har aktiverat rot användaren genom att följa de tidigare anvisninga
 1. Hitta kernel-raden. I Azure börjar den med *linux16*.
 1. I slutet av raden lägger du till *Rd. Break* i slutet av raden. Lämna ett blank steg mellan kernel-linjen och *Rd. Break*.
 
-    Den här åtgärden avbryter start processen innan kontrollen skickas från `initramfs` till `systemd`, enligt beskrivningen i [Red Hat-dokumentationen](https://aka.ms/rhel7rootpassword).
+    Den här åtgärden avbryter start processen innan kontrollen skickas från `initramfs` till `systemd` , enligt beskrivningen i [Red Hat-dokumentationen](https://aka.ms/rhel7rootpassword).
 1. Tryck på CTRL + X för att avsluta och starta om med de tillämpade inställningarna.
 
    När du har startat om, släpps du i nödfalls läge med ett skrivskyddat fil system. 
    
 1. I gränssnittet anger `mount -o remount,rw /sysroot` du för att montera om rot fil systemet med Läs-/Skriv behörighet.
-1. När du har startat i enanvändarläge anger `chroot /sysroot` du för att växla till `sysroot` jailbrokad.
-1. Du är nu i roten. Du kan återställa rot lösen ordet genom att `passwd` ange och sedan använda föregående instruktioner för att ange läget för en enskild användare. 
-1. När du är klar anger `reboot -f` du för att starta om.
+1. När du har startat i enanvändarläge anger du `chroot /sysroot` för att växla till `sysroot` jailbrokad.
+1. Du är nu i roten. Du kan återställa rot lösen ordet genom att ange `passwd` och sedan använda föregående instruktioner för att ange läget för en enskild användare. 
+1. När du är klar anger du `reboot -f` för att starta om.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
-> Genom att följa anvisningarna ovan blir du i nödfalls gränssnittet så att du kan utföra åtgärder som till exempel redigering `fstab`. Vi föreslår dock vanligt vis att du återställer rot lösen ordet och använder det för att ange läget för en enskild användare.
+> Genom att följa anvisningarna ovan blir du i nödfalls gränssnittet så att du kan utföra åtgärder som till exempel redigering `fstab` . Vi föreslår dock vanligt vis att du återställer rot lösen ordet och använder det för att ange läget för en enskild användare.
 
 ## <a name="access-for-centos"></a>Åtkomst för CentOS
 Till skillnad från Red Hat Enterprise Linux kräver enanvändarläge i CentOS GRUB och rot användaren är aktive rad.
 
 ### <a name="grub-access-in-centos"></a>GRUB-åtkomst i CentOS
-CentOS levereras med GRUB aktive rad. Starta om den virtuella datorn genom att `sudo reboot`ange grub, och tryck sedan på valfri tangent. Den här åtgärden visar fönstret GRUB.
+CentOS levereras med GRUB aktive rad. Starta om den virtuella datorn genom att ange GRUB, `sudo reboot` och tryck sedan på valfri tangent. Den här åtgärden visar fönstret GRUB.
 
 ### <a name="single-user-mode-in-centos"></a>Läge för enkel användare i CentOS
 Om du vill aktivera enanvändarläge i CentOS följer du de tidigare anvisningarna för RHEL.
@@ -163,7 +162,7 @@ Som standard kan Ubuntu-bilder inte automatiskt visa fönstret GRUB. Du kan änd
 1. Ändra `GRUB_TIMEOUT` värdet till ett värde som inte är noll.
 1. Öppna */etc/default/grub*i en text redigerare.
 1. Kommentera ut `GRUB_HIDDEN_TIMEOUT=1` raden.
-1. Se till att det finns `GRUB_TIMEOUT_STYLE=menu` en rad.
+1. Se till att det finns en `GRUB_TIMEOUT_STYLE=menu` rad.
 1. Kör `sudo update-grub`.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Läge för enkel användare i Ubuntu
@@ -182,7 +181,7 @@ När du har provat föregående anvisningar kan det finnas en situation (till ex
 1. Leta efter raden som börjar med *Linux*och leta sedan efter *ro*.
 1. Ersätt *ro* med *RW init =/bin/bash*.
 
-    Den här åtgärden monterar fil systemet med Läs-och skriv åtgärder `/bin/bash` och använder som initierings process.
+    Den här åtgärden monterar fil systemet med Läs-och skriv åtgärder och använder `/bin/bash` som initierings process.
 1. Tryck på CTRL + X för att starta om med de här inställningarna.
 
 ## <a name="access-for-coreos"></a>Åtkomst för kärnor
@@ -206,14 +205,14 @@ Nyare avbildningar av SLES 12 SP3 + Tillåt åtkomst via serie konsolen om syste
 ### <a name="grub-access-in-suse-sles"></a>GRUB-åtkomst i SUSE SLES
 GRUB-åtkomst i SLES kräver en start programs konfiguration via YaST. Skapa konfigurationen genom att göra följande:
 
-1. Använd SSH för att logga in på din virtuella SLES-dator och `sudo yast bootloader`kör sedan. Tryck på TABB, tryck på RETUR och Använd sedan piltangenterna för att navigera i menyn.
+1. Använd SSH för att logga in på din virtuella SLES-dator och kör sedan `sudo yast bootloader` . Tryck på TABB, tryck på RETUR och Använd sedan piltangenterna för att navigera i menyn.
 
 1. Gå till **kernel-parametrar**och markera kryss rutan **Använd serie konsol** .
-1. Lägg `serial --unit=0 --speed=9600 --parity=no` till i **konsol** argumenten.
+1. Lägg till `serial --unit=0 --speed=9600 --parity=no` i **konsol** argumenten.
 1. Tryck på F10 för att spara inställningarna och avsluta.
 1. Om du vill ange GRUB startar du om den virtuella datorn och trycker på valfri tangent under startsekvensen för att hålla fönstret GRUB visas.
 
-    Standard tids gränsen för GRUB är **1**. Du kan ändra den här inställningen genom att `GRUB_TIMEOUT` ändra variabeln i */etc/default/grub* -filen.
+    Standard tids gränsen för GRUB är **1**. Du kan ändra den här inställningen genom `GRUB_TIMEOUT` att ändra variabeln i */etc/default/grub* -filen.
 
 ![Initierar start program konfigurationen](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
@@ -227,13 +226,13 @@ Om SLES inte kan starta normalt släpps du automatiskt i nödfalls gränssnittet
 1. Tryck på CTRL + X för att starta om med de här inställningarna och ange återställnings gränssnittet.
 
    > [!NOTE]
-   > Den här åtgärden gör dig till nödfalls gränssnittet med ett skrivskyddat fil system. Om du vill redigera filer monterar du fil systemet med Läs-och Skriv behörighet. Det gör du genom att `mount -o remount,rw /` ange i gränssnittet.
+   > Den här åtgärden gör dig till nödfalls gränssnittet med ett skrivskyddat fil system. Om du vill redigera filer monterar du fil systemet med Läs-och Skriv behörighet. Det gör du genom att ange `mount -o remount,rw /` i gränssnittet.
 
 ## <a name="access-for-oracle-linux"></a>Åtkomst för Oracle Linux
 På samma sätt som Red Hat Enterprise Linux är enanvändarläge i Oracle Linux GRUB och rot användaren måste vara aktive rad.
 
 ### <a name="grub-access-in-oracle-linux"></a>GRUB åtkomst i Oracle Linux
-Oracle Linux levereras med GRUB aktive rad. Om du vill ange GRUB startar du om den `sudo reboot`virtuella datorn genom att köra och trycker sedan på ESC. Den här åtgärden visar fönstret GRUB. Om fönstret GRUB inte visas kontrollerar du att `GRUB_TERMINAL` radens värde innehåller en *serie konsol* (det vill säga `GRUB_TERMINAL="serial console"`). Återskapa GRUB med `grub2-mkconfig -o /boot/grub/grub.cfg`.
+Oracle Linux levereras med GRUB aktive rad. Om du vill ange GRUB startar du om den virtuella datorn genom att köra `sudo reboot` och trycker sedan på ESC. Den här åtgärden visar fönstret GRUB. Om fönstret GRUB inte visas kontrollerar du att `GRUB_TERMINAL` radens värde innehåller en *serie konsol* (det vill säga `GRUB_TERMINAL="serial console"` ). Återskapa GRUB med `grub2-mkconfig -o /boot/grub/grub.cfg` .
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Läge för enkel användare i Oracle Linux
 Om du vill aktivera enanvändarläge i Oracle Linux följer du de tidigare anvisningarna för RHEL.

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74084541"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Konfigurera katastrof återställning för en Citrix-XenApp och XenDesktop-distribution med flera nivåer
@@ -106,7 +105,7 @@ När datorerna har skyddats (status visas som "skyddade" under replikerade objek
 I beräknings egenskaper för beräknings-och nätverks > kan du ange namnet på den virtuella Azure-datorn och mål storleken.
 Ändra namnet så att det uppfyller kraven för Azure om det behövs. Du kan också visa och lägga till information om mål nätverket, under nätet och IP-adressen som ska tilldelas den virtuella Azure-datorn.
 
-Observera följande:
+. Tänk på följande:
 
 * Du kan ange IP-måladressen. Om du inte anger någon adress använder den redundansväxlade datorn DHCP. Om du anger en adress som inte är tillgänglig vid redundans fungerar inte redundansväxlingen. Samma mål-IP-adress kan användas för att testa redundans om adressen är tillgänglig i nätverket för redundanstestet.
 

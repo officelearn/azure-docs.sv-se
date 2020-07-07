@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083994"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera innehavare för haveri beredskap i VMware till Azure med CSP
@@ -89,7 +88,7 @@ Konfigurera konfigurations servern med ett konto som har en särskild roll tilld
 
 3. Tilldela åtkomst nivåer till vCenter-kontot (används i klient konfigurations servern) för olika objekt enligt följande:
 
->| Objekt | Roll | Anmärkningar |
+>| Objekt | Roll | Kommentarer |
 >| --- | --- | --- |
 >| vCenter | Skrivskyddad | Krävs endast för att tillåta vCenter-åtkomst för hantering av olika objekt. Du kan ta bort den här behörigheten om kontot aldrig kommer att tillhandahållas till en klient eller används för hanterings åtgärder på vCenter. |
 >| Datacenter | Azure_Site_Recovery |  |
@@ -120,7 +119,7 @@ För att begränsa haveri beredskaps åtgärder upp till endast växling vid fel
 
 1. I det Azure Portal i valvet som du skapade tidigare registrerar du vCenter-servern på konfigurations servern med det vCenter-konto som du skapade.
 2. Slutför processen "prepare Infrastructure" för Site Recovery per den vanliga processen.
-3. De virtuella datorerna är nu redo att replikeras. Kontrol lera att bara klientens virtuella datorer visas i **Replikera** > **Välj virtuella datorer**.
+3. De virtuella datorerna är nu redo att replikeras. Kontrol lera att bara klientens virtuella datorer visas i **Replikera**  >  **Välj virtuella datorer**.
 
 ## <a name="dedicated-hosting-solution"></a>Dedikerad värd lösning
 

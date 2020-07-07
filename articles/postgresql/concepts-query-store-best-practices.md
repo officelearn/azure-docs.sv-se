@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70764224"
 ---
 # <a name="best-practices-for-query-store"></a>Metod tips för Frågearkivet
@@ -25,8 +24,8 @@ Låt Query Store samla in de data som är viktiga för dig.
 |**pg_qs. query_capture_mode** | **Scenario**|
 |---|---|
 |_Alla_  |Analysera din arbets belastning noggrant med avseende på alla frågor och deras körnings frekvenser och annan statistik. Identifiera nya frågor i din arbets belastning. Identifiera om ad hoc-frågor används för att identifiera möjligheter för användare eller automatiska Parameterisering. _Allt_ levereras med en ökad kostnad för resursförbrukning. |
-|_Överst på sidan_  |Fokusera din uppmärksamhet på de vanligaste frågorna – de som utfärdats av klienter.
-|_Inget_ |Du har redan skapat ett fönster för frågeinställningar och tid som du vill undersöka och du vill undvika de störande som andra frågor kan introducera. _Ingen_ är lämplig för testning och bänk märknings miljöer. _Ingen_ bör användas med försiktighet eftersom du kan förlora möjligheten att spåra och optimera viktiga nya frågor. Det går inte att återställa data på de senaste tidnas fönster. |
+|_Överkant_  |Fokusera din uppmärksamhet på de vanligaste frågorna – de som utfärdats av klienter.
+|_Inga_ |Du har redan skapat ett fönster för frågeinställningar och tid som du vill undersöka och du vill undvika de störande som andra frågor kan introducera. _Ingen_ är lämplig för testning och bänk märknings miljöer. _Ingen_ bör användas med försiktighet eftersom du kan förlora möjligheten att spåra och optimera viktiga nya frågor. Det går inte att återställa data på de senaste tidnas fönster. |
 
 Query Store innehåller även en butik för väntande statistik. Det finns en extra infångnings läges fråga som styr väntande statistik: **pgms_wait_sampling. query_capture_mode** kan ställas in på _none_ eller _all_. 
 

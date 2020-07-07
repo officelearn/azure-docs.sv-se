@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 32b47d9d6d45ff471961f55f8159dbe85eae2dce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888825"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuera lösnings acceleratorn för fjärrövervakning lokalt
@@ -36,7 +35,7 @@ För att slutföra den lokala distributionen behöver du följande verktyg insta
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/) – om du planerar att göra ändringar i mikrotjänsterna.
-* [Node. js-V8](https://nodejs.org/) – den här program varan är nödvändig för de PC-CLI som skripten använder för att skapa Azure-resurser. Använd inte Node. js-v10.
+* [Node.js V8](https://nodejs.org/) – den här program varan är nödvändig för de PC CLI-datorer som skripten använder för att skapa Azure-resurser. Använd inte Node.js v10.
 
 > [!NOTE]
 > Dessa verktyg är tillgängliga på många plattformar, inklusive Windows, Linux och iOS.
@@ -63,14 +62,14 @@ Mikrotjänster som körs i de lokala Docker-behållare måste ha åtkomst till A
 docker run --rm -ti library/alpine ping google.com
 ```
 
-Om du vill köra Solution Accelerator navigerar du **till\\mappen\\Services-skript lokalt** i din kommando rads miljö och kör följande kommando:
+Om du vill köra Solution Accelerator navigerar du till mappen **Services- \\ skript \\ lokalt** i din kommando rads miljö och kör följande kommando:
 
 ```cmd/sh
 docker-compose up
 ```
 
 > [!NOTE] 
-> Se till att du [delar en lokal enhet](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) med Docker innan du `docker-compose up`kör.
+> Se till att du [delar en lokal enhet](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) med Docker innan du kör `docker-compose up` .
 
 Första gången du kör det här kommandot hämtar Dockaren mikroservice-avbildningarna från Docker Hub för att skapa behållare lokalt. Vid följande körningar kör Docker dock behållare omedelbart.
 
@@ -83,7 +82,7 @@ docker rm <list_of_containers>
 docker rmi <list_of_images>
 ```
 
-Du kan använda ett separat gränssnitt för att visa loggarna från behållaren. Först ska du hitta container-ID `docker ps` med hjälp av kommandot. Använd `docker logs {container-id} --tail 1000` sedan för att visa de sista 1000 posterna för den angivna behållaren.
+Du kan använda ett separat gränssnitt för att visa loggarna från behållaren. Först ska du hitta container-ID med hjälp av `docker ps` kommandot. Använd sedan `docker logs {container-id} --tail 1000` för att visa de sista 1000 posterna för den angivna behållaren.
 
 ### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics jobbet
 

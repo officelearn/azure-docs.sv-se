@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890456"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub enhets strömmar (förhands granskning)
@@ -106,7 +105,7 @@ Utdata är ett JSON-objekt för alla slut punkter som din Hubbs enhet och tjäns
 
 Som vi ser i början av den här artikeln skapar enheten en utgående anslutning till IoT Hub strömnings slut punkt under initierings processen för enhets strömmar. Dina brand väggar på enheten eller dess nätverk måste tillåta utgående anslutning till strömmande Gateway via port 443 (Observera att kommunikationen sker via en WebSocket-anslutning som är krypterad med TLS).
 
-Värd namnet för enhetens strömnings slut punkt finns på Azure IoT Hub-portalen under fliken Översikt. !["enhets Ströms slut punkter"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
+Värd namnet för enhetens strömnings slut punkt finns på Azure IoT Hub-portalen under fliken Översikt. ![ " Enhets ström slut punkter "](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
 Du kan också hitta den här informationen med hjälp av Azure CLI:
 
@@ -132,7 +131,7 @@ Följ stegen nedan för att konfigurera Azure Monitor loggar för din IoT Hubs e
 
     !["Aktivera enhets strömmar loggar"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
 
-3. Du kan nu komma åt dina enhets strömmar loggar på fliken *loggar* i din IoT Hubs Portal. Aktivitets loggarna för enhets strömmen visas `AzureDiagnostics` i tabellen och `Category=DeviceStreams`har.
+3. Du kan nu komma åt dina enhets strömmar loggar på fliken *loggar* i din IoT Hubs Portal. Aktivitets loggarna för enhets strömmen visas i `AzureDiagnostics` tabellen och har `Category=DeviceStreams` .
 
    Som du ser nedan är identiteten för mål enheten och resultatet av åtgärden också tillgänglig i loggarna.
 
@@ -168,7 +167,7 @@ Här är eko exemplen:
 
 * [C#-tjänst-och tjänst program](quickstart-device-streams-echo-csharp.md)
 
-* [Node. js-tjänstprogram](quickstart-device-streams-echo-nodejs.md)
+* [Node.js tjänst program](quickstart-device-streams-echo-nodejs.md)
 
 * [Enhets program för C](quickstart-device-streams-echo-c.md)
 
@@ -190,7 +189,7 @@ Installations programmet använder två *lokala proxy* -program som visas i bild
 
 4. Den tjänst-lokala proxyn lyssnar på en utsedd port som väntar på nya SSH-anslutningar från användaren (port 2222 som används i exemplet, men den kan konfigureras till en annan tillgänglig port). Användaren pekar SSH-klienten till den lokala proxyservern på localhost.
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Obs!
 
 * Ovanstående steg slutför en slutpunkt-till-slutpunkt-tunnel mellan SSH-klienten (till höger) i SSH-daemonen (till vänster). En del av den här anslutningen från slut punkt till slut punkt omfattar att skicka trafik via en enhets ström till IoT Hub.
 
@@ -204,7 +203,7 @@ Använd länkarna nedan för instruktioner om hur du kör lokala proxy-program p
 
 * [C#-tjänst-och tjänst program](quickstart-device-streams-proxy-csharp.md)
 
-* [Node. js-tjänstprogram](quickstart-device-streams-proxy-nodejs.md)
+* [Node.js tjänst program](quickstart-device-streams-proxy-nodejs.md)
 
 * [Enhets program för C](quickstart-device-streams-proxy-c.md)
 

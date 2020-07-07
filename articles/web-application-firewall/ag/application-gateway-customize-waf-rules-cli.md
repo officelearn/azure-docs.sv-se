@@ -8,10 +8,9 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 8e8aaa9458619bc937c5bb11c450f3197b92f451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74048520"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-cli"></a>Anpassa brand Väggs regler för webb program med hjälp av Azure CLI
@@ -116,7 +115,7 @@ Följande utdata är ett trunkerat svar från föregående exempel:
 
 ## <a name="disable-rules"></a>Inaktivera regler
 
-I följande exempel inaktive ras `910018` regler `910017` och en Application Gateway:
+I följande exempel inaktive ras regler `910018` och `910017` en Application Gateway:
 
 ```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017

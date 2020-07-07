@@ -13,10 +13,9 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881015"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Stöd för Azure Dedicated HSM
@@ -41,7 +40,7 @@ Olika program varu komponenter används i konfigurationen av HSM-enheter:
 * SDK
 * Verktyg
 
-### <a name="guidance"></a>Riktlinjer
+### <a name="guidance"></a>Vägledning
 
 Gemalto gör den tillgängliga administrations-och konfigurations vägledningen via [kund support portalen](https://supportportal.gemalto.com/csm/). När du har loggat in med ett giltigt kund-ID är dessa dokument tillgängliga för hämtning. Gemalto innehåller också en serie integrerings guider som hjälper kunder med olika scenarier och program varu integreringar. Mer information finns på [webbplatsen för Gemalto-partner för Microsoft](https://safenet.gemalto.com/partners/microsoft/).
 

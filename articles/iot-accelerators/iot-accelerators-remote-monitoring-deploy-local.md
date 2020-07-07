@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890894"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Distribuera lösnings acceleratorn för fjärrövervakning lokalt – Visual Studio
@@ -37,7 +36,7 @@ För att slutföra den lokala distributionen behöver du följande verktyg insta
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node. js-V8](https://nodejs.org/) – den här program varan är nödvändig för de PC-CLI som skripten använder för att skapa Azure-resurser. Använd inte Node. js-v10.
+* [Node.js V8](https://nodejs.org/) – den här program varan är nödvändig för de PC CLI-datorer som skripten använder för att skapa Azure-resurser. Använd inte Node.js v10.
 
 > [!NOTE]
 > Visual Studio är tillgängligt för Windows och Mac.
@@ -96,7 +95,7 @@ npm install
 npm start
 ```
 
-När starten är klar visar webbläsaren sidan **http:\//localhost: 3000/Dashboard**. Felen på den här sidan förväntas. Om du vill visa programmet utan fel slutför du följande steg.
+När starten är klar visar webbläsaren sidan **http: \/ /localhost: 3000/Dashboard**. Felen på den här sidan förväntas. Om du vill visa programmet utan fel slutför du följande steg.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurera och kör NGINX
 
@@ -109,7 +108,7 @@ Mer information om hur du kör **nginx**finns i [nginx för Windows](https://ngi
 
 ### <a name="connect-to-the-dashboard"></a>Ansluta till instrument panelen
 
-Öppna instrument panelen för fjärrövervakning genom att gå till http:\//localhost: 9000 i webbläsaren.
+Öppna instrument panelen för fjärrövervakning genom att gå till http: \/ /localhost: 9000 i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
 

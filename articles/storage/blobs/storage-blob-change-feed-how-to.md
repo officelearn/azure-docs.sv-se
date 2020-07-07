@@ -9,10 +9,9 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.openlocfilehash: 75995eeb3f8255cb4c60d5be267f9c343edfea89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74111866"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Bearbeta ändrings flöde i Azure Blob Storage (förhands granskning)
@@ -26,7 +25,7 @@ Läs mer om ändrings flödet [i ändra feed i Azure Blob Storage (för hands ve
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Hämta processor biblioteket för BLOB Change feed
 
-1. I Visual Studio lägger du till URL `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` : en till dina NuGet-paket källor. 
+1. I Visual Studio lägger du till URL: en `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` till dina NuGet-paket källor. 
 
    Mer information finns i [paket källor](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 

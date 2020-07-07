@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082589"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Redundansväxla och återställa virtuella Hyper-V-datorer som replikeras till den sekundära lokala platsen
@@ -52,8 +51,8 @@ Du kan köra en regelbunden eller planerad redundansväxling för virtuella Hype
   Den här proceduren beskriver hur du kör en vanlig redundans.
 
 
-1. I **Inställningar** > **replikerade objekt** klickar du på den virtuella datorn > **redundans**.
-1. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery försöker stänga av virtuella käll datorer innan du utlöser redundansväxlingen. Site Recovery kommer också att försöka synkronisera lokala data som ännu inte har skickats till den sekundära platsen, innan redundansväxlingen utlöses. Observera att redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
+1. I **Inställningar**  >  **replikerade objekt** klickar du på den virtuella datorn > **redundans**.
+1. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery försöker stänga av virtuella käll datorer innan du utlöser redundansväxlingen. Site Recovery kommer också att försöka synkronisera lokala data som ännu inte har skickats till den sekundära platsen, innan redundansväxlingen utlöses. Observera att redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa förloppet för redundansväxlingen på **jobb** sidan.
 2. Du bör nu kunna se den virtuella datorn i det sekundära VMM-molnet.
 3. När du har verifierat den virtuella datorn **genomför** du redundansväxlingen. Detta tar bort alla tillgängliga återställningspunkter.
 

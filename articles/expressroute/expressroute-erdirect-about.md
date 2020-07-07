@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
 ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083592"
 ---
 # <a name="about-expressroute-direct"></a>Om ExpressRoute Direct
@@ -26,7 +25,7 @@ Viktiga funktioner som ExpressRoute Direct tillhandahåller inkluderar, men är 
 
 ## <a name="onboard-to-expressroute-direct"></a>Publicera till ExpressRoute Direct
 
-Innan du använder ExpressRoute Direct måste du först registrera din prenumeration. Registrera dig genom att skicka ett e <ExpressRouteDirect@microsoft.com> -postmeddelande till med ditt PRENUMERATIONS-ID, inklusive följande information:
+Innan du använder ExpressRoute Direct måste du först registrera din prenumeration. Registrera dig genom att skicka ett e-postmeddelande till <ExpressRouteDirect@microsoft.com> med ditt prenumerations-ID, inklusive följande information:
 
 * Scenarier som du behöver utföra med **ExpressRoute Direct**
 * Plats inställningar – Se [partner och peering-platser](expressroute-locations-providers.md) för en fullständig lista över alla platser

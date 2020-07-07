@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188543"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till tilläggshanteraren för Azure Desired State Configuration
@@ -36,7 +36,7 @@ Ingen kontinuerlig rapportering är tillgänglig, förutom lokalt på den virtue
 
 Den här artikeln innehåller information om båda scenarierna: använda DSC-tillägget för automatisering onboarding och använda DSC-tillägget som ett verktyg för att tilldela konfigurationer till virtuella datorer med hjälp av Azure SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Lokal dator**: om du vill interagera med tillägget för Azure VM måste du antingen använda Azure Portal eller Azure PowerShell SDK.
 - **Gästa Gent**: den virtuella Azure-dator som konfigureras av DSC-konfigurationen måste vara ett operativ system som stöder Windows Management Framework (WMF) 4,0 eller senare. En fullständig lista över OS-versioner som stöds finns i [versions historik för DSC-tillägg](../../automation/automation-dsc-extension-history.md).
@@ -59,7 +59,7 @@ När tillägget anropas för första gången installeras en version av WMF med h
 - Om **wmfVersion** -egenskapen har angetts installeras den versionen av WMF, om inte den versionen är inkompatibel med den virtuella datorns operativ system.
 - Om ingen **wmfVersion** -egenskap anges installeras den senaste tillämpliga versionen av WMF.
 
-Installation av WMF kräver en omstart. Efter omstarten laddar tillägget. zip-filen som anges i egenskapen **modulesUrl** , om den har angetts. Om den här platsen finns i Azure Blob Storage kan du ange en SAS-token i egenskapen **sasToken** för att komma åt filen. När. zip har hämtats och packats upp körs konfigurations funktionen som definieras i **configurationFunction** för att generera en MOF-fil ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Tillägget körs `Start-DscConfiguration -Force` sedan med hjälp av den genererade MOF-filen. Tillägget fångar utdata och skriver den till Azures status kanal.
+Installation av WMF kräver en omstart. Efter omstarten laddar tillägget. zip-filen som anges i egenskapen **modulesUrl** , om den har angetts. Om den här platsen finns i Azure Blob Storage kan du ange en SAS-token i egenskapen **sasToken** för att komma åt filen. När. zip har hämtats och packats upp körs konfigurations funktionen som definieras i **configurationFunction** för att generera en MOF-fil ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Tillägget körs sedan `Start-DscConfiguration -Force` med hjälp av den genererade MOF-filen. Tillägget fångar utdata och skriver den till Azures status kanal.
 
 ### <a name="default-configuration-script"></a>Standard konfigurations skript
 
@@ -115,7 +115,7 @@ Viktig information om cmdlets för DSC-tillägg i Resource Manager:
 
 Azure DSC-tillägget kan använda DSC-konfigurationsobjekt för att konfigurera virtuella Azure-datorer direkt under distributionen. Det här steget registrerar inte noden som ska automatiseras. Noden hanteras *inte* centralt.
 
-I följande exempel visas ett enkelt exempel på en konfiguration. Spara konfigurationen lokalt som skriptet iisinstall. ps1.
+I följande exempel visas ett enkelt exempel på en konfiguration. Spara konfigurationen lokalt som iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-Följande kommandon placerar skriptet skriptet iisinstall. ps1 på den angivna virtuella datorn. Kommandona kör också konfigurationen och rapporterar sedan om status.
+Följande kommandon placerar iisInstall.ps1-skriptet på den angivna virtuella datorn. Kommandona kör också konfigurationen och rapporterar sedan om status.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -184,7 +184,7 @@ Portalen samlar in följande ingångar:
 
 - **Konfigurations moduler eller skript**: det här fältet är obligatoriskt (formuläret har inte uppdaterats för [standard konfigurations skriptet](#default-configuration-script)). Konfigurations moduler och-skript kräver en. ps1-fil som har ett konfigurations skript eller en. zip-fil med konfigurations skriptet. ps1 på roten. Om du använder en. zip-fil måste alla beroende resurser tas med i modulens mappar i. zip-filen. Du kan skapa. zip-filen med hjälp av cmdleten **Publish-AzureVMDscConfiguration-OutputArchivePath** som ingår i Azure PowerShell SDK. Zip-filen överförs till din användar-blob-lagring och skyddas av en SAS-token.
 
-- **Konfiguration av modulens kvalificerade namn**: du kan inkludera flera konfigurations funktioner i en. ps1-fil. Ange namnet på Configuration. ps1-skriptet följt av \\ och namnet på konfigurations funktionen. Om t. ex. ps1-skriptet har namnet Configuration. ps1 och konfigurationen är **skriptet iisinstall**anger du **Configuration. ps1\IisInstall**.
+- **Konfiguration av modulens kvalificerade namn**: du kan inkludera flera konfigurations funktioner i en. ps1-fil. Ange namnet på Configuration. ps1-skriptet följt av \\ och namnet på konfigurations funktionen. Om t. ex. ps1-skriptet har namnet configuration.ps1 och konfigurationen är **skriptet iisinstall**, anger **configuration.ps1 \iisinstall**.
 
 - **Konfigurations argument**: om konfigurations funktionen tar argument anger du dem här i formatet **argumentName1 = värde1, argumentName2 = värde2**. Det här formatet är ett annat format där konfigurations argument godkänns i PowerShell-cmdletar eller Resource Manager-mallar.
 

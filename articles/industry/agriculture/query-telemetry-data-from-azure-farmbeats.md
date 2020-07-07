@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80349810"
 ---
 # <a name="query-ingested-telemetry-data"></a>Fråga inmatade telemetridata
@@ -115,7 +115,7 @@ Telemetridata tas emot på en EventHub och sedan bearbetas och skickas till en T
 
 Följ stegen för att visualisera data i TSD:
 
-1. Gå till **Azure Portal** > **FarmBeats DataHub-resurs grupp** > Välj **Time Series Insights** miljö (TSD-xxxx) > **principer för data åtkomst**. Lägg till användare med läsare eller deltagar åtkomst.
+1. Gå till **Azure Portal**  >  **FarmBeats DataHub-resurs grupp** > Välj **Time Series Insights** miljö (TSD-xxxx) > **principer för data åtkomst**. Lägg till användare med läsare eller deltagar åtkomst.
 2. Gå till sidan **Översikt** i **Time Series Insights** Environment (TSD-xxxx) och välj **URL: en för Time Series Insights Explorer**. Nu kan du visualisera den inmatade Telemetrin.
 
 Förutom att lagra, fråga och visualisering av telemetri kan TSD också integreras med en Power BI instrument panel. Mer information finns [här]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)

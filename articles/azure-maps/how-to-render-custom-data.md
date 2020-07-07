@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: b8d47b69b4aba14c86fb09176b662aee7d5482d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335521"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
@@ -25,7 +25,7 @@ Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan d
 > [!Tip]
 > Det är ofta mycket mer kostnads effektivt att använda Azure Maps Web SDK för att visa en enkel karta på en webb sida än att använda tjänsten för statisk avbildning. Webb-SDK: n använder kart paneler och om inte användaren Pans och zoomar in kartan så genererar de ofta bara en bråkdel av en transaktion per kart belastning. Observera att Azure Maps Web SDK har alternativ för att inaktivera panorering och zoomning. Dessutom tillhandahåller Azure Maps Web SDK en mer omfattande uppsättning data visualiserings alternativ än en statisk kart webb tjänst.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
@@ -207,7 +207,7 @@ Följ dessa steg om du vill återge en cirkel och kartnålar med anpassade etike
 
     ![Återge en cirkel med anpassade kartnålar](./media/how-to-render-custom-data/circle-custom-pins.png)
 
-2. Ändra färgen på kartnålarna från det sista steget genom att ändra "co"-format modifieraren. Titta på `pins=default|la15+50|al0.66|lc003C62|co002D62|`, den aktuella färgen anges som #002D62 i CSS. Anta att du vill ändra den till #41d42a. Skriv det nya färg värdet efter "co"-specifikationen, så här: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Gör en ny GET-begäran:
+2. Ändra färgen på kartnålarna från det sista steget genom att ändra "co"-format modifieraren. Titta på `pins=default|la15+50|al0.66|lc003C62|co002D62|` , den aktuella färgen anges som #002D62 i CSS. Anta att du vill ändra den till #41d42a. Skriv det nya färg värdet efter "co"-specifikationen, så här: `pins=default|la15+50|al0.66|lc003C62|co41D42A|` . Gör en ny GET-begäran:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}

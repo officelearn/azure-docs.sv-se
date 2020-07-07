@@ -12,10 +12,10 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429049"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Gruppera efter alternativ i Synapse SQL
@@ -57,7 +57,7 @@ GROUP BY ROLLUP (
 Genom att använda ROLLUP begär föregående exempel följande agg regeringar:
 
 * Land och region
-* Land/region
+* Land
 * Totalsumma
 
 Om du vill ersätta ROLLUP och returnera samma resultat kan du använda UNION alla och uttryckligen ange de nödvändiga agg regeringar:

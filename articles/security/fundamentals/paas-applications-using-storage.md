@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70999172"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure Storage
@@ -66,7 +66,7 @@ Läs mer om RBAC i:
 
 - [Hantera åtkomst med hjälp av RBAC och Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
 - [Inbyggda roller för Azure-resurser](/azure/role-based-access-control/built-in-roles)
-- [Säkerhetsguide för Azure Storage](/azure/storage/common/storage-security-guide) 
+- [Säkerhetsguiden för Azure Storage](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Använd kryptering på klient sidan för data med hög värde
 Kryptering på klient sidan gör att du kan kryptera data via programmering innan du överför till Azure Storage och program mässigt dekryptera data när de hämtas. Detta ger kryptering av data under överföring, men ger även kryptering av data i vila. Kryptering på klient sidan är den säkraste metoden för att kryptera dina data, men det kräver att du gör program ändringar i programmet och lägger till nyckel hanterings processer på plats.

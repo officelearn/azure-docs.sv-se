@@ -5,16 +5,16 @@ services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ae13dc51b4621dc3d8be39049dcade87c105cbc
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 959742ec3c0434213d19b0f92fe523671fd60f33
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262624"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964557"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Mass inläsning med Synapse SQL
 
@@ -26,7 +26,7 @@ Du kan nu enkelt Mass inläsning av data med hjälp av SQL-pooler med enkel hög
 
 - En fil eller mapp från ett Azure Storage-konto som är kopplat till din arbets yta genom ![ att högerklicka på en fil eller mapp från ett lagrings konto](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den här guiden genererar en COPY-instruktion som använder AAD-vidarekoppling för authentcation. Din [AAD-användare måste ha åtkomst](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) till arbets ytan med en RBAC-roll för Storage BLOB data Contributor till ADLS Gen2 kontot.
 

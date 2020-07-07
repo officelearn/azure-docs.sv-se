@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189483"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsöka & begränsningar i Azure Cloud Shell
@@ -31,8 +31,8 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 
 ### <a name="error-running-azuread-cmdlets-in-powershell"></a>Fel vid körning av AzureAD-cmdletar i PowerShell
 
-- **Information**: när du kör AzureAD-cmdletar `Get-AzureADUser` som i Cloud Shell kan du se ett fel meddelande `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`:. 
-- **Lösning**: kör `Connect-AzureAD` cmdleten. Tidigare körde Cloud Shell cmdleten automatiskt under PowerShell-starten. För att påskynda start tiden körs cmdleten inte längre automatiskt. Du kan välja att återställa det tidigare beteendet genom `Connect-AzureAD` att lägga till i $Profile-filen i PowerShell.
+- **Information**: när du kör AzureAD-cmdletar som `Get-AzureADUser` i Cloud Shell kan du se ett fel meddelande: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets` . 
+- **Lösning**: kör `Connect-AzureAD` cmdleten. Tidigare körde Cloud Shell cmdleten automatiskt under PowerShell-starten. För att påskynda start tiden körs cmdleten inte längre automatiskt. Du kan välja att återställa det tidigare beteendet genom att lägga till i `Connect-AzureAD` $Profile-filen i PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Tidiga tids gränser i FireFox
 
@@ -41,8 +41,8 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Inaktivera Cloud Shell i en låst nätverks miljö
 
-- **Information**: administratörer kan vilja inaktivera åtkomst till Cloud Shell för sina användare. Cloud Shell använder åtkomst till `ux.console.azure.com` domänen, som kan nekas, vilket hindrar all åtkomst till Cloud Shell entrypoints, inklusive portal.azure.com, Shell.Azure.com, Visual Studio Code Azures tillägg för Azure-konton och docs.Microsoft.com. I det amerikanska regerings molnet är `ux.console.azure.us`start punkten; Det finns ingen motsvarande shell.azure.us.
-- **Lösning**: begränsa åtkomsten `ux.console.azure.com` till `ux.console.azure.us` eller via nätverks inställningar till din miljö. Cloud Shell ikonen finns kvar i Azure Portal, men kommer inte att kunna ansluta till tjänsten.
+- **Information**: administratörer kan vilja inaktivera åtkomst till Cloud Shell för sina användare. Cloud Shell använder åtkomst till `ux.console.azure.com` domänen, som kan nekas, vilket hindrar all åtkomst till Cloud Shell entrypoints, inklusive Portal.Azure.com, Shell.Azure.com, Visual Studio Code Azures tillägg för Azure-konton och docs.Microsoft.com. I det amerikanska regerings molnet finns det `ux.console.azure.us` ingen motsvarande Shell.Azure.us.
+- **Lösning**: begränsa åtkomsten till `ux.console.azure.com` eller `ux.console.azure.us` via nätverks inställningar till din miljö. Cloud Shell ikonen finns kvar i Azure Portal, men kommer inte att kunna ansluta till tjänsten.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Dialog rutan lagring – fel: 403 RequestDisallowedByPolicy
 
@@ -85,8 +85,8 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir`uppdaterar inte resultatet i Azure Drive
 
-- **Information**: som standard för att optimera användar upplevelsen cachelagras resultatet `dir` i Azure Drive.
-- **Lösning**: när du har skapat, uppdaterat eller tagit bort en Azure- `dir -force` resurs kör du för att uppdatera resultatet i Azure-enheten.
+- **Information**: som standard för att optimera användar upplevelsen `dir` cachelagras resultatet i Azure Drive.
+- **Lösning**: när du har skapat, uppdaterat eller tagit bort en Azure-resurs kör `dir -force` du för att uppdatera resultatet i Azure-enheten.
 
 ## <a name="general-limitations"></a>Allmänna begränsningar
 
@@ -104,7 +104,7 @@ Datorn som tillhandahåller Cloud Shell-sessionen är temporär och återvinns n
 
 - Med monterad lagring sparas endast ändringar i `clouddrive` katalogen. I bash sparas `$HOME` katalogen också.
 - Azure-filresurser kan bara monteras inifrån din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
-  - I bash kör `env` du för att hitta din regions `ACC_LOCATION`uppsättning som.
+  - I bash kör `env` du för att hitta din regions uppsättning som `ACC_LOCATION` .
 - Azure Files stöder endast lokalt redundant lagring och geo-redundanta lagrings konton.
 
 ### <a name="browser-support"></a>Stöd för webbläsare
@@ -140,15 +140,15 @@ Var försiktig när du redigerar. bashrc. Detta kan orsaka oväntade fel i Cloud
 
 ### <a name="preview-version-of-azuread-module"></a>För hands version av AzureAD-modul
 
-`AzureAD.Standard.Preview`För närvarande är en för hands version av .net-baserad, modul tillgänglig. Den här modulen ger samma funktioner som `AzureAD`.
+För närvarande `AzureAD.Standard.Preview` är en för hands version av .net-baserad, modul tillgänglig. Den här modulen ger samma funktioner som `AzureAD` .
 
 ### <a name="sqlserver-module-functionality"></a>`SqlServer`modul funktioner
 
-`SqlServer` Modulen som ingår i Cloud Shell har bara för hands versions stöd för PowerShell Core. I synnerhet `Invoke-SqlCmd` är det inte tillgängligt ännu.
+`SqlServer`Modulen som ingår i Cloud Shell har bara för hands versions stöd för PowerShell Core. I synnerhet `Invoke-SqlCmd` är det inte tillgängligt ännu.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standard fil plats när du skapar från Azure Drive
 
-Med hjälp av PowerShell-cmdlets kan användarna inte skapa filer under Azure-enheten. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano, sparas `$HOME` filerna som standard.
+Med hjälp av PowerShell-cmdlets kan användarna inte skapa filer under Azure-enheten. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna som `$HOME` standard.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Ifyllning av flikar kan utlösa PSReadline-undantag
 
@@ -160,7 +160,7 @@ Om ett kommando eller en användar åtgärd visar en förlopps indikator, en fli
 
 ### <a name="random-characters-appear-inline"></a>Slumpmässiga tecken visas infogade
 
-Markör positionens sekvens koder, till exempel `5;13R`, kan visas i användarindata. Tecknen kan tas bort manuellt.
+Markör positionens sekvens koder, till exempel `5;13R` , kan visas i användarindata. Tecknen kan tas bort manuellt.
 
 ## <a name="personal-data-in-cloud-shell"></a>Person uppgifter i Cloud Shell
 

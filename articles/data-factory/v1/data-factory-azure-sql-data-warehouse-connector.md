@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4335763269f4a39b4893d9022f4789296b178e92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419331"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
@@ -68,7 +68,7 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för Azure SQL Data Warehouse länkade tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **AzureSqlDW** |Ja |
 | Begär |Ange information som krävs för att ansluta till Azure SQL Data Warehouse-instansen för egenskapen connectionString. Endast grundläggande autentisering stöds. |Ja |
@@ -81,7 +81,7 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 Avsnittet typeProperties är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för data uppsättningen av typen **AzureSqlDWTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | tableName |Namnet på den tabell eller vy i Azure SQL Data Warehouse databasen som den länkade tjänsten refererar till. |Ja |
 
@@ -96,11 +96,11 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 ### <a name="sqldwsource"></a>SqlDWSource
 När källan är av typen **SqlDWSource**finns följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Inga |
-| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Inga |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Inga |
+| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Nej |
+| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Nej |
 
 Om **sqlReaderQuery** har angetts för SqlDWSource kör kopierings aktiviteten den här frågan mot Azure SQL Data Warehouse källan för att hämta data.
 
@@ -142,17 +142,17 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i [avsnittet repeterbarhet](#repeatability-during-copy). |Ett frågeuttryck. |Inga |
-| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnitt för begränsningar och information. |True <br/>False (standard) |Inga |
-| polyBaseSettings |En grupp egenskaper som kan anges när **allowPolybase** -egenskapen har angetts till **True**. |&nbsp; |Inga |
-| rejectValue |Anger antalet rader eller procent av rader som kan avvisas innan frågan Miss lyckas. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet **arguments** i avsnittet [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (standard), 1, 2,... |Inga |
-| rejectType |Anger om alternativet rejectValue anges som ett litteralt värde eller i procent. |Värde (standard), procent |Inga |
+| sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i [avsnittet repeterbarhet](#repeatability-during-copy). |Ett frågeuttryck. |Nej |
+| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnitt för begränsningar och information. |Sant <br/>False (standard) |Nej |
+| polyBaseSettings |En grupp egenskaper som kan anges när **allowPolybase** -egenskapen har angetts till **True**. |&nbsp; |Nej |
+| rejectValue |Anger antalet rader eller procent av rader som kan avvisas innan frågan Miss lyckas. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet **arguments** i avsnittet [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (standard), 1, 2,... |Nej |
+| rejectType |Anger om alternativet rejectValue anges som ett litteralt värde eller i procent. |Värde (standard), procent |Nej |
 | rejectSampleValue |Anger det antal rader som ska hämtas innan PolyBase beräknar om procent andelen avvisade rader. |1, 2,... |Ja, om **rejectType** är **procent** |
-| useTypeDefault |Anger hur du ska hantera saknade värden i avgränsade textfiler när PolyBase hämtar data från text filen.<br/><br/>Lär dig mer om den här egenskapen från avsnittet argument i [Skapa externt fil format (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Sant, falskt (standard) |Inga |
+| useTypeDefault |Anger hur du ska hantera saknade värden i avgränsade textfiler när PolyBase hämtar data från text filen.<br/><br/>Lär dig mer om den här egenskapen från avsnittet argument i [Skapa externt fil format (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Sant, falskt (standard) |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |tidsintervall<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
+| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |tidsintervall<br/><br/> Exempel: "00:30:00" (30 minuter). |Nej |
 
 #### <a name="sqldwsink-example"></a>SqlDWSink-exempel
 
@@ -194,12 +194,12 @@ SQL Data Warehouse PolyBase stöder direkt Azure blob och Azure Data Lake Store 
 Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och återgår automatiskt till BULKINSERT-mekanismen för data förflyttning.
 
 1. **Länkad källa** är av typen: **AzureStorage** eller **AzureDataLakeStore med autentisering av tjänstens huvud namn**.
-2. **Data uppsättningen för indata** är av typen: **AzureBlob** eller **AzureDataLakeStore**, och format typen `type` under egenskaper är **OrcFormat**, **ParquetFormat**eller **textformat** med följande konfigurationer:
+2. **Data uppsättningen för indata** är av typen: **AzureBlob** eller **AzureDataLakeStore**, och format typen under `type` egenskaper är **OrcFormat**, **ParquetFormat**eller **textformat** med följande konfigurationer:
 
    1. `rowDelimiter`måste vara **\n**.
-   2. `nullValue`är inställt på **tom sträng** ("") `treatEmptyAsNull` eller har angetts till **Sant**.
+   2. `nullValue`är inställt på **tom sträng** ("") eller `treatEmptyAsNull` har angetts till **Sant**.
    3. `encodingName`anges till **UTF-8**, **vilket är standardvärdet** .
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, och `skipLineCount` har inte angetts.
+   4. `escapeChar`, `quoteChar` ,, `firstRowAsHeader` och `skipLineCount` har inte angetts.
    5. `compression`kan vara **Ingen komprimering**, **gzip**eller **DEFLATE**.
 
       ```JSON
@@ -220,8 +220,8 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och åt
       ```
 
 3. Det finns ingen `skipHeaderLineCount` inställning under **BlobSource** eller **AzureDataLakeStore** för kopierings aktiviteten i pipelinen.
-4. Det finns ingen `sliceIdentifierColumnName` inställning under **SqlDWSink** för kopierings aktiviteten i pipelinen. (PolyBase garanterar att alla data uppdateras eller ingenting uppdateras i en enda körning. För att uppnå **repeterbarhet**kan du använda `sqlWriterCleanupScript`).
-5. Det finns inget `columnMapping` som används i den associerade kopierings aktiviteten.
+4. Det finns ingen `sliceIdentifierColumnName` inställning under **SqlDWSink** för kopierings aktiviteten i pipelinen. (PolyBase garanterar att alla data uppdateras eller ingenting uppdateras i en enda körning. För att uppnå **repeterbarhet**kan du använda `sqlWriterCleanupScript` ).
+5. Det finns inget som `columnMapping` används i den associerade kopierings aktiviteten.
 
 ### <a name="staged-copy-using-polybase"></a>Mellanlagrad kopia med PolyBase
 När dina källdata inte uppfyller de kriterier som introducerades i föregående avsnitt, kan du Aktivera kopiering av data via en tillfällig mellanlagring av Azure-Blob Storage (kan inte Premium Storage). I det här fallet kan Azure Data Factory automatiskt utföra omvandlingar för data för att uppfylla kraven på data format för PolyBase, sedan använda PolyBase för att läsa in data i SQL Data Warehouse och sist rensa dina temporära data från Blob Storage. Se [mellanlagrad kopia](data-factory-copy-activity-performance.md#staged-copy) för information om hur kopiering av data via en Azure-blob i mellanlagring fungerar i allmänhet.
@@ -307,14 +307,14 @@ Data Factory skapar tabellen i mål lagret med samma tabell namn i käll data la
 | TinyInt | TinyInt |
 | Bitmask | Bitmask |
 | Decimal | Decimal |
-| Numerisk | Decimal |
-| Float (Flyttal) | Float (Flyttal) |
+| Numeriskt | Decimal |
+| Float | Float |
 | Money (Pengar) | Money (Pengar) |
 | Verkligen | Verkligen |
 | SmallMoney | SmallMoney |
 | Binär | Binär |
 | Varbinary | Varbinary (upp till 8000) |
-| Date | Date |
+| Datum | Datum |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Tid | Tid |
@@ -354,7 +354,7 @@ Mappningen är samma som [SQL Server data typs mappning för ADO.net](https://ms
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attribut (varbinary (max)) |Byte [] |
-| Float (Flyttal) |Double |
+| Float |Double |
 | image |Byte [] |
 | int |Int32 |
 | money |Decimal |
@@ -362,7 +362,7 @@ Mappningen är samma som [SQL Server data typs mappning för ADO.net](https://ms
 | ntext |Sträng, char [] |
 | numeric |Decimal |
 | nvarchar |Sträng, char [] |
-| real |Enkel |
+| real |Enskilt |
 | rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: b53fecad3655048a7b9d799134926b2730b16dae
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 585731212fa31be2757d5b5d4c4e0a2ef1212ca8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239101"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980232"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och C # 
 
@@ -28,23 +28,24 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
  Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Du hittar käll koden för den här snabb starten på [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Alla versioner av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/),
-- En avvikelse nyckel och slut punkt
-- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Så här installerar du Newtonsoft. JSON som ett NuGet-paket i Visual Studio:
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- När du har en Azure-prenumeration <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" skapar du en avvikelse detektor resurs "  target="_blank"> skapa en avvikelse <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i den Azure Portal för att hämta nyckel och slut punkt. Vänta tills den har distribuerats och klicka på knappen **gå till resurs** .
+    - Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API: t för avvikelse identifiering. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+- Valfri version av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/)
+- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Så här installerar du Newtonsoft.Jspå som ett NuGet-paket i Visual Studio:
     
     1. Högerklicka på ditt projekt i **Solution Explorer**.
     2. Välj **Hantera NuGet-paket**.
-    3. Sök efter *Newtonsoft. JSON* och installera paketet.
+    3. Sök efter *Newtonsoft.Jspå* och installera paketet.
 
 - Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
 
 - En JSON-fil som innehåller tids serie data punkter. Exempel data för den här snabb starten finns på [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-### <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../includes/environment-variables.md)]
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
@@ -66,28 +67,28 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
 1. Skapa en ny async-funktion `Request` som använder variablerna som skapats ovan.
 
-2. Ange klientens säkerhets protokoll och huvud information med hjälp av `HttpClient` ett objekt. Se till att lägga till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken. Skapa sedan ett `StringContent` objekt för begäran.
+2. Ange klientens säkerhets protokoll och huvud information med hjälp av ett `HttpClient` objekt. Se till att lägga till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken. Skapa sedan ett `StringContent` objekt för begäran.
 
-3. Skicka begäran med `PostAsync()`och returnera sedan svaret.
+3. Skicka begäran med `PostAsync()` och returnera sedan svaret.
 
     [!code-csharp[Request method](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=requestMethod)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>Identifiera avvikelser som en batch
 
-1. Skapa en ny funktion som `detectAnomaliesBatch()`kallas. Skapa begäran och skicka den genom att anropa `Request()` funktionen med din slut punkt, prenumerations nyckel, URL för identifiering av batch-avvikelse och tids serie data.
+1. Skapa en ny funktion som kallas `detectAnomaliesBatch()` . Skapa begäran och skicka den genom `Request()` att anropa funktionen med din slut punkt, prenumerations nyckel, URL för identifiering av batch-avvikelse och tids serie data.
 
 2. Deserialisera JSON-objektet och skriv det till-konsolen.
 
 3. Om fältet svar innehåller `code` skriver du ut felkoden och fel meddelandet. 
 
-4. Annars hittar du positionerna för avvikelser i data uppsättningen. Svarets `isAnomaly` fält innehåller en matris med booleska värden, som anger om en data punkt är en avvikelse. Konvertera detta till en sträng mat ris med `ToObject<bool[]>()` funktionen Response Object. Upprepa genom matrisen och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
+4. Annars hittar du positionerna för avvikelser i data uppsättningen. Svarets `isAnomaly` fält innehåller en matris med booleska värden, som anger om en data punkt är en avvikelse. Konvertera detta till en sträng mat ris med funktionen Response Object `ToObject<bool[]>()` . Upprepa genom matrisen och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
 
     [!code-csharp[Detect anomalies batch](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesBatch)]
 
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelse statusen för den senaste data punkten
 
-1. Skapa en ny funktion som `detectAnomaliesLatest()`kallas. Skapa begäran och skicka den genom att anropa `Request()` funktionen med din slut punkt, prenumerations nyckel, URL: en för den senaste punkten avvikelse identifiering och tids serie data.
+1. Skapa en ny funktion som kallas `detectAnomaliesLatest()` . Skapa begäran och skicka den genom `Request()` att anropa funktionen med din slut punkt, prenumerations nyckel, URL: en för den senaste punkten avvikelse identifiering och tids serie data.
 
 2. Deserialisera JSON-objektet och skriv det till-konsolen.
 
@@ -95,7 +96,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
  
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Läs in dina Time Series-data och skicka begäran
 
-1. I appens huvud metod läser du in dina JSON Time Series-data med `File.ReadAllText()`. 
+1. I appens huvud metod läser du in dina JSON Time Series-data med `File.ReadAllText()` . 
 
 2. Anropa de funktioner för avvikelse identifiering som skapats ovan. Använd `System.Console.ReadKey()` för att låta konsol fönstret vara öppet när du har kört programmet.
 

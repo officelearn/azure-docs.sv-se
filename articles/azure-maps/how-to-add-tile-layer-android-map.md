@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335566"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägg till ett panel lager till en karta med Azure Maps Android SDK
@@ -30,14 +30,14 @@ Ett panel lager läses in i paneler från en server. Dessa bilder kan förrender
 
 Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL till en TileJSON-resurs eller en panel-URL-mall som använder följande parametrar: 
 
-* `{x}`-X position i rutan. Du måste `{y}` också `{z}`ha och.
-* `{y}`-Y position i panelen. Du måste `{x}` också `{z}`ha och.
-* `{z}`-Zoomnings nivå i panelen. Du måste `{x}` också `{y}`ha och.
+* `{x}`-X position i rutan. Du måste också ha `{y}` och `{z}` .
+* `{y}`-Y position i panelen. Du måste också ha `{x}` och `{z}` .
+* `{z}`-Zoomnings nivå i panelen. Du måste också ha `{x}` och `{y}` .
 * `{quadkey}`-Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
 * `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
 * `{subdomain}`– En plats hållare för under domänens värden, om värdet under domän är angivet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 
@@ -48,7 +48,7 @@ För att slutföra processen i den här artikeln måste du installera [Azure Map
 
 Du kan lägga till ett panel lager till kartan genom att följa stegen nedan.
 
-1. Redigera **res > layout > activity_main. XML** så att det ser ut som på bilden nedan:
+1. Redigera **> för res > activity_main.xml** så att det ser ut som på bilden nedan:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

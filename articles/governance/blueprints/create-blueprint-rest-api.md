@@ -3,18 +3,18 @@ title: 'Snabb start: skapa en skiss med REST API'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av REST API.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: 51fe927f1ee60f18cff7907e9e641c89acd751e2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563302"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971206"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
 
-När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
+Genom att lära dig hur du skapar och tilldelar ritningar kan du definiera vanliga mönster för att utveckla återanvändbara och snabbt distribuerade konfigurationer baserat på Azure Resource Manager mallar (ARM-mallar), principer, säkerhet och mycket mer. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 - Registrera `Microsoft.Blueprint` resurs leverantören. Anvisningar finns i [resurs leverantörer och typer](../../azure-resource-manager/management/resource-providers-and-types.md).
@@ -52,7 +52,7 @@ Ersätt `{subscriptionId}` i variabeln **$restUri** ovan för att få informatio
 
 ## <a name="create-a-blueprint"></a>Skapa en skiss
 
-Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. Vi skapar en skiss med namnet ”MyBlueprint” för att konfigurera roll- och principtilldelningar för prenumerationen. Sedan lägger vi till en resursgrupp, en Resource Manager-mall och en rolltilldelning för resursgruppen.
+Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. Vi skapar en skiss med namnet ”MyBlueprint” för att konfigurera roll- och principtilldelningar för prenumerationen. Sedan lägger vi till en resurs grupp, en ARM-mall och en roll tilldelning i resurs gruppen.
 
 > [!NOTE]
 > När du använder REST-API:et skapas _skissobjektet_ först. För varje _artefakt_ som ska läggas till som har parametrar, måste parametrarna definieras i förväg i den första _skissen_.
@@ -200,7 +200,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      }
      ```
 
-1. Lägg till en mall under resursgruppen. **Begärandetexten** för en Resource Manager-mall innehåller den normala JSON-komponenten för mallen och definierar målresursgruppen med **properties.resourceGroup**. Mallen återanvänder även skissparametrarna **storageAccountType**, **tagName** och **tagValue** genom att dem till mallen. Skissparametrarna är tillgängliga för mallen genom att **properties.parameters** definieras, och inuti mallens JSON används nyckel/värde-paret för att mata in värdet. Namnen på skiss- och mallparametrarna kan vara samma, men är olika i exemplet för att illustrera hur varje parameter skickas från skissen till mallartefakten.
+1. Lägg till en mall under resursgruppen. **Begär ande texten** för en arm-mall innehåller den normala JSON-komponenten i mallen och definierar mål resurs gruppen med **egenskaperna. resourceGroup**. Mallen återanvänder även skissparametrarna **storageAccountType**, **tagName** och **tagValue** genom att dem till mallen. Skissparametrarna är tillgängliga för mallen genom att **properties.parameters** definieras, och inuti mallens JSON används nyckel/värde-paret för att mata in värdet. Namnen på skiss- och mallparametrarna kan vara samma, men är olika i exemplet för att illustrera hur varje parameter skickas från skissen till mallartefakten.
 
    - REST API-URI
 

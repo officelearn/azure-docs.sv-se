@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417954"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Tills aktivitet i Azure Data Factory
@@ -53,13 +53,13 @@ Aktiviteten Until fungerar på samma sätt som en do-until-loopstruktur i ett pr
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | `Until` Aktivitetens namn. | Sträng | Ja
+name | `Until`Aktivitetens namn. | Sträng | Ja
 typ | Måste **anges till till.** | Sträng | Ja
 uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck.  | Ja
-timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | Sträng. `d.hh:mm:ss`eller `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Nej
-Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas till `true`. | Matris med aktiviteter. |  Ja
+timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | Sträng. `d.hh:mm:ss`(eller) `hh:mm:ss` . Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Nej
+Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas till `true` . | Matris med aktiviteter. |  Ja
 
 ## <a name="example-1"></a>Exempel 1
 
@@ -120,7 +120,7 @@ I det här exemplet har pipelinen två aktiviteter: **till** och med **vänta**.
 ## <a name="example-2"></a>Exempel 2 
 Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil i en slinga. Loopen avslutas när värdet för parametern REPEAT är inställt på falskt eller så nådde tids gränsen efter en minut.   
 
-### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Pipeline med till-aktivitet (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Pipeline med till-aktivitet (Adfv2QuickStartPipeline.jspå)
 
 ```json
 {
@@ -193,7 +193,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil i en
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService.jspå)
 
 ```json
 {
@@ -207,7 +207,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil i en
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset. JSON)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset.jspå)
 Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller **outputPath2** -parametern för pipelinen. 
 
 ```json
@@ -234,7 +234,7 @@ Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters.jspå)
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c600c4cfe96b849786664aa878ec1f84407da5b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73494355"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963537"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 > * Stoppa topologierna
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du vet hur man skapar Kafka-avsnitt. Mer information finns i dokumentet [Snabbstart för Kafka på HDInsight](./kafka/apache-kafka-get-started.md).
 
@@ -115,7 +115,7 @@ Följande XML är beroendedeklarationen i `pom.xml` för ett [Apache Maven](http
 
 ## <a name="understanding-the-code"></a>Förstå koden
 
-Koden som används i det här dokumentet finns på [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+Koden som används i det här dokumentet finns på [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka) .
 
 Två topologier medföljer den här självstudien:
 
@@ -144,7 +144,7 @@ Följande parametrar anges vid körning för dessa topologier:
 
 * `${hdfs.write.dir}`: Den katalog som data skrivs till.
 
-Mer information om flödes topologier finns [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)i.
+Mer information om flödes topologier finns i [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html) .
 
 ### <a name="kafka-writer"></a>Kafka-skrivare
 
@@ -391,11 +391,11 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    Mallen Azure Resource Manager finns på **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Den skapar följande resurser:
+    Mallen Azure Resource Manager finns på **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json** . Den skapar följande resurser:
 
     * Azure-resursgrupp
     * Azure Virtual Network
-    * Azure Storage-konto
+    * Azure-lagringskonto
     * Kafka i HDInsight version 3.6 (tre arbetarnoder)
     * Storm i HDInsight version 3.6 (tre arbetarnoder)
 
@@ -406,11 +406,11 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
    1. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
 
-      | Inställning | Värde |
+      | Inställningen | Värde |
       | --- | --- |
       | Prenumeration | Din Azure-prenumeration |
       | Resursgrupp | Resursgruppen som innehåller resurserna. |
-      | Plats | Azure-regionen som resurserna skapas i. |
+      | Location | Azure-regionen som resurserna skapas i. |
       | Kafka-klusternamn | Namnet på Kafka-klustret. |
       | Namn på Storm-kluster | Namnet på Storm-klustret. |
       | Användarnamn för klusterinloggning | Ett administratörsanvändarnamn för klustren. |
@@ -429,7 +429,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
 ## <a name="build-the-topology"></a>Skapa topologin
 
-1. I utvecklings miljön laddar du ned projektet från [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), öppnar en kommando rad och byter katalog till den plats där du laddade ned projektet.
+1. I utvecklings miljön laddar du ned projektet från [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka) , öppnar en kommando rad och byter katalog till den plats där du laddade ned projektet.
 
 2. Från katalogen **hdinsight-storm-java-kafka** använder du följande kommando för att kompilera projektet och skapa ett paket för distributionen:
 
@@ -500,7 +500,9 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
     Det värde som genereras liknar följande text:
 
-        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```output
+    zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```
 
     > [!IMPORTANT]  
     > Även om det kan finnas fler än två Zookeeper-noder, behöver du inte ange en fullständig lista med alla värdar till klienterna. En eller två är tillräckligt.
@@ -509,9 +511,11 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
 3. Redigera `dev.properties`-filen i projektroten. Lägg till information om meddelandeköer och Zookeeper-värdar för __Kafka__-klustret på de matchande raderna i filen. Följande exempel konfigureras med hjälp av exempelvärden från föregående steg:
 
-        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
-        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        kafka.topic: stormtopic
+    ```bash
+    kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    kafka.topic: stormtopic
+    ```
 
     > [!IMPORTANT]  
     > Posten `hdfs.url` är konfigurerad för ett kluster som använder ett Azure Storage-konto. Om du vill använda den här topologin med ett Storm-kluster som använder Data Lake Storage ändrar du värdet från `wasb` till `adl`.
@@ -590,11 +594,13 @@ Kafka lagrar data i ett _ämne_. Du måste skapa ämnet innan du startar Storm-t
 
     De utdata som genereras liknar följande text:
 
-        Found 173 items
-        -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
-        -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
-        -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
-        ...
+    ```output
+    Found 173 items
+      -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
+      -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
+      -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
+      ...
+    ```
 
 3. Använd följande kommando för att se innehållet i filen. Ersätt `filename.txt` med namnet på en fil:
 
@@ -604,13 +610,19 @@ Kafka lagrar data i ett _ämne_. Du måste skapa ämnet innan du startar Storm-t
 
     Följande text är ett exempel på filinnehåll:
 
-        four score and seven years ago
-        snow white and the seven dwarfs
-        i am at two with nature
-        snow white and the seven dwarfs
-        i am at two with nature
-        four score and seven years ago
-        an apple a day keeps the doctor away
+    > fyra poäng och sju år sedan
+    >
+    > snö vitt och sju Dwarfs
+    >
+    > Jag är två med karaktär
+    >
+    > snö vitt och sju Dwarfs
+    >
+    > Jag är två med karaktär
+    >
+    > fyra poäng och sju år sedan
+    >
+    > en Apple a-dag håller läkaren borta
 
 ## <a name="stop-the-topologies"></a>Stoppa topologierna
 

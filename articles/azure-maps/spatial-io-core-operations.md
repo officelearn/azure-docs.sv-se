@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371445"
 ---
 # <a name="core-io-operations"></a>Kärn-i/o-åtgärder
 
 Förutom att tillhandahålla verktyg för att läsa spatialdata för spatialdata visar den spatiala IO-modulen kärn-underliggande bibliotek för att läsa och skriva XML och avgränsade data snabbt och effektivt.
 
-`atlas.io.core` Namn området innehåller två lågnivå klasser som snabbt kan läsa och skriva CSV-och XML-data. De här bas klasserna driver data läsare och skrivare i den spatiala IO-modulen. Du kan använda dem för att lägga till ytterligare Läs-och skriv stöd för CSV-eller XML-filer.
+`atlas.io.core`Namn området innehåller två lågnivå klasser som snabbt kan läsa och skriva CSV-och XML-data. De här bas klasserna driver data läsare och skrivare i den spatiala IO-modulen. Du kan använda dem för att lägga till ytterligare Läs-och skriv stöd för CSV-eller XML-filer.
  
 ## <a name="read-delimited-files"></a>Läsa avgränsade filer
 
-`atlas.io.core.CsvReader` Klassen läser strängar som innehåller avgränsade data uppsättningar. Den här klassen ger två metoder för att läsa data:
+`atlas.io.core.CsvReader`Klassen läser strängar som innehåller avgränsade data uppsättningar. Den här klassen ger två metoder för att läsa data:
 
-- `read` Funktionen kommer att läsa den fullständiga data uppsättningen och returnera en tvådimensionell matris med strängar som representerar alla celler i den avgränsade data uppsättningen.
-- `getNextRow` Funktionen läser varje textrad i en avgränsad data uppsättning och returnerar en sträng mat ris som representerar alla celler på den raden i data uppsättningen. Användaren kan bearbeta raden och ta bort alla onödiga minnen från den raden innan nästa rad bearbetas. Så är funktionen mer minnes effektiv.
+- `read`Funktionen kommer att läsa den fullständiga data uppsättningen och returnera en tvådimensionell matris med strängar som representerar alla celler i den avgränsade data uppsättningen.
+- `getNextRow`Funktionen läser varje textrad i en avgränsad data uppsättning och returnerar en sträng mat ris som representerar alla celler på den raden i data uppsättningen. Användaren kan bearbeta raden och ta bort alla onödiga minnen från den raden innan nästa rad bearbetas. Så är funktionen mer minnes effektiv.
 
-Som standard använder läsaren kommatecknet som avgränsare. Avgränsaren kan dock ändras till ett enskilt tecken eller anges till `'auto'`. När den är `'auto'`inställd på analyserar läsaren den första text raden i strängen. Sedan väljer den det vanligaste specialtecknet från tabellen nedan för att användas som avgränsare.
+Som standard använder läsaren kommatecknet som avgränsare. Avgränsaren kan dock ändras till ett enskilt tecken eller anges till `'auto'` . När den är inställd på `'auto'` analyserar läsaren den första text raden i strängen. Sedan väljer den det vanligaste specialtecknet från tabellen nedan för att användas som avgränsare.
 
 | | |
 | :-- | :-- |
@@ -36,16 +36,16 @@ Som standard använder läsaren kommatecknet som avgränsare. Avgränsaren kan d
 | Flik | `\t` |
 | Pipe | `|` |
 
-Den här läsaren stöder också text kvalificerare som används för att hantera celler som innehåller avgränsnings tecken. Tecknet quote (`'"'`) är standard texten, men den kan ändras till ett enskilt tecken.
+Den här läsaren stöder också text kvalificerare som används för att hantera celler som innehåller avgränsnings tecken. Tecknet quote ( `'"'` ) är standard texten, men den kan ändras till ett enskilt tecken.
 
 ## <a name="write-delimited-files"></a>Skriv avgränsade filer
 
-`atlas.io.core.CsvWriter` Skriver en matris med objekt som en avgränsad sträng. Ett enskilt tecken kan användas som avgränsare eller en text-kvalificerare. Standard avgränsaren är kommatecken (`','`) och standard text omkvalificeraren är citat tecknet`'"'`().
+`atlas.io.core.CsvWriter`Skriver en matris med objekt som en avgränsad sträng. Ett enskilt tecken kan användas som avgränsare eller en text-kvalificerare. Standard avgränsaren är kommatecken ( `','` ) och standard text omkvalificeraren är citat `'"'` tecknet ().
 
 Följ stegen nedan om du vill använda den här klassen:
 
 - Skapa en instans av klassen och ange eventuellt en anpassad avgränsare eller text kvalificerare.
-- Skriv data till klassen med hjälp av `write` funktionen eller `writeRow` funktionen. Skicka en `write` tvådimensionell matris med objekt som representerar flera rader och celler för funktionen. Om du vill `writeRow` använda funktionen skickar du en matris med objekt som representerar en rad med data med flera kolumner.
+- Skriv data till klassen med hjälp av `write` funktionen eller `writeRow` funktionen. `write`Skicka en tvådimensionell matris med objekt som representerar flera rader och celler för funktionen. Om du vill använda `writeRow` funktionen skickar du en matris med objekt som representerar en rad med data med flera kolumner.
 - Anropa `toString` funktionen för att hämta den avgränsade strängen. 
 - Du kan också anropa `clear` metoden för att göra det återanvändbara och minska resursallokeringen, eller anropa `delete` metoden för att ta bort skrivar instansen.
 
@@ -54,9 +54,9 @@ Följ stegen nedan om du vill använda den här klassen:
 
 ## <a name="read-xml-files"></a>Läsa XML-filer
 
-`atlas.io.core.SimpleXmlReader` Klassen är snabbare att PARSA XML-filer än `DOMParser`. `atlas.io.core.SimpleXmlReader` Klassen kräver dock att XML-filer är väl formaterade. XML-filer som inte är väl formaterade, till exempel saknade avslutande taggar, kommer troligen att resultera i ett fel.
+`atlas.io.core.SimpleXmlReader`Klassen är snabbare att parsa XML-filer än `DOMParser` . `atlas.io.core.SimpleXmlReader`Klassen kräver dock att XML-filer är väl formaterade. XML-filer som inte är väl formaterade, till exempel saknade avslutande taggar, kommer troligen att resultera i ett fel.
 
-Följande kod visar hur du använder- `SimpleXmlReader` klassen för att parsa en XML-sträng i ett JSON-objekt och serialisera den till ett önskat format.
+Följande kod visar hur du använder `SimpleXmlReader` -klassen för att parsa en XML-sträng i ett JSON-objekt och serialisera den till ett önskat format.
 
 ```javascript
 //Create an instance of the SimpleXmlReader and parse an XML string into a JSON object.
@@ -80,7 +80,7 @@ if (xmlDoc && xmlDoc.root && xmlDoc.root.tagName && xmlDoc.root.tagName === '<Yo
 
 ## <a name="write-xml-files"></a>Skriv XML-filer
 
-`atlas.io.core.SimpleXmlWriter` Klassen skriver välformaterad XML-kod på ett minnes effektivt sätt.
+`atlas.io.core.SimpleXmlWriter`Klassen skriver välformaterad XML-kod på ett minnes effektivt sätt.
 
 Följande kod visar hur du använder `SimpleXmlWriter` klassen för att generera en välformaterad XML-sträng.
 
@@ -145,4 +145,4 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
-> [Information om data format som stöds](spatial-io-supported-data-format-details.md)
+> [Information om dataformat som stöds](spatial-io-supported-data-format-details.md)

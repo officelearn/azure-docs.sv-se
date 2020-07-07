@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428113"
 ---
-# <a name="best-practices-for-long-running-operations"></a>Metod tips för långvariga drift åtgärder
+# <a name="best-practices-for-long-running-operations"></a>Metodtips för långvariga åtgärder
 
 I Azure Analysis Services representerar en *nod* en virtuell värd dator där en server resurs körs. Vissa åtgärder, t. ex. tids krävande frågor, uppdaterings åtgärder och synkronisering av en fråga kan inte utföras om en server resurs flyttas till en annan nod. Vanliga fel meddelanden i det här scenariot är:
 
 - "Ett fel uppstod vid försök att hitta en tids krävande XMLA-begäran. Begäran kan ha avbrutits av tjänst uppgradering eller omstart av servern. "
-- "Jobbet med ID<guid>för modellen"<database>"avbröts på grund av ett fel i tjänsten (inaktivitet) när meddelandet avbröt uppdateringsbegäran sedan den fastnade utan några uppdateringar. Detta är ett internt tjänst problem. Skicka jobbet eller filen en biljett igen för att få hjälp om det här problemet inträffar upprepade gånger. "
+- "Jobbet med ID <guid> för modellen" <database> "avbröts på grund av ett fel i tjänsten (inaktivitet) när meddelandet avbröt uppdateringsbegäran sedan den fastnade utan några uppdateringar. Detta är ett internt tjänst problem. Skicka jobbet eller filen en biljett igen för att få hjälp om det här problemet inträffar upprepade gånger. "
 
 Det finns många orsaker till varför tids krävande åtgärder kan avbrytas. Till exempel uppdateringar i Azure, till exempel: 
 - Korrigeringsfiler för operativ system 
@@ -47,7 +47,7 @@ Genom att använda skrivskyddade repliker, medan uppdatering utförs i batchar, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Asynkron uppdatering med REST API](analysis-services-async-refresh.md)  
+[Asynkron uppdatering med REST API:et](analysis-services-async-refresh.md)  
 [Utskalning för Azure Analysis Services](analysis-services-scale-out.md)  
 [Analysis Services hög tillgänglighet](analysis-services-bcdr.md)  
 [Vägledning för nytt försök för Azure-tjänster](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)   

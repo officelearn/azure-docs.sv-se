@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80336075"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurera en regel för IP-begränsning med en brand vägg för webbaserade program för Azures front dörr
@@ -24,7 +24,7 @@ Som standard är ditt webb program tillgängligt från Internet. Om du vill begr
 
 ## <a name="configure-a-waf-policy-with-the-azure-portal"></a>Konfigurera en WAF-princip med Azure Portal
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [snabb start: skapa en frontend-dörr för ett globalt webb program med hög](../../frontdoor/quickstart-create-front-door.md)tillgänglighet.
 
@@ -34,7 +34,7 @@ Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [sna
 2. Välj **Skapa**.
 3. På sidan **skapa en WAF-princip** använder du följande värden för att slutföra fliken **grundläggande** :
    
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Princip för     |Global WAF (Front dörr)|
    |Prenumeration     |Välj din prenumeration|
@@ -50,7 +50,7 @@ Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [sna
 4. Välj **Lägg till anpassad regel**.
 5. På sidan **Lägg till anpassad regel** använder du följande test värden för att skapa en anpassad regel:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Namn på anpassad regel     |FdWafCustRule|
    |Status     |Enabled|
@@ -83,12 +83,12 @@ Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [sna
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Konfigurera en WAF-princip med Azure CLI
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar konfigurera en princip för IP-begränsning ställer du in CLI-miljön och skapar en profil för Azure-frontend-dörren.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Konfigurera Azure CLI-miljön
 1. Installera [Azure CLI](/cli/azure/install-azure-cli)eller Använd Azure Cloud Shell. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure Portal. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Välj knappen **prova** i CLI-kommandona som följer och logga sedan in på ditt Azure-konto i Cloud Shell-sessionen som öppnas. När sessionen har startats anger `az extension add --name front-door` du för att lägga till Azures front dörrs tillägg.
- 2. Om du använder CLI lokalt i bash loggar du in på Azure med hjälp av `az login`.
+ 2. Om du använder CLI lokalt i bash loggar du in på Azure med hjälp av `az login` .
 
 #### <a name="create-an-azure-front-door-profile"></a>Skapa en profil för Azures frontend-dörr
 Skapa en profil för Azures frontend-dörr genom att följa anvisningarna i [snabb start: skapa en frontend-dörr för ett globalt webb program med hög](../../frontdoor/quickstart-create-front-door.md)tillgänglighet.
@@ -162,7 +162,7 @@ I det här exemplet tillämpas WAF-principen på **FrontendEndpoints [0]**. Du k
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>Konfigurera en WAF-princip med Azure PowerShell
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar konfigurera en princip för IP-begränsning ställer du in din PowerShell-miljö och skapar en profil för Azures frontend-dörr.
 
 #### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
@@ -212,7 +212,7 @@ $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
 ```
 
 ### <a name="configure-a-waf-policy"></a>Konfigurera en WAF-princip
-Hitta namnet på den resurs grupp som innehåller Azures profil för front dörren med hjälp `Get-AzResourceGroup`av. Konfigurera sedan en WAF-princip med IP-regeln med hjälp av [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Hitta namnet på den resurs grupp som innehåller Azures profil för front dörren med hjälp av `Get-AzResourceGroup` . Konfigurera sedan en WAF-princip med IP-regeln med hjälp av [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
   $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `

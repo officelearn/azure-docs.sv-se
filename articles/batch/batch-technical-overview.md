@@ -3,12 +3,12 @@ title: Azure Batch kör stora parallella jobb i molnet
 description: Lär dig mer om hur du använder Azure Batch-tjänsten för storskaliga parallella arbetsbelastningar och HPC-arbetsbelastningar
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779566"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965084"
 ---
 # <a name="what-is-azure-batch"></a>Vad är Azure Batch?
 
@@ -18,7 +18,7 @@ Utvecklare kan använda Batch som en plattformstjänst för att skapa SaaS-progr
 
 Det kostar inget extra att använda Batch. Du betalar bara för de underliggande resurserna som används, till exempel virtuella datorer, lagring och nätverk.
 
-En jämförelse mellan batch och andra alternativ för HPC-lösningar i Azure finns i [HPC (data behandling med höga prestanda) i Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+En jämförelse mellan batch och andra alternativ för HPC-lösningar i Azure finns i [HPC (data behandling med höga prestanda) i Azure](/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Köra parallella arbetsbelastningar
 Batch fungerar bra med parallella arbetsbelastningar. Filsystem med parallella arbetsbelastningar är sådana där programmen kan köras oberoende av varandra och varje instans slutför en del av arbetet. När programmen körs kan de komma åt vissa gemensamma data, men de kommunicerar inte med andra instanser av programmet. Parallella arbetsbelastningar kan därför köras i stor skala, vilket avgörs av hur stor del av beräkningsresurserna som är tillgängliga för att köra program samtidigt.
@@ -34,7 +34,7 @@ Några exempel på parallella arbetsbelastningar som du kan använda i Batch:
 * Datainhämtning, bearbetning och ETL-åtgärder
 * Testkörning av programvara
 
-Du kan också använda Batch för att [köra nära kopplade arbetsbelastningar](batch-mpi.md). Det är arbetsbelastningar där de program som du kör måste kommunicera med varandra, istället för att köras oberoende av varandra. Nära kopplade program använder normalt Message Passing Interface (MPI) API. Du kan köra dina nära kopplade arbetsbelastningar med Batch med [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) eller Intel MPI. Förbättra programmets prestanda med särskilda [HPC](../virtual-machines/linux/sizes-hpc.md) och [GPU-optimerade](../virtual-machines/linux/sizes-gpu.md) VM-storlekar.
+Du kan också använda Batch för att [köra nära kopplade arbetsbelastningar](batch-mpi.md). Det är arbetsbelastningar där de program som du kör måste kommunicera med varandra, istället för att köras oberoende av varandra. Nära kopplade program använder normalt Message Passing Interface (MPI) API. Du kan köra dina nära kopplade arbetsbelastningar med Batch med [Microsoft MPI](/message-passing-interface/microsoft-mpi) eller Intel MPI. Förbättra programmets prestanda med särskilda [HPC](../virtual-machines/linux/sizes-hpc.md) och [GPU-optimerade](../virtual-machines/linux/sizes-gpu.md) VM-storlekar.
 
 Några exempel på nära kopplade arbetsbelastningar:
 * Analys av finita element

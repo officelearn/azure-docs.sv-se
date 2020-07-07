@@ -3,20 +3,20 @@ title: 'Mönster: distribuera resurser med en princip definition'
 description: Detta Azure Policy mönster innehåller ett exempel på hur du distribuerar resurser med en princip definition.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ce93f4895a86905cd31889e853f95a3de640b13
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172676"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970866"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Azure Policy mönster: distribuera resurser
 
-Med [deployIfNotExists](../concepts/effects.md#deployifnotexists) -effekterna kan du distribuera en [Azure Resource Manager-mall](../../../azure-resource-manager/templates/overview.md) när du skapar eller uppdaterar en resurs som inte är kompatibel. Den här metoden kan föredras för att använda [neka](../concepts/effects.md#deny) -åtgärden eftersom den gör att resurser kan fortsätta att skapas, men se till att ändringarna blir kompatibla.
+Med [deployIfNotExists](../concepts/effects.md#deployifnotexists) -effekterna kan du distribuera en [Azure Resource Manager-mall](../../../azure-resource-manager/templates/overview.md) (arm-mall) när du skapar eller uppdaterar en resurs som inte är kompatibel. Den här metoden kan föredras för att använda [neka](../concepts/effects.md#deny) -åtgärden eftersom den gör att resurser kan fortsätta att skapas, men se till att ändringarna blir kompatibla.
 
 ## <a name="sample-policy-definition"></a>Exempel på princip definition
 
-Den här princip definitionen använder **fält** operatorn för att `type` utvärdera resursen som skapats eller uppdaterats. När resursen är en _Microsoft. Network/virtualNetworks_söker principen efter en nätverks övervakare på platsen för den nya eller uppdaterade resursen. Om det inte finns någon matchande nätverks övervakare distribueras Resource Manager-mallen för att skapa den resurs som saknas.
+Den här princip definitionen använder **fält** operatorn för att utvärdera `type` resursen som skapats eller uppdaterats. När resursen är en _Microsoft. Network/virtualNetworks_söker principen efter en nätverks övervakare på platsen för den nya eller uppdaterade resursen. Om en matchande nätverks bevakare inte finns distribueras ARM-mallen för att skapa den resurs som saknas.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
@@ -26,7 +26,7 @@ Den här princip definitionen använder **fält** operatorn för att `type` utv�
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="18-23":::
 
-**Egenskaperna. policyRule. then. information** block visar Azure policy vad som ska sökas efter den skapade eller uppdaterade resursen i **egenskaperna. policyRule. if** -block. I det här exemplet måste en nätverks övervakare i resurs gruppen **networkWatcherRG** finnas med **fältet** `location` som motsvarar platsen för den nya eller uppdaterade resursen. Med hjälp `field()` av funktionen kan **existenceCondition** få åtkomst till egenskaper för den nya eller uppdaterade resursen, särskilt `location` egenskapen.
+**Egenskaperna. policyRule. then. information** block visar Azure policy vad som ska sökas efter den skapade eller uppdaterade resursen i **egenskaperna. policyRule. if** -block. I det här exemplet måste en nätverks övervakare i resurs gruppen **networkWatcherRG** finnas med **fältet** som `location` motsvarar platsen för den nya eller uppdaterade resursen. Med hjälp av `field()` funktionen kan **existenceCondition** få åtkomst till egenskaper för den nya eller uppdaterade resursen, särskilt `location` egenskapen.
 
 #### <a name="roledefinitionids"></a>roleDefinitionIds
 

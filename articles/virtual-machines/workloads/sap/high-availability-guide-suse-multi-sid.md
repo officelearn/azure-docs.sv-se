@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 793851780e1154b6b6a21c88ea8cae063a277790
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80350063"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera SID-guide
@@ -112,18 +112,18 @@ I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnare
   * IP-adress för NW2:10.3.1.16
   * IP-adress för NW3:10.3.1.13
 * Avsöknings portar
-  * Port 620<strong>&lt;nr&gt;</strong>, därför för NW1, NW2 och NW3 avsöknings portar 620**00**, 620**10** och 620**20**
+  * Port 620<strong> &lt; nr &gt; </strong>, därför för NW1, NW2 och NW3 avsöknings portar 620**00**, 620**10** och 620**20**
 * Belastnings Utjämnings regler – 
 * skapa en för varje instans, det vill säga NW1/ASCS, NW2/ASCS och NW3/ASCS.
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 36<strong> &lt; nr &gt; </strong> TCP
+    * 39<strong> &lt; nr &gt; </strong> TCP
+    * 81<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -132,15 +132,15 @@ I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnare
   * IP-adress för NW2-10.3.1.17
   * IP-adress för NW3-10.3.1.19
 * Avsöknings port
-  * Port 621<strong>&lt;nr&gt;</strong>, därför för NW1, NW2 och N # avsöknings portar 621**02**, 621**12** och 621**22**
+  * Port 621<strong> &lt; nr &gt; </strong>, därför för NW1, NW2 och N # avsöknings portar 621**02**, 621**12** och 621**22**
 * Belastnings Utjämnings regler – skapa en för varje instans, det vill säga NW1/ERS, NW2/ERS och NW3/ERS.
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 33<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 * Server dels konfiguration
   * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
@@ -176,7 +176,7 @@ I det här exemplet antar vi att system- **NW1** redan har distribuerats i klust
 
 Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
-### <a name="prerequisites"></a>Krav 
+### <a name="prerequisites"></a>Förutsättningar 
 
 > [!IMPORTANT]
 > Innan du följer anvisningarna för att distribuera ytterligare SAP-system i klustret, följer du anvisningarna för att distribuera det första SAP-systemet i klustret, eftersom det finns steg som bara behövs under den första system distributionen.  
@@ -191,7 +191,7 @@ Den här dokumentationen förutsätter att:
 
 1. Lägg till konfiguration för det nyligen distribuerade systemet (det vill säga **NW2**, **NW3**) till den befintliga Azure Load Balancer genom att följa anvisningarna [Distribuera Azure Load Balancer manuellt via Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#deploy-azure-load-balancer-manually-via-azure-portal). Justera IP-adresserna, hälso avsöknings portarna, belastnings Utjämnings regler för din konfiguration.  
 
-2. **[A]** konfigurera namn matchning för ytterligare SAP-system. Du kan antingen använda DNS-servern eller `/etc/hosts` ändra på alla noder. Det här exemplet visar hur du använder `/etc/hosts` filen.  Anpassa IP-adresserna och värd namnen till din miljö. 
+2. **[A]** konfigurera namn matchning för ytterligare SAP-system. Du kan antingen använda DNS-servern eller ändra `/etc/hosts` på alla noder. Det här exemplet visar hur du använder `/etc/hosts` filen.  Anpassa IP-adresserna och värd namnen till din miljö. 
 
     ```
     sudo vi /etc/hosts
@@ -330,7 +330,7 @@ Den här dokumentationen förutsätter att:
 
    När du skapar de resurser som de kan tilldelas till olika klusternoder. När du grupperar dem flyttas de till en av klusternoderna. Kontrol lera att klustrets status är OK och att alla resurser har startats.  
 
-   Se sedan till att resurserna för den nyligen skapade ERS-gruppen körs på klusternoden, i motsatt till klusternoden där ASCS-instansen för samma SAP-system installerades.  Om t. ex. NW2 ASCS har installerats `slesmsscl1`på kontrollerar du att gruppen NW2 ers körs på `slesmsscl2`.  Du kan migrera NW2 ERS-gruppen till `slesmsscl2` genom att köra följande kommando: 
+   Se sedan till att resurserna för den nyligen skapade ERS-gruppen körs på klusternoden, i motsatt till klusternoden där ASCS-instansen för samma SAP-system installerades.  Om t. ex. NW2 ASCS har installerats på `slesmsscl1` kontrollerar du att gruppen NW2 ers körs på `slesmsscl2` .  Du kan migrera NW2 ERS-gruppen till `slesmsscl2` genom att köra följande kommando: 
 
     ```
       crm resource migrate g-NW2_ERS slesmsscl2 force
@@ -402,7 +402,7 @@ Den här dokumentationen förutsätter att:
    sudo usermod -aG haclient nw3adm
    ```
 
-7. Lägg till ASCS-och ERS SAP-tjänsterna för det nyligen installerade SAP- `sapservice` systemet i filen. Exemplet som visas nedan är för SAP-system **NW2** och **NW3**.  
+7. Lägg till ASCS-och ERS SAP-tjänsterna för det nyligen installerade SAP-systemet i `sapservice` filen. Exemplet som visas nedan är för SAP-system **NW2** och **NW3**.  
 
    Lägg till ASCS-tjänst posten till den andra noden och kopiera ERS-tjänst posten till den första noden. Kör kommandona för varje SAP-system på noden, där ASCS-instansen för SAP-systemet har installerats.  
 
@@ -578,7 +578,7 @@ De tester som presenteras finns i två noder, multi-SID-kluster med tre SAP-syst
 
 1. Testa HAGetFailoverConfig och HACheckFailoverConfig
 
-   Kör följande kommandon som <sapsid>adm på NODEN där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: det finns inte tillräckligt med minne, det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
+   Kör följande kommandon som <sapsid> adm på noden där ASCS-instansen körs för tillfället. Om kommandona inte fungerar: det finns inte tillräckligt med minne, det kan bero på att det finns bindestreck i värd namnet. Detta är ett känt problem och kommer att korrigeras av SUSE i paketet SAP-SUSE-Cluster-Connector.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig
@@ -857,7 +857,7 @@ De tester som presenteras finns i två noder, multi-SID-kluster med tre SAP-syst
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Kör följande kommando som rot på noden där minst en ASCS-instans körs. I det här exemplet körde vi kommandot på `slesmsscl2`, där ASCS-instanserna för NW1 och NW3 körs.  
+   Kör följande kommando som rot på noden där minst en ASCS-instans körs. I det här exemplet körde vi kommandot på `slesmsscl2` , där ASCS-instanserna för NW1 och NW3 körs.  
 
    ```
     slesmsscl2:~ # echo b > /proc/sysrq-trigger

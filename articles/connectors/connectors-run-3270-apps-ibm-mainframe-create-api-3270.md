@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371107"
 ---
-# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270-skärm drivna appar i IBM-stordatorer med Azure med hjälp av Azure Logic Apps och IBM 3270-anslutning
+# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270-skärmdrivna appar på IBM-stordatorer med Azure med hjälp av Azure Logic Apps och IBM 3270-anslutningsprogrammet
 
 > [!NOTE]
 > Den här kopplingen finns i en [*offentlig för hands version*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Med Azure Logic Apps och IBM 3270-anslutningen kan du komma åt och köra IBM stordator-appar som du vanligt vis kör genom att navigera via 3270-emulatorn. På så sätt kan du integrera dina IBM stordator-appar med Azure, Microsoft och andra appar, tjänster och system genom att skapa automatiserade arbets flöden med Azure Logic Apps. Anslutningen kommunicerar med IBM-stordatorer med hjälp av TN3270-protokollet och är tillgängligt i alla Azure Logic Apps regioner förutom Azure Government och Azure Kina 21Vianet. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Med Azure Logic Apps och IBM 3270-anslutningsprogrammet kan du få åtkomst till och köra IBM-stordatorappar som du normalt kör genom att navigera genom 3270-emulatorns skärmar. På så sätt kan du integrera IBM-stordatorappar med Azure, Microsoft och andra appar, tjänster och system genom att skapa automatiserade arbetsflöden med Azure Logic Apps. Anslutningsprogrammet kommunicerar med IBM-stordatorer med hjälp av TN3270-protokollet och är tillgängligt i alla Azure Logic Apps-regioner förutom för Azure Government och Azure China 21Vianet. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 Den här artikeln beskriver dessa aspekter för att använda 3270-anslutningen: 
 
@@ -39,7 +39,7 @@ För att utöka de här scenarierna fungerar IBM 3270-anslutaren i Azure Logic A
 
 När du har genererat metadatafilen från design verktyget lägger du till filen i ett integrations konto i Azure. På så sätt kan din Logic app komma åt appens metadata när du lägger till en 3270 kopplings åtgärd. Anslutningen läser metadatafilen från ditt integrations konto, hanterar navigering via 3270-skärmarna och dynamiskt visar parametrarna för åtgärden 3270 koppling. Du kan sedan tillhandahålla data till värd programmet och kopplingen returnerar resultatet till din Logic app. På så sätt kan du integrera dina äldre appar med Azure, Microsoft och andra appar, tjänster och system som Azure Logic Apps stöder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -81,7 +81,7 @@ I en 3270-skärm driven app är skärmarna och data fälten unika för dina scen
 
 * **Navigering**: i det här läget kan du ange en plan eller sökväg för hur du navigerar genom dina stordator skärmar för den aktuella aktiviteten.
 
-* **Metoder**: i det här läget definierar du metoden, till exempel `GetBalance`, som beskriver sökvägen till skärm navigering. Du väljer också fälten på varje skärm som blir metodens indata-och utdataparametrar.
+* **Metoder**: i det här läget definierar du metoden, till exempel `GetBalance` , som beskriver sökvägen till skärm navigering. Du väljer också fälten på varje skärm som blir metodens indata-och utdataparametrar.
 
 ### <a name="unsupported-elements"></a>Element som inte stöds
 
@@ -151,7 +151,7 @@ Mer information finns i exemplet på [navigerings planen](#example-plan) senare 
 
 ## <a name="define-navigation-plans"></a>Definiera navigerings planer
 
-I det här läget definierar du flödet eller stegen för att navigera genom dina stordator skärmar för din speciella uppgift. Ibland kan du ibland ha fler än en sökväg som din app kan vidta där en sökväg ger rätt resultat, medan den andra sökvägen genererar ett fel. För varje skärm anger du de tangenter som krävs för att flytta till nästa skärm, till exempel `CICSPROD <enter>`.
+I det här läget definierar du flödet eller stegen för att navigera genom dina stordator skärmar för din speciella uppgift. Ibland kan du ibland ha fler än en sökväg som din app kan vidta där en sökväg ger rätt resultat, medan den andra sökvägen genererar ett fel. För varje skärm anger du de tangenter som krävs för att flytta till nästa skärm, till exempel `CICSPROD <enter>` .
 
 > [!TIP]
 > Om du automatiserar flera uppgifter som använder samma anslutnings-och från kopplings skärmar, tillhandahåller design verktyget särskilda prenumerations typer för att ansluta och koppla från. När du definierar dessa planer kan du lägga till dem i din navigerings Plans start-och slut punkt.
@@ -292,7 +292,7 @@ I det här läget definierar du en metod som är kopplad till din navigerings pl
    |---------------|-----------------|
    | **Datatyp** | Byte, datum tid, decimal, heltal, lång, kort, sträng |
    | **Fält fyllnings teknik** | Parametrarna har stöd för dessa fyllnings typer och fyller med blank steg om det behövs: <p><p>- **Skriv**: Ange tecken sekventiellt i fältet. <p>- **Fill**: Ersätt fältets innehåll med tecken och fyll med blank steg om det behövs. <p>- **EraseEofType**: Rensa fältet och ange sedan tecknen i turordning i fältet. |
-   | **Format sträng** | Vissa parameter data typer använder en format sträng som informerar 3270-anslutningen så här konverterar du text från skärmen till en .NET-datatyp: <p><p>- **Datetime**: datetime-format strängen följer [anpassade .net-datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Till exempel används format strängen `06/30/2019` `MM/dd/yyyy`i datumet. <p>- **Decimal**: decimal format strängen använder [COBOL Picture-satsen](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Till exempel använder talet `100.35` formatet sträng. `999V99` |
+   | **Format sträng** | Vissa parameter data typer använder en format sträng som informerar 3270-anslutningen så här konverterar du text från skärmen till en .NET-datatyp: <p><p>- **Datetime**: datetime-format strängen följer [anpassade .net-datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Till exempel `06/30/2019` används format strängen i datumet `MM/dd/yyyy` . <p>- **Decimal**: decimal format strängen använder [COBOL Picture-satsen](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Till exempel `100.35` använder talet formatet sträng `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Spara och visa metadata
@@ -354,7 +354,7 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
    ![Välj 3270-åtgärd](./media/connectors-create-api-3270/select-3270-action.png)
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. 
-   Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Om det inte finns någon anslutning ännu, anger du nödvändig information för anslutningen och väljer **skapa**.
 
@@ -364,15 +364,15 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
    | **Integrations konto-ID** | Ja | <*integration – konto namn*> | Integrations kontots namn |
    | **SAS-URL för integrations konto** | Ja | <*integration – konto – SAS-URL*> | Ditt integrations kontos URL för signatur för delad åtkomst (SAS), som du kan generera från integrations kontots inställningar i Azure Portal. <p>1. i menyn integrations konto **väljer du** **återanrops-URL**. <br>2. i den högra rutan kopierar du det **genererade URL** -värdet för motringning. |
    | **Server** | Ja | <*TN3270-Server namn*> | Server namnet för din TN3270-tjänst |
-   | **Lastning** | Nej | <*TN3270-server-port*> | Porten som används av TN3270-servern. Om det lämnas tomt används `23` anslutningen som standardvärde. |
+   | **Port** | Nej | <*TN3270-server-port*> | Porten som används av TN3270-servern. Om det lämnas tomt används anslutningen `23` som standardvärde. |
    | **Enhetstyp** | Nej | <*IBM-Terminal-Model*> | Modell namnet eller numret för den IBM-Terminal som ska emuleras. Om det lämnas tomt används standardvärden av kopplings funktionen. |
-   | **Kodsida** | Nej | <*kod-sid nummer*> | Värdens tecken tabell nummer. Om det lämnas tomt används `37` anslutningen som standardvärde. |
+   | **Kodsida** | Nej | <*kod-sid nummer*> | Värdens tecken tabell nummer. Om det lämnas tomt används anslutningen `37` som standardvärde. |
    | **Namn på logisk enhet** | Nej | <*logiskt-enhets namn*> | Den angivna logiska enhetens namn som ska begäras från värden |
    | **Vill du aktivera SSL?** | Nej | På eller av | Aktivera eller inaktivera TLS-kryptering. |
    | **Verifiera SSL-certifikatet på värden?** | Nej | På eller av | Aktivera eller inaktivera verifiering för Server certifikatet. |
    ||||
 
-   Ett exempel:
+   Till exempel:
 
    ![Anslutningsegenskaper](./media/connectors-create-api-3270/connection-properties.png)
 
@@ -384,7 +384,7 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
    | **Metodnamn** | Ja | <*metod namn*> | Välj metoden i den HIDX-fil som du vill använda. När du har valt en metod visas listan **Lägg till ny parameter** så att du kan välja parametrar som ska användas med den metoden. |
    ||||
 
-   Ett exempel:
+   Till exempel:
 
    **Välj filen HIDX**
 

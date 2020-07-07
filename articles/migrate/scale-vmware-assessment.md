@@ -4,10 +4,10 @@ description: Beskriver hur du bedömer ett stort antal virtuella VMware-datorer 
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80336857"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Utvärdera ett stort antal virtuella VMware-datorer för migrering till Azure
@@ -41,7 +41,7 @@ När du planerar för utvärdering av ett stort antal virtuella VMware-datorer f
  
 Använd de gränser som sammanfattas i den här tabellen för planering.
 
-**Planering** | **Begränsningar**
+**Planering** | **Gränser**
 --- | --- 
 **Azure Migrate projekt** | Utvärdera upp till 35 000 virtuella datorer i ett projekt.
 **Azure Migrate-installation** | En apparat kan identifiera upp till 10 000 virtuella datorer på en vCenter Server.<br/> En installation kan bara ansluta till en enda vCenter Server.<br/> En installation kan bara associeras med ett enda Azure Migrate-projekt.<br/>  Ett valfritt antal enheter kan associeras med ett enda Azure Migrate-projekt. <br/><br/> 

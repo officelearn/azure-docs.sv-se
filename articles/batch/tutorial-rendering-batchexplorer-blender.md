@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117088"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964812"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Självstudie: Rendera en Blender-scen med Batch Explorer
 
@@ -23,13 +23,13 @@ I den här guiden får du lära dig att:
 > * Rendera flera bildrutor
 > * Visa och ladda ned de renderade bildrutefilerna
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.
 
-Du behöver ett Azure Batch-konto med ett tillhörande lagringskonto.  Se någon av Snabbstart-artiklarna om Batch, till exempel [CLI-artikeln](https://docs.microsoft.com/azure/batch/quick-create-cli) för at skapa ett Batch-konto.
+Du behöver ett Azure Batch-konto med ett tillhörande lagringskonto.  Se någon av Snabbstart-artiklarna om Batch, till exempel [CLI-artikeln](./quick-create-cli.md) för at skapa ett Batch-konto.
 
-En kärnkvot med låg prioritet på minst 50 kärnor krävs för storleken på virtuell dator och antal virtuella datorer som anges i den här självstudien. Standardkvoten kan användas men mindre storlek på virtuell dator måste användas, vilket betyder att bilderna kan ta längre tid att rendera. Processen för att begära en ökad kärnkvot beskrivs i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-quota-limit).
+En kärnkvot med låg prioritet på minst 50 kärnor krävs för storleken på virtuell dator och antal virtuella datorer som anges i den här självstudien. Standardkvoten kan användas men mindre storlek på virtuell dator måste användas, vilket betyder att bilderna kan ta längre tid att rendera. Processen för att begära en ökad kärnkvot beskrivs i [den här artikeln](./batch-quota-limit.md).
 
 Till sist: [Batch Explorer](https://azure.github.io/BatchExplorer/) måste installeras, och finns för Windows, OSX och Linux. Om du installerar [Blender](https://www.blender.org/download/) kan du visa exemplet på modellfil (valfritt).
 
@@ -139,4 +139,4 @@ När alla uppgifter har slutförts markeras jobbet som klart: ![Jobbet och alla 
 ## <a name="next-steps"></a>Nästa steg
 * I avsnittet ”Gallery” (Galleri) utforskar du renderingsprogrammen som är tillgängliga via Batch Explorer.
 * För varje program finns det flera tillgängliga mallar, som utökas med tiden.  Till exempel kan du för Blender-mallar dela upp en enda bild i olika rutor, så delar av en bild kan renderas parallellt.
-* En heltäckande beskrivning av renderingsfunktioner finns i artiklarna [här](https://docs.microsoft.com/azure/batch/batch-rendering-service).
+* En heltäckande beskrivning av renderingsfunktioner finns i artiklarna [här](./batch-rendering-service.md).

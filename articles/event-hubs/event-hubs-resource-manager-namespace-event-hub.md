@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en Event Hub med konsument grupp – Azure Event Hubs
 description: 'Snabb start: skapa ett Event Hubs-namnområde med en Event Hub och en konsument grupp med hjälp av Azure Resource Manager mallar'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8a1ad9a2b2ce7a8e9e5911cca18b297378a966bd
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6ddf17030da8b0ff50f10938221b9c1dba08084d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315644"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964302"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Event Hub med en Azure Resource Manager mall
 
@@ -18,7 +18,7 @@ Azure Event Hubs är en strömningstjänst för stordata och händelseinmatnings
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Inga.
 
@@ -94,7 +94,7 @@ I den här artikeln har du skapat ett Event Hubs-namnområde och en händelsehub
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-java-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)
 - [Kör](event-hubs-go-get-started-send.md)
 - [C (skickar endast)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (tar endast emot)](event-hubs-storm-getstarted-receive.md)

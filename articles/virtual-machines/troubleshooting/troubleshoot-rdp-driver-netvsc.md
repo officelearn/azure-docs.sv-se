@@ -1,6 +1,6 @@
 ---
-title: Felsöka ett netvsc. sys-problem när du ansluter via fjärr anslutning till en virtuell Windows 10-eller Windows Server 2016-dator i Azure | Microsoft Docs
-description: Lär dig hur du felsöker ett netsvc. sys-relaterat RDP-problem när du ansluter till en virtuell Windows 10-eller Windows Server 2016-dator i Azure.
+title: Felsöka ett netvsc.sys problem när du ansluter fjärran slutet till en virtuell Windows 10-eller Windows Server 2016-dator i Azure | Microsoft Docs
+description: Lär dig hur du felsöker ett netsvc.sys-relaterat RDP-problem när du ansluter till en virtuell Windows 10-eller Windows Server 2016-dator i Azure.
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057991"
 ---
-# <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Det går inte att fjärrans luta till en virtuell Windows 10-eller Windows Server 2016-dator i Azure på grund av netvsc. sys
+# <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Det går inte att fjärrans luta till en virtuell Windows 10-eller Windows Server 2016-dator i Azure på grund av netvsc.sys
 
 Den här artikeln förklarar hur du felsöker ett problem där det inte finns någon nätverks anslutning när du ansluter till en virtuell dator med Windows 10 eller Windows Server 2016 Data Center (VM) på en Hyper-V Server 2016-värd.
 
@@ -31,7 +31,7 @@ Det här problemet uppstår vanligt vis i Windows [version 14393](https://suppor
 
 ## <a name="cause"></a>Orsak
 
-Det här problemet kan inträffa om versionen av den installerade netvsc. sys-systemfilen är **10.0.14393.594** eller **10.0.15063.0**. Dessa versioner av netvsc. sys kan hindra systemet från att interagera med Azure-plattformen.
+Det här problemet kan inträffa om versionen av den installerade netvsc.sys system filen är **10.0.14393.594** eller **10.0.15063.0**. Dessa versioner av netvsc.sys kan hindra systemet från att interagera med Azure-plattformen.
 
 
 ## <a name="solution"></a>Lösning
@@ -54,7 +54,7 @@ Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-window
 
 2. Hämta lämplig uppdatering till en ny eller befintlig datadisk som är ansluten till en fungerande virtuell dator från samma region:
 
-   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) eller en senare uppdatering
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562)   eller en senare uppdatering
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) eller en senare uppdatering
 
 3. Koppla bort verktygs disken från den virtuella datorn och koppla den sedan till den brutna virtuella datorn.
@@ -77,9 +77,9 @@ Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-window
 
 4. Skapa en kopia av mappen **\Windows\System32\config** om en återställning av ändringarna är nödvändig.
 
-5. Starta Registereditorn (regedit. exe) på den rädda virtuella datorn.
+5. Starta Registereditorn (regedit.exe) på den virtuella räddnings datorn.
 
-6. Välj **HKEY_LOCAL_MACHINE** nyckel och välj sedan **fil** > **läsnings registrerings data** fil på menyn.
+6. Välj **HKEY_LOCAL_MACHINE** nyckel och välj sedan **fil**  >  **läsnings registrerings data** fil på menyn.
 
 7. Leta upp SYSTEM filen i mappen **\Windows\System32\config**
 
@@ -97,7 +97,7 @@ Anslut till [serie konsolen, öppna en PowerShell-instans](serial-console-window
 
 12. Hämta lämplig uppdatering:
 
-    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) eller en senare uppdatering
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562)   eller en senare uppdatering
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) eller en senare uppdatering
 
 13. Anslut system disken som en datadisk på en räddnings dator där du kan hämta uppdateringen.

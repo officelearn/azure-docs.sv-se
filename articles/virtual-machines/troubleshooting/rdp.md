@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057276"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Felsöka RDP-problem
@@ -41,7 +41,7 @@ Följande problem med att skapa en RDP-anslutning till en virtuell dator beskriv
 - [Felsöka RDP-fel i virtuella datorer på grund av statisk IP-adress](troubleshoot-rdp-static-ip.md)
 - [Felsöka RDP-fel i virtuella datorer på grund av att nätverkskortet är inaktiverat](troubleshoot-rdp-nic-disabled.md)
 - [Felsöka RDP-fel som orsakats av felsäkert läge](troubleshoot-rdp-safe-mode.md)
-- [Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator](disable-guest-os-firewall-windows.md)
+- [Inaktivera brandväggen i gästoperativsystemet på en virtuell Azure-dator](disable-guest-os-firewall-windows.md)
 - [Aktivera eller inaktivera en brandväggsregel i ett gästoperativsystem](enable-disable-firewall-rule-guest-os.md)
 - [Brandväggen för gästoperativsystemet blockerar inkommande trafik](guest-os-firewall-blocking-inbound-traffic.md)
 - [Brandväggen för gästoperativsystemet är felkonfigurerad](guest-os-firewall-misconfigured.md) 

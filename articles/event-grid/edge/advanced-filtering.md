@@ -10,14 +10,14 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d7fdc5074f3c92eea4f236a9b1f7c823b930f391
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992566"
 ---
 # <a name="advanced-filtering"></a>Avancerad filtrering
-Med Event Grid kan du ange filter för alla egenskaper i JSON-nyttolasten. Dessa filter modelleras som en uppsättning `AND` villkor, med varje yttre villkor som har valfria inre `OR` villkor. För varje `AND` villkor anger du följande värden:
+Med Event Grid kan du ange filter för alla egenskaper i JSON-nyttolasten. Dessa filter modelleras som `AND` en uppsättning villkor, med varje yttre villkor som har valfria inre `OR` villkor. För varje `AND` villkor anger du följande värden:
 
 * `OperatorType`– Typen av jämförelse.
 * `Key`– JSON-sökvägen till egenskapen som filtret ska tillämpas på.
@@ -50,12 +50,12 @@ Event Grid stöder inte filtrering på en matris med värden idag. Om en inkomma
 
 ## <a name="and-or-not-semantics"></a>OCH-inte semantiskt
 
-Observera att i JSON- `AdvancedFilters` exemplet ovan är en matris. Tänk på varje `AdvancedFilter` mat ris element som `AND` ett villkor.
+Observera att i JSON-exemplet ovan `AdvancedFilters` är en matris. Tänk på varje `AdvancedFilter` mat ris element som ett `AND` villkor.
 
-För `NumberIn`operatörer som har stöd för flera värden (till exempel `NumberNotIn`, `StringIn`, osv.) behandlas varje värde som ett `OR` villkor. En `StringBeginsWith("a", "b", "c")` kommer att matcha alla sträng värden som börjar med antingen `a` eller `b` eller. `c`
+För operatörer som har stöd för flera värden (till exempel `NumberIn` ,, `NumberNotIn` `StringIn` osv.) behandlas varje värde som ett `OR` villkor. En kommer att `StringBeginsWith("a", "b", "c")` matcha alla sträng värden som börjar med antingen `a` eller `b` eller `c` .
 
 > [!CAUTION]
-> Operatorerna NOT- `NumberNotIn` och `StringNotIn` fungerar som-och-villkor för varje värde som anges `Values` i fältet.
+> Operatorerna NOT- `NumberNotIn` och `StringNotIn` fungerar som-och-villkor för varje värde som anges i `Values` fältet.
 >
 > Om du inte gör det blir filtret acceptera – alla filter och manipulation av filtrerings syftet.
 
@@ -69,7 +69,7 @@ Alla sträng jämförelser är Skift läges känsliga. Det finns inget sätt att
 
 ## <a name="allowed-advanced-filter-keys"></a>Tillåtna avancerade filter nycklar
 
-`Key` Egenskapen kan antingen vara en välkänd egenskap på den översta nivån eller vara en JSON-sökväg med flera punkter, där varje punkt visar steg i ett kapslat JSON-objekt.
+`Key`Egenskapen kan antingen vara en välkänd egenskap på den översta nivån eller vara en JSON-sökväg med flera punkter, där varje punkt visar steg i ett kapslat JSON-objekt.
 
 Event Grid har ingen särskild betydelse för `$` tecknen i nyckeln, till skillnad från JSONPath-specifikationen.
 
@@ -78,7 +78,7 @@ Event Grid har ingen särskild betydelse för `$` tecknen i nyckeln, till skilln
 För händelser i Event Grid schemat:
 
 * ID
-* Hjälpavsnitt
+* Ämne
 * Subjekt
 * Typ
 * DataVersion
@@ -87,7 +87,7 @@ För händelser i Event Grid schemat:
 
 ### <a name="custom-event-schema"></a>Anpassat händelse schema
 
-Det finns ingen begränsning för i `Key` det anpassade händelse schemat eftersom Event Grid inte tillämpar något kuvert schema på nytto lasten.
+Det finns ingen begränsning för `Key` i det anpassade händelse schemat eftersom Event Grid inte tillämpar något kuvert schema på nytto lasten.
 
 ## <a name="numeric-single-value-filter-examples"></a>Numeriska filter exempel med flera värden
 

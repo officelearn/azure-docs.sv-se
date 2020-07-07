@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 3ead267ee11cba65e20f3df2fb76d9138a080bfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73850502"
 ---
 | Kategori | Datalager | Stöds som en källa | Stöds som en mottagare |
@@ -37,7 +37,7 @@ ms.locfileid: "73850502"
 | &nbsp; |[FTP](../articles/data-factory/v1/data-factory-ftp-connector.md) |✓ | |
 | &nbsp; |[HDFS](../articles/data-factory/v1/data-factory-hdfs-connector.md)* |✓ | |
 | &nbsp; |[SFTP](../articles/data-factory/v1/data-factory-sftp-connector.md) |✓ | |
-| **Andra** |[Generisk HTTP](../articles/data-factory/v1/data-factory-http-connector.md) |✓ | |
+| **Övrigt** |[Generisk HTTP](../articles/data-factory/v1/data-factory-http-connector.md) |✓ | |
 | &nbsp; |[OData (allmän)](../articles/data-factory/v1/data-factory-odata-connector.md) |✓ | |
 | &nbsp; |[Allmän ODBC](../articles/data-factory/v1/data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../articles/data-factory/v1/data-factory-salesforce-connector.md) |✓ | |

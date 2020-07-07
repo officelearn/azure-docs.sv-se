@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71672899"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Schemalägg U-SQL-jobb med SQL Server Integration Services (SSIS)
 
 I det här dokumentet får du lära dig hur du dirigerar och skapar U-SQL-jobb med hjälp av SQL Server integration service (SSIS). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Azure Feature Pack för integrations tjänster](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) tillhandahåller [Azure Data Lake Analytics aktivitet](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) och [Azure Data Lake Analytics anslutnings hanteraren](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) som hjälper till att ansluta till Azure Data Lake Analytics-tjänsten. Kontrol lera att du använder den här uppgiften för att installera:
 
@@ -77,11 +77,11 @@ I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system a
 
 2. Ange **mappen** under **uppräknings konfigurations** grupp till den tillfälliga mappen som innehåller de hämtade U-SQL-skripten.
 
-3. Ange **filer** under **uppräknings konfiguration** så `*.usql` att loop-behållaren bara fångar filerna som slutar med `.usql`.
+3. Ange **filer** under **uppräknings konfiguration** så att `*.usql` loop-behållaren bara fångar filerna som slutar med `.usql` .
 
     ![Konfigurera behållare för förgrunds slingor](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
-4. På sidan **variabel mappningar** lägger du till en användardefinierad variabel för att hämta fil namnet för varje U-SQL-fil. Ange **indexet** till 0 för att hämta fil namnet. I det här exemplet definierar du en variabel `User::FileName`som kallas. Den här variabeln används för att dynamiskt hämta U-SQL skript fil anslutning och ange U-SQL-jobbnamn i Azure Data Lake Analytics aktiviteten.
+4. På sidan **variabel mappningar** lägger du till en användardefinierad variabel för att hämta fil namnet för varje U-SQL-fil. Ange **indexet** till 0 för att hämta fil namnet. I det här exemplet definierar du en variabel som kallas `User::FileName` . Den här variabeln används för att dynamiskt hämta U-SQL skript fil anslutning och ange U-SQL-jobbnamn i Azure Data Lake Analytics aktiviteten.
 
     ![Konfigurera en upprepnings behållare för att hämta fil namn](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-variable-mapping.png)
 
@@ -93,14 +93,14 @@ I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system a
     
     Så här skapar du den här fil anslutningen:
 
-   1. Välj ** \<ny anslutning... >** i FileConnection-inställningen.
+   1. Välj **\<New Connection...>** i FileConnection-inställningen.
    2. Ange **användnings typ** till en **befintlig fil**och ange **filen** till en befintlig fils sökväg.
 
        ![Konfigurera behållare för förgrunds slingor](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. I vyn **anslutnings hanterare** högerklickar du på fil anslutningen som skapats just nu och väljer **Egenskaper**.
 
-   4. I fönstret **Egenskaper** expanderar du **uttryck**och ställer in **ConnectionString** till variabeln som definierats i förgrunds sling-behållaren, till `@[User::FileName]`exempel.
+   4. I fönstret **Egenskaper** expanderar du **uttryck**och ställer in **ConnectionString** till variabeln som definierats i förgrunds sling-behållaren, till exempel `@[User::FileName]` .
 
        ![Konfigurera behållare för förgrunds slingor](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
@@ -111,7 +111,7 @@ I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system a
 5. Använd **uttryck** för att dynamiskt ange U-SQL-jobbets namn:
 
     1. På sidan **uttryck** lägger du till ett nytt uttrycks nyckel par för **JobName**.
-    2. Ange värdet för JobName till variabeln som definierats i förgrunds slinga-behållaren, till exempel `@[User::FileName]`.
+    2. Ange värdet för JobName till variabeln som definierats i förgrunds slinga-behållaren, till exempel `@[User::FileName]` .
     
         ![Konfigurera SSIS-uttryck för U-SQL-jobbnamn](./media/data-lake-analytics-schedule-jobs-ssis/configure-expression-for-u-sql-job-name.png)
 

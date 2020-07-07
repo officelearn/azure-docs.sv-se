@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792025"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Föråldrade kognitiva kunskaper i Azure Kognitiv sökning
@@ -41,13 +41,13 @@ Använd [Microsoft. skicklighets. text. EntityRecognitionSkill](cognitive-search
 Om du vill migrera till [kunskap om enhets igenkänning](cognitive-search-skill-entity-recognition.md)måste du utföra en eller flera av följande ändringar i din kunskaps definition. Du kan uppdatera kunskaps definitionen med [Update färdigheter-API: et](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
 > [!NOTE]
-> För närvarande stöds inte säkerhets Poäng som ett begrepp. `minimumPrecision` Parametern finns i `EntityRecognitionSkill` för framtida användning och bakåtkompatibilitet.
+> För närvarande stöds inte säkerhets Poäng som ett begrepp. `minimumPrecision`Parametern finns i `EntityRecognitionSkill` för framtida användning och bakåtkompatibilitet.
 
-1. *(Krävs)* Ändra `@odata.type` från `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` till `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
+1. *(Krävs)* Ändra `@odata.type` från `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` till `"#Microsoft.Skills.Text.EntityRecognitionSkill"` .
 
-2. *(Valfritt)* Om du använder `entities` utdata använder du i `namedEntities` `EntityRecognitionSkill` stället det komplexa samlings resultatet. Du kan använda `targetName` i kunskaps definitionen för att mappa den till en anteckning som kallas `entities`.
+2. *(Valfritt)* Om du använder utdata använder du i `entities` `namedEntities` stället det komplexa samlings resultatet `EntityRecognitionSkill` . Du kan använda `targetName` i kunskaps definitionen för att mappa den till en anteckning som kallas `entities` .
 
-3. *(Valfritt)* Om du inte uttryckligen anger `categories`, `EntityRecognitionSkill` kan returnera olika typer av kategorier förutom de som stöds av. `NamedEntityRecognitionSkill` Om det här beteendet är oönskat, måste du uttryckligen `categories` ange parametern `["Person", "Location", "Organization"]`till.
+3. *(Valfritt)* Om du inte uttryckligen anger `categories` , `EntityRecognitionSkill` kan returnera olika typer av kategorier förutom de som stöds av `NamedEntityRecognitionSkill` . Om det här beteendet är oönskat, måste du uttryckligen ange `categories` parametern till `["Person", "Location", "Organization"]` .
 
     _Exempel på migrations definitioner_
 

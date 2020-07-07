@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
 ms.openlocfilehash: 55842d36cddb2a7851ff5bd7002c20e9873158f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73512735"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Ta bort ett Azure Migrate-projekt
@@ -26,7 +26,7 @@ Innan du tar bort ett projekt:
 - Om du har kopplat en Log Analytics arbets yta till verktyget för Server utvärdering för beroende analys bestämmer du om du vill ta bort arbets ytan. 
     - Arbets ytan tas inte bort automatiskt. Ta bort den manuellt.
     - Kontrol lera vilken arbets yta som används innan du tar bort den. Samma Log Analytics arbets yta kan användas för flera scenarier.
-    - Innan du tar bort projektet hittar du en länk till arbets ytan i **Azure Migrate-servrar** > **Azure Migrate-Server-utvärdering**, under **OMS-arbetsyta**.
+    - Innan du tar bort projektet hittar du en länk till arbets ytan i **Azure Migrate-servrar**  >  **Azure Migrate-Server-utvärdering**, under **OMS-arbetsyta**.
     - Om du vill ta bort en arbets yta efter att du har tagit bort ett projekt söker du efter arbets ytan i relevant resurs grupp och följer [de här anvisningarna](../azure-monitor/platform/delete-workspace.md).
 
 

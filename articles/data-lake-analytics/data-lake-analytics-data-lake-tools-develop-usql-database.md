@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71309933"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Använd ett U-SQL Database-projekt för att utveckla en U-SQL-databas för Azure Data Lake
@@ -54,7 +54,7 @@ För ett sammansättnings objekt tillhandahåller verktyget en användarvänlig 
  
 ## <a name="build-a-u-sql-database-project"></a>Bygg ett U-SQL Database-projekt
 
-Build-utdata för ett U-SQL Database-projekt är ett U-SQL-databas distributions paket med namnet `.usqldbpack`med suffixet. Paketet är en. zip-fil som innehåller alla DDL-instruktioner i ett enda U-SQL-skript i **DDL** -mappen och alla DLL-filer och ytterligare filer för sammansättningar i Temp-mappen. **Temp** `.usqldbpack`
+Build-utdata för ett U-SQL Database-projekt är ett U-SQL-databas distributions paket med namnet med suffixet `.usqldbpack` . `.usqldbpack`Paketet är en. zip-fil som innehåller alla DDL-instruktioner i ett enda U-SQL-skript i **DDL** -mappen och alla DLL-filer och ytterligare filer för sammansättningar i **Temp** -mappen.
 
 Lär dig mer om [hur du skapar ett U-SQL Database-projekt med kommando raden för MSBuild och en Azure DevOps Services build-uppgift](data-lake-analytics-cicd-overview.md).
 
@@ -91,7 +91,7 @@ Du kan distribuera en U-SQL-databas via ett U-SQL Database-projekt eller ett. us
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>Distribuera U-SQL-databas med hjälp av SDK
 
-`PackageDeploymentTool.exe`tillhandahåller programmerings-och kommando rads gränssnitt som hjälper till att distribuera U-SQL-databaser. SDK ingår i [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)som finns på `build/runtime/PackageDeploymentTool.exe`.
+`PackageDeploymentTool.exe`tillhandahåller programmerings-och kommando rads gränssnitt som hjälper till att distribuera U-SQL-databaser. SDK ingår i [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)som finns på `build/runtime/PackageDeploymentTool.exe` .
 
 [Lär dig mer om SDK och hur du konfigurerar CI/CD-pipeline för distribution av U-SQL-databasen](data-lake-analytics-cicd-overview.md).
 

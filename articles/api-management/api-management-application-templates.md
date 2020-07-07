@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176906"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Programmallar i Azure API Management
@@ -74,7 +74,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ```  
   
 ### <a name="controls"></a>Kontroller  
- `Product list` Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
+ `Product list`Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
   
 -   [sid kontroll](api-management-page-controls.md#paging-control)  
   
@@ -181,7 +181,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ```  
   
 ### <a name="controls"></a>Kontroller  
- `Application` Mallen tillåter inte användning av några [sid kontroller](api-management-page-controls.md).  
+ `Application`Mallen tillåter inte användning av några [sid kontroller](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Datamodell  
  [Program](api-management-template-data-model-reference.md#Application) enhet.  

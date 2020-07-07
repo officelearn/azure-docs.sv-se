@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71937291"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Skapa och övervaka Media Services händelser med Event Grid med Azure CLI
@@ -24,9 +24,9 @@ Azure Event Grid är en händelsetjänst för molnet. Den här tjänsten använd
 
 I den här artikeln använder du Azure CLI för att prenumerera på händelser för ditt Azure Media Services-konto. Sedan utlöser du händelser för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. I den här artikeln skickar du händelserna till en webbapp som samlar in och visar meddelandena.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- En aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+- En aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
     För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
@@ -61,7 +61,7 @@ az account set --subscription mySubscriptionId
 
 Du prenumererar på en artikel för att berätta Event Grid vilka händelser du vill spåra. I följande exempel prenumererar Media Services kontot som du skapade och skickar URL: en från den webbplats som du skapade som slut punkt för händelse aviseringen. 
 
-Ersätt `<event_subscription_name>` med ett unikt namn för din händelse prenumeration. För `<resource_group_name>` och `<ams_account_name>`använder du de värden som du använde när du skapade Media Services-kontot. `<endpoint_URL>`För anger du URL: en för din webbapp och lägger till `api/updates` den på Start sidans URL. Genom att ange slut punkten när du prenumererar Event Grid hanterar routning av händelser till den slut punkten. 
+Ersätt `<event_subscription_name>` med ett unikt namn för din händelse prenumeration. För `<resource_group_name>` och `<ams_account_name>` använder du de värden som du använde när du skapade Media Services-kontot. För anger du `<endpoint_URL>` URL: en för din webbapp och lägger till `api/updates` den på Start sidans URL. Genom att ange slut punkten när du prenumererar Event Grid hanterar routning av händelser till den slut punkten. 
 
 1. Hämta resurs-ID
 
@@ -69,7 +69,7 @@ Ersätt `<event_subscription_name>` med ett unikt namn för din händelse prenum
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    Ett exempel:
+    Till exempel:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -84,7 +84,7 @@ Ersätt `<event_subscription_name>` med ett unikt namn för din händelse prenum
     --endpoint <endpoint_URL>
     ```
 
-    Ett exempel:
+    Till exempel:
 
     ```
     az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
@@ -99,7 +99,7 @@ Nu ska vi utlösa händelser för att se hur Event Grid distribuerar meddelandet
 
 Du kan utlösa händelser för Media Services kontot genom att köra ett kodnings jobb. Du kan följa [den här snabb](stream-files-dotnet-quickstart.md) starten för att koda en fil och börja skicka händelser. 
 
-Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Slut punkten måste anges `validationResponse` till. `validationCode` Mer information finns i [Event Grid säkerhet och autentisering](../../event-grid/security-authentication.md). Du kan visa webb program koden för att se hur den validerar prenumerationen.
+Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Slut punkten måste anges `validationResponse` till `validationCode` . Mer information finns i [Event Grid säkerhet och autentisering](../../event-grid/security-authentication.md). Du kan visa webb program koden för att se hur den validerar prenumerationen.
 
 > [!TIP]
 > Välj ögonikonen för att utöka informationen om händelsen. Uppdatera inte sidan om du vill visa alla händelser.

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058208"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Felsöka ändringar av enhets namn för virtuella Linux-datorer
@@ -67,7 +67,7 @@ Program använder LUN för att hitta alla anslutna diskar och skapa symboliska l
         ├── lun1-part2 -> ../../../sdd2
         └── lun1-part3 -> ../../../sdd3
 
-LUN-information från Linux-gäst kontot hämtas med hjälp `lsscsi` av eller ett liknande verktyg:
+LUN-information från Linux-gäst kontot hämtas med hjälp av `lsscsi` eller ett liknande verktyg:
 
       $ sudo lsscsi
 
@@ -113,7 +113,7 @@ LUN-informationen för gästen används med metadata för Azure-prenumerationen 
 
 ### <a name="discover-filesystem-uuids-by-using-blkid"></a>Identifiera UUID för filesystem med hjälp av blkid
 
-Program och skript läser utdata från `blkid`, eller liknande informations källor, för att skapa symboliska länkar i/dev-sökvägen. Utdata visar UUID: n för alla diskar som är anslutna till den virtuella datorn och deras tillhör ande enhets fil:
+Program och skript läser utdata från `blkid` , eller liknande informations källor, för att skapa symboliska länkar i/dev-sökvägen. Utdata visar UUID: n för alla diskar som är anslutna till den virtuella datorn och deras tillhör ande enhets fil:
 
     $ sudo blkid -s UUID
 

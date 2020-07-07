@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057549"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azures VM-tillägg för prestandadiagnostik för Windows
@@ -27,7 +27,7 @@ Med VM-tillägget för Azure Performance Diagnostics kan du samla in prestanda d
 > [!NOTE]
 > Om du vill köra diagnostik på den virtuella datorn från Azure Portal för icke-klassiska virtuella datorer, rekommenderar vi att du använder den nya upplevelsen. Mer information finns i [prestandadiagnostik för Azure Virtual Machines](performance-diagnostics.md) 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Tillägget kan installeras på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Den kan också installeras på Windows 8,1 och Windows 10.
 
@@ -209,7 +209,7 @@ Tillägg för virtuella Azure-datorer kan distribueras med Azure Resource Manage
 ```
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
-`Set-AzVMExtension` Kommandot kan användas för att distribuera Azure Performance Diagnostics VM-tillägg till en befintlig virtuell dator.
+`Set-AzVMExtension`Kommandot kan användas för att distribuera Azure Performance Diagnostics VM-tillägg till en befintlig virtuell dator.
 
 PowerShell
 
@@ -233,18 +233,18 @@ PerfInsights-verktyget samlar in olika loggar, konfigurations-och diagnostikdata
 
 ## <a name="view-and-share-the-results"></a>Visa och dela resultaten
 
-Utdata från tillägget finns i en zip-fil som överförts till det lagrings konto som angavs under installationen och delas i 30 dagar med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Den här zip-filen innehåller diagnostikloggar och en rapport med undersöknings resultat och rekommendationer. En SAS-länk till zip-filen för utdata finns i en textfil med namnet *zipfilename*_saslink. txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>**. Alla som har den här länken kan hämta zip-filen.
+Utdata från tillägget finns i en zip-fil som överförts till det lagrings konto som angavs under installationen och delas i 30 dagar med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Den här zip-filen innehåller diagnostikloggar och en rapport med undersöknings resultat och rekommendationer. En SAS-länk till zip-filen för utdata finns i en textfil med namnet *zipfilename*_saslink.txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Alla som har den här länken kan hämta zip-filen.
 
 För att hjälpa Support teknikern att arbeta med ditt support ärende kan Microsoft använda SAS-länken för att hämta diagnostikdata.
 
-Om du vill visa rapporten extraherar du zip-filen och öppnar filen **PerfInsights Report. html** .
+Om du vill visa rapporten extraherar du zip-filen och öppnar filen **PerfInsights Report.html** .
 
 Du bör också kunna hämta zip-filen direkt från portalen genom att välja tillägget.
 
 ![Skärm bild av detaljerad status för prestanda diagnostik](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> SAS-länken som visas i portalen kanske inte fungerar ibland. Detta kan bero på en felaktig URL vid kodning och avkodning av åtgärder. I stället kan du Hämta länken direkt från * _saslink. txt-filen från den virtuella datorn.
+> SAS-länken som visas i portalen kanske inte fungerar ibland. Detta kan bero på en felaktig URL vid kodning och avkodning av åtgärder. I stället kan du Hämta länken direkt från * _saslink.txt-filen från den virtuella datorn.
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 

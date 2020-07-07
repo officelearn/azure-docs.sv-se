@@ -16,10 +16,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73161207"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian JIRA och Confluence admin guide för Azure Active Directory
@@ -28,7 +28,7 @@ ms.locfileid: "73161207"
 
 Plugin-programmet Azure Active Directory (enkel inloggning) i (SSO) gör att Microsoft Azure AD kunder kan använda sitt arbets-eller skol konto för att logga in på Atlassian JIRA-och Confluence Server-baserade produkter. Den implementerar SAML 2,0-baserad SSO.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 När användarna vill logga in på Atlassian-JIRA eller Confluence-programmet, ser de **inloggningen med Azure AD** -knappen på inloggnings sidan. När de väljer det måste de logga in med hjälp av inloggnings sidan för Azure AD-organisation (det vill säga sitt arbets-eller skol konto).
 
@@ -54,7 +54,7 @@ JIRA-och Confluence-administratörer kan använda plugin-programmet för att akt
 * JIRA eller Confluence är även tillgängligt utanför företags nätverket.
 * Plugin-programmet fungerar bara med den lokala versionen av JIRA och Confluence.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande information innan du installerar plugin-programmet:
 
@@ -95,7 +95,7 @@ Följ dessa steg om du vill installera plugin-programmet:
 
 2. Gå till administrations konsolen för JIRA/Confluence och välj **-** tillägg.
 
-3. Från Microsoft Download Center hämtar du [Microsoft SAML SSO-plugin-programmet för JIRA](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO för Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
+3. Från Microsoft Download Center hämtar du [Microsoft SAML SSO-plugin-programmet för JIRA](https://www.microsoft.com/download/details.aspx?id=56506) /  [Microsoft SAML SSO för Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
    Lämplig version av plugin-programmet visas i Sök resultaten.
 
@@ -113,11 +113,11 @@ Följande bild visar konfigurations skärmen i både JIRA och Confluence:
 
 * **URL för metadata**: URL: en för att hämta federationsmetadata från Azure AD.
 
-* **Identifierare**: den URL som Azure AD använder för att validera källan för begäran. Den mappas till **ID** -elementet i Azure AD. Plugin-programmet härleder automatiskt denna URL som https://*\<-domän: port>*/.
+* **Identifierare**: den URL som Azure AD använder för att validera källan för begäran. Den mappas till **ID** -elementet i Azure AD. Plugin-programmet härleder automatiskt denna URL som https:// *\<domain:port>* /.
 
-* **Svars-URL**: svars-URL: en i din identitets leverantör (IdP) som initierar SAML-inloggningen. Den mappas till **svars-URL** -elementet i Azure AD. Plugin-programmet härleder automatiskt denna URL som https://*\<-domän: port>*/plugins/servlet/SAML/auth.
+* **Svars-URL**: svars-URL: en i din identitets leverantör (IdP) som initierar SAML-inloggningen. Den mappas till **svars-URL** -elementet i Azure AD. Plugin-programmet härleder automatiskt denna URL som https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
-* **Inloggnings-URL**: inloggnings-URL: en i din IDP som initierar SAML-inloggningen. Den mappas till **inloggnings** elementet i Azure AD. Plugin-programmet härleder automatiskt denna URL som https://*\<-domän: port>*/plugins/servlet/SAML/auth.
+* **Inloggnings-URL**: inloggnings-URL: en i din IDP som initierar SAML-inloggningen. Den mappas till **inloggnings** elementet i Azure AD. Plugin-programmet härleder automatiskt denna URL som https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
 * **IDP entitets-ID**: entitets-ID: t som din IDP använder. Den här rutan fylls i när URL: en för metadata matchas.
 

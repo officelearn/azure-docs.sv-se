@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71203650"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Hantera certifikat tjänsten för OPC-valvet
@@ -25,11 +25,11 @@ När du har distribuerat OPC-valvet måste du skapa rot certifikat utfärdarens 
 > [!IMPORTANT]
 > Administratörs rollen krävs för att skapa eller förnya utfärdarens CA-certifikat.
 
-1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net`och logga in.
+1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net` och logga in.
 2. Gå till **certifikat grupper**.
 3. Det finns en lista över standard certifikat. Välj **Redigera**.
 4. I **Redigera certifikat grupps information**kan du ändra ämnes namn och livs längd för certifikat utfärdaren och program certifikaten. Ämnet och livs längden bör endast anges en gång innan det första CA-certifikatet utfärdas. Livs längds ändringar under åtgärder kan resultera i inkonsekventa livs längder för utfärdade certifikat och CRL: er.
-5. Ange ett giltigt ämne (till exempel `CN=My CA Root, O=MyCompany, OU=MyDepartment`).<br>
+5. Ange ett giltigt ämne (till exempel `CN=My CA Root, O=MyCompany, OU=MyDepartment` ).<br>
    > [!IMPORTANT]
    > Om du ändrar ämnet måste du förnya utfärdarens certifikat, annars kommer tjänsten inte att kunna signera program certifikat. Syftet med konfigurationen kontrol leras mot ämnet för det aktiva utfärdarcertifikatet. Om ämnena inte matchar, nekas certifikat signering.
 6. Välj **Spara**.
@@ -51,7 +51,7 @@ I följande arbets flöde återkallas alla certifikat begär anden i de borttagn
 > [!IMPORTANT]
 > Administratörs rollen krävs för att förnya utfärdarens CRL.
 
-1. Öppna certifikat tjänsten på `https://myResourceGroup.azurewebsites.net`och logga in.
+1. Öppna certifikat tjänsten på `https://myResourceGroup.azurewebsites.net` och logga in.
 2. Gå till sidan **certifikat grupper** .
 3. Välj **information**. Detta bör Visa aktuellt certifikat och CRL-information.
 4. Välj Uppdatera lista över återkallade **certifikat (CRL)** för att utfärda en uppdaterad lista över återkallade certifikat för alla aktiva UTFÄRDARCERTIFIKAT i OPC Vault-lagringen.
@@ -66,8 +66,8 @@ Som standard kan en autentiserad användare i klienten logga in i tjänsten som 
 ### <a name="add-user"></a>Lägga till användare
 
 1. Öppna Azure Portal.
-2. Gå till **Azure Active Directory** > **företags program**.
-3. Välj registreringen av OPC Vault mikrotjänst (som standard `resourceGroupName-service`).
+2. Gå till **Azure Active Directory**  >  **företags program**.
+3. Välj registreringen av OPC Vault mikrotjänst (som standard `resourceGroupName-service` ).
 4. Gå till **användare och grupper**.
 5. Välj **Lägg till användare**.
 6. Välj eller Bjud in användaren för tilldelning till en speciell roll.
@@ -78,8 +78,8 @@ Som standard kan en autentiserad användare i klienten logga in i tjänsten som 
 ### <a name="remove-user"></a>Ta bort användare
 
 1. Öppna Azure Portal.
-2. Gå till **Azure Active Directory** > **företags program**.
-3. Välj registreringen av OPC Vault mikrotjänst (som standard `resourceGroupName-service`).
+2. Gå till **Azure Active Directory**  >  **företags program**.
+3. Välj registreringen av OPC Vault mikrotjänst (som standard `resourceGroupName-service` ).
 4. Gå till **användare och grupper**.
 5. Välj en användare med en roll som ska tas bort och välj sedan **ta bort**.
 6. För borttagna användare i rollen administratör eller god kännare tar du även bort dem från Azure Key Vault-principer.
@@ -93,8 +93,8 @@ Som standard har tjänst identiteten endast begränsade behörigheter att komma 
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>För en god kännare-roll måste följande behörigheter läggas till i Key Vault
 
 1. Öppna Azure Portal.
-2. Gå till OPC-valvet `resourceGroupName`som används under distributionen.
-3. Gå till Key Vault `resourceGroupName-xxxxx`.
+2. Gå till OPC-valvet `resourceGroupName` som används under distributionen.
+3. Gå till Key Vault `resourceGroupName-xxxxx` .
 4. Gå till **åtkomst principer**.
 5. Välj **Lägg till ny**.
 6. Hoppa över mallen. Det finns ingen mall som matchar kraven.
@@ -107,8 +107,8 @@ Som standard har tjänst identiteten endast begränsade behörigheter att komma 
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>För en administratörs roll måste följande behörigheter läggas till i Key Vault
 
 1. Öppna Azure Portal.
-2. Gå till OPC-valvet `resourceGroupName`som används under distributionen.
-3. Gå till Key Vault `resourceGroupName-xxxxx`.
+2. Gå till OPC-valvet `resourceGroupName` som används under distributionen.
+3. Gå till Key Vault `resourceGroupName-xxxxx` .
 4. Gå till **åtkomst principer**.
 5. Välj **Lägg till ny**.
 6. Hoppa över mallen. Det finns ingen mall som matchar kraven.
@@ -121,8 +121,8 @@ Som standard har tjänst identiteten endast begränsade behörigheter att komma 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Ta bort princip för användar åtkomst från Azure Key Vault
 
 1. Öppna Azure Portal.
-2. Gå till OPC-valvet `resourceGroupName`som används under distributionen.
-3. Gå till Key Vault `resourceGroupName-xxxxx`.
+2. Gå till OPC-valvet `resourceGroupName` som används under distributionen.
+3. Gå till Key Vault `resourceGroupName-xxxxx` .
 4. Gå till **åtkomst principer**.
 5. Hitta användaren som du vill ta bort och välj **ta bort**.
 

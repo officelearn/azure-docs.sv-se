@@ -10,10 +10,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72966442"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Hantera Azure Data Lake Analytics att använda konto principer
@@ -96,7 +96,7 @@ Det finns en standard princip uppsättning för varje konto. Standard principen 
 1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **gränser och principer**.
 3. Under **jobb överförings gränser**söker du efter den princip som du vill redigera.
-4.  Om du vill se alternativen för att **ta bort** och **Redigera** i kolumnen längst till höger i `...`tabellen, klickar du på.
+4.  Om du vill se alternativen för att **ta bort** och **Redigera** i kolumnen längst till höger i tabellen, klickar du på `...` .
 
 ## <a name="additional-resources-for-job-policies"></a>Ytterligare resurser för jobb principer
 * [Blogg inlägg för princip översikt](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)

@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 27832008e8922e339a648985192a58b111555bc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71349649"
 ---
 # <a name="pi-azure-cosmos-db"></a>PI (Azure Cosmos DB)
@@ -29,7 +29,7 @@ PI ()
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel returneras värdet för `PI`.  
+  I följande exempel returneras värdet för `PI` .  
   
 ```sql
 SELECT PI() AS pi 

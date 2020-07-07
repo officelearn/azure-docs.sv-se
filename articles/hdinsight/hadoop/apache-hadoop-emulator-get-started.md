@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73044775"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med en Apache Hadoop sandbox, en emulator på en virtuell dator
 
 Lär dig hur du installerar Apache Hadoop sandbox från Hortonworks på en virtuell dator och lär dig mer om Hadoop-eko systemet. Sand boxen tillhandahåller en lokal utvecklings miljö för att lära sig om Hadoop, Hadoop Distributed File System (HDFS) och jobb överföring. När du är bekant med Hadoop kan du börja använda Hadoop på Azure genom att skapa ett HDInsight-kluster. Mer information om hur du kommer igång finns i [Kom igång med Hadoop på HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Oracle-VirtualBox](https://www.virtualbox.org/). Hämta och installera den [här](https://www.virtualbox.org/wiki/Downloads).
 
@@ -44,14 +44,14 @@ Om du vill ladda ned en äldre version sandbox av HDP, se länkarna under **äld
 
     ![VirtualBox Manager normal start](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. Öppna en webbläsare och gå till den URL som visas (vanligt `http://127.0.0.1:8888`vis).
+1. Öppna en webbläsare och gå till den URL som visas (vanligt vis `http://127.0.0.1:8888` ).
 
 ## <a name="set-sandbox-passwords"></a>Ange lösen ord för sandbox
 
 1. Från steget **Kom igång** på sidan för Hortonworks-sandbox väljer du **Visa avancerade alternativ**. Använd informationen på den här sidan för att logga in på sand boxen med SSH. Använd det namn och lösen ord som angetts.
 
    > [!NOTE]
-   > Om du inte har en SSH-klient installerad kan du använda den webbaserade SSH som tillhandahölls av den virtuella datorn på **http://localhost:4200/**.
+   > Om du inte har en SSH-klient installerad kan du använda den webbaserade SSH som tillhandahölls av den virtuella datorn på **http://localhost:4200/** .
 
     Första gången du ansluter med SSH uppmanas du att ändra lösen ordet för rot kontot. Ange ett nytt lösen ord som du använder när du loggar in med SSH.
 

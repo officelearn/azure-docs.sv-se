@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73483939"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -106,7 +106,7 @@ Med din MXChip IoT-DevKit ansluten till datorn:
 ![Exempel på test procedur](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Du\> kan se rå data för enheten i Azure Portal: IoT Hub-IoT-enheter –\> * \<enhets\> *  - \> enheten är dubbel.
+> Du kan se rå data för enhet dubbla i Azure Portal: IoT Hub- \> IoT-enheter – \> *\<your device\>*  - \> enhets dubbla.
 
 ## <a name="next-steps"></a>Nästa steg
 

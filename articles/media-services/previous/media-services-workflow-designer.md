@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
 ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72801951"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Skapa avancerade arbetsflöden för kodning med Workflow Designer  
@@ -37,7 +37,7 @@ Exempel på arbets flöden som du kan skapa är:
 Det här verktyget kan också användas för att ändra alla [publicerade arbets flöden](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Kontakta mepd@microsoft.comom du vill hämta en kopia av arbetsflödesdesigner-verktyget.
+> Kontakta om du vill hämta en kopia av arbetsflödesdesigner-verktyget mepd@microsoft.com .
 
 När en arbets flödes fil har skapats kan den laddas upp som en till gång och sedan användas för kodning av mediefiler. Information om hur du kodar med **Media Encoder Premium Workflow** med hjälp av **.net**finns i [Avancerad kodning med Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 

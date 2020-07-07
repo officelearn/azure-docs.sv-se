@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176788"
 ---
 # <a name="developer-portal-templates"></a>Mallar för utvecklare
@@ -37,7 +37,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
     -   [Åtgärd](api-management-api-templates.md#Product)  
     -   [Kodexempel](api-management-api-templates.md#CodeSamples)  
         -   [Klammerparentes](api-management-api-templates.md#Curl)  
-        -   [C #](api-management-api-templates.md#CSharp)  
+        -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
         -   [Mål C](api-management-api-templates.md#ObjectiveC)  
@@ -46,7 +46,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [Produkter](api-management-product-templates.md)  
     -   [Produkt lista](api-management-product-templates.md#ProductList)  
-    -   [Momsproduktbokföringsmallar](api-management-product-templates.md#Product)  
+    -   [Produkt](api-management-product-templates.md#Product)  
 -   [Program](api-management-application-templates.md)  
     -   [Program lista](api-management-application-templates.md#ProductList)  
     -   [Program](api-management-application-templates.md#Application)  
@@ -57,7 +57,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
     -   [Prenumerationer](api-management-user-profile-templates.md#Subscriptions)  
     -   [Program](api-management-user-profile-templates.md#Applications)  
     -   [Uppdatera konto information](api-management-user-profile-templates.md#UpdateAccountInfo)  
--   [Kodsidor](api-management-page-templates.md)  
+-   [Sidor](api-management-page-templates.md)  
     -   [Logga in](api-management-page-templates.md#SignIn)  
     -   [Registrera sig](api-management-page-templates.md#SignUp)  
     -   [Sidan hittades inte](api-management-page-templates.md#PageNotFound)

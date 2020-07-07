@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71066760"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Advanced request throttling with Azure API Management (Avancerad begränsning av begäranden med Azure API Management)
@@ -30,7 +30,7 @@ Hittills har frekvens begränsnings funktionerna begränsats till en viss produk
 ## <a name="custom-key-based-throttling"></a>Anpassad nyckelbaserad begränsning
 
 > [!NOTE]
-> - `rate-limit-by-key` Och `quota-by-key` -principerna är inte tillgängliga när du arbetar på användnings nivån i Azure API Management. 
+> - `rate-limit-by-key` Och- `quota-by-key` principerna är inte tillgängliga när du arbetar på användnings nivån i Azure API Management. 
 
 De nya principerna för [hastighets begränsning](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) och [kvot-till-nyckel](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) ger en mer flexibel lösning för trafik kontroll. Med de här nya principerna kan du definiera uttryck för att identifiera de nycklar som används för att spåra användning av trafiken. Sättet det här fungerar är enkelt att illustrera med ett exempel. 
 
@@ -48,7 +48,7 @@ Följande principer begränsar en enskild klients IP-adress till endast 10 anrop
           counter-key="@(context.Request.IpAddress)" />
 ```
 
-Om alla klienter på Internet använder en unik IP-adress kan det vara ett effektivt sätt att begränsa användningen av användare. Det är dock troligt att flera användare delar en enda offentlig IP-adress på grund av att de ansluter till Internet via en NAT-enhet. Trots detta `IpAddress` kan det bästa alternativet för API: er som tillåter oautentiserad åtkomst.
+Om alla klienter på Internet använder en unik IP-adress kan det vara ett effektivt sätt att begränsa användningen av användare. Det är dock troligt att flera användare delar en enda offentlig IP-adress på grund av att de ansluter till Internet via en NAT-enhet. Trots detta kan det bästa alternativet för API: er som tillåter oautentiserad åtkomst `IpAddress` .
 
 ## <a name="user-identity-throttling"></a>Begränsning av användar identitet
 Om en slutanvändare autentiseras kan en begränsnings nyckel genereras baserat på information som unikt identifierar användaren.
@@ -59,7 +59,7 @@ Om en slutanvändare autentiseras kan en begränsnings nyckel genereras baserat 
     counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
 ```
 
-Det här exemplet visar hur du extraherar Authorization-huvudet, konverterar `JWT` det till-objekt och använder ämnet för token för att identifiera användaren och använda den som begränsnings nyckel. Om användar identiteten lagras i `JWT` som en av de andra anspråken, kan det värdet användas i sitt ställe.
+Det här exemplet visar hur du extraherar Authorization-huvudet, konverterar det till- `JWT` objekt och använder ämnet för token för att identifiera användaren och använda den som begränsnings nyckel. Om användar identiteten lagras i `JWT` som en av de andra anspråken, kan det värdet användas i sitt ställe.
 
 ## <a name="combined-policies"></a>Kombinerade principer
 Även om de nya begränsnings principerna ger mer kontroll än befintliga begränsnings principer finns det fortfarande värde som kombinerar båda funktionerna. Begränsning av produkt prenumerations nyckel ([begränsa anrops frekvensen per](/azure/api-management/api-management-access-restriction-policies#LimitCallRate) prenumeration och [Ange användnings kvoten för prenumerationen](/azure/api-management/api-management-access-restriction-policies#SetUsageQuota)) är ett bra sätt att aktivera monetarisering av ett API genom att debiteras baserat på användnings nivåer. Den bättre korniga kontrollen av att kunna begränsas av användaren är kompletterande och förhindrar en användares beteende från att försämra upplevelsen av en annan. 

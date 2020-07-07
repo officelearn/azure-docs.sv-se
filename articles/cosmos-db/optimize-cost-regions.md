@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72753309"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimera kostnaden för flera regioner i Azure Cosmos DB
 
-Du kan när som helst lägga till och ta bort regioner till ditt Azure Cosmos-konto. Det data flöde som du konfigurerar för olika Azure Cosmos-databaser och behållare är reserverade i varje region som är kopplad till ditt konto. Om det data flöde som har allokerats per timme, det vill säga summan av RU/s som kon figurer ATS över alla databaser och behållare för ditt `T` Azure Cosmos-konto är och antalet Azure-regioner som är `N`associerade med ditt databas konto är, är det totala etablerade data flödet för ditt Cosmos-konto för en viss timme lika med:
+Du kan när som helst lägga till och ta bort regioner till ditt Azure Cosmos-konto. Det data flöde som du konfigurerar för olika Azure Cosmos-databaser och behållare är reserverade i varje region som är kopplad till ditt konto. Om det data flöde som har allokerats per timme, det vill säga summan av RU/s som kon figurer ATS över alla databaser och behållare för ditt Azure Cosmos-konto är `T` och antalet Azure-regioner som är associerade med ditt databas konto är `N` , är det totala etablerade data flödet för ditt Cosmos-konto för en viss timme lika med:
 
 1. `T x N RU/s`Om ditt Azure Cosmos-konto har kon figurer ATS med en enda Skriv region. 
 
@@ -25,7 +25,7 @@ Ett etablerat dataflöde med en enda skrivningsregion kostar 0,008 USD/timme per
 
 ## <a name="costs-for-multiple-write-regions"></a>Kostnader för flera Skriv regioner
 
-I ett system med flera huvud servrar ökar `N` de tillgängliga ru: er för Skriv åtgärder de tider där `N` är antalet skriv regioner. Till skillnad från enskilda region skrivningar är varje region nu skrivbar och bör stödja konflikt lösning. Mängden arbets belastning för skrivare har ökat. Från kostnads planerings platsen för att utföra `M` ru/s-värd för skrivningar i hela världen måste du etablera M `RUs` på en container-eller databas nivå. Du kan sedan lägga till så många regioner som du vill och använda dem för skrivningar för att `M` utföra ru-värden i världs omspännande skrivningar. 
+I ett system med flera huvud servrar ökar de tillgängliga ru: er för Skriv åtgärder de `N` tider där `N` är antalet skriv regioner. Till skillnad från enskilda region skrivningar är varje region nu skrivbar och bör stödja konflikt lösning. Mängden arbets belastning för skrivare har ökat. Från kostnads planerings platsen för att utföra `M` ru/s-värd för skrivningar i hela världen måste du etablera M `RUs` på en container-eller databas nivå. Du kan sedan lägga till så många regioner som du vill och använda dem för skrivningar för att utföra ru-värden `M` i världs omspännande skrivningar. 
 
 ### <a name="example"></a>Exempel
 

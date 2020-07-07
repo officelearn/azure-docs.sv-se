@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72794040"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Principer för obeställbara meddelanden och återförsök
@@ -26,7 +26,7 @@ Om du vill ange en plats för död brev behöver du ett lagrings konto för att 
 
 > [!NOTE]
 > - Skapa ett lagrings konto och en BLOB-behållare i lagrings platsen innan du kör kommandona i den här artikeln.
-> - Event Grids tjänsten skapar blobbar i den här behållaren. Namnen på blobbar kommer att ha namnet på Event Grid prenumerationen med alla bokstäver i versaler. Om namnet på prenumerationen t. ex. är min-BLOB-prenumeration, kommer namn på blobarna för obeställbara meddelanden att ha MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. JSON). Det här beteendet är att skydda mot skillnader i fall hantering mellan Azure-tjänster.
+> - Event Grids tjänsten skapar blobbar i den här behållaren. Namnen på blobbar kommer att ha namnet på Event Grid prenumerationen med alla bokstäver i versaler. Om namnet på prenumerationen till exempel är min-BLOB-prenumeration, kommer namn på blobarna för obeställbara meddelanden att ha MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.jspå). Det här beteendet är att skydda mot skillnader i fall hantering mellan Azure-tjänster.
 
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -44,7 +44,7 @@ az eventgrid event-subscription create \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
-Om du vill inaktivera obeställbara meddelanden kör du kommandot igen för att skapa händelse prenumerationen men Ange inget värde för `deadletter-endpoint`. Du behöver inte ta bort händelse prenumerationen.
+Om du vill inaktivera obeställbara meddelanden kör du kommandot igen för att skapa händelse prenumerationen men Ange inget värde för `deadletter-endpoint` . Du behöver inte ta bort händelse prenumerationen.
 
 > [!NOTE]
 > Om du använder Azure CLI på din lokala dator ska du använda Azure CLI version 2.0.56 eller större. Anvisningar om hur du installerar den senaste versionen av Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
@@ -64,7 +64,7 @@ New-AzEventGridSubscription `
   -DeadLetterEndpoint "$storageid/blobServices/default/containers/$containername"
 ```
 
-Om du vill inaktivera obeställbara meddelanden kör du kommandot igen för att skapa händelse prenumerationen men Ange inget värde för `DeadLetterEndpoint`. Du behöver inte ta bort händelse prenumerationen.
+Om du vill inaktivera obeställbara meddelanden kör du kommandot igen för att skapa händelse prenumerationen men Ange inget värde för `DeadLetterEndpoint` . Du behöver inte ta bort händelse prenumerationen.
 
 > [!NOTE]
 > Om du använder Azure-PowerShell på din lokala dator använder du Azure PowerShell version 1.1.0 eller senare. Hämta och installera den senaste Azure PowerShell från [Azure-nedladdningar](https://azure.microsoft.com/downloads/).
@@ -99,7 +99,7 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Om du anger både `event-ttl` och `max-deliver-attempts`, använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
+Om du anger både `event-ttl` och `max-deliver-attempts` , använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -127,7 +127,7 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Om du anger både `EventTtl` och `MaxDeliveryAttempt`, använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
+Om du anger både `EventTtl` och `MaxDeliveryAttempt` , använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
 
 ## <a name="next-steps"></a>Nästa steg
 

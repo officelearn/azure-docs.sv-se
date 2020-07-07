@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212393"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportera och importera Azure Notification Hubs-registreringar i bulk
@@ -115,7 +115,7 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 }
 ```
 
-Förutom URL: erna för indata och utdata skapar det här exemplet `NotificationHubJob` ett objekt som innehåller `JobType` ett-objekt som kan vara någon av följande typer:
+Förutom URL: erna för indata och utdata skapar det här exemplet ett `NotificationHubJob` objekt som innehåller ett `JobType` -objekt som kan vara någon av följande typer:
 
 - `ImportCreateRegistrations`
 - `ImportUpdateRegistrations`
@@ -128,7 +128,7 @@ När jobbet har slutförts kan du kontrol lera resultatet genom att titta på f�
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-De här filerna innehåller en lista över lyckade och misslyckade åtgärder från batchen. Fil formatet är `.cvs`, där varje rad har rad numret för den ursprungliga indatafilen och resultatet av åtgärden (vanligt vis den skapade eller uppdaterade registrerings beskrivningen).
+De här filerna innehåller en lista över lyckade och misslyckade åtgärder från batchen. Fil formatet är `.cvs` , där varje rad har rad numret för den ursprungliga indatafilen och resultatet av åtgärden (vanligt vis den skapade eller uppdaterade registrerings beskrivningen).
 
 ### <a name="full-sample-code"></a>Fullständig exempel kod
 Följande exempel kod importerar registreringar till en Notification Hub.

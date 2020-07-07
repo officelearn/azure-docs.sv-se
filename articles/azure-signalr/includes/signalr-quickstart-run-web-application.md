@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: anthonychu
 ms.service: signalr
 ms.topic: include
@@ -9,7 +9,6 @@ ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 2af9c1dfd13d3aeafa7cf1ac76537117ecc15aff
 ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/02/2020
 ms.locfileid: "84317645"
@@ -19,7 +18,7 @@ ms.locfileid: "84317645"
 1. För att förenkla klient testningen öppnar du webbläsaren till vårt exempel webb program med en enda sida [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/) . 
 
     > [!NOTE]
-    > Källan till HTML-filen finns på [/docs/demo/Chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html). Om du vill vara värd för HTML-koden själv startar du en lokal HTTP-server, till exempel [http-server](https://www.npmjs.com/package/http-server) i */docs/demo/Chat-v2* -katalogen. Se till att ursprunget läggs till i `CORS` inställningen i *Local. Settings. JSON* som liknar exemplet.
+    > Källan till HTML-filen finns på [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html). Om du vill vara värd för HTML-koden själv startar du en lokal HTTP-server, till exempel [http-server](https://www.npmjs.com/package/http-server) i */docs/demo/Chat-v2* -katalogen. Se till att ursprunget läggs till i `CORS` inställningen i *local.settings.jspå* liknande sätt som exemplet.
     > 
     > ```javascript
     > "Host": {

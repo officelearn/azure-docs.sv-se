@@ -11,7 +11,6 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
 ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
-ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
 ms.locfileid: "85807884"

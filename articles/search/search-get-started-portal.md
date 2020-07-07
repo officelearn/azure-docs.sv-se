@@ -10,7 +10,6 @@ ms.topic: quickstart
 ms.date: 06/07/2020
 ms.openlocfilehash: 28eb88a40139352b475851003a1092954a97ef64
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
-ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85954323"
@@ -29,7 +28,7 @@ Guiden **Importera data** är ett Azure Portal verktyg som vägleder dig genom s
 
 Guiden innehåller också sidor för AI-berikning så att du kan extrahera text och struktur från bildfiler och ostrukturerad text. Innehålls bearbetning med AI inkluderar optisk tecken läsning (OCR), nyckel fras och enhets extrahering och bild analys.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha följande:
 

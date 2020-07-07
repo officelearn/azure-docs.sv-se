@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 493ed1a31a23366a90b80d3ab510218c8dce0e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74186638"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Konfigurera en brand Väggs princip för webb program med hjälp av Azure PowerShell
@@ -19,7 +18,7 @@ ms.locfileid: "74186638"
 En princip för Azure Web Application-brandvägg (WAF) definierar kontroller som krävs när en begäran anländer till en front dörr.
 Den här artikeln visar hur du konfigurerar en WAF-princip som består av vissa anpassade regler och med Azure-hanterad standard regel uppsättning aktive rad.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -86,7 +85,7 @@ $managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Versi
 ```
 ## <a name="configure-a-security-policy"></a>Konfigurera en säkerhets princip
 
-Hitta namnet på den resurs grupp som innehåller profilen för front dörren med hjälp `Get-AzResourceGroup`av. Konfigurera sedan en säkerhets princip med skapade regler i föregående steg med [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resurs gruppen som innehåller profilen för den främre dörren.
+Hitta namnet på den resurs grupp som innehåller profilen för front dörren med hjälp av `Get-AzResourceGroup` . Konfigurera sedan en säkerhets princip med skapade regler i föregående steg med [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resurs gruppen som innehåller profilen för den främre dörren.
 
 ```powershell-interactive
 $myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention

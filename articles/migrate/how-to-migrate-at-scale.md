@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74196365"
 ---
 # <a name="scale-migration-of-vms"></a>Skala migrering av virtuella datorer 
@@ -23,7 +22,7 @@ Site Recovery skript är tillgängliga för nedladdning vid [Azure PowerShell ex
 - Stöd för att ange den statiska IP-adressen för det primära NÄTVERKSKORTet på den virtuella mål datorn
 - Skripten tar inte Azure Hybrid-förmån relaterade indata. du måste uppdatera egenskaperna för den replikerade virtuella datorn manuellt i portalen
 
-## <a name="how-does-it-work"></a>Hur fungerar det?
+## <a name="how-does-it-work"></a>Hur fungerar den?
 
 ### <a name="prerequisites"></a>Krav
 Innan du börjar måste du utföra följande steg:
@@ -54,15 +53,15 @@ När CSV-filen är klar kan du utföra följande steg för att utföra migrering
 
 **Aktivitets #** | **Skript namn** | **Beskrivning**
 --- | --- | ---
-1 | asr_startmigration. ps1 | Aktivera replikering för alla virtuella datorer som anges i CSV-skriptet skapar ett CSV-utdata med jobb informationen för varje virtuell dator
-2 | asr_replicationstatus. ps1 | Kontrol lera status för replikeringen. skriptet skapar en CSV med status för varje virtuell dator
-3 | asr_updateproperties. ps1 | När de virtuella datorerna replikeras/skyddas, använder du det här skriptet för att uppdatera mål egenskaperna för den virtuella datorn (beräknings-och nätverks egenskaper)
-4 | asr_propertiescheck. ps1 | Kontrol lera att egenskaperna har uppdaterats korrekt
-5 | asr_testmigration. ps1 |  Starta redundanstestningen av de virtuella datorerna som anges i CSV-skriptet skapar ett CSV-utdata med jobb informationen för varje virtuell dator
-6 | asr_cleanuptestmigration. ps1 | När du manuellt validerar de virtuella datorer som testet misslyckades, kan du använda det här skriptet för att rensa de virtuella datorerna för redundanstest
-7 | asr_migration. ps1 | Utföra en oplanerad redundansväxling för de virtuella datorer som anges i CSV-skriptet skapar skriptet en CSV-fil med jobb informationen för varje virtuell dator. Skriptet stänger inte av lokala virtuella datorer innan redundansväxlingen utlöses för program konsekvens, men du bör stänga av de virtuella datorerna manuellt innan du kör skriptet.
-8 | asr_completemigration. ps1 | Utför åtgärden genomför på de virtuella datorerna och ta bort Azure Site Recovery entiteter
-9 | asr_postmigration. ps1 | Om du planerar att tilldela nätverks säkerhets grupper till nätverkskortet efter redundansväxlingen kan du använda det här skriptet för att göra det. Det tilldelar ett NSG till ett nätverkskort i den virtuella mål datorn.
+1 | asr_startmigration.ps1 | Aktivera replikering för alla virtuella datorer som anges i CSV-skriptet skapar ett CSV-utdata med jobb informationen för varje virtuell dator
+2 | asr_replicationstatus.ps1 | Kontrol lera status för replikeringen. skriptet skapar en CSV med status för varje virtuell dator
+3 | asr_updateproperties.ps1 | När de virtuella datorerna replikeras/skyddas, använder du det här skriptet för att uppdatera mål egenskaperna för den virtuella datorn (beräknings-och nätverks egenskaper)
+4 | asr_propertiescheck.ps1 | Kontrol lera att egenskaperna har uppdaterats korrekt
+5 | asr_testmigration.ps1 |  Starta redundanstestningen av de virtuella datorerna som anges i CSV-skriptet skapar ett CSV-utdata med jobb informationen för varje virtuell dator
+6 | asr_cleanuptestmigration.ps1 | När du manuellt validerar de virtuella datorer som testet misslyckades, kan du använda det här skriptet för att rensa de virtuella datorerna för redundanstest
+7 | asr_migration.ps1 | Utföra en oplanerad redundansväxling för de virtuella datorer som anges i CSV-skriptet skapar skriptet en CSV-fil med jobb informationen för varje virtuell dator. Skriptet stänger inte av lokala virtuella datorer innan redundansväxlingen utlöses för program konsekvens, men du bör stänga av de virtuella datorerna manuellt innan du kör skriptet.
+8 | asr_completemigration.ps1 | Utför åtgärden genomför på de virtuella datorerna och ta bort Azure Site Recovery entiteter
+9 | asr_postmigration.ps1 | Om du planerar att tilldela nätverks säkerhets grupper till nätverkskortet efter redundansväxlingen kan du använda det här skriptet för att göra det. Det tilldelar ett NSG till ett nätverkskort i den virtuella mål datorn.
 
 ## <a name="how-to-migrate-to-managed-disks"></a>Hur migrerar jag till Managed disks?
 Skriptet migrerar som standard de virtuella datorerna till Managed disks i Azure. Om det angivna mål lagrings kontot är ett Premium Storage-konto skapas Premium-hanterade diskar efter migreringen. Lagrings kontot för cachen kan fortfarande vara ett standard konto. Om mål lagrings kontot är ett standard lagrings konto skapas standard diskar efter migreringen. 

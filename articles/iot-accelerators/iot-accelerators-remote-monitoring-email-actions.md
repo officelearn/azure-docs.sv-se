@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74168360"
 ---
 # <a name="add-an-email-action"></a>Lägg till en e-poståtgärd
@@ -160,9 +159,9 @@ Följande steg visar hur du redigerar HTML-e-postmallen. Du kan till exempel ta 
 
     I t. ex. java-koden:`this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
 
-1. Parametrarna i mallen ska ha formatet `${...}`. Ta bort en parameter genom att ta bort raden som krävs. Lägg till en parameter genom att lägga till en rad med det värde som ska infogas.
+1. Parametrarna i mallen ska ha formatet `${...}` . Ta bort en parameter genom att ta bort raden som krävs. Lägg till en parameter genom att lägga till en rad med det värde som ska infogas.
 
-1. Om du vill lägga till bilder eller anpassad text uppdaterar du filen EmailTemplate. HTML direkt.
+1. Om du vill lägga till bilder eller anpassad text uppdaterar du EmailTemplate.HTML-filen direkt.
 
 ## <a name="throttling"></a>Begränsning
 

@@ -4,10 +4,9 @@ description: Använd ett PowerShell-skript för att installera Azure Backup Serv
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 1539089e713bcf8e959707c6ff4a608f062a7c00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172248"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Köra en obevakad installation av Azure Backup Server
@@ -18,9 +17,9 @@ De här stegen gäller inte om du installerar Azure Backup Server v1.
 
 ## <a name="install-backup-server"></a>Installera säkerhets kopierings Server
 
-1. Skapa en textfil på den server som är värd för Azure Backup Server v2 eller senare. (Du kan skapa filen i anteckningar eller i en annan text redigerare.) Spara filen som MABSSetup. ini.
+1. Skapa en textfil på den server som är värd för Azure Backup Server v2 eller senare. (Du kan skapa filen i anteckningar eller i en annan text redigerare.) Spara filen som MABSSetup.ini.
 
-2. Klistra in följande kod i filen MABSSetup. ini. Ersätt texten innanför hakparenteserna (\< \>) med värden från din miljö. Följande text är ett exempel:
+2. Klistra in följande kod i MABSSetup.ini-filen. Ersätt texten innanför hakparenteserna ( \< \> ) med värden från din miljö. Följande text är ett exempel:
 
    ```text
    [OPTIONS]

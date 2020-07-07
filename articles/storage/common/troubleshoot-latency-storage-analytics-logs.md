@@ -11,10 +11,9 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74196507"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Felsöka långa svarstider med hjälp av loggar i Lagringsanalys
@@ -99,10 +98,10 @@ Följande steg visar hur du kan identifiera och felsöka latens problem med hjä
 
    |   |RequestStatus =<br>Klart|RequestStatus =<br>SÄKERHETS NetworkError|Rekommendation|
    |---|---|---|---|
-   |GetBlob|Ja|Inga|[**GetBlob-åtgärd:** RequestStatus = lyckades](#getblob-operation-requeststatus--success)|
-   |GetBlob|Inga|Ja|[**GetBlob-åtgärd:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|Ja|Inga|[**Placerings åtgärd:** RequestStatus = lyckades](#put-operation-requeststatus--success)|
-   |PutBlob|Inga|Ja|[**Placerings åtgärd:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Ja|Nej|[**GetBlob-åtgärd:** RequestStatus = lyckades](#getblob-operation-requeststatus--success)|
+   |GetBlob|Nej|Ja|[**GetBlob-åtgärd:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Ja|Nej|[**Placerings åtgärd:** RequestStatus = lyckades](#put-operation-requeststatus--success)|
+   |PutBlob|Nej|Ja|[**Placerings åtgärd:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Status resultat
 

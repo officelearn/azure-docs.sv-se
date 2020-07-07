@@ -5,10 +5,9 @@ ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74173008"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer
@@ -25,13 +24,13 @@ För skript anropar interna program-API: er, som ingick i IOs och tömde minnes 
 
 1. Logga in som rot användaren på den virtuella Linux-dator som du vill säkerhetskopiera.
 
-2. Från [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)hämtar du **VMSnapshotScriptPluginConfig. JSON** och kopierar den till mappen **/etc/Azure** för alla virtuella datorer som du vill säkerhetskopiera. Om mappen **/etc/Azure** inte finns skapar du den.
+2. Från [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)hämtar du **VMSnapshotScriptPluginConfig.jspå** och kopierar den till mappen **/etc/Azure** för alla virtuella datorer som du vill säkerhetskopiera. Om mappen **/etc/Azure** inte finns skapar du den.
 
-3. Kopiera skriptet för för skript och efter skript för ditt program på alla virtuella datorer som du planerar att säkerhetskopiera. Du kan kopiera skripten till valfri plats på den virtuella datorn. Se till att uppdatera den fullständiga sökvägen till skriptfilerna i filen **VMSnapshotScriptPluginConfig. JSON** .
+3. Kopiera skriptet för för skript och efter skript för ditt program på alla virtuella datorer som du planerar att säkerhetskopiera. Du kan kopiera skripten till valfri plats på den virtuella datorn. Se till att uppdatera den fullständiga sökvägen till skriptfilerna i **VMSnapshotScriptPluginConfig.jspå** filen.
 
 4. Se till att du har följande behörigheter för de här filerna:
 
-   - **VMSnapshotScriptPluginConfig. JSON**: behörighet "600". Till exempel måste bara "rot" användaren ha behörigheterna Läs och skriv för den här filen, och ingen användare ska ha behörigheten "kör".
+   - **VMSnapshotScriptPluginConfig.jspå**: behörighet "600". Till exempel måste bara "rot" användaren ha behörigheterna Läs och skriv för den här filen, och ingen användare ska ha behörigheten "kör".
 
    - **För skript fil**: behörighet "700".  Till exempel måste bara "rot" användaren ha behörigheterna "läsa", "skriva" och "kör" för den här filen.
 
@@ -42,7 +41,7 @@ För skript anropar interna program-API: er, som ingick i IOs och tömde minnes 
    > Om kraven inte uppfylls, körs inte skriptet, vilket resulterar i en krasch och inkonsekvent säkerhets kopiering av fil systemet.
    >
 
-5. Konfigurera **VMSnapshotScriptPluginConfig. JSON** enligt beskrivningen här:
+5. Konfigurera **VMSnapshotScriptPluginConfig.jspå** som beskrivs här:
     - **pluginName**: lämna det här fältet som det är, eller så kanske dina skript inte fungerar som förväntat.
 
     - **preScriptLocation**: Ange den fullständiga sökvägen till för skriptet på den virtuella datorn som ska säkerhets kopie ras.
@@ -75,14 +74,14 @@ Se till att du lägger till lämplig loggning när du skriver ditt för skript o
 | ------------------------ | -------------- | ------------------ |
 | ScriptExecutionFailed |För skriptet returnerade ett fel, så säkerhets kopieringen kanske inte är programkonsekvent.| Åtgärda problemet genom att titta på fel loggarna för skriptet.|  
 |Efter ScriptExecutionFailed |Efter skriptet returnerade ett fel som kan påverka program status. |Granska fel loggarna för skriptet för att åtgärda problemet och kontrol lera program statusen. |
-| ScriptNotFound |För skriptet hittades inte på den plats som anges i konfigurations filen **VMSnapshotScriptPluginConfig. JSON** . |Kontrol lera att för skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
-| Efter ScriptNotFound |Det gick inte att hitta post script på den plats som anges i **VMSnapshotScriptPluginConfig. JSON** -konfigurationsfilen. |Se till att efter skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
+| ScriptNotFound |För skriptet hittades inte på den plats som anges i **VMSnapshotScriptPluginConfig.js** i konfigurations filen. |Kontrol lera att för skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
+| Efter ScriptNotFound |Det gick inte att hitta efter skript på den plats som anges i **VMSnapshotScriptPluginConfig.js** i konfigurations filen. |Se till att efter skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
 | IncorrectPluginhostFile |**Pluginvärdfilen** -filen som medföljer VmSnapshotLinux-tillägget är skadad, så det går inte att köra för skript och post-script och säkerhets kopieringen kommer inte att vara konsekvent.| Avinstallera **VmSnapshotLinux** -tillägget och ominstalleras automatiskt med nästa säkerhets kopiering för att åtgärda problemet. |
-| IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig. JSON** -filen är felaktig, så för skript och efter skript kan inte köras och säkerhets kopieringen kommer inte att vara konsekvent. | Ladda ned kopian från [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) och konfigurera den igen. |
+| IncorrectJSONConfigFile | Filen **VMSnapshotScriptPluginConfig.js** är felaktig, så det går inte att köra för skript och post-script och säkerhets kopieringen kommer inte att vara konsekvent. | Ladda ned kopian från [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) och konfigurera den igen. |
 | InsufficientPermissionforPre – skript | För att skript ska kunna köras måste rot användaren vara ägare till filen och filen ska ha "700"-behörigheter (det vill säga endast "ägare" måste ha behörigheterna "läsa", "skriva" och "köra"). | Se till att "rot" användaren är ägare till skript filen och att endast "ägare" har behörigheterna "läsa", "skriva" och "kör". |
 | InsufficientPermissionforPost – skript | För att skript ska kunna köras bör rot användaren vara ägare till filen och filen ska ha "700"-behörigheter (det vill säga endast "ägare" måste ha behörigheterna "läsa", "skriva" och "köra"). | Se till att "rot" användaren är ägare till skript filen och att endast "ägare" har behörigheterna "läsa", "skriva" och "kör". |
-| Före-ScriptTimeout | Tids gränsen nåddes för körning av programkonsekvent säkerhets kopiering för skript. | Kontrol lera skriptet och öka tids gränsen i filen **VMSnapshotScriptPluginConfig. JSON** som finns på **/etc/Azure**. |
-| Post-ScriptTimeout | Tids gränsen nåddes för körningen av programkonsekvent säkerhets kopierings post-skriptet. | Kontrol lera skriptet och öka tids gränsen i filen **VMSnapshotScriptPluginConfig. JSON** som finns på **/etc/Azure**. |
+| Före-ScriptTimeout | Tids gränsen nåddes för körning av programkonsekvent säkerhets kopiering för skript. | Kontrol lera skriptet och öka tids gränsen i **VMSnapshotScriptPluginConfig.jspå** filen som finns på **/etc/Azure**. |
+| Post-ScriptTimeout | Tids gränsen nåddes för körningen av programkonsekvent säkerhets kopierings post-skriptet. | Kontrol lera skriptet och öka tids gränsen i **VMSnapshotScriptPluginConfig.jspå** filen som finns på **/etc/Azure**. |
 
 ## <a name="next-steps"></a>Nästa steg
 

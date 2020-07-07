@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74173422"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services Vault med REST API
@@ -23,7 +22,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Skapa en begäran
 
-Parametern krävs för *att du ska kunna skapa en begäran.* `{subscription-id}` Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina resurser, tillsammans med `api-version` parametern. I den här `api-version=2016-06-01`artikeln används.
+Parametern krävs för *att du ska kunna skapa en begäran* `{subscription-id}` . Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina resurser, tillsammans med `api-version` parametern. I den här artikeln används `api-version=2016-06-01` .
 
 Följande huvuden krävs:
 
@@ -38,7 +37,7 @@ Mer information om hur du skapar begäran finns i [komponenter i en REST API beg
 
 Följande vanliga definitioner används för att bygga en begär ande text:
 
-|Name  |Krävs  |Typ  |Beskrivning  |
+|Name  |Krävs  |Typ  |Description  |
 |---------|---------|---------|---------|
 |eTag     |         |   Sträng      |  Valfri eTag       |
 |location     |  true       |Sträng         |   Resursplats      |
@@ -66,7 +65,7 @@ Följande exempel text används för att skapa ett valv i "västra USA". Ange pl
 
 Det finns två lyckade svar för åtgärden att skapa eller uppdatera ett Recovery Services-valv:
 
-|Name  |Typ  |Beskrivning  |
+|Name  |Typ  |Description  |
 |---------|---------|---------|
 |200 OK     |   [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 har skapats     | [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Skapad      |

@@ -4,10 +4,9 @@ description: Lär dig mer om de nya funktionerna i Azure Backup Server. Den här
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172384"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
@@ -36,7 +35,7 @@ Backup server v2 eller senare accepterar lagrings volymer. När du lägger till 
 
 Genom att använda backup server v2 eller senare med volymer som disk lagring kan du behålla kontrollen över lagringen. En volym kan vara en enskild disk. Men om du vill utöka lagringen i framtiden kan du skapa en volym från en disk som skapats med hjälp av lagrings utrymmen. Detta kan hjälpa dig om du vill expandera volymen för lagring av säkerhets kopior. Det här avsnittet innehåller metod tips för att skapa en volym med den här installationen.
 
-1. I Serverhanteraren väljer du **fil-och lagrings tjänst** > **volymer** > **lagringspooler**. Under **fysiska diskar**väljer du **ny lagringspool**.
+1. I Serverhanteraren väljer du **fil-och lagrings tjänst**  >  **volymer**  >  **lagringspooler**. Under **fysiska diskar**väljer du **ny lagringspool**.
 
     ![Skapa en ny lagringspool](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -119,7 +118,7 @@ Om du vill använda äldre lagrings enheter med backup server kan du behöva lä
 
 Lägga till disklagring:
 
-1. I administratörskonsol väljer du **hantering** > **disklagring** > **Lägg till**.
+1. I administratörskonsol väljer du **hantering**  >  **disklagring**  >  **Lägg till**.
 
     ![Dialog rutan Lägg till Disklagring](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 

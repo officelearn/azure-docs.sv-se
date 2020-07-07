@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 36af0eeb43fb209ed65f950576f2dc9e97ec3633
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058632"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Distribuera om en virtuell Windows-dator till en ny Azure-nod
@@ -30,7 +30,7 @@ Om du har problem med att felsöka fjärr skrivbords anslutning (RDP) eller prog
 ## <a name="using-azure-powershell"></a>Använda Azure PowerShell
 Kontrol lera att du har det senaste Azure PowerShell 1. x installerat på datorn. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
-I följande exempel distribueras den virtuella datorn `myVM` i resurs gruppen med namnet `myResourceGroup`:
+I följande exempel distribueras den virtuella datorn `myVM` i resurs gruppen med namnet `myResourceGroup` :
 
 ```powershell
 Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"

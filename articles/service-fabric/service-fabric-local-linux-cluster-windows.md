@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 11/20/2017
 ms.author: suhuruli
 ms.openlocfilehash: 1798d57f9fc4004fd2c7d1f1901fcddf850626c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193334"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurera ett Linux Service Fabric-kluster på Windows Developer-datorn
 
 Det här dokumentet beskriver hur du konfigurerar en lokal Linux-Service Fabric på Windows Development-datorer. Det är praktiskt att konfigurera ett lokalt Linux-kluster för att snabbt testa program som är riktade mot Linux-kluster, men som utvecklas på en Windows-dator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Linux-baserade Service Fabric kluster körs inte internt i Windows. För att köra ett lokalt Service Fabric-kluster tillhandahålls en förkonfigurerad Docker-behållar avbildning. Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne

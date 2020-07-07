@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418073"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med Azure Data Factory
@@ -45,7 +45,7 @@ Mer specifikt stöder SAP Business Warehouse Connector:
 - Kopiera data från **InfoCubes och QueryCubes** (inklusive BEX-frågor) med MDX-frågor.
 - Kopiera data med grundläggande autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här SAP Business Warehouse Connector måste du:
 
@@ -54,7 +54,7 @@ Om du vill använda den här SAP Business Warehouse Connector måste du:
 
 >[!TIP]
 >Kontrol lera följande för att felsöka anslutnings problem till SAP BW:
->- Alla beroende bibliotek som extraheras från NetWeaver RFC SDK finns på plats i mappen%windir%\System32. Vanligt vis har den icudt34. dll, icuin34. dll, icuuc34. dll, libicudecnumber. dll, librfc32. dll, libsapucum. dll, sapcrypto. dll, sapcryto_old. dll, sapnwrfc. dll.
+>- Alla beroende bibliotek som extraheras från NetWeaver RFC SDK finns på plats i mappen%windir%\System32. Vanligt vis har IT icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
 >- De portar som krävs för att ansluta till SAP-servern har Aktiver ATS på IR-datorn med egen värd, som vanligt vis är port 3300 och 3201.
 
 ## <a name="getting-started"></a>Komma igång
@@ -67,7 +67,7 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten SAP Business Warehouse (BW):
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **SapBw** | Ja |
 | server | Namnet på den server där SAP BW-instansen finns. | Ja |
@@ -125,7 +125,7 @@ Om du vill kopiera data från SAP BW anger du egenskapen type för data uppsätt
 }
 ```
 
-Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
+Om du använder `RelationalTable` typ av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
@@ -135,7 +135,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från SAP BW, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SapBwSource** | Ja |
 | DocumentDB | Anger MDX-frågan för att läsa data från SAP BW-instansen. | Ja |
@@ -172,7 +172,7 @@ För att kopiera data från SAP BW, stöds följande egenskaper i avsnittet Kopi
 ]
 ```
 
-Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
+Om du använder `RelationalSource` typ av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>Data typs mappning för SAP BW
 

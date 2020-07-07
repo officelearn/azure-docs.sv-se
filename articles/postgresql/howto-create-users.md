@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.openlocfilehash: 127d484d6cfc35368803069f9c3d602e787baa56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80384355"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Skapa användare i Azure Database for PostgreSQL-enskild server
@@ -58,7 +58,7 @@ Användar kontot för Server administratör kan användas för att skapa ytterli
 
 2. Använd administratörs kontot och lösen ordet för att ansluta till din databas server. Använd önskat klient verktyg, till exempel pgAdmin eller psql.
 
-3. Redigera och kör följande SQL-kod. Ersätt placeholder-värdet `<db_user>` med ditt avsedda nya användar namn och plats hållarens `<newdb>` värde med ditt eget databas namn. Ersätt plats hållarens lösen ord med ditt eget starka lösen ord.
+3. Redigera och kör följande SQL-kod. Ersätt placeholder-värdet `<db_user>` med ditt avsedda nya användar namn och plats hållarens värde `<newdb>` med ditt eget databas namn. Ersätt plats hållarens lösen ord med ditt eget starka lösen ord.
 
    Den här SQL-koden skapar en ny databas med namnet testdb, till exempel. Sedan skapar den en ny användare i PostgreSQL-tjänsten och tilldelar Connect-behörigheter till den nya databasen för den användaren.
 
@@ -70,7 +70,7 @@ Användar kontot för Server administratör kan användas för att skapa ytterli
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. Med ett administratörs konto kan du behöva ge ytterligare behörighet för att skydda objekten i databasen. Mer information om databas roller och behörigheter finns i [postgresql-dokumentationen](https://www.postgresql.org/docs/current/static/ddl-priv.html) . Ett exempel:
+4. Med ett administratörs konto kan du behöva ge ytterligare behörighet för att skydda objekten i databasen. Mer information om databas roller och behörigheter finns i [postgresql-dokumentationen](https://www.postgresql.org/docs/current/static/ddl-priv.html) . Till exempel:
 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;

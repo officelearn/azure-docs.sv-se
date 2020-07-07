@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422560"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM-brandväggen för gäst operativ system blockerar inkommande trafik
@@ -53,7 +53,7 @@ Anslut till [serie konsolen och öppna sedan en PowerShell-instans](serial-conso
 
 #### <a name="mitigation-1"></a>Minskning 1
 
-1.  Om Azure-agenten är installerad och fungerar korrekt på den virtuella datorn kan du använda alternativet "Återställ endast konfigurationen" under **support + fel sökning** > **Återställ lösen ord** på VM-menyn.
+1.  Om Azure-agenten är installerad och fungerar korrekt på den virtuella datorn kan du använda alternativet "Återställ endast konfigurationen" under **support + fel sökning**  >  **Återställ lösen ord** på VM-menyn.
 
 2.  Att köra detta återställnings alternativ gör följande:
 

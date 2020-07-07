@@ -17,10 +17,10 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202404"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med E-Remix för försäljnings chef
@@ -35,7 +35,7 @@ Genom att integrera Azure AD med E Sales Manager-Remix får du följande fördel
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med E Sales Manager-Remix behöver du följande objekt:
 
@@ -65,7 +65,7 @@ Om du vill konfigurera integreringen av Azure AD med E Sales Manager-Remix lägg
 
     ![Azure Active Directory-knappen][1]
 
-1. Välj **företags program** > **alla program**.
+1. Välj **företags program**  >  **alla program**.
 
     ![Fönstret "företags program"][2]
     
@@ -101,9 +101,9 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
 
     ![E-Remix för information om domän och URL: er för försäljnings chef](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. I rutan **inloggnings-URL** skriver du en URL i följande format: *\<https://Server-Based-URL>/\<Sub-Domain>/eSales-PC*.
+    a. I rutan **inloggnings-URL** skriver du en URL i följande format: *https:// \<Server-Based-URL> / \<sub-domain> /eSales-PC*.
 
-    b. Skriv en URL i följande format i rutan **identifierare** : *\<https://Server-Based-URL>/\<Sub-Domain>/*.
+    b. I rutan **identifierare** anger du en URL i följande format: *https:// \<Server-Based-URL> / \<sub-domain> / *.
 
     c. Observera **ID** -värdet för senare användning i den här självstudien.
     
@@ -120,7 +120,7 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
 
     Fönstret **Redigera attribut** öppnas.
 
-1. Kopiera **namn områdes** -och **namn** värden. Generera värdet i mönster * \<namn området>/\<namn>* och spara det för senare användning i den här självstudien.
+1. Kopiera **namn områdes** -och **namn** värden. Generera värdet i mönstret *\<Namespace>/\<Name>* och spara det för senare användning i den här självstudien.
 
     ![Fönstret redigera attribut](./media/esalesmanagerremix-tutorial/configure2.png)
 
@@ -142,7 +142,7 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
 
     ![Kommandot "till administratörs meny"](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. I det vänstra fönstret väljer du **system inställnings** > **samarbete med externt system**.
+1. I det vänstra fönstret väljer du **system inställnings**  >  **samarbete med externt system**.
 
     ![Länkarna "system inställningar" och "samarbete med externt system"](./media/esalesmanagerremix-tutorial/configure5.png)
     
@@ -158,7 +158,7 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
     
     b. Välj **e-post**i list rutan i avsnittet **samarbets objekt** .
 
-    c. I rutan **samarbets objekt** klistrar du in det anspråk värde som du kopierade tidigare från Azure Portal (det vill **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** säga).
+    c. I rutan **samarbets objekt** klistrar du in det anspråk värde som du kopierade tidigare från Azure Portal (det vill säga **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** ).
 
     d. I rutan **utfärdare (enhets-ID)** klistrar du in det ID-värde som du kopierade tidigare i avsnittet **E-Remix för Sales Manager-domänen och URL: erna** i Azure Portal.
 
@@ -166,12 +166,12 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
 
     f. I rutan **ID-providerns inloggnings-URL** klistrar du in URL: en för den enkla inloggnings tjänsten för SAML som du kopierade tidigare i Azure Portal.
 
-    g. I rutan **Logga in URL för identitets leverantör** klistrar du in värdet för utloggnings-URL som du kopierade tidigare i Azure Portal.
+    ex. I rutan **Logga in URL för identitets leverantör** klistrar du in värdet för utloggnings-URL som du kopierade tidigare i Azure Portal.
 
     h. Välj **inställningen slutförd**.
 
 > [!TIP]
-> När du konfigurerar appen kan du läsa en kortare version av föregående anvisningar i [Azure Portal](https://portal.azure.com). När du har lagt till appen i avsnittet **Active Directory** > **företags program** väljer du fliken **enkel inloggning** och öppnar sedan den inbäddade dokumentationen i **konfigurations** avsnittet längst ned. Mer information om funktionen Embedded documentation finns i [dokumentationen för Azure AD Embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
+> När du konfigurerar appen kan du läsa en kortare version av föregående anvisningar i [Azure Portal](https://portal.azure.com). När du har lagt till appen i avsnittet **Active Directory**  >  **företags program** väljer du fliken **enkel inloggning** och öppnar sedan den inbäddade dokumentationen i **konfigurations** avsnittet längst ned. Mer information om funktionen Embedded documentation finns i [dokumentationen för Azure AD Embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
@@ -184,7 +184,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
 
     ![Azure Active Directory länken](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Om du vill visa en lista över aktuella användare väljer **du användare och grupper** > **alla användare**.
+1. Om du vill visa en lista över aktuella användare väljer **du användare och grupper**  >  **alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
@@ -214,7 +214,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
 
     ![Konfiguration av E-Remix för försäljnings chef](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Välj **ditt företags inställningar** > **underhåll av avdelningar och anställda**och välj sedan **medarbetare registrerade**.
+1. Välj **ditt företags inställningar**  >  **underhåll av avdelningar och anställda**och välj sedan **medarbetare registrerade**.
 
     ![Fliken "anställda har registrerats"](./media/esalesmanagerremix-tutorial/user1.png)
 
@@ -240,7 +240,7 @@ I det här avsnittet aktiverar du User Britta Simon till att använda enkel inlo
 
 ![Tilldela användar rollen][200] 
 
-1. I Azure Portal öppnar du vyn **program** , går till vyn **katalog** och väljer sedan **företags program** > **alla program**.
+1. I Azure Portal öppnar du vyn **program** , går till vyn **katalog** och väljer sedan **företags program**  >  **alla program**.
 
     ![Länkarna "företags program" och "alla program"][201] 
 

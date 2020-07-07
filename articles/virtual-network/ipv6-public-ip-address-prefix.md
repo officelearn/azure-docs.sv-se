@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80420527"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Reserverat offentligt IPv6-adressprefix
@@ -40,7 +40,7 @@ Följande storlekar för offentliga IP-prefix är tillgängliga:
 
 Prefixlängden anges som en CIDR-mask storlek (Classless Inter-Domain routing). En mask för/128 representerar till exempel en individuell IPv6-adress som IPv6-adresser består av 128 bitar.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
  
 För kostnader som är kopplade till användning av offentliga Azure-IP-adresser, både enskilda IP-adresser och IP-intervall, se [priser för offentliga IP](https://azure.microsoft.com/pricing/details/ip-addresses/)-adresser
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80398239"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
@@ -33,7 +33,7 @@ När du har startat strömningen av sensor data kan du påbörja processen med a
 
  - API-slutpunkt
  - Klientorganisations-ID
- - Klientorganisations-ID
+ - Klient-ID
  - Klienthemlighet
  - EventHub-anslutningssträng
 
@@ -46,7 +46,7 @@ Följ stegen nedan för att generera ovanstående information:
 
 2. **Om du använder FarmBeats version 1.2.7 eller senare hoppar du över steg a, b och c och går till steg 3.** Du kan kontrol lera FarmBeats-versionen genom att välja **inställnings** ikonen i det övre högra hörnet av FARMBEATS-användargränssnittet.
 
-      a.  Gå till **Azure Active Directory** > **app-registreringar**
+      a.  Gå till **Azure Active Directory**  >  **app-registreringar**
 
       b. Välj den **app-registrering** som skapades som en del av din FarmBeats-distribution. Det får samma namn som din FarmBeats-Datahub.
 
@@ -74,7 +74,7 @@ Följ stegen nedan för att generera ovanstående information:
 
     ```
 
-7. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från sidan **Azure Active Directory** > **Översikt** .
+7. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från sidan **Azure Active Directory**  >  **Översikt** .
 
     ```azurepowershell-interactive 
 
@@ -89,7 +89,7 @@ Följ stegen nedan för att generera ovanstående information:
 Nu har du följande information som genereras från föregående avsnitt.
  - API-slutpunkt
  - EventHub-anslutningssträng
- - Klientorganisations-ID
+ - Klient-ID
  - Klienthemlighet
  - Klientorganisations-ID
 

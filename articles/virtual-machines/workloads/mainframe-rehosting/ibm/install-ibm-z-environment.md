@@ -13,10 +13,10 @@ ms.date: 04/02/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72025936"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installera IBM zD&T dev/test-miljö på Azure
@@ -39,7 +39,7 @@ Mer information finns i [Översikt över zD&T](https://www.ibm.com/support/knowl
 
 Den här artikeln visar hur du konfigurerar Z-utveckling och test miljö (zD&T) Enterprise Edition på Azure. Sedan kan du använda webb servern zD&T Enterprise Edition för att skapa och hantera Z-baserade miljöer på Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]
 > IBM tillåter att zD&T Enterprise Edition endast installeras i utvecklings-och test miljöer –*inte* produktions miljöer.
@@ -62,11 +62,11 @@ Den här artikeln visar hur du konfigurerar Z-utveckling och test miljö (zD&T) 
 
 3. Hämta SSH-autentiseringsuppgifterna som visas på bladet **Översikt** på den virtuella datorn via knappen **Anslut** . Välj fliken **SSH** och kopiera SSH-inloggnings kommandot till Urklipp.
 
-4. Logga in på ett [bash-gränssnitt](/azure/cloud-shell/quickstart) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH\<-användar\>\@\<-ID\>IP-adress**. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
+4. Logga in på ett [bash-gränssnitt](/azure/cloud-shell/quickstart) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH \<user id\> \@ \<IP Address\> **. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiera installations filen till servern
 
-Installations filen för webb servern är **ZDT\_install\_ee\_v 12.0.0.1. tgz**. Den ingår i mediet som tillhandahålls av IBM. Du måste ladda upp den här filen till din virtuella Ubuntu-dator.
+Installations filen för webb servern är **ZDT \_ install \_ ee \_ v 12.0.0.1. tgz**. Den ingår i mediet som tillhandahålls av IBM. Du måste ladda upp den här filen till din virtuella Ubuntu-dator.
 
 1. På kommando raden anger du följande kommando för att kontrol lera att allt är uppdaterat i den nyligen skapade avbildningen:
 
@@ -91,7 +91,7 @@ Installations filen för webb servern är **ZDT\_install\_ee\_v 12.0.0.1. tgz**.
 
 ## <a name="install-the-enterprise-edition"></a>Installera Enterprise Edition
 
-1. Gå till ZDT-katalogen och expandera filen ZDT\_install\_ee\_v 12.0.0.1. tgz med följande kommandon:
+1. Gå till ZDT-katalogen och expandera filen ZDT \_ install \_ ee \_ v 12.0.0.1. tgz med följande kommandon:
 
     ```
     cd ZDT

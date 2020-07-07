@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335825"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anteckningar för Application Gateway ingångs kontroll 
@@ -22,7 +22,7 @@ Kubernetes ingress-resursen kan kommenteras med godtyckliga nyckel/värde-par. A
 
 ## <a name="list-of-supported-annotations"></a>Lista över anteckningar som stöds
 
-För att en ingångs resurs ska kunna observeras av AGIC **måste den kommenteras** `kubernetes.io/ingress.class: azure/application-gateway`. AGIC kommer bara att fungera med den ingående resursen i fråga.
+För att en ingångs resurs ska kunna observeras av AGIC **måste den kommenteras** `kubernetes.io/ingress.class: azure/application-gateway` . AGIC kommer bara att fungera med den ingående resursen i fråga.
 
 | Antecknings nyckel | Värdetyp | Standardvärde | Tillåtna värden
 | -- | -- | -- | -- |
@@ -65,14 +65,14 @@ spec:
           serviceName: go-server-service
           servicePort: 80
 ```
-I exemplet ovan har vi definierat en ingress-resurs med namnet `go-server-ingress-bkprefix` med en anteckning. `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` Anteckningen instruerar Application Gateway att skapa en HTTP-inställning, vilket kommer att ha en åsidosättning av sökvägar för sökvägen `/hello` till `/test/`.
+I exemplet ovan har vi definierat en ingress-resurs med namnet `go-server-ingress-bkprefix` med en anteckning `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . Anteckningen instruerar Application Gateway att skapa en HTTP-inställning, vilket kommer att ha en åsidosättning av sökvägar för sökvägen `/hello` till `/test/` .
 
 > [!NOTE] 
 > I ovanstående exempel har vi bara en definierad regel. Anteckningarna är dock tillämpliga för hela ingångs resursen, så om en användare har definierat flera regler, skulle sökvägen för Server delen vara inställd för var och en av de angivna Sök vägarna. Det innebär att om en användare vill ha olika regler med olika sökvägar för prefix (även för samma tjänst) måste de definiera olika ingångs resurser.
 
 ## <a name="tls-redirect"></a>TLS-omdirigering
 
-Application Gateway [kan konfigureras](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) för automatisk omdirigering av http-URL: er till deras https-motsvarigheter. När den här anteckningen är tillgänglig och TLS har kon figurer ATS, skapar Kubernetes ingress Controller en [regel för vidarebefordran med en omdirigerings konfiguration](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) och tillämpar ändringarna på din Application Gateway. Den omdirigering som skapas är `301 Moved Permanently`http.
+Application Gateway [kan konfigureras](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) för automatisk omdirigering av http-URL: er till deras https-motsvarigheter. När den här anteckningen är tillgänglig och TLS har kon figurer ATS, skapar Kubernetes ingress Controller en [regel för vidarebefordran med en omdirigerings konfiguration](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) och tillämpar ändringarna på din Application Gateway. Den omdirigering som skapas är HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Användning
 
@@ -206,8 +206,8 @@ spec:
 Med den här anteckningen kan vi ange om den här slut punkten ska exponeras för den privata IP-adressen för Application Gateway.
 
 > [!NOTE]
-> * Application Gateway stöder inte flera IP-adresser på samma port (exempel: 80/443). Ingress med anteckningen `appgw.ingress.kubernetes.io/use-private-ip: "false"` och en annan `appgw.ingress.kubernetes.io/use-private-ip: "true"` med `HTTP` på gör att AGIC inte kan uppdatera Application Gateway.
-> * För Application Gateway som inte har en privat IP-adress ignoreras `appgw.ingress.kubernetes.io/use-private-ip: "true"` ingressen. Detta återspeglas i styrenhets loggarna och inkommande händelser för dessa ingress med `NoPrivateIP` varning.
+> * Application Gateway stöder inte flera IP-adresser på samma port (exempel: 80/443). Ingress med anteckningen `appgw.ingress.kubernetes.io/use-private-ip: "false"` och en annan med `appgw.ingress.kubernetes.io/use-private-ip: "true"` på gör `HTTP` att AGIC inte kan uppdatera Application Gateway.
+> * För Application Gateway som inte har en privat IP-adress `appgw.ingress.kubernetes.io/use-private-ip: "true"` ignoreras ingressen. Detta återspeglas i styrenhets loggarna och inkommande händelser för dessa ingress med `NoPrivateIP` varning.
 
 
 ### <a name="usage"></a>Användning
@@ -237,10 +237,10 @@ spec:
 
 ## <a name="backend-protocol"></a>Backend-protokoll
 
-Med den här anteckningen kan vi ange det protokoll som Application Gateway bör använda vid pratar med poddar. Protokoll som stöds `http`:,`https`
+Med den här anteckningen kan vi ange det protokoll som Application Gateway bör använda vid pratar med poddar. Protokoll som stöds: `http` ,`https`
 
 > [!NOTE]
-> * Även om självsignerade certifikat stöds på Application Gateway, för närvarande endast stöd `https` för AGIC när poddar använder certifikat som har signerats av en välkänd certifikat utfärdare.
+> * Även om självsignerade certifikat stöds på Application Gateway, för närvarande endast stöd för AGIC `https` när poddar använder certifikat som har signerats av en välkänd certifikat utfärdare.
 > * Se till att inte använda port 80 med HTTPS och port 443 med HTTP på poddar.
 
 ### <a name="usage"></a>Användning

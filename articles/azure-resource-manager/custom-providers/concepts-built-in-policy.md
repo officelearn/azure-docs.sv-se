@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: 00cd1d39c0110aac9ea96f73127e83197976c95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82190137"
 ---
 # <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Distribuera associationer för en anpassad Provider med hjälp av Azure Policy
@@ -29,7 +29,7 @@ Mer information om associationer finns i [Azure Custom providers-resurs onboardi
 
 ## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>Använda den inbyggda principen distribuera associationer 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Om den anpassade providern behöver behörighet till omfånget för principen för att utföra en åtgärd fungerar inte princip distributionen av Associations resursen utan att du beviljar behörigheterna.
 
 ### <a name="policy-assignment"></a>Principtilldelning

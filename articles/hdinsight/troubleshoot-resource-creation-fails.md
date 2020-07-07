@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 527d2d8cb8086ed6b5e87417e2bc80dd52aa6e63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188420"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Felsöka fel i resurs skapande i Azure HDInsight
@@ -35,7 +35,7 @@ Följ dessa steg om du vill begära en kvotökning:
 
 1. Gå till [Azure Portal](https://portal.azure.com)och välj **Hjälp + Support**.
 
-1. Välj **ny supportbegäran**.
+1. Välj **Ny supportbegäran**.
 
 1. På fliken **grundläggande** på sidan **ny supportbegäran** anger du följande information:
 

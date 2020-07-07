@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348385"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Översikt över Azure blockchain service-utveckling
@@ -19,7 +19,7 @@ Med Azure blockchain-tjänsten kan du skapa konsortier blockchain-nätverk för 
 
 Det finns olika typer av klienter för blockchain-nätverk, inklusive fullständiga noder, lätta noder och fjärrklienter. Azure blockchain service skapar ett blockchain-nätverk som innehåller noder. Du kan använda olika klienter som din gateway till Azure blockchain-tjänsten för blockchain-utveckling. Azure blockchain-tjänsten erbjuder grundläggande autentisering eller åtkomst nyckel som en utvecklings slut punkt. Följande är populära klienter som du kan använda Connect.
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visuell Studio-kod
 
 Du kan ansluta till medlemmar i konsortiet med Visual Studio Code-tillägget för Azure blockchain Development Kit. När du har anslutit till ett konsortium kan du kompilera, bygga och distribuera smarta kontrakt till en Azure blockchain service Consortium-medlem.
 

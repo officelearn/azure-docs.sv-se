@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 292844f611008b6dafbed4e46cad07c45dbecc54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72255977"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Öppna ett support ärende för Azure FXT Edge-filer
@@ -26,12 +26,12 @@ Använd Azure Portal för att öppna ett support ärende med Microsofts kund ser
    ![Skärm bild av tomt support ärende formulär](media/fxt-support-blank.png)
 
 1. Fyll i formuläret för begäran.  
-    1. På fliken **grundläggande** väljer du **typ** ``Technical``av problem. 
+    1. På fliken **grundläggande** väljer du typ av **problem** ``Technical`` . 
     1. Välj din prenumeration. 
     1. Under **tjänst**väljer du **Azure FXT Edge**-filer. Du kan behöva klicka på filter kontrollen **alla tjänster** för att hitta den. 
     1. Ange en **Sammanfattning** och välj **problem typen**. 
     ![Skärm bild av tomt support ärende formulär](media/fxt-support-populated.png) 
-    1. Klicka på **Nästa** för att fortsätta. 
+    1. Fortsätt genom att klicka på **Next** . 
 1. På fliken **information** lägger du till mer information om problemet och hur du kontaktar dig. Du kan ladda upp en fil som är relaterad till problemet. 
 1. I **Granska + skapa**, kontrol lera informationen och klicka på knappen **skapa** för att skicka in din begäran.
 

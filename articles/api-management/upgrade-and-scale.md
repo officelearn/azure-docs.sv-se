@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 6edb639cacc48e8b59c458bcf0ac9c9c5e07b030
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203580"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uppgradera och skala en Azure API Management-instans  
@@ -29,7 +29,7 @@ Priset för varje enhet och de tillgängliga funktionerna (till exempel distribu
 >[!NOTE]
 >I artikeln [pris information](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) visas ungefärligt antal enhets kapaciteter på varje nivå. För att få mer exakta siffror måste du titta på ett realistiskt scenario för dina API: er. Se [kapaciteten för en artikel i Azure API Management-instansen](api-management-capacity.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa stegen i den här artikeln måste du:
 

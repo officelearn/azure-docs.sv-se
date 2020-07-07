@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 73b958149d9d6d907785fe1c2c56b8198bb91f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80351092"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
@@ -91,32 +91,32 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS och SAP HANA Database a
 * Konfiguration av klient del
   * IP-10.0.0.7
 * Avsöknings port
-  * Port 620<strong>&lt;nr&gt;</strong>
+  * Port 620<strong> &lt; nr &gt; </strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 36<strong> &lt; nr &gt; </strong> TCP
+    * 39<strong> &lt; nr &gt; </strong> TCP
+    * 81<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
 * Konfiguration av klient del
   * IP-10.0.0.8
 * Avsöknings port
-  * Port 621<strong>&lt;nr&gt;</strong>
+  * Port 621<strong> &lt; nr &gt; </strong>
 * Belastnings Utjämnings regler
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 33<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 * Server dels konfiguration
   * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
@@ -150,7 +150,7 @@ Azure Marketplace innehåller en avbildning för Red Hat Enterprise Linux som du
    1. Administratörens användar namn, administratörs lösen ord eller SSH-nyckel  
       En ny användare skapas som kan användas för att logga in på datorn.
    1. Undernät-ID  
-   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/**&lt;prenumerations-&gt;ID**/resourceGroups/**&lt;resurs grupp namn&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtuellt nätverks namn&gt;**/subnets/**&lt;under näts namn&gt; **
+   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/** &lt; PRENUMERATIONS &gt; -ID**/ResourceGroups/** &lt; resurs grupp namn &gt; **/providers/Microsoft.Network/virtualNetworks/** &lt; virtuellt nätverks namn &gt; **/subnets/** &lt; under näts namn &gt; **
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
@@ -167,7 +167,7 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
    Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Lägg till minst en datadisk till båda virtuella datorerna  
-   Data diskarna används för/usr/SAP/`<SAPSID`>-katalogen
+   Data diskarna används för/usr/SAP/>- `<SAPSID` katalogen
 1. Skapa belastningsutjämnare (intern, standard):  
    1. Skapa IP-adresser för klient delen
       1. IP-10.0.0.7 för ASCS
@@ -708,7 +708,7 @@ Stegen nedan förutsätter att du installerar program servern på en annan serve
 
 ## <a name="install-database"></a>Installera databas
 
-I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda alla databaser som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda alla databaser som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux][sap-hana-ha] . For a list of supported databases, see [SAP Note 1928533][1928533] .
 
 1. Kör installationen av SAP Database instance
 
@@ -742,7 +742,7 @@ Följ dessa steg om du vill installera en SAP-Programserver.
 
    Uppdatera den SAP HANA säkra lagringen så att den pekar på det virtuella namnet på installations programmet för SAP HANA system replikering.
 
-   Kör följande kommando för att lista posterna som \<sapsid>ADM
+   Kör följande kommando för att lista posterna som \<sapsid> ADM
 
    <pre><code>hdbuserstore List
    </code></pre>
@@ -895,7 +895,7 @@ Följ dessa steg om du vill installera en SAP-Programserver.
    <pre><code>[root@nw1-cl-0 ~]# pgrep ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   Om du bara avdödar meddelande servern en gång, startas den om av `sapstart`. Om du tar bort det ofta räcker pacemaker att flytta ASCS-instansen till den andra noden. Kör följande kommandon som rot för att rensa resurs statusen för ASCS-och ERS-instansen efter testet.
+   Om du bara avdödar meddelande servern en gång, startas den om av `sapstart` . Om du tar bort det ofta räcker pacemaker att flytta ASCS-instansen till den andra noden. Kör följande kommandon som rot för att rensa resurs statusen för ASCS-och ERS-instansen efter testet.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02

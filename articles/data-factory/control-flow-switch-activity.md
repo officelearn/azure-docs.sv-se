@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418022"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Växla aktivitet i Azure Data Factory
@@ -67,7 +67,7 @@ Växel aktiviteten ger samma funktioner som en switch-instruktion i programmerin
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
 name | Växel aktivitetens namn. | Sträng | Ja
 typ | Måste anges för att *Växla** | Sträng | Ja
@@ -82,7 +82,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
 > [!NOTE]
 > Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline med växel aktivitet (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline med växel aktivitet (Adfv2QuickStartPipeline.jspå)
 
 ```json
 {
@@ -230,7 +230,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
 
 ```
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService.jspå)
 
 ```json
 {
@@ -244,7 +244,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset. JSON)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset.jspå)
 
 Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller **outputPath2** -parametern för pipelinen. 
 
@@ -272,7 +272,7 @@ Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters.jspå)
 
 ```json
 {

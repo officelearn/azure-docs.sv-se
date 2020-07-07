@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: 25187fd055f40e8b32d840ead2a9c54882446b88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348792"
 ---
 # <a name="azure-app-configuration-faq"></a>Vanliga frågor om Azure App konfiguration
@@ -103,11 +103,11 @@ Du kan inte nedgradera en lagring från standard-nivån till den kostnads fria n
 
 Konfigurations lager på den kostnads fria nivån är begränsade till 1 000 förfrågningar per dag. Konfigurations lager på standard nivån kan uppleva tillfälliga begränsningar när begär ande frekvensen överskrider 20 000 begär Anden per timme.
 
-När en butik når sin gräns returneras HTTP-statuskod 429 för alla begär Anden som görs tills tids perioden går ut. `retry-after-ms` Rubriken i svaret ger en föreslagen vänte tid (i millisekunder) innan begäran görs om.
+När en butik når sin gräns returneras HTTP-statuskod 429 för alla begär Anden som görs tills tids perioden går ut. `retry-after-ms`Rubriken i svaret ger en föreslagen vänte tid (i millisekunder) innan begäran görs om.
 
 Om ditt program regelbundet upplever HTTP-statuskod 429 svar bör du överväga att utforma om det för att minska antalet begär Anden som görs. Mer information finns i [minska begär Anden som görs till app-konfiguration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
 
-## <a name="my-application-receives-http-status-code-429-responses-why"></a>Mitt program tar emot HTTP-statuskod 429 svar. Varför det?
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>Mitt program tar emot HTTP-statuskod 429 svar. Varför?
 
 Du får en HTTP-statuskod 429-svar under följande omständigheter:
 

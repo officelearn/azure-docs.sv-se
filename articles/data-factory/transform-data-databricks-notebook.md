@@ -12,16 +12,16 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419025"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformera data genom att köra en Databricks Notebook
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Databricks Notebook-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Databricks-anteckningsbok i din Azure Databricks-arbetsyta. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks Notebook-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Databricks-anteckningsbok i din Azure Databricks-arbetsyta. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md)   , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Aktivitets definition för Databricks Notebook
 
@@ -57,15 +57,15 @@ Här är exempel-JSON-definitionen för en Databricks Notebook-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
-|Egenskap|Beskrivning|Krävs|
+|Egenskap|Beskrivning|Obligatorisk|
 |---|---|---|
 |name|Namnet på aktiviteten i pipelinen.|Ja|
 |description|Text som beskriver vad aktiviteten gör.|Nej|
 |typ|Aktivitets typen är DatabricksNotebook för Databricks Notebook-aktivitet.|Ja|
-|linkedServiceName|Namnet på den länkade Databricks-tjänsten som Databricks-anteckningsboken körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .|Ja|
+|linkedServiceName|Namnet på den länkade Databricks-tjänsten som Databricks-anteckningsboken körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md)   .|Ja|
 |notebookPath|Den absoluta sökvägen till antecknings boken som ska köras i Databricks-arbetsytan. Sökvägen måste börja med ett snedstreck.|Ja|
 |baseParameters|En matris med nyckel/värde-par. Du kan använda bas parametrar för varje aktivitets körning. Om antecknings boken använder en parameter som inte har angetts används standardvärdet från antecknings boken. Hitta mer information om parametrar i [Databricks Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nej|
-|bibliotek|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med \<sträng, objekt>.|Nej|
+|bibliotek|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med \<string, object> .|Nej|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för Databricks-aktiviteter
@@ -120,7 +120,7 @@ I vissa fall kan du behöva skicka tillbaka vissa värden från antecknings boke
 
 1. I din antecknings bok kan du anropa [dbutils. Notebook. Exit ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) och motsvarande "returnValue" kommer att returneras till Data Factory.
 
-2. Du kan använda utdata i Data Factory genom att använda uttryck som `'@activity('databricks notebook activity name').output.runOutput'`. 
+2. Du kan använda utdata i Data Factory genom att använda uttryck som `'@activity('databricks notebook activity name').output.runOutput'` . 
 
    > [!IMPORTANT]
    > Om du skickar JSON-objekt kan du hämta värden genom att lägga till egenskaps namn. Exempel: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`

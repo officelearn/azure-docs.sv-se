@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: f9fb250109a1c9000eae8da0d6337c96f19f0f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80410546"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Använda Twilio för röst-och SMS-funktioner i PHP
@@ -28,7 +28,7 @@ Twilio fungerar som en framtids framtid, vilket gör det möjligt för utvecklar
 Med **Twilio Voice** kan dina program ringa och ta emot telefonsamtal. **TWILIO SMS** gör det möjligt för ditt program att skicka och ta emot SMS-meddelanden. Med **Twilio-klienten** kan du göra VoIP-samtal från valfri telefon, surfplatta eller webbläsare och har stöd för WebRTC.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Priser och Special erbjudanden för Twilio
-Azure-kunder får ett [Special erbjudande](https://www.twilio.com/azure): kostnads fri $10 Twilio kredit när du uppgraderar ditt Twilio-konto. Den här Twilio-krediten kan tillämpas på alla Twilio-användningar ($10 kredit som motsvarar att skicka så många som 1 000 SMS-meddelanden eller ta emot upp till 1000 inkommande röst minuter, beroende på platsen för ditt telefonnummer och ditt meddelande eller samtals mål). Lös in denna Twilio kredit och kom igång på [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure):.
+Azure-kunder får ett [Special erbjudande](https://www.twilio.com/azure): kostnads fri $10 Twilio kredit när du uppgraderar ditt Twilio-konto. Den här Twilio-krediten kan tillämpas på alla Twilio-användningar ($10 kredit som motsvarar att skicka så många som 1 000 SMS-meddelanden eller ta emot upp till 1000 inkommande röst minuter, beroende på platsen för ditt telefonnummer och ditt meddelande eller samtals mål). Lös in denna Twilio kredit och kom igång på: [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure) .
 
 Twilio är en tjänst för att betala per användning. Det finns inga konfigurations avgifter och du kan när som helst stänga ditt konto. Du hittar mer information på [Twilio-priser][twilio_pricing].
 
@@ -38,20 +38,20 @@ Twilio-API: et är ett RESTful-API som tillhandahåller röst-och SMS-funktioner
 Viktiga aspekter av Twilio-API: et är Twilio-verb och Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio-verb
-API: et använder Twilio-verb. ** &lt;exempelvis&gt; instruerar verbet** Twilio till audibly att leverera ett meddelande på ett samtal.
+API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. ** &lt; &gt; **
 
 Följande är en lista över Twilio-verb. Lär dig mer om andra verb och funktioner via [Twilio Markup Language-dokumentation](https://www.twilio.com/docs/api/twiml).
 
-* Dial: ansluter anroparen till en annan telefon. ** &lt;&gt;**
-* Samla in: samlar in numeriska siffror som anges på telefon tangent bordet. ** &lt;&gt;**
-* Koppla: avslutar ett anrop. ** &lt;&gt;**
-* Play: spelar upp en ljudfil. ** &lt;&gt;**
-* Paus: väntar i tyst **läge&gt;under ett angivet antal sekunder. &lt;**
-* Post: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen. ** &lt;&gt;**
-* Omdirigera: överför kontroll av ett anrop eller SMS till TwiML på en annan URL. ** &lt;&gt;**
-* Avvisa: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering ** &lt;&gt;**
-* Säg: konverterar text till tal som görs i ett samtal. ** &lt;&gt;**
-* SMS: skickar ett SMS-meddelande. ** &lt;&gt;**
+* ** &lt; Dial &gt; **: ansluter anroparen till en annan telefon.
+* ** &lt; Samla &gt; **in: samlar in numeriska siffror som anges på telefon tangent bordet.
+* Koppla: avslutar ett anrop. ** &lt; &gt; **
+* ** &lt; Play &gt; **: spelar upp en ljudfil.
+* ** &lt; Paus &gt; **: väntar i tyst läge under ett angivet antal sekunder.
+* ** &lt; Post &gt; **: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
+* ** &lt; Omdirigera &gt; **: överför kontroll av ett anrop eller SMS till TWIML på en annan URL.
+* ** &lt; Avvisa &gt; **: avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering
+* ** &lt; Säg &gt; **: konverterar text till tal som görs i ett samtal.
+* ** &lt; SMS &gt; **: skickar ett SMS-meddelande.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML är en uppsättning XML-baserade instruktioner som baseras på Twilio-verb som informerar Twilio om hur man bearbetar ett anrop eller SMS.
@@ -73,14 +73,14 @@ När du är redo att skaffa ett Twilio-konto kan du registrera dig på [testa Tw
 När du registrerar dig för ett Twilio-konto får du ett konto-ID och en autentiseringstoken. Båda kommer att behövas för att göra Twilio-API-anrop. För att förhindra obehörig åtkomst till ditt konto bör du skydda din autentiseringstoken. Ditt konto-ID och autentiseringstoken visas på sidan för [Twilio-kontot][twilio_account]i fälten med namnet konto- **sid** respektive **autentiseringstoken**.
 
 ## <a name="create-a-php-application"></a><a id="create_app"></a>Skapa ett PHP-program
-Ett PHP-program som använder Twilio-tjänsten och körs i Azure skiljer sig inte från andra PHP-program som använder tjänsten Twilio. Även om Twilio-tjänsterna är REST-baserade och kan anropas från PHP på flera sätt, kommer den här artikeln att fokusera på hur du använder Twilio-tjänster med [Twilio-bibliotek för php från GitHub][twilio_php]. Mer information om hur du använder Twilio-biblioteket för PHP finns [https://www.twilio.com/docs/libraries/php][twilio_lib_docs]i.
+Ett PHP-program som använder Twilio-tjänsten och körs i Azure skiljer sig inte från andra PHP-program som använder tjänsten Twilio. Även om Twilio-tjänsterna är REST-baserade och kan anropas från PHP på flera sätt, kommer den här artikeln att fokusera på hur du använder Twilio-tjänster med [Twilio-bibliotek för php från GitHub][twilio_php]. Mer information om hur du använder Twilio-biblioteket för PHP finns i [https://www.twilio.com/docs/libraries/php][twilio_lib_docs] .
 
 Detaljerade anvisningar för att skapa och distribuera ett Twilio-/PHP-program till Azure finns i [så här ringer du ett telefonsamtal med Twilio i ett PHP-program på Azure][howto_phonecall_php].
 
 ## <a name="configure-your-application-to-use-twilio-libraries"></a><a id="configure_app"></a>Konfigurera ditt program så att det använder Twilio-bibliotek
 Du kan konfigurera ditt program så att det använder Twilio-biblioteket för PHP på två sätt:
 
-1. Ladda ned Twilio-biblioteket för PHP från GitHub[https://github.com/twilio/twilio-php][twilio_php]() och Lägg till katalogen **tjänster** i ditt program.
+1. Ladda ned Twilio-biblioteket för PHP från GitHub ( [https://github.com/twilio/twilio-php][twilio_php] ) och Lägg till katalogen **tjänster** i ditt program.
    
     ELLER
 2. Installera Twilio-biblioteket för PHP som ett päron paket. Den kan installeras med följande kommandon:
@@ -92,7 +92,7 @@ När du har installerat Twilio-biblioteket för PHP kan du lägga till ett **req
 
         require_once 'Services/Twilio.php';
 
-Mer information finns i [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
+Mer information finns i [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme] .
 
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Gör så här: gör ett utgående samtal
 Följande visar hur du gör ett utgående samtal med hjälp av **Services_Twilio** -klassen. Den här koden använder också en Twilio plats för att returnera TwiML-svaret (Twilio Markup Language). Ersätt värdena för **från** -och **till** -telefonnumret och se till att du verifierar **från** telefonnumret för ditt Twilio-konto innan du kör koden.
@@ -172,7 +172,7 @@ Följande visar hur du skickar ett SMS-meddelande med hjälp av **Services_Twili
     }
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Gör så här: Tillhandahåll TwiML svar från din egen webbplats
-När ditt program initierar ett anrop till Twilio-API: et skickar Twilio din begäran till en URL som förväntas returnera ett TwiML-svar. Exemplet ovan använder Twilio-URL: en [https://twimlets.com/message][twimlet_message_url]. (Även om TwiML har utformats för användning av Twilio kan du Visa den i webbläsaren. Klicka till exempel på [https://twimlets.com/message][twimlet_message_url] om du vill se `<Response>` ett tomt element. ett annat exempel är om [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] du klickar för `<Response>` att se ett element `<Say>` som innehåller ett-element.)
+När ditt program initierar ett anrop till Twilio-API: et skickar Twilio din begäran till en URL som förväntas returnera ett TwiML-svar. Exemplet ovan använder Twilio-URL: en [https://twimlets.com/message][twimlet_message_url] . (Även om TwiML har utformats för användning av Twilio kan du Visa den i webbläsaren. Klicka till exempel om [https://twimlets.com/message][twimlet_message_url] du vill visa ett tomt `<Response>` element. Klicka på ett annat exempel [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] om du vill se ett `<Response>` element som innehåller ett `<Say>` -element.)
 
 I stället för att förlita dig på Twilio-URL: en kan du skapa en egen webbplats som returnerar HTTP-svar. Du kan skapa webbplatsen på valfritt språk som returnerar XML-svar. i det här avsnittet förutsätter vi att du använder PHP för att skapa TwiML.
 
@@ -186,7 +186,7 @@ Följande PHP-sida resulterar i ett TwiML-svar som säger **Hello World** på an
         <Say>Hello world.</Say>
     </Response>
 
-Som du kan se i exemplet ovan är TwiML-svaret bara ett XML-dokument. Twilio-biblioteket för PHP innehåller klasser som ska generera TwiML åt dig. Exemplet nedan genererar motsvarande svar enligt ovan, men använder klassen **\_Services Twilio\_Twiml** i Twilio-biblioteket för php:
+Som du kan se i exemplet ovan är TwiML-svaret bara ett XML-dokument. Twilio-biblioteket för PHP innehåller klasser som ska generera TwiML åt dig. Exemplet nedan genererar motsvarande svar enligt ovan, men använder klassen **Services \_ Twilio \_ Twiml** i TWILIO-biblioteket för php:
 
     require_once('Services/Twilio.php');
 
@@ -194,9 +194,9 @@ Som du kan se i exemplet ovan är TwiML-svaret bara ett XML-dokument. Twilio-bib
     $response->say("Hello world.");
     print $response;
 
-Mer information om TwiML finns i [https://www.twilio.com/docs/api/twiml][twiml_reference]. 
+Mer information om TwiML finns i [https://www.twilio.com/docs/api/twiml][twiml_reference] . 
 
-När du har konfigurerat PHP-sidan för att tillhandahålla TwiML svar, använder du URL: en för PHP-sidan som den URL som `Services_Twilio->account->calls->create` skickades till-metoden. Om du till exempel har ett webb program med namnet **MyTwiML** som har distribuerats till en Azure-värdbaserad tjänst och namnet på php-sidan är **MyTwiML. php**, kan URL: en skickas till **Services_Twilio->konto->anrop->skapa** som visas i följande exempel:
+När du har konfigurerat PHP-sidan för att tillhandahålla TwiML svar, använder du URL: en för PHP-sidan som den URL som skickades till- `Services_Twilio->account->calls->create` metoden. Om du till exempel har ett webb program med namnet **MyTwiML** som har distribuerats till en Azure-värdbaserad tjänst och namnet på php-sidan är **MyTwiML. php**, kan URL: en skickas till **Services_Twilio->konto->anrop->skapa** som visas i följande exempel:
 
     require_once 'Services/Twilio.php';
 

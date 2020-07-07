@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418009"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sök aktivitet i Azure Data Factory
@@ -64,13 +64,13 @@ firstRowOnly | Anger om bara den första raden eller alla rader ska returneras. 
 > 
 > * Käll kolumner med **ByteArray** -typ stöds inte.
 > * **Strukturen** stöds inte i data uppsättnings definitioner. För textformat-filer använder du rubrik raden för att ange kolumn namnet.
-> * Om din uppslags källa är en JSON- `jsonPathDefinition` fil stöds inte inställningen för att omforma JSON-objektet. Hela objekten kommer att hämtas.
+> * Om din uppslags källa är en JSON-fil `jsonPathDefinition` stöds inte inställningen för att OMFORMA JSON-objektet. Hela objekten kommer att hämtas.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Använd Sök aktivitets resultatet i en efterföljande aktivitet
 
 Sök resultatet returneras i `output` avsnittet i aktivitets körnings resultatet.
 
-* **När `firstRowOnly` är inställt på `true` (standard)** visas utdataformatet som i följande kod. Uppslags resultatet är under en `firstRow` fast nyckel. Använd mönstret i om `@{activity('MyLookupActivity').output.firstRow.TableName}`du vill använda resultatet i efterföljande aktivitet.
+* **När `firstRowOnly` är inställt på `true` (standard)** visas utdataformatet som i följande kod. Uppslags resultatet är under en fast `firstRow` nyckel. Använd mönstret i om du vill använda resultatet i efterföljande aktivitet `@{activity('MyLookupActivity').output.firstRow.TableName}` .
 
     ```json
     {
@@ -82,7 +82,7 @@ Sök resultatet returneras i `output` avsnittet i aktivitets körnings resultate
     }
     ```
 
-* **När `firstRowOnly` är inställt på `false` **visas utdataformatet som i följande kod. Ett `count` fält indikerar hur många poster som returneras. Detaljerade värden visas under en fast `value` matris. I sådana fall följs söknings aktiviteten av en [förgrunds aktivitet](control-flow-for-each-activity.md). Du skickar `value` matrisen till fältet för förgrunds aktiviteter `items` med hjälp av mönstret `@activity('MyLookupActivity').output.value`. Använd följande syntax för att `value` få åtkomst till element i matrisen `@{activity('lookupActivity').output.value[zero based index].propertyname}`:. Ett exempel är `@{activity('lookupActivity').output.value[0].tablename}`.
+* **När `firstRowOnly` är inställt på `false` **visas utdataformatet som i följande kod. Ett `count` fält indikerar hur många poster som returneras. Detaljerade värden visas under en fast `value` matris. I sådana fall följs söknings aktiviteten av en [förgrunds aktivitet](control-flow-for-each-activity.md). Du skickar `value` matrisen till fältet för förgrunds aktiviteter `items` med hjälp av mönstret `@activity('MyLookupActivity').output.value` . Använd följande syntax för att få åtkomst till element i `value` matrisen: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Ett exempel är `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -166,7 +166,7 @@ Den här pipelinen innehåller två aktiviteter: lookup och Copy.
 ```
 
 ### <a name="lookup-dataset"></a>Sök efter data uppsättning
-**Sök** data uppsättningen är **SourceTable. JSON** -filen i sökmappen Azure Storage som anges av typen **AzureStorageLinkedService** . 
+**Sök** data uppsättningen är **sourcetable.js** i filen i mappen Azure Storage sökning som anges av **AzureStorageLinkedService** -typen. 
 
 ```json
 {
@@ -209,7 +209,7 @@ Den här pipelinen innehåller två aktiviteter: lookup och Copy.
 ```
 
 ### <a name="sink-dataset-for-copy-activity"></a>**Mottagar** data uppsättning för kopierings aktivitet
-Kopierings aktiviteten kopierar data från SQL-tabellen till **filebylookup. csv** -filen i **CSV** -mappen i Azure Storage. Filen anges av egenskapen **AzureStorageLinkedService** . 
+Kopierings aktiviteten kopierar data från SQL-tabellen till den **filebylookup.csv** filen i **CSV** -mappen i Azure Storage. Filen anges av egenskapen **AzureStorageLinkedService** . 
 
 ```json
 {
@@ -262,7 +262,7 @@ Den här Azure SQL Database-instansen innehåller de data som ska kopieras till 
 }
 ```
 
-### <a name="sourcetablejson"></a>SourceTable. JSON
+### <a name="sourcetablejson"></a>sourcetable.jspå
 
 #### <a name="set-of-objects"></a>Uppsättning objekt
 

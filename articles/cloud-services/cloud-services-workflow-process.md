@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
 ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71162151"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Arbets flöde för klassisk virtuell dator arkitektur i Windows Azure 
@@ -39,7 +39,7 @@ Följande diagram visar arkitekturen i Azure-resurser.
 
 **C**. Värd agenten finns på värd-OS och ansvarar för att konfigurera gäst operativ system och kommunicera med gästa Gent (WindowsAzureGuestAgent) för att uppdatera rollen mot ett avsett mål tillstånd och utföra pulsslags kontroller med gäst agenten. Om värd agenten inte får pulsslags svar i 10 minuter startar värd agenten om gäst operativ systemet.
 
-**C2**. WaAppAgent ansvarar för att installera, konfigurera och uppdatera WindowsAzureGuestAgent. exe.
+**C2**. WaAppAgent ansvarar för att installera, konfigurera och uppdatera WindowsAzureGuestAgent.exe.
 
 **D**.  WindowsAzureGuestAgent ansvarar för följande:
 
@@ -69,11 +69,11 @@ Följande diagram visar arkitekturen i Azure-resurser.
 
 **I**. WaWorkerHost är standard värd processen för normala arbets roller. Denna värd process är värd för alla rollens DLL-filer och start punkts kod, till exempel OnStart och kör.
 
-**J**. WaWebHost är en standard värd process för webb roller om de är konfigurerade för att använda SDK: n 1,2-kompatibel, Värdable Web Core (INSTANSEN). Roller kan aktivera INSTANSEN-läget genom att ta bort elementet från tjänst definitionen (. csdef). I det här läget körs all tjänst kod och DLL: er från WaWebHost-processen. IIS (W3wp) används inte, och det finns inga AppPools konfigurerade i IIS-hanteraren eftersom IIS finns i WaWebHost. exe.
+**J**. WaWebHost är en standard värd process för webb roller om de är konfigurerade för att använda SDK: n 1,2-kompatibel, Värdable Web Core (INSTANSEN). Roller kan aktivera INSTANSEN-läget genom att ta bort elementet från tjänst definitionen (. csdef). I det här läget körs all tjänst kod och DLL: er från WaWebHost-processen. IIS (W3wp) används inte, och det finns inga AppPools konfigurerade i IIS-hanteraren eftersom IIS finns i WaWebHost.exe.
 
 **K**. WaIISHost är värd processen för roll start punkt kod för webb roller som använder fullständig IIS. Den här processen läser in den första DLL som finns som använder klassen **RoleEntryPoint** och kör koden från den här klassen (OnStart, Run, OnStop). Alla **RoleEnvironment** -händelser (till exempel StatusCheck och ändrade) som skapas i klassen RoleEntryPoint aktive ras i den här processen.
 
-**L**. W3WP är den vanliga IIS-arbetsprocessen som används om rollen har kon figurer ATS för att använda fullständig IIS. Detta kör AppPool som har kon figurer ATS från IISConfigurator. Alla RoleEnvironment-händelser (till exempel StatusCheck och ändrade) som skapas här genereras i den här processen. Observera att RoleEnvironment-händelser kommer att utlösas på båda platserna (WaIISHost och W3wp. exe) om du prenumererar på händelser i båda processerna.
+**L**. W3WP är den vanliga IIS-arbetsprocessen som används om rollen har kon figurer ATS för att använda fullständig IIS. Detta kör AppPool som har kon figurer ATS från IISConfigurator. Alla RoleEnvironment-händelser (till exempel StatusCheck och ändrade) som skapas här genereras i den här processen. Observera att RoleEnvironment-händelser kommer att utlösas på båda platserna (WaIISHost och w3wp.exe) om du prenumererar på händelser i båda processerna.
 
 ## <a name="workflow-processes"></a>Arbets flödes processer
 
@@ -83,11 +83,11 @@ Följande diagram visar arkitekturen i Azure-resurser.
 4. Värd agenten startar gäst operativ systemet och kommunicerar med gäst agenten (WindowsAzureGuestAgent). Värden skickar pulsslag till gästen för att se till att rollen fungerar mot målets tillstånd.
 5. WindowsAzureGuestAgent konfigurerar gäst operativ systemet (brand vägg, ACL: er, LocalStorage och så vidare), kopierar en ny XML-konfigurationsfil till c:\Config och startar sedan WaHostBootstrapper-processen.
 6. För fullständiga IIS-webbroller startar WaHostBootstrapper IISConfigurator och anger att den tar bort alla befintliga AppPools för webb rollen från IIS.
-7. WaHostBootstrapper läser **Start** uppgifterna från E:\RoleModel.xml och börjar köra start åtgärder. WaHostBootstrapper väntar tills alla enkla start aktiviteter har slutförts och returnerat meddelandet "lyckades".
-8. För fullständiga IIS-webbroller instruerar WaHostBootstrapper IISConfigurator att konfigurera IIS-AppPool och pekar på `E:\Sitesroot\<index>`platsen, `<index>` där är ett 0-baserat index för antalet `<Sites>` element som definierats för tjänsten.
+7. WaHostBootstrapper läser **Start** åtgärderna från E:\RoleModel.xml och börjar köra start åtgärder. WaHostBootstrapper väntar tills alla enkla start aktiviteter har slutförts och returnerat meddelandet "lyckades".
+8. För fullständiga IIS-webbroller instruerar WaHostBootstrapper IISConfigurator att konfigurera IIS-AppPool och pekar på platsen `E:\Sitesroot\<index>` , där `<index>` är ett 0-baserat index för antalet `<Sites>` element som definierats för tjänsten.
 9. WaHostBootstrapper kommer att starta värd processen beroende på roll typen:
-    1. **Arbets roll**: WaWorkerHost. exe har startats. WaHostBootstrapper kör metoden OnStart (). När den har returnerat börjar WaHostBootstrapper att köra Run ()-metoden och markerar sedan rollen som klar och placerar den i belastnings Utjämnings rotationen (om InputEndpoints har definierats). WaHostBootsrapper hamnar sedan i en slinga för att kontrol lera rollens status.
-    1. **SDK 1,2 instansen-webbroll**: WaWebHost har startats. WaHostBootstrapper kör metoden OnStart (). När den har returnerat börjar WaHostBootstrapper att köra Run ()-metoden, och markerar sedan rollen som färdig och placerar den i belastnings Utjämnings rotationen. WaWebHost utfärdar en uppvärmnings-begäran (GET/do. rd_runtime_init). Alla webb förfrågningar skickas till WaWebHost. exe. WaHostBootsrapper hamnar sedan i en slinga för att kontrol lera rollens status.
+    1. **Arbets roll**: WaWorkerHost.exe startas. WaHostBootstrapper kör metoden OnStart (). När den har returnerat börjar WaHostBootstrapper att köra Run ()-metoden och markerar sedan rollen som klar och placerar den i belastnings Utjämnings rotationen (om InputEndpoints har definierats). WaHostBootsrapper hamnar sedan i en slinga för att kontrol lera rollens status.
+    1. **SDK 1,2 instansen-webbroll**: WaWebHost har startats. WaHostBootstrapper kör metoden OnStart (). När den har returnerat börjar WaHostBootstrapper att köra Run ()-metoden, och markerar sedan rollen som färdig och placerar den i belastnings Utjämnings rotationen. WaWebHost utfärdar en uppvärmnings-begäran (GET/do. rd_runtime_init). Alla webb förfrågningar skickas till WaWebHost.exe. WaHostBootsrapper hamnar sedan i en slinga för att kontrol lera rollens status.
     1. **Fullständig IIS-webbroll**: aIISHost har startats. WaHostBootstrapper kör metoden OnStart (). När den har returnerats börjar metoden Run () att köras. därefter märks rollen som färdig och den läggs till i belastningsutjämnaren för belastnings utjämning. WaHostBootsrapper hamnar sedan i en slinga för att kontrol lera rollens status.
 10. Inkommande webb förfrågningar till en fullständig IIS-webbroll utlöser IIS för att starta W3WP-processen och betjäna begäran, samma som i en lokal IIS-miljö.
 

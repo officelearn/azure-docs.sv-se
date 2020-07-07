@@ -10,16 +10,16 @@ ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.openlocfilehash: 16c503fe2d584d5f8256c65bfc49825b300f6a36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71672733"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Lägga till en användare i Azure-portalen
 
 ## <a name="start-the-add-user-wizard"></a>Starta guiden Lägg till användare
-1. Öppna din Azure Data Lake Analytics via https://portal.azure.com.
+1. Öppna din Azure Data Lake Analytics via https://portal.azure.com .
 2. Klicka på **guiden Lägg till användare**.
 3. Leta upp den användare som du vill lägga till i steget **Välj användare** . Klicka på **Välj**.
 4. steget **Välj roll** , Välj **data Lake Analytics utvecklare**. Den här rollen har den lägsta uppsättning behörigheter som krävs för att skicka/övervaka/hantera U-SQL-jobb. Tilldela den här rollen om gruppen inte är avsedd för hantering av Azure-tjänster.
@@ -43,7 +43,7 @@ Bevilja "R-X" eller "RWX", om det behövs, i mappar som innehåller indata och u
 ## <a name="adding-a-user-using-powershell"></a>Lägga till en användare med hjälp av PowerShell
 
 1. Följ anvisningarna i den här guiden: [så här installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-2. Hämta PowerShell-skriptet [Add-AdlaJobUser. ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) .
+2. Ladda ned [Add-AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) PowerShell-skriptet.
 3. Kör PowerShell-skriptet. 
 
 Exempel kommandot för att ge användarna åtkomst till att skicka jobb, Visa nya metadata för jobb och Visa gamla metadata:

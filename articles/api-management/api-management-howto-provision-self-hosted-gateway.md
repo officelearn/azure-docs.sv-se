@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
 ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203139"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Etablera en gateway för egen värd i Azure API Management
 
 Att tillhandahålla en gateway-resurs i Azure API Management-instansen är en förutsättning för att distribuera en gateway med egen värd. Den här artikeln vägleder dig genom stegen för att etablera en gateway-resurs i API Management.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 

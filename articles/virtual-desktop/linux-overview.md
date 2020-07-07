@@ -9,10 +9,10 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422422"
 ---
 # <a name="linux-support"></a>Linux-support
@@ -69,8 +69,8 @@ Innan du kan utveckla en Linux-klient för Windows Virtual Desktop måste du gö
 
 Kolla in vår dokumentation för följande klienter:
 
-- [Windows Desktop-klient](connect-windows-7-and-10.md)
-- [Webb klient](connect-web.md)
+- [Klient för Windows-skrivbordet](connect-windows-7-and-10.md)
+- [Webbklient](connect-web.md)
 - [Android-klient](connect-android.md)
 - [macOS-klient](connect-macos.md)
 - [iOS-klient](connect-ios.md)

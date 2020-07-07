@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
 ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058444"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Återställa Fjärrskrivbordstjänster eller dess administratörs lösen ord på en virtuell Windows-dator
@@ -59,7 +59,7 @@ Kontrol lera först att du har den [senaste PowerShell-modulen installerad och k
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Återställa lösen ordet för det lokala administratörs kontot**
 
-- Återställ administratörs lösen ordet eller användar namnet med PowerShell-cmdleten [set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) . `typeHandlerVersion` Inställningen måste vara 2,0 eller större, eftersom version 1 är föråldrad. 
+- Återställ administratörs lösen ordet eller användar namnet med PowerShell-cmdleten [set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) . `typeHandlerVersion`Inställningen måste vara 2,0 eller större, eftersom version 1 är föråldrad. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -77,14 +77,14 @@ Kontrol lera först att du har den [senaste PowerShell-modulen installerad och k
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Återställa Fjärrskrivbordstjänster-konfigurationen**
 
-1. Återställ fjärråtkomst till den virtuella datorn med PowerShell [-cmdleten Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) . I följande exempel återställs åtkomst tillägget som heter `myVMAccess` på den virtuella datorn `myVM` med namnet `myResourceGroup` i resurs gruppen:
+1. Återställ fjärråtkomst till den virtuella datorn med PowerShell [-cmdleten Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) . I följande exempel återställs åtkomst tillägget som heter `myVMAccess` på den virtuella datorn med namnet `myVM` i `myResourceGroup` resurs gruppen:
 
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
     ```
 
     > [!TIP]
-    > En virtuell dator kan när som helst ha en enda VM-programåtkomst agent. Använd `-ForceRerun` alternativet för att ställa in agent egenskaperna för VM-åtkomst. När du använder `-ForceRerun`, se till att du använder samma namn för VM-agenttjänsten som du kanske har använt i tidigare kommandon.
+    > En virtuell dator kan när som helst ha en enda VM-programåtkomst agent. Använd alternativet för att ställa in agent egenskaperna för VM-åtkomst `-ForceRerun` . När du använder `-ForceRerun` , se till att du använder samma namn för VM-agenttjänsten som du kanske har använt i tidigare kommandon.
 
 1. Om du fortfarande inte kan fjärrans luta till den virtuella datorn kan du läsa [Felsök fjärr skrivbords anslutningar till en Windows-baserad virtuell Azure-dator](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Om du förlorar anslutningen till Windows-domänkontrollanten måste du återställa den från en säkerhets kopia av domänkontrollanten.
 

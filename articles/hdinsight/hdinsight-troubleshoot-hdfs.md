@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6de9e31c3e79f6d704ef8b4749d41329dcc0bddb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82190696"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop HDFS med Azure HDInsight
@@ -25,9 +25,9 @@ Lär dig de vanligaste problemen och lösningarna när du arbetar med Hadoop Dis
 
 Få åtkomst till den lokala HDFS från kommando raden och program koden i stället för att använda Azure Blob Storage eller Azure Data Lake Storage inifrån HDInsight-klustret.
 
-### <a name="resolution-steps"></a>Lösningsanvisningar
+### <a name="resolution-steps"></a>Lösningssteg
 
-1. I kommando tolken använder `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` du bokstavligen, som i följande kommando:
+1. I kommando tolken använder du `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` bokstavligen, som i följande kommando:
 
     ```output
     hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
@@ -37,7 +37,7 @@ Få åtkomst till den lokala HDFS från kommando raden och program koden i stäl
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. Från käll koden använder du URI: `hdfs://mycluster/` n, som i följande exempel program:
+2. Från käll koden använder du URI `hdfs://mycluster/` : n, som i följande exempel program:
 
     ```Java
     import java.io.IOException;
@@ -62,7 +62,7 @@ Få åtkomst till den lokala HDFS från kommando raden och program koden i stäl
     }
     ```
 
-3. Kör den kompilerade. jar-filen (till exempel en fil med `java-unit-tests-1.0.jar`namnet) i HDInsight-klustret med följande kommando:
+3. Kör den kompilerade. jar-filen (till exempel en fil med namnet `java-unit-tests-1.0.jar` ) i HDInsight-klustret med följande kommando:
 
     ```apache
     hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -76,7 +76,7 @@ Få åtkomst till den lokala HDFS från kommando raden och program koden i stäl
 
 ### <a name="issue"></a>Problem
 
-När du använder `hadoop` kommandona eller `hdfs dfs` för att skriva filer som är ~ 12 GB eller större i ett HBase-kluster, kan du komma över följande fel:
+När du använder `hadoop` `hdfs dfs` kommandona eller för att skriva filer som är ~ 12 GB eller större i ett HBase-kluster, kan du komma över följande fel:
 
 ```error
 ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -102,7 +102,7 @@ Caused by: com.microsoft.azure.storage.StorageException: The request body is too
 
 ### <a name="cause"></a>Orsak
 
-HBase på HDInsight-kluster standardvärdet är en block storlek på 256 KB vid skrivning till Azure Storage. Även om det fungerar för HBase-API: er eller REST API: er, resulterar det `hadoop` i `hdfs dfs` ett fel när du använder kommando rads verktygen eller.
+HBase på HDInsight-kluster standardvärdet är en block storlek på 256 KB vid skrivning till Azure Storage. Även om det fungerar för HBase-API: er eller REST API: er, resulterar det i ett fel när du använder `hadoop` `hdfs dfs` kommando rads verktygen eller.
 
 ### <a name="resolution"></a>Lösning
 
@@ -114,9 +114,9 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Du kan också öka värdet för `fs.azure.write.request.size` globalt genom att använda Apache Ambari. Följande steg kan användas för att ändra värdet i Ambari-webbgränssnittet:
 
-1. I webbläsaren går du till Ambari-webbgränssnittet för klustret. URL-adressen `https://CLUSTERNAME.azurehdinsight.net`är, `CLUSTERNAME` där är namnet på klustret. När du uppmanas till det anger du administratörens namn och lösen ord för klustret.
+1. I webbläsaren går du till Ambari-webbgränssnittet för klustret. URL-adressen är `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret. När du uppmanas till det anger du administratörens namn och lösen ord för klustret.
 2. Välj **HDFS**på vänster sida av skärmen och välj sedan fliken **konfigurationer** .
-3. I fältet **filter...** anger `fs.azure.write.request.size`du.
+3. I fältet **filter...** anger du `fs.azure.write.request.size` .
 4. Ändra värdet från 262144 (256 KB) till det nya värdet. Till exempel 4194304 (4 MB).
 
     ![Bild av att ändra värdet via Ambari-webbgränssnittet](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
@@ -125,10 +125,10 @@ Mer information om hur du använder Ambari finns i [Hantera HDInsight-kluster me
 
 ## <a name="du"></a>Gaz
 
-[`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) Kommandot visar fil storlekar och kataloger i den aktuella katalogen eller filens längd, om det bara är en fil.
+[`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du)Kommandot visar fil storlekar och kataloger i den aktuella katalogen eller filens längd, om det bara är en fil.
 
-`-s` Alternativet genererar en sammanställd Sammanfattning av fil längder som visas.  
-`-h` Alternativet formaterar fil storlekarna.
+`-s`Alternativet genererar en sammanställd Sammanfattning av fil längder som visas.  
+`-h`Alternativet formaterar fil storlekarna.
 
 Exempel:
 

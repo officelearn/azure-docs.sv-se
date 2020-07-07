@@ -4,10 +4,10 @@ description: Konfigurera inställningar för Log Analytics diagnostik för alla 
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: e6ba8eb98ca1d6af9fc745d9baf3840ccd1ac224
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195714"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurera inställningar för valv diagnostik i skala
@@ -82,7 +82,7 @@ Om en användare har ett valv med endast en delmängd av de sex resursbaserade h
 >
 > Observera att reparations aktiviteten **inte** Miss fungerar om den befintliga diagnostik inställningen bara är AzureBackupReport aktive rad med arbets ytan X som mål, eftersom det i detta fall inte överlappar de händelser som Aktiver ATS av den befintliga inställningen och de händelser som aktive ras av den inställning som skapats av reparations aktiviteten.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig hur du använder säkerhets kopierings rapporter](https://docs.microsoft.com/azure/backup/configure-reports)
 * [Läs mer om Azure Policy](https://docs.microsoft.com/azure/governance/policy/)

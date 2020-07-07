@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 227230f2d6f46fae27e2cec69d99390f5054c7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80366247"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vilka är standard användar behörigheterna i Azure Active Directory?
@@ -40,7 +40,7 @@ Program | Registrera (Skapa) ett nytt program<br>Skrivskyddade egenskaper för r
 Enheter | Läs alla enhetsegenskaper<br>Läs alla egenskaper för egna enheter<br> | Inga behörigheter<br>Ta bort egna enheter<br>
 Katalog | Läs all företagsinformation<br>Läsa alla domäner<br>Läsa alla partnerkontrakt | Läsa visningsnamn och verifierade domäner
 Roller och omfattningar | Läsa alla administrativa roller och medlemskap<br>Läsa alla egenskaper och medlemskap i administrativa enheter | Inga behörigheter 
-Subscriptions | Läsa alla prenumerationer<br>Aktivera tjänsteplanmedlem | Inga behörigheter
+Prenumerationer | Läsa alla prenumerationer<br>Aktivera tjänsteplanmedlem | Inga behörigheter
 Principer | Läs alla principegenskaper<br>Hantera alla egenskaper för egna principer | Inga behörigheter
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Så här begränsar du standardbehörigheter för medlemsanvändare

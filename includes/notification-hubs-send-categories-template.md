@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -9,21 +9,21 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 48907713082ebb1008ad963121671b36af7f2731
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74228152"
 ---
 I det här avsnittet skickar du de senaste nyheterna som taggade mallmeddelanden från en .NET-konsolapp.
 
 1. Skapa en ny Visual C#-konsolapp i Visual Studio:
-    1. På menyn väljer du **fil** > **nytt** > **projekt**.
+    1. På menyn väljer du **fil**  >  **nytt**  >  **projekt**.
     1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** för C# i listan över mallar och väljer **sedan nästa**.
     1. Ange ett namn för appen.
     1. För **lösning**väljer **du Lägg till i lösning**och väljer **skapa** för att skapa projektet.
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen** och kör sedan följande kommando i konsol fönstret:
+1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen** och kör sedan följande kommando i konsol fönstret:
 
    ```powershell
    Install-Package Microsoft.Azure.NotificationHubs
@@ -31,7 +31,7 @@ I det här avsnittet skickar du de senaste nyheterna som taggade mallmeddelanden
 
    Den här åtgärden lägger till en referens till Azure Notification Hubs SDK med hjälp av [Microsoft. Azure. NotificationHubs] -paketet.
 
-1. Öppna filen *program.cs* och Lägg till följande `using` -instruktion:
+1. Öppna filen *program.cs* och Lägg till följande- `using` instruktion:
 
    ```csharp
    using Microsoft.Azure.NotificationHubs;
@@ -69,7 +69,7 @@ I det här avsnittet skickar du de senaste nyheterna som taggade mallmeddelanden
 
 1. I föregående kod, ersätter du `<hub name>`- och `<connection string with full access>`-platshållarna med namnet på din meddelandehubb och anslutningssträngen för *DefaultFullSharedAccessSignature* från instrumentpanelen i din meddelandehubb.
 
-1. I- `Main()` metoden lägger du till följande rader:
+1. I `Main()` -metoden lägger du till följande rader:
 
    ```csharp
     SendTemplateNotificationAsync();

@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
 ms.openlocfilehash: e51b5640163546c673a1b0f61da47ccd992f27ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72030030"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Kör U-SQL och Felsök lokalt i Visual Studio Code
@@ -32,11 +32,11 @@ Endast Windows-installationer av Azure Data Lake verktyg för Visual Studio stö
 
    ![Leta upp beroende paketen](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
-   2,1 om du vill installera **BuildTools**klickar du på visualcppbuildtools_full. exe i mappen LocalRunDependency och följer sedan anvisningarna i guiden.   
+   2,1 om du vill installera **BuildTools**klickar du på visualcppbuildtools_full.exe i mappen LocalRunDependency och följer sedan anvisningarna i guiden.   
 
     ![Installera BuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
 
-   2,2 om du vill installera **Win10SDK 10240**klickar du på sdksetup. exe i mappen LocalRunDependency/Win10SDK_10.0.10240 _2 och följer sedan anvisningarna i guiden.  
+   2,2 om du vill installera **Win10SDK 10240**klickar du på sdksetup.exe i mappen LocalRunDependency/Win10SDK_10.0.10240 _2 och följer sedan anvisningarna i guiden.  
 
     ![Installera Win10SDK 10240](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 
@@ -59,8 +59,8 @@ För första gången använder du **ADL: Hämta lokalt kör paket** för att hä
    ![Data Lake verktyg för Visual Studio Code Välj lokal](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
 5. När du har skickat jobbet kan du Visa information om överföringen. Om du vill visa information om sändningen väljer du **jobUrl** i fönstret **utdata** . Du kan också Visa jobbets sändnings status från cmd-konsolen. Ange **7** i cmd-konsolen om du vill veta mer om jobb information.
 
-   ![Data Lake verktyg för Visual Studio Code lokal körning](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
-   ![data Lake verktyg för Visual Studio Code lokal kör cmd-status](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 
+   ![Data Lake verktyg för Visual Studio Code lokal körning ](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
+    ![ data Lake verktyg för Visual Studio Code lokal kör cmd-status](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 
 
 
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>Starta en lokal fel sökning för U-SQL-jobbet  

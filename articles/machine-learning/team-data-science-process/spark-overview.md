@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 64caa1228cd073358bef496721c22b17554031d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189291"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Översikt över data vetenskap med Spark på Azure HDInsight
@@ -65,7 +65,7 @@ Dessa antecknings böcker ska köras i pySpark3-kärnan i Jupyter Notebook Serve
 
 Vägledning för driftsättning av en spark 2,0-modell och modell förbrukning för poängsättning finns i [Spark 1,6-dokumentet om förbrukningen](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) för ett exempel som beskriver de steg som krävs. Om du vill använda det här exemplet på Spark 2,0 ersätter du python-kodfragmentet med [den här filen](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Följande procedurer är relaterade till Spark 1,6. För Spark 2,0-versionen använder du de antecknings böcker som beskrivs och länkade till tidigare.
 
@@ -108,9 +108,9 @@ NYC taxi-resan är ungefär 20 GB komprimerade kommaavgränsade värden (CSV) (~
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Vi har tagit ett exempel på 0,1% av de här filerna och anslöt rese\_data\_och rese-CVS-filer till en enda data uppsättning som ska användas som indata-datauppsättning för den här genom gången. Den unika nyckeln för att ansluta\_till rese data\_och rese pris består av fälten: Medallion, Hacke\_License\_och upphämtnings tid. Varje post i data uppsättningen innehåller följande attribut som representerar en NYC taxi-resa:
+Vi har tagit ett exempel på 0,1% av de här filerna och anslöt rese \_ data och rese- \_ CVS-filer till en enda data uppsättning som ska användas som indata-datauppsättning för den här genom gången. Den unika nyckeln för att ansluta till rese \_ data och rese \_ pris består av fälten: Medallion, Hacke \_ License och upphämtnings \_ tid. Varje post i data uppsättningen innehåller följande attribut som representerar en NYC taxi-resa:
 
-| Field | Kort beskrivning |
+| Fält | Kort beskrivning |
 | --- | --- |
 | medallion |Anonymiserats taxi-Medallion (unikt taxi-ID) |
 | hack_license |Anonymiserats Hackney-gods i licens nummer |
@@ -141,7 +141,7 @@ Vi har tagit ett exempel på 0,1% av de här filerna och anslöt rese\_data\_och
 | tip_class |Tips klass (0: $0, 1: $0-5, 2: $6-10, 3: $11-20, 4: > $20) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Köra kod från en Jupyter-anteckningsbok i Spark-klustret
-Du kan starta Jupyter Notebook från Azure Portal. Hitta ditt Spark-kluster på instrument panelen och klicka på det för att ange hanterings sidan för klustret. Öppna den antecknings bok som är associerad med Spark-klustret genom att klicka på **kluster instrument paneler** -> **Jupyter Notebook**.
+Du kan starta Jupyter Notebook från Azure Portal. Hitta ditt Spark-kluster på instrument panelen och klicka på det för att ange hanterings sidan för klustret. Öppna den antecknings bok som är associerad med Spark-klustret genom att klicka på **kluster instrument paneler**  ->  **Jupyter Notebook**.
 
 ![Kluster instrument paneler](./media/spark-overview/spark-jupyter-on-portal.png)
 
@@ -164,7 +164,7 @@ Nu kan du:
 
 * Se koden genom att klicka på antecknings boken.
 * Kör varje cell genom att trycka på **SKIFT-RETUR**.
-* Kör hela antecknings boken genom att klicka på **cell** -> **körning**.
+* Kör hela antecknings boken genom att klicka på **cell**  ->  **körning**.
 * Använd automatisk visualisering av frågor.
 
 > [!TIP]

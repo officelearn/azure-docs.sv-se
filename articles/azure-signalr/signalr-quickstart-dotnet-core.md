@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: f87625fe4f56b369f2bf4aade3ef5424084b6fe8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4665666fe56c208b2437a7051bbf9201383365f8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254894"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962143"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Snabb start: skapa ett chattrum med hjälp av signal tjänsten
 
@@ -28,7 +28,7 @@ Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [.net Core SDK](https://www.microsoft.com/net/download/windows).
 * Ladda ned eller klona GitHub-lagringsplatsen [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
@@ -45,14 +45,16 @@ I det här avsnittet använder du [.net Core kommando rads gränssnitt (CLI)](ht
 
 2. I den nya mappen kör du följande kommando för att skapa projektet:
 
-        dotnet new mvc
+    ```dotnetcli
+    dotnet new mvc
+    ```
 
 
 ## <a name="add-secret-manager-to-the-project"></a>Lägg till Secret Manager i projektet
 
 I det här avsnittet ska du lägga till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga data för utvecklings arbete utanför projekt trädet. Den här metoden hjälper till att förhindra att program hemligheter delas av misstag i käll koden.
 
-1. Öppna *.csproj*-filen. Lägg till ett `DotNetCliToolReference`-element att inkludera *Microsoft.Extensions.SecretManager.Tools*. Lägg också till `UserSecretsId` ett-element som det visas i följande kod för den *chattaste. CSPROJ*och spara filen.
+1. Öppna *.csproj*-filen. Lägg till ett `DotNetCliToolReference`-element att inkludera *Microsoft.Extensions.SecretManager.Tools*. Lägg också till ett- `UserSecretsId` element som det visas i följande kod för den *chattaste. CSPROJ*och spara filen.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -74,11 +76,15 @@ I det här avsnittet ska du lägga till [verktyget Secret Manager](https://docs.
 
 1. Lägg till en referens till `Microsoft.Azure.SignalR` NuGet-paketet genom att köra följande kommando:
 
-        dotnet add package Microsoft.Azure.SignalR
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.SignalR
+    ```
 
 2. Kör följande kommando för att återställa paket för ditt projekt:
 
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
+    ```
 
 3. Lägg till en hemlighet med namnet *Azure: SignalR:ConnectionString* till Secret Manager. 
 
@@ -86,7 +92,7 @@ I det här avsnittet ska du lägga till [verktyget Secret Manager](https://docs.
 
     Du måste köra det här kommandot i samma katalog som *. CSPROJ* -filen.
 
-    ```
+    ```dotnetcli
     dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
@@ -105,9 +111,9 @@ I det här avsnittet ska du lägga till [verktyget Secret Manager](https://docs.
     }
     ```
 
-    Genom att inte skicka en parameter `AddAzureSignalR()`till använder den här koden standard konfigurations nyckeln för signal anslutningens tjänst resurs anslutnings sträng. Standard konfigurations nyckeln är *Azure: SignalR: ConnectionString*.
+    Genom att inte skicka en parameter till `AddAzureSignalR()` använder den här koden standard konfigurations nyckeln för signal anslutningens tjänst resurs anslutnings sträng. Standard konfigurations nyckeln är *Azure: SignalR: ConnectionString*.
 
-5. I *startup.cs*kan du `Configure` också uppdatera metoden genom att ersätta anropet `app.UseStaticFiles()` med följande kod och spara filen, endast för ASP.net Core 2.
+5. I *startup.cs*kan du också uppdatera `Configure` metoden genom att ersätta anropet `app.UseStaticFiles()` med följande kod och spara filen, endast för ASP.net Core 2.
 
     ```csharp
     app.UseFileServer();
@@ -167,11 +173,11 @@ Båda metoderna använder `Clients` gränssnittet som ASP.net Core SignalR SDK t
 
 ### <a name="add-the-client-interface-for-the-web-app"></a>Lägg till klient gränssnittet för webbappen
 
-Klientens användar gränssnitt för chattrum-appen kommer att bestå av HTML och Java Script i en fil med namnet *index. html* i katalogen *wwwroot* .
+Klientens användar gränssnitt för chattrum-appen kommer att bestå av HTML och Java Script i en fil med namnet *index.html* i katalogen *wwwroot* .
 
-Kopiera filen *index. html* , *CSS* -mappen och mappen *scripts* från mappen *wwwroot* i [exempel lagrings platsen](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Klistra in dem i projektets *wwwroot* -mapp.
+Kopiera *index.html* -filen, *CSS* -mappen och mappen *skript* från mappen *wwwroot* i [exempel lagrings platsen](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Klistra in dem i projektets *wwwroot* -mapp.
 
-Här är huvud koden för *index. html*: 
+Här är huvud koden för *index.html*: 
 
 ```javascript
 var connection = new signalR.HubConnectionBuilder()
@@ -187,7 +193,7 @@ connection.start()
     });
 ```    
 
-Koden i *index. html-* anrop `HubConnectionBuilder.build()` för att upprätta en HTTP-anslutning till Azure SignalR-resursen.
+Koden i *index.html* -anrop `HubConnectionBuilder.build()` för att upprätta en HTTP-anslutning till Azure SignalR-resursen.
 
 Om anslutningen lyckas skickas anslutningen till `bindConnectionMessage` som lägger till händelsehanterare för inkommande innehåll som skickas till klienten. 
 
@@ -199,7 +205,7 @@ I det här avsnittet ska du lägga till en utvecklings körnings miljö för ASP
 
 1. Skapa en mapp med namnet *Egenskaper* i ditt projekt.
 
-2. Lägg till en ny fil med namnet *launchSettings. JSON* i mappen med följande innehåll och spara filen.
+2. Lägg till en ny fil med namnet *launchSettings.jsi* mappen, med följande innehåll och spara filen.
 
     ```json
     {
@@ -224,21 +230,27 @@ I det här avsnittet ska du lägga till en utvecklings körnings miljö för ASP
 
 1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i kommando gränssnittet:
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 2. När build-versionen har slutförts kör du följande kommando för att köra webbappen lokalt:
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     Appen kommer att finnas lokalt på port 5000, enligt konfigurationen i vår utvecklings körnings profil:
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Development
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.    
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Development
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+    Application started. Press Ctrl+C to shut down.    
+    ```
 
-3. Öppna två webb läsar fönster. I varje webbläsare går du till `http://localhost:5000`. Du uppmanas att ange ditt namn. Ange ett klient namn för båda klienterna och testa att skicka meddelande innehåll mellan båda klienterna med hjälp av knappen **Skicka** .
+3. Öppna två webb läsar fönster. I varje webbläsare går du till `http://localhost:5000` . Du uppmanas att ange ditt namn. Ange ett klient namn för båda klienterna och testa att skicka meddelande innehåll mellan båda klienterna med hjälp av knappen **Skicka** .
 
     ![Exempel på en Azure SignalR-grupp Chat](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 

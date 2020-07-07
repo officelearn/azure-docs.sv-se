@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188301"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Fel sökning: problem med Azure punkt-till-plats-anslutning
@@ -44,7 +44,7 @@ Följ dessa steg för att lösa problemet:
     | AzureClient. pfx  | Aktuell User\Personal\Certificates |
     | AzureRoot. cer    | Lokala Computer\Trusted rot certifikat utfärdare|
 
-3. Gå till C:\Users\<username> \appdata\roaming\microsoft\network\connections\cm\<GUID>, installera certifikatet (*. CER-filen) manuellt på användarens och datorns Arkiv.
+3. Gå till C:\Users \<UserName> \AppData\Roaming\Microsoft\Network\Connections\Cm \<GUID> , installera certifikatet (*. CER-filen) manuellt på användarens och datorns Arkiv.
 
 Mer information om hur du installerar klient certifikatet finns i [skapa och exportera certifikat för punkt-till-plats-anslutningar](vpn-gateway-certificates-point-to-site.md).
 
@@ -71,7 +71,7 @@ Förbereda Windows 10 eller Server 2016 för IKEv2:
 
 1. Installera uppdateringen.
 
-   | Operativsystemversion | Date | Antal/länk |
+   | OS-version | Datum | Antal/länk |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10, version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -165,10 +165,10 @@ Det krävs ytterligare ett certifikat för att lita på VPN-gatewayen för det v
 
 Extrahera konfigurations paketet för VPN-klienten och leta upp CER-filen. Följ dessa steg om du vill installera certifikatet:
 
-1. Öppna MMC. exe.
+1. Öppna mmc.exe.
 2. Lägg till snapin-modulen **certifikat** .
 3. Välj **dator** kontot för den lokala datorn.
-4. Högerklicka på noden **betrodda rot certifikat utfärdare** . Klicka på**Importera** **alla aktiviteter** > och bläddra till. CER-filen som du extraherade från konfigurations paketet för VPN-klienten.
+4. Högerklicka på noden **betrodda rot certifikat utfärdare** . Klicka på Importera **alla aktiviteter**  >  **Import**och bläddra till. CER-filen som du extraherade från konfigurations paketet för VPN-klienten.
 5. Starta om datorn. 
 6. Försök att installera VPN-klienten.
 
@@ -178,7 +178,7 @@ Extrahera konfigurations paketet för VPN-klienten och leta upp CER-filen. Följ
 
 När du försöker spara ändringarna för VPN-gatewayen i Azure Portal visas följande fel meddelande:
 
-**Det gick inte att spara &lt; *Gateway-namnet*&gt;för den virtuella Nätverksgatewayen. Data för certifikat &lt; *certifikatets ID* &gt; är ogiltigt.**
+**Det gick inte att spara Gateway-namnet för den virtuella Nätverksgatewayen &lt; *gateway name* &gt; . Data för certifikat &lt; *certifikatets ID* &gt; är ogiltigt.**
 
 ### <a name="cause"></a>Orsak 
 
@@ -213,7 +213,7 @@ Kontrol lera att data i certifikatet inte innehåller ogiltiga tecken, t. ex. ra
 
 När du försöker spara ändringarna för VPN-gatewayen i Azure Portal visas följande fel meddelande: 
 
-**Det gick inte att spara &lt; *Gateway-namnet*&gt;för den virtuella Nätverksgatewayen. &lt; *Namnet på resurs namn certifikatet du försöker överföra* &gt; är ogiltigt**.
+**Det gick inte att spara Gateway-namnet för den virtuella Nätverksgatewayen &lt; *gateway name* &gt; . &lt; *Namnet på resurs namn certifikatet du försöker överföra* &gt; är ogiltigt**.
 
 ### <a name="cause"></a>Orsak
 
@@ -272,7 +272,7 @@ Du tar bort punkt-till-plats-VPN-anslutningen och installerar sedan om VPN-klien
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att ta bort de gamla konfigurationsfilerna för VPN-klienten **från\<C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections VirtualNetworkId>** och kör sedan installations programmet för VPN-klienten igen.
+Lös problemet genom att ta bort de gamla konfigurationsfilerna för VPN-klienten **från \<VirtualNetworkId> C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections**och kör sedan installations programmet för VPN-klienten igen.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punkt-till-plats-VPN-klienten kan inte matcha det fullständiga domän namnet för resurserna i den lokala domänen
 
@@ -301,11 +301,11 @@ Lös problemet genom att [återställa Azure VPN gateway](vpn-gateway-resetgw-cl
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fel: "återkallnings funktionen kunde inte kontrol lera återkallning eftersom åter kallelse servern var offline. (Fel 0x80092013) "
 
 ### <a name="causes"></a>Orsaker
-Det här fel meddelandet visas om klienten inte kan http://crl3.digicert.com/ssca-sha2-g1.crl komma http://crl4.digicert.com/ssca-sha2-g1.crlåt och.  Återkallnings kontrollen kräver åtkomst till dessa två platser.  Det här problemet inträffar vanligt vis på klienten där proxyservern har kon figurer ATS. I vissa miljöer, om begär Anden inte går via proxyservern, kommer den att nekas i gräns brand väggen.
+Det här fel meddelandet visas om klienten inte kan komma åt http://crl3.digicert.com/ssca-sha2-g1.crl och http://crl4.digicert.com/ssca-sha2-g1.crl .  Återkallnings kontrollen kräver åtkomst till dessa två platser.  Det här problemet inträffar vanligt vis på klienten där proxyservern har kon figurer ATS. I vissa miljöer, om begär Anden inte går via proxyservern, kommer den att nekas i gräns brand väggen.
 
 ### <a name="solution"></a>Lösning
 
-Kontrol lera inställningarna för proxyservern, se till att klienten har åtkomst http://crl3.digicert.com/ssca-sha2-g1.crl till http://crl4.digicert.com/ssca-sha2-g1.crloch.
+Kontrol lera inställningarna för proxyservern, se till att klienten har åtkomst till http://crl3.digicert.com/ssca-sha2-g1.crl och http://crl4.digicert.com/ssca-sha2-g1.crl .
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN-klient fel: anslutningen förhindrades på grund av en princip som kon figurer ATS på RAS/VPN-servern. (Fel 812)
 
@@ -339,9 +339,9 @@ Uppdatera NIC-drivrutinen:
 4.  Om Windows inte hittar någon kan du söka efter en drivrutin på enhetstillverkarens webbplats och installera den enligt deras instruktioner.
 5. Starta om datorn och försök ansluta igen.
 
-## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>VPN-klient fel: uppringning av VPN <VPN Connection Name>-anslutning, status = VPN-plattform utlöste inte anslutning
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>VPN-klient fel: uppringning av VPN-anslutning <VPN Connection Name> , status = VPN-plattform utlöste inte anslutning
 
-Du kan också se följande fel i Loggboken från RasClient: "användaren <User> kunde inte ansluta till en anslutning med <VPN Connection Name> namnet. Felkoden som returnerades vid felet är 1460. "
+Du kan också se följande fel i Loggboken från RasClient: "användaren <User> kunde inte ansluta till en anslutning med namnet <VPN Connection Name> . Felkoden som returnerades vid felet är 1460. "
 
 ### <a name="cause"></a>Orsak
 
@@ -370,7 +370,7 @@ Det här problemet kan orsakas av de tidigare installationerna av VPN-klienten.
 
 ### <a name="solution"></a>Lösning
 
-Ta bort de gamla konfigurationsfilerna för VPN-klienten från **\<C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections VirtualNetworkId>** och kör installations programmet för VPN-klienten igen. 
+Ta bort de gamla konfigurationsfilerna för VPN-klienten från **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** och kör installations programmet för VPN-klienten igen. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN-klienten försätts i vilo läge eller ström spar läge efter en stund
 

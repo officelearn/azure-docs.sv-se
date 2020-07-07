@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80398466"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Översikt över Azures anpassade resurs leverantörer
@@ -55,9 +55,9 @@ Exempel slut punkt:
 
 Egenskap | Krävs | Beskrivning
 ---|---|---
-name | *Ja* | Namnet på slut punkts definitionen. Azure kommer att exponera detta namn via dess API under "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
-routingType | *Nej* | Bestämmer kontrakts typen med **slut punkten**. Om inget värde anges används proxy för standardvärdet.
-slutpunkt | *Ja* | Slut punkten för att dirigera begär anden till. Detta hanterar svaret och eventuella sido effekter i begäran.
+name | *ja* | Namnet på slut punkts definitionen. Azure kommer att exponera detta namn via dess API under "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
+routingType | *nej* | Bestämmer kontrakts typen med **slut punkten**. Om inget värde anges används proxy för standardvärdet.
+slutpunkt | *ja* | Slut punkten för att dirigera begär anden till. Detta hanterar svaret och eventuella sido effekter i begäran.
 
 ### <a name="building-custom-resources"></a>Skapa anpassade resurser
 

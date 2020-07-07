@@ -13,10 +13,10 @@ ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b6d949b50be348e72cedfc3710383308b04de106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80336012"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapacitet hos en Azure API Management-instans
@@ -28,7 +28,7 @@ Den här artikeln förklarar vad **kapaciteten** är och hur den beter sig. Den 
 > [!IMPORTANT]
 > Den här artikeln beskriver hur du kan övervaka och skala Azure API Management-instansen baserat på dess kapacitets mått. Det är dock lika viktigt att förstå vad som händer när en enskild API Management instans faktiskt har *nått* sin kapacitet. Azure API Management tillämpar inte någon begränsning på service nivå för att förhindra en fysisk överbelastning av instanserna. När en instans når sin fysiska kapacitet kommer den att fungera på samma sätt som alla överbelastade webb servrar som inte kan bearbeta inkommande begär Anden: fördröjningen ökar, anslutningar tas bort, timeout-fel uppstår osv. Det innebär att API-klienterna bör förberedas för att hantera den här risken på samma sätt som med andra externa tjänster (t. ex. genom att tillämpa principer för återförsök).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa stegen i den här artikeln måste du ha:
 
@@ -95,7 +95,7 @@ Låg **kapacitets mått** innebär inte nödvändigt vis att API Management inst
 
 ## <a name="use-capacity-for-scaling-decisions"></a>Använd kapacitet för skalnings beslut
 
-**Kapacitet** är måttet för att fatta beslut om att skala en API Management-instans för att hantera mer belastning. Överväg:
+**Kapacitet** är måttet för att fatta beslut om att skala en API Management-instans för att hantera mer belastning. Tänk på att:
 
 + Titta på långsiktiga trender och genomsnitt.
 + Ignorera plötsliga toppar som troligen inte är relaterade till någon ökning i belastningen (se avsnittet "kapacitets måttets beteende" för förklaring).

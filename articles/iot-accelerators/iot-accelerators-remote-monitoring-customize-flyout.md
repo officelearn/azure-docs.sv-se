@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3820b34a9c79f3b514327fa45a05eebaf8a2a1ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193181"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad utfällning i webb gränssnittet för lösnings Accelerator för fjärr styrning
@@ -24,7 +24,7 @@ Den här artikeln visar hur du lägger till en ny utfällning på en sida i webb
 
 Exemplet som utfälls i den här artikeln visas på sidan med rutnätet som beskriver instruktionen [Lägg till ett anpassat rutnät i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-grid.md) , som visar hur du lägger till.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här instruktions guiden behöver du följande program vara installerad på den lokala utvecklings datorn:
 
@@ -47,11 +47,11 @@ För att lägga till en utfällning i webb gränssnittet, måste du lägga till 
 
 För att komma igång innehåller mappen **src/genom gång/Components/Pages/pageWithFlyout/flyouts/exampleFlyout** de filer som definierar en utfällning:
 
-**exampleFlyout. container. js**
+**exampleFlyout.container.js**
 
 [!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
 
-**exampleFlyout. js**
+**exampleFlyout.js**
 
 [!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
 
@@ -59,7 +59,7 @@ Kopiera mappen **src/genom gång/Components/Pages/pageWithFlyout/flyouts** till 
 
 ### <a name="add-the-flyout-to-the-page"></a>Lägg till utfällande på sidan
 
-Ändra **src/Components/Pages/example/basicPage. js** för att lägga till utfällingen.
+Ändra **urspr/Components/Pages/example/basicPage.js** för att lägga till utfällingen.
 
 Lägg till **BTN** i importer från **komponenter/delade** och Lägg till importer för **svgs** och **ExampleFlyoutContainer**:
 
@@ -133,7 +133,7 @@ Om webb gränssnittet inte redan körs lokalt kör du följande kommando i roten
 npm start
 ```
 
-Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard`. Gå till **exempel** sidan och klicka på **Öppna utfälld**.
+Föregående kommando kör användar gränssnittet lokalt på `http://localhost:3000/dashboard` . Gå till **exempel** sidan och klicka på **Öppna utfälld**.
 
 ## <a name="next-steps"></a>Nästa steg
 

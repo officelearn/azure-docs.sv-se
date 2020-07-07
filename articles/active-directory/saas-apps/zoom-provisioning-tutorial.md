@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
 ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80384083"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Självstudie: Konfigurera zoom för automatisk användar etablering
@@ -34,7 +34,7 @@ I den här självstudien beskrivs de steg som du måste utföra i både zoomning
 > * Behåll användarattribut synkroniserade mellan Azure AD och zoom
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-tutorial) till zoom (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -105,7 +105,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin-autentiseringsuppgifter** anger `https://api.zoom.us/scim` du i **klient-URL**. Mata in värdet för **JWT-token** som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till zoomning. Om anslutningen Miss lyckas ser du till att ditt zoomnings konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin-autentiseringsuppgifter** anger du `https://api.zoom.us/scim` i **klient-URL**. Mata in värdet för **JWT-token** som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till zoomning. Om anslutningen Miss lyckas ser du till att ditt zoomnings konto har administratörs behörighet och försöker igen.
 
     ![Zoomnings etablering](./media/zoom-provisioning-tutorial/provisioning.png)
 

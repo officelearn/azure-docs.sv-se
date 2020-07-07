@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382927"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
@@ -26,7 +26,7 @@ Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och 
 
 Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan visar data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 - Granska [övervaknings Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Ett exempel:
+Till exempel:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -96,7 +96,7 @@ Du kan behöva vänta upp till fem minuter innan händelsen visas på lagringsko
 
  Du kan nu visa JSON-händelsen som lagrats i lagringskontot.
 
-### <a name="examples-of-pt1hjson"></a>Exempel på PT1H. JSON
+### <a name="examples-of-pt1hjson"></a>Exempel på PT1H.jspå
 
 #### <a name="clear-key-delivery-log"></a>Rensa nyckel leverans logg
 

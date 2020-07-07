@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193402"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
@@ -22,7 +22,7 @@ ms.locfileid: "82193402"
 
 Du kan skapa Azure Service Fabric-program som körs i Linux-kluster i Mac OS X. Det här dokumentet visar hur du konfigurerar din utvecklingsmiljö i Mac.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Azure Service Fabric kan inte köras internt i Mac OS X. För att du ska kunna köra ett lokalt Service Fabric-kluster tillhandahåller vi en förkonfigurerad Docker-containeravbildning. Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne.
@@ -48,7 +48,7 @@ Utför följande steg för att konfigurera en lokal Docker-container och köra e
     
     >[!NOTE]
     >
-    >Att ändra daemonen direkt i Docker rekommenderas eftersom platsen för daemon. JSON-filen kan variera från dator till dator. Den kan till exempel vara ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Att ändra daemonen direkt i Docker rekommenderas eftersom platsen för filen daemon.jskan variera från dator till dator. Den kan till exempel vara ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera en lokal Docker-container och köra e
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. Klustret kommer att ta en stund att starta. När den körs kan du Visa loggar med följande kommando eller gå till instrument panelen för att se kluster hälsan `http://localhost:19080`:
+5. Klustret kommer att ta en stund att starta. När den körs kan du Visa loggar med följande kommando eller gå till instrument panelen för att se kluster hälsan `http://localhost:19080` :
 
     ```bash 
     docker logs sftestcluster
@@ -194,7 +194,7 @@ Installera [.NET Core 2.0 SDK för Mac](https://www.microsoft.com/net/core#macos
 
 Azure Service Fabric har ett plugin-program för Eclipse Neon (eller senare) för Java IDE. Med det här plugin-programmet blir det enklare att skapa och distribuera Java-tjänster. Gör [så här](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse) om du vill installera eller uppdatera Service Fabric plugin-programmet för Eclipse till den senaste versionen. De andra stegen i [Service Fabric för Eclipse-dokumentationen](service-fabric-get-started-eclipse.md) är också relevanta: skapa ett program, lägga till en tjänst i ett program, avinstallera ett program och så vidare.
 
-Det sista steget är att skapa en instans av containern med en sökväg som delas med värden. Den här typen av instansiering krävs för att plugin-programmet ska fungera med Docker-containern på din Mac. Ett exempel:
+Det sista steget är att skapa en instans av containern med en sökväg som delas med värden. Den här typen av instansiering krävs för att plugin-programmet ska fungera med Docker-containern på din Mac. Till exempel:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest

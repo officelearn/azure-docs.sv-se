@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80411079"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4,0 på Azure
@@ -22,7 +22,7 @@ CICs står för system för kontroll av kund information, den transaktions platt
 > [!NOTE]
 > Kommer snart: anvisningar för att konfigurera [Micro Focus Enterprise Server 5,0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) på virtuella Azure-datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En virtuell dator med [företags utvecklare](set-up-micro-focus-azure.md). Tänk på att företags utvecklaren har en fullständig instans av Enterprise Server i syfte att utveckla och testa. Den här instansen är den instans av företags servern som används för demonstrationen.
 
@@ -78,7 +78,7 @@ När du har installerat Enterprise Developer 4,0 på den virtuella datorn måste
 
 8. När du har valt alla alternativ klickar du på **Nästa** för att installera.
 
-9. Efter Windows-funktionerna går du till **kontroll panelen \> system och administrations verktyg för säkerhet \> **och väljer **tjänster**. Rulla nedåt och kontrol lera att följande tjänster körs och är inställda på **Automatisk**:
+9. Efter Windows-funktionerna går du till **kontroll panelen \> system och \> administrations verktyg för säkerhet**och väljer **tjänster**. Rulla nedåt och kontrol lera att följande tjänster körs och är inställda på **Automatisk**:
 
     - **NetTcpPortSharing**
     - **Net. pipe Listener adapter**
@@ -98,7 +98,7 @@ Vissa företags server processer måste kunna logga in SQL Server och skapa data
 
 2. Expandera mappen **säkerhet** till vänster och välj **inloggningar**.
 
-3. Välj **NT auktoritets\\system** och välj **Egenskaper**.
+3. Välj **NT auktoritets \\ system** och välj **Egenskaper**.
 
 4. Välj **Server roller** och kontrol lera **sysadmin**.
 
@@ -106,7 +106,7 @@ Vissa företags server processer måste kunna logga in SQL Server och skapa data
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>Skapa BankDemo-databasen och alla dess objekt
 
-1. Öppna **Utforskaren** och gå till **\\C: användare\\Public\\Documents\\Micro Focus\\Enterprise Developer\\\\\\\\\\\\samples stordator CICS dotNet BankDemo SQL**.
+1. Öppna **Utforskaren** och gå till **C: \\ användare \\ Public \\ Documents \\ Micro Focus \\ Enterprise Developer \\ samples \\ stordator \\ CICS \\ dotNet \\ BankDemo \\ SQL**.
 
 2. Kopiera innehållet i **BankDemoCreateAll. SQL** -filen till Urklipp.
 
@@ -132,7 +132,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
 1. Öppna Visual Studio och logga in.
 
-2. Under meny alternativet **Arkiv** väljer du **öppna projekt/lösning**, navigera till **C:\\användare\\publika\\dokument\\Micro fokusering\\Enterprise Developer\\\\\\\\\\-exempel stordator CICS dotNet BankDemo**och väljer **SLN** -filen.
+2. Under meny alternativet **Arkiv** väljer du **öppna projekt/lösning**, navigera till **C: \\ användare \\ publika \\ dokument \\ Micro fokusering \\ Enterprise Developer- \\ exempel \\ stordator \\ CICS \\ dotNet \\ BankDemo**och väljer **SLN** -filen.
 
 3. Ta lite tid för att undersöka objekten. COBOL-program visas i Solution Explorer med CBL-tillägget tillsammans med CopyBooks (CPY) och JCL.
 
@@ -154,7 +154,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
 1. Öppna en Enterprise Developer-kommandotolk (64-bitars) som administratör.
 
-2. Gå till mappen **% Public%\\Documents\\Micro\\Focus Enterprise\\Developer samples\\stordatorer\\CICS\\dotNet\\BankDemo**.
+2. Gå till mappen **% Public% \\ Documents \\ Micro Focus \\ Enterprise Developer \\ samples \\ stordatorer \\ CICS \\ dotNet \\ BankDemo**.
 
 3. I kommando tolken kör du **bankdemodbdeploy** och inkluderar parametern för databasen att distribuera till, till exempel:
 
@@ -163,7 +163,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
     ```
 
 > [!NOTE]
-> Se till att använda ett snedstreck (/) som inte är ett omvänt\\snedstreck (). Det här skriptet körs ett tag.
+> Se till att använda ett snedstreck (/) som inte är ett omvänt snedstreck ( \\ ). Det här skriptet körs ett tag.
 
 ![Administration: kommando tolks fönstret för Enterprise-utvecklare](media/06-demo-cmd.png)
 
@@ -171,7 +171,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
 1. Öppna **administrations gränssnittet för Enterprise Server för .net** .
 
-2. Starta MMC-snapin-modulen från **Start** -menyn i Windows och välj **Micro Focus Enterprise-utvecklare \> konfiguration \> Enterprise Server för .net-administratör**. (För Windows Server väljer du **Micro Focus Enterprise- \> utvecklare Enterprise Server för .net-administratör**).
+2. Starta MMC-snapin-modulen från **Start** -menyn i Windows och välj **Micro Focus Enterprise-utvecklare \> konfiguration \> Enterprise Server för .net-administratör**. (För Windows Server väljer du **Micro Focus Enterprise-utvecklare \> Enterprise Server för .net-administratör**).
 
 3. Expandera behållaren **regioner** i den vänstra rutan och högerklicka sedan på **CICS**.
 
@@ -181,7 +181,7 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
      ![Dialog rutan definiera region](media/07-demo-cics.png)
 
-6. Om du vill välja region definitions filen för databasen över flera regioner hittar **du\_region\_bankdemo dB. config** i **C\\:\\användare\\publika\\dokument\\Micro Focus\\Enterprise\\Developer-exempel stordator\\CICS\\dotNet\\bankdemo**.
+6. Om du vill välja region definitions filen för databasen över flera regioner hittar du **regionen \_ bankdemo \_db.config** i **C: \\ användare \\ offentliga \\ dokument \\ Micro Focus \\ Enterprise Developer- \\ exempel \\ stordator \\ CICS \\ dotNet \\ bankdemo**.
 
      ![Definiera namn på region region: BANKDEMO](media/08-demo-cics.png)
 
@@ -195,13 +195,13 @@ Frågan ska köras utan fel. När den är klar har du exempel databasen för Ban
 
 3. I list rutan väljer du **databas tjänst instans**. Det är den lokala datorn SQLEXPRESS.
 
-4. Välj instansen under behållaren **resurs definitioner för XA (\\MachineName)** och klicka på **Lägg till**.
+4. Välj instansen under behållaren **resurs definitioner för XA (MachineName \\ )** och klicka på **Lägg till**.
 
 5. Välj **Database XA resurs definition** och skriv sedan **BANKDEMO** som **namn** och **region**.
 
      ![Skärm bild definition för den nya databasens XA-resurs](media/09-demo-xa.png)
 
-6. Klicka på ellipserna (**...**) för att öppna guiden anslutnings sträng. För **Server namn**skriver du **(lokal)\\SQLExpress**. För **inloggning**väljer du **Windows-autentisering**. För databas namn skriver du **BANKDEMO**
+6. Klicka på ellipserna (**...**) för att öppna guiden anslutnings sträng. För **Server namn**skriver du **(lokal) \\ SQLExpress**. För **inloggning**väljer du **Windows-autentisering**. För databas namn skriver du **BANKDEMO**
 
      ![Skärmen Redigera anslutnings sträng](media/10-demo-string.png)
 
@@ -230,7 +230,7 @@ Skapa en lyssnare för de TN3270-sessioner som har åtkomst till BankDemo-progra
 
 1. I den vänstra rutan expanderar du **konfigurations redigerare** och väljer **lyssnare**.
 
-2. Klicka på ikonen **Öppna fil** och välj filen **seelistener. exe. config** . Den här filen kommer att redige ras och läses in varje gång Enterprise Server startas.
+2. Klicka på ikonen **Öppna fil** och välj filen **seelistener.exe.config** . Den här filen kommer att redige ras och läses in varje gång Enterprise Server startas.
 
 3. Lägg märke till de två regioner som definierats tidigare (ESDEMO och JCLDEMO).
 
@@ -265,8 +265,8 @@ Det sista du behöver göra är att konfigurera en 3270-session med Rumba, en 32
 
 6. För användar-ID skriver du **B0001** och lösen ordet genom att skriva vad som helst. Den första skärmens BANK20 öppnas.
 
-![](media/14-demo.png)
-Skärm bilds visning av stordator skärm – rumba – under![system demonstration](media/15-demo.png)
+![Skärm bilds visning av stordator skärm ](media/14-demo.png)
+ ![ – rumba – under system demonstration](media/15-demo.png)
 
 Grattis! Nu kör du ett CICS-program i Azure med Micro Focus Enterprise Server.
 
@@ -274,6 +274,6 @@ Grattis! Nu kör du ett CICS-program i Azure med Micro Focus Enterprise Server.
 
 - [Kör Enterprise Server i Docker-behållare på Azure](run-enterprise-server-container.md)
 - [Stordator-migrering – Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
+- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Felsökning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
 - [Avmystifiera-stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195255"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Azures säkerhets bas linje för Cosmos DB
@@ -131,7 +131,7 @@ Mer information om att använda service märken:https://docs.microsoft.com/azure
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
-**Vägledning**: definiera och implementera standardinställda säkerhetskonfigurationer för nätverks resurser med Azure policy. Använd Azure Policy alias i namn områdena "Microsoft. DocumentDB" och "Microsoft. Network" om du vill skapa anpassade principer för granskning eller framtvinga nätverks konfigurationen för dina Azure Cosmos DBs instanser. Du kan också använda inbyggda princip definitioner för Azure Cosmos DB, till exempel:
+**Vägledning**: definiera och implementera standardinställda säkerhetskonfigurationer för nätverks resurser med Azure policy. Använd Azure Policy alias i namn områdena "Microsoft.DocumentDB" och "Microsoft. Network" om du vill skapa anpassade principer för granskning eller framtvinga nätverks konfigurationen för dina Azure Cosmos DB instanser. Du kan också använda inbyggda princip definitioner för Azure Cosmos DB, till exempel:
 
 - Distribuera Avancerat skydd för Cosmos DB-konton
 
@@ -294,7 +294,7 @@ Dessutom kan vissa åtgärder i Azure Cosmos DB kontrol leras med Azure Active D
 
 Förstå rollbaserad åtkomst kontroll i Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
-Bygg egna anpassade roller med hjälp av Azure Cosmos DB åtgärder (namn område för Microsoft. DocumentDB):https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
+Bygg egna anpassade roller med hjälp av Azure Cosmos DB åtgärder (Microsoft.DocumentDB-namnrymd):https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
 Skapa en ny roll i Azure Active Directory:https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
@@ -504,7 +504,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
 
-**Vägledning**: alla anslutningar till Azure Cosmos DB stöd för https. Azure Cosmos DB stöder också TLS 1.2. Det är möjligt att framtvinga en lägsta TLS-version på Server sidan. Om du vill göra det kontaktar [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)du.
+**Vägledning**: alla anslutningar till Azure Cosmos DB stöd för https. Azure Cosmos DB stöder också TLS 1.2. Det är möjligt att framtvinga en lägsta TLS-version på Server sidan. Om du vill göra det kontaktar du [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com) .
 
 Översikt över Cosmos DB säkerhet:https://docs.microsoft.com/azure/cosmos-db/database-security
 
@@ -518,7 +518,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-Indexera Azure Cosmos DB data med Azure Kognitiv sökning: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json&amp; BC =/Azure/Cosmos-DB/Breadcrumb/TOC.JSON
+Indexera Azure Cosmos DB data med Azure Kognitiv sökning: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json&amp ; BC =/azure/cosmos-db/breadcrumb/toc.jspå
 
 Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -786,7 +786,7 @@ Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azu
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
-**Vägledning**: definiera och implementera standardkonfigurationer för dina Cosmos DB-instanser med Azure policy. Använd Azure Policy alias i namn området "Microsoft. DocumentDB" om du vill skapa anpassade principer för granskning eller tillämpa konfigurationen för dina Cosmos DB-instanser. Du kan också använda inbyggda princip definitioner för Azure Cosmos DB, till exempel:
+**Vägledning**: definiera och implementera standardkonfigurationer för dina Cosmos DB-instanser med Azure policy. Använd Azure Policy alias i namn rymden "Microsoft.DocumentDB" om du vill skapa anpassade principer för att granska eller framtvinga konfigurationen av dina Cosmos DB instanser. Du kan också använda inbyggda princip definitioner för Azure Cosmos DB, till exempel:
 
 - Distribuera Avancerat skydd för Cosmos DB-konton
 
@@ -834,7 +834,7 @@ Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/poli
 
 **Vägledning**: om du använder anpassade Azure policys definitioner för dina Cosmos DB eller relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Dokumentation om Azure databaser https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops :https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devopshttps://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -850,7 +850,7 @@ Dokumentation om Azure databaser https://docs.microsoft.com/azure/devops/repos/i
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7,7: Distribuera hanterings verktyg för system konfiguration
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. DocumentDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
+**Vägledning**: Använd Azure policy alias i namn rymden "Microsoft.DocumentDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
 Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -868,7 +868,7 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: implementera automatisk konfigurations övervakning för Azure-tjänster
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. DocumentDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Cosmos DB-instanser och relaterade resurser. 
+**Vägledning**: Använd Azure policy alias i namn rymden "Microsoft.DocumentDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Cosmos DB-instanser och relaterade resurser. 
 
 Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

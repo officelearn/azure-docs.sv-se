@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 090f453771dba6f537ad60605c6e9b96f3ca9957
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428763"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Temporära tabeller i Synapse SQL
@@ -33,7 +33,7 @@ I SQL-gruppresursen ger temporära tabeller en prestanda förmån eftersom deras
 
 ### <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
 
-Temporära tabeller skapas genom att prefixet för ditt tabell namn `#`används.  Ett exempel:
+Temporära tabeller skapas genom att prefixet för ditt tabell namn används `#` .  Till exempel:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -99,7 +99,7 @@ GROUP BY
 > 
 
 ### <a name="dropping-temporary-tables"></a>Släpper temporära tabeller
-Inga temporära tabeller bör finnas när en ny session skapas.  Men om du anropar samma lagrade procedur som skapar en tillfällig med samma namn, så att du kan se till att `CREATE TABLE` dina instruktioner lyckas, kan du använda en enkel för hands kontroll `DROP`med: 
+Inga temporära tabeller bör finnas när en ny session skapas.  Men om du anropar samma lagrade procedur som skapar en tillfällig med samma namn, så att du kan se till att dina `CREATE TABLE` instruktioner lyckas, kan du använda en enkel för hands kontroll med `DROP` : 
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -193,7 +193,7 @@ GO
 
 I det här skedet är den enda åtgärd som har inträffat skapandet av en lagrad procedur som genererar #stats_ddl temporära tabellen.  Den lagrade proceduren släpper #stats_ddl om den redan finns. Den här minskningen ser till att den inte fungerar om den körs mer än en gång i en session.  
 
-Eftersom det inte finns `DROP TABLE` någon i slutet av den lagrade proceduren, är den skapade tabellen kvar och kan läsas utanför den lagrade proceduren när den lagrade proceduren har slutförts.  
+Eftersom det inte finns någon `DROP TABLE` i slutet av den lagrade proceduren, är den skapade tabellen kvar och kan läsas utanför den lagrade proceduren när den lagrade proceduren har slutförts.  
 
 Till skillnad från andra SQL Server-databaser låter Synapse SQL dig använda den temporära tabellen utanför proceduren som skapade den.  De temporära tabeller som skapas via SQL-poolen kan användas **var som helst** i sessionen. Därför har du mer modulär och hanterbar kod, som visas i exemplet nedan:
 

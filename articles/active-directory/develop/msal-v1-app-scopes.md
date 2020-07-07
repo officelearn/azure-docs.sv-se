@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 61d07c1ba912a0e24b2f4e5fa67243b4525db367
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536190"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Omfattningar för ett webb-API som accepterar v 1.0-token
@@ -25,9 +25,9 @@ OAuth2-behörigheter är behörighets omfattningar som en Azure Active Directory
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Omfattningar för att begära åtkomst till specifika OAuth2-behörigheter för ett v 1.0-program
 
-För att hämta tokens för specifika omfång av ett v 1.0-program (till exempel Microsoft Graph-API, som är https://graph.microsoft.com), skapar du omfång genom att sammanfoga ett önskat resurs-ID med önskad OAuth2-behörighet för resursen.
+För att hämta tokens för specifika omfång av ett v 1.0-program (till exempel Microsoft Graph-API, som är https://graph.microsoft.com) , skapar du omfång genom att sammanfoga ett önskat resurs-ID med önskad OAuth2-behörighet för resursen.
 
-Till exempel för att komma åt användaren för en v 1.0-webb-API där app-ID-URI `ResourceId`: n är:
+Till exempel för att komma åt användaren för en v 1.0-webb-API där app-ID-URI `ResourceId` : n är:
 
 ```csharp
 var scopes = new [] {  ResourceId+"/user_impersonation"};
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-För att läsa och skriva med MSAL.NET Azure AD med hjälp av Microsoft Graph API (\/https:/Graph.Microsoft.com/), måste du skapa en lista över omfattningar som visas i följande exempel:
+För att läsa och skriva med MSAL.NET Azure AD med hjälp av Microsoft Graph API (https: \/ /Graph.Microsoft.com/), måste du skapa en lista över omfattningar som visas i följande exempel:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Om du vill skriva den omfattning som motsvarar Azure Resource Manager API (https\/:/Management.Core.Windows.net/) måste du begära följande omfång (Observera de två snedstrecken):
+Om du vill skriva den omfattning som motsvarar Azure Resource Manager API (https: \/ /Management.Core.Windows.net/) måste du begära följande omfång (Observera de två snedstrecken):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -65,7 +65,7 @@ Den logik som används av Azure AD är följande:
 
 - För ADAL-slutpunkten (Azure AD v 1.0) med en v 1.0-åtkomsttoken (endast möjlig), AUD = Resource
 - För MSAL (Microsoft Identity Platform (v 2.0))-slut punkten som frågar en åtkomsttoken för en resurs som accepterar v 2.0-token`aud=resource.AppId`
-- För MSAL (v 2.0-slutpunkt) som efterfrågar en åtkomsttoken för en resurs som accepterar en v 1.0-åtkomsttoken (vilket är fallet ovan), parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID. Om https:\//Database.Windows.net förväntar sig en mål grupp av "https\/:/Database.Windows.net/" måste du begära ett omfånget "https:\//Database.Windows.net//.default". Se även GitHub problem [#747: resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+- För MSAL (v 2.0-slutpunkt) som efterfrågar en åtkomsttoken för en resurs som accepterar en v 1.0-åtkomsttoken (vilket är fallet ovan), parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID. Om https: \/ /Database.Windows.net förväntar sig en mål grupp av "https: \/ /Database.Windows.net/" måste du begära ett omfånget "https: \/ /Database.Windows.net//.default". Se även GitHub problem [#747: resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Omfattningar för att begära åtkomst till alla behörigheter för ett v 1.0-program
 
@@ -83,4 +83,4 @@ var scopes = [ ResourceId + "/.default"];
 
 ## <a name="scopes-to-request-for-a-client-credential-flowdaemon-app"></a>Omfattningar som ska begäras för ett flöde/en daemon-app för klientens autentiseringsuppgifter
 
-Om det gäller klientens Credential-flöde, är `/.default`det också den omfattning som passas. Detta säger till Azure AD: "alla behörigheter på program nivå som administratören har samtyckt till i program registreringen.
+Om det gäller klientens Credential-flöde, är det också den omfattning som passas `/.default` . Detta säger till Azure AD: "alla behörigheter på program nivå som administratören har samtyckt till i program registreringen.

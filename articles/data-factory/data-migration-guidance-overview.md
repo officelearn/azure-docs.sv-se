@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
 ms.openlocfilehash: 4408546c892299e5bbbc22b00a4b334c36eda616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416433"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure
@@ -52,7 +52,7 @@ Det finns tre viktiga överväganden när du väljer mellan en metod för online
 
 Anta till exempel att du planerar att använda Azure Data Factory för att slutföra datamigreringen inom två veckor ( *fönstret migrering*). Lägg märke till den rosa/blå urklipps linjen i följande tabell. Den lägsta rosa cellen för en specifik kolumn visar data storlek/nätverks bandbredds länkning vars migreringsjobb närmar sig, men mindre än två veckor. (Alla storleks-och bandbredds par i en blå cell har ett online-Migreringsverktyg på mer än två veckor.) 
 
-![Online vs. offline](media/data-migration-guidance-overview/online-offline.png) den här tabellen hjälper dig att avgöra om du kan uppfylla det avsedda flyttnings fönstret genom en online-migrering (Azure Data Factory) baserat på storleken på dina data och din tillgängliga nätverks bandbredd. Om fönstret online-migrering är mer än två veckor ska du använda offline-migrering.
+![Online vs. offline ](media/data-migration-guidance-overview/online-offline.png) den här tabellen hjälper dig att avgöra om du kan uppfylla det avsedda flyttnings fönstret genom en online-migrering (Azure Data Factory) baserat på storleken på dina data och din tillgängliga nätverks bandbredd. Om fönstret online-migrering är mer än två veckor ska du använda offline-migrering.
 
 > [!NOTE]
 > Med hjälp av online-migrering kan du uppnå både historiska data inläsningar och stegvisa flöden från slut punkt till slut punkt via ett enda verktyg.  Med den här metoden kan dina data vara synkroniserade mellan det befintliga arkivet och den nya butiken i hela migreringstabellen. Det innebär att du kan återskapa din ETL-logik på den nya butiken med uppdaterade data.

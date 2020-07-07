@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: sfrev
 ms.openlocfilehash: 699015e322c599dea996b3a8b9dbc0a4589440ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429673"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>509-baserad autentisering med X. i Service Fabric kluster
@@ -106,8 +106,8 @@ Låt oss först överväga ett utdrag från ett kluster manifest exemplifying b�
 ```
 Deklarationerna avser server-respektive kluster identiteter. Observera att de CN-baserade deklarationerna har sina egna avsnitt i kluster manifestet, separat från standard säkerhet. I båda deklarationerna representerar "namn" det unika ämnes namnet för certifikatet och fältet "värde" representerar den förväntade utfärdaren enligt följande:
 
-- i det första fallet anger deklarationen att det gemensamma namn elementet för Server certifikatets unika ämne förväntas matcha strängen "Server. demo. system. servicefabric. Azure-int"; fältet "värde" anger att roten i certifikat kedjan är betrodd på den nod/dator där Server certifikatet verifieras. i Windows innebär detta att certifikatet kan kedja upp till något av de certifikat som är installerade i arkivet för betrodda rot certifikat utfärdare.
-- i det andra fallet anger deklarationen att presentatören av ett certifikat har accepterats som en peer-nod i klustret om certifikatets egna namn matchar strängen "Cluster. demo. system. servicefabric. Azure-int" *och* tumavtrycket för den direkta utfärdaren av certifikatet matchar en av de kommaavgränsade posterna i fältet "värde". (Den här regel typen är colloquially känd som "gemensamt namn med utfärdare".)
+- i det första fallet anger deklarationen att det gemensamma namn elementet för Server certifikatets unika ämne förväntas matcha strängen "server.demo.system. servicefabric. Azure-int"; fältet "värde" anger att roten i certifikat kedjan är betrodd på den nod/dator där Server certifikatet verifieras. i Windows innebär detta att certifikatet kan kedja upp till något av de certifikat som är installerade i arkivet för betrodda rot certifikat utfärdare.
+- i det andra fallet anger deklarationen att presentatören av ett certifikat har accepterats som en peer-nod i klustret om certifikatets egna namn matchar strängen "cluster.demo.system. servicefabric. Azure-int" *och* tumavtrycket för den direkta utfärdaren av certifikatet matchar en av de kommaavgränsade posterna i fältet värde. (Den här regel typen är colloquially känd som "gemensamt namn med utfärdare".)
 
 I båda fallen skapas certifikat kedjan och förväntas vara felfritt. det vill säga återkallnings fel, ofullständig kedja eller tid – ogiltiga förtroende fel betraktas som allvarliga och certifikat verifieringen kommer att Miss förväntas. Att fästa utfärdarna kommer att leda till att den icke-betrodda roten är status som ett icke-allvarligt fel. Trots utseendet är detta en striktare form av verifiering, eftersom det gör det möjligt för kluster ägaren att begränsa uppsättningen auktoriserade/godkända utfärdare till sin egen PKI.
 
@@ -156,7 +156,7 @@ Låt oss ta en titt på följande utdrag från ett kluster manifest:
     </NodeType>
   </NodeTypes>
 ```
-Elementet "ClusterCertificate" visar det fullständiga schemat, inklusive valfria parametrar (' X509FindValueSecondary ') eller de med lämpliga standardvärden (' X509StoreName '). de andra deklarationerna visar ett förkortat formulär. Deklarationen för kluster certifikat ovan anger att säkerhets inställningarna för noder av typen ' nt1vm ' initieras med certifikatet ' cc71.. 1984 ' som primärt, och ' 49e2.. 19d6 "certifikat som sekundärt; båda certifikaten förväntas finnas i LocalMachine\'My ' Certificate Store (eller motsvarande Linux-sökväg, *var/lib/sfcerts*).
+Elementet "ClusterCertificate" visar det fullständiga schemat, inklusive valfria parametrar (' X509FindValueSecondary ') eller de med lämpliga standardvärden (' X509StoreName '). de andra deklarationerna visar ett förkortat formulär. Deklarationen för kluster certifikat ovan anger att säkerhets inställningarna för noder av typen ' nt1vm ' initieras med certifikatet ' cc71.. 1984 ' som primärt, och ' 49e2.. 19d6 "certifikat som sekundärt; båda certifikaten förväntas finnas i LocalMachine \' My ' Certificate Store (eller motsvarande Linux-sökväg, *var/lib/sfcerts*).
 
 #### <a name="common-name-based-certificate-presentation-declarations"></a>Vanliga namn på certifikat presentations deklarationer
 Nodtypen certifikat kan också deklareras efter eget ämnes namn som WINS nedan:

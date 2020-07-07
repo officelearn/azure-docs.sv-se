@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416258"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balansera Service Fabric-klustret
@@ -33,7 +33,7 @@ Var och en av de olika typerna av korrigeringar som kluster resurs hanteraren ka
 
 Exempel på konfigurationen som styr dessa timers finns nedan:
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -44,7 +44,7 @@ ClusterManifest. XML:
         </Section>
 ```
 
-via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
+via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [
@@ -83,7 +83,7 @@ Ett tröskelvärde för utjämning är huvud kontrollen för att utlösa ombalan
 
 Tröskelvärden för utjämning definieras per mått som en del av kluster definitionen. Mer information om mått finns i [den här artikeln](service-fabric-cluster-resource-manager-metrics.md).
 
-ClusterManifest. XML
+ClusterManifest.xml
 
 ```xml
     <Section Name="MetricBalancingThresholds">
@@ -92,7 +92,7 @@ ClusterManifest. XML
     </Section>
 ```
 
-via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
+via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [
@@ -144,7 +144,7 @@ Anta att vi behåller vårt tröskelvärde för Utjämning av tre för detta må
 
 Precis som tröskelvärden för utjämning definieras aktivitetens tröskelvärden per mått via kluster definitionen:
 
-ClusterManifest. XML
+ClusterManifest.xml
 
 ``` xml
     <Section Name="MetricActivityThresholds">
@@ -152,7 +152,7 @@ ClusterManifest. XML
     </Section>
 ```
 
-via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
+via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [

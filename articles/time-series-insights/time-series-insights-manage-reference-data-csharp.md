@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: f0ce0f7d90540274d24a7e0248e6f197b74033a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416970"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Hantera GA-referens data för en Azure Time Series Insights miljö med hjälp av C #
@@ -23,7 +23,7 @@ ms.locfileid: "81416970"
 Den här artikeln visar hur du kombinerar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)och Azure Active Directory för att göra programmerings-API-begäranden till Azure Time Series Insights GA [Reference datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
 
 > [!TIP]
-> Visa GA C#-kod exempel [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)på.
+> Visa GA C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample) .
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -66,7 +66,7 @@ Vi rekommenderar att du använder den senaste versionen av Visual Studio och **N
 Exempel koden har två nödvändiga beroenden:
 
 * MSAL.NET [Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client/) -4.7.1-paket.
-* [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) -12.0.3-paket.
+* [Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json) 12.0.3-paket.
 
 Lägg till paketen med [NuGet 2.12 +](https://www.nuget.org/):
 

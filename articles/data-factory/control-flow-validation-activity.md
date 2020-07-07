@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417937"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Validerings aktivitet i Azure Data Factory
@@ -60,7 +60,7 @@ Du kan använda en verifiering i en pipeline för att se till att pipelinen bara
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
 name | Namnet på validerings aktiviteten | Sträng | Ja |
 typ | Måste vara inställd på **verifiering**. | Sträng | Ja |

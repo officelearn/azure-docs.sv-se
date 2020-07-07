@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
 ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418039"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory
@@ -43,7 +43,7 @@ Mer specifikt stöder den här Teradata-anslutaren:
 - Kopiera data med hjälp av **Basic** -eller **Windows** -autentisering.
 - Parallell kopiering från en Teradata-källa. Mer information finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -59,7 +59,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Den länkade tjänsten Teradata stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **Teradata**. | Ja |
 | Begär | Anger den information som krävs för att ansluta till Teradata-instansen. Se följande exempel.<br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) . | Ja |
@@ -71,8 +71,8 @@ Fler anslutnings egenskaper som du kan ange i anslutnings strängen per ärende:
 
 | Egenskap | Beskrivning | Standardvärde |
 |:--- |:--- |:--- |
-| CharacterSet | Den teckenuppsättning som ska användas för sessionen. T. ex `CharacterSet=UTF16`.,.<br><br/>Det här värdet kan vara en användardefinierad teckenuppsättning eller någon av följande fördefinierade teckenuppsättningar: <br/>– ASCII<br/>– UTF8<br/>– UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, DOS-kompatibel, KANJISJIS_0S)<br/>– EUC (UNIX-kompatibel, KANJIEC_0U)<br/>– IBM-stordator (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>– BIG5 (TCHBIG5_1R0)<br/>– GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Standardvärdet `ASCII`är. |
-| MaxRespSize |Maximal storlek för svars buffert för SQL-begäranden i kilobyte (KB). T. ex `MaxRespSize=‭10485760‬`.,.<br/><br/>För Teradata-databas version 16,00 eller senare är det maximala värdet 7361536. För anslutningar som använder tidigare versioner är det maximala värdet 1048576. | Standardvärdet `65536`är. |
+| CharacterSet | Den teckenuppsättning som ska användas för sessionen. T. ex., `CharacterSet=UTF16` .<br><br/>Det här värdet kan vara en användardefinierad teckenuppsättning eller någon av följande fördefinierade teckenuppsättningar: <br/>– ASCII<br/>– UTF8<br/>– UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, DOS-kompatibel, KANJISJIS_0S)<br/>– EUC (UNIX-kompatibel, KANJIEC_0U)<br/>– IBM-stordator (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>– BIG5 (TCHBIG5_1R0)<br/>– GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Standardvärdet är `ASCII` . |
+| MaxRespSize |Maximal storlek för svars buffert för SQL-begäranden i kilobyte (KB). T. ex., `MaxRespSize=‭10485760‬` .<br/><br/>För Teradata-databas version 16,00 eller senare är det maximala värdet 7361536. För anslutningar som använder tidigare versioner är det maximala värdet 1048576. | Standardvärdet är `65536` . |
 
 **Exempel med grundläggande autentisering**
 
@@ -146,9 +146,9 @@ Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-
 
 Följande egenskaper stöds för att kopiera data från Teradata:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type för data mängden måste anges till `TeradataTable`. | Ja |
+| typ | Egenskapen Type för data mängden måste anges till `TeradataTable` . | Ja |
 | databas | Namnet på Teradata-instansen. | Nej (om "fråga" i aktivitets källan har angetts) |
 | tabell | Namnet på tabellen i Teradata-instansen. | Nej (om "fråga" i aktivitets källan har angetts) |
 
@@ -200,15 +200,15 @@ Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Teradata:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste vara inställd på `TeradataSource`. | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste vara inställd på `TeradataSource` . | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
-| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåt värden är: **ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None`), kontrol leras graden av parallellitet för att data ska läsas in från Teradata av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopierings aktiviteten. | Nej |
-| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte `None`är. | Nej |
-| partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller. `DynamicRange` Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Nej |
-| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange`. Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
-| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
+| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåt värden är: **ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), kontrol leras graden av parallellitet för att data ska läsas in från Teradata av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopierings aktiviteten. | Nej |
+| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte är `None` . | Nej |
+| partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Nej |
+| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange` . Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
+| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
 
 > [!NOTE]
 >
@@ -259,8 +259,8 @@ Du rekommenderas att aktivera parallell kopiering med data partitionering, särs
 | Scenario                                                     | Inställningar för förslag                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Fullständig belastning från stor tabell.                                   | **Partitionerings alternativ**: hash. <br><br/>Under körningen identifierar Data Factory automatiskt kolumnen primärt index, använder en hash mot den och kopierar data efter partitioner. |
-| Läs in stora mängder data med hjälp av en anpassad fråga.                 | **Partitionerings alternativ**: hash.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Partitionstabell**: Ange den kolumn som används för Apply hash-partition. Om inget anges identifierar Data Factory automatiskt kolumnen PK i tabellen som du angav i Teradata-datauppsättningen.<br><br>Under körningen ersätts `?AdfHashPartitionCondition` Data Factory med hash-partitionens logik och skickas till Teradata. |
-| Läs in stora mängder data med hjälp av en anpassad fråga med en heltals kolumn med jämnt distribuerat värde för intervall partitionering. | **Partitions alternativ**: partition med dynamiskt intervall.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partitionstabell**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumnen med data typen Integer.<br>**Partitionens övre gränser** och **partition nedre gränser**: Ange om du vill filtrera mot kolumnen partition för att endast hämta data mellan det nedre och övre intervallet.<br><br>Under körningen ersätts `?AdfRangePartitionColumnName`Data Factory `?AdfRangePartitionUpbound`, och `?AdfRangePartitionLowbound` med det faktiska kolumn namnet och värde intervallet för varje partition och skickas till Teradata. <br>Om t. ex. partitionens kolumn "ID" har angetts med den nedre gränser som 1 och den övre gränser som 80, med parallell kopierings uppsättning som 4, Data Factory hämtar data med 4 partitioner. Deras ID: n är mellan [1, 20], [21, 40], [41, 60] och [61, 80]. |
+| Läs in stora mängder data med hjälp av en anpassad fråga.                 | **Partitionerings alternativ**: hash.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>` .<br>**Partitionstabell**: Ange den kolumn som används för Apply hash-partition. Om inget anges identifierar Data Factory automatiskt kolumnen PK i tabellen som du angav i Teradata-datauppsättningen.<br><br>Under körningen ersätts Data Factory `?AdfHashPartitionCondition` med hash-partitionens logik och skickas till Teradata. |
+| Läs in stora mängder data med hjälp av en anpassad fråga med en heltals kolumn med jämnt distribuerat värde för intervall partitionering. | **Partitions alternativ**: partition med dynamiskt intervall.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>` .<br>**Partitionstabell**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumnen med data typen Integer.<br>**Partitionens övre gränser** och **partition nedre gränser**: Ange om du vill filtrera mot kolumnen partition för att endast hämta data mellan det nedre och övre intervallet.<br><br>Under körningen ersätts Data Factory `?AdfRangePartitionColumnName` , `?AdfRangePartitionUpbound` och `?AdfRangePartitionLowbound` med det faktiska kolumn namnet och värde intervallet för varje partition och skickas till Teradata. <br>Om t. ex. partitionens kolumn "ID" har angetts med den nedre gränser som 1 och den övre gränser som 80, med parallell kopierings uppsättning som 4, Data Factory hämtar data med 4 partitioner. Deras ID: n är mellan [1, 20], [21, 40], [41, 60] och [61, 80]. |
 
 **Exempel: fråga med hash-partition**
 
@@ -302,7 +302,7 @@ När du kopierar data från Teradata gäller följande mappningar. Information o
 | ByteInt |Int16 |
 | Char |Sträng |
 | CLOB |Sträng |
-| Date |DateTime |
+| Datum |DateTime |
 | Decimal |Decimal |
 | Double |Double |
 | Infoga |Stöds inte. Använd explicit Cast i käll frågan. |

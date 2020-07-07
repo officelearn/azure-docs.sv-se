@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455370"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario för Virtual-apparat
@@ -38,7 +38,7 @@ Det här är ett standard nätverk för perimeter (kallas även DMZ) med ett DMZ
 
 I lösningen nedan används virtuella brand väggar för att implementera ett perimeternätverk (DMZ)/Protected nätverks scenario.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 Du kan distribuera miljön som beskrivs ovan i Azure med hjälp av olika funktioner som är tillgängliga idag, enligt följande.
 
 * **Virtuellt nätverk (VNet)** . Ett Azure VNet fungerar på samma sätt som ett lokalt nätverk och kan delas upp i ett eller flera undernät för att ge trafik isolering och separering av problem.

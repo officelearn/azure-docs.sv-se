@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du tilldelar en systemtilldelad hantera
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415659"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Distribuera Service Fabric program med systemtilldelad hanterad identitet
@@ -15,7 +15,7 @@ ms.locfileid: "81415659"
 För att få åtkomst till funktionen för hanterad identitet för Azure Service Fabric-program måste du först aktivera hanterad identitetsprovider i klustret. Den här tjänsten ansvarar för autentiseringen av Service Fabric program med hjälp av deras hanterade identiteter och för att få åtkomst till token för deras räkning. När tjänsten är aktive rad kan du se den i Service Fabric Explorer under **system** avsnittet i det vänstra fönstret, som körs under namnet **Fabric:/system/ManagedIdentityTokenService** bredvid andra system tjänster.
 
 > [!NOTE] 
-> Distribution av Service Fabric program med hanterade identiteter stöds från och med API `"2019-06-01-preview"`-versionen. Du kan också använda samma API-version för program typ, version av program typ och tjänst resurser. Den lägsta Service Fabric runtime som stöds är 6,5 CU2. I additoin bör Bygg-/paket miljön också ha SF .NET SDK på CU2 eller högre
+> Distribution av Service Fabric program med hanterade identiteter stöds från och med API-versionen `"2019-06-01-preview"` . Du kan också använda samma API-version för program typ, version av program typ och tjänst resurser. Den lägsta Service Fabric runtime som stöds är 6,5 CU2. I additoin bör Bygg-/paket miljön också ha SF .NET SDK på CU2 eller högre
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
 
@@ -43,7 +43,7 @@ Om du vill aktivera program med en systemtilldelad hanterad identitet lägger du
       }
     }
 ```
-Den här egenskapen deklarerar (till Azure Resource Manager och de hanterade identitets-och Service Fabric resurs leverantörerna, som denna resurs måste ha en`system assigned`implicit () hanterad identitet.
+Den här egenskapen deklarerar (till Azure Resource Manager och de hanterade identitets-och Service Fabric resurs leverantörerna, som denna resurs måste ha en implicit ( `system assigned` ) hanterad identitet.
 
 ### <a name="application-and-service-package"></a>Program-och tjänst paket
 
@@ -72,9 +72,9 @@ Den här egenskapen deklarerar (till Azure Resource Manager och de hanterade ide
         </ServiceManifestImport>
       ```
 
-    Det här elementet tilldelar identiteten för programmet till tjänsten. utan den här tilldelningen kommer tjänsten inte att kunna komma åt appens identitet. I kodfragmentet ovan mappas `SystemAssigned` identiteten (som är ett reserverat nyckelord) till tjänstens definition under det egna namnet `WebAdmin`.
+    Det här elementet tilldelar identiteten för programmet till tjänsten. utan den här tilldelningen kommer tjänsten inte att kunna komma åt appens identitet. I kodfragmentet ovan `SystemAssigned` mappas identiteten (som är ett reserverat nyckelord) till tjänstens definition under det egna namnet `WebAdmin` .
 
-3. Uppdatera tjänst manifestet för att lägga till ett **ManagedIdentity** -element i avsnittet **Resources** med namnet som matchar `ServiceIdentityRef` värdet för inställningen `IdentityBindingPolicy` från definitionen i applikations manifestet:
+3. Uppdatera tjänst manifestet för att lägga till ett **ManagedIdentity** -element i avsnittet **Resources** med namnet som matchar värdet för `ServiceIdentityRef` inställningen från `IdentityBindingPolicy` definitionen i applikations manifestet:
 
     **ServiceManifest.xml**
 
@@ -86,7 +86,7 @@ Den här egenskapen deklarerar (till Azure Resource Manager och de hanterade ide
         </ManagedIdentities>
       </Resources>
     ```
-    Detta är den likvärdiga mappningen av en identitet till en tjänst enligt beskrivningen ovan, men ur tjänst definitionens perspektiv. Identiteten hänvisas till här med sitt egna namn (`WebAdmin`), enligt vad som har deklarerats i applikations manifestet.
+    Detta är den likvärdiga mappningen av en identitet till en tjänst enligt beskrivningen ovan, men ur tjänst definitionens perspektiv. Identiteten hänvisas till här med sitt egna namn ( `WebAdmin` ), enligt vad som har deklarerats i applikations manifestet.
 
 ## <a name="next-steps"></a>Nästa steg
 * Granska [stöd för hanterad identitet](./concepts-managed-identity.md) i Azure Service Fabric

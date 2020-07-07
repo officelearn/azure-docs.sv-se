@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81451439"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera distribution av lösenordsskyddad autentisering i Azure Active Directory
@@ -61,11 +61,11 @@ Microsofts autentiseringsmetoder för lösen ords kryptering möjliggör olika s
 
 Information om hur du väljer den bästa metoden för din organisation finns i [bestämma en metod för lösen ords](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method)avhjälpning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Organisationer måste uppfylla följande krav innan en lösenordsskyddad distribution påbörjas:
 
-| Krav | Autentiseringsapp | FIDO2 säkerhets nycklar |
+| Förutsättning | Autentiseringsapp | FIDO2 säkerhets nycklar |
 | --- | --- | --- |
 | [Kombinerad registrering för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning (SSPR)](howto-registration-mfa-sspr-combined.md) är aktiverat | √ | √ |
 | [Användare kan utföra Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | √ | √ |
@@ -100,7 +100,7 @@ I följande tabell beskrivs de användnings fall som implementeras under det hä
 | **Styrning** | Livs cykeln för användar tilldelningar till lämplig autentiseringsmetod och associerade grupper definieras och övervakas. |
 | **Säkerhet** | Åtkomst till rätt autentiseringsmetod styrs via användar-och grupp tilldelningar. <br> Endast auktoriserade användare kan använda lösen ords skydd. |
 | **Prestanda** | Tids linjer för distribution av åtkomst tilldelningar dokumenteras och övervakas. <br> Inloggnings tider mäts för enkel användning. |
-| **Användarupplevelse** | Användare är medvetna om mobil kompatibilitet. <br> Användare kan konfigurera autentiseraren för lösenordsskyddade appar. |
+| **Användar upplevelse** | Användare är medvetna om mobil kompatibilitet. <br> Användare kan konfigurera autentiseraren för lösenordsskyddade appar. |
 | **Support** | Användare är medvetna om hur man hittar stöd för problem med lösen ords lös inloggning. |
 
 ### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
@@ -172,7 +172,7 @@ En fullständig lista över kraven finns i [Aktivera lösen ords lös säkerhets
 Säkerhets nycklar ger åtkomst till dina resurser och du bör planera hanteringen av dessa fysiska enheter.
 
 1. **Nyckel distribution**: planera hur du ska etablera nycklar till din organisation. Du kan ha en centraliserad etablerings process eller tillåta slutanvändare att köpa FIDO 2,0-kompatibla nycklar.
-1. **Nyckel aktivering**: slutanvändare måste själv aktivera säkerhets nyckeln. Slutanvändare registrerar sina säkerhets nycklar [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) på och aktiverar den andra faktorn (PIN-kod eller bio metrisk) vid första användningen.
+1. **Nyckel aktivering**: slutanvändare måste själv aktivera säkerhets nyckeln. Slutanvändare registrerar sina säkerhets nycklar på [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) och aktiverar den andra faktorn (PIN-kod eller bio metrisk) vid första användningen.
 1. **Inaktivera en nyckel**: När funktionen för säkerhets nycklar är i förhands gransknings fasen finns det inget sätt för en administratör att ta bort en nyckel från ett användar konto. Användaren måste ta bort den. Om en nyckel tappas bort eller blir stulen:
    1. Ta bort användaren från en grupp som är aktive rad för autentisering utan lösen ord.
    1. Kontrol lera att de har tagit bort nyckeln som en autentiseringsmetod.
@@ -228,7 +228,7 @@ Följande tabell innehåller några exempel på typiska rapporterings scenarier:
 
 **Azure AD behåller de flesta gransknings data i 30 dagar** och gör data tillgängliga via Azure Admin Portal eller API som du kan ladda ned till dina analys system. Om du vill ha längre kvarhållning kan du exportera och använda loggar i ett SIEM-verktyg som [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk eller Sumo Logic. [Lär dig mer om att visa åtkomst-och användnings rapporter](../reports-monitoring/overview-reports.md).
 
-Användare kan registrera och hantera sina autentiseringsuppgifter genom att gå till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Den här länken dirigerar användarna till den hantering av autentiseringsuppgifter för slutanvändare som har Aktiver ATS via den kombinerade SSPR/Multi-Factor Authentication-registreringen. Azure AD loggar registrering av FIDO2-säkerhetsenheter och byter till autentiseringsmetoder av en användare.
+Användare kan registrera och hantera sina autentiseringsuppgifter genom att gå till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Den här länken dirigerar användarna till den hantering av autentiseringsuppgifter för slutanvändare som har Aktiver ATS via den kombinerade SSPR/Multi-Factor Authentication-registreringen. Azure AD loggar registrering av FIDO2-säkerhetsenheter och byter till autentiseringsmetoder av en användare.
 
 ### <a name="plan-security"></a>Planera säkerhet
 Som en del av den här distributions planen rekommenderar Microsoft att lösen ords lös autentisering aktive ras för alla privilegierade administratörs konton.
@@ -324,7 +324,7 @@ Följ stegen i artikeln, [Aktivera lösen ords lös säkerhets nyckel logga in f
 | **Fel meddelande**: vi har upptäckt att den här webbläsaren eller operativ systemet inte stöder FIDO2 säkerhets nycklar. | FIDO2-säkerhetsenheter kan bara registreras i webbläsare som stöds (Microsoft Edge, Firefox version 67) på Windows 10 version 1809 eller senare. |
 | **Fel meddelande**: företags principen kräver att du använder en annan metod för att logga in. | Se till att säkerhets nycklar är aktiverade i klient organisationen. |
 | Användaren kan inte hantera min säkerhets nyckel i Windows 10 version 1809 | Version 1809 kräver att du använder program varan för hantering av säkerhets nycklar som tillhandahålls av FIDO2 Key-leverantören. Kontakta leverantören för support. |
-| Jag tror att min FIDO2-säkerhetsnyckel kan vara defekt, hur kan jag testa den. | Gå till [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), ange autentiseringsuppgifter för ett test konto, Anslut den misstänkta säkerhets nyckeln, Välj **+** knappen längst upp till höger på skärmen, klicka på Skapa och gå igenom processen. Om det här scenariot Miss lyckas kan det bero på att enheten är skadad. |
+| Jag tror att min FIDO2-säkerhetsnyckel kan vara defekt, hur kan jag testa den. | Gå till [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/) , ange autentiseringsuppgifter för ett test konto, Anslut den misstänkta säkerhets nyckeln, Välj **+** knappen längst upp till höger på skärmen, klicka på Skapa och gå igenom processen. Om det här scenariot Miss lyckas kan det bero på att enheten är skadad. |
 
 ## <a name="next-steps"></a>Nästa steg
 

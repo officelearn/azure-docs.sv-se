@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 07e103c3e1f56e8a46ea24e750d83e719abab3d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81457985"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure Portal
@@ -41,7 +41,7 @@ Lär dig hur du använder Azure Portal för att konfigurera och hantera data kry
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Ange rätt behörigheter för viktiga åtgärder
 
-1. I Key Vault väljer du **åtkomst principer** > **Lägg till åtkomst princip**.
+1. I Key Vault väljer du **åtkomst principer**  >  **Lägg till åtkomst princip**.
 
    ![Skärm bild av Key Vault med åtkomst principer och Lägg till åtkomst princip markerad](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
@@ -69,7 +69,7 @@ Lär dig hur du använder Azure Portal för att konfigurera och hantera data kry
 
 När Azure Database for PostgreSQL enskild server har krypterats med en kunds hanterade nyckel som lagras i Key Vault krypteras även alla nyligen skapade kopior av servern. Du kan göra den här nya kopian antingen via en lokal åtgärd eller geo-återställning eller via en replikering (lokal/över region) åtgärd. För en krypterad PostgreSQL-Server kan du använda följande steg för att skapa en krypterad återställd Server.
 
-1. Välj **översikts** > **återställning**på servern.
+1. Välj **översikts**  >  **återställning**på servern.
 
    ![Skärm bild av Azure Database for PostgreSQL, med översikt och återställning markerat](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
@@ -81,7 +81,7 @@ När Azure Database for PostgreSQL enskild server har krypterats med en kunds ha
 
    ![Skärm bild av Azure Database for PostgreSQL med otillgänglig status markerad](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
-3. Om du vill göra servern tillgänglig igen, verifierar du nyckeln på den återställda servern. Välj nyckel för att**Verifiera** **data kryptering** > .
+3. Om du vill göra servern tillgänglig igen, verifierar du nyckeln på den återställda servern. Välj nyckel för att verifiera **data kryptering**  >  **Revalidate key**.
 
    > [!NOTE]
    > Det första försöket att validera kommer att Miss lyckas eftersom den nya serverns tjänst huvud namn måste ges åtkomst till nyckel valvet. Om du vill generera tjänstens huvud namn väljer du **revalidate Key**, som visar ett fel, men som genererar tjänstens huvud namn. Därefter kan du se [de här stegen](#set-the-right-permissions-for-key-operations) tidigare i den här artikeln.

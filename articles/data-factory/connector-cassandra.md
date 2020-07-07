@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417475"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med hjälp av Azure Data Factory
@@ -44,7 +44,7 @@ Mer specifikt stöder denna Cassandra-anslutning:
 >[!NOTE]
 >För att aktiviteter som körs på egen värd Integration Runtime, stöds Cassandra 3. x sedan IR version 3,7 och senare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -60,7 +60,7 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten Cassandra:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ |Egenskapen Type måste anges till: **Cassandra** |Ja |
 | värd |En eller flera IP-adresser eller värd namn för Cassandra-servrar.<br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
@@ -103,7 +103,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Cassandra anger du egenskapen type för data uppsättningen till **CassandraTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **CassandraTable** | Ja |
 | keyspace |Namnet på det här utrymmet eller schemat i Cassandra-databasen. |Nej (om "fråga" för "CassandraSource" har angetts) |
@@ -138,11 +138,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Cassandra anger du käll typen i kopierings aktiviteten till **CassandraSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **CassandraSource** | Ja |
 | DocumentDB |Använd den anpassade frågan för att läsa data. SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om "tableName" och "tecken utrymme" i data uppsättningen har angetts). |
-| consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) .<br/><br/>Tillåtna värden är: **ett**, **två**, **tre**, **kvorum**, **alla**, **LOCAL_QUORUM**, **EACH_QUORUM**och **LOCAL_ONE**. |Nej (standard är `ONE`) |
+| consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) .<br/><br/>Tillåtna värden är: **ett**, **två**, **tre**, **kvorum**, **alla**, **LOCAL_QUORUM**, **EACH_QUORUM**och **LOCAL_ONE**. |Nej (standard är `ONE` ) |
 
 **Exempel:**
 
@@ -188,7 +188,7 @@ När du kopierar data från Cassandra används följande mappningar från Cassan
 | BOOLESKT |Boolesk |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
-| FLYTA |Enkel |
+| FLYTA |Enskilt |
 | INET |Sträng |
 | INT |Int32 |
 | TEXT |Sträng |
@@ -219,7 +219,7 @@ Virtuella tabeller refererar till datan i den verkliga tabellen, vilket gör att
 
 Till exempel är följande "ExampleTable" en Cassandra-databas tabell som innehåller en heltals primär nyckel kolumn med namnet "pk_int", en text kolumn med namnet värde, en List kolumn, en kart kolumn och en Set-kolumn (med namnet "StringSet").
 
-| pk_int | Värde | Visa lista | Karta | StringSet |
+| pk_int | Värde | Lista | Karta | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"exempel värde 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"exempel värde 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |

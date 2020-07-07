@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 6751f64706444176f0df8f8fc0c6132e76b39b2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417324"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiera data från Google BigQuery med hjälp av Azure Data Factory
@@ -48,7 +48,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för den länkade Google BigQuery-tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **GoogleBigQuery**. | Ja |
 | projekt | Projekt-ID: t för det standard BigQuery-projekt som frågas mot.  | Ja |
@@ -60,7 +60,7 @@ Följande egenskaper stöds för den länkade Google BigQuery-tjänsten.
 
 Ange egenskapen "authenticationType" till **UserAuthentication**och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | ClientID | ID för programmet som används för att generera uppdateringstoken. | Nej |
 | clientSecret | Hemlighet för det program som används för att generera uppdateringstoken. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
@@ -96,7 +96,7 @@ Ange egenskapen "authenticationType" till **UserAuthentication**och ange följan
 
 Ange egenskapen "authenticationType" till **ServiceAuthentication**och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt. Den här autentiseringstypen kan endast användas på egna värdbaserade Integration Runtime.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | e-post | E-postadressen för tjänst kontot som används för ServiceAuthentication. Den kan endast användas på egna värdbaserade Integration Runtime.  | Nej |
 | keyFilePath | Den fullständiga sökvägen till nyckel filen. p12 som används för att autentisera tjänst kontots e-postadress. | Nej |
@@ -131,12 +131,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Google BigQuery anger du egenskapen type för data uppsättningen till **GoogleBigQueryObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **GoogleBigQueryObject** | Ja |
 | data uppsättning | Namnet på Google BigQuery-datauppsättningen. |Nej (om "fråga" i aktivitets källan har angetts)  |
 | tabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
-| tableName | Tabellens namn. Den här egenskapen stöds för bakåtkompatibilitet. Använd `dataset` och `table`för ny arbets belastning. | Nej (om "fråga" i aktivitets källan har angetts) |
+| tableName | Tabellens namn. Den här egenskapen stöds för bakåtkompatibilitet. Använd och för ny arbets `dataset` belastning `table` . | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -163,7 +163,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Google BigQuery anger du käll typen i kopierings aktiviteten till **GoogleBigQuerySource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **GoogleBigQuerySource**. | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |

@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i A
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458308"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric kluster med Azure Resource Manager 
@@ -26,7 +26,7 @@ Om du skapar ett produktions kluster för att köra produktions arbets belastnin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 I den här artikeln använder du modulerna Service Fabric RM PowerShell eller Azure CLI för att distribuera ett kluster:
 
 * [Azure PowerShell 4,1 och uppåt][azure-powershell]
@@ -63,7 +63,7 @@ Den mall som används är tillgänglig i [Azure Service Fabric Template-exempel:
 Följande kommando kan skapa antingen Windows-eller Linux-kluster, du måste ange operativ systemet. PowerShell/CLI-kommandona skickar även certifikatet i den angivna *CertificateOutputFolder*. kontrol lera dock att mappen redan har skapats. Kommandot tar även med andra parametrar, till exempel VM SKU.
 
 > [!NOTE]
-> Följande PowerShell-kommando fungerar endast med Azure PowerShell `Az` -modulen. Om du vill kontrol lera den aktuella versionen av Azure Resource Manager PowerShell-version kör du följande PowerShell-kommando "Get-module AZ". Följ [den här länken](/powershell/azure/install-Az-ps) om du vill uppgradera din Azure Resource Manager PowerShell-version. 
+> Följande PowerShell-kommando fungerar endast med Azure PowerShell- `Az` modulen. Om du vill kontrol lera den aktuella versionen av Azure Resource Manager PowerShell-version kör du följande PowerShell-kommando "Get-module AZ". Följ [den här länken](/powershell/azure/install-Az-ps) om du vill uppgradera din Azure Resource Manager PowerShell-version. 
 >
 >
 

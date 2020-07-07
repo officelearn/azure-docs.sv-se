@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
 ms.openlocfilehash: fd4a93f4c0b2f052fe5c9890bee01e5da0dcead2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460961"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Tagga en virtuell Linux-dator i Azure
@@ -35,7 +35,7 @@ Du kan visa alla egenskaper för en specifik virtuell dator, inklusive taggarna,
 az vm show --resource-group MyResourceGroup --name MyTestVM
 ```
 
-Om du vill lägga till en ny virtuell dator med hjälp av Azure CLI kan `azure vm update` du använda kommandot tillsammans med tag **-parametern--set**:
+Om du vill lägga till en ny virtuell dator med hjälp av Azure CLI kan du använda `azure vm update` kommandot tillsammans med tag **-parametern--set**:
 
 ```azurecli
 az vm update \

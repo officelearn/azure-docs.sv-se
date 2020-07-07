@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
 ms.openlocfilehash: 3f40ad7346219b48a38ade38b2a75ddf71940875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416423"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från Amazon S3 till Azure Storage 
@@ -94,7 +94,7 @@ Om något av kopierings jobben Miss lyckas på grund av ett tillfälligt problem
 
 ### <a name="delta-data-migration"></a>Migrering av delta data 
 
-Det vanligaste sättet att identifiera nya eller ändrade filer från AWS S3 är att använda tidspartitionerad namngivnings konvention – när dina data i AWS S3 har tidsdelats med Time-slice-information i fil-eller mappnamnet (till exempel/YYYY/MM/DD/File.csv) kan pipelinen enkelt identifiera vilka filer/mappar som ska kopieras stegvis. 
+Det vanligaste sättet att identifiera nya eller ändrade filer från AWS S3 är att använda tidspartitionerad namngivnings konvention – när dina data i AWS S3 har tidsdelats med Time-slice-information i fil-eller mappnamnet (till exempel/YYYY/MM/DD/file.csv) kan pipelinen enkelt identifiera vilka filer/mappar som ska kopieras stegvis. 
 
 Alternativt, om dina data i AWS S3 inte är tidspartitionerade, kan ADF identifiera nya eller ändrade filer med deras LastModifiedDate.   Hur det fungerar är att ADF genomsöker alla filer från AWS S3 och bara kopierar den nya och uppdaterade filen vars senast ändrade tidstämpel är större än ett visst värde.  Tänk på att om du har ett stort antal filer i S3 kan den första fil genomsökningen ta lång tid, oavsett hur många filer som matchar filter villkoret.  I det här fallet rekommenderar vi att du först partitionerar data med samma prefix-inställning för inledande ögonblicks bild migrering, så att fil genomsökningen kan ske parallellt.  
 

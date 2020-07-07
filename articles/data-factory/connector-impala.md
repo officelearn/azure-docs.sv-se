@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418226"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Kopiera data från Impala med hjälp av Azure Data Factory
@@ -35,7 +35,7 @@ Du kan kopiera data från Impala till alla mottagar data lager som stöds. En li
 
 Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning. Därför behöver du inte installera en driv rutin manuellt för att använda den här anslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -49,7 +49,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för den länkade Impala-tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **Impala**. | Ja |
 | värd | IP-adressen eller värd namnet för Impala-servern (det vill säga 192.168.222.160).  | Ja |
@@ -95,7 +95,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Impala anger du egenskapen type för data uppsättningen till **ImpalaObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **ImpalaObject** | Ja |
 | schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
@@ -127,7 +127,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Impala anger du käll typen i kopierings aktiviteten till **ImpalaSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **ImpalaSource**. | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |

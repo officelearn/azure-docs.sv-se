@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454211"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databas roller och användare
@@ -27,7 +27,7 @@ Roll behörigheter är:
 
 När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i Visual Studio med Analysis Services projekt. När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell-cmdletar](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)eller TMSL ( [tabell modell skript språk](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) ) för att lägga till eller ta bort roller och användar medlemmar.
 
-Använd `obj:groupid@tenantid`om du vill lägga till en **säkerhets grupp**.
+Använd om du vill lägga till en **säkerhets grupp** `obj:groupid@tenantid` .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Lägga till eller hantera roller och användare i Visual Studio  
   
@@ -51,7 +51,7 @@ Använd `obj:groupid@tenantid`om du vill lägga till en **säkerhets grupp**.
   
 5.  Om rollen som du skapar har Läs-eller Läs-och process behörighet kan du lägga till rad filter med hjälp av en DAX-formel. Klicka på fliken **rad filter** , Välj en tabell och klicka sedan på fältet **DAX-filter** och skriv sedan en DAX-formel.
   
-6.  Klicka på **medlemmar** > **Lägg till extern**.  
+6.  Klicka på **medlemmar**  >  **Lägg till extern**.  
   
 8.  I **Lägg till extern medlem**, anger du användare eller grupper i din klient organisation Azure AD via e-postadress. När du klickar på OK och stänger roll hanteraren visas roller och roll medlemmar i tabell modell Utforskaren. 
  
@@ -64,7 +64,7 @@ Använd `obj:groupid@tenantid`om du vill lägga till en **säkerhets grupp**.
 
 Om du vill lägga till roller och användare i en distribuerad modell databas måste du vara ansluten till servern som Server administratör eller redan i en databas roll med administratörs behörighet.
 
-1. I objekt Exporer högerklickar du på **roller** > **ny roll**.
+1. I objekt Exporer högerklickar du på **roller**  >  **ny roll**.
 
 2. Ange ett rollnamn och en beskrivning i **skapa roll**.
 

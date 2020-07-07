@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ae6bfb0ab0208d0f778476c9f0959b0c0f1d6471
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683721"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera den gyllene Oracle-porten på en virtuell Azure Linux-dator 
@@ -82,7 +82,7 @@ az vm availability-set create \
 
 Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm). 
 
-I följande exempel skapas två virtuella datorer `myVM1` med `myVM2`namnet och. Skapa SSH-nycklar om de inte redan finns på en standard nyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+I följande exempel skapas två virtuella datorer med namnet `myVM1` och `myVM2` . Skapa SSH-nycklar om de inte redan finns på en standard nyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 #### <a name="create-myvm1-primary"></a>Skapa myVM1 (primär):
 
@@ -96,7 +96,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-När den virtuella datorn har skapats visar Azure CLI information som liknar följande exempel. (Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.)
+När den virtuella datorn har skapats visar Azure CLI information som liknar följande exempel. (Anteckna `publicIpAddress` . Den här adressen används för att få åtkomst till den virtuella datorn.)
 
 ```output
 {
@@ -354,7 +354,7 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Hämta program vara från gyllene grind
 Slutför följande steg för att ladda ned och förbereda Oracle-programmet för den gyllene porten:
 
-1. Hämta filen **fbo_ggs_Linux_x64_shiphome. zip** från [nedladdnings sidan för Oracle gyllene grind](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under nedladdnings rubriken **Oracle GoldenGate 12. x. x för Oracle Linux x86-64**, bör det finnas en uppsättning. zip-filer att ladda ned.
+1. Ladda ned **fbo_ggs_Linux_x64_shiphome.zip** -filen från [nedladdnings sidan för Oracle gyllene grind](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under nedladdnings rubriken **Oracle GoldenGate 12. x. x för Oracle Linux x86-64**, bör det finnas en uppsättning. zip-filer att ladda ned.
 
 2. När du har hämtat zip-filerna till klient datorn använder du Secure Copy Protocol (SCP) för att kopiera filerna till den virtuella datorn:
 
@@ -391,7 +391,7 @@ Detta är ett valfritt steg. Du kan hoppa över det här steget om du använder 
    * [Hämta filen SparaTillFil](https://www.putty.org/)
    * [Ladda ned Xming](https://xming.en.softonic.com/)
 
-2. När du har installerat SparaTillFil går du till mappen SparaTillFil (till exempel C:\Program Files\PuTTY) och Kör PuTTYgen. exe (SparaTillFil-nyckel Generator).
+2. När du har installerat SparaTillFil går du till mappen SparaTillFil (till exempel C:\Program Files\PuTTY) och kör puttygen.exe (SparaTillFil-nyckel Generator).
 
 3. I SparaTillFil-nyckel Generator:
 
@@ -413,14 +413,14 @@ Detta är ett valfritt steg. Du kan hoppa över det här steget om du använder 
 5. Skapa en fil med namnet **authorized_keys**. Klistra in innehållet i nyckeln i den här filen och spara sedan filen.
 
    > [!NOTE]
-   > Nyckeln måste innehålla strängen `ssh-rsa`. Dessutom måste innehållet i nyckeln vara en enskild textrad.
+   > Nyckeln måste innehålla strängen `ssh-rsa` . Dessutom måste innehållet i nyckeln vara en enskild textrad.
    >  
 
-6. Starta PuTTY. I rutan **kategori** väljer du **anslutnings** > -**SSH** > -**autentisering**. I rutan **privat nyckel fil för autentisering** , bläddra till den nyckel som du skapade tidigare.
+6. Starta PuTTY. I rutan **kategori** väljer du **anslutnings**-  >  **SSH**-  >  **autentisering**. I rutan **privat nyckel fil för autentisering** , bläddra till den nyckel som du skapade tidigare.
 
    ![Skärm bild av sidan Ange privat nyckel](./media/oracle-golden-gate/setprivatekey.png)
 
-7. I rutan **kategori** väljer du **anslutnings** > -**SSH** > -**begäran om x11**. Välj sedan rutan **aktivera vidarebefordran av begäran om x11** .
+7. I rutan **kategori** väljer du **anslutnings**-  >  **SSH**-  >  **begäran om x11**. Välj sedan rutan **aktivera vidarebefordran av begäran om x11** .
 
    ![Skärm bild av sidan Aktivera begäran om X11](./media/oracle-golden-gate/enablex11.png)
 

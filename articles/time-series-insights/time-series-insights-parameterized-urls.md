@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416996"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
@@ -29,7 +29,7 @@ Time Series Insights Explorer stöder URL-frågeparametrar för att ange vyer i 
 
 ## <a name="environment-id"></a>Miljö-ID
 
-Parametern `environmentId=<guid>` anger målmiljö-ID:t. Det är en komponent i data åtkomst-FQDN, och du hittar den i det övre högra hörnet i miljö översikten i Azure Portal. Det är allt som föregår `env.timeseries.azure.com`.
+Parametern `environmentId=<guid>` anger målmiljö-ID:t. Det är en komponent i data åtkomst-FQDN, och du hittar den i det övre högra hörnet i miljö översikten i Azure Portal. Det är allt som föregår `env.timeseries.azure.com` .
 
 Ett exempel på miljö-ID-parametern är `?environmentId=10000000-0000-0000-0000-100000000108`.
 
@@ -49,7 +49,7 @@ För absoluta tidsvärden använder du parametrarna `from=<integer>` och `to=<in
 
 ### <a name="relative-time-values"></a>Relativa tidsvärden
 
-För ett relativt tids värde använder `relativeMillis=<value>`, där *värdet* är i Java Script millisekunder från den senaste tidsstämpeln som togs emot från API: et.
+För ett relativt tids värde använder `relativeMillis=<value>` , där *värdet* är i Java Script millisekunder från den senaste tidsstämpeln som togs emot från API: et.
 
 `&relativeMillis=3600000` visar till exempel data från de senaste 60 minuterna.
 
@@ -66,7 +66,7 @@ Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer
 
 ### <a name="optional-parameters"></a>Valfria parametrar
 
-`timeSeriesDefinitions=<collection of term objects>` Parametern anger vilka predikat som ska visas i en Time Series Insights vy:
+`timeSeriesDefinitions=<collection of term objects>`Parametern anger vilka predikat som ska visas i en Time Series Insights vy:
 
 | Parameter | URL-objekt | Beskrivning |
 | --- | --- | --- |
@@ -80,16 +80,16 @@ Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer
 > Om `Events` är valt **useSum** mått är Count valt som standard.  
 > Om `Events` inte är valt väljs Average som standard. |
 
-* `multiChartStack=<true/false>` Nyckel värdes paret aktiverar stackning i diagrammet.
-* `multiChartSameScale=<true/false>` Nyckel/värde-paret möjliggör samma skala för Y-axeln mellan termer inom en valfri parameter.  
+* `multiChartStack=<true/false>`Nyckel värdes paret aktiverar stackning i diagrammet.
+* `multiChartSameScale=<true/false>`Nyckel/värde-paret möjliggör samma skala för Y-axeln mellan termer inom en valfri parameter.  
 * Med `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kan du justera skjutreglaget intervall så att det ger en mer detaljerad eller smidigare, mer sammanslagen vy av diagrammet.  
-* `timezoneOffset=<integer>` Parametern låter dig ange tids zonen för diagrammet som ska visas som en förskjutning till UTC.
+* `timezoneOffset=<integer>`Parametern låter dig ange tids zonen för diagrammet som ska visas som en förskjutning till UTC.
 
 | Par (er) | Beskrivning |
 | --- | --- |
-| `multiChartStack=false` | `true`är aktiverat som standard för att `false` skicka till stack. |
+| `multiChartStack=false` | `true`är aktiverat som standard för att skicka `false` till stack. |
 | `multiChartStack=false&multiChartSameScale=true` | Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Det är `false` som standard, så överföring `true` aktiverar den här funktionen. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units `days`= `hours`, `minutes`, `seconds`, `milliseconds`,.  Inled alltid enheten med versal. </br> Definiera antalet enheter genom att skicka önskat heltal för **timeBucketSize**.  |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units =,,, `days` `hours` `minutes` `seconds` , `milliseconds` .  Inled alltid enheten med versal. </br> Definiera antalet enheter genom att skicka önskat heltal för **timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | Heltalet är alltid i millisekunder. |
 
 > [!NOTE]

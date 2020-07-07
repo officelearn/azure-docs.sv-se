@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461539"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenario: Azure HDInsight-kluster med disk kryptering förlorar Key Vault åtkomst
@@ -20,7 +20,7 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="issue"></a>Problem
 
-RHC-aviseringen `The HDInsight cluster is unable to access the key for BYOK encryption at rest`(Resource Health Center) visas för Bring Your Own Key-kluster (BYOK) där klusternoderna har förlorat åtkomst till kunder Key Vault (kV). Liknande aviseringar kan också visas på Apache Ambari UI.
+RHC-aviseringen (Resource Health Center) `The HDInsight cluster is unable to access the key for BYOK encryption at rest` visas för Bring Your Own Key-kluster (BYOK) där klusternoderna har förlorat åtkomst till kunder Key Vault (kV). Liknande aviseringar kan också visas på Apache Ambari UI.
 
 ## <a name="cause"></a>Orsak
 

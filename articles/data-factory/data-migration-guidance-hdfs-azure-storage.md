@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417138"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage 
@@ -53,7 +53,7 @@ Mer information finns i [prestanda guiden för kopierings aktivitet](https://doc
 
 ## <a name="resilience"></a>Återhämtning
 
-I Data Factory DistCp-läge kan du använda olika DistCp-kommando rads parametrar (till exempel `-i`ignorera skrivfel eller `-update`skriva data när käll filen och målfilen skiljer sig i storlek) för olika återhämtnings nivåer.
+I Data Factory DistCp-läge kan du använda olika DistCp-kommando rads parametrar (till exempel `-i` Ignorera skrivfel eller `-update` skriva data när käll filen och målfilen skiljer sig i storlek) för olika återhämtnings nivåer.
 
 I en enskild kopierings aktivitets körning i Data Factory Native integration runtime-läge har Data Factory en inbyggd metod för att försöka igen. Den kan hantera en viss nivå av tillfälliga haverier i data lager eller i det underliggande nätverket. 
 
@@ -108,9 +108,9 @@ Om något av kopierings jobben Miss lyckas på grund av tillfälliga problem med
 
 ### <a name="delta-data-migration"></a>Migrering av delta data 
 
-I Data Factory DistCp-läge kan du använda kommando rads parametern `-update`DistCp, skriva data när käll filen och målfilen skiljer sig i storlek, för migrering av delta data.
+I Data Factory DistCp-läge kan du använda kommando rads parametern DistCp `-update` , skriva data när käll filen och målfilen skiljer sig i storlek, för migrering av delta data.
 
-I Data Factory enhetligt integrerings läge, är det mest presterande sättet att identifiera nya eller ändrade filer från HDFS genom att använda en tidspartitionerad namngivnings konvention. När dina data i HDFS har tidspartitioner ATS med Time-slice-information i fil-eller mappnamnet (till exempel */YYYY/MM/DD/File.csv*) kan pipelinen enkelt identifiera vilka filer och mappar som ska kopieras stegvis.
+I Data Factory enhetligt integrerings läge, är det mest presterande sättet att identifiera nya eller ändrade filer från HDFS genom att använda en tidspartitionerad namngivnings konvention. När dina data i HDFS har tidspartitioner ATS med Time-slice-information i fil-eller mappnamnet (till exempel */yyyy/mm/dd/file.csv*), kan pipelinen enkelt identifiera vilka filer och mappar som ska kopieras stegvis.
 
 Alternativt, om dina data i HDFS inte är tidspartitionerade, kan Data Factory identifiera nya eller ändrade filer med hjälp av deras **LastModifiedDate** -värde. Data Factory genomsöker alla filer från HDFS och kopierar endast nya och uppdaterade filer som har en senast modifierad tidstämpel som är större än ett angivet värde. 
 

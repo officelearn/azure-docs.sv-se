@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415448"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiera data till eller från Azure Cosmos DB API för MongoDB med Azure Data Factory
@@ -47,10 +47,10 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper stöds för Azure Cosmos DB: s API för den länkade tjänsten MongoDB:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **CosmosDbMongoDbApi**. | Ja |
-| Begär |Ange anslutnings strängen för din Azure Cosmos DBs API för MongoDB. Du hittar det i Azure Portal-> Cosmos DB bladet > primär eller sekundär anslutnings sträng med mönstret `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen.Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) .|Ja |
+| Begär |Ange anslutnings strängen för din Azure Cosmos DBs API för MongoDB. Du hittar det i Azure Portal-> Cosmos DB bladet > primär eller sekundär anslutnings sträng med mönstret `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` . <br/><br />Du kan också ange ett lösen ord i Azure Key Vault och hämta  `password`   konfigurationen från anslutnings strängen.Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md)   .|Ja |
 | databas | Namnet på den databas som du vill få åtkomst till. | Ja |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en egen värd för integration Runtime (om ditt data lager finns i ett privat nätverk). Om den här egenskapen inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -77,7 +77,7 @@ Följande egenskaper stöds för Azure Cosmos DB: s API för den länkade tjäns
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande egenskaper stöds för Azure Cosmos DB s API för MongoDB-datauppsättning:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **CosmosDbMongoDbApiCollection**. |Ja |
 | Samling |Namnet på den Azure Cosmos DB samlingen. |Ja |
@@ -111,10 +111,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **CosmosDbMongoDbApiSource**. |Ja |
-| filter | Anger urvals filter med hjälp av fråge operatorer. Om du vill returnera alla dokument i en samling utelämnar du den här parametern eller skickar{}ett tomt dokument (). | Nej |
+| filter | Anger urvals filter med hjälp av fråge operatorer. Om du vill returnera alla dokument i en samling utelämnar du den här parametern eller skickar ett tomt dokument ( {} ). | Nej |
 | cursorMethods. Project | Anger de fält som ska returneras i dokument för projektion. Om du vill returnera alla fält i de matchande dokumenten utelämnar du den här parametern. | Nej |
 | cursorMethods. sort | Anger i vilken ordning som frågan returnerar matchande dokument. Se [cursor. sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nej |
 | cursorMethods. Limit | Anger det maximala antalet dokument som servern returnerar. Referera till [cursor. Limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nej | 
@@ -166,10 +166,10 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **CosmosDbMongoDbApiSink**. |Ja |
-| writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **insert** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om det redan finns ett dokument med `_id` samma. annars infogar du dokumentet.<br /><br />**Obs!** Data Factory automatiskt genererar ett `_id` för ett dokument om inget `_id` anges i det ursprungliga dokumentet eller med kolumn mappning. Det innebär att du måste se till att ditt dokument har ett ID för att **upsert** ska fungera som förväntat. |Nej<br />(Standardvärdet är **insert**) |
+| writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **insert** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om det redan finns ett dokument med samma `_id` . annars infogar du dokumentet.<br /><br />**Obs!** Data Factory automatiskt genererar ett `_id` för ett dokument om inget `_id` anges i det ursprungliga dokumentet eller med kolumn mappning. Det innebär att du måste se till att ditt dokument har ett ID för att **upsert** ska fungera som förväntat. |Nej<br />(Standardvärdet är **insert**) |
 | writeBatchSize | Egenskapen **writeBatchSize** styr storleken på dokument som ska skrivas i varje batch. Du kan prova att öka värdet för **writeBatchSize** för att förbättra prestandan och minska värdet om dokument storleken är stor. |Nej<br />(Standardvärdet är **10 000**) |
 | writeBatchTimeout | Vänte tiden för att infoga batch-operationen ska avslutas innan den nådde tids gränsen. Det tillåtna värdet är TimeSpan. | Nej<br/>(Standardvärdet är **00:30:00** – 30 minuter) |
 
@@ -225,7 +225,7 @@ För att uppnå schema-oberoende kopia:
 
 Om du vill kopiera data från Azure Cosmos DBs API för MongoDB till tabell mottagare eller omvänd, referera till [schema mappning](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-För att du ska kunna skriva till Cosmos DB, för att se till att du fyller Cosmos DB med rätt objekt-ID från dina källdata, till exempel om du har en "ID"-kolumn i SQL Database-tabell och vill använda värdet som dokument-ID i MongoDB för INSERT/upsert, måste du ange rätt schema mappning enligt definitionen för MongoDB Strict mode (`_id.$oid`) som följer:
+För att du ska kunna skriva till Cosmos DB, för att se till att du fyller Cosmos DB med rätt objekt-ID från dina källdata, till exempel om du har en "ID"-kolumn i SQL Database-tabell och vill använda värdet som dokument-ID i MongoDB för INSERT/upsert, måste du ange rätt schema mappning enligt definitionen för MongoDB Strict mode ( `_id.$oid` ) som följer:
 
 ![Kart-ID i MongoDB-mottagare](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
 

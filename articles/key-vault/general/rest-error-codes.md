@@ -11,10 +11,10 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
 ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432065"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Fel koder för Azure Key Vault REST API
@@ -55,11 +55,11 @@ Rubriken "Authorization" är den åtkomsttoken som krävs för varje anrop till 
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Token saknar rätt resurs som är kopplad till den. 
 
-När du begär en åtkomsttoken från Azure OAUTH-slutpunkten är en parameter med namnet "Resource" obligatorisk. Värdet är viktigt för token-providern eftersom det omfångerar token för den avsedda användningen. Resursen för **alla** tokens för att komma åt en Key Vault är *https:\//Vault.keyvault.net* (utan avslutande snedstreck).
+När du begär en åtkomsttoken från Azure OAUTH-slutpunkten är en parameter med namnet "Resource" obligatorisk. Värdet är viktigt för token-providern eftersom det omfångerar token för den avsedda användningen. Resursen för **alla** tokens för att komma åt en Key Vault är *https: \/ /Vault.keyvault.net* (utan avslutande snedstreck).
 
 ### <a name="the-token-is-expired"></a>Token har upphört att gälla
 
-Tokens är base64-kodade och värdena kan avkodas på webbplatser som [http://jwt.calebb.net](http://jwt.calebb.net). Här är den ovanstående token som är avkodad:
+Tokens är base64-kodade och värdena kan avkodas på webbplatser som [http://jwt.calebb.net](http://jwt.calebb.net) . Här är den ovanstående token som är avkodad:
 
 ```
     {
@@ -89,7 +89,7 @@ Tokens är base64-kodade och värdena kan avkodas på webbplatser som [http://jw
 
 Vi kan se flera viktiga delar i denna token:
 
-- AUD (mål grupp): token-token. Observera att detta är <https://vault.azure.net>. Denna token fungerar inte för resurser som inte uttryckligen matchar det här värdet, till exempel Graph.
+- AUD (mål grupp): token-token. Observera att detta är <https://vault.azure.net> . Denna token fungerar inte för resurser som inte uttryckligen matchar det här värdet, till exempel Graph.
 - IAT (utfärdat i): antalet Tick sedan den epoken börjar när token utfärdades.
 - NBF (inte före): antalet Tick sedan den epoken börjar när denna token börjar gälla.
 - EXP (Expires): antalet Tick sedan den epoken börjar när denna token upphör att gälla.
@@ -100,7 +100,7 @@ Det är viktigt att alla värden identifieras korrekt i token för att begäran 
 
 ### <a name="troubleshooting-401"></a>Felsöka 401
 
-401s bör undersökas från punkten för generering av token innan begäran görs till nyckel valvet. Normalt används kod för att begära token. När token har tagits emot skickas den till Key Vault begäran. Om koden körs lokalt kan du använda Fiddler för att avbilda begäran/svar till `https://login.microsoftonline.com`. En begäran ser ut så här:
+401s bör undersökas från punkten för generering av token innan begäran görs till nyckel valvet. Normalt används kod för att begära token. När token har tagits emot skickas den till Key Vault begäran. Om koden körs lokalt kan du använda Fiddler för att avbilda begäran/svar till `https://login.microsoftonline.com` . En begäran ser ut så här:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
@@ -116,7 +116,7 @@ Följande användar information mush vara korrekt:
 
 - Klient-ID för Key Vault
 - Resurs värde har angetts till https %3 A %2 F %2 F Vault. Azure. net (URL-kodad)
-- Klientorganisations-ID
+- Klient-ID
 - Klienthemlighet
 
 Se till att resten av begäran är nästan identiska.

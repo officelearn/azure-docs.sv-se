@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
 ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415828"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Lake Storage Gen2 är en uppsättning funktioner som är avsedda för stor data analys som är inbyggd i [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Du kan använda den för att samverka med dina data med hjälp av både fil systemet och objekt lagrings paradigm.
+Azure Data Lake Storage Gen2 är en uppsättning funktioner som är avsedda för stor data analys som är inbyggd i [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Med den här lösningen kan du interagera med data med hjälp av både filsystem- och objektlagringsparadigm.
 
 Om du för närvarande använder Azure Data Lake Storage Gen1 kan du utvärdera Azure Data Lake Storage Gen2 genom att kopiera data från Data Lake Storage Gen1 till Gen2 med hjälp av Azure Data Factory.
 
@@ -33,15 +33,15 @@ Azure Data Factory erbjuder en skalbar lösning för data förflyttning. På gru
 
 Den här artikeln visar hur du använder verktyget Data Factory kopiera data för att kopiera data från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2. Du kan följa liknande steg för att kopiera data från andra typer av data lager.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Data Lake Storage Gen1 konto med data i det.
 * Azure Storage konto med Data Lake Storage Gen2 aktiverat. [Skapa ett konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)om du inte har ett lagrings konto.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**.
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory**.
    
    ![Data Factory valet i det nya fönstret](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -49,7 +49,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
       
    ![Sidan ny data fabrik](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name \"LoadADLSDemo\" är inte tillgängligt" anger du ett annat namn för data fabriken. Använd till exempel namnet _**dittnamn**_**ADFTutorialDataFactory**. Skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name \" LoadADLSDemo \" är inte tillgängligt" anger du ett annat namn för data fabriken. Använd till exempel namnet _**dittnamn**_**ADFTutorialDataFactory**. Skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
     * **Resurs grupp**: Välj en befintlig resurs grupp i den nedrullningsbara listan. Du kan också välja alternativet **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md). 
     * **Version**: Välj **v2**.
@@ -99,7 +99,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
 
     ![Ange mapp för utdata](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-8. På sidan **mål data lager** väljer du **+ Skapa ny anslutning** > **Azure Data Lake Storage Gen2** > **Fortsätt**.
+8. På sidan **mål data lager** väljer du **+ Skapa ny anslutning**  >  **Azure Data Lake Storage Gen2**  >  **Fortsätt**.
 
     ![Sidan Måldatalager](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 
@@ -137,7 +137,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
 
 17. Verifiera att data har kopierats till ditt Azure Data Lake Storage Gen2-konto.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 Information om hur du bedömer uppgradering från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2 i allmänhet finns i [uppgradera dina Big data Analytics-lösningar från Azure Data Lake Storage gen1 till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). I följande avsnitt beskrivs metod tips för hur du använder Data Factory för att uppgradera data från Data Lake Storage Gen1 till Data Lake Storage Gen2.
 
@@ -180,6 +180,6 @@ Den korrekta frekvensen för att utföra stegvis inläsning beror på det totala
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Översikt över](copy-activity-overview.md)
-> kopierings aktivitet[Azure Data Lake Storage gen1 anslutnings](connector-azure-data-lake-store.md)
-> [Azure Data Lake Storage Gen2 anslutning](connector-azure-data-lake-storage.md)
+> [Översikt över](copy-activity-overview.md) 
+>  kopierings aktivitet [Azure Data Lake Storage gen1 koppling](connector-azure-data-lake-store.md) 
+>  [Azure Data Lake Storage Gen2 koppling](connector-azure-data-lake-storage.md)

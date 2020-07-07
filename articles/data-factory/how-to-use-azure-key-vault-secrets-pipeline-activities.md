@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417082"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
@@ -23,7 +23,7 @@ ms.locfileid: "81417082"
 
 Du kan lagra autentiseringsuppgifter eller hemliga värden i en Azure Key Vault och använda dem under pipeline-körningen för att skicka till dina aktiviteter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här funktionen använder den hanterade identiteten för Data Factory.  Lär dig hur det fungerar från [hanterad identitet för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) och se till att data fabriken har en associerad.
 
@@ -65,7 +65,7 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
     > [!CAUTION]
     > Ange alternativet för säkra utdata till sant för att förhindra att det hemliga värdet loggas som oformaterad text.  Alla ytterligare aktiviteter som använder det här värdet ska ha sina säkra indatatyps-alternativ inställt på sant.
 
-5. Använd följande kod uttryck ** @activity(' Web1 ')** för att använda värdet i en annan aktivitet. output. Value.
+5. Använd följande kod uttryck ** @activity (' Web1 ')** för att använda värdet i en annan aktivitet. output. Value.
 
     ![Kod uttryck](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

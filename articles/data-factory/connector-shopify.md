@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: e387d8329249fff0b3e84460bd753f35dd275507
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415200"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Kopiera data från Shopify med Azure Data Factory (för hands version)
@@ -47,7 +47,7 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten Shopify:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **Shopify** | Ja |
 | värd | Slut punkten för Shopify-servern. (det vill säga mystore.myshopify.com)  | Ja |
@@ -80,7 +80,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Shopify anger du egenskapen type för data uppsättningen till **ShopifyObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **ShopifyObject** | Ja |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -110,10 +110,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Shopify anger du käll typen i kopierings aktiviteten till **ShopifySource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **ShopifySource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

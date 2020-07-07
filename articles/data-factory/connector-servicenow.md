@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: bc48f651a1adb099017e8f47d9fa6bcfa8078fa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415339"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiera data från ServiceNow med hjälp av Azure Data Factory
@@ -44,10 +44,10 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten ServiceNow:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **ServiceNow** | Ja |
-| slutpunkt | Slut punkten för ServiceNow-servern (`http://<instance>.service-now.com`).  | Ja |
+| slutpunkt | Slut punkten för ServiceNow-servern ( `http://<instance>.service-now.com` ).  | Ja |
 | authenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **Basic**, **OAuth2** | Ja |
 | användarnamn | Det användar namn som används för att ansluta till ServiceNow-servern för Basic-och OAuth2-autentisering.  | Ja |
 | password | Lösen ordet som motsvarar användar namnet för Basic-och OAuth2-autentisering. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -83,7 +83,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från ServiceNow anger du egenskapen type för data uppsättningen till **ServiceNowObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **ServiceNowObject** | Ja |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -113,18 +113,18 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från ServiceNow anger du käll typen i kopierings aktiviteten till **ServiceNowSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **ServiceNowSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Actual.alm_asset"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Actual.alm_asset"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 Tänk på följande när du anger schema och kolumn för ServiceNow i Query och **se [prestanda tips](#performance-tips) för indirekt för kopierings prestanda**.
 
-- **Schema:** `Actual` ange schemat som `Display` eller i ServiceNow-frågan, som du kan titta på som parametern till `sysparm_display_value` true eller false när du anropar [ServiceNow RESTful-API: er](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Kolumn:** kolumn namnet för det faktiska värdet under `Actual` schemat är `[column name]_value`, men för visnings värde under `Display` schema är `[column name]_display_value`. Observera att kolumn namnet måste mappas till det schema som används i frågan.
+- **Schema:** ange schemat som `Actual` eller `Display` i ServiceNow-frågan, som du kan titta på som parametern till `sysparm_display_value` true eller false när du anropar [ServiceNow RESTful-API: er](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Kolumn:** kolumn namnet för det faktiska värdet under `Actual` schemat är `[column name]_value` , men för visnings värde under `Display` schema är `[column name]_display_value` . Observera att kolumn namnet måste mappas till det schema som används i frågan.
 
 **Exempel fråga:** 
- `SELECT col_value FROM Actual.alm_asset` eller 
+ `SELECT col_value FROM Actual.alm_asset` ELLER 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Exempel:**

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460655"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Metodtips för StorSimple Virtual Array
@@ -84,7 +84,7 @@ Det totala utrymmet som krävs på den lokala nivån är så långt: 240 GB + 12
 För det andra behöver vi minst lika mycket utrymme på den lokala nivån som den största enkla reservationen. Den här extra mängden används om du behöver återställa från en ögonblicks bild av molnet. I det här exemplet är den största lokala reservationen 330 GB (inklusive reservation för fil system), så du kan lägga till den till 690 GB: 690 GB + 330 GB = 1020 GB.
 Om vi utför efterföljande ytterligare återställningar kan vi alltid frigöra utrymmet från föregående återställnings åtgärd.
 
-För det tredje behöver vi 15% av ditt totala lokala utrymme hittills för att lagra lokala ögonblicks bilder, så att endast 85% av det är tillgängligt. I det här exemplet är det cirka 1020 GB = 0,85&ast;etablerade data disk TB. Den etablerade data disken skulle därför vara (1020&ast;(1/0.85)) = 1200 GB = 1,20 tb ~ 1,25 TB (avrundat till närmaste kvartilen)
+För det tredje behöver vi 15% av ditt totala lokala utrymme hittills för att lagra lokala ögonblicks bilder, så att endast 85% av det är tillgängligt. I det här exemplet är det cirka 1020 GB = 0,85 &ast; etablerade data disk TB. Den etablerade data disken skulle därför vara (1020 &ast; (1/0.85)) = 1200 GB = 1,20 TB ~ 1,25 TB (avrundat till närmaste kvartilen)
 
 I takt med oväntad tillväxt och nya återställningar bör du etablera en lokal disk på cirka 1,25-1,5 TB.
 
@@ -107,7 +107,7 @@ Det totala utrymmet som krävs på den lokala nivån är: 240 GB + 330 GB = 570 
 
 Det minsta lokala utrymmet som krävs för återställning är 330 GB.
 
-15% av din totala disk används för att lagra ögonblicks bilder så att endast 0,85 är tillgängligt. Disk storleken är (900&ast;(1/0.85)) = 1,06 tb ~ 1,25 TB (avrundat till närmaste kvartilen)
+15% av din totala disk används för att lagra ögonblicks bilder så att endast 0,85 är tillgängligt. Disk storleken är (900 &ast; (1/0.85)) = 1,06 TB ~ 1,25 TB (avrundat till närmaste kvartilen)
 
 Vid en oväntad tillväxt kan du etablera en lokal disk på 1,25-1,5 TB.
 

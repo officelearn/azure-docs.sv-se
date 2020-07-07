@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415804"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Läs in data från Office 365 med hjälp av Azure Data Factory
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder Data Factory _läsa in data från Offic
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**: 
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**: 
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -79,7 +79,7 @@ Den här artikeln visar hur du använder Data Factory _läsa in data från Offic
 
     ![Konfigurera Office 365 data uppsättnings tabell](./media/load-office-365-data/edit-dataset.png)
 
-8. Gå nu tillbaka till fliken **pipeline** > -**källa** om du vill fortsätta konfigurera ytterligare egenskaper för data extrahering i Office 365.  Filter för användar omfång och användar omfång är valfria predikat som du kan definiera för att begränsa de data som du vill extrahera från Office 365. Se avsnittet [Egenskaper för Office 365-datauppsättning](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) för hur du konfigurerar de här inställningarna.
+8. Gå nu tillbaka till fliken **pipeline**-  >  **källa** om du vill fortsätta konfigurera ytterligare egenskaper för data extrahering i Office 365.  Filter för användar omfång och användar omfång är valfria predikat som du kan definiera för att begränsa de data som du vill extrahera från Office 365. Se avsnittet [Egenskaper för Office 365-datauppsättning](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) för hur du konfigurerar de här inställningarna.
 
 9. Du måste välja ett av datum filtren och ange start tid och slut tid.
 
@@ -132,8 +132,8 @@ Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, v
 
 Om det här är första gången du begär data för den här kontexten (en kombination av vilken data tabell som ska nås, vilket mål konto som läses in i och vilken användar identitet som gör data åtkomst förfrågan) visas status för kopierings aktiviteten som **pågående**och endast när du klickar på länken "information" under åtgärder visas statusen som **RequesetingConsent**.  En medlem i gruppen för godkännande av data åtkomst måste godkänna begäran i Privileged Access Management innan data extraheringen kan fortsätta.
 
-_Status som begärt godkännande:_
-![information om aktivitets körning – begäran om godkännande](./media/load-office-365-data/activity-details-request-consent.png) 
+_Status som begärt godkännande:_ 
+ ![ Information om körning av aktivitet – begäran om godkännande](./media/load-office-365-data/activity-details-request-consent.png) 
 
 _Status som extraherar data:_
 

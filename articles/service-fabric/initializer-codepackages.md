@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430635"
 ---
 # <a name="initializer-codepackages"></a>Initierare för CodePackages
@@ -52,7 +52,7 @@ Nu ska vi titta på ett komplett exempel med hjälp av initierare CodePackages.
 >
 > Det här exemplet hänvisar till mcr.microsoft.com/windows/nanoserver:1809. Windows Server-behållare är inte kompatibla i alla versioner av ett värd operativ system. Mer information finns i [kompatibilitet med Windows container version](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Följande ServiceManifest. XML bygger på ServiceManifest-kodfragmentet som beskrivs ovan. *InitCodePackage0*, *InitCodePackage1* och *WorkloadCodePackage* är CodePackages som representerar behållare. Vid aktivering körs *InitCodePackage0* först. Den loggar ett meddelande till en fil och avslutas. Sedan körs *InitCodePackage1* som också loggar ett meddelande till en fil och avslutas. Slutligen börjar *WorkloadCodePackage* köras. Den loggar också ett meddelande till en fil och matar ut innehållet i filen till **STDOUT** och pingar sedan för alltid.
+Följande ServiceManifest.xml bygger på ServiceManifest-kodfragmentet som beskrivs ovan. *InitCodePackage0*, *InitCodePackage1* och *WorkloadCodePackage* är CodePackages som representerar behållare. Vid aktivering körs *InitCodePackage0* först. Den loggar ett meddelande till en fil och avslutas. Sedan körs *InitCodePackage1* som också loggar ett meddelande till en fil och avslutas. Slutligen börjar *WorkloadCodePackage* köras. Den loggar också ett meddelande till en fil och matar ut innehållet i filen till **STDOUT** och pingar sedan för alltid.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +93,7 @@ Följande ServiceManifest. XML bygger på ServiceManifest-kodfragmentet som besk
 </ServiceManifest>
 ```
 
-Följande ApplicationManifest. XML beskriver ett program baserat på ServiceManifest. xml som beskrivs ovan. Observera att den anger samma **volym** montering för alla behållare, d.v.s. **C:\WorkspaceOnHost** monteras på **C:\WorkspaceOnContainer** på alla tre behållare. Netto resultatet är att alla behållare skriver till samma loggfil i den ordning som de är aktiverade.
+Följande ApplicationManifest.xml beskriver ett program baserat på ServiceManifest.xml som beskrivs ovan. Observera att den anger samma **volym** montering för alla behållare, d.v.s. **C:\WorkspaceOnHost** monteras på **C:\WorkspaceOnContainer** på alla tre behållare. Netto resultatet är att alla behållare skriver till samma loggfil i den ordning som de är aktiverade.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416944"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
@@ -52,7 +52,7 @@ Du kan använda den här HTTP-anslutningen för att:
 > [!TIP]
 > Om du vill testa en HTTP-begäran för data hämtning innan du konfigurerar HTTP-anslutningen i Data Factory kan du läsa om API-specifikationen för sidhuvuds-och text krav. Du kan använda verktyg som Postman eller webbläsare för att validera.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -66,7 +66,7 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper stöds för den länkade HTTP-tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **HttpServer**. | Ja |
 | url | Bas-URL: en till webb servern. | Ja |
@@ -78,7 +78,7 @@ Följande egenskaper stöds för den länkade HTTP-tjänsten:
 
 Ange egenskapen **authenticationType** som **Basic**, **Digest**eller **Windows**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | userName | Användar namnet som används för att få åtkomst till HTTP-slutpunkten. | Ja |
 | password | Användarens lösen ord (värdet **username** ). Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -111,7 +111,7 @@ Ange egenskapen **authenticationType** som **Basic**, **Digest**eller **Windows*
 
 Om du vill använda ClientCertificate-autentisering ställer du in egenskapen **authenticationType** på **ClientCertificate**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-kodade certifikat data. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
 | certThumbprint | Tumavtrycket för det certifikat som är installerat på din egen värd Integration Runtime datorns certifikat arkiv. Gäller endast när den egen värdbaserade typen av Integration Runtime anges i egenskapen **connectVia** . | Ange antingen **embeddedCertData** eller **certThumbprint**. |
@@ -120,8 +120,8 @@ Om du vill använda ClientCertificate-autentisering ställer du in egenskapen **
 Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet på den lokala datorn ger du Läs behörighet till den lokala datorn integration Runtime:
 
 1. Öppna Microsoft Management Console (MMC). Lägg till snapin-modulen **certifikat** som är riktad mot den **lokala datorn**.
-2. Expandera **certifikat** > **personliga**och välj sedan **certifikat**.
-3. Högerklicka på certifikatet i det personliga arkivet och välj sedan **alla aktiviteter** > **hantera privata nycklar**.
+2. Expandera **certifikat**  >  **personliga**och välj sedan **certifikat**.
+3. Högerklicka på certifikatet i det personliga arkivet och välj sedan **alla aktiviteter**  >  **hantera privata nycklar**.
 3. På fliken **säkerhet** lägger du till det användar konto som integration runtime värd tjänsten (dia Host service) körs under, med Läs behörighet till certifikatet.
 
 **Exempel 1: använda certThumbprint**
@@ -174,12 +174,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Följande egenskaper stöds för HTTP under `location` inställningar i format-baserad data mängd:
+Följande egenskaper stöds för HTTP under `location` Inställningar i format-baserad data mängd:
 
-| Egenskap    | Beskrivning                                                  | Krävs |
+| Egenskap    | Beskrivning                                                  | Obligatorisk |
 | ----------- | ------------------------------------------------------------ | -------- |
 | typ        | Typ egenskapen under `location` i data mängden måste anges till **HttpServerLocation**. | Ja      |
-| relativeUrl | En relativ URL till den resurs som innehåller data. HTTP-anslutningen kopierar data från den kombinerade URL: `[URL specified in linked service][relative URL specified in dataset]`en:.   | Nej       |
+| relativeUrl | En relativ URL till den resurs som innehåller data. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service][relative URL specified in dataset]` .   | Nej       |
 
 > [!NOTE]
 > Den begärda nytto Last storleken för HTTP-begäran är cirka 500 KB. Om den nytto Last storlek som du vill skicka till webb slut punkten är större än 500 KB bör du överväga att lägga till nytto lasten i mindre segment.
@@ -220,9 +220,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Följande egenskaper stöds för HTTP under `storeSettings` inställningar i format-baserad kopierings Källa:
+Följande egenskaper stöds för HTTP under `storeSettings` Inställningar i format-baserad kopierings Källa:
 
-| Egenskap                 | Beskrivning                                                  | Krävs |
+| Egenskap                 | Beskrivning                                                  | Obligatorisk |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | typ                     | Typ egenskapen under `storeSettings` måste anges till **HttpReadSettings**. | Ja      |
 | requestMethod            | HTTP-metoden. <br>Tillåtna värden är **Get** (standard) och **post**. | Nej       |
@@ -283,7 +283,7 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 
 ### <a name="legacy-dataset-model"></a>Äldre data uppsättnings modell
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **HttpFile**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. | Nej |
@@ -337,7 +337,7 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 
 ### <a name="legacy-copy-activity-source-model"></a>Käll modell för äldre kopierings aktiviteter
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **HttpSource**. | Ja |
 | httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Nej |

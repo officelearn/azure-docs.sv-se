@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430557"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Skydda en länkad tjänst med privata länkar 
 
 I den här artikeln får du lära dig hur du skyddar en länkad tjänst i Synapse med en privat slut punkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage konto**: du använder Azure Data Lake gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md) för att skapa ett. Kontrol lera att lagrings kontot har Synapse Studio IP-filtrering för att komma åt det och att du bara tillåter **valda nätverk** att komma åt lagrings kontot. Inställningen under bladets **brand väggar och virtuella nätverk** bör se ut som på bilden nedan.
@@ -49,7 +49,7 @@ Om du inte klickade på hyperlänken när du testar anslutningen ovan följer du
 1. Välj **+ ny** under hanterad privat slut punkt.
 1. Välj panelen Azure Data Lake Storage Gen2 i listan och välj **Fortsätt**.
 1. Ange namnet på det lagrings konto som du skapade ovan.
-1. Välj **skapa**
+1. Välj **Skapa**
 1. Du bör se efter att ha väntat några sekunder på att den privata länken som skapas behöver ett godkännande.
 
 ## <a name="approval-of-a-private-link"></a>Godkännande av en privat länk

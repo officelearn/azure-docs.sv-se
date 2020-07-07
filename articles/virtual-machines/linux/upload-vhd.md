@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460434"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
@@ -39,7 +39,7 @@ För att utföra följande steg behöver du:
 
 - En virtuell Linux-dator som har förberetts för användning i Azure. Avsnittet [förbereda den virtuella datorn](#prepare-the-vm) i den här artikeln beskriver hur du hittar distribution information om hur du installerar Azure Linux-agenten (waagent), vilket krävs för att du ska kunna ansluta till en virtuell dator med SSH.
 - VHD-filen från en befintlig [Azure-godkänd Linux-distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (eller Visa [information om icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) till en virtuell disk i VHD-format. Det finns flera verktyg för att skapa en virtuell dator och en virtuell hård disk:
-  - Installera och konfigurera [qemu](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) eller [kvm](https://www.linux-kvm.org/page/RunningKVM)och ta hand om att använda VHD som avbildnings format. Om det behövs kan du [konvertera en avbildning](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) med `qemu-img convert`.
+  - Installera och konfigurera [qemu](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) eller [kvm](https://www.linux-kvm.org/page/RunningKVM)och ta hand om att använda VHD som avbildnings format. Om det behövs kan du [konvertera en avbildning](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) med `qemu-img convert` .
   - Du kan också använda Hyper-V [på Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) eller [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -50,7 +50,7 @@ För att utföra följande steg behöver du:
 
 - Kontrol lera att du har den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index#az-login).
 
-I följande exempel ersätter du parameter namn med dina egna värden, till exempel `myResourceGroup`, `mystorageaccount`och. `mydisks`
+I följande exempel ersätter du parameter namn med dina egna värden, till exempel `myResourceGroup` , `mystorageaccount` och `mydisks` .
 
 <a id="prepimage"> </a>
 

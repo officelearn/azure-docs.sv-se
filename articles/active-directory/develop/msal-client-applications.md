@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81534320"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Offentlig klient och konfidentiella klient program
@@ -26,15 +26,15 @@ Microsoft Authentication Library (MSAL) definierar två typer av klienter: offen
 - **Konfidentiella klient program** är appar som körs på servrar (webbappar, webb-API-appar eller till och med service/daemon-appar). De anses vara svåra att komma åt, och därför kan det vara möjligt att hålla en program hemlighet. Konfidentiella klienter kan lagra konfigurations tids hemligheter. Varje instans av klienten har en särskild konfiguration (inklusive klient-ID och klient hemlighet). De här värdena är svåra för slutanvändare att extrahera. En webbapp är den vanligaste konfidentiella klienten. Klient-ID: t visas via webbläsaren, men hemligheten skickas bara i tillbaka-kanalen och aldrig direkt exponeras.
 
     Konfidentiella klient program: <BR>
-    ![Daemon/](media/msal-client-applications/web-app.png) ![tjänst för](media/msal-client-applications/web-api.png) ![webb program webb-API](media/msal-client-applications/daemon-service.png)
+    ![](media/msal-client-applications/web-app.png) ![ ](media/msal-client-applications/web-api.png) Daemon/tjänst för webb program webb-API ![](media/msal-client-applications/daemon-service.png)
 
 - **Offentliga klient program** är appar som körs på enheter eller Station ära datorer eller i en webbläsare. De är inte betrodda för att på ett säkert sätt behålla program hemligheter, så de får bara åtkomst till webb-API: er för användarens räkning. (De stöder bara offentliga klient flöden.) Offentliga klienter kan inte lagra konfigurations tids hemligheter, så de har inte klient hemligheter.
 
     Offentliga klient program: <BR>
-    ![Desktop app](media/msal-client-applications/desktop-app.png) ![webbläsarbaserade API](media/msal-client-applications/browserless-app.png) ![-mobilapp](media/msal-client-applications/mobile-app.png)
+    ![Desktop app ](media/msal-client-applications/desktop-app.png) ![ WEBBLÄSARbaserade API- ](media/msal-client-applications/browserless-app.png) ![ mobilapp](media/msal-client-applications/mobile-app.png)
 
 > [!NOTE]
-> I MSAL. js finns det ingen åtskillnad mellan offentliga och konfidentiella klient program.  MSAL. js representerar klient program som användar agent-baserade appar, offentliga klienter där klient koden körs i en användar agent som en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig.
+> I MSAL.js finns det ingen åtskillnad mellan offentliga och konfidentiella klient program.  MSAL.js representerar klient program som användar agent-baserade appar, offentliga klienter där klient koden körs i en användar agent som en webbläsare. Dessa klienter lagrar inte hemligheter eftersom webb läsar kontexten är lättillgänglig.
 
 ## <a name="comparing-the-client-types"></a>Jämföra klient typerna
 Här följer några likheter och skillnader mellan offentliga klient-och konfidentiella klient program:
@@ -49,4 +49,4 @@ Om du har använt ADAL kanske klient-ID: t (även kallat *program-ID* eller *app
 Läs om:
 - [Konfigurations alternativ för klient program](msal-client-application-configuration.md)
 - [Instansiera klient program med hjälp av MSAL.NET](msal-net-initializing-client-applications.md)
-- [Instansiera klient program med MSAL. js](msal-js-initializing-client-applications.md)
+- [Instansiera klient program med hjälp av MSAL.js](msal-js-initializing-client-applications.md)

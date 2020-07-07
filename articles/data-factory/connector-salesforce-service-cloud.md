@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416680"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce-tjänstemolnet med hjälp av Azure Data Factory
@@ -39,7 +39,7 @@ Mer specifikt stöder den här Salesforce-tjänstens moln koppling:
 
 Salesforce-anslutningen är byggd ovanpå Salesforce REST/bulk-API: et. Som standard använder Connector [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) för att kopiera data från Salesforce och använder [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) för att kopiera data till Salesforce. Du kan också uttryckligen ange den API-version som används för att läsa/skriva data via [ `apiVersion` egenskap](#linked-service-properties) i länkad tjänst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 API-behörighet måste vara aktiverat i Salesforce. Mer information finns i [Aktivera API-åtkomst i Salesforce med behörighets uppsättning](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 
@@ -62,14 +62,14 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för den länkade Salesforce-tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ |Egenskapen Type måste anges till **SalesforceServiceCloud**. |Ja |
-| environmentUrl | Ange URL: en för Salesforce-tjänstens moln instans. <br> – Standardvärdet är `"https://login.salesforce.com"`. <br> – Om du vill kopiera data från sandbox `"https://test.salesforce.com"`anger du. <br> – Om du vill kopiera data från en anpassad domän anger du till `"https://[domain].my.salesforce.com"`exempel. |Nej |
+| environmentUrl | Ange URL: en för Salesforce-tjänstens moln instans. <br> – Standardvärdet är `"https://login.salesforce.com"` . <br> – Om du vill kopiera data från sandbox anger du `"https://test.salesforce.com"` . <br> – Om du vill kopiera data från en anpassad domän anger du till exempel `"https://[domain].my.salesforce.com"` . |Nej |
 | användarnamn |Ange ett användar namn för användar kontot. |Ja |
 | password |Ange ett lösen ord för användar kontot.<br/><br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | securityToken |Ange en säkerhetstoken för användar kontot. <br/><br/>Mer information om säkerhetstoken i allmänhet finns i [säkerhet och API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). Säkerhetstoken kan bara hoppas över om du lägger till Integration Runtimeens IP-adress i listan över [BETRODDA IP-adresser](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) i Salesforce. När du använder Azure IR, se [Azure integration runtime IP-adresser](azure-integration-runtime-ip-addresses.md).<br/><br/>Instruktioner för hur du hämtar och återställer en säkerhetstoken finns i [Hämta en](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)säkerhetstoken. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
-| apiVersion | Ange den Salesforce-REST/Mass-API-version som ska `48.0`användas, t. ex.. Som standard använder Connector [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) för att kopiera data från Salesforce och använder [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) för att kopiera data till Salesforce. | Nej |
+| apiVersion | Ange den Salesforce-REST/Mass-API-version som ska användas, t. ex. `48.0` . Som standard använder Connector [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) för att kopiera data från Salesforce och använder [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) för att kopiera data till Salesforce. | Nej |
 | connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Om inget värde anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har integration runtime |
 
 >[!IMPORTANT]
@@ -141,7 +141,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från och till Salesforce-tjänstemolnet.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **SalesforceServiceCloudObject**.  | Ja |
 | objectApiName | Salesforce-objektets namn att hämta data från. | Nej för källa, Ja för mottagare |
@@ -170,7 +170,7 @@ Följande egenskaper stöds för att kopiera data från och till Salesforce-tjä
 }
 ```
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till **RelationalTable**. | Ja |
 | tableName | Namnet på tabellen i Salesforce-tjänstens moln. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -183,7 +183,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kunna kopiera data från Salesforce-tjänstemolnet stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **SalesforceServiceCloudSource**. | Ja |
 | DocumentDB |Använd den anpassade frågan för att läsa data. Du kan använda [SOQL-](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga eller SQL-92-fråga för Salesforce-objekt frågor. Se fler tips i avsnittet [tips](#query-tips) . Om fråga inte anges hämtas alla data för det moln objekt för Salesforce-tjänsten som anges i "objectApiName" i data uppsättningen. | Nej (om "objectApiName" i data uppsättningen har angetts) |
@@ -230,7 +230,7 @@ För att kunna kopiera data från Salesforce-tjänstemolnet stöds följande ege
 
 För att kopiera data till Salesforce-tjänstemolnet stöds följande egenskaper i avsnittet Kopiera aktivitets **mottagare** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **SalesforceServiceCloudSink**. | Ja |
 | writeBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **insert** -och **upsert**. | Nej (standard är Insert) |
@@ -277,11 +277,11 @@ För att kopiera data till Salesforce-tjänstemolnet stöds följande egenskaper
 
 ### <a name="retrieve-data-from-a-salesforce-service-cloud-report"></a>Hämta data från en moln rapport för Salesforce-tjänster
 
-Du kan hämta data från Salesforce-tjänstens moln rapporter genom att ange `{call "<report name>"}`en fråga som. Ett exempel är `"query": "{call \"TestReport\"}"`.
+Du kan hämta data från Salesforce-tjänstens moln rapporter genom att ange en fråga som `{call "<report name>"}` . Ett exempel är `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-service-cloud-recycle-bin"></a>Hämta borttagna poster från bin-molnets pappers korg
 
-Om du vill fråga de Soft borttagna posterna från bin-molnets pappers korg kan du `readBehavior` ange `queryAll`som. 
+Om du vill fråga de Soft borttagna posterna från bin-molnets pappers korg kan du ange `readBehavior` som `queryAll` . 
 
 ### <a name="difference-between-soql-and-sql-query-syntax"></a>Skillnad mellan SOQL och SQL-frågesyntax
 
@@ -292,13 +292,13 @@ När du kopierar data från Salesforce-tjänstemolnet kan du använda antingen S
 | Kolumn val | Du måste räkna upp fälten som ska kopieras i frågan, t. ex.`SELECT field1, filed2 FROM objectname` | `SELECT *`stöds utöver val av kolumn. |
 | Citat tecken | Namn på arkiverade/objekt får inte anges i citat tecken. | Namn på fält/objekt kan anges i citat tecken, t. ex.`SELECT "id" FROM "Account"` |
 | Datetime-format |  Mer information finns [här](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) och exempel i nästa avsnitt. | Mer information finns [här](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) och exempel i nästa avsnitt. |
-| Booleska värden | `False` Representerat `True`som och, `SELECT … WHERE IsDeleted=True`t. ex.. | Representeras som 0 eller 1, `SELECT … WHERE IsDeleted=1`t. ex.. |
-| Ändra kolumn namn | Stöds inte. | Stöds, t. ex `SELECT a AS b FROM …`.:. |
-| Relation | Stöds, t. `Account_vod__r.nvs_Country__c`ex.. | Stöds inte. |
+| Booleska värden | Representerat som `False` och `True` , t. ex. `SELECT … WHERE IsDeleted=True` . | Representeras som 0 eller 1, t. ex. `SELECT … WHERE IsDeleted=1` . |
+| Ändra kolumn namn | Stöds inte. | Stöds, t. ex.: `SELECT a AS b FROM …` . |
+| Relation | Stöds, t. ex. `Account_vod__r.nvs_Country__c` . | Stöds inte. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Hämta data med hjälp av en WHERE-sats i kolumnen DateTime
 
-När du anger SOQL eller SQL-frågan bör du tänka på DateTime-formatets skillnad. Ett exempel:
+När du anger SOQL eller SQL-frågan bör du tänka på DateTime-formatets skillnad. Till exempel:
 
 * **SOQL-exempel**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL-exempel**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
@@ -316,8 +316,8 @@ När du kopierar data från Salesforce-tjänstemolnet används följande mappnin
 | Automatisk numrering |Sträng |
 | Checkbox |Boolesk |
 | Valuta |Decimal |
-| Date |DateTime |
-| Date/Time |DateTime |
+| Datum |DateTime |
+| Datum/tid |DateTime |
 | E-post |Sträng |
 | Id |Sträng |
 | Sök relation |Sträng |

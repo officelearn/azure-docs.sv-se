@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: borisb
 ms.custom: ''
 ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683496"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Referens arkitekturer för Oracle Database Enterprise Edition på Azure
@@ -59,7 +59,7 @@ Om ditt program inte tillåter prestanda förlust vid inställning av en avlägs
 
 När du använder Oracle Standard Edition-databaser finns det ISV-lösningar som DBVisit standby som gör att du kan konfigurera hög tillgänglighet och haveri beredskap.
 
-## <a name="reference-architectures"></a>Referensarkitekturer
+## <a name="reference-architectures"></a>Referenserarkitekturer
 
 ### <a name="oracle-data-guard"></a>Oracle Data Guard
 
@@ -154,7 +154,7 @@ Oracle-horisontell partitionering består främst av följande komponenter. Mer 
 
 - **Shard-databaser** – Shard-databaser är dina Oracle-databaser. Varje databas replikeras med hjälp av Oracle data Guard i en Broker-konfiguration med snabb start (FSFO) aktive rad. Du behöver inte konfigurera data Guard-redundans och-replikering på varje Shard. Detta konfigureras och distribueras automatiskt när den delade databasen skapas. Om en viss Shard Miss lyckas växlar Oracle-delningen automatiskt över databas anslutningar från den primära till vänte läge.
 
-Du kan distribuera och hantera Oracle shardade-databaser med två gränssnitt: Oracle Enterprise Manager Cloud control GUI och/eller `GDSCTL` kommando rads verktyget. Du kan även övervaka olika Shards för tillgänglighet och prestanda med hjälp av moln kontroll. `GDSCTL DEPLOY` Kommandot skapar automatiskt Shards och deras respektive lyssnare. Dessutom distribuerar det här kommandot automatiskt den replikeringskonfiguration som används för att Shard hög tillgänglighet som anges av administratören.
+Du kan distribuera och hantera Oracle shardade-databaser med två gränssnitt: Oracle Enterprise Manager Cloud control GUI och/eller `GDSCTL` kommando rads verktyget. Du kan även övervaka olika Shards för tillgänglighet och prestanda med hjälp av moln kontroll. `GDSCTL DEPLOY`Kommandot skapar automatiskt Shards och deras respektive lyssnare. Dessutom distribuerar det här kommandot automatiskt den replikeringskonfiguration som används för att Shard hög tillgänglighet som anges av administratören.
 
 Det finns olika sätt att Shard en databas:
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417182"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Förgrunds aktiviteter i Azure Data Factory
@@ -70,13 +70,13 @@ Egenskaperna beskrivs längre fram i den här artikeln. Egenskapen Items är sam
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
 name | Namnet på for-each-aktiviteten. | Sträng | Ja
 typ | Måste vara inställt **på Sol** | Sträng | Ja
 isSequential | Anger om loopen ska köras sekventiellt eller parallellt.  Högst 20 upprepnings iterationer kan köras samtidigt parallellt). Om du till exempel har en titt på en aktivitet med 10 olika käll-och mottagar data uppsättningar med **isSequential** inställt på falskt körs alla kopior samtidigt. Standardvärdet är false. <br/><br/> Om "isSequential" är inställt på false kontrollerar du att det finns en korrekt konfiguration för att köra flera körbara filer. Annars bör den här egenskapen användas med försiktighet för att undvika att skapa Skriv konflikter. Mer information finns i avsnittet om [parallell körning](#parallel-execution) . | Boolesk | Nej. Standardvärdet är false.
 batchCount | Antal batchar som ska användas för att kontrol lera antalet parallell körningar (när isSequential är inställt på falskt). Detta är den övre samtidiga gränsen, men för-varje aktivitet kommer inte alltid att köras på det här numret | Heltal (högst 50) | Nej. Standardvärdet är 20.
-Objekt | Ett uttryck som returnerar en JSON-matris som ska upprepas. | Uttryck (som returnerar en JSON-matris) | Ja
+Poster | Ett uttryck som returnerar en JSON-matris som ska upprepas. | Uttryck (som returnerar en JSON-matris) | Ja
 Aktiviteter | De aktiviteter som ska utföras. | Lista med aktiviteter | Ja
 
 ## <a name="parallel-execution"></a>Parallell körning

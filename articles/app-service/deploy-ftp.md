@@ -7,10 +7,10 @@ ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81532603"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
@@ -29,7 +29,7 @@ FTP/S-slutpunkten för din app är redan aktiv. Ingen konfiguration krävs för 
 
     ![Välj din app.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Välj**FTP-** > **instrumentpanel**för **distributions Center** > .
+3. Välj **Deployment Center**  >  **FTP-**  >  **instrumentpanel**för distributions Center.
 
     ![Öppna FTP-instrumentpanel](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -60,7 +60,7 @@ Vi rekommenderar att du använder **autentiseringsuppgifter för appen** för at
 >
 > - beroende återställningar (till exempel NuGet-, NPM-, PIP-och kompositör-Automation)
 > - kompilering av .NET-binärfiler
-> - Skapa Web. config (här är ett [Node. js-exempel](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
+> - generering av web.config (här är ett [Node.js exempel](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Generera de nödvändiga filerna manuellt på den lokala datorn och distribuera dem sedan tillsammans med din app.
 >
@@ -69,7 +69,7 @@ Vi rekommenderar att du använder **autentiseringsuppgifter för appen** för at
 
 För ökad säkerhet bör du endast tillåta FTP över TLS/SSL. Du kan också inaktivera både FTP-och FTPS om du inte använder FTP-distribution.
 
-På din apps resurs sida i [Azure Portal](https://portal.azure.com)väljer du **konfiguration** > av**allmänna inställningar** i det vänstra navigerings fältet.
+På din apps resurs sida i [Azure Portal](https://portal.azure.com)väljer du **konfiguration**  >  av**allmänna inställningar** i det vänstra navigerings fältet.
 
 Om du vill inaktivera okrypterad FTP väljer du **FTPS endast** i **FTP-tillstånd**. Om du vill inaktivera både FTP-och FTPS helt väljer du **inaktive rad**. När det är klart klickar du på **Spara**. Om du **bara använder FTPS**måste du framtvinga TLS 1,2 eller högre genom att gå till bladet **TLS/SSL-inställningar** i din webbapp. TLS 1,0 och 1,1 stöds inte med **FTPS**.
 

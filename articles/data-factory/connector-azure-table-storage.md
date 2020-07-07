@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
 ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417482"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table Storage med hjälp av Azure Data Factory
@@ -26,7 +26,7 @@ ms.locfileid: "81417482"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data till och från Azure Table Storage. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory till att kopiera data från och till Azure Table Storage. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -53,7 +53,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Du kan skapa en Azure Storage länkad tjänst genom att använda konto nyckeln. Den ger data fabriken global åtkomst till lagringen. Följande egenskaper stöds.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **AzureTableStorage**. |Ja |
 | Begär | Ange den information som behövs för att ansluta till lagringen för egenskapen connectionString. <br/>Du kan också ange konto nyckeln i Azure Key Vault och hämta `accountKey` konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
@@ -122,7 +122,7 @@ En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagr
 
 Följande egenskaper stöds om du vill använda autentisering med signaturer för delad åtkomst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **AzureTableStorage**. |Ja |
 | sasUri | Ange SAS-URI för signatur-URI: n för delad åtkomst till tabellen. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ställa in SAS-token i Azure Key Vault för att dra nytta av automatisk rotation och ta bort token-delen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
@@ -193,7 +193,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data till och från Azure-tabellen anger du egenskapen type för data uppsättningen till **AzureTable**. Följande egenskaper stöds.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till **AzureTable**. |Ja |
 | tableName |Namnet på tabellen i den tabell lagrings databas instans som den länkade tjänsten refererar till. |Ja |
@@ -233,7 +233,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Azure-tabellen anger du käll typen i kopierings aktiviteten till **AzureTableSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **AzureTableSource**. |Ja |
 | azureTableSourceQuery |Använd den anpassade tabell lagrings frågan för att läsa data. Se exemplen i följande avsnitt. |Nej |
@@ -262,7 +262,7 @@ Om du använder pipeline-parametern, omvandla datetime-värdet till korrekt form
 
 Om du vill kopiera data till Azure-tabellen ställer du in mottagar typen i kopierings aktiviteten till **AzureTableSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** .
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **AzureTableSink**. |Ja |
 | azureTableDefaultPartitionKeyValue |Standardvärdet för partitionerings nyckel som kan användas av mottagaren. |Nej |

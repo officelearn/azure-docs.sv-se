@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
 ms.openlocfilehash: f0aa70333454b327a0ca76beef2985062ce56715
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415386"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Cosmos DB (SQL API) med Azure Data Factory
@@ -62,7 +62,7 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper stöds för den länkade tjänsten Azure Cosmos DB (SQL API):
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **CosmosDb**. | Ja |
 | Begär |Ange information som krävs för att ansluta till Azure Cosmos DB databasen.<br />**Obs!** du måste ange databas information i anslutnings strängen som visas i exemplen som följer. <br/> Du kan också ange konto nyckeln i Azure Key Vault och hämta `accountKey` konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
@@ -118,7 +118,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för data uppsättningen Azure Cosmos DB (SQL API): 
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **CosmosDbSqlApiCollection**. |Ja |
 | Samling |Namnet på den Azure Cosmos DB dokument samlingen. |Ja |
@@ -154,7 +154,7 @@ Om du vill kopiera data från Azure Cosmos DB (SQL API) anger du **käll** typen
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **CosmosDbSqlApiSource**. |Ja |
 | DocumentDB |Ange Azure Cosmos DB fråga för att läsa data.<br/><br/>Exempel:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om detta inte anges körs SQL-instruktionen:`select <columns defined in structure> from mycollection` |
@@ -206,18 +206,18 @@ Om du vill kopiera data till Azure Cosmos DB (SQL API) anger du **mottagar** typ
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **CosmosDbSqlApiSink**. |Ja |
 | writeBehavior |Beskriver hur du skriver data till Azure Cosmos DB. Tillåtna värden: **insert** och **upsert**.<br/><br/>Beteendet för **upsert** är att ersätta dokumentet om det redan finns ett dokument med samma ID. annars infogar du dokumentet.<br /><br />**Obs!** Data Factory automatiskt genererar ett ID för ett dokument om inget ID anges i det ursprungliga dokumentet eller med kolumn mappning. Det innebär att du måste se till att ditt dokument har ett ID för att **upsert** ska fungera som förväntat. |Nej<br />(Standardvärdet är **insert**) |
 | writeBatchSize | Data Factory använder [Azure Cosmos DB bulk utförar-biblioteket](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) för att skriva data till Azure Cosmos dB. Egenskapen **writeBatchSize** styr storleken på dokument som ADF tillhandahåller till biblioteket. Du kan prova att öka värdet för **writeBatchSize** för att förbättra prestandan och minska värdet om dokument storleken är stor, se tipsen nedan. |Nej<br />(Standardvärdet är **10 000**) |
-| disableMetricsCollection | Data Factory samlar in mått som Cosmos DB ru: er för att kopiera prestanda optimering och rekommendationer. Om du är orolig för det här beteendet `true` anger du för att inaktivera det. | Nej (standard är `false`) |
+| disableMetricsCollection | Data Factory samlar in mått som Cosmos DB ru: er för att kopiera prestanda optimering och rekommendationer. Om du är orolig för det här beteendet anger `true` du för att inaktivera det. | Nej (standard är `false` ) |
 
 >[!TIP]
 >Information om hur du importerar JSON-dokument finns i avsnittet [Importera eller exportera JSON-dokument](#import-and-export-json-documents) . Om du vill kopiera från tabellbaserade data, se [Migrera från Relations databas till Cosmos DB](#migrate-from-relational-database-to-cosmos-db).
 
 >[!TIP]
->Cosmos DB begränsar storleken på en enskild begäran till 2 MB. Formeln är en begär ande storlek = enskild dokument storlek * Skriv batchstorleken. Om du klickar på fel som säger att **"begäran är för stor"**, **minskar `writeBatchSize` du värdet** i Kopiera Sink-konfigurationen.
+>Cosmos DB begränsar storleken på en enskild begäran till 2 MB. Formeln är en begär ande storlek = enskild dokument storlek * Skriv batchstorleken. Om du klickar på fel som säger att **"begäran är för stor"**, **minskar du `writeBatchSize` värdet** i Kopiera Sink-konfigurationen.
 
 Om du använder typen "DocumentDbCollectionSink"-källa stöds den fortfarande för bakåtkompatibilitet. Du rekommenderas att använda den nya modellen som går framåt, vilket ger rikare funktioner för att kopiera data från Cosmos DB.
 
@@ -265,7 +265,7 @@ När du transformerar data i mappnings data flödet kan du läsa och skriva till
 
 Inställningar som är aktuella för Azure Cosmos DB finns tillgängliga på fliken **käll alternativ** i käll omvandlingen. 
 
-**Inkludera system kolumner:** Om sant, ```id``` ```_ts```, och andra system kolumner inkluderas i metadata för data flödet från CosmosDB. När du uppdaterar samlingar är det viktigt att ta med detta så att du kan ta tag i det befintliga rad-ID: t.
+**Inkludera system kolumner:** Om sant, ```id``` , ```_ts``` och andra system kolumner inkluderas i metadata för data flödet från CosmosDB. När du uppdaterar samlingar är det viktigt att ta med detta så att du kan ta tag i det befintliga rad-ID: t.
 
 **Sid storlek:** Antalet dokument per sida i frågeresultatet. Standardvärdet är "-1" som använder den dynamiska sidan för tjänsten upp till 1000.
 

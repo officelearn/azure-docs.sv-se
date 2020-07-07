@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419314"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Läs in 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
@@ -44,9 +44,9 @@ Den här artikeln innehåller steg-för-steg-instruktioner för att flytta data 
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Azure Blob Storage: med det här experimentet används Azure Blob Storage (GRS) för att lagra data uppsättningen TPC-H-test.  Om du inte har ett Azure Storage-konto kan du läsa om [hur du skapar ett lagrings konto](../../storage/common/storage-account-create.md).
-* [TPC-h-](http://www.tpc.org/tpch/) data: vi ska använda TPC-h som test data uppsättning.  Om du vill göra det måste du använda `dbgen` från TPC-H Toolkit, som hjälper dig att skapa data uppsättningen.  Du kan antingen ladda ned käll koden `dbgen` för från [TPC-verktyg](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) och kompilera den själv eller ladda ned den kompilerade binärfilen från [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Kör dbgen. exe med följande kommandon för att generera 1 TB platt fil för `lineitem` tabell uppslag över 10 filer:
+* [TPC-h-](http://www.tpc.org/tpch/) data: vi ska använda TPC-h som test data uppsättning.  Om du vill göra det måste du använda `dbgen` från TPC-H Toolkit, som hjälper dig att skapa data uppsättningen.  Du kan antingen ladda ned käll koden för `dbgen` från [TPC-verktyg](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) och kompilera den själv eller ladda ned den kompilerade binärfilen från [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Kör dbgen.exe med följande kommandon för att generera 1 TB platt fil för `lineitem` tabell uppslag över 10 filer:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
@@ -77,9 +77,9 @@ Den här artikeln innehåller steg-för-steg-instruktioner för att flytta data 
 
     ![Skalnings dialog ruta](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
-    Det här experimentet läser in data `xlargerc` i Azure SQL Data Warehouse med resurs klassen.
+    Det här experimentet läser in data i Azure SQL Data Warehouse med `xlargerc` resurs klassen.
 
-    För att uppnå bästa möjliga data flöde måste kopieringen utföras med hjälp av en SQL Data Warehouse användare som `xlargerc` tillhör resurs klassen.  Lär dig hur du gör detta genom att följa [exemplet på Ändra en användar resurs klass](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
+    För att uppnå bästa möjliga data flöde måste kopieringen utföras med hjälp av en SQL Data Warehouse användare som tillhör `xlargerc` resurs klassen.  Lär dig hur du gör detta genom att följa [exemplet på Ändra en användar resurs klass](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
 * Skapa mål tabell schema i Azure SQL Data Warehouse Database genom att köra följande DDL-instruktion:
 
     ```SQL  
@@ -202,7 +202,7 @@ I det här avsnittet visas hur du konfigurerar målet: `lineitem` tabellen i den
 
     ![Guiden Kopiera – dialog rutan har slutförts](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 Här följer några exempel på metod tips för att köra Azure SQL Data Warehouse-databasen:
 
 * Använd en större resurs klass vid inläsning till ett GRUPPERat COLUMNSTORE-INDEX.

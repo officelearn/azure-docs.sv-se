@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415285"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Kör pipeline-aktivitet i Azure Data Factory
@@ -64,7 +64,7 @@ Med aktiviteten Kör pipeline kan en Data Factory-pipeline anropa en annan pipel
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
 name | Namnet på aktiviteten kör pipeliner. | Sträng | Ja
 typ | Måste vara inställt på: **ExecutePipeline**. | Sträng | Ja
@@ -75,8 +75,8 @@ waitOnCompletion | Definierar om aktivitets körningen väntar på att körninge
 ## <a name="sample"></a>Exempel
 Det här scenariot har två pipeliner:
 
-- **Huvud pipeline** – den här pipelinen har en utför pipeline-aktivitet som anropar den anropade pipelinen. Huvud-pipeline tar två parametrar: `masterSourceBlobContainer`,. `masterSinkBlobContainer`
-- **Anropad pipeline** – den här pipelinen har en kopierings aktivitet som kopierar data från en Azure Blob-källa till Azure Blob-mottagare. Den anropade pipelinen tar två parametrar: `sourceBlobContainer`, `sinkBlobContainer`.
+- **Huvud pipeline** – den här pipelinen har en utför pipeline-aktivitet som anropar den anropade pipelinen. Huvud-pipeline tar två parametrar: `masterSourceBlobContainer` , `masterSinkBlobContainer` .
+- **Anropad pipeline** – den här pipelinen har en kopierings aktivitet som kopierar data från en Azure Blob-källa till Azure Blob-mottagare. Den anropade pipelinen tar två parametrar: `sourceBlobContainer` , `sinkBlobContainer` .
 
 ### <a name="master-pipeline-definition"></a>Huvud pipeline-definition
 

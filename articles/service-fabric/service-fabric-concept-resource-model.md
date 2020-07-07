@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
 ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682631"
 ---
 # <a name="service-fabric-application-resource-model"></a>Service Fabric program resurs modell
@@ -50,7 +50,7 @@ Du kan återanvända ett befintligt lagrings konto eller så kan du skapa ett ny
 
 ### <a name="configure-your-storage-account"></a>Konfigurera ditt lagrings konto
 
-När lagrings kontot har skapats skapar du en BLOB-behållare där programmen kan mellanlagras. I Azure Portal går du till det Azure Storage konto där du vill lagra programmen. Välj **blobbar** > **Lägg till behållare**. 
+När lagrings kontot har skapats skapar du en BLOB-behållare där programmen kan mellanlagras. I Azure Portal går du till det Azure Storage konto där du vill lagra programmen. Välj **blobbar**  >  **Lägg till behållare**. 
 
 Resurser i klustret kan skyddas genom att ange den offentliga åtkomst nivån till **privat**. Du kan bevilja åtkomst på flera sätt:
 
@@ -71,7 +71,7 @@ I den här självstudien använder vi [röstnings exempel programmet](https://gi
 1. I Visual Studio högerklickar du på **röstnings** projektet och väljer sedan **paket**.
 
    ![Paket program][PackageApplication]  
-1. Gå till *.\Service-Fabric-dotNet-quickstart\Voting\pkg\Debug* -katalogen. Zip-innehållet i en fil med namnet *röstning. zip*. Filen *ApplicationManifest. XML* ska finnas i roten i zip-filen.
+1. Gå till *.\Service-Fabric-dotNet-quickstart\Voting\pkg\Debug* -katalogen. Zippa innehållet till en fil med namnet *Voting.zip*. Den *ApplicationManifest.xml* filen ska finnas i roten i zip-filen.
 
    ![Zip-program][ZipApplication]  
 1. Byt namn på filen för att ändra tillägget från. zip till *. sfpkg*.
@@ -84,10 +84,10 @@ Nu kommer programmet nu att mellanlagras och du kan skapa Resource Manager-malle
 
 ### <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 
-Exempel programmet innehåller [Azure Resource Manager mallar](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) som du kan använda för att distribuera programmet. Mallens fil namn är *UserApp. JSON* och *UserApp. Parameters. JSON*.
+Exempel programmet innehåller [Azure Resource Manager mallar](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) som du kan använda för att distribuera programmet. Mallens fil namn är *UserApp.js* och *UserApp.Parameters.jspå*.
 
 > [!NOTE]
-> Filen *UserApp. Parameters. JSON* måste uppdateras med namnet på klustret.
+> *UserApp.Parameters.js* filen måste uppdateras med namnet på klustret.
 >
 >
 
@@ -95,11 +95,11 @@ Exempel programmet innehåller [Azure Resource Manager mallar](https://github.co
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Namnet på det kluster som du distribuerar till | SF-cluster123                                                |                                                              |
 | program            | Namnet på programmet                 | Röstning                                                       |
-| applicationTypeName    | Typ namnet för programmet           | VotingType                                                   | Måste matcha ApplicationManifest. XML                 |
-| applicationTypeVersion | Versionen av program typen         | 1.0.0                                                        | Måste matcha ApplicationManifest. XML                 |
+| applicationTypeName    | Typ namnet för programmet           | VotingType                                                   | Måste matcha ApplicationManifest.xml                 |
+| applicationTypeVersion | Versionen av program typen         | 1.0.0                                                        | Måste matcha ApplicationManifest.xml                 |
 | serviceName            | Namnet på tjänsten         | Röstning ~ VotingWeb                                             | Måste vara i formatet ApplicationName ~ ServiceType            |
-| serviceTypeName        | Typ namnet för tjänsten                | VotingWeb                                                    | Måste matcha ServiceManifest. XML                 |
-| appPackageUrl          | Blob Storage-URL: en för programmet     | https:\//servicefabricapps.blob.Core.Windows.net/Apps/Voting.sfpkg | URL: en för programpaketet i Blob Storage (proceduren för att ange URL beskrivs senare i artikeln) |
+| serviceTypeName        | Typ namnet för tjänsten                | VotingWeb                                                    | Måste matcha ServiceManifest.xml                 |
+| appPackageUrl          | Blob Storage-URL: en för programmet     | https: \/ /servicefabricapps.blob.Core.Windows.net/Apps/Voting.sfpkg | URL: en för programpaketet i Blob Storage (proceduren för att ange URL beskrivs senare i artikeln) |
 
 ```json
 {
@@ -140,7 +140,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 Du kan uppgradera ett program som redan har distribuerats till ett Service Fabric-kluster av någon av följande anledningar:
 
-* En ny tjänst läggs till i programmet. En tjänst definition måste läggas till i *service-manifest. XML-* och *Application-manifest. XML-* filer när en tjänst läggs till i programmet. Om du vill visa en ny version av ett program måste du även ändra program typ versionen från 1.0.0 till 1.0.1 i [UserApp. Parameters. JSON](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
+* En ny tjänst läggs till i programmet. Du måste lägga till en tjänst definition i *service-manifest.xml* och *application-manifest.xml* filer när en tjänst läggs till i programmet. Om du vill visa en ny version av ett program måste du även ändra program typ versionen från 1.0.0 till 1.0.1 i [UserApp.Parameters.jspå](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
 
     ```json
     "applicationTypeVersion": {
@@ -154,7 +154,7 @@ Du kan uppgradera ett program som redan har distribuerats till ett Service Fabri
     }
     ```
 
-* En ny version av en befintlig tjänst läggs till i programmet. Exempel på detta är program kod ändringar och uppdateringar till typ version och namn för appen. För den här uppgraderingen uppdaterar du UserApp. Parameters. JSON så här:
+* En ny version av en befintlig tjänst läggs till i programmet. Exempel på detta är program kod ändringar och uppdateringar till typ version och namn för appen. För den här uppgraderingen uppdaterar du UserApp.Parameters.jsså här:
 
     ```json
      "applicationTypeVersion": {

@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du distribuerar Service Fabric program 
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415634"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Distribuera Service Fabric program med en användardefinierad hanterad identitet
@@ -18,7 +18,7 @@ Om du vill distribuera ett Service Fabric program med hanterad identitet måste 
 > 
 > Program som inte distribueras som en Azure-resurs **kan inte** ha hanterade identiteter. 
 >
-> Service Fabric program distribution med hanterad identitet stöds med API- `"2019-06-01-preview"`versionen. Du kan också använda samma API-version för program typ, version av program typ och tjänst resurser.
+> Service Fabric program distribution med hanterad identitet stöds med API-versionen `"2019-06-01-preview"` . Du kan också använda samma API-version för program typ, version av program typ och tjänst resurser.
 >
 
 ## <a name="user-assigned-identity"></a>Användare tilldelad identitet
@@ -62,7 +62,7 @@ I exemplet ovan används resurs namnet för den användare som tilldelats identi
 
 ### <a name="application-package"></a>Programpaket
 
-1. Lägg till en `<ManagedIdentity>` tagg i program `managedIdentities` manifestet under avsnittet **huvud namn** för varje identitet som definieras i avsnittet i Azure Resource Manager mall. `Name` Attributet måste matcha den `name` egenskap som definierats i `managedIdentities` avsnittet.
+1. `managedIdentities`Lägg till en `<ManagedIdentity>` tagg i program manifestet under avsnittet **huvud namn** för varje identitet som definieras i avsnittet i Azure Resource Manager mall. `Name`Attributet måste matcha den egenskap som `name` definierats i `managedIdentities` avsnittet.
 
     **ApplicationManifest.xml**
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
 ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416443"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Använd Azure Data Factory för att migrera data från en lokal Netezza-server till Azure 
@@ -151,7 +151,7 @@ Om du migrerar data från Netezza-servern till Azure, oavsett om servern är lok
 
 Bästa praxis är att utföra ett POC-värde (proof of Concept) med en representativ exempel data uppsättning, så att du kan fastställa lämplig partitionsstorlek för varje kopierings aktivitet. Vi rekommenderar att du läser in varje partition till Azure inom två timmar.  
 
-Om du vill kopiera en tabell börjar du med en enda kopierings aktivitet med en enda IR-dator med egen värd. Öka `parallelCopies` inställningen gradvis baserat på antalet data segment partitioner i tabellen. Se om hela tabellen kan läsas in i Azure inom två timmar, enligt det data flöde som är resultatet från kopierings jobbet. 
+Om du vill kopiera en tabell börjar du med en enda kopierings aktivitet med en enda IR-dator med egen värd. Öka inställningen gradvis `parallelCopies` baserat på antalet data segment partitioner i tabellen. Se om hela tabellen kan läsas in i Azure inom två timmar, enligt det data flöde som är resultatet från kopierings jobbet. 
 
 Om det inte går att läsa in till Azure inom två timmar och kapaciteten för IR-noden med egen värd och data lagret inte används fullt ut, ökar du gradvis antalet samtidiga kopierings aktiviteter tills du når gränsen för ditt nätverk eller bandbredden för data lager. 
 
@@ -196,7 +196,7 @@ Mer information finns i följande artiklar och guider:
 - [ODBC-anslutningsapp](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Azure SQL Data Warehouse koppling](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
+- [Azure SQL Data Warehouse-anslutningsapp](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
 - [Prestanda justerings guide för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Skapa och konfigurera lokalt installerad integrationskörning](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [Egen värd för integration runtime-tillgänglighet och skalbarhet](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)

@@ -4,10 +4,10 @@ description: En översikt över hur du på ett säkert sätt kör mikrotjänster
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461437"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric program-och tjänst säkerhet
@@ -42,7 +42,7 @@ API Management integreras direkt med Service Fabric, så att du kan publicera AP
 ## <a name="manage-application-secrets"></a>Hantera programhemligheter
 Hemligheter kan vara vilken känslig information som helst, till exempel lagrings anslutnings strängar, lösen ord eller andra värden som inte ska hanteras i oformaterad text. Den här artikeln använder Azure Key Vault för att hantera nycklar och hemligheter. Att *använda* hemligheter i ett program är dock Cloud Platform-oberoende för att tillåta att program distribueras till ett kluster som finns var som helst.
 
-Det rekommenderade sättet att hantera tjänst konfigurations inställningar är via [tjänst konfigurations paket][config-package]. Konfigurations paket är versioner och kan uppdateras via hanterade löpande uppgraderingar med hälso verifiering och automatisk återställning. Detta föredras för global konfiguration eftersom det minskar risken för ett globalt avbrott i tjänsten. Krypterade hemligheter är inget undantag. Service Fabric har inbyggda funktioner för att kryptera och dekryptera värden i en XML-fil med konfigurations paket inställningar med hjälp av certifikat kryptering.
+Det rekommenderade sättet att hantera tjänst konfigurations inställningar är via [tjänst konfigurations paket][config-package]. Konfigurations paket är versioner och kan uppdateras via hanterade löpande uppgraderingar med hälso verifiering och automatisk återställning. Detta föredras för global konfiguration eftersom det minskar risken för ett globalt avbrott i tjänsten. Krypterade hemligheter är inget undantag. Service Fabric har inbyggda funktioner för att kryptera och dekryptera värden i ett konfigurations paket Settings.xml fil med hjälp av certifikat kryptering.
 
 Följande diagram illustrerar det grundläggande flödet för hemlig hantering i ett Service Fabric program:
 
@@ -52,8 +52,8 @@ Det finns fyra huvudsakliga steg i det här flödet:
 
 1. Hämta ett certifikat för data kryptering.
 2. Installera certifikatet i klustret.
-3. Kryptera hemliga värden när du distribuerar ett program med certifikatet och mata in dem i en tjänsts konfigurations fil för inställningar. xml.
-4. Läsa krypterade värden från Settings. xml genom dekryptering med samma krypterings certifikat. 
+3. Kryptera hemliga värden när du distribuerar ett program med certifikatet och mata in dem i en tjänsts Settings.xml konfigurations fil.
+4. Läs krypterade värden från Settings.xml genom att dekryptera med samma certifikat för dekryptering. 
 
 [Azure Key Vault][key-vault-get-started] används här som en säker lagrings plats för certifikat och som ett sätt att hämta certifikat som är installerade på Service Fabric kluster i Azure. Om du inte distribuerar till Azure behöver du inte använda Key Vault för att hantera hemligheter i Service Fabric program.
 
@@ -66,7 +66,7 @@ Applikations manifestet deklarerar de säkerhets objekt (användare och grupper)
 
 När du deklarerar huvud konton kan du också definiera och skapa användar grupper så att en eller flera användare kan läggas till i varje grupp som ska hanteras tillsammans. Detta är användbart när det finns flera användare för olika tjänst start punkter och de måste ha vissa gemensamma behörigheter som är tillgängliga på grupp nivå.
 
-Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Service Fabric ger också möjlighet att köra program under ett lokalt användar konto eller lokalt system konto, som anges i applikations manifestet. Mer information finns i [köra en tjänst som ett lokalt användar konto eller lokalt system konto](service-fabric-application-runas-security.md).  Du kan också [köra ett start skript för tjänsten som ett lokalt användar-eller system konto](service-fabric-run-script-at-service-startup.md).
+Som standard körs Service Fabric-program under det konto som Fabric.exe processen körs under. Service Fabric ger också möjlighet att köra program under ett lokalt användar konto eller lokalt system konto, som anges i applikations manifestet. Mer information finns i [köra en tjänst som ett lokalt användar konto eller lokalt system konto](service-fabric-application-runas-security.md).  Du kan också [köra ett start skript för tjänsten som ett lokalt användar-eller system konto](service-fabric-run-script-at-service-startup.md).
 
 När du kör Service Fabric i ett fristående Windows-kluster kan du köra en tjänst under [Active Directory domän konton](service-fabric-run-service-as-ad-user-or-group.md) eller [grupphanterade tjänst konton](service-fabric-run-service-as-gmsa.md).
 

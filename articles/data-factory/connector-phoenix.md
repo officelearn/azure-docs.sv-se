@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: d236b9f8800b644a0aa51597d01df1c1442475ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416780"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiera data från Phoenix med hjälp av Azure Data Factory 
@@ -34,7 +34,7 @@ Du kan kopiera data från Phoenix till alla mottagar data lager som stöds. En l
 
 Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -48,7 +48,7 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten i Linköping:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **Phoenix** | Ja |
 | värd | IP-adressen eller värd namnet för Phoenix-servern. (det vill säga 192.168.222.160)  | Ja |
@@ -65,7 +65,7 @@ Följande egenskaper stöds för den länkade tjänsten i Linköping:
 | connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
->Om klustret inte har stöd för en svarsomgång, t. ex. HDInsight, lägger du uttryckligen till Node-index i slutet av inställningen för `/hbasephoenix0` http- `/hbasephoenix`sökvägen, t. ex. Ange i stället för.
+>Om klustret inte har stöd för en svarsomgång, t. ex. HDInsight, lägger du uttryckligen till Node-index i slutet av inställningen för http-sökvägen, t. ex. Ange `/hbasephoenix0` i stället för `/hbasephoenix` .
 
 **Exempel:**
 
@@ -95,7 +95,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Phoenix anger du egenskapen type för data uppsättningen till **PhoenixObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **PhoenixObject** | Ja |
 | schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
@@ -127,10 +127,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Phoenix anger du käll typen i kopierings aktiviteten till **PhoenixSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **PhoenixSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

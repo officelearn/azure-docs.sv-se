@@ -4,10 +4,10 @@ description: Lär dig mer om Azure Migrate Replication-enhet för agent-baserad 
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535221"
 ---
 # <a name="replication-appliance"></a>Replikeringsfil
@@ -26,7 +26,7 @@ Replikeringen distribueras när du konfigurerar en agent-baserad migrering av vi
 
 ## <a name="appliance-deployment"></a>Distribution av utrustning
 
-**Används för** | **Information**
+**Används för** | **Detaljer**
 --- |  ---
 **VM-baserad migrering i VMware** | Du hämtar en embryo-mall från Azure Migrate hubben och importerar till vCenter Server för att skapa den virtuella datorn.
 **VM-baserad migrering för fysisk dator** | Om du inte har en VMware-infrastruktur, eller om du inte kan skapa en virtuell VMware-dator med en ägg-mall, laddar du ned ett installations program från Azure Migrate hubben och kör det för att konfigurera installations programmet för datorn.
@@ -60,7 +60,7 @@ Andra appar | Kör inte andra appar på replikerings enheten.
 Windows Server-roller | Aktivera inte följande roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Grup principer | Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> – Förtroende logik för bifogade filer. <br> – Aktivera skript körning. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | -Ingen befintlig standard webbplats <br> -Ingen befintlig webbplats/program som lyssnar på port 443 <br>-Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning
-**Nätverks inställningar** |
+**Nätverksinställningar** |
 IP-adresstyp | Statisk
 Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring)
 Typ av nätverkskort | VMXNET3
@@ -69,7 +69,7 @@ Typ av nätverkskort | VMXNET3
 
 MySQL måste vara installerat på datorn för replikerings enheten. Den kan installeras med någon av dessa metoder.
 
-**Metod** | **Information**
+**Metod** | **Detaljer**
 --- | ---
 Ladda ned och installera manuellt | Hämta MySQL-programmet & placera det i mappen C:\Temp\ASRSetup och installera manuellt.<br/> När du konfigurerar installationen av MySQL visas som redan installerad.
 Utan nedladdning online | Placera programmet MySQL installations program i mappen C:\Temp\ASRSetup. När du installerar installationen och klickar för att ladda ned och installera MySQL använder installations programmet det installations program som du har lagt till.
@@ -79,7 +79,7 @@ Hämta och installera i Azure Migrate | När du installerar installationen och t
 
 Replication-enheten behöver åtkomst till dessa URL: er i det offentliga Azure-molnet.
 
-**ADRESSER** | **Information**
+**URL** | **Detaljer**
 --- | ---
 \*.backup.windowsazure.com | Används för replikerad data överföring och samordning
 \*.store.core.windows.net | Används för replikerad data överföring och samordning
@@ -88,15 +88,15 @@ Replication-enheten behöver åtkomst till dessa URL: er i det offentliga Azure-
 https:\//management.azure.com | Används för hanterings åtgärder och samordning av replikering
 *.services.visualstudio.com | Används för telemetri (är valfritt)
 time.windows.com | Används för att kontrollera tidssynkronisering mellan system och global tid.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//Graph.Windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.Microsoft.com  | Installations programmet behöver åtkomst till dessa URL: er. De används för åtkomst kontroll och identitets hantering genom Azure Active Directory
-https:\//dev.mysql.com/get/downloads/MySQLInstaller/MySQL-Installer-community-5.7.20.0.msi | För att slutföra MySQL-nedladdning. I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också tillåts om det behövs.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /Graph.Windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.Microsoft.com  | Installations programmet behöver åtkomst till dessa URL: er. De används för åtkomst kontroll och identitets hantering genom Azure Active Directory
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | För att slutföra MySQL-nedladdning. I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också tillåts om det behövs.
 
 
 ## <a name="azure-government-url-access"></a>Azure Government URL-åtkomst
 
 Replication-enheten behöver åtkomst till dessa URL: er i Azure Government.
 
-**ADRESSER** | **Information**
+**URL** | **Detaljer**
 --- | ---
 \*. backup.windowsazure.us | Används för replikerad data överföring och samordning
 \*.store.core.windows.net | Används för replikerad data överföring och samordning
@@ -105,8 +105,8 @@ Replication-enheten behöver åtkomst till dessa URL: er i Azure Government.
 https:\//management.usgovcloudapi.net | Används för hanterings åtgärder och samordning av replikering
 *.services.visualstudio.com | Används för telemetri (är valfritt)
 time.nist.gov | Används för att kontrollera tidssynkronisering mellan system och global tid.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//Graph.Windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.Microsoft.com  | Installations programmet med ägg behöver åtkomst till dessa URL: er. De används för åtkomst kontroll och identitets hantering av Azure Active Directory.
-https:\//dev.mysql.com/get/downloads/MySQLInstaller/MySQL-Installer-community-5.7.20.0.msi | För att slutföra MySQL-nedladdning. I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också tillåts om det behövs.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /Graph.Windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.Microsoft.com  | Installations programmet med ägg behöver åtkomst till dessa URL: er. De används för åtkomst kontroll och identitets hantering av Azure Active Directory.
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | För att slutföra MySQL-nedladdning. I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också tillåts om det behövs.
 
 ## <a name="port-access"></a>Port åtkomst
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461709"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
@@ -98,12 +98,12 @@ Använd standard protokoll för autentisering, till exempel OAuth2 och Kerberos.
 
 I följande tabell visas kliv-hoten och innehåller några exempel på åtgärder som använder Azure-funktioner. Dessa åtgärder fungerar inte i varje situation.
 
-| Säkerhetshot | Säkerhets egenskap | Potentiella Azure-plattforms begränsningar |
+| Hot | Säkerhets egenskap | Potentiella Azure-plattforms begränsningar |
 | --- | --- | --- |
 | Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
 | Manipulation | Integritet | Verifiera TLS/SSL-certifikat. |
 | Avvislighet | Oavvislig het | Aktivera [övervakning och diagnostik](/azure/architecture/best-practices/monitoring)i Azure. |
-| Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänst certifikat](/rest/api/appservice/certificates). |
+| Avslöjande av information | Konfidentialitet | Kryptera känsliga data i vila med hjälp av [tjänst certifikat](/rest/api/appservice/certificates). |
 | Denial of Service (nekad tjänst) | Tillgänglighet | Övervaka prestanda mått för potentiella denial-of-service-villkor. Implementera anslutnings filter. |
 | Behörighets höjning | Auktorisering | Använd [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
 

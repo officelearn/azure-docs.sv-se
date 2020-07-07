@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
 ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415840"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder Azure Data Factory för att kopiera dat
 > [!TIP]
 > Allmän information om hur du kopierar data från SAP BW, inklusive SAP BW öppen hubb integrering och delta extraherings flöde, finns i [Kopiera data från SAP Business Warehouse via öppna hubb med Azure Data Factory](connector-sap-business-warehouse-open-hub.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure Data Factory**: om du inte har något följer du stegen för att [skapa en data fabrik](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
@@ -81,7 +81,7 @@ Gå till datafabriken i Azure-portalen. Välj **författar & övervakare** för 
 
    ![Konfigurera SAP BW öppna Hubbs filter](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. På sidan **mål data lager** väljer du **+ Skapa ny anslutning** > **Azure Data Lake Storage Gen2** > **Fortsätt**.
+7. På sidan **mål data lager** väljer du **+ Skapa ny anslutning**  >  **Azure Data Lake Storage Gen2**  >  **Fortsätt**.
 
 8. På sidan **ange Azure Data Lake Storage anslutning** följer du de här stegen för att skapa en anslutning.
 
@@ -165,7 +165,7 @@ På sidan för att **komma igång** med Data Factory väljer du **skapa pipeline
 
    - **HighWatermarkBlobDirectory**: Ange mappsökvägen under behållaren där du vill lagra det höga värdet för vatten märket.
 
-   - **HighWatermarkBlobName**: Ange BLOB-namnet för att lagra det höga värdet för vatten märket `requestIdCache.txt`, till exempel. I Blob Storage går du till motsvarande sökväg för HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, till exempel *container/sökväg/requestIdCache. txt*. Skapa en blob med Content 0.
+   - **HighWatermarkBlobName**: Ange BLOB-namnet för att lagra det höga värdet för vatten märket, till exempel `requestIdCache.txt` . I Blob Storage går du till motsvarande sökväg för HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, till exempel *container/sökväg/requestIdCache.txt*. Skapa en blob med Content 0.
 
       ![Blobinnehåll](media/load-sap-bw-data/blob.png)
 
@@ -194,7 +194,7 @@ På sidan för att **komma igång** med Data Factory väljer du **skapa pipeline
 
       4. Välj **Spara**. Kopiera sedan värdet för **http post-URL** som ska användas i Data Factory pipelinen.
 
-4. När du har angett parametrarna för Data Factory pipeline väljer du **Felsök** > **Slutför** för att anropa en körning för att verifiera konfigurationen. Eller Välj **publicera** för att publicera alla ändringar och välj sedan **Lägg till utlösare** för att köra en körning.
+4. När du har angett parametrarna för Data Factory pipeline väljer du **Felsök**  >  **Slutför** för att anropa en körning för att verifiera konfigurationen. Eller Välj **publicera** för att publicera alla ändringar och välj sedan **Lägg till utlösare** för att köra en körning.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW konfiguration av öppet nav mål
 

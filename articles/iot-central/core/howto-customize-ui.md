@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 8f76f143b6c6a26b88b78e20d8d5d8ae1ae48553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80158047"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Anpassa Azure IoT Central UI
@@ -49,7 +49,7 @@ En PNG-bild, inte större än 32 x 32 pixlar, med en genomskinlig bakgrund. En w
 
 ### <a name="browser-colors"></a>Webb läsar färger
 
-Du kan ändra färg på sidhuvudet och färgen som används för accent knappar och andra höjd punkter. Använd ett hexadecimalt färg värde med sex bokstäver i `##ff6347`formatet. Mer information om färg notation för **HEX-värde** finns i [HTML-färger](https://www.w3schools.com/html/html_colors.asp).
+Du kan ändra färg på sidhuvudet och färgen som används för accent knappar och andra höjd punkter. Använd ett hexadecimalt färg värde med sex bokstäver i formatet `##ff6347` . Mer information om färg notation för **HEX-värde** finns i [HTML-färger](https://www.w3schools.com/html/html_colors.asp).
 
 > [!NOTE]
 > Du kan alltid återgå till standard alternativen på sidan **Anpassa ditt program** .

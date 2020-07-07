@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54a45602b80db965e3cc79d188dd40034a320b79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394259"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Anpassa användar upplevelsen för Azure Active Directory återställning av lösen ord för självbetjäning
@@ -56,8 +56,8 @@ Läs mer om de olika administratörs rollerna och hur du tilldelar dem i [tillde
 
 Om din organisation inte vill meddela administratörer om begär Anden om lösen ords återställning kan du använda följande konfigurations alternativ:
 
-* Anpassa supportavdelningen-länken för att tillhandahålla en webb-URL eller mailto:-adress som användarna kan använda för att få hjälp. Det här alternativet är under**anpassning** > av **lösen ords återställning** > **anpassad supportavdelningen e-post eller URL**.
-* Aktivera självbetjäning för återställning av lösen ord för alla användare. Det här alternativet är under**Egenskaper**för **lösen ords återställning** > . Om du inte vill att användarna ska kunna återställa sina egna lösen ord kan du begränsa åtkomsten till en tom grupp. *Vi rekommenderar inte det här alternativet.*
+* Anpassa supportavdelningen-länken för att tillhandahålla en webb-URL eller mailto:-adress som användarna kan använda för att få hjälp. Det här alternativet är under anpassning av **lösen ords återställning**  >  **Customization**  >  **anpassad supportavdelningen e-post eller URL**.
+* Aktivera självbetjäning för återställning av lösen ord för alla användare. Det här alternativet är under egenskaper för **lösen ords återställning**  >  **Properties**. Om du inte vill att användarna ska kunna återställa sina egna lösen ord kan du begränsa åtkomsten till en tom grupp. *Vi rekommenderar inte det här alternativet.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Anpassa inloggnings sidan och åtkomst panelen
 
@@ -72,7 +72,7 @@ De bilder du väljer visas i följande fall:
 
 ### <a name="directory-name"></a>Katalog namn
 
-Om du vill göra saker mer användarvänliga kan du ändra organisationens namn i portalen och i den automatiserade kommunikationen. Om du vill ändra attributet katalog namn i Azure Portal bläddrar du till **Azure Active Directory** > **Egenskaper**. Det här egna organisations namn alternativet är det som visas i automatiserade e-postmeddelanden, som i följande exempel:
+Om du vill göra saker mer användarvänliga kan du ändra organisationens namn i portalen och i den automatiserade kommunikationen. Om du vill ändra attributet katalog namn i Azure Portal bläddrar du till **Azure Active Directory**  >  **Egenskaper**. Det här egna organisations namn alternativet är det som visas i automatiserade e-postmeddelanden, som i följande exempel:
 
 * Det egna namnet i e-postmeddelandet, till exempel "*Microsoft på uppdrag av contoso demo*"
 * Ämnes raden i e-postmeddelandet, till exempel "*contoso demonstrations konto e-postverifierings kod*"
@@ -81,7 +81,7 @@ Om du vill göra saker mer användarvänliga kan du ändra organisationens namn 
 
 Om du använder Active Directory Federation Services (AD FS) (AD FS) för användar inloggnings händelser kan du lägga till en länk till inloggnings sidan genom att följa anvisningarna i artikeln för att [lägga till beskrivningen av inloggnings sidan](/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
 
-Förse användarna med en länk till sidan för att ange SSPR-arbetsflödet, till exempel *https://passwordreset.microsoftonline.com*. Om du vill lägga till en länk till AD FS inloggnings sidan använder du följande kommando på AD FS-servern:
+Förse användarna med en länk till sidan för att ange SSPR-arbetsflödet, till exempel *https://passwordreset.microsoftonline.com* . Om du vill lägga till en länk till AD FS inloggnings sidan använder du följande kommando på AD FS-servern:
 
 ``` powershell
 Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwordreset.microsoftonline.com' target='_blank'>Can't access your account?</a></p>"

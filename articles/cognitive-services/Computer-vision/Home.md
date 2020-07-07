@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3e1c67ee91298b9e8d0c3c427988c9966771aeaa
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920569"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -34,7 +34,7 @@ Visuellt innehåll kan sätta många moder scenarier för Digital Asset Manageme
 
 Du kan analysera bilder för att ge insikter om sina visuella funktioner och egenskaper. Alla funktioner i tabellen nedan tillhandahålls av [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-API:et.
 
-| Åtgärd | Description |
+| Åtgärd | Beskrivning |
 | ------ | ----------- |
 |**[Tagga visuella egenskaper](concept-tagging-images.md)**|Identifiera och tagga visuella egenskaper i en bild, från tusentals identifierbara objekt, levande varelser, landskap och åtgärder. När taggarna är tvetydiga eller inte vanliga kunskaper innehåller API-svaret tips för att klargöra taggens kontext. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.|
 |**[Upptäcka objekt](concept-object-detection.md)**| Objektidentifiering liknar taggar, men API:n returnerar avgränsningsfältets koordinater för varje tagg som tillämpas. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen till att bearbeta ytterligare relationer mellan objekt i en bild. Du får även veta när det finns flera instanser av samma tagg i en bild.|
@@ -48,9 +48,9 @@ Du kan analysera bilder för att ge insikter om sina visuella funktioner och ege
 |**[Skapa en miniatyrbild](concept-generating-thumbnails.md)**|Analysera innehållet i en bild för att generera en lämplig miniatyrbild för den. Visuellt innehåll genererar först en högkvalitativ miniatyr och sedan analyseras objekten i bilden för att fastställa *intresseområdet*. Visuellt innehåll beskär sedan bilden för att den ska uppfylla kraven för intresseområdet. Den genererade miniatyrbilden kan vid behov anges med proportioner som skiljer sig från proportionerna på den ursprungliga bilden.|
 |**[Hämta ett intresseområde](concept-generating-thumbnails.md#area-of-interest)**|Analysera innehållet i en bild för att returnera koordinaterna för *intresseområdet*. I stället för att beskära bilden och generera en miniatyr, returnerar Visuellt innehåll områdets avgränsnings Rams koordinater, så det anropande programmet kan ändra den ursprungliga avbildningen efter behov.|
 
-## <a name="detect-text-from-images"></a>Identifiera text från bilder
+## <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
-Du kan använda API: [erna för visuellt innehåll text identifiering](concept-recognizing-text.md) för att extrahera utskrift och handskriven text från bilder till en maskin läsnings bar tecken ström. Read API använder de senaste modellerna och fungerar med text på en rad olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. De två API: erna för text Identifiering har stöd för att extrahera utskriven text på [flera språk](./language-support.md).
+Visuellt innehåll innehåller [OCR-funktioner (optisk tecken läsning)](concept-recognizing-text.md) . Du kan använda den nya Read API: n för att extrahera utskrift och handskriven text från bilder och dokument. Den använder de senaste modellerna och fungerar med text på en rad olika ytor och bakgrunder. Dessa inledande kvitton, affischer, visitkort, brev och whiteboardtavlor. De två OCR-API: erna stöder extrahering av utskriven text på [flera språk](./language-support.md).
 
 ## <a name="moderate-content-in-images"></a>Moderera innehåll i bilder
 

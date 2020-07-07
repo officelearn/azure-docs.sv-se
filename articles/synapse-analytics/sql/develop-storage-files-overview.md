@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4b6331977cc2237801b84647e4edeb5d789cb9e8
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: c251b70d1988be82821f1e133151dae1ac6d1bc9
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921290"
 ---
-# <a name="accessing-external-storage-in-synapse-sql"></a>Åtkomst till extern lagring i Synapse SQL
+# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Åtkomst till extern lagring i Synapse SQL (på begäran)
 
-I det här dokumentet beskrivs hur kan användare läsa data från filerna som lagras på Azure Storage i Synapse SQL (på begäran och i pooler). Användare har följande alternativ för åtkomst till lagring:
+I det här dokumentet beskrivs hur kan användare läsa data från filerna som lagras på Azure Storage i Synapse SQL (på begäran). Användare har följande alternativ för åtkomst till lagring:
 
 - [OpenRowSet](develop-openrowset.md) -funktionen som aktiverar ad hoc-frågor över filerna i Azure Storage.
 - [Extern tabell](develop-tables-external-tables.md) som är en fördefinierad data struktur som skapats ovanpå en uppsättning externa filer.
@@ -65,9 +65,9 @@ OpenRowSet gör det möjligt för användaren att fråga filerna som placerats p
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'file/path/*.csv',
+ OPENROWSET(BULK 'file/path/*.parquet',
  DATASOURCE = MyAzureInvoices,
- FORMAT= 'csv') as rows
+ FORMAT= 'parquet') as rows
 ```
 
 Privilegierade användare med kontroll databas behörighet måste skapa databas OMFATTNINGs referenser som ska användas för åtkomst till lagring och extern DATA källa som anger URL: en till data källan och autentiseringsuppgiften som ska användas:
@@ -142,8 +142,8 @@ FROM dbo.DimProductsExternal
 ```
 
 Anroparen måste ha följande behörigheter för att kunna läsa data:
-- Välj behörighet för extern tabell
-- REFERERAR behörigheten för DATABASens begränsade AUTENTISERINGSUPPGIFTER om DATA källan har AUTENTISERINGSUPPGIFTER
+- `SELECT`behörighet för extern tabell
+- `REFERENCES DATABASE SCOPED CREDENTIAL`behörighet om `DATA SOURCE` har`CREDENTIAL`
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -151,13 +151,13 @@ I följande tabell visas de behörigheter som krävs för de åtgärder som ange
 
 | Söka i data | Nödvändiga behörigheter|
 | --- | --- |
-| OpenRowSet (BULK) utan DataSource | ADMINISTRERA Mass administratör SQL-inloggning måste ha referenser till AUTENTISERINGSUPPGIFTER:: \<URL> för SAS-skyddad lagring |
-| OpenRowSet (BULK) med DataSource utan autentiseringsuppgifter | ADMINISTRERA MASS ADMINISTRATÖR |
-| OpenRowSet (BULK) med data källa med autentiseringsuppgifter | ADMINISTRERA MASS ADMINISTRATÖR REFERERAR TILL DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER |
-| SKAPA EXTERN DATA KÄLLA | ÄNDRA EN EXTERN DATA KÄLLA REFERERAR TILL DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER |
-| SKAPA EXTERN TABELL | CREATE TABLE, ÄNDRA SCHEMAN, ÄNDRA ALLA EXTERNA FIL FORMAT, ÄNDRA ALLA EXTERNA DATA KÄLLOR |
-| VÄLJ FRÅN EXTERN TABELL | VÄLJ TABELL |
-| CETAS | Om du vill skapa tabell-CREATE TABLE ändrar du alla DATA källor och ändrar alla externa fil FORMAT. Läsa data: ADMIN Mass åtgärder + referenser till AUTENTISERINGSUPPGIFT eller Välj Tabell per varje tabell/vy/funktion i fråga + R/W-behörighet för lagring |
+| OpenRowSet (BULK) utan DataSource | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` eller SQL-inloggningen måste ha referenser till autentiseringsuppgifter:: \<URL> för SAS-skyddad lagring |
+| OpenRowSet (BULK) med DataSource utan autentiseringsuppgifter | `ADMINISTER BULK ADMIN`eller `ADMINISTER DATABASE BULK ADMIN` , |
+| OpenRowSet (BULK) med data källa med autentiseringsuppgifter | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` eller`REFERENCES DATABASE SCOPED CREDENTIAL` |
+| SKAPA EXTERN DATA KÄLLA | `ALTER ANY EXTERNAL DATA SOURCE` och `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| SKAPA EXTERN TABELL | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` , och`ALTER ANY EXTERNAL DATA SOURCE` |
+| VÄLJ FRÅN EXTERN TABELL | `SELECT TABLE` och `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CETAS | För att skapa tabell `CREATE TABLE` , `ALTER ANY SCHEMA` ,, `ALTER ANY DATA SOURCE` och `ALTER ANY EXTERNAL FILE FORMAT` . Läsa data: `ADMIN BULK OPERATIONS` eller `REFERENCES CREDENTIAL` `SELECT TABLE` per tabell/vy/funktion i fråga + R/W behörighet för lagring |
 
 ## <a name="next-steps"></a>Nästa steg
 

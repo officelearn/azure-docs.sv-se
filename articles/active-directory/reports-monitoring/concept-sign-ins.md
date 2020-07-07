@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246525"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
@@ -30,14 +30,14 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 - **Aktivitet** 
     - **Inloggningar** – information om användningen av hanterade program och användar inloggnings aktiviteter.
-    - **Gransknings loggar** - [gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
+    - **Gransknings loggar**  -  [Gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
 - **Säkerhet** 
     - **Riskfyllda inloggningar** – en [riskfylld inloggning](concept-risky-sign-ins.md) är en indikator för ett inloggnings försök av någon som inte är legitim ägare till ett användar konto.
     - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användar konto som kan ha komprometterats.
 
 Den här artikeln ger en översikt över inloggnings rapporten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
@@ -198,7 +198,7 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 
 Klicka på **hämtnings** alternativet för att skapa en CSV-eller JSON-fil med de senaste 250 000 posterna. Börja med [att hämta inloggnings data](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure Portal.  
 
-![Ladda ned](./media/concept-sign-ins/71.png "Hämta")
+![Ladda ned](./media/concept-sign-ins/71.png "Ladda ned")
 
 > [!IMPORTANT]
 > Antalet poster som du kan hämta begränsas av [Azure Active Directory bevarande principer för rapporter](reference-reports-data-retention.md).  
@@ -233,12 +233,12 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Användar-ID
 - Användare
 - Användarnamn
-- Program-ID:t
+- Program-ID
 - Program
-- Client
-- Plats
+- Klient
+- Location
 - IP-adress
-- Date
+- Datum
 - MFA krävs
 - Inloggningsstatus
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393368"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry som en Event Grid källa
@@ -193,7 +193,7 @@ Målobjektet har följande egenskaper:
 
 Objektet Request har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | id | sträng | ID för den begäran som initierade händelsen. |
 | addr | sträng | IP-adressen eller värd namnet och eventuellt porten för den klient anslutning som initierade händelsen. Det här värdet är RemoteAddr från standard-http-begäran. |

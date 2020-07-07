@@ -8,10 +8,10 @@ ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80245828"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Vanliga frågor och svar om Azure App Service on Linux
@@ -32,8 +32,8 @@ Du kan hitta alla Docker-filer på [GitHub](https://github.com/azure-app-service
 
 | Stack           | Förväntat värde                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | kommandot för att starta JAR-appen (till exempel `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat          | platsen för ett skript för att utföra nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | kommandot för att starta JAR-appen (till exempel `java -jar /home/site/wwwroot/app.jar --server.port=80` ) |
+| Tomcat          | platsen för ett skript för att utföra nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh` )          |
 | Node.js         | konfigurations filen för PM2 eller skript filen                                |
 | .NET Core       | det kompilerade DLL-namnet som`dotnet <myapp>.dll`                                 |
 | Ruby            | det ruby-skript som du vill initiera din app med                     |
@@ -70,7 +70,7 @@ Ja.
 
 **Kan jag använda *WebDeploy/MSDeploy* för att distribuera min webbapp?**
 
-Ja, du måste ange en app-inställning som `WEBSITE_WEBDEPLOY_USE_SCM` kallas *false*.
+Ja, du måste ange en app-inställning `WEBSITE_WEBDEPLOY_USE_SCM` som kallas *false*.
 
 **Git-distribution av mitt program Miss lyckas när Linux-webbappen används. Hur kan jag lösa problemet?**
 
@@ -84,13 +84,13 @@ Om git-distributionen Miss lyckas med din Linux-webbapp väljer du något av fö
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
-   Om du får ett fel meddelande om `curl` att kommandot inte hittas kontrollerar du att du installerar en sväng genom `apt-get install curl` att använda innan du kör `curl` föregående kommando.
+   Om du får ett fel meddelande om att `curl` kommandot inte hittas kontrollerar du att du installerar en sväng genom att använda `apt-get install curl` innan du kör föregående `curl` kommando.
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
-**Jag vill använda Web Sockets i mitt Node. js-program, eventuella särskilda inställningar eller konfigurationer att ställa in?**
+**Jag vill använda Web Sockets i mitt Node.js-program, särskilda inställningar eller konfigurationer att ställa in?**
 
-Ja, inaktivera `perMessageDeflate` i Node. js-koden på Server sidan. Om du till exempel använder socket.io använder du följande kod:
+Ja, inaktivera `perMessageDeflate` i Node.js koden på Server sidan. Om du till exempel använder socket.io använder du följande kod:
 
 ```nodejs
 const io = require('socket.io')(server,{
@@ -110,19 +110,19 @@ Ja, under en Git-distribution ska kudu identifiera att du distribuerar ett PHP-p
 
 **Jag använder min egen anpassade behållare. Jag vill att plattformen ska montera en SMB-resurs till `/home/` katalogen.**
 
-Om `WEBSITES_ENABLE_APP_SERVICE_STORAGE` inställningen är **ospecificerad** eller har värdet *True*, kommer `/home/` katalogen **att delas** mellan skalnings instanser och filer som skrivs **behålls** över omstarter. Om du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` anger *false* inaktive ras monteringen.
+Om `WEBSITES_ENABLE_APP_SERVICE_STORAGE` inställningen är **ospecificerad** eller har värdet *True*, `/home/` kommer katalogen **att delas** mellan skalnings instanser och filer som skrivs **behålls** över omstarter. Om `WEBSITES_ENABLE_APP_SERVICE_STORAGE` du anger *false* inaktive ras monteringen.
 
 **Min anpassade behållare tar lång tid att starta och plattformen startar om behållaren innan den har startats.**
 
-Du kan konfigurera hur lång tid som plattformen ska vänta innan den startar om din behållare. Det gör du genom att ställa `WEBSITES_CONTAINER_START_TIME_LIMIT` in appens inställningar på det värde som du vill använda. Standardvärdet är 230 sekunder och det högsta värdet är 1800 sekunder.
+Du kan konfigurera hur lång tid som plattformen ska vänta innan den startar om din behållare. Det gör du genom att ställa in `WEBSITES_CONTAINER_START_TIME_LIMIT` appens inställningar på det värde som du vill använda. Standardvärdet är 230 sekunder och det högsta värdet är 1800 sekunder.
 
 **Vad är formatet för den privata register serverns URL?**
 
-Ange fullständig registrerings-URL, inklusive `http://` eller `https://`.
+Ange fullständig registrerings-URL, inklusive `http://` eller `https://` .
 
 **Vad är formatet för avbildnings namnet i det privata register alternativet?**
 
-Lägg till det fullständiga avbildnings namnet, inklusive URL: en för den privata registret (till exempel myacr.azurecr.io/dotnet:latest). Avbildnings namn som använder en anpassad port [kan inte anges via portalen](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name` [Använd `az` kommando rads verktyget](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)för att ange.
+Lägg till det fullständiga avbildnings namnet, inklusive URL: en för den privata registret (till exempel myacr.azurecr.io/dotnet:latest). Avbildnings namn som använder en anpassad port [kan inte anges via portalen](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name`Använd [ `az` kommando rads verktyget](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)för att ange.
 
 **Kan jag exponera fler än en port i min anpassade behållar avbildning?**
 
@@ -153,7 +153,7 @@ För att kunna använda ACR med flera behållare måste **alla behållar avbildn
 Skapa följande program inställningar:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (fullständig URL, ex: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL (fullständig URL, ex: `https://<server-name>.azurecr.io` )
 - DOCKER_REGISTRY_SERVER_PASSWORD (aktivera administratörs åtkomst i ACR-inställningar)
 
 I konfigurations filen refererar du till ACR-avbildningen som i följande exempel:

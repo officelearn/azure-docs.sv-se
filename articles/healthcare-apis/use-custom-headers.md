@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: d274160cc2ed1102dfc8fd11df358b34e40d9923
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 068af40ed42d0211eed6e1a315016bb8ecc40d05
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "84872559"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954221"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Lägga till data i gransknings loggar med hjälp av anpassade HTTP-huvuden
 
@@ -26,7 +26,7 @@ Du kan se det här data flödet i följande diagram:
 
 :::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagram över anpassade sidhuvuden":::
 
-Du kan använda anpassade rubriker för att avbilda flera typer av information. Ett exempel:
+Du kan använda anpassade rubriker för att avbilda flera typer av information. Till exempel:
 
 * Information om identitet eller auktorisering
 * Anroparens ursprung
@@ -36,15 +36,15 @@ Du kan använda anpassade rubriker för att avbilda flera typer av information. 
 > [!IMPORTANT]
 > Tänk på att informationen som skickas i anpassade sidhuvuden lagras i ett internt Microsoft-loggnings system i 30 dagar efter att den är tillgänglig i Azure logg övervakning. Vi rekommenderar att du krypterar all information innan du lägger till den i anpassade sidhuvuden. Du bör inte skicka någon PHI-information via kund huvuden.
 
-Du måste använda följande namngivnings konvention för dina HTTP-huvuden: X-MS-AZUREFHIR-AUDIT-AUDIT- \< name>.
+Du måste använda följande namngivnings konvention för dina HTTP-huvuden: X-MS-AZUREFHIR-AUDIT-AUDIT- \<name> .
 
-Dessa HTTP-huvuden ingår i en egenskaps uppsättning som läggs till i loggen. Ett exempel:
+Dessa HTTP-huvuden ingår i en egenskaps uppsättning som läggs till i loggen. Till exempel:
 
 * X-MS-AZUREFHIR-AUDIT-USERID: 1234 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: XXXX
 * X-MS-AZUREFHIR-AUDIT-XYZ: 1234
 
-Den här informationen serialiseras sedan till JSON när den läggs till i kolumnen egenskaper i loggen. Ett exempel:
+Den här informationen serialiseras sedan till JSON när den läggs till i kolumnen egenskaper i loggen. Till exempel:
 
 ```json
 { "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
@@ -52,18 +52,18 @@ Den här informationen serialiseras sedan till JSON när den läggs till i kolum
 "X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
 ```
  
-Som med valfritt HTTP-huvud kan samma rubrik namn upprepas med olika värden. Ett exempel:
+Som med valfritt HTTP-huvud kan samma rubrik namn upprepas med olika värden. Till exempel:
 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: sjukhusa
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: nödfall
 
-När de läggs till i loggen kombineras värdena med en kommaavgränsad lista. Ett exempel:
+När de läggs till i loggen kombineras värdena med en kommaavgränsad lista. Till exempel:
 
 {"X-MS-AZUREFHIR-AUDIT-USERLOCATION": "sjukhusa, nödfall"}
  
 Du kan lägga till högst 10 unika huvuden (repetitioner av samma rubrik med olika värden räknas bara som en). Den totala maximala längden för värdet för en rubrik är 2048 tecken.
 
-Om du använder brand C#-klientens API-bibliotek ser koden ut ungefär så här:
+Om du använder Firefly C#-klientens API-bibliotek ser koden ut ungefär så här:
 
 ```C#
 FhirClient client;

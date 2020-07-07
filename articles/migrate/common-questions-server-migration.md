@@ -4,10 +4,10 @@ description: Få svar på vanliga frågor om att använda Azure Migrate Server-m
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744331"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrering av Azure Migrate Server: vanliga frågor
@@ -81,11 +81,11 @@ För närvarande kan du migrera 100-VM: ar per instans av vCenter Server samtidi
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Hur gör jag för att begränsar du replikeringen i med Azure Migrate-utrustning för att kunna använda utan agent?  
 
-Du kan begränsa användningen av NetQosPolicy. Exempel:
+Du kan begränsa användningen av NetQosPolicy. Till exempel:
 
-AppNamePrefix som ska användas i NetQosPolicy är "GatewayWindowsService. exe". Du kan skapa en princip på Azure Migrate-enheten för att reglera replikeringstrafiken från installationen genom att skapa en princip som den här:
+AppNamePrefix som ska användas i NetQosPolicy är "GatewayWindowsService.exe". Du kan skapa en princip på Azure Migrate-enheten för att reglera replikeringstrafiken från installationen genom att skapa en princip som den här:
  
-New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService. exe"-ThrottleRateActionBitsPerSecond 1 MB
+New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService.exe"-ThrottleRateActionBitsPerSecond 1 MB
 
 ## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>Kan jag migrera virtuella datorer som redan replikeras till Azure? 
 

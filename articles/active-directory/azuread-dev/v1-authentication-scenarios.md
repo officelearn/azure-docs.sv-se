@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154737"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
@@ -71,7 +71,7 @@ Beroende på hur din klient har skapats kan den använda en (eller flera) av de 
 |[On-Behalf-Of-flöde](v1-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
 |[Klientautentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
 
-Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL `response_mode` : `query` en `fragment`(där är eller).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Detta innebär att dessa tokens inte har eller `groups` `wids` är anspråk. 
+Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL: en (där `response_mode` är `query` eller `fragment` ).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Detta innebär att dessa tokens inte har `groups` eller är `wids` anspråk. 
 
 Nu när du har en översikt över grunderna kan du läsa vidare för att förstå identitetens appmodell och API, hur etablering fungerar i Azure AD och länkar till detaljerad information om vanliga scenarier som Azure AD stöder.
 
@@ -121,7 +121,7 @@ En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i t
 
 | Begär | Beskrivning |
 | --- | --- |
-| Program-ID:t | Identifierar programmet som använder token. |
+| Program-ID | Identifierar programmet som använder token. |
 | Målgrupp | Identifierar mottagarresursen som token är avsedd för. |
 | Application Authentication Context Class Reference | Anger hur klienten har autentiserats (offentlig eller konfidentiell klient). |
 | Autentiseringstillfälle | Registrerar datum och tid när autentiseringen inträffade. |
@@ -139,7 +139,7 @@ En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i t
 | Subjekt | Anger huvudnamnet som token kontrollerar information om. |
 | Klientorganisations-ID | Innehåller ett oföränderlig, unik identifierare för katalogklientorganisationen som har utfärdat token. |
 | Tokenlivstid | Definierar tidsintervallet då token är giltig. |
-| User Principal Name | Innehåller UPN för subjektet. |
+| UPN (User Principal Name) | Innehåller UPN för subjektet. |
 | Version | Innehåller versionsnumret för token. |
 
 ## <a name="next-steps"></a>Nästa steg

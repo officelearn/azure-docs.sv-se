@@ -4,12 +4,12 @@ description: Anslut till ett Azure blockchain service-nätverk med MetaMask och 
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79205101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920577"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Snabb start: använda MetaMask för att ansluta och distribuera ett smart kontrakt
 
@@ -17,7 +17,7 @@ I den här snabb starten ska du använda MetaMask för att ansluta till ett Azur
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 * Installera [MetaMask Browser-tillägg](https://metamask.io)
@@ -59,7 +59,7 @@ Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsa
 1. Öppna webbläsaren och navigera till `https://remix.ethereum.org`.
 1. Välj **ny fil** på fliken **Start** under **fil**.
 
-    Ge den nya filen `simple.sol`ett namn.
+    Ge den nya filen ett namn `simple.sol` .
 
     ![Skapa fil](./media/connect-metamask/create-file.png)
 
@@ -128,9 +128,9 @@ Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsa
 
 Fel söknings fönstret för Remix visar information om transaktionerna på blockchain:
 
-    ![Debug history](./media/connect-metamask/debug.png)
+![Fel söknings historik](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+Du kan se det **enkla** uppdraget att skapa, transaktioner för **enkel. Lägg till**och anropa **enkel. get**.
 
 Om du vill se transaktions historiken i MetaMask öppnar du MetaMask Browser-tillägget och tittar i avsnittet **Historik** för en logg över det distribuerade kontraktet och transaktionerna.
 

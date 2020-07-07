@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128000"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en modell med ett varumärke med Video Indexer-API
@@ -30,12 +30,12 @@ Du kan använda Video Indexer API: er för att skapa, använda och redigera anpa
 [Skapa ett varumärke](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) -API skapar ett nytt anpassat varumärke och lägger till det i den anpassade varumärkes-modellen för det angivna kontot.
 
 > [!NOTE]
-> Inställningen `enabled` (i bröd texten) till True placerar varumärket i listan *ta med* för video Indexer att identifiera. Om `enabled` du anger false placeras varumärket i *uteslutnings* listan, så video Indexer inte att identifiera det.
+> Inställningen `enabled` (i bröd texten) till True placerar varumärket i listan *ta med* för video Indexer att identifiera. `enabled`Om du anger false placeras varumärket i *uteslutnings* listan, så video Indexer inte att identifiera det.
 
 Några andra parametrar som du kan ange i texten:
 
-* `referenceUrl` Värdet kan vara alla referens webbplatser för varumärket, till exempel en länk till en wikipedia-sida.
-* `tags` Värdet är en lista med taggar för varumärket. Den här taggen visas i fältet för märkets *kategori* på video Indexer webbplats. Till exempel kan märket "Azure" märkas eller kategoriseras som "moln".
+* `referenceUrl`Värdet kan vara alla referens webbplatser för varumärket, till exempel en länk till en wikipedia-sida.
+* `tags`Värdet är en lista med taggar för varumärket. Den här taggen visas i fältet för märkets *kategori* på video Indexer webbplats. Till exempel kan märket "Azure" märkas eller kategoriseras som "moln".
 
 ### <a name="response"></a>Svar
 
@@ -94,7 +94,7 @@ Svaret innehåller information om det märke som du sökte efter (med varumärke
 ```
 
 > [!NOTE]
-> `enabled`anges till `true` visar att varumärket är i listan *inkludering* för video Indexer att identifiera och `enabled` att det är falskt betyder att varumärket är i *uteslutnings* listan, så video Indexer inte identifierar det.
+> `enabled`anges till `true` visar att varumärket är i listan *inkludering* för video Indexer att identifiera och att det `enabled` är falskt betyder att varumärket är i *uteslutnings* listan, så video Indexer inte identifierar det.
 
 ## <a name="update-a-specific-brand"></a>Uppdatera ett speciellt varumärke
 
@@ -178,13 +178,13 @@ Svaret visar om Bing-varumärken är aktiverade efter formatet i exemplet nedan.
 ```
 
 > [!NOTE]
-> `useBuiltIn`anges till sant anger att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktive ras Bing-varumärken. `state` Värdet kan ignoreras eftersom det är inaktuellt.
+> `useBuiltIn`anges till sant anger att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktive ras Bing-varumärken. `state`Värdet kan ignoreras eftersom det är inaktuellt.
 
 ## <a name="update-brands-model-settings"></a>Uppdatera modell inställningar för varumärke
 
 [Uppdateringen varumärkes](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) -API uppdaterar modell inställningarna för varumärkena i det angivna kontot. Modell inställningarna för varumärken representerar om identifiering från Bing-databasen är aktive rad eller inte. Om Bing-varumärken inte är aktiverade, kommer Video Indexer bara identifiera varumärken från den anpassade varumärke modellen för det angivna kontot.
 
-`useBuiltIn` Flaggan som anges till True innebär att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktive ras Bing-varumärken.
+`useBuiltIn`Flaggan som anges till True innebär att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktive ras Bing-varumärken.
 
 ### <a name="response"></a>Svar
 

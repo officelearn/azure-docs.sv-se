@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5aa33529a1957b6e7728b3a87bacf6bb91d987ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81378956"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en Oracle Cloud Infrastructure-konsol för automatisk användar etablering
@@ -35,7 +35,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både Oracle Clo
 > * Etablera grupper och grupp medlemskap i Oracle Cloud Infrastructure-konsolen
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial) till Oracle Cloud Infrastructure Console (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -110,7 +110,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , skriver du in **klient webb adressen** i `https://<IdP ID>.identity.oraclecloud.com/admin/v1` formatet. Till exempel `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Oracle Cloud Infrastructure-konsolen. Om anslutningen Miss lyckas ser du till att du har administratörs behörighet för ditt konto för Oracle Cloud Infrastructure-konsolen och försöker igen.
+5. Under avsnittet **admin credentials** , skriver du in **klient webb adressen** i formatet `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Till exempel `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Oracle Cloud Infrastructure-konsolen. Om anslutningen Miss lyckas ser du till att du har administratörs behörighet för ditt konto för Oracle Cloud Infrastructure-konsolen och försöker igen.
 
     ![etablerings](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
@@ -129,7 +129,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
       |displayName|Sträng|
       |userName|Sträng|
       |aktiv|Boolesk|
-      |title|Sträng|
+      |rubrik|Sträng|
       |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
       |preferredLanguage|Sträng|
       |Name. givenName|Sträng|

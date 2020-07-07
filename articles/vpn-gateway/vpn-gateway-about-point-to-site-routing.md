@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: anzaman
 ms.openlocfilehash: 4821f2eb694a36cf0570008b3e62ce39999c58d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239753"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Om VPN-routning från punkt till plats
@@ -44,7 +44,7 @@ Punkt-till-plats-VPN gateway-anslutningen i det här exemplet är för ett VNet 
 
 * Vägar som lagts till för klienter som inte kommer från Windows: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Åtkomst
+### <a name="access"></a>Access
 
 * Windows-klienter har åtkomst till VNet1
 
@@ -74,7 +74,7 @@ Klienter som använder Windows kan komma åt direkt peer-virtuella nätverk, men
 
 * Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Åtkomst
+### <a name="access"></a>Access
 
 * Windows-klienter kan komma åt VNet1, VNet2 och VNet4, men VPN-klienten måste laddas ned igen för att alla ändringar i miljön ska börja gälla.
 
@@ -102,7 +102,7 @@ Klienter som använder Windows, eller ett annat operativ system som stöds, kan 
 
 * Vägar som lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Åtkomst
+### <a name="access"></a>Access
 
 * Windows-klienter kan endast komma åt VNet1
 
@@ -130,7 +130,7 @@ Klienter som använder Windows, eller ett annat operativ system som stöds, har 
 
 * Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Åtkomst
+### <a name="access"></a>Access
 
 * Windows-klienter kan komma åt VNet1, VNet2 och VNet3, men vägar till VNet2 och VNet3 måste läggas till manuellt.
 
@@ -156,7 +156,7 @@ Windows-och icke-Windows-klienter kan bara komma åt VNet1.
 
 * Vägar som lagts till för klienter som inte kommer från Windows: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Åtkomst
+### <a name="access"></a>Access
 
 * Windows-klienter har endast åtkomst till VNet1
 
@@ -182,7 +182,7 @@ Windows-klienter kan komma åt VNet och avdelnings kontoret (Site1), men vägarn
 
 * Vägar som lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Åtkomst
+### <a name="access"></a>Access
 
 * Windows-klienter har åtkomst till VNet1 och Site1, men vägar till Site1 måste läggas till manuellt.
 
@@ -213,7 +213,7 @@ Alla klienter har endast åtkomst till VNet1.
 
 * Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Åtkomst
+### <a name="access"></a>Access
 
 * Windows-klienterna har endast åtkomst till VNet1
 
@@ -243,7 +243,7 @@ Klienter som använder Windows kan komma åt virtuella nätverk och platser som 
 
 * Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Åtkomst
+### <a name="access"></a>Access
 
 * Windows-klienterna har åtkomst till VNet1, VNet2, VNet3 och Site1, men vägar till VNet2, VNet3 och Site1 måste läggas till manuellt i klienten.
 

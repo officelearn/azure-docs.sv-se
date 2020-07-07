@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80152676"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostisera och Felsök en för hands versions miljö
@@ -92,9 +92,9 @@ Välj de händelse källor där inmatningen har stoppats, klistra in den nya nyc
 Kontrol lera att namnet och värdet följer följande regler:
 
 * Egenskaps namnet för tidsstämpeln är Skift läges känsligt.
-* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`formatet. Ett exempel på en sådan sträng är `“2008-04-12T12:53Z”`.
+* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har formatet `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` . Ett exempel på en sådan sträng är `“2008-04-12T12:53Z”` .
 
-Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Preview Explorer. I Time Series Insights Preview Explorer använder du diagrammet för att välja en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj alternativet för att **utforska händelser** . Den första kolumn rubriken är namnet på Tidsstämpelns egenskap. Den bör ha `($ts)` intill ordet `Timestamp`, i stället för att:
+Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Preview Explorer. I Time Series Insights Preview Explorer använder du diagrammet för att välja en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj alternativet för att **utforska händelser** . Den första kolumn rubriken är namnet på Tidsstämpelns egenskap. Den bör ha `($ts)` intill ordet `Timestamp` , i stället för att:
 
 * `(abc)`, som anger att Time Series Insights läser data värden som strängar.
 * **Kalender** ikonen, som anger att Time Series Insights läser datavärdet som DateTime.

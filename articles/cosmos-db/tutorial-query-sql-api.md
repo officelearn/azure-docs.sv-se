@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: så här frågar du med SQL i Azure Cosmos DB?'
-description: 'Självstudie: Lär dig hur du frågar med SQL-frågor i Azure Cosmos DB att använda THW Query Playground'
+description: 'Självstudie: Lär dig hur du frågar med SQL-frågor i Azure Cosmos DB att använda frågan Playground'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74870079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921125"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av SQL API
 
@@ -56,6 +56,7 @@ SQL-frågorna i artikeln använder följande exempeldokument.
   "isRegistered": false
 }
 ```
+
 ## <a name="where-can-i-run-sql-queries"></a>Var kan jag köra SQL-frågor?
 
 Du kan köra frågor med Datautforskaren i Azure-portalen via [REST-API och SDK](sql-api-sdk-dotnet.md), och även [Query Playground](https://www.documentdb.com/sql/demo) som kör frågor på en befintlig uppsättning exempeldata.
@@ -63,19 +64,21 @@ Du kan köra frågor med Datautforskaren i Azure-portalen via [REST-API och SDK]
 Mer information om SQL-frågor finns i:
 * [SQL-fråga och SQL-syntax](sql-query-getting-started.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här självstudien förutsätter att du har ett konto för Azure Cosmos DB och en samling. Har du detta? Slutför [Snabbstart på 5 minuter](create-cosmosdb-resources-portal.md).
+Den här självstudien förutsätter att du har ett konto för Azure Cosmos DB och en samling. Har du inga av dessa resurser? Slutför [Snabbstart på 5 minuter](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Exempelfråga 1
 
-I exemplet på familjedokumentet ovan returnerar följande SQL-fråga dokument där ID-fältet matchar `WakefieldFamily`. Eftersom det är en `SELECT *`-instruktion är utdatan från frågan ett komplett JSON-dokument:
+Med exempel seriens dokument ovan returnerar följande SQL-fråga dokument där ID-fältet matchar `WakefieldFamily` . Eftersom det är en `SELECT *`-instruktion är utdatan från frågan ett komplett JSON-dokument:
 
 **Söka i data**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
+```
 
 **Resultat**
 
@@ -110,18 +113,29 @@ I exemplet på familjedokumentet ovan returnerar följande SQL-fråga dokument d
 
 ## <a name="example-query-2"></a>Exempelfråga 2
 
-Nästa fråga returnerar alla angivna namn på barnen i familjen vars ID matchar `WakefieldFamily`, sorterade efter deras klass.
+Nästa fråga returnerar alla namn på underordnade i den familj vars ID överensstämmer `WakefieldFamily` med deras grad.
 
 **Söka i data**
 
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
+```
 
 **Resultat**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+```
+[
+    {
+        "givenName": "Jesse"
+    },
+    {
+        "givenName": "Lisa"
+    }
+]
+```
 
 
 ## <a name="next-steps"></a>Nästa steg

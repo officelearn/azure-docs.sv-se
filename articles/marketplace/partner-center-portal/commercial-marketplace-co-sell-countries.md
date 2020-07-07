@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80277064"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Samförsäljnings land och region koder
@@ -69,7 +69,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Kamerun                            | CM        |
 | Kanada                              | CA        |
 | Caymanöarna                      | KY        |
-| Centralafrikanska republiken            | CF        |
+| Centralafrikanska Republiken            | CF        |
 | Tchad                                | TD        |
 | Czechia                             | CZ        |
 | Chile                               | CL        |
@@ -108,7 +108,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Franska sydterritorierna         | TF        |
 | Gabon                               | Allmän tillgänglighet (GA)        |
 | Gambia                              | GM        |
-| Georgien                             | GE        |
+| Georgia                             | GE        |
 | Tyskland                             | DE        |
 | Ghana                               | GH        |
 | Gibraltar                           | ETER        |
@@ -125,7 +125,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Haiti                               | HT        |
 | Heard-och McDonaldöarna   | IGNERINGSALGORITM        |
 | Honduras                            | HN        |
-| Hongkong                       | HK        |
+| Folkrepubliken Kinas särskilda administrativa region Hongkong                       | HK        |
 | Ungern                             | HU        |
 | Island                             | IS        |
 | Indien                               | IN        |
@@ -140,7 +140,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Japan                               | JP        |
 | Jersey                              | JE        |
 | Jordanien                              | JO        |
-| Kazakhstan                          | KZ        |
+| Kazakstan                          | KZ        |
 | Kenya                               | KE        |
 | Kiribati                            | KI        |
 | Korea (södra)                       | KR        |
@@ -167,7 +167,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Mauretanien                          | MR        |
 | Mauritius                           | MK        |
 | Mayotte                             | YT        |
-| Mexiko                              | MX        |
+| Mexico                              | MX        |
 | Mikronesien                          | FM        |
 | Moldavien                             | MD        |
 | Monaco                              | MC        |
@@ -177,7 +177,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Marocko                             | MA        |
 | Moçambique                          | MZ        |
 | Myanmar                             | MM        |
-| Namibia                             | Ej tillämpligt        |
+| Namibia                             | NA        |
 | Nauru                               | NR        |
 | Nepal                               | NP        |
 | Nederländerna                         | NL        |
@@ -262,7 +262,7 @@ Om en kontakt omfattar mer än ett land/region, anger du var och en av de två b
 | Storbritannien                      | GB        |
 | USA                       | USA        |
 | Uruguay                             | UY        |
-| Amerikanska öar               | UM        |
+| USA:s yttre öar               | UM        |
 | Amerikanska jungfru öarna                 | VI        |
 | Uzbekistan                          | UZ        |
 | Vanuatu                             | ANTECKNING        |

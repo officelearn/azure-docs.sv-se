@@ -4,10 +4,10 @@ description: Distribuera resurser till Azure med en Azure Resource Manager-mall 
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80156403"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Distribuera privat ARM-mall med SAS-token

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81390206"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight Virtual Network-arkitektur
@@ -36,9 +36,9 @@ Azure HDInsight-kluster har olika typer av virtuella datorer eller noder. Varje 
 
 Använd fullständigt kvalificerade domän namn (FQDN) vid adressering av noder i klustret. Du kan hämta FQDN: er för olika nodtyper i klustret med hjälp av [Ambari-API: et](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Dessa FQDN kommer att ha formen `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+Dessa FQDN kommer att ha formen `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net` .
 
-Kommer att vara *HN* för *huvudnoderna, till och med för* arbetsnoder och Zn för Zookeeper-noder. *zn* `<node-type-prefix>`
+`<node-type-prefix>`Kommer att vara *HN* för huvudnoderna, *wn* till och med för arbetsnoder och *Zn* för Zookeeper-noder.
 
 Om du bara behöver värd namnet använder du bara den första delen av FQDN:`<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
@@ -71,16 +71,16 @@ Följande nätverks resurser som finns skapas automatiskt i det virtuella nätve
 
 Du kan komma åt ditt HDInsight-kluster på tre sätt:
 
-- En HTTPS-slutpunkt utanför det virtuella nätverket på `CLUSTERNAME.azurehdinsight.net`.
-- En SSH-slutpunkt för direkt anslutning till huvudnoden på `CLUSTERNAME-ssh.azurehdinsight.net`.
-- En HTTPS-slutpunkt i det virtuella `CLUSTERNAME-int.azurehdinsight.net`nätverket. Lägg märke till`-int`"" i den här URL: en. Den här slut punkten kommer att matcha en privat IP-adress i det virtuella nätverket och är inte tillgänglig från det offentliga Internet.
+- En HTTPS-slutpunkt utanför det virtuella nätverket på `CLUSTERNAME.azurehdinsight.net` .
+- En SSH-slutpunkt för direkt anslutning till huvudnoden på `CLUSTERNAME-ssh.azurehdinsight.net` .
+- En HTTPS-slutpunkt i det virtuella nätverket `CLUSTERNAME-int.azurehdinsight.net` . Lägg märke till " `-int` " i den här URL: en. Den här slut punkten kommer att matcha en privat IP-adress i det virtuella nätverket och är inte tillgänglig från det offentliga Internet.
 
 Dessa tre slut punkter är varje tilldelad belastningsutjämnare.
 
 Offentliga IP-adresser tillhandahålls också till de två slut punkter som tillåter anslutning från utanför det virtuella nätverket.
 
-1. En offentlig IP-adress tilldelas belastningsutjämnaren för det fullständigt kvalificerade domän namnet (FQDN) som ska användas vid anslutning till klustret från Internet `CLUSTERNAME.azurehdinsight.net`.
-1. Den andra offentliga IP-adressen används för domän namnet `CLUSTERNAME-ssh.azurehdinsight.net`endast SSH.
+1. En offentlig IP-adress tilldelas belastningsutjämnaren för det fullständigt kvalificerade domän namnet (FQDN) som ska användas vid anslutning till klustret från Internet `CLUSTERNAME.azurehdinsight.net` .
+1. Den andra offentliga IP-adressen används för domän namnet endast SSH `CLUSTERNAME-ssh.azurehdinsight.net` .
 
 ## <a name="next-steps"></a>Nästa steg
 

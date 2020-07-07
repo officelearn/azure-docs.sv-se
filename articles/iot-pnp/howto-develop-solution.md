@@ -10,10 +10,10 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: e349aadfd629202b1c8cdb5c53a88e0a6c2e06de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159225"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Ansluta till och interagera med en IoT Plug and Play förhands gransknings enhet
@@ -30,21 +30,21 @@ npm install
 
 ## <a name="run-the-service-samples"></a>Kör tjänst exemplen
 
-Använd följande exempel för att utforska funktionerna i Node. js-tjänst-SDK: n. Kontrol lera att `IOTHUB_CONNECTION_STRING` miljövariabeln har angetts i gränssnittet som du använder:
+Använd följande exempel för att utforska funktionerna i Node.js service SDK. Kontrol lera att `IOTHUB_CONNECTION_STRING` miljövariabeln har angetts i gränssnittet som du använder:
 
 ### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Hämta en digital, och visa en lista över gränssnitten
 
-**get_digital_twin. js** hämtar den digitala enhet som är kopplad till enheten och skriver ut dess komponent på kommando raden. Ett enhets exempel som inte körs krävs för att lyckas.
+**get_digital_twin.js** hämtar den digitala enhet som är kopplad till enheten och skriver ut dess komponent på kommando raden. Ett enhets exempel som inte körs krävs för att lyckas.
 
-**get_digital_twin_interface_instance. js** hämtar en enda gränssnitts instans av digital, som är kopplad till enheten och skriver ut den på kommando raden. Det kräver inte att enhets exemplet körs.
+**get_digital_twin_interface_instance.js** hämtar en enda gränssnitts instans av digital, som är kopplad till enheten och skriver ut den på kommando raden. Det kräver inte att enhets exemplet körs.
 
 ### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Hämta och ange egenskaper med hjälp av Node service SDK
 
-**update_digital_twin. js** uppdaterar en skrivbar egenskap på enheten digitalt med en fullständig korrigering. Du kan uppdatera flera egenskaper på flera gränssnitt om du vill. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som om enhets exemplet skriver ut något om att uppdatera en egenskap som tjänst exemplet skriver ut ett uppdaterat digitalt objekt i terminalen.
+**update_digital_twin.js** uppdaterar en skrivbar egenskap på enheten digitalt med en fullständig korrigering. Du kan uppdatera flera egenskaper på flera gränssnitt om du vill. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som om enhets exemplet skriver ut något om att uppdatera en egenskap som tjänst exemplet skriver ut ett uppdaterat digitalt objekt i terminalen.
 
 ### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Skicka ett kommando och hämta svaret med Node service SDK
 
-**invoke_command. js** anropar ett synkront kommando på enheten digitalt. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som enhets exemplet skriver ut något om att bekräfta ett kommando och tjänst klienten skriver ut resultatet av kommandot i terminalen.
+**invoke_command.js** anropar ett synkront kommando på enheten digitalt. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som enhets exemplet skriver ut något om att bekräfta ett kommando och tjänst klienten skriver ut resultatet av kommandot i terminalen.
 
 ### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Anslut till den offentliga lagrings platsen och hämta en modell definition med hjälp av Node service SDK
 

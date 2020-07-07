@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 754d1b80236d138693987cccee7a218ccd96b16b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383889"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Fråga efter data från Azure Time Series Insights GA-miljön med C #
@@ -23,7 +23,7 @@ ms.locfileid: "81383889"
 Det här C#-exemplet visar hur du använder [API: er för ga-frågor](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) för att fråga efter data från Azure Time Series Insights ga-miljöer.
 
 > [!TIP]
-> Visa GA C#-kod exempel [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)på.
+> Visa GA C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample) .
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -64,9 +64,9 @@ Vi rekommenderar att du använder den senaste versionen av Visual Studio:
 Exempel koden har två nödvändiga beroenden:
 
 * [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -3.13.9-paket.
-* [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) -9.0.1-paket.
+* [Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json) 9.0.1-paket.
 
-Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build** > **build-lösning** .
+Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build**  >  **build-lösning** .
 
 Du kan också lägga till paketen med [NuGet 2.12 +](https://www.nuget.org/):
 

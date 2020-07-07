@@ -1,23 +1,25 @@
 ---
-title: Skapa en Sök-app i Azure Portal
+title: Skapa en demo-app i Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Kör guiden skapa app (för hands version) för att generera HTML-sidor och skript för en fungerande webbapp. Sidan innehåller ett sökfält, ett resultat område, en marginal list och stöd för typeahead.
+description: Kör guiden skapa demo program (förhands granskning) för att generera HTML-sidor och skript för en operationell webbapp. Sidan innehåller ett sökfält, ett resultat område, en marginal list och stöd för typeahead.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488179"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955700"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Snabb start: skapa en Sök-app i portalen (Azure Kognitiv sökning)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Snabb start: skapa en demo-app i portalen (Azure Kognitiv sökning)
 
-Använd guiden **Skapa sökning** i Azure Portal för att generera en nedladdnings bar, "localhost"-webbapp som körs i en webbläsare. Beroende på dess konfiguration fungerar den genererade appen vid första användningen, med en Live-anslutning till ett fjärrindex. En standard-app kan innehålla ett sökfält, ett resultatområde, ett sid reglerings filter och typeahead-stöd.
+Använd guiden **skapa demonstrations program** för Azure Portal för att generera en nedladdnings bar, "localhost"-webbapp som körs i en webbläsare. Beroende på dess konfiguration fungerar den genererade appen vid första användningen, med en Live-skrivskyddad anslutning till ett fjärrindex. En standard-app kan innehålla ett sökfält, ett resultatområde, ett sid reglerings filter och typeahead-stöd.
+
+Demo-appen kan hjälpa dig att visualisera hur ett index fungerar i en klient app, men det är inte avsett för produktions scenarier. Klient program bör omfatta säkerhet, fel hantering och värd logik som den genererade HTML-sidan inte tillhandahåller. När du är redo att skapa en klient app, se [skapa din första Sökapp med .NET SDK](tutorial-csharp-create-first-app.md) för nästa steg.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,7 +47,7 @@ När indexet är klart att använda går du vidare till nästa steg.
 
 1. Välj *realestate-US-Sample-index* i listan över befintliga index.
 
-1. På sidan index, längst upp, väljer du **skapa Sök App (för hands version)** för att starta guiden.
+1. På sidan index, längst upp, väljer du **skapa demo program (för hands version)** för att starta guiden.
 
 1. På den första sidan i guiden väljer du **Aktivera resurs delning mellan ursprung (CORS)** för att lägga till CORS-stöd i index definitionen. Det här steget är valfritt, men din lokala webbapp ansluter inte till fjär indexet utan den.
 
@@ -85,7 +87,7 @@ Följande skärm bild visar alternativen i guiden, juxtaposed med en renderad si
 
 ## <a name="create-download-and-execute"></a>Skapa, hämta och köra
 
-1. Välj **skapa Sök-App** för att generera HTML-filen.
+1. Skapa HTML-filen genom att välja **skapa demo-app** .
 
 1. När du uppmanas väljer du **Ladda ned appen** för att ladda ned filen.
 

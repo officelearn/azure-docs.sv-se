@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 021ac5fccf4d694895ab9941bd46dd2388f49af9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407458"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till händelse källan för Event Hub i Time Series Insightss miljön
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du använder Azure Portal för att lägga till e
 > [!NOTE]
 > De steg som beskrivs i den här artikeln gäller både Time Series Insights GA och Time Series Insights Preview-miljöer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Skapa en Time Series Insights-miljö enligt beskrivningen i [skapa en Azure Time Series Insights-miljö](./time-series-insights-update-create-environment.md).
 - Skapa en händelsehubb. Läs [skapa ett Event Hubs-namnområde och en Event Hub med hjälp av Azure Portal](../event-hubs/event-hubs-create.md).
@@ -62,7 +62,7 @@ Så här lägger du till en ny konsument grupp i händelsehubben:
 
    [![Under händelse källor väljer du knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. Ange ett värde för **händelse källans namn** som är unikt för den här Time Series Insightss miljön `Contoso-TSI-GA-Event-Hub-ES`, till exempel.
+1. Ange ett värde för **händelse källans namn** som är unikt för den här Time Series Insightss miljön, till exempel `Contoso-TSI-GA-Event-Hub-ES` .
 
 1. För **källa**väljer du **händelsehubben**.
 

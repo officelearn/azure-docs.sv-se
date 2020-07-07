@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82783752"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
@@ -75,7 +75,7 @@ Som standard startar IoT Edge moduler i egna isolerade behållar nätverk. Enhet
 
 **Alternativ 1: Ange DNS-server i behållar motor inställningarna**
 
-Ange DNS-servern för din miljö i inställningar för container motor som ska gälla för alla behållar moduler som startas av motorn. Skapa en fil med `daemon.json` namnet ange den DNS-server som ska användas. Exempel:
+Ange DNS-servern för din miljö i inställningar för container motor som ska gälla för alla behållar moduler som startas av motorn. Skapa en fil med namnet `daemon.json` Ange den DNS-server som ska användas. Till exempel:
 
 ```json
 {
@@ -87,7 +87,7 @@ Exemplet ovan anger DNS-servern till en offentligt tillgänglig DNS-tjänst. Om 
 
 Placera `daemon.json` på rätt plats för din plattform:
 
-| Plattform | Plats |
+| Plattform | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Windows-värd med Windows-behållare | `C:\ProgramData\iotedge-moby\config` |
@@ -103,7 +103,7 @@ Starta om behållar motorn för att uppdateringarna ska börja gälla.
 
 **Alternativ 2: Ange DNS-server i IoT Edge distribution per modul**
 
-Du kan ställa in DNS-servern för varje moduls *createOptions* i IoT Edge distributionen. Exempel:
+Du kan ställa in DNS-servern för varje moduls *createOptions* i IoT Edge distributionen. Till exempel:
 
 ```json
 "createOptions": {
@@ -149,7 +149,7 @@ Du kan lösa det här problemet på två sätt:
 
 Om IoT Edge enheten fungerar som en gateway-enhet måste du söka efter och stoppa den process som använder port 443, 5671 eller 8883. Ett fel för port 443 innebär vanligt vis att den andra processen är en webb server.
 
-Om du inte behöver använda den IoT Edge enheten som en gateway, kan du ta bort port bindningarna från edgeHub för modulens skapande alternativ. Du kan ändra alternativen för att skapa i Azure Portal eller direkt i filen Deployment. JSON.
+Om du inte behöver använda den IoT Edge enheten som en gateway, kan du ta bort port bindningarna från edgeHub för modulens skapande alternativ. Du kan ändra alternativen för att skapa i Azure Portal eller direkt i deployment.jspå filen.
 
 På Azure Portal:
 
@@ -165,9 +165,9 @@ På Azure Portal:
 
 6. Spara ändringarna och skapa distributionen.
 
-I filen Deployment. JSON:
+I deployment.jspå filen:
 
-1. Öppna filen Deployment. JSON som du använde för din IoT Edge-enhet.
+1. Öppna deployment.jspå filen som du använde på IoT Edge enheten.
 
 2. Hitta `edgeHub` inställningarna i avsnittet önskade egenskaper för edgeAgent:
 
@@ -222,7 +222,7 @@ När du ser det här felet kan du lösa det genom att konfigurera den virtuella 
    ![Konfigurera DNS-namnet för den virtuella datorn](./media/troubleshoot/configure-dns.png)
 
 3. Ange ett värde för **DNS-namn etikett** och välj **Spara**.
-4. Kopiera det nya DNS-namnet, vilket ska vara i formatet ** \<DNSnamelabel\>.\< vmlocation\>. cloudapp.Azure.com**.
+4. Kopiera det nya DNS-namnet som ska vara i formatet ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
 5. I den virtuella datorn använder du följande kommando för att konfigurera IoT Edge runtime med ditt DNS-namn:
 
    * I Linux:
@@ -241,11 +241,11 @@ När du ser det här felet kan du lösa det genom att konfigurera den virtuella 
 
 **Observerat beteende:**
 
-Du får en EventLogException när du `Get-WinEvent` använder i Windows.
+Du får en EventLogException när du använder `Get-WinEvent` i Windows.
 
 **Rotor saken:**
 
-`Get-WinEvent` PowerShell-kommandot är beroende av att en register post är tillgänglig för att hitta loggar med en `ProviderName`speciell.
+`Get-WinEvent`PowerShell-kommandot är beroende av att en register post är tillgänglig för att hitta loggar med en speciell `ProviderName` .
 
 **Lösning:**
 
@@ -276,7 +276,7 @@ För IoT Edge Hub ställer du in en miljö variabel **OptimizeForPerformance** p
 
 På Azure Portal:
 
-I IoT Hub väljer du IoT Edge enheten och på sidan enhets information och väljer **Ange** > **Inställningar**för moduler. Skapa en miljö variabel för IoT Edge Hub-modulen med namnet *OptimizeForPerformance* som har angetts till *false*.
+I IoT Hub väljer du IoT Edge enheten och på sidan enhets information och väljer **Ange**  >  **Inställningar**för moduler. Skapa en miljö variabel för IoT Edge Hub-modulen med namnet *OptimizeForPerformance* som har angetts till *false*.
 
 ![OptimizeForPerformance har angetts till false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -300,7 +300,7 @@ I distributions manifestet:
 
 **Observerat beteende:**
 
-En anpassad IoT Edge-modul kan inte skicka ett meddelande till IoT Edge Hub med ett 404 `Module not found` -fel. IoT Edge daemon skriver ut följande meddelande till loggarna:
+En anpassad IoT Edge-modul kan inte skicka ett meddelande till IoT Edge Hub med ett 404- `Module not found` fel. IoT Edge daemon skriver ut följande meddelande till loggarna:
 
 ```output
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
@@ -314,7 +314,7 @@ IoT Edge daemon framtvingar process-ID för alla moduler som ansluter till edgeH
 
 Från och med version 1.0.7 har alla modulblad behörighet att ansluta. Mer information finns i [1.0.7 Release ändringsloggen](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
-Om det inte går att uppgradera till 1.0.7 utför du följande steg. Kontrol lera att samma process-ID alltid används av den anpassade IoT Edge-modulen för att skicka meddelanden till edgeHub. Till exempel, se till `ENTRYPOINT` i stället för `CMD` kommandot i Docker-filen. `CMD` Kommandot leder till ett process-ID för modulen och ett annat process-ID för bash-kommandot som kör huvud programmet, `ENTRYPOINT` men leder till ett enda process-ID.
+Om det inte går att uppgradera till 1.0.7 utför du följande steg. Kontrol lera att samma process-ID alltid används av den anpassade IoT Edge-modulen för att skicka meddelanden till edgeHub. Till exempel, se till i `ENTRYPOINT` stället för `CMD` kommandot i Docker-filen. `CMD`Kommandot leder till ett process-ID för modulen och ett annat process-ID för bash-kommandot som kör huvud programmet, men `ENTRYPOINT` leder till ett enda process-ID.
 
 ## <a name="iot-edge-module-deploys-successfully-then-disappears-from-device"></a>IoT Edge-modulen har distribuerats försvinner sedan från enheten
 

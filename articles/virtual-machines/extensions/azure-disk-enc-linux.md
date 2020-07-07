@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066924"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption för Linux (Microsoft. Azure. Security. AzureDiskEncryptionForLinux)
@@ -26,7 +26,7 @@ ms.locfileid: "80066924"
 
 Azure Disk Encryption utnyttjar del systemet dm-crypt i Linux för att tillhandahålla fullständig disk kryptering på [utvalda Azure Linux-distributioner](https://aka.ms/adelinux).  Den här lösningen är integrerad med Azure Key Vault för att hantera disk krypterings nycklar och hemligheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En fullständig lista över krav finns i [Azure Disk Encryption för virtuella Linux-datorer](../linux/disk-encryption-overview.md), särskilt i följande avsnitt:
 
@@ -76,9 +76,9 @@ Schemat v 1.1 rekommenderas och kräver inte Azure Active Directory-egenskaper (
 
 ### <a name="schema-v01-with-aad"></a>Schema v 0,1: med AAD 
 
-Schemat 0,1 kräver `AADClientID` och, antingen `AADClientSecret` eller `AADClientCertificate`.
+Schemat 0,1 kräver `AADClientID` och, antingen `AADClientSecret` eller `AADClientCertificate` .
 
-Använda `AADClientSecret`:
+Använda `AADClientSecret` :
 
 ```json
 {
@@ -108,7 +108,7 @@ Använda `AADClientSecret`:
 }
 ```
 
-Använda `AADClientCertificate`:
+Använda `AADClientCertificate` :
 
 ```json
 {

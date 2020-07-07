@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80133165"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Använda IoT Edge i Windows för att köra Linux-behållare
@@ -26,7 +26,7 @@ Den här artikeln innehåller anvisningar för att installera Azure IoT Edge run
 
 För information om vad som ingår i den senaste versionen av IoT Edge, se [Azure IoT Edge-versioner](https://github.com/Azure/azure-iotedge/releases).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Använd det här avsnittet för att se om din Windows-enhet har stöd för IoT Edge och förbereda den för en behållar motor före installationen.
 
@@ -53,13 +53,13 @@ Ett PowerShell-skript laddar ned och installerar Azure IoT Edge Security daemon.
 
 När du installerar IoT Edge runtime för första gången på en enhet måste du etablera enheten med en identitet från en IoT-hubb. En enskild IoT Edge enhet kan tillhandahållas manuellt med hjälp av en enhets anslutnings sträng från IoT Hub. Du kan också använda enhets etablerings tjänsten för att etablera enheter automatiskt, vilket är användbart när du har många enheter att konfigurera.
 
-Du kan läsa mer om de olika installations alternativen och parametrarna i artikeln [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md). När du har Docker-skrivbordet installerat och konfigurerat för Linux-behållare, deklareras den huvudsakliga installations skillnaden Linux med parametern **-containern** . Ett exempel:
+Du kan läsa mer om de olika installations alternativen och parametrarna i artikeln [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md). När du har Docker-skrivbordet installerat och konfigurerat för Linux-behållare, deklareras den huvudsakliga installations skillnaden Linux med parametern **-containern** . Till exempel:
 
 1. Registrera en ny IoT Edge enhet och hämta anslutnings strängen för enheten om du inte redan gjort det. Kopiera anslutnings strängen och Använd den senare i det här avsnittet. Du kan utföra det här steget med följande verktyg:
 
    * [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)
    * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
-   * [Visual Studio-koden](how-to-register-device.md#register-with-visual-studio-code)
+   * [Visuell Studio-kod](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Kör PowerShell som administratör.
 

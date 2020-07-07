@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239864"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Översikt över Red Hat Enterprise Linux avbildningar
@@ -71,7 +71,7 @@ Denna bild versions jämförelse görs genom att jämföra värdena som ett [ver
 
 För RHEL 6. x-bilder visas bild typerna i följande tabell.
 
-|Utgivare | Erbjudande | SKU-värde | Version | Information
+|Publisher | Erbjudande | SKU-värde | Version | Information
 |----------|-------|-----------|---------|--------
 |Redhat | RHEL | Lägre version (till exempel 6,9) | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 6.9.2018010506) | Alla standard RHEL 6. x-bilder följer denna konvention.
 |Redhat | RHEL – BYOS | RHEL – raw69 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 6.9.20181023) | Den här avbildningen är en RHEL 6,9 BYOS-avbildning.
@@ -80,12 +80,12 @@ För RHEL 6. x-bilder visas bild typerna i följande tabell.
 
 ## <a name="rhel-7-image-types"></a>Bild typer för RHEL 7
 
-För RHEL 7. x-bilder finns det några olika bild typer. I följande tabell visas de olika uppsättningar med avbildningar vi erbjuder. Om du vill se en fullständig lista använder du Azure CLI `az vm image list --publisher redhat --all`-kommandot.
+För RHEL 7. x-bilder finns det några olika bild typer. I följande tabell visas de olika uppsättningar med avbildningar vi erbjuder. Om du vill se en fullständig lista använder du Azure CLI-kommandot `az vm image list --publisher redhat --all` .
 
 >[!NOTE]
 > Om inget annat anges är alla avbildningar LVM partitionerade och ansluta till vanliga RHEL-databaser. Det vill säga att databaserna inte har utökade uppdaterings stöd (EUS) och inte uppdaterar tjänster för SAP (E4S). Vi går vidare till att bara publicera LVM-partitionerade bilder men är öppna för feedback om det här beslutet. Mer information om stöd för utökad uppdatering och uppdaterings tjänster för SAP finns i [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata).
 
-|Utgivare | Erbjudande | SKU-värde | Version | Information
+|Publisher | Erbjudande | SKU-värde | Version | Information
 |----------|-------|------------|---------|--------
 |Redhat | RHEL | Lägre version (till exempel 7,6) | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 7.6.2019102813) | Avbildningar som publicerats före april 2019 är kopplade till standard RHEL-databaser. Avbildningar som publicerats efter 2019 april är kopplade till Red Hats EUS-databaser för att tillåta versions låsning av en speciell del version. Kunder som vill ha vanliga databaser bör använda de bilder som innehåller 7-LVM eller 7-RAW i SKU-värdet (information följer). RHEL 7,7 och senare bilder är LVM partitionerade. Alla andra bilder i den här kategorin är RAW-partitionerade.
 |Redhat | RHEL | 7 – RAW | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 7.6.2019102813) | De här avbildningarna är RAW-partitionerade (till exempel inga logiska volymer har lagts till).
@@ -102,7 +102,7 @@ För RHEL 7. x-bilder finns det några olika bild typer. I följande tabell visa
 
 Information om typer av RHEL 8-avbildningar finns nedan.
 
-|Utgivare | Erbjudande | SKU-värde | Version | Information
+|Publisher | Erbjudande | SKU-värde | Version | Information
 |----------|-------|------------|---------|--------
 |Redhat | RHEL | 8 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 8.0.20191023) | De här avbildningarna är RHEL 8 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser.
 |Redhat | RHEL | 8-Gen2 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (till exempel 8.0.20191024) | De här avbildningarna är Hyper-V generation 2 RHEL 8 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser. Mer information om virtuella datorer i generation 2 i Azure finns i [stöd för virtuella datorer i generation 2 i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
@@ -147,7 +147,7 @@ Lägre version |Exempel på EUS-avbildning              |Status för EUS        
 RHEL 7,4      |RedHat: RHEL: 7.4:7.4.2019041718 | Avbildningar som publicerats april 2019 och senare är EUS som standard.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | Avbildningar som publicerats i juni 2019 och senare är EUS som standard. |
 RHEL 7,6      |RedHat: RHEL: 7.6:7.6.2019052206 | Publicerade avbildningar maj 2019 och senare är EUS som standard. |
-RHEL 8,0      |Ej tillämpligt                            | Ingen EUS är tillgänglig från Red Hat.                               |
+RHEL 8,0      |Saknas                            | Ingen EUS är tillgänglig från Red Hat.                               |
 
 ### <a name="update-services-for-sap"></a>Uppdatera tjänster för SAP
 

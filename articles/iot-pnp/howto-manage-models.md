@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/26/2019
 ms.author: philmea
 ms.openlocfilehash: 78406175090521af70381f61f4e33dfb6c35ac8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159157"
 ---
 # <a name="manage-models-in-the-repository"></a>Hantera modeller i databasen
@@ -23,7 +23,7 @@ Det finns tre verktyg som du kan använda för att hantera lagrings platsen:
 
 - Azure-certifierad för IoT-portalen
 - Azure CLI
-- Visual Studio-koden
+- Visuell Studio-kod
 
 ## <a name="model-repositories"></a>Modell databaser
 
@@ -43,7 +43,7 @@ I [Azure-certifierad för IoT-portalen](https://preview.catalog.azureiotsolution
 
 Azure CLI innehåller kommandon för att hantera enhets kapacitets modeller och gränssnitt i IoT Plug and Play offentliga och företagets modell databaser. Mer information finns i avsnittet [Installera och använda Azure IoT-tillägget för Azure CLI](./howto-install-pnp-cli.md) -guide.
 
-## <a name="visual-studio-code"></a>Visual Studio-koden
+## <a name="visual-studio-code"></a>Visuell Studio-kod
 
 För att öppna vyn **modell databas** i Visual Studio Code.
 

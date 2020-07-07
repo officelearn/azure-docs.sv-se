@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: b6ab34019207ccbeec5448b848e501e063707d16
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85940422"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i python-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
 
 Vill du se koden på en gång? Exempel på [Bing-sökning klient bibliotek för python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) finns på GitHub.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 API för webbsökning i Bing är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6. Vi rekommenderar att du använder en virtuell miljö för den här snabbstarten.
 
 * Python 2.7, 3.3, 3.4, 3.5 eller 3.6
@@ -167,9 +167,9 @@ Om svaret innehåller webbplatser, bilder, nyheter eller videor skrivs det förs
 
 1. Ersätt `SUBSCRIPTION_KEY` med en giltig prenumerationsnyckel.
 
-1. Ersätt `YOUR_ENDPOINT` med slut punkts-URL: en i portalen.
+1. Ersätt `YOUR_ENDPOINT` med URL: en för slut punkten i portalen och ta bort avsnittet "Bing/v 7.0" från slut punkten.
 
-1. Kör programmet. Till exempel: `python your_program.py`.
+1. Kör programmet. Exempel: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definiera funktioner och filtrera resultat
 
@@ -177,7 +177,7 @@ Nu när du har gjort ditt första anrop till API för webbsökning i Bing ska vi
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Begränsa antalet resultat som returneras av Bing
 
-I `count` det här exemplet används `offset` parametrarna och för att begränsa antalet resultat som returneras med SDK- [ `search` metoden](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). `name` och `url` för det första resultatet skrivs ut.
+I det här exemplet `count` används `offset` parametrarna och för att begränsa antalet resultat som returneras med SDK- [ `search` metoden](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). `name` och `url` för det första resultatet skrivs ut.
 
 1. Lägg till den här koden i Python-projektet:
 
@@ -216,7 +216,7 @@ I `count` det här exemplet används `offset` parametrarna och för att begräns
 
 ### <a name="filter-for-news-and-freshness"></a>Filtrera efter nyheter och aktualitet
 
-I `response_filter` det här exemplet används `freshness` parametrarna och för att filtrera Sök resultat med hjälp av SDK- [ `search` metoden](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations). De sökresultat som returneras är begränsade till nyhetsartiklar och sidor som Bing har identifierat under de senaste 24 timmarna. `name` och `url` för det första resultatet skrivs ut.
+I det här exemplet `response_filter` används `freshness` parametrarna och för att filtrera Sök resultat med hjälp av SDK- [ `search` metoden](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations). De sökresultat som returneras är begränsade till nyhetsartiklar och sidor som Bing har identifierat under de senaste 24 timmarna. `name` och `url` för det första resultatet skrivs ut.
 
 1. Lägg till den här koden i Python-projektet:
 
@@ -266,7 +266,7 @@ I `response_filter` det här exemplet används `freshness` parametrarna och för
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Använd säker sökning, svarsantal och befordringsfiltret
 
-I det här exemplet `answer_count`används `promote`parametrarna, `safe_search` och för att filtrera Sök resultat med hjälp av SDK- [ `search` metoden](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). `name` och `url` för det första resultatet visas.
+I det här exemplet `answer_count` används `promote` parametrarna, och `safe_search` för att filtrera Sök resultat med hjälp av SDK- [ `search` metoden](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). `name` och `url` för det första resultatet visas.
 
 1. Lägg till den här koden i Python-projektet:
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
 ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240488"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagera med Windows-behållare med hjälp av Azure dev Spaces
@@ -91,9 +91,9 @@ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 
 ## <a name="update-your-windows-service-for-dev-spaces"></a>Uppdatera din Windows-tjänst för dev Spaces
 
-När du aktiverar dev Spaces i ett befintligt namn område med behållare som redan körs, kommer som standard att försöka utföra och instrumentera nya behållare som körs i namn området. Dev-utrymmen kommer också att prova och instrumentera nya behållare som skapats för tjänsten som redan körs i namn området. Om du vill förhindra att dev-Spaces instrumenterar en behållare som körs i namn området lägger du till huvudet `deployment.yaml` *no-proxy* i.
+När du aktiverar dev Spaces i ett befintligt namn område med behållare som redan körs, kommer som standard att försöka utföra och instrumentera nya behållare som körs i namn området. Dev-utrymmen kommer också att prova och instrumentera nya behållare som skapats för tjänsten som redan körs i namn området. Om du vill förhindra att dev-Spaces instrumenterar en behållare som körs i namn området lägger du till huvudet *no-proxy* i `deployment.yaml` .
 
-Lägg `azds.io/no-proxy: "true"` till i `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` filen:
+Lägg till `azds.io/no-proxy: "true"` i `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` filen:
 
 ```yaml
 apiVersion: apps/v1
@@ -120,17 +120,17 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-I ovanstående exempel är namnet på din distribution *Windows-Service*. Uppdatera din Windows-tjänst med den nya konfigurationen `helm upgrade`med hjälp av:
+I ovanstående exempel är namnet på din distribution *Windows-Service*. Uppdatera din Windows-tjänst med den nya konfigurationen med hjälp av `helm upgrade` :
 
 ```cmd
 helm upgrade windows-service . --namespace dev
 ```
 
-Eftersom du `deployment.yaml`har uppdaterat kommer inte dev Spaces att försöka utföra och instrumentera din tjänst.
+Eftersom du har uppdaterat `deployment.yaml` kommer inte dev Spaces att försöka utföra och instrumentera din tjänst.
 
 ## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Köra Linux-programmet med Azure dev Spaces
 
-Navigera till `webfrontend` katalogen och Använd- `azds prep` och `azds up` -kommandona för att köra Linux-programmet i klustret.
+Navigera till `webfrontend` katalogen och Använd- `azds prep` och- `azds up` kommandona för att köra Linux-programmet i klustret.
 
 ```console
 cd ../../webfrontend-linux/
@@ -138,12 +138,12 @@ azds prep --enable-ingress
 azds up
 ```
 
-`azds prep --enable-ingress` Kommandot genererar Helm-diagrammet och Dockerfiles för ditt program.
+`azds prep --enable-ingress`Kommandot genererar Helm-diagrammet och Dockerfiles för ditt program.
 
 > [!TIP]
 > [Dockerfile-och Helm-diagrammet](../how-dev-spaces-works-prep.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
-`azds up` Kommandot kör tjänsten i namn området.
+`azds up`Kommandot kör tjänsten i namn området.
 
 ```console
 $ azds up
@@ -161,7 +161,7 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata från kommandot azds up. I det här exemplet är `http://dev.webfrontend.abcdef0123.eus.azds.io/`den offentliga URL: en. Navigera till tjänsten i en webbläsare och *Klicka på överst* . Kontrol lera att du ser ett meddelande från *mywebapi* -tjänsten som innehåller den version av Windows som behållaren använder.
+Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata från kommandot azds up. I det här exemplet är den offentliga URL: en `http://dev.webfrontend.abcdef0123.eus.azds.io/` . Navigera till tjänsten i en webbläsare och *Klicka på överst* . Kontrol lera att du ser ett meddelande från *mywebapi* -tjänsten som innehåller den version av Windows som behållaren använder.
 
 ![Exempel program som visar Windows-version från mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393332"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub som en Event Grid källa
@@ -162,7 +162,7 @@ Data-objektet innehåller följande egenskaper för alla IoT Hub-händelser:
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | hubName | sträng | Namnet på den IoT Hub där enheten skapades eller togs bort. |
-| deviceId | sträng | Enhetens unika identifierare. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande `- : . + % _ # * ? ! ( ) , = @ ; $ '`specialtecken:. |
+| deviceId | sträng | Enhetens unika identifierare. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
 
 Innehållet i data-objektet skiljer sig åt för varje händelse utgivare. 
 
@@ -170,7 +170,7 @@ Om **enheten är ansluten** och **enheten frånkopplade** IoT Hub händelser, in
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| moduleId | sträng | Den unika identifieraren för modulen. Det här fältet är endast utdata för modul enheter. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande `- : . + % _ # * ? ! ( ) , = @ ; $ '`specialtecken:. |
+| moduleId | sträng | Den unika identifieraren för modulen. Det här fältet är endast utdata för modul enheter. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
 | deviceConnectionStateEventInfo | objekt | Händelse information för status för enhets anslutning
 | sequenceNumber | sträng | Ett tal som visar ordningen på enheter som är anslutna eller enheter som är frånkopplade. Den senaste händelsen kommer att ha ett sekvensnummer som är högre än föregående händelse. Det här antalet kan ändras med mer än 1, men det är en strikt ökning. Se [hur du använder Sequence Number](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
@@ -184,7 +184,7 @@ För **telemetri** IoT Hub händelse innehåller dataobjektet enhets-till-moln-m
 
 För att enheten ska kunna **skapas** och **enheten tas bort** IoT Hub händelser, innehåller dataobjektet följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | Noble | objekt | Information om enheten, som är moln representation av metadata för program enheten. | 
 | deviceID | sträng | Enhetens unika identifierare. | 
@@ -195,7 +195,7 @@ För att enheten ska kunna **skapas** och **enheten tas bort** IoT Hub händelse
 | connectionState | sträng | Om enheten är ansluten eller frånkopplad. | 
 | lastActivityTime | sträng | ISO8601 tidsstämpel för den senaste aktiviteten. | 
 | cloudToDeviceMessageCount | heltal | Antal moln till enhets meddelanden som skickats till den här enheten. | 
-| authenticationType | sträng | Autentiseringstyp som används för den här enheten: `SAS` `SelfSigned`, eller `CertificateAuthority`. |
+| authenticationType | sträng | Autentiseringstyp som används för den här enheten: `SAS` , `SelfSigned` eller `CertificateAuthority` . |
 | x509Thumbprint | sträng | Tumavtrycket är ett unikt värde för x509-certifikatet, som ofta används för att hitta ett visst certifikat i ett certifikat arkiv. Tumavtrycket genereras dynamiskt med SHA1-algoritmen och finns inte fysiskt i certifikatet. | 
 | primaryThumbprint | sträng | Primärt tumavtryck för x509-certifikatet. |
 | secondaryThumbprint | sträng | Sekundärt tumavtryck för x509-certifikatet. | 

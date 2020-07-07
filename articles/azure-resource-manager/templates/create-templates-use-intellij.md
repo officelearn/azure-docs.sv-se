@@ -5,10 +5,10 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80153360"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Skapa och distribuera ARM-mallar med hjälp av IntelliJ-idén
@@ -21,7 +21,7 @@ När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -33,13 +33,13 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 I stället för att skapa en mall från början öppnar du en mall från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/). Azure snabb starts mallar är en lagrings plats för ARM-mallar. Mallen som används i den här artikeln kallas [skapa ett standard lagrings konto](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Den definierar en Azure Storage konto resurs.
 
-1. Högerklicka och spara [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) och [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) på den lokala datorn.
+1. Högerklicka och spara och på den [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) lokala datorn.
 
 1. Om ditt Azure-verktyg är korrekt installerat och inloggat bör du se Azure Explorer i din IntelliJ-IDÉs marginal List. Högerklicka på **resurs hantering** och välj **skapa distribution**.
 
     ![Resource Manager-mall Högerklicka för att skapa distribution](./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. Konfigurera **distributions namn**, **prenumeration**, **resurs grupp**och **region**. Här distribuerar vi mallen till en ny resurs grupp `testRG`. Välj sedan sökväg för **resurs mal len** som `azuredeploy.json` och **resurs parametrar** när `azuredeploy.parameters.json` du laddade ned.
+1. Konfigurera **distributions namn**, **prenumeration**, **resurs grupp**och **region**. Här distribuerar vi mallen till en ny resurs grupp `testRG` . Välj sedan sökväg för **resurs mal len** som `azuredeploy.json` och **resurs parametrar** när `azuredeploy.parameters.json` du laddade ned.
 
     ![Resource Manager-mall Välj filer för att skapa distribution](./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 
@@ -63,11 +63,11 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
     ![Redigera distribution av Resource Manager-mall](./media/create-templates-use-intellij/resource-manager-edit-deployment.png)
 
-1. Du kan redigera de två filerna på den här sidan och distribuera ändringarna till Azure. Här ändrar vi värdet för **storageAccountType** i parameter-filer från `Standard_LRS` till. `Standard_GRS` Klicka sedan på **Uppdatera distribution** längst ned och bekräfta uppdateringen.
+1. Du kan redigera de två filerna på den här sidan och distribuera ändringarna till Azure. Här ändrar vi värdet för **storageAccountType** i parameter-filer från `Standard_LRS` till `Standard_GRS` . Klicka sedan på **Uppdatera distribution** längst ned och bekräfta uppdateringen.
 
     ![Redigera distribution av Resource Manager-mall](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
-1. När uppdaterings distributionen har slutförts kan du kontrol lera på portalen att det skapade lagrings kontot `Standard_GRS`har ändrats till.
+1. När uppdaterings distributionen har slutförts kan du kontrol lera på portalen att det skapade lagrings kontot har ändrats till `Standard_GRS` .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

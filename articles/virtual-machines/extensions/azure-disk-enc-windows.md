@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: e975e1757b77b4aab52a59d1f0709ef9cadae94e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066872"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption för Windows (Microsoft. Azure. Security. AzureDiskEncryption)
@@ -26,7 +26,7 @@ ms.locfileid: "80066872"
 
 Azure Disk Encryption utnyttjar BitLocker för att tillhandahålla fullständig disk kryptering på virtuella Azure-datorer som kör Windows.  Den här lösningen är integrerad med Azure Key Vault för att hantera disk krypterings nycklar och hemligheter i Key Vault-prenumerationen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En fullständig lista över krav finns i [Azure Disk Encryption för virtuella Windows-datorer](../windows/disk-encryption-overview.md), särskilt i följande avsnitt:
 
@@ -74,9 +74,9 @@ V 2.2-schemat rekommenderas för alla nya virtuella datorer och kräver inte Azu
 
 ### <a name="schema-v11-with-aad"></a>Schema v 1.1: med AAD 
 
-Schemat för 1,1 måste `aadClientID` vara `aadClientSecret` eller `AADClientCertificate` och rekommenderas inte för nya virtuella datorer.
+Schemat för 1,1 måste vara `aadClientID` `aadClientSecret` eller `AADClientCertificate` och rekommenderas inte för nya virtuella datorer.
 
-Använda `aadClientSecret`:
+Använda `aadClientSecret` :
 
 ```json
 {
@@ -106,7 +106,7 @@ Använda `aadClientSecret`:
 }
 ```
 
-Använda `AADClientCertificate`:
+Använda `AADClientCertificate` :
 
 ```json
 {

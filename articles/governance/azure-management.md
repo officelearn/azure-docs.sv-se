@@ -1,16 +1,16 @@
 ---
 title: Översikt över Azure Management – Azure-styrning
 description: Översikt över hanterings områden för Azure-program och-resurser med länkar till innehåll på hanterings verktyg för Azure.
-ms.date: 05/22/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 00e42f05e07a6aba2fcada973d57c11e0ab98ca7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828155"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956347"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Översikt över hanterings tjänster i Azure
+# <a name="what-are-the-azure-management-areas"></a>Vad är Azures hanterings områden?
 
 Styrning i Azure är en aspekt av Azure-hantering. Den här artikeln beskriver olika hanterings områden för att distribuera och underhålla dina resurser i Azure.
 
@@ -52,3 +52,10 @@ Skydd syftar till att hålla dina program och data tillgängliga, även med avbr
 
 Migrering refererar till att överföra arbetsbelastningar som körs lokalt till Azure-molnet.
 [Azure Migrate](../migrate/migrate-overview.md) är en tjänst som hjälper dig att utvärdera migreringens lämplighet för lokala virtuella datorer till Azure. Azure Site Recovery migrerar virtuella datorer [från lokala platser](../site-recovery/migrate-tutorial-on-premises-azure.md) eller [från Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database migration](../dms/dms-overview.md) hjälper dig att migrera databas källor till Azure Data Platforms.
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om Azure-styrning finns i följande artiklar:
+
+- Se [Azure styrnings hubben](./index.yml).
+- Se [styrning i moln implementerings ramverket för Azure](/azure/cloud-adoption-framework/govern/)

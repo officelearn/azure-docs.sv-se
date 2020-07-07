@@ -1,82 +1,78 @@
 ---
-title: Snabb start – Visa klient program med hjälp av Azure Active Directory
-description: I den här snabb starten använder du Azure Portal för att Visa programmen i din Azure Active Directory (Azure AD)-klient.
+title: 'Snabb start: Visa listan över program som använder din Azure Active Directory (Azure AD)-klient för identitets hantering'
+description: I den här snabb starten ska du använda Azure Portal för att visa en lista över program som har registrerats för att använda din Azure Active Directory (Azure AD)-klient för identitets hantering.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce3a1a55683b0882984a4986cf59853933954274
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 3d04953789dc3fc864dd2809783b0d214a91738f
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763014"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983127"
 ---
-# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>Snabb start: Visa Azure Active Directory klient program
+# <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Snabb start: Visa listan över program som använder din Azure Active Directory (Azure AD)-klient för identitets hantering
 
-I den här snabbstarten använder du Azure Portal för att visa programmen i din Azure Active Directory-klientorganisation (Azure AD).
+Kom igång med att använda Azure AD som identitets-och auktoriserings hanterings system (IAM) för de program som organisationen använder. I den här snabb starten kommer du att se programmen, även kallade appar, som redan har kon figurer ATS för att använda Azure AD-klienten som identitets leverantör.
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
-Det måste finnas minst ett program i Azure AD-klientorganisationen för att du ska se några resultat. Anvisningar som beskriver hur du lägger till ett program finns i snabbstarten [Lägga till ett program](add-application-portal.md).
+Om du vill visa program som har registrerats i din Azure AD-klient behöver du:
 
-Logga in på [Azure Portal](https://portal.azure.com) som global administratör för din Azure AD-klientorganisation, som administratör för molnprogram eller som programadministratör.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="find-the-list-of-tenant-applications"></a>Leta upp listan med program i klientorganisationen
+>[!IMPORTANT]
+>Vi rekommenderar att du använder en icke-produktions miljö för att testa stegen i den här snabb starten.
 
-Du kan se programmen i din Azure AD-klientorganisation i avsnittet **Företagsprogram** på Azure Portal.
+## <a name="find-the-list-of-applications-in-your-tenant"></a>Hitta listan över program i din klient organisation
 
-Så här hittar du programmen i din klientorganisation:
+De program som har registrerats med din Azure AD-klient visas i avsnittet **Enterprise Apps** i Azure Portal.
 
-1. Välj **Azure Active Directory**på den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
-1. I fönstret **Azure Active Directory** väljer du **företags program**.
-1. I list rutan **program typ** väljer du **alla program**och sedan **Använd**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
-1. Om du vill visa fler program väljer du **Läs in mer** längst ned i listan. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
+Så här visar du de program som är registrerade i din klient organisation:
+
+1. Logga in på din [Azure Portal](https://portal.azure.com).
+2. På den vänstra navigerings panelen väljer du **Azure Active Directory**.
+3. I fönstret **Azure Active Directory** väljer du **företags program**.
+4. I list rutan **program typ** väljer du **alla program**och sedan **Använd**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
+5. Om du vill visa fler program väljer du **Läs in mer** längst ned i listan. Om det finns flera program i klient organisationen kan det vara lättare att söka efter ett visst program i stället för att bläddra i listan. Sökning efter ett visst program beskrivs senare i den här snabb starten.
 
 ## <a name="select-viewing-options"></a>Välj visningsalternativ
 
 Välj alternativ enligt vad du letar efter.
 
 1. Du kan visa programmen efter **program typ**, **program status**och **program synlighet**.
-1. Välj något av följande alternativ under **Programtyp**:
-
+2. Välj något av följande alternativ under **Programtyp**:
     - **Företagsprogram** visar andra program än Microsoft-program.
     - **Microsoft-program** visar Microsoft-program.
     - **Alla program** visar både Microsoft-program och andra program.
+3. Välj **Alla**, **Inaktiverade** eller **Aktiverade** under **Programstatus**. Alternativet **Alla** omfattar både inaktiverade och aktiverade program.
+4. Välj **Alla** eller **Dolda** under **Synlighet för program**. Alternativet **dold** visar program som finns i klienten, men som inte är synliga för användare.
+5. När du har valt de alternativ som du vill använda väljer du **Använd**.
 
-1. Välj **Alla**, **Inaktiverade** eller **Aktiverade** under **Programstatus**. Alternativet **Alla** omfattar både inaktiverade och aktiverade program.
-1. Välj **Alla** eller **Dolda** under **Synlighet för program**. Alternativet **dold** visar program som finns i klienten, men som inte är synliga för användare.
-1. När du har valt de alternativ som du vill använda väljer du **Använd**.
-
-## <a name="search-for-a-tenant-application"></a>Söka efter ett klientprogram
+## <a name="search-for-an-application"></a>Söka efter ett program
 
 Så här söker du efter ett visst program:
 
 1. I menyn **program typ** väljer du **alla program**och sedan **Använd**.
-1. Ange namnet på det program som du vill söka efter. Om programmet har lagts till i din Azure AD-klient visas det i Sök resultaten. Det här exemplet visar att GitHub inte har lagts till i klient programmet.
-
+2. Ange namnet på det program som du vill söka efter. Om programmet har lagts till i din Azure AD-klient visas det i Sök resultaten. Det här exemplet visar att GitHub inte har lagts till i klient programmet.
     ![Exempel visar att en app inte har lagts till i klient organisationen](media/view-applications-portal/search-for-tenant-application.png)
-
-1. Prova att skriva de första bokstäverna i ett programnamn. I det här exemplet visas alla program som börjar med **Sales**.
-
+3. Prova att skriva de första bokstäverna i ett programnamn. I det här exemplet visas alla program som börjar med **Sales**.
     ![Exempel visar alla appar som börjar med Sales](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabb starten har du lärt dig hur du visar programmen i din Azure AD-klient. Du har lärt dig hur du filtrerar listan över program efter program typ, status och synlighet. Du har också lärt dig hur du söker efter ett specifikt program.
 
-Nu när du har hittat det program som du letade efter kan du fortsätta att [lägga till fler program till din klient organisation](add-application-portal.md). Du kan också välja programmet för att visa eller redigera egenskaper och konfigurations alternativ. Du kan till exempel konfigurera enkel inloggning.
-
-> [!div class="nextstepaction"]
-> [Konfigurera enkel inloggning](configure-single-sign-on-non-gallery-applications.md)
+- [Lägga till en app](add-application-portal.md)
+- [Konfigurera en app](add-application-portal-configure.md)
+- [Konfigurera enkel inloggning](add-application-portal-setup-sso.md)
+- [Ta bort en app](delete-application-portal.md)

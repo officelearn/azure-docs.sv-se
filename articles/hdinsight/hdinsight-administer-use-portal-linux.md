@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598506"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal
@@ -21,7 +21,7 @@ ms.locfileid: "82598506"
 
 Med hjälp av [Azure Portal](https://portal.azure.com)kan du hantera [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight. Använd tabbväljaren ovan för information om hur du hanterar Hadoop-kluster i HDInsight med andra verktyg.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett befintligt Apache Hadoop-kluster i HDInsight.  Se [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -225,7 +225,7 @@ Lösen ordet har ändrats på alla noder i klustret.
 > " ' ` / \ < % ~ | $ & ! 
 > ```
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | Skript typ | Välj **anpassad** i list rutan.|
    | Name |"Ändra SSH-autentiseringsuppgifter" |

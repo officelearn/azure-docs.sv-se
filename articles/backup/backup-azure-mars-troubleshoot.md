@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
 ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598019"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
@@ -44,7 +44,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 | ---     | ---    |
 | **Autentiseringsuppgifterna för valvet är ogiltiga** <br/> <br/> Valvets autentiseringsuppgifter kan vara skadade eller kan ha upphört att gälla. (Till exempel kan de ha hämtats mer än 48 timmar före registrerings tiden.)| Hämta nya autentiseringsuppgifter från Recovery Services Vault på Azure Portal. (Se steg 6 i avsnittet [Ladda ned mars-agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) .) Utför sedan dessa steg efter behov: <ul><li> Om du redan har installerat och registrerat MARS öppnar du MMC-konsolen för Microsoft Azure Backup Agent och väljer sedan **Registrera Server** i **Åtgärds** fönstret för att slutföra registreringen med de nya autentiseringsuppgifterna. <br/> <li> Om den nya installationen Miss lyckas kan du försöka med att installera om med de nya autentiseringsuppgifterna.</ul> **Obs!** om filer med flera valv har hämtats är det bara den senaste filen som är giltig för de kommande 48 timmarna. Vi rekommenderar att du hämtar en ny fil med autentiseringsuppgifter för valvet.
 | **Proxyservern eller brand väggen blockerar registreringen** <br/>eller <br/>**Ingen Internet anslutning** <br/><br/> Om din dator eller proxyserver har begränsad Internet anslutning och du inte ser till att du har åtkomst till de nödvändiga URL: erna, Miss söker registreringen.| Gör så här:<br/> <ul><li> Arbeta med IT-teamet för att säkerställa att systemet är ansluten till Internet.<li> Om du inte har en proxyserver, se till att alternativet proxy inte är markerat när du registrerar agenten. [Kontrol lera proxyinställningarna](#verifying-proxy-settings-for-windows).<li> Om du har en brand vägg/proxyserver arbetar du med nätverks teamet för att se till att dessa URL: er och IP-adresser har åtkomst:<br/> <br> **Webbadresser**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Försök att registrera igen när du har slutfört föregående fel söknings steg.<br></br> Om din anslutning är via Azure ExpressRoute kontrollerar du att inställningarna är konfigurerade enligt beskrivningen i [Azure ExpressRoute-supporten](backup-support-matrix-mars-agent.md#azure-expressroute-support).
-| **Antivirus programmet blockerar registreringen** | Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar: <br/><ul> <li> CBengine. exe <li> CSC. exe<li> Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
+| **Antivirus programmet blockerar registreringen** | Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Ytterligare rekommendationer
 
@@ -58,7 +58,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 1. Kör `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` från en upphöjd kommando tolk.
 
    Det här kommandot öppnar Internet Explorer.
-1. Gå till **verktyg** > **Internet alternativ** > **anslutningar** > **LAN-inställningar**.
+1. Gå till **verktyg**  >  **Internet alternativ**  >  **anslutningar**  >  **LAN-inställningar**.
 1. Kontrol lera proxyinställningarna för system-kontot.
 1. Ta bort informationen om ingen proxy har kon figurer ATS och det finns information om proxyn.
 1. Om en proxyserver har kon figurer ATS och informationen om proxyn är felaktig kontrollerar du att **proxy-IP-adressen** och **port** informationen är korrekt.
@@ -74,7 +74,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 
 | Fel  | Möjlig orsak | Rekommenderade åtgärder |
 | ---     | ---     | ---    |
-| <br /><ul><li>Microsoft Azure återställnings tjänst agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) Kontrol lera nätverks inställningarna och se till att du kan ansluta till Internet.<li>(407) Proxyautentisering krävs. |En proxyserver blockerar anslutningen. |  <ul><li>I Internet Explorer går du till **verktyg** > **Internet alternativ** > **säkerhet** > **Internet**. Välj **Anpassad nivå** och rulla ned till **fil hämtnings** avsnittet. Välj **Aktivera**.<p>Du kan också behöva lägga till [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access) till dina betrodda platser i Internet Explorer.<li>Ändra inställningarna för att använda en proxyserver. Ange sedan information om proxyservern.<li> Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access). <li>Om du har installerat antivirus program på servern kan du undanta dessa filer från AntiVirus genomsökningen: <ul><li>CBEngine. exe (i stället för DPMRA. exe).<li>CSC. exe (relaterad till .NET Framework). Det finns en CSC. exe för alla .NET Framework-versioner som är installerade på servern. Undanta CSC. exe-filer för alla versioner av .NET Framework på den berörda servern. <li>Den tillfälliga mappen eller cacheplatsen. <br>Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
+| <br /><ul><li>Microsoft Azure återställnings tjänst agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) Kontrol lera nätverks inställningarna och se till att du kan ansluta till Internet.<li>(407) Proxyautentisering krävs. |En proxyserver blockerar anslutningen. |  <ul><li>I Internet Explorer går du till **verktyg**  >  **Internet alternativ**  >  **säkerhet**  >  **Internet**. Välj **Anpassad nivå** och rulla ned till **fil hämtnings** avsnittet. Välj **Aktivera**.<p>Du kan också behöva lägga till [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access) till dina betrodda platser i Internet Explorer.<li>Ändra inställningarna för att använda en proxyserver. Ange sedan information om proxyservern.<li> Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access). <li>Om du har installerat antivirus program på servern kan du undanta dessa filer från AntiVirus genomsökningen: <ul><li>CBEngine.exe (i stället för dpmra.exe).<li>CSC.exe (relaterat till .NET Framework). Det finns ett CSC.exe för varje .NET Framework-version som är installerad på servern. Undanta CSC.exe-filer för alla versioner av .NET Framework på den berörda servern. <li>Den tillfälliga mappen eller cacheplatsen. <br>Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
 
 ## <a name="backup-jobs-completed-with-warning"></a>Säkerhets kopierings jobb slutfördes med varning
 
@@ -88,7 +88,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
   - En annan process som stör (till exempel: antivirus program som innehåller referenser till filer kan hindra MARS-agenten från att komma åt filerna)
   - Filer som låsts av ett program  
 
-- Säkerhets kopierings tjänsten markerar de här filerna som misslyckade i logg filen, med följande namngivnings konvention: *LastBackupFailedFilesxxxx. txt* under mappen *C:\Program Files\Microsoft Azure Recovery Service Agent\temp* .
+- Säkerhets kopierings tjänsten markerar de här filerna som misslyckade i logg filen med följande namngivnings konvention: *LastBackupFailedFilesxxxx.txt* under mappen *C:\Program Files\Microsoft Azure Recovery Service Agent\temp* .
 - Lös problemet genom att granska logg filen för att förstå problemets typ:
 
   | Felkod             | Orsaker                                             | Rekommendationer                                              |
@@ -134,15 +134,15 @@ Om schemalagda säkerhets kopieringar inte aktive ras automatiskt, men manuella 
 
 - Se till att det användar konto som har valts för att köra uppgiften är antingen **system** -eller **lokal administratörs grupp** på servern. Verifiera användar kontot genom att gå till fliken **Allmänt** och kontrol lera **säkerhets** alternativen.
 
-- Se till att PowerShell 3,0 eller senare är installerat på servern. Kontrol lera PowerShell-versionen genom att köra det här kommandot och kontrol `Major` lera att versions numret är 3 eller senare:
+- Se till att PowerShell 3,0 eller senare är installerat på servern. Kontrol lera PowerShell-versionen genom att köra det här kommandot och kontrol lera att `Major` versions numret är 3 eller senare:
 
   `$PSVersionTable.PSVersion`
 
-- Se till att den här sökvägen är `PSMODULEPATH` en del av miljö variabeln:
+- Se till att den här sökvägen är en del av `PSMODULEPATH` miljö variabeln:
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Om körnings principen för PowerShell `LocalMachine` för är inställt på `restricted`kan PowerShell-cmdleten som utlöser säkerhets kopierings åtgärden Miss förväntas. Kör dessa kommandon i förhöjd läge för att kontrol lera och ställa in körnings principen på antingen `Unrestricted` eller `RemoteSigned`:
+- Om körnings principen för PowerShell för `LocalMachine` är inställt på kan `restricted` PowerShell-cmdleten som utlöser säkerhets kopierings åtgärden Miss förväntas. Kör dessa kommandon i förhöjd läge för att kontrol lera och ställa in körnings principen på antingen `Unrestricted` eller `RemoteSigned` :
 
  ```PowerShell
  Get-ExecutionPolicy -List
@@ -174,9 +174,9 @@ Azure Backup kan inte montera återställnings volymen, även efter flera minute
 
 2. Kontrol lera att du har den senaste versionen av säkerhets kopierings agenten. Om du vill kontrol lera versionen går du till fönstret **åtgärder** i mars-konsolen och väljer **om Microsoft Azure Recovery Services agent**. Kontrol lera att **versions** numret är lika med eller högre än den version som nämns i [den här artikeln](https://go.microsoft.com/fwlink/?linkid=229525). Välj den här länken för att [Ladda ned den senaste versionen](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3. Gå till **Enhetshanteraren** > **lagrings styrenheter** och leta upp **Microsoft iSCSI Initiator**. Om du hittar den går du direkt till steg 7.
+3. Gå till **Enhetshanteraren**  >  **lagrings styrenheter** och leta upp **Microsoft iSCSI Initiator**. Om du hittar den går du direkt till steg 7.
 
-4. Om du inte kan hitta Microsoft iSCSI Initiator-tjänsten försöker du hitta en post under **Enhetshanteraren** > **lagrings styrenheter** med namnet **Okänd enhet** med maskinvaru-ID **ROOT\ISCSIPRT**.
+4. Om du inte kan hitta Microsoft iSCSI Initiator-tjänsten försöker du hitta en post under **Enhetshanteraren**  >  **lagrings styrenheter** med namnet **Okänd enhet** med maskinvaru-ID **ROOT\ISCSIPRT**.
 
 5. Högerklicka på **Okänd enhet** och välj **Uppdatera driv rutins program vara**.
 
@@ -184,7 +184,7 @@ Azure Backup kan inte montera återställnings volymen, även efter flera minute
 
     ![Skärm bild av Azure Backup Enhetshanteraren, med lagrings styrenheter markerade](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7. Gå till **aktivitets hanterarens** > **tjänster (lokal)** > **Microsoft iSCSI Initiator service**:
+7. Gå till **aktivitets hanterarens**  >  **tjänster (lokal)**  >  **Microsoft iSCSI Initiator service**:
 
     ![Skärm bild av Azure Backup aktivitets hanteraren med tjänster (lokala) markerade](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
@@ -198,7 +198,7 @@ Om återställningen fortfarande Miss lyckas startar du om servern eller kliente
 
 Säkerhets kopierings åtgärden kan Miss lyckas om cache-mappen (även kallat Scratch Folder) är felaktigt konfigurerad, saknas nödvändiga komponenter eller har begränsad åtkomst.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 För att MARS agent-åtgärder ska lyckas måste cache-mappen uppfylla nedanstående krav:
 
@@ -223,8 +223,8 @@ Om du har installerat antivirus program på servern lägger du till nödvändiga
 
 - Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
 - Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin
-- CBengine. exe
-- CSC. exe
+- CBengine.exe
+- CSC.exe
 
 ## <a name="common-issues"></a>Vanliga problem
 

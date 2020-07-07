@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: c24d055f1904453d2f512a278f00e23c6fea1d9b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f61566c3d5efa7f973141253353fde7e4893bc6e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371383"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986082"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och C #
 
@@ -29,11 +29,11 @@ Normalt anropar du API: et från en digital intecknings app. I den här snabb st
 
 Du hittar käll koden för den här snabb starten på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Valfri version av [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Så här installerar du Newtonsoft. JSON som ett NuGet-paket i Visual Studio:
+    - Så här installerar du Newtonsoft.Jspå som ett NuGet-paket i Visual Studio:
         1. Högerklicka på **lösnings hanteraren**
         2. Klicka på **Hantera NuGet-paket...**
         3. Sök efter `Newtonsoft.Json` och installera paketet
@@ -51,7 +51,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
     
     [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
-2. Skapa variabler för din prenumerations nyckel och slut punkt och exempel-JSON-filen. Slut punkten kommer senare att kombineras `inkRecognitionUrl` med för att få åtkomst till API: et. 
+2. Skapa variabler för din prenumerations nyckel och slut punkt och exempel-JSON-filen. Slut punkten kommer senare att kombineras med `inkRecognitionUrl` för att få åtkomst till API: et. 
 
     [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
@@ -59,15 +59,15 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 
 1. Skapa en ny async-funktion `Request` som använder variablerna som skapats ovan.
 
-2. Ange klientens säkerhets protokoll och huvud information med hjälp av `HttpClient` ett objekt. Se till att lägga till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken. Skapa sedan ett `StringContent` objekt för begäran.
+2. Ange klientens säkerhets protokoll och huvud information med hjälp av ett `HttpClient` objekt. Se till att lägga till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken. Skapa sedan ett `StringContent` objekt för begäran.
  
-3. Skicka begäran med `PutAsync()`. Returnera svaret om begäran lyckas.  
+3. Skicka begäran med `PutAsync()` . Returnera svaret om begäran lyckas.  
     
     [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=request)]
 
 ## <a name="send-an-ink-recognition-request"></a>Skicka en begäran om hand SKRIFTS igenkänning
 
-1. Skapa en ny funktion som `recognizeInk()`kallas. Skapa begäran och skicka den genom att anropa `Request()` funktionen med din slut punkt, prenumerations nyckel, URL: en för API: et och den digitala Penn linjens data.
+1. Skapa en ny funktion som kallas `recognizeInk()` . Skapa begäran och skicka den genom `Request()` att anropa funktionen med din slut punkt, prenumerations nyckel, URL: en för API: et och den digitala Penn linjens data.
 
 2. Deserialisera JSON-objektet och skriv det till-konsolen. 
     
@@ -75,7 +75,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 
 ## <a name="load-your-digital-ink-data"></a>Läs in digitala pennan tecknings data
 
-Skapa en funktion som `LoadJson()` kallas för att läsa in JSON-filen med bläck data. Använd en `StreamReader` och `JsonTextReader` för att skapa `JObject` en och returnera den.
+Skapa en funktion `LoadJson()` som kallas för att läsa in JSON-filen med bläck data. Använd en `StreamReader` och `JsonTextReader` för att skapa en `JObject` och returnera den.
 
 [!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
 
@@ -83,7 +83,7 @@ Skapa en funktion som `LoadJson()` kallas för att läsa in JSON-filen med bläc
 
 1. I appens huvud metod läser du in dina JSON-data med funktionen som du skapade ovan. 
 
-2. Anropa funktionen `recognizeInk()` som skapats ovan. Använd `System.Console.ReadKey()` för att låta konsol fönstret vara öppet när du har kört programmet.
+2. Anropa `recognizeInk()` funktionen som skapats ovan. Använd `System.Console.ReadKey()` för att låta konsol fönstret vara öppet när du har kört programmet.
     
     [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=main)]
 

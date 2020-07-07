@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800169"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985696"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift 4-kluster
 
@@ -26,7 +26,7 @@ Om du väljer att installera och använda CLI lokalt kräver den här självstud
 
 ### <a name="verify-your-permissions"></a>Verifiera dina behörigheter
 
-Om du vill skapa ett Azure Red Hat OpenShift-kluster kontrollerar du följande behörigheter för ditt Azure-konto och användare:
+Om du vill skapa ett Azure Red Hat OpenShift-kluster kontrollerar du följande behörigheter för din Azure-prenumeration, Azure Active Directory användare eller tjänstens huvud namn:
 
 |Behörigheter|Resurs grupp som innehåller VNet|Användaren körs`az aro create`|Tjänstens huvud namn angavs som`–client-id`|
 |----|:----:|:----:|:----:|
@@ -99,7 +99,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Skapa en resurs grupp**
+1. **Skapa en resursgrupp**
 
     En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resurs grupp med kommandot [AZ Group Create] [AZ-Group-Create].
 

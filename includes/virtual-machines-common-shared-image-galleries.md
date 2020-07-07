@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
@@ -8,10 +8,10 @@ ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
 ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84317696"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
@@ -31,7 +31,7 @@ Om du har ett stort antal avbildningar som du behöver underhålla och vill gör
 
 Funktionen för delad bild galleri har flera resurs typer:
 
-| Resurs | Description|
+| Resurs | Beskrivning|
 |----------|------------|
 | **Bild källa** | Det här är en resurs som kan användas för att skapa en **avbildnings version** i ett bild galleri. En avbildnings källa kan vara en befintlig virtuell Azure-dator som är antingen [generaliserad eller specialiserad](#generalized-and-specialized-images), en hanterad avbildning, en ögonblicks bild eller en avbildnings version i ett annat bild galleri. |
 | **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
@@ -162,12 +162,12 @@ Det kostar inget extra att använda tjänsten Shared Image Gallery. Du kommer at
 När du har skapat kan du göra några ändringar i avbildnings Galleri resurserna. Dessa är begränsade till:
  
 Galleri för delad avbildning:
-- Description
+- Beskrivning
 
 Bild definition:
 - Rekommenderad virtuella processorer
 - Rekommenderat minne
-- Description
+- Beskrivning
 - Datum för slut på livs längd
 
 Avbildnings version:

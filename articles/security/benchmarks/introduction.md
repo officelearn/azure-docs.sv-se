@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 883042c94576014c3bdeabd38516d9531c8fd3dc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82606865"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduktion till Azure Security benchmark
@@ -32,7 +32,7 @@ I dokumentationen för Azures säkerhets benchmark anges säkerhets kontroller o
 
 Termerna "kontroll", "benchmark" och "bas linje" används ofta i Azures säkerhets benchmark-dokumentation och det är viktigt att förstå hur Azure använder dessa villkor. 
 
-| Period | Beskrivning | Exempel |
+| Term | Beskrivning | Exempel |
 |--|--|--|
 | Kontroll | En **kontroll** är en övergripande beskrivning av en funktion eller aktivitet som behöver åtgärdas och som inte är särskilt för en teknik eller implementering. | Data skydd är en av säkerhets kontrollerna. Den här kontrollen innehåller vissa åtgärder som måste åtgärdas för att säkerställa att data skyddas. |
 | Benchmark | Ett **riktmärke** innehåller säkerhets rekommendationer för en speciell teknik, till exempel Azure. Rekommendationerna kategoriseras med den kontroll som de tillhör. | Azures säkerhets benchmark omfattar de säkerhets rekommendationer som är aktuella för Azure-plattformen  |

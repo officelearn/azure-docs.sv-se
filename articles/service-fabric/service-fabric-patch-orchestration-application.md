@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82608923"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigera operativ systemet Windows i Service Fabric-klustret
@@ -63,7 +63,7 @@ POA består av följande del komponenter:
 > [!NOTE]
 > POA använder tjänsten Service Fabric Repair Manager för att inaktivera eller aktivera noden och utföra hälso kontroller. Den reparations uppgift som skapas av POA spårar Windows Update förloppet för varje nod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]
 > Den lägsta .NET Framework versionen som krävs är 4,6.
@@ -153,7 +153,7 @@ Om du vill ladda ned programpaketet går du till [sidan för korrigerings progra
 
 ## <a name="configure-poa-behavior"></a>Konfigurera POA beteende
 
-Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt standardvärdena genom att skicka i program parametern när du skapar eller uppdaterar programmet. Du kan ange program parametrar genom att `ApplicationParameter` ange till `Start-ServiceFabricApplicationUpgrade` - `New-ServiceFabricApplication` eller-cmdletarna.
+Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt standardvärdena genom att skicka i program parametern när du skapar eller uppdaterar programmet. Du kan ange program parametrar genom `ApplicationParameter` att ange till-eller- `Start-ServiceFabricApplicationUpgrade` `New-ServiceFabricApplication` cmdletarna.
 
 | Parameter        | Typ                          | Information |
 |:-|-|-|
@@ -169,16 +169,16 @@ Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt stan
 | AcceptWindowsUpdateEula | Boolesk <br>(Standard: *Sant*) | Genom att ange den här flaggan godkänner programmet slut användar avtalet för Windows Update för datorns ägare.              |
 
 > [!TIP]
-> Om du vill att Windows-uppdateringar ska ske direkt `WUFrequency` anger du i förhållande till programmets distributions tid. Anta till exempel att du har ett test kluster med fem noder och planerar att distribuera appen med cirka 5:00 PM UTC. Om du antar att program uppgraderingen eller distributionen tar 30 minuter högst, ställer du in WUFrequency som *dagligen, 17:30:00*.
+> Om du vill att Windows-uppdateringar ska ske direkt anger du `WUFrequency` i förhållande till programmets distributions tid. Anta till exempel att du har ett test kluster med fem noder och planerar att distribuera appen med cirka 5:00 PM UTC. Om du antar att program uppgraderingen eller distributionen tar 30 minuter högst, ställer du in WUFrequency som *dagligen, 17:30:00*.
 
 ## <a name="deploy-poa"></a>Distribuera POA
 
 1. Slutför alla nödvändiga steg för att förbereda klustret.
 1. Distribuera POA som andra Service Fabric-appar. Information om hur du distribuerar den med hjälp av PowerShell finns i [distribuera och ta bort program med hjälp av PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-1. Om du vill konfigurera programmet vid tidpunkten för distributionen skickar `ApplicationParameter` du till `New-ServiceFabricApplication` cmdleten. För din bekvämlighet har vi tillhandahållit skriptet Deploy. ps1 tillsammans med programmet. Använda skriptet:
+1. Om du vill konfigurera programmet vid tidpunkten för distributionen skickar `ApplicationParameter` du till `New-ServiceFabricApplication` cmdleten. För din bekvämlighet har vi tillhandahållit skriptet Deploy.ps1 tillsammans med programmet. Använda skriptet:
 
-    - Anslut till ett Service Fabric-kluster med `Connect-ServiceFabricCluster`hjälp av.
-    - Kör PowerShell-skriptet Deploy. ps1 med lämpligt `ApplicationParameter` värde.
+    - Anslut till ett Service Fabric-kluster med hjälp av `Connect-ServiceFabricCluster` .
+    - Kör PowerShell-skriptet Deploy.ps1 med lämpligt `ApplicationParameter` värde.
 
 > [!NOTE]
 > Behåll skriptet och programmappen *PatchOrchestrationApplication* i samma katalog.
@@ -191,10 +191,10 @@ Om du vill uppgradera POA-versionen med hjälp av PowerShell följer du anvisnin
 
 Om du vill ta bort programmet följer du anvisningarna i [distribuera och ta bort program med hjälp av PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
 
-För din bekvämlighet har vi tillhandahållit skriptet för att distribuera. ps1 tillsammans med programmet. Använda skriptet:
+För din bekvämlighet har vi tillhandahållit Undeploy.ps1-skriptet tillsammans med programmet. Använda skriptet:
 
-  - Anslut till ett Service Fabric-kluster med ```Connect-ServiceFabricCluster```hjälp av.
-  - Kör PowerShell-skriptet undeploy. ps1.
+  - Anslut till ett Service Fabric-kluster med hjälp av ```Connect-ServiceFabricCluster``` .
+  - Kör PowerShell-skriptet Undeploy.ps1.
 
 > [!NOTE]
 > Behåll skriptet och programmappen *PatchOrchestrationApplication* i samma katalog.
@@ -248,15 +248,15 @@ HResult | 0 – lyckad<br> annat – haveri| Anger orsaken till problemet med Wi
 
 Om ingen uppdatering har schemalagts ännu är resultatet JSON tomt.
 
-Logga in på klustret för att fråga Windows Update resultat. Ta reda på IP-adressen för replikeringen för den primära adressen för koordinator tjänsten och öppna följande URL från&lt;webbläsaren: http://Replica-IP&gt;:&lt;ApplicationPort/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.&gt;
+Logga in på klustret för att fråga Windows Update resultat. Ta reda på IP-adressen för replikeringen för den primära adressen för koordinator tjänsten och öppna följande URL från webbläsaren: http:// &lt; Replica-IP &gt; : &lt; ApplicationPort &gt; /PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
-REST-slutpunkten för koordinator tjänsten har en dynamisk port. Se Service Fabric Explorer för att kontrol lera den exakta URL: en. Resultatet är till exempel tillgängligt på *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults*.
+REST-slutpunkten för koordinator tjänsten har en dynamisk port. Se Service Fabric Explorer för att kontrol lera den exakta URL: en. Resultatet är till exempel tillgängligt på *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults* .
 
 ![Bild av REST-slutpunkten](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 Om den omvända proxyn är aktive rad i klustret, kan du även komma åt webb adressen utanför klustret.
 
-Den slut punkt som du måste trycka på *är&lt;http://&gt;SERVERURL&lt;:&gt;REVERSEPROXYPORT/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*.
+Den slut punkt som du måste trycka på är *http:// &lt; SERVERURL &gt; : &lt; REVERSEPROXYPORT &gt; /PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*.
 
 Om du vill aktivera omvänd proxy i klustret följer du anvisningarna i [omvänd proxy i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
 
@@ -277,7 +277,7 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
 1. NodeAgentNTService, som körs på varje nod, söker efter tillgängliga Windows-uppdateringar på den schemalagda tiden. Om det finns uppdateringar, hämtas de på noden.
 
-1. När uppdateringarna har hämtats skapar Node-agentens NTService en motsvarande reparations uppgift för noden med namnet *\<POS___ unique_id>*. Du kan visa dessa reparations uppgifter med hjälp av cmdleten [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) eller använda SFX i avsnittet Node details. När reparations uppgiften har skapats flyttas den snabbt till [ *begärt* tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. När uppdateringarna har hämtats skapar Node-agentens NTService en motsvarande reparations uppgift för noden med namnet *POS___ \<unique_id> *. Du kan visa dessa reparations uppgifter med hjälp av cmdleten [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) eller använda SFX i avsnittet Node details. När reparations uppgiften har skapats flyttas den snabbt till [ *begärt* tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 
 1. Koordinator tjänsten söker regelbundet efter reparations uppgifter i *begärt* tillstånd och uppdaterar dem sedan för att *förbereda* tillstånd baserat på TaskApprovalPolicy. Om TaskApprovalPolicy har kon figurer ATS att vara NodeWise, förbereds en reparations uppgift som motsvarar en nod bara om ingen annan reparations aktivitet för närvarande *förbereder*, *godkänt*, *Kör*eller *återställer* tillstånd. 
 
@@ -294,7 +294,7 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
 1. När reparations *aktiviteten körs,* börjar korrigerings installationen på den noden. När korrigeringen har installerats kan noden eventuellt startas om, beroende på korrigeringen. Sedan flyttas reparations uppgiften till *återställnings* läge, vilket aktiverar noden. Reparations uppgiften markeras sedan som slutförd.
 
-   I POA-versioner 1.4.0 och senare kan du se status för uppdateringen genom att Visa hälso händelser på NodeAgentService med egenskapen WUOperationStatus-\<nodnamn>. De markerade avsnitten i följande bilder visar status för Windows-uppdateringar på noder *poanode_0* och *poanode_2*:
+   I POA-versioner 1.4.0 och senare kan du se status för uppdateringen genom att Visa hälso händelser på NodeAgentService med WUOperationStatus- \<NodeName> egenskapen. De markerade avsnitten i följande bilder visar status för Windows-uppdateringar på noder *poanode_0* och *poanode_2*:
 
    [![Bild av Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 

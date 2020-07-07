@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 24ff2d2b5855c2624f12c2a1523611933a426ebe
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474670"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513862"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
@@ -65,7 +65,7 @@ När du lägger till en prenumeration till en kontouppdatering beviljar du åtko
     2. Välj **Azure Active Directory** i Azure Portal.
     3. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
     4. Kopiera katalog-ID GUID. Det här värdet är ditt klientorganisations-ID.
-    Mer information finns i [Hämta klient-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    Mer information finns i [Hämta klient-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Välj pris-ID om det behövs. Om du inte vet pris-ID kan du söka efter det genom att göra följande.
     1. Uppe till höger i Azure Portal klickar du på din användarinformation och klickar sedan på **Visa min faktura**.
     2. Under **Faktureringskonto** klickar du på **Prenumerationer**.

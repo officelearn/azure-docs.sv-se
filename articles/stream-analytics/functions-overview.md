@@ -7,15 +7,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.openlocfilehash: d167c603ada885a1a4917c66bab110e4ce38cab4
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598376"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Användardefinierade funktioner i Azure Stream Analytics
 
-SQL-liknande frågespråk i Azure Stream Analytics gör det enkelt att implementera analys logiken i real tid på strömmande data. Stream Analytics ger ytterligare flexibilitet genom anpassade funktioner som anropas i din fråga. Följande kod exempel är en UDF `sampleFunction` som accepterar en parameter, varje inmatnings post som jobbet tar emot och resultatet skrivs till utdata som. `sampleResult`
+SQL-liknande frågespråk i Azure Stream Analytics gör det enkelt att implementera analys logiken i real tid på strömmande data. Stream Analytics ger ytterligare flexibilitet genom anpassade funktioner som anropas i din fråga. Följande kod exempel är en UDF `sampleFunction` som accepterar en parameter, varje inmatnings post som jobbet tar emot och resultatet skrivs till utdata som `sampleResult` .
 
 ```sql
 SELECT 
@@ -41,7 +41,7 @@ Du kan använda dessa funktioner för scenarier som real tids poängsättning me
 
 Användardefinierade funktioner är tillstånds lösa och returvärdet kan bara vara ett skalärt värde. Det går inte att anropa externa REST-slutpunkter från dessa användardefinierade funktioner, eftersom det förmodligen påverkar jobbets prestanda. 
 
-Azure Stream Analytics har ingen post för alla funktioner-anrop och returnerade resultat. För att garantera repeterbarhet – till exempel att köra jobbet igen från äldre tidsstämpel ger samma resultat igen – Använd inte funktioner som `Date.GetData()` eller `Math.random()`, eftersom dessa funktioner inte returnerar samma resultat för varje anrop.  
+Azure Stream Analytics har ingen post för alla funktioner-anrop och returnerade resultat. För att garantera repeterbarhet – till exempel att köra jobbet igen från äldre tidsstämpel ger samma resultat igen – Använd inte funktioner som `Date.GetData()` eller `Math.random()` , eftersom dessa funktioner inte returnerar samma resultat för varje anrop.  
 
 ## <a name="resource-logs"></a>Resursloggar
 

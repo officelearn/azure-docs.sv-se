@@ -8,17 +8,17 @@ ms.devlang: azurepowershel
 ms.topic: conceptual
 ms.date: 4/28/2020
 ms.openlocfilehash: 871b1ba81f672459378b23705ad5b96213667a73
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82609093"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Säkerhetskopiera och återställa en Azure Database for MySQL-server med hjälp av PowerShell
 
 Azure Database for MySQL servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 
@@ -26,7 +26,7 @@ För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande `Install-Module -Name Az.MySql -AllowPrerelease`kommando:.
+> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande kommando: `Install-Module -Name Az.MySql -AllowPrerelease` .
 > När AZ. MySql PowerShell-modulen är allmänt tillgänglig blir den en del av framtida versioner av AZ PowerShell-moduler och är tillgängliga internt från Azure Cloud Shell.
 
 Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
@@ -60,7 +60,7 @@ Kvarhållningsperioden för säkerhets kopior styr hur långt tillbaka en tidpun
 
 Du kan återställa servern till en tidigare tidpunkt. Återställda data kopieras till en ny server och den befintliga servern lämnas oförändrad. Om en tabell t. ex. har släppts av misstag kan du återställa till den tid då bara den här minskningen ägde rum. Sedan kan du hämta den saknade tabellen och data från den återställda kopian av servern.
 
-Använd `Restore-AzMySqlServer` PowerShell-cmdleten för att återställa servern.
+Använd PowerShell-cmdleten för att återställa servern `Restore-AzMySqlServer` .
 
 ### <a name="run-the-restore-command"></a>Kör kommandot Restore
 
@@ -93,7 +93,7 @@ Den nya servern som skapades under en återställning saknar de VNet-tjänstens 
 
 Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringar kan en ny server skapas från säkerhets kopian av den befintliga servern. Den nya servern kan skapas i vilken region som helst som Azure Database for MySQL tillgänglig.
 
-Om du vill skapa en server med hjälp av en geo- `Restore-AzMySqlServer` redundant säkerhets kopia använder du kommandot med parametern **UseGeoRestore** .
+Om du vill skapa en server med hjälp av en Geo-redundant säkerhets kopia använder du `Restore-AzMySqlServer` kommandot med parametern **UseGeoRestore** .
 
 > [!NOTE]
 > När en server först skapas kanske den inte är omedelbart tillgänglig för geo Restore. Det kan ta några timmar för nödvändiga metadata att fyllas i.
@@ -114,13 +114,13 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName newresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-`Restore-AzMySqlServer` Parameter **uppsättningen för den här** cmdleten måste ha följande parametrar:
+Parameter **uppsättningen för den här** `Restore-AzMySqlServer` cmdleten måste ha följande parametrar:
 
 | Inställningen | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Namnet på den resurs grupp som den nya servern tillhör.|
 |Name | mydemoserver – omåterställd | Namnet på den nya servern. |
-|Plats | eastus | Platsen för den nya servern. |
+|Location | eastus | Platsen för den nya servern. |
 |UseGeoRestore | `<SwitchParameter>` | Använd geo-läge för att återställa. |
 
 När du skapar en ny server med geo Restore ärver den samma lagrings storlek och pris nivå som käll servern om inte parametern **SKU** anges.

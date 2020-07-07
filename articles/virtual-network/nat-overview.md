@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
 ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85549589"
 ---
 # <a name="what-is-virtual-network-nat"></a>Vad är Virtual Network NAT?
@@ -124,7 +124,7 @@ Du kan övervaka hur din NAT fungerar genom flerdimensionella mått som visas i 
 Vid allmän tillgänglighet är NAT-datasökvägen minst 99,9% tillgänglig.
 
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 NAT-gateway faktureras med två separata mätare:
 

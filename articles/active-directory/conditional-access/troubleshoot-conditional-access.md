@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610536"
 ---
-# <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Felsöka inloggnings problem med villkorlig åtkomst
+# <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Felsöka inloggningsproblem med villkorsstyrd åtkomst
 
 Informationen i den här artikeln kan användas för att felsöka oväntade inloggnings resultat relaterade till villkorlig åtkomst med fel meddelanden och inloggnings loggen för Azure AD.
 
@@ -41,7 +41,7 @@ Mer information finns på problemet genom att klicka på **Mer information** på
 Så här tar du reda på vilka principer för villkorlig åtkomst som tillämpas och varför:
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller global läsare.
-1. Bläddra till **Azure Active Directory** > **inloggningar**.
+1. Bläddra till **Azure Active Directory**  >  **inloggningar**.
 1. Hitta händelsen för inloggningen som ska granskas. Lägg till eller ta bort filter och kolumner för att filtrera bort onödig information.
    1. Lägg till filter för att begränsa omfånget:
       1. **Korrelations-ID** när du har en speciell händelse att undersöka.

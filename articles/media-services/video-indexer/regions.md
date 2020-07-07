@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: b71890323f6aca92fb9f847252feed57d8db234f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594958"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Azure-regioner där Video Indexer finns
@@ -23,7 +23,7 @@ Video Indexer-API: er innehåller en **plats** parameter som du bör ange till d
 
 ## <a name="locations"></a>Platser
 
-`location` Parametern måste tilldelas kod namnet för Azure-regionen som dess värde. Om du använder Video Indexer i förhands gransknings läge bör `"trial"` du ange värdet. `trial`är standardvärdet för `location` parametern. Om du vill hämta kod namnet för den Azure-region som ditt konto finns i och att ditt anrop ska dirigeras till kan du köra följande rad i [Azure CLI](/cli/azure):
+`location`Parametern måste tilldelas kod namnet för Azure-regionen som dess värde. Om du använder Video Indexer i förhands gransknings läge bör du ange `"trial"` värdet. `trial`är standardvärdet för `location` parametern. Om du vill hämta kod namnet för den Azure-region som ditt konto finns i och att ditt anrop ska dirigeras till kan du köra följande rad i [Azure CLI](/cli/azure):
 
 ```azurecli-interactive
 az account list-locations

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: d2783d658d3420575da5d9d480fb705afe2495fc
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85550364"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984019"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd REST och AI för att generera sökbart innehåll från Azure-blobbar
 
@@ -30,7 +30,7 @@ I den här självstudien används Postman och [Sök REST-API: er](https://docs.m
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Skrivbordsappen Postman](https://www.getpostman.com/)
@@ -170,17 +170,17 @@ Ett [färdigheter-objekt](https://docs.microsoft.com/rest/api/searchservice/crea
 1. Använd **Lägg** till och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst.
 
     ```http
-    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2020-06-30
+    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
 1. I begär ande **texten**kopierar du JSON-definitionen nedan. Den här färdigheter består av följande inbyggda kunskaper.
 
-   | Kvalifikation                 | Description    |
+   | Kvalifikation                 | Beskrivning    |
    |-----------------------|----------------|
    | [Igenkänning av enhet](cognitive-search-skill-entity-recognition.md) | Extraherar namn på personer, organisationer och platser från innehållet i BLOB-behållaren. |
    | [Språkidentifiering](cognitive-search-skill-language-detection.md) | Identifierar innehållets språk. |
    | [Textuppdelning](cognitive-search-skill-textsplit.md)  | Delar upp stort innehåll i mindre segment innan nyckel fras extraherings kunskapen anropas. Extrahering av nyckelfraser accepterar indata på 50 000 tecken eller mindre. Några av exempelfilerna måste delas upp för att rymmas inom gränsen. |
-   | [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) | Hämtar de viktigaste huvud fraserna. |
+   | [Extrahering av diskussionsämne](cognitive-search-skill-keyphrases.md) | Hämtar de viktigaste huvud fraserna. |
 
    Varje kunskap körs på innehållet i dokumentet. Under bearbetningen kommer Azure Kognitiv sökning att knäcka varje dokument för att läsa innehåll från olika fil format. Text som hittas från källfilen placeras i ett genererat ```content```-fält, ett för varje dokument. Det innebär att indatamängden blir ```"/document/content"``` .
 

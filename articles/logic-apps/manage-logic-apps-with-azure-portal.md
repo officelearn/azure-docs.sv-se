@@ -10,17 +10,17 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598172"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Hantera Logic Apps i Azure Portal
 
 Du kan hantera Logic Apps med hjälp av [Azure Portal](https://portal.azure.com) eller [Visual Studio](manage-logic-apps-with-visual-studio.md). Den här artikeln visar hur du redigerar, inaktiverar, aktiverar eller tar bort Logic Apps i Azure Portal. Om du inte har använt Azure Logic Apps, se [Vad är Azure Logic Apps](logic-apps-overview.md)?
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -34,7 +34,7 @@ Följ dessa steg om du vill söka efter och öppna din Logic app:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
-1. I Azure Search-fältet anger `logic apps`du och väljer **Logic Apps**.
+1. I Azure Search-fältet anger du `logic apps` och väljer **Logic Apps**.
 
    ![Sök efter och välj "Logic Apps"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
@@ -59,7 +59,7 @@ Följ dessa steg om du vill söka efter och öppna din Logic app:
    * **Resursgrupp**
    * **Position**
    * **Typ** 
-   * **Prenumerations namn**
+   * **Prenumerationens namn**
    * **Prenumerations-ID:t**
    * **Åtkomst slut punkt**
    * **Utgående IP-adresser för körning**
@@ -176,7 +176,7 @@ Att ta bort din Logic app påverkar arbets flödes instanserna på följande sä
 
    ![Ta bort flera Logic Apps](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
-1. När bekräftelse rutan visas anger `yes`du och väljer **ta bort**.
+1. När bekräftelse rutan visas anger `yes` du och väljer **ta bort**.
 
    ![Bekräfta att du vill ta bort dina Logic Apps](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 

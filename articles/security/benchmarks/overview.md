@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: f2cdaafddb14d8b69fd708e4c89a578b60e53317
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82606882"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Översikt över Azures säkerhets benchmark
@@ -46,7 +46,7 @@ Varje rekommendation innehåller följande information:
 - **Ansvar**: om kunden eller tjänst leverantören (eller båda) är (är) ansvarig för att implementera den här rekommendationen. Säkerhets ansvars områden delas i det offentliga molnet. Vissa säkerhets kontroller är bara tillgängliga för moln tjänst leverantören och därför ansvarar leverantören för att adressera dem. Detta är allmänna observationer – för vissa enskilda tjänster skiljer sig ansvaret från det som anges i Azures säkerhets benchmark. Skillnaderna beskrivs i grundläggande rekommendationer för den enskilda tjänsten. 
 - **Information**: motiveringen till rekommendationen och länkar till vägledning om hur du implementerar den. Om rekommendationen stöds av Azure Security Center, visas även den informationen.
 
-Vi välkomnar din detaljerade feedback och aktivt deltagande i Azures säkerhets benchmark-ansträngning. Om du vill ge Azures prestandatest för Azure-säkerhet kan du fylla i formuläret på [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
+Vi välkomnar din detaljerade feedback och aktivt deltagande i Azures säkerhets benchmark-ansträngning. Om du vill ge Azures prestandatest för Azure-säkerhet kan du fylla i formuläret på [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark) .
 
 ## <a name="next-steps"></a>Nästa steg
 

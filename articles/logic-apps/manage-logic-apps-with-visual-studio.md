@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598444"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera Logic Apps i Visual Studio
@@ -25,7 +25,7 @@ Du kan också [Hantera dina](manage-logic-apps-with-azure-portal.md)Logi Kap par
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -65,7 +65,7 @@ I Visual Studio kan du hitta alla Logic Apps som är associerade med din Azure-p
 
 1. Öppna Visual Studio. I menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Exempel:
+1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Till exempel:
 
    ![Välj "konto hantering"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -125,7 +125,7 @@ För att skapa Logi Kap par för företag-till-företag (B2B) företags integrat
 
 1. Öppna Azure Resource Group-projektet som innehåller din Logic app i Visual Studio.
 
-1. I Solution Explorer öppnar du snabb menyn **<Logic-app-name>. JSON** -filen och väljer **Öppna med Logic App Designer**. (Tangent bord: Ctrl + L)
+1. I Solution Explorer öppnar du snabb menyn **<Logic-App-Name # C1.jspå** filens snabb meny och väljer **Öppna med Logic App Designer**. (Tangent bord: Ctrl + L)
 
    ![Öppna Logic Apps. JSON-fil med Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -202,7 +202,7 @@ Om du redigerar din Logi Kap par i Azure Portal och vill behålla ändringarna, 
 
 * I Visual Studio i verktygsfältet Logic App Designer väljer du **Uppdatera**.
 
-  ELLER
+  \- eller -
 
 * Öppna din Logic Apps snabb meny i Visual Studio Cloud Explorer och välj **Uppdatera**.
 
@@ -228,7 +228,7 @@ Om du vill kontrol lera statusen och diagnostisera problem med att Logic App kö
 
    ![Öppna körnings historiken för din Logic app](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Exempel:
+1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Till exempel:
 
    ![Visa information om en speciell körning](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

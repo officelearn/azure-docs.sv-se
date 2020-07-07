@@ -10,10 +10,10 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.openlocfilehash: f3603bf8afdcd990144897113f4e8506629f60a3
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84429747"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Självstudie: träna och distribuera en modell från CLI
@@ -35,7 +35,7 @@ Läs hur du vidtar följande åtgärder:
 > * Distribuera modellen som en webb tjänst
 > * Poäng data med hjälp av webb tjänsten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -300,7 +300,7 @@ Runconfig-filen innehåller också information som används för att konfigurera
 > [!TIP]
 > Även om det är möjligt att skapa en runconfig-fil manuellt, skapades den i det här exemplet med den `generate-runconfig.py` fil som ingår i lagrings platsen. Den här filen hämtar en referens till den registrerade data uppsättningen, skapar en körnings konfigurations program mässigt och sparar den sedan i filen.
 
-Mer information om att köra konfigurationsfiler finns i [Konfigurera och använda Compute-mål för modell träning](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). En fullständig JSON-referens finns i [runconfigschema. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Mer information om att köra konfigurationsfiler finns i [Konfigurera och använda Compute-mål för modell träning](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). En fullständig JSON-referens finns i [runconfigschema.jspå](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Skicka in utbildnings körningen
 

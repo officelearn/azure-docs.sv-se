@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610249"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Konfigurera ett anpassat domän namn i Azure App Service med Traffic Manager-integrering
@@ -19,7 +19,7 @@ ms.locfileid: "82610249"
 > [!NOTE]
 > Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name.md).
 
-När du använder [Azure Traffic Manager](/azure/traffic-manager/) för att belastningsutjämna trafik till [Azure App Service](overview.md), kan App Service-appen nås med ** \<Traffic Manager-Endpoint>. trafficmanager.net**. Du kan tilldela ett anpassat domän namn, till exempel www\.contoso.com, med din app service-app för att ge användarna ett mer igenkännbart domän namn.
+När du använder [Azure Traffic Manager](/azure/traffic-manager/) för att belastningsutjämna trafik till [Azure App Service](overview.md), kan App Service-appen nås med hjälp av ** \<traffic-manager-endpoint> . trafficmanager.net**. Du kan tilldela ett anpassat domän namn, till exempel www \. contoso.com, med din app service-app för att ge användarna ett mer igenkännbart domän namn.
 
 Den här artikeln visar hur du konfigurerar ett anpassat domän namn med en App Service-app som är integrerad med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
@@ -69,7 +69,7 @@ När App Service-appen har en pris nivå som stöds visas den i listan över til
 Även om de olika domän leverantörernas information är beroende av varandra, mappar du *från* ett [icke-rot-anpassat domän namn](#what-about-root-domains) (t. ex. **www.contoso.com**) *till* det Traffic Manager domän namn (**contoso.trafficmanager.net**) som är integrerat med din app. 
 
 > [!NOTE]
-> Om en post redan används och du behöver förebyggande syfte för att binda dina appar till den, kan du skapa ytterligare en CNAME-post. Om du till exempel vill förebyggande syfte **BIND\.www-contoso.com** till din app skapar du en CNAME-post från **awverify. www** till **contoso.trafficmanager.net**. Du kan sedan lägga till "\.www-contoso.com" i appen utan att behöva ändra "www" CNAME-posten. Mer information finns i [Migrera ett aktivt DNS-namn till Azure App Service](manage-custom-dns-migrate-domain.md).
+> Om en post redan används och du behöver förebyggande syfte för att binda dina appar till den, kan du skapa ytterligare en CNAME-post. Om du till exempel vill förebyggande syfte bind **www- \. contoso.com** till din app skapar du en CNAME-post från **awverify. www** till **contoso.trafficmanager.net**. Du kan sedan lägga till "www- \. contoso.com" i appen utan att behöva ändra "www" CNAME-posten. Mer information finns i [Migrera ett aktivt DNS-namn till Azure App Service](manage-custom-dns-migrate-domain.md).
 
 När du har lagt till eller ändrat DNS-poster i din domän leverantör sparar du ändringarna.
 
@@ -83,14 +83,14 @@ I scenarier med hög tillgänglighet kan du implementera en feltolerant DNS-inst
 När posterna för ditt domän namn har spridits använder du webbläsaren för att kontrol lera att ditt anpassade domän namn matchar din App Service-app.
 
 > [!NOTE]
-> Det kan ta lite tid för din CNAME att spridas via DNS-systemet. Du kan använda en tjänst, till <a href="https://www.digwebinterface.com/">https://www.digwebinterface.com/</a> exempel för att kontrol lera att CNAME är tillgängligt.
+> Det kan ta lite tid för din CNAME att spridas via DNS-systemet. Du kan använda en tjänst, till exempel <a href="https://www.digwebinterface.com/">https://www.digwebinterface.com/</a> för att kontrol lera att CNAME är tillgängligt.
 > 
 > 
 
 1. När domän upplösningen lyckades kan du gå tillbaka till din app-sida i [Azure-portalen](https://portal.azure.com)
-2. Välj **anpassade domäner** > **Lägg till värdnamn**i det vänstra navigerings fältet.
+2. Välj **anpassade domäner**  >  **Lägg till värdnamn**i det vänstra navigerings fältet.
 4. Skriv det anpassade domän namnet som du mappade tidigare och välj **Verifiera**.
-5. Se till att **post typen hostname** är inställd på **CNAME (www\.-example.com eller någon under domän)**.
+5. Se till att **post typen hostname** är inställd på **CNAME (www- \. example.com eller någon under domän)**.
 
 6. Eftersom App Service-appen nu är integrerad med en Traffic Manager-slutpunkt bör du se Traffic Manager domän namnet under **CNAME-konfiguration**. Markera den och klicka på **Lägg till anpassad domän**.
 

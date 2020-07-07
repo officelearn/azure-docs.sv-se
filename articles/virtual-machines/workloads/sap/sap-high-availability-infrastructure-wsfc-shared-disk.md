@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594822"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
@@ -164,7 +164,7 @@ ms.locfileid: "82594822"
 
 Den här artikeln beskriver de steg som du vidtar för att förbereda Azure-infrastrukturen för att installera och konfigurera ett SAP-system med hög tillgänglighet på ett Windows-redundanskluster med hjälp av en *klusterdelad disk* som ett alternativ för att klustra en SAP ASCS-instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Läs igenom den här artikeln innan du påbörjar installationen:
 
@@ -194,28 +194,28 @@ _**Bild 1:** Ange Azure Resource Manager parametrar för hög tillgänglighet f�
   Mallarna skapa:
 
   * **Virtuella datorer**:
-    * Virtuella SAP-program Server- \<datorer\>: SAPSystemSID-\<di-Number\>
-    * ASCS/SCS-kluster virtuella datorer \<:\>SAPSystemSID-ASCS\<-Number\>
-    * DBMS-kluster \<:\>SAPSystemSID-DB\<-Number\>
+    * Virtuella SAP-program Server-datorer: \<SAPSystemSID\> -di-\<Number\>
+    * ASCS/SCS-kluster virtuella datorer: \<SAPSystemSID\> -ASCS-\<Number\>
+    * DBMS-kluster: \<SAPSystemSID\> -db-\<Number\>
 
   * **Nätverkskort för alla virtuella datorer, med tillhör ande IP-adresser**:
     * \<SAPSystemSID\>-NIC-di-\<Number\>
     * \<SAPSystemSID\>-NIC-ASCs-\<Number\>
-    * \<SAPSystemSID\>-NIC-DB-\<nummer\>
+    * \<SAPSystemSID\>-NIC-DB-\<Number\>
 
   * **Azure Storage-konton (endast ohanterade diskar)**:
 
   * **Tillgänglighets grupper** för:
-    * Virtuella SAP-program Server- \<datorer\>: SAPSystemSID-avset-di
-    * SAP ASCS/SCS Cluster Virtual Machines \<:\>SAPSystemSID-avset-ASCS
-    * Virtuella DBMS-kluster datorer \<:\>SAPSystemSID-avset-DB
+    * Virtuella SAP-program Server-datorer: \<SAPSystemSID\> -avset-di
+    * Virtuella SAP ASCS/SCS-kluster datorer: \<SAPSystemSID\> -avset-ASCS
+    * Virtuella DBMS-kluster datorer: \<SAPSystemSID\> -avset-DB
 
   * **Intern Azure-belastningsutjämnare**:
-    * Med alla portar för ASCS/SCS-instansen och \<IP\>-SAPSystemSID – lb-ASCS
-    * Med alla portar för SQL Server-DBMS och IP- \<SAPSystemSID\>– lb-DB
+    * Med alla portar för ASCS/SCS-instansen och IP-adressen \<SAPSystemSID\> – lb-ASCS
+    * Med alla portar för SQL Server-DBMS och IP-adress \<SAPSystemSID\> – lb-DB
 
-  * **Nätverks säkerhets grupp**: \<SAPSystemSID\>-NSG-ASCs-0  
-    * Med en öppen extern Remote Desktop Protocol-port (RDP) till \<den\>virtuella datorn SAPSystemSID-ASCs-0
+  * **Nätverks säkerhets grupp**: \<SAPSystemSID\> -NSG-ASCs-0  
+    * Med en öppen extern Remote Desktop Protocol-port (RDP) till den \<SAPSystemSID\> virtuella-ASCs-0-datorn
 
 > [!NOTE]
 > Alla IP-adresser för nätverkskorten och de interna Azure-belastningsutjämnaren är dynamiska som standard. Ändra dem till statiska IP-adresser. Vi beskriver hur du gör detta senare i artikeln.
@@ -305,7 +305,7 @@ För att ställa in mallen ASCS/SCS multi-SID, i mallen [ASCS/SCS multi-sid][sap
 - **Nytt eller befintligt undernät**: Ange om du vill skapa ett nytt virtuellt nätverk och undernät eller använda ett befintligt undernät. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
 - **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:
 
-  /Subscriptions/\<prenumerations\>-\<ID/resourceGroups/resurs\>grupp\<namn/providers/Microsoft.Network/virtualNetworks/virtuellt\>nätverks\<namn/subnets/under nät namn\>
+  /Subscriptions/ \<subscription id\> /ResourceGroups/ \<resource group name\> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name\> /subnets/\<subnet name\>
 
 Mallen distribuerar en Azure Load Balancer instans, som har stöd för flera SAP-system:
 
@@ -410,7 +410,7 @@ Du kan skapa de andra två virtuella värd namnen manuellt, PR1-ASCs-SAP och PR1
 ## <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ange statiska IP-adresser för virtuella SAP-datorer
 När du har distribuerat de virtuella datorerna som ska användas i klustret måste du ange statiska IP-adresser för alla virtuella datorer. Gör detta i Azure Virtual Network-konfigurationen och inte i gäst operativ systemet.
 
-1. I Azure Portal väljer du**IP-adress**för **resurs gruppens** > **nätverks kort** > **Inställningar** > .
+1. I Azure Portal väljer du IP-adress för **resurs gruppens**  >  **nätverks kort**  >  **Inställningar**  >  **IP Address**.
 2. I rutan **IP-adresser** under **tilldelning**väljer du **statisk**. I rutan **IP-adress** anger du den IP-adress som du vill använda.
 
    > [!NOTE]
@@ -483,11 +483,11 @@ För att skapa nödvändiga interna belastnings Utjämnings slut punkter skapar 
 | ABAP meddelande Server/ *lbrule3600* |36\<InstanceNumber\> |3600 |
 | Internt ABAP-meddelande/ *lbrule3900* |39\<InstanceNumber\> |3900 |
 | Meddelande Server HTTP/ *Lbrule8100* |81\<InstanceNumber\> |8100 |
-| SAP Start Service ASCS HTTP/ *Lbrule50013* |5\<InstanceNumber\>13 |50013 |
-| SAP Start Service ASCS HTTPS/ *Lbrule50014* |5\<InstanceNumber\>14 |50014 |
-| Köa replikering/ *Lbrule50016* |5\<InstanceNumber\>16 |50016 |
-| SAP Start Service ERS HTTP *Lbrule51013* |5\<InstanceNumber\>13 |51013 |
-| SAP Start Service ERS HTTP *Lbrule51014* |5\<InstanceNumber\>14 |51014 |
+| SAP Start Service ASCS HTTP/ *Lbrule50013* |5 \<InstanceNumber\> 13 |50013 |
+| SAP Start Service ASCS HTTPS/ *Lbrule50014* |5 \<InstanceNumber\> 14 |50014 |
+| Köa replikering/ *Lbrule50016* |5 \<InstanceNumber\> 16 |50016 |
+| SAP Start Service ERS HTTP *Lbrule51013* |5 \<InstanceNumber\> 13 |51013 |
+| SAP Start Service ERS HTTP *Lbrule51014* |5 \<InstanceNumber\> 14 |51014 |
 | WinRM- *Lbrule5985* (Windows Remote Management) | |5985 |
 | *Lbrule445* för fil resurs | |445 |
 
@@ -501,11 +501,11 @@ Skapa sedan de här slut punkterna för belastnings utjämning för SAP NetWeave
 | Gateway-server/ *lbrule3301* |33\<InstanceNumber\> |3301 |
 | Java-meddelande Server/ *lbrule3900* |39\<InstanceNumber\> |3901 |
 | Meddelande Server HTTP/ *Lbrule8101* |81\<InstanceNumber\> |8101 |
-| SAP Start Service SCS HTTP/ *Lbrule50113* |5\<InstanceNumber\>13 |50113 |
-| SAP Start Service SCS HTTPS/ *Lbrule50114* |5\<InstanceNumber\>14 |50114 |
-| Köa replikering/ *Lbrule50116* |5\<InstanceNumber\>16 |50116 |
-| SAP Start Service ERS HTTP *Lbrule51113* |5\<InstanceNumber\>13 |51113 |
-| SAP Start Service ERS HTTP *Lbrule51114* |5\<InstanceNumber\>14 |51114 |
+| SAP Start Service SCS HTTP/ *Lbrule50113* |5 \<InstanceNumber\> 13 |50113 |
+| SAP Start Service SCS HTTPS/ *Lbrule50114* |5 \<InstanceNumber\> 14 |50114 |
+| Köa replikering/ *Lbrule50116* |5 \<InstanceNumber\> 16 |50116 |
+| SAP Start Service ERS HTTP *Lbrule51113* |5 \<InstanceNumber\> 13 |51113 |
+| SAP Start Service ERS HTTP *Lbrule51114* |5 \<InstanceNumber\> 14 |51114 |
 | WinRM- *Lbrule5985* | |5985 |
 | *Lbrule445* för fil resurs | |445 |
 
@@ -521,7 +521,7 @@ Ange IP-adressen för belastningsutjämnaren PR1 – lb-DBMS till IP-adressen f�
 
 Om du vill använda olika nummer för SAP ASCS-eller SCS-instanserna måste du ändra namn och värden för deras portar från standardvärdena.
 
-1. I Azure Portal väljer ** \<du sid\>-lb-ASCs** > belastnings**Utjämnings regler**.
+1. I Azure Portal väljer du ** \<SID\> -lb-ASCs**belastnings  >  **Utjämnings regler**.
 2. Ändra följande värden för alla belastnings Utjämnings regler som tillhör SAP ASCS-eller SCS-instansen:
 
    * Name
@@ -724,7 +724,7 @@ Att konfigurera ett kluster fil resurs vittne omfattar följande uppgifter:
 
    _**Bild 26:** Välj fil resurs vittnet_
 
-4. Ange UNC-sökvägen till fil resursen (i vårt exempel \\domcontr-0\FSW). Om du vill se en lista över de ändringar som du kan göra väljer du **Nästa**.
+4. Ange UNC-sökvägen till fil resursen (i vårt exempel \\ domcontr-0\FSW). Om du vill se en lista över de ändringar som du kan göra väljer du **Nästa**.
 
    ![Bild 27: definiera fil resurs platsen för vittnes resursen][sap-ha-guide-figure-3026]
 
@@ -769,7 +769,7 @@ Det finns två sätt att lägga till .NET Framework 3,5:
 
   _**Bild 30:** Installations förlopps indikator när du installerar .NET Framework 3,5 med hjälp av guiden Lägg till roller och funktioner_
 
-- Använd kommando rads verktyget DISM. exe. För den här typen av installation måste du ha åtkomst till katalogen SxS på installations mediet för Windows. Ange följande kommando i en upphöjd kommando tolk:
+- Använd kommando rads verktyget dism.exe. För den här typen av installation måste du ha åtkomst till katalogen SxS på installations mediet för Windows. Ange följande kommando i en upphöjd kommando tolk:
 
   ```
   Dism /online /enable-feature /featurename:NetFx3 /All /Source:installation_media_drive:\sources\sxs /LimitAccess

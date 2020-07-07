@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: f9b743d768aabbd7949094ae4b7366c46eabf4c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410073"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Kopiera data från Vertica med hjälp av Azure Data Factory 
@@ -34,7 +34,7 @@ Du kan kopiera data från Vertica till alla mottagar data lager som stöds. En l
 
 Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -48,10 +48,10 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten Vertica:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **Vertica** | Ja |
-| Begär | En ODBC-anslutningssträng för att ansluta till Vertica.<br/>Du kan också ställa in lösen ord i Azure Key Vault och `pwd` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| Begär | En ODBC-anslutningssträng för att ansluta till Vertica.<br/>Du kan också ställa in lösen ord i Azure Key Vault och hämta `pwd` konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -104,7 +104,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Vertica anger du egenskapen type för data uppsättningen till **VerticaTable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **VerticaTable** | Ja |
 | schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
@@ -136,10 +136,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Vertica anger du käll typen i kopierings aktiviteten till **VerticaSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **VerticaSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

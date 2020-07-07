@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81413678"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Förenkla omvandling i data flöde för mappning
@@ -68,9 +68,9 @@ Se följande JSON-objekt för följande exempel på den sammanslagna omvandlinge
 
 | Avregistrera av | Avregistrera rot | Projektion |
 | --------- | ----------- | ---------- |
-| varor. kunder | Inga | name <br> kund = varor. kund |
+| varor. kunder | Ingen | name <br> kund = varor. kund |
 
-#### <a name="output"></a>Resultat
+#### <a name="output"></a>Utdata
 
 ```
 { 'MSFT', 'government'}
@@ -86,9 +86,9 @@ Se följande JSON-objekt för följande exempel på den sammanslagna omvandlinge
 
 | Avregistrera av | Avregistrera rot | Projektion |
 | --------- | ----------- | ---------- |
-| varor. order. levererat. orderItems | Inga | name <br> Ordernr = varor. order. ordernr <br> itemName = varor. order. levererat. orderItems. itemName <br> itemQty = varor. Orders. levererat. orderItems. itemQty <br> plats = plats |
+| varor. order. levererat. orderItems | Ingen | name <br> Ordernr = varor. order. ordernr <br> itemName = varor. order. levererat. orderItems. itemName <br> itemQty = varor. Orders. levererat. orderItems. itemQty <br> plats = plats |
 
-#### <a name="output"></a>Resultat
+#### <a name="output"></a>Utdata
 
 ```
 { 'MSFT', 1, 'Laptop', 20, 'Redmond'}
@@ -109,7 +109,7 @@ Se följande JSON-objekt för följande exempel på den sammanslagna omvandlinge
 | --------- | ----------- | ---------- |
 | varor. order | varor. order | name <br> varor. order. levererat. orderItems. itemName <br> varor. kunder <br> location |
 
-#### <a name="output"></a>Resultat
+#### <a name="output"></a>Utdata
 
 ```
 { 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'}
@@ -125,7 +125,7 @@ Se följande JSON-objekt för följande exempel på den sammanslagna omvandlinge
 | --------- | ----------- | ---------- |
 | varor. order. levererat. orderItem | varor. order |name <br> Ordernr = varor. order. ordernr <br> itemName = varor. order. levererat. orderItems. itemName <br> itemQty = varor. Orders. levererat. orderItems. itemQty <br> plats = plats |
 
-#### <a name="output"></a>Resultat
+#### <a name="output"></a>Utdata
 
 ```
 { 'MSFT', 1, 'Laptop', 20, 'Redmond'}

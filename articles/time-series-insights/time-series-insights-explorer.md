@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: b564373780da5bba71bc46ddbac3dc69a0c94a4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382781"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
@@ -37,7 +37,7 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
 >[!NOTE]
 >Spela upp föregående video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"komma igång med Time Series Insights med hjälp av en Azure IoT Solution Accelerator."</a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda Time Series Insights Explorer måste du:
 
@@ -71,11 +71,11 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
       - **Predikat**: Använd predikatet för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja eller klicka på, uppdateras predikatet automatiskt utifrån sökningen. Operands typer som stöds är:
 
-         |Åtgärd  |Typer som stöds  |Obs!  |
+         |Åtgärd  |Typer som stöds  |Anteckningar  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **datetime**, **TimeSpan**       |         |
          |**=**, **!=**,**<>**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |         |
-         |**IN**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |  Alla operander ska vara av samma typ eller vara **Null** -konstant.        |
+         |**FÖR**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |  Alla operander ska vara av samma typ eller vara **Null** -konstant.        |
          |**HADE**     | **Sträng**        |  Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och **Null** är inte tillåtet.       |
 
       - **Exempelfrågor**

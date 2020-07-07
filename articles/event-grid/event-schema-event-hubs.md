@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393343"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs som en Event Grid källa
@@ -57,7 +57,7 @@ Den här exempel händelsen visar schemat för en Event Hub-händelse som aktive
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -70,7 +70,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | fileUrl | sträng | Sökvägen till insamlings filen. |
 | Typen | sträng | Filtypen för insamlings filen. |

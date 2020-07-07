@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
 ms.openlocfilehash: 68e17ba1dd5981e565e56d6c8137f77d33ad755b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393505"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Självstudie: konfigurera mottagare för automatisk användar etablering
@@ -35,7 +35,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både mottagare 
 > * Etablera grupper och grupp medlemskap i mottagare
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-tutorial) till mottagare (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -121,7 +121,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |userName|Sträng|
    |externalId|Sträng|
    |displayName|Sträng|
-   |title|Sträng|
+   |rubrik|Sträng|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
    |preferredLanguage|Sträng|
    |avdelning|Sträng|
@@ -136,7 +136,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |namn. formaterad|Sträng|
    |phoneNumbers [Type EQ "Mobile"]. värde|Sträng|
    |phoneNumbers [typ EQ "Work"]. värde|Sträng|
-   |språk|Sträng|
+   |locale|Sträng|
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till mottagare**.
 

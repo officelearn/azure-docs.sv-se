@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
 ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383816"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Anpassade regler för WebApplication-brandväggen v2 på Azure Application Gateway
@@ -37,7 +37,7 @@ Reguljära uttryck stöds också i anpassade regler, precis som i det datorisera
 
 Det är enkelt att tillåta och blockera trafik med anpassade regler. Du kan till exempel blockera all trafik från ett intervall med IP-adresser. Du kan skapa en annan regel för att tillåta trafik om begäran kommer från en speciell webbläsare.
 
-För att tillåta något, se till `-Action` att parametern är inställd på **Tillåt**. Om du vill blockera något kontrollerar du `-Action` att parametern är inställd på **blockera**.
+För att tillåta något, se till att `-Action` parametern är inställd på **Tillåt**. Om du vill blockera något kontrollerar du att `-Action` parametern är inställd på **blockera**.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `

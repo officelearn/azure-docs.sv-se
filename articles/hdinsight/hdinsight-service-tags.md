@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
 ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410857"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>NSG service-taggar för Azure HDInsight
@@ -30,7 +30,7 @@ Du har två alternativ för att använda tjänst Taggar i dina nätverks säkerh
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Använd en enda global HDInsight Service-tagg
 
-Det enklaste sättet att börja använda service märken med ditt HDInsight-kluster är att lägga till den `HDInsight` globala taggen i en NSG-regel.
+Det enklaste sättet att börja använda service märken med ditt HDInsight-kluster är att lägga till den globala taggen `HDInsight` i en NSG-regel.
 
 1. Välj din nätverks säkerhets grupp från [Azure Portal](https://portal.azure.com/).
 
@@ -54,7 +54,7 @@ Om du vill ta reda på vilka service märken som ska läggas till för din regio
 
 Om klustret finns i en region som anges i den här tabellen, behöver du bara lägga till en enda regional service-tagg till din NSG.
 
-| Land/region | Region | Tjänsttagg |
+| Land | Region | Tjänsttagg |
 | ---- | ---- | ---- |
 | Australien | Australien, östra | HDInsight. AustraliaEast |
 | &nbsp; | Australien, sydöstra | HDInsight. AustraliaSoutheast |
@@ -86,7 +86,7 @@ De återstående regionerna är indelade i grupper baserat på vilka regionala t
 
 #### <a name="group-1"></a>Grupp 1
 
-Om klustret har skapats i någon av regionerna i följande tabell kan du tillåta service-taggarna `HDInsight.WestUS` och. `HDInsight.EastUS` Dessutom anges den regionala service tag gen. Regioner i det här avsnittet kräver tre tjänst etiketter.
+Om klustret har skapats i någon av regionerna i följande tabell kan du tillåta service-taggarna `HDInsight.WestUS` och `HDInsight.EastUS` . Dessutom anges den regionala service tag gen. Regioner i det här avsnittet kräver tre tjänst etiketter.
 
 Om klustret till exempel har skapats i `East US 2` regionen måste du lägga till följande service Taggar i din nätverks säkerhets grupp:
 
@@ -94,7 +94,7 @@ Om klustret till exempel har skapats i `East US 2` regionen måste du lägga til
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Land/region | Region | Tjänsttagg |
+| Land | Region | Tjänsttagg |
 | ---- | ---- | ---- |
 | USA | USA, östra 2 | HDInsight. EastUS2 |
 | &nbsp; | USA, centrala | HDInsight. centrala |
@@ -111,15 +111,15 @@ Om klustret till exempel har skapats i `East US 2` regionen måste du lägga til
 
 #### <a name="group-2"></a>Grupp 2
 
-Kluster i regionerna *Kina, norra* och *Kina, östra* behöver tillåta två service märken: `HDInsight.ChinaNorth` och. `HDInsight.ChinaEast`
+Kluster i regionerna *Kina, norra* och *Kina, östra* behöver tillåta två service märken: `HDInsight.ChinaNorth` och `HDInsight.ChinaEast` .
 
 #### <a name="group-3"></a>Grupp 3
 
-Kluster i regionerna *US gov, Iowa* och *US gov, Virginia* behöver tillåta två service märken: `HDInsight.USGovIowa` och. `HDInsight.USGovVirginia`
+Kluster i regionerna *US gov, Iowa* och *US gov, Virginia* behöver tillåta två service märken: `HDInsight.USGovIowa` och `HDInsight.USGovVirginia` .
 
 #### <a name="group-4"></a>Grupp 4
 
-Kluster i regionerna i Tyskland, *centrala* och *Tyskland nordöstra* måste tillåta två service märken: `HDInsight.GermanyCentral` och `HDInsight.GermanyNortheast`.
+Kluster i regionerna i Tyskland, *centrala* och *Tyskland nordöstra* måste tillåta två service märken: `HDInsight.GermanyCentral` och `HDInsight.GermanyNortheast` .
 
 ## <a name="next-steps"></a>Nästa steg
 

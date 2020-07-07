@@ -7,17 +7,17 @@ ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631474"
 ---
 # <a name="using-openfaas-on-aks"></a>Använda OpenFaaS på AKS
 
 [OpenFaaS][open-faas] är ett ramverk för att skapa Server funktioner med hjälp av behållare. Som ett projekt med öppen källkod har det fått stor skala i communityn. Det här dokumentet innehåller information om hur du installerar och använder OpenFaas i ett AKS-kluster (Azure Kubernetes service).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra stegen i den här artikeln behöver du följande.
 
@@ -58,7 +58,7 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-Du kan hämta värdet för hemligheten med `echo $PASSWORD`.
+Du kan hämta värdet för hemligheten med `echo $PASSWORD` .
 
 Lösen ordet som vi skapar här används av Helm-diagrammet för att aktivera grundläggande autentisering på OpenFaaS-gatewayen, som exponeras för Internet via en molnbaserad belastningsutjämnare.
 
@@ -108,7 +108,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Du testar OpenFaaS-systemet genom att bläddra till den externa IP-adressen på port `http://52.186.64.52:8080` 8080 i det här exemplet. Du uppmanas att logga in. Ange `echo $PASSWORD`för att hämta ditt lösen ord.
+Du testar OpenFaaS-systemet genom att bläddra till den externa IP-adressen på Port 8080 `http://52.186.64.52:8080` i det här exemplet. Du uppmanas att logga in. Ange för att hämta ditt lösen ord `echo $PASSWORD` .
 
 ![OpenFaaS-gränssnitt](media/container-service-serverless/openfaas.png)
 
@@ -162,7 +162,7 @@ Skapa först en ny resurs grupp för Cosmos DB.
 az group create --name serverless-backing --location eastus
 ```
 
-Distribuera en CosmosDB-instans av `MongoDB`typen. Instansen måste ha ett unikt namn `openfaas-cosmos` och uppdateras till något unikt i din miljö.
+Distribuera en CosmosDB-instans av typen `MongoDB` . Instansen måste ha ett unikt namn och uppdateras `openfaas-cosmos` till något unikt i din miljö.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
@@ -180,7 +180,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
   --output tsv)
 ```
 
-Fyll nu i Cosmos DB med test data. Skapa en fil med `plans.json` namnet och kopiera i följande JSON.
+Fyll nu i Cosmos DB med test data. Skapa en fil med namnet `plans.json` och kopiera i följande JSON.
 
 ```json
 {

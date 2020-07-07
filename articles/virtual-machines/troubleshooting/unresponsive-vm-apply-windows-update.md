@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 16c8eed3377c2191b4345ec59ec1eba8be01369d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80633962"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Den virtuella datorn svarar inte på "C01A001D"-fel vid tillämpning av Windows Update
@@ -81,7 +81,7 @@ Om disken inte är redan 1 TB måste du ändra storlek på den. När disken är 
     ```
 3. Kontrol lera att det lediga utrymmet på OS-disken är minst lika med storleken på det virtuella dator minnet (RAM-minne).
 
-    Om det inte finns tillräckligt med utrymme på OS-disken ändrar du den plats där minnesdumpen ska skapas och refererar den till en datadisk som är ansluten till den virtuella datorn och med tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter `%SystemRoot%` du med enhets beteckningen (till exempel "F:") för data disken i följande kommandon:
+    Om det inte finns tillräckligt med utrymme på OS-disken ändrar du den plats där minnesdumpen ska skapas och refererar den till en datadisk som är ansluten till den virtuella datorn och med tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du `%SystemRoot%` med enhets beteckningen (till exempel "F:") för data disken i följande kommandon:
 
     **Aktivera föreslagen konfiguration för OS-dump:**
 

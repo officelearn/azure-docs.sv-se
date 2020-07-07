@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1735daf66483df496141a642ac6633973aa0abf0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407547"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bevilja data åtkomst till en miljö
@@ -28,7 +28,7 @@ I den här artikeln beskrivs de två typerna av Azure Time Series Insights för 
 ## <a name="sign-in-to-time-series-insights"></a>Logga in på Time Series Insights
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-1. Leta upp din Time Series Insightss miljö. Ange `Time Series` i **sökrutan.** Välj **tids serie miljöer** i Sök resultaten.
+1. Leta upp din Time Series Insightss miljö. Ange `Time Series` i sökrutan. **Search** Välj **tids serie miljöer** i Sök resultaten.
 1. Välj Time Series Insights-miljön från listan.
 
 ## <a name="grant-data-access"></a>Bevilja åtkomst till data
@@ -63,7 +63,7 @@ Följ dessa steg om du vill bevilja data åtkomst för ett huvud konto för anv�
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Ge gäst åtkomst från en annan Azure AD-klient
 
-`Guest` Rollen är inte en hanterings roll. Det är en term som används för ett konto som har bjudits in från en klient till en annan. När gäst kontot har bjudits in till klientens katalog kan samma åtkomst kontroll tillämpas på samma sätt som andra konton. Du kan bevilja hanterings åtkomst till en Time Series Insights miljö genom att använda bladet Access Control (IAM). Du kan också bevilja åtkomst till data i miljön via bladet data åtkomst principer. Mer information om Azure Active Directory (Azure AD) gäst åtkomsten finns [i lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+`Guest`Rollen är inte en hanterings roll. Det är en term som används för ett konto som har bjudits in från en klient till en annan. När gäst kontot har bjudits in till klientens katalog kan samma åtkomst kontroll tillämpas på samma sätt som andra konton. Du kan bevilja hanterings åtkomst till en Time Series Insights miljö genom att använda bladet Access Control (IAM). Du kan också bevilja åtkomst till data i miljön via bladet data åtkomst principer. Mer information om Azure Active Directory (Azure AD) gäst åtkomsten finns [i lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Följ dessa steg om du vill ge gäst åtkomst till en Time Series Insights miljö till en Azure AD-användare från en annan klient.
 

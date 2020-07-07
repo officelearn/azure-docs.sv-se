@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
 ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414765"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrera data från Amazon S3 till Azure Data Lake Storage Gen2
@@ -50,7 +50,7 @@ Mallen innehåller två parametrar:
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>För mallen för att kopiera ändrade filer enbart från Amazon S3 till Azure Data Lake Storage Gen2
 
-Den här mallen (*Mallnamn: kopiera delta data från AWS S3 till Azure Data Lake Storage Gen2*) använder LastModifiedTime för varje fil för att kopiera nya eller uppdaterade filer enbart från AWS S3 till Azure. Tänk på att om dina filer eller mappar redan har tidspartitioner ATS med timeslice-information som en del av fil-eller mappnamnet på AWS S3 (till exempel/YYYY/MM/DD/File.csv), kan du gå till den här [självstudien](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) för att få en mer bra metod för att hämta nya filer med stegvisa inläsningar. Den här mallen förutsätter att du har skrivit en partitionerad lista i en extern kontroll tabell i Azure SQL Database. Därför används en *Lookup* -aktivitet för att hämta en lista över partitioner från den externa kontroll tabellen, iterera över varje partition och göra varje jobb i utskriften kopiera en partition i taget. När varje kopierings jobb börjar kopiera filerna från AWS S3 förlitar sig det på egenskapen LastModifiedTime för att identifiera och kopiera endast nya eller uppdaterade filer. När ett kopierings jobb har slutförts används aktiviteten *lagrad procedur* för att uppdatera statusen för kopiering av varje partition i kontroll tabellen.
+Den här mallen (*Mallnamn: kopiera delta data från AWS S3 till Azure Data Lake Storage Gen2*) använder LastModifiedTime för varje fil för att kopiera nya eller uppdaterade filer enbart från AWS S3 till Azure. Tänk på att om dina filer eller mappar redan har tidspartitioner ATS med timeslice-information som en del av fil-eller mappnamnet på AWS S3 (till exempel/YYYY/MM/DD/file.csv), kan du gå till den här [självstudien](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) för att få en mer bra metod för att hämta nya filer med stegvisa inläsningar. Den här mallen förutsätter att du har skrivit en partitionerad lista i en extern kontroll tabell i Azure SQL Database. Därför används en *Lookup* -aktivitet för att hämta en lista över partitioner från den externa kontroll tabellen, iterera över varje partition och göra varje jobb i utskriften kopiera en partition i taget. När varje kopierings jobb börjar kopiera filerna från AWS S3 förlitar sig det på egenskapen LastModifiedTime för att identifiera och kopiera endast nya eller uppdaterade filer. När ett kopierings jobb har slutförts används aktiviteten *lagrad procedur* för att uppdatera statusen för kopiering av varje partition i kontroll tabellen.
 
 Mallen innehåller sju aktiviteter:
 - **Lookup** hämtar partitionerna från en extern kontroll tabell. Tabell namnet är *s3_partition_delta_control_table* och frågan för att läsa in data från tabellen är *"Select distinct PartitionPrefix from s3_partition_delta_control_table"*.

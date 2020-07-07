@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81409773"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera katastrof återställning i skala för virtuella VMware-datorer/fysiska servrar
@@ -26,7 +26,7 @@ Som en del av din strategi för affärs kontinuitet och haveri beredskap (BCDR) 
 - När du planerar för storskalig haveri beredskap för virtuella VMware-datorer och tar reda på vilka Azure-resurser du behöver kan du ange ett RTO-värde som ska användas för kapacitets beräkningar.
 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 Några allmänna metod tips för storskalig katastrof återställning. Dessa metod tips beskrivs i detalj i nästa avsnitt i dokumentet.
 
@@ -64,7 +64,7 @@ Kör sedan planeraren på följande sätt:
 5. Analysera [rapport rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md) och [kostnads uppskattningar](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 >[!NOTE]
-> Som standard är verktyget konfigurerat för att profilera och generera rapporter för upp till 1000 virtuella datorer. Du kan ändra den här gränsen genom att öka nyckel värdet nyckelvärdet i filen ASRDeploymentPlanner. exe. config.
+> Som standard är verktyget konfigurerat för att profilera och generera rapporter för upp till 1000 virtuella datorer. Du kan ändra den här gränsen genom att öka nyckel värdet nyckelvärdet i ASRDeploymentPlanner.exe.config-filen.
 
 ## <a name="plan-target-azure-requirements-and-capacity"></a>Planera mål (Azure) krav och kapacitet
 
@@ -83,7 +83,7 @@ Du kan använda dessa rekommendationer för att planera för Azure-resurser, nä
 
 Vi vill se till att tillgängliga kvoter i mål prenumerationen räcker för att hantera redundans.
 
-**Uppgift** | **Information** | **Åtgärd**
+**Uppgift** | **Detaljer** | **Åtgärd**
 --- | --- | ---
 **Kontrol lera kärnor** | Om kärnor i den tillgängliga kvoten inte är lika med eller överskrider det totala antalet mål vid tidpunkten för redundansväxlingen, kommer redundans att Miss Don. | För virtuella VMware-datorer kontrollerar du att det finns tillräckligt många kärnor i mål prenumerationen för att uppfylla distributions Planerarens kärn rekommendation.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrol lera kvoterna klickar du på **användning + kvoter**i Azure Portal >- **prenumerationen**.<br/><br/> [Läs mer](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) om att öka kvoterna.
 **Kontrol lera begränsningar för redundans** | Antalet redundanser får inte överskrider gränsen för Site Recovery redundans. |  Om redundans överskrider gränserna kan du lägga till prenumerationer och redundansväxla till flera prenumerationer eller öka kvoten för en prenumeration. 
@@ -127,7 +127,7 @@ Det är viktigt att du har tillräckligt med konfigurations servrar och skalbara
  
 Konfigurations serverns kapacitet påverkas av antalet datorer som replikeras, och inte av data omsättnings takten. Använd de här definierade gränserna för virtuella datorer för att ta reda på om du behöver ytterligare konfigurations servrar.
 
-**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Gräns för replikerad dator**
+**Processor** | **Minne** | **Cachelagra disk** | **Gräns för replikerad dator**
  --- | --- | --- | ---
 8 virtuella processorer<br> 2 Sockets * 4 kärnor @ 2,5 GHz | 16 GB | 600 GB | Upp till 550 datorer<br> Förutsätter att varje dator har tre diskar på 100 GB vardera.
 
@@ -153,7 +153,7 @@ Process serverns kapacitet påverkas av data omsättnings taxan och inte av anta
 - Vi rekommenderar att du lägger till en server med den högsta specifikationen. 
 
 
-**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Omsättnings pris**
+**Processor** | **Minne** | **Cachelagra disk** | **Omsättnings pris**
  --- | --- | --- | --- 
 12 virtuella processorer<br> 2 Sockets * 6 kärnor @ 2,5 GHz | 24 GB | 1 GB | Upp till 2 TB per dag
 

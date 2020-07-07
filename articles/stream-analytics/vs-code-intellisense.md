@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394402"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense i Azure Stream Analytics verktyg för Visual Studio Code
@@ -21,9 +21,9 @@ IntelliSense är tillgängligt för [Stream Analytics frågespråk](https://docs
 
 ## <a name="intellisense-features"></a>IntelliSense-funktioner
 
-IntelliSense-funktionerna i Stream Analytics verktyg för VS Code drivs av en språk tjänst. En språk tjänst analyserar din käll kod och ger intelligent kod komplettering baserad på språksemantik. Om en språk tjänst vet att det går att slutföra kan IntelliSense-förslag visas när du skriver. Om du fortsätter att skriva, filtreras en lista över medlemmar, till exempel variabler och metoder, för att bara inkludera medlemmar som innehåller de tecken som du har angett. När du trycker på `Tab` tangenterna eller `Enter` , infogar IntelliSense den medlem som du har valt.
+IntelliSense-funktionerna i Stream Analytics verktyg för VS Code drivs av en språk tjänst. En språk tjänst analyserar din käll kod och ger intelligent kod komplettering baserad på språksemantik. Om en språk tjänst vet att det går att slutföra kan IntelliSense-förslag visas när du skriver. Om du fortsätter att skriva, filtreras en lista över medlemmar, till exempel variabler och metoder, för att bara inkludera medlemmar som innehåller de tecken som du har angett. När du trycker på `Tab` `Enter` tangenterna eller, infogar IntelliSense den medlem som du har valt.
 
-Du kan utlösa IntelliSense i alla redigerings fönster genom att ange ett utlösnings steg, till exempel `.`punkt symbolen.
+Du kan utlösa IntelliSense i alla redigerings fönster genom att ange ett utlösnings steg, till exempel punkt symbolen `.` .
 
 ![autoifyllning av IntelliSense](./media/vs-code-intellisense/auto-completion.gif)
 

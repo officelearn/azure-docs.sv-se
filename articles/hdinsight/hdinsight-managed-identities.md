@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
 ms.openlocfilehash: 1081865a2e138af38ba171197719f08dedf6ffdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408944"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Hanterade identiteter i Azure HDInsight
@@ -46,7 +46,7 @@ Hanterade identiteter används i Azure HDInsight i flera scenarier. Se relaterad
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kundhanterad nyckeldiskkryptering](disk-encryption.md)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>Vad händer om jag tar bort den hanterade identiteten när klustret har skapats?
 

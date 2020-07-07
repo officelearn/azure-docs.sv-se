@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311282"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en säkerhetsmodul på din IoT Edge-enhet
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig hur du distribuerar en säkerhetsmodul på
 
 Använd följande steg för att distribuera en Azure Security Center för IoT-säkerhetsmodulen för IoT Edge.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 1. Kontrol lera att enheten är [registrerad som en IoT Edge enhet](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)i IoT Hub.
 
@@ -179,7 +179,7 @@ Om du stöter på problem är behållar loggarna det bästa sättet att lära si
 
    `sudo docker logs azureiotsecurity`
 
-1. För mer utförliga loggar lägger du till följande miljö variabel i **azureiotsecurity** -modulen distribution: `logLevel=Debug`.
+1. För mer utförliga loggar lägger du till följande miljö variabel i **azureiotsecurity** -modulen distribution: `logLevel=Debug` .
 
 ## <a name="next-steps"></a>Nästa steg
 

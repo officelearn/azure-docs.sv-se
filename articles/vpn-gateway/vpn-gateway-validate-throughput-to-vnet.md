@@ -11,10 +11,10 @@ ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631774"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Verifiera VPN-dataflöde till ett virtuellt nätverk
@@ -67,7 +67,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
  > [!NOTE]
  > Produkter från tredje part som diskuteras i den här artikeln tillverkas av företag som är oberoende av Microsoft. Microsoft ger ingen garanti, underförstådd eller övrigt, om prestandan eller tillförlitligheten för dessa produkter.
 
-### <a name="run-iperf-iperf3exe"></a>Kör iPerf (iperf3. exe)
+### <a name="run-iperf-iperf3exe"></a>Kör iPerf (iperf3.exe)
 
 1. Aktivera en NSG/ACL-regel som tillåter trafiken (för offentlig IP-adress testning på virtuella Azure-datorer).
 
@@ -85,9 +85,9 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
    ```
 
-   **Azure Linux:** Azure Linux-avbildningar har tillåtna brand väggar. Om det finns ett program som lyssnar på en port tillåts trafiken via. Anpassade avbildningar som skyddas kan kräva att portar öppnas explicit. Vanliga brand väggar för Linux OS-lager `iptables`inkluderar `ufw`,, `firewalld`eller.
+   **Azure Linux:** Azure Linux-avbildningar har tillåtna brand väggar. Om det finns ett program som lyssnar på en port tillåts trafiken via. Anpassade avbildningar som skyddas kan kräva att portar öppnas explicit. Vanliga brand väggar för Linux OS-lager inkluderar `iptables` , `ufw` , eller `firewalld` .
 
-1. På noden Server ändrar du till den katalog där iperf3. exe extraheras. Kör sedan iPerf i server läge och Ställ in den så att den lyssnar på port 5001 som följande kommandon:
+1. På noden Server ändrar du till den katalog där iperf3.exe extraheras. Kör sedan iPerf i server läge och Ställ in den så att den lyssnar på port 5001 som följande kommandon:
 
    ```CMD
    cd c:\iperf-3.1.2-win65
@@ -108,7 +108,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
 
    Följande skärm bild visar utdata från det här exemplet:
 
-   ![Resultat](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
+   ![Utdata](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
 1. VALFRITT Kör följande kommando för att bevara test resultaten:
 
@@ -123,27 +123,27 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
 
 ## <a name="test-vms-running-windows"></a>Testa virtuella datorer som kör Windows
 
-### <a name="load-latteexe-onto-the-vms"></a>Läs in latte. exe på de virtuella datorerna
+### <a name="load-latteexe-onto-the-vms"></a>Läs in Latte.exe på de virtuella datorerna
 
-Ladda ned den senaste versionen av [latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+Hämta den senaste versionen av [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Överväg att lägga till latte. exe i en separat mapp, till exempel`c:\tools`
+Överväg att placera Latte.exe i en separat mapp, till exempel`c:\tools`
 
-### <a name="allow-latteexe-through-the-windows-firewall"></a>Tillåt latte. exe via Windows-brandväggen
+### <a name="allow-latteexe-through-the-windows-firewall"></a>Tillåt Latte.exe via Windows-brandväggen
 
-På mottagaren skapar du en Tillåt-regel i Windows-brandväggen så att latte. exe-trafiken kan komma. Det är enklast att tillåta hela latte. exe-programmet efter namn i stället för att tillåta vissa TCP-portar inkommande.
+På mottagaren skapar du en Tillåt-regel i Windows-brandväggen så att Latte.exe trafiken kan komma. Det är enklast att tillåta hela Latte.exe program efter namn istället för att tillåta vissa TCP-portar inkommande.
 
-### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Tillåt latte. exe via Windows-brandväggen som detta
+### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Tillåt Latte.exe via Windows-brandväggen som detta
 
 `netsh advfirewall firewall add rule program=<PATH>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-Om du till exempel har kopierat latte. exe till mappen "c:\Tools", är detta kommandot
+Om du till exempel har kopierat latte.exe till mappen "c:\Tools", är detta kommandot
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Kör svars tids test
 
-Starta latte. exe på mottagaren (kör från CMD, inte från PowerShell):
+Starta latte.exe på mottagaren (kör från CMD, inte från PowerShell):
 
 `latte -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -155,7 +155,7 @@ Om den virtuella datorn har en IP-adress för 10.0.0.4, ser det ut så här
 
 `latte -c -a 10.0.0.4:5005 -i 65100`
 
-Starta latte. exe på avsändaren (kör från CMD, inte från PowerShell)
+Starta latte.exe på avsändaren (kör från CMD, inte från PowerShell)
 
 `latte -c -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -225,7 +225,7 @@ I synnerhet kan analyser av paket fångst spår (wireshark/Network Monitor) som 
 
 Även om det totala data flödet som utvärderas med föregående steg (iPERF/NTTTCP/osv.) var korrekt, kan det hända att du får långsamma fil Kopiera när du antingen använder Utforskaren eller drar och släpper den via en RDP-session. Det här problemet beror vanligt vis på en eller båda av följande faktorer:
 
-* Fil kopierings program, till exempel Utforskaren och RDP, använder inte flera trådar vid kopiering av filer. Använd ett program med flera trådar som [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) för att kopiera filer med hjälp av 16 eller 32 trådar för bättre prestanda. Om du vill ändra tråd numret för fil kopiering i RichCopy klickar **du på** > **alternativet** > **Kopiera fil**kopia.
+* Fil kopierings program, till exempel Utforskaren och RDP, använder inte flera trådar vid kopiering av filer. Använd ett program med flera trådar som [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) för att kopiera filer med hjälp av 16 eller 32 trådar för bättre prestanda. Om du vill ändra tråd numret för fil kopiering i RichCopy klickar **du på**  >  **alternativet**  >  **Kopiera fil**kopia.
 
    ![Problem med långsam fil kopiering](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 

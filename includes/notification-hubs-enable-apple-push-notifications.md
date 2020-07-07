@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -9,10 +9,10 @@ ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81007868"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för certifikat signerings förfrågan
@@ -46,7 +46,7 @@ Registrera sedan din app med Apple, aktivera push-meddelanden och ladda upp den 
 
 Om du vill skicka push-meddelanden till en iOS-App registrerar du ditt program med Apple och registrerar dig även för push-meddelanden.  
 
-1. Om du inte redan har registrerat din app kan du gå till [iOS-etablerings portalen](https://go.microsoft.com/fwlink/p/?LinkId=272456) i Apple Developer Center. Logga in på portalen med ditt Apple-ID och välj **identifierare**. Välj **+** sedan att registrera en ny app.
+1. Om du inte redan har registrerat din app kan du gå till [iOS-etablerings portalen](https://go.microsoft.com/fwlink/p/?LinkId=272456) i Apple Developer Center. Logga in på portalen med ditt Apple-ID och välj **identifierare**. Välj sedan **+** att registrera en ny app.
 
     ![Sidan för App-ID:n i etableringsportalen för iOS](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -167,7 +167,7 @@ I slutet av de här stegen bör du ha följande information för att kunna anvä
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Skapa en etableringsprofil för appen
 
-1. Gå tillbaka till [iOS-etablerings portalen](https://go.microsoft.com/fwlink/p/?LinkId=272456), Välj **certifikat, identifierare & profiler**, Välj **profiler** på den vänstra menyn och välj **+** sedan för att skapa en ny profil. Skärmen **Registrera en ny etablerings profil** visas.
+1. Gå tillbaka till [iOS-etablerings portalen](https://go.microsoft.com/fwlink/p/?LinkId=272456), Välj **certifikat, identifierare & profiler**, Välj **profiler** på den vänstra menyn och välj sedan **+** för att skapa en ny profil. Skärmen **Registrera en ny etablerings profil** visas.
 
 1. Välj **utveckling av iOS-appar** under **utveckling** som etablerings profil typ och välj sedan **Fortsätt**.
 
@@ -186,7 +186,7 @@ I slutet av de här stegen bör du ha följande information för att kunna anvä
     5. Välj **Fortsätt**.
     6. Hämta utvecklings certifikatet och kom ihåg platsen där det sparades.
 
-1. Gå tillbaka till sidan **certifikat, identifierare & profiler** , Välj **profiler** på den vänstra menyn och välj **+** sedan för att skapa en ny profil. Skärmen **Registrera en ny etablerings profil** visas.
+1. Gå tillbaka till sidan **certifikat, identifierare & profiler** , Välj **profiler** på den vänstra menyn och välj sedan **+** för att skapa en ny profil. Skärmen **Registrera en ny etablerings profil** visas.
 
 1. I fönstret **Välj certifikat** väljer du det utvecklings certifikat som du nyss skapade. Välj sedan **Fortsätt**.
 

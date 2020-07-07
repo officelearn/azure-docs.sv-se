@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 213595ac69efc90ec855b2891641e1f00bd1ba92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311551"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
@@ -35,11 +35,11 @@ Enhets rekommendationer ger insikter och förslag för att förbättra position 
 
 | Severity | Name                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Medel   | Öppna portar på enheten                                      | Agent       | En lyssnande slut punkt hittades på enheten.                                                                                                                                                        |
-| Medel   | Princip för att tillåta brand vägg hittas i en av kedjorna. | Agent       | Tillåten brand Väggs princip hittades (indata/utdata). Brand Väggs principen bör neka all trafik som standard och definiera regler för att tillåta nödvändig kommunikation till/från enheten.                               |
-| Medel   | En tillåtande brand Väggs regel i indatamängden hittades     | Agent       | En regel i brand väggen har hittats som innehåller ett tillåtet mönster för en mängd olika IP-adresser eller portar.                                                                                    |
-| Medel   | En tillåtande brand Väggs regel i utgående kedja hittades    | Agent       | En regel i brand väggen har hittats som innehåller ett tillåtet mönster för en mängd olika IP-adresser eller portar.                                                                                   |
-| Medel   | Det gick inte att verifiera operativ systemets bas linje           | Agent       | Enheten är inte kompatibel med [CIS Linux-benchmarks](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
+| Medium   | Öppna portar på enheten                                      | Agent       | En lyssnande slut punkt hittades på enheten.                                                                                                                                                        |
+| Medium   | Princip för att tillåta brand vägg hittas i en av kedjorna. | Agent       | Tillåten brand Väggs princip hittades (indata/utdata). Brand Väggs principen bör neka all trafik som standard och definiera regler för att tillåta nödvändig kommunikation till/från enheten.                               |
+| Medium   | En tillåtande brand Väggs regel i indatamängden hittades     | Agent       | En regel i brand väggen har hittats som innehåller ett tillåtet mönster för en mängd olika IP-adresser eller portar.                                                                                    |
+| Medium   | En tillåtande brand Väggs regel i utgående kedja hittades    | Agent       | En regel i brand väggen har hittats som innehåller ett tillåtet mönster för en mängd olika IP-adresser eller portar.                                                                                   |
+| Medium   | Det gick inte att verifiera operativ systemets bas linje           | Agent       | Enheten är inte kompatibel med [CIS Linux-benchmarks](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
 
 ### <a name="operational-recommendations-for-iot-devices"></a>Drift rekommendationer för IoT-enheter
 
@@ -59,8 +59,8 @@ Rekommendations aviseringar ger insikter och förslag på åtgärder för att f�
 | Severity | Name                                                     | Datakälla | Beskrivning                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Hög     | Identiska autentiseringsuppgifter för autentisering används av flera enheter | IoT Hub     | IoT Hub autentiseringsuppgifter för autentisering används av flera enheter. Detta kan tyda på att en Illegitimate-enhet personifierar en legitim enhet. Dubblett av autentiseringsuppgifter ökar risken för personifiering av enheter av en skadlig aktör. |
-| Medel   | Standard princip för IP-filter ska nekas                  | IoT Hub     | IP-filterlistan måste ha definierade regler för tillåten trafik och ska som standard neka all annan trafik som standard.                                                                                                     |
-| Medel   | IP-filterlistan innehåller stora IP-intervall                   | IoT Hub     | En Tillåt källa för IP-filterlistan är för stor. Överskrivna regler kan exponera IoT-hubben för skadliga aktörer.                                                                                       |
+| Medium   | Standard princip för IP-filter ska nekas                  | IoT Hub     | IP-filterlistan måste ha definierade regler för tillåten trafik och ska som standard neka all annan trafik som standard.                                                                                                     |
+| Medium   | IP-filterlistan innehåller stora IP-intervall                   | IoT Hub     | En Tillåt källa för IP-filterlistan är för stor. Överskrivna regler kan exponera IoT-hubben för skadliga aktörer.                                                                                       |
 | Låg      | Aktivera diagnostikloggar i IoT Hub                       | IoT Hub     | Aktivera loggar och behåll dem i upp till ett år. Om du behåller loggarna kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras.                                       |
 |
 

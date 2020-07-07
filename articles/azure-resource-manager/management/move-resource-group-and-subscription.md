@@ -4,10 +4,10 @@ description: Använd Azure Resource Manager för att flytta resurser till en ny 
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631506"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
@@ -147,7 +147,7 @@ retry-after: 15
 ...
 ```
 
-Status koden 202 visar att verifierings förfrågan godtogs, men den har ännu inte fastställts om flytt åtgärden lyckas. `location` Värdet innehåller en URL som du använder för att kontrol lera status för den tids krävande åtgärden.  
+Status koden 202 visar att verifierings förfrågan godtogs, men den har ännu inte fastställts om flytt åtgärden lyckas. `location`Värdet innehåller en URL som du använder för att kontrol lera status för den tids krävande åtgärden.  
 
 Skicka följande begäran för att kontrol lera statusen:
 
@@ -194,13 +194,13 @@ $plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
-Om du vill flytta till en ny prenumeration anger du ett värde `DestinationSubscriptionId` för parametern.
+Om du vill flytta till en ny prenumeration anger du ett värde för `DestinationSubscriptionId` parametern.
 
 Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration](troubleshoot-move.md).
 
 ## <a name="use-azure-cli"></a>Använda Azure CLI
 
-Om du vill flytta befintliga resurser till en annan resurs grupp eller prenumeration använder du kommandot [AZ Resource Move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) . Ange resurs-ID för de resurser som ska flyttas. I följande exempel visas hur du flyttar flera resurser till en ny resurs grupp. I- `--ids` parametern anger du en blankstegsavgränsad lista över resurs-ID: n som ska flyttas.
+Om du vill flytta befintliga resurser till en annan resurs grupp eller prenumeration använder du kommandot [AZ Resource Move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) . Ange resurs-ID för de resurser som ska flyttas. I följande exempel visas hur du flyttar flera resurser till en ny resurs grupp. I `--ids` -parametern anger du en blankstegsavgränsad lista över resurs-ID: n som ska flyttas.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -208,7 +208,7 @@ plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/s
 az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
-Ange `--destination-subscription-id` parametern om du vill flytta till en ny prenumeration.
+Ange parametern om du vill flytta till en ny prenumeration `--destination-subscription-id` .
 
 Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration](troubleshoot-move.md).
 

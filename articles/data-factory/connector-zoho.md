@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 50d893ef42c7b870d5fbf2be1feed798d46c86a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81409980"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Kopiera data från Zoho med Azure Data Factory (för hands version)
@@ -48,10 +48,10 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten Zoho:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **Zoho** | Ja |
-| slutpunkt | Slut punkten för Zoho-servern (`crm.zoho.com/crm/private`). | Ja |
+| slutpunkt | Slut punkten för Zoho-servern ( `crm.zoho.com/crm/private` ). | Ja |
 | accessToken | Åtkomsttoken för Zoho-autentisering. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
 | useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Nej |
@@ -81,7 +81,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Zoho anger du egenskapen type för data uppsättningen till **ZohoObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **ZohoObject** | Ja |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -111,10 +111,10 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Zoho anger du käll typen i kopierings aktiviteten till **ZohoSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **ZohoSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om "tableName" i data uppsättningen har angetts) |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Accounts"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 

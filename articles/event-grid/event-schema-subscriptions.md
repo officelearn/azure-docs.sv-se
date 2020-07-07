@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393227"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Azure-prenumeration som en Event Grid källa
@@ -20,11 +20,11 @@ Den här artikeln innehåller egenskaper och schema för prenumerations händels
 
 Azure-prenumerationer och resurs grupper genererar samma händelse typer. Händelse typerna är relaterade till resurs ändringar eller åtgärder. Den främsta skillnaden är att resurs grupper genererar händelser för resurser i resurs gruppen och Azure-prenumerationer genererar händelser för resurser i prenumerationen.
 
-Resurs händelser skapas för åtgärderna skicka, korrigera, skicka och ta bort `management.azure.com`. GET-åtgärder skapar inte händelser. Åtgärder som skickas till data planet (som `myaccount.blob.core.windows.net`) skapar inte händelser. Åtgärds händelser innehåller händelse data för åtgärder som att Visa nycklar för en resurs.
+Resurs händelser skapas för åtgärderna skicka, korrigera, skicka och ta bort `management.azure.com` . GET-åtgärder skapar inte händelser. Åtgärder som skickas till data planet (som `myaccount.blob.core.windows.net` ) skapar inte händelser. Åtgärds händelser innehåller händelse data för åtgärder som att Visa nycklar för en resurs.
 
 När du prenumererar på händelser för en Azure-prenumeration får slut punkten alla händelser för den prenumerationen. Händelserna kan innehålla händelser som du vill se, till exempel uppdatering av en virtuell dator, men även händelser som kanske inte är viktiga för dig, till exempel att skriva en ny post i distributions historiken. Du kan ta emot alla händelser vid slut punkten och skriva kod som bearbetar de händelser som du vill hantera. Du kan också ange ett filter när du skapar händelse prenumerationen.
 
-Om du vill hantera händelser program mässigt kan du sortera händelser genom att titta på `operationName` värdet. Till exempel kan händelse slut punkten bara bearbeta händelser för åtgärder som är lika med `Microsoft.Compute/virtualMachines/write` eller. `Microsoft.Storage/storageAccounts/write`
+Om du vill hantera händelser program mässigt kan du sortera händelser genom att titta på `operationName` värdet. Till exempel kan händelse slut punkten bara bearbeta händelser för åtgärder som är lika med `Microsoft.Compute/virtualMachines/write` eller `Microsoft.Storage/storageAccounts/write` .
 
 Händelsens ämne är resurs-ID för den resurs som är mål för åtgärden. För att filtrera händelser för en resurs, ange resurs-ID när du skapar händelse prenumerationen. Om du vill filtrera efter en resurs typ använder du ett värde i följande format:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
@@ -49,7 +49,7 @@ Azure-prenumerationer genererar hanterings händelser från Azure Resource Manag
 
 ### <a name="example-event"></a>Exempel händelse
 
-I följande exempel visas schemat för en **ResourceWriteSuccess** -händelse. Samma schema används för **ResourceWriteFailure** -och **ResourceWriteCancel** -händelser med olika värden för `eventType`.
+I följande exempel visas schemat för en **ResourceWriteSuccess** -händelse. Samma schema används för **ResourceWriteFailure** -och **ResourceWriteCancel** -händelser med olika värden för `eventType` .
 
 ```json
 [{
@@ -109,7 +109,7 @@ I följande exempel visas schemat för en **ResourceWriteSuccess** -händelse. S
 }]
 ```
 
-I följande exempel visas schemat för en **ResourceDeleteSuccess** -händelse. Samma schema används för **ResourceDeleteFailure** -och **ResourceDeleteCancel** -händelser med olika värden för `eventType`.
+I följande exempel visas schemat för en **ResourceDeleteSuccess** -händelse. Samma schema används för **ResourceDeleteFailure** -och **ResourceDeleteCancel** -händelser med olika värden för `eventType` .
 
 ```json
 [{
@@ -175,7 +175,7 @@ I följande exempel visas schemat för en **ResourceDeleteSuccess** -händelse. 
 }]
 ```
 
-I följande exempel visas schemat för en **ResourceActionSuccess** -händelse. Samma schema används för **ResourceActionFailure** -och **ResourceActionCancel** -händelser med olika värden för `eventType`.
+I följande exempel visas schemat för en **ResourceActionSuccess** -händelse. Samma schema används för **ResourceActionFailure** -och **ResourceActionCancel** -händelser med olika värden för `eventType` .
 
 ```json
 [{   

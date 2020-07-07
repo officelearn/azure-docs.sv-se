@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
 ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311567"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
 
 Den här artikeln beskriver Azure Security Center för IoT-prismodellen, sammanfattar alla associerade kostnader och förklarar hur du hanterar dem.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Azure Security Center för IoT-prismodellen består av två delar och faktureras när en IoT Hub [aktive ras](quickstart-onboard-iot-hub.md) i Azure Security Center för IoT:
 

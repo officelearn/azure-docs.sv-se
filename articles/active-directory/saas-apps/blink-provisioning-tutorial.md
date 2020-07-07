@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: 314445275f99898913bd91eb8abc2a5acdab098a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81381030"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Blink för automatisk användar etablering
@@ -31,7 +31,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -54,7 +54,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 ## <a name="setup-blink-for-provisioning"></a>Konfigurera blinkning för etablering
 
-1. Logga ett [support ärende](https://support.joinblink.com) eller skicka ett e- support@joinblink.com postmeddelande till **blinkande** för att begära en scim-token. .
+1. Logga ett [support ärende](https://support.joinblink.com) eller skicka ett e-postmeddelande till **blinkande** support@joinblink.com för att begära en scim-token. .
 
 2.  Kopiera **scim-autentiseringstoken**. Det här värdet anges i fältet Hemlig token på fliken etablering i programmet blinkar i Azure Portal.
 

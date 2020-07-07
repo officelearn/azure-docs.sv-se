@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407179"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i e-postinbjudanen B2B – Azure Active Directory
@@ -36,11 +36,11 @@ Nu ska vi titta på några av de olika elementen i e-postmeddelandet så att du 
 
 Ämnet för e-postmeddelandet följer det här mönstret:
 
-&lt;användar&gt; namnet uppmanade dig att få åtkomst till program i organisationen.
+&lt;användar namnet &gt; uppmanade dig att få åtkomst till program i organisationen.
 
 ### <a name="from-address"></a>Avsändaradress
 
-Vi använder ett LinkedIn-liknande mönster för från-adressen. Detta mönster bör göra det tydligt att även om e-postmeddelandet kommer från invites@microsoft.comen annan organisation. Formatet är: Microsoft-inbjudningar <invites@microsoft.com> eller Microsoft-inbjudningar å &lt;tenantname&gt; <invites@microsoft.com>vägnar. 
+Vi använder ett LinkedIn-liknande mönster för från-adressen. Detta mönster bör göra det tydligt att även om e-postmeddelandet kommer från invites@microsoft.com en annan organisation. Formatet är: Microsoft-inbjudningar  <invites@microsoft.com> eller Microsoft-inbjudningar å &lt; tenantname vägnar &gt;  <invites@microsoft.com> . 
 
 ### <a name="reply-to"></a>Svara på
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: spelluru
 ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394337"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services som en Event Grid källa
@@ -47,7 +47,7 @@ Ett jobb kan innehålla flera jobb utdata (om du har konfigurerat transformering
 
 Varje **jobb** kommer att finnas på en högre nivå än **JobOutput**, vilket innebär att jobb utmatnings händelser utlöses i ett motsvarande jobb. 
 
-Fel meddelandena i `JobFinished`, `JobCanceled`, ger `JobError` ut de sammanställda resultaten för varje jobb-utdata – när alla är klara. De jobb utmatnings händelser som utlöses när varje aktivitet slutförs. Om du till exempel har en kodning av utdata, följt av video analys, så får du två händelser som utgångs händelser innan den slutliga JobFinished-händelsen utlöses med sammanställda data.
+Fel meddelandena i `JobFinished` , `JobCanceled` , ger `JobError` ut de sammanställda resultaten för varje jobb-utdata – när alla är klara. De jobb utmatnings händelser som utlöses när varje aktivitet slutförs. Om du till exempel har en kodning av utdata, följt av video analys, så får du två händelser som utgångs händelser innan den slutliga JobFinished-händelsen utlöses med sammanställda data.
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
@@ -671,4 +671,4 @@ En händelse har följande data på översta nivån:
 
 - [EventGrid .NET SDK som innehåller media service-händelser](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitioner av Media Services händelser](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Felkoder för livehändelser](../media-services/latest/live-event-error-codes.md)
+- [Fel koder för Live-händelse](../media-services/latest/live-event-error-codes.md)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: fbc2cbc29cb23a21e7d3713091fc22f01bb1b15a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81379820"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Fråga efter data från Azure Time Series Insights Preview-miljö med C #
@@ -23,7 +23,7 @@ ms.locfileid: "81379820"
 Det här C#-exemplet visar hur du frågar efter data från [API: erna för för hands versions data åtkomst](https://docs.microsoft.com/rest/api/time-series-insights/preview) i Azure Time Series Insights Preview-miljöer.
 
 > [!TIP]
-> Visa för hands version av C# [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)-kod exempel på.
+> Visa för hands version av C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample) .
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -50,7 +50,7 @@ Slutför följande steg innan du kompilerar och kör exempel koden:
 
 1. [Etablera en förhands granskning Azure Time Series Insightss](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) miljö.
 1. Konfigurera din Azure Time Series Insightss miljö för Azure Active Directory enligt beskrivningen i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). 
-1. Kör [GenerateCode. bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) enligt vad som anges i [Readme.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) för att generera Time Series Insights för hands versions klient beroenden.
+1. Kör [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) som anges i [Readme.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) för att generera Time Series Insights för hands versions klient beroenden.
 1. Öppna `TSIPreviewDataPlaneclient.sln` lösningen och ange `DataPlaneClientSampleApp` som standard projekt i Visual Studio.
 1. Installera de nödvändiga projekt beroendena med stegen som beskrivs [nedan](#project-dependencies) och kompilera exemplet till en körbar `.exe` fil.
 1. Kör `.exe` filen genom att dubbelklicka på den.
@@ -61,11 +61,11 @@ Vi rekommenderar att du använder den senaste versionen av Visual Studio:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -version 16.4.2 +
 
-Exempel koden har flera nödvändiga beroenden som kan visas i filen [packages. config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config) .
+Exempel koden har flera obligatoriska beroenden som kan visas i [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config) -filen.
 
-Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build** > **build-lösning** . 
+Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build**  >  **build-lösning** . 
 
-Du kan också lägga till varje paket med [NuGet 2.12 +](https://www.nuget.org/). Ett exempel:
+Du kan också lägga till varje paket med [NuGet 2.12 +](https://www.nuget.org/). Till exempel:
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 

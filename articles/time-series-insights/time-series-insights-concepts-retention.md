@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81380694"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå data kvarhållning i Azure Time Series Insights
@@ -90,7 +90,7 @@ I den påverkade Event Hubs bör du överväga att justera egenskapen för **kva
 
 [![Kvarhållning av Event Hub-meddelande.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Om inga egenskaper har kon figurer ATS på händelse`timeStampPropertyName`källan () Time Series Insights standardvärdet för tidsstämpeln för ankomst till Händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelserna parsas.
+Om inga egenskaper har kon figurer ATS på händelse källan ( `timeStampPropertyName` ) Time Series Insights standardvärdet för tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelserna parsas.
 
 Läs [hur du skalar din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md) för att skala din miljö för att hantera ytterligare kapacitet eller öka längden på kvarhållning.
 

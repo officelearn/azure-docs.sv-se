@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414931"
 ---
-# <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser via exempel
+# <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory-priser genom exempel
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -53,10 +53,10 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 **Pris för total scenario: $0,16811**
 
 - Data Factory åtgärder = **$0,0001**
-  - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
-  - Övervakning = 2\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
-- &amp; Körning av pipeline-dirigering = **$0,168**
-  - Aktivitet körs = 001\*2 = 0,002 [1 körning = $1/1000 = 0,001]
+  - Läs/Skriv = 10 \* 00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 2 \* 000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- Körning av pipeline-dirigering &amp; = **$0,168**
+  - Aktivitet körs = 001 \* 2 = 0,002 [1 körning = $1/1000 = 0,001]
   - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Kopiera data och transformera med Azure Databricks varje timme
@@ -85,10 +85,10 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 **Pris för total scenario: $0,16916**
 
 - Data Factory åtgärder = **$0,00012**
-  - Läs/skriv = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
-  - Övervakning = 3\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
-- &amp; Körning av pipeline-dirigering = **$0,16904**
-  - Aktivitet körs = 001\*3 = 0,003 [1 körning = $1/1000 = 0,001]
+  - Läs/skriv = 11 \* 00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 3 \* 000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- Körning av pipeline-dirigering &amp; = **$0,16904**
+  - Aktivitet körs = 001 \* 3 = 0,003 [1 körning = $1/1000 = 0,001]
   - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
   - Extern pipeline-aktivitet = $0,000041 (beräknat i 10 minuters körnings tid. $0.00025/timme på Azure Integration Runtime)
 
@@ -120,10 +120,10 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 **Pris för total scenario: $0,17020**
 
 - Data Factory åtgärder = **$0,00013**
-  - Läs/skriv = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
-  - Övervakning = 4\*000005 = $0,00002 [1 övervakning = $0,25/50000 = 0,000005]
-- &amp; Körning av pipeline-dirigering = **$0,17007**
-  - Aktivitet körs = 001\*4 = 0,004 [1 körning = $1/1000 = 0,001]
+  - Läs/skriv = 11 \* 00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 4 \* 000005 = $0,00002 [1 övervakning = $0,25/50000 = 0,000005]
+- Körning av pipeline-dirigering &amp; = **$0,17007**
+  - Aktivitet körs = 001 \* 4 = 0,004 [1 körning = $1/1000 = 0,001]
   - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
   - Pipeline-aktivitet = $0,00003 (beräknas för 1 minuters körnings tid. $0.002/timme på Azure Integration Runtime)
   - Extern pipeline-aktivitet = $0,000041 (beräknat i 10 minuters körnings tid. $0.00025/timme på Azure Integration Runtime)
@@ -161,10 +161,10 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 **Pris för total scenario: $1,4631**
 
 - Data Factory åtgärder = **$0,0001**
-  - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
-  - Övervakning = 2\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
-- &amp; Körning av pipeline-dirigering = **$1,463**
-  - Aktivitet körs = 001\*2 = 0,002 [1 körning = $1/1000 = 0,001]
+  - Läs/Skriv = 10 \* 00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 2 \* 000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- Körning av pipeline-dirigering &amp; = **$1,463**
+  - Aktivitet körs = 001 \* 2 = 0,002 [1 körning = $1/1000 = 0,001]
   - Data flödes aktiviteter = $1,461 beräknat i 20 minuter (10 minuter körnings tid + 10 minuter TTL). $0.274/timme på Azure Integration Runtime med 16 kärnor allmän beräkning
 
 ## <a name="next-steps"></a>Nästa steg
@@ -173,6 +173,6 @@ Nu när du förstår priserna för Azure Data Factory kan du komma igång!
 
 - [Skapa en data fabrik med hjälp av Azure Data Factory gränssnittet](quickstart-create-data-factory-portal.md)
 
-- [Introduktion till Azure Data Factory](introduction.md)
+- [introduktion till Azure Data Factory](introduction.md)
 
 - [Visuell redigering i Azure Data Factory](author-visually.md)

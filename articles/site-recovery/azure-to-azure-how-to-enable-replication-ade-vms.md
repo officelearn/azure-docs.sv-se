@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408624"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region
@@ -42,7 +42,7 @@ Om du vill aktivera replikering av disk kryptering – aktiverade virtuella dato
 
 Om du vill hantera behörigheter går du till Key Vault-resursen i portalen. Lägg till de behörigheter som krävs för användaren. I följande exempel visas hur du aktiverar behörigheter till Key Vault- *ContosoWeb2Keyvault*, som finns i käll regionen.
 
-1. Gå till **Start** > **Keyvaults** > -**ContosoWeb2KeyVault > åtkomst principer**.
+1. Gå till **Start**-  >  **Keyvaults**  >  **ContosoWeb2KeyVault > åtkomst principer**.
 
    ![Fönstret behörigheter för nyckel valv](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
@@ -60,9 +60,9 @@ Information om hur du felsöker behörigheter finns i [behörighets problem i Ke
 ## <a name="copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script"></a>Kopiera disk krypterings nycklar till DR-regionen med hjälp av PowerShell-skriptet
 
 1. [Öppna den råa skript koden "CopyKeys"](https://aka.ms/ade-asr-copy-keys-code).
-2. Kopiera skriptet till en fil och ge det namnet **copy-Keys. ps1**.
+2. Kopiera skriptet till en fil och namnge det **Copy-keys.ps1**.
 3. Öppna Windows PowerShell-programmet och gå till mappen där du sparade filen.
-4. Kör Copy-Keys. ps1.
+4. Kör Copy-keys.ps1.
 5. Ange Azure-autentiseringsuppgifter för att logga in.
 6. Välj **Azure-prenumerationen** för dina virtuella datorer.
 7. Vänta tills resurs grupperna har lästs in och välj sedan **resurs gruppen** för dina virtuella datorer.
@@ -86,7 +86,7 @@ I det här exemplet är den primära Azure-regionen Asien, östra och den sekund
     - **Käll prenumeration**: den prenumeration som dina virtuella käll datorer tillhör. Det kan vara vilken prenumeration som helst i samma Azure Active Directory klient organisation som Recovery Services-valvet.
     - **Resurs grupp**: resurs gruppen som de virtuella käll datorerna tillhör. Alla virtuella datorer i den valda resurs gruppen visas som skydd i nästa steg.
 
-3. I **Virtual Machines** > **Välj virtuella datorer**väljer du varje virtuell dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Välj sedan **OK**.
+3. I **Virtual Machines**  >  **Välj virtuella datorer**väljer du varje virtuell dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Välj sedan **OK**.
 
 4. I **Inställningar**kan du konfigurera följande inställningar för mål platsen.
 
@@ -118,7 +118,7 @@ Följ dessa steg om du vill ändra Site Recovery inställningarna för standard 
    - För **mål diskens krypterings nyckel valv**väljer du mål diskens krypterings nyckel valv i listan över nyckel valv i prenumerationens mål plats.
    - Välj nyckel valv för nyckel valv i listan över nyckel valv på mål platsen för prenumerationen för nyckel **valv för mål nyckel**.
 
-3. Välj **skapa mål resurs** > **Aktivera replikering**.
+3. Välj **skapa mål resurs**  >  **Aktivera replikering**.
 4. När de virtuella datorerna har Aktiver ATS för replikering kan du kontrol lera de virtuella datorernas hälso status under **replikerade objekt**.
 
 >[!NOTE]
@@ -129,7 +129,7 @@ I följande fall måste du uppdatera den virtuella mål datorns krypterings inst
   - Du har aktiverat Site Recovery replikering på den virtuella datorn. Senare har du aktiverat disk kryptering på den virtuella käll datorn.
   - Du har aktiverat Site Recovery replikering på den virtuella datorn. Senare ändrades disk krypterings nyckeln eller nyckel krypterings nyckeln på den virtuella käll datorn.
 
-Du kan använda [ett skript](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) för att kopiera krypterings nycklarna till mål regionen och sedan uppdatera inställningarna för mål kryptering i **Recovery Services-valv** > *replikerat objekt* > **Egenskaper** > **Compute och Network**.
+Du kan använda [ett skript](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) för att kopiera krypterings nycklarna till mål regionen och sedan uppdatera inställningarna för mål kryptering i **Recovery Services-valv**  >  *replikerat objekt*  >  **Egenskaper**  >  **Compute och Network**.
 
 ![Dialog rutan Uppdatera inställningar för ADE-fönstret](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
@@ -141,7 +141,7 @@ Azure Site Recovery kräver minst Läs behörighet för käll områdets nyckel v
 **Så här åtgärdar du:** Oavsett om du är prenumerations administratör eller inte, är det viktigt att du har behörighet för nyckel valvet.
 
 1. Gå till nyckel valvet för käll regionen som i det här exemplet är "ContososourceKeyvault" > **åtkomst principer** 
-2. Under **Välj huvud** namn lägger du till ditt användar namn tilldradmin@contoso.comexempel: ""
+2. Under **Välj huvud** namn lägger du till ditt användar namn till exempel: " dradmin@contoso.com "
 3. Under **nyckel behörigheter** väljer du hämta 
 4. Under **hemlig behörighet** väljer du hämta 
 5. Spara åtkomst principen
@@ -153,7 +153,7 @@ Du har alla behörigheter för käll region nyckel valvet. Men under skyddet vä
 
 Behörighet krävs för [mål nyckel valvet](#required-user-permissions)
 
-**Så här åtgärdar du:** Gå till **Start** > **Keyvaults** > -**ContosotargetKeyvault** > **åtkomst principer** och Lägg till lämpliga behörigheter.
+**Så här åtgärdar du:** Gå till **Start**-  >  **Keyvaults**  >  **ContosotargetKeyvault**  >  **åtkomst principer** och Lägg till lämpliga behörigheter.
 
 ## <a name="next-steps"></a>Nästa steg
 

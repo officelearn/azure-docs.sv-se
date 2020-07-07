@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410204"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiera data från en webb tabell med hjälp av Azure Data Factory
@@ -43,7 +43,7 @@ Du kan kopiera data från webb tabell databasen till alla mottagar data lager so
 
 Mer specifikt stöder den här webb tabell anslutningen **extrahering av tabell innehåll från en HTML-sida**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här webb tabell anslutningen måste du konfigurera en egen värd Integration Runtime. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
 
@@ -57,7 +57,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för länkad webb tabell tjänst:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **webb** |Ja |
 | url | URL till webb adressen |Ja |
@@ -89,7 +89,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från en webb tabell anger du egenskapen type för data uppsättningen till **webtable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **Webtable** | Ja |
 | path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
@@ -162,7 +162,7 @@ Om du vill hämta indexet för en tabell som du behöver konfigurera i [data upp
 2. Klicka på **ny fråga** i verktygsfältet, peka på **från andra källor** och klicka på **från webben**.
 
     ![Power Query-menyn](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. I dialog rutan **från webben** anger du den **URL** som du skulle använda i länkad tjänst-JSON (till https://en.wikipedia.org/wiki/) exempel: tillsammans med sökvägen som du anger för data uppsättningen (till exempel: AFI% 27s_100_Years... 100_Movies) och klicka på **OK**.
+3. I dialog rutan **från webben** anger du den **URL** som du skulle använda i länkad tjänst-JSON (till exempel: https://en.wikipedia.org/wiki/) tillsammans med sökvägen som du anger för data UPPSÄTTNINGEN (till exempel: AFI% 27s_100_Years... 100_Movies) och klicka på **OK**.
 
     ![Från webben-dialog](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

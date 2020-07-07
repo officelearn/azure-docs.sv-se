@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3197ac3033c6550b72bdfdf39fd23c55dda20d90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82134239"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>Självstudie: konfigurera nya Relic efter organisation för automatisk användar etablering
@@ -35,7 +35,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både nya Relic 
 > * Etablera grupper och grupp medlemskap i nya Relic efter organisation
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/new-relic-limited-release-tutorial) till New Relic efter organisation (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 

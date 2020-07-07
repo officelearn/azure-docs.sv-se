@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 8278d9f2129ab8b213cf1b561f4b82b56dffc8da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131042"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Skapa och etablera en simulerad IoT Edge enhet med en virtuell TPM i Windows
@@ -31,7 +31,7 @@ Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT
 > [!TIP]
 > I den här artikeln beskrivs hur du testar automatisk etablering genom att använda TPM-attestering på virtuella enheter, men det är mycket som gäller när du använder den fysiska TPM-maskinvaran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Windows-utvecklings dator. Den här artikeln använder Windows 10.
 * En aktiv IoT Hub.
@@ -67,7 +67,7 @@ Simulerad enhet och enskilda registrerings guider:
 
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C #](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
+* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 

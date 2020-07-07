@@ -9,10 +9,10 @@ ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82098534"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Distribuera virtuella datorer till närhets placerings grupper med hjälp av PowerShell
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator i närhets placerings `-ProximityPlacementGroup $ppg.Id` gruppen med hjälp av för att referera till närhets grupp-ID: t när du använder [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) för att skapa den virtuella datorn.
+Skapa en virtuell dator i närhets placerings gruppen med hjälp av `-ProximityPlacementGroup $ppg.Id` för att referera till närhets grupp-ID: t när du använder [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) för att skapa den virtuella datorn.
 
 ```azurepowershell-interactive
 $vmName = "myVM"

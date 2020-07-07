@@ -17,13 +17,13 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086138"
 ---
-# <a name="what-sap-software-is-supported-for-azure-deployments"></a>Vad SAP-programvara stöds för Azure-distributioner
+# <a name="what-sap-software-is-supported-for-azure-deployments"></a>Vilken SAP-programvara stöds för Azure-distributioner
 Den här artikeln beskriver hur du kan ta reda på vilka SAP-program som stöds för Azure-distributioner och vilka operativ Systems utgåvor eller DBMS-versioner som behövs.
 
 Utvärdera, om din aktuella SAP-programvara stöds och vilka OS-och DBMS-versioner som stöds med din SAP-program vara i Azure, kommer du att behöva åtkomst till:

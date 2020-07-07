@@ -9,10 +9,10 @@ ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82085152"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrunds aktiviteter med WebJobs i Azure App Service
@@ -51,7 +51,7 @@ Följande filtyper stöds:
 * . sh (med bash)
 * . php (med PHP)
 * . py (med python)
-* . js (med Node. js)
+* . js (med Node.js)
 * . jar (med Java)
 
 ## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a>Skapa ett kontinuerligt webbjobb
@@ -78,7 +78,7 @@ when making changes in one don't forget the other two.
    | Inställningen      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
    | **Namn** | myContinuousWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_". |
-   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
+   | **Fil uppladdning** | ConsoleApp.zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
    | **Typ** | Kontinuerlig igenkänning | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Skala** | Flera instanser | Endast tillgängligt för kontinuerliga WebJobs. Bestämmer om programmet eller skriptet körs på alla instanser eller bara en instans. Alternativet att köra på flera instanser gäller inte för [pris nivåerna](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)kostnads fri eller delad. | 
 
@@ -116,7 +116,7 @@ when making changes in one don't forget the other two.
    | Inställningen      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
    | **Namn** | myTriggeredWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_".|
-   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
+   | **Fil uppladdning** | ConsoleApp.zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
    | **Typ** | Utlöses | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Utlösare** | Manuell | |
 
@@ -154,7 +154,7 @@ when making changes in one don't forget the other two.
    | Inställningen      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
    | **Namn** | myScheduledWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_". |
-   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
+   | **Fil uppladdning** | ConsoleApp.zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
    | **Typ** | Utlöses | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Utlösare** | Schemalagd | Aktivera funktionen Always on för att schemalägga arbetet på ett tillförlitligt sätt. Always On är bara tillgängligt på pris nivåerna Basic, standard och Premium.|
    | **CRON-uttryck** | 0 0/20 * * * * | [Cron-uttryck](#ncrontab-expressions) beskrivs i följande avsnitt. |

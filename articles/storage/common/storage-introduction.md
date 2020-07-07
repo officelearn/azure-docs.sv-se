@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133787"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduktion till Core Azure Storage Services
@@ -23,7 +23,7 @@ Azure Storages plattformen är Microsofts moln lagrings lösning för moderna da
 - **Skydda.** Alla data som skrivs till ett Azure Storage-konto krypteras av tjänsten. Med Azure Storage får du detaljerad kontroll över vem som har tillgång till dina data.
 - **Scalable.** Azure Storage är utformat för att vara mycket skalbart för att uppfylla krav på datalagring och prestanda för dagens program.
 - **Leda.** Azure hanterar maskin varu underhåll, uppdateringar och kritiska problem åt dig.
-- **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller klient bibliotek för Azure Storage på flera olika språk, inklusive .NET, Java, Node. js, python, PHP, ruby, go, och en vuxen REST API. Azure Storage stöder skriptning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
+- **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller klient bibliotek för Azure Storage på flera olika språk, t. ex. .NET, Java, Node.js, python, PHP, ruby, go med mera, samt en vuxen REST API. Azure Storage stöder skriptning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
 
 ## <a name="core-storage-services"></a>Kärn lagrings tjänster
 
@@ -46,7 +46,7 @@ I följande tabell jämförs filer, blobbar, diskar, köer och tabeller, och exe
 | **Azure Files** |Erbjuder fullständigt hanterade moln fil resurser som du kan komma åt var som helst via SMB-protokollet (Server Message Block) i branschen.<br><br>Du kan montera Azure-filresurser från molnet eller lokala distributioner av Windows, Linux och macOS. | Du vill "lyfta och byta" ett program till molnet som redan använder inbyggda API: er för fil system för att dela data mellan dem och andra program som körs i Azure.<br/><br/>Du vill ersätta eller komplettera lokala fil servrar eller NAS-enheter.<br><br> Du vill lagra utvecklings-och fel söknings verktyg som behöver nås från många virtuella datorer. |
 | **Azure-blobar** | Tillåter att ostrukturerade data lagras och används i en enorm skala i block-blobar.<br/><br/>Stöder också [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) för företags lösningar för Big data analys. | Du vill att ditt program ska stödja strömnings-och slumpmässiga åtkomst scenarier.<br/><br/>Du vill kunna komma åt program data var som helst.<br/><br/>Du vill skapa ett företags data Lake på Azure och utföra stor data analys. |
 | **Azure-diskar** | Tillåter att data lagras permanent och nås från en ansluten virtuell hård disk. | Du vill använda "lyft och Shift"-program som använder interna fil system-API: er för att läsa och skriva data till beständiga diskar.<br/><br/>Du vill lagra data som inte behöver nås från utanför den virtuella dator som disken är ansluten till. |
-| **Azure-köer** | Tillåter asynkron meddelande kön mellan program komponenter. | Du vill koppla bort program komponenter och använda asynkrona meddelanden för att kommunicera mellan dem.<br><br>Information om hur du använder Queue Storage och Service Bus köer finns i [lagrings köer och Service Bus köer – jämförelse och kontrast](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Azure Queues** | Tillåter asynkron meddelande kön mellan program komponenter. | Du vill koppla bort program komponenter och använda asynkrona meddelanden för att kommunicera mellan dem.<br><br>Information om hur du använder Queue Storage och Service Bus köer finns i [lagrings köer och Service Bus köer – jämförelse och kontrast](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Azure-tabeller** | Gör att du kan lagra strukturerade NoSQL-data i molnet och tillhandahålla ett nyckel-attributarkiv med en schema lös design. | Du vill lagra flexibla data uppsättningar som användar data för webb program, adress böcker, enhets information eller andra typer av metadata som din tjänst kräver. <br/><br/>Information om hur du använder tabell lagring jämfört med Azure Cosmos DB Tabell-API finns i [utveckla med Azure Cosmos DB tabell-API och Azure Table Storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Blob Storage
@@ -137,7 +137,7 @@ För att säkerställa att dina data är beständiga, Azure Storage lagra flera 
 
 Du kan flytta data till eller från Azure Storage på flera olika sätt. Vilket alternativ du väljer beror på storleken på datauppsättningen och din nätverksbandbredd. Mer information finns i [Välja en Azure-lösning för dataöverföring](storage-choose-data-transfer-solution.md).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 När du fattar beslut om hur dina data lagras och används bör du också tänka på vilka kostnader som ingår. Mer information finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -150,7 +150,7 @@ Du kan komma åt resurser i ett lagrings konto på valfritt språk som kan göra
 - [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
 - [Azure Storage klient bibliotek för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Azure Storage klient bibliotek för Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Azure Storage klient bibliotek för Node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Azure Storage klient bibliotek för Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Azure Storage klient bibliotek för python](https://github.com/Azure/azure-storage-python)
 - [Azure Storage klient bibliotek för PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage klient bibliotek för ruby](https://github.com/Azure/azure-storage-ruby)

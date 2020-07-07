@@ -9,16 +9,16 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: cee97fddc619840de821ebb70d32e0cab1bbe040
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82106533"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Koda EDIFACT-meddelanden för Azure Logic Apps med Enterprise-integrationspaket
 
-Med koda EDIFACT Message Connector kan du verifiera egenskaper för EDI och partner, generera ett XML-dokument för varje transaktions uppsättning och begära en teknisk bekräftelse, funktions bekräftelse eller både och.
-Om du vill använda den här anslutningen måste du lägga till anslutningen till en befintlig utlösare i din Logic app.
+Med anslutningsappen för EDIFACT-meddelanden kan du verifiera EDI-egenskaper och partnerspecifika egenskaper, generera ett XML-dokument för varje transaktionsuppsättning och begära en teknisk bekräftelse, funktionsbekräftelse eller både och.
+För att kunna använda den här anslutningsappen måste du lägga till den till en befintlig utlösare i din logikapp.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -74,7 +74,7 @@ Om du väljer att koda EDIFACT-meddelanden efter identiteter anger du avsändar-
 
 ![Ange identiteter för avsändare och mottagare, Välj XML-meddelande för att koda](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
 
-## <a name="edifact-encode-details"></a>Information om EDIFACT-kod
+## <a name="edifact-encode-details"></a>Information om EDIFACT-kodning
 
 EDIFACT-anslutningsprogrammet för kodning utför följande uppgifter: 
 

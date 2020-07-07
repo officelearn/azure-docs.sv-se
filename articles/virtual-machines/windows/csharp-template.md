@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: dfcc0c550af9df6c884c8cd864ed90daf5f78e2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082925"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en virtuell Azure-dator med C# och en Resource Manager-mall
@@ -28,14 +28,14 @@ Det tar cirka 10 minuter att utföra dessa steg.
 I det här steget ser du till att Visual Studio är installerat och du skapar ett konsol program som används för att distribuera mallen.
 
 1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.net Desktop Development** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **.NET Framework 4-4,6 utvecklingsverktyg** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen med hjälp av Visual Studio Launcher.
-2. I Visual Studio klickar du på **fil** > **nytt** > **projekt**.
-3. I **mallar** > **Visual C#** väljer du **konsol program (.NET Framework)**, anger *myDotnetProject* som namn på projektet, väljer projektets plats och klickar sedan på **OK**.
+2. I Visual Studio klickar du på **fil**  >  **nytt**  >  **projekt**.
+3. I **mallar**  >  **Visual C#** väljer du **konsol program (.NET Framework)**, anger *myDotnetProject* som namn på projektet, väljer projektets plats och klickar sedan på **OK**.
 
 ## <a name="install-the-packages"></a>Installera paketen
 
 NuGet-paket är det enklaste sättet att installera de bibliotek som du behöver för att slutföra de här stegen. Gör så här för att hämta de bibliotek som du behöver i Visual Studio:
 
-1. Klicka på **verktyg** > **NuGet Package Manager**och klicka sedan på **Package Manager-konsolen**.
+1. Klicka på **verktyg**  >  **NuGet Package Manager**och klicka sedan på **Package Manager-konsolen**.
 2. Skriv följande kommandon i-konsolen:
 
     ```powershell
@@ -49,7 +49,7 @@ I det här steget skapar du en mallfil som distribuerar resurserna och en parame
 
 ### <a name="create-the-template-file"></a>Skapa mallfilen
 
-1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *CreateVMTemplate. JSON*och klicka sedan på **Lägg till**.
+1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *CreateVMTemplate.jspå*och klicka sedan på **Lägg till**.
 2. Lägg till den här JSON-koden till filen som du skapade:
 
     ```json
@@ -155,13 +155,13 @@ I det här steget skapar du en mallfil som distribuerar resurserna och en parame
     }
     ```
 
-3. Spara filen CreateVMTemplate. JSON.
+3. Spara CreateVMTemplate.jspå filen.
 
 ### <a name="create-the-parameters-file"></a>Skapa parameter filen
 
 Om du vill ange värden för resurs parametrarna i mallen skapar du en parameter fil som innehåller värdena.
 
-1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Namnge filen *Parameters. JSON*och klicka sedan på **Lägg till**.
+1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *Parameters.jspå*och klicka sedan på **Lägg till**.
 2. Lägg till den här JSON-koden till filen som du skapade:
 
     ```json
@@ -175,13 +175,13 @@ Om du vill ange värden för resurs parametrarna i mallen skapar du en parameter
     }
     ```
 
-4. Spara filen Parameters. JSON.
+4. Spara Parameters.jspå filen.
 
 ### <a name="create-the-authorization-file"></a>Skapa verifierings filen
 
 Innan du kan distribuera en mall ser du till att du har åtkomst till ett [Active Directory tjänstens huvud namn](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Från tjänstens huvud namn hämtar du en token för att autentisera begär anden till Azure Resource Manager. Du bör också registrera program-ID, autentiseringsnyckel och klient-ID som du behöver i verifierings filen.
 
-1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth. Properties*och klicka sedan på **Lägg till**.
+1. I Solution Explorer högerklickar du på *myDotnetProject*  >  **Lägg till**  >  **nytt objekt**och väljer sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth. Properties*och klicka sedan på **Lägg till**.
 2. Lägg till följande egenskaper för auktorisering:
 
     ```
@@ -195,7 +195,7 @@ Innan du kan distribuera en mall ser du till att du har åtkomst till ett [Activ
     graphURL=https://graph.microsoft.com/
     ```
 
-    Ersätt ** &lt;prenumerations-&gt; ID** med prenumerations-ID, ** &lt;program&gt; -ID** med Active Directory-program-ID, ** &lt;autentisering-&gt; nyckel** med program nyckeln och ** &lt;klient-&gt; ID** med klient-ID: t.
+    Ersätt ** &lt; prenumerations- &gt; ID** med prenumerations-ID, ** &lt; program &gt; -ID** med Active Directory-program-ID, ** &lt; autentisering- &gt; nyckel** med program nyckeln och klient-ID med klient- ** &lt; ID: t &gt; ** .
 
 3. Spara filen azureauth. Properties.
 4. Ange en miljö variabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till den auktoriserade filen som du har skapat, till exempel kan du använda följande PowerShell-kommando:
@@ -315,7 +315,7 @@ Om du vill ta bort resurs gruppen lägger du till den här koden i huvud metoden
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Det bör ta ungefär fem minuter för konsol programmet att köras helt från början till slut. 
 

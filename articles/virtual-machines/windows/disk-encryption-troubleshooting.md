@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 11c1e0bf10725173a2a341addf4c3f845bbb7fba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82085696"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption fel söknings guide
@@ -38,8 +38,8 @@ Alla inställningar för nätverks säkerhets grupper som tillämpas måste fort
 
 När kryptering aktive ras med [autentiseringsuppgifter för Azure AD](disk-encryption-windows-aad.md#)måste den virtuella mål datorn tillåta anslutning till både Azure Active Directory slut punkter och Key Vault slut punkter. Nuvarande Azure Active Directory autentiserings slut punkter underhålls i avsnitten 56 och 59 i dokumentationen för [Office 365-URL: er och IP-adressintervall](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) . Key Vault-instruktioner finns i dokumentationen om hur du [får åtkomst till Azure Key Vault bakom en brand vägg](../../key-vault/general/access-behind-firewall.md).
 
-### <a name="azure-instance-metadata-service"></a>Azure-Instance Metadata Service 
-Den virtuella datorn måste kunna komma åt [Azure instance metadata service](../windows/instance-metadata-service.md) -slutpunkten som använder en välkänd icke-flyttbar IP-adress`169.254.169.254`() som bara kan nås från den virtuella datorn.  Proxykonfigurationen som ändrar lokal HTTP-trafik till den här adressen (till exempel att lägga till ett X-vidarebefordrat-för-huvud) stöds inte.
+### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
+Den virtuella datorn måste kunna komma åt [Azure instance metadata service](../windows/instance-metadata-service.md) -slutpunkten som använder en välkänd icke-flyttbar IP-adress ( `169.254.169.254` ) som bara kan nås från den virtuella datorn.  Proxykonfigurationen som ändrar lokal HTTP-trafik till den här adressen (till exempel att lägga till ett X-vidarebefordrat-för-huvud) stöds inte.
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Felsöka Windows Server 2016 Server Core
 
@@ -64,7 +64,7 @@ Undvik det här problemet genom att kopiera följande fyra filer från en virtue
 
 1. Använd DiskPart för att kontrol lera volymerna och fortsätt sedan.  
 
-Ett exempel:
+Till exempel:
 
 ```
 DISKPART> list vol

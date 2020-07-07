@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086580"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
@@ -52,7 +52,7 @@ Observera att även om roller tilldelas för konto hantering, påverkar vissa ro
 
 | Roller | Hanterings rättigheter | Åtkomst behörigheter för data | Förklaring |
 | --- | --- | --- | --- |
-| Ingen roll har tilldelats |Inga |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
+| Ingen roll har tilldelats |Ingen |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
 | Ägare |Alla |Alla |Ägar rollen är en superanvändare. Den här rollen kan hantera allt och har fullständig åtkomst till data. |
 | Läsare |Skrivskyddad |Styrs av ACL |Rollen läsare kan visa allt om konto hantering, till exempel vilken användare som är tilldelad till vilken roll. Rollen läsare kan inte göra några ändringar. |
 | Deltagare |Alla utom Lägg till och ta bort roller |Styrs av ACL |Deltagar rollen kan hantera vissa aspekter av ett konto, till exempel distributioner och skapande och hantering av aviseringar. Deltagar rollen kan inte lägga till eller ta bort roller. |

@@ -10,23 +10,23 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82083430"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Använd D:-enheten som en data enhet på en virtuell Windows-dator
 Om ditt program behöver använda D-enheten för att lagra data, följer du dessa instruktioner för att använda en annan enhets beteckning för den tillfälliga disken. Använd aldrig den temporära disken för att lagra data som du behöver behålla.
 
-Om du ändrar storlek på eller **stoppar (frigör)** en virtuell dator kan detta utlösa placeringen av den virtuella datorn till en ny hypervisor. En planerad eller oplanerad underhålls händelse kan också utlösa denna placering. I det här scenariot omtilldelas den temporära disken till den första tillgängliga enhets beteckningen. Om du har ett program som specifikt kräver D: Drive måste du följa de här stegen för att tillfälligt flytta pagefile. sys, koppla en ny datadisk och tilldela den till den temporära enheten. När den är klar kommer Azure inte att ta tillbaka D: om den virtuella datorn flyttas till en annan hypervisor.
+Om du ändrar storlek på eller **stoppar (frigör)** en virtuell dator kan detta utlösa placeringen av den virtuella datorn till en ny hypervisor. En planerad eller oplanerad underhålls händelse kan också utlösa denna placering. I det här scenariot omtilldelas den temporära disken till den första tillgängliga enhets beteckningen. Om du har ett program som specifikt kräver D: Drive måste du följa de här stegen för att tillfälligt flytta pagefile.sys, koppla en ny datadisk och pagefile.sys tilldela den till den temporära enheten. När den är klar kommer Azure inte att ta tillbaka D: om den virtuella datorn flyttas till en annan hypervisor.
 
 Mer information om hur Azure använder den temporära disken finns i [förstå den temporära enheten på Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="attach-the-data-disk"></a>Koppla data disken
 Först måste du koppla data disken till den virtuella datorn. Information om hur du gör detta med hjälp av portalen finns i [så här ansluter du en hanterad datadisk i Azure Portal](attach-managed-disk-portal.md).
 
-## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Flytta tillfälligt pagefile. sys till C Drive
+## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Flytta pagefile.sys tillfälligt till C-enheten
 1. Ansluta till den virtuella datorn. 
 2. Högerklicka på **Start** -menyn och välj **system**.
 3. På den vänstra menyn väljer du **Avancerade systeminställningar**.
@@ -46,7 +46,7 @@ Först måste du koppla data disken till den virtuella datorn. Information om hu
 5. Högerklicka på data disken och välj **ändra enhets beteckning och sökvägar**.
 6. Under enhets beteckning väljer du enhet **D** och klickar sedan på **OK**. 
 
-## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Flytta växlings filen. sys tillbaka till den tillfälliga lagrings enheten
+## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Flytta pagefile.sys tillbaka till den tillfälliga lagrings enheten
 1. Högerklicka på **Start** -menyn och välj **system**
 2. På den vänstra menyn väljer du **Avancerade systeminställningar**.
 3. I avsnittet **prestanda** väljer du **Inställningar**.

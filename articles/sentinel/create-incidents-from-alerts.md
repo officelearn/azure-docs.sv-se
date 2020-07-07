@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 1593b96ae8412632120e8977635a4193996ca88d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82025126"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Skapa incidenter automatiskt från Microsofts säkerhets aviseringar
@@ -28,7 +28,7 @@ Aviseringar som har utlösts i Microsoft-säkerhetslösningar som är anslutna t
 
 Du kan enkelt konfigurera Azure Sentinel för att automatiskt skapa incidenter varje gång en avisering utlöses i en ansluten Microsoft-säkerhetslösning genom att följa anvisningarna i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste [ansluta Microsoft-säkerhetslösningar](connect-data-sources.md#data-connection-methods) för att aktivera skapande av incidenter från säkerhets tjänst aviseringar.
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Använda analys regler för skapande av Microsofts säkerhets incidenter

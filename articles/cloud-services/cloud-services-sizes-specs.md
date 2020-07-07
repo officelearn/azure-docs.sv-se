@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086257"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlek för Cloud Services
@@ -63,7 +63,7 @@ Vi har skapat konceptet för Azure Compute Unit (ACU) för att tillhandahålla e
 | [D v3](#dv3-series) |160 – 190 * |
 | [E v3](#ev3-series) |160 – 190 * |
 | [Projektredovisnings](#g-series) |180 - 240* |
-| [&](#h-series) |290 - 300* |
+| [H](#h-series) |290 - 300* |
 
 ACU:er som visas med * använder Intel® Turbo-teknik för att öka processorfrekvensen och prestanda. Prestandaökningens storlek kan variera beroende på storleken på den virtuella datorn, arbetsbelastningen och andra arbetsbelastningar som körs på samma värd.
 
@@ -80,7 +80,7 @@ Följande tabeller visar storlekarna och den kapacitet som de tillhandahåller.
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0.768        | 20                   | 1 / låg |
 | Liten           | 1         | 1.75         | 225                  | 1 / måttlig |
-| Medel          | 2         | 3.5          | 490                  | 1 / måttlig |
+| Medium          | 2         | 3.5          | 490                  | 1 / måttlig |
 | Stor           | 4         | 7            | 1000                 | 2 / hög |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / hög |
 | A5              | 2         | 14           | 490                  | 1 / måttlig |

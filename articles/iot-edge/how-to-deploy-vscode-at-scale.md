@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82134369"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Distribuera IoT Edge moduler i skala med Visual Studio Code
@@ -24,7 +24,7 @@ Mer information finns i [förstå IoT Edge automatiska distributioner för enski
 
 I den här artikeln ställer du in Visual Studio Code och IoT-tillägget. Du lär dig sedan hur du distribuerar moduler till en uppsättning IoT Edge enheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration.
 * En [IoT Edge-enhet](how-to-register-device.md#register-with-visual-studio-code) med IoT Edge runtime installerad.
@@ -145,9 +145,9 @@ Du konfigurerar Taggar i enheten med dubbla. Här är ett exempel på en enhet s
 }
 ```
 
-Den här enheten får en distribution om mål villkoret för distributionen innehåller ett uttryck som matchar en av taggens värden, till exempel `tag.location.building = '20'`.
+Den här enheten får en distribution om mål villkoret för distributionen innehåller ett uttryck som matchar en av taggens värden, till exempel `tag.location.building = '20'` .
 
-Om du vill rikta in en speciell enhet oavsett dess taggar eller andra värden anger du `deviceId` bara för mål villkoret.
+Om du vill rikta in en speciell enhet oavsett dess taggar eller andra värden anger du bara `deviceId` för mål villkoret.
 
 Här följer några fler exempel:
 
@@ -222,8 +222,8 @@ När du har konfigurerat distributions manifestet och konfigurerat Taggar i enhe
 
   | Parameter | Beskrivning |
   | --- | --- |
-  | Distributions-ID | Namnet på den distribution som ska skapas i IoT Hub. Ge din distribution ett unikt namn som består av upp till 128 små bokstäver. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`. |
-  | Mål villkor | Ange ett mål villkor för att avgöra vilka enheter som ska vara mål för distributionen.Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet.Till exempel `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
+  | Distributions-ID | Namnet på den distribution som ska skapas i IoT Hub. Ge din distribution ett unikt namn som består av upp till 128 små bokstäver. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /` . |
+  | Mål villkor | Ange ett mål villkor för att avgöra vilka enheter som ska vara mål för distributionen.Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet.Till exempel `tags.environment='test' and properties.reported.devicemodel='4000x'` . |
   | Prioritet |  Ett positivt heltal. Om två eller flera distributioner är riktade till samma enhet kommer distributionen med det högsta numeriska värdet för prioritet att gälla. |
 
   När du har angett prioriteten bör terminalen Visa utdata som liknar följande:

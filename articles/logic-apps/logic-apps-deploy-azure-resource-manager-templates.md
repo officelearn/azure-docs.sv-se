@@ -7,13 +7,13 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
 ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086444"
 ---
-# <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Distribuera Azure Resource Manager mallar för Azure Logic Apps
+# <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Distribuera Azure Resource Manager-mallar för Azure Logic Apps
 
 När du har skapat en Azure Resource Manager mall för din Logic app kan du distribuera mallen på följande sätt:
 
@@ -21,7 +21,7 @@ När du har skapat en Azure Resource Manager mall för din Logic app kan du dist
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
-* [Azure Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
+* [Azure Resource Manager REST-API](../azure-resource-manager/templates/deploy-rest.md)
 * [Azure DevOps](#azure-pipelines)
 
 <a name="portal"></a>

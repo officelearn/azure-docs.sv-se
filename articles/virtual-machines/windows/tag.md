@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 ms.openlocfilehash: 6ecf0f047fe353d94ca901118d1f434e33e9c8d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100574"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Tagga en virtuell Windows-dator i Azure
@@ -39,7 +39,7 @@ Om den virtuella datorn redan innehåller taggar visas alla Taggar på din resur
 
 Om du vill lägga till taggar via PowerShell kan du använda `Set-AzResource` kommandot. Obs! när du uppdaterar Taggar via PowerShell uppdateras taggarna som helhet. Så om du lägger till en tagg till en resurs som redan har taggar, måste du ta med alla Taggar som du vill placera i resursen. Nedan visas ett exempel på hur du lägger till ytterligare taggar till en resurs via PowerShell-cmdletar.
 
-Den första cmdleten anger alla Taggar som placerats på *MyTestVM* till variabeln *$Tags* , med `Get-AzResource` hjälp `Tags` av egenskapen och.
+Den första cmdleten anger alla Taggar som placerats på *MyTestVM* till variabeln *$Tags* , med hjälp av `Get-AzResource` `Tags` egenskapen och.
 
         PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 

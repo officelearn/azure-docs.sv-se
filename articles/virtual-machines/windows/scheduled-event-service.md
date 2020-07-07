@@ -8,10 +8,10 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82099605"
 ---
 # <a name="monitoring-scheduled-events"></a>Övervaknings Schemalagda händelser
@@ -29,7 +29,7 @@ I den här artikeln får du lära dig hur du samlar in underhålls Schemalagda h
 
 ![Diagram över händelsens livs cykel](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I det här exemplet måste du skapa en [virtuell Windows-dator i en tillgänglighets uppsättning](tutorial-availability-sets.md). Schemalagda händelser ange meddelanden om ändringar som kan påverka någon av de virtuella datorerna i din tillgänglighets uppsättning, moln tjänst, skalnings uppsättning för virtuell dator eller fristående virtuella datorer. Vi kommer att köra en [tjänst](https://github.com/microsoft/AzureScheduledEventsService) som avsöker efter schemalagda händelser på en av de virtuella datorer som fungerar som en insamlare, för att hämta händelser för alla andra virtuella datorer i tillgänglighets uppsättningen.    
 
@@ -58,7 +58,7 @@ New-AzVm `
 
 Hämta filen installation. zip för projektet från [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Anslut till **myCollectorVM** och kopiera. zip-filen till den virtuella datorn och extrahera alla filer. Öppna en PowerShell-prompt på den virtuella datorn. Flytta din prompt till mappen som innehåller `SchService.ps1`, till exempel: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`och konfigurera tjänsten.
+Anslut till **myCollectorVM** och kopiera. zip-filen till den virtuella datorn och extrahera alla filer. Öppna en PowerShell-prompt på den virtuella datorn. Flytta din prompt till mappen som innehåller `SchService.ps1` , till exempel: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>` och konfigurera tjänsten.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -78,7 +78,7 @@ Verifiera tjänstens status och kontrol lera att den körs.
 .\SchService.ps1 -status  
 ```
 
-Detta bör returnera `Running`.
+Detta bör returnera `Running` .
 
 Tjänsten kommer nu att börja avsökningen var 10: e sekund för schemalagda händelser och godkänna händelserna för att påskynda underhållet.  Låsning, omstart, omdistribution och Preempt är de händelser som samlas in av schema händelser. Du kan utöka skriptet för att utlösa vissa åtgärder innan du godkänner händelsen.
 
@@ -95,7 +95,7 @@ När händelser samlas in av tjänsten Schemalägg händelse kommer den att logg
 >
 > För vår konfiguration valde vi Windows, men du kan skapa en liknande lösning i Linux.
 
-Du kan när som helst stoppa/ta bort den schemalagda händelse tjänsten med hjälp `–stop` av `–remove`växlarna och.
+Du kan när som helst stoppa/ta bort den schemalagda händelse tjänsten med hjälp av växlarna `–stop` och `–remove` .
 
 ## <a name="connect-to-the-workspace"></a>Anslut till arbets ytan
 
@@ -155,7 +155,7 @@ När händelserna flyttas till Log Analytics kan du köra följande [fråga](/az
     ![Spara frågan](./media/notifications/save-query.png)
 
 1. Välj **Ny aviseringsregel**. 
-1. På sidan **Skapa regel** lämnar `collectorworkspace` du som **resurs**.
+1. På sidan **Skapa regel** lämnar du `collectorworkspace` som **resurs**.
 1. Under **villkor**väljer du posten *när kund loggs ökningen är <login undefined> *. Sidan **Konfigurera signal logik** öppnas.
 1. Under **tröskelvärde**anger du *0* och väljer sedan **färdig**.
 1. Under **åtgärder**väljer du **skapa åtgärds grupp**. Sidan **Lägg till åtgärds grupp** öppnas.

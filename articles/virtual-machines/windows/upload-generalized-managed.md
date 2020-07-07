@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/12/2019
 ms.author: cynthn
 ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82096419"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Ladda upp en generaliserad virtuell hårddisk och använda den för att skapa nya virtuella datorer i Azure
@@ -38,7 +38,7 @@ Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer in
 > 
 
 1. Logga in på den virtuella Windows-datorn.
-2. Öppna Kommandotolken som administratör. Ändra katalogen till%WINDIR%\system32\sysprep och kör `sysprep.exe`sedan.
+2. Öppna Kommandotolken som administratör. Ändra katalogen till%WINDIR%\system32\sysprep och kör sedan `sysprep.exe` .
 3. I dialog rutan **system förberedelse verktyg** väljer du **Använd OOBE (system out-of-Box Experience)** och kontrollerar att kryss rutan **generalize** är aktive rad.
 4. För **avslutnings alternativ**väljer du **Stäng**av.
 5. Välj **OK**.

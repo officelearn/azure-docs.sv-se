@@ -11,10 +11,10 @@ ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
 ms.openlocfilehash: 0b32f7e8fa2ec0d1d28f2fd42147e140d2d03341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086121"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Säkerhets rekommendationer för Blob Storage
@@ -54,7 +54,7 @@ Azure Security Center analyserar regelbundet säkerhets status för dina Azure-r
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
-| Aktivera brand Väggs regler | Konfigurera brand Väggs regler för att begränsa åtkomsten till ditt lagrings konto till begär Anden som kommer från angivna IP-adresser eller intervall, eller från en lista över undernät i ett Azure-Virtual Network (VNet). Mer information om hur du konfigurerar brand Väggs regler finns i [Azure File Sync proxy-och brand Väggs inställningar](../files/storage-sync-files-firewall-and-proxy.md). | - |
+| Aktivera brandväggsregler | Konfigurera brand Väggs regler för att begränsa åtkomsten till ditt lagrings konto till begär Anden som kommer från angivna IP-adresser eller intervall, eller från en lista över undernät i ett Azure-Virtual Network (VNet). Mer information om hur du konfigurerar brand Väggs regler finns i [Azure File Sync proxy-och brand Väggs inställningar](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Tillåt att betrodda Microsoft-tjänster har åtkomst till lagrings kontot | Att aktivera brand Väggs regler för ditt lagrings konto blockerar inkommande begär Anden om data som standard, om inte begär Anden kommer från en tjänst som körs i ett Azure-Virtual Network (VNet) eller från tillåtna offentliga IP-adresser. Begär Anden som blockeras inkluderar de från andra Azure-tjänster, från Azure Portal, från loggnings-och mått tjänster och så vidare. Du kan tillåta förfrågningar från andra Azure-tjänster genom att lägga till ett undantag för att tillåta betrodda Microsoft-tjänster att komma åt lagrings kontot. Mer information om hur du lägger till ett undantag för betrodda Microsoft-tjänster finns [Azure File Sync proxy-och brand Väggs inställningar](../files/storage-sync-files-firewall-and-proxy.md).| - |
 | Använda privata slutpunkter | En privat slut punkt tilldelar en privat IP-adress från ditt Azure-Virtual Network (VNet) till lagrings kontot. Den skyddar all trafik mellan ditt VNet och lagrings kontot via en privat länk. Mer information om privata slut punkter finns i [ansluta privat till ett lagrings konto med hjälp av den privata Azure-slutpunkten](../../private-link/create-private-endpoint-storage-portal.md). | - |
 | Använda VNet-tjänstens Taggar | En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras. Mer information om service märken som stöds av Azure Storage finns i [Översikt över Azure Service-Taggar](../../virtual-network/service-tags-overview.md). En själv studie kurs som visar hur du använder service märken för att skapa utgående nätverks regler finns i [begränsa åtkomsten till PaaS-resurser](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |

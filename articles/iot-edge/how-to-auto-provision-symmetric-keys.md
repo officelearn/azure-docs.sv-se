@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c6c2067526850ba972f002dc40bbd5d4cb24c9ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131019"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering
@@ -28,7 +28,7 @@ Den här artikeln visar hur du skapar en individuell registrering av enhets etab
 
 Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med en enhets etablerings tjänst instans. Den här attesterings metoden representerar en "Hello World"-upplevelse för utvecklare som är nya för enhets etablering eller som inte har strikta säkerhets krav. Enhets attestering med hjälp av [TPM](../iot-dps/concepts-tpm-attestation.md) -eller [X. 509-certifikat](../iot-dps/concepts-security.md#x509-certificates) är säkrare och bör användas för mer långtgående säkerhets krav.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En aktiv IoT Hub
 * En fysisk eller virtuell enhet
@@ -43,7 +43,7 @@ När du har installerat enhets etablerings tjänsten kopierar du värdet för **
 
 Ett unikt registrerings-ID måste definieras för att identifiera varje enhet. Du kan använda MAC-adressen, serie numret eller någon unik information från enheten.
 
-I det här exemplet använder vi en kombination av en MAC-adress och ett serie nummer som utgör följande sträng för registrerings- `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`ID:.
+I det här exemplet använder vi en kombination av en MAC-adress och ett serie nummer som utgör följande sträng för registrerings-ID: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6` .
 
 Skapa ett unikt registrerings-ID för din enhet. Giltiga tecken är alfanumeriska bokstäver och bindestreck (-).
 
@@ -81,7 +81,7 @@ När du skapar en registrering i DPS har du möjlighet att deklarera en **först
 
    1. Välj **hur du vill att enhets data ska hanteras vid ny etablering** när enheter begär etablering efter första gången.
 
-   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Ett exempel:
+   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Till exempel:
 
       ```json
       {
@@ -185,7 +185,7 @@ provisioning:
       symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Ersätt plats hållarnas värden för `<SCOPE_ID>`, `<REGISTRATION_ID>`och `<SYMMETRIC_KEY>` med de data som du samlade in tidigare. Se till att **etableringen:** raden inte har några föregående blank steg och att kapslade objekt är indragna med två blank steg.
+Ersätt plats hållarnas värden för `<SCOPE_ID>` , `<REGISTRATION_ID>` och `<SYMMETRIC_KEY>` med de data som du samlade in tidigare. Se till att **etableringen:** raden inte har några föregående blank steg och att kapslade objekt är indragna med två blank steg.
 
 ### <a name="windows-device"></a>Windows-enhet
 
@@ -206,7 +206,7 @@ Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive k
 
 1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot använder standardinställningen manuell etablering med Windows-behållare om du inte använder `-Dps` flaggan för att använda automatisk etablering.
 
-   Ersätt plats hållarnas värden för `{scope_id}`, `{registration_id}`och `{symmetric_key}` med de data som du samlade in tidigare.
+   Ersätt plats hållarnas värden för `{scope_id}` , `{registration_id}` och `{symmetric_key}` med de data som du samlade in tidigare.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

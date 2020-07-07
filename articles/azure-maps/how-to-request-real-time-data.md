@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 4743fbe84f5d41b4659e13d96868d2f64a473e4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82086085"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Begär offentlig överförings information i real tid med tjänsten Azure Maps Mobility
@@ -22,7 +22,7 @@ Den här artikeln visar hur du använder Azure Maps [Mobility Service](https://a
 
 I den här artikeln får du lära dig hur du begär nästa mottagna real tid för alla rader som kommer vid ett angivet stopp
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste först ha ett Azure Maps konto och en prenumerations nyckel för att kunna anropa de Azure Maps offentliga API: erna för överföring. Om du vill ha mer information följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa ett Azure Maps-konto. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
@@ -40,7 +40,7 @@ Vi använder "522" som vårt tunnelbane-ID, som är Metro-ID: t för "Seattle �
 
     ![Skapa en begäran i Postman](./media/how-to-request-transit-data/postman-new.png)
 
-3. Välj metoden **Hämta** http på fliken Builder och ange följande URL för att skapa en get-begäran. Ersätt `{subscription-key}`med Azure Maps primär nyckel.
+3. Välj metoden **Hämta** http på fliken Builder och ange följande URL för att skapa en get-begäran. Ersätt `{subscription-key}` med Azure Maps primär nyckel.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus

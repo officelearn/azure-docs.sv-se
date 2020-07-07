@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82134421"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera IoT Edge moduler i skala med hjälp av Azure Portal
@@ -55,7 +55,7 @@ Det finns fem steg för att skapa en distribution. Följande avsnitt beskriver v
 
 ### <a name="step-1-name-and-label"></a>Steg 1: namn och etikett
 
-1. Ge din distribution ett unikt namn som består av upp till 128 små bokstäver. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
+1. Ge din distribution ett unikt namn som består av upp till 128 små bokstäver. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /` .
 1. Du kan lägga till etiketter som nyckel/värde-par som hjälper dig att spåra dina distributioner. Till exempel **HostPlatform** och **Linux**, eller **version** och **3.0.1**.
 1. Välj **Nästa: moduler** för att gå vidare till steg två.
 
@@ -115,7 +115,7 @@ Följ dessa steg om du vill lägga till en modul från Azure Stream Analytics:
 
 När du har lagt till en modul i en distribution kan du välja dess namn för att öppna sidan **uppdatera IoT Edge-modul** . På den här sidan kan du redigera inställningarna för modulen, miljövariabler, skapa alternativ och modulens dubbla. Om du har lagt till en modul från Marketplace kanske den redan har en del av de här parametrarna ifyllda.
 
-Om du skapar en lager distribution kan du konfigurera en modul som finns i andra distributioner som riktar sig mot samma enheter. Om du vill uppdatera modulen, utan att skriva över andra versioner, öppnar du fliken **dubbla inställningar** . skapa en ny **modul, dubbel egenskap** med ett unikt namn för ett underavsnitt i modulens två önskade egenskaper, till `properties.desired.settings`exempel. Om du definierar egenskaper inom bara `properties.desired` fältet skrivs de önskade egenskaperna för modulen som definierats i eventuella distributioner med lägre prioritet.
+Om du skapar en lager distribution kan du konfigurera en modul som finns i andra distributioner som riktar sig mot samma enheter. Om du vill uppdatera modulen, utan att skriva över andra versioner, öppnar du fliken **dubbla inställningar** . skapa en ny **modul, dubbel egenskap** med ett unikt namn för ett underavsnitt i modulens två önskade egenskaper, till exempel `properties.desired.settings` . Om du definierar egenskaper inom bara `properties.desired` fältet skrivs de önskade egenskaperna för modulen som definierats i eventuella distributioner med lägre prioritet.
 
 ![Ställ in modul, delad egenskap för lager distribution](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -125,7 +125,7 @@ När du har konfigurerat alla moduler för en konfigurerad distribution väljer 
 
 ### <a name="step-3-routes"></a>Steg 3: vägar
 
-Vägar definierar hur moduler kommunicerar med varandra i en distribution. Som standard ger guiden en väg som heter **överströms** och definieras som **från/Messages/\* till $upstream**, vilket innebär att alla meddelanden som skickas av alla moduler skickas till din IoT-hubb.  
+Vägar definierar hur moduler kommunicerar med varandra i en distribution. Som standard ger guiden en väg som heter **överströms** och definieras som **från/Messages/ \* till $upstream**, vilket innebär att alla meddelanden som skickas av alla moduler skickas till din IoT-hubb.  
 
 Lägg till eller uppdatera vägarna med information från [deklarera vägar](module-composition.md#declare-routes), och välj sedan **Nästa** för att fortsätta till gransknings avsnittet.
 
@@ -139,7 +139,7 @@ Mått tillhandahåller sammanfattande antal i de olika tillstånd som en enhet k
 
 1. Ange en fråga för **mått villkor**. Frågan baseras på IoT Edge Hub-modulens dubbla [rapporterade egenskaper](module-edgeagent-edgehub.md#edgehub-reported-properties). Måttet representerar antalet rader som returneras av frågan.
 
-   Ett exempel:
+   Till exempel:
 
    ```sql
    SELECT deviceId FROM devices

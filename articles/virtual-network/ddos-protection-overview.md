@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
 ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82130961"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection standard översikt
@@ -39,7 +39,7 @@ Azure DDoS Protection, kombinerat med bästa praxis för program design, ger fö
 |Anpassning av minsknings princip                 |Nej                                    |Engagera DDoS-experter                           |
 |Support                                         |Bästa ansträngning                           |Åtkomst till DDoS-experter under en aktiv attack|
 |SLA                                             |Azure-region                          |Program garanti & kostnads skydd       |
-|Prissättning                                         |Kostnadsfri                                  |Månatlig & användning baserat                         |
+|Priser                                         |Kostnadsfri                                  |Månatlig & användning baserat                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Typer av DDoS-attacker som DDoS Protection standard åtgärder
 

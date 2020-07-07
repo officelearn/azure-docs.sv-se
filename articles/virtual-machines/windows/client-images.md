@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 51e4862fe55428f112841ef7176cdb916653de0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82083282"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Använda en Windows-klient i Azure för dev/test-scenarier
@@ -21,8 +21,8 @@ Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure f
 ![Avbildnings information från Azure Portal](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> För Windows 10 Pro-och Windows 10 Pro N-bilder i Azure-galleriet kan du läsa om [hur du distribuerar Windows 10 på Azure med värd rättigheter](windows-desktop-multitenant-hosting-deployment.md)
->![Pro-avbildningar för flera innehavare från Azure Portal](./media/client-images/windows-client-pro-images.png) 
+> För Windows 10 Pro-och Windows 10 Pro N-bilder i Azure-galleriet kan du läsa om [hur du distribuerar Windows 10 på Azure med värd rättigheter](windows-desktop-multitenant-hosting-deployment.md)Pro-avbildningar för flera innehavare 
+> ![ från Azure Portal](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>Prenumerations berättigande
@@ -36,7 +36,7 @@ I följande tabell beskrivs de ID: n som är kvalificerade för att distribuera 
 | Erbjudandets namn | Erbjudande nummer | Tillgängliga klient avbildningar |
 |:--- |:---:|:---:|
 | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
-| [Visual Studio Enterprise-prenumeranter (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
+| [Prenumeranter på Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
 | [Visual Studio Professional-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
 | [Visual Studio Test Professional-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
 | [Visual Studio Premium med MSDN (förmån)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |

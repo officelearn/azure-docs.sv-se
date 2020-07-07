@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82117577"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Så här modellerar du Relations-SQL-data för import och indexering i Azure Kognitiv sökning
@@ -84,7 +84,7 @@ Lösningen är att samla in rums information som kapslad JSON och sedan infoga J
     GO
     ```
 
-2. Skapa en vy bestående av alla fält i den överordnade tabellen (`SELECT * from dbo.Hotels$`), med tillägg av fältet nytt *rum* som innehåller utdata från en kapslad fråga. En **for JSON Auto** -sats `SELECT * from dbo.Rooms$` på strukturer utdata som JSON. 
+2. Skapa en vy bestående av alla fält i den överordnade tabellen ( `SELECT * from dbo.Hotels$` ), med tillägg av fältet nytt *rum* som innehåller utdata från en kapslad fråga. En **for JSON Auto** -sats på `SELECT * from dbo.Rooms$` strukturer utdata som JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]

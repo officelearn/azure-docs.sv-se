@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: e4afcb8756f64ab9b66044a1bf1304427330e365
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100897"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Felsöka anslutningsproblem till Azure Database for MySQL
@@ -48,7 +48,7 @@ Om programmet inte kan ansluta till Azure Database for MySQL, indikerar det vanl
 
 * Konfiguration av Server brand vägg: kontrol lera att Azure Database for MySQL server-brandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
 * Konfiguration av klient brand väggen: brand väggen på klienten måste tillåta anslutningar till din databas server. IP-adresser och portar på den server som du inte kan tillåta måste vara tillåtna samt program namn som MySQL i vissa brand väggar.
-* Användar fel: du kan ange anslutnings parametrar som inte har angetts, till exempel Server namnet i anslutnings strängen eller ett * \@servername* -suffix som saknas i användar namnet.
+* Användar fel: du kan ange anslutnings parametrar som inte har angetts, till exempel Server namnet i anslutnings strängen eller ett * \@ servername* -suffix som saknas i användar namnet.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
 

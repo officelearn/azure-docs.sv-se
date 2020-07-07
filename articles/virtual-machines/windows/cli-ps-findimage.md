@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 46a2badbbe957f6a8a6af7f5a40633ea24cadcd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82083373"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta Windows VM-avbildningar på Azure Marketplace med Azure PowerShell
@@ -30,7 +30,7 @@ Du kan också söka efter tillgängliga bilder och erbjudanden med hjälp av [Az
 
 I den här tabellen visas en delmängd av tillgängliga SKU: er för de angivna utgivare och erbjudanden.
 
-| Utgivare | Erbjudande | Sku |
+| Publisher | Erbjudande | Sku |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019 – Data Center |
 | MicrosoftWindowsServer |WindowsServer |2019-Data Center-kärna |
@@ -178,9 +178,9 @@ Om du distribuerar en virtuell dator med en Resource Manager-mall ställer du in
 
 ### <a name="view-plan-properties"></a>Visa plan egenskaper
 
-Kör `Get-AzVMImage` cmdleten om du vill visa information om inköps planen för en avbildning. Om `PurchasePlan` egenskapen i utdata inte `null`är så har bilden de termer som du behöver acceptera innan du programmerar distributionen.  
+Kör cmdleten om du vill visa information om inköps planen för en avbildning `Get-AzVMImage` . Om `PurchasePlan` egenskapen i utdata inte är `null` så har bilden de termer som du behöver acceptera innan du programmerar distributionen.  
 
-Till exempel har *Windows Server 2016 Data Center* -avbildningen inga ytterligare villkor, så `PurchasePlan` informationen är `null`:
+Till exempel har *Windows Server 2016 Data Center* -avbildningen inga ytterligare villkor, så `PurchasePlan` informationen är `null` :
 
 ```powershell
 $version = "2016.127.20170406"
@@ -206,7 +206,7 @@ DataDiskImages   : []
 
 ```
 
-Exemplet nedan visar ett liknande kommando för *data science Virtual Machine-Windows 2016-* avbildningen `PurchasePlan` , som har följande egenskaper: `name`, `product`och. `publisher` Vissa bilder har också en `promotion code` egenskap. Information om hur du distribuerar den här avbildningen finns i följande avsnitt för att acceptera villkoren och för att aktivera program distribution.
+Exemplet nedan visar ett liknande kommando för *data science Virtual Machine-Windows 2016-* avbildningen, som har följande `PurchasePlan` Egenskaper: `name` , `product` och `publisher` . Vissa bilder har också en `promotion code` egenskap. Information om hur du distribuerar den här avbildningen finns i följande avsnitt för att acceptera villkoren och för att aktivera program distribution.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"

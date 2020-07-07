@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: af6905f0ba62a9053e44134348721312ade6b9d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82085390"
 ---
 # <a name="download-the-template-for-a-vm"></a>Ladda ned mallen för en virtuell dator
@@ -26,10 +26,10 @@ När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell
 5. Välj **Ladda ned** på menyn längst upp och spara. zip-filen på den lokala datorn.
 6. Öppna. zip-filen och extrahera filerna till en mapp. Zip-filen innehåller:
    
-   * Parameters. JSON
-   * Template. JSON
+   * parameters.jspå
+   * template.jspå
 
-Filen Template. JSON är mallen.
+template.jsfilen är mallen.
 
 ## <a name="download-the-template-using-powershell"></a>Ladda ned mallen med PowerShell
 Du kan också hämta. JSON-mallfilen med cmdleten [export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) . Du kan använda `-path` parametern för att ange fil namn och sökväg för. JSON-filen. Det här exemplet visar hur du hämtar mallen för resurs gruppen med namnet **myResourceGroup** till mappen **C:\users\public\downloads** på den lokala datorn.

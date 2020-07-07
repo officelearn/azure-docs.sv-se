@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137594"
 ---
 # <a name="liveness-probe"></a>Direktmigreringens avsökning
@@ -40,15 +40,15 @@ Dessutom kommer Service Fabric att öka följande [hälso rapporter][health-intr
 
 * `OK`: Avsökningen slutförs för det värde som anges i **successThreshold**.
 
-* `Error`: Avsökningen **failureCount** ==  **failureThreshold**innan behållaren startas om.
+* `Error`: Avsökningen **failureCount**  ==   **failureThreshold**innan behållaren startas om.
 
 * `Warning`: 
-    * Avsökningen Miss lyckas och **failureCount** < **failureThreshold**. Hälso rapporten är kvar tills **failureCount** når värdet som anges i **failureThreshold** eller **successThreshold**.
+    * Avsökningen Miss lyckas och **failureCount**  <  **failureThreshold**. Hälso rapporten är kvar tills **failureCount** når värdet som anges i **failureThreshold** eller **successThreshold**.
     * Vid lyckad efter fel kvarstår varningen men med uppdaterad efterföljande lyckade försök.
 
 ## <a name="specifying-a-liveness-probe"></a>Ange en direktmigreringens avsökning
 
-Du kan ange en avsökning i filen ApplicationManifest. xml under **service manifest import**.
+Du kan ange en avsökning i ApplicationManifest.xml-filen under **service manifest import**.
 
 Avsökningen kan vara något av följande:
 

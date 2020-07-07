@@ -4,10 +4,10 @@ description: Beskriver hur du konfigurerar en kontinuerlig integrering i Azure-p
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084659"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrera ARM-mallar med Azure-pipeliner
@@ -16,7 +16,7 @@ Visual Studio tillhandahåller Azure Resource Group-projektet för att skapa Azu
 
 Det finns två sätt att distribuera mallar med Azure-pipeliner:
 
-* **Lägg till aktivitet som kör ett Azure PowerShell-skript**. Det här alternativet har fördelen att tillhandahålla konsekvens under utvecklings livs cykeln eftersom du använder samma skript som ingår i Visual Studio-projektet (Deploy-AzureResourceGroup. ps1). Skript stegen artefakter från ditt projekt till ett lagrings konto som Resource Manager har åtkomst till. Artefakter är objekt i projektet, till exempel länkade mallar, skript och binärfiler för program. Sedan distribuerar skriptet mallen.
+* **Lägg till aktivitet som kör ett Azure PowerShell-skript**. Det här alternativet har fördelen att tillhandahålla konsekvens under utvecklings livs cykeln eftersom du använder samma skript som ingår i Visual Studio-projektet (Deploy-AzureResourceGroup.ps1). Skript stegen artefakter från ditt projekt till ett lagrings konto som Resource Manager har åtkomst till. Artefakter är objekt i projektet, till exempel länkade mallar, skript och binärfiler för program. Sedan distribuerar skriptet mallen.
 
 * **Lägg till aktiviteter för att kopiera och distribuera uppgifter**. Det här alternativet erbjuder ett användbart alternativ till projekt skriptet. Du konfigurerar två aktiviteter i pipelinen. En uppgift steg för artefakterna och den andra aktiviteten distribuerar mallen.
 
@@ -72,21 +72,21 @@ steps:
     azurePowerShellVersion: LatestVersion
 ```
 
-När du anger uppgiften till `AzurePowerShell@3`, använder pipelinen kommandon från AzureRM-modulen för att autentisera anslutningen. PowerShell-skriptet i Visual Studio-projektet använder som standard AzureRM-modulen. Om du har uppdaterat skriptet för att använda [AZ-modulen](/powershell/azure/new-azureps-module-az)anger du uppgiften till `AzurePowerShell@4`.
+När du anger uppgiften till `AzurePowerShell@3` , använder pipelinen kommandon från AzureRM-modulen för att autentisera anslutningen. PowerShell-skriptet i Visual Studio-projektet använder som standard AzureRM-modulen. Om du har uppdaterat skriptet för att använda [AZ-modulen](/powershell/azure/new-azureps-module-az)anger du uppgiften till `AzurePowerShell@4` .
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-För `azureSubscription`, anger du namnet på den tjänst anslutning som du har skapat.
+För `azureSubscription` , anger du namnet på den tjänst anslutning som du har skapat.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-För `scriptPath`anger du den relativa sökvägen från pipeline-filen till skriptet. Du kan titta på lagrings platsen för att se sökvägen.
+För `scriptPath` anger du den relativa sökvägen från pipeline-filen till skriptet. Du kan titta på lagrings platsen för att se sökvägen.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -154,13 +154,13 @@ Följande YAML visar [Azure File Copy-aktiviteten](/azure/devops/pipelines/tasks
     sasTokenTimeOutInMinutes: '240'
 ```
 
-Det finns flera delar av den här uppgiften att ändra för din miljö. `SourcePath` Anger platsen för artefakterna i förhållande till pipelin filen. I det här exemplet finns filerna i en mapp med namnet `AzureResourceGroup1` som är namnet på projektet.
+Det finns flera delar av den här uppgiften att ändra för din miljö. `SourcePath`Anger platsen för artefakterna i förhållande till pipelin filen. I det här exemplet finns filerna i en mapp med namnet `AzureResourceGroup1` som är namnet på projektet.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
 ```
 
-För `azureSubscription`, anger du namnet på den tjänst anslutning som du har skapat.
+För `azureSubscription` , anger du namnet på den tjänst anslutning som du har skapat.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
@@ -194,7 +194,7 @@ Följande YAML visar [distributions uppgiften för Azure Resource Manager mallar
 
 Det finns flera delar av den här uppgiften att ändra för din miljö.
 
-- `deploymentScope`: Välj distributions område från alternativen: `Management Group`, `Subscription` och. `Resource Group` Använd **resurs grupp** i den här genom gången. Mer information om omfattningarna finns i [distributions omfång](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Välj distributions område från alternativen: `Management Group` , `Subscription` och `Resource Group` . Använd **resurs grupp** i den här genom gången. Mer information om omfattningarna finns i [distributions omfång](deploy-rest.md#deployment-scope).
 
 - `ConnectedServiceName`: Ange namnet på den tjänst anslutning som du har skapat.
 
@@ -204,14 +204,14 @@ Det finns flera delar av den här uppgiften att ändra för din miljö.
 
 - `subscriptionName`: Ange prenumerations-ID för mål. Den här egenskapen gäller endast för distributions omfånget för resurs gruppen och distributions omfånget för prenumerationen.
 
-- `resourceGroupName`och `location`: Ange namn och plats för den resurs grupp som du vill distribuera till. Aktiviteten skapar resurs gruppen om den inte finns.
+- `resourceGroupName`och `location` : Ange namn och plats för den resurs grupp som du vill distribuera till. Aktiviteten skapar resurs gruppen om den inte finns.
 
     ```yaml
     resourceGroupName: '<resource-group-name>'
     location: '<location>'
     ```
 
-Distributions aktiviteten länkar till en mall med `WebSite.json` namnet och en parameter fil med namnet webbplats. Parameters. JSON. Använd namnen på din mall och parameter-filer.
+Distributions aktiviteten länkar till en mall med namnet `WebSite.json` och en parameter fil med namnet WebSite.parameters.jspå. Använd namnen på din mall och parameter-filer.
 
 Nu när du förstår hur du skapar aktiviteterna ska vi gå igenom stegen för att redigera pipelinen.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 276f115f579fbd1ab077722b220a4a0c6c571850
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82025075"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatisk hantering av IoT-enheter och-modulen med hjälp av Azure Portal
@@ -65,7 +65,7 @@ Det finns fem steg för att skapa en konfiguration. Följande avsnitt beskriver 
 
 ### <a name="name-and-label"></a>Namn och etikett
 
-1. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
+1. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /` .
 
 2. Lägg till etiketter som hjälper dig att spåra dina konfigurationer. Etiketter är **namn**, **värdepar** som beskriver konfigurationen. Exempel: `HostPlatform, Linux` eller `Version, 3.0.1`.
 
@@ -87,11 +87,11 @@ Du kan till exempel ange den dubbla sökvägen till `properties.desired.chiller-
 ![Ange den dubbla sökvägen och innehållet](./media/iot-hub-automatic-device-management/module-config-twin-settings.png)
 
 
-Du kan också ange enskilda inställningar genom att ange hela den dubbla sökvägen och ange värdet utan hakparenteser. Till exempel, med den dubbla sökvägen `properties.desired.chiller-water.temperature`, anger du innehållet till `66`. Skapa sedan en ny, dubbel inställning för egenskapen tryck. 
+Du kan också ange enskilda inställningar genom att ange hela den dubbla sökvägen och ange värdet utan hakparenteser. Till exempel, med den dubbla sökvägen `properties.desired.chiller-water.temperature` , anger du innehållet till `66` . Skapa sedan en ny, dubbel inställning för egenskapen tryck. 
 
 Om två eller flera konfigurationer riktar sig till samma dubbla sökväg gäller innehållet från den högsta prioritets konfigurationen (prioritet definieras i steg 4).
 
-Om du vill ta bort en befintlig egenskap anger du egenskap svärdet till `null`.
+Om du vill ta bort en befintlig egenskap anger du egenskap svärdet till `null` .
 
 Du kan lägga till ytterligare inställningar genom att välja **Lägg till enhet, konfigurera** eller **lägga till en modul med dubbla inställningar**.
 
@@ -105,7 +105,7 @@ Varje konfiguration kan ha upp till fem anpassade mått.
 
 2. Ange en fråga för **mått villkor**.  Frågan baseras på enhetens dubbla rapporterade egenskaper.  Måttet representerar antalet rader som returneras av frågan.
 
-Ett exempel:
+Till exempel:
 
 ```sql
 SELECT deviceId FROM devices 
@@ -120,7 +120,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-Om du skapar ett mått för att rapportera om konfigurerade moduler väljer `moduleId` du från `devices.modules`. Ett exempel:
+Om du skapar ett mått för att rapportera om konfigurerade moduler väljer du `moduleId` från `devices.modules` . Till exempel:
 
 ```sql
 SELECT deviceId, moduleId FROM devices.modules

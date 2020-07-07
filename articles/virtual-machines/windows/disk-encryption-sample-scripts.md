@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: e5e0a970df680df43a7bd303636b3d81bda3e141
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82085713"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Exempelskript för Azure Disk Encryption 
@@ -69,7 +69,7 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 Avsnitten som följer är nödvändiga för att förbereda en förkrypterad Windows-VHD för distribution som en krypterad virtuell hård disk i Azure IaaS. Använd informationen för att förbereda och starta en ny virtuell Windows-dator (VHD) på Azure Site Recovery eller Azure. Mer information om hur du förbereder och laddar upp en virtuell hård disk finns i [överföra en generaliserad virtuell hård disk och använda den för att skapa nya virtuella datorer i Azure](upload-generalized-managed.md).
 
 ### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Uppdatera grup princip för att tillåta icke-TPM för OS-skydd
-Konfigurera BitLocker-grupprincip inställningen **BitLocker-diskkryptering**, som du hittar under**dator konfiguration** > för **lokal dator princip** > **administrativa mallar** > **Windows-komponenter**. Om du ändrar den här inställningen till **operativ system enheter** > **krävs ytterligare autentisering vid start** > **Tillåt BitLocker utan en kompatibel TPM**, som visas i följande bild:
+Konfigurera BitLocker-grupprincip inställningen **BitLocker-diskkryptering**, som du hittar under dator konfiguration för **lokal dator princip**  >  **Computer Configuration**  >  **administrativa mallar**  >  **Windows-komponenter**. Om du ändrar den här inställningen till **operativ system enheter**  >  **krävs ytterligare autentisering vid start**  >  **Tillåt BitLocker utan en kompatibel TPM**, som visas i följande bild:
 
 ![Microsoft Antimalware i Azure](../media/disk-encryption/disk-encryption-fig8.png)
 
@@ -142,7 +142,7 @@ Använd [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecr
 Använd `$secretUrl` i nästa steg för att [koppla OS-disken utan att använda KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disk krypterings hemlighet krypterad med en KEK
-Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) med hjälp av cmdleten.
+Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdleten.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -237,7 +237,7 @@ Använd `$KeyEncryptionKey` och `$secretUrl` i nästa steg för att [koppla OS-d
 ##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Ange en hemlig URL när du ansluter en OS-disk
 
 ###  <a name="without-using-a-kek"></a>Utan att använda en KEK
-När du ansluter OS-disken måste du skicka `$secretUrl`. URL: en skapades i avsnittet "disk krypterings hemlighet som inte är krypterad med ett KEK".
+När du ansluter OS-disken måste du skicka `$secretUrl` . URL: en skapades i avsnittet "disk krypterings hemlighet som inte är krypterad med ett KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `
@@ -250,7 +250,7 @@ När du ansluter OS-disken måste du skicka `$secretUrl`. URL: en skapades i avs
             -DiskEncryptionKeyUrl $SecretUrl
 ```
 ### <a name="using-a-kek"></a>Använda en KEK
-När du ansluter OS-disken skickar `$KeyEncryptionKey` du och `$secretUrl`. URL: en skapades i avsnittet "disk krypterings hemlighet krypterad med ett KEK".
+När du ansluter OS-disken skickar du `$KeyEncryptionKey` och `$secretUrl` . URL: en skapades i avsnittet "disk krypterings hemlighet krypterad med ett KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `

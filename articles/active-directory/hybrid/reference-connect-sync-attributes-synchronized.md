@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082126"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut synkroniserade till Azure Active Directory
@@ -60,7 +60,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | authOrig |X |X |X | |
 | c |X |X | | |
 | nomenklatur |X | |X | |
-| företag |X |X | | |
+| co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
@@ -166,7 +166,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
+| rubrik |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userCertificate |X |X | | |
@@ -181,7 +181,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | authOrig |X |X |X | |
 | c |X |X | | |
 | nomenklatur |X | |X | |
-| företag |X |X | | |
+| co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
@@ -248,7 +248,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
+| rubrik |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region
@@ -262,7 +262,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
 | nomenklatur |X | |X | |
-| företag |X |X | | |
+| co |X |X | | |
 | company |X |X | | |
 | avdelning |X |X | | |
 | description |X |X |X | |
@@ -299,7 +299,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
+| rubrik |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 | wWWHomePage |X |X | | |
@@ -343,7 +343,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
 | nomenklatur |X | |X | |
-| företag |X |X | | |
+| co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | description |X |X |X | |
@@ -365,7 +365,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| title |X |X | | |
+| rubrik |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
@@ -466,7 +466,7 @@ Enhets objekt skapas i Active Directory. Dessa objekt kan vara enheter som är a
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>Obs!
+## <a name="notes"></a>Anteckningar
 * När du använder ett alternativt ID synkroniseras det lokala attributet userPrincipalName med Azure AD-attributet onPremisesUserPrincipalName. Det alternativa ID-attributet, till exempel mail, synkroniseras med Azure AD-attributet userPrincipalName.
 * I listorna ovan gäller objekt typ **användaren** även för objekt typen **InetOrgPerson**.
 

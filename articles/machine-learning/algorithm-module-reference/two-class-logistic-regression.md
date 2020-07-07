@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137628"
 ---
 # <a name="two-class-logistic-regression-module"></a>Logistik Regressions modul i två klasser
@@ -55,7 +55,7 @@ Etikett kolumnen kan till exempel vara [röstat] med möjliga värden "Yes" elle
   
     -   L2-regulariseringshastigheten är däremot bättre för data som inte är sparse.  
   
-     Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: <code>x = L1</code> det <code>y = L2</code>vill säga <code>ax + by = c</code> om och definierar den linjära omfånget för regulariseringshastigheten-villkoren.  
+     Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: det vill säga om <code>x = L1</code> och <code>y = L2</code> definierar den <code>ax + by = c</code> linjära omfånget för regulariseringshastigheten-villkoren.  
   
     > [!NOTE]
     >  Vill du veta mer om L1-och L2-regulariseringshastigheten? Följande artikel innehåller en beskrivning av hur L1-och L2-regulariseringshastigheten skiljer sig från varandra och hur de påverkar modell anpassning, med kod exempel för logistik regression och neurala nätverks modeller: [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  

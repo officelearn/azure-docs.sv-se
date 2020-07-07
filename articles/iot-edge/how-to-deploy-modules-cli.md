@@ -10,10 +10,10 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: fbd0d65624852737c424128e9125b8370b870d4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133932"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Distribuera Azure IoT Edge-moduler med Azure CLI
@@ -24,7 +24,7 @@ När du skapar IoT Edge-moduler med din affärs logik vill du distribuera dem ti
 
 Den här artikeln visar hur du skapar ett JSON-distributions manifest och använder sedan filen för att skicka distributionen till en IoT Edge enhet. Information om hur du skapar en distribution som riktar sig till flera enheter baserat på deras delade taggar finns i [distribuera och övervaka IoT Edge moduler i skala](how-to-deploy-cli-at-scale.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration.
 * En [IoT Edge-enhet](how-to-register-device.md#register-with-the-azure-cli) med IoT Edge runtime installerad.

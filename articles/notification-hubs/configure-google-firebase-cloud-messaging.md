@@ -13,17 +13,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 1adbce654bc5c057270df9a874911731a0135034
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127477"
 ---
 # <a name="configure-google-firebase-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurera Google Firebase-inställningar för en Notification Hub i Azure Portal
 
 Den här artikeln visar hur du konfigurerar inställningar för Google Firebase Cloud Messaging (FCM) för en Azure Notification Hub med hjälp av Azure Portal.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte redan har skapat en Notification Hub skapar du ett nu. Mer information finns i [skapa en Azure Notification Hub i Azure Portal](create-notification-hub-portal.md). 
 
 ## <a name="configure-google-firebase-cloud-messaging-fcm"></a>Konfigurera Google Firebase Cloud Messaging (FCM)

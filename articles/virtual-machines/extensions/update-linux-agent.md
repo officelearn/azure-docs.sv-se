@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
 ms.openlocfilehash: ab846eeb09c4f3d2db71abf58ef5d55dc74962a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82112056"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Så här uppdaterar du Azure Linux-agenten på en virtuell dator
@@ -352,7 +352,7 @@ sudo systemctl restart walinuxagent.service
 
 ## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 och Oracle Linux 7
 
-För Oracle Linux kontrollerar du att `Addons` lagrings platsen är aktive rad. Välj att `/etc/yum.repos.d/public-yum-ol6.repo`redigera filen (Oracle Linux 6) eller `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux) och ändra raden `enabled=0` till `enabled=1` under **[ol6_addons]** eller **[ol7_addons]** i den här filen.
+För Oracle Linux kontrollerar du att `Addons` lagrings platsen är aktive rad. Välj att redigera filen `/etc/yum.repos.d/public-yum-ol6.repo` (Oracle Linux 6) eller `/etc/yum.repos.d/public-yum-ol7.repo` (Oracle Linux) och ändra raden `enabled=0` till `enabled=1` under **[ol6_addons]** eller **[ol7_addons]** i den här filen.
 
 Om du vill installera den senaste versionen av Azure Linux-agenten skriver du:
 
@@ -398,7 +398,7 @@ Detta är vanligt vis allt du behöver, men om du av någon anledning behöver i
 Installera wget (det finns vissa distributioner som inte installeras som standard, till exempel Red Hat, CentOS och Oracle Linux version 6,4 och 6,5) genom att skriva `sudo yum install wget` på kommando raden.
 
 ### <a name="1-download-the-latest-version"></a>1. Ladda ned den senaste versionen
-Öppna [versionen av Azure Linux-agenten i GitHub](https://github.com/Azure/WALinuxAgent/releases) på en webb sida och ta reda på det senaste versions numret. (Du kan hitta din aktuella version genom att `waagent --version`skriva.)
+Öppna [versionen av Azure Linux-agenten i GitHub](https://github.com/Azure/WALinuxAgent/releases) på en webb sida och ta reda på det senaste versions numret. (Du kan hitta din aktuella version genom att skriva `waagent --version` .)
 
 #### <a name="for-version-22x-or-later-type"></a>För version 2.2. x eller senare, skriver du:
 ```bash

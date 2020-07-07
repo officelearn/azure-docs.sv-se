@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 515fd9bfedc5bc5d3cefda2a357c351f515fb5f5
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ebf948fdb1df76cb7bcb03ee5d85f581d856524f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918722"
 ---
 # <a name="introduction"></a>Introduktion
 
@@ -30,7 +30,7 @@ Azure Synapse Apache Spark-poolen till Synapse SQL Connector är en implementeri
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autentisering i Azure Synapse Analytics
 
-Autentisering mellan system sker sömlöst i Azure Synapse Analytics. Det finns en token-tjänst som ansluter med Azure Active Directory för att hämta säkerhetstoken som ska användas vid åtkomst till lagrings kontot eller data lager servern. 
+Autentisering mellan system sker sömlöst i Azure Synapse Analytics. Det finns en token-tjänst som ansluter med Azure Active Directory för att hämta säkerhetstoken som ska användas vid åtkomst till lagrings kontot eller data lager servern.
 
 Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutnings-API: et så länge AAD-auth är konfigurerat på lagrings kontot och på data lager servern. Annars kan SQL-autentisering anges. Mer information finns i [användnings](#usage) avsnittet.
 
@@ -38,21 +38,29 @@ Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutn
 
 - Den här kopplingen fungerar bara i Scala.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Ha **db_exporter** -rollen i databasen/SQL-poolen som du vill överföra data till/från.
+- Måste vara medlem i **db_exporter** -rollen i den databas/SQL-pool som du vill överföra data till/från.
+- Måste vara medlem i rollen Storage BLOB data Contributor på standard lagrings kontot.
 
-Om du vill skapa användare ansluter du till databasen och följer de här exemplen:
+Om du vill skapa användare ansluter du till databasen för SQL-poolen och följer de här exemplen:
 
 ```sql
+--SQL User
 CREATE USER Mary FROM LOGIN Mary;
+
+--Azure Active Directory User
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Så här tilldelar du en roll:
 
 ```sql
+--SQL User
 EXEC sp_addrolemember 'db_exporter', 'Mary';
+
+--Azure Active Directory User
+EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 ```
 
 ## <a name="usage"></a>Användning
@@ -72,7 +80,7 @@ Import instruktionerna krävs inte, de är i förväg importerade för den bärb
 #### <a name="read-api"></a>Läs-API
 
 ```scala
-val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
+val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
 Ovanstående API fungerar både för interna (hanterade) och externa tabeller i SQL-poolen.
@@ -80,17 +88,51 @@ Ovanstående API fungerar både för interna (hanterade) och externa tabeller i 
 #### <a name="write-api"></a>Skriv-API
 
 ```scala
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-där TableType kan vara konstanter. INTERNAL eller constants. EXTERNAL
+Skriv-API: et skapar tabellen i SQL-poolen och sedan anropar PolyBase för att läsa in data.  Tabellen får inte finnas i SQL-poolen eller så returneras ett fel som anger att det redan finns ett objekt med namnet.
+
+TableType-värden
+
+- Konstanter. intern hanterad tabell i SQL-pool
+- Konstanter. extern extern tabell i SQL-pool
+
+Hanterad tabell för SQL-pool
 
 ```scala
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
+df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 ```
 
-Autentiseringen till lagringen och SQL Server görs
+Extern SQL-pool
+
+Om du vill skriva till en extern SQL-pool måste en extern DATA källa och ett externt fil FORMAT finnas i SQL-poolen.  Mer information finns i [skapa en extern data källa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [externa fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i SQL-poolen.  Nedan visas exempel på hur du skapar en extern data källa och externa fil format i SQL-poolen.
+
+```sql
+--For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+CREATE EXTERNAL DATA SOURCE <DataSourceName>
+WITH
+  ( LOCATION = 'abfss://...' ,
+    TYPE = HADOOP
+  ) ;
+
+CREATE EXTERNAL FILE FORMAT <FileFormatName>
+WITH (  
+    FORMAT_TYPE = PARQUET,  
+    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'  
+);
+```
+
+Ett externt CREDENTIAL-objekt är inte nödvändigt när du använder Azure Active Directory direktautentisering till lagrings kontot.  Se till att du är medlem i rollen "Storage BLOB data Contributor" på lagrings kontot.
+
+```scala
+
+df.write.
+    option(Constants.DATA_SOURCE, <DataSourceName>).
+    option(Constants.FILE_FORMAT, <FileFormatName>).
+    sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
+
+```
 
 ### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Om du överför data till eller från en SQL-pool eller databas utanför arbets ytan
 
@@ -114,8 +156,8 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 ```scala
 df.write.
-option(Constants.SERVER, "[samplews].[database.windows.net]").
-sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+option(Constants.SERVER, "samplews.database.windows.net").
+sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="using-sql-auth-instead-of-aad"></a>Använda SQL-autentisering i stället för AAD
@@ -127,8 +169,8 @@ För närvarande har kopplingen inte stöd för tokenbaserad autentisering till 
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
-option(Constants.USER, [SQLServer Login UserName]).
-option(Constants.PASSWORD, [SQLServer Login Password]).
+option(Constants.USER, <SQLServer Login UserName>).
+option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
@@ -136,10 +178,10 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 ```scala
 df.write.
-option(Constants.SERVER, "[samplews].[database.windows.net]").
-option(Constants.USER, [SQLServer Login UserName]).
-option(Constants.PASSWORD, [SQLServer Login Password]).
-sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+option(Constants.SERVER, "samplews.database.windows.net").
+option(Constants.USER, <SQLServer Login UserName>).
+option(Constants.PASSWORD, <SQLServer Login Password>).
+sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="using-the-pyspark-connector"></a>Använda PySpark-anslutningen
@@ -166,7 +208,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 På samma sätt kan du i Läs scenariot läsa data med Scala och skriva till en temporär tabell och använda Spark SQL i PySpark för att fråga Temp-tabellen till en dataframe.
 
-## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Låta andra användare använda DW-anslutningen i din arbets yta
+## <a name="allowing-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Låta andra användare använda Azure-Synapse Apache Spark för att Synapse SQL-anslutning på din arbets yta
 
 Du måste vara ägare av Storage BLOB-data på ADLS Gen2 lagrings konto som är anslutet till arbets ytan för att ändra behörigheter som saknas för andra. Se till att användaren har åtkomst till arbets ytan och behörigheterna för att köra antecknings böcker.
 
@@ -178,7 +220,7 @@ Du måste vara ägare av Storage BLOB-data på ADLS Gen2 lagrings konto som är 
 
 - Ange följande ACL: er i mappstrukturen:
 
-| Mapp | / | synapse | arbetsytor  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
+| Mapp | / | synapse | arbetsytor  | \<workspacename> | sparkpools | \<sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
 | Åtkomst behörigheter | --X | --X | --X | --X | --X | --X | -WX |
 | Standard behörigheter | ---| ---| ---| ---| ---| ---| ---|

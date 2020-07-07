@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066766"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
@@ -28,7 +28,7 @@ Vi rekommenderar att du börjar med en av [Linux på Azure-godkända distributio
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES och openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 Den här artikeln fokuserar på allmän vägledning för att köra din Linux-distribution på Azure.
@@ -39,14 +39,14 @@ Den här artikeln fokuserar på allmän vägledning för att köra din Linux-dis
 * Den maximala storlek som tillåts för den virtuella hård disken är 1 023 GB.
 * När du installerar Linux-systemet rekommenderar vi att du använder standardpartitioner istället för LVM (Logical Volume Manager) som är standard för många installationer. Genom att använda standardpartitioner undviker du LVM namn konflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin är ansluten till en annan identisk virtuell dator för fel sökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på data diskar.
 * Kernel-stöd för att montera UDF-filsystem är nödvändigt. Vid första starten av Azure skickas etablerings konfigurationen till den virtuella Linux-datorn med hjälp av UDF-formaterade medier som är kopplade till gästen. Azure Linux-agenten måste montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
-* Tidigare versioner av Linux-kärnan än 2.6.37 stöder inte NUMA på Hyper-V med större VM-storlekar. Det här problemet påverkar främst äldre distributioner med den överordnade Red Hat 2.6.32-kärnan och har åtgärd ATS i Red Hat Enterprise Linux (RHEL) 6,6 (kernel-2.6.32-504). System som kör anpassade kernels som är äldre än 2.6.37, eller RHEL-baserade kernels som är äldre än 2.6.32-504 `numa=off` , måste ange start parametern på kernel-kommandoraden i grub. conf. Mer information finns i [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+* Tidigare versioner av Linux-kärnan än 2.6.37 stöder inte NUMA på Hyper-V med större VM-storlekar. Det här problemet påverkar främst äldre distributioner med den överordnade Red Hat 2.6.32-kärnan och har åtgärd ATS i Red Hat Enterprise Linux (RHEL) 6,6 (kernel-2.6.32-504). System som kör anpassade kernels som är äldre än 2.6.37, eller RHEL-baserade kernels som är äldre än 2.6.32-504, måste ange start parametern `numa=off` på kernel-kommandoraden i grub. conf. Mer information finns i [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * Konfigurera inte en swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken, enligt beskrivningen i följande steg.
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att storleken på den råa disken är en multipel av 1 MB före konverteringen, enligt beskrivningen i följande steg.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Installera kernel-moduler utan Hyper-V
 Azure körs på Hyper-V-hypervisorn så att Linux kräver vissa kernel-moduler för att köras i Azure. Om du har en virtuell dator som har skapats utanför Hyper-V kan Linux-installations programmet inte inkludera driv rutinerna för Hyper-V i den första RAMDISK-enheten (initrd eller initramfs), om inte den virtuella datorn känner av att den körs i en Hyper-V-miljö. När du använder ett annat Virtualization-system (t. ex. VirtualBox, KVM och så vidare) för att förbereda Linux-avbildningen kan du behöva återskapa initrd så att minst hv_vmbus och hv_storvsc kernel-moduler är tillgängliga på den första RAMDISK-datorn.  Det här kända problemet är för system baserade på den överordnade Red Hat-distributionen och eventuellt andra.
 
-Mekanismen för att återskapa initrd-eller initramfs-avbildningen kan variera beroende på distributionen. Läs igenom distributionens dokumentation eller support om du vill ha en korrekt procedur.  Här är ett exempel på hur du återskapar initrd med `mkinitrd` hjälp av verktyget:
+Mekanismen för att återskapa initrd-eller initramfs-avbildningen kan variera beroende på distributionen. Läs igenom distributionens dokumentation eller support om du vill ha en korrekt procedur.  Här är ett exempel på hur du återskapar initrd med hjälp av `mkinitrd` verktyget:
 
 1. Säkerhetskopiera den befintliga initrd-avbildningen:
 
@@ -64,15 +64,15 @@ Mekanismen för att återskapa initrd-eller initramfs-avbildningen kan variera b
 ### <a name="resizing-vhds"></a>Ändra storlek på virtuella hård diskar
 VHD-avbildningar på Azure måste ha en virtuell storlek som är justerad till 1 MB.  Vanligt vis justeras virtuella hård diskar som skapats med Hyper-V korrekt.  Om den virtuella hård disken inte justeras korrekt kan du få ett fel meddelande som liknar följande när du försöker skapa en avbildning från din virtuella hård disk.
 
-* VHD http:\//\<mystorageaccount>. blob.Core.Windows.net/VHDs/MyLinuxVM.VHD har en virtuell storlek på 21475270656 byte som inte stöds. Storleken måste vara ett heltal (i MB).
+* VHD http: \/ / \<mystorageaccount> . blob.Core.Windows.net/VHDs/MyLinuxVM.VHD har en virtuell storlek på 21475270656 byte som inte stöds. Storleken måste vara ett heltal (i MB).
 
-I det här fallet ändrar du storlek på den virtuella datorn med hjälp av Hyper-V Manager-konsolen eller [ändra storlek på VHD PowerShell-](https://technet.microsoft.com/library/hh848535.aspx) cmdleten.  Om du inte kör i en Windows-miljö rekommenderar vi att `qemu-img` du använder för att konvertera (om det behövs) och ändra storlek på den virtuella hård disken.
+I det här fallet ändrar du storlek på den virtuella datorn med hjälp av Hyper-V Manager-konsolen eller [ändra storlek på VHD PowerShell-](https://technet.microsoft.com/library/hh848535.aspx) cmdleten.  Om du inte kör i en Windows-miljö rekommenderar vi att du använder `qemu-img` för att konvertera (om det behövs) och ändra storlek på den virtuella hård disken.
 
 > [!NOTE]
-> Det finns en [känd bugg i qemu-img-](https://bugs.launchpad.net/qemu/+bug/1490611) versionerna >= 2.2.1 som resulterar i en felaktigt formaterad virtuell hård disk. Problemet har åtgärd ATS i QEMU 2,6. Vi rekommenderar att du `qemu-img` använder antingen 2.2.0 eller lägre eller 2,6 eller högre.
+> Det finns en [känd bugg i qemu-img-](https://bugs.launchpad.net/qemu/+bug/1490611) versionerna >= 2.2.1 som resulterar i en felaktigt formaterad virtuell hård disk. Problemet har åtgärd ATS i QEMU 2,6. Vi rekommenderar att du använder antingen `qemu-img` 2.2.0 eller lägre eller 2,6 eller högre.
 > 
 
-1. Att ändra storlek på den virtuella hård disken direkt `qemu-img` med `vbox-manage` hjälp av verktyg som eller kan leda till en virtuell hård disk som inte kan startas.  Vi rekommenderar att först konvertera den virtuella hård disken till en RAW disk-avbildning.  Om den virtuella dator avbildningen skapades som en RAW disk avbildning (standardinställningen för vissa hypervisorer som KVM) kan du hoppa över det här steget.
+1. Att ändra storlek på den virtuella hård disken direkt med hjälp av verktyg som `qemu-img` eller `vbox-manage` kan leda till en virtuell hård disk som inte kan startas.  Vi rekommenderar att först konvertera den virtuella hård disken till en RAW disk-avbildning.  Om den virtuella dator avbildningen skapades som en RAW disk avbildning (standardinställningen för vissa hypervisorer som KVM) kan du hoppa över det här steget.
  
     ```
     qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
@@ -93,7 +93,7 @@ I det här fallet ändrar du storlek på den virtuella datorn med hjälp av Hype
     echo "Rounded Size = $rounded_size"
     ```
 
-3. Ändra storlek på den råa disken `$rounded_size` med den som anges ovan.
+3. Ändra storlek på den råa disken med den `$rounded_size` som anges ovan.
 
     ```bash
     qemu-img resize MyLinuxVM.raw $rounded_size
@@ -160,7 +160,7 @@ Följande korrigeringar måste ingå i kerneln. Den här listan kan inte slutfö
     ```  
     rhgb quiet crashkernel=auto
     ```
-    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar skickas till den seriella porten. `crashkernel` Alternativet kan lämnas om det behövs, men Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med minst 128 MB, vilket kan vara problematiskt för mindre VM-storlekar.
+    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar skickas till den seriella porten. `crashkernel`Alternativet kan lämnas om det behövs, men Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med minst 128 MB, vilket kan vara problematiskt för mindre VM-storlekar.
 
 1. Installera Azure Linux-agenten.
   
@@ -186,7 +186,7 @@ Följande korrigeringar måste ingå i kerneln. Den här listan kan inte slutfö
      logout
      ```  
    > [!NOTE]
-   > På VirtualBox kan du se följande fel när du har `waagent -force -deprovision` kört det `[Errno 5] Input/output error`som säger. Det här fel meddelandet är inte kritiskt och kan ignoreras.
+   > På VirtualBox kan du se följande fel när du har kört `waagent -force -deprovision` det som säger `[Errno 5] Input/output error` . Det här fel meddelandet är inte kritiskt och kan ignoreras.
 
 * Stäng av den virtuella datorn och överför den virtuella hård disken till Azure.
 

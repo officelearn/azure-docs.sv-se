@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100914"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
@@ -27,7 +27,7 @@ Här följer några fel söknings tips för några av de vanliga problem som kan
 Du kan hitta de fel meddelanden som är kopplade till arbets flödet genom att:
 
 1. Använda kommando raden och skriva i`msgen status`
-2. Undersöker innehållet i StandardOutput. txt.
+2. Undersöka innehållet i standardoutput.txt.
 
 ### <a name="1-using-the-command-line-msgen-status"></a>1. använda kommando raden`msgen status`
 
@@ -46,7 +46,7 @@ Det finns tre obligatoriska argument:
 
   
 * ID – arbets flödes-ID
-    * För att hitta din arbets flödes `msgen list` -ID-typ i kommandot. Om du antar att konfigurations filen innehåller URL: en och dina åtkomst nycklar och finns på samma plats som din msgen-exe, ser kommandot ut så här: 
+    * För att hitta din arbets flödes-ID-typ i `msgen list` kommandot. Om du antar att konfigurations filen innehåller URL: en och dina åtkomst nycklar och finns på samma plats som din msgen-exe, ser kommandot ut så här: 
         
         ```bash
         msgen list -f "config.txt"
@@ -75,21 +75,21 @@ Det finns tre obligatoriska argument:
   > [!NOTE]
   >  Du kan också inkludera sökvägen till konfigurations filen i stället för att direkt ange URL: en och nyckeln. Om du inkluderar dessa argument i kommando raden och i konfigurations filen har kommando rads argumenten företräde.  
 
-För arbets flödes-ID 1001 och config. txt-fil som placerats i samma sökväg som den körbara filen msgen ser kommandot ut så här:
+För arbets flödes-ID 1001, och config.txt fil som placerats i samma sökväg som den körbara filen msgen, ser kommandot ut så här:
 
 ```bash
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. granska innehållet i StandardOutput. txt 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. granska innehållet i standardoutput.txt 
 Leta upp behållaren utdata för arbets flödet i fråga. MSGEN skapar en `[workflowfilename].logs.zip` mapp efter varje arbets flödes körning. Zippa upp mappen för att visa dess innehåll:
 
-* outputFileList. txt – en lista över utdatafilerna som skapas under arbets flödet
-* StandardError. txt – den här filen är tom.
-* StandardOutput. txt – loggar alla status meddelanden på den översta nivån inklusive fel som uppstod när arbets flödet kördes.
+* outputFileList.txt en lista med utdatafiler som producerats under arbets flödet
+* standarderror.txt-filen är tom.
+* standardoutput.txt-loggar alla status meddelanden på den översta nivån inklusive fel som uppstod när arbets flödet kördes.
 * ANVÄNDAS-loggfiler – alla andra filer i `logs` mappen
 
-För fel sökning undersöker du innehållet i StandardOutput. txt och noterar eventuella fel meddelanden som visas.
+För fel sökning, granska innehållet i standardoutput.txt och notera eventuella fel meddelanden som visas.
 
 
 ## <a name="step-2-try-recommended-steps-for-common-errors"></a>Steg 2: prova rekommenderade steg för vanliga fel

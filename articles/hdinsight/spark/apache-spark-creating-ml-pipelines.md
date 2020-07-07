@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494673"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Skapa en Apache Spark-maskininlärningspipeline
@@ -23,7 +23,7 @@ En pipeline för Machine Learning (ML) är ett komplett arbets flöde som kombin
 
 En transformator är en algoritm som transformerar en DataFrame till en annan med hjälp av `transform()` metoden. Till exempel kan en funktions transformator läsa en kolumn i en DataFrame, mappa den till en annan kolumn och skapa en ny DataFrame med den mappade kolumnen som lagts till.
 
-En uppskattning är en abstraktion av inlärnings algoritmer och ansvarar för anpassning eller utbildning på en data uppsättning för att skapa en transformator. En uppskattning implementerar en metod med namnet `fit()`, som godkänner en DataFrame och skapar en DataFrame, som är en transformator.
+En uppskattning är en abstraktion av inlärnings algoritmer och ansvarar för anpassning eller utbildning på en data uppsättning för att skapa en transformator. En uppskattning implementerar en metod med namnet `fit()` , som godkänner en DataFrame och skapar en DataFrame, som är en transformator.
 
 Varje tillstånds lös instans av en transformator eller en uppskattare har sin egen unika identifierare, som används när du anger parametrar. Båda använder ett enhetligt API för att ange dessa parametrar.
 
@@ -33,7 +33,7 @@ För att demonstrera en praktisk användning av en ML-pipeline använder det hä
 
 Följande kod:
 
-1. Definierar en `LabeledDocument`, som lagrar `BuildingID`, `SystemInfo` (ett Systems identifierare och ålder) och en `label` (1,0 om byggnaden är för het, 0,0 annars).
+1. Definierar en `LabeledDocument` , som lagrar `BuildingID` , `SystemInfo` (ett Systems identifierare och ålder) och en `label` (1,0 om byggnaden är för het, 0,0 annars).
 2. Skapar en anpassad parser `parseDocument` -funktion som tar en rad (rad) med data och avgör om byggnaden är "frekvent" genom att jämföra mål temperaturen med den faktiska temperaturen.
 3. Använder parsern när data extraheras.
 4. Skapar tränings data.
@@ -78,11 +78,11 @@ documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
 ```
 
-Det här exemplet på pipelinen har tre `Tokenizer` steg `HashingTF` : och (båda transformatorerna `Logistic Regression` ) och (en uppskattning).  Extraherade och parsade data i `training` DataFrame flödar genom pipelinen när `pipeline.fit(training)` anropas.
+Det här exemplet på pipelinen har tre steg: `Tokenizer` och `HashingTF` (båda transformatorerna) och `Logistic Regression` (en uppskattning).  Extraherade och parsade data i `training` DataFrame flödar genom pipelinen när `pipeline.fit(training)` anropas.
 
-1. Det första steget, `Tokenizer`, delar upp `SystemInfo` inmatnings kolumnen (som består av system-ID och ålders värden `words` ) i en utgående kolumn. Den här `words` nya kolumnen läggs till i DataFrame. 
-2. Det andra steget, `HashingTF`konverterar den nya `words` kolumnen till funktions vektorer. Den här `features` nya kolumnen läggs till i DataFrame. De första två stegen är transformatorer. 
-3. Det tredje steget, `LogisticRegression`, är en uppskattning och så att pipelinen anropar `LogisticRegression.fit()` metoden för att skapa en. `LogisticRegressionModel` 
+1. Det första steget, `Tokenizer` , delar upp `SystemInfo` inmatnings kolumnen (som består av system-ID och ålders värden) i en `words` utgående kolumn. Den här nya `words` kolumnen läggs till i DataFrame. 
+2. Det andra steget, `HashingTF` konverterar den nya `words` kolumnen till funktions vektorer. Den här nya `features` kolumnen läggs till i DataFrame. De första två stegen är transformatorer. 
+3. Det tredje steget, `LogisticRegression` , är en uppskattning och så att pipelinen anropar `LogisticRegression.fit()` metoden för att skapa en `LogisticRegressionModel` . 
 
 ```python
 tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -95,7 +95,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(training)
 ```
 
-Om du vill se `words` de `features` nya och kolumnerna `Tokenizer` som `HashingTF` har lagts till av och-transformatorerna, och ett `LogisticRegression` exempel `PipelineModel.transform()` på uppskattningen, kör du en metod på den ursprungliga DataFrame. I produktions koden är nästa steg att skicka in ett test-DataFrame för att validera utbildningen.
+Om du vill se de nya `words` och `features` kolumnerna som har lagts till av `Tokenizer` och `HashingTF` -transformatorerna, och ett exempel på `LogisticRegression` uppskattningen, kör du en `PipelineModel.transform()` metod på den ursprungliga DataFrame. I produktions koden är nästa steg att skicka in ett test-DataFrame för att validera utbildningen.
 
 ```python
 peek = model.transform(training)
@@ -130,7 +130,7 @@ peek.show()
 only showing top 20 rows
 ```
 
-`model` Objektet kan nu användas för att göra förutsägelser. Det fullständiga exemplet på det här Machine Learning-programmet och stegvisa anvisningar för hur du kör det finns i [utveckla Apache Spark Machine Learning-program i Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
+`model`Objektet kan nu användas för att göra förutsägelser. Det fullständiga exemplet på det här Machine Learning-programmet och stegvisa anvisningar för hur du kör det finns i [utveckla Apache Spark Machine Learning-program i Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
 ## <a name="see-also"></a>Se även
 

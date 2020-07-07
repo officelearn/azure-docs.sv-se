@@ -11,10 +11,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 28cdc96020d085c6f44c8b6818aa76dd7eb29891
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82789015"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Skapa ett galleri för Azure-delad avbildning med hjälp av portalen

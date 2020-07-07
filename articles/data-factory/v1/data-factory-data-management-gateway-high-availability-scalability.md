@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80065195"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway – hög tillgänglighet och skalbarhet (för hands version)
@@ -238,15 +238,15 @@ När det tillgängliga minnet och CPU: n inte används, men den inaktiva kapacit
 
 ## <a name="known-issuesbreaking-changes"></a>Kända problem/bryta ändringar
 
-- För närvarande kan du ha upp till fyra fysiska Gateway-noder för en enda logisk Gateway. Om du behöver fler än fyra noder av prestanda skäl kan du skicka ett e [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com)-postmeddelande till.
+- För närvarande kan du ha upp till fyra fysiska Gateway-noder för en enda logisk Gateway. Om du behöver fler än fyra noder av prestanda skäl kan du skicka ett e-postmeddelande till [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com) .
 - Du kan inte registrera en gateway-nod igen med en autentiseringsnyckel från en annan logisk Gateway för att växla från den aktuella logiska gatewayen. Om du vill registrera om, avinstallera gatewayen från noden, installera om gatewayen och registrera den med autentiseringsnyckel för den andra logiska gatewayen. 
-- Om HTTP-proxyn krävs för alla gateway-noder ställer du in proxyn i diahost. exe. config och diawp. exe. config och använder Server hanteraren för att se till att alla noder har samma diahost. exe. config och diawip. exe. config. Mer information finns i avsnittet [Configure Proxy Settings (Konfigurera proxyinställningar](data-factory-data-management-gateway.md#configure-proxy-server-settings) ). 
+- Om HTTP-proxyn krävs för alla gateway-noder ställer du in proxyn i diahost.exe.config och diawp.exe.config och använder Server hanteraren för att se till att alla noder har samma diahost.exe.config och diawip.exe.config. Mer information finns i avsnittet [Configure Proxy Settings (Konfigurera proxyinställningar](data-factory-data-management-gateway.md#configure-proxy-server-settings) ). 
 - Om du vill ändra krypterings läge för nod-till-nod-kommunikation i Gateway-Configuration Manager tar du bort alla noder i portalen, förutom en. Lägg sedan till noderna igen när du har ändrat krypterings läget.
 - Använd ett officiellt TLS-certifikat om du väljer att kryptera kommunikations kanalen för nod-till-nod. Självsignerade certifikat kan orsaka anslutnings problem eftersom samma certifikat inte är betrott i certifikat utfärdarens lista på andra datorer. 
 - Du kan inte registrera en gateway-nod på en logisk Gateway om Node-versionen är lägre än den logiska Gateway-versionen. Ta bort alla noder för den logiska gatewayen från portalen så att du kan registrera en nod med lägre version (nedgradera). Om du tar bort alla noder i en logisk Gateway måste du manuellt installera och registrera nya noder i den logiska gatewayen. Express installation stöds inte i det här fallet.
 - Du kan inte använda Express installation för att installera noder i en befintlig logisk Gateway, som fortfarande använder autentiseringsuppgifter för molnet. Du kan kontrol lera var autentiseringsuppgifterna lagras från Gateway-Configuration Manager på fliken Inställningar.
 - Du kan inte använda Express installation för att installera noder i en befintlig logisk Gateway, som har aktiverat nod-till-nod-kryptering. När du anger att krypterings läget omfattar att lägga till certifikat manuellt, är Express installation inte något mer alternativ. 
-- För en fil kopiering från en lokal miljö bör du inte använda \\localhost eller C:\Files längre eftersom localhost eller den lokala enheten kanske inte är tillgänglig via alla noder. Använd \\i stället ServerName\files för att ange platsen för filer.
+- För en fil kopiering från en lokal miljö bör du inte använda \\ localhost eller C:\Files längre eftersom localhost eller den lokala enheten kanske inte är tillgänglig via alla noder. Använd i stället \\ ServerName\files för att ange platsen för filer.
 
 
 ## <a name="rolling-back-from-the-preview"></a>Återställa från förhands granskningen 

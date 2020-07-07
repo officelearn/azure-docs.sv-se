@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382528"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
@@ -28,9 +28,9 @@ En Azure Functions distribution består vanligt vis av följande resurser:
 
 | Resurs                                                                           | Krav | Syntax och egenskaper-referens                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| En Function-app                                                                     | Krävs    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |   |
-| Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfri    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
+| En Function-app                                                                     | Obligatorisk    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |   |
+| Ett [Azure Storage](../storage/index.yml) konto                                   | Obligatorisk    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
 | En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup> En värd plan krävs bara när du väljer att köra din Function-app i en [Premium-plan](./functions-premium-plan.md) eller på en [App Service plan](../app-service/overview-hosting-plans.md).
@@ -56,7 +56,7 @@ Ett Azure Storage-konto krävs för en Function-app. Du behöver ett allmänt sy
 }
 ```
 
-Dessutom måste egenskapen `AzureWebJobsStorage` anges som en app-inställning i plats konfigurationen. Om Function-appen inte använder Application Insights för övervakning bör den också anges `AzureWebJobsDashboard` som en app-inställning.
+Dessutom `AzureWebJobsStorage` måste egenskapen anges som en app-inställning i plats konfigurationen. Om Function-appen inte använder Application Insights för övervakning bör den också anges `AzureWebJobsDashboard` som en app-inställning.
 
 Azure Functions runtime använder `AzureWebJobsStorage` anslutnings strängen för att skapa interna köer.  När Application Insights inte är aktive rad använder körningen `AzureWebJobsDashboard` anslutnings strängen för att logga in på Azure Table Storage och Power The **Monitor** -fliken i portalen.
 
@@ -141,7 +141,7 @@ En Function-app måste innehålla följande program inställningar:
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | En anslutnings sträng till ett lagrings konto som Functions runtime använder för intern kö | Se [lagrings konto](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Versionen av Azure Functions runtime                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | Språk stacken som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java` `python`, eller`powershell` |
+| FUNCTIONS_WORKER_RUNTIME     | Språk stacken som ska användas för funktioner i den här appen                                   | `dotnet`, `node` , `java` , `python` eller`powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Krävs endast om du använder `node` språk stacken, anger vilken version som ska användas              | `10.14.1`                             |
 
 Dessa egenskaper anges i `appSettings` samlingen i `siteConfig` egenskapen:
@@ -183,7 +183,7 @@ Ett exempel på en Azure Resource Manager mall finns i [funktions program i för
 
 En förbruknings plan behöver inte definieras. Den ena skapas eller väljs automatiskt baserat på varje region när du skapar själva Function-appens resurs.
 
-Förbruknings planen är en särskild typ av "Server klustret"-resurs. För Windows kan du ange det med hjälp av `Dynamic` värdet för egenskaperna `computeMode` och: `sku`
+Förbruknings planen är en särskild typ av "Server klustret"-resurs. För Windows kan du ange det med hjälp av `Dynamic` värdet för `computeMode` `sku` egenskaperna och:
 
 ```json
 {  
@@ -208,13 +208,13 @@ Förbruknings planen är en särskild typ av "Server klustret"-resurs. För Wind
 > [!NOTE]
 > Förbruknings planen kan inte uttryckligen definieras för Linux. Den kommer att skapas automatiskt.
 
-Om du uttryckligen definierar förbruknings planen måste du ange `serverFarmId` egenskapen för appen så att den pekar på planens resurs-ID. Du bör se till att Function-appen också `dependsOn` har en inställning för planen.
+Om du uttryckligen definierar förbruknings planen måste du ange `serverFarmId` egenskapen för appen så att den pekar på planens resurs-ID. Du bör se till att Function-appen också har en `dependsOn` inställning för planen.
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 #### <a name="windows"></a>Windows
 
-I Windows kräver en förbruknings plan två ytterligare inställningar i plats konfigurationen: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och. `WEBSITE_CONTENTSHARE` Dessa egenskaper konfigurerar lagrings kontot och fil Sök vägen där funktionens kod och konfiguration lagras.
+I Windows kräver en förbruknings plan två ytterligare inställningar i plats konfigurationen: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och `WEBSITE_CONTENTSHARE` . Dessa egenskaper konfigurerar lagrings kontot och fil Sök vägen där funktionens kod och konfiguration lagras.
 
 ```json
 {
@@ -261,7 +261,7 @@ I Windows kräver en förbruknings plan två ytterligare inställningar i plats 
 
 #### <a name="linux"></a>Linux
 
-I Linux måste Function `kind` -appen ha inställningen inställd på `functionapp,linux`, och den måste ha `reserved` egenskapen inställd på: `true`
+I Linux måste Function-appen ha `kind` inställningen inställd på `functionapp,linux` , och den måste ha `reserved` egenskapen inställd på `true` :
 
 ```json
 {
@@ -309,7 +309,7 @@ Premium-planen ger samma skalning som förbruknings planen men innehåller dedik
 
 ### <a name="create-a-premium-plan"></a>Skapa en Premium-plan
 
-En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att använda `EP1`antingen `EP2`, eller `EP3` för `Name` egenskap svärdet i `sku` [objektet Description](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
+En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att använda antingen `EP1` , `EP2` eller `EP3` för `Name` egenskap svärdet i `sku` [objektet Description](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -334,7 +334,7 @@ En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange de
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-En Function-app i en Premium-plan måste `serverFarmId` ha egenskapen inställd på resurs-ID för den plan som skapades tidigare. Dessutom kräver en Premium-prenumeration två ytterligare inställningar i plats konfigurationen: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och. `WEBSITE_CONTENTSHARE` Dessa egenskaper konfigurerar lagrings kontot och fil Sök vägen där funktionens kod och konfiguration lagras.
+En Function-app i en Premium-plan måste ha `serverFarmId` egenskapen inställd på resurs-ID för den plan som skapades tidigare. Dessutom kräver en Premium-prenumeration två ytterligare inställningar i plats konfigurationen: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och `WEBSITE_CONTENTSHARE` . Dessa egenskaper konfigurerar lagrings kontot och fil Sök vägen där funktionens kod och konfiguration lagras.
 
 ```json
 {
@@ -410,7 +410,7 @@ En App Service plan definieras av en "Server klustret"-resurs.
 }
 ```
 
-Om du vill köra din app på Linux måste du också ställa `kind` in `Linux`på:
+Om du vill köra din app på Linux måste du också ställa in `kind` på `Linux` :
 
 ```json
 {
@@ -470,7 +470,7 @@ En Function-app på en App Service plan måste ha `serverFarmId` egenskapen inst
 }
 ```
 
-Linux-appar bör också innehålla `linuxFxVersion` en egenskap `siteConfig`under. Om du bara distribuerar kod bestäms värdet för detta av den önskade körnings stacken:
+Linux-appar bör också innehålla en `linuxFxVersion` egenskap under `siteConfig` . Om du bara distribuerar kod bestäms värdet för detta av den önskade körnings stacken:
 
 | Stack            | Exempelvärde                                         |
 |------------------|-------------------------------------------------------|
@@ -516,7 +516,7 @@ Linux-appar bör också innehålla `linuxFxVersion` en egenskap `siteConfig`unde
 }
 ```
 
-Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](/azure/app-service/containers). Ställ även in `WEBSITES_ENABLE_APP_SERVICE_STORAGE` på `false`, eftersom ditt appdata finns i själva behållaren:
+Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](/azure/app-service/containers). Ställ även in `WEBSITES_ENABLE_APP_SERVICE_STORAGE` på `false` , eftersom ditt appdata finns i själva behållaren:
 
 ```json
 {
@@ -641,7 +641,7 @@ En Function-app har många underordnade resurser som du kan använda i distribut
 }
 ```
 > [!TIP]
-> Den här mallen använder värdet [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) App Settings, som anger bas katalogen där Function Deployment Engine (kudu) söker efter distributions bara kod. I vårt lager finns våra funktioner i en undermapp till **src** -mappen. I föregående exempel ställer vi in värdet för App Settings på `src`. Om dina funktioner finns i roten för din lagrings plats, eller om du inte distribuerar från käll kontroll, kan du ta bort värdet för appens inställningar.
+> Den här mallen använder värdet [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) App Settings, som anger bas katalogen där Function Deployment Engine (kudu) söker efter distributions bara kod. I vårt lager finns våra funktioner i en undermapp till **src** -mappen. I föregående exempel ställer vi in värdet för App Settings på `src` . Om dina funktioner finns i roten för din lagrings plats, eller om du inte distribuerar från käll kontroll, kan du ta bort värdet för appens inställningar.
 
 ## <a name="deploy-your-template"></a>Distribuera mallen
 
@@ -650,11 +650,11 @@ Du kan använda något av följande sätt för att distribuera mallen:
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
 * [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
-* [REST API](../azure-resource-manager/templates/deploy-rest.md)
+* [REST-API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Knappen Distribuera till Azure
 
-Ersätt ```<url-encoded-path-to-azuredeploy-json>``` med en [URL-kodad](https://www.bing.com/search?q=url+encode) version av `azuredeploy.json` filens RAW-sökväg i GitHub.
+Ersätt ```<url-encoded-path-to-azuredeploy-json>``` med en [URL-kodad](https://www.bing.com/search?q=url+encode) version av filens RAW-sökväg `azuredeploy.json` i GitHub.
 
 Här är ett exempel som använder MARKDOWN:
 

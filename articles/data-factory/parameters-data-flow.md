@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780425"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrisera mappningsdataflöden
@@ -64,23 +64,23 @@ När du tilldelar en uttrycks parameter för pipeline av typen sträng, läggs s
 
 ![Ange en data flödes parameter](media/data-flow/string-parameter.png "Ange en data flödes parameter")
 
-Om data flödes `stringParam` parametern refererar till en pipeline-parameter `upper(column1)`med värde. 
+Om data flödes parametern `stringParam` refererar till en pipeline-parameter med värde `upper(column1)` . 
 
 - Om uttrycket är markerat `$stringParam` utvärderas värdet för column1 alla versaler.
 - Om uttrycket inte är markerat (standard beteende) `$stringParam` utvärderas till`'upper(column1)'`
 
 #### <a name="passing-in-timestamps"></a>Överför i tidsstämplar
 
-I pipeline-uttryckets språk kan systemvariabler, `pipeline().TriggerTime` till exempel och `utcNow()` funktioner som returnerar tidsstämplar som strängar i formatet åååå-mm-dd\'T\'hh: mm: SS. SSSSSSZ'. Om du vill konvertera dessa till data flödes parametrar av typen timestamp, använder du String-interpolation för `toTimestamp()` att inkludera önskad tidstämpel i en funktion. Om du till exempel vill konvertera utlösnings tiden för pipelinen till en data flödes parameter `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`kan du använda. 
+I pipeline-uttryckets språk kan systemvariabler, till exempel `pipeline().TriggerTime` och funktioner som `utcNow()` returnerar tidsstämplar som strängar i formatet åååå-mm-dd \' T \' hh: mm: SS. SSSSSSZ'. Om du vill konvertera dessa till data flödes parametrar av typen timestamp, använder du String-interpolation för att inkludera önskad tidstämpel i en `toTimestamp()` funktion. Om du till exempel vill konvertera utlösnings tiden för pipelinen till en data flödes parameter kan du använda `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
 ![Ange en data flödes parameter](media/data-flow/parameter-timestamp.png "Ange en data flödes parameter")
 
 > [!NOTE]
-> Data flöden kan bara stödja upp till 3 millisekunder. `left()` Funktionen används för att trimma ytterligare siffror.
+> Data flöden kan bara stödja upp till 3 millisekunder. `left()`Funktionen används för att trimma ytterligare siffror.
 
 #### <a name="pipeline-parameter-example"></a>Exempel på pipeline-parameter
 
-Anta att du har en heltals parameter `intParam` som refererar till en pipeline-parameter av typen sträng `@pipeline.parameters.pipelineParam`,. 
+Anta att du har en heltals parameter `intParam` som refererar till en pipeline-parameter av typen sträng, `@pipeline.parameters.pipelineParam` . 
 
 ![Ange en data flödes parameter](media/data-flow/parameter-pipeline-2.png "Ange en data flödes parameter")
 
@@ -88,7 +88,7 @@ Anta att du har en heltals parameter `intParam` som refererar till en pipeline-p
 
 ![Ange en data flödes parameter](media/data-flow/parameter-pipeline-4.png "Ange en data flödes parameter")
 
-När `$intParam` refereras till i ett uttryck, till exempel en härledd kolumn, kommer `abs(1)` det `1`att utvärdera RETUR. 
+När `$intParam` refereras till i ett uttryck, till exempel en härledd kolumn, kommer det att utvärdera `abs(1)` RETUR `1` . 
 
 ![Ange en data flödes parameter](media/data-flow/parameter-pipeline-3.png "Ange en data flödes parameter")
 
@@ -102,9 +102,9 @@ Genom att välja **data flödes uttryck** öppnas data flödets uttrycks verktyg
 
 ### <a name="passing-in-a-column-name-as-a-parameter"></a>Skicka in ett kolumn namn som en parameter
 
-Ett vanligt mönster är att skicka in ett kolumn namn som ett parameter värde. Om kolumnen definieras i data flödes schemat kan du referera till den direkt som ett sträng uttryck. Om kolumnen inte är definierad i schemat använder du `byName()` funktionen. Kom ihåg att omvandla kolumnen till lämplig typ med en gjutning, till exempel `toString()`.
+Ett vanligt mönster är att skicka in ett kolumn namn som ett parameter värde. Om kolumnen definieras i data flödes schemat kan du referera till den direkt som ett sträng uttryck. Om kolumnen inte är definierad i schemat använder du `byName()` funktionen. Kom ihåg att omvandla kolumnen till lämplig typ med en gjutning, till exempel `toString()` .
 
-Om du till exempel vill mappa en sträng kolumn baserat på en parameter `columnName`kan du lägga till en härledd kolumn omvandling som är lika `toString(byName($columnName))`med.
+Om du till exempel vill mappa en sträng kolumn baserat på en parameter `columnName` kan du lägga till en härledd kolumn omvandling som är lika med `toString(byName($columnName))` .
 
 ![Skicka in ett kolumn namn som en parameter](media/data-flow/parameterize-column-name.png "Skicka in ett kolumn namn som en parameter")
 

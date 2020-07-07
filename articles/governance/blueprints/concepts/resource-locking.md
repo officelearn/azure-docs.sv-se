@@ -4,10 +4,10 @@ description: Lär dig mer om låsnings alternativen i Azure-ritningar för att s
 ms.date: 03/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383595"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
@@ -24,7 +24,7 @@ Lås lägen kan dock inte ändras utanför Azure-ritningar.
 
 Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstånd: **inte låst**, **skrivskyddad**, **kan inte redigera/ta bort**eller **kan inte tas bort**. Varje artefakt typ kan vara i **låst** läge. Följande tabell kan användas för att fastställa en resurs status:
 
-|Läge|Artefakt resurs typ|Status|Beskrivning|
+|Läge|Artefakt resurs typ|Stat|Beskrivning|
 |-|-|-|-|
 |Lås inte|*|Inte låst|Resurser skyddas inte av Azure-ritningar. Det här läget används också för resurser som läggs till i en **skrivskyddad** eller **inte tar bort** artefakten för resurs gruppen utanför en skiss tilldelning.|
 |Skrivskydd|Resursgrupp|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
@@ -47,7 +47,7 @@ Om du vill tilldela skissen till en hanterings grupp i stället för en prenumer
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
 ```
 
-Hanterings gruppen som definieras `{assignmentMG}` av måste antingen ligga inom hierarkin för hanterings grupper eller vara samma hanterings grupp där skiss definitionen sparas.
+Hanterings gruppen som definieras av `{assignmentMG}` måste antingen ligga inom hierarkin för hanterings grupper eller vara samma hanterings grupp där skiss definitionen sparas.
 
 Begär ande texten för skiss tilldelningen ser ut så här:
 
@@ -177,7 +177,7 @@ På samma sätt som du utesluter [ett huvud konto](#exclude-a-principal-from-a-d
 },
 ```
 
-Även om **excludedPrincipals** måste vara explicit kan **excludedActions** -poster använda `*` för att matcha en jokertecken för RBAC-åtgärder.
+Även om **excludedPrincipals** måste vara explicit kan **excludedActions** -poster använda för att `*` matcha en jokertecken för RBAC-åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 

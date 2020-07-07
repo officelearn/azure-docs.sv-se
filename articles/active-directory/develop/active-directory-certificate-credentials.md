@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 47a35f70251622674205a28af9b7cc64132d0530
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82690275"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Autentiseringsuppgifter för certifikat för Microsoft Identity Platform Application Authentication
@@ -29,7 +29,7 @@ En typ av autentiseringsuppgift som ett program kan använda för autentisering 
 ## <a name="assertion-format"></a>Intygs format
 Microsoft Identity Platform för att beräkna försäkran kan du använda ett av de många [JSON Web token](https://jwt.ms/) -biblioteken på valfritt språk. Informationen som utförs av token är följande:
 
-### <a name="header"></a>Huvud
+### <a name="header"></a>Sidhuvud
 
 | Parameter |  Markera om |
 | --- | --- |
@@ -39,14 +39,14 @@ Microsoft Identity Platform för att beräkna försäkran kan du använda ett av
 
 ### <a name="claims-payload"></a>Anspråk (nytto Last)
 
-| Parameter |  Anmärkningar |
+| Parameter |  Kommentarer |
 | --- | --- |
 | `aud` | Mål grupp: ska vara ** https://login.microsoftonline.com/ *tenant_Id*/OAuth2/token** |
 | `exp` | Utgångs datum: det datum då token upphör att gälla. Tiden visas som antalet sekunder från 1 januari 1970 (1970-01-01T0:0: 0Z) UTC tills den tid då token giltighet upphör att gälla.|
 | `iss` | Utfärdare: ska vara client_id (program-ID för klient tjänsten) |
 | `jti` | GUID: JWT-ID: t |
 | `nbf` | Inte före: det datum som token inte kan användas. Tiden visas som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0: 0Z) UTC tills den tidpunkt då token utfärdades. |
-| `sub` | Ämne: som för `iss`, ska vara Client_id (program-ID för klient tjänsten) |
+| `sub` | Ämne: som för `iss` , ska vara client_id (program-ID för klient tjänsten) |
 
 ### <a name="signature"></a>Signatur
 
@@ -104,7 +104,7 @@ Med ett certifikat måste du beräkna:
 - `$base64Thumbprint`, som är base64-kodningen för certifikatets hash
 - `$base64Value`, som är base64-kodningen för certifikatets rå data
 
-Du måste också ange en GUID för att identifiera nyckeln i applikations manifestet (`$keyId`).
+Du måste också ange en GUID för att identifiera nyckeln i applikations manifestet ( `$keyId` ).
 
 I Azure App-registreringen för klient programmet:
 1. Välj **manifest** för att öppna applikations manifestet.
@@ -123,11 +123,11 @@ I Azure App-registreringen för klient programmet:
    ```
 3. Spara ändringarna i applikations manifestet och ladda upp manifestet till Microsoft Identity Platform.
 
-   `keyCredentials` Egenskapen har flera värden, så du kan ladda upp flera certifikat för bättre nyckel hantering.
+   `keyCredentials`Egenskapen har flera värden, så du kan ladda upp flera certifikat för bättre nyckel hantering.
 
 ## <a name="code-sample"></a>Kodexempel
 
 > [!NOTE]
-> Du måste beräkna X5T-rubriken genom att konvertera den till en bas 64-sträng med certifikatets hash. Den kod som ska utföras i C# `System.Convert.ToBase64String(cert.GetCertHash());`är.
+> Du måste beräkna X5T-rubriken genom att konvertera den till en bas 64-sträng med certifikatets hash. Den kod som ska utföras i C# är `System.Convert.ToBase64String(cert.GetCertHash());` .
 
-Kod exemplet [.net Core daemon Console-programmet som använder Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) med hjälp `New-SelfSignedCertificate` av PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.
+Kod exemplet [.net Core daemon Console-programmet som använder Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) med hjälp av `New-SelfSignedCertificate` PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.

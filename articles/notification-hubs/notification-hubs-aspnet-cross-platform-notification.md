@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: fc3cec348517244c8a7f54d2d3d17298c58e4262
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127050"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Skicka aviseringar mellan plattformar med Azure Notification Hubs
@@ -43,7 +43,7 @@ Gör så här om du vill skicka meddelanden mellan plattformar med hjälp av mal
 
 1. I Visual Studio i **Solution Explorer**expanderar du mappen **kontrollanter** och öppnar sedan filen *RegisterController.cs* .
 
-1. Leta upp kod blocket i- `Put` metoden som skapar en ny registrering och ersätt sedan `switch` innehållet med följande kod:
+1. Leta upp kod blocket i `Put` -metoden som skapar en ny registrering och ersätt sedan `switch` innehållet med följande kod:
 
     ```csharp
     switch (deviceUpdate.Platform)

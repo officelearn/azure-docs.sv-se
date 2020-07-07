@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73162741"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Översikt över Azure Security Management och Monitoring
@@ -32,9 +32,9 @@ Rollbaserad Access Control (RBAC) ger detaljerad åtkomst hantering för Azure-r
 Läs mer:
 
 * [Active Directory Team blogg på RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Rollbaserad åtkomstkontroll i Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Rollbaserad Access Control i Azure](../../role-based-access-control/role-assignments-portal.md)
 
-## <a name="antimalware"></a>Skadlig kod
+## <a name="antimalware"></a>Programvara mot skadlig kod
 
 Med Azure kan du använda program mot skadlig kod från stora säkerhets leverantörer som Microsoft, Symantec, Trend Micro, McAfee och Kasper Sky. Den här program varan hjälper till att skydda dina virtuella datorer från skadliga filer, annons program och andra hot.
 
@@ -138,7 +138,7 @@ Intelligent Security Graph ger skydd mot hot i real tid i Microsofts produkter o
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Lär dig mer om den [delade ansvars modellen](shared-responsibility.md) och vilka säkerhets uppgifter som hanteras av Microsoft och vilka aktiviteter som hanteras av dig.
 
 Mer information om säkerhets hantering finns [i säkerhets hantering i Azure](management.md).

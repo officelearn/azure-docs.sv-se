@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
 ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82786622"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
@@ -136,7 +136,7 @@ Om du vill aktivera namn matchning mellan det virtuella nätverket och resursern
 
 2. Konfigurera det virtuella nätverket så att det använder den anpassade DNS-servern.
 
-3. Hitta det Azure-tilldelade DNS-suffixet för det virtuella nätverket. Det här värdet liknar `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Information om hur du hittar DNS-suffix finns i avsnittet [exempel: anpassad DNS](hdinsight-create-virtual-network.md#example-dns) .
+3. Hitta det Azure-tilldelade DNS-suffixet för det virtuella nätverket. Det här värdet liknar `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` . Information om hur du hittar DNS-suffix finns i avsnittet [exempel: anpassad DNS](hdinsight-create-virtual-network.md#example-dns) .
 
 4. Konfigurera vidarebefordring mellan DNS-servrarna. Konfigurationen beror på typen av fjärrnätverk.
 
@@ -168,7 +168,7 @@ Mer information finns i dokumentet [namn matchning för virtuella datorer och ro
 
 ## <a name="directly-connect-to-apache-hadoop-services"></a>Anslut direkt till Apache Hadoop tjänster
 
-Du kan ansluta till klustret på `https://CLUSTERNAME.azurehdinsight.net`. Den här adressen använder en offentlig IP-adress, som kanske inte kan kommas åt om du har använt NSG: er för att begränsa inkommande trafik från Internet. När du distribuerar klustret i ett VNet kan du dessutom komma åt det med hjälp av den privata `https://CLUSTERNAME-int.azurehdinsight.net`slut punkten. Den här slut punkten matchar en privat IP-adress i VNet för kluster åtkomst.
+Du kan ansluta till klustret på `https://CLUSTERNAME.azurehdinsight.net` . Den här adressen använder en offentlig IP-adress, som kanske inte kan kommas åt om du har använt NSG: er för att begränsa inkommande trafik från Internet. När du distribuerar klustret i ett VNet kan du dessutom komma åt det med hjälp av den privata slut punkten `https://CLUSTERNAME-int.azurehdinsight.net` . Den här slut punkten matchar en privat IP-adress i VNet för kluster åtkomst.
 
 Använd följande steg för att ansluta till Apache Ambari och andra webb sidor via det virtuella nätverket:
 

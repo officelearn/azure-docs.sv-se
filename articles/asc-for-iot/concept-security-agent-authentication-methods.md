@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 0d9d51292c3cae9634af917819b558cdfd2fa04b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311522"
 ---
 # <a name="security-agent-authentication-methods"></a>Autentiseringsmetoder för säkerhets agent
@@ -77,7 +77,7 @@ Om du vill ändra autentiseringsmetoder efter distributionen krävs manuell redi
 
 ### <a name="c-based-security-agent"></a>C#-baserad säkerhets agent
 
-Redigera _Authentication. config_ med följande parametrar:
+Redigera _Authentication.config_ med följande parametrar:
 
 ```xml
 <Authentication>
@@ -92,7 +92,7 @@ Redigera _Authentication. config_ med följande parametrar:
 
 ### <a name="c-based-security-agent"></a>C-baserad säkerhets agent
 
-Redigera _LocalConfiguration. JSON_ med följande parametrar:
+Redigera _LocalConfiguration.js_ med följande parametrar:
 
 ```json
 "Authentication" : {

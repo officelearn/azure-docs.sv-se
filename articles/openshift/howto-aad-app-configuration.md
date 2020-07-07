@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382920"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
@@ -23,7 +23,7 @@ Microsoft Azure Red Hat OpenShift måste ha behörighet att utföra åtgärder p
 
 I [Azure Portal](https://portal.azure.com)kontrollerar du att klienten visas under ditt användar namn längst upp till höger i portalen:
 
-![Skärm bild av portalen med klient organisation listad](./media/howto-create-tenant/tenant-callout.png) överst till höger om fel klient visas, klicka på ditt användar namn längst upp till höger och klicka sedan på **Växla katalog**och välj rätt klient i listan **alla kataloger** .
+![Skärm bild av portalen med klient organisation listad överst till höger ](./media/howto-create-tenant/tenant-callout.png) om fel klient visas, klicka på ditt användar namn längst upp till höger och klicka sedan på **Växla katalog**och välj rätt klient i listan **alla kataloger** .
 
 Skapa en ny Azure Active Directory ägarens användare för att logga in i ditt Azure Red Hat OpenShift-kluster.
 
@@ -54,14 +54,14 @@ Medlemskap i en Azure AD-säkerhetsgrupp synkroniseras i OpenShift-gruppen "OSA-
     Skriv ned värdet för grupp-ID.
 
 9. När gruppen har skapats visas den i listan över alla grupper. Klicka på den nya gruppen.
-10. På sidan som visas kopierar du **objekt-ID: t**. Vi kommer att referera till det här `GROUPID` värdet som i själv studie kursen [skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
+10. På sidan som visas kopierar du **objekt-ID: t**. Vi kommer att referera till det här värdet som `GROUPID` i själv studie kursen [skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
 
 > [!IMPORTANT]
 > Om du vill synkronisera den här gruppen med OpenShift-gruppen OSA-Customer-admins skapar du klustret med hjälp av Azure CLI. Azure Portal för närvarande saknar ett fält för att ange den här gruppen.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Skapa en Azure AD-App-registrering
 
-Du kan automatiskt skapa en Azure Active Directory-klient (Azure AD) för program registrering som en del av att skapa klustret `--aad-client-app-id` genom att utelämna `az openshift create` flaggan till kommandot. I den här självstudien lär du dig hur du skapar Azure AD-appens registrering för att bli klar.
+Du kan automatiskt skapa en Azure Active Directory-klient (Azure AD) för program registrering som en del av att skapa klustret genom `--aad-client-app-id` att utelämna flaggan till `az openshift create` kommandot. I den här självstudien lär du dig hur du skapar Azure AD-appens registrering för att bli klar.
 
 Om din organisation inte redan har en Azure Active Directory-app (Azure AD) som ska användas som tjänstens huvud namn, följer du dessa instruktioner för att skapa en.
 
@@ -69,7 +69,7 @@ Om din organisation inte redan har en Azure Active Directory-app (Azure AD) som 
 2. Ange ett namn för program registreringen i fönstret **Registrera ett program** .
 3. Se till att under **konto typer som stöds** som **konton i den här organisations katalogen endast** är markerad. Det här är det säkraste alternativet.
 4. Vi kommer att lägga till en omdirigerings-URI senare när vi känner till klustrets URI. Klicka på knappen **Registrera** för att skapa Azure AD-programregistrering.
-5. På sidan som visas kopierar du **program-ID: t (klient)**. Vi kommer att referera till det här `APPID` värdet som i själv studie kursen [skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
+5. På sidan som visas kopierar du **program-ID: t (klient)**. Vi kommer att referera till det här värdet som `APPID` i själv studie kursen [skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
 
 ![Skärm bild av sidan app-objekt](./media/howto-create-tenant/get-app-id.png)
 
@@ -82,7 +82,7 @@ Generera en klient hemlighet för autentisering av appen till Azure Active Direc
 3. Ange en **Beskrivning**.
 4. Ange **förfallo datum** för den varaktighet du föredrar, till exempel **på två år**.
 5. Klicka på **Lägg till** och nyckelvärdet visas i avsnittet **klient hemligheter** på sidan.
-6. Kopiera värdet för nyckel. Vi kommer att referera till det här `SECRET` värdet som i själv studie kursen [skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
+6. Kopiera värdet för nyckel. Vi kommer att referera till det här värdet som `SECRET` i själv studie kursen [skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
 
 ![Skärm bild av fönstret certifikat och hemligheter](./media/howto-create-tenant/create-key.png)
 

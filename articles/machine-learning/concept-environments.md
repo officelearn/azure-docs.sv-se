@@ -10,10 +10,10 @@ ms.author: trbye
 author: trevorbye
 ms.date: 03/18/2020
 ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80064197"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Vad är Azure Machine Learning miljöer?
@@ -93,9 +93,9 @@ Se följande diagram som visar tre miljö definitioner. Två av dem har olika na
 ![Diagram över cachelagring av miljöer som Docker-avbildningar](./media/concept-environments/environment-caching.png)
 
 >[!IMPORTANT]
-> Om du skapar en miljö med ett ej fixerat paket beroende kan du till ```numpy```exempel använda paket versionen som är installerad _när miljön skapades_. Dessutom fortsätter all framtida miljö med matchnings definition att använda den gamla versionen. 
+> Om du skapar en miljö med ett ej fixerat paket beroende kan du till exempel ```numpy``` använda paket versionen som är installerad _när miljön skapades_. Dessutom fortsätter all framtida miljö med matchnings definition att använda den gamla versionen. 
 
-Om du vill uppdatera paketet anger du ett versions nummer som tvingar avbildnings återskapning, ```numpy==1.18.1```till exempel. Observera att nya beroenden, inklusive kapslade, kommer att installeras som kan bryta ett tidigare arbets scenario.
+Om du vill uppdatera paketet anger du ett versions nummer som tvingar avbildnings återskapning, till exempel ```numpy==1.18.1``` . Observera att nya beroenden, inklusive kapslade, kommer att installeras som kan bryta ett tidigare arbets scenario.
 
 > [!WARNING]
 >  [Miljön. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) -metoden kommer att återskapa den cachelagrade avbildningen med möjlig sido effekt på att uppdatera icke-fästa paket och bryta reproducerbarhet för alla miljö definitioner som motsvarar den cachelagrade avbildningen.

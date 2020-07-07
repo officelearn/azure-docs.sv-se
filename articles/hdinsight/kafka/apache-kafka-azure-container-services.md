@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383049"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänsten med Apache Kafka på HDInsight
 
-Lär dig hur du använder Azure Kubernetes service (AKS) med [Apache Kafka](https://kafka.apache.org/) på HDInsight-kluster. Stegen i det här dokumentet använder ett Node. js-program som finns i AKS för att verifiera anslutningen med Kafka. Det här programmet använder [Kafka-Node-](https://www.npmjs.com/package/kafka-node) paketet för att kommunicera med Kafka. Den använder [socket.io](https://socket.io/) för händelse drivna meddelanden mellan webb läsar klienten och Server delen som finns i AKS.
+Lär dig hur du använder Azure Kubernetes service (AKS) med [Apache Kafka](https://kafka.apache.org/) på HDInsight-kluster. Stegen i det här dokumentet använder ett Node.js-program som finns i AKS för att verifiera anslutningen med Kafka. Det här programmet använder [Kafka-Node-](https://www.npmjs.com/package/kafka-node) paketet för att kommunicera med Kafka. Den använder [socket.io](https://socket.io/) för händelse drivna meddelanden mellan webb läsar klienten och Server delen som finns i AKS.
 
 [Apache Kafka](https://kafka.apache.org) är en distribuerad direktuppspelningsplattform med öppen källkod som kan användas för att skapa realtidsuppspelade datapipelines och program. Azure Kubernetes-tjänsten hanterar din värdbaserade Kubernetes-miljö och gör det snabbt och enkelt att distribuera program i behållare. Med hjälp av en Azure-Virtual Network kan du ansluta de två tjänsterna.
 
 > [!NOTE]  
 > Det här dokumentet fokuserar på de steg som krävs för att aktivera Azure Kubernetes-tjänsten för att kommunicera med Kafka på HDInsight. Själva exemplet är bara en grundläggande Kafka-klient för att demonstrera att konfigurationen fungerar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * En Azure-prenumeration
@@ -35,7 +35,7 @@ Det här dokumentet förutsätter att du är van att skapa och använda följand
 * Azure Kubernetes Service
 *  Azure Virtual Networks
 
-Det här dokumentet förutsätter också att du har gick genom [självstudien för Azure Kubernetes-tjänsten](../../aks/tutorial-kubernetes-prepare-app.md). Den här artikeln skapar en behållar tjänst, skapar ett Kubernetes-kluster, ett behållar `kubectl` register och konfigurerar verktyget.
+Det här dokumentet förutsätter också att du har gick genom [självstudien för Azure Kubernetes-tjänsten](../../aks/tutorial-kubernetes-prepare-app.md). Den här artikeln skapar en behållar tjänst, skapar ett Kubernetes-kluster, ett behållar register och konfigurerar `kubectl` verktyget.
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -73,14 +73,14 @@ Om du inte redan har ett AKS-kluster kan du använda något av följande dokumen
 
 ### <a name="create-virtual-network"></a>Skapa det virtuella nätverket
 
-1. Om du vill skapa ett virtuellt nätverk för HDInsight går du till __+ skapa en resurs__ > __nätverk__ > __virtuellt nätverk__.
+1. Om du vill skapa ett virtuellt nätverk för HDInsight går du till __+ skapa en resurs__  >  __nätverk__  >  __virtuellt nätverk__.
 
 1. Skapa nätverket med följande rikt linjer för vissa egenskaper:
 
     |Egenskap | Värde |
     |---|---|
     |Adressutrymme|Du måste använda ett adress utrymme som inte överlappar det som används av AKS-kluster nätverket.|
-    |Plats|Använd samma __plats__ för det virtuella nätverk som du använde för AKS-klustret.|
+    |Location|Använd samma __plats__ för det virtuella nätverk som du använde för AKS-klustret.|
 
 1. Vänta tills det virtuella nätverket har skapats innan du går vidare till nästa steg.
 
@@ -92,9 +92,9 @@ Om du inte redan har ett AKS-kluster kan du använda något av följande dokumen
 
     |Egenskap |Värde |
     |---|---|
-    |Peering-namnet från \<den här VN-> till fjärranslutet virtuellt nätverk|Ange ett unikt namn för peering-konfigurationen.|
+    |Peer-kopplingens namn från \<this VN> till det virtuella fjärrnätverket|Ange ett unikt namn för peering-konfigurationen.|
     |Virtuellt nätverk|Välj det virtuella nätverket för **AKS-klustret**.|
-    |Namnet på peer koppling från \<AKS VN> till \<den här VN>|Ange ett unikt namn.|
+    |Namn på peer koppling från \<AKS VN> till\<this VN>|Ange ett unikt namn.|
 
     Lämna alla andra fält i standardvärdet och välj sedan __OK__ för att konfigurera peer koppling.
 
@@ -118,7 +118,7 @@ Använd följande steg för att konfigurera Kafka för att annonsera IP-adresser
 
     ![Konfiguration av Apache Ambari Services](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
-4. Du hittar __Kafka-kuvert-__ konfigurationen genom att `kafka-env` ange i fältet __filter__ längst upp till höger.
+4. Du hittar __Kafka-kuvert-__ konfigurationen genom att ange `kafka-env` i fältet __filter__ längst upp till höger.
 
     ![Kafka-konfiguration, för Kafka-miljö](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
 
@@ -132,9 +132,9 @@ Använd följande steg för att konfigurera Kafka för att annonsera IP-adresser
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger `listeners` du i fältet __filter__ längst upp till höger.
+6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger du `listeners` i fältet __filter__ längst upp till höger.
 
-7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listeners__ till `PLAINTEXT://0.0.0.0:9092`.
+7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listeners__ till `PLAINTEXT://0.0.0.0:9092` .
 
 8. Använd knappen __Spara__ om du vill spara konfigurations ändringarna. Ange ett textmeddelande som beskriver ändringarna. Välj __OK__ när ändringarna har sparats.
 
@@ -156,14 +156,14 @@ I det här läget kommunicerar Kafka och Azure Kubernetes-tjänsten via de peer-
 
 1. Skapa ett Kafka-ämne som används av test programmet. Information om hur du skapar Kafka-ämnen finns i [skapa ett kluster](apache-kafka-get-started.md) dokument för Apache Kafka.
 
-2. Ladda ned exempel programmet från [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test).
+2. Ladda ned exempel programmet från [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test) .
 
 3. Redigera `index.js` filen och ändra följande rader:
 
     * `var topic = 'mytopic'`: Ersätt `mytopic` med namnet på Kafka-ämnet som används av det här programmet.
     * `var brokerHost = '176.16.0.13:9092`: Ersätt `176.16.0.13` med den interna IP-adressen för en av Service Broker-värdarna för klustret.
 
-        För att hitta den interna IP-adressen för Service Broker-värdarna (workernodes) i klustret, se [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) Document. Välj IP-adressen för en av posterna där domän namnet börjar med `wn`.
+        För att hitta den interna IP-adressen för Service Broker-värdarna (workernodes) i klustret, se [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) Document. Välj IP-adressen för en av posterna där domän namnet börjar med `wn` .
 
 4. Från en kommando rad i `src` katalogen installerar du beroenden och använder Docker för att bygga en avbildning för distribution:
 
@@ -172,7 +172,7 @@ I det här läget kommunicerar Kafka och Azure Kubernetes-tjänsten via de peer-
     ```
 
     > [!NOTE]  
-    > Paket som krävs av det här programmet kontrol leras i lagrings platsen, så du behöver inte `npm` använda verktyget för att installera dem.
+    > Paket som krävs av det här programmet kontrol leras i lagrings platsen, så du behöver inte använda `npm` verktyget för att installera dem.
 
 5. Logga in på din Azure Container Registry (ACR) och leta upp namnet på namnet:
 
@@ -184,7 +184,7 @@ I det här läget kommunicerar Kafka och Azure Kubernetes-tjänsten via de peer-
     > [!NOTE]  
     > Om du inte känner till Azure Container Registry namn eller inte är bekant med att använda Azure CLI för att arbeta med Azure Kubernetes-tjänsten kan du läsa mer i [AKS-självstudierna](../../aks/tutorial-kubernetes-prepare-app.md).
 
-6. Tagga den lokala `kafka-aks-test` avbildningen med namnet i din ACR. Lägg `:v1` också till i slutet för att ange avbildnings versionen:
+6. Tagga den lokala `kafka-aks-test` avbildningen med namnet i din ACR. Lägg också `:v1` till i slutet för att ange avbildnings versionen:
 
     ```bash
     docker tag kafka-aks-test <acrLoginServer>/kafka-aks-test:v1
@@ -198,7 +198,7 @@ I det här läget kommunicerar Kafka och Azure Kubernetes-tjänsten via de peer-
 
     Den här åtgärden tar flera minuter att slutföra.
 
-8. Redigera manifest filen Kubernetes ()`kafka-aks-test.yaml`och Ersätt `microsoft` med ACR namnet-namnet som hämtades i steg 4.
+8. Redigera manifest filen Kubernetes ( `kafka-aks-test.yaml` ) och Ersätt `microsoft` med ACR namnet-namnet som hämtades i steg 4.
 
 9. Använd följande kommando för att distribuera program inställningarna från manifestet:
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131234"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Gransknings loggning i Azure Database for PostgreSQL-enskild server
@@ -53,7 +53,7 @@ Använda [Azure Portal](https://portal.azure.com):
       ```
 
 > [!TIP]
-> Om du ser ett fel bekräftar du att du har startat om servern när du har `shared_preload_libraries`sparat.
+> Om du ser ett fel bekräftar du att du har startat om servern när du har sparat `shared_preload_libraries` .
 
 ## <a name="pgaudit-settings"></a>pgAudit-inställningar
 
@@ -65,8 +65,8 @@ med pgAudit kan du Konfigurera loggning av session-eller objekt granskning. I [g
 När du har [installerat pgAudit](#installing-pgaudit)kan du konfigurera dess parametrar för att starta loggningen. [PgAudit-dokumentationen](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) innehåller definitionen av varje parameter. Testa parametrarna först och bekräfta att du får det förväntade beteendet.
 
 > [!NOTE]
-> Om `pgaudit.log_client` du ställer in på på omdirigeras loggarna till en klient process (som psql) i stället för att skrivas till filen. Den här inställningen bör normalt vara inaktiverad. <br> <br>
-> `pgaudit.log_level`är bara aktive `pgaudit.log_client` rad när är på.
+> Om du ställer in på `pgaudit.log_client` på omdirigeras loggarna till en klient process (som psql) i stället för att skrivas till filen. Den här inställningen bör normalt vara inaktiverad. <br> <br>
+> `pgaudit.log_level`är bara aktive rad när `pgaudit.log_client` är på.
 
 > [!NOTE]
 > I Azure Database for PostgreSQL `pgaudit.log` kan inte anges med en `-` (minus) Sign-genväg enligt beskrivningen i pgAudit-dokumentationen. Alla obligatoriska instruktionsklasser (READ, WRITE osv.) ska anges var för sig.
@@ -74,16 +74,16 @@ När du har [installerat pgAudit](#installing-pgaudit)kan du konfigurera dess pa
 ### <a name="audit-log-format"></a>Format för granskningsloggar
 Varje gransknings post anges i `AUDIT:` närheten av logg radens början. Formatet på resten av posten beskrivs i [pgAudit-dokumentationen](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Om du behöver andra fält för att uppfylla gransknings kraven använder du parametern `log_line_prefix`postgres. `log_line_prefix`är en sträng som matas in i början av varje postgres-loggfil. Till exempel tillhandahåller följande `log_line_prefix` inställning tidstämpel, användar namn, databas namn och process-ID:
+Om du behöver andra fält för att uppfylla gransknings kraven använder du parametern postgres `log_line_prefix` . `log_line_prefix`är en sträng som matas in i början av varje postgres-loggfil. Till exempel `log_line_prefix` tillhandahåller följande inställning tidstämpel, användar namn, databas namn och process-ID:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
 ```
 
-Mer `log_line_prefix`information finns i [dokumentationen för postgresql](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
+Mer information `log_line_prefix` finns i [dokumentationen för postgresql](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
 ### <a name="getting-started"></a>Komma igång
-För att snabbt komma igång, `pgaudit.log` ange `WRITE`till och öppna dina loggar för att granska utdata. 
+För att snabbt komma igång, ange `pgaudit.log` till `WRITE` och öppna dina loggar för att granska utdata. 
 
 ## <a name="viewing-audit-logs"></a>Visa gransknings loggar
 Om du använder. log-filer tas gransknings loggarna med i samma fil som fel loggarna för PostgreSQL. Du kan ladda ned loggfiler från Azure- [portalen](howto-configure-server-logs-in-portal.md) eller [CLI](howto-configure-server-logs-using-cli.md). 

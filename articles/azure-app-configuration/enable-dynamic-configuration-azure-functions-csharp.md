@@ -15,12 +15,12 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: 0cd86aa647655f92f4ae1b5de50f506e9aad0f4e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e8f5b21189007d2b15c2ff31b778144d9a672318
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856470"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Självstudie: Använd dynamisk konfiguration i en Azure Functions app
 
@@ -90,15 +90,21 @@ I den här guiden får du lära dig att:
 
 1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Om du använder Windows PowerShell kör du följande kommando:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     Om du använder macOS eller Linux kör du följande kommando:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 2. Tryck på F5 för att testa funktionen. Om du uppmanas att göra det accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core-verktyg (CLI)** . Du kan också behöva aktivera ett brand Väggs undantag så att verktygen kan hantera HTTP-begäranden.
 

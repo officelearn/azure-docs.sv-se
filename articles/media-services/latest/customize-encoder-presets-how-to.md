@@ -13,28 +13,28 @@ ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: ebe701032e6416b3e007a28db62f5a8235bb1bb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80068037"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Koda med en anpassad transformering – .NET
 
 När du kodar med Azure Media Services kan du snabbt komma igång med en av de rekommenderade inbyggda för inställningarna baserat på bransch bästa praxis som visas i själv studie kursen för [strömmande filer](stream-files-tutorial-with-api.md) . Du kan också bygga en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 När du skapar anpassade för inställningar gäller följande aspekter:
 
 * Alla värden för höjd och bredd på AVC-innehåll måste vara en multipel av 4.
 * I Azure Media Services v3 är alla kodnings bit hastigheter i bitar per sekund. Detta skiljer sig från för inställningarna med våra v2-API: er, som använde kilobit/sekund som enhet. Om bit hastigheten i v2 exempelvis angavs som 128 (kilobit/sekund), skulle den vara inställd på 128000 (bitar/sekund) i v3.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 [Skapa ett Media Services-konto](create-account-cli-how-to.md)
 
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-the-sample"></a>Ladda ned exemplet
 
 Klona en GitHub-lagringsplats som innehåller det fullständiga .NET Core-exemplet på din dator med hjälp av följande kommando:  
 

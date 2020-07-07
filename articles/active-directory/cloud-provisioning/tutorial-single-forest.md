@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c922b95154f16a199660bcd5e58f792e46eade7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85360613"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Självstudie: integrera en enda skog med en enda Azure AD-klient
@@ -26,7 +26,7 @@ Den här självstudien vägleder dig genom att skapa en hybrid identitets miljö
 
 Du kan använda den miljö som du skapar i den här självstudien för att testa eller för att få bättre kunskaper om moln etablering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="in-the-azure-active-directory-admin-center"></a>I Azure Active Directory administrations Center
 
 1. Skapa ett globalt administratörs konto för molnet på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient organisation om dina lokala tjänster kraschar eller blir otillgängliga. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../active-directory-users-create-azure-portal.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
@@ -83,7 +83,7 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg för att kontrol lera att agenten visas i Azure:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)**.</br>
 ![Azure-portalen](media/how-to-install/install6.png)</br>
 

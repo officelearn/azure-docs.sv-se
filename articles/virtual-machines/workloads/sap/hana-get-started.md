@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
 ms.openlocfilehash: e017e082472e7a4a2fab6a2845e52d3dc7acc460
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80123354"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Installation av SAP HANA på virtuella Azure-datorer
@@ -29,7 +29,7 @@ Den här guiden hjälper dig att peka på rätt resurser för att distribuera HA
 > [!NOTE]
 > I den här guiden beskrivs distributioner av SAP HANA till virtuella Azure-datorer. Information om hur du distribuerar SAP HANA till HANA-stora instanser finns i [så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation).
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här guiden förutsätter också att du är bekant med:
 * SAP HANA-och SAP-NetWeaver och hur de installeras lokalt.
 * Installera och använda SAP HANA-och SAP-programinstanser på Azure.

@@ -4,10 +4,10 @@ description: Lär dig mer om att uppgradera versionen eller konfigurationen av e
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790651"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Uppgradera och uppdatera ett Service Fabric fristående kluster
@@ -21,7 +21,7 @@ Du kan ange att klustret ska ta emot automatiska Fabric-uppgraderingar när de l
 
 ## <a name="customize-configuration-settings"></a>Anpassa konfigurations inställningar
 
-Många olika [konfigurations inställningar](service-fabric-cluster-manifest.md) kan anges i *ClusterConfig. JSON* -filen, till exempel Tillförlitlighets nivån för klustret och nodens egenskaper.  Läs mer om hur du [uppgraderar konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).  Många andra, mer avancerade inställningar kan också anpassas.  Mer information finns i [Service Fabric Cluster Fabric-inställningar](service-fabric-cluster-fabric-settings.md).
+Många olika [konfigurations inställningar](service-fabric-cluster-manifest.md) kan anges i *ClusterConfig.jspå* filen, till exempel Tillförlitlighets nivån för klustret och nodens egenskaper.  Läs mer om hur du [uppgraderar konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).  Många andra, mer avancerade inställningar kan också anpassas.  Mer information finns i [Service Fabric Cluster Fabric-inställningar](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="define-node-properties"></a>Definiera egenskaper för nod
 Ibland kanske du vill se till att vissa arbets belastningar bara körs på vissa typer av noder i klustret. En viss arbets belastning kan till exempel kräva GPU: er eller SSD medan andra inte är det. För varje nodtyp i ett kluster kan du lägga till anpassade Node-egenskaper till klusternoder. Placerings begränsningar är de instruktioner som är kopplade till enskilda tjänster som väljs för en eller flera Node-egenskaper. Placerings begränsningar definierar var tjänsterna ska köras.

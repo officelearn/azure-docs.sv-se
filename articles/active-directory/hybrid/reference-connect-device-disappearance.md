@@ -11,10 +11,10 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176022"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Förstå Azure AD Connect 1.4. xx. x och enheten försvinner
@@ -44,5 +44,5 @@ Den kontrollerar certifikaten som finns i egenskapen UserCertificate för ett da
 Innan Azure AD Connect synkroniseras till Azure AD med en dator som innehåller minst ett giltigt certifikat, men som börjar på Azure AD Connect version 1,4, kan Synkroniseringsmotorn identifiera hybrid Azure AD Join-certifikat och kommer att "cloudfilter" datorobjektet från att synkronisera till Azure AD om det inte finns ett giltigt hybrid Azure AD Join-certifikat.
 Azure AD-enheter som redan har synkroniserats till AD men inte har ett giltigt hybrid Azure AD Join-certifikat kommer att tas bort (CloudFiltered = TRUE) av Synkroniseringsmotorn.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - [Azure AD Connect versions historik](reference-connect-version-history.md)

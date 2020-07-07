@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
 ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82778268"
 ---
-# <a name="hdinsight-management-ip-addresses"></a>Hanterings-IP-adresser för HDInsight
+# <a name="hdinsight-management-ip-addresses"></a>IP-adresser för HDInsight-hantering
 
 > [!Important]
 > I de flesta fall kan du nu använda funktionen [service tag](hdinsight-service-tags.md) för nätverks säkerhets grupper, i stället för att manuellt lägga till IP-adresser. Nya regioner läggs bara till för service märken och de statiska IP-adresserna kommer slutligen att bli föråldrade.
@@ -46,7 +46,7 @@ Tillåt trafik från IP-adresserna som anges för Azure HDInsight-hälso-och han
 > [!IMPORTANT]  
 > Om den Azure-region som du använder inte visas i listan kan du använda funktionen [service tag](hdinsight-service-tags.md) för nätverks säkerhets grupper.
 
-| Land/region | Region | Tillåtna käll-IP-adresser | Tillåtet mål | Riktning |
+| Land | Region | Tillåtna käll-IP-adresser | Tillåtet mål | Riktning |
 | ---- | ---- | ---- | ---- | ----- |
 | Asien | Asien, östra | 23.102.235.122</br>52.175.38.134 | \*: 443 | Inkommande |
 | &nbsp; | Sydostasien | 13.76.245.160</br>13.76.136.249 | \*: 443 | Inkommande |

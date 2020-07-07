@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82738073"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd på virtuella Azure-datorer till den primära regionen
@@ -22,14 +22,14 @@ När du [växlar över](site-recovery-failover.md) virtuella Azure-datorer från
 1. Skydda de virtuella datorerna i den sekundära regionen så att de börjar replikera till den primära regionen.
 1. När skyddet har slutförts och de virtuella datorerna replikeras, kan du redundansväxla från den sekundära till den primära regionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den virtuella datorns redundans från den primära till den sekundära regionen måste allokeras.
 - Den primära mål platsen måste vara tillgänglig och du bör kunna komma åt eller skapa resurser i den regionen.
 
 ## <a name="reprotect-a-vm"></a>Återaktivera skydd för en virtuell dator
 
-1. I **valv** > **replikerade objekt**högerklickar du på den misslyckade virtuella datorn och väljer **sedan skydda igen**. Skydds riktningen bör visas från sekundär till primär.
+1. I **valv**  >  **replikerade objekt**högerklickar du på den misslyckade virtuella datorn och väljer **sedan skydda igen**. Skydds riktningen bör visas från sekundär till primär.
 
    ![Skydda](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -44,7 +44,7 @@ Du kan anpassa följande egenskaper för den virtuella mål datorn under skyddet
 
 ![Anpassa](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Egenskap |Obs!  |
+|Egenskap |Anteckningar  |
 |---------|---------|
 |Mål resurs grupp | Ändra mål resurs gruppen som den virtuella datorn skapas i. Som en del av återskyddet tas den virtuella mål datorn bort. Du kan välja en ny resurs grupp under vilken du vill skapa den virtuella datorn efter redundansväxlingen. |
 |Virtuellt mål nätverk | Det går inte att ändra mål nätverket under återskydds jobbet. Om du vill ändra nätverket gör du om nätverks mappningen. |
@@ -58,21 +58,21 @@ Du kan anpassa följande egenskaper för den virtuella mål datorn under skyddet
 Som standard inträffar följande:
 
 1. Ett lagrings konto för cachen skapas i den region där den felande virtuella datorn körs.
-1. Om mål lagrings kontot (det ursprungliga lagrings kontot i den primära regionen) inte finns, skapas ett nytt. Det tilldelade lagrings konto namnet är namnet på det lagrings konto som används av den sekundära virtuella datorn, `asr`suffixet med.
+1. Om mål lagrings kontot (det ursprungliga lagrings kontot i den primära regionen) inte finns, skapas ett nytt. Det tilldelade lagrings konto namnet är namnet på det lagrings konto som används av den sekundära virtuella datorn, suffixet med `asr` .
 1. Om den virtuella datorn använder hanterade diskar skapas replik hanterade diskar i den primära regionen för att lagra data som replikeras från diskarna för den sekundära virtuella datorn.
 1. Om mål tillgänglighets uppsättningen inte finns, skapas en ny som en del av återskydds jobbet vid behov. Om du har anpassat skydds inställningarna används den valda uppsättningen.
 
 När du utlöser ett skydds jobb och den virtuella mål datorn finns inträffar följande:
 
 1. Den virtuella mål sidan är avstängd om den körs.
-1. Om den virtuella datorn använder hanterade diskar skapas en kopia av den ursprungliga disken med ett `-ASRReplica` suffix. De ursprungliga diskarna tas bort. `-ASRReplica` Kopiorna används för replikering.
+1. Om den virtuella datorn använder hanterade diskar skapas en kopia av den ursprungliga disken med ett `-ASRReplica` suffix. De ursprungliga diskarna tas bort. `-ASRReplica`Kopiorna används för replikering.
 1. Om den virtuella datorn använder ohanterade diskar, kopplas data diskarna för den virtuella mål datorn bort och används för replikering. En kopia av OS-disken skapas och kopplas till den virtuella datorn. Den ursprungliga OS-disken är frånkopplad och används för replikering.
 1. Endast ändringar mellan käll disken och mål disken synkroniseras. Skillnaderna beräknas genom att jämföra både diskarna och sedan överföras. Se nedan för att hitta den beräknade tiden för att slutföra återskyddet.
 1. När synkroniseringen är klar börjar delta-replikeringen och en återställnings punkt skapas i linje med replikeringsprincipen.
 
 När du utlöser ett skydds jobb och den virtuella mål datorn och diskarna inte finns inträffar följande:
 
-1. Om den virtuella datorn använder hanterade diskar skapas replik diskar med `-ASRReplica` suffix. `-ASRReplica` Kopiorna används för replikering.
+1. Om den virtuella datorn använder hanterade diskar skapas replik diskar med `-ASRReplica` suffix. `-ASRReplica`Kopiorna används för replikering.
 1. Om den virtuella datorn använder ohanterade diskar skapas replik diskar på mål lagrings kontot.
 1. Hela diskarna kopieras från den misslyckade över-regionen till den nya mål regionen.
 1. När synkroniseringen är klar börjar delta-replikeringen och en återställnings punkt skapas i linje med replikeringsprincipen.

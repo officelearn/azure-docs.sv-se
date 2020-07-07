@@ -5,12 +5,11 @@ author: mumian
 ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ad79721b88f886426d658ed6ee89c4969e1f1baa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75471990"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056896"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig förhandsversion)
 
@@ -40,7 +39,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Ytterligare resurser:
 
-* [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Azure Deployment Manager REST API referens](/rest/api/deploymentmanager/).
 * [Självstudie: Använd hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
@@ -52,7 +51,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 För att kunna följa stegen i den här artikeln behöver du:
 
 * Viss erfarenhet av att utveckla [Azure Resource Manager-mallar](overview.md).
-* Azure PowerShell. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell. Mer information finns i [Kom igång med Azure PowerShell](/powershell/azure/get-started-azureps).
 * Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/scripting/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt upphöjt PowerShell-fönster och använd följande kommando:
 
     ```powershell
@@ -105,7 +104,7 @@ De två versionerna (1.0.0.0 och 1.0.0.1) är avsedda för [ändringsdistributio
 
     ![Azure Deployment Manager-självstudie om att skapa en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. I den här självstudien innehåller det komprimerade paketet bara en index. html-fil.
+    Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. I den här självstudien innehåller det komprimerade paketet bara en index.html-fil.
 3. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Azure Deployment Manager-självstudie om att skapa containerRoot och parametrar för en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
@@ -447,9 +446,9 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 1. Från Azure Portal väljer du **resurs grupp** på den vänstra menyn.
 2. Använd fältet **Filtrera efter namn** för att visa resursgrupperna som skapats i den här självstudien. De bör vara 3–4:
 
-    * projectName>RG: innehåller Deployment Manager-resurser. ** &lt;**
-    * projectName>ServiceWUSrg: innehåller de resurser som definierats av ServiceWUS. ** &lt;**
-    * projectName>ServiceEUSrg: innehåller de resurser som definierats av ServiceEUS. ** &lt;**
+    * ** &lt; projectName>RG**: innehåller Deployment Manager-resurser.
+    * ** &lt; ProjectName>ServiceWUSrg**: innehåller de resurser som definierats av ServiceWUS.
+    * ** &lt; ProjectName>ServiceEUSrg**: innehåller de resurser som definierats av ServiceEUS.
     * Resursgruppen för den användardefinierade hanterade identiteten.
 3. Välj resursgruppens namn.
 4. Välj **ta bort resurs grupp** på den översta menyn.

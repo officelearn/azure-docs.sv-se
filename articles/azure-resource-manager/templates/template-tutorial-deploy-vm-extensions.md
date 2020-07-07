@@ -5,12 +5,11 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: d44fb593cda60c8cc556ffeb5cb3b36163c6bcc3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184970"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057899"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Självstudie: distribuera tillägg för virtuella datorer med ARM-mallar
 
@@ -53,7 +52,7 @@ Om du väljer att publicera filen på din plats kan du uppdatera `fileUri` eleme
 
 Azure snabb starts mallar är en lagrings plats för ARM-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator).
 
-1. I Visual Studio **Code väljer** > du**Öppna fil**.
+1. I Visual Studio **Code väljer du**  >  **Öppna fil**.
 1. I rutan **Filnamn** klistrar du in följande webbadress: 
 
     ```url
@@ -102,7 +101,7 @@ Lägg till en resurs för tillägg för virtuell dator i den befintliga mallen m
 }
 ```
 
-Mer information om den här resursdefinitionen finns i [tilläggsreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Här följer några viktiga element:
+Mer information om den här resursdefinitionen finns i [tilläggsreferensen](/azure/templates/microsoft.compute/virtualmachines/extensions). Här följer några viktiga element:
 
 * **name** (namn): eftersom tilläggsresursen är en underordnad resurs för det virtuella datorobjektet måste namnet ha den virtuella datorns namnprefix. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md).
 * **dependsOn**: skapa tilläggs resursen när du har skapat den virtuella datorn.
@@ -115,7 +114,7 @@ Om du vill använda infogat skript tar du bort **fileUris**och uppdaterar **comm
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-Detta infogade skript uppdaterar också innehållet i iisstart. html.
+Detta infogade skript uppdaterar också iisstart.html-innehållet.
 
 Du måste också öppna HTTP-porten så att du kan komma åt webb servern.
 

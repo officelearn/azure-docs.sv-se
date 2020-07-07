@@ -4,14 +4,13 @@ description: Hitta Azure PowerShell exempel för några vanliga App Service scen
 tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
-ms.date: 03/08/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: 51693ad4d233ea180607bc7358a0847e23688099
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254488"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057916"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>PowerShell-exempel för Azure App Service
 
@@ -25,6 +24,7 @@ Följande tabell innehåller länkar till PowerShell-skript som skapats med Azur
 | [Skapa en app och distribuera kod med FTP](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en App Service-app och laddar upp filer från en lokal katalog med hjälp av FTP. |
 | [Skapa en app och distribuera kod från en lokal Git-lagringsplats](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en App Service-app och konfigurerar kodöverföring från en lokal Git-lagringsplats. |
 | [Skapa en app och distribuera kod till en mellanlagringsmiljö](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en App Service-app med ett distributionsfack för att mellanlagra kodändringar. |
+|  [Skapa en app och exponera din app med en privat slut punkt](./scripts/powershell-deploy-private-endpoint.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en App Service-app med en privat slut punkt. |
 |**Konfigurera app**||
 | [Mappa en anpassad domän till en app](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en App Service-app och mappar ett anpassat domännamn till den. |
 | [Binda ett anpassat TLS/SSL-certifikat till en app](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en App Service-app och binder TLS/SSL-certifikatet för ett anpassat domän namn till den. |

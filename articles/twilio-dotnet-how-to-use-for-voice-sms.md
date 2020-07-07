@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: gwallace
 ms.openlocfilehash: 22b33d7b4b0ff69a2e751cadff70453f73ed4f8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69876809"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Använda Twilio för röst-och SMS-funktioner från Azure
@@ -38,7 +38,7 @@ Twilio-API: et är ett RESTful-API som tillhandahåller röst-och SMS-funktioner
 Viktiga aspekter av Twilio-API: et är Twilio-verb och Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Twilio-verb
-API: et använder Twilio-verb. ** &lt;exempelvis&gt; instruerar verbet** Twilio till audibly att leverera ett meddelande på ett samtal.
+API: et använder Twilio-verb. exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. ** &lt; &gt; **
 
 Följande är en lista över Twilio-verb.  Lär dig mer om andra verb och funktioner via [Twilio Markup Language-dokumentation](https://www.twilio.com/docs/api/twiml).
 
@@ -98,7 +98,7 @@ I de exempel som anges i den här guiden används biblioteket Twilio. API.
 
 Biblioteken kan [installeras med NuGet Package Manager-tillägget](https://www.twilio.com/docs/csharp/install) tillgängligt för Visual Studio 2010 upp till 2015.  Käll koden finns på [GitHub][twilio_github_repo], som innehåller en wiki som innehåller fullständig dokumentation för att använda biblioteken.
 
-Som standard installerar Microsoft Visual Studio 2010 version 1,2 av NuGet. Att installera Twilio-biblioteken kräver version 1,6 av NuGet eller senare. Information om hur du installerar eller uppdaterar NuGet finns [https://nuget.org/][nuget]i.
+Som standard installerar Microsoft Visual Studio 2010 version 1,2 av NuGet. Att installera Twilio-biblioteken kräver version 1,6 av NuGet eller senare. Information om hur du installerar eller uppdaterar NuGet finns i [https://nuget.org/][nuget] .
 
 > [!NOTE]
 > Om du vill installera den senaste versionen av NuGet måste du först avinstallera den inlästa versionen med hjälp av Visual Studio Extension Manager. För att göra det måste du köra Visual Studio som administratör. Annars är knappen Avinstallera inaktive rad.
@@ -106,7 +106,7 @@ Som standard installerar Microsoft Visual Studio 2010 version 1,2 av NuGet. Att 
 >
 
 ### <a name="to-add-the-twilio-libraries-to-your-visual-studio-project"></a><a id="use_nuget"></a>Så här lägger du till Twilio-biblioteken i Visual Studio-projektet:
-1. Öppna din lösning i Visual Studio.
+1. Öppna därefter lösningen i Visual Studio.
 2. Högerklicka på **referenser**.
 3. Klicka på **Hantera NuGet-paket...**
 4. Klicka på **online**.
@@ -139,7 +139,7 @@ var call = CallResource.Create(
     }
 ```
 
-Mer information om de parametrar som skickas till metoden **CallResource. Create** finns i [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
+Mer information om de parametrar som skickas till metoden **CallResource. Create** finns i [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls] .
 
 Som nämnts använder den här koden en Twilio plats för att returnera TwiML-svaret. Du kan i stället använda din egen webbplats för att tillhandahålla TwiML-svaret. Mer information finns i [How to: tillhandahålla TwiML-svar från din egen webbplats](#howto_provide_twiml_responses).
 
@@ -171,10 +171,10 @@ catch (TwilioException ex)
 ```
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Gör så här: Tillhandahåll TwiML svar från din egen webbplats
-När ditt program initierar ett anrop till Twilio-API: t till exempel via **CallResource. Create** -metoden-Twilio skickar din begäran till en URL som förväntas returnera ett TwiML-svar. Exemplet i [How to: gör ett utgående anrop](#howto_make_call) använder den Twilio URL [https://twimlets.com/message][twimlet_message_url] : en för att returnera svaret.
+När ditt program initierar ett anrop till Twilio-API: t till exempel via **CallResource. Create** -metoden-Twilio skickar din begäran till en URL som förväntas returnera ett TwiML-svar. Exemplet i [How to: gör ett utgående anrop](#howto_make_call) använder den Twilio URL: en [https://twimlets.com/message][twimlet_message_url] för att returnera svaret.
 
 > [!NOTE]
-> Även om TwiML har utformats för användning av webb tjänster kan du Visa TwiML i webbläsaren. Klicka till exempel på [https://twimlets.com/message][twimlet_message_url] om du vill se `<Response>` ett tomt element. ett annat exempel är om [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) du klickar för `<Response>` att se ett element &lt;som&gt; innehåller ett Säg-element.
+> Även om TwiML har utformats för användning av webb tjänster kan du Visa TwiML i webbläsaren. Klicka till exempel om [https://twimlets.com/message][twimlet_message_url] du vill visa ett tomt `<Response>` element. Klicka på ett annat exempel [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) om du vill se ett `<Response>` element som innehåller ett &lt; Säg- &gt; element.
 >
 
 I stället för att förlita dig på Twilio-URL: en kan du skapa en egen URL-plats som returnerar HTTP-svar. Du kan skapa webbplatsen på valfritt språk som returnerar HTTP-svar. Det här avsnittet förutsätter att du kommer att vara värd för URL: en från en generisk ASP.NET-hanterare.
@@ -251,7 +251,7 @@ namespace WebRole1
 }
 ```
 
-Mer information om TwiML finns i [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml).
+Mer information om TwiML finns i [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml) .
 
 När du har konfigurerat ett sätt att tillhandahålla TwiML svar kan du skicka den URL: en till metoden **CallResource. Create** . Om du till exempel har ett webb program som heter MyTwiML distribuerat till en moln tjänst i Azure och namnet på ASP.NET-hanteraren är MyTwiML. ashx, kan URL: en skickas till **CallResource. Create** som visas i följande kod exempel:
 

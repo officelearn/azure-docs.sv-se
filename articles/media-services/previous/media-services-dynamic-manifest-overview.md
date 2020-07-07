@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69015853"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
@@ -73,14 +73,14 @@ Här är ett exempel på en manifest fil:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Dynamiska manifest
-Det finns [scenarier](media-services-dynamic-manifest-overview.md#scenarios) när din klient behöver större flexibilitet än vad som beskrivs i standard till gångens manifest fil. Ett exempel:
+Det finns [scenarier](media-services-dynamic-manifest-overview.md#scenarios) när din klient behöver större flexibilitet än vad som beskrivs i standard till gångens manifest fil. Till exempel:
 
 * Enhets information: leverera endast de angivna åter givningarna och/eller angivna språk spår som stöds av den enhet som används för att spela upp innehållet ("åter givnings filtrering"). 
 * Minska manifestet för att visa ett under klipp av en Live-händelse ("del klipps filtrering").
 * Trimma början på en video ("trimma en video").
 * Justera presentations fönster (DVR) för att tillhandahålla en begränsad längd på DVR-fönstret i spelaren ("justera presentations fönstret").
 
-För att uppnå den här flexibiliteten erbjuder Media Services **dynamiska manifest** baserade på fördefinierade [filter](media-services-dynamic-manifest-overview.md#filters).  När du definierar filtren kan klienterna använda dem för att strömma en bestämd åter givning eller del klipp av videon. De anger filter i strömnings-URL: en. Filter kan tillämpas på strömnings protokoll med anpassningsbar bit hastighet som stöds av [dynamisk paketering](media-services-dynamic-packaging-overview.md): HLS, MPEG-streck och Smooth Streaming. Ett exempel:
+För att uppnå den här flexibiliteten erbjuder Media Services **dynamiska manifest** baserade på fördefinierade [filter](media-services-dynamic-manifest-overview.md#filters).  När du definierar filtren kan klienterna använda dem för att strömma en bestämd åter givning eller del klipp av videon. De anger filter i strömnings-URL: en. Filter kan tillämpas på strömnings protokoll med anpassningsbar bit hastighet som stöds av [dynamisk paketering](media-services-dynamic-packaging-overview.md): HLS, MPEG-streck och Smooth Streaming. Till exempel:
 
 MPEG-streck-URL med filter
 

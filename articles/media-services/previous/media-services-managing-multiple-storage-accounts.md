@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69901784"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services till gångar över flera lagrings konton  
@@ -31,7 +31,7 @@ Den här artikeln visar hur du kopplar flera lagrings konton till ett Media Serv
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 När du kopplar flera lagrings konton till ditt Media Services-konto gäller följande saker:
 

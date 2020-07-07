@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109388"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid identitets livs cykel
@@ -61,7 +61,7 @@ När du definierar dessa krav bör du se till att minst följande frågor besvar
 ## <a name="synchronization-management"></a>Hantering av synkronisering
 Ett av målen för en identitets hanterare, för att kunna ta alla identitets leverantörer och synkronisera dem. Du behåller synkroniserade data baserat på en auktoritativ huvud identitets leverantör. I ett hybrid identitets scenario, med en synkroniserad hanterings modell, hanterar du alla användar-och enhets identiteter på en lokal server och synkroniserar kontona och eventuellt lösen ord till molnet. Användaren anger samma lösen ord lokalt som i molnet, och vid inloggningen verifieras lösen ordet av identitets lösningen. Den här modellen använder ett verktyg för katalog synkronisering.
 
-![Katalog synkronisering](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) för korrekt design synkroniseringen av din hybrid identitets lösning kontrol lera att följande frågor besvaras:
+![Katalog synkronisering ](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) för korrekt design synkroniseringen av din hybrid identitets lösning kontrol lera att följande frågor besvaras:
 *    Vilka är Sync-lösningarna tillgängliga för Hybrid identitets lösningen?
 *    Vilka är funktionerna för enkel inloggning tillgänglig?
 *    Vilka är alternativen för identitets federation mellan B2B och B2C?

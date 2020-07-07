@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68335939"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilitet i Azures Server dels anslutnings funktioner: testa konfigurations information
@@ -29,7 +29,7 @@ Följande bild visar information om Virtual Network peering i Azure för ett eke
 
 Följande bild visar information om VNet-peering för hubbens VNet. Om du vill att hubbens VNet ska tillåta att det virtuella eker-nätverket använder hubbens gatewayer väljer du **Tillåt Gateway-överföring**.
 
-[![11.2]][2]
+[![2]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Gren-VNet-anslutning med hjälp av en plats-till-plats-VPN
 
@@ -160,7 +160,7 @@ Följande bild visar anslutnings konfigurationen mellan den andra ExpressRoute-k
 
 ExpressRoute 1 ansluter både hubb-VNet och lokal plats 1 till ett fjärrnätverk i en annan Azure-region:
 
-[![7,8]][8]
+[![8]][8]
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute och plats-till-plats VPN-anslutning i tandem
 

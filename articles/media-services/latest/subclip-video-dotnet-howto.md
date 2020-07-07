@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
 ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67305149"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Under klipp en video vid kodning med Media Services-.NET
@@ -26,7 +26,7 @@ Du kan trimma eller under klipp en video när du kodar den med ett [jobb](https:
 
 Följande C#-exempel skapar ett jobb som trimmar en video i en till gång när den skickar ett kodnings jobb. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen som beskrivs i det här avsnittet måste du:
 

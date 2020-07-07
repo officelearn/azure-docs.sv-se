@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69016591"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en till gång med Media Encoder Standard med hjälp av .NET  
@@ -46,13 +46,13 @@ Media Encoder Standard konfigureras med hjälp av någon av de förinställda ko
 ### <a name="input-and-output-metadata"></a>Metadata för indata och utdata
 När du kodar en inmatnings till gång (eller till gångar) med hjälp av aktiviteter får du en utmatnings till gång när du har slutfört åtgärden. Utmatnings till gången innehåller video, ljud, miniatyrer, manifest osv. baserat på den kodnings inställning som du använder.
 
-Till gången till utdata innehåller också en fil med metadata om inmatnings till gången. Namnet på XML-filen med metadata har följande format: <asset_id>_metadata. XML (till exempel 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata. xml), där <asset_id> är AssetId-värdet för indata till gången. Schemat för denna XML för indata-metadata beskrivs [här](media-services-input-metadata-schema.md).
+Till gången till utdata innehåller också en fil med metadata om inmatnings till gången. Namnet på XML-filen med metadata har följande format: <asset_id # C1_metadata.xml (till exempel 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), där <asset_id> är AssetId-värdet för indata till gången. Schemat för denna XML för indata-metadata beskrivs [här](media-services-input-metadata-schema.md).
 
-Till gången till utdata innehåller också en fil med metadata om utmatnings till gången. Namnet på XML-filen med metadata har följande format: <source_file_name>_manifest. XML (till exempel BigBuckBunny_manifest. xml). Schemat för denna XML för utdata-metadata beskrivs [här](media-services-output-metadata-schema.md).
+Till gången till utdata innehåller också en fil med metadata om utmatnings till gången. Namnet på XML-filen med metadata har följande format: <source_file_name # C1_manifest.xml (till exempel BigBuckBunny_manifest.xml). Schemat för denna XML för utdata-metadata beskrivs [här](media-services-output-metadata-schema.md).
 
 Om du vill undersöka någon av de två metadatafiler kan du skapa en SAS-lokaliserare och ladda ned filen till den lokala datorn. Du hittar ett exempel på hur du skapar en SAS-lokaliserare och laddar ned en fil med hjälp av Media Services .NET SDK-tillägg.
 
-## <a name="download-sample"></a>Hämta exempel
+## <a name="download-sample"></a>Ladda ned exempel
 Du kan hämta och köra ett exempel som visar hur du kodar med hjälp av [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="net-sample-code"></a>.NET-exempel kod
@@ -70,7 +70,7 @@ I följande kod exempel används Media Services .NET SDK för att utföra följa
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exempel 
 
@@ -210,6 +210,6 @@ namespace MediaEncoderStandardSample
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-[Så här skapar du en miniatyr med Media Encoder Standard med .net](media-services-dotnet-generate-thumbnail-with-mes.md)
-[Media Services kodnings översikt](media-services-encode-asset.md)
+Så [här skapar du en miniatyr med Media Encoder Standard med .net](media-services-dotnet-generate-thumbnail-with-mes.md) 
+ [Översikt över Media Services kodning](media-services-encode-asset.md)
 

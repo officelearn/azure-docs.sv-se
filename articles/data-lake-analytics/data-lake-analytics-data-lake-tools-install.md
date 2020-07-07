@@ -10,17 +10,17 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 08f0456b6a8b663f0af68fbb179de14b9e3acf79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70914060"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Installera Data Lake-verktyg för Visual Studio
 
 Lär dig hur du använder Visual Studio för att skapa Azure Data Lake Analytics-konton. Du kan definiera jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till tjänsten Data Lake Analytics. Mer information om Data Lake Analytics finns i [Azure Data Lake Analytics översikt](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Visual Studio**: Alla utgåvor utom Express stöds.
 
@@ -48,7 +48,7 @@ Aktivera arbets belastningen **Azure Development** enligt följande:
 
 Hämta och installera [Microsoft Azure Data Lake-och Stream Analytics-verktyg för Visual Studio ](https://aka.ms/adltoolsvs). Efter installationen har Visual Studio följande ändringar:
 
-* **Server Explorer** > **Azure** -noden innehåller en **data Lake Analytics** -nod.
+* **Server Explorer**  >  **Azure** -noden innehåller en **data Lake Analytics** -nod.
 * Alternativet **Data Lake** finns på **Verktyg**-menyn.
 
 ## <a name="next-steps"></a>Nästa steg

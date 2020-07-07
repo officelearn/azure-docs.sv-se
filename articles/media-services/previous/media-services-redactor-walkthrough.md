@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
 ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69997678"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Bortredigering-ansikten med Azure-medieanalys genom gång
@@ -67,11 +67,11 @@ Utdata kommer att innehålla en antecknings-JSON-fil med ansikts plats data, sam
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. Valfritt Ladda upp en Dance_idlist. txt-fil som innehåller en blankstegsavgränsad lista över de ID: n som du vill redigera. 
+2. Valfritt Ladda upp en Dance_idlist.txt-fil som innehåller en blankstegsavgränsad lista med de ID: n som du vill redigera. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
-3. Valfritt Gör eventuella redigeringar i filen annotations. JSON, till exempel att öka gränserna för avgränsnings rutan. 
+3. Valfritt Gör eventuella ändringar i annotations.jspå filen, till exempel att öka gränserna för avgränsnings rutan. 
 4. Högerklicka på utmatnings till gången från det första steget, Välj bortredigering och kör med **bortredigering** -läget. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
@@ -95,11 +95,11 @@ Om du är utvecklare som försöker parsa JSON-antecknings data tittar du i mode
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  Hämta FFMPEG härifrån [.](https://ffmpeg.org/download.html) Projektet utvecklades ursprungligen med version be1d324 (2016-10-04) med statisk länkning. 
-3.  Kopiera ffmpeg. exe och ffprobe. exe till samma målmapp som AzureMediaRedactor. exe. 
+3.  Kopiera ffmpeg.exe och ffprobe.exe till samma målmapp som AzureMediaRedactor.exe. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
-4. Kör AzureMediaRedactor. exe. 
+4. Kör AzureMediaRedactor.exe. 
 
 ### <a name="use-the-tool"></a>Använda verktyget
 
@@ -113,10 +113,10 @@ Om du är utvecklare som försöker parsa JSON-antecknings data tittar du i mode
     
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  Det nedre textfältet uppdateras med ansikts-ID: n. Skapa en fil med namnet "idlist. txt" med dessa ID: n som en avgränsad lista för rad matningar. 
+5.  Det nedre textfältet uppdateras med ansikts-ID: n. Skapa en fil med namnet "idlist.txt" med dessa ID: n som en avgränsad lista för rad matningar. 
 
     >[!NOTE]
-    > Idlist. txt bör sparas i ANSI. Du kan använda anteckningar för att spara i ANSI.
+    > idlist.txt ska sparas i ANSI. Du kan använda anteckningar för att spara i ANSI.
     
 6.  Överför filen till den utgående till gången från steg 1. Ladda upp den ursprungliga videon till den här till gången och ange som primär till gång. 
 7.  Kör bortredigering-jobbet på den här till gången med läget "bortredigering" för att hämta den slutliga bortredigering-videon. 

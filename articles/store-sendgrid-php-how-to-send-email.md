@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67870915"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Så här använder du e-posttjänsten SendGrid från PHP
@@ -37,7 +37,7 @@ SendGrid är en [molnbaserad e-posttjänst] som tillhandahåller tillförlitlig 
 * Vidarebefordra kund förfrågningar
 * E-postmeddelanden från ditt program
 
-Mer information finns i [https://sendgrid.com][https://sendgrid.com].
+Mer information finns i [https://sendgrid.com][https://sendgrid.com] .
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 
@@ -53,7 +53,7 @@ Du kan skicka e-post med antingen SMTP eller webb-API: t från SendGrid.
 
 ### <a name="smtp-api"></a>SMTP-API
 
-Om du vill skicka e-post med SendGrid SMTP API använder du *Swift Mailer*, ett komponentbaserade bibliotek för att skicka e-post från php-program. Du kan ladda ned [Swift Mailer Library](https://swiftmailer.symfony.com/) v 5.3.0 (Använd [Composer] för att installera Swift-Mailer). Om du skickar e-post med biblioteket måste du `Swift\_SmtpTransport`skapa `Swift\_Mailer`instanser av `Swift\_Message` klasserna, och, ange lämpliga egenskaper och anropa `Swift\_Mailer::send` -metoden.
+Om du vill skicka e-post med SendGrid SMTP API använder du *Swift Mailer*, ett komponentbaserade bibliotek för att skicka e-post från php-program. Du kan ladda ned [Swift Mailer Library](https://swiftmailer.symfony.com/) v 5.3.0 (Använd [Composer] för att installera Swift-Mailer). Om du skickar e-post med biblioteket måste du skapa instanser av `Swift\_SmtpTransport` `Swift\_Mailer` `Swift\_Message` klasserna, och, ange lämpliga egenskaper och anropa- `Swift\_Mailer::send` metoden.
 
 ```php
 <?php
@@ -406,7 +406,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  print_r($response);
  ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 

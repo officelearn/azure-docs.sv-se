@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70080603"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Prestandadiagnostik för virtuella Azure-datorer
@@ -37,10 +37,10 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8,1, Windows
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-Database-ee 13,8 Marketplace-avbildning), CentOS 6,5`*`[], 7,6, RHEL 7,2, 7,5, 8,0`*`[], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10`*`[], SLES 12 SP4`*`[]
+Oracle Linux Server 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-Database-Ee 13,8 Marketplace-avbildning), CentOS 6,5 [ `*` ], 7,6, RHEL 7,2, 7,5, 8,0 [ `*` ], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10 [ `*` ], SLES 12 SP4 [ `*` ]
 
 >[!Note]
->[`*`] Se [kända problem](how-to-use-perfinsights-linux.md#known-issues)
+>[ `*` ] Se [kända problem](how-to-use-perfinsights-linux.md#known-issues)
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installera och köra prestandadiagnostik på den virtuella datorn
 
@@ -86,7 +86,7 @@ Följande analys scenarier är tillgängliga från Azure Portal. Välj en analys
     Innehåller alla kontroller i prestanda analysen och fångar in en nätverks spårning och SMB-räknare. Använd det här scenariot för att felsöka prestanda i Azure Files. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på vald varaktighet. [Läs mer](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
->[`*`] Dessa analys scenarier stöds bara i Windows.
+>[ `*` ] Dessa analys scenarier stöds bara i Windows.
 
 ![Skärm bild av fönstret Kör diagnostik i bladet prestanda diagnostik](media/performance-diagnostics/run-diagnostics-pane.png)
 
@@ -109,7 +109,7 @@ Ett meddelande visas som att prestandadiagnostik börjar installeras. När insta
 När analysen är klar överförs följande objekt till Azure-tabeller och en binary large object-behållare (BLOB) i det angivna lagrings kontot:
 
 * Alla insikter och relaterad information om körningen
-* En komprimerad utdatafil (zip-fil) (med namnet **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. zip** ) i Windows och en boll fil (med namnet **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. tar. gz** ) på Linux som innehåller loggfiler
+* En komprimerad utdatafil (zip) (med namnet **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip** ) i Windows och en bolls fil (med namnet **PerformanceDiagnostics_yyyy mm-dd_hh-mm-SS-FFF. tar. gz** ) på Linux som innehåller loggfiler
 * En HTML-rapport
 
 Efter överföringen visas en ny diagnostisk rapport i Azure Portal.

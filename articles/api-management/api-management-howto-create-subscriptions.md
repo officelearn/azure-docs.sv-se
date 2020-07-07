@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: f8b2238eb0fab9aeeb42d11b4176c0d681b5f8e5
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70073528"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Skapa prenumerationer i Azure API Management
@@ -25,7 +25,7 @@ När du publicerar API: er via Azure API Management är det enkelt och vanligt a
 
 Den här artikeln vägleder dig genom stegen för att skapa prenumerationer i Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa stegen i den här artikeln är kraven följande:
 

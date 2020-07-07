@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70073611"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Så här lägger du till ett anpassat CA-certifikat i Azure API Management
@@ -52,7 +52,7 @@ Följ stegen nedan för att ladda upp ett nytt CA-certifikat. Om du inte har ska
     ![Lägg till CA-certifikat](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> Du kan ladda upp ett CA-certifikat `New-AzApiManagementSystemCertificate` med hjälp av PowerShell-kommandot.
+> Du kan ladda upp ett CA-certifikat med hjälp av `New-AzApiManagementSystemCertificate` PowerShell-kommandot.
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Ta bort ett klient certifikat
 

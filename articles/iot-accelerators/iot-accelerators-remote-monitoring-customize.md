@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68607999"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa acceleratorn för fjärr styrnings lösning
@@ -23,7 +23,7 @@ Den här artikeln innehåller information om hur du får åtkomst till käll kod
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Förbered en lokal utvecklings miljö för användar gränssnittet
 
-GRÄNSSNITTs koden för fjärrövervakning av Solution Accelerator implementeras med hjälp av reakta. js-ramverket. Du hittar käll koden i [Azure-IoT-PC-Remote-Monitoring-webui GitHub-](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) lagringsplatsen.
+UI-koden för fjärr styrnings Accelerator implementeras med hjälp av React.js Framework. Du hittar käll koden i [Azure-IoT-PC-Remote-Monitoring-webui GitHub-](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) lagringsplatsen.
 
 Om du vill göra ändringar i användar gränssnittet kan du köra en kopia av det lokalt. För att utföra åtgärder som att hämta telemetri ansluter den lokala kopian till en distribuerad instans av lösningen.
 
@@ -31,7 +31,7 @@ Följande steg beskriver processen för att konfigurera en lokal miljö för UI-
 
 1. Distribuera en **grundläggande** instans av Solution Accelerator med **PC** cli. Anteckna namnet på distributionen och de autentiseringsuppgifter som du har angett för den virtuella datorn. Mer information finns i [distribuera med CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Använd Azure Portal eller Azure Cloud Shell för att aktivera SSH-åtkomst till den virtuella datorn som är värd för mikrotjänsterna i lösningen. Ett exempel:
+1. Använd Azure Portal eller Azure Cloud Shell för att aktivera SSH-åtkomst till den virtuella datorn som är värd för mikrotjänsterna i lösningen. Till exempel:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,14 +39,14 @@ Följande steg beskriver processen för att konfigurera en lokal miljö för UI-
 
     Aktivera endast SSH-åtkomst under testning och utveckling. Om du aktiverar SSH [bör du inaktivera det så snart du är klar med det](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Använd Azure Portal eller Azure Cloud Shell för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Ett exempel:
+1. Använd Azure Portal eller Azure Cloud Shell för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Till exempel:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. Använd SSH för att ansluta till den virtuella datorn. Använd IP-adressen från föregående steg och de autentiseringsuppgifter du angav när du körde **datorerna** för att distribuera lösningen. `ssh` Kommandot är tillgängligt i Azure Cloud Shell.
+1. Använd SSH för att ansluta till den virtuella datorn. Använd IP-adressen från föregående steg och de autentiseringsuppgifter du angav när du körde **datorerna** för att distribuera lösningen. `ssh`Kommandot är tillgängligt i Azure Cloud Shell.
 
 1. Om du vill tillåta att det lokala UX: en ansluter kör du följande kommandon i bash-gränssnittet på den virtuella datorn:
 
@@ -73,7 +73,7 @@ Följande steg beskriver processen för att konfigurera en lokal miljö för UI-
     npm start
     ```
 
-1. Föregående kommando kör användar gränssnittet lokalt på http:\//localhost: 3000/instrument panel. Du kan redigera koden medan platsen körs och se att den uppdateras dynamiskt.
+1. Föregående kommando kör användar gränssnittet lokalt på http: \/ /localhost: 3000/instrument panel. Du kan redigera koden medan platsen körs och se att den uppdateras dynamiskt.
 
 ## <a name="customize-the-layout"></a>Anpassa layouten
 
@@ -154,7 +154,7 @@ Eftersom panelerna hanterar sin egen layout och storlek kan du enkelt ändra lay
 
 ![Ändra panelens layout](./media/iot-accelerators-remote-monitoring-customize/layout.png)
 
-Du kan också lägga till flera instanser av samma panel eller flera versioner om du [duplicerar och anpassar en panel](#duplicate-and-customize-an-existing-control). I följande exempel visas hur du lägger till två instanser av panelen telemetri. Redigera `src/components/pages/dashboard/dashboard.js` filen om du vill göra dessa ändringar:
+Du kan också lägga till flera instanser av samma panel eller flera versioner om du [duplicerar och anpassar en panel](#duplicate-and-customize-an-existing-control). I följande exempel visas hur du lägger till två instanser av panelen telemetri. Redigera filen om du vill göra dessa ändringar `src/components/pages/dashboard/dashboard.js` :
 
 ```javascript
 <PageContent className="dashboard-container">
@@ -245,7 +245,7 @@ Följande steg beskriver hur du duplicerar en befintlig panel, ändrar den och a
 
 1. I din lokala kopia av lagrings platsen gör du en kopia av mappen **aviseringar** i `src/components/pages/dashboard/panels` mappen. Namnge den nya kopian **cust_alerts**.
 
-1. I filen **alertsPanel. js** i mappen **cust_alerts** redigerar du namnet på klassen som **CustAlertsPanel**:
+1. I **alertsPanel.js** -filen i mappen **cust_alerts** redigerar du namnet på klassen som ska vara **CustAlertsPanel**:
 
     ```javascript
     export class CustAlertsPanel extends Component {
@@ -310,7 +310,7 @@ Följande skärm bild visar den nya versionen av **aviserings** panelen:
 
 Filerna i `src/components/pages/dashboard/panels/telemtry` mappen definierar telemetri-diagrammet på **instrument panelens** sida. Användar gränssnittet hämtar Telemetrin från Server delen av lösningen i `src/services/telemetryService.js` filen. Följande steg visar hur du ändrar den tids period som visas i telemetri-diagrammet från 15 till 5 minuter:
 
-1. Leta upp `src/services/telemetryService.js` funktionen med namnet **getTelemetryByDeviceIdP15M**i filen. Gör en kopia av den här funktionen och ändra kopian enligt följande:
+1. `src/services/telemetryService.js`Leta upp funktionen med namnet **getTelemetryByDeviceIdP15M**i filen. Gör en kopia av den här funktionen och ändra kopian enligt följande:
 
     ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
@@ -323,7 +323,7 @@ Filerna i `src/components/pages/dashboard/panels/telemtry` mappen definierar tel
     }
     ```
 
-1. Om du vill använda den här nya funktionen för att fylla i telemetri `src/components/pages/dashboard/dashboard.js` -diagrammet öppnar du filen. Leta upp raden som initierar telemetri-dataströmmen och ändra den på följande sätt:
+1. Om du vill använda den här nya funktionen för att fylla i telemetri-diagrammet öppnar du `src/components/pages/dashboard/dashboard.js` filen. Leta upp raden som initierar telemetri-dataströmmen och ändra den på följande sätt:
 
     ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)

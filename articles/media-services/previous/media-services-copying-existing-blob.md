@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67068899"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Kopiera befintliga blobbar till en Media Services till gång
@@ -42,11 +42,11 @@ Artikeln innehåller två kod exempel:
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Kopiera blobbar mellan två AMS-konton  
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Två Media Services-konton. Se artikeln [så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 
-### <a name="download-sample"></a>Hämta exempel
+### <a name="download-sample"></a>Ladda ned exempel
 Du kan följa stegen i den här artikeln eller så kan du hämta ett exempel som innehåller koden som beskrivs i [den här artikeln.](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)
 
 ### <a name="set-up-your-project"></a>Konfigurera projektet
@@ -160,7 +160,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Kopiera blobar från ett lagrings konto till ett AMS-konto 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Ett lagrings konto som du vill kopiera blobbar från.
 - Ett AMS-konto som du vill kopiera blobbar till.

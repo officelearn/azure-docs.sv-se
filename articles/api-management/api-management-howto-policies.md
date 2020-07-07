@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70072312"
 ---
 # <a name="policies-in-azure-api-management"></a>Principer i Azure API Management
@@ -38,7 +38,7 @@ Om du klickar på en aktive rad instruktion läggs lämplig XML till i positione
 > 
 > 
 
-Konfigurationen är indelad `inbound`i `backend`, `outbound`, och `on-error`. Serien med angivna princip satser körs i ordning för en begäran och ett svar.
+Konfigurationen är indelad i `inbound` ,, `backend` `outbound` och `on-error` . Serien med angivna princip satser körs i ordning för en begäran och ett svar.
 
 ```xml
 <policies>
@@ -58,7 +58,7 @@ Konfigurationen är indelad `inbound`i `backend`, `outbound`, och `on-error`. Se
 </policies> 
 ```
 
-Om det uppstår ett fel under bearbetningen av en begäran, hoppas eventuella återstående steg i `inbound`- `backend`,- `outbound` och-avsnitten över och körnings hopp till instruktionerna i `on-error` avsnittet. Genom att placera princip instruktioner i `on-error` avsnittet kan du granska felet genom att `context.LastError` använda-egenskapen, inspektera och anpassa fel svaret med hjälp av `set-body` principen och konfigurera vad som händer om ett fel inträffar. Det finns felkoder för inbyggda steg och för fel som kan uppstå under bearbetningen av princip satser. Mer information finns [i fel hantering i API Management principer](/azure/api-management/api-management-error-handling-policies).
+Om det uppstår ett fel under bearbetningen av en begäran, hoppas eventuella återstående steg i-,-och- `inbound` `backend` `outbound` avsnitten över och körnings hopp till instruktionerna i `on-error` avsnittet. Genom att placera princip instruktioner i `on-error` avsnittet kan du granska felet genom att använda `context.LastError` -egenskapen, inspektera och anpassa fel svaret med hjälp av `set-body` principen och konfigurera vad som händer om ett fel inträffar. Det finns felkoder för inbyggda steg och för fel som kan uppstå under bearbetningen av princip satser. Mer information finns [i fel hantering i API Management principer](/azure/api-management/api-management-error-handling-policies).
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Så här konfigurerar du principer
 
@@ -88,11 +88,11 @@ Om du har en princip på global nivå och en princip som kon figurer ATS för et
 </policies>
 ```
 
-I exempel princip definitionen ovan skulle `cross-domain` instruktionen köras före eventuella högre principer som i sin tur skulle följas av `find-and-replace` principen. 
+I exempel princip definitionen ovan `cross-domain` skulle instruktionen köras före eventuella högre principer som i sin tur skulle följas av `find-and-replace` principen. 
 
 ### <a name="restrict-incoming-requests"></a>Begränsa inkommande begär Anden
 
-Om du vill lägga till en ny instruktion för att begränsa inkommande begär anden till angivna IP-adresser placerar du markören precis `inbound` i innehållet i XML-elementet och klickar på instruktionen **begränsa anropare IP** -adress.
+Om du vill lägga till en ny instruktion för att begränsa inkommande begär anden till angivna IP-adresser placerar du markören precis i innehållet i `inbound` XML-elementet och klickar på instruktionen **begränsa anropare IP** -adress.
 
 ![Principer för begränsning][policies-restrict]
 

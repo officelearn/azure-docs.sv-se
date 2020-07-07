@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67080490"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur den anslutna fabriks lösningen visar data från OPC UA-servrar
@@ -71,17 +71,17 @@ Mer information om hur du mappar och aggregerar data så att de uppfyller dina s
 
 ## <a name="deploy-the-changes"></a>Distribuera ändringarna
 
-När du är klar med att göra ändringar i **ContosoTopologyDescription. JSON** -filen måste du distribuera om den anslutna fabriks lösningen till ditt Azure-konto.
+När du är klar med att göra ändringar i **ContosoTopologyDescription.js** filen måste du distribuera om den anslutna fabriks lösningen till ditt Azure-konto.
 
-**Azure-IoT-Connected-Factory-** databasen innehåller ett **build. ps1** PowerShell-skript som du kan använda för att återskapa och distribuera lösningen.
+**Azure-IoT-Connected-Factory-** databasen innehåller ett **build.ps1** PowerShell-skript som du kan använda för att återskapa och distribuera lösningen.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om den anslutna fabriks lösnings acceleratorn genom att läsa följande artiklar:
 
 * [Behörigheter för azureiotsolutions.com-webbplatsen][lnk-permissions]
 * [Vanliga frågor och svar om ansluten fabrik](iot-accelerators-faq-cf.md)
-* [VANLIGA FRÅGOR OCH SVAR][lnk-faq]
+* [Vanliga frågor och svar][lnk-faq]
 
 
 [img-oee-kpi]: ./media/iot-accelerators-connected-factory-customize/oeenadkpi.png

@@ -16,15 +16,15 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 37969986b1d015ed08113da42a309eef42df569c
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69015512"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
 > [!div class="op_single_selector"]
-> * [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
+> * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [REST-API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
@@ -87,7 +87,7 @@ Artikeln visar hur du gör följande:
 7. Visa eller dölj pekdatorer. Starta och stoppa annonser. Långvariga API:er används.
 8. Rensa din kanal och alla associerade resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande krävs för att kunna genomföra självstudien.
 
 * Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
@@ -96,17 +96,17 @@ Följande krävs för att kunna genomföra självstudien.
 * Du måste använda Media Services .NET SDK version 3.2.0.0 eller senare.
 * En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 * Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amshelp@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 * Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
-## <a name="download-sample"></a>Hämta exempel
+## <a name="download-sample"></a>Ladda ned exempel
 
 Du kan hämta exemplet som beskrivs i artikeln [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Konfigurera för utveckling med Media Services SDK för .NET
 
-Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 ## <a name="code-example"></a>Kodexempel
 

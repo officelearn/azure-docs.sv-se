@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70101267"
 ---
 # <a name="disaster-recovery-principles"></a>Principer för haveri beredskap
@@ -64,7 +64,7 @@ Nästa steg är att du ska installera den andra SAP HANA-instansen i den stora v
 
 - Kör steg 2 i förberedelserna för lagrings ögonblicks bilder som beskrivs i [säkerhets kopiering och återställning](hana-backup-restore.md).
 - Skapa en offentlig nyckel för DR-enheten HANA stor instans enhet om du ännu inte har gjort det. Se steg 3 i förberedelserna för lagrings ögonblicks bilder som beskrivs i [säkerhets kopiering och återställning](hana-backup-restore.md).
-- Behåll *HANABackupCustomerDetails. txt* med den nya Hana-instansen och testa om anslutningen till lagringen fungerar korrekt.  
+- Behåll *HANABackupCustomerDetails.txt* med den nya Hana-instansen och testa om anslutningen till lagringen fungerar som den ska.  
 - Stoppa den nyligen installerade SAP HANA-instansen på volymen HANA stor instans i Azure-regionen DR.
 - Demontera de här PRD-volymerna och kontakta SAP HANA på Azure Service Management. Volymerna kan inte vara monterade på enheten eftersom de inte kan nås under drift som mål för lagrings replikering.  
 

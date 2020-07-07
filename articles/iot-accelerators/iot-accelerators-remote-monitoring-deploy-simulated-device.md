@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66427562"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Distribuera en ny simulerad enhet
@@ -35,12 +35,12 @@ För att slutföra stegen i den här instruktions guiden behöver du en aktiv Az
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här instruktions guiden behöver du:
 
 - En distribuerad instans av [lösnings acceleratorn för fjärrövervakning](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2).
-- Ett lokalt **bash** -gränssnitt för att `ssh` köra `scp` -och-kommandon. I Windows är ett enkelt sätt att installera **bash** är att installera [git](https://git-scm.com/download/win).
+- Ett lokalt **bash** -gränssnitt för att köra- `ssh` och- `scp` kommandon. I Windows är ett enkelt sätt att installera **bash** är att installera [git](https://git-scm.com/download/win).
 - Dina anpassade enhets modell filer, till exempel de som beskrivs i [skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 [!INCLUDE [iot-solution-accelerators-access-vm](../../includes/iot-solution-accelerators-access-vm.md)]

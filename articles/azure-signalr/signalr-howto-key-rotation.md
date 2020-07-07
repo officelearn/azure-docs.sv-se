@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67565732"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Rotera åtkomstnyckel för Azure SignalR Service
@@ -59,4 +59,4 @@ I den här guiden har du lärt att återskapa åtkomstnycklar. Gå vidare till n
 > [Integrera med ASP.NET Core-identitet](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Bygg en server lös real tids app med autentisering](./signalr-tutorial-authenticate-azure-functions.md)
+> [Skapa en serverlös realtidsapp med autentisering](./signalr-tutorial-authenticate-azure-functions.md)

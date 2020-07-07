@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67659507"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Översikt över Azure Application Gateway Resource Health
@@ -25,7 +25,7 @@ Mer information om hur hälsa utvärderas finns i den fullständiga listan över
 
 Hälso tillståndet för Application Gateway visas som en av följande statusar:
 
-## <a name="available"></a>Tillgängligt
+## <a name="available"></a>Tillgänglig
 
 En **tillgänglig** status innebär att tjänsten inte har identifierat några händelser som påverkar resursens hälso tillstånd. Du ser **nyligen löst** meddelande i fall där gatewayen har återställts från oplanerat avbrott under de senaste 24 timmarna.
 

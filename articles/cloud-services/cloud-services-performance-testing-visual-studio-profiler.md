@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 21270d3c7143ce063ffe30d939368b9813e9072e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70094106"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testa prestanda för en moln tjänst lokalt i Azure Compute-emulatorn med hjälp av Visual Studio profiler
@@ -30,7 +30,7 @@ Du kanske också vill profilera ditt program lokalt i Compute-emulatorn innan du
 Den här artikeln beskriver CPU-samplings metoden för profilering, som kan göras lokalt i emulatorn. CPU-sampling är en metod för profilering som inte är väldigt påträngande. Profileraren tar en ögonblicks bild av anrops stacken vid ett angivet samplings intervall. Data samlas in under en viss tids period och visas i en rapport. Den här metoden för profilering är en indikation på var i ett beräknings intensivt program som är mest av processor arbetet som utförs.  Det ger dig möjlighet att fokusera på "frekvent sökväg" där ditt program kostar det senaste tillfället.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Konfigurera Visual Studio för profilering
-Först finns det några alternativ för Visual Studio-konfiguration som kan vara till hjälp vid profilering. För att kunna göra profilerings rapporterna behöver du symboler (. PDB-filer) för ditt program och även symboler för system bibliotek. Du måste se till att du refererar till de tillgängliga symbol servrarna. Det gör du genom att gå till **verktyg** -menyn i Visual Studio, välja **alternativ**, välja **fel sökning**och sedan **symboler**. Se till att Microsoft Symbol Server visas under **symbol fil platser (. pdb)**.  Du kan också referera https://referencesource.microsoft.com/symbolstill, som kan ha ytterligare symboler.
+Först finns det några alternativ för Visual Studio-konfiguration som kan vara till hjälp vid profilering. För att kunna göra profilerings rapporterna behöver du symboler (. PDB-filer) för ditt program och även symboler för system bibliotek. Du måste se till att du refererar till de tillgängliga symbol servrarna. Det gör du genom att gå till **verktyg** -menyn i Visual Studio, välja **alternativ**, välja **fel sökning**och sedan **symboler**. Se till att Microsoft Symbol Server visas under **symbol fil platser (. pdb)**.  Du kan också referera till https://referencesource.microsoft.com/symbols , som kan ha ytterligare symboler.
 
 ![Symbol alternativ][4]
 
@@ -83,13 +83,13 @@ Om du vill koppla profileraren till en process väljer du **profiler** på menyn
 
 ![Alternativet Bifoga profil][6]
 
-Leta upp processen WaWorkerHost. exe för en arbets roll.
+Hitta WaWorkerHost.exe processen för en arbets roll.
 
 ![WaWorkerHost process][7]
 
 Om projektmappen finns på en nätverks enhet ber profileraren att ange en annan plats för att spara profilerings rapporterna.
 
- Du kan också ansluta till en webb roll genom att koppla till WaIISHost. exe.
+ Du kan också ansluta till en webbroll genom att koppla till WaIISHost.exe.
 Om det finns flera arbets Rolls processer i ditt program måste du använda processID för att skilja dem åt. Du kan skicka frågor till processID genom programmering genom att öppna processobjektet. Om du till exempel lägger till den här koden i metoden Run i den RoleEntryPoint-härledda klassen i en roll, kan du titta på loggen i Compute-emulatorns gränssnitt för att veta vilken process du ska ansluta till.
 
 ```csharp
@@ -160,10 +160,10 @@ Grattis! Du har börjat med profileraren.
 * Om alternativet Anslut/koppla från inte är aktiverat på profiler-menyn kör du guiden prestanda.
 * Använd Compute emulator-gränssnittet för att visa status för programmet. 
 * Om du har problem med att starta program i emulatorn eller kopplar profileraren stänger du av beräknings-emulatorn och startar om den. Om det inte löser problemet kan du försöka starta om. Det här problemet kan uppstå om du använder Compute-emulatorn för att pausa och ta bort pågående distributioner.
-* Om du har använt någon av profilerings kommandona från kommando raden, särskilt de globala inställningarna, kontrollerar du att VSPerfClrEnv/globaloff har anropats och att VsPerfMon. exe har avslut ATS.
+* Om du har använt någon av profilerings kommandona från kommando raden, särskilt de globala inställningarna, kontrollerar du att VSPerfClrEnv/globaloff har anropats och att VsPerfMon.exe har avslut ATS.
 * Om du ser meddelandet "PRF0025: inga data har samlats in", kontrollerar du att den process som du har kopplat till har processor aktivitet. Program som inte gör något beräknings arbete kanske inte genererar några samplings data.  Det är också möjligt att processen avslutades innan någon sampling utfördes. Kontrol lera att körnings metoden för en roll som du profileringr inte avslutas.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Instrumentering av Azure-binärfiler i emulatorn stöds inte i Visual Studio profiler, men om du vill testa minnesallokering kan du välja det alternativet vid profilering. Du kan också välja samtidiga profilering, som hjälper dig att avgöra om trådar tar tid att konkurrera för lås, eller nivå interaktions profilering, som hjälper dig att spåra prestanda problem när du interagerar mellan olika nivåer av ett program, oftast mellan data nivån och en arbets roll.  Du kan visa databas frågorna som din app genererar och använder profilerings data för att förbättra din användning av databasen. Information om nivå interaktions profilering finns i genom gång av blogg inlägg [: använda nivån interaktions profiler i Visual Studio Team System 2010][3].
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler

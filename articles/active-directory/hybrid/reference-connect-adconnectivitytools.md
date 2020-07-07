@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66473796"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell-referens
@@ -106,7 +106,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="confirm-forestexists"></a>Bekräfta – ForestExists
 
@@ -153,7 +153,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="confirm-functionallevel"></a>Bekräfta – FunctionalLevel
 
@@ -254,7 +254,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="confirm-networkconnectivity"></a>Bekräfta – NetworkConnectivity
 
@@ -310,7 +310,8 @@ Accept wildcard characters: False
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
 Om användaren inte använder DNS-tjänster som tillhandahålls av AD-platsen/inloggnings-DC, kanske de vill hoppa över att kontrol lera port 53.
-Användaren måste fortfarande kunna matcha _. LDAP. _tcp. \<forestFqdn\> för att konfigurationen av Active Directory Connector ska lyckas.
+Användaren måste fortfarande kunna matcha _. LDAP. _tcp.\<forestfqdn\>
+för att konfigurationen av Active Directory Connector ska lyckas.
 
 ```yml
 Type: SwitchParameter
@@ -344,7 +345,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="confirm-targetsarereachable"></a>Bekräfta – TargetsAreReachable
 
@@ -413,7 +414,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="confirm-validdomains"></a>Bekräfta – ValidDomains
 
@@ -513,7 +514,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="confirm-validenterpriseadmincredentials"></a>Bekräfta – ValidEnterpriseAdminCredentials
 
@@ -567,7 +568,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="get-domainfqdndata"></a>Get-DomainFQDNData
 
@@ -656,7 +657,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="get-forestfqdn"></a>Get-ForestFQDN
 
@@ -726,7 +727,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
 
@@ -808,7 +809,7 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
 ## <a name="start-networkconnectivitydiagnosistools"></a>Start-NetworkConnectivityDiagnosisTools
 
@@ -962,4 +963,4 @@ Accept wildcard characters: False
 #### <a name="commonparameters"></a>CommonParameters
 
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
-Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .

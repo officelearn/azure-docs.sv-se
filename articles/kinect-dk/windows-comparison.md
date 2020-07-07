@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, v2, Azure Kinect, jämförelse, SDK, skillnader, maskin vara, program vara
 ms.openlocfilehash: ec105cef0c52b02c763487fbe5b2d8c018315f4c
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67452519"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Jämförelse av Azure Kinect och Kinect i Windows v2
@@ -71,7 +71,7 @@ Azure Kinect SDK funktions uppsättningen skiljer sig från Kinect för Windows 
 | | BodyIndexFrame | Body tracking SDK  |
 | Koordinera mappning|CoordinateMapper| [Sensor-SDK – bild omvandlingar](use-image-transformation.md) |
 |Ansikts spårning | FaceFrame | [Cognitive Services: ansikte](https://azure.microsoft.com/services/cognitive-services/face/)       |
-|    Tal igenkänning    |    Ej tillämpligt                      |    [Cognitive Services: tal](https://azure.microsoft.com/services/cognitive-services/directory/speech/)     |
+|    Tal igenkänning    |    Saknas                      |    [Cognitive Services: tal](https://azure.microsoft.com/services/cognitive-services/directory/speech/)     |
 
 ## <a name="next-steps"></a>Nästa steg
 

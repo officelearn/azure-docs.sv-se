@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
 ms.openlocfilehash: 780d3ab5047bff321d0c554880ba2995bcf25524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70102915"
 ---
 # <a name="scaling-media-processing-overview"></a>Översikt över bearbetning av skalningsmedia 
@@ -37,7 +37,7 @@ I följande tabell får du hjälp att fatta ett beslut när du väljer mellan ol
 | **S2**|Kodning med enkel bit hastighet och flera bit hastigheter.<br/>Normal användning för både SD-och HD-kodning.|Kodning med för inställningen "H264, enskild bit hastighet" tar cirka 6 minuter.<br/><br/>Kodning med för inställningen "H264, Multiple bit hastighet" tar cirka 12 minuter.|
 | **S3**|Kodning med enkel bit hastighet och flera bit hastigheter.<br/>Högupplösta HD-och 4K-lösningar. Tids känslig, snabbare svars tids kodning.|Kodning med en för inställning för "H264, enkel bit hastighet" tar cirka 3 minuter.<br/><br/>Encoding med för inställningen "H264, Multiplable bit/1080p" tar cirka 8 minuter.|
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 > [!IMPORTANT]
 > Läs överväganden som beskrivs i det här avsnittet.  
 > 
@@ -58,8 +58,8 @@ Uppnå den skalnings bara medie bearbetnings uppgiften med någon av dessa tekni
 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
-> * [Portalen](media-services-portal-scale-media-processing.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [Portal](media-services-portal-scale-media-processing.md)
+> * [FLESTA](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 

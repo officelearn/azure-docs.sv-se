@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68297774"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Prestanda justering för TCP/IP för virtuella Azure-datorer
@@ -213,17 +213,17 @@ Du kan använda `Get-NetTCPSetting` PowerShell-kommandot för att visa värdena 
 Get-NetTCPSetting
 ```
 
-Du kan ställa in den inledande TCP-fönster storleken och TCP-skalnings faktorn `Set-NetTCPSetting` i Windows med hjälp av PowerShell-kommandot. Mer information finns i [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Du kan ställa in den inledande TCP-fönster storleken och TCP-skalnings faktorn i Windows med hjälp av `Set-NetTCPSetting` PowerShell-kommandot. Mer information finns i [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-Detta är de effektiva TCP-inställningarna `AutoTuningLevel`för:
+Detta är de effektiva TCP-inställningarna för `AutoTuningLevel` :
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Skalnings faktor**|**Skalnings multiplikator**|**Formel för<br/>att beräkna maximal fönster storlek**|
+|**AutoTuningLevel**|**Skalnings faktor**|**Skalnings multiplikator**|**Formel för att <br/> Beräkna maximal fönster storlek**|
 |Disabled|Ingen|Ingen|Fönster storlek|
 |Begränsade|4|2 ^ 4|Fönster storlek * (2 ^ 4)|
 |Hög begränsad|2|2 ^ 2|Fönster storlek * (2 ^ 2)|
@@ -359,7 +359,7 @@ NTttcp är ett verktyg för att testa TCP-prestandan för en virtuell Linux-elle
 
 Du kan testa prestanda för olika VM-typer, accelererade nätverk och så vidare med hjälp av ett verktyg som kallas iPerf. iPerf är också tillgängligt i Linux och Windows. iPerf kan använda TCP eller UDP för att testa det övergripande nätverks genomflödet. iPerf TCP-genomflöde påverkas av de faktorer som beskrivs i den här artikeln (t. ex. latens och önskad sökpunkt). Så UDP kan ge bättre resultat om du bara vill testa maximalt data flöde.
 
-Mer information finns i dessa artiklar:
+Mer information finns i de här artiklarna:
 
 - [Felsöka ExpressRoute Network Performance](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 

@@ -9,10 +9,10 @@ ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 4e699707db02de07f3d1ebb7d1fa8d0575a10aa3
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67836942"
 ---
 FTP och lokal git kan distribueras till en Azure-webbapp med hjälp av en *distributions användare*. När du har konfigurerat din distributions användare kan du använda den för alla dina Azure-distributioner. Ditt användar namn och lösen ord för distribution på konto nivå skiljer sig från dina autentiseringsuppgifter för Azure-prenumerationen. 

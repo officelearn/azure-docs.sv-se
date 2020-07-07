@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: a472e00f9ecab8a5ffa6b19e4fe9a5f8b5ee5b95
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70072048"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Hantera Azure API Management med hjälp av Azure Automation
@@ -37,7 +37,7 @@ Här följer några exempel på hur du använder API Management med PowerShell:
 
 * [Azure PowerShell-exempel för API Management](https://docs.microsoft.com/azure/api-management/powershell-samples)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna om Azure Automation och hur det kan användas för att hantera Azure API Management, kan du följa dessa länkar om du vill veta mer.
 
 * Se [självstudierna Azure Automation kom igång](../automation/automation-first-runbook-graphical.md).

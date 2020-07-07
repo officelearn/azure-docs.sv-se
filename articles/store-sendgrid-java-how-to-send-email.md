@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 8ae948e9c79cff4cd0c896b250743fd9dc521752
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67876513"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Skicka e-post med SendGrid från Java
@@ -41,7 +41,7 @@ Mer information finns i <https://sendgrid.com>.
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>Gör så här: använda javax. mail-biblioteken
-Hämta javax. mail-biblioteken, till exempel <https://www.oracle.com/technetwork/java/javamail> från och importera dem till din kod. På en hög nivå är processen för att använda javax. mail-biblioteket för att skicka e-post med SMTP att göra följande:
+Hämta javax. mail-biblioteken, till exempel från <https://www.oracle.com/technetwork/java/javamail> och importera dem till din kod. På en hög nivå är processen för att använda javax. mail-biblioteket för att skicka e-post med SMTP att göra följande:
 
 1. Ange SMTP-värden, inklusive SMTP-servern, som för SendGrid är smtp.sendgrid.net.
 

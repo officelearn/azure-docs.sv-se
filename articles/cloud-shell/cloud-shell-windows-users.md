@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
 ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67204147"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell i Azure Cloud Shell för Windows-användare
@@ -32,11 +32,11 @@ Med den här ändringen kan det finnas skillnader i PowerShell-upplevelsen i Clo
 Fil systemet är Skift läges okänsligt i Windows, men i Linux är fil systemet Skift läges känsligt.
 Tidigare `file.txt` och `FILE.txt` ansågs vara samma fil, men nu anses de vara olika filer.
 Rätt Skift läge måste användas `tab-completing` i fil systemet.
-PowerShell-vissa upplevelser, till `tab-completing` exempel cmdlet-namn, parametrar och värden, är inte Skift läges känsliga.
+PowerShell-vissa upplevelser, till exempel `tab-completing` cmdlet-namn, parametrar och värden, är inte Skift läges känsliga.
 
 ## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Windows PowerShell-alias vs Linux-verktyg
 
-Vissa befintliga PowerShell-alias har samma namn som inbyggda Linux-kommandon, till `cat`exempel,`ls` `sort`,, `sleep`, osv. I PowerShell Core 6 har alias som kolliderar med inbyggda Linux-kommandon tagits bort.
+Vissa befintliga PowerShell-alias har samma namn som inbyggda Linux-kommandon, till exempel,, `cat` , `ls` `sort` `sleep` , osv. I PowerShell Core 6 har alias som kolliderar med inbyggda Linux-kommandon tagits bort.
 Nedan visas vanliga alias som har tagits bort och motsvarande kommandon:  
 
 |Borttaget alias   |Motsvarande kommando   |
@@ -59,13 +59,13 @@ Nu sparas användarens $HOME katalog också över flera sessioner.
 ## <a name="powershell-profile"></a>PowerShell-profil
 
 Som standard skapas inte en användares PowerShell-profil.
-Skapa din profil genom att skapa en `PowerShell` katalog under `$HOME/.config`.
+Skapa din profil genom att skapa en `PowerShell` katalog under `$HOME/.config` .
 
 ```azurepowershell-interactive
 mkdir (Split-Path $profile.CurrentUserAllHosts)
 ```
 
-Under `$HOME/.config/PowerShell`kan du skapa dina profilmappar – `profile.ps1` och/eller. `Microsoft.PowerShell_profile.ps1`
+Under kan `$HOME/.config/PowerShell` du skapa dina profilmappar – `profile.ps1` och/eller `Microsoft.PowerShell_profile.ps1` .
 
 ## <a name="whats-new-in-powershell-core-6"></a>Vad är nytt i PowerShell Core 6
 

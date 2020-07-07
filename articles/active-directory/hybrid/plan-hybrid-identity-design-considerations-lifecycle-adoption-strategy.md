@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109320"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Fastställ livs cykel för införande av hybrid identitet
@@ -86,7 +86,7 @@ Om du integrerar dina lokala kataloger med Azure AD kan du hjälpa dina använda
 
 Följande figur innehåller ett exempel på en övergripande vy över processen för synkronisering av identiteter.
 
-![Sync](./media/plan-hybrid-identity-design-considerations/identitysync.png)
+![Synkronisera](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
 Identitetssynkronisering process
 

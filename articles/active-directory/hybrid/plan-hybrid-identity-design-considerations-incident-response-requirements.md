@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109279"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Fastställ krav på incident svar för din hybrid identitets lösning
@@ -52,7 +52,7 @@ Identitets hanterings systemet bör hjälpa IT-administratörer att identifiera 
 * Behöver företaget granska användarens åtkomst och åtgärd?
 * Behöver företaget veta när en användare återställer sitt lösen ord?
 
-## <a name="policy-enforcement"></a>Policyframtvingande
+## <a name="policy-enforcement"></a>Principtillämpning
 Under skade kontrollen och risk minsknings fasen är det viktigt att snabbt minska de faktiska och potentiella effekterna av en attack. Den åtgärd som du vidtar vid den här punkten kan göra skillnaden mellan en mindre och en större. Det exakta svaret beror på din organisation och vilken typ av attack du möter. Om den inledande utvärderingen slutat att ett konto har komprometterats måste du tillämpa principen för att blockera det här kontot. Det är bara ett exempel där identitets hanterings systemet kommer att utnyttjas. Använd frågorna nedan för att hjälpa dig att utforma din hybrid identitets lösning och ta hänsyn till hur principerna kommer att framtvingas för att reagera på en pågående incident:
 
 * Har ditt företag principer för att blockera användare från att få åtkomst till nätverket om det behövs?

@@ -4,10 +4,10 @@ description: Innehåller instruktioner för att snabbt konfigurera kontinuerlig 
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652756"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din versions pipeline
@@ -20,7 +20,7 @@ Med kontinuerlig övervakning kan lanserings pipelines omfatta övervaknings dat
 
 1. I [Azure DevOps](https://dev.azure.com)väljer du en organisation och ett projekt.
    
-1. På den vänstra menyn på sidan projekt väljer du **pipelines** > **releases**. 
+1. På den vänstra menyn på sidan projekt väljer du **pipelines**  >  **releases**. 
    
 1. Släpp pilen bredvid **ny** och välj **ny versions pipeline**. Eller, om du inte har en pipeline ännu, väljer du **ny pipeline** på sidan som visas.
    
@@ -38,7 +38,7 @@ Med kontinuerlig övervakning kan lanserings pipelines omfatta övervaknings dat
    | ------------- |:-----|
    | **Namn på fas**      | Ange ett stadium namn eller lämna det i **steg 1**. |
    | **Azure-prenumeration** | List rutan och välj den länkade Azure-prenumeration som du vill använda.|
-   | **Typ av app** | List rutan och välj din typ av app. |
+   | **Apptyp** | List rutan och välj din typ av app. |
    | **App Service namn** | Ange namnet på Azure App Service. |
    | **Resurs grupps namn för Application Insights**    | I list rutan och väljer du den resurs grupp som du vill använda. |
    | **Application Insights resurs namn** | List rutan och välj Application Insights resursen för den resurs grupp som du har valt.

@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 419a9f9b5ce698c7516edd55856cbea9891ba029
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212180"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Skicka säkra push-meddelanden med Azure Notification Hubs
@@ -71,7 +71,7 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
     public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
     public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
     ```
-2. Uppdatera- `getAuthorizationHeader()` metoden `MainActivity` i-klassen så att den innehåller följande kod:
+2. `MainActivity`Uppdatera-metoden i-klassen `getAuthorizationHeader()` så att den innehåller följande kod:
 
     ```java
     private String getAuthorizationHeader() throws UnsupportedEncodingException {
@@ -86,7 +86,7 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
         return basicAuthHeader;
     }
     ```
-3. Lägg till följande `import` -uttryck högst upp i `MainActivity` filen:
+3. Lägg till följande- `import` uttryck högst upp i `MainActivity` filen:
 
     ```java
     import android.content.SharedPreferences;
@@ -103,7 +103,7 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
         retrieveNotification(secureMessageId);
     }
     ```
-2. Lägg sedan till `retrieveNotification()` -metoden och ersätt plats `{back-end endpoint}` hållaren med backend-slutpunkten som hämtades när du distribuerade Server delen:
+2. Lägg sedan till `retrieveNotification()` -metoden och ersätt plats hållaren `{back-end endpoint}` med backend-slutpunkten som hämtades när du distribuerade Server delen:
 
     ```java
     private void retrieveNotification(final String secureMessageId) {

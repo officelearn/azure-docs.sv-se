@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
 ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629056"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopiera filer från flera behållare med Azure Data Factory
@@ -37,10 +37,10 @@ Mallen innehåller tre aktiviteter:
 - **Kopiera** kopierar varje behållare från käll lagrings lagret till mål arkivet.
 
 Mallen definierar följande parametrar:
-- *SourceFileFolder* är mappsökvägen till data käll arkivet där du kan hämta en lista över behållarna. Sökvägen är rot katalogen, som innehåller flera behållar-mappar. Standardvärdet för den här parametern `sourcefolder`är.
-- *SourceFileDirectory* är sökvägen till undermappen under rot katalogen i data käll arkivet. Standardvärdet för den här parametern `subfolder`är.
-- *DestinationFileFolder* är sökvägen till mappen där filerna kopieras till i mål arkivet. Standardvärdet för den här parametern `destinationfolder`är.
-- *DestinationFileDirectory* är sökvägen till undermappen där filerna kopieras till i mål arkivet. Standardvärdet för den här parametern `subfolder`är.
+- *SourceFileFolder* är mappsökvägen till data käll arkivet där du kan hämta en lista över behållarna. Sökvägen är rot katalogen, som innehåller flera behållar-mappar. Standardvärdet för den här parametern är `sourcefolder` .
+- *SourceFileDirectory* är sökvägen till undermappen under rot katalogen i data käll arkivet. Standardvärdet för den här parametern är `subfolder` .
+- *DestinationFileFolder* är sökvägen till mappen där filerna kopieras till i mål arkivet. Standardvärdet för den här parametern är `destinationfolder` .
+- *DestinationFileDirectory* är sökvägen till undermappen där filerna kopieras till i mål arkivet. Standardvärdet för den här parametern är `subfolder` .
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 

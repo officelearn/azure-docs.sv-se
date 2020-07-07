@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
 ms.openlocfilehash: 4b26128b794a6a667edc578f56ad0bc9fb8303a7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691155"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Övervaka kluster tillgänglighet med Apache Ambari i Azure HDInsight
@@ -80,7 +80,7 @@ Du kan också välja att konfigurera e-postaviseringar för Ambari-aviseringar. 
 
 ![Ambari-åtgärd för att hantera meddelanden](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-En dialog ruta för att hantera aviseringar öppnas. **+** Välj längst ned i dialog rutan och fyll i de obligatoriska fälten för att tillhandahålla Ambari med information om e-postservern som e-postmeddelanden ska skickas från.
+En dialog ruta för att hantera aviseringar öppnas. Välj längst **+** ned i dialog rutan och fyll i de obligatoriska fälten för att tillhandahålla Ambari med information om e-postservern som e-postmeddelanden ska skickas från.
 
 > [!TIP]
 > Att ställa in Ambari e-postaviseringar kan vara ett bra sätt att få aviseringar på en plats när du hanterar många HDInsight-kluster.
@@ -88,6 +88,6 @@ En dialog ruta för att hantera aviseringar öppnas. **+** Välj längst ned i d
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight](hdinsight-high-availability-linux.md)
-- [Kluster tillgänglighet – Azure Monitor loggar](./cluster-availability-monitor-logs.md)
-- [Använda Azure Monitor loggar](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+- [Klustertillgänglighet – Azure Monitor-loggar](./cluster-availability-monitor-logs.md)
+- [Använda Azure Monitor-loggar](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [E-postaviseringar med Apache Ambari](apache-ambari-email.md)

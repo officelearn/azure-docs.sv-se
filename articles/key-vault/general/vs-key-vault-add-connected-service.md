@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: af0065db087595167ca71bb79b968cc4ad339acd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82116850"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webb program med hjälp av Visual Studio Connected Services
@@ -22,7 +22,7 @@ I den här självstudien får du lära dig hur du enkelt kan lägga till allt du
 
 Mer information om de ändringar som anslutna tjänster gör i projektet för att aktivera Key Vault finns i [Key Vault Connected service – vad hände med mitt ASP.NET 4.7.1-projekt](#how-your-aspnet-framework-project-is-modified) eller [Key Vault Connected service – vad hände med mitt ASP.net Core-projekt](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **En Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual studio 2019 version 16,3** eller senare, eller **Visual Studio 2017 version 15,7** med arbets belastningen **webb utveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -33,7 +33,7 @@ Mer information om de ändringar som anslutna tjänster gör i projektet för at
 
 Innan du börjar ska du kontrol lera att du är inloggad i Visual Studio. Logga in med samma konto som du använder för din Azure-prenumeration. Öppna sedan en ASP.NET 4.7.1 eller senare eller ASP.NET Core 2,0-webbprojektet och utför följande steg:
 
-1. I **Solution Explorer**högerklickar du på det projekt som du vill lägga till Key Vault support till och väljer **Lägg till** > **ansluten tjänst**.
+1. I **Solution Explorer**högerklickar du på det projekt som du vill lägga till Key Vault support till och väljer **Lägg till**  >  **ansluten tjänst**.
    Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
 1. På menyn med tillgängliga tjänster väljer du **skydda hemligheter med Azure Key Vault**.
 
@@ -146,7 +146,7 @@ Nu kan du komma åt dina hemligheter i kod. Nästa steg varierar beroende på om
        }
        ```
 
-   1. Du bekräftar värdet vid körning genom att lägga till kod som `ViewData["Message"]` ska visas i *. cshtml* -filen för att Visa hemligheten i ett meddelande.
+   1. Du bekräftar värdet vid körning genom att lägga till kod som ska visas i `ViewData["Message"]` *. cshtml* -filen för att Visa hemligheten i ett meddelande.
 
       ```cshtml
           <p>@ViewData["Message"]</p>
@@ -156,9 +156,9 @@ Du kan köra appen lokalt för att kontrol lera att hemligheten har hämtats fr�
 
 ## <a name="access-your-secrets-aspnet"></a>Få åtkomst till dina hemligheter (ASP.NET)
 
-Du kan konfigurera konfigurationen så att filen Web. config har ett dummy-värde i `appSettings` elementet som ersätts av det sanna värdet vid körning. Du kan sedan komma åt det via `ConfigurationManager.AppSettings` data strukturen.
+Du kan konfigurera konfigurationen så att web.config-filen har ett dummy-värde i `appSettings` elementet som ersätts av det sanna värdet vid körning. Du kan sedan komma åt det via `ConfigurationManager.AppSettings` data strukturen.
 
-1. Redigera filen Web. config.  Leta upp taggen appSettings, Lägg till ett `configBuilders="AzureKeyVault"`attribut och Lägg till en rad:
+1. Redigera web.config-filen.  Leta upp taggen appSettings, Lägg till ett attribut `configBuilders="AzureKeyVault"` och Lägg till en rad:
 
    ```xml
       <add key="mysecret" value="dummy"/>
@@ -190,10 +190,10 @@ Om din Key Vault körs på en annan Microsoft-konto än den som du är inloggad 
 
 1. Välj **åtkomst principer**, **Lägg till åtkomst princip**och välj det konto som du är inloggad på som huvud konto.
 
-1. I Visual Studio väljer du **fil** > **konto inställningar**.
+1. I Visual Studio väljer du **fil**  >  **konto inställningar**.
 Välj **Lägg till ett konto** från avsnittet **alla konton** . Logga in med det konto som du har valt som huvud konto för din åtkomst princip.
 
-1. Välj **verktyg** > **alternativ**och leta efter **Azure-tjänsteautentisering**. Välj sedan det konto som du precis har lagt till i Visual Studio.
+1. Välj **verktyg**  >  **alternativ**och leta efter **Azure-tjänsteautentisering**. Välj sedan det konto som du precis har lagt till i Visual Studio.
 
 När du nu felsöker ditt program ansluter Visual Studio till det konto som Key Vault finns på.
 
@@ -215,9 +215,9 @@ Påverkar projekt filens .NET-referenser och NuGet-paket referenser.
 
 ### <a name="project-file-changes-for-aspnet-core"></a>Projekt fil ändringar för ASP.NET Core
 
-- De anslutna tjänsterna ItemGroup och `ConnectedServices.json` File har lagts till.
+- De anslutna tjänsterna ItemGroup och File har lagts till `ConnectedServices.json` .
 
-### <a name="launchsettingsjson-changes-for-aspnet-core"></a>launchsettings. JSON-ändringar för ASP.NET Core
+### <a name="launchsettingsjson-changes-for-aspnet-core"></a>launchsettings.jsvid ändringar av ASP.NET Core
 
 - Följande miljövariabel poster har lagts till i både den IIS Express profilen och den profil som matchar ditt webb projekt namn:
 
@@ -239,7 +239,7 @@ Det här avsnittet identifierar de exakta ändringar som gjorts i ett ASP.NET-pr
 
 ### <a name="added-references-for-aspnet-framework"></a>Tillagda referenser för ASP.NET Framework
 
-Påverkar projekt filens .NET-referenser `packages.config` och (NuGet-referenser).
+Påverkar projekt filens .NET-referenser och `packages.config` (NuGet-referenser).
 
 | Typ | Referens |
 | --- | --- |
@@ -254,10 +254,10 @@ Påverkar projekt filens .NET-referenser `packages.config` och (NuGet-referenser
 
 ### <a name="project-file-changes-for-aspnet-framework"></a>Projekt fil ändringar för ASP.NET Framework
 
-- Har lagt till de anslutna tjänsterna ItemGroup och ConnectedServices. JSON-filen.
+- De anslutna tjänsterna ItemGroup och ConnectedServices.jspå filen har lagts till.
 - Referenser till .NET-sammansättningar som beskrivs i avsnittet [tillagda referenser](#added-references-for-aspnet-framework) .
 
-### <a name="webconfig-or-appconfig-changes"></a>ändringar i Web. config eller app. config
+### <a name="webconfig-or-appconfig-changes"></a>web.config eller app.config ändringar
 
 - Följande konfigurations poster har lagts till:
 

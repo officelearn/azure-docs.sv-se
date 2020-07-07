@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82733783"
 ---
 # <a name="understand-azure-deny-assignments"></a>Förstå Azure Deny-tilldelningar
@@ -39,7 +39,7 @@ Neka-tilldelningar skapas och hanteras av Azure för att skydda resurser. Azure-
 
 Neka tilldelningar följer ett liknande mönster som roll tilldelningar, men har också vissa skillnader.
 
-| Funktion | Rolltilldelning | Neka tilldelning |
+| Kapacitet | Rolltilldelning | Neka tilldelning |
 | --- | --- | --- |
 | Bevilja åtkomst | :heavy_check_mark: |  |
 | Neka åtkomst |  | :heavy_check_mark: |
@@ -57,22 +57,22 @@ Neka tilldelningar följer ett liknande mönster som roll tilldelningar, men har
 > | Egenskap | Krävs | Typ | Beskrivning |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Ja | Sträng | Visnings namnet för neka-tilldelningen. Namn måste vara unika för ett angivet omfång. |
-> | `Description` | Inga | Sträng | Beskrivningen av neka-tilldelningen. |
+> | `Description` | Nej | Sträng | Beskrivningen av neka-tilldelningen. |
 > | `Permissions.Actions` | Minst en åtgärd eller en DataActions | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som neka tilldelning blockerar åtkomsten till. |
-> | `Permissions.NotActions` | Inga | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som ska undantas från neka-tilldelningen. |
+> | `Permissions.NotActions` | Nej | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som ska undantas från neka-tilldelningen. |
 > | `Permissions.DataActions` | Minst en åtgärd eller en DataActions | Sträng [] | En sträng mat ris som anger de data åtgärder som neka tilldelning blockerar åtkomsten till. |
-> | `Permissions.NotDataActions` | Inga | Sträng [] | En sträng mat ris som anger de data åtgärder som ska undantas från neka-tilldelningen. |
-> | `Scope` | Inga | Sträng | En sträng som anger omfattningen som neka-tilldelningen gäller för. |
-> | `DoNotApplyToChildScopes` | Inga | Boolesk | Anger om neka-tilldelningen gäller för underordnade omfång. Standardvärdet är false. |
+> | `Permissions.NotDataActions` | Nej | Sträng [] | En sträng mat ris som anger de data åtgärder som ska undantas från neka-tilldelningen. |
+> | `Scope` | Nej | Sträng | En sträng som anger omfattningen som neka-tilldelningen gäller för. |
+> | `DoNotApplyToChildScopes` | Nej | Boolesk | Anger om neka-tilldelningen gäller för underordnade omfång. Standardvärdet är false. |
 > | `Principals[i].Id` | Ja | Sträng [] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen gäller. Ange ett tomt GUID `00000000-0000-0000-0000-000000000000` som representerar alla huvud konton. |
-> | `Principals[i].Type` | Inga | Sträng [] | En matris med objekt typer som representeras av huvud konton [i]. ID `SystemDefined` . anges till som representerar alla huvud konton. |
-> | `ExcludePrincipals[i].Id` | Inga | Sträng [] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen inte gäller för. |
-> | `ExcludePrincipals[i].Type` | Inga | Sträng [] | En matris med objekt typer som representeras av ExcludePrincipals [i]. ID. |
-> | `IsSystemProtected` | Inga | Boolesk | Anger om den här nekande tilldelningen skapades av Azure och inte kan redige ras eller tas bort. För närvarande är alla nekade tilldelningar skyddade av systemet. |
+> | `Principals[i].Type` | Nej | Sträng [] | En matris med objekt typer som representeras av huvud konton [i]. ID. anges till `SystemDefined` som representerar alla huvud konton. |
+> | `ExcludePrincipals[i].Id` | Nej | Sträng [] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen inte gäller för. |
+> | `ExcludePrincipals[i].Type` | Nej | Sträng [] | En matris med objekt typer som representeras av ExcludePrincipals [i]. ID. |
+> | `IsSystemProtected` | Nej | Boolesk | Anger om den här nekande tilldelningen skapades av Azure och inte kan redige ras eller tas bort. För närvarande är alla nekade tilldelningar skyddade av systemet. |
 
 ## <a name="the-all-principals-principal"></a>Huvudobjektet alla huvud konton
 
-För att stödja neka-tilldelningar har ett Systemdefinierat objekt med namnet *alla huvud konton* introducerats. Detta huvud konto representerar alla användare, grupper, tjänstens huvud namn och hanterade identiteter i en Azure AD-katalog. Om ägar-ID: t är noll `00000000-0000-0000-0000-000000000000` GUID och huvud typen är `SystemDefined`, representerar huvudobjektet alla huvud konton. I Azure PowerShell utdata ser alla huvud konton ut så här:
+För att stödja neka-tilldelningar har ett Systemdefinierat objekt med namnet *alla huvud konton* introducerats. Detta huvud konto representerar alla användare, grupper, tjänstens huvud namn och hanterade identiteter i en Azure AD-katalog. Om ägar-ID: t är noll GUID `00000000-0000-0000-0000-000000000000` och huvud typen är `SystemDefined` , representerar huvudobjektet alla huvud konton. I Azure PowerShell utdata ser alla huvud konton ut så här:
 
 ```azurepowershell
 Principals              : {
@@ -84,8 +84,8 @@ Principals              : {
 
 Alla huvud konton kan kombineras med `ExcludePrincipals` för att neka alla huvud konton förutom vissa användare. Alla huvud konton har följande begränsningar:
 
-- Kan endast användas i `Principals` och kan inte användas i. `ExcludePrincipals`
-- `Principals[i].Type`måste anges till `SystemDefined`.
+- Kan endast användas i `Principals` och kan inte användas i `ExcludePrincipals` .
+- `Principals[i].Type`måste anges till `SystemDefined` .
 
 ## <a name="next-steps"></a>Nästa steg
 

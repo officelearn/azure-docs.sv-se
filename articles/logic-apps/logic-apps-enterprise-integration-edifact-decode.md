@@ -9,15 +9,15 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: c32b3ee5c4689e960834d543de1ca377e918751d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82106295"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Avkoda EDIFACT-meddelanden för Azure Logic Apps med Enterprise-integrationspaket
 
-Med avkoda EDIFACT Message Connector kan du verifiera EDI-och partner-/regionsspecifika egenskaper, dela ändringar i transaktioner eller bevara hela interändringar och generera bekräftelser för bearbetade transaktioner. Om du vill använda den här anslutningen måste du lägga till anslutningen till en befintlig utlösare i din Logic app.
+Med anslutningsappen för avkodning av EDIFACT-meddelanden kan du verifiera EDI- och partnerspecifika egenskaper, dela upp utbyten i transaktionsuppsättningar eller bevara hela utbyten, samt generera bekräftelser för bearbetade transaktioner. För att kunna använda den här anslutningsappen måste du lägga till den till en befintlig utlösare i din logikapp.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -61,7 +61,7 @@ Här är de objekt du behöver:
 
     ![integrerings konto anslutningen har skapats](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    Exempel:
+    Till exempel:
 
     ![Välj EDIFACT platt fil meddelande för avkodning](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
@@ -84,13 +84,13 @@ Avkodningen EDIFACT-koppling utför följande uppgifter:
   * Kontrollerar transaktions uppsättningens kontroll nummer mot andra kontroll nummer för transaktions uppsättningar i gruppen.
 * Delar upp Interchange i transaktions uppsättningar eller bevarar hela utbytet:
   * Dela upp utbyte som transaktions uppsättningar – inaktivera transaktions uppsättningar vid fel: delar upp Interchange i transaktions uppsättningar och parsar varje transaktions uppsättning. 
-  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som `badMessages`inte kan verifieras till, och de återstående `goodMessages`transaktions uppsättningarna matas ut till.
+  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som inte kan verifieras till `badMessages` , och de återstående transaktions uppsättningarna matas ut till `goodMessages` .
   * Dela upp utbyte som transaktions uppsättningar – pausa utbyte vid fel: delar upp Interchange i transaktions uppsättningar och parsar varje transaktions uppsättning. 
-  Om en eller flera transaktions uppsättningar i växlingen inte kan verifieras, kommer X12-avkodnings åtgärden att mata ut alla `badMessages`transaktions uppsättningar i som Interchange till.
+  Om en eller flera transaktions uppsättningar i växlingen inte kan verifieras, kommer X12-avkodnings åtgärden att mata ut alla transaktions uppsättningar i som Interchange till `badMessages` .
   * Bevara Interchange – pausa transaktions uppsättningar vid fel: bevara Interchange och bearbeta hela det batchade utbytet. 
-  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som `badMessages`inte kan verifieras till, och de återstående `goodMessages`transaktions uppsättningarna matas ut till.
+  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som inte kan verifieras till `badMessages` , och de återstående transaktions uppsättningarna matas ut till `goodMessages` .
   * Bevara Interchange – pausa utbyte vid fel: bevara Interchange och bearbeta hela det batchade utbytet. 
-  Om en eller flera transaktions uppsättningar i växlingen inte kan verifieras, kommer X12-avkodnings åtgärden att mata ut alla `badMessages`transaktions uppsättningar i som Interchange till.
+  Om en eller flera transaktions uppsättningar i växlingen inte kan verifieras, kommer X12-avkodnings åtgärden att mata ut alla transaktions uppsättningar i som Interchange till `badMessages` .
 * Genererar en teknisk (kontroll) och/eller funktions bekräftelse (om den är konfigurerad).
   * En teknisk bekräftelse eller CONTRL ACK rapporterar resultatet av en syntaktisk kontroll av fullständigt mottaget utbyte.
   * En funktionell bekräftelse bekräftar eller avvisar ett mottaget utbyte eller en grupp

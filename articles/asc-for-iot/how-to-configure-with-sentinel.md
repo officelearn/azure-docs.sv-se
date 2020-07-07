@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: fe8e4c1b08f96e5f6b2fc7649f7a4361616b7c87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311306"
 ---
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel-preview"></a>Anslut dina data från Azure Security Center för IoT till Azure Sentinel (för hands version)
@@ -30,13 +30,13 @@ ms.locfileid: "81311306"
 I den här hand boken får du lära dig hur du ansluter Azure Security Center för IoT-data till Azure Sentinel.
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Inställningar för anslutning
 > * Log Analytics aviserings vy
 
 Anslut aviseringar från Azure Security Center för IoT och strömma dem direkt till Azure Sentinel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha **Läs** -och **Skriv** behörighet för arbets ytan.
 - **Azure Security Center för IoT** måste vara **aktiverat** på dina relevanta IoT Hub (er).
@@ -52,7 +52,7 @@ Anslut aviseringar från Azure Security Center för IoT och strömma dem direkt 
 1. Klicka på **Öppna kopplings sida**längst ned i den högra rutan.
 1. Klicka på **Anslut**, bredvid varje IoT Hub prenumeration vars aviseringar och enhets aviseringar du vill strömma till Azure Sentinel.
     - Om Azure Security Center för IoT inte är aktiverat på den hubben visas ett aktiverings varnings meddelande. Klicka på länken **Aktivera** för att starta och aktivera tjänsten.
-1. Du kan välja om du vill att aviseringarna från Azure Security Center för IoT automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter**väljer du **Aktivera** för att aktivera regeln för att automatiskt skapa incidenter från de genererade aviseringarna.  Den här regeln kan ändras eller redige ras under **analys** > **aktiva** regler.
+1. Du kan välja om du vill att aviseringarna från Azure Security Center för IoT automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter**väljer du **Aktivera** för att aktivera regeln för att automatiskt skapa incidenter från de genererade aviseringarna.  Den här regeln kan ändras eller redige ras under **analys**  >  **aktiva** regler.
 
 > [!NOTE]
 >Det kan ta 10 sekunder eller mer att uppdatera Hub-listan när du har ändrat anslutnings ändringarna.
@@ -61,7 +61,7 @@ Anslut aviseringar från Azure Security Center för IoT och strömma dem direkt 
 
 Om du vill använda det relevanta schemat i Log Analytics för att Visa Azure Security Center för IoT-aviseringar:
 
-1. Öppna **loggar** > **SecurityInsights** > **SecurityAlert**eller Sök efter **SecurityAlert**.
+1. Öppna **loggar**  >  **SecurityInsights**  >  **SecurityAlert**eller Sök efter **SecurityAlert**.
 1. Filtrera om du bara vill se Azure Security Center för IoT-genererade aviseringar med följande KQL-filter:
 
 ```kusto

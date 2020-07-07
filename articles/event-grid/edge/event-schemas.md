@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73242460"
 ---
 # <a name="event-schemas"></a>Händelsescheman
@@ -54,16 +54,16 @@ EventGrid-schemat består av en uppsättning obligatoriska egenskaper som en pub
 
 Alla händelser har följande data på översta nivån:
 
-| Egenskap | Typ | Krävs | Beskrivning |
+| Egenskap | Typ | Obligatorisk | Beskrivning |
 | -------- | ---- | ----------- |-----------
-| ämne | sträng | Inga | Ska matcha avsnittet som det publiceras på. Event Grid fyller i den med namnet på ämnet som det publiceras på om det inte har angetts. |
+| ämne | sträng | No | Ska matcha avsnittet som det publiceras på. Event Grid fyller i den med namnet på ämnet som det publiceras på om det inte har angetts. |
 | motiv | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | Ja | Händelse typ för den här händelse källan, till exempel BlobCreated. |
 | Händelsetid | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
-| ID | sträng | Inga | Unikt ID för händelsen. |
-| data | objekt | Inga | Används för att avbilda händelse data som är speciella för entiteten publicering. |
+| ID | sträng | No | Unikt ID för händelsen. |
+| data | objekt | Nej | Används för att avbilda händelse data som är speciella för entiteten publicering. |
 | Dataversion | sträng | Ja | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| Metadataversion | sträng | Inga | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| Metadataversion | sträng | No | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 ### <a name="example--eventgrid-schema-event"></a>Exempel – EventGrid schema event
 

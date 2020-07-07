@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
 ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691900"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrera normaliserat databas schema från Azure SQL Database till en avnormaliserad Azure CosmosDB-behållare
@@ -23,7 +23,7 @@ SQL-scheman modelleras vanligt vis med hjälp av en tredje normal form, vilket r
 
 Med hjälp av Azure Data Factory skapar vi en pipeline som använder ett enda mappnings data flöde för att läsa från två Azure SQL Database normaliserade tabeller som innehåller primära och externa nycklar som entitetsrelation. ADF ansluter dessa tabeller till en enda ström med hjälp av data flöde Spark-motorn, samlar ihop kopplade rader i matriser och producerar enskilda rensade dokument för att infoga i en ny Azure CosmosDB-behållare.
 
-Den här guiden skapar en ny behållare i farten med namnet "Orders" som kommer ```SalesOrderHeader``` att ```SalesOrderDetail``` använda tabellerna och från standard SQL Server AdventureWorks exempel databas. Dessa tabeller representerar försäljnings transaktioner som ```SalesOrderID```ingår i. Varje unik detalj post har sin egen primär nyckel ```SalesOrderDetailID```. Relationen mellan rubrik och detalj är ```1:M```. Vi går med ```SalesOrderID``` i ADF och rullar sedan varje relaterad detalj post till en matris med namnet "Detail".
+Den här guiden skapar en ny behållare i farten med namnet "Orders" som kommer att använda ```SalesOrderHeader``` ```SalesOrderDetail``` tabellerna och från standard SQL Server AdventureWorks exempel databas. Dessa tabeller representerar försäljnings transaktioner som ingår i ```SalesOrderID``` . Varje unik detalj post har sin egen primär nyckel ```SalesOrderDetailID``` . Relationen mellan rubrik och detalj är ```1:M``` . Vi går med ```SalesOrderID``` i ADF och rullar sedan varje relaterad detalj post till en matris med namnet "Detail".
 
 Den representativa SQL-frågan för den här guiden är:
 
@@ -56,19 +56,19 @@ Den resulterande CosmosDB-containern kommer att bädda in den inre frågan i ett
 
 ![Data flödes diagram](media/data-flow/cosmosb1.png)
 
-5. Definiera källan för "SourceOrderDetails". För data uppsättning skapar du en ny Azure SQL Database-datauppsättning som ```SalesOrderDetail``` pekar på tabellen.
+5. Definiera källan för "SourceOrderDetails". För data uppsättning skapar du en ny Azure SQL Database-datauppsättning som pekar på ```SalesOrderDetail``` tabellen.
 
-6. Definiera källan för "SourceOrderHeader". För data uppsättning skapar du en ny Azure SQL Database-datauppsättning som ```SalesOrderHeader``` pekar på tabellen.
+6. Definiera källan för "SourceOrderHeader". För data uppsättning skapar du en ny Azure SQL Database-datauppsättning som pekar på ```SalesOrderHeader``` tabellen.
 
-7. Lägg till en härledd kolumn omvandling efter "SourceOrderDetails" på den översta källan. Anropa den nya omvandlingen "TypeCast". Vi måste avrunda ```UnitPrice``` kolumnen och omvandla den till en Double-datatyp för CosmosDB. Ange formeln som: ```toDouble(round(UnitPrice,2))```.
+7. Lägg till en härledd kolumn omvandling efter "SourceOrderDetails" på den översta källan. Anropa den nya omvandlingen "TypeCast". Vi måste avrunda ```UnitPrice``` kolumnen och omvandla den till en Double-datatyp för CosmosDB. Ange formeln som: ```toDouble(round(UnitPrice,2))``` .
 
-8. Lägg till en annan härledd kolumn och anropa den "MakeStruct". Det är här som vi ska skapa en hierarkisk struktur för att lagra värdena från tabellen information. Kom ihåg att information är ```M:1``` en relation till huvudet. Namnge den nya strukturen ```orderdetailsstruct``` och skapa hierarkin på det här sättet, och ange varje under kolumn till det inkommande kolumn namnet:
+8. Lägg till en annan härledd kolumn och anropa den "MakeStruct". Det är här som vi ska skapa en hierarkisk struktur för att lagra värdena från tabellen information. Kom ihåg att information är en ```M:1``` relation till huvudet. Namnge den nya strukturen ```orderdetailsstruct``` och skapa hierarkin på det här sättet, och ange varje under kolumn till det inkommande kolumn namnet:
 
 ![Skapa struktur](media/data-flow/cosmosb9.png)
 
-9. Nu ska vi gå till försäljnings huvudets källa. Lägg till en kopplings omvandling. För den högra sidan väljer du "MakeStruct". Lämna det inställt på inre koppling ```SalesOrderID``` och välj för båda sidor av kopplings villkoret.
+9. Nu ska vi gå till försäljnings huvudets källa. Lägg till en kopplings omvandling. För den högra sidan väljer du "MakeStruct". Lämna det inställt på inre koppling och välj ```SalesOrderID``` för båda sidor av kopplings villkoret.
 
-10. Klicka på fliken Data förhands granskning i den nya koppling som du har lagt till så att du kan se resultatet fram till den här punkten. Du bör se alla rubrik rader som är kopplade till detalj raderna. Detta är resultatet av kopplingen som skapas från ```SalesOrderID```. Härnäst ska vi kombinera detaljerna från vanliga rader i detalj strukturen och aggregera vanliga rader.
+10. Klicka på fliken Data förhands granskning i den nya koppling som du har lagt till så att du kan se resultatet fram till den här punkten. Du bör se alla rubrik rader som är kopplade till detalj raderna. Detta är resultatet av kopplingen som skapas från ```SalesOrderID``` . Härnäst ska vi kombinera detaljerna från vanliga rader i detalj strukturen och aggregera vanliga rader.
 
 ![Slå ihop](media/data-flow/cosmosb4.png)
 
@@ -78,11 +78,11 @@ Den resulterande CosmosDB-containern kommer att bädda in den inre frågan i ett
 
 ![Kolumn skrubbare](media/data-flow/cosmosb5.png)
 
-13. Nu ska vi omvandla en valuta kolumn igen, den här ```TotalDue```gången. Som vi gjorde ovan i steg 7 ställer du in formeln på: ```toDouble(round(TotalDue,2))```.
+13. Nu ska vi omvandla en valuta kolumn igen, den här gången ```TotalDue``` . Som vi gjorde ovan i steg 7 ställer du in formeln på: ```toDouble(round(TotalDue,2))``` .
 
-14. Här kommer vi att normalisera raderna genom att gruppera efter den gemensamma nyckeln ```SalesOrderID```. Lägg till en sammanställd transformering och ange gruppen ```SalesOrderID```genom till.
+14. Här kommer vi att normalisera raderna genom att gruppera efter den gemensamma nyckeln ```SalesOrderID``` . Lägg till en sammanställd transformering och ange gruppen genom till ```SalesOrderID``` .
 
-15. I mängd formeln lägger du till en ny kolumn med namnet "information" och använder den här formeln för att samla in värdena i strukturen som vi skapade ```orderdetailsstruct```tidigare ```collect(orderdetailsstruct)```anropade:.
+15. I mängd formeln lägger du till en ny kolumn med namnet "information" och använder den här formeln för att samla in värdena i strukturen som vi skapade tidigare anropade ```orderdetailsstruct``` : ```collect(orderdetailsstruct)``` .
 
 16. Den sammanställda omvandlingen matar bara ut kolumner som ingår i mängd eller gruppera efter formler. Därför måste vi även inkludera kolumnerna från försäljnings huvudet. Det gör du genom att lägga till ett kolumn mönster i samma aggregerade omvandling. Det här mönstret kommer att innehålla alla andra kolumner i utdata:
 
@@ -94,7 +94,7 @@ Den resulterande CosmosDB-containern kommer att bädda in den inre frågan i ett
 
 18. Vi är redo att slutföra migreringen genom att lägga till en Sink-omvandling. Klicka på "nytt" bredvid data uppsättning och Lägg till en CosmosDB-datauppsättning som pekar på CosmosDB-databasen. För samlingen kallar vi det "Orders" och har inget schema och inga dokument eftersom det kommer att skapas i farten.
 
-19. I mottagar inställningar, åtgärd för ```\SalesOrderID``` att partitionera nyckel till och samla in till "återskapa". Se till att fliken mappning ser ut så här:
+19. I mottagar inställningar, åtgärd för att partitionera nyckel till ```\SalesOrderID``` och samla in till "återskapa". Se till att fliken mappning ser ut så här:
 
 ![Mottagar inställningar](media/data-flow/cosmosb7.png)
 

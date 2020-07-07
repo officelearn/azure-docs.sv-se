@@ -13,10 +13,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: e25af1f629ea6fa7db14ce89dfffaa340486a989
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82689793"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flödet
@@ -46,9 +46,9 @@ Dessa två metoder är de vanligaste i Azure AD och vi rekommenderar dem för kl
 
 ### <a name="access-control-lists"></a>Listor för åtkomstkontroll
 
-En resurs leverantör kan genomdriva en verifierings kontroll baserat på en lista över program-ID: n (klienter) som den känner till och beviljar en specifik åtkomst nivå till. När resursen tar emot en token från Microsoft Identity Platform-slutpunkten kan den avkoda token och extrahera klientens program-ID `appid` från `iss` -och-anspråken. Sedan jämförs programmet med en åtkomst kontrol lista (ACL) som den underhåller. ACL: s granularitet och metod kan variera avsevärt mellan resurserna.
+En resurs leverantör kan genomdriva en verifierings kontroll baserat på en lista över program-ID: n (klienter) som den känner till och beviljar en specifik åtkomst nivå till. När resursen tar emot en token från Microsoft Identity Platform-slutpunkten kan den avkoda token och extrahera klientens program-ID från- `appid` och- `iss` anspråken. Sedan jämförs programmet med en åtkomst kontrol lista (ACL) som den underhåller. ACL: s granularitet och metod kan variera avsevärt mellan resurserna.
 
-Ett vanligt användnings fall är att använda en ACL för att köra tester för ett webb program eller för ett webb-API. Webb-API: et kan bara ge en del av fullständiga behörigheter till en viss klient. Om du vill köra end-to-end-tester på API: et skapar du en test klient som hämtar token från Microsoft Identity Platform-slutpunkten och skickar dem sedan till API: et. API: et kontrollerar sedan ACL: en för test klientens program-ID för fullständig åtkomst till API: ns hela funktion. Om du använder den här typen av ACL måste du verifiera att det `appid` `iss` inte bara är anroparens värde, utan även kontrol lera att värdet för token är betrott.
+Ett vanligt användnings fall är att använda en ACL för att köra tester för ett webb program eller för ett webb-API. Webb-API: et kan bara ge en del av fullständiga behörigheter till en viss klient. Om du vill köra end-to-end-tester på API: et skapar du en test klient som hämtar token från Microsoft Identity Platform-slutpunkten och skickar dem sedan till API: et. API: et kontrollerar sedan ACL: en för test klientens program-ID för fullständig åtkomst till API: ns hela funktion. Om du använder den här typen av ACL måste du verifiera att det inte bara `appid` är anroparens värde, utan även kontrol lera att `iss` värdet för token är betrott.
 
 Den här typen av auktorisering är vanlig för daemon-och tjänst konton som behöver åtkomst till data som ägs av konsument användare som har personliga Microsoft-konton. För data som ägs av organisationer rekommenderar vi att du får nödvändig behörighet genom program behörigheter.
 
@@ -88,7 +88,7 @@ Om du signerar användaren till din app kan du identifiera den organisation som 
 När du är redo att begära behörigheter från organisationens administratör kan du omdirigera användaren till Microsoft Identity Platform *admin medgivande-slutpunkten*.
 
 > [!TIP]
-> Försök att köra denna begäran i Postman! (Använd ditt eget app-ID för bästa resultat – själv studie kursen begär inte användbara behörigheter.) [Försök att köra denna begäran i Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra denna begäran i Postman! (Använd ditt eget app-ID för bästa resultat – själv studie kursen begär inte användbara behörigheter.) [ ![ Försök att köra denna begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -107,9 +107,9 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Detta kan vara i ett GUID eller eget namn format. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med valfri klient använder `common`du. |
-| `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
-| `redirect_uri` | Krävs | Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad och den kan ha ytterligare Sök vägs segment. |
+| `tenant` | Obligatorisk | Den katalog klient som du vill begära behörighet från. Detta kan vara i ett GUID eller eget namn format. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med valfri klient använder du `common` . |
+| `client_id` | Obligatorisk | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
+| `redirect_uri` | Obligatorisk | Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad och den kan ha ytterligare Sök vägs segment. |
 | `state` | Rekommenderas | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Statusen används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
 
 I det här läget tvingar Azure AD att endast en klient organisations administratör kan logga in för att slutföra begäran. Administratören kommer att uppmanas att godkänna alla direkta program behörigheter som du har begärt för din app i registrerings portalen för appen.
@@ -145,10 +145,10 @@ När du har fått ett lyckat svar från appens etablerings slut punkt har appen 
 
 ## <a name="get-a-token"></a>Hämta en token
 
-När du har skaffat nödvändig behörighet för ditt program kan du fortsätta med att förvärva åtkomsttoken för API: er. Om du vill hämta en token med hjälp av tilldelningen av klientautentiseringsuppgifter skickar du en `/token` post-begäran till Microsoft Identity Platform-slutpunkten:
+När du har skaffat nödvändig behörighet för ditt program kan du fortsätta med att förvärva åtkomsttoken för API: er. Om du vill hämta en token med hjälp av tilldelningen av klientautentiseringsuppgifter skickar du en POST-begäran till `/token` Microsoft Identity Platform-slutpunkten:
 
 > [!TIP]
-> Försök att köra denna begäran i Postman! (Använd ditt eget app-ID för bästa resultat – själv studie kursen begär inte användbara behörigheter.) [Försök att köra denna begäran i Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Försök att köra denna begäran i Postman! (Använd ditt eget app-ID för bästa resultat – själv studie kursen begär inte användbara behörigheter.) [ ![ Försök att köra denna begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: begäran om åtkomsttoken med en delad hemlighet
 
@@ -170,11 +170,11 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
-| `client_id` | Krävs | Det program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du registrerade appen. |
-| `scope` | Krävs | Värdet som skickas för `scope` parametern i den här begäran ska vara resurs-ID: t (program-ID: t) för den resurs som du vill `.default` ha, fäst med suffixet. För Microsoft Graph exemplet är `https://graph.microsoft.com/.default`värdet. <br/>Det här värdet anger Microsoft Identity Platform-slutpunkten för alla direkta program behörigheter som du har konfigurerat för din app. slut punkten bör utfärda en token för de som associeras med den resurs som du vill använda. Mer information om `/.default` omfattningen finns i [medgivande dokumentationen](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Krävs | Den klient hemlighet som du genererade för din app i registrerings portalen för appen. Klient hemligheten måste vara URL-kodad innan den kan skickas. |
-| `grant_type` | Krävs | Måste anges till `client_credentials`. |
+| `tenant` | Obligatorisk | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
+| `client_id` | Obligatorisk | Det program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du registrerade appen. |
+| `scope` | Obligatorisk | Värdet som skickas för `scope` parametern i den här begäran ska vara resurs-ID: t (program-ID: t) för den resurs som du vill ha, fäst med `.default` suffixet. För Microsoft Graph exemplet är värdet `https://graph.microsoft.com/.default` . <br/>Det här värdet anger Microsoft Identity Platform-slutpunkten för alla direkta program behörigheter som du har konfigurerat för din app. slut punkten bör utfärda en token för de som associeras med den resurs som du vill använda. Mer information om `/.default` omfattningen finns i [medgivande dokumentationen](v2-permissions-and-consent.md#the-default-scope). |
+| `client_secret` | Obligatorisk | Den klient hemlighet som du genererade för din app i registrerings portalen för appen. Klient hemligheten måste vara URL-kodad innan den kan skickas. |
+| `grant_type` | Obligatorisk | Måste anges till `client_credentials` . |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: åtkomsttoken för begäran med ett certifikat
 
@@ -192,12 +192,12 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
-| `client_id` | Krävs |Det program-ID (klient) som har tilldelats din app. |
-| `scope` | Krävs | Värdet som skickas för `scope` parametern i den här begäran ska vara resurs-ID: t (program-ID: t) för den resurs som du vill `.default` ha, fäst med suffixet. För Microsoft Graph exemplet är `https://graph.microsoft.com/.default`värdet. <br/>Det här värdet informerar Microsoft Identity Platform-slutpunkten om alla direkta program behörigheter som du har konfigurerat för din app. den bör utfärda en token för de som associeras med den resurs som du vill använda. Mer information om `/.default` omfattningen finns i [medgivande dokumentationen](v2-permissions-and-consent.md#the-default-scope). |
-| `client_assertion_type` | Krävs | Värdet måste anges till `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Krävs | En kontroll (en JSON-webbtoken) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Läs om [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för att lära dig hur du registrerar ditt certifikat och formatet på intyget.|
-| `grant_type` | Krävs | Måste anges till `client_credentials`. |
+| `tenant` | Obligatorisk | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
+| `client_id` | Obligatorisk |Det program-ID (klient) som har tilldelats din app. |
+| `scope` | Obligatorisk | Värdet som skickas för `scope` parametern i den här begäran ska vara resurs-ID: t (program-ID: t) för den resurs som du vill ha, fäst med `.default` suffixet. För Microsoft Graph exemplet är värdet `https://graph.microsoft.com/.default` . <br/>Det här värdet informerar Microsoft Identity Platform-slutpunkten om alla direkta program behörigheter som du har konfigurerat för din app. den bör utfärda en token för de som associeras med den resurs som du vill använda. Mer information om `/.default` omfattningen finns i [medgivande dokumentationen](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Obligatorisk | Värdet måste anges till `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` . |
+| `client_assertion` | Obligatorisk | En kontroll (en JSON-webbtoken) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Läs om [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för att lära dig hur du registrerar ditt certifikat och formatet på intyget.|
+| `grant_type` | Obligatorisk | Måste anges till `client_credentials` . |
 
 Observera att parametrarna är nästan desamma som i fallet med delad hemlighet, förutom att parametern client_secret ersätts av två parametrar: en client_assertion_type och client_assertion.
 
@@ -216,7 +216,7 @@ Ett lyckat svar ut så här:
 | Parameter | Beskrivning |
 | --- | --- |
 | `access_token` | Den begärda åtkomsttoken. Appen kan använda denna token för att autentisera till den skyddade resursen, till exempel ett webb-API. |
-| `token_type` | Anger värdet för token-typ. Den enda typ som stöds av Microsoft Identity Platform `bearer`är. |
+| `token_type` | Anger värdet för token-typ. Den enda typ som stöds av Microsoft Identity Platform är `bearer` . |
 | `expires_in` | Den tid som en åtkomsttoken är giltig (i sekunder). |
 
 ### <a name="error-response"></a>Fel svar

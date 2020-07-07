@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
 ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82738124"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
@@ -73,7 +73,7 @@ Följ de rikt linjer som tillhandahålls av distributören av Linux-operativsyst
 
 Eftersom SUSE Linux använder symboliska länkar, eller symlinks, för att underhålla en certifikat lista, följer du dessa steg:
 
-1. Logga in som **rot** användare. Hash-symbolen (`#`) är standard kommando tolken.
+1. Logga in som **rot** användare. Hash-symbolen ( `#` ) är standard kommando tolken.
 
 1. Kör det här kommandot om du vill ändra katalogen:
 
@@ -278,14 +278,14 @@ Om du vill göra replikeringsstatus för den virtuella datorn felfritt igen kan 
 
 #### <a name="to-protect-the-disks"></a>Skydda diskarna
 
-1. Gå till **replikerade objekt** > _namn_ > **diskar**för virtuella datorer.
+1. Gå till **replikerade objekt**  >  _namn diskar för virtuella datorer_  >  **Disks**.
 1. Välj den oskyddade disken och välj sedan **Aktivera replikering**:
 
    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Aktivera replikering på VM-diskar.":::
 
 #### <a name="to-dismiss-the-warning"></a>Ignorera varningen
 
-1. Gå till **replikerade objekt** > _namn på virtuell dator_.
+1. Gå till **replikerade objekt**  >  _namn på virtuell dator_.
 1. Välj varningen i avsnittet **Översikt** och välj sedan **OK**.
 
    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Ignorera varning om ny disk.":::
@@ -300,7 +300,7 @@ Du kan ignorera den här varningen om du aldrig planerar att skydda den här vir
 > Om du inte gör rensningen:
 >
 > - När du aktiverar replikering med hjälp av Recovery Services valvet visas inte den virtuella datorn.
-> - Om du försöker skydda den**virtuella datorn med** > hjälp av**haveri beredskap**för en **virtuell dator** > kan åtgärden **inte utföras eftersom det inte går att aktivera meddelande replikeringen på grund av befintliga inaktuella resurs länkar på den virtuella datorn**.
+> - Om du försöker skydda den virtuella datorn med hjälp av haveri beredskap för en **virtuell dator**kan  >  **Settings**  >  **Disaster Recovery**åtgärden **inte utföras eftersom det inte går att aktivera meddelande replikeringen på grund av befintliga inaktuella resurs länkar på den virtuella datorn**.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
@@ -312,7 +312,7 @@ Du kan ignorera den här varningen om du aldrig planerar att skydda den här vir
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Ta bort låset från den virtuella datorn.":::
 
 1. Hämta skriptet för att [ta bort en föråldrad Site Recovery-konfiguration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Kör skriptet, _Cleanup-Stale-ASR-config-Azure-VM. ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
+1. Kör skriptet _Cleanup-stale-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
 1. Om du uppmanas att ange Azure-autentiseringsuppgifter anger du dem. Kontrol lera sedan att skriptet körs utan problem.
 
 ## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>Replikering har inte Aktiver ATS på den virtuella datorn med inaktuella resurser (felkod 150226)
@@ -337,7 +337,7 @@ En föråldrad konfiguration kan ske på en virtuell Azure-dator om du har aktiv
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Ta bort låset från den virtuella datorn.":::
 
 1. Hämta skriptet för att [ta bort en föråldrad Site Recovery-konfiguration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Kör skriptet, _Cleanup-Stale-ASR-config-Azure-VM. ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
+1. Kör skriptet _Cleanup-stale-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
 1. Om du uppmanas att ange Azure-autentiseringsuppgifter anger du dem. Kontrol lera sedan att skriptet körs utan problem.
 
 ## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>Det går inte att välja VM eller resurs grupp i Aktivera migreringsjobb
@@ -346,7 +346,7 @@ En föråldrad konfiguration kan ske på en virtuell Azure-dator om du har aktiv
 
 Site Recovery kräver för närvarande resurs gruppen för käll regionen och de virtuella datorerna på samma plats. Om de inte är det kan du inte hitta den virtuella datorn eller resurs gruppen när du försöker tillämpa skyddet.
 
-Som en lösning kan du aktivera replikering från den virtuella datorn i stället för Recovery Services valvet. Gå till **käll dator** > **Egenskaper** > **haveri återställning** och aktivera replikeringen.
+Som en lösning kan du aktivera replikering från den virtuella datorn i stället för Recovery Services valvet. Gå till **käll dator**  >  **Egenskaper**  >  **haveri återställning** och aktivera replikeringen.
 
 ### <a name="issue-2-the-resource-group-isnt-part-of-the-selected-subscription"></a>Problem 2: resurs gruppen ingår inte i den valda prenumerationen
 
@@ -370,7 +370,7 @@ Du kanske inte ser den virtuella datorn som du vill aktivera för replikering om
    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Ta bort låset från den virtuella datorn.":::
 
 1. Hämta skriptet för att [ta bort en föråldrad Site Recovery-konfiguration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Kör skriptet, _Cleanup-Stale-ASR-config-Azure-VM. ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
+1. Kör skriptet _Cleanup-stale-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID**, **resurs grupp för virtuell dator**och **VM-namn** som parametrar.
 1. Om du uppmanas att ange Azure-autentiseringsuppgifter anger du dem. Kontrol lera sedan att skriptet körs utan problem.
 
 ## <a name="unable-to-select-a-vm-for-protection"></a>Det går inte att välja en virtuell dator för skydd
@@ -381,7 +381,7 @@ Ett tillägg har installerats på den virtuella datorn i ett tillstånd där det
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
-Gå till**Inställningar** > för **Virtual Machines** > -**tillägg** och Sök efter eventuella tillägg i felaktigt tillstånd. Avinstallera eventuella misslyckade tillägg och försök sedan igen för att skydda den virtuella datorn.
+Gå till inställningar för **Virtual Machines**-  >  **Settings**  >  **tillägg** och Sök efter eventuella tillägg i felaktigt tillstånd. Avinstallera eventuella misslyckade tillägg och försök sedan igen för att skydda den virtuella datorn.
 
 ## <a name="vm-provisioning-state-isnt-valid-error-code-150019"></a>Etablerings statusen för den virtuella datorn är inte giltig (felkod 150019)
 
@@ -408,7 +408,7 @@ Om den virtuella käll datorn är en del av ett virtuellt nätverk och en annan 
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problem 2: du har tidigare skyddat den virtuella datorn och sedan inaktiverade replikeringen
 
-Om du inaktiverar replikering av en virtuell dator tas inte nätverks mappningen bort. Mappningen måste tas bort från det Recovery Services valv där den virtuella datorn skyddades. Välj **Recovery Services valvet** och gå till **Hantera** > **Site Recovery-infrastruktur** > för**nätverks mappning****av virtuella Azure-datorer** > .
+Om du inaktiverar replikering av en virtuell dator tas inte nätverks mappningen bort. Mappningen måste tas bort från det Recovery Services valv där den virtuella datorn skyddades. Välj **Recovery Services valvet** och gå till **Hantera**  >  **Site Recovery-infrastruktur**  >  **för nätverks mappning av virtuella Azure-datorer**  >  **Network Mapping**.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Ta bort nätverks mappning.":::
 
@@ -459,7 +459,7 @@ Kontrol lera att disk storleken ligger inom det storleks intervall som stöds oc
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 
-Konfigurationsfilerna för Linux Grand Unified startGRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_eller _/etc/default/grub_) kan ange de faktiska enhets namnen i stället för UUID-värden (Universal Unique Identifier) för parametrarna `root` och. `resume` Site Recovery kräver UUID: er eftersom enhets namn kan ändras. Vid omstart kanske det inte finns någon virtuell dator med samma namn vid redundansväxling, vilket leder till problem.
+Konfigurationsfilerna för Linux Grand Unified startGRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_eller _/etc/default/grub_) kan ange de faktiska enhets namnen i stället för UUID-värden (Universal Unique Identifier) för `root` `resume` parametrarna och. Site Recovery kräver UUID: er eftersom enhets namn kan ändras. Vid omstart kanske det inte finns någon virtuell dator med samma namn vid redundansväxling, vilket leder till problem.
 
 Följande exempel är rader från GRUB-filer där enhets namn visas i stället för nödvändiga UUID: er:
 
@@ -475,7 +475,7 @@ Följande exempel är rader från GRUB-filer där enhets namn visas i stället f
 
 Ersätt varje enhets namn med motsvarande UUID:
 
-1. Hitta enhetens UUID genom att köra kommandot `blkid <device name>`. Exempel:
+1. Hitta enhetens UUID genom att köra kommandot `blkid <device name>` . Till exempel:
 
    ```shell
    blkid /dev/sda1
@@ -484,7 +484,7 @@ Ersätt varje enhets namn med motsvarande UUID:
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Ersätt enhets namnet med dess UUID i formaten `root=UUID=<UUID>` och. `resume=UUID=<UUID>` Till exempel skulle raden från _/boot/grub/menu.lst_ se ut som på följande rad:
+1. Ersätt enhets namnet med dess UUID i formaten `root=UUID=<UUID>` och `resume=UUID=<UUID>` . Till exempel skulle raden från _/boot/grub/menu.lst_ se ut som på följande rad:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -494,7 +494,7 @@ Ersätt varje enhets namn med motsvarande UUID:
 
 ### <a name="possible-cause"></a>Möjlig orsak
 
-Konfigurationsfilerna för GRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_eller _/etc/default/grub_) kan innehålla parametrarna `rd.lvm.lv` eller. `rd_LVM_LV` Dessa parametrar identifierar de LVM-enheter (Logical Volume Manager) som ska identifieras vid start. Om dessa LVM-enheter inte finns startar inte det skyddade systemet och kommer att fastna i Start processen. Samma problem visas också med den virtuella redundansväxlingen. Här följer några exempel:
+Konfigurationsfilerna för GRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_eller _/etc/default/grub_) kan innehålla parametrarna `rd.lvm.lv` eller `rd_LVM_LV` . Dessa parametrar identifierar de LVM-enheter (Logical Volume Manager) som ska identifieras vid start. Om dessa LVM-enheter inte finns startar inte det skyddade systemet och kommer att fastna i Start processen. Samma problem visas också med den virtuella redundansväxlingen. Här följer några exempel:
 
 - Fil: _/Boot/grub2/grub.cfg_ på RHEL7:
 
@@ -508,7 +508,7 @@ Konfigurationsfilerna för GRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _
 
   `kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet`
 
-I varje exempel måste GRUB identifiera två LVM-enheter med namnen `root` och `swap` från volym gruppen. `rootvg`
+I varje exempel måste GRUB identifiera två LVM-enheter med namnen `root` och `swap` från volym gruppen `rootvg` .
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 

@@ -14,21 +14,21 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652694"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Att tänka på när du använder Universell Windows-plattform med MSAL.NET
 Utvecklare av program som använder Universell Windows-plattform (UWP) med MSAL.NET bör tänka på de begrepp som den här artikeln visar.
 
 ## <a name="the-usecorporatenetwork-property"></a>Egenskapen UseCorporateNetwork
-På Windows Runtime-plattformen (WinRT) `PublicClientApplication` har egenskapen `UseCorporateNetwork`Boolean. Den här egenskapen gör att Windows 8,1-program och UWP-program kan dra nytta av integrerad Windows-autentisering (IWA) om användaren är inloggad på ett konto som har en federerad Azure Active Directory-klient (Azure AD). Användare som är inloggade på operativ systemet kan också använda enkel inloggning (SSO). När du anger `UseCorporateNetwork` egenskapen använder MSAL.net en Web Authentication BROKER (WAB).
+På Windows Runtime-plattformen (WinRT) `PublicClientApplication` har egenskapen Boolean `UseCorporateNetwork` . Den här egenskapen gör att Windows 8,1-program och UWP-program kan dra nytta av integrerad Windows-autentisering (IWA) om användaren är inloggad på ett konto som har en federerad Azure Active Directory-klient (Azure AD). Användare som är inloggade på operativ systemet kan också använda enkel inloggning (SSO). När du anger `UseCorporateNetwork` egenskapen använder MSAL.net en Web Authentication Broker (WAB).
 
 > [!IMPORTANT]
-> Om du `UseCorporateNetwork` ställer in egenskapen på True förutsätts att programutvecklaren har aktiverat IWA i programmet. Så här aktiverar du IWA:
-> - I ditt UWP `Package.appxmanifest`-program, på fliken **funktioner** , aktiverar du följande funktioner:
+> Om du ställer in `UseCorporateNetwork` egenskapen på True förutsätts att programutvecklaren har aktiverat IWA i programmet. Så här aktiverar du IWA:
+> - I ditt UWP-program `Package.appxmanifest` , på fliken **funktioner** , aktiverar du följande funktioner:
 >   - **Enterprise-autentisering**
 >   - **Privata nätverk (klient & Server)**
 >   - **Delat användar certifikat**

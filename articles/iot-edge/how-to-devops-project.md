@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c7598aafea85e91f28233645d3d71bf85bf45425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82130982"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps Projects
@@ -32,7 +32,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
 ## <a name="create-a-new-application-pipeline"></a>Skapa en ny program pipeline
 
-1. Azure IoT Edge modul (er) kan skrivas i [C#](tutorial-csharp-module.md), [Node. js](tutorial-node-module.md), [python](tutorial-python-module.md), [C](tutorial-c-module.md) och [Java](tutorial-java-module.md). Välj önskat språk för att starta ett nytt program: **.net**, **Node. js**, **python**, **C**eller **Java**. Fortsätt genom att välja **Nästa**.
+1. Azure IoT Edge modul (er) kan skrivas i [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [python](tutorial-python-module.md), [C](tutorial-c-module.md) och [Java](tutorial-java-module.md). Välj önskat språk för att starta ett nytt program: **.net**, **Node.js**, **python**, **C**eller **Java**. Fortsätt genom att välja **Nästa**.
 
    ![Välj språk för att skapa ett nytt program](./media/how-to-devops-project/select-language.png)
 
@@ -76,9 +76,9 @@ DevOps Projects skapat en git-lagringsplats för ditt projekt i Azure datadataba
 
 2. Följande steg vägleder dig genom att använda webbläsaren för att göra kod ändringar. Om du vill klona lagrings platsen lokalt väljer du **klona** i det övre högra hörnet i fönstret. Använd den tillhandahållna URL: en för att klona git-lagringsplatsen i Visual Studio Code eller det föredragna utvecklingsverktyg.
 
-3. Databasen innehåller redan kod för en modul med namnet **FilterModule** baserat på det programspråk som du valde i skapande processen. Öppna filen **modules/FilterModule/module. JSON** .
+3. Databasen innehåller redan kod för en modul med namnet **FilterModule** baserat på det programspråk som du valde i skapande processen. Öppna filen **modules/FilterModule/module.jsi** filen.
 
-   ![Öppna module. JSON-fil i Azure databaser](./media/how-to-devops-project/open-module-json.png)
+   ![Öppna module.jspå filen i Azure databaser](./media/how-to-devops-project/open-module-json.png)
 
 4. Observera att den här filen använder [Azure DevOps build-variabler](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) i **versions** parametern. Den här konfigurationen säkerställer att en ny version av modulen skapas varje gång en ny version körs.
 

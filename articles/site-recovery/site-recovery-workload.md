@@ -4,10 +4,10 @@ description: Beskriver de arbetsbelastningar som kan skyddas med haveriberedskap
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062841"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>Om haveriberedskap för lokala appar
@@ -50,7 +50,7 @@ Site Recovery kan replikera alla appar som körs på en dator som stöds. Vi sam
 | Linux (operativsystem och appar) |Ja (testat av Microsoft) |Ja (testat av Microsoft) |Ja (testat av Microsoft) |Ja (testat av Microsoft) |Ja (testat av Microsoft)|
 | Dynamics AX |Ja |Ja |Ja |Ja |Ja|
 | Windows-filserver |Ja |Ja |Ja |Ja |Ja|
-| Citrix XenApp och XenDesktop |Ja|Ej tillämpligt |Ja |Ej tillämpligt |Ja |
+| Citrix XenApp och XenDesktop |Ja|Saknas |Ja |Saknas |Ja |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikera Active Directory och DNS
 

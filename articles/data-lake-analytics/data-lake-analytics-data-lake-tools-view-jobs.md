@@ -8,10 +8,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71309937"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använda jobbwebbläsaren och jobbvyn för Azure Data Lake Analytics
@@ -19,7 +19,7 @@ Azure Data Lake Analytics tjänst arkiverar jobb som skickats i ett frågearkive
 
 Som standard arkiveras jobben i Data Lake Analyticss tjänsten i 30 dagar. Du kan konfigurera förfallo perioden från Azure Portal genom att konfigurera den anpassade utgångs principen. Du kommer inte att kunna komma åt jobb informationen efter förfallo datum. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se [data Lake verktyg för Visual Studio-krav](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Öppna jobb webbläsaren
@@ -160,12 +160,12 @@ Jobb information visar detaljerad information om jobbet, inklusive skript, resur
     U-SQL-skriptet för jobbet lagras i frågearkivet. Du kan visa det ursprungliga U-SQL-skriptet och skicka det igen om det behövs.
 * Resurser
   
-    Du hittar de utdata för jobb kompilering som lagras i frågearkivet via resurser. Du kan till exempel hitta "algebra. xml" som används för att visa jobb diagrammet, de sammansättningar som du har registrerat osv.
+    Du hittar de utdata för jobb kompilering som lagras i frågearkivet via resurser. Du kan till exempel hitta "algebra.xml" som används för att visa jobb diagrammet, de sammansättningar som du har registrerat osv.
 * Körnings vy för hörn
   
     Den visar information om körning av formhörn. Jobb profilen arkiverar varje form av körnings logg, till exempel total läsning/skrivning av data, körning, tillstånd osv. I den här vyn kan du få mer information om hur ett jobb körs. Mer information finns i [Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Om du vill använda körnings visning för hörn, se [Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

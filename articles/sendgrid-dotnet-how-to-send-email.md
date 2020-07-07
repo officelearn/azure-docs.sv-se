@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.openlocfilehash: 33df6b5c8c5c16a6eb896944de05068affc2b407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062208"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Skicka e-post med hjälp av SendGrid med Azure
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga programmerings åtgärder med e-posttjänsten SendGrid i Azure. Exemplen skrivs i C\# och stöder .net standard 1,3. Scenarierna som beskrivs är att skapa e-post, skicka e-post, lägga till bilagor och aktivera olika inställningar för e-post och spårning. Mer information om SendGrid och hur du skickar e-post finns i avsnittet [Nästa steg][Next steps] .
+Den här guiden visar hur du utför vanliga programmerings åtgärder med e-posttjänsten SendGrid i Azure. Exemplen skrivs i C \# och stöder .net Standard 1,3. Scenarierna som beskrivs är att skapa e-post, skicka e-post, lägga till bilagor och aktivera olika inställningar för e-post och spårning. Mer information om SendGrid och hur du skickar e-post finns i avsnittet [Nästa steg][Next steps] .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Vad är e-posttjänsten för SendGrid?
 SendGrid är en [molnbaserad e-posttjänst] som tillhandahåller tillförlitlig [e-postleverans], skalbarhet och real tids analys tillsammans med flexibla API: er som underlättar anpassad integrering. Vanliga SendGrid-användnings fall är:
@@ -43,7 +43,7 @@ Mer information finns på [https://sendgrid.com](https://sendgrid.com) eller Sen
 [SendGrid NuGet-paketet](https://www.nuget.org/packages/Sendgrid) är det enklaste sättet att hämta SendGrid-API: et och att konfigurera ditt program med alla beroenden. NuGet är ett Visual Studio-tillägg som ingår i Microsoft Visual Studio 2015 och senare och som gör det enkelt att installera och uppdatera bibliotek och verktyg.
 
 > [!NOTE]
-> Om du vill installera NuGet om du kör en tidigare version av Visual Studio än Visual Studio 2015 går [https://www.nuget.org](https://www.nuget.org)du till och klickar på knappen **Installera NuGet** .
+> Om du vill installera NuGet om du kör en tidigare version av Visual Studio än Visual Studio 2015 går du till [https://www.nuget.org](https://www.nuget.org) och klickar på knappen **Installera NuGet** .
 >
 >
 
@@ -162,7 +162,7 @@ Innehållet i `appsettings.json` filen bör se ut ungefär så här:
      "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
 
-Först måste vi lägga till koden nedan i `Startup.cs` filen för .net Core API-projektet. Detta krävs för att vi ska kunna komma åt `SENDGRID_API_KEY` `appsettings.json` filen från filen genom att använda beroende inmatning i API-styrenheten. `IConfiguration` Gränssnittet kan matas in i konstruktorn för kontrollanten efter att det har lagts till i `ConfigureServices` metoden nedan. `Startup.cs` Filens innehåll ser ut ungefär så här när du har lagt till den kod som krävs:
+Först måste vi lägga till koden nedan i `Startup.cs` filen för .net Core API-projektet. Detta krävs för att vi ska kunna komma åt `SENDGRID_API_KEY` filen från `appsettings.json` filen genom att använda beroende inmatning i API-styrenheten. `IConfiguration`Gränssnittet kan matas in i konstruktorn för kontrollanten efter att det har lagts till i `ConfigureServices` metoden nedan. `Startup.cs`Filens innehåll ser ut ungefär så här när du har lagt till den kod som krävs:
 
         public IConfigurationRoot Configuration { get; }
 
@@ -173,7 +173,7 @@ Först måste vi lägga till koden nedan i `Startup.cs` filen för .net Core API
             services.AddSingleton<IConfiguration>(Configuration);
         }
 
-När `IConfiguration` gränssnittet har matats in på styrenheten kan vi använda `CreateSingleEmailToMultipleRecipients` metoden i `MailHelper` klassen för att skicka ett enda e-postmeddelande till flera mottagare. Metoden accepterar en ytterligare boolesk parameter med namnet `showAllRecipients`. Den här parametern kan användas för att styra om e-postmottagare ska kunna se varje annan e-postadress i avsnittet till i e-posthuvudet. Exempel koden för Controller bör vara som följer nedan 
+När gränssnittet har matats in på styrenheten `IConfiguration` kan vi använda `CreateSingleEmailToMultipleRecipients` metoden i `MailHelper` klassen för att skicka ett enda e-postmeddelande till flera mottagare. Metoden accepterar en ytterligare boolesk parameter med namnet `showAllRecipients` . Den här parametern kan användas för att styra om e-postmottagare ska kunna se varje annan e-postadress i avsnittet till i e-posthuvudet. Exempel koden för Controller bör vara som följer nedan 
 
     using System;
     using System.Collections.Generic;
@@ -253,7 +253,7 @@ SendGrid erbjuder flera API: er och Webhooks som du kan använda för att utnytt
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 
-* SendGrid C\# -bibliotek lagrings platsen: [SendGrid-csharp][sendgrid-csharp]
+* SendGrid C \# -bibliotek lagrings platsen: [SendGrid-csharp][sendgrid-csharp]
 * SendGrid API-dokumentation:<https://sendgrid.com/docs>
 
 [Next steps]: #next-steps

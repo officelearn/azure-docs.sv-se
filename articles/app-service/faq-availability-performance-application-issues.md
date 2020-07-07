@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159991"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om program prestanda för Web Apps i Azure
@@ -46,20 +46,20 @@ Du kan använda PowerShell-cmdletar för att hantera och underhålla App Service
 
 Så här visar du webbappens händelse loggar:
 
-1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
-2. I menyn väljer du **Felsök konsol** > **cmd**.
+1. Logga in på din **kudu-webbplats** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
+2. I menyn väljer du **Felsök konsol**  >  **cmd**.
 3. Välj mappen **loggfiler** .
-4. Om du vill visa händelse loggar väljer du Penn ikonen bredvid **EventLog. XML**.
-5. Hämta loggarna genom att köra PowerShell-cmdleten `Save-AzureWebSiteLog -Name webappname`.
+4. Om du vill visa händelse loggar väljer du Penn ikonen bredvid **eventlog.xml**.
+5. Hämta loggarna genom att köra PowerShell-cmdleten `Save-AzureWebSiteLog -Name webappname` .
 
 ## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Hur gör jag för att avbilda en minnes dumpning i användarläge för min webbapp?
 
 För att avbilda en minnes dum par i användarläge för din webbapp:
 
-1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
+1. Logga in på din **kudu-webbplats** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Välj menyn **process Utforskaren** .
-3. Högerklicka på processen **W3wp. exe** eller ditt webb jobb.
-4. Välj **Ladda ned minnes dumpning** > **fullständig dump**.
+3. Högerklicka på processen för **w3wp.exe** eller ditt webb jobb.
+4. Välj **Ladda ned minnes dumpning**  >  **fullständig dump**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Hur gör jag för att visa information på process nivå för min webbapp?
 
@@ -67,11 +67,11 @@ Det finns två alternativ för att visa information på process nivå för din w
 
 *   På Azure Portal:
     1. Öppna **process Utforskaren** för webb programmet.
-    2. Välj processen **W3wp. exe** om du vill se informationen.
+    2. Välj **w3wp.exe** processen om du vill se informationen.
 *   I kudu-konsolen:
-    1. Logga in på din **kudu** -webbplats`https://*yourwebsitename*.scm.azurewebsites.net`().
+    1. Logga in på din **kudu-webbplats** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
     2. Välj menyn **process Utforskaren** .
-    3. För processen **W3wp. exe** väljer du **Egenskaper**.
+    3. Välj **Egenskaper**för **w3wp.exes** processen.
 
 ## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>När jag bläddrar till min app visas "fel 403 – den här webbappen har stoppats". Hur gör jag för att lösa det?
 
@@ -101,14 +101,14 @@ Som standard inaktive ras Web Apps om de är inaktiva under en angiven tids peri
 Aktivera spårning av misslyckade begär Anden:
 
 1. I Azure Portal går du till din webbapp.
-3. Välj **alla inställningar** > **diagnostikloggar.**
+3. Välj **alla inställningar**  >  **diagnostikloggar**.
 4. För **spårning av misslyckade begär Anden**väljer du **på**.
 5. Välj **Spara**.
 6. På bladet webbapp väljer du **verktyg**.
 7. Välj **Visual Studio Online**.
 8. Om inställningen inte är **på**väljer du **på**.
 9. Välj **gå**till.
-10. Välj **Web. config**.
+10. Välj **Web.config**.
 11. I system. webserver lägger du till den här konfigurationen (för att avbilda en viss URL):
 
     ```xml
@@ -142,8 +142,8 @@ Aktivera spårning av misslyckade begär Anden:
     </tracing>
     ```
 13. Om du vill hämta spårningen av misslyckade begär Anden går du till din webbplats i [portalen](https://portal.azure.com).
-15. Välj **verktyg** > **kudu** > **Go**.
-18. I menyn väljer du **Felsök konsol** > **cmd**.
+15. Välj **verktyg**  >  **kudu**  >  **Go**.
+18. I menyn väljer du **Felsök konsol**  >  **cmd**.
 19. Välj mappen **loggfiler** och välj sedan den mapp med ett namn som börjar med **W3SVC**.
 20. Om du vill se XML-filen väljer du Penn ikonen.
 
@@ -174,7 +174,7 @@ Det här problemet har åtgärd ATS i Kestrel version 1.0.2. Den här versionen 
 
 Om du använder den lokala cache-funktionen i App Service påverkas mappstrukturen för loggfiler och datamappar för din App Service instans. När Local cache används skapas undermappar i lagrings-loggfilerna och datamapparna. Undermapparna använder namngivnings mönstret "unik identifierare" + tidsstämpel. Varje undermapp motsvarar en VM-instans där webbappen körs eller har körts.
 
-För att avgöra om du använder lokal cache, se fliken App Service **program inställningar** . Om lokal cache används anges appens inställning `WEBSITE_LOCAL_CACHE_OPTION` till. `Always`
+För att avgöra om du använder lokal cache, se fliken App Service **program inställningar** . Om lokal cache används anges appens inställning `WEBSITE_LOCAL_CACHE_OPTION` till `Always` .
 
 Om du inte använder lokal cache och har drabbats av det här problemet skickar du en support förfrågan.
 

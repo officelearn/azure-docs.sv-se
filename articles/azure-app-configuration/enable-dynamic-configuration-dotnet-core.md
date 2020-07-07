@@ -14,16 +14,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af9d92c47982a58530a42a4ecdd41032196a9da9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75433679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856492"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Självstudie: Använd dynamisk konfiguration i en .NET Core-app
 
-App Configuration .NET Core klient bibliotek stöder uppdatering av en uppsättning konfigurations inställningar på begäran utan att ett program startas om. Detta kan implementeras genom att först hämta en instans `IConfigurationRefresher` av från alternativen för konfigurationsprovidern och sedan anropa `Refresh` den instansen var som helst i din kod.
+App Configuration .NET Core klient bibliotek stöder uppdatering av en uppsättning konfigurations inställningar på begäran utan att ett program startas om. Detta kan implementeras genom att först hämta en instans av `IConfigurationRefresher` från alternativen för konfigurationsprovidern och sedan anropa den `Refresh` instansen var som helst i din kod.
 
 För att hålla inställningarna uppdaterade och undvika för många anrop till konfigurations arkivet används ett cacheminne för varje inställning. Tills det cachelagrade värdet för en inställning har gått ut uppdateras inte värdet, även om värdet har ändrats i konfigurations arkivet. Standard förfallo tiden för varje begäran är 30 sekunder, men den kan åsidosättas om det behövs.
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera din .NET Core-app så att den uppdaterar konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Använd den senaste konfigurationen i ditt program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -45,7 +45,7 @@ Om du vill göra den här själv studie kursen installerar du [.net Core SDK](ht
 
 ## <a name="reload-data-from-app-configuration"></a>Läsa in data på nytt från App Configuration
 
-Öppna *program.cs* och uppdatera filen för att lägga till en referens till `System.Threading.Tasks` namn området, för att ange uppdaterings `AddAzureAppConfiguration` konfiguration i-metoden och aktivera manuell uppdatering med `Refresh` hjälp av-metoden.
+Öppna *program.cs* och uppdatera filen för att lägga till en referens till `System.Threading.Tasks` namn området, för att ange uppdaterings konfiguration i `AddAzureAppConfiguration` -metoden och aktivera manuell uppdatering med hjälp av- `Refresh` metoden.
 
 ```csharp
 using System;
@@ -91,32 +91,42 @@ class Program
 }
 ```
 
-`ConfigureRefresh` Metoden används för att ange inställningarna som används för att uppdatera konfigurations data med appens konfigurations Arkiv när en uppdatering aktive ras. En instans av `IConfigurationRefresher` kan hämtas genom att anropa `GetRefresher` metoden på de alternativ som ges `AddAzureAppConfiguration` till metoden och `Refresh` metoden på den här instansen kan användas för att utlösa en uppdatering var som helst i koden.
+`ConfigureRefresh`Metoden används för att ange inställningarna som används för att uppdatera konfigurations data med appens konfigurations Arkiv när en uppdatering aktive ras. En instans av `IConfigurationRefresher` kan hämtas genom att anropa `GetRefresher` metoden på de alternativ som ges till `AddAzureAppConfiguration` metoden och `Refresh` metoden på den här instansen kan användas för att utlösa en uppdatering var som helst i koden.
     
 > [!NOTE]
-> Standard-cachens förfallo tid för en konfigurations inställning är 30 sekunder, men kan åsidosättas genom att `SetCacheExpiration` anropa metoden på Options-initieraren som skickades som `ConfigureRefresh` ett argument till metoden.
+> Standard-cachens förfallo tid för en konfigurations inställning är 30 sekunder, men kan åsidosättas genom `SetCacheExpiration` att anropa metoden på Options-initieraren som skickades som ett argument till `ConfigureRefresh` metoden.
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
 1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+     setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Om du använder Windows PowerShell kör du följande kommando:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     Om du använder macOS eller Linux kör du följande kommando:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 1. Kör följande kommando för att skapa konsol programmet:
 
-        dotnet build
+    ```console
+     dotnet build
+    ```
 
 1. När skapandet har slutförts kör du följande kommando för att köra appen lokalt:
 
-        dotnet run
+    ```console
+     dotnet run
+    ```
 
     ![Snabbstart av lokal app](./media/quickstarts/dotnet-core-app-run.png)
 
@@ -124,7 +134,7 @@ class Program
 
 1. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App konfiguration – uppdaterad |
 

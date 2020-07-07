@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f72ef8cc5161bd6f885249e7d39344a57fa2368e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311422"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Azure Security Center för insamling av IoT-händelser
@@ -69,7 +69,7 @@ Varje sammanställd händelse representerar en 24-timmarsperiod med insamlade av
 
 Ändra konfigurationen av Azure Security Center för IoT Event-aggregering i [agent konfigurations objekt](how-to-agent-configuration.md) för modulens dubbla identitet för **azureiotsecurity** -modulen.
 
-| Konfigurations namn | Möjliga värden | Information | Anmärkningar |
+| Konfigurations namn | Möjliga värden | Information | Kommentarer |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Aktivera/inaktivera händelse agg regering för process-skapa händelser |
 | aggregationIntervalProcessCreate | ISO8601 TimeSpan-sträng | Samlings intervall för process skapande av händelser |

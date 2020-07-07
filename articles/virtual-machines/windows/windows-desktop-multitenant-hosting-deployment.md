@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: c85eef1a5d035e23c7e63632ac92c21440b15cae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82101560"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Så här distribuerar du Windows 10 på Azure med värd rättigheter för flera innehavare 
@@ -55,7 +55,7 @@ Mer information:
 
 
 ## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Distribuera Windows 10 med värd rättigheter för flera innehavare
-Kontrol lera att du har [installerat och konfigurerat de senaste Azure PowerShell](/powershell/azure/overview). När du har för berett din virtuella hård disk laddar du upp den virtuella hård disken `Add-AzVhd` till ditt Azure Storage-konto med cmdleten på följande sätt:
+Kontrol lera att du har [installerat och konfigurerat de senaste Azure PowerShell](/powershell/azure/overview). När du har för berett din virtuella hård disk laddar du upp den virtuella hård disken till ditt Azure Storage-konto med `Add-AzVhd` cmdleten på följande sätt:
 
 ```powershell
 Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -63,7 +63,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 ```
 
 
-**Distribuera med Azure Resource Manager mall distribution** I dina Resource Manager-mallar kan du ange ytterligare `licenseType` en parameter för. Du kan läsa mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md). När du har laddat upp den virtuella hård disken till Azure redigerar du Resource Manager-mallen för att inkludera licens typen som en del av beräknings leverantören och distribuera mallen som vanligt:
+**Distribuera med Azure Resource Manager mall distribution** I dina Resource Manager-mallar kan du ange ytterligare en parameter för `licenseType` . Du kan läsa mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md). När du har laddat upp den virtuella hård disken till Azure redigerar du Resource Manager-mallen för att inkludera licens typen som en del av beräknings leverantören och distribuera mallen som vanligt:
 ```json
 "properties": {
     "licenseType": "Windows_Client",
@@ -72,7 +72,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
     }
 ```
 
-**Distribuera via PowerShell** När du distribuerar en virtuell Windows Server-dator via PowerShell har du ytterligare en `-LicenseType`parameter för. När du har laddat upp den virtuella hård disken till Azure skapar du `New-AzVM` en virtuell dator med hjälp av och anger licensierings typen enligt följande:
+**Distribuera via PowerShell** När du distribuerar en virtuell Windows Server-dator via PowerShell har du ytterligare en parameter för `-LicenseType` . När du har laddat upp den virtuella hård disken till Azure skapar du en virtuell dator med hjälp av `New-AzVM` och anger licensierings typen enligt följande:
 ```powershell
 New-AzVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```

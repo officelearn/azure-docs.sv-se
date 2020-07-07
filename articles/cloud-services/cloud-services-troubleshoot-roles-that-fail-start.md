@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71122732"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Felsöka moln tjänst roller som inte startar
@@ -42,13 +42,13 @@ När du navigerar till en webbplats som har distribuerats i en webbroll och webb
 ![Server fel i programmet '/'.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## <a name="diagnose-issues-by-turning-off-custom-errors"></a>Diagnostisera problem genom att stänga av anpassade fel
-Mer fullständig fel information kan visas genom att konfigurera Web. config för webb rollen för att ställa in det anpassade felläget för att stänga av och distribuera om tjänsten.
+Mer fullständig fel information kan visas genom att konfigurera web.config för webb rollen för att ställa in det anpassade felläget för att stänga av och distribuera om tjänsten.
 
 Så här visar du fullständiga fel utan att använda fjärr skrivbord:
 
 1. Öppna lösningen i Microsoft Visual Studio.
-2. Leta upp filen Web. config i **Solution Explorer**och öppna den.
-3. Leta upp avsnittet system. Web i filen Web. config och Lägg till följande rad:
+2. Leta upp web.config-filen i **Solution Explorer**och öppna den.
+3. Leta upp avsnittet system. Web i web.config-filen och Lägg till följande rad:
 
     ```xml
     <customErrors mode="Off" />
@@ -77,12 +77,12 @@ Att navigera till webbplatsen kommer nu att returnera fler explicita fel meddela
 * Beskrivning: ett ohanterat undantag inträffade under körningen av den aktuella webb förfrågan. Läs stack spårningen om du vill ha mer information om felet och var det kom i koden.
 * Undantags information: system. IO. FIleNotFoundException: det gick inte att läsa in filen eller sammansättningen "Microsoft. WindowsAzure. StorageClient, version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen.
 
-Ett exempel:
+Till exempel:
 
 ![Explicit Server fel i programmet '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Diagnostisera problem med hjälp av beräknings-emulatorn
-Du kan använda Microsoft Azure Compute-emulatorn för att diagnostisera och felsöka problem med saknade beroenden och Web. config-fel.
+Du kan använda Microsoft Azure Compute-emulatorn för att diagnostisera och felsöka problem med saknade beroenden och web.config fel.
 
 För bästa resultat vid användning av den här diagnos metoden bör du använda en dator eller en virtuell dator som har en ren installation av Windows. För att simulera Azure-miljön bör du använda Windows Server 2008 R2 x64.
 
@@ -90,8 +90,8 @@ För bästa resultat vid användning av den här diagnos metoden bör du använd
 2. Bygg Cloud Service-projektet på utvecklings datorn.
 3. I Utforskaren navigerar du till mappen bin\debug i Cloud Service-projektet.
 4. Kopiera. CSX-mappen och. cscfg-filen till den dator som du använder för att felsöka problemen.
-5. Öppna ett kommando tolks fönster för Azure SDK på den rena datorn och `csrun.exe /devstore:start`Skriv.
-6. Skriv `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`i kommando tolken.
+5. Öppna ett kommando tolks fönster för Azure SDK på den rena datorn och skriv `csrun.exe /devstore:start` .
+6. Skriv i kommando tolken `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser` .
 7. När rollen startar visas detaljerad fel information i Internet Explorer. Du kan också använda vanliga fel söknings verktyg för Windows för att ytterligare diagnostisera problemet.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnostisera problem med hjälp av IntelliTrace
@@ -102,7 +102,7 @@ Följ de här stegen för att distribuera tjänsten med IntelliTrace aktiverat:
 1. Bekräfta att Azure SDK 1,3 eller senare är installerat.
 2. Distribuera lösningen med hjälp av Visual Studio. Under distributionen markerar du kryss rutan **Aktivera IntelliTrace för .NET 4 roller** .
 3. När instansen startar öppnar du **Server Explorer**.
-4. Expandera **Azure\\Cloud Services** -noden och leta upp distributionen.
+4. Expandera **Azure \\ Cloud Services** -noden och leta upp distributionen.
 5. Expandera distributionen tills du ser roll instanserna. Högerklicka på en av instanserna.
 6. Välj **Visa IntelliTrace-loggar**. **Sammanfattningen av IntelliTrace** öppnas.
 7. Leta upp avsnittet undantag i sammanfattningen. Om det finns undantag får avsnittet en etikett med **undantags data**.

@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72385646"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Självstudie: skicka lokaliserade push-meddelanden till iOS med Azure Notification Hubs
@@ -73,7 +73,7 @@ Sedan ser du till att enheterna registreras med en mall som refererar till rätt
 
 Mer information om mallar finns i avsnittet [mallar](notification-hubs-templates-cross-platform-push-messages.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför självstudien om [push-meddelanden till specifika iOS-enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md) och har koden tillgänglig, eftersom den här självstudien bygger direkt på koden.
 * Visual Studio 2019 är valfritt.
@@ -82,7 +82,7 @@ Mer information om mallar finns i avsnittet [mallar](notification-hubs-templates
 
 I det här avsnittet ändrar du den nya appen med nya nyheter som du skapade i avsnittet [använd Notification Hubs för att skicka de senaste] nyheterna för att skicka översatta nyheter med mallar.
 
-I lägger `MainStoryboard_iPhone.storyboard`du till en segmenterad kontroll med de tre språken: engelska, franska och mandariner.
+I `MainStoryboard_iPhone.storyboard` lägger du till en segmenterad kontroll med de tre språken: engelska, franska och mandariner.
 
 ![Skapar iOS-ANVÄNDARGRÄNSSNITTets storyboard][13]
 
@@ -92,7 +92,7 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
 
 ## <a name="build-the-ios-app"></a>Bygg iOS-appen
 
-1. I lägger `Notification.h`du till- `retrieveLocale` metoden och ändrar lagrings-och prenumerations metoderna enligt följande kod:
+1. I `Notification.h` lägger du till- `retrieveLocale` metoden och ändrar lagrings-och prenumerations metoderna enligt följande kod:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -103,7 +103,7 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
 
     - (int) retrieveLocale;
     ```
-    I din `Notification.m`ändrar du `storeCategoriesAndSubscribe` metoden genom att lägga till `locale` parametern och lagra den i användarens standardvärden:
+    I din `Notification.m` ändrar du `storeCategoriesAndSubscribe` metoden genom att lägga till `locale` parametern och lagra den i användarens standardvärden:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -141,7 +141,7 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
     }
     ```
 
-    Du använder-metoden `registerTemplateWithDeviceToken`i stället för `registerNativeWithDeviceToken`. När du registrerar dig för en mall måste du ange JSON-mallen och ett namn för mallen (som appen kanske vill registrera olika mallar). Se till att registrera dina kategorier som taggar, som du vill se till att ta emot meddelanden för dessa nyheter.
+    Du använder-metoden `registerTemplateWithDeviceToken` i stället för `registerNativeWithDeviceToken` . När du registrerar dig för en mall måste du ange JSON-mallen och ett namn för mallen (som appen kanske vill registrera olika mallar). Se till att registrera dina kategorier som taggar, som du vill se till att ta emot meddelanden för dessa nyheter.
 
     Lägg till en metod för att hämta språk inställningarna från användarnas standardinställningar:
 
@@ -155,13 +155,13 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
     }
     ```
 
-2. Nu när du ändrade `Notifications` klassen, måste du se till att `ViewController` använda den nya. `UISegmentControl` Lägg till följande rad i- `viewDidLoad` metoden för att se till att visa de språk som är markerade för tillfället:
+2. Nu när du ändrade `Notifications` klassen, måste du se till att `ViewController` använda den nya `UISegmentControl` . Lägg till följande rad i- `viewDidLoad` metoden för att se till att visa de språk som är markerade för tillfället:
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    Ändra sedan ditt anrop `subscribe` till `storeCategoriesAndSubscribe` följande kod i din metod:
+    `subscribe`Ändra sedan ditt anrop till följande kod i din metod `storeCategoriesAndSubscribe` :
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {

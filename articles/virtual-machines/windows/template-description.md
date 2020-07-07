@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100540"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
@@ -404,7 +404,7 @@ Du kan också lägga till data diskar i de virtuella datorerna. [Antalet diskar]
 
 Den här tilläggs resursen använder variabeln storageName och de diagnostiska variablerna för att ange värden. Om du vill ändra de data som samlas in av det här tillägget kan du lägga till fler prestanda räknare i wadperfcounters-variabeln. Du kan också välja att spara diagnostikdata i ett annat lagrings konto än där de virtuella dator diskarna lagras.
 
-Det finns många tillägg som du kan installera på en virtuell dator, men den mest användbara är förmodligen det [anpassade skript tillägget](extensions-customscript.md). I exemplet körs ett PowerShell-skript med namnet start. ps1 på varje virtuell dator när det startar första gången:
+Det finns många tillägg som du kan installera på en virtuell dator, men den mest användbara är förmodligen det [anpassade skript tillägget](extensions-customscript.md). I exemplet körs ett PowerShell-skript med namnet start.ps1 på varje virtuell dator när det startas första gången:
 
 ```json
 {
@@ -431,7 +431,7 @@ Det finns många tillägg som du kan installera på en virtuell dator, men den m
 }
 ```
 
-Skriptet start. ps1 kan utföra många konfigurations åtgärder. De data diskar som läggs till i de virtuella datorerna i exemplet initieras till exempel inte. Du kan använda ett anpassat skript för att initiera dem. Om du har flera start uppgifter kan du använda filen Start. ps1 för att anropa andra PowerShell-skript i Azure Storage. Exemplet använder PowerShell, men du kan använda valfri skript metod som är tillgänglig på det operativ system som du använder.
+start.ps1-skriptet kan utföra många konfigurations åtgärder. De data diskar som läggs till i de virtuella datorerna i exemplet initieras till exempel inte. Du kan använda ett anpassat skript för att initiera dem. Om du har flera start uppgifter kan du använda start.ps1-filen för att anropa andra PowerShell-skript i Azure Storage. Exemplet använder PowerShell, men du kan använda valfri skript metod som är tillgänglig på det operativ system som du använder.
 
 Du kan se status för installerade tillägg från inställningarna för tillägg i portalen:
 

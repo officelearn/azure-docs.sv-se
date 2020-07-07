@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494525"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem för Apache Spark kluster i HDInsight
@@ -32,7 +32,7 @@ Använd följande procedur för att lösa problemet:
 
         yarn application –list
 
-    Standard jobb namnen kommer att vara livy om jobben startades med en livy-interaktiv session utan att några explicita namn angavs. För livy-sessionen som startades av [Jupyter Notebook](https://jupyter.org/)börjar jobb namnet med `remotesparkmagics_*`.
+    Standard jobb namnen kommer att vara livy om jobben startades med en livy-interaktiv session utan att några explicita namn angavs. För livy-sessionen som startades av [Jupyter Notebook](https://jupyter.org/)börjar jobb namnet med `remotesparkmagics_*` .
 
 3. Kör följande kommando för att avsluta dessa jobb.
 
@@ -85,13 +85,13 @@ Du kan se ett fel **`Error loading notebook`** när du läser in antecknings bö
 
 **Minskning**
 
-Om du får det här felet betyder det inte att dina data är skadade eller går förlorade.  Dina antecknings böcker finns fortfarande på `/var/lib/jupyter`disk i och du kan använda SSH i klustret för att få åtkomst till dem. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+Om du får det här felet betyder det inte att dina data är skadade eller går förlorade.  Dina antecknings böcker finns fortfarande på disk i `/var/lib/jupyter` och du kan använda SSH i klustret för att få åtkomst till dem. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 När du har anslutit till klustret med SSH kan du kopiera dina antecknings böcker från klustret till din lokala dator (med hjälp av SCP eller WinSCP) som en säkerhets kopia för att förhindra förlust av viktiga data i antecknings boken. Du kan sedan använda SSH-tunnlar i din huvudnoden vid Port 8001 för att få åtkomst till Jupyter utan att gå via gatewayen.  Därifrån kan du ta bort utdatan från antecknings boken och spara den igen för att minimera storleken på antecknings boken.
 
 Om du vill förhindra att det här felet uppstår i framtiden måste du följa rekommendationerna nedan:
 
-* Det är viktigt att hålla nere storleken på bärbara datorer. Alla utdata från dina Spark-jobb som skickas tillbaka till Jupyter sparas i antecknings boken.  Vi rekommenderar att du använder Jupyter i allmänhet för att undvika att `.collect()` köra stora RDD eller dataframes; Om du i stället vill titta på ett RDD-innehåll kan du överväga att `.take()` köra `.sample()` eller så att dina utdata inte blir för stora.
+* Det är viktigt att hålla nere storleken på bärbara datorer. Alla utdata från dina Spark-jobb som skickas tillbaka till Jupyter sparas i antecknings boken.  Det är en bra idé att använda Jupyter i allmänhet för att undvika att köra `.collect()` stora RDD eller dataframes. om du i stället vill titta på en RDDs innehåll kan du överväga att köra `.take()` eller `.sample()` så att dina utdata inte blir för stora.
 * När du sparar en antecknings bok rensar du också alla utdata celler för att minska storleken.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Den första starten av Notebook tar längre tid än förväntat

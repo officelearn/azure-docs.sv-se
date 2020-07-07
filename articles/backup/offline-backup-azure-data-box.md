@@ -4,10 +4,10 @@ description: Lär dig hur du kan använda Azure Data Box för att dirigera stora
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160963"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup offline-säkerhetskopiering med Azure Data Box
@@ -51,12 +51,12 @@ Processen för att dirigera data från MARS-agenten med hjälp av Azure Data Box
 | >7,2 TB och <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
 
 * Vanliga komprimerings hastigheter varierar mellan 10% och 20%. <br>
-* * Om du förväntar dig att ha mer än 80 TB första säkerhets kopierings data för en enskild [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)mars-Server kontaktar du.
+* * Om du förväntar dig att ha mer än 80 TB första säkerhets kopierings data för en enskild MARS-server kontaktar du [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 >[!IMPORTANT]
 >Första säkerhets kopierings data från en enskild server måste finnas i en enskild Azure Data Box instans eller Azure Data Box disk och kan inte delas mellan flera enheter av samma eller olika SKU: er. Men en Azure Data Box enhet kan innehålla första säkerhets kopieringar från flera servrar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure-prenumeration och nödvändiga behörigheter
 
@@ -124,7 +124,7 @@ Offline-säkerhetskopiering med MARS och Azure Data Box kräver att Data Box-enh
 
 1. Se till att avinstallera alla tidigare installationer av MARS-agenten.
 1. Ladda ned den senaste MARS-agenten från [den här webbplatsen](https://aka.ms/azurebackup_agent).
-1. Kör *MARSAgentInstaller. exe*och utför *bara* stegen för att [Installera och registrera agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) på det Recovery Services valv där du vill att dina säkerhets kopior ska lagras.
+1. Kör *MARSAgentInstaller.exe*och utför *bara* stegen för att [Installera och registrera agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) på det Recovery Services-valv där du vill att dina säkerhets kopior ska lagras.
 
    > [!NOTE]
    > Recovery Services-valvet måste finnas i samma prenumeration som Azure Data Boxs jobbet.
@@ -153,8 +153,8 @@ MARS-agenten fungerar i det lokala systemets kontext, så den kräver att samma 
 För att säkerställa att du kan montera din Data Box-enhet-enhet som ett lokalt system med hjälp av NFS-protokollet:
 
 1. Aktivera klienten för NFS-funktionen på Windows-servern som har MARS-agenten installerad. Ange alternativ källa *WIM: D: \Sources\Install.wim: 4*.
-1. Ladda ned PSExec <https://download.sysinternals.com/files/PSTools.zip> från till servern med mars-agenten installerad.
-1. Öppna en kommando tolk med förhöjd behörighet och kör följande kommando med katalogen som innehåller *PsExec. exe* som den aktuella katalogen.
+1. Ladda ned PSExec från <https://download.sysinternals.com/files/PSTools.zip> till servern med mars-agenten installerad.
+1. Öppna en kommando tolk med förhöjd behörighet och kör följande kommando med katalogen som innehåller *PSExec.exe* som den aktuella katalogen.
 
     ```cmd
     psexec.exe  -s  -i  cmd.exe
@@ -212,9 +212,9 @@ För att säkerställa att du kan montera din Data Box-enhet-enhet som ett lokal
     >
     >![Azure Data Box diskens rot Katalog](./media/offline-backup-azure-data-box/root-directory.png)
     >
-    >Om till `\\mydomain\myserver\disk1\` exempel sökvägen till disken är och *Disk1* innehåller en katalog med namnet *PageBlob*, är `\\mydomain\myserver\disk1\`den sökväg som du anger på sidan för guiden mars agent.
+    >Om till exempel sökvägen till disken är `\\mydomain\myserver\disk1\` och *Disk1* innehåller en katalog med namnet *PageBlob*, är den sökväg som du anger på sidan för guiden mars agent `\\mydomain\myserver\disk1\` .
     >
-    >Om du [konfigurerar en Azure Data Box 100-TB-enhet](#set-up-azure-data-box-devices)anger `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` du som nätverks Sök väg till enheten.
+    >Om du [konfigurerar en Azure Data Box 100-TB-enhet](#set-up-azure-data-box-devices)anger du `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` som nätverks Sök väg till enheten.
 
 1. Välj **Nästa**och välj **Slutför** på nästa sida för att spara säkerhets kopierings-och bevarande principen med konfigurationen av offline-säkerhetskopiering med hjälp av Azure Data box.
 
@@ -269,7 +269,7 @@ Kontrol lera om följande fel meddelande visas i "monoklonal-konsolen" när du k
 
 1. Öppna **Temp** -mappen i installations Sök vägen. Standard Sök vägen för temp är *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Leta efter filen *CBUICurr* och öppna filen.
 
-1. Bläddra till den sista raden i *CBUICurr* -filen och kontrol lera om problemet är detsamma som i det här fel meddelandet: `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed`.
+1. Bläddra till den sista raden i *CBUICurr* -filen och kontrol lera om problemet är detsamma som i det här fel meddelandet: `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed` .
 
 ### <a name="workaround"></a>Lösning
 
@@ -281,10 +281,10 @@ Logga in på PowerShell som visas i användar gränssnittet för användar grän
 
 #### <a name="step-2"></a>Steg 2
 
-Om ingen annan server har offline-dirigering konfigurerad och ingen annan server är beroende av programmet `AzureOfflineBackup_<Azure User Id>` , tar du bort det här programmet. Välj **Azure Portal** > **Azure Active Directory** > **Appregistreringar**.
+Om ingen annan server har offline-dirigering konfigurerad och ingen annan server är beroende av `AzureOfflineBackup_<Azure User Id>` programmet, tar du bort det här programmet. Välj **Azure Portal**  >  **Azure Active Directory**  >  **Appregistreringar**.
 
 >[!NOTE]
-> Kontrol lera om `AzureOfflineBackup_<Azure User Id>` programmet inte har någon annan offline-dirigering konfigurerad och om ingen annan server är beroende av det här programmet. Gå till **Inställningar** > **nycklar** under avsnittet **offentliga nycklar** . Inga andra offentliga nycklar har lagts till. Se följande skärm bild för referens.
+> Kontrol lera om `AzureOfflineBackup_<Azure User Id>` programmet inte har någon annan offline-dirigering konfigurerad och om ingen annan server är beroende av det här programmet. Gå till **Inställningar**  >  **nycklar** under avsnittet **offentliga nycklar** . Inga andra offentliga nycklar har lagts till. Se följande skärm bild för referens.
 >
 >![Offentliga nycklar](./media/offline-backup-azure-data-box/public-keys.png)
 
@@ -292,22 +292,22 @@ Om ingen annan server har offline-dirigering konfigurerad och ingen annan server
 
 Utför följande åtgärder från den server som du försöker konfigurera för säkerhets kopiering offline.
 
-1. Gå till fliken **hantera datorns certifikat program** > **personliga** och Sök efter certifikatet med namnet `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Gå till fliken **hantera datorns certifikat program**  >  **personliga** och Sök efter certifikatet med namnet `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
 2. Välj certifikatet, högerklicka på **alla uppgifter**och välj **Exportera** utan privat nyckel i. cer-format.
 
-3. Gå till säkerhets kopierings programmet för Azure offline som nämns i steg 2. Välj **Inställningar** > **nycklar** > **Ladda upp offentlig nyckel**. Överför certifikatet som du exporterade i föregående steg.
+3. Gå till säkerhets kopierings programmet för Azure offline som nämns i steg 2. Välj **Inställningar**  >  **nycklar**  >  **Ladda upp offentlig nyckel**. Överför certifikatet som du exporterade i föregående steg.
 
     ![Ladda upp offentlig nyckel](./media/offline-backup-azure-data-box/upload-public-key.png)
 
 4. På-servern öppnar du registret genom att skriva in **regedit** i körnings fönstret.
 
-5. Gå till register *datorn \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Högerklicka på **CloudBackupProvider**och Lägg till ett nytt sträng värde med namnet `AzureADAppCertThumbprint_<Azure User Id>`.
+5. Gå till register *datorn \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Högerklicka på **CloudBackupProvider**och Lägg till ett nytt sträng värde med namnet `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Hämta användar-ID: t för Azure genom att utföra någon av följande åtgärder:
     >
-    >- Kör `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` kommandot från Azure-anslutna PowerShell.
+    >- Kör kommandot från Azure-anslutna PowerShell `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` .
     > - Gå till register Sök vägen `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` med namnet *CurrentUserId*.
 
 6. Högerklicka på den sträng som du lade till i föregående steg och välj **ändra**. I värdet anger du tumavtrycket för det certifikat som du exporterade i steg 2. Välj **OK**.
@@ -318,4 +318,4 @@ Utför följande åtgärder från den server som du försöker konfigurera för 
 
 ## <a name="questions"></a>Frågor
 
-Kontakta [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)om du har frågor eller vill veta mer om eventuella problem.
+Kontakta om du har frågor eller vill veta mer om eventuella problem [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .

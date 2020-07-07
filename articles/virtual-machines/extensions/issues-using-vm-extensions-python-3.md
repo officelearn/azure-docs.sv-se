@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82120787"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problem med att använda VM-tillägg i python 3 – aktiverade Linux Azure Virtual Machines system
@@ -28,12 +28,12 @@ ms.locfileid: "82120787"
 >
 > Innan du installerar **python 2. x** i produktion bör du överväga frågan om långsiktig support för python 2. x, särskilt deras förmåga att ta emot säkerhets uppdateringar. Som produkter, inklusive vissa av de tillägg som nämns, uppdaterar du med **python 3,8** -stöd, men du bör inte använda python 2. x.
 
-Vissa Linux-distributioner har gått över till python 3,8 och har tagit `/usr/bin/python` bort den äldre start punkten för python helt. Den här över gången påverkar den automatiserade distributionen av vissa virtuella dator tillägg (VM) med följande villkor:
+Vissa Linux-distributioner har gått över till python 3,8 och har tagit bort den äldre `/usr/bin/python` Start punkten för python helt. Den här över gången påverkar den automatiserade distributionen av vissa virtuella dator tillägg (VM) med följande villkor:
 
 - Tillägg som fortfarande övergår till python 3. x-stöd
-- Tillägg som använder den äldre `/usr/bin/python` start punkten
+- Tillägg som använder den äldre `/usr/bin/python` Start punkten
 
-Linux-distributions användare som har gått över till **python 3. x** måste se `/usr/bin/python` till att den äldre start punkten finns innan du försöker distribuera dessa tillägg till sina virtuella datorer. Annars kan tilläggets distribution Miss Miss Missing. 
+Linux-distributions användare som har gått över till **python 3. x** måste se till att den äldre `/usr/bin/python` Start punkten finns innan du försöker distribuera dessa tillägg till sina virtuella datorer. Annars kan tilläggets distribution Miss Miss Missing. 
 
 - Godkända Linux-distributioner som påverkas är **Ubuntu Server 20,04 LTS** och **Ubuntu Pro 20,04 LTS**.
 

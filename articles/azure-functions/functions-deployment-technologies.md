@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: glenga
 ms.openlocfilehash: ec5e9da2ab80f4728d342303e1eb08c49f765485
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82735308"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
@@ -51,21 +51,21 @@ Vissa viktiga begrepp är viktiga för att förstå hur distributioner fungerar 
 När du ändrar någon av utlösarna måste funktions infrastrukturen vara medveten om ändringarna. Synkronisering sker automatiskt för många distributions tekniker. I vissa fall måste du dock synkronisera dina utlösare manuellt. När du distribuerar dina uppdateringar genom att referera till en extern paket-URL, lokal git, molnbaserad synkronisering eller FTP, måste du synkronisera utlösarna manuellt. Du kan synkronisera utlösare på ett av tre sätt:
 
 * Starta om din Function-app i Azure Portal
-* Skicka en HTTP POST-begäran `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` till att använda [huvud nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys).
-* Skicka en HTTP POST-begäran `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`till. Ersätt plats hållarna med ditt prenumerations-ID, resurs gruppens namn och namnet på din Function-app.
+* Skicka en HTTP POST-begäran till att `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` använda [huvud nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys).
+* Skicka en HTTP POST-begäran till `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01` . Ersätt plats hållarna med ditt prenumerations-ID, resurs gruppens namn och namnet på din Function-app.
 
 ### <a name="remote-build"></a>Fjärrversion
 
 Azure Functions kan utföra versioner automatiskt på den kod som den tar emot efter zip-distributioner. Dessa versioner fungerar annorlunda beroende på om din app körs på Windows eller Linux. Fjärran slutet utförs inte när en app tidigare har ställts in att köras i [Kör från paket](run-functions-from-deployment-package.md) läge. Om du vill lära dig hur du använder fjärran sluten version går du till [zip Deploy](#zip-deploy).
 
 > [!NOTE]
-> Om du har problem med fjärran sluten version kan det bero på att din app skapades innan funktionen gjordes tillgänglig (1 augusti 2019). Försök att skapa en ny function-app eller `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` köra för att uppdatera din Function-app. Det kan ta två försök att utföra det här kommandot.
+> Om du har problem med fjärran sluten version kan det bero på att din app skapades innan funktionen gjordes tillgänglig (1 augusti 2019). Försök att skapa en ny function-app eller köra `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` för att uppdatera din Function-app. Det kan ta två försök att utföra det här kommandot.
 
 #### <a name="remote-build-on-windows"></a>Fjärrversion på Windows
 
 Alla Function-appar som körs i Windows har en liten hanterings app, SCM (eller [kudu](https://github.com/projectkudu/kudu))-platsen. Den här platsen hanterar en stor del av distributions-och bygg logiken för Azure Functions.
 
-När en app distribueras till Windows körs språkspecifika kommandon, t. ex `dotnet restore` . (C#) `npm install` eller (Java Script).
+När en app distribueras till Windows körs språkspecifika kommandon, t. ex `dotnet restore` . (C#) eller `npm install` (Java Script).
 
 #### <a name="remote-build-on-linux"></a>Fjärran sluten version på Linux
 
@@ -94,7 +94,7 @@ Följande distributions metoder är tillgängliga i Azure Functions.
 
 Du kan använda en extern paket-URL för att referera till en fjärrfil-fil (zip) som innehåller din Function-app. Filen hämtas från den angivna URL: en och appen körs i läget [Kör från paket](run-functions-from-deployment-package.md) .
 
->__Så här använder du den:__ Lägg `WEBSITE_RUN_FROM_PACKAGE` till i dina program inställningar. Värdet för den här inställningen ska vara en URL (platsen för den angivna paket filen som du vill köra). Du kan lägga till inställningar antingen [i portalen](functions-how-to-use-azure-function-app-settings.md#settings) eller med [hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+>__Så här använder du den:__ Lägg till `WEBSITE_RUN_FROM_PACKAGE` i dina program inställningar. Värdet för den här inställningen ska vara en URL (platsen för den angivna paket filen som du vill köra). Du kan lägga till inställningar antingen [i portalen](functions-how-to-use-azure-function-app-settings.md#settings) eller med [hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 >
 >Om du använder Azure Blob Storage använder du en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) för att ge funktioner åtkomst till paketet. När programmet startas om, hämtas en kopia av innehållet. Din referens måste vara giltig för programmets livs längd.
 
@@ -106,7 +106,7 @@ Använd zip Deploy för att skicka en. zip-fil som innehåller din Function-app 
 
 >__Så här använder du den:__ Distribuera med hjälp av ditt favorit klient verktyg: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)eller från kommando raden med hjälp av [Azure Functions Core tools](functions-run-local.md#project-file-deployment). Som standard använder dessa verktyg zip-distribution och [Kör från paket](run-functions-from-deployment-package.md). Core tools och Visual Studio Code-tillägget aktiverar både [fjärran sluten skapande](#remote-build) vid distribution till Linux. Om du vill distribuera en. zip-fil manuellt till Function-appen följer du anvisningarna i [distribuera från en. zip-fil eller URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->När du distribuerar med hjälp av zip-distribution kan du ange att appen ska [köras från paketet](run-functions-from-deployment-package.md). Om du vill köra från paket ställer `WEBSITE_RUN_FROM_PACKAGE` du in värdet för `1`program inställning på. Vi rekommenderar zip-distribution. Det ger snabbare inläsnings tider för dina program och är standard för VS Code, Visual Studio och Azure CLI. 
+>När du distribuerar med hjälp av zip-distribution kan du ange att appen ska [köras från paketet](run-functions-from-deployment-package.md). Om du vill köra från paket ställer du in `WEBSITE_RUN_FROM_PACKAGE` värdet för program inställning på `1` . Vi rekommenderar zip-distribution. Det ger snabbare inläsnings tider för dina program och är standard för VS Code, Visual Studio och Azure CLI. 
 
 >__När du ska använda den:__ Zip Deploy är den rekommenderade distributions tekniken för Azure Functions.
 
@@ -119,7 +119,7 @@ Du kan distribuera en Linux container-avbildning som innehåller din Function-ap
 >* Skapa en Linux Function-app i en Azure App Service plan i Azure Portal. För **publicera**väljer du **Docker-avbildning**och konfigurerar sedan behållaren. Ange den plats där avbildningen finns.
 >* Skapa en Linux Function-app på en App Service plan med hjälp av Azure CLI. Mer information finns i [skapa en funktion i Linux med hjälp av en anpassad avbildning](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
->Om du vill distribuera till en befintlig app med hjälp av en anpassad [Azure Functions Core Tools](functions-run-local.md)behållare, använder du [`func deploy`](functions-run-local.md#publish) i Azure Functions Core tools kommandot.
+>Om du vill distribuera till en befintlig app med hjälp av en anpassad behållare, använder du i [Azure Functions Core tools](functions-run-local.md) [`func deploy`](functions-run-local.md#publish) kommandot.
 
 >__När du ska använda den:__ Använd alternativet Docker-behållare när du behöver mer kontroll över Linux-miljön där funktions programmet körs. Den här distributions mekanismen är bara tillgänglig för funktioner som körs i Linux.
 
@@ -169,11 +169,11 @@ Du kan använda FTP för att överföra filer direkt till Azure Functions.
 
 I det portalbaserade redigerings programmet kan du redigera filerna som finns i din Function-app direkt (distribueras i princip varje gång du sparar ändringarna).
 
->__Så här använder du den:__ För att kunna redigera dina funktioner i Azure Portal måste du ha [skapat dina funktioner i portalen](functions-create-first-azure-function.md). Om du vill bevara en enda källa till sanningen kan du använda en annan distributions metod för att göra din funktion skrivskyddad och förhindra fortsatt Portal redigering. Om du vill gå tillbaka till ett tillstånd där du kan redigera dina filer i Azure Portal kan du manuellt växla redigerings läget till `Read/Write` och ta bort eventuella distributions program inställningar (t. ex `WEBSITE_RUN_FROM_PACKAGE`.). 
+>__Så här använder du den:__ För att kunna redigera dina funktioner i Azure Portal måste du ha [skapat dina funktioner i portalen](functions-create-first-azure-function.md). Om du vill bevara en enda källa till sanningen kan du använda en annan distributions metod för att göra din funktion skrivskyddad och förhindra fortsatt Portal redigering. Om du vill gå tillbaka till ett tillstånd där du kan redigera dina filer i Azure Portal kan du manuellt växla redigerings läget till `Read/Write` och ta bort eventuella distributions program inställningar (t. ex `WEBSITE_RUN_FROM_PACKAGE` .). 
 
 >__När du ska använda den:__ Portalen är ett bra sätt att komma igång med Azure Functions. För mer intensiv utvecklings arbete rekommenderar vi att du använder något av följande klient verktyg:
 >
->* [Visual Studio-koden](functions-create-first-function-vs-code.md)
+>* [Visuell Studio-kod](functions-create-first-function-vs-code.md)
 >* [Azure Functions Core Tools (kommando rad)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
@@ -188,7 +188,7 @@ I följande tabell visas de operativ system och språk som stöder Portal redige
 | JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python (förhandsversion) | | | | | | |
 | PowerShell (förhandsversion) |✔|✔|✔| | | |
-| TypeScript (Node. js) | | | | | | |
+| TypeScript (Node.js) | | | | | | |
 
 <sup>*</sup>Portal redigering är bara aktive rad för HTTP-och timer-utlösare för funktioner i Linux med hjälp av Premium och dedikerade planer.
 

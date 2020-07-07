@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: tisande
 ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80063563"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatorer i Azure Cosmos DB
@@ -21,19 +21,19 @@ Den här artikeln beskriver de olika operatörer som stöds av Azure Cosmos DB.
 
 I följande tabell visas resultatet av likhetsjämförelser i SQL API mellan två godtyckliga JSON-typer.
 
-| **Op** | **Odefinierad** | **Null** | **Boolesk** | **Antal** | **Sträng** | **Jobbobjektet** | **Matris** |
+| **Op** | **Odefinierad** | **Null** | **Boolesk** | **Nummer** | **Sträng** | **Objekt** | **Lagringsmatriser** |
 |---|---|---|---|---|---|---|---|
 | **Odefinierad** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Null** | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Boolesk** | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Antal** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Nummer** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Sträng** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Jobbobjektet** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) |
-| **Matris** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** |
+| **Objekt** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) |
+| **Lagringsmatriser** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** |
 
-Jämförelse operatorer som `>`, `>=` `!=` `<`,, och `<=`, jämförelse mellan typer eller mellan två objekt eller matriser skapar. `Undefined`  
+Jämförelse operatorer som `>` ,, `>=` , `!=` `<` och `<=` , jämförelse mellan typer eller mellan två objekt eller matriser skapar `Undefined` .  
 
-Om resultatet av det skalära uttrycket är `Undefined`är objektet inte inkluderat i resultatet, eftersom `Undefined` det inte är `true`lika med.
+Om resultatet av det skalära uttrycket är är `Undefined` objektet inte inkluderat i resultatet, eftersom det `Undefined` inte är lika med `true` .
 
 ## <a name="logical-and-or-and-not-operators"></a>Logiska operatorer (AND, OR och NOT) (och, eller samt inte)
 
@@ -41,22 +41,22 @@ Logiska operatorer arbetar med booleska värden. I följande tabeller visas de l
 
 **Operatorn OR** (ELLER)
 
-Returnerar `true` när något av villkoren är `true`.
+Returnerar `true` när något av villkoren är `true` .
 
-|  | **Sant** | **Falskt** | **Odefinierad** |
+|  | **True** | **!** | **Odefinierad** |
 | --- | --- | --- | --- |
-| **Sant** |Sant |Sant |Sant |
-| **Falskt** |Sant |Falskt |Undefined (Odefinierad) |
+| **True** |Sant |Sant |Sant |
+| **!** |Sant |Falskt |Undefined (Odefinierad) |
 | **Odefinierad** |Sant |Undefined (Odefinierad) |Undefined (Odefinierad) |
 
 **Operatorn AND** (OCH)
 
-Returnerar `true` när båda uttrycken är `true`.
+Returnerar `true` när båda uttrycken är `true` .
 
-|  | **Sant** | **Falskt** | **Odefinierad** |
+|  | **True** | **!** | **Odefinierad** |
 | --- | --- | --- | --- |
-| **Sant** |Sant |Falskt |Undefined (Odefinierad) |
-| **Falskt** |Falskt |Falskt |Falskt |
+| **True** |Sant |Falskt |Undefined (Odefinierad) |
+| **!** |Falskt |Falskt |Falskt |
 | **Odefinierad** |Undefined (Odefinierad) |Falskt |Undefined (Odefinierad) |
 
 **Operatorn NOT** (INTE)
@@ -65,15 +65,15 @@ Kastar om värdet för booleska uttryck.
 
 |  | **Ogiltigt** |
 | --- | --- |
-| **Sant** |Falskt |
-| **Falskt** |Sant |
+| **True** |Falskt |
+| **!** |Sant |
 | **Odefinierad** |Undefined (Odefinierad) |
 
 **Prioritet för Operator**
 
-De logiska `OR`operatörerna `AND`, och `NOT` har prioritets nivån som visas nedan:
+De logiska operatörerna `OR` , `AND` och `NOT` har prioritets nivån som visas nedan:
 
-| **Operator** | **Förtur** |
+| **Operator** | **Priority** |
 | --- | --- |
 | **Ogiltigt** |1 |
 | **SÄRSKILT** |2 |
@@ -87,7 +87,7 @@ Den speciella operatorn * projekterar hela objektet som det är. När den använ
 
 Du kan använda operatorerna ternär (?) och sammanslagning (??) för att bygga villkors uttryck, precis som C# och Java Script.
 
-Du kan använda den ? operatör för att skapa nya JSON-egenskaper i farten. Följande fråga klassificerar till exempel betygs nivåer i `elementary` eller: `other`
+Du kan använda den ? operatör för att skapa nya JSON-egenskaper i farten. Följande fråga klassificerar till exempel betygs nivåer i `elementary` eller `other` :
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
@@ -103,7 +103,7 @@ Kan du även kapsla anrop till? Operator, som i följande fråga:
 
 Precis som med andra fråga-operatörer är? operatorn utesluter objekt om de refererade egenskaperna saknas eller om typerna som jämförs är olika.
 
-Använd?? operatör för att effektivt söka efter en egenskap i ett objekt vid frågor mot halv strukturer eller blandade data. Till exempel returnerar `lastName` följande fråga om den finns, eller `surname` om `lastName` den inte finns.
+Använd?? operatör för att effektivt söka efter en egenskap i ett objekt vid frågor mot halv strukturer eller blandade data. Till exempel returnerar följande fråga om den `lastName` finns, eller `surname` om den `lastName` inte finns.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

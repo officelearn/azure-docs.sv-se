@@ -99,6 +99,10 @@
     - name: Granska virtuella datorer med gästkonfiguration
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje för Azure Security Benchmark
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Anvisningar
   items:
     - name: Azure Policy-tillägg för VS Code

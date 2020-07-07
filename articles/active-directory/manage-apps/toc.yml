@@ -7,10 +7,16 @@
       href: what-is-application-management.md
 - name: Snabbstarter
   items:
-    - name: Visa dina företagsprogram
+    - name: Visa dina appar
       href: view-applications-portal.md
-    - name: Lägga till en molnbaserad app från galleriet
+    - name: Lägga till en app
       href: add-application-portal.md
+    - name: Konfigurera en app
+      href: add-application-portal-configure.md
+    - name: Konfigurera enkel inloggning
+      href: add-application-portal-setup-sso.md
+    - name: Ta bort en app
+      href: delete-application-portal.md
 - name: Självstudier
   items:
     - name: 'Integrerade galleriappar (t.ex. ServiceNow, Salesforce, Dropbox)'

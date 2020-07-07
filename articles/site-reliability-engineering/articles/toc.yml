@@ -3,5 +3,7 @@
 - name: Vanliga frågor och svar
   expanded: true
   items:
+    - name: SRE och kodning
+      href: code.md
     - name: SRE och DevOps
       href: devops.md

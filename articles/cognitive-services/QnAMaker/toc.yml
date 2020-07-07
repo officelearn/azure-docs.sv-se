@@ -28,6 +28,8 @@
       href: Quickstarts/batch-testing.md
 - name: Begrepp
   items:
+    - name: Planera din kunskapsbas
+      href: Concepts/plan.md
     - name: Azure-resurser
       href: Concepts/azure-resources.md
     - name: Samarbeta med andra

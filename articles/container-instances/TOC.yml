@@ -86,6 +86,8 @@
           href: container-instances-start-command.md
         - name: Köra ett kommando (exec)
           href: container-instances-exec.md
+        - name: Köra en installationscontainer (init)
+          href: container-instances-init-container.md
         - name: Använda en hanterad identitet (förhandsversion)
           href: container-instances-managed-identity.md
         - name: Använda GPU-resurser (förhandsversion)

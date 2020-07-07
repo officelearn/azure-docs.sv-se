@@ -17,6 +17,9 @@
     - name: Kör din första fråga – Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: ./first-query-powershell.md
+    - name: Kör din första fråga – .NET
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
     - name: Kör din första fråga – Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
@@ -26,6 +29,9 @@
     - name: Kör din första fråga – Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Kör din första fråga – REST
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
     - name: Skapa en delad fråga – Azure CLI
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md

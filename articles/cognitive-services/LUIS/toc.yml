@@ -60,6 +60,8 @@
           href: luis-nodejs-tutorial-bf-v4.md
 - name: Begrepp
   items:
+    - name: Artificiell intelligens
+      href: artificial-intelligence.md
     - name: Utvecklingscykel
       href: luis-concept-app-iteration.md
     - name: Planera din app

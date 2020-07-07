@@ -7,10 +7,14 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en tjänst – portalen
-      href: quickstart-create-data-migration-service-portal.md
-    - name: Skapa tjänst i hybridläge – portalen
-      href: quickstart-create-data-migration-service-hybrid-portal.md
+    - name: Skapa tjänst
+      items:
+        - name: Portalen
+          href: quickstart-create-data-migration-service-portal.md
+        - name: ARM-mall
+          href: create-dms-resource-manager-template.md
+        - name: i hybridläge (portalen)
+          href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Begrepp
   items:
     - name: Krav

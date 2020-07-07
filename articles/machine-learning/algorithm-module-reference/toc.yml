@@ -146,6 +146,10 @@
       href: preprocess-text.md
     - name: Latent Dirichlet-allokering
       href: latent-dirichlet-allocation.md
+    - name: Bedöma Vowpal Wabbit-modell
+      href: score-vowpal-wabbit-model.md
+    - name: Träna Vowpal Wabbit-modell
+      href: train-vowpal-wabbit-model.md
 - name: Datorvision
   items:
     - name: Använda bildtransformering

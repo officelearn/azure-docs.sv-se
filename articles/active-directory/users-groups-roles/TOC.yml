@@ -58,6 +58,8 @@
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Massåterställ användare
           href: users-bulk-restore.md
+        - name: Återkalla en användares åtkomst
+          href: users-revoke-access.md
         - name: Stänga ett konto i en ohanterad katalog
           href: users-close-account.md
         - name: Lägga till B2B-användare

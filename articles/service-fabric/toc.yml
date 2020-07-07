@@ -165,7 +165,7 @@
               href: service-fabric-concepts-partitioning.md
             - name: Konfigurera om tillståndskänsliga tjänster
               href: service-fabric-concepts-reconfiguration.md
-            - name: 'Reliable Services-livscykel – C#'
+            - name: Reliable Services-livscykel – C#
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services-livscykel – Java
               href: service-fabric-reliable-services-lifecycle-java.md
@@ -222,6 +222,8 @@
               href: service-fabric-manifest-example-container-app.md
         - name: Värdmodell
           href: service-fabric-hosting-model.md
+        - name: Avancerade ämnen om livscykel för hantering av aktivering och inaktivering
+          href: service-fabric-hosting-lifecycle.md
         - name: Programsäkerhet
           href: service-fabric-application-and-service-security.md
         - name: Tjänsttillstånd
@@ -404,13 +406,13 @@
           href: service-fabric-get-started-containers.md
         - name: Linux-containerprogrammet
           href: service-fabric-get-started-containers-linux.md
-        - name: 'C# Reliable Services-programmet på Windows'
+        - name: C# Reliable Services-programmet på Windows
           href: service-fabric-reliable-services-quick-start.md
         - name: Java Reliable Services-programmet på Linux
           href: service-fabric-reliable-services-quick-start-java.md
-        - name: 'C# Reliable Services-programmet på Linux'
+        - name: C# Reliable Services-programmet på Linux
           href: service-fabric-create-your-first-linux-application-with-csharp.md
-        - name: 'C# Reliable Actors-programmet på Windows'
+        - name: C# Reliable Actors-programmet på Windows
           href: service-fabric-reliable-actors-get-started.md
         - name: Java Reliable Actors-programmet på Linux
           href: service-fabric-create-your-first-linux-application-with-java.md
@@ -448,13 +450,13 @@
               items:
                 - name: Kommunicera med Reliable Services
                   href: service-fabric-reliable-services-communication.md
-                - name: 'Fjärrtjänst – C#'
+                - name: Fjärrtjänst – C#
                   href: service-fabric-reliable-services-communication-remoting.md
                 - name: Fjärrtjänst – Java
                   href: service-fabric-reliable-services-communication-remoting-java.md
                 - name: WCF
                   href: service-fabric-reliable-services-communication-wcf.md
-                - name: 'Säker kommunikation – C#'
+                - name: Säker kommunikation – C#
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: Säker kommunikation – Java
                   href: service-fabric-reliable-services-secure-communication-java.md
@@ -561,7 +563,7 @@
           items:
             - name: Kom igång med VS Code
               href: service-fabric-get-started-vs-code.md
-            - name: 'Utveckla C# Service Fabric-program med VS Code'
+            - name: Utveckla C# Service Fabric-program med VS Code
               href: service-fabric-develop-csharp-applications-with-vs-code.md
             - name: Utveckla Java Service Fabric-program med VS Code
               href: service-fabric-develop-java-applications-with-vs-code.md

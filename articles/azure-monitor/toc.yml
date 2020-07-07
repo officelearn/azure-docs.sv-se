@@ -389,6 +389,8 @@
               href: log-query/unify-app-resource-data.md
         - name: Exempel och vägledning
           items:
+            - name: Exempelfrågor
+              href: log-query/saved-queries.md
             - name: Exempel på loggfrågor
               href: log-query/examples.md
             - name: Exempel på smart analys
@@ -1125,6 +1127,8 @@
               href: learn/tutorial-logs-dashboards.md
             - name: Instrumentpanel som använder programdata
               href: learn/tutorial-app-dashboards.md
+            - name: Uppgradera Log Analytics-instrumentpaneler
+              href: log-query/dashboard-upgrade.md
         - name: Skicka data till Grafana
           href: platform/grafana-plugin.md
     - name: Anpassad datainsamling och analys
@@ -1200,6 +1204,10 @@
           href: app/custom-endpoints.md
         - name: Azure Functions
           href: app/azure-functions-supported-features.md
+        - name: Viktig information
+          items:
+            - name: Webbappstillägg
+              href: app/web-app-extension-release-notes.md
         - name: Datamodell
           items:
             - name: Översikt

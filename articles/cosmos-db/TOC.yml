@@ -1005,7 +1005,7 @@
               href: performance-tips-async-java.md
             - name: Synkron Java-SDK v2
               href: performance-tips-java.md
-            - name: Asynkron Java-SDK v2
+            - name: Felsöka – asynkron Java SDK v2
               href: troubleshoot-java-async-sdk.md
         - name: Prestandatest – exempelapp
           href: performance-testing.md

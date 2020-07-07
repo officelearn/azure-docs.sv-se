@@ -43,8 +43,8 @@
       items:
         - name: Skapa en Azure-supportbegäran
           href: supportability/how-to-create-azure-support-request.md
-        - name: Ladda upp filer för en supportbegäran
-          href: supportability/how-to-use-file-uploader.md
+        - name: Hantera en Azure-supportbegäran
+          href: supportability/how-to-manage-azure-support-request.md
         - name: Begär kvotökningar
           items:
             - name: Utöka vCPU-gräns för beräkning

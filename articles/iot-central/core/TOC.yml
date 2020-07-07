@@ -133,6 +133,8 @@
               href: howto-use-app-templates.md
             - name: Övervaka programhälsa
               href: howto-monitor-application-health.md
+            - name: Om ditt program
+              href: howto-get-app-info.md
         - name: Hantera från andra platser
           items:
             - name: Hantera från Azure-portalen

@@ -208,14 +208,14 @@
       items:
         - name: Vad är SQL Database?
           href: database/sql-database-paas-overview.md
+        - name: Nyheter
+          href: database/doc-changes-updates-release-notes.md?&tabs=single-database
         - name: Enkla databaser
           href: database/single-database-overview.md
         - name: Elastiska pooler
           href: database/elastic-pool-overview.md
         - name: Logiska SQL-servrar
           href: database/logical-servers.md
-        - name: Viktig information
-          href: database/doc-changes-updates-release-notes.md?&tabs=single-database
         - name: Tjänstnivåer
           items:
             - name: Utan server
@@ -654,13 +654,13 @@
       items:
         - name: Vad är SQL-hanterad instans?
           href: managed-instance/sql-managed-instance-paas-overview.md
+        - name: Nyheter
+          href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
         - name: Instanspooler
           href: managed-instance/instance-pools-overview.md
         - name: Vanliga frågor och svar
           displayName: faq
           href: managed-instance/frequently-asked-questions-faq.md
-        - name: Viktig information
-          href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
     - name: Snabbstarter
       href: managed-instance/quickstart-content-reference-guide.md
       items:
@@ -883,92 +883,99 @@
           items:
             - name: Vad är en virtuell SQL Server-dator?
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-            - name: Dokumentändringar
+            - name: Nyheter
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: Snabbstarter
           items:
-            - name: Skapa en virtuell SQL-dator – portalen
+            - name: Skapa SQL VM
+              items: null
+            - name: Portalen
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
-            - name: Skapa en virtuell SQL-dator – PowerShell
+            - name: PowerShell
               href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
+            - name: ARM-mall
+              href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
         - name: Begrepp
           items:
-            - name: Bästa praxis
-              items:
-                - name: Metodtips för prestanda
-                  href: virtual-machines/windows/performance-guidelines-best-practices.md
-                - name: Säkerhetsöverväganden
-                  href: virtual-machines/windows/security-considerations-best-practices.md
-                - name: Programmönster
-                  href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: Verksamhetskontinuitet
               items:
-                - name: Alternativ för hög tillgänglighet
+                - name: Översikt
                   href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-                - name: Always On-tillgänglighetsgrupp
-                  href: virtual-machines/windows/availability-group-overview.md
                 - name: Säkerhetskopiering och återställning
                   href: virtual-machines/windows/backup-restore.md
-                - name: Automatiserad säkerhetskopiering för SQL Server 2014
-                  href: virtual-machines/windows/automated-backup-sql-2014.md
-                - name: Automatiserad säkerhetskopiering för SQL Server 2016+
-                  href: virtual-machines/windows/automated-backup.md
+                - name: Azure Storage för säkerhetskopiering
+                  href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+                - name: Always On-tillgänglighetsgrupp
+                  href: virtual-machines/windows/availability-group-overview.md
+                - name: Redundansklusterinstans
+                  href: virtual-machines/windows/failover-cluster-instance-overview.md
+            - name: Bästa praxis
+              items:
+                - name: Prestanda
+                  href: virtual-machines/windows/performance-guidelines-best-practices.md
+                - name: Säkerhet
+                  href: virtual-machines/windows/security-considerations-best-practices.md
+                - name: Klusterkonfiguration
+                  href: virtual-machines/windows/hadr-cluster-best-practices.md
+                - name: Programmönster
+                  href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: Hantering
               items:
                 - name: Dedikerad värd
                   href: virtual-machines/windows/dedicated-host.md
-                - name: Med Azure Portal
-                  href: virtual-machines/windows/manage-sql-vm-portal.md
                 - name: Utöka stödet för SQL 2008 & R2
                   href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
-                - name: Ansluta till en virtuell dator
-                  href: virtual-machines/windows/ways-to-connect-to-sql.md
-                - name: Konfigurera lagring
+        - name: Anvisningar
+          items:
+            - name: Ansluta till virtuell SQL Server-dator
+              href: virtual-machines/windows/ways-to-connect-to-sql.md
+            - name: Skapa virtuell SQL Server-dator
+              items:
+                - name: Använda portalen
+                  href: virtual-machines/windows/create-sql-vm-portal.md
+                - name: Använda Azure PowerShell
+                  href: virtual-machines/windows/create-sql-vm-powershell.md
+            - name: Hantera
+              items:
+                - name: Med Azure Portal
+                  href: virtual-machines/windows/manage-sql-vm-portal.md
+                - name: Licensmodell
+                  displayName: 'ahb, ahub, payg, change, modify, update'
+                  href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+                - name: Utgåva
+                  displayName: 'change, modify, update'
+                  href: virtual-machines/windows/change-sql-server-edition.md
+                - name: Storage
                   href: virtual-machines/windows/storage-configuration.md
+                - name: Azure Key Vault-integrering
+                  href: virtual-machines/windows/azure-key-vault-integration-configure.md
+                - name: Registrera med SQL VM RP
+                  displayName: 'resource provider, registration'
+                  items:
+                    - name: Enstaka virtuell dator
+                      href: virtual-machines/windows/sql-vm-resource-provider-register.md
+                    - name: Massregistrering av flera virtuella datorer
+                      href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
                 - name: Automatisera hanteringsuppgifter
                   items:
                     - name: Använda SQL Server IaaS Agent-tillägget
                       href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
                     - name: Automatisk korrigering
                       href: virtual-machines/windows/automated-patching.md
-                    - name: Konfigurera Azure Key Vault-integrering
-                      href: virtual-machines/windows/azure-key-vault-integration-configure.md
-        - name: Anvisningar
-          items:
-            - name: Skapa SQL VM
-              items:
-                - name: Använda portalen
-                  href: virtual-machines/windows/create-sql-vm-portal.md
-                - name: Använda Azure PowerShell
-                  href: virtual-machines/windows/create-sql-vm-powershell.md
-            - name: Registrera med SQL VM RP
-              displayName: 'resource provider, registration'
-              items:
-                - name: Enstaka virtuell dator
-                  href: virtual-machines/windows/sql-vm-resource-provider-register.md
-                - name: Massregistrering av flera virtuella datorer
-                  href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-            - name: Hantera
-              items:
-                - name: Licensieringsmodell
-                  displayName: 'ahb, ahub, payg, change, modify, update'
-                  href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-                - name: Utgåva
-                  displayName: 'change, modify, update'
-                  href: virtual-machines/windows/change-sql-server-edition.md
-                - name: Version
-                  displayName: 'change, modify, update'
-                  href: virtual-machines/windows/change-sql-server-version.md
-                - name: Azure Storage för säkerhetskopiering och återställning
-                  href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
             - name: Migrera
               items:
                 - name: SQL Server-databas till virtuell dator
                   href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
                 - name: Virtuell dator till en ny region
                   href: virtual-machines/windows/move-sql-vm-different-region.md
-            - name: Konfigurera hög tillgänglighet
+            - name: Verksamhetskontinuitet
               items:
+                - name: Säkerhetskopiering och återställning
+                  items:
+                    - name: Automatiserad säkerhetskopiering (SQL 2016+)
+                      href: virtual-machines/windows/automated-backup.md
+                    - name: Automatiserad säkerhetskopiering (SQL 2014)
+                      href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Always On-tillgänglighetsgrupp
                   items:
                     - name: Azure SQL VM CLI
@@ -989,12 +996,30 @@
                           href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
                         - name: Lastbalanserare – Azure PowerShell
                           href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-                - name: Redundansklusterinstans
+                - name: Redundansklusterinstans (FCI)
                   items:
-                    - name: Med Lagringsdirigering
-                      href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
-                    - name: Med premiumfilresurs
-                      href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+                    - name: Förbereda en virtuell dator för FCI
+                      href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
+                    - name: Skapa FCI med
+                      items:
+                        - name: Delade Azure-diskar i (SQL2019+)
+                          href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
+                        - name: Lagringsdirigering (Win2016+)
+                          href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+                        - name: Premium-filresurs (Win2012+)
+                          href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+                    - name: Namn på distribuerat nätverk (DNN)
+                      items:
+                        - name: Skapa DNN för FCI
+                          href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
+                        - name: Funktionssamverkan med DNN
+                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+                        - name: Funktioner för FCI DNN och SQL Server
+                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+                - name: Konfigurera anslutning
+                  items:
+                    - name: Namn på virtuellt nätverk (VNN)
+                      href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
         - name: Referens
           items:
             - name: Azure PowerShell

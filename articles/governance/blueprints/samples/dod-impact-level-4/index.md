@@ -1,18 +1,20 @@
 ---
 title: Skissexempel på DoD:s effektnivå 4 – översikt
 description: Översikt över exemplet på DoD:s effektnivå 4. Det här skissexemplet hjälper kunderna att utvärdera specifika kontroller för DoD:s effektnivå 4.
-ms.date: 03/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 3b032e1a26c4fb5e97b1c7ab4fff65bc1b046f21
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
-ms.translationtype: HT
+ms.openlocfilehash: 1c06cd738b9a63cb7a3ec14ef48bb8ae7c6dd6cb
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517260"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800400"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Översikt över skissexemplet på DoD:s effektnivå 4
 
 Skissexemplet på försvarsdepartementets effektnivå 4 ger styrningsriktlinjer med hjälp av [Azure Policy](../../../policy/overview.md) som hjälper dig att utvärdera specifika kontroller för DoD:s effektnivå 4. Den här skissen hjälper kunderna att distribuera en grundläggande uppsättning principer för all Azure-distribuerad arkitektur som måste implementera kontroller för DoD:s effektnivå 4. Den senaste informationen om vilka Azure-moln och -tjänster som uppfyller DoD Impact Level 4-autentisering finns i [Azure services by FedRAMP and DoD CC SRG audit scope](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) (Azure-tjänster efter omfång för FedRAMP- och DoD CC SRG-granskning).
+
+> [!NOTE]
+> Det här skissexemplet är tillgängligt i Azure Government.
 
 ## <a name="control-mapping"></a>Kontrollmappning
 

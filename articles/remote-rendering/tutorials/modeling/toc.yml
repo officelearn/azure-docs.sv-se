@@ -1,2 +1,4 @@
-- name: Konfigurera fysiskt baserat renderingsmaterial i Maya
+- name: Konfigurera fysiskt baserat renderingsmaterial i Autodesk Maya
   href: maya-material-setup.md
+- name: Konfigurera fysiskt baserat renderingsmaterial i Autodesk 3DSMax
+  href: 3dsmax-material-setup.md

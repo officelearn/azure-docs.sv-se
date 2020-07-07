@@ -230,6 +230,8 @@
               href: sql/data-loading-best-practices.md
             - name: Columnstore-komprimering
               href: sql/data-load-columnstore-compression.md
+            - name: Översikt av datainläsning
+              href: sql/load-data-overview.md
         - name: Utveckling
           items:
             - name: Översikt
@@ -362,8 +364,10 @@
       items:
         - name: Pipelinekörningar
           href: monitoring/how-to-monitor-pipeline-runs.md
-        - name: Spark-program
+        - name: Apache Spark-program
           href: monitoring/how-to-monitor-spark-applications.md
+        - name: Information om Apache Spark-program
+          href: monitoring/apache-spark-applications.md
         - name: Synapse SQL
           items:
             - name: Övervaka Gen2-cache

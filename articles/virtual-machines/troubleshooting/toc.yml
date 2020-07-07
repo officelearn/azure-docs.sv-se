@@ -200,6 +200,8 @@
       href: storage-resource-deletion-errors.md
     - name: Fel när du tar bort klassiska lagringsresurser
       href: storage-classic-cannot-delete-storage-account-container-vhd.md
+    - name: VHD stöds inte när du skapar en virtuell dator i Azure
+      href: vhd-not-supported-vm-azure.md
     - name: Använd kapslad virtualisering
       href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Prestandaproblem med virtuella datorer

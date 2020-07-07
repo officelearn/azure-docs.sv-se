@@ -25,6 +25,8 @@
           href: quickstart-send-telemetry-android.md
         - name: iOS
           href: quickstart-send-telemetry-ios.md
+        - name: Xamarin.Forms
+          href: quickstart-send-telemetry-xamarinforms.md
     - name: Kontrollera en enhet
       items:
         - name: Node.js
@@ -324,6 +326,8 @@
           href: iot-hub-distributed-tracing.md
         - name: Konfigurera IP-filtrering
           href: iot-hub-ip-filtering.md
+        - name: Hantera åtkomst till offentligt nätverk
+          href: iot-hub-public-network-access.md
         - name: Automatisk enhetshantering i stor skala
           items:
             - name: Använda Azure-portalen

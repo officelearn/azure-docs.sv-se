@@ -8,10 +8,10 @@ ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80057006"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Använd funktions filter för att aktivera en funktion för en delmängd av användare
@@ -20,7 +20,7 @@ Med funktions flaggor kan du aktivera eller inaktivera funktioner i ditt program
 
 En _villkorlig funktions flagga_ gör det möjligt att aktivera eller inaktivera funktions flagga dynamiskt. Programmet kan beter sig på olika sätt beroende på funktions flagg kriterier. Anta att du vill visa din nya funktion till en liten delmängd av användarna först. Med en villkorlig funktions flagga kan du aktivera funktions flaggan för vissa användare medan du inaktiverar den för andra. _Funktions filter_ bestämmer funktions flaggans status varje gången den utvärderas.
 
-`Microsoft.FeatureManagement` Biblioteket innehåller två funktions filter:
+`Microsoft.FeatureManagement`Biblioteket innehåller två funktions filter:
 
 - `PercentageFilter`aktiverar funktions flagga baserat på en procents ATS.
 - `TimeWindowFilter`aktiverar funktions flagga under en angiven tids period.
@@ -29,7 +29,7 @@ Du kan också skapa ett eget funktions filter som implementerar [gränssnittet M
 
 ## <a name="registering-a-feature-filter"></a>Registrera ett funktions filter
 
-Du registrerar ett funktions filter genom att anropa `AddFeatureFilter` -metoden och ange namnet på funktions filtret. Till exempel registreras `PercentageFilter`följande kod:
+Du registrerar ett funktions filter genom att anropa `AddFeatureFilter` -metoden och ange namnet på funktions filtret. Till exempel registreras följande kod `PercentageFilter` :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -41,7 +41,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="configuring-a-feature-filter-in-azure-app-configuration"></a>Konfigurera ett funktions filter i Azure App konfiguration
 
-Vissa funktions filter har ytterligare inställningar. `PercentageFilter` Aktiverar till exempel en funktion som baseras på en procent andel. Den har en inställning som definierar procent andelen som ska användas.
+Vissa funktions filter har ytterligare inställningar. Aktiverar till exempel `PercentageFilter` en funktion som baseras på en procent andel. Den har en inställning som definierar procent andelen som ska användas.
 
 Du kan konfigurera de här inställningarna för funktions flaggor som definierats i Azure App-konfigurationen. Följ till exempel de här stegen för `PercentageFilter` att aktivera funktions flagga för 50% av begär anden till en webbapp:
 

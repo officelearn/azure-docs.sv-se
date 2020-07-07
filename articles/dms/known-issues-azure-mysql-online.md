@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80235285"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problem med online-migrering & begränsningar för Azure DB för MySQL med Azure Database Migration Service
@@ -33,9 +33,9 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
   - MySQL Community Edition
   - InnoDB-motor
 - Migrering av samma version. Migrering av MySQL 5,6 till Azure Database for MySQL 5,7 stöds inte.
-- Aktivera binär loggning i My. ini (Windows) eller My. cnf (UNIX)
+- Aktivera binär loggning i my.ini (Windows) eller My. cnf (UNIX)
   - Ange Server_id till ett tal som är större eller lika med 1, till exempel Server_id = 1 (endast för MySQL 5,6)
-  - Ange log-bin = \<sökväg> (endast för MySQL 5,6)
+  - Ange log-bin = \<path> (endast för MySQL 5,6)
   - Ange binlog_format = rad
   - Expire_logs_days = 5 (rekommenderas endast för MySQL 5,6)
 - Användaren måste ha rollen ReplicationAdmin.
@@ -93,7 +93,7 @@ LOB-kolumner (Large Object) är kolumner som kan växa stora i storlek. För MyS
 
 När du försöker utföra en online-migrering från AWS RDS MySQL till att Azure Database for MySQL, kan du komma över följande fel.
 
-- **Fel:** {0}Databasen har sekundär nyckel (er) på målet. Åtgärda målet och starta en ny migreringsaktivitet för data. Kör skriptet nedan på målet för att visa en lista över sekundär nyckel (er)
+- **Fel:** Databasen {0} har sekundär nyckel (er) på målet. Åtgärda målet och starta en ny migreringsaktivitet för data. Kör skriptet nedan på målet för att visa en lista över sekundär nyckel (er)
 
   **Begränsning**: om du har sekundär nycklar i schemat kommer den inledande inläsningen och den kontinuerliga synkroniseringen av migreringen att Miss Miss förflyttningen.
   **Lösning**: kör följande skript i MySQL Workbench för att extrahera skriptet för att ta bort sekundär nyckel och lägga till sekundär nyckel skript:
@@ -102,7 +102,7 @@ När du försöker utföra en online-migrering från AWS RDS MySQL till att Azur
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
   ```
 
-- **Fel:** {0}Databasen finns inte på servern. Den angivna MySQL-källservern är skiftlägeskänslig. Kontrollera namnet på databasen.
+- **Fel:** Databasen {0} finns inte på servern. Den angivna MySQL-källservern är skiftlägeskänslig. Kontrollera namnet på databasen.
 
   **Begränsning**: när du migrerar en MySQL-databas till Azure med hjälp av kommando rads gränssnittet (CLI) kan användarna nå det här felet. Tjänsten kunde inte hitta databasen på käll servern, vilket kan bero på att du har angett ett felaktigt databas namn eller att databasen inte finns på den angivna servern. Obs! databas namn är Skift läges känsliga.
 

@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154754"
 ---
 # <a name="single-page-applications"></a>Program med en enda sida
@@ -26,7 +26,7 @@ ms.locfileid: "80154754"
 
 SPAs (Single-Page Applications) är vanligt vis strukturerade som ett JavaScript-presentations lager (klient del) som körs i webbläsaren och en server del för webb-API som körs på en server och implementerar programmets affärs logik. Om du vill veta mer om den implicita auktoriseringen och hjälpa dig att avgöra om det är rätt för ditt program scenario, se [förstå OAuth2 implicita bidrags flödet i Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-I det här scenariot använder Java Script-frontend [Active Directory-autentiseringsbibliotek för Java Script (ADAL) när användaren loggar in. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) och det implicita auktoriserings bidraget för att hämta en ID-token (id_token) från Azure AD. Token cachelagras och klienten kopplar den till begäran som Bearer-token vid anrop till dess webb-API-Server del, som skyddas med OWIN mellanprogram.
+I det här scenariot, när användaren loggar in, använder JavaScript-fronten [Active Directory-autentiseringsbibliotek för Java Script (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) och den implicita auktoriseringen för att hämta en ID-token (id_token) från Azure AD. Token cachelagras och klienten kopplar den till begäran som Bearer-token vid anrop till dess webb-API-Server del, som skyddas med OWIN mellanprogram.
 
 ## <a name="diagram"></a>Diagram
 
@@ -56,12 +56,12 @@ När du har registrerat programmet måste det konfigureras för att använda OAu
 
 ## <a name="token-expiration"></a>Förfallo datum för token
 
-Med hjälp av ADAL. js kan du:
+Med hjälp av ADAL.js kan du:
 
 * Uppdaterar en utgången token
 * Begära en åtkomsttoken för att anropa en webb-API-resurs
 
-Efter en lyckad autentisering skriver Azure AD en cookie i användarens webbläsare för att upprätta en session. Observera att sessionen finns mellan användaren och Azure AD (inte mellan användaren och webb programmet). När en token går ut använder ADAL. js den här sessionen för att hämta en annan token tyst. ADAL. js använder en dold iFrame för att skicka och ta emot begäran med hjälp av OAuth-protokollet för implicit tilldelning. ADAL. js kan också använda samma mekanism för att få åtkomst till tokens i bakgrunden för andra webb-API-resurser. programmet anropas så länge dessa resurser stöder resurs delning mellan ursprung (CORS), är registrerade i användarens katalog och alla nödvändiga medgivande gavs av användaren under inloggningen.
+Efter en lyckad autentisering skriver Azure AD en cookie i användarens webbläsare för att upprätta en session. Observera att sessionen finns mellan användaren och Azure AD (inte mellan användaren och webb programmet). När en token går ut använder ADAL.js den här sessionen för att hämta en annan token tyst. ADAL.js använder en dold iFrame för att skicka och ta emot begäran med hjälp av OAuth-protokollet för implicit tilldelning. ADAL.js kan också använda samma mekanism för att få åtkomst till tokens i bakgrunden för andra webb-API-resurser. programmet anropas så länge dessa resurser stöder resurs delning mellan ursprung (CORS), är registrerade i användarens katalog och alla nödvändiga medgivande angavs av användaren under inloggningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

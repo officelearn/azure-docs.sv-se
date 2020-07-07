@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80241066"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuera OPC, sammanflätade moduler och beroenden från grunden
@@ -109,11 +109,11 @@ Alla moduler distribueras med hjälp av ett distributions manifest.  Ett exempel
 
 Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-enhet är genom Azure Portal.  
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 1. Distribuera OPC dubbla [beroenden](howto-opc-twin-deploy-dependencies.md) och hämta den resulterande `.env` filen. Observera den distribuerade `hub name` `PCS_IOTHUBREACT_HUB_NAME` variabeln i den resulterande `.env` filen.
 
-2. Registrera och starta en [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) -eller [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge-gateway och `device id`anteckna dess.
+2. Registrera och starta en [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) -eller [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge-gateway och anteckna dess `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Distribuera till en Edge-enhet
 
@@ -127,7 +127,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
 
 5. I avsnittet **distributions moduler** på sidan väljer du **lägg till** och **IoT Edge modul.**
 
-6. I dialog rutan **IoT Edge anpassad modul** använder `opctwin` du som namn för modulen och anger sedan URI för behållar *avbildningen* som
+6. I dialog rutan **IoT Edge anpassad modul** använder du `opctwin` som namn för modulen och anger sedan URI för behållar *avbildningen* som
 
    ```bash
    mcr.microsoft.com/iotedge/opc-twin:latest
@@ -143,7 +143,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
 
 7. Välj **Spara** och upprepa steg **5**.  
 
-8. I dialog rutan IoT Edge anpassad modul använder `opcpublisher` du som namn för modulen och behållar *avbildningens URI* som 
+8. I dialog rutan IoT Edge anpassad modul använder du `opcpublisher` som namn för modulen och behållar *avbildningens URI* som 
 
    ```bash
    mcr.microsoft.com/iotedge/opc-publisher:latest
@@ -176,13 +176,13 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
 
 ## <a name="deploying-using-azure-cli"></a>Distribuera med Azure CLI
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 1. Installera den senaste versionen av [Azures kommando rads gränssnitt (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) [här](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Snabbstart
 
-1. Spara distributions manifestet ovan i `deployment.json` en fil.  
+1. Spara distributions manifestet ovan i en `deployment.json` fil.  
 
 2. Använd följande kommando för att tillämpa konfigurationen på en IoT Edge enhet:
 
@@ -190,7 +190,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
-   `device id` Parametern är Skift läges känslig. Innehålls parametern pekar på den distributions manifest fil som du sparade. 
+   `device id`Parametern är Skift läges känslig. Innehålls parametern pekar på den distributions manifest fil som du sparade. 
     ![AZ IoT Edge set-modules utdata](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. När du har distribuerat moduler till din enhet kan du Visa alla med följande kommando:

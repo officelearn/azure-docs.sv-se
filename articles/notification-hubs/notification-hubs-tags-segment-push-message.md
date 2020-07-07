@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062302"
 ---
 # <a name="routing-and-tag-expressions"></a>Uttryck för Routning och tagg
@@ -39,7 +39,7 @@ Det enda sättet att rikta in sig på specifika meddelande registreringar är at
 
 ## <a name="tags"></a>Taggar
 
-En tagg kan vara valfri sträng, upp till 120 tecken, med alfanumeriska tecken och följande icke-alfanumeriska tecken`_`: ' '`@`, ' '`#`,`.``:`', ' ', '`-`'. I följande exempel visas ett program som du kan ta emot popup-meddelanden från om specifika musik grupper. I det här scenariot är ett enkelt sätt att skicka meddelanden till etikett registreringar med taggar som representerar de olika banden, som i följande figur:
+En tagg kan vara valfri sträng, upp till 120 tecken, med alfanumeriska tecken och följande icke-alfanumeriska tecken: ' ', ' ', ', ' ' `_` `@` , ' `#` `.` `:` `-` '. I följande exempel visas ett program som du kan ta emot popup-meddelanden från om specifika musik grupper. I det här scenariot är ett enkelt sätt att skicka meddelanden till etikett registreringar med taggar som representerar de olika banden, som i följande figur:
 
 ![Översikt över Taggar](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
@@ -47,7 +47,7 @@ I bilden når meddelandet som taggats med **Beatles** bara den surfplatta som ha
 
 Mer information om hur du skapar registreringar för taggar finns i [registrerings hantering](notification-hubs-push-notification-registration-management.md).
 
-Du kan skicka meddelanden till taggar med hjälp av metoden skicka aviseringar `Microsoft.Azure.NotificationHubs.NotificationHubClient` för klassen i [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. Du kan också använda Node. js eller REST-API: er för push-meddelanden.  Här är ett exempel på hur du använder SDK: n.
+Du kan skicka meddelanden till taggar med hjälp av metoden skicka aviseringar för `Microsoft.Azure.NotificationHubs.NotificationHubClient` klassen i [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. Du kan också använda Node.js eller REST-API: er för push-meddelanden.  Här är ett exempel på hur du använder SDK: n.
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
@@ -69,7 +69,7 @@ Taggar får inte vara företablerade och kan referera till flera app-/regionsspe
 
 I det här exemplet är Alice intresse rad av uppdateringar för Beatles och Bob är intresse rad av uppdateringar för Wailers. Bob är också intresse rad av Kalles kommentarer, och Kalle är intresse rad av Wailers. När ett meddelande skickas för Kalle-kommentaren på Beatles skickar Notification Hubs den till både Alice och Bob.
 
-Även om du kan koda flera frågor i taggar (till exempel `band_Beatles` eller `follows_Charlie`), är Taggar enkla strängar och inte egenskaper med värden. En registrering matchar endast förekomsten eller frånvaron av en speciell tagg.
+Även om du kan koda flera frågor i taggar (till exempel `band_Beatles` eller `follows_Charlie` ), är Taggar enkla strängar och inte egenskaper med värden. En registrering matchar endast förekomsten eller frånvaron av en speciell tagg.
 
 En fullständig steg-för-steg-guide om hur du använder taggar för att skicka till intresse grupper finns i avsnittet om att [dela nyheter](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
@@ -82,7 +82,7 @@ Ett annat sätt att använda taggar är att identifiera alla enheter som är ass
 
 ![Tagga användare](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-I bilden når meddelandet taggade `user_Alice` alla enheter som taggats med. `user_Alice`
+I bilden når meddelandet taggade `user_Alice` alla enheter som taggats med `user_Alice` .
 
 ## <a name="tag-expressions"></a>Tagg uttryck
 
@@ -96,7 +96,7 @@ Det finns fall där meddelanden måste riktas mot en uppsättning registreringar
 
 ![Tagg uttryck](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Etikett uttryck stöder vanliga booleska operatorer som `AND` (`&&`), `OR` (`||`) och `NOT` (`!`); de kan också innehålla parenteser. Tagg uttryck som använder `OR` endast operatörer kan referera till 20 taggar. uttryck med `AND` operatorer men `OR` inga operatorer kan referera till 10 Taggar; annars är tagg uttryck begränsade till 6 taggar.
+Etikett uttryck stöder vanliga booleska operatorer som `AND` ( `&&` ), `OR` ( `||` ) och `NOT` ( `!` ). de kan också innehålla parenteser. Tagg uttryck med endast `OR` operatörer kan referera till 20 Taggar; uttryck med `AND` operatorer, men inga `OR` operatorer kan referera till 10 taggar. annars är tagg uttryck begränsade till 6 taggar.
 
 Här är ett exempel på hur du skickar meddelanden med tagg uttryck med hjälp av SDK:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: 5b3d6d0561d7d6d6b23cb4f579b0988850da9771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056871"
 ---
 # <a name="import-or-export-configuration-data"></a>Importera eller exportera konfigurationsdata
@@ -28,7 +28,7 @@ Importera data med hjälp av antingen [Azure Portal](https://portal.azure.com) e
 
 1. Bläddra till appens konfigurations Arkiv och välj **Importera/exportera** på menyn **åtgärder** .
 
-1. På fliken **Importera** väljer du **käll tjänst** > **konfigurations fil**.
+1. På fliken **Importera** väljer du **käll tjänst**  >  **konfigurations fil**.
 
 1. Välj **för språk** och välj önskad Indatatyp.
 
@@ -52,11 +52,11 @@ Exportera data med hjälp av antingen [Azure Portal](https://portal.azure.com) e
 
 1. Bläddra till appens konfigurations Arkiv och välj **Importera/exportera**.
 
-1. På fliken **Exportera** väljer du**konfigurations filen**för **mål tjänsten** > .
+1. På fliken **Exportera** väljer du **Target service**  >  **konfigurations filen**för mål tjänsten.
 
 1. Du kan också ange ett **prefix** och välja en **etikett** och en tidpunkt för nycklar som ska exporteras.
 
-1. Välj en **fil typs** > **avgränsare**.
+1. Välj en **fil typs**  >  **avgränsare**.
 
 1. Välj **tillämpa** för att slutföra exporten.
 

@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4ff270977449bb80f97073342dc0c726a3f2316
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128525"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Begär process-och e-postaviseringar i hantering av Azure AD-berättigande
@@ -33,9 +33,9 @@ En användare som behöver åtkomst till ett Access-paket kan skicka en åtkomst
 
 ![Diagram över godkännande process](./media/entitlement-management-process/request-process.png)
 
-| Status | Beskrivning |
+| Stat | Beskrivning |
 | --- | --- |
-| Skickat | Användaren skickar en begäran. |
+| Skickad | Användaren skickar en begäran. |
 | Väntar på godkännande | Om principen för ett Access-paket kräver godkännande flyttas en begäran till väntar på godkännande. |
 | Upphörd | Om inga god kännare godkänner en begäran inom tids gränsen för godkännandebegäran, förfaller begäran. Användaren måste skicka in begäran igen för att försöka igen. |
 | Nekad | God kännaren nekar en begäran. |

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239366"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsning av Resource Manager-förfrågningar
@@ -43,7 +43,7 @@ Resurs leverantörer tillämpar egna begränsnings gränser. Eftersom resurs han
 
 I det här avsnittet beskrivs begränsnings gränserna för vissa vanliga resurs leverantörer.
 
-### <a name="storage-throttling"></a>Lagrings begränsning
+### <a name="storage-throttling"></a>Lagringsbegränsning
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 

@@ -4,10 +4,10 @@ description: 'Importera behållar avbildningar till ett Azure Container Registry
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80051925"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importera behållar avbildningar till ett behållar register
@@ -34,7 +34,7 @@ Den här artikeln kräver att du kör Azure CLI i Azure Cloud Shell eller lokalt
 > Om du behöver distribuera identiska behållar avbildningar i flera Azure-regioner stöder Azure Container Registry också [geo-replikering](container-registry-geo-replication.md). Genom geo-replikering av ett register (Premium service nivå krävs) kan du hantera flera regioner med identiska bild-och taggnamn från ett enda register.
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har ett Azure Container Registry skapar du ett register. Anvisningar finns i [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
 
@@ -44,7 +44,7 @@ Om du vill importera en avbildning till ett Azure Container Registry måste iden
 
 ### <a name="import-from-docker-hub"></a>Importera från Docker Hub
 
-Använd exempelvis kommandot [AZ ACR import][az-acr-import] för att importera avbildningen av flera arkitekturer `hello-world:latest` från Docker-hubb till ett register med namnet *unregistry*. Eftersom `hello-world` är en officiell avbildning från Docker Hub finns den här avbildningen i standard `library` lagrings platsen. Inkludera databas namnet och eventuellt en tagg i värdet för parametern `--source` image. (Du kan också identifiera en avbildning med dess manifest sammandrag i stället för efter tagg, som garanterar en viss version av en avbildning.)
+Använd exempelvis kommandot [AZ ACR import][az-acr-import] för att importera avbildningen av flera arkitekturer `hello-world:latest` från Docker-hubb till ett register med namnet *unregistry*. Eftersom `hello-world` är en officiell avbildning från Docker Hub finns den här avbildningen i standard `library` lagrings platsen. Inkludera databas namnet och eventuellt en tagg i värdet för `--source` parametern image. (Du kan också identifiera en avbildning med dess manifest sammandrag i stället för efter tagg, som garanterar en viss version av en avbildning.)
  
 ```azurecli
 az acr import \
@@ -53,7 +53,7 @@ az acr import \
   --image hello-world:latest
 ```
 
-Du kan kontrol lera att flera manifest är associerade med den här avbildningen genom `az acr repository show-manifests` att köra kommandot:
+Du kan kontrol lera att flera manifest är associerade med den här avbildningen genom att köra `az acr repository show-manifests` kommandot:
 
 ```azurecli
 az acr repository show-manifests \
@@ -100,7 +100,7 @@ az acr import \
   --image aci-helloworld:latest
 ```
 
-I följande exempel importeras en avbildning av manifest sammandrag (SHA-256-hash, som `sha256:...`visas) i stället för taggen:
+I följande exempel importeras en avbildning av manifest sammandrag (SHA-256-hash, som visas `sha256:...` ) i stället för taggen:
 
 ```azurecli
 az acr import \

@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050296"
 ---
 # <a name="confidential-client-assertions"></a>Konfidentiell klient kontroll
@@ -35,7 +35,7 @@ MSAL.NET har fyra metoder för att ange autentiseringsuppgifter eller intyg för
 - `.WithClientClaims()`
 
 > [!NOTE]
-> Även om det är möjligt att använda `WithClientAssertion()` API: et för att hämta tokens för den konfidentiella klienten rekommenderar vi inte att du använder den som standard eftersom den är mer avancerad och har utformats för att hantera mycket olika scenarier som inte är vanliga. Med hjälp `.WithCertificate()` av API: et kan MSAL.net hantera detta åt dig. Med det här API: et kan du anpassa din autentiseringsbegäran om det behövs, men den standard kontroll som `.WithCertificate()` skapas av är tillräckligt för de flesta autentiserings scenarier. Detta API kan också användas som en lösning i vissa scenarier där MSAL.NET inte kan utföra signerings åtgärden internt.
+> Även om det är möjligt att använda `WithClientAssertion()` API: et för att hämta tokens för den konfidentiella klienten rekommenderar vi inte att du använder den som standard eftersom den är mer avancerad och har utformats för att hantera mycket olika scenarier som inte är vanliga. Med hjälp av `.WithCertificate()` API: et kan MSAL.net hantera detta åt dig. Med det här API: et kan du anpassa din autentiseringsbegäran om det behövs, men den standard kontroll som skapas av `.WithCertificate()` är tillräckligt för de flesta autentiserings scenarier. Detta API kan också användas som en lösning i vissa scenarier där MSAL.NET inte kan utföra signerings åtgärden internt.
 
 ### <a name="signed-assertions"></a>Signerade kontroller
 
@@ -135,7 +135,7 @@ string GetSignedClientAssertion()
 
 ### <a name="alternative-method"></a>Alternativ metod
 
-Du kan också välja att använda [Microsoft. IdentityModel. JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) för att skapa en kontroll för dig. Koden får ett mer elegant som visas i exemplet nedan:
+Du kan också välja att använda [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) för att skapa en kontroll. Koden får ett mer elegant som visas i exemplet nedan:
 
 ```csharp
         string GetSignedClientAssertion()
@@ -196,4 +196,4 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Om något av anspråken i ord listan som du skickar in är samma som ett av de obligatoriska anspråken, tas det ytterligare anspråkets värde med i beräkningen. Den åsidosätter de anspråk som beräknas av MSAL.NET.
 
-Om du vill ange egna anspråk, inklusive obligatoriska anspråk som förväntas av Azure AD, kan du `false` skicka in `mergeWithDefaultClaims` för-parametern.
+Om du vill ange egna anspråk, inklusive obligatoriska anspråk som förväntas av Azure AD, kan du skicka in `false` för- `mergeWithDefaultClaims` parametern.

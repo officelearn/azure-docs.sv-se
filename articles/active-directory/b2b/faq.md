@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050825"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Vanliga frågor och svar om Azure Active Directory B2B-samarbete
@@ -64,7 +64,7 @@ Om en användare inte har tilldelats rollen begränsad administratör behöver i
 Ja! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-och externa användare från att få åtkomst till Azure Portal. När du konfigurerar den här principen bör du vara noga med att undvika att blockera åtkomst till medlemmar och administratörer av misstag.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som säkerhets administratör eller administratör för villkorlig åtkomst.
-2. Välj **Azure Active Directory** i Azure Portal. 
+2. I Azure Portal väljer du **Azure Active Directory**. 
 3. Under **Hantera**väljer du **säkerhet**.
 4. Under **skydda**väljer du **villkorlig åtkomst**. Välj **ny princip**.
 5. På sidan **nytt** i text rutan **namn** anger du ett namn för principen (till exempel "blockera gäster från åtkomst till portalen").
@@ -82,7 +82,7 @@ Ja. Multi-Factor Authentication-och konsument-e-postkonton stöds både för Azu
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Har du stöd för lösen ords återställning för Azure AD B2B Collaboration-användare?
 Om din Azure AD-klient är hem katalogen för en användare kan du [återställa användarens lösen ord](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) från Azure Portal. Men du kan inte återställa ett lösen ord direkt för en gäst användare som loggar in med ett konto som hanteras av en annan Azure AD-katalog eller extern identitets leverantör. Endast gäst användaren eller en administratör i användarens arbets katalog kan återställa lösen ordet. Här följer några exempel på hur lösen ords återställning fungerar för gäst användare:
  
-* Gäst användare som loggar in med en Microsoft-konto (till exempel guestuser@live.com) kan återställa sina egna lösen ord med hjälp av Microsoft-konto självbetjäning för återställning av lösen ord (SSPR). Se [hur du återställer Microsoft-konto-lösenordet](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
+* Gäst användare som loggar in med en Microsoft-konto (till exempel guestuser@live.com ) kan återställa sina egna lösen ord med hjälp av Microsoft-konto självbetjäning för återställning av lösen ord (SSPR). Se [hur du återställer Microsoft-konto-lösenordet](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gäst användare som loggar in med ett Google-konto eller en annan extern identitetsprovider kan återställa sina egna lösen ord med hjälp av identitets leverantörens SSPR-metod. Till exempel kan en gäst användare med Google-kontot guestuser@gmail.com återställa sitt lösen ord genom att följa anvisningarna i [ändra eller återställa ditt lösen ord](https://support.google.com/accounts/answer/41078).
 * Om identitets klienten är en just-in-Time-klient (JIT) eller "viral"-klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
 

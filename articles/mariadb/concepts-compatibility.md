@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: a0cee198f028fd90e04dac15e98d7cd33aee9201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79532356"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB-drivrutiner och hanterings verktyg som är kompatibla med Azure Database for MariaDB
@@ -23,7 +23,7 @@ Azure Database for MariaDB använder community-versionen av MariaDB-servern. Dä
 
 Målet är att stödja de tre senaste versionerna av MariaDB-drivrutinerna och ansträngningar med författare från communityn för öppen källkod för att ständigt förbättra funktionaliteten och användbarheten hos MariaDB-drivrutiner. En lista med driv rutiner som har testats och som är kompatibla med Azure Database for MariaDB 10,2 finns i följande tabell:
 
-**Drivrutin** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Obs!**
+**Drivrutin** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Anteckningar**
 ---|---|---|---|---
 PHP | https://secure.php.net/downloads.php | 5,5, 5,6, 7. x | 5.3 | För PHP 7,0-anslutning med SSL MySQLi lägger du till MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT i anslutnings strängen. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> SUB set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` alternativ till false.
 .NET | [MySqlConnector på GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installations paket från NuGet](https://www.nuget.org/packages/MySqlConnector/) | 0,27 och efter | 0.26.5 och före |

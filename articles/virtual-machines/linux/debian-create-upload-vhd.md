@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: guybo
 ms.openlocfilehash: d54f7a11d929c31fee29a788eb3a2ae2cc8f2703
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066715"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Förbered en virtuell Debian-VHD för Azure
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-operativsystem från en. ISO-fil som hämtats från [Debian-webbplatsen](https://www.debian.org/distrib/) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer; Hyper-V är bara ett exempel. Instruktioner för hur du använder Hyper-V finns i [Installera Hyper-v-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 ## <a name="installation-notes"></a>Installations information
@@ -25,7 +25,7 @@ Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-o
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till en virtuell hård disk måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes).
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Använd Azure-Manage för att skapa Debian-VHD: er
-Det finns verktyg som är tillgängliga för att skapa Debian-VHD: er för Azure, till exempel [Azure-hantera](https://github.com/credativ/azure-manage) skript från [credativ](https://www.credativ.com/). Detta är den rekommenderade metoden jämfört med att skapa en avbildning från grunden. Om du till exempel vill skapa en Debian 8-VHD kör du följande kommandon för `azure-manage` att ladda ned verktyget (och beroenden `azure_build_image` ) och köra skriptet:
+Det finns verktyg som är tillgängliga för att skapa Debian-VHD: er för Azure, till exempel [Azure-hantera](https://github.com/credativ/azure-manage) skript från [credativ](https://www.credativ.com/). Detta är den rekommenderade metoden jämfört med att skapa en avbildning från grunden. Om du till exempel vill skapa en Debian 8-VHD kör du följande kommandon för att ladda ned `azure-manage` verktyget (och beroenden) och köra `azure_build_image` skriptet:
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap
@@ -42,7 +42,7 @@ Det finns verktyg som är tillgängliga för att skapa Debian-VHD: er för Azure
 ## <a name="manually-prepare-a-debian-vhd"></a>Förbered en virtuell Debian-VHD manuellt
 1. Välj den virtuella datorn i Hyper-V Manager.
 2. Klicka på **Anslut** för att öppna ett konsol fönster för den virtuella datorn.
-3. Om du har installerat operativ systemet med hjälp av ISO kan du kommentera ut vilken rad som`deb cdrom`helst som `/etc/apt/source.list`relaterar till "" i.
+3. Om du har installerat operativ systemet med hjälp av ISO kan du kommentera ut vilken rad som helst som relaterar till " `deb cdrom` " i `/etc/apt/source.list` .
 
 4. Redigera `/etc/default/grub` filen och ändra **GRUB_CMDLINE_LINUX** -parametern enligt följande om du vill inkludera ytterligare kernel-parametrar för Azure.
    

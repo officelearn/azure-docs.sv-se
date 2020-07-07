@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154958"
 ---
 # <a name="application-types-in-v10"></a>Program typer i v 1.0
@@ -72,7 +72,7 @@ Etableringen blir tydligare när du förstår att det finns två kategorier av p
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Ytterligare överväganden när du utvecklar en enskild klient eller appar för flera klient organisationer
 
-Vissa ytterligare överväganden uppstår när du utvecklar ett program med flera klienter i stället för ett enda klient program. Om du till exempel gör ditt program tillgängligt för användare i flera kataloger, behöver du en mekanism för att avgöra vilken klient de befinner sig i. Ett enda klient program behöver bara titta i sin egen katalog för en användare, medan ett program med flera innehavare måste identifiera en viss användare från alla kataloger i Azure AD. För att utföra den här uppgiften tillhandahåller Azure AD en gemensam autentiserings-slutpunkt där ett program med flera klienter kan dirigera inloggnings begär Anden, i stället för en klient specifik slut punkt. Den här slut `https://login.microsoftonline.com/common` punkten är för alla kataloger i Azure AD, medan en klient särskild slut punkt `https://login.microsoftonline.com/contoso.onmicrosoft.com`kan vara. Den vanliga slut punkten är särskilt viktig att tänka på när du utvecklar ditt program eftersom du behöver den nödvändiga logiken för att hantera flera klienter vid inloggning, utloggning och verifiering av token.
+Vissa ytterligare överväganden uppstår när du utvecklar ett program med flera klienter i stället för ett enda klient program. Om du till exempel gör ditt program tillgängligt för användare i flera kataloger, behöver du en mekanism för att avgöra vilken klient de befinner sig i. Ett enda klient program behöver bara titta i sin egen katalog för en användare, medan ett program med flera innehavare måste identifiera en viss användare från alla kataloger i Azure AD. För att utföra den här uppgiften tillhandahåller Azure AD en gemensam autentiserings-slutpunkt där ett program med flera klienter kan dirigera inloggnings begär Anden, i stället för en klient specifik slut punkt. Den här slut punkten är `https://login.microsoftonline.com/common` för alla kataloger i Azure AD, medan en klient särskild slut punkt kan vara `https://login.microsoftonline.com/contoso.onmicrosoft.com` . Den vanliga slut punkten är särskilt viktig att tänka på när du utvecklar ditt program eftersom du behöver den nödvändiga logiken för att hantera flera klienter vid inloggning, utloggning och verifiering av token.
 
 Om du för närvarande utvecklar ett enda klient program, men vill göra det tillgängligt för många organisationer, kan du enkelt göra ändringar i programmet och dess konfiguration i Azure AD så att det kan användas med flera innehavare. Dessutom använder Azure AD samma signerings nyckel för alla tokens i alla kataloger, oavsett om du tillhandahåller autentisering i en enda klient eller ett program för flera innehavare.
 

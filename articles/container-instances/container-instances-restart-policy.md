@@ -4,13 +4,13 @@ description: Lär dig hur du använder Azure Container Instances för att köra 
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80131498"
 ---
-# <a name="run-containerized-tasks-with-restart-policies"></a>Köra uppgifter i behållare med principer för omstart
+# <a name="run-containerized-tasks-with-restart-policies"></a>Köra uppgifter i containrar med principer för omstart
 
 Eftersom det går snabbt att distribuera containrar i Azure Container Instances är det en bra plattform för att köra engångsuppgifter som att skapa, testa och återge avbildningar i en containerinstans.
 
@@ -30,7 +30,7 @@ När du skapar en [behållar grupp](container-instances-container-groups.md) i A
 
 ## <a name="specify-a-restart-policy"></a>Ange en princip för omstart
 
-Hur du anger en princip för omstart beror på hur du skapar dina behållar instanser, till exempel med Azure CLI, Azure PowerShell-cmdlets eller i Azure Portal. I Azure CLI anger du `--restart-policy` parametern när du anropar [AZ container Create][az-container-create].
+Hur du anger en princip för omstart beror på hur du skapar dina behållar instanser, till exempel med Azure CLI, Azure PowerShell-cmdlets eller i Azure Portal. I Azure CLI anger `--restart-policy` du parametern när du anropar [AZ container Create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -42,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Exempel på Kör till slut för ande
 
-Om du vill se principen starta om i praktiken skapar du en behållar instans från Microsoft [ACI-WORDCOUNT-][aci-wordcount-image] avbildningen och anger principen för `OnFailure` omstart. Den här exempel behållaren kör ett Python-skript som, som standard, analyserar texten i Shakespeare- [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), skriver de 10 vanligaste orden till stdout och sedan avslutar.
+Om du vill se principen starta om i praktiken skapar du en behållar instans från Microsoft [ACI-WORDCOUNT-][aci-wordcount-image] avbildningen och anger `OnFailure` principen för omstart. Den här exempel behållaren kör ett Python-skript som, som standard, analyserar texten i Shakespeare- [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), skriver de 10 vanligaste orden till stdout och sedan avslutar.
 
 Kör exempel behållaren med följande [AZ container Create][az-container-create] -kommando:
 
@@ -54,7 +54,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances startar containern och stoppar den när appen (eller skriptet i det här fallet) avslutas. När Azure Container Instances stoppar en behållare vars restart-princip `Never` är `OnFailure`eller, är behållarens status inställd på **avslutad**. Du kan kontrol lera statusen för en behållare med kommandot [AZ container show][az-container-show] :
+Azure Container Instances startar containern och stoppar den när appen (eller skriptet i det här fallet) avslutas. När Azure Container Instances stoppar en behållare vars restart-princip är `Never` eller `OnFailure` , är behållarens status inställd på **avslutad**. Du kan kontrol lera statusen för en behållare med kommandot [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show \

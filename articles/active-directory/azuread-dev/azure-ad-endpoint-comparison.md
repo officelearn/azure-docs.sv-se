@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154924"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför uppdatera till Microsoft-identitetsplattformen (v2.0)?
@@ -33,7 +33,7 @@ När du utvecklar ett nytt program är det viktigt att känna till skillnaderna 
 
 * V 1.0-slutpunkten tillåter endast arbets-och skol konton att logga in i ditt program (Azure AD)
 * Med Microsoft Identity Platform-slutpunkten kan du logga in med arbets-och skol konton från Azure AD och personliga Microsoft-konton (MSA), till exempel hotmail.com, outlook.com och msn.com.
-* Båda slut punkterna accepterar också inloggnings program för *[gäst användare](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* i en Azure AD-katalog för program som kon figurer ATS som *[en enskild klient](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* eller för program *med flera klienter* som kon figurer ATS för att`https://login.microsoftonline.com/{TenantId_or_Name}`peka på den klient-/regionsspecifika slut punkten ().
+* Båda slut punkterna accepterar också inloggnings program för *[gäst användare](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* i en Azure AD-katalog för program som kon figurer ATS som *[en enskild klient](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* eller för program *med flera klienter* som kon figurer ATS för att peka på den klient-/regionsspecifika slut punkten ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
 Med slut punkten för Microsoft Identity Platform kan du skriva appar som accepterar inloggningar från personliga Microsoft-konton och arbets-och skol konton. Det ger dig möjlighet att skriva appens fullständigt konto-oberoende. Om din app till exempel anropar [Microsoft Graph](https://graph.microsoft.io), kommer vissa ytterligare funktioner och data att vara tillgängliga för arbets konton, till exempel SharePoint-webbplatser eller katalog data. Men för många åtgärder, till exempel [läsning av en användares e-post](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), kan samma kod komma åt e-postmeddelandet för både personliga konton och arbets-och skol konton.
 
@@ -51,9 +51,9 @@ Behörigheterna som anges direkt på program registreringen är **statiska**. Ä
 
 * Appen måste känna till alla resurser som den skulle ha haft till gång till i förväg. Det var svårt att skapa appar som kunde komma åt ett godtyckligt antal resurser.
 
-Med Microsoft Identity Platform-slutpunkten kan du ignorera de statiska behörigheter som definierats i appens registrerings information i Azure Portal och begär behörigheter stegvis i stället, vilket innebär att du ombeds att ange en minimal uppsättning behörigheter som är i drift fram och växer mer över tid eftersom kunden använder ytterligare AppData. Om du vill göra det kan du ange de omfattningar som appen behöver när som helst genom att inkludera de nya omfången `scope` i parametern när du begär en åtkomsttoken – utan att behöva definiera dem i program registrerings informationen. Om användaren ännu inte har samtyckt till nya omfattningar som lagts till i begäran, uppmanas de bara att godkänna de nya behörigheterna. Läs mer i [behörigheter, medgivande och omfång](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Med Microsoft Identity Platform-slutpunkten kan du ignorera de statiska behörigheter som definierats i appens registrerings information i Azure Portal och begär behörigheter stegvis i stället, vilket innebär att du ombeds att ange en minimal uppsättning behörigheter som är i drift fram och växer mer över tid eftersom kunden använder ytterligare AppData. Om du vill göra det kan du ange de omfattningar som appen behöver när som helst genom att inkludera de nya omfången i `scope` parametern när du begär en åtkomsttoken – utan att behöva definiera dem i program registrerings informationen. Om användaren ännu inte har samtyckt till nya omfattningar som lagts till i begäran, uppmanas de bara att godkänna de nya behörigheterna. Läs mer i [behörigheter, medgivande och omfång](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-Genom att tillåta en app att begära behörigheter dynamiskt `scope` via parametern ger utvecklare fullständig kontroll över din användar upplevelse. Du kan också läsa in din medgivande upplevelse och fråga efter alla behörigheter i en första auktoriseringsbegäran-begäran. Om din app kräver ett stort antal behörigheter kan du samla in dessa behörigheter från användaren stegvis när de försöker använda vissa funktioner i appen över tid.
+Genom att tillåta en app att begära behörigheter dynamiskt via `scope` parametern ger utvecklare fullständig kontroll över din användar upplevelse. Du kan också läsa in din medgivande upplevelse och fråga efter alla behörigheter i en första auktoriseringsbegäran-begäran. Om din app kräver ett stort antal behörigheter kan du samla in dessa behörigheter från användaren stegvis när de försöker använda vissa funktioner i appen över tid.
 
 Administratörs medgivande som gjorts för en organisations räkning kräver fortfarande de statiska behörigheter som registrerats för appen, så du bör ange dessa behörigheter för appar i appens registrerings portal om du behöver en administratör för att ge tillåtelse åt hela organisationen. Detta minskar de cykler som krävs av organisationens administratör för att konfigurera programmet.
 
@@ -61,8 +61,8 @@ Administratörs medgivande som gjorts för en organisations räkning kräver for
 
 För appar som använder v 1.0-slutpunkten kan en app beter sig som en **resurs**eller en mottagare av tokens. En resurs kan definiera ett antal **omfattningar** eller **oAuth2Permissions** som den förstår, vilket gör det möjligt för klient program att begära token från den resursen för en viss uppsättning omfång. Överväg Microsoft Graph-API: et som ett exempel på en resurs:
 
-* Resurs-ID eller `AppID URI`:`https://graph.microsoft.com/`
-* Omfattningar, eller `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, och så vidare.
+* Resurs-ID eller `AppID URI` :`https://graph.microsoft.com/`
+* Omfattningar, eller `oAuth2Permissions` : `Directory.Read` , `Directory.Write` , och så vidare.
 
 Detta gäller för Microsoft Identity Platform-slutpunkten. En app kan fortfarande fungera som en resurs, definiera omfång och identifieras av en URI. Klient program kan fortfarande begära åtkomst till dessa scope. Men det kan vara så att en klient begär dessa behörigheter.
 
@@ -92,20 +92,20 @@ Här anger **omfattnings** parametern vilken resurs och vilka behörigheter appe
 
 ### <a name="offline-access"></a>Åtkomst offline
 
-Appar som använder Microsoft Identity Platform-slutpunkten kan kräva att en ny välkänd behörighet för appar- `offline_access` omfånget används. Alla appar måste begära den här behörigheten om de behöver åtkomst till resurser för en användares räkning under en längre tids period, även om användaren inte kan använda appen aktivt. Omfånget visas för användaren i medgivande dialog rutor som **åtkomst till dina data när som helst**, vilka användaren måste godkänna. `offline_access` Om du `offline_access` begär behörigheten kommer din webbapp att kunna ta emot OAuth 2,0-refresh_tokens från slut punkten för Microsoft Identity Platform. Uppdaterade token är långa och kan bytas ut för nya OAuth 2,0-åtkomsttoken för utökade åtkomst perioder.
+Appar som använder Microsoft Identity Platform-slutpunkten kan kräva att en ny välkänd behörighet för appar- `offline_access` omfånget används. Alla appar måste begära den här behörigheten om de behöver åtkomst till resurser för en användares räkning under en längre tids period, även om användaren inte kan använda appen aktivt. `offline_access`Omfånget visas för användaren i medgivande dialog rutor som **åtkomst till dina data när som helst**, vilka användaren måste godkänna. Om du begär `offline_access` behörigheten kommer din webbapp att kunna ta emot OAuth 2,0-refresh_tokens från slut punkten för Microsoft Identity Platform. Uppdaterade token är långa och kan bytas ut för nya OAuth 2,0-åtkomsttoken för utökade åtkomst perioder.
 
 Om din app inte begär `offline_access` omfånget får den inte ta emot uppdateringstoken. Det innebär att när du löser in en auktoriseringskod i OAuth 2,0-Authorization Code Flow får du bara tillbaka en åtkomsttoken från `/token` slut punkten. Denna åtkomsttoken är fortfarande giltig under en kort tids period (vanligt vis en timme), men kommer att upphöra att gälla. Vid den tidpunkten måste din app omdirigera användaren tillbaka till `/authorize` slut punkten för att hämta en ny auktoriseringskod. Under den här omdirigeringen kanske användaren inte behöver ange sina autentiseringsuppgifter igen eller medgivande till behörigheter, beroende på typ av app.
 
-Om du vill veta mer om OAuth `refresh_tokens`2,0, `access_tokens`och kolla in [Microsoft Identity Platform Protocol-referens](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Om du vill veta mer om OAuth 2,0, `refresh_tokens` och `access_tokens` kolla in [Microsoft Identity Platform Protocol-referens](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ### <a name="openid-profile-and-email"></a>OpenID, profil och e-post
 
 Tidigare var det mest grundläggande OpenID Connect-inloggnings flödet med Microsoft Identity Platform en mycket information om användaren i den resulterande *id_token*. Anspråk i en id_token kan innehålla användarens namn, önskat användar namn, e-postadress, objekt-ID med mera.
 
-Den information som `openid` omfånget ger åtkomst till appen är nu begränsad. `openid` Omfånget tillåter bara att din app loggar in användaren och tar emot en app-Specific Identifier för användaren. Om du vill hämta personliga data om användaren i din app måste appen begära ytterligare behörigheter från användaren. Två nya omfattningar `email` och `profile`ger dig möjlighet att begära ytterligare behörigheter.
+Den information som `openid` omfånget ger åtkomst till appen är nu begränsad. `openid`Omfånget tillåter bara att din app loggar in användaren och tar emot en app-Specific Identifier för användaren. Om du vill hämta personliga data om användaren i din app måste appen begära ytterligare behörigheter från användaren. Två nya omfattningar och ger `email` `profile` dig möjlighet att begära ytterligare behörigheter.
 
-* Med `email` hjälp av omfånget får appen åtkomst till användarens primära e- `email` postadress via anspråket i id_token, förutsatt att användaren har en adresserad e-postadress.
-* `profile` Omfånget ger appen åtkomst till all annan grundläggande information om användaren, till exempel namn, önskat användar namn, objekt-ID och så vidare i id_token.
+* Med hjälp av `email` omfånget får appen åtkomst till användarens primära e-postadress via `email` anspråket i id_token, förutsatt att användaren har en adresserad e-postadress.
+* `profile`Omfånget ger appen åtkomst till all annan grundläggande information om användaren, till exempel namn, önskat användar namn, objekt-ID och så vidare i id_token.
 
 Med de här omfången kan du koda din app på ett minimalt sätt så att du bara kan fråga användaren om den information som appen behöver för att utföra sitt jobb. Mer information om de här omfattningarna finns i [referens för Microsoft Identity Platform](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
@@ -141,7 +141,7 @@ Appregistreringar som har stöd för arbets-och skol konton och personliga konto
 
 ### <a name="restrictions-on-redirect-urls"></a>Begränsningar för omdirigerings-URL: er
 
-Appar som har registrerats för Microsoft Identity Platform är begränsade till en begränsad uppsättning URL-värden för omdirigering. Omdirigerings-URL: en för webbappar och tjänster måste `https`börja med schemat, och alla omdirigerings-URL-värden måste dela en enda DNS-domän.  Registrerings systemet jämför hela DNS-namnet på den befintliga omdirigerings-URL: en till DNS-namnet för den omdirigerings-URL som du lägger till. `http://localhost`stöds också som en omdirigerings-URL.  
+Appar som har registrerats för Microsoft Identity Platform är begränsade till en begränsad uppsättning URL-värden för omdirigering. Omdirigerings-URL: en för webbappar och tjänster måste börja med schemat `https` , och alla omdirigerings-URL-värden måste dela en enda DNS-domän.  Registrerings systemet jämför hela DNS-namnet på den befintliga omdirigerings-URL: en till DNS-namnet för den omdirigerings-URL som du lägger till. `http://localhost`stöds också som en omdirigerings-URL.  
 
 Begäran om att lägga till DNS-namnet kommer att misslyckas om något av följande villkor föreligger:  
 
@@ -150,7 +150,7 @@ Begäran om att lägga till DNS-namnet kommer att misslyckas om något av följa
 
 #### <a name="example-1"></a>Exempel 1
 
-Om appen har en omdirigerings- `https://login.contoso.com`URL för kan du lägga till en omdirigerings-URL där DNS-namnet matchar exakt, som du ser i följande exempel:
+Om appen har en omdirigerings-URL för `https://login.contoso.com` kan du lägga till en omdirigerings-URL där DNS-namnet matchar exakt, som du ser i följande exempel:
 
 `https://login.contoso.com/new`
 
@@ -176,18 +176,18 @@ Information om hur du registrerar en app för användning med Microsoft Identity
 
 Biblioteks stöd för Microsoft Identity Platform-slutpunkten är för närvarande begränsad. Om du vill använda Microsoft Identity Platform-slutpunkten i ett produktions program har du följande alternativ:
 
-* Om du skapar ett webb program kan du på ett säkert sätt använda den allmänt tillgängliga mellanliggande server sidan för att utföra inloggning och verifiering av token. Det inkluderar OWIN OpenID Connect-programprogram för ASP.NET och Node. js Passport-plugin-programmet. Kod exempel som använder Microsoft mellanprogram finns i avsnittet [komma igång med Microsoft Identity Platform](../develop/v2-overview.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#getting-started) .
+* Om du skapar ett webb program kan du på ett säkert sätt använda den allmänt tillgängliga mellanliggande server sidan för att utföra inloggning och verifiering av token. Detta inkluderar OWIN OpenID Connect-programprogram för ASP.NET och plugin-programmet för Node.js Passport. Kod exempel som använder Microsoft mellanprogram finns i avsnittet [komma igång med Microsoft Identity Platform](../develop/v2-overview.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#getting-started) .
 * Om du skapar ett skriv bord eller ett mobilt program kan du använda något av Microsoft-MSAL (Authentication Libraries). Dessa bibliotek är allmänt tillgängliga eller i en för hands version som stöds för produktion, så det är säkert att använda dem i produktions program. Du kan läsa mer om villkoren i för hands versionen och de tillgängliga biblioteken i [autentiserings biblioteks referensen](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * För plattformar som inte omfattas av Microsoft-bibliotek kan du integrera med Microsoft Identity Platform-slutpunkten genom att skicka och ta emot protokoll meddelanden direkt i program koden. OpenID Connect-och OAuth-protokollen [är uttryckligen dokumenterade](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) för att hjälpa dig att göra en sådan integrering.
 * Slutligen kan du använda OpenID Connect och OAuth-bibliotek med öppen källkod för att integrera med Microsoft Identity Platform-slutpunkten. Microsoft Identity Platform-slutpunkten bör vara kompatibel med många protokoll bibliotek med öppen källkod utan ändringar. Tillgängligheten för de här typerna av bibliotek varierar beroende på språk och plattform. [OpenID Connect](https://openid.net/connect/) och [OAuth 2,0](https://oauth.net/2/) -webbplatser har en lista över populära implementeringar. Mer information finns i [Microsoft Identity Platform and Authentication libraries](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)och i listan över klient bibliotek med öppen källkod och exempel som har testats med Microsoft Identity Platform-slutpunkten.
-* För referens är `.well-known` `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`slut punkten för den vanliga slut punkten för Microsoft Identity Platform. Ersätt `common` med klient-ID: t för att hämta data som är speciella för din klient.  
+* För referens `.well-known` är slut punkten för den vanliga slut punkten för Microsoft Identity Platform `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Ersätt `common` med klient-ID: t för att hämta data som är speciella för din klient.  
 
 ### <a name="protocol-changes"></a>Protokoll ändringar
 
 Slut punkten för Microsoft Identity Platform stöder inte SAML eller WS-Federation; den stöder bara OpenID Connect och OAuth 2,0.  De viktiga ändringarna i OAuth 2,0-protokollen från v 1.0-slut punkten är: 
 
-* `email` Anspråket returneras om ett valfritt anspråk har kon figurer ATS **eller** om scope = email angavs i begäran. 
-* `scope` Parametern stöds nu i stället för `resource` parametern.  
+* `email`Anspråket returneras om ett valfritt anspråk har kon figurer ATS **eller** om scope = email angavs i begäran. 
+* `scope`Parametern stöds nu i stället för `resource` parametern.  
 * Många svar har ändrats för att göra dem mer kompatibla med OAuth 2,0-specifikationen, till exempel korrekt returneras `expires_in` som en int-sträng i stället för en sträng.  
 
 För att bättre förstå omfattningen av de protokoll funktioner som stöds i Microsoft Identity Platform-slutpunkten, se [OpenID Connect och OAuth 2,0-protokoll referens](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

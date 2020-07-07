@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239922"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Apache Hadoop kluster med Azure-REST API
@@ -24,13 +24,13 @@ Lär dig hur du skapar ett HDInsight-kluster med hjälp av en Azure Resource Man
 Med Azure-REST API kan du utföra hanterings åtgärder på tjänster som körs på Azure-plattformen, inklusive att skapa nya resurser som HDInsight-kluster.
 
 > [!NOTE]  
-> Stegen i det här dokumentet använder [vändningen (https://curl.haxx.se/) ](https://curl.haxx.se/) verktyg för att kommunicera med Azure-REST API.
+> Stegen i det här dokumentet använder [vändningen ( https://curl.haxx.se/) ](https://curl.haxx.se/) verktyg för att kommunicera med Azure-REST API.
 
 ## <a name="create-a-template"></a>Skapa en mall
 
 Azure Resource Manager mallar är JSON-dokument som beskriver en **resurs grupp** och alla resurser i den (till exempel HDInsight.) Med hjälp av den här mallbaserade metoden kan du definiera de resurser som du behöver för HDInsight i en mall.
 
-Följande JSON-dokument är en sammanslagning av mall-och parameter filen från [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), vilket skapar ett Linux-baserat kluster med ett lösen ord för att skydda SSH-användarkontot.
+Följande JSON-dokument är en sammanslagning av mall-och parameter filen från [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password) , vilket skapar ett Linux-baserat kluster med ett lösen ord för att skydda SSH-användarkontot.
 
    ```json
    {
@@ -214,7 +214,7 @@ Det här exemplet används i stegen i det här dokumentet. Ersätt exempel *vär
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Logga in på din Azure-prenumeration
 
-Följ stegen som beskrivs i [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) och Anslut till din prenumeration med hjälp `az login` av kommandot.
+Följ stegen som beskrivs i [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) och Anslut till din prenumeration med hjälp av `az login` kommandot.
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
@@ -235,10 +235,10 @@ Följ stegen som beskrivs i [Kom igång med Azure CLI](https://docs.microsoft.co
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    Ersätt värdena för `--display-name`, `--homepage`och `--identifier-uris` med dina egna värden. Ange ett lösen ord för den nya Active Directorys posten.
+    Ersätt värdena för `--display-name` , `--homepage` och `--identifier-uris` med dina egna värden. Ange ett lösen ord för den nya Active Directorys posten.
 
    > [!NOTE]  
-   > Värdena `--home-page` och `--identifier-uris` behöver inte referera till en faktisk webb sida som finns på Internet. De måste vara unika URI: er.
+   > `--home-page`Värdena och `--identifier-uris` behöver inte referera till en faktisk webb sida som finns på Internet. De måste vara unika URI: er.
 
    Värdet som returneras från det här kommandot är __app-ID:__ t för det nya programmet. Spara det här värdet.
 
@@ -270,7 +270,7 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 --data-urlencode "resource=https://management.azure.com/"
 ```
 
-Ange `$TENANTID`, `$APPID`och `$PASSWORD` till värdena som hämtats eller använts tidigare.
+Ange `$TENANTID` , `$APPID` och `$PASSWORD` till värdena som hämtats eller använts tidigare.
 
 Om den här begäran lyckas får du ett svar på 200-serien och svars texten innehåller ett JSON-dokument.
 
@@ -290,7 +290,7 @@ JSON-dokumentet som returnerades av den här begäran innehåller ett element me
 
 Använd följande för att skapa en resurs grupp.
 
-* Ange `$SUBSCRIPTIONID` till det PRENUMERATIONS-ID som togs emot när tjänstens huvud namn skapades.
+* Ange `$SUBSCRIPTIONID` till det prenumerations-ID som togs emot när tjänstens huvud namn skapades.
 * Ange `$ACCESSTOKEN` till åtkomsttoken som togs emot i föregående steg.
 * Ersätt `DATACENTERLOCATION` med det data Center som du vill skapa resurs gruppen och resurserna i. Till exempel "södra centrala USA".
 * Ange `$RESOURCEGROUPNAME` till det namn som du vill använda för den här gruppen:
@@ -304,7 +304,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 }'
 ```
 
-Om den här begäran lyckas får du ett svar på 200-serien och svars texten innehåller ett JSON-dokument som innehåller information om gruppen. `"provisioningState"` Elementet innehåller värdet `"Succeeded"`.
+Om den här begäran lyckas får du ett svar på 200-serien och svars texten innehåller ett JSON-dokument som innehåller information om gruppen. `"provisioningState"`Elementet innehåller värdet `"Succeeded"` .
 
 ## <a name="create-a-deployment"></a>Skapa en distribution
 
@@ -320,7 +320,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 ```
 
 > [!NOTE]  
-> Om du har sparat mallen i en fil kan du använda följande kommando i stället för `-d "{ template and parameters}"`:
+> Om du har sparat mallen i en fil kan du använda följande kommando i stället för `-d "{ template and parameters}"` :
 >
 > `--data-binary "@/path/to/file.json"`
 
@@ -339,7 +339,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -H "Content-Type: application/json"
 ```
 
-Det här kommandot returnerar ett JSON-dokument som innehåller information om distributions åtgärden. `"provisioningState"` Elementet innehåller distributionens status. Om det här elementet innehåller värdet `"Succeeded"`har distributionen slutförts.
+Det här kommandot returnerar ett JSON-dokument som innehåller information om distributions åtgärden. `"provisioningState"`Elementet innehåller distributionens status. Om det här elementet innehåller värdet `"Succeeded"` har distributionen slutförts.
 
 ## <a name="troubleshoot"></a>Felsöka
 

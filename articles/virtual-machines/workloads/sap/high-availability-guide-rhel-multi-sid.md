@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 4f1bfd58e27f0cd677980ff9351d32d91a68e3e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80247443"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP-program med flera SID-guide
@@ -128,17 +128,17 @@ I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnare
   * IP-adress för NW3:10.3.1.54
 
 * Avsöknings portar
-  * Port 620<strong>&lt;nr&gt;</strong>, därför för NW1, NW2 och NW3 avsöknings portar 620**00**, 620**10** och 620**20**
+  * Port 620<strong> &lt; nr &gt; </strong>, därför för NW1, NW2 och NW3 avsöknings portar 620**00**, 620**10** och 620**20**
 * Belastnings Utjämnings regler – skapa en för varje instans, det vill säga NW1/ASCS, NW2/ASCS och NW3/ASCS.
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 36<strong> &lt; nr &gt; </strong> TCP
+    * 39<strong> &lt; nr &gt; </strong> TCP
+    * 81<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -148,15 +148,15 @@ I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnare
   * IP-adress för NW3-10.3.1.55
 
 * Avsöknings port
-  * Port 621<strong>&lt;nr&gt;</strong>, därför för NW1, NW2 och N3 avsöknings portar 621**02**, 621**12** och 621**22**
+  * Port 621<strong> &lt; nr &gt; </strong>, därför för NW1, NW2 och N3 avsöknings portar 621**02**, 621**12** och 621**22**
 * Belastnings Utjämnings regler – skapa en för varje instans, det vill säga NW1/ERS, NW2/ERS och NW3/ERS.
   * Om du använder Standard Load Balancer väljer du **ha-portar**
   * Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; nr &gt; </strong> TCP
+    * 33<strong> &lt; nr &gt; </strong> TCP
+    * 5<strong> &lt; nr &gt; </strong>13 TCP
+    * 5<strong> &lt; nr &gt; </strong>14 TCP
+    * 5<strong> &lt; nr &gt; </strong>16 TCP
 
 * Server dels konfiguration
   * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
@@ -191,7 +191,7 @@ I det här exemplet antar vi att system- **NW1** redan har distribuerats i klust
 
 Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
-### <a name="prerequisites"></a>Krav 
+### <a name="prerequisites"></a>Förutsättningar 
 
 > [!IMPORTANT]
 > Innan du följer anvisningarna för att distribuera ytterligare SAP-system i klustret, följer du anvisningarna för att distribuera det första SAP-systemet i klustret, eftersom det finns steg som bara behövs under den första system distributionen.  
@@ -206,7 +206,7 @@ Den här dokumentationen förutsätter att:
 
 1. Lägg till konfiguration för det nyligen distribuerade systemet (det vill säga **NW2**, **NW3**) till den befintliga Azure Load Balancer genom att följa anvisningarna [Distribuera Azure Load Balancer manuellt via Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files#deploy-linux-manually-via-azure-portal). Justera IP-adresserna, hälso avsöknings portarna, belastnings Utjämnings regler för din konfiguration.  
 
-2. **[A]** matchning av installations namn för ytterligare SAP-system. Du kan antingen använda DNS-servern eller `/etc/hosts` ändra på alla noder. Det här exemplet visar hur du använder `/etc/hosts` filen.  Anpassa IP-adresserna och värd namnen till din miljö. 
+2. **[A]** matchning av installations namn för ytterligare SAP-system. Du kan antingen använda DNS-servern eller ändra `/etc/hosts` på alla noder. Det här exemplet visar hur du använder `/etc/hosts` filen.  Anpassa IP-adresserna och värd namnen till din miljö. 
 
     ```
     sudo vi /etc/hosts
@@ -326,7 +326,7 @@ Den här dokumentationen förutsätter att:
 
    Kontrol lera att klustrets status är OK och att alla resurser har startats.  
 
-   Se sedan till att resurserna för den nyligen skapade ERS-gruppen körs på klusternoden, i motsatt till klusternoden där ASCS-instansen för samma SAP-system installerades.  Om t. ex. NW2 ASCS har installerats `rhelmsscl1`på kontrollerar du att gruppen NW2 ers körs på `rhelmsscl2`.  Du kan migrera gruppen NW2 ERS till genom `rhelmsscl2` att köra följande kommando för en av kluster resurserna i gruppen: 
+   Se sedan till att resurserna för den nyligen skapade ERS-gruppen körs på klusternoden, i motsatt till klusternoden där ASCS-instansen för samma SAP-system installerades.  Om t. ex. NW2 ASCS har installerats på `rhelmsscl1` kontrollerar du att gruppen NW2 ers körs på `rhelmsscl2` .  Du kan migrera gruppen NW2 ERS till `rhelmsscl2` genom att köra följande kommando för en av kluster resurserna i gruppen: 
 
     ```
       pcs resource move fs_NW2_AERS rhelmsscl2
@@ -612,7 +612,7 @@ Slutför din SAP-installation genom att:
 Följande test är en delmängd av test fallen i Best Practices-guider för Red Hat. De ingår för din bekvämlighet. För en fullständig lista över kluster test, referera till följande dokumentation:
 
 * Om du använder Azure NetApp Files NFS-volymer följer du [virtuella Azure-datorer med hög tillgänglighet för SAP NetWeaver på RHEL med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-* Om `GlusterFS`du använder hög tillgänglighet följer du [virtuella Azure-datorer med hög tillgänglighet för SAP NetWeaver på RHEL för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel).  
+* Om du använder hög `GlusterFS` tillgänglighet följer du [virtuella Azure-datorer med hög tillgänglighet för SAP NETWEAVER på RHEL för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel).  
 
 Läs alltid Best Practices-guider för Red Hat och utför alla ytterligare tester som kan ha lagts till.  
 De tester som presenteras finns i två noder, multi-SID-kluster med tre SAP-system installerade.  
@@ -752,7 +752,7 @@ De tester som presenteras finns i två noder, multi-SID-kluster med tre SAP-syst
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
    ```
 
-   Kör följande kommando som rot på en nod, där minst en ASCS-instans körs. I det här exemplet körde vi kommandot på `rhelmsscl1`, där ASCS-instanserna för NW1, NW2 och NW3 körs.  
+   Kör följande kommando som rot på en nod, där minst en ASCS-instans körs. I det här exemplet körde vi kommandot på `rhelmsscl1` , där ASCS-instanserna för NW1, NW2 och NW3 körs.  
 
    ```
    echo c > /proc/sysrq-trigger
@@ -796,7 +796,7 @@ De tester som presenteras finns i två noder, multi-SID-kluster med tre SAP-syst
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
    ```
 
-   Om det finns meddelanden om misslyckade resurser rensar du statusen för de misslyckade resurserna. Ett exempel:
+   Om det finns meddelanden om misslyckade resurser rensar du statusen för de misslyckade resurserna. Till exempel:
 
    ```
    pcs resource cleanup rsc_sap_NW1_ERS02

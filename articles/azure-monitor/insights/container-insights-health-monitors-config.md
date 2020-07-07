@@ -4,10 +4,10 @@ description: Den här artikeln innehåller innehåll som beskriver den detaljera
 ms.topic: conceptual
 ms.date: 12/01/2019
 ms.openlocfilehash: 99ea6e96f5a8a486784cb3d633a6e031b60eaad7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055708"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Konfigurations guide för Azure Monitor för behållares hälso övervakning
@@ -54,7 +54,7 @@ Azure Monitor för behållare innehåller ett antal nyckel övervaknings scenari
 
 ### <a name="unit-monitors"></a>Enhets övervakare
 
-|**Övervakarens namn** | Övervaknings typ | **Beskrivning** | **ProfileServiceApplicationProxy** | **Värde** |
+|**Övervakarens namn** | Övervaknings typ | **Beskrivning** | **Parameter** | **Värde** |
 |-----------------|--------------|-----------------|---------------|-----------|
 |Minnes användning för nod |Enhets övervakare |Den här övervakaren utvärderar minnes användningen för en nod varje minut med hjälp av cadvisor rapporterade data. |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
 |CPU-användning för nod |Enhets övervakare |Den här övervakaren kontrollerar nodens processor användning varje minut med hjälp av cadvisor rapporterade data. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||

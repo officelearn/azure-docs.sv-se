@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79537235"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Förstå affärs kontinuitet i Azure Database for MySQL
@@ -23,7 +23,7 @@ Azure Database for MySQL tillhandahåller funktioner för affärs kontinuitet so
 
 I följande tabell jämförs ERT och återställnings punkt för de tillgängliga funktionerna:
 
-| **Funktion** | **Basic** | **Generell användning** | **Minnesoptimerad** |
+| **Kapacitet** | **Basic** | **Generell användning** | **Minnesoptimerad** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Återställning till tidpunkt från säkerhetskopia | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden |
 | Geo-återställning från geo-replikerade säkerhets kopieringar | Stöds inte | ERT < 12 h<br/>Återställnings < 1 h | ERT < 12 h<br/>Återställnings < 1 h |

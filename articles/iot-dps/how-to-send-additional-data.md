@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: de6bb3fe0879a69467283e93a04a355876a02cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246695"
 ---
 # <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Överföra en nytto Last mellan enhet och DPS
@@ -54,7 +54,7 @@ Om webhooken för den anpassade allokeringsregeln vill returnera data till enhet
    ```
 
 ## <a name="sdk-support"></a>SDK-support
-Den här funktionen är tillgänglig i [klient-SDK: erna](https://docs.microsoft.com/azure/iot-dps/)C, C#, Java och Node. js.  
+Den här funktionen är tillgänglig i C-, C#-, JAVA-och Node.js- [klient-SDK](https://docs.microsoft.com/azure/iot-dps/): er.  
 
 ## <a name="next-steps"></a>Nästa steg
 * Utveckla med [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) för Azure IoT Hub och Azure IoT Hub Device Provisioning service

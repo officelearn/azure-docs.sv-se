@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062847"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Använd en webhook för att konfigurera hälso aviseringar för problem hanterings system
@@ -31,9 +31,9 @@ Om du vill använda en förkonfigurerad integrering, se:
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Konfigurera ett anpassat meddelande med hjälp av Service Health webhook-nyttolasten
 Om du vill konfigurera en egen anpassad webhook-integrering måste du parsa JSON-nyttolasten som skickas via Service Health-avisering.
 
-Se [ett exempel](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` på webhook-nyttolast.
+Se [ett exempel](../azure-monitor/platform/activity-log-alerts-webhook.md) på `ServiceHealth` webhook-nyttolast.
 
-Du kan bekräfta att det är en tjänst hälso avisering genom att titta `context.eventSource == "ServiceHealth"`på. Följande egenskaper är mest relevanta:
+Du kan bekräfta att det är en tjänst hälso avisering genom att titta på `context.eventSource == "ServiceHealth"` . Följande egenskaper är mest relevanta:
 - **data. context. activityLog. status**
 - **data. context. activityLog. level**
 - **data. context. activityLog. subscriptionId**
@@ -46,19 +46,19 @@ Du kan bekräfta att det är en tjänst hälso avisering genom att titta `contex
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Skapa en länk till Service Health instrument panel för en incident
 Du kan skapa en direkt länk till din Service Health-instrumentpanel på en stationär eller mobil enhet genom att skapa en specialiserad URL. Använd *trackingId* och de tre första och sista siffrorna i *subscriptionId* i det här formatet:
 
-https<i></i>://app.Azure.com/h/*&lt;trackingId&gt;*/*de första tre och sista tre siffrorna i subscriptionId&gt; &lt;*
+https <i></i> ://app.Azure.com/h/* &lt; trackingId &gt; * / * &lt; de första tre och sista tre siffrorna i &gt; subscriptionId*
 
 Om ditt *subscriptionId* till exempel är bba14129-e895-429b-8809-278e836ecdb3 och din *trackingId* är 0DET-URB, är din service Health URL:
 
-https<i></i>://app.Azure.com/h/0DET-URB/bbadb3
+https <i></i> ://app.Azure.com/h/0DET-URB/bbadb3
 
 ## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Använd nivån för att identifiera problemets allvarlighets grad
 Från lägsta till högsta allvarlighets grad kan egenskapen **Level** i nytto lasten vara *information*, *Varning*, *fel*eller *kritisk*.
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analysera de berörda tjänsterna för att fastställa incident omfånget
-Service Health aviseringar kan meddela dig om problem i flera regioner och tjänster. Du måste parsa värdet för `impactedServices`för att få fullständig information.
+Service Health aviseringar kan meddela dig om problem i flera regioner och tjänster. Du måste parsa värdet för för att få fullständig information `impactedServices` .
 
-Det innehåll som är inuti är en Escaped [JSON](https://json.org/) -sträng som, vid avbrotts kontroll, innehåller ett annat JSON-objekt som kan analyseras regelbundet. Ett exempel:
+Det innehåll som är inuti är en Escaped [JSON](https://json.org/) -sträng som, vid avbrotts kontroll, innehåller ett annat JSON-objekt som kan analyseras regelbundet. Till exempel:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

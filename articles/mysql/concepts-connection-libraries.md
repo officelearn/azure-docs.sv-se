@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 5f83f937b8d9ec50ec7dc6ec781bff1f435eb45a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79537201"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Anslutnings bibliotek för Azure Database for MySQL
@@ -35,5 +35,5 @@ MySQL erbjuder standard anslutning för databas driv rutiner för att använda M
 ## <a name="next-steps"></a>Nästa steg
 Läs de här snabb starterna om hur du ansluter till och frågar Azure Database for MySQL med hjälp av ditt val av språk:
 
-[PHP](./connect-php.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [Python](./connect-python.md) |  | [Go](./connect-go.md) [.NET (C#)](./connect-csharp.md) | [C++](connect-cpp.md)[Node.JS](./connect-nodejs.md).net (C#) python Node. js ruby C++ go |  
+[Php](./connect-php.md)  |  [Java](./connect-java.md)  |   [.net (C#)](./connect-csharp.md)  |  [Python](./connect-python.md)  |  [Node.JS](./connect-nodejs.md)  |  [Ruby](./connect-ruby.md)  |  [C++](connect-cpp.md)  |  [Gå](./connect-go.md)
 

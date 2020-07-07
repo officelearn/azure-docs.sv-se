@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154482"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten
@@ -82,7 +82,7 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
   
 * **Administratörsmedgivande** – Krävs när din app behöver ha åtkomst till vissa högpriviligierade behörigheter. Administratörsmedgivande säkerställer att administratörer har vissa ytterligare kontroller innan de godkänner appar, eller att användare får åtkomst till högprivilegierade data från organisationen. [Mer information om hur du ger ett administratörsmedgivande](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 ### <a name="client-best-practices"></a>Metodtips för klienter
 
@@ -102,7 +102,7 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
   - `Permission`motsvarar åtgärden som en användare kan utföra på dessa data
   - `Modifier`används för att beskriva specialiseringar för en annan behörighet
     
-    Ett exempel:
+    Till exempel:
   - Mail.Read – Tillåter att användarna läser e-post.
   - Mail.ReadWrite – Tillåter att användarna läser eller skriver e-post.
   - Mail.ReadWrite.All – Ger en administratör eller användare åtkomst till all e-post i organisationen.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
 ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055118"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med data insamlings-API: et
@@ -61,7 +61,7 @@ Logic Apps idag har inte inbyggda funktioner för att enkelt transformera XML, C
 I det här exemplet parsar vi en CSV-fil, men alla andra filtyper kan bearbetas på samma sätt. Ändra bara avserialiserings delen av Azure-funktionen för att visa rätt logik för din särskilda datatyp.
 
 1.  Skapa en ny Azure-funktion med funktionen runtime v1 och förbruknings baserad när du uppmanas till det.  Välj den **http-utlösare** som är riktad mot C# som en start punkt som konfigurerar dina bindningar som vi behöver. 
-2.  Från fliken **Visa filer** i den högra rutan skapar du en ny fil med namnet **Project. JSON** och klistrar in följande kod från NuGet-paket som vi använder:
+2.  Från fliken **Visa filer** i den högra rutan skapar du en ny fil med namnet **project.jspå** och klistrar in följande kod från NuGet-paket som vi använder:
 
     ![Azure Functions exempel projekt](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
     

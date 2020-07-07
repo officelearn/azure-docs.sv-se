@@ -4,10 +4,10 @@ description: Översikt över Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159259"
 ---
 # <a name="resource-health-overview"></a>Översikt över Resource Health
@@ -26,7 +26,7 @@ Mer information om hur hälsa utvärderas finns i listan över resurs typer och 
 
 Hälso tillståndet för en resurs visas som en av följande status värden.
 
-### <a name="available"></a>Tillgängligt
+### <a name="available"></a>Tillgänglig
 
 *Tillgängligt* innebär att det inte finns några händelser som påverkar resursens hälso tillstånd. I de fall då resursen återställdes från oplanerade drift stopp under de senaste 24 timmarna visas meddelandet "nyligen löst".
 

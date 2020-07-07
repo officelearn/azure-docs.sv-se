@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 11aa4a80deba4df14c239e69910ea38bac1b9c55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80063521"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database for MySQL brand Väggs regler med hjälp av Azure CLI
@@ -19,7 +19,7 @@ Brand Väggs regler på server nivå kan användas för att hantera åtkomst til
 
 Virtual Network-regler (VNet) kan också användas för att skydda åtkomsten till servern. Lär dig mer om [att skapa och hantera Virtual Network tjänst slut punkter och regler med hjälp av Azure CLI](howto-manage-vnet-using-cli.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * En [Azure Database for MySQL server och databas](quickstart-create-mysql-server-database-using-azure-cli.md).
 
@@ -42,7 +42,7 @@ Anslut säkert Azure CLI med ditt Azure-konto med hjälp av kommandot **AZ login
     ```
    Det här kommandot matar ut en kod som ska användas i nästa steg.
 
-2. Använd en webbläsare för att öppna sidan [https://aka.ms/devicelogin](https://aka.ms/devicelogin)och ange sedan koden.
+2. Använd en webbläsare för att öppna sidan [https://aka.ms/devicelogin](https://aka.ms/devicelogin) och ange sedan koden.
 
 3. Logga in med dina Azure-autentiseringsuppgifter vid prompten.
 

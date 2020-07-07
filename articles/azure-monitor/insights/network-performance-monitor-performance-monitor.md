@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055696"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Övervakare av nätverksprestanda lösning: prestanda övervakning
@@ -94,7 +94,7 @@ Formatet, storleken och sekvensen för dessa paket bestäms av det protokoll som
 
 Om du väljer att använda ICMP under distributionen kan du när som helst växla till TCP genom att redigera standard övervaknings regeln.
 
-1. Gå till **övervakaren** >> **Configure**  **Network Performance** för nätverks prestanda konfigurera> **övervakaren**. Välj sedan **standard regel**. 
+1. Gå till övervakaren för **nätverks prestanda**   >  **Monitor**   >  **Konfigurera**   >  **övervakaren**. Välj sedan **standard regel**. 
 2. Bläddra till avsnittet **protokoll** och välj det protokoll som du vill använda. 
 3. Välj **Spara** för att tillämpa inställningen. 
 

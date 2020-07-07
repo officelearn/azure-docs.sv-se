@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056829"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrera med hanterade Azure-identiteter
@@ -33,7 +33,7 @@ I den här artikeln kan du se hur du:
 > * Konfigurera appen så att den använder en hanterad identitet när du ansluter till app-konfigurationen.
 > * Du kan också konfigurera appen så att den använder en hanterad identitet när du ansluter till Key Vault via en app-konfiguration Key Vault referens.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
@@ -60,7 +60,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **alla resurser** och väljer det konfigurations Arkiv för app som du skapade i snabb starten.
 
-1. Välj **åtkomst kontroll (IAM)**.
+1. Välj **Åtkomstkontroll (IAM)** .
 
 1. På fliken **kontrol lera åtkomst** väljer du **Lägg till** i användar gränssnittet **Lägg till Roll tilldelnings** kort.
 
@@ -84,7 +84,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
 1. Hitta slut punkten för konfigurations lagringen för appen. URL: en visas på fliken **åtkomst nycklar** för butiken i Azure Portal.
 
-1. Öppna *appSettings. JSON*och Lägg till följande skript. Ersätt * \<service_endpoint>*, inklusive hakparenteser, med URL: en till appens konfigurations lager. 
+1. Öppna *appsettings.jspå*och Lägg till följande skript. Ersätt *\<service_endpoint>* , inklusive hakparenteser, med URL: en till appens konfigurations lager. 
 
     ```json
     "AppConfig": {
@@ -92,13 +92,13 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
     }
     ```
 
-1. Öppna *program.cs*och Lägg till en referens till namn `Azure.Identity` områdena `Microsoft.Azure.Services.AppAuthentication` och:
+1. Öppna *program.cs*och Lägg till en referens till `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` namn områdena och:
 
     ```csharp-interactive
     using Azure.Identity;
     ```
 
-1. Om du bara vill komma åt värden som lagras direkt i appens konfiguration uppdaterar `CreateWebHostBuilder` du metoden genom att `config.AddAzureAppConfiguration()` ersätta-metoden.
+1. Om du bara vill komma åt värden som lagras direkt i appens konfiguration uppdaterar du `CreateWebHostBuilder` metoden genom att ersätta- `config.AddAzureAppConfiguration()` metoden.
 
     > [!IMPORTANT]
     > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
@@ -133,7 +133,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
     ```
     ---
 
-1. Uppdatera *program.cs* så som visas nedan om du vill använda både konfigurations värden för appen och Key Vault referenser. Den här koden skapar en `KeyVaultClient` ny med `AzureServiceTokenProvider` en och skickar den här referensen till ett `UseAzureKeyVault` anrop till metoden.
+1. Uppdatera *program.cs* så som visas nedan om du vill använda både konfigurations värden för appen och Key Vault referenser. Den här koden skapar en ny `KeyVaultClient` med en `AzureServiceTokenProvider` och skickar den här referensen till ett anrop till `UseAzureKeyVault` metoden.
 
     ### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -181,7 +181,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
     ```
     ---
 
-    Du kan nu komma åt Key Vault referenser precis som andra konfigurations nycklar för appar. Config-providern kommer att `KeyVaultClient` använda den som du konfigurerade för att autentisera till Key Vault och hämta värdet.
+    Du kan nu komma åt Key Vault referenser precis som andra konfigurations nycklar för appar. Config-providern kommer att använda den `KeyVaultClient` som du konfigurerade för att autentisera till Key Vault och hämta värdet.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -202,7 +202,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Om du vill aktivera lokal Git-distribution för din app med kudu build- [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) servern kör du i Cloud Shell.
+Om du vill aktivera lokal Git-distribution för din app med kudu build-servern kör du [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) i Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -218,7 +218,7 @@ Det här kommandot ger dig något liknande följande utdata:
 
 ### <a name="deploy-your-project"></a>Distribuera projektet
 
-I det _lokala terminalfönstret_lägger du till en Azure-fjärrkontroll till din lokala git-lagringsplats. Ersätt _ \<URL>_ med URL: en för den git-fjärrdatabasen som du fick från [att aktivera lokal git med kudu](#enable-local-git-with-kudu).
+I det _lokala terminalfönstret_lägger du till en Azure-fjärrkontroll till din lokala git-lagringsplats. Ersätt _\<url>_ med URL: en för git-fjärrdatorn som du fick från [att aktivera lokal git med kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -230,7 +230,7 @@ Skicka till Azure-fjärrdatabasen för att distribuera appen med följande komma
 git push azure master
 ```
 
-Du kan se körnings viss automatisering i utdata, till exempel MSBuild för ASP.NET, `npm install` för Node. js och `pip install` för python.
+Du kan se körnings viss automatisering i utdata, till exempel MSBuild för ASP.NET, `npm install` för Node.js och `pip install` för python.
 
 ### <a name="browse-to-the-azure-web-app"></a>Bläddra till Azure-webbappen
 
@@ -244,7 +244,7 @@ http://<app_name>.azurewebsites.net
 
 App Configuration-providrar för .NET Framework och Java Spring har också inbyggt stöd för hanterad identitet. Du kan använda butikens URL-slutpunkt i stället för dess fullständiga anslutnings sträng när du konfigurerar en av dessa providers. 
 
-Du kan till exempel uppdatera .NET Framework-konsolen som skapats i snabb starten för att ange följande inställningar i filen *app. config* :
+Du kan till exempel uppdatera .NET Framework-konsolen som skapats i snabb starten för att ange följande inställningar i *App.config* -filen:
 
 ```xml
     <configSections>

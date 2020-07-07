@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: e8917a0a5678c4c6b72352a0d4c1523bfea3c96d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79537218"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-drivrutiner och hanterings verktyg som är kompatibla med Azure Database for MySQL
@@ -19,7 +19,7 @@ I den här artikeln beskrivs de driv rutiner och hanterings verktyg som är komp
 ## <a name="mysql-drivers"></a>MySQL-drivrutiner
 Azure Database for MySQL använder världens mest populära community-version av MySQL-databasen. Därför är den kompatibel med en mängd olika programmeringsspråk och driv rutiner. Målet är att stödja de tre senaste versionerna av MySQL-drivrutinerna och ansträngningar med författare från communityn för öppen källkod för att ständigt förbättra funktionaliteten och användbarheten hos MySQL-drivrutinerna Fortsätt. En lista med driv rutiner som har testats och visat sig vara kompatibla med Azure Database for MySQL 5,6 och 5,7 finns i följande tabell:
 
-| **Programmeringsspråk** | **Drivrutin** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Obs!** |
+| **Programmeringsspråk** | **Drivrutin** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Anteckningar** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
 | PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5,5, 5,6, 7. x | 5.3 | För PHP 7,0-anslutning med SSL MySQLi lägger du till MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT i anslutnings strängen. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> SUB set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` alternativ till false.|
 | .NET | Asynkron MySQL-koppling för .NET | https://github.com/mysql-net/MySqlConnector <br> [Installations paket från NuGet](https://www.nuget.org/packages/MySqlConnector/) | 0,27 och efter | 0.26.5 och före | |

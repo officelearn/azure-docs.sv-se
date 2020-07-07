@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128058"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Strömma innehåll med CDN-integrering
@@ -33,9 +33,9 @@ När du bestämmer om du vill aktivera CDN på [slut punkten](streaming-endpoint
 
 I det här avsnittet beskrivs hur du aktiverar [CDN-integrering](#enable-azure-cdn-integration). Den förklarar också för hämtning (aktiv cachelagring) och [ursprunget-Assist CDN-prefetch](#origin-assist-cdn-prefetch) .
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
-* [Slut punkten](streaming-endpoint-concept.md) `hostname` för direkt uppspelning och strömnings-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
+* [Slut punkten för direkt uppspelning](streaming-endpoint-concept.md) `hostname` och STRÖMNINGS-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
 * Om du behöver kunna testa ditt innehåll med eller utan CDN, skapar du en annan slut punkt för direkt uppspelning som inte är CDN-aktiverad.
 
 ## <a name="enable-azure-cdn-integration"></a>Aktivera Azure CDN-integrering
@@ -58,7 +58,7 @@ Azure Media Services integration med Azure CDN implementeras på **Azure CDN fr�
 
 ## <a name="determine-if-a-dns-change-was-made"></a>Avgöra om en DNS-ändring har gjorts
 
-Du kan avgöra om DNS-ändringar har gjorts på en strömmande slut punkt (trafiken dirigeras till Azure CDN) med hjälp <https://www.digwebinterface.com>av. Om du ser azureedge.net domän namn i resultaten kommer trafiken nu att pekas mot CDN.
+Du kan avgöra om DNS-ändringar har gjorts på en strömmande slut punkt (trafiken dirigeras till Azure CDN) med hjälp av <https://www.digwebinterface.com> . Om du ser azureedge.net domän namn i resultaten kommer trafiken nu att pekas mot CDN.
 
 ## <a name="origin-assist-cdn-prefetch"></a>Ursprung – hjälp CDN-prefetch
 
@@ -99,7 +99,7 @@ Du kan prova följande steg för att se en del av det att huvud utbytet i funger
 
 ### <a name="supported-streaming-protocols"></a>Strömmande protokoll som stöds
 
-`Origin-Assist CDN-Prefetch` Funktionen stöder följande strömnings protokoll för direkt uppspelning på begäran:
+`Origin-Assist CDN-Prefetch`Funktionen stöder följande strömnings protokoll för direkt uppspelning på begäran:
 
 * HLS v3
 * HLS v4
@@ -124,7 +124,7 @@ Du kan prova följande steg för att se en del av det att huvud utbytet i funger
 
 * Vad skulle inträffa för direkt uppspelning, vad som skulle hända om nästa segment eller fragment ännu inte är tillgängligt?
 
-    I det här fallet kommer Media Services ursprung inte att `CDN-Origin-Assist-Prefetch-Path` tillhandahålla header och CDN-för hämtning sker inte.
+    I det här fallet kommer Media Services ursprung inte `CDN-Origin-Assist-Prefetch-Path` att tillhandahålla header och CDN-för hämtning sker inte.
 
 * Hur `Origin-Assist CDN-Prefetch` fungerar det med dynamiska manifest filter?
 

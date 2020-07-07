@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055903"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Övervaka Active Directory replikeringsstatus med Azure Monitor
@@ -26,7 +26,7 @@ AD-replikeringsstatuss lösningen övervakar regelbundet din Active Directory-mi
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * AD-replikeringsstatus-lösningen kräver en version av .NET Framework 4.6.2 som stöds eller som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
 * Lösningen stöder domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
@@ -41,10 +41,10 @@ Om du inte vill ansluta någon av domän kontrol Lanterna direkt till Azure Moni
 
 1. Kontrol lera att datorn är medlem i den domän som du vill övervaka med hjälp av AD-replikeringsstatus-lösningen.
 2. [Anslut Windows-datorn för att Azure Monitor](../../azure-monitor/platform/om-agents.md) eller [Anslut den med din befintliga Operations Manager miljö till Azure Monitor](../../azure-monitor/platform/om-agents.md), om den inte redan är ansluten.
-3. På den datorn anger du följande register nyckel:<br>Nyckel: **HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\management Groups\<ManagementGroupName> \solutions\adreplication**<br>Värde: **IsTarget**<br>Värde data: **True**
+3. På den datorn anger du följande register nyckel:<br>Nyckel: **HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\management Groups \<ManagementGroupName> \Solutions\ADReplication**<br>Värde: **IsTarget**<br>Värde data: **True**
 
    > [!NOTE]
-   > Ändringarna börjar inte gälla förrän du startar om tjänsten Microsoft Monitoring Agent (HealthService. exe).
+   > Ändringarna börjar inte gälla förrän du startar om tjänsten Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Installera lösning
    > Följ processen som beskrivs i [installera en övervaknings lösning](solutions.md#install-a-monitoring-solution) för att lägga till **Active Directory-replikeringsstatus** -lösningen i Log Analytics-arbetsytan. Det krävs ingen ytterligare konfiguration.
 
@@ -135,7 +135,7 @@ A: Nej, endast en enda domänkontrollant måste läggas till. Om du har flera do
 S: Ja. Du kan ange värdet för en register nyckel för att aktivera det. Se [Aktivera icke-domänkontrollant](#enable-non-domain-controller).
 
 **F: Vad är namnet på processen som utför data insamlingen?**
-A: AdvisorAssessment. exe
+A: AdvisorAssessment.exe
 
 **F: hur lång tid tar det för data att samlas in?**
 A: data insamlings tiden beror på Active Directorys miljöns storlek, men det tar vanligt vis mindre än 15 minuter.

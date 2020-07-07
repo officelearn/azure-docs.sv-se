@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
 ms.openlocfilehash: b17e4031edaedc6b0a63d305d20a77e5b58f91ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80247392"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup för SQL Server som körs i Azure VM
@@ -20,7 +20,7 @@ ms.locfileid: "80247392"
 Azure Backup, bland annat erbjudanden, ger stöd för säkerhets kopiering av arbets belastningar som SQL Server som körs i virtuella Azure-datorer. Eftersom SQL-programmet körs i en virtuell Azure-dator måste säkerhets kopierings tjänsten ha behörighet att komma åt programmet och hämta nödvändig information.
 För att göra det, Azure Backup installerar tillägget **AzureBackupWindowsWorkload** på den virtuella datorn, där SQL Server körs, under registrerings processen som utlöses av användaren.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En lista över scenarier som stöds finns i [support mat ris](../../backup/sql-support-matrix.md#scenario-support) som stöds av Azure Backup.
 
@@ -87,7 +87,7 @@ Följande JSON visar schemat för WorkloadBackup-tillägget.
 
 Name | Värde/exempel | Datatyp
  --- | --- | ---
-språk | sv-se  |  sträng
+locale | sv-se  |  sträng
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | sträng
 objectStr <br/> (publicSettings)  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5ODI3ZTgzNTQiLCJVbmlxdWVDb250 YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ = =" | sträng
 commandStartTimeUTCTicks | "636967192566036845"  | sträng

@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 012a574887d9980e0c71c3af84ff70ca8d31312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80275687"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Kontrol lera publicerings statusen för ditt kommersiella Marketplace-erbjudande
@@ -25,8 +25,8 @@ En av följande status indikatorer ska visas för varje erbjudande.
 | **Utkast** | Erbjudandet har skapats men det har inte publicerats. |
 | **Publicering pågår** | Erbjudandet/planen fungerar på ett sätt genom stegen i publicerings processen. |
 | **Åtgärd krävs** | Ett kritiskt problem upptäcktes under certifieringen av Microsoft eller något av publicerings stegen. |
-| **Förhandsgranskningsvyn** | Erbjudandet certifierades av Microsoft och väntar nu på en slutgiltig verifiering av utgivaren. Välj Go Live för att göra erbjudandet Live. |
-| **Live** | Erbjudandet är Live på Marketplace och kan ses och förvärvas av kunder. |
+| **Förhandsgranskning** | Erbjudandet certifierades av Microsoft och väntar nu på en slutgiltig verifiering av utgivaren. Välj Go Live för att göra erbjudandet Live. |
+| **Direktsändning** | Erbjudandet är Live på Marketplace och kan ses och förvärvas av kunder. |
 | **Väntande stoppa försäljning** | Utgivare valde "stoppa försäljning" på erbjudandet eller planen, men åtgärden har ännu inte slutförts. |
 | **Inte tillgängligt i Marketplace** | Ett tidigare publicerat erbjudande/plan i Marketplace har tagits bort. |
 

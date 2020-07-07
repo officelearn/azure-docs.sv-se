@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Beskriver hur du förbereder ditt projekt med Azure dev Spaces
 keywords: azds. yaml, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: 24a54fffdc8e94493d2a4a9aeb1c5f02dcd192b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80241639"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Så här förbereder du ett projekt för Azure dev Spaces
@@ -20,30 +20,30 @@ I den här artikeln beskrivs vad som händer när du förbereder projektet för 
 
 ## <a name="prepare-your-code"></a>Förbered din kod
 
-För att kunna köra programmet i ett dev-utrymme måste den vara containerd och du måste definiera hur det ska distribueras till Kubernetes. För att Använd ditt program behöver du en Dockerfile. Om du vill definiera hur programmet distribueras till Kubernetes behöver du ett [Helm-diagram](https://docs.helm.sh/). För att hjälpa till med att skapa både Dockerfile-och Helm-diagrammet för ditt program innehåller verktyg på klient `prep` sidan kommandot:
+För att kunna köra programmet i ett dev-utrymme måste den vara containerd och du måste definiera hur det ska distribueras till Kubernetes. För att Använd ditt program behöver du en Dockerfile. Om du vill definiera hur programmet distribueras till Kubernetes behöver du ett [Helm-diagram](https://docs.helm.sh/). För att hjälpa till med att skapa både Dockerfile-och Helm-diagrammet för ditt program innehåller verktyg på klient sidan `prep` kommandot:
 
 ```cmd
 azds prep --enable-ingress
 ```
 
-`prep` Kommandot tittar på filerna i projektet och försöker skapa Dockerfile-och Helm-diagrammet för att köra programmet i Kubernetes. För närvarande kommer `prep` kommandot att generera ett Dockerfile-och Helm-diagram med följande språk:
+`prep`Kommandot tittar på filerna i projektet och försöker skapa Dockerfile-och Helm-diagrammet för att köra programmet i Kubernetes. För närvarande `prep` kommer kommandot att generera ett Dockerfile-och Helm-diagram med följande språk:
 
 * Java
 * Node.js
 * .NET Core
 
-Du *måste* köra `prep` kommandot från en katalog som innehåller käll koden. Genom att `prep` köra kommandot från rätt katalog kan verktyget på klient sidan identifiera språket och skapa en lämplig Dockerfile för att Använd ditt program. Du kan också köra `prep` kommandot från en katalog som innehåller en *Pom. XML-* fil för Java-projekt.
+Du *måste* köra `prep` kommandot från en katalog som innehåller käll koden. Genom att köra `prep` kommandot från rätt katalog kan verktyget på klient sidan identifiera språket och skapa en lämplig Dockerfile för att Använd ditt program. Du kan också köra `prep` kommandot från en katalog som innehåller en *pom.xml* -fil för Java-projekt.
 
-Om du kör kommandot `prep` från en katalog som inte innehåller någon käll kod genererar klient sidans verktyg inget Dockerfile. Det visar också ett fel som säger: *Dockerfile kunde inte genereras på grund*av ett språk som inte stöds. Det här felet uppstår även om verktyg på klient sidan inte känner igen projekt typen.
+Om du kör `prep` kommandot från en katalog som inte innehåller någon käll kod genererar klient sidans verktyg inget Dockerfile. Det visar också ett fel som säger: *Dockerfile kunde inte genereras på grund*av ett språk som inte stöds. Det här felet uppstår även om verktyg på klient sidan inte känner igen projekt typen.
 
-När du kör `prep` kommandot har du möjlighet att ange `--enable-ingress` flaggan. Den här flaggan anger att kontrollanten ska skapa en tillgänglig slut punkt för Internet för den här tjänsten. Om du inte anger den här flaggan är tjänsten bara tillgänglig i klustret eller med hjälp av den localhost-tunnel som skapats av klient sidans verktyg. Du kan aktivera eller inaktivera det här beteendet när `prep` du har kört kommandot genom att uppdatera det genererade Helm-diagrammet.
+När du kör `prep` kommandot har du möjlighet att ange `--enable-ingress` flaggan. Den här flaggan anger att kontrollanten ska skapa en tillgänglig slut punkt för Internet för den här tjänsten. Om du inte anger den här flaggan är tjänsten bara tillgänglig i klustret eller med hjälp av den localhost-tunnel som skapats av klient sidans verktyg. Du kan aktivera eller inaktivera det här beteendet när du har kört `prep` kommandot genom att uppdatera det genererade Helm-diagrammet.
 
-`prep` Kommandot kommer inte att ersätta några befintliga Dockerfiles-eller Helm-diagram som du har i projektet. Om ett befintligt Dockerfile-eller Helm-diagram använder samma namngivnings konvention som de filer som `prep` genereras av kommandot `prep` kommer kommandot att hoppa över genereringen av filerna. Annars genererar `prep` kommandot ett eget Dockerfile-eller Helm-diagram längs de befintliga filerna.
+`prep`Kommandot kommer inte att ersätta några befintliga Dockerfiles-eller Helm-diagram som du har i projektet. Om ett befintligt Dockerfile-eller Helm-diagram använder samma namngivnings konvention som de filer som genereras av `prep` kommandot `prep` kommer kommandot att hoppa över genereringen av filerna. Annars `prep` genererar kommandot ett eget Dockerfile-eller Helm-diagram längs de befintliga filerna.
 
 > [!IMPORTANT]
 > I Azure dev Spaces används Dockerfile-och Helm-diagrammet för ditt projekt för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
-`prep` Kommandot genererar även en `azds.yaml` fil i projektets rot. Azure dev Spaces använder den här filen för att skapa, installera, konfigurera och köra ditt program. Den här konfigurations filen visar platsen för ditt Dockerfile-och Helm-diagram och ger även ytterligare konfiguration ovanpå dessa artefakter.
+`prep`Kommandot genererar även en `azds.yaml` fil i projektets rot. Azure dev Spaces använder den här filen för att skapa, installera, konfigurera och köra ditt program. Den här konfigurations filen visar platsen för ditt Dockerfile-och Helm-diagram och ger även ytterligare konfiguration ovanpå dessa artefakter.
 
 Här är ett exempel på en azds. yaml-fil som skapats med [.net Core-exempel program](https://github.com/Azure/dev-spaces/tree/master/samples/dotnetcore/getting-started/webfrontend):
 
@@ -92,7 +92,7 @@ configurations:
         - [dotnet, build, --no-restore, -c, "${BUILD_CONFIGURATION:-Debug}"]
 ```
 
-`azds.yaml` Filen som genereras av `prep` kommandot är avsedd att fungera för ett enkelt scenario med en enda projekt utveckling. Om det aktuella projektet har ökad komplexitet kan du behöva uppdatera filen när du har kört `prep` kommandot. Ditt projekt kan till exempel kräva vissa ändringar i din build-eller start process utifrån dina utvecklings-eller fel söknings behov. Du kan också ha flera program i projektet, vilket kräver flera Bygg processer eller ett annat build-innehåll.
+`azds.yaml`Filen som genereras av `prep` kommandot är avsedd att fungera för ett enkelt scenario med en enda projekt utveckling. Om det aktuella projektet har ökad komplexitet kan du behöva uppdatera filen när du har kört `prep` kommandot. Ditt projekt kan till exempel kräva vissa ändringar i din build-eller start process utifrån dina utvecklings-eller fel söknings behov. Du kan också ha flera program i projektet, vilket kräver flera Bygg processer eller ett annat build-innehåll.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -102,7 +102,7 @@ För att komma igång med Azure dev Spaces för att förbereda projektet för Az
 
 * [Upprepa och Felsök snabbt med Visual Studio Code och Java][quickstart-java]
 * [Upprepa och Felsök snabbt med Visual Studio Code och .NET][quickstart-netcore]
-* [Upprepa och Felsök snabbt med Visual Studio Code och Node. js][quickstart-node]
+* [Upprepa och Felsök snabbt med Visual Studio Code och Node.js][quickstart-node]
 * [Upprepa och Felsök snabbt med Visual Studio och .NET Core][quickstart-vs]
 * [Använda CLI för att utveckla ett program på Kubernetes][quickstart-cli]
 

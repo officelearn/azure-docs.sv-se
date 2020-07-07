@@ -13,10 +13,10 @@ ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2dea262fadb61adc9e219b76f9ac048c11e650d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80065968"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Hämta en signeringsnyckel från den befintliga principen
@@ -25,7 +25,7 @@ En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare.
 
 Exemplet i den här artikeln visar hur du använder .NET för att hämta en signerings nyckel från den befintliga principen. 
  
-## <a name="download"></a>Hämta 
+## <a name="download"></a>Ladda ned 
 
 Klona en GitHub-lagringsplats som innehåller det fullständiga .NET-exemplet på din dator med hjälp av följande kommando:  
 

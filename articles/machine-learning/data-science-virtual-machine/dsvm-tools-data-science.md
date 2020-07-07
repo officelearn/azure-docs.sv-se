@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80282315"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Maskin inlärnings-och data vetenskaps verktyg i Azure Data Science Virtual Machines
@@ -32,7 +32,7 @@ Se den fullständiga referensen för [Azure Machine Learning SDK för python](ht
 | Versioner som stöds     | Windows (Conda-miljö: AzureML), Linux (Conda-miljö: py36)    |
 | Vanliga användnings områden      | Allmän plattform för maskin inlärning      |
 | Hur konfigureras den eller installeras?      |  Installerat med GPU-stöd   |
-| Använda eller köra det      | Som ett python SDK och i Azure CLI. Aktivera i Conda-miljön `AzureML` i Windows- *or* versionen eller `py36` till i Linux Edition.      |
+| Använda eller köra det      | Som ett python SDK och i Azure CLI. Aktivera i Conda-miljön `AzureML` i Windows-versionen *eller* till `py36` i Linux Edition.      |
 | Länka till exempel      | Exempel på Jupyter-anteckningsböcker ingår i `AzureML` katalogen under antecknings böcker.  |
 | Relaterade verktyg      | Visual Studio Code, Jupyter   |
 
@@ -43,8 +43,8 @@ Se den fullständiga referensen för [Azure Machine Learning SDK för python](ht
 | Vad är detta?   | En AI-plattform med öppen källkod som har stöd för minnes intern, distribuerad, snabb och skalbar maskin inlärning.  |
 | Versioner som stöds      | Linux   |
 | Vanliga användnings områden      | Allmänt distribuerad, skalbar maskin inlärning   |
-| Hur konfigureras den eller installeras?      | H2O installeras i `/dsvm/tools/h2o`.      |
-| Använda eller köra det      | Anslut till den virtuella datorn med hjälp av X2Go. Starta en ny terminal och kör `java -jar /dsvm/tools/h2o/current/h2o.jar`. Starta sedan en webbläsare och Anslut till `http://localhost:54321`.      |
+| Hur konfigureras den eller installeras?      | H2O installeras i `/dsvm/tools/h2o` .      |
+| Använda eller köra det      | Anslut till den virtuella datorn med hjälp av X2Go. Starta en ny terminal och kör `java -jar /dsvm/tools/h2o/current/h2o.jar` . Starta sedan en webbläsare och Anslut till `http://localhost:54321` .      |
 | Länka till exempel      | Exempel finns tillgängliga på den virtuella datorn i Jupyter under `h2o` katalogen.      |
 | Relaterade verktyg      | Apache Spark, MXNet, XGBoost, mousserande vatten, djup vatten    |
 
@@ -57,7 +57,7 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Vad är detta?   | En snabb, distribuerad, högpresterande gradient-förstärkning (GBDT, GBRT, GBM eller MART) som baseras på algoritmer för besluts träd. Den används för rankning, klassificering och många andra uppgifter för maskin inlärning.    |
 | Versioner som stöds      | Windows, Linux    |
 | Vanliga användnings områden      | Generell användnings ramverk för tonings förstärkning      |
-| Hur konfigureras den eller installeras?      | I Windows installeras LightGBM som ett python-paket. På Linux är den körbara filen i `/opt/LightGBM/lightgbm`, R-paketet installerat och python-paket installeras.     |
+| Hur konfigureras den eller installeras?      | I Windows installeras LightGBM som ett python-paket. På Linux är den körbara filen i `/opt/LightGBM/lightgbm` , R-paketet installerat och python-paket installeras.     |
 | Länka till exempel      | [LightGBM-guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
 | Relaterade verktyg      | MXNet, XgBoost  |
 
@@ -67,7 +67,7 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Vad är detta?   |   Ett grafiskt användar gränssnitt för Data utvinning med hjälp av R.   |
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användnings områden      | Allmänna GRÄNSSNITTs data utvinnings verktyg för R    |
-| Använda eller köra det      | Som ett UI-verktyg. Starta en kommando tolk i Windows, kör R och sedan i R, kör `rattle()`. I Linux ansluter du till X2Go, startar en Terminal, kör R och sedan i R, kör `rattle()`. |
+| Använda eller köra det      | Som ett UI-verktyg. Starta en kommando tolk i Windows, kör R och sedan i R, kör `rattle()` . I Linux ansluter du till X2Go, startar en Terminal, kör R och sedan i R, kör `rattle()` . |
 | Länka till exempel      | [Rattle](https://togaware.com/onepager/) |
 | Relaterade verktyg      |LightGBM, Wekas, XGBoost   |
 
@@ -78,7 +78,7 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användnings områden      | Allmänt maskin inlärnings bibliotek      |
 | Hur konfigureras den eller installeras?      |  Windows: MSI installations program<br/>Linux: apt-get |
-| Använda eller köra det      | Som ett kommando rads verktyg på väg (`C:\Program Files\VowpalWabbit\vw.exe` i Windows, `/usr/bin/vw` på Linux)    |
+| Använda eller köra det      | Som ett kommando rads verktyg på väg ( `C:\Program Files\VowpalWabbit\vw.exe` i Windows, `/usr/bin/vw` på Linux)    |
 | Länka till exempel      | [VowPal Wabbit-exempel](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
 | Relaterade verktyg      |LightGBM, MXNet, XGBoost   |
 
@@ -89,7 +89,7 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Vad är detta?   |  En samling Machine Learning-algoritmer för data utvinnings aktiviteter. Algoritmerna kan antingen appliceras direkt på en data uppsättning eller anropas från din egen Java-kod. Wekas innehåller verktyg för för bearbetning av data, klassificering, regression, klustring, associerings regler och visualisering. |
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användnings områden      | Allmänt verktyg för maskin inlärning     |
-| Använda eller köra det      | I Windows söker du efter Wekas på **Start** menyn. Logga in med X2Go i Linux och gå sedan till **program** > **utvecklings** > **wekas**. |
+| Använda eller köra det      | I Windows söker du efter Wekas på **Start** menyn. Logga in med X2Go i Linux och gå sedan till **program**  >  **utvecklings**  >  **wekas**. |
 | Länka till exempel      | [Wekas-exempel](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Relaterade verktyg      |LightGBM, Rattle, XGBoost   |
 
@@ -100,7 +100,7 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användnings områden      | Allmänt maskin inlärnings bibliotek      |
 | Hur konfigureras den eller installeras?      |  Installerat med GPU-stöd   |
-| Använda eller köra det      | Som ett Python-bibliotek (2,7 och 3,5), R-paket och kommando rads verktyget på en sökväg (`C:\dsvm\tools\xgboost\bin\xgboost.exe` för Windows och `/dsvm/tools/xgboost/xgboost` Linux)    |
+| Använda eller köra det      | Som ett Python-bibliotek (2,7 och 3,5), R-paket och kommando rads verktyget på en sökväg ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` för Windows och `/dsvm/tools/xgboost/xgboost` Linux)    |
 | Länkar till exempel      | Exempel finns på den virtuella datorn, i `/dsvm/tools/xgboost/demo` på Linux och `C:\dsvm\tools\xgboost\demo` i Windows.   |
 | Relaterade verktyg      | LightGBM, MXNet   |
 
@@ -109,7 +109,7 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | ------------- | ------------- |
 | Vad är detta?   | SQL-frågemotor med öppen källkod på Big data    |
 | DSVM-versioner som stöds      | Windows 2019, Linux  |
-| Hur konfigureras den och installeras på DSVM?      |  Endast installerat `/dsvm/tools/drill*` i inbäddat läge   |
+| Hur konfigureras den och installeras på DSVM?      |  Endast installerat i `/dsvm/tools/drill*` inbäddat läge   |
 | Vanliga användnings områden      |  För data utforskning på plats utan att behöva extrahera, transformera, läsa in (ETL). Fråga olika data källor och format, inklusive CSV, JSON, Relations tabeller och Hadoop.     |
 | Använda och köra den      | Skriv bords gen väg  <br/> [Kom igång med att detaljgranska på 10 minuter](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Relaterade verktyg på DSVM      |   Rattle, Wekas, SQL Server Management Studio      |

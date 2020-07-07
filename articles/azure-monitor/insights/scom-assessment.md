@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055418"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med System Center Operations Manager-hälsokontrollösningen (förhandsversion)
@@ -147,13 +147,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 I hanterings paketet för System Center Operations Manager-hälsokontrolls lösningen ingår en regel med namnet *Microsoft System Center Operations Manager kör hälso kontrolls regel*. Den här regeln ansvarar för att köra hälso kontrollen. Använd anvisningarna nedan om du vill aktivera regeln och konfigurera frekvensen.
 
-Som standard är Microsoft System Center Operations Manager kör hälso kontroll regeln inaktive rad. Om du vill köra hälso kontrollen måste du aktivera regeln på en-hanterings Server. Följ dessa steg.
+Som standard är Microsoft System Center Operations Manager kör hälso kontroll regeln inaktive rad. Om du vill köra hälso kontrollen måste du aktivera regeln på en-hanterings Server. Följ stegen nedan.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Aktivera regeln för en specifik hanteringsserver
 
 1. I arbets ytan **redigering** i Operations Manager drift konsolen söker du efter regeln *Microsoft System Center Operations Manager kör hälso kontroll regel* i fönstret **regler** .
 2. I Sök resultaten väljer du den som innehåller text *typen: Management Server*.
-3. Högerklicka på regeln och klicka sedan på **åsidosättningar** > **för ett särskilt objekt i klassen: Management Server**.
+3. Högerklicka på regeln och klicka sedan på **åsidosättningar**  >  **för ett särskilt objekt i klassen: Management Server**.
 4.  I listan tillgängliga hanterings servrar väljer du den hanterings server där regeln ska köras.  Det bör vara samma hanterings server som du konfigurerade tidigare för att koppla kör som-kontot till.
 5.  Se till att du ändrar värdet för åsidosättning till **Sant** för det **aktiverade** parametervärdet.<br><br> ![Åsidosätt parameter](./media/scom-assessment/rule.png)
 
@@ -165,7 +165,7 @@ Utvärderingen konfigureras att köras var 10 080: e minut (eller sju dagar) som
 
 1. I arbets ytan **redigering** i Operations Manager-konsolen söker du efter regeln *Microsoft System Center Operations Manager kör hälso kontroll regel* i avsnittet **regler** .
 2. I Sök resultaten väljer du den som innehåller text *typen: Management Server*.
-3. Högerklicka på regeln och klicka sedan på **Åsidosätt regeln** > **för alla objekt i klassen: Management Server**.
+3. Högerklicka på regeln och klicka sedan på **Åsidosätt regeln**  >  **för alla objekt i klassen: Management Server**.
 4. Ändra värdet för parametern **Interval** till det önskade intervallet. I exemplet nedan anges värdet till 1440 minuter (en dag).<br><br> ![parametern Interval](./media/scom-assessment/interval.png)<br>  
 
     Om värdet är inställt på mindre än 1440 minuter körs regeln med ett dags intervall. I det här exemplet ignorerar regeln värdet för intervall och körs med en frekvens på en dag.
@@ -208,7 +208,7 @@ Innan du kan använda en hälso kontroll lösning i Log Analytics måste du ha l
 Visa de sammanfattade efterlevnadarna för din infrastruktur och gå sedan till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Så här visar du rekommendationer för ett fokus fält och vidtar lämpliga åtgärder
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. I fönstret Log Analytics prenumerationer väljer du en arbets yta och klickar sedan på meny alternativet **Sammanfattning av arbets yta** .  
 4. På sidan **Översikt** klickar du på panelen **System Center Operations Manager-hälsokontroll** .
@@ -237,9 +237,9 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Log 
 
 3. Välj rekommendationer som du vill ignorera. Du använder värdena för RecommendationId i nästa procedur.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Skapa och använda en textfil av typen IgnoreRecommendations. txt
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Skapa och använda en IgnoreRecommendations.txt textfil
 
-1. Skapa en fil med namnet IgnoreRecommendations. txt.
+1. Skapa en fil med namnet IgnoreRecommendations.txt.
 2. Klistra in eller Skriv varje RecommendationId för varje rekommendation som du vill Log Analytics ignorera på en separat rad och spara och stäng sedan filen.
 3. Placera filen i följande mapp på varje dator där du vill Log Analytics ignorera rekommendationer.
 4. På Operations Manager Management Server – *systemen het*: \Program\microsoft System Center 2012 R2\Operations Manager\Server.
@@ -258,7 +258,7 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Log 
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-3. Om du senare bestämmer dig för att du vill se ignorerade rekommendationer tar du bort alla IgnoreRecommendations. txt-filer, eller så kan du ta bort RecommendationIDs från dem.
+3. Om du senare bestämmer dig för att du vill se ignorerade rekommendationer, tar du bort alla IgnoreRecommendations.txt filer, eller så kan du ta bort RecommendationIDs från dem.
 
 ## <a name="system-center-operations-manager-health-check-solution-faq"></a>Vanliga frågor och svar om System Center Operations Manager-hälsokontrollösning
 
@@ -272,9 +272,9 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Log 
 
 *Kontrollerar du att en annan server identifieras när jag har lagt till System Center Operations Manager-hälsokontroll lösningen?* Ja, efter att identifieringen kontrol leras från och med, som standard var sjunde dag.
 
-*Vad är namnet på processen som utför data insamlingen?* AdvisorAssessment. exe
+*Vad är namnet på processen som utför data insamlingen?* AdvisorAssessment.exe
 
-*Var körs AdvisorAssessment. exe-processen?* AdvisorAssessment. exe körs under HealthService-processen för hanterings servern där hälso kontroll regeln är aktive rad. Med den processen uppnås identifieringen av hela din miljö via fjärrinsamling av data.
+*Var körs AdvisorAssessment.exe processen?* AdvisorAssessment.exe körs under HealthService-processen för hanterings servern där hälso kontroll regeln är aktive rad. Med den processen uppnås identifieringen av hela din miljö via fjärrinsamling av data.
 
 *Hur lång tid tar det för data insamlingen?* Det tar ungefär en timme att samla in data på servern. Det kan ta längre tid i miljöer som har många Operations Manager instanser eller databaser.
 
@@ -282,7 +282,7 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Log 
 
 *Hur vet jag om det finns nödvändiga fel?* Om hälso kontrollen kördes och du inte ser resultatet är det troligt att vissa av kraven för kontrollen misslyckades. Du kan köra frågor: `Operation Solution=SCOMAssessment` och `SCOMAssessmentRecommendation FocusArea=Prerequisites` i loggs ökningen för att se de fel som krävs.
 
-*Det finns ett `Failed to connect to the SQL Instance (….).` meddelande om nödvändiga fel. Vad är problemet?* AdvisorAssessment. exe, den process som samlar in data, körs under HealthService-processen på hanterings servern. Som en del av hälso kontrollen försöker processen ansluta till den SQL Server där Operations Manager databasen finns. Det här felet kan inträffa när brand Väggs regler blockerar anslutningen till SQL Server-instansen.
+*Det finns ett `Failed to connect to the SQL Instance (….).` meddelande om nödvändiga fel. Vad är problemet?* AdvisorAssessment.exe, den process som samlar in data, körs under HealthService-processen på hanterings servern. Som en del av hälso kontrollen försöker processen ansluta till den SQL Server där Operations Manager databasen finns. Det här felet kan inträffa när brand Väggs regler blockerar anslutningen till SQL Server-instansen.
 
 *Vilken typ av data samlas in?* Följande typer av data samlas in:-WMI-data-register data-EventLog data-Operations Manager data via Windows PowerShell, SQL-frågor och insamling av fil information.
 

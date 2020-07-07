@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: fa41fca7f8ad96cf507aa6f04059b1254c8c3961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127896"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Anpassa en person modell med Video Indexer API
@@ -75,7 +75,7 @@ Svaret innehåller en lista över alla person modeller i ditt konto (inklusive s
 ]
 ```
 
-Du kan välja vilken modell du vill använda för en video `id` genom att använda värdet för person modellen för `personModelId` parametern när [du laddar upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller indexera om [en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Du kan välja vilken modell du vill använda för en video genom att använda `id` värdet för person modellen för `personModelId` parametern när [du laddar upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller indexera om [en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
 ## <a name="update-a-face"></a>Uppdatera ett ansikte
 

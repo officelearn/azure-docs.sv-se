@@ -10,10 +10,10 @@ caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79534753"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services config-schema (. cscfg-fil)
@@ -49,10 +49,10 @@ I följande avsnitt beskrivs schemat för `ServiceConfiguration` elementet:
 - [NetworkConfiguration-schema](schema-cscfg-networkconfiguration.md)
 
 ## <a name="service-configuration-namespace"></a>Namn område för tjänst konfiguration
-XML-namnområdet för tjänst konfigurations filen är `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`:.
+XML-namnområdet för tjänst konfigurations filen är: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration` .
 
 ##  <a name="serviceconfiguration-element"></a><a name="ServiceConfiguration"></a>ServiceConfiguration-element
-`ServiceConfiguration` Elementet är det översta elementet i tjänst konfigurations filen.
+`ServiceConfiguration`Elementet är det översta elementet i tjänst konfigurations filen.
 
 I följande tabell beskrivs attributen för- `ServiceConfiguration` elementet. Alla attributvärden är sträng typer.
 
@@ -60,7 +60,7 @@ I följande tabell beskrivs attributen för- `ServiceConfiguration` elementet. A
 | --------- | ----------- |
 |serviceName|Krävs. Namnet på moln tjänsten. Namnet som anges här måste matcha det namn som anges i tjänst definitions filen.|
 |osFamily|Valfritt. Anger det gäst operativ system som ska köras på roll instanser i moln tjänsten. Information om vilka gäst operativ system som stöds finns i [Azure gäst operativ system utgåvor och SDK-kompatibilitet](cloud-services-guestos-update-matrix.md).<br /><br /> Om du inte inkluderar ett `osFamily` värde och du inte har angett `osVersion` attributet till en angiven gäst operativ system version, används standardvärdet 1.|
-|osVersion|Valfritt. Anger den version av gäst operativ systemet som ska köras på roll instanser i moln tjänsten. Mer information om gäst operativ system versioner finns i [Azure gäst operativ system versioner och SDK-kompatibilitet matris](cloud-services-guestos-update-matrix.md).<br /><br /> Du kan ange att gäst operativ systemet ska uppgraderas automatiskt till den senaste versionen. Det gör du genom att ange värdet för `osVersion` attributet till. `*` När det är `*`inställt på, distribueras roll instanserna med den senaste versionen av gäst operativ systemet för den angivna OS-familjen och uppgraderas automatiskt när nya versioner av gäst operativ systemet släpps.<br /><br /> Om du vill ange en version manuellt, använder `Configuration String` du tabellen i avsnittet **framtida, aktuella och över GÅNGS gäst operativ system versioner** i [Azure gäst operativ system versioner och SDK-kompatibel matris](cloud-services-guestos-update-matrix.md).<br /><br /> Standardvärdet för `osVersion` attributet är `*`.|
+|osVersion|Valfritt. Anger den version av gäst operativ systemet som ska köras på roll instanser i moln tjänsten. Mer information om gäst operativ system versioner finns i [Azure gäst operativ system versioner och SDK-kompatibilitet matris](cloud-services-guestos-update-matrix.md).<br /><br /> Du kan ange att gäst operativ systemet ska uppgraderas automatiskt till den senaste versionen. Det gör du genom att ange värdet för `osVersion` attributet till `*` . När det är inställt på `*` , distribueras roll instanserna med den senaste versionen av gäst operativ systemet för den angivna OS-familjen och uppgraderas automatiskt när nya versioner av gäst operativ systemet släpps.<br /><br /> Om du vill ange en version manuellt, använder du `Configuration String` tabellen i avsnittet **framtida, aktuella och över gångs gäst operativ system versioner** i [Azure gäst operativ system versioner och SDK-kompatibel matris](cloud-services-guestos-update-matrix.md).<br /><br /> Standardvärdet för `osVersion` attributet är `*` .|
 |Schema|Valfritt. Anger versionen för tjänst konfigurations schema. Med schema versionen kan Visual Studio välja rätt SDK-verktyg som ska användas för schema validering om fler än en version av SDK: n installeras sida vid sida. Mer information om kompatibilitet för scheman och versioner finns i [Azure gäst operativ system utgåvor och SDK-kompatibilitet mat ris](cloud-services-guestos-update-matrix.md)|
 
-Tjänst konfigurations filen måste innehålla ett `ServiceConfiguration` -element. `ServiceConfiguration` Elementet kan innehålla valfritt antal `Role` element och noll eller 1 `NetworkConfiguration` element.
+Tjänst konfigurations filen måste innehålla ett- `ServiceConfiguration` element. `ServiceConfiguration`Elementet kan innehålla valfritt antal `Role` element och noll eller 1 `NetworkConfiguration` element.

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/25/2019
 ms.author: guybo
 ms.openlocfilehash: 8899249fd284f69fa26bab8cd70aaf6a67fbb83c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066787"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Förbereda en CentOS-baserad virtuell dator för Azure
@@ -21,7 +21,7 @@ Lär dig att skapa och överföra en virtuell Azure-hårddisk (VHD) som innehål
 * [Förbered en CentOS 7.0 + virtuell dator för Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har installerat ett Linux-operativsystem med CentOS (eller liknande derivat) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -31,7 +31,7 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
 * VHDX-formatet stöds inte i Azure, endast **fast virtuell hård disk**.  Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller cmdleten Convert-VHD. Om du använder VirtualBox innebär det att du väljer **fast storlek** i stället för standardvärdet som tilldelas dynamiskt när disken skapas.
 * När du installerar Linux-systemet *rekommenderar* vi att du använder standardpartitioner snarare än LVM (vanligt vis som standard för många installationer). På så sätt undviker du LVM namn konflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin måste kopplas till en annan identisk virtuell dator för fel sökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på data diskar.
 * Kernel-stöd för att montera UDF-filsystem krävs. Vid första starten av Azure skickas etablerings konfigurationen till den virtuella Linux-datorn via UDF-formaterade medier som är kopplade till gästen. Azure Linux-agenten måste kunna montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
-* Linux kernel-versioner nedan 2.6.37 stöder inte NUMA på Hyper-V med större VM-storlekar. Det här problemet påverkar främst äldre distributioner med den överordnade Red Hat 2.6.32-kärnan och har åtgärd ATS i RHEL 6,6 (kernel-2.6.32-504). System som kör anpassade kernels som är äldre än 2.6.37, eller RHEL-baserade kernels som är äldre än 2.6.32-504 `numa=off` , måste ange start parametern på kernel-kommandoraden i grub. conf. Mer information finns i Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* Linux kernel-versioner nedan 2.6.37 stöder inte NUMA på Hyper-V med större VM-storlekar. Det här problemet påverkar främst äldre distributioner med den överordnade Red Hat 2.6.32-kärnan och har åtgärd ATS i RHEL 6,6 (kernel-2.6.32-504). System som kör anpassade kernels som är äldre än 2.6.37, eller RHEL-baserade kernels som är äldre än 2.6.32-504, måste ange start parametern `numa=off` på kernel-kommandoraden i grub. conf. Mer information finns i Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Konfigurera inte en swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken.  Mer information om detta finns i stegen nedan.
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes) .
 
@@ -176,7 +176,7 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
 
     WALinuxAgent-paketet tar bort NetworkManager-och NetworkManager-GNOME-paketen om de inte redan har tagits bort enligt beskrivningen i steg 3.
 
-13. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att `/boot/grub/menu.lst` öppna i en text redigerare och se till att standard kärnan innehåller följande parametrar:
+13. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna `/boot/grub/menu.lst` i en text redigerare och se till att standard kärnan innehåller följande parametrar:
 
     ```console
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
@@ -190,16 +190,16 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
     rhgb quiet crashkernel=auto
     ```
 
-    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar ska skickas till den seriella porten.  `crashkernel` Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
+    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar ska skickas till den seriella porten.  `crashkernel`Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
 
     > [!Important]
-    > CentOS 6,5 och tidigare måste också ange en kernel- `numa=off`parameter. Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+    > CentOS 6,5 och tidigare måste också ange en kernel-parameter `numa=off` . Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 14. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Detta är vanligt vis standardvärdet.
 
 15. Skapa inte växlings utrymme på OS-disken.
 
-    Azure Linux-agenten kan automatiskt konfigurera växlings utrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn efter etableringen på Azure. Observera att den lokala resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg) ändrar du följande `/etc/waagent.conf` parametrar på lämpligt sätt:
+    Azure Linux-agenten kan automatiskt konfigurera växlings utrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn efter etableringen på Azure. Observera att den lokala resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg) ändrar du följande parametrar på `/etc/waagent.conf` lämpligt sätt:
 
     ```console
     ResourceDisk.Format=y
@@ -322,7 +322,7 @@ Att förbereda en virtuell CentOS 7-dator för Azure liknar CentOS 6, men det fi
 
     En omstart kanske krävs efter att det här kommandot har körts.
 
-8. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att `/etc/default/grub` öppna i en text redigerare och redigera `GRUB_CMDLINE_LINUX` parametern, till exempel:
+8. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna `/etc/default/grub` i en text redigerare och redigera `GRUB_CMDLINE_LINUX` parametern, till exempel:
 
     ```console
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -334,9 +334,9 @@ Att förbereda en virtuell CentOS 7-dator för Azure liknar CentOS 6, men det fi
     rhgb quiet crashkernel=auto
     ```
 
-    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar ska skickas till den seriella porten. `crashkernel` Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
+    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar ska skickas till den seriella porten. `crashkernel`Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
 
-9. När du är klar med `/etc/default/grub` redigeringen av ovan kör du följande kommando för att återskapa grub-konfigurationen:
+9. När du är klar med redigeringen av `/etc/default/grub` ovan kör du följande kommando för att återskapa grub-konfigurationen:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -344,7 +344,7 @@ Att förbereda en virtuell CentOS 7-dator för Azure liknar CentOS 6, men det fi
 
 10. Om du skapar avbildningen från **VMware, VirtualBox eller kvm:** se till att Hyper-V-drivrutinerna ingår i initramfs:
 
-    Redigera `/etc/dracut.conf`, Lägg till innehåll:
+    Redigera `/etc/dracut.conf` , Lägg till innehåll:
 
     ```console
     add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
@@ -365,7 +365,7 @@ Att förbereda en virtuell CentOS 7-dator för Azure liknar CentOS 6, men det fi
 
 12. Skapa inte växlings utrymme på OS-disken.
 
-    Azure Linux-agenten kan automatiskt konfigurera växlings utrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn efter etableringen på Azure. Observera att den lokala resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg) ändrar du följande `/etc/waagent.conf` parametrar på lämpligt sätt:
+    Azure Linux-agenten kan automatiskt konfigurera växlings utrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn efter etableringen på Azure. Observera att den lokala resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg) ändrar du följande parametrar på `/etc/waagent.conf` lämpligt sätt:
 
     ```console
     ResourceDisk.Format=y

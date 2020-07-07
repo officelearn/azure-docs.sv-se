@@ -7,23 +7,23 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 02ce6b00b6555f849d162b9f3b381c0ab358d712
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79532849"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Översikt över program utveckling för Azure Database for MySQL 
 Den här artikeln beskriver design överväganden som en utvecklare bör följa när de skriver program kod för att ansluta till Azure Database for MySQL. 
 
 > [!TIP]
-> En själv studie kurs som visar hur du skapar en server, skapar en serverbaserad brand vägg, visar Server egenskaper, skapar databas och ansluter och frågar med hjälp av Workbench och MySQL. exe finns i [utforma din första Azure Database for MySQL databas](tutorial-design-database-using-portal.md)
+> En själv studie kurs som visar hur du skapar en server, skapar en serverbaserad brand vägg, visar Server egenskaper, skapar databas och ansluter och frågar med hjälp av Workbench och mysql.exe finns i [utforma din första Azure Database for MySQL databasen](tutorial-design-database-using-portal.md)
 
 ## <a name="language-and-platform"></a>Språk och plattform
 Det finns kodexempel för olika programmeringsspråk och plattformar. Du kan hitta länkar till kod exempel på: [anslutnings bibliotek som används för att ansluta till Azure Database for MySQL](concepts-connection-libraries.md)
 
 ## <a name="tools"></a>Verktyg
-Azure Database for MySQL använder MySQL community-versionen som är kompatibel med MySQLs vanliga hanterings verktyg som Workbench eller MySQL-verktyg som MySQL. exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)och andra. Du kan också använda Azure Portal, Azure CLI och REST-API: er för att interagera med databas tjänsten.
+Azure Database for MySQL använder MySQL community-versionen som är kompatibel med MySQLs vanliga hanterings verktyg som Workbench eller MySQL-verktyg som mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)och andra. Du kan också använda Azure Portal, Azure CLI och REST-API: er för att interagera med databas tjänsten.
 
 ## <a name="resource-limitations"></a>Resursbegränsningar
 Azure Database for MySQL hanterar resurserna som är tillgängliga för en server med hjälp av två olika metoder: 

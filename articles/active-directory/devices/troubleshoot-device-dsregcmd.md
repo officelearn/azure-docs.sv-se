@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128766"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Felsöka enheter med kommandot dsregcmd
@@ -29,7 +29,7 @@ I det här avsnittet visas status parametrar för enhets anslutning. I tabellen 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Enhets tillstånd |
 | ---   | ---   | ---   | ---   |
 | JA | NO | NO | Azure AD-ansluten |
-| NO | NO | JA | Domänanslutna |
+| NO | NO | JA | kopplad till en domän |
 | JA | NO | JA | Hybrid AD-ansluten |
 | NO | JA | JA | Lokala DRS-anslutna |
 
@@ -136,7 +136,7 @@ Det här avsnittet innehåller status för olika attribut för den användare so
 - **WorkplaceJoined:** -anges till "Ja" om registrerade Azure AD-konton har lagts till i enheten i den aktuella ntuser-kontexten.
 - **WamDefaultSet:** -Ställ in på Ja om ett standard-webbkonto för WAM skapas för den inloggade användaren. Det här fältet kan visa ett fel om dsreg/status körs från en upphöjd kommando tolk. 
 - **WamDefaultAuthority:** -inställt på "organisationer" för Azure AD.
-- **WamDefaultId:** -Alwayshttps://login.microsoft.com"" för Azure AD.
+- **WamDefaultId:** -Always " https://login.microsoft.com " för Azure AD.
 - **WamDefaultGUID:** -WAM-providerns (Azure AD/Microsoft-konto) GUID för standard-WAM-webbkontot. 
 
 ### <a name="sample-user-state-output"></a>Exempel på utdata från användar tillstånd

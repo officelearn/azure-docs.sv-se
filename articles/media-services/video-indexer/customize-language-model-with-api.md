@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: anzaman
 ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127987"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Anpassa en språk modell med Video Indexer API
@@ -105,7 +105,7 @@ Svaret innehåller metadata för den nytränade språk modellen tillsammans med 
 }
 ```
 
-`id` Det returnerade är ett unikt ID som används för att skilja mellan språk `languageModelId` modeller, medan används både för att [Ladda upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) och [Indexera om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) -API: `linguisticModelId` er (även kallat video Indexer uppladdning/index-API: er).
+Det returnerade `id` är ett unikt ID som används för att skilja mellan språk modeller, medan `languageModelId` används både för att [Ladda upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) och [Indexera om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) -api: er (även kallat `linguisticModelId` video Indexer uppladdning/index-API: er).
 
 ## <a name="delete-a-language-model"></a>Ta bort en språk modell
 
@@ -177,7 +177,7 @@ Svaret innehåller metadata för den fil som du uppdaterade efter formatet på e
 }
 ```
 
-`id` Använd filen som returnerades i svaret för att ladda ned innehållet i filen.
+Använd `id` filen som returnerades i svaret för att ladda ned innehållet i filen.
 
 ## <a name="get-a-specific-language-model"></a>Hämta en specifik språk modell
 
@@ -213,7 +213,7 @@ Svaret innehåller metadata på den angivna språk modellen tillsammans med meta
 }
 ```
 
-`id` Använd filen som returnerades i svaret för att ladda ned innehållet i filen.
+Använd `id` filen som returnerades i svaret för att ladda ned innehållet i filen.
 
 ## <a name="get-all-the-language-models"></a>Hämta alla språk modeller
 

@@ -9,23 +9,23 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80258302"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera lösnings acceleratorn för fjärr styrning med hjälp av CLI
 
 Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning. Du distribuerar lösningen med hjälp av CLI. Du kan också distribuera lösningen med hjälp av det webbaserade användar gränssnittet på azureiotsolutions.com. mer information om det här alternativet finns i Distribuera snabb starten för [fjärrövervakning av Solution Accelerator](quickstart-remote-monitoring-deploy.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en aktiv Azure-prenumeration för att kunna distribuera lösnings acceleratorn för fjärrövervakning.
 
 Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Om du vill köra CLI måste du ha [Node. js](https://nodejs.org/) installerat på den lokala datorn.
+Om du vill köra CLI behöver du [Node.js](https://nodejs.org/) installerat på den lokala datorn.
 
 ## <a name="install-the-cli"></a>Installera CLI
 
@@ -73,7 +73,7 @@ En grundläggande distribution skapar följande tjänster i din Azure-prenumerat
 | 1     | [Virtuell Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 v2  | Värd för mikrotjänster |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – standard nivå | Enhets hantering och kommunikation |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurations data, regler, aviseringar och annan kall lagring |  
-| 1     | [Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Lagring för VM-och strömmande kontroll punkter |
+| 1     | [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Lagring för VM-och strömmande kontroll punkter |
 | 1     | [Webb program](https://azure.microsoft.com/services/app-service/web/)        |                 | Värd för klient webb program |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användar identiteter och säkerhet |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa till gångs platser |
@@ -103,7 +103,7 @@ En standard distribution skapar följande tjänster i din Azure-prenumeration:
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelande data och möjliggör djupgående telemetri-analys |
 
 > [!NOTE]
-> Du hittar pris information för dessa tjänster på [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing). Du kan hitta användnings-och fakturerings information för din prenumeration i [Azure Portal](https://portal.azure.com/).
+> Du hittar pris information för dessa tjänster på [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing) . Du kan hitta användnings-och fakturerings information för din prenumeration i [Azure Portal](https://portal.azure.com/).
 
 ## <a name="deploy-the-solution-accelerator"></a>Distribuera lösningsacceleratorn
 
@@ -134,7 +134,7 @@ När du kör `pcs` kommandot för att distribuera en lösning, uppmanas du att:
 - En plats.
 - Autentiseringsuppgifter för de virtuella datorer som är värdar för mikrotjänsterna. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till de virtuella datorerna för fel sökning.
 
-När `pcs` kommandot har slutförts visas URL: en för den nya Solution Accelerator. `pcs` Kommandot skapar också en fil `{deployment-name}-output.json` som innehåller information, till exempel namnet på den IoT Hub som den skapade.
+När `pcs` kommandot har slutförts visas URL: en för den nya Solution Accelerator. `pcs`Kommandot skapar också en fil `{deployment-name}-output.json` som innehåller information, till exempel namnet på den IoT Hub som den skapade.
 
 Mer information om kommando rads parametrar får du genom att köra:
 

@@ -15,10 +15,10 @@ ms.custom:
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f8bafb04d0a5d9c6d25a7ed7e155888d492e9fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050787"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsöka Azure Active Directory B2B-samarbete
@@ -62,9 +62,9 @@ Om du använder Federations autentisering och användaren inte redan finns i Azu
 
 För att lösa det här problemet måste den externa användarens administratör synkronisera användarens konto för att Azure Active Directory.
 
-## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Hur fungerar\#, vilket inte normalt är ett giltigt Character, synkronisera med Azure AD?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Hur fungerar \# , vilket inte normalt är ett giltigt Character, synkronisera med Azure AD?
 
-"\#" är ett reserverat Character i UPN för Azure AD B2B-samarbete eller externa användare eftersom det user@contoso.com inbjudna kontot blir USER_CONTOSO. com #@fabrikam.onmicrosoft.comext #. Därför går \# det inte att logga in på Azure Portal i UPN: er som kommer från lokala platser. 
+" \# " är ett reserverat Character i UPN för Azure AD B2B-samarbete eller externa användare eftersom det inbjudna kontot user@contoso.com blir user_contoso. com # ext # @fabrikam.onmicrosoft.com . Därför \# går det inte att logga in på Azure Portal i UPN: er som kommer från lokala platser. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Jag får ett fel meddelande när jag lägger till externa användare i en synkroniserad grupp
 

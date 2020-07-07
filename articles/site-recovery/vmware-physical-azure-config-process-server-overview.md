@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en översikt över konfigurations-, b
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: cd5ded18d1a8f1f5fd96212d37725bb5db13002f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062096"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Om Site Recovery-komponenter (konfiguration, process, huvud mål)
@@ -18,10 +18,10 @@ I den här artikeln beskrivs konfigurations-, process-och huvud mål servrar som
 
 För haveri beredskap för lokala virtuella VMware-datorer och fysiska servrar distribuerar du en lokal Site Recovery konfigurations Server.
 
-**Inställning** | **Information** | **Länkar**
+**Inställning** | **Detaljer** | **Länkar**
 --- | --- | ---
 **Komponenter**  | Configuration Server-datorn kör alla lokala Site Recovery-komponenter, som innehåller konfigurations servern, processervern och huvud mål servern.<br/><br/> När du konfigurerar konfigurations servern installeras alla komponenter automatiskt. | [Läs](vmware-azure-common-questions.md#configuration-server) vanliga frågor och svar om konfigurations servern.
-**Roll** | Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering. | Lär dig mer om arkitekturen för haveri beredskap för [VMware](vmware-azure-architecture.md) och [fysisk server](physical-azure-architecture.md) till Azure.
+**Role** | Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering. | Lär dig mer om arkitekturen för haveri beredskap för [VMware](vmware-azure-architecture.md) och [fysisk server](physical-azure-architecture.md) till Azure.
 **Krav för VMware** | För haveri beredskap för lokala virtuella VMware-datorer måste du installera och köra konfigurations servern som en lokal, virtuell VMware-dator med hög tillgänglighet. | [Läs mer om](vmware-azure-deploy-configuration-server.md#prerequisites) kraven.
 **VMware-distribution** | Vi rekommenderar att du distribuerar konfigurations servern med hjälp av en Hämtad mall för ägg. Den här metoden ger dig ett enkelt sätt att konfigurera en konfigurations server som uppfyller alla krav och förutsättningar.<br/><br/> Om du av någon anledning inte kan distribuera en virtuell VMware-dator med en ägg-mall kan du konfigurera konfigurations serverns datorer manuellt, enligt beskrivningen nedan för haveri beredskap för fysiska datorer. | [Distribuera](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) med en ägg mall.
 **Krav för fysisk server** | Vid haveri beredskap på lokala fysiska servrar distribuerar du konfigurations servern manuellt. | [Läs mer om](physical-azure-set-up-source.md#prerequisites) kraven.
@@ -31,7 +31,7 @@ För haveri beredskap för lokala virtuella VMware-datorer och fysiska servrar d
 
 En processerver hanterar replikeringsdata under redundans och återställning och installerar mobilitets tjänsten för lokala virtuella VMware-datorer och fysiska servrar.
 
-**Inställning** | **Information** | **Länkar**
+**Inställning** | **Detaljer** | **Länkar**
 --- | --- | ---
 **Distribution**  | Som standard installeras processervern när konfigurations servern distribueras. <br/><br/> En lokal processerver krävs för haveri beredskap och replikering av lokala virtuella VMware-datorer och fysiska servrar. | [Läs mer](vmware-azure-architecture.md#architectural-components).
 **Roll (lokalt**) | Tar emot replikeringsdata från datorer som har Aktiver ATS för replikering. <br/><br/> Optimerar replikeringsdata med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. <br/><br/> Utför en push-installation av Site Recovery mobilitets tjänsten på lokala virtuella VMware-datorer och fysiska servrar som du vill replikera. <br/><br/> Utför automatisk identifiering av lokala datorer. | [Läs mer](vmware-azure-enable-replication.md).

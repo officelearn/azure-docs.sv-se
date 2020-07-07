@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: guybo
 ms.openlocfilehash: 1ad1a66d67be7aefe4d9a7acae993e8788cbb193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066746"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en OpenBSD disk avbildning till Azure
 Den här artikeln visar hur du skapar och laddar upp en virtuell hård disk (VHD) som innehåller operativ systemet OpenBSD. När du har laddat upp det kan du använda det som en egen avbildning för att skapa en virtuell dator (VM) i Azure via Azure CLI.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har följande objekt:
 
 * **En Azure-prenumeration** – om du inte har något konto kan du skapa ett på bara några minuter. Om du har en MSDN-prenumeration kan du se [månatlig Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Annars kan du lära dig hur du [skapar ett kostnads fritt utvärderings konto](https://azure.microsoft.com/pricing/free-trial/).  
@@ -47,7 +47,7 @@ På den virtuella datorn där du installerade operativ systemet OpenBSD 6,1, som
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Som standard är `root` användaren inaktive rad på virtuella datorer i Azure. Användare kan köra kommandon med utökade privilegier genom att `doas` använda kommandot på OpenBSD VM. DOAS är aktiverat som standard. Mer information finns i [DOAS. conf](https://man.openbsd.org/doas.conf.5). 
+4. Som standard `root` är användaren inaktive rad på virtuella datorer i Azure. Användare kan köra kommandon med utökade privilegier genom att använda `doas` kommandot på OPENBSD VM. DOAS är aktiverat som standard. Mer information finns i [DOAS. conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Installera och konfigurera krav för Azure-agenten på följande sätt:
 
@@ -140,7 +140,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Skapa en virtuell dator från din virtuella hård disk
-Du kan skapa en virtuell dator med ett [exempel skript](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) eller direkt med [AZ VM Create](/cli/azure/vm). Om du vill ange OpenBSD-VHD: n som `--image` du överför använder du parametern på följande sätt:
+Du kan skapa en virtuell dator med ett [exempel skript](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) eller direkt med [AZ VM Create](/cli/azure/vm). Om du vill ange OpenBSD-VHD: n som du överför använder du `--image` parametern på följande sätt:
 
 ```azurecli
 az vm create \

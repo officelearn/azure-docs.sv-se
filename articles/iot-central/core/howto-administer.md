@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 7b77ea9e0e1f322cb5ef0bc63885c3ccce1b76f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80158697"
 ---
 # <a name="change-iot-central-application-settings"></a>Ändra IoT Central program inställningar
@@ -45,7 +45,7 @@ Använd knappen **ta bort** för att ta bort ditt IoT Central program permanent.
 
 IoT Central Azure Resource Manager SDK-paket är tillgängliga för Node, python, C#, ruby, Java och go. Du kan använda paketen för att skapa, Visa, uppdatera eller ta bort IoT Central program. Paketen innehåller hjälp program för hantering av autentiserings-och fel hantering.
 
-Du hittar exempel på hur du kan använda Azure Resource Manager SDK: er [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples)på.
+Du hittar exempel på hur du kan använda Azure Resource Manager SDK: er på [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples) .
 
 Mer information finns i följande GitHub-databaser och paket:
 

@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: b0cdff2ce71fb63194933bdfed26da16fdebcca7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602592"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
 
@@ -123,7 +123,7 @@ Nu när du har resurser som är anslutna till din AMPLS skapar du en privat slut
 
    a.    Välj det **virtuella nätverk** och **undernät** som du vill ansluta till dina Azure Monitor-resurser. 
  
-   b.    Välj **Ja** för **integrering med privat DNS-zon**och låt den automatiskt skapa en ny privat DNS zon. 
+   b.    Välj **Ja** för **integrering med privat DNS-zon**och låt den automatiskt skapa en ny privat DNS zon. De faktiska DNS-zonerna kan skilja sig från vad som visas på skärm bilden nedan. 
  
    c.    Klicka på **Granska + skapa**.
  

@@ -4,20 +4,17 @@ description: Med IP-grupper kan du gruppera och hantera IP-adresser för Azure b
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: 7e8b2350b9e85d07ce1c399ce4536703ec998cbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77444542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602541"
 ---
-# <a name="create-ip-groups-preview"></a>Skapa IP-grupper (förhands granskning)
-
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="create-ip-groups"></a>Skapa IP-grupper
 
 Med IP-grupper kan du gruppera och hantera IP-adresser för Azure brand Väggs regler. De kan ha en enskild IP-adress, flera IP-adresser eller ett eller flera IP-adressintervall.
 

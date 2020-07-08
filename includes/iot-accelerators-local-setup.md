@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-accelerators
 author: avneet723
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187776"
 ---
 ## <a name="download-the-source-code"></a>Ladda ned käll koden
@@ -62,7 +62,7 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna följer du dessa st
      Skriptet lägger också till en uppsättning miljövariabler med **ett prefix på** den lokala datorn. De här miljövariablerna tillhandahåller information för fjärrövervakning för att kunna läsa från en Azure Key Vault-resurs. Den här Key Vault resursen är den plats där fjärrövervakningen kommer att läsa konfigurations värden från.
 
      > [!TIP]
-     > När skriptet har slutförts sparas även miljövariablerna i en fil som heter ** \<din\>\\arbetsmapp. dator\\\<lösnings namn\>. kuvert**. Du kan använda dem för framtida distributioner av Solution Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värden **i\\den\\lokala\\. kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
+     > När skriptet har slutförts sparas även miljövariablerna i en fil med namnet ** \<your home folder\> \\ . PCs. \\ \<solution name\> Kuvert**. Du kan använda dem för framtida distributioner av Solution Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värden i den ** \\ \\ lokala \\ . kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
 
 1. Avsluta från kommando rads miljön.
 
@@ -74,6 +74,6 @@ Ange miljövariabler för följande:
 * **PCS_AAD_APPID** -ID för AAD-program
 * **PCS_AAD_APPSECRET** – AAD-programmets hemlighet
 
-Konfigurations värden kommer att läsas från den här Azure Key Vault resursen. De här miljövariablerna kan sparas i ** \<din arbetsmapp\>\\. PC\\\<-lösningens namn\>. miljö** fil från distributionen. Observera att miljövariabler som har angetts på den lokala datorn åsidosätter värden i den **lokala\\\\. kuvert filen för Services-skript\\** när du kör **Docker-sammanställning**.
+Konfigurations värden kommer att läsas från den här Azure Key Vault resursen. Dessa miljövariabler kan sparas i filen ** \<your home folder\> \\ . PCs \\ \<solution name\> . miljö** från distributionen. Observera att miljövariabler som har angetts på den lokala datorn åsidosätter värden i den ** \\ \\ lokala \\ . kuvert** filen för Services-skript när du kör **Docker-sammanställning**.
 
 En del av konfigurationen som krävs av mikrotjänsten lagras i en instans av **Key Vault** som skapades vid den första distributionen. Motsvarande variabler i nyckel valvet bör ändras efter behov.

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -10,13 +10,13 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
 ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76984597"
 ---
-1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
+1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**.
 
    [![Ny program registrering i Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
 
@@ -66,11 +66,11 @@ ms.locfileid: "76984597"
    > [!NOTE]
    > Du kan importera ett certifikat i stället. Ett certifikat rekommenderas för förbättrad säkerhet. Om du vill använda ett certifikat väljer du **Ladda upp certifikat**.
 
-1. Associera din Azure Active Directory app Azure TIme Series Insights. Välj **API-behörigheter** > **Lägg till en behörighets** > -**API min organisation använder**. 
+1. Associera din Azure Active Directory app Azure TIme Series Insights. Välj **API-behörigheter**  >  **Lägg till en behörighets**-  >  **API min organisation använder**. 
 
     [![Associera ett API med din Azure Active Directory-app](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 
-   Skriv `Azure Time Series Insights` i Sök fältet och välj `Azure Time Series Insights`sedan.
+   Skriv `Azure Time Series Insights` i Sök fältet och välj sedan `Azure Time Series Insights` .
 
 1. Ange sedan den typ-API-behörighet som din app kräver. Som standard är **delegerade behörigheter** markerade. Välj en behörighets typ och välj sedan **Lägg till behörigheter**.
 

@@ -5,24 +5,24 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: rogarana
 ms.openlocfilehash: aeb15fbb8da44a203789e06a359cb664998602ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77123222"
 ---
 Azure File Sync agent uppdateras regelbundet för att lägga till nya funktioner och för att åtgärda problem. Vi rekommenderar att du konfigurerar Microsoft Update för att hämta uppdateringar för Azure File Sync-agenten när de är tillgängliga.
 
 #### <a name="major-vs-minor-agent-versions"></a>Huvud versioner jämfört med mindre agent versioner
-* Större agent versioner innehåller ofta nya funktioner och har ett ökande antal som den första delen av versions numret. Till exempel: \*2.\*.\*\*
-* Mindre agent versioner kallas även för "Patches" och släpps oftare än viktiga versioner. De innehåller ofta fel korrigeringar och mindre förbättringar men inga nya funktioner. Till exempel: \* \*. 3.\*\*
+* Större agent versioner innehåller ofta nya funktioner och har ett ökande antal som den första delen av versions numret. Till exempel: \* 2. \* .\*\*
+* Mindre agent versioner kallas även för "Patches" och släpps oftare än viktiga versioner. De innehåller ofta fel korrigeringar och mindre förbättringar men inga nya funktioner. Till exempel: \* \* . 3.\*\*
 
 #### <a name="upgrade-paths"></a>Uppgradera sökvägar
 Det finns fyra godkända och testade sätt att installera Azure File Sync agent-uppdateringar. 
 1. **Önskat Konfigurera Microsoft Update att automatiskt hämta och installera agent uppdateringar.**  
     Vi rekommenderar alltid att du tar varje Azure File Sync uppdatering för att se till att du har åtkomst till de senaste korrigeringarna för Server agenten. Microsoft Update gör den här processen sömlös genom att automatiskt hämta och installera uppdateringar åt dig.
-2. **Använd AfsUpdater. exe för att hämta och installera agent uppdateringar.**  
-    AfsUpdater. exe finns i agentens installations katalog. Dubbelklicka på den körbara filen för att ladda ned och installera agent uppdateringar. 
+2. **Använd AfsUpdater.exe för att ladda ned och installera agent uppdateringar.**  
+    AfsUpdater.exe finns i agentens installations katalog. Dubbelklicka på den körbara filen för att ladda ned och installera agent uppdateringar. 
 3. **Korrigera en befintlig Azure File Sync agent med hjälp av en Microsoft Update korrigerings fil eller en. msp-fil. Det senaste Azure File Sync uppdaterings paketet kan laddas ned från [Microsoft Updates katalogen](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Om du kör en. msp-fil uppgraderas Azure File Sync installationen med samma metod som används automatiskt av Microsoft Update i föregående uppgraderings Sök väg. När en Microsoft Update-korrigering används utförs en uppgradering på plats av en Azure File Sync-installation.
 4. **Hämta det nyaste installations programmet för Azure File Sync agent från [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).**  

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,15 +9,15 @@ ms.date: 01/16/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3a83fab3211175b6f1e7a5a719f00f775d147fbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471576"
 ---
 ### <a name="open-the-mfa-page"></a><a name="mfa"></a>Öppna sidan MFA
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. Navigera till **Azure Active Directory – > alla användare**.
 3. Välj **Multi-Factor Authentication** för att öppna sidan Multi-Factor Authentication.
 

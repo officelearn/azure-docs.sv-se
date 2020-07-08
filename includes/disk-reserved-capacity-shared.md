@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cb959b94807678187363d3132ece273584f13a0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77590781"
 ---
 Spara på Azure-disklagring-användning med reserverad kapacitet. Azure-disklagring reservationer kombinerat med Azure Reserved Virtual Machine Instances kan du sänka dina totala kostnader för virtuella datorer. Reservations rabatten tillämpas automatiskt på de matchande diskarna i det valda reservations omfånget. På grund av det här automatiska programmet behöver du inte tilldela en reservation till en hanterad disk för att få rabatterna.
@@ -74,7 +74,7 @@ Följ dessa steg för att köpa reserverad kapacitet:
    | **Nationella** | Den region där reservationen gäller. |
    | **Fakturerings frekvens** | Hur ofta kontot debiteras för reservationen. Alternativen omfattar **varje månad** och **längst fram**. |
 
-    ![För att välja den produkt som du vill köpa. png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
+    ![För att välja den produkt som du vill purchase.png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
 
 1. När du har angett värden för din reservation visar Azure Portal kostnaden. Portalen visar också rabatt procenten för betalning per användning. Välj **Nästa** för att fortsätta till fönstret **köp reservationer** .
 

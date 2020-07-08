@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -10,26 +10,26 @@ ms.author: dpalled
 manager: cshankar
 ms.custom: include file
 ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77123174"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Allmän tillgänglighet och för hands versions jämförelse
 
 I följande tabell sammanfattas flera viktiga skillnader mellan Azure Time Series Insights allmän tillgänglighet (GA) och för hands versions instanser.
 
-| | Allmän tillgänglighet (GA) | Förhandsversion |
+| | Allmän tillgänglighet (GA) | Förhandsgranskning |
 | --- | --- | ---|
 | Medborgare i första klass | Händelse-centrerad | Tidsserien – centrerad |
 | Semantiska orsaker | Lågnivå (referens data) | Hög nivå (modeller) |
 | Data contextualization | Ej enhets nivå | Enhets-och icke-enhets nivå |
-| Beräkning av logik lagring | Nej | Lagrad i typen variabler del av modellen |
-| Lagring och åtkomst kontroll | Nej | Aktive rad via modell |
-| Agg regeringar/sampling | Nej | Event viktad och tids viktad |
-| Återuppbyggnad av signal | Nej | Interpol |
-| Produktion av härledd tids serie | Nej | Ja, sammanslagningar och kopplingar |
+| Beräkning av logik lagring | No | Lagrad i typen variabler del av modellen |
+| Lagring och åtkomst kontroll | No | Aktive rad via modell |
+| Agg regeringar/sampling | No | Event viktad och tids viktad |
+| Återuppbyggnad av signal | No | Interpol |
+| Produktion av härledd tids serie | No | Ja, sammanslagningar och kopplingar |
 | Språk flexibilitet | Ej sammanställnings bar | Sammansättnings bar |
 | Uttrycksspråk | Predikat-sträng | Tids serie uttryck (predikaa strängar, värden, uttryck och funktioner) |
 

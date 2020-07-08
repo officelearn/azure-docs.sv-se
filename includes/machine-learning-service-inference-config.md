@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
 ms.openlocfilehash: 5102e8f75da14c58e948e81aaa418539dd18869a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159427"
 ---
 Posterna i `inferenceconfig.json` dokument översikten till parametrarna för klassen [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . I följande tabell beskrivs mappningen mellan entiteter i JSON-dokumentet och parametrarna för-metoden:
@@ -74,7 +74,7 @@ Du kan också använda en befintlig Azure Machine Learning [miljö](https://docs
 }
 ```
 
-Följande kommando visar hur du distribuerar en modell med hjälp av den tidigare konfigurations filen för härledning (med namnet myInferenceConfig. JSON). 
+Följande kommando visar hur du distribuerar en modell med hjälp av den tidigare konfigurations filen för konfiguration (med namnet myInferenceConfig.jspå). 
 
 Den använder också den senaste versionen av en befintlig Azure Machine Learnings [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) (med namnet azureml – minimal).
 

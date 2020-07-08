@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 7a22256c88f9cee3ce62c68a2de4a5974d76f026
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593752"
 ---
 ## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Hämta och installera Linkerd Linkerd-klientens binärfil
@@ -21,14 +21,14 @@ LINKERD_VERSION=stable-2.6.0
 curl -sLO "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-linux"
 ```
 
-`linkerd` Klientens binärfil körs på klient datorn och gör att du kan interagera med Linkerd-tjänstens nät. Använd följande kommandon för att installera Linkerd `linkerd` -klientens binärfil i ett bash-baserat gränssnitt på Linux-eller Windows- [undersystem för Linux][install-wsl]. Dessa kommandon kopierar `linkerd` klientens binärfil till standard platsen för användar program i `PATH`.
+`linkerd`Klientens binärfil körs på klient datorn och gör att du kan interagera med Linkerd-tjänstens nät. Använd följande kommandon för att installera Linkerd- `linkerd` klientens binärfil i ett bash-baserat gränssnitt på Linux-eller [Windows-undersystem för Linux][install-wsl]. Dessa kommandon kopierar `linkerd` klientens binärfil till standard platsen för användar program i `PATH` .
 
 ```bash
 sudo cp ./linkerd2-cli-$LINKERD_VERSION-linux /usr/local/bin/linkerd
 sudo chmod +x /usr/local/bin/linkerd
 ```
 
-Om du vill att kommando rads komplettering ska slutföras `linkerd` för Linkerd-klientens binärfil, så gör du det på följande sätt:
+Om du vill att kommando rads komplettering ska slutföras för Linkerd `linkerd` -klientens binärfil, så gör du det på följande sätt:
 
 ```bash
 # Generate the bash completion file and source it in your current shell

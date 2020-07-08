@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67673534"
 ---
 *Uppvärmning av cacheminnet*  
@@ -33,7 +33,7 @@ IOMeter använder en test fil som är lagrad på den volym där du kör benchmar
 
 #### <a name="access-specifications"></a>Åtkomst specifikation
 
-Specifikationer, begär IO-storlek,% Läs/skriv,% slumpmässig/sekventiella konfigureras med hjälp av fliken "åtkomst specifikationer" i IOMeter. Skapa en åtkomst specifikation för var och en av de scenarier som beskrivs nedan. Skapa åtkomst specifikationen och spara med ett lämpligt namn som – RandomWrites\_8K, RandomReads\_8K. Välj motsvarande specifikation när du kör test scenariot.
+Specifikationer, begär IO-storlek,% Läs/skriv,% slumpmässig/sekventiella konfigureras med hjälp av fliken "åtkomst specifikationer" i IOMeter. Skapa en åtkomst specifikation för var och en av de scenarier som beskrivs nedan. Skapa åtkomst specifikationen och spara med ett lämpligt namn som – RandomWrites \_ 8K, RandomReads \_ 8K. Välj motsvarande specifikation när du kör test scenariot.
 
 Ett exempel på åtkomst till specifikationer för maximalt Skriv-IOPS-scenario visas nedan.  
     ![Exempel på åtkomst specifikation för maximalt Skriv-IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
@@ -44,8 +44,8 @@ Använd mindre storlek för begäran för att demonstrera högsta IOPs. Använd 
 
 | Åtkomst specifikation | Begär ande storlek | Slumpmässiga | Läs |
 | --- | --- | --- | --- |
-| RandomWrites\_8K |8K |100 |0 |
-| RandomReads\_8K |8K |100 |100 |
+| RandomWrites \_ 8K |8K |100 |0 |
+| RandomReads \_ 8K |8K |100 |100 |
 
 #### <a name="maximum-throughput-test-specifications"></a>Maximala krav för data flödes test
 
@@ -53,8 +53,8 @@ Använd större storlek för begäran för att demonstrera maximalt data flöde.
 
 | Åtkomst specifikation | Begär ande storlek | Slumpmässiga | Läs |
 | --- | --- | --- | --- |
-| RandomWrites\_64 KB |64 KB |100 |0 |
-| RandomReads\_64 KB |64 KB |100 |100 |
+| RandomWrites \_ 64 KB |64 KB |100 |0 |
+| RandomReads \_ 64 KB |64 KB |100 |100 |
 
 #### <a name="run-the-iometer-test"></a>Kör IOMeter-testet
 
@@ -64,31 +64,31 @@ Utför stegen nedan för att värma upp cachen
 
    | Name | Begär ande storlek | Slumpmässiga | Läs |
    | --- | --- | --- | --- |
-   | RandomWrites\_1 MB |1 MB |100 |0 |
-   | RandomReads\_1 MB |1 MB |100 |100 |
+   | RandomWrites \_ 1 MB |1 MB |100 |0 |
+   | RandomReads \_ 1 MB |1 MB |100 |100 |
 1. Kör IOMeter-testet för att initiera cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
    | Scenario | Mål volym | Name | Varaktighet |
    | --- | --- | --- | --- |
-   | Initiera cache-disk |CacheReads |RandomWrites\_1 MB |2 timmar |
+   | Initiera cache-disk |CacheReads |RandomWrites \_ 1 MB |2 timmar |
 1. Kör IOMeter-testet för att värma upp cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
    | Scenario | Mål volym | Name | Varaktighet |
    | --- | --- | --- | --- |
-   | Värm upp cache-disk |CacheReads |RandomReads\_1 MB |2 timmar |
+   | Värm upp cache-disk |CacheReads |RandomReads \_ 1 MB |2 timmar |
 
 När du har värmt upp cache-disken fortsätter du med de test scenarier som anges nedan. Om du vill köra IOMeter-testet använder du minst tre arbets trådar för **varje** mål volym. För varje arbets tråd väljer du mål volymen, ställer in ködjup och väljer en av de sparade test specifikationerna, som du ser i tabellen nedan, för att köra motsvarande test scenario. Tabellen visar även förväntade resultat för IOPS och data flöde när du kör de här testerna. I alla scenarier används en liten IO-storlek på 8 KB och ett högt ködjup på 128.
 
 | Test scenario | Mål volym | Name | Resultat |
 | --- | --- | --- | --- |
-| Max. Läs IOPS |CacheReads |RandomWrites\_8K |50 000 IOPS |
-| Max. Skriv IOPS |NoCacheWrites |RandomReads\_8K |64 000 IOPS |
-| Max. Kombinerad IOPS |CacheReads |RandomWrites\_8K |100 000 IOPS |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Max. Läsning MB/SEK |CacheReads |RandomWrites\_64 KB |524 MB/SEK |
-| Max. Skriv MB/SEK |NoCacheWrites |RandomReads\_64 KB |524 MB/SEK |
-| Kombinerade MB/SEK |CacheReads |RandomWrites\_64 KB |1000 MB/SEK |
-| NoCacheWrites |RandomReads\_64 KB | &nbsp; | &nbsp; |
+| Max. Läs IOPS |CacheReads |RandomWrites \_ 8K |50 000 IOPS |
+| Max. Skriv IOPS |NoCacheWrites |RandomReads \_ 8K |64 000 IOPS |
+| Max. Kombinerad IOPS |CacheReads |RandomWrites \_ 8K |100 000 IOPS |
+| NoCacheWrites |RandomReads \_ 8K | &nbsp; | &nbsp; |
+| Max. Läsning MB/SEK |CacheReads |RandomWrites \_ 64 KB |524 MB/SEK |
+| Max. Skriv MB/SEK |NoCacheWrites |RandomReads \_ 64 KB |524 MB/SEK |
+| Kombinerade MB/SEK |CacheReads |RandomWrites \_ 64 KB |1000 MB/SEK |
+| NoCacheWrites |RandomReads \_ 64 KB | &nbsp; | &nbsp; |
 
 Nedan visas skärm bilder av IOMeter test resultat för kombinerade IOPS-och data flödes scenarier.
 
@@ -116,7 +116,7 @@ Vi använder fyra arbets trådar för att köra Skriv åtgärder och fyra arbets
 
 #### <a name="maximum-write-iops"></a>Maximalt Skriv-IOPS
 
-Skapa jobb filen med följande specifikationer för att få maximal Skriv-IOPS. Ge den namnet "fiowrite. ini".
+Skapa jobb filen med följande specifikationer för att få maximal Skriv-IOPS. Ge den namnet "fiowrite.ini".
 
 ```ini
 [global]
@@ -157,7 +157,7 @@ Medan testet körs kan du se antalet skrivnings-IOPS som den virtuella datorn oc
 
 #### <a name="maximum-read-iops"></a>Högsta Läs-IOPS
 
-Skapa jobb filen med följande specifikationer för att få maximal Läs-IOPS. Ge den namnet "fioread. ini".
+Skapa jobb filen med följande specifikationer för att få maximal Läs-IOPS. Ge den namnet "fioread.ini".
 
 ```ini
 [global]
@@ -198,7 +198,7 @@ Medan testet körs kan du se antalet Läs-IOPS som den virtuella datorn och Prem
 
 #### <a name="maximum-read-and-write-iops"></a>Maximal Läs-och skriv-IOPS
 
-Skapa jobb filen med följande specifikationer för att få maximalt kombinerat Läs-och skriv-IOPS. Ge den namnet "fioreadwrite. ini".
+Skapa jobb filen med följande specifikationer för att få maximalt kombinerat Läs-och skriv-IOPS. Ge den namnet "fioreadwrite.ini".
 
 ```ini
 [global]

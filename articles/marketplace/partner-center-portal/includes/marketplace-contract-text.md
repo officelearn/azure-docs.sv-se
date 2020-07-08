@@ -1,5 +1,5 @@
 ---
-title: ta med fil
+title: inkludera fil
 description: inkludera en fil med text för Microsoft Commercial Marketplace standard-kontrakt
 documentationcenter: partner-center-commercial-marketplace
 author: dsindona
@@ -10,17 +10,17 @@ ms.date: 01/22/2020
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: e7692d8c90d71e76628ecb44ade529eabedfa909
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691525"
 ---
 Microsoft tillhandahåller en standard kontrakts mal len för den kommersiella marknads platsen.
 
 - **Använd standard kontraktet för Microsoft Commercial Marketplace?**
 
-För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt för Microsofts kommersiella marknads plats för att under lätta transaktioner i Marketplace. I stället för att utforma anpassade villkor, kan kommersiella Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. Du hittar standard kontraktet här: https://go.microsoft.com/fwlink/?linkid=2041178.
+För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt för Microsofts kommersiella marknads plats för att under lätta transaktioner i Marketplace. I stället för att utforma anpassade villkor, kan kommersiella Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. Du hittar standard kontraktet här: https://go.microsoft.com/fwlink/?linkid=2041178 .
 
 Du kan välja att använda standard kontraktet i stället för att ange egna anpassade villkor genom att markera kryss rutan Använd standard kontraktet för den kommersiella Marketplace.
 
@@ -49,7 +49,7 @@ Det finns två typer av ändringar som är tillgängliga för kommersiella Marke
 - **Klient-ID** (obligatoriskt): varje anpassad ändring kan riktas mot upp till 20 klient-ID: n. Om du lägger till en anpassad ändring måste du ange minst ett klient-ID. Klient-ID: t identifierar din kund i Azure. Du kan be kunden om detta ID och de kan hitta det genom att gå till portal.azure.com > Azure Active Directory > egenskaper. Värdet för katalog-ID är klient-ID (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID för din kund genom att använda deras domän namns-URL i [Vad är mitt Microsoft Azure-och Office 365-klient-ID?](https://www.whatismytenantid.com).
 - **Beskrivning** (valfritt): om du vill kan du ange en egen beskrivning för klient-ID: t som hjälper dig att identifiera kunden som du är mål för med ändringen.
 
-**Villkor**
+**Allmänna villkor**
 
 Om du vill ange egna anpassade villkor kan du välja att ange dem i fältet allmänna villkor. Du kan ange upp till 10 000 tecken text i det här fältet. Om dina villkor kräver en längre Beskrivning anger du en enda URL-länk i det här fältet där du kan hitta dina villkor. Den kommer att visas för kunder som en aktiv länk.
 

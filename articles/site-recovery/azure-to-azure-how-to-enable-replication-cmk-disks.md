@@ -8,17 +8,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
 ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75897967"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikera datorer med Kundhanterade nycklar (CMK) aktiverade diskar
 
 Den här artikeln beskriver hur du replikerar virtuella Azure-datorer med Kundhanterade nycklar (CMK) aktiverade hanterade diskar, från en Azure-region till en annan.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 Du måste skapa disk krypterings uppsättningarna i mål regionen för mål prenumerationen innan du aktiverar replikering för dina virtuella datorer som har CMK-aktiverade hanterade diskar.
 
 ## <a name="enable-replication"></a>Aktivera replikering
@@ -33,7 +32,7 @@ I det här exemplet är den primära Azure-regionen Asien, östra och den sekund
     - **Käll prenumeration**: den prenumeration som dina virtuella käll datorer tillhör. Det kan vara vilken prenumeration som helst i samma Azure Active Directory klient organisation som Recovery Services-valvet.
     - **Resurs grupp**: resurs gruppen som de virtuella käll datorerna tillhör. Alla virtuella datorer i den valda resurs gruppen visas som skydd i nästa steg.
 
-3. I **Virtual Machines** > **Välj virtuella datorer**väljer du varje virtuell dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Välj **OK**.
+3. I **Virtual Machines**  >  **Välj virtuella datorer**väljer du varje virtuell dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Välj sedan **OK**.
 
 4. I **Inställningar**kan du konfigurera följande inställningar för mål platsen.
 
@@ -64,7 +63,7 @@ Följ dessa steg om du vill ändra Site Recovery inställningarna för standard 
 
 3. Välj **Anpassa** intill "inställningar för lagrings kryptering" för att välja mål-des för varje kundhanterad nyckel (CMK) som har Aktiver ATS med den hanterade käll disken. Vid tidpunkten för valet kommer du också att kunna se vilket mål nyckel valv som DES är associerat med.
 
-4. Välj **skapa mål resurs** > **Aktivera replikering**.
+4. Välj **skapa mål resurs**  >  **Aktivera replikering**.
 5. När de virtuella datorerna har Aktiver ATS för replikering kan du kontrol lera de virtuella datorernas hälso status under **replikerade objekt**.
 
 ![Aktivera replikering för datorn med CMK-aktiverade diskar](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)

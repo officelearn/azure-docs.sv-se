@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 5604b42e1611830f3aaea9ae180cdb8142ab0942
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887197"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Scenario: timeout med kommandot HBase hbck i Azure HDInsight
@@ -32,13 +31,13 @@ En möjlig orsak till timeout-problem när du använder `hbck` kommandot kan var
 
 1. Kör `hbase zkcli` kommando för att ansluta till Apache ZooKeeper Shell.
 
-1. Kör `rmr /hbase/regions-in-transition` eller `rmr /hbase-unsecure/regions-in-transition` -kommando.
+1. Kör `rmr /hbase/regions-in-transition` eller- `rmr /hbase-unsecure/regions-in-transition` kommando.
 
-1. Stäng från `hbase zkcli` Shell med hjälp `exit` av kommandot.
+1. Stäng från `hbase zkcli` Shell med hjälp av `exit` kommandot.
 
 1. Starta om tjänsten Active HBase Master från Apache Ambari-ANVÄNDARGRÄNSSNITTET.
 
-1. Kör `hbase hbck -fixAssignments`-kommandot.
+1. Kör kommandot `hbase hbck -fixAssignments`.
 
 1. Övervaka den HBase Master användar gränssnitts region "i över gång" som avsnittet för att se till att ingen region fastnar.
 

@@ -9,15 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 26f41a7fd88a3c2018592e89ae95e3b962c1a9e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75911698"
 ---
 # <a name="display-feature-information"></a>Visa funktionsinformation
 
-Spatialdata representeras ofta med punkter, linjer och polygoner. Informationen innehåller ofta information om metadata. En punkt kan till exempel representera platsen för en butik och metadata om att restaurangens namn, adress och typ av livsmedel fungerar. Du kan lägga till dessa metadata som egenskaper för dessa funktioner med `JsonObject`hjälp av en. Följande kod skapar en enkel punkt funktion med en `title` egenskap som har värdet "Hello World!"
+Spatialdata representeras ofta med punkter, linjer och polygoner. Informationen innehåller ofta information om metadata. En punkt kan till exempel representera platsen för en butik och metadata om att restaurangens namn, adress och typ av livsmedel fungerar. Du kan lägga till dessa metadata som egenskaper för dessa funktioner med hjälp av en `JsonObject` . Följande kod skapar en enkel punkt funktion med en `title` egenskap som har värdet "Hello World!"
 
 ```java
 //Create a data source and add it to the map.
@@ -32,7 +31,7 @@ properties.addProperty("title", "Hello World!");
 dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64), properties));
 ```
 
-När en användare interagerar med en funktion på kartan kan händelser användas för att reagera på dessa åtgärder. Ett vanligt scenario är att visa ett meddelande om metadata-egenskaperna för en funktion som användaren interagerar med. `OnFeatureClick` Händelsen är den huvudsakliga händelsen som används för att identifiera när användaren tryckte på en funktion på kartan. Det finns också en `OnLongFeatureClick` händelse. När du lägger `OnFeatureClick` till händelsen i kartan kan den begränsas till ett enda lager genom att skicka i ID: t för ett lager för att begränsa det till. Om inget lager-ID skickas i, kan du trycka på en funktion på kartan, oavsett vilket lager det finns i, så att den här händelsen utlöses. Följande kod skapar ett symbol lager för att återge punkt data på kartan och lägger sedan till en `OnFeatureClick` händelse och begränsar den till det här symbol skiktet.
+När en användare interagerar med en funktion på kartan kan händelser användas för att reagera på dessa åtgärder. Ett vanligt scenario är att visa ett meddelande om metadata-egenskaperna för en funktion som användaren interagerar med. `OnFeatureClick`Händelsen är den huvudsakliga händelsen som används för att identifiera när användaren tryckte på en funktion på kartan. Det finns också en `OnLongFeatureClick` händelse. När du lägger till `OnFeatureClick` händelsen i kartan kan den begränsas till ett enda lager genom att skicka i ID: t för ett lager för att begränsa det till. Om inget lager-ID skickas i, kan du trycka på en funktion på kartan, oavsett vilket lager det finns i, så att den här händelsen utlöses. Följande kod skapar ett symbol lager för att återge punkt data på kartan och lägger sedan till en `OnFeatureClick` händelse och begränsar den till det här symbol skiktet.
 
 ```java
 //Create a symbol and add it to the map.

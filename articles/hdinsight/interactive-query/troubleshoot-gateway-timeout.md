@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
 ms.openlocfilehash: 809b2e383eb57b730fd76ec2194764178aa810c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895038"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Undantag vid körning av frågor från Apache Ambari Hive-vy i Azure HDInsight
@@ -33,9 +32,9 @@ Cannot create property 'errors' on string '<!DOCTYPE html PUBLIC '-//W3C//DTD XH
 
 En gateway-timeout.
 
-Värdet för gateway-timeout är 2 minuter. Frågor från Ambari Hive-vy skickas till `/hive2` slut punkten via gatewayen. När frågan har kompilerats och godkänts returnerar HiveServer en `queryid`. Klienterna ska sedan söka efter status för frågan. Om HiveServer inte returnerar ett HTTP-svar inom 2 minuter under den här processen, genererar HDI-gatewayen ett timeout-fel på 502,3 Gateway till anroparen. Felen kan inträffa när frågan skickas för bearbetning (mer troligt) och även i Hämta status samtal (mindre troligt). Användarna kan se något av dem.
+Värdet för gateway-timeout är 2 minuter. Frågor från Ambari Hive-vy skickas till `/hive2` slut punkten via gatewayen. När frågan har kompilerats och godkänts returnerar HiveServer en `queryid` . Klienterna ska sedan söka efter status för frågan. Om HiveServer inte returnerar ett HTTP-svar inom 2 minuter under den här processen, genererar HDI-gatewayen ett timeout-fel på 502,3 Gateway till anroparen. Felen kan inträffa när frågan skickas för bearbetning (mer troligt) och även i Hämta status samtal (mindre troligt). Användarna kan se något av dem.
 
-Http-hanterarens tråd ska vara snabb: förbereda jobbet och returnera ett `queryid`. Men på grund av flera orsaker kan alla hanterare av hanterare vara upptagna, vilket leder till timeout för nya frågor och get status anrop.
+Http-hanterarens tråd ska vara snabb: förbereda jobbet och returnera ett `queryid` . Men på grund av flera orsaker kan alla hanterare av hanterare vara upptagna, vilket leder till timeout för nya frågor och get status anrop.
 
 ### <a name="responsibilities-of-the-http-handler-thread"></a>Ansvars områden för HTTP-hanterarens tråd
 
@@ -54,13 +53,13 @@ Några allmänna rekommendationer för att förbättra situationen:
 
 * Om du använder en extern Hive-metaarkiv kontrollerar du DB-måtten och kontrollerar att databasen inte är överbelastad. Överväg att skala metaarkiv-databas skiktet.
 
-* Se till att parallellt Ops är aktiverat (Detta gör att HTTP-hanterarens trådar kan köras parallellt). För att kontrol lera värdet startar du [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) och navigerar till **Hive** > -**konfigurationer** > **Avancerad** > **anpassad Hive-plats**. Värdet för `hive.server2.parallel.ops.in.session` ska vara `true`.
+* Se till att parallellt Ops är aktiverat (Detta gör att HTTP-hanterarens trådar kan köras parallellt). För att kontrol lera värdet startar du [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) och navigerar till **Hive**  >  -**konfigurationer**  >  **Avancerad**  >  **anpassad Hive-plats**. Värdet för `hive.server2.parallel.ops.in.session` ska vara `true` .
 
 * Se till att klustrets SKU för virtuell dator inte är för liten för belastningen. Överväg att dela arbetet mellan flera kluster. Mer information finns i [Välj en kluster typ](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 
 * Om Ranger är installerat i klustret kontrollerar du om det finns för många Ranger-principer som måste utvärderas för varje fråga. Sök efter dubbletter eller onödiga principer.
 
-* Kontrol lera värdet för **HiveServer2 Heap-storlek** från Ambari. Navigera till **Hive** > **konfiguration** > av Hive-**Inställningar** > **optimering**. Kontrol lera att värdet är större än 10 GB. Justera efter behov för att optimera prestanda.
+* Kontrol lera värdet för **HiveServer2 Heap-storlek** från Ambari. Navigera till konfiguration av **Hive**-  >  **Configs**  >  **Inställningar**  >  **optimering**. Kontrol lera att värdet är större än 10 GB. Justera efter behov för att optimera prestanda.
 
 * Se till att Hive-frågan är väl justerad. Mer information finns i [optimera Apache Hive frågor i Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
 

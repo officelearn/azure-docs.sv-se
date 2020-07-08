@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
 ms.openlocfilehash: 21269f7d5a9ec832a49a613351702dd24be156af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894155"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Det gick inte att komma åt Data Lake Storage-filer i Azure HDInsight
@@ -66,7 +65,7 @@ Certifikatet som angetts för tjänstens huvud namn kan ha upphört att gälla.
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
     ```
 
-1. Hämta en av webb adresserna `core-site.xml property`  -  `fs.azure.datalake.token.provider.service.urls`från.
+1. Hämta en av webb adresserna från `core-site.xml property`  -  `fs.azure.datalake.token.provider.service.urls` .
 
 1. Kör följande spiral-kommando för att hämta OAuth-token.
 

@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 2b17c2488e47148e8845433f9c7613e1127fbffa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895762"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Scenario: Apache Ambari UI 502-fel i Azure HDInsight
@@ -32,7 +31,7 @@ I de flesta fall kan du starta om den aktiva huvudnoden för att undvika problem
 
 ### <a name="ambari-server-failed-to-start"></a>Det gick inte att starta Ambari-servern
 
-Du kan kontrol lera Ambari-Server-loggarna för att ta reda på varför Ambari-servern inte kunde starta. En vanlig orsak är att konsekvens kontroll av databasen är fel. Du hittar detta i den här logg filen: `/var/log/ambari-server/ambari-server-check-database.log`.
+Du kan kontrol lera Ambari-Server-loggarna för att ta reda på varför Ambari-servern inte kunde starta. En vanlig orsak är att konsekvens kontroll av databasen är fel. Du hittar detta i den här logg filen: `/var/log/ambari-server/ambari-server-check-database.log` .
 
 Om du har gjort ändringar i klusternoden kan du ångra dem. Använd alltid Ambari-ANVÄNDARGRÄNSSNITTET för att ändra alla Hadoop/Spark-relaterade konfigurationer.
 
@@ -49,7 +48,7 @@ service ambari-server start
 
 ### <a name="ambari-server-killed-by-oom-killer"></a>Ambari-servern har stoppats av OOM-Killer
 
-I vissa fall tar huvudnoden slut på minne och Linux-OOM-Killer börjar att välja processer att avsluta. Du kan kontrol lera den här situationen genom att söka i AmbariServer process-ID: t, som inte ska hittas. Titta sedan på ditt `/var/log/syslog`och leta efter något som liknar detta:
+I vissa fall tar huvudnoden slut på minne och Linux-OOM-Killer börjar att välja processer att avsluta. Du kan kontrol lera den här situationen genom att söka i AmbariServer process-ID: t, som inte ska hittas. Titta sedan på ditt `/var/log/syslog` och leta efter något som liknar detta:
 
 ```
 Jul 27 15:29:30 xxx-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0

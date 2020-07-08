@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979366"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validera XML med scheman i Azure Logic Apps med Enterprise-integrationspaket
@@ -135,7 +134,7 @@ När schemat har slutfört överföringen visas schemat i listan **scheman** . P
 1. När du har slutfört överföringen genererar du en signatur för delad åtkomst (SAS) för schemat. 
    Från schemats snabb meny väljer du **Hämta signatur för delad åtkomst**.
 
-1. I fönstret **signatur för delad åtkomst** väljer > **du skapa** **signatur-URI för delad åtkomst för container nivå**. 
+1. I fönstret **signatur för delad åtkomst** väljer du skapa **signatur-URI för delad åtkomst för container nivå**  >  **Create**. 
    När SAS-URL: en har genererats väljer du **Kopiera**bredvid rutan **URL** .
 
 1. Gå tillbaka till Azure Portal där fönstret **Lägg till schema** är öppet. Välj **stor fil**.

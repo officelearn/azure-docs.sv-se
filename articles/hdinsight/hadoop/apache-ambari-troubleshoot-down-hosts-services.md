@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/02/2019
 ms.openlocfilehash: 5340b1c7a6510595376789bc5777e6fb6f07dd4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895641"
 ---
 # <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>Scenario: Apache Ambari UI visar värdar och tjänster i Azure HDInsight
@@ -26,7 +25,7 @@ Apache Ambari UI är tillgängligt, men användar gränssnittet visar att nästa
 
 I de flesta fall är detta ett problem med att Ambari-servern inte körs på den aktiva huvudnoden. Kontrol lera vilken huvudnoden som är aktiv huvudnoden och se till att Ambari-servern körs på rätt skrivare. Starta inte Ambari manuellt-Server, låt tjänsten för redundans vara ansvarig för att starta Ambari-servern på rätt huvudnoden. Starta om den aktiva huvudnoden för att framtvinga en redundansväxling.
 
-Nätverks problem kan också orsaka det här problemet. Se om du kan pinga `headnodehost`från varje klusternod. Det finns en sällsynt situation där ingen klusternod kan ansluta till `headnodehost`:
+Nätverks problem kan också orsaka det här problemet. Se om du kan pinga från varje klusternod `headnodehost` . Det finns en sällsynt situation där ingen klusternod kan ansluta till `headnodehost` :
 
 ```
 $>telnet headnodehost 8440

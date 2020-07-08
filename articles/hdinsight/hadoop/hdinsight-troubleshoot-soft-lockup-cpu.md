@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 701e314ad2a3762b1e8ca022ce18d9435ce2db37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894112"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scenario: "övervaknings enhet: fel: mjuk låsning – CPU" fel från ett Azure HDInsight-kluster
@@ -20,7 +19,7 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="issue"></a>Problem
 
-Kernel-syslog innehåller fel meddelandet: `watchdog: BUG: soft lockup - CPU`.
+Kernel-syslog innehåller fel meddelandet: `watchdog: BUG: soft lockup - CPU` .
 
 ## <a name="cause"></a>Orsak
 
@@ -42,7 +41,7 @@ Tillämpa kernel-korrigering. Skriptet nedan uppgraderar Linux-kärnan och start
     | Name |Korrigering för problem med tyst kernel-lås |
     | Bash-skript-URI |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Node-typ (er) |Arbetare, Zookeeper |
-    | Parametrar |Ej tillämpligt |
+    | Parametrar |E.t. |
 
     Välj **Spara den här skript åtgärden...** om du vill köra skriptet när nya noder läggs till.
 

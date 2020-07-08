@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: ff410ea1b6c54d2f58babeb20c68fe95033e9728
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894426"
 ---
 # <a name="scenario-apache-spark-streaming-application-stops-after-executing-for-24-days-in-azure-hdinsight"></a>Scenario: Apache Spark strömnings program stoppas efter att ha körts i 24 dagar i Azure HDInsight
@@ -24,11 +23,11 @@ Ett Apache Spark streaming-program stoppas efter att det har körts i 24 dagar o
 
 ## <a name="cause"></a>Orsak
 
-`livy.server.session.timeout` Värdet styr hur lång tid Apache livy ska vänta tills en session har slutförts. När sessionens längd når `session.timeout` värdet avslutas livy-sessionen och programmet automatiskt.
+`livy.server.session.timeout`Värdet styr hur lång tid Apache livy ska vänta tills en session har slutförts. När sessionens längd når `session.timeout` värdet avslutas livy-sessionen och programmet automatiskt.
 
 ## <a name="resolution"></a>Lösning
 
-För tids krävande jobb ökar du värdet för `livy.server.session.timeout` att använda AMBARI-användargränssnittet. Du kan komma åt livy-konfigurationen från Ambari-gränssnittet med hjälp `https://<yourclustername>.azurehdinsight.net/#/main/services/LIVY/configs`av URL: en.
+För tids krävande jobb ökar du värdet för `livy.server.session.timeout` att använda Ambari-användargränssnittet. Du kan komma åt livy-konfigurationen från Ambari-gränssnittet med hjälp av URL: en `https://<yourclustername>.azurehdinsight.net/#/main/services/LIVY/configs` .
 
 Ersätt `<yourclustername>` med namnet på ditt HDInsight-kluster på det sätt som visas i portalen.
 

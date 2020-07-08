@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887333"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scenario: `hbase hbck` kommandot returnerar inkonsekvenser i Azure HDInsight
@@ -20,7 +19,7 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="issue-region-is-not-in-hbasemeta"></a>Problem: regionen finns inte i`hbase:meta`
 
-Region XXX on HDFS, men inte listad `hbase:meta` i eller distribuerad på någon region Server.
+Region XXX on HDFS, men inte listad i `hbase:meta` eller distribuerad på någon region Server.
 
 ### <a name="cause"></a>Orsak
 
@@ -43,7 +42,7 @@ Sig.
 
 ## <a name="issue-region-is-offline"></a>Problem: regionen är offline
 
-Regionen XXX har inte distribuerats på någon RegionServer. Det innebär att regionen är i `hbase:meta`, men offline.
+Regionen XXX har inte distribuerats på någon RegionServer. Det innebär att regionen är i `hbase:meta` , men offline.
 
 ### <a name="cause"></a>Orsak
 
@@ -67,7 +66,7 @@ Sig.
 
 ### <a name="resolution"></a>Lösning
 
-Sammanfoga de överlappande regionerna manuellt. Gå till avsnittet HBase HMaster Web UI Table, Välj den tabell länk som har problemet. Du kommer att se start nyckel/slut nyckel för varje region som tillhör tabellen. Sammanfoga sedan de överlappande regionerna. I HBase-gränssnittet gör `merge_region 'xxxxxxxx','yyyyyyy', true`du. Ett exempel:
+Sammanfoga de överlappande regionerna manuellt. Gå till avsnittet HBase HMaster Web UI Table, Välj den tabell länk som har problemet. Du kommer att se start nyckel/slut nyckel för varje region som tillhör tabellen. Sammanfoga sedan de överlappande regionerna. I HBase-gränssnittet gör du `merge_region 'xxxxxxxx','yyyyyyy', true` . Ett exempel:
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -83,7 +82,7 @@ I det här scenariot måste du sammanfoga regiona-och RegionC och få en region 
 
 ## <a name="issue-cant-load-regioninfo"></a>Problem: det går inte att läsa in`.regioninfo`
 
-Det går `.regioninfo` inte att `/hbase/data/default/tablex/regiony`läsa in region.
+Det går inte att läsa in `.regioninfo` region `/hbase/data/default/tablex/regiony` .
 
 ### <a name="cause"></a>Orsak
 

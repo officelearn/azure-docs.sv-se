@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 80f984643d6d8be88b381881c6fc1cb1cb5f1815
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887350"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Scenario: BindException-adressen används redan i Azure HDInsight
@@ -20,7 +19,7 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="issue"></a>Problem
 
-Omstarten på en Apache HBase region Server kan inte slutföras. Från `region-server.log` i `/var/log/hbase` -katalogen på arbetsnoder där regions servern startar Miss lyckas kan du se ett fel meddelande som liknar följande:
+Omstarten på en Apache HBase region Server kan inte slutföras. Från `region-server.log` i- `/var/log/hbase` katalogen på arbetsnoder där regions servern startar Miss lyckas kan du se ett fel meddelande som liknar följande:
 
 ```
 Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
@@ -40,9 +39,9 @@ Starta om Apache HBase regions servrar under tung arbets belastnings aktivitet. 
 
 1. Om programmet fortsätter att ansluta till region servern stängs servern inte av direkt. Tids gränsen på 30 sekunder upphör att gälla innan avstängning sker.
 
-1. Efter 30 sekunder skickar Ambari-agenten ett Force-Kill (`kill -9`)-kommando till region servern.
+1. Efter 30 sekunder skickar Ambari-agenten ett Force-Kill ( `kill -9` )-kommando till region servern.
 
-1. På grund av den här avstängningen kan den port som är associerad med processen inte frigöras, även om region Server processen avslutas, vilket `AddressBindException`slutligen leder till.
+1. På grund av den här avstängningen kan den port som är associerad med processen inte frigöras, även om region Server processen avslutas, vilket slutligen leder till `AddressBindException` .
 
 ## <a name="resolution"></a>Lösning
 

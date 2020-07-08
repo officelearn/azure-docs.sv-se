@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75977303"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Dörr övervakare – använda Azure Functions och SendGrid, skicka e-post när en dörr öppnas           
@@ -81,7 +80,7 @@ När distributionen är klar klickar du på den och sedan på knappen **Hantera*
 
 ![Hantera SendGrid](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-På sidan SendGrid klickar du på **Inställningar** > **API-nycklar** > **skapa API-nyckel**.
+På sidan SendGrid klickar du på **Inställningar**  >  **API-nycklar**  >  **skapa API-nyckel**.
 
 ![SendGrid skapa API först](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
@@ -134,12 +133,12 @@ Expandera avsnittet exempel på vänster sida **ARDUINO** , bläddra till **exem
 
 ![Mini-lösning – exempel](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-Du kan också öppna exempel appen från kommando paletten. Använd `Ctrl+Shift+P` (MacOS: `Cmd+Shift+P`) för att öppna kommando-paletten, Skriv **Arduino**och leta upp och välj **Arduino: exempel**.
+Du kan också öppna exempel appen från kommando paletten. Använd `Ctrl+Shift+P` (MacOS: `Cmd+Shift+P` ) för att öppna kommando-paletten, Skriv **Arduino**och leta upp och välj **Arduino: exempel**.
 
 ### <a name="provision-azure-services"></a>Etablera Azure-tjänster
 
 I lösnings fönstret kör du moln etablerings aktiviteten:
-- Typ `Ctrl+P` (MacOS: `Cmd+P`).
+- Typ `Ctrl+P` (MacOS: `Cmd+P` ).
 - Ange `task cloud-provision` i den angivna text rutan.
 
 I VS Code-terminalen guidar en interaktiv kommando rad dig genom etableringen av de nödvändiga Azure-tjänsterna. Markera alla objekt i den lista som du tidigare etablerade i [distribuera IoT Hub i Azure](#deploy-iot-hub-in-azure).
@@ -155,7 +154,7 @@ Ladda sedan upp koden för enheten.
 
 #### <a name="windows"></a>Windows
 
-1. Används `Ctrl+P` för att `task device-upload`köra.
+1. Används `Ctrl+P` för att köra `task device-upload` .
 
 2. Terminalen anger att du vill ange konfigurations läge. Det gör du genom att hålla ned knapp A och sedan trycka och släppa återställnings knappen. På skärmen visas identifierings numret för DevKit och Word- *konfigurationen*.
 
@@ -163,7 +162,7 @@ Ladda sedan upp koden för enheten.
 
 1. Placera DevKit i konfigurations läge: Håll ned knapp A och tryck sedan på knappen Återställ. Skärmen visar "konfiguration".
 
-2. Klicka `Cmd+P` för att `task device-upload`köra.
+2. Klicka `Cmd+P` för att köra `task device-upload` .
 
 #### <a name="verify-upload-and-run-the-sample-app"></a>Verifiera, ladda upp och köra exempel appen
 
@@ -182,7 +181,7 @@ DevKit startar om och börjar köra koden.
 
 Programmet initieras först när DevKit är i närvaro av ett stabilt magnet fält.
 
-Efter initieringen `Door closed` visas på skärmen. När det finns en ändring i magnet fältet ändras statusen till `Door opened`. Varje gången du ändrar dörrens tillstånd får du ett e-postmeddelande. (Det kan ta upp till fem minuter innan e-postmeddelandena tas emot.)
+Efter initieringen `Door closed` visas på skärmen. När det finns en ändring i magnet fältet ändras statusen till `Door opened` . Varje gången du ändrar dörrens tillstånd får du ett e-postmeddelande. (Det kan ta upp till fem minuter innan e-postmeddelandena tas emot.)
 
 ![Magneter nära sensorn: dörren är stängd](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magneter nära sensorn: dörren är stängd")
 

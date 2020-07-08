@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/01/2019
 ms.openlocfilehash: 16c994029e91d743f1c2a7e2eab51eb86fc378e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887316"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>Scenario: Peggad processor på region server i Apache HBase-kluster i Azure HDInsight
@@ -24,19 +23,19 @@ Apache HBase region Server process börjar med nära 200% processor, vilket lede
 
 ## <a name="cause"></a>Orsak
 
-Om du kör HBase Cluster v 3.4 kan du ha träffat en möjlig bugg som orsakas av en uppgradering av JDK till version 1.7.0 _151. Det symptom som vi ser är region Server processen börjar ta upp till 200% processor (för att verifiera körningen `top` av kommandot. om det finns en process som håller nära 200% CPU får du ett PID och bekräftar att det är en region Server `ps -aux | grep` process genom att köra).
+Om du kör HBase Cluster v 3.4 kan du ha träffat en möjlig bugg som orsakas av en uppgradering av JDK till version 1.7.0 _151. Det symptom som vi ser är region Server processen börjar ta upp till 200% processor (för att verifiera körningen av `top` kommandot. om det finns en process som håller nära 200% CPU får du ett PID och bekräftar att det är en region Server process genom att köra `ps -aux | grep` ).
 
 ## <a name="resolution"></a>Lösning
 
 1. Installera JDK 1,8 på alla noder i klustret enligt nedan:
 
-    * Kör skript åtgärden `https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/upgradetojdk18allnodes.sh`. Se till att välja alternativet som ska köras på alla noder.
+    * Kör skript åtgärden `https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/upgradetojdk18allnodes.sh` . Se till att välja alternativet som ska köras på alla noder.
 
-    * Alternativt kan du logga in på varje enskild nod och köra kommandot `sudo add-apt-repository ppa:openjdk-r/ppa -y && sudo apt-get -y update && sudo apt-get install -y openjdk-8-jdk`.
+    * Alternativt kan du logga in på varje enskild nod och köra kommandot `sudo add-apt-repository ppa:openjdk-r/ppa -y && sudo apt-get -y update && sudo apt-get install -y openjdk-8-jdk` .
 
-1. Gå till Ambari UI – `https://<clusterdnsname>.azurehdinsight.net`.
+1. Gå till Ambari UI – `https://<clusterdnsname>.azurehdinsight.net` .
 
-1. Navigera till **HBase->configs – >Advanced->Avancerat** `hbase-env configs` och ändra variabeln `JAVA_HOME` till `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64`. Spara konfigurations ändringen.
+1. Navigera till **HBase->configs – >Advanced->Avancerat** `hbase-env configs` och ändra variabeln `JAVA_HOME` till `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64` . Spara konfigurations ändringen.
 
 1. [Valfritt men rekommenderas] [Rensa alla tabeller i klustret](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 

@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68728201"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Komma igång med Threat Modeling Tool
@@ -43,7 +42,7 @@ När du startar Threat Modeling Tool ser du några saker som visas på bilden:
 
 | Komponent                                   | Information                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Knappen feedback, förslag och problem** | Tar dig till **[MSDN-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** för alla objekt i sdl. Det ger dig möjlighet att läsa igenom vad andra användare gör, tillsammans med lösningar och rekommendationer. Om du fortfarande inte kan hitta det du söker, e- tmtextsupport@microsoft.com post för vårt support team för att hjälpa dig                                                                                                                            |
+| **Knappen feedback, förslag och problem** | Tar dig till **[MSDN-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** för alla objekt i sdl. Det ger dig möjlighet att läsa igenom vad andra användare gör, tillsammans med lösningar och rekommendationer. Om du fortfarande inte kan hitta det du söker, e-post tmtextsupport@microsoft.com för vårt support team för att hjälpa dig                                                                                                                            |
 | **Skapa en modell**                          | Öppnar en tom arbets yta där du kan rita ditt diagram. Se till att välja vilken mall du vill använda för din modell                                                                                                                                                                                                                                                                                                                                                                       |
 | **Mall för nya modeller**                 | Du måste välja vilken mall som ska användas innan du skapar en modell. Vår huvudsakliga mall är Azure Threat Model-mallen som innehåller Azure-/regionsspecifika stenciler, hot och lösningar. För allmänna modeller väljer du SDL TM Knowledge Base på den nedrullningsbara menyn. Vill du skapa en egen mall eller skicka en ny för alla användare? Kolla ut sidan med vår GitHub för **[mall](https://github.com/Microsoft/threat-modeling-templates)** för att lära dig mer                              |
 | **Öppna en modell**                            | <p>Öppnar tidigare sparade hot modeller. Funktionen nyligen öppnade modeller är bra om du behöver öppna dina senaste filer. När du hovrar över markeringen hittar du två sätt att öppna modeller:</p><p><ul><li>Öppna från den här datorn – ett klassiskt sätt att öppna en fil med hjälp av lokal lagring</li><li>Öppna från OneDrive – team kan använda mappar i OneDrive för att spara och dela alla sina hot modeller på en enda plats för att öka produktiviteten och samarbetet</li></ul></p> |
@@ -142,6 +141,6 @@ Om du ska kunna använda hot modellen ett hus kan du börja med att tänka på d
 
 Metoden för hot modellering som vi har presenterat här är betydligt enklare än vad Microsoft har gjort tidigare. Vi har upptäckt att program utformnings metoden fungerar bra för många team. Vi hoppas att inkludera ditt.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-Skicka frågor, kommentarer och problem till tmtextsupport@microsoft.com. **[Hämta](https://aka.ms/threatmodelingtool)** Threat Modeling Tool för att komma igång.
+Skicka frågor, kommentarer och problem till tmtextsupport@microsoft.com . **[Hämta](https://aka.ms/threatmodelingtool)** Threat Modeling Tool för att komma igång.

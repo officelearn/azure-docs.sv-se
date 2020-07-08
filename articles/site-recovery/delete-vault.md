@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
 ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894970"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Ta bort ett Site Recovery Services-valv
@@ -43,14 +42,14 @@ Innan du kan ta bort ett valv måste du ta bort registrerade servrar och objekt 
 ## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Ta bort ett valv – virtuell Hyper-V-dator (med VMM) till Azure
 
 1. Följ [dessa steg](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) om du vill ta bort virtuella Hyper-V-datorer som hanteras av System Center VMM.
-2. Ta bort associationen och ta bort alla principer för replikering. Gör detta i valvet > **Site Recovery infrastruktur** > **för System Center VMM** > -**replikeringsprinciper**.
+2. Ta bort associationen och ta bort alla principer för replikering. Gör detta i valvet > **Site Recovery infrastruktur**  >  **för System Center VMM**-  >  **replikeringsprinciper**.
 3. Följ [dessa steg](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) om du vill avregistrera en ansluten VMM-Server.
 4. Ta sedan bort valvet.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Ta bort ett valv – virtuell Hyper-V-dator till Azure
 
 1. Följ [dessa steg](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) om du vill ta bort alla skyddade virtuella datorer.
-2. Ta bort associationen och ta bort alla principer för replikering. Gör detta i valvet > **Site Recovery infrastruktur** > **för Hyper-V-platser** > **.**
+2. Ta bort associationen och ta bort alla principer för replikering. Gör detta i valvet > **Site Recovery infrastruktur**  >  **för Hyper-V-platser**  >  **Replication Policies**.
 3. Följ [dessa instruktioner](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) om du vill avregistrera en Hyper-V-värd.
 4. Ta bort Hyper-V-platsen.
 5. Ta sedan bort valvet.

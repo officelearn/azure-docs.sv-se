@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75966654"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Vägledning för haveri beredskap för AVERT vFXT för Azure
@@ -83,7 +82,7 @@ Följ dessa steg om du vill upprätta en säkerhets kopia av data i ett annat ko
 
    Anteckna huvud namn och kopplings information (visas på sidan **namn område** i kontroll panelen) så att du kan replikera den när du lägger till behållaren igen efter säkerhets kopieringen.
 
-   Använd kluster kontroll panelen för att ta bort kärn filer. [Öppna kluster kontroll panelen](avere-vfxt-cluster-gui.md) och välj **Core** > -**filer hantera Core**-. Hitta det lagrings system som du vill säkerhetskopiera och Använd knappen **ta bort** för att ta bort det från klustret.
+   Använd kluster kontroll panelen för att ta bort kärn filer. [Öppna kluster kontroll panelen](avere-vfxt-cluster-gui.md) och välj **Core**-  >  **filer hantera Core**-. Hitta det lagrings system som du vill säkerhetskopiera och Använd knappen **ta bort** för att ta bort det från klustret.
 
 1. Skapa en ny, Tom Blob Storage-behållare i ett annat lagrings konto i en annan region.
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/10/2020
 ms.openlocfilehash: 543bc29adc85bd767de9479607d067fadf7b0078
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75934703"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Använda MapReduce med Apache Hadoop på HDInsight med SSH
@@ -42,7 +41,7 @@ Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjäl
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
-    Det här kommandot startar `wordcount` -klassen, som finns i `hadoop-mapreduce-examples.jar` filen. `/example/data/gutenberg/davinci.txt` Dokumentet används som indata och utdata lagras på `/example/data/WordCountOutput`.
+    Det här kommandot startar `wordcount` -klassen, som finns i `hadoop-mapreduce-examples.jar` filen. `/example/data/gutenberg/davinci.txt`Dokumentet används som indata och utdata lagras på `/example/data/WordCountOutput` .
 
     > [!NOTE]
     > Mer information om det här MapReduce-jobbet och exempel data finns i [använda MapReduce i Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md).
@@ -62,7 +61,7 @@ Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjäl
     hdfs dfs -ls /example/data/WordCountOutput
     ```
 
-    Det här kommandot visar två filer `_SUCCESS` och `part-r-00000`. `part-r-00000` Filen innehåller utdata för det här jobbet.
+    Det här kommandot visar två filer `_SUCCESS` och `part-r-00000` . `part-r-00000`Filen innehåller utdata för det här jobbet.
 
     > [!NOTE]  
     > Vissa MapReduce-jobb kan dela resultaten i flera **del-r-#** # # #-filer. I så fall använder du # # # # suffix för att ange filernas ordning.
@@ -73,7 +72,7 @@ Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjäl
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Det här kommandot visar en lista över de ord som finns i **wasbs://example/data/Gutenberg/DaVinci.txt** -filen och antalet gånger som varje ord har inträffat. Följande text är ett exempel på de data som finns i filen:
+    Det här kommandot visar en lista över de ord som finns i **wasbs://example/data/gutenberg/davinci.txt** -filen och antalet gånger som varje ord har inträffat. Följande text är ett exempel på de data som finns i filen:
 
     ```output
     wreathed        3

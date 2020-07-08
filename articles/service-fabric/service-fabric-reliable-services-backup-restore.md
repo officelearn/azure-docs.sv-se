@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: ac6bb14517b67a4b308460583e8c9fb99a2df9f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75922783"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Säkerhetskopiera och återställa Reliable Services och Reliable Actors
@@ -42,7 +41,7 @@ Eftersom den har kontroll punkter och loggen kan en fullständig säkerhets kopi
 Problemet med fullständig säkerhets kopiering uppstår när kontroll punkterna är stora.
 En replik som har 16 GB tillstånd har till exempel kontroll punkter som ger cirka 16 GB.
 Om vi har ett mål för återställnings punkter på fem minuter måste repliken säkerhets kopie ras var femte minut.
-Varje gången de säkerhetskopieras måste de kopiera 16 GB kontroll punkter, förutom 50 MB (konfigurerbara med `CheckpointThresholdInMB`) av loggar.
+Varje gången de säkerhetskopieras måste de kopiera 16 GB kontroll punkter, förutom 50 MB (konfigurerbara med `CheckpointThresholdInMB` ) av loggar.
 
 ![Exempel på fullständig säkerhets kopiering.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
@@ -57,10 +56,10 @@ En säkerhets kopierings kedja är en kedja av säkerhets kopior som börjar med
 ## <a name="backup-reliable-services"></a>Säkerhets kopierings Reliable Services
 Tjänste författaren har fullständig kontroll över när de ska göra säkerhets kopior och där säkerhets kopiorna ska lagras.
 
-För att starta en säkerhets kopiering måste tjänsten anropa den ärvda medlems funktionen `BackupAsync`.  
+För att starta en säkerhets kopiering måste tjänsten anropa den ärvda medlems funktionen `BackupAsync` .  
 Säkerhets kopieringar kan bara göras från primära repliker, och de kräver att Skriv status beviljas.
 
-Som det visas nedan `BackupAsync` , tar ett `BackupDescription` objekt, där det går att ange en fullständig eller stegvis säkerhets kopia, samt en callback- `Func<< BackupInfo, CancellationToken, Task<bool>>>` funktion som anropas när säkerhetskopieringsmappen har skapats lokalt och är redo att flyttas ut till en extern lagrings plats.
+Som det visas nedan, `BackupAsync` tar ett `BackupDescription` objekt, där det går att ange en fullständig eller stegvis säkerhets kopia, samt en callback-funktion `Func<< BackupInfo, CancellationToken, Task<bool>>>` som anropas när säkerhetskopieringsmappen har skapats lokalt och är redo att flyttas ut till en extern lagrings plats.
 
 ```csharp
 
@@ -70,17 +69,17 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-Begäran om att göra en stegvis säkerhets kopiering kan inte `FabricMissingFullBackupException`utföras. Detta undantag anger att någon av följande saker händer:
+Begäran om att göra en stegvis säkerhets kopiering kan inte utföras `FabricMissingFullBackupException` . Detta undantag anger att någon av följande saker händer:
 
 - repliken har aldrig tagit en fullständig säkerhets kopia eftersom den har blivit primär,
 - några av logg posterna sedan den senaste säkerhets kopieringen har trunkerats eller
 - repliken klarade `MaxAccumulatedBackupLogSizeInMB` gränsen.
 
-Användare kan öka sannolikheten för att kunna utföra stegvisa säkerhets kopieringar genom `MinLogSizeInMB` att `TruncationThresholdFactor`konfigurera eller.
+Användare kan öka sannolikheten för att kunna utföra stegvisa säkerhets kopieringar genom att konfigurera `MinLogSizeInMB` eller `TruncationThresholdFactor` .
 Om du ökar värdena ökar disk användningen per replik.
 Mer information finns i [Reliable Services konfiguration](service-fabric-reliable-services-configuration.md)
 
-`BackupInfo`innehåller information om säkerhets kopieringen, inklusive platsen för mappen där körningen sparade säkerhets kopian (`BackupInfo.Directory`). Motringningsfunktionen kan flyttas `BackupInfo.Directory` till en extern lagrings plats eller till en annan plats.  Den här funktionen returnerar också en bool som visar om det gick att flytta säkerhetskopieringsmappen till dess målplats.
+`BackupInfo`innehåller information om säkerhets kopieringen, inklusive platsen för mappen där körningen sparade säkerhets kopian ( `BackupInfo.Directory` ). Motringningsfunktionen kan flyttas `BackupInfo.Directory` till en extern lagrings plats eller till en annan plats.  Den här funktionen returnerar också en bool som visar om det gick att flytta säkerhetskopieringsmappen till dess målplats.
 
 Följande kod visar hur `BackupCallbackAsync` metoden kan användas för att överföra säkerhets kopian till Azure Storage:
 
@@ -109,20 +108,20 @@ I allmänhet är de fall då du kan behöva utföra en återställnings åtgärd
   - Hela tjänsten förloras. En administratör tar till exempel bort hela tjänsten och därmed måste tjänsten och data återställas.
   - Tjänsten replikerade skadade program data (till exempel på grund av ett program fel). I så fall måste tjänsten uppgraderas eller återställas för att ta bort orsaken till skadan och data som inte är skadade måste återställas.
 
-Även om många metoder är möjliga, erbjuder vi några exempel på `RestoreAsync` hur du kan använda för att återställa från ovanstående scenarier.
+Även om många metoder är möjliga, erbjuder vi några exempel på hur `RestoreAsync` du kan använda för att återställa från ovanstående scenarier.
 
 ## <a name="partition-data-loss-in-reliable-services"></a>Data förlust för partitioner i Reliable Services
-I det här fallet identifierar körningen automatiskt data förlust och anropar `OnDataLossAsync` API: et.
+I det här fallet identifierar körningen automatiskt data förlust och anropar API: `OnDataLossAsync` et.
 
 Tjänst författaren måste utföra följande för att återställa:
 
-  - Åsidosätt den virtuella Bask lass metoden `OnDataLossAsync`.
+  - Åsidosätt den virtuella Bask lass metoden `OnDataLossAsync` .
   - Hitta den senaste säkerhets kopian på den externa plats som innehåller tjänstens säkerhets kopior.
   - Ladda ned den senaste säkerhets kopian (och expandera säkerhets kopian till säkerhetskopieringsmappen om den var komprimerad).
-  - `OnDataLossAsync` Metoden ger en `RestoreContext`. Anropa `RestoreAsync` API: et på den `RestoreContext`angivna.
+  - `OnDataLossAsync`Metoden ger en `RestoreContext` . Anropa `RestoreAsync` API: et på den angivna `RestoreContext` .
   - Returnera True om återställningen lyckades.
 
-Följande är ett exempel på en implementering `OnDataLossAsync` av metoden:
+Följande är ett exempel på en implementering av `OnDataLossAsync` metoden:
 
 ```csharp
 protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, CancellationToken cancellationToken)
@@ -137,19 +136,19 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-`RestoreDescription`skickades till `RestoreContext.RestoreAsync` anropet innehåller en medlem som `BackupFolderPath`kallas.
+`RestoreDescription`skickades till `RestoreContext.RestoreAsync` anropet innehåller en medlem som kallas `BackupFolderPath` .
 När du återställer en enda fullständig säkerhets kopia `BackupFolderPath` ska du ange den lokala sökvägen till den mapp som innehåller din fullständiga säkerhets kopia.
-När du återställer en fullständig säkerhets kopia och ett antal stegvisa säkerhets `BackupFolderPath` kopior bör du ställa in den lokala sökvägen till mappen som inte bara innehåller den fullständiga säkerhets kopian, utan även alla de stegvisa säkerhets kopiorna.
+När du återställer en fullständig säkerhets kopia och ett antal stegvisa säkerhets kopior `BackupFolderPath` bör du ställa in den lokala sökvägen till mappen som inte bara innehåller den fullständiga säkerhets kopian, utan även alla de stegvisa säkerhets kopiorna.
 `RestoreAsync`anrop kan utlösa `FabricMissingFullBackupException` om den `BackupFolderPath` tillhandahållna inte innehåller en fullständig säkerhets kopia.
 Det kan också utlösa `ArgumentException` om `BackupFolderPath` har en bruten kedja av stegvisa säkerhets kopior.
 Om den till exempel innehåller den fullständiga säkerhets kopian, den första stegvisa och den tredje säkerhets kopian, men inte den andra stegvisa säkerhets kopian.
 
 > [!NOTE]
-> RestorePolicy är inställt på säker som standard.  Det innebär att `RestoreAsync` API: et Miss fungerar med ArgumentException om den identifierar att säkerhetskopieringsmappen innehåller ett tillstånd som är äldre än eller lika med det tillstånd som finns i den här repliken.  `RestorePolicy.Force`kan användas för att hoppa över den här säkerhets kontrollen. Detta anges som en del av `RestoreDescription`.
+> RestorePolicy är inställt på säker som standard.  Det innebär att `RestoreAsync` API: et Miss fungerar med ArgumentException om den identifierar att säkerhetskopieringsmappen innehåller ett tillstånd som är äldre än eller lika med det tillstånd som finns i den här repliken.  `RestorePolicy.Force`kan användas för att hoppa över den här säkerhets kontrollen. Detta anges som en del av `RestoreDescription` .
 > 
 
 ## <a name="deleted-or-lost-service"></a>Borttagen eller förlorad tjänst
-Om en tjänst tas bort måste du först återskapa tjänsten innan du kan återställa data.  Det är viktigt att skapa tjänsten med samma konfiguration, till exempel partitionerings schema, så att data kan återställas sömlöst.  När tjänsten är igång måste API: et för att återställa data`OnDataLossAsync` (ovan) anropas på varje partition av den här tjänsten. Ett sätt att uppnå detta är genom att använda [FabricClient. TestManagementClient. StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) på varje partition.  
+Om en tjänst tas bort måste du först återskapa tjänsten innan du kan återställa data.  Det är viktigt att skapa tjänsten med samma konfiguration, till exempel partitionerings schema, så att data kan återställas sömlöst.  När tjänsten är igång måste API: et för att återställa data ( `OnDataLossAsync` ovan) anropas på varje partition av den här tjänsten. Ett sätt att uppnå detta är genom att använda [FabricClient. TestManagementClient. StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) på varje partition.  
 
 I det här läget är implementeringen samma som scenariot ovan. Varje partition måste återställa den senaste relevanta säkerhets kopian från den externa lagrings platsen. Ett villkor är att partitions-ID: t nu kan ha ändrats, eftersom körningen skapar partitions-ID: n dynamiskt. Därför måste tjänsten lagra lämplig partitionsinformation och tjänst namn för att identifiera rätt senaste säkerhets kopiering för att återställa från för varje partition.
 
@@ -169,7 +168,7 @@ Nu kan stegen i avsnittet "borttagen eller förlorad tjänst" användas för att
 Tänk på följande:
 
   - När du återställer finns det en risk att säkerhets kopian som återställs är äldre än partitionens tillstånd innan data förlorades. Därför bör du bara återställa som en sista utväg för att återställa så mycket data som möjligt.
-  - Strängen som representerar sökvägen till mappen för säkerhets kopian och sökvägen till filerna i säkerhetskopieringsmappen får innehålla fler än 255 tecken, beroende på sökvägen till FabricDataRoot och program typ namnet. Detta kan orsaka att vissa .NET-metoder `Directory.Move`, t. ex `PathTooLongException` ., genererar undantag. En lösning är att anropa API-API: er `CopyFile`direkt, t. ex..
+  - Strängen som representerar sökvägen till mappen för säkerhets kopian och sökvägen till filerna i säkerhetskopieringsmappen får innehålla fler än 255 tecken, beroende på sökvägen till FabricDataRoot och program typ namnet. Detta kan orsaka att vissa .NET-metoder, t `Directory.Move` . ex `PathTooLongException` ., genererar undantag. En lösning är att anropa API-API: er direkt, t `CopyFile` . ex..
 
 ## <a name="back-up-and-restore-reliable-actors"></a>Säkerhetskopiera och återställa Reliable Actors
 
@@ -197,7 +196,7 @@ ActorRuntime.RegisterActorAsync<MyActor>(
     (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
-Standard-providern för Reliable Actors är `KvsActorStateProvider`. Stegvis säkerhets kopiering är inte aktiverat som standard för `KvsActorStateProvider`. Du kan aktivera stegvis säkerhets kopiering genom att `KvsActorStateProvider` skapa med lämplig inställning i dess konstruktor och sedan skicka den till ActorService-konstruktorn som visas i följande kodfragment:
+Standard-providern för Reliable Actors är `KvsActorStateProvider` . Stegvis säkerhets kopiering är inte aktiverat som standard för `KvsActorStateProvider` . Du kan aktivera stegvis säkerhets kopiering genom att skapa `KvsActorStateProvider` med lämplig inställning i dess konstruktor och sedan skicka den till ActorService-konstruktorn som visas i följande kodfragment:
 
 ```csharp
 class MyCustomActorService : ActorService
@@ -230,7 +229,7 @@ När du gör en återställning från en säkerhets kopierings kedja som liknar 
 Det är viktigt att se till att viktiga data säkerhets kopie ras och kan återställas från. Detta kan göras genom att anropa `Start-ServiceFabricPartitionDataLoss` cmdleten i PowerShell som kan orsaka data förlust i en viss partition för att testa om säkerhets kopierings-och återställnings funktionerna för data fungerar som förväntat.  Det är också möjligt att program mässigt anropa data förlust och även återställa från händelsen.
 
 > [!NOTE]
-> Du hittar ett exempel på implementering av säkerhets kopierings-och återställnings funktioner i Web Reference-appen på GitHub. Mer information hittar du `Inventory.Service` i tjänsten.
+> Du hittar ett exempel på implementering av säkerhets kopierings-och återställnings funktioner i Web Reference-appen på GitHub. Mer information hittar du i `Inventory.Service` tjänsten.
 > 
 > 
 
@@ -238,17 +237,17 @@ Det är viktigt att se till att viktiga data säkerhets kopie ras och kan åters
 Här är mer information om säkerhets kopiering och återställning.
 
 ### <a name="backup"></a>Backup
-Den tillförlitliga tillstånds hanteraren ger möjlighet att skapa konsekventa säkerhets kopieringar utan att blockera Läs-och skriv åtgärder. För att göra det använder den en kontroll punkt och en logg beständig mekanism.  Den tillförlitliga tillstånds hanteraren tar suddiga (lätta) kontroll punkter vid vissa tidpunkter för att minska trycket från transaktions loggen och förbättra återställnings tiderna.  När `BackupAsync` anropas instruerar den tillförlitliga tillstånds hanteraren alla pålitliga objekt att kopiera sina senaste Checkpoint-filer till en lokal mapp för säkerhets kopiering.  Sedan kopierar den pålitliga tillstånds hanteraren alla logg poster från "starta" till den senaste logg posten till mappen säkerhets kopia.  Eftersom alla logg poster upp till den senaste logg posten ingår i säkerhets kopieringen och den Reliable State Manager bevarar loggen för Skriv åtgärder, garanterar den pålitliga tillstånds hanteraren att alla transaktioner som har`CommitAsync` genomförts (har returnerats) ingår i säkerhets kopian.
+Den tillförlitliga tillstånds hanteraren ger möjlighet att skapa konsekventa säkerhets kopieringar utan att blockera Läs-och skriv åtgärder. För att göra det använder den en kontroll punkt och en logg beständig mekanism.  Den tillförlitliga tillstånds hanteraren tar suddiga (lätta) kontroll punkter vid vissa tidpunkter för att minska trycket från transaktions loggen och förbättra återställnings tiderna.  När `BackupAsync` anropas instruerar den tillförlitliga tillstånds hanteraren alla pålitliga objekt att kopiera sina senaste Checkpoint-filer till en lokal mapp för säkerhets kopiering.  Sedan kopierar den pålitliga tillstånds hanteraren alla logg poster från "starta" till den senaste logg posten till mappen säkerhets kopia.  Eftersom alla logg poster upp till den senaste logg posten ingår i säkerhets kopieringen och den Reliable State Manager bevarar loggen för Skriv åtgärder, garanterar den pålitliga tillstånds hanteraren att alla transaktioner som har genomförts ( `CommitAsync` har returnerats) ingår i säkerhets kopian.
 
-Alla transaktioner som checkar in `BackupAsync` efter har anropats kan vara i säkerhets kopian.  När den lokala säkerhetskopieringsmappen har fyllts av plattformen (dvs. den lokala säkerhets kopian slutförs av körningen) anropas tjänstens återanrop för säkerhets kopiering.  Det här återanropet ansvarar för att flytta säkerhetskopieringsmappen till en extern plats, till exempel Azure Storage.
+Alla transaktioner som checkar in efter `BackupAsync` har anropats kan vara i säkerhets kopian.  När den lokala säkerhetskopieringsmappen har fyllts av plattformen (dvs. den lokala säkerhets kopian slutförs av körningen) anropas tjänstens återanrop för säkerhets kopiering.  Det här återanropet ansvarar för att flytta säkerhetskopieringsmappen till en extern plats, till exempel Azure Storage.
 
 ### <a name="restore"></a>Återställ
-Den tillförlitliga tillstånds hanteraren ger möjlighet att återställa från en säkerhets kopia med hjälp `RestoreAsync` av API: et.  
-`RestoreAsync` Metoden `RestoreContext` kan endast anropas inuti `OnDataLossAsync` metoden.
+Den tillförlitliga tillstånds hanteraren ger möjlighet att återställa från en säkerhets kopia med hjälp av `RestoreAsync` API: et.  
+`RestoreAsync`Metoden `RestoreContext` kan endast anropas inuti `OnDataLossAsync` metoden.
 Bool returnerade av `OnDataLossAsync` anger om tjänsten återställde sitt tillstånd från en extern källa.
-`OnDataLossAsync` Om värdet är true, kommer Service Fabric att återskapa alla andra repliker från den här primära servern. Service Fabric säkerställer att repliker som kommer att `OnDataLossAsync` ta emot samtal först över gång till den primära rollen men inte beviljas Läs status eller Skriv status.
-Detta innebär att för StatefulService-implementerare `RunAsync` , anropas inte förrän `OnDataLossAsync` åtgärden har slutförts.
-`OnDataLossAsync` Sedan startas den nya primära servern.
+Om `OnDataLossAsync` värdet är true, kommer Service Fabric att återskapa alla andra repliker från den här primära servern. Service Fabric säkerställer att repliker som kommer att ta emot `OnDataLossAsync` samtal först över gång till den primära rollen men inte beviljas Läs status eller Skriv status.
+Detta innebär att för StatefulService-implementerare, `RunAsync` anropas inte förrän åtgärden har `OnDataLossAsync` slutförts.
+Sedan startas `OnDataLossAsync` den nya primära servern.
 Innan en tjänst har slutfört det här API: et (genom att returnera true eller false) och slutför den relevanta omkonfigurationen, så kommer API: et att behållas en i taget.
 
 `RestoreAsync`först släpps alla befintliga tillstånd i den primära repliken som den anropades. Sedan skapar den pålitliga tillstånds hanteraren alla pålitliga objekt som finns i säkerhetskopieringsmappen. Sedan instrueras de tillförlitliga objekten att återställa från sina kontroll punkter i säkerhetskopieringsmappen. Slutligen återställer den pålitliga tillstånds hanteraren sin egen status från logg posterna i säkerhetskopieringsmappen och utför återställningen. Som en del av återställnings processen spelas åtgärder som börjar på den "Start punkten" som har allokerade logg poster i säkerhetskopieringsmappen om till de tillförlitliga objekten. Det här steget säkerställer att det återställda läget är konsekvent.

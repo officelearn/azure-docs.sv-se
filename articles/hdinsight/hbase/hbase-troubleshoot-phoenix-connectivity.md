@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
 ms.openlocfilehash: b886f51bcb2bb7308c49c76563dcb70148bbc583
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887299"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scenario: Apache Phoenix anslutnings problem i Azure HDInsight
@@ -28,19 +27,19 @@ Felaktig IP för aktiv Zookeeper-nod.
 
 ### <a name="resolution"></a>Lösning
 
-IP-adressen för den aktiva Zookeeper-noden kan identifieras från Ambari-användargränssnittet genom att följa länkar till **HBase** > **snabb länkar** > **ZK (aktiv)** > **Zookeeper-information**. Korrigera IP-adressen efter behov.
+IP-adressen för den aktiva Zookeeper-noden kan identifieras från Ambari-användargränssnittet genom att följa länkar till **HBase**  >  **snabb länkar**  >  **ZK (aktiv)**  >  **Zookeeper-information**. Korrigera IP-adressen efter behov.
 
 ---
 
 ## <a name="cause-systemcatalog-table-offline"></a>Orsak: SYSTEM. Katalog tabellen är offline
 
-När du kör kommandon som `!tables`, får du ett fel meddelande som liknar:
+När du kör kommandon som `!tables` , får du ett fel meddelande som liknar:
 
 ```output
 Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings.
 ```
 
-När du kör kommandon som `count 'SYSTEM.CATALOG'`, får du ett fel meddelande som liknar:
+När du kör kommandon som `count 'SYSTEM.CATALOG'` , får du ett fel meddelande som liknar:
 
 ```output
 ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189)
@@ -50,7 +49,7 @@ ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,
 
 I Apache Ambari-ANVÄNDARGRÄNSSNITTET utför du följande steg för att starta om HMaster-tjänsten på alla ZooKeeper-noder:
 
-1. Gå till **HBase** > **Active HBase Master**i avsnittet **Sammanfattning** i HBase.
+1. Gå till **Summary** **HBase**  >  **Active HBase Master**i avsnittet Sammanfattning i HBase.
 
 1. I avsnittet **komponenter** startar du om HBase master tjänsten.
 

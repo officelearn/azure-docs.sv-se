@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: 20309babb9ece0ae20e7442543b0d378f9a51060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895063"
 ---
 # <a name="scenario-apache-hive-zeppelin-interpreter-gives-a-zookeeper-error-in-azure-hdinsight"></a>Scenario: Apache Hive Zeppelin-tolken ger ett Zookeeper-fel i Azure HDInsight
@@ -34,7 +33,7 @@ Zeppelin Hive JDBC-tolken pekar på fel URL.
 
 1. Navigera till sammanfattningen av Hive-komponenten och kopiera "Hive JDBC URL" till Urklipp.
 
-1. Navigera till`https://clustername.azurehdinsight.net/zeppelin/#/interpreter`
+1. Navigera till `https://clustername.azurehdinsight.net/zeppelin/#/interpreter`
 
 1. Redigera inställningarna för JDBC: uppdatera värdet Hive. URL till Hive-URL: en som kopierades i steg 1
 

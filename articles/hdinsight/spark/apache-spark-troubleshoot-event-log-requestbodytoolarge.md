@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: 777d06670238a7625d190c92f78a55cd4794d226
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894406"
 ---
 # <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem... RequestBodyTooLarge "visas i Apache Spark strömmande app-logg i HDInsight
@@ -32,13 +31,13 @@ I Spark 2,3 genererar varje spark-app en spark-händelseloggen. Händelse logg f
 
 Det finns tre lösningar som är tillgängliga för det här felet:
 
-* Öka block storleken till upp till 100 MB. Ändra HDFS-konfigurations egenskapen `fs.azure.write.request.size` (eller skapa den i `Custom core-site` avsnittet) i Ambari UI. Ange ett större värde för egenskapen, till exempel: 33554432. Spara den uppdaterade konfigurationen och starta om berörda komponenter.
+* Öka block storleken till upp till 100 MB. Ändra HDFS-konfigurations egenskapen `fs.azure.write.request.size` (eller skapa den i avsnittet) i AMBARI UI `Custom core-site` . Ange ett större värde för egenskapen, till exempel: 33554432. Spara den uppdaterade konfigurationen och starta om berörda komponenter.
 
 * Stoppa regelbundet och skicka om Spark-streaming-jobbet.
 
 * Använd HDFS för att lagra händelse loggar för Spark. Att använda HDFS för Storage kan leda till förlust av Spark-händelseloggen vid kluster skalning eller Azure-uppgraderingar.
 
-    1. Gör ändringar i `spark.eventlog.dir` och `spark.history.fs.logDirectory` via Ambari-gränssnittet:
+    1. Gör ändringar i `spark.eventlog.dir` och `spark.history.fs.logDirectory` via AMBARI-gränssnittet:
 
         ```
         spark.eventlog.dir = hdfs://mycluster/hdp/spark2-events

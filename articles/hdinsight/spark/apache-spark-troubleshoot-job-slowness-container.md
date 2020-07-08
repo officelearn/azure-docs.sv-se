@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/21/2019
 ms.openlocfilehash: e389c05a6de85287bc86eff510e137f470837e56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894330"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Apache Spark-jobbet går långsamt när Azure Storage-containern innehåller många filer i Azure HDInsight
@@ -24,7 +23,7 @@ När du kör ett HDInsight-kluster blir det Apache Spark jobbet som skriver till
 
 ## <a name="cause"></a>Orsak
 
-Detta är ett känt Spark-problem. Den långsammaheten kommer från åtgärderna `ListBlob` och `GetBlobProperties` när Spark-jobbet körs.
+Detta är ett känt Spark-problem. Den långsammaheten kommer från `ListBlob` åtgärderna och `GetBlobProperties` när Spark-jobbet körs.
 
 För att spåra partitioner måste Spark underhålla en `FileStatusCache` som innehåller information om katalog strukturen. Med den här cachen kan Spark parsa Sök vägarna och vara medvetna om tillgängliga partitioner. Fördelen med att spåra partitioner är att Spark bara vidrör de nödvändiga filerna när du läser data. För att den här informationen ska vara aktuell när du skriver nya data, måste Spark lista alla filer i katalogen och uppdatera denna cache.
 
@@ -34,7 +33,7 @@ I Spark 2,2 bör det här prestanda problemet åtgärdas när du skriver data me
 
 ## <a name="resolution"></a>Lösning
 
-När du skapar en partitionerad data uppsättning är det viktigt att använda ett partitionerings schema som begränsar det antal filer som Spark har till listan för att uppdatera `FileStatusCache`.
+När du skapar en partitionerad data uppsättning är det viktigt att använda ett partitionerings schema som begränsar det antal filer som Spark har till listan för att uppdatera `FileStatusCache` .
 
 För varje N:te Micro batch där N %100 = = 0 (100 är bara ett exempel), flytta befintliga data till en annan katalog som kan läsas in av Spark.
 

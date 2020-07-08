@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895322"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett jobb som är långsamt eller som inte fungerar i ett HDInsight-kluster
@@ -111,7 +110,7 @@ I följande avsnitt beskrivs hur du kontrollerar hälsan för varje nod och det 
 
 ### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Få en ögonblicks bild av kluster hälsan med hjälp av instrument panelen för Ambari-gränssnittet
 
-[Instrument panelen för Ambari](#view-cluster-configuration-settings-with-the-ambari-ui) -`https://<clustername>.azurehdinsight.net`gränssnittet () innehåller en översikt över kluster hälsa, till exempel drift tid, minne, nätverk och CPU-användning, HDFS disk användning och så vidare. Använd avsnittet värdar i Ambari om du vill visa resurser på en värd nivå. Du kan även stoppa och starta om tjänster.
+[Instrument panelen för Ambari-gränssnittet](#view-cluster-configuration-settings-with-the-ambari-ui) ( `https://<clustername>.azurehdinsight.net` ) innehåller en översikt över kluster hälsa, till exempel drift tid, minne, nätverk och CPU-användning, HDFS disk användning och så vidare. Använd avsnittet värdar i Ambari om du vill visa resurser på en värd nivå. Du kan även stoppa och starta om tjänster.
 
 ### <a name="check-your-webhcat-service"></a>Kontrol lera din WebHCat-tjänst
 
@@ -129,11 +128,11 @@ Ambari visar en avisering som visar värdarna där WebHCat-tjänsten är nere. D
 
 ![Apache Ambari restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
-Om en WebHCat-Server fortfarande inte är igång kan du kontrol lera i åtgärds loggen om felen. Mer detaljerad information finns i och de `stderr` filer `stdout` som refereras till på noden.
+Om en WebHCat-Server fortfarande inte är igång kan du kontrol lera i åtgärds loggen om felen. Mer detaljerad information finns i och de `stderr` `stdout` filer som refereras till på noden.
 
 #### <a name="webhcat-times-out"></a>WebHCat tids gräns
 
-An-HDInsight gateways tids gräns för svar som tar längre tid än två `502 BadGateway`minuter att returnera. WebHCat skickar frågor till garn tjänster för jobb status, och om garn tar längre tid än två minuter att svara kan denna begäran ta lång tid.
+An-HDInsight gateways tids gräns för svar som tar längre tid än två minuter att returnera `502 BadGateway` . WebHCat skickar frågor till garn tjänster för jobb status, och om garn tar längre tid än två minuter att svara kan denna begäran ta lång tid.
 
 I det här fallet granskar du följande loggar i `/var/log/webhcat` katalogen:
 
@@ -142,13 +141,13 @@ I det här fallet granskar du följande loggar i `/var/log/webhcat` katalogen:
 * **webhcat-Console-error. log** är stderr för Server processen
 
 > [!NOTE]  
-> Varje `webhcat.log` överförs varje dag och genererar filer med namnet `webhcat.log.YYYY-MM-DD`. Välj lämplig fil för tidsintervallet som du undersöker.
+> Varje `webhcat.log` överförs varje dag och genererar filer med namnet `webhcat.log.YYYY-MM-DD` . Välj lämplig fil för tidsintervallet som du undersöker.
 
 I följande avsnitt beskrivs några möjliga orsaker till WebHCat-timeout.
 
 ##### <a name="webhcat-level-timeout"></a>Timeout för WebHCat-nivå
 
-När WebHCat är under belastning, med fler än 10 öppna Sockets, tar det längre tid att upprätta nya socketanslutningar, vilket kan resultera i en tids gräns. Om du vill visa nätverks anslutningarna till och från WebHCat `netstat` använder du på den aktuella aktiva huvudnoden:
+När WebHCat är under belastning, med fler än 10 öppna Sockets, tar det längre tid att upprätta nya socketanslutningar, vilket kan resultera i en tids gräns. Om du vill visa nätverks anslutningarna till och från WebHCat använder `netstat` du på den aktuella aktiva huvudnoden:
 
 ```bash
 netstat | grep 30111
@@ -184,7 +183,7 @@ På garn nivån finns det två typer av tids gränser:
 
     * Lista alla jobb: det här är ett tids krävande anrop. Det här anropet räknar upp programmen från garn hanteraren och hämtar status från garn JobHistoryServer för varje slutfört program. Det här anropet kan ta lång tid med ett högre antal jobb.
 
-    * Visa en lista över jobb som är äldre än sju dagar: HDInsight-GARNets JobHistoryServer har kon figurer ATS för`mapreduce.jobhistory.max-age-ms` att behålla slutförd jobb information under sju dagar (värde) Att försöka räkna upp rensade jobb resulterar i en tids gräns.
+    * Visa en lista över jobb som är äldre än sju dagar: HDInsight-GARNets JobHistoryServer har kon figurer ATS för att behålla slutförd jobb information under sju dagar ( `mapreduce.jobhistory.max-age-ms` värde) Att försöka räkna upp rensade jobb resulterar i en tids gräns.
 
 Så här diagnostiserar du problemen:
 
@@ -202,7 +201,7 @@ Så här diagnostiserar du problemen:
 
     Det kan finnas fall där interaktioner med WebHCat lyckas, men jobben Miss lyckas.
 
-    Templeton samlar in jobb konsolens utdata som `stderr` i `statusdir`, vilket ofta är användbart vid fel sökning. `stderr`innehåller den faktiska frågans garn program identifierare.
+    Templeton samlar in jobb konsolens utdata som `stderr` i `statusdir` , vilket ofta är användbart vid fel sökning. `stderr`innehåller den faktiska frågans garn program identifierare.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Steg 4: granska miljö stacken och versionerna
 
@@ -214,7 +213,7 @@ Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om klu
 
 Det finns många typer av loggar som genereras från de många tjänster och komponenter som utgör ett HDInsight-kluster. [WebHCat loggfiler](#check-your-webhcat-service) beskrivs tidigare. Det finns flera andra användbara loggfiler som du kan undersöka för att begränsa problem med klustret, enligt beskrivningen i följande avsnitt.
 
-* HDInsight-kluster består av flera noder, varav de flesta är aktiviteter för att köra skickade jobb. Jobb körs samtidigt, men loggfiler kan bara visa resultat linjärt. HDInsight kör nya uppgifter och avslutar andra som inte kan slutföras först. All den här aktiviteten loggas till `stderr` - `syslog` och-filerna.
+* HDInsight-kluster består av flera noder, varav de flesta är aktiviteter för att köra skickade jobb. Jobb körs samtidigt, men loggfiler kan bara visa resultat linjärt. HDInsight kör nya uppgifter och avslutar andra som inte kan slutföras först. All den här aktiviteten loggas till- `stderr` och- `syslog` filerna.
 
 * I logg filen för skript åtgärd visas fel eller oväntade konfigurations ändringar under skapande processen för klustret.
 

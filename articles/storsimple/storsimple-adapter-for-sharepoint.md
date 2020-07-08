@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: twooley
 ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75930213"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installera och konfigurera StorSimple Adapter för SharePoint
@@ -170,7 +169,7 @@ När du har installerat StorSimple Adapter för SharePoint konfigurerar du RBS e
 ## <a name="configure-garbage-collection"></a>Konfigurera skräp insamling
 När objekt tas bort från en SharePoint-webbplats raderas de inte automatiskt från RBS Store-volymen. I stället tar ett asynkront bakgrunds underhålls program bort överblivna BLOBBAR från fil arkivet. System administratörer kan schemalägga processen så att den körs regelbundet eller så kan de starta när det behövs.
 
-Det här underhålls programmet (Microsoft. data. SqlRemoteBlobs. Kvarhållare. exe) installeras automatiskt på alla SharePoint WFE-servrar och program servrar när du aktiverar RBS. Programmet installeras på följande plats: *startenhet*: \Program\microsoft SQL Remote Blob Storage 10.50 \ kvarhållare \
+Detta underhålls program (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) installeras automatiskt på alla SharePoint WFE-servrar och program servrar när du aktiverar RBS. Programmet installeras på följande plats: *startenhet*: \Program\microsoft SQL Remote Blob Storage 10.50 \ kvarhållare \
 
 Information om hur du konfigurerar och använder underhålls programmet finns i [underhålla RBS i SharePoint Server 2013][8].
 
@@ -226,7 +225,7 @@ Innan du avinstallerar StorSimple-adaptern för SharePoint-programvara måste du
 4. På sidan **Konfigurera StorSimple-kort** klickar du på knappen **inaktivera** under var och en av innehålls databaserna som du vill ta bort från den externa blob-lagringen. 
 5. Ta bort objekten från SharePoint och ladda sedan upp dem igen.
 
-Du kan också använda Microsoft `RBS Migrate()` PowerShell-cmdleten som ingår i SharePoint. Mer information finns i [Migrera innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Du kan också använda Microsoft PowerShell- `RBS Migrate()` cmdleten som ingår i SharePoint. Mer information finns i [Migrera innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 När du har flyttat BLOBarna tillbaka till innehålls databasen går du till nästa steg: [Avinstallera kortet](#uninstall-the-adapter).
 

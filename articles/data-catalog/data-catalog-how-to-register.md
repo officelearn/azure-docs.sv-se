@@ -7,10 +7,9 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 0c5fdac7df41fec3a6206dbd78af74b7f1b58c7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68736328"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registrera data källor i Azure Data Catalog
@@ -38,7 +37,7 @@ När du registrerar en data källa hämtar registrerings verktyget information o
 För alla objekt innehåller dessa strukturella metadata objektets plats, så att användare som identifierar data kan använda informationen för att ansluta till objektet i de klient verktyg som de väljer. Andra strukturella metadata inkluderar objekt namn, typ, och attribut/kolumn namn och datatyp.
 
 ## <a name="descriptive-metadata"></a>Beskrivande metadata
-Förutom de grundläggande strukturella metadata som extraheras från data källan, extraherar data källans registrerings verktyg beskrivande metadata. För SQL Server Analysis Services och SQL Server Reporting Services hämtas dessa metadata från beskrivningen egenskaper som exponeras av dessa tjänster. För SQL Server extraheras värden som anges med\_den utökade egenskapen MS Description. För Oracle Database extraherar registrerings verktyget för data källor KOMMENTARs kolumnen från vyn alla\_\_kommentarer.
+Förutom de grundläggande strukturella metadata som extraheras från data källan, extraherar data källans registrerings verktyg beskrivande metadata. För SQL Server Analysis Services och SQL Server Reporting Services hämtas dessa metadata från beskrivningen egenskaper som exponeras av dessa tjänster. För SQL Server extraheras värden som anges med den \_ utökade egenskapen MS Description. För Oracle Database extraherar registrerings verktyget för data källor KOMMENTARs kolumnen från \_ \_ vyn alla kommentarer.
 
 Förutom de beskrivande metadata som extraheras från data källan kan användarna ange beskrivande metadata med hjälp av registrerings verktyget för data källor. Användare kan lägga till taggar, och de kan identifiera experter för de objekt som registreras. Alla dessa beskrivande metadata kopieras till Data Catalogs tjänsten tillsammans med strukturella metadata.
 

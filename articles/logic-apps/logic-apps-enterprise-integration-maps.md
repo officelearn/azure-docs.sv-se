@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979411"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med kartor i Azure Logic Apps med Enterprise-integrationspaket
 
-Om du vill överföra XML-data mellan format för scenarier för företags integrering i Azure Logic Apps kan din Logic app använda Maps eller mer specifikt XSLT-mappningar (Extensible Style Sheet Language Transformations). En karta är ett XML-dokument som beskriver hur du konverterar data från ett XML-dokument till ett annat format. 
+Om du vill överföra XML-data mellan format för företagsintegreringsscenarier i Azure Logic Apps kan din logikapp använda kartor, eller mer specifikt, XSLT-kartor (Extensible Style sheet Language Transformations). En karta är ett XML-dokument som beskriver hur du konverterar data från ett XML-dokument till ett annat format. 
 
 Anta till exempel att du regelbundet tar emot B2B-order eller fakturor från en kund som använder datum formatet YYYMMDD. Din organisation använder dock datum formatet MMDDYYY. Du kan definiera och använda en karta som omvandlar YYYMMDD datum format till MMDDYYY-formatet innan du lagrar order-eller faktura informationen i din kund aktivitets databas.
 
@@ -150,7 +149,7 @@ På sidan **Översikt** för integrations kontot, under **komponenter**, visar p
 1. När du har slutfört överföringen genererar du en signatur för delad åtkomst (SAS) för din sammansättning. 
    Från din sammansättnings snabb meny väljer du **Hämta signatur för delad åtkomst**.
 
-1. I fönstret **signatur för delad åtkomst** väljer > **du skapa** **signatur-URI för delad åtkomst för container nivå**. 
+1. I fönstret **signatur för delad åtkomst** väljer du skapa **signatur-URI för delad åtkomst för container nivå**  >  **Create**. 
    När SAS-URL: en har genererats väljer du **Kopiera**bredvid rutan **URL** .
 
 1. Gå tillbaka till Azure Portal där fönstret **Lägg till sammansättning** är öppet. 

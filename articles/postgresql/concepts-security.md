@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75972587"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Säkerhet i Azure Database for PostgreSQL-enskild server
@@ -48,7 +47,7 @@ När du skapar Azure Database for PostgreSQL-servern anger du autentiseringsuppg
 Du kan också ansluta till servern med hjälp av [Azure Active Directory (AAD)-autentisering](concepts-aad-authentication.md).
 
 
-## <a name="threat-protection"></a>Hotskydd
+## <a name="threat-protection"></a>Skydd mot hot
 
 Du kan välja att använda [Avancerat skydd](concepts-data-access-and-security-threat-protection.md) som identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja servrar.
 

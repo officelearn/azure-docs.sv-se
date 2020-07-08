@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
 ms.openlocfilehash: ec5a0d6e8c0a5236ae3929560e81033d983d4dfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895118"
 ---
 # <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>Scenario: Apache Tez Application låser sig i Azure HDInsight
@@ -30,7 +29,7 @@ För många jobb har skickats; lång garn kö.
 
 Skala upp klustret eller vänta till garn kön töms.
 
-Som standard `yarn.scheduler.capacity.maximum-applications` styrs det maximala antalet program som körs eller väntar, och den används som standard `10000`.
+Som standard `yarn.scheduler.capacity.maximum-applications` styrs det maximala antalet program som körs eller väntar, och den används som standard `10000` .
 
 ## <a name="next-steps"></a>Nästa steg
 

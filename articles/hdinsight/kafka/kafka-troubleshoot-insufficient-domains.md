@@ -8,19 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
 ms.openlocfilehash: 8be7e05ac85ce0b1b10edf18d3885a07e016b9ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895034"
 ---
-# <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Scenario: det gick inte att `not sufficient fault domains in region` skapa kluster på grund av i Azure HDInsight
+# <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Scenario: det gick inte att skapa kluster på grund av `not sufficient fault domains in region` i Azure HDInsight
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
 ## <a name="issue"></a>Problem
 
-Få ett fel meddelande som `not sufficient fault domains in region` liknar när du försöker skapa Apache Kafka klustret.
+Få ett fel meddelande som liknar `not sufficient fault domains in region` när du försöker skapa Apache Kafka klustret.
 
 ## <a name="cause"></a>Orsak
 

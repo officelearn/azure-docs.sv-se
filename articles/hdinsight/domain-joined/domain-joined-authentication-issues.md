@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75896128"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Autentiseringsfel i Azure HDInsight
@@ -106,7 +105,7 @@ Lösen ordet har upphört att gälla.
 
 ### <a name="issue"></a>Problem
 
-Fel meddelande `interaction_required`visas.
+Fel meddelande visas `interaction_required` .
 
 ### <a name="cause"></a>Orsak
 
@@ -148,9 +147,9 @@ Sig.
 
 ### <a name="resolution"></a>Lösning
 
-För att kinit ska lyckas måste du känna till ditt `sAMAccountName` (detta är det korta konto namnet utan sfären). `sAMAccountName`är vanligt vis konto prefixet (t. `bob@contoso.com`ex. Bob i). Det kan vara olika för vissa användare. Du behöver kunna bläddra/söka i katalogen för att lära dig mer `sAMAccountName`.
+För att kinit ska lyckas måste du känna till ditt `sAMAccountName` (detta är det korta konto namnet utan sfären). `sAMAccountName`är vanligt vis konto prefixet (t. ex. Bob i `bob@contoso.com` ). Det kan vara olika för vissa användare. Du behöver kunna bläddra/söka i katalogen för att lära dig mer `sAMAccountName` .
 
-Sätt att hitta `sAMAccountName`:
+Sätt att hitta `sAMAccountName` :
 
 * Om du kan logga in på Ambari med hjälp av den lokala Ambari-administratören tittar du i listan över användare.
 
@@ -158,7 +157,7 @@ Sätt att hitta `sAMAccountName`:
 
 * Från Head-noden kan du söka genom att använda SAMBA-kommandon. Detta kräver en giltig Kerberos-session (lyckad kinit). NET Ads search (userPrincipalName = Bob *) "
 
-    Sök-/Browse-resultaten ska visa `sAMAccountName` attributet. Du kan också titta på andra attribut som `pwdLastSet`, `badPasswordTime` `userPrincipalName` osv. för att se om dessa egenskaper matchar det du förväntar dig.
+    Sök-/Browse-resultaten ska visa `sAMAccountName` attributet. Du kan också titta på andra attribut som `pwdLastSet` , `badPasswordTime` `userPrincipalName` osv. för att se om dessa egenskaper matchar det du förväntar dig.
 
 ---
 
@@ -166,7 +165,7 @@ Sätt att hitta `sAMAccountName`:
 
 ### <a name="issue"></a>Problem
 
-Kinit Miss lyckas `Preauthentication` med fel.
+Kinit Miss lyckas med `Preauthentication` fel.
 
 ### <a name="cause"></a>Orsak
 
@@ -174,7 +173,7 @@ Felaktigt användar namn eller lösen ord.
 
 ### <a name="resolution"></a>Lösning
 
-Kontrol lera ditt användar namn och lösen ord. Sök även efter andra egenskaper som beskrivs ovan. Om du vill aktivera utförlig fel sökning kan du `export KRB5_TRACE=/tmp/krb.log` köra från sessionen innan du försöker kinit.
+Kontrol lera ditt användar namn och lösen ord. Sök även efter andra egenskaper som beskrivs ovan. Om du vill aktivera utförlig fel sökning kan du köra `export KRB5_TRACE=/tmp/krb.log` från sessionen innan du försöker kinit.
 
 ---
 
@@ -182,7 +181,7 @@ Kontrol lera ditt användar namn och lösen ord. Sök även efter andra egenskap
 
 ### <a name="issue"></a>Problem
 
-Kommandot Job/HDFS Miss lyckas på `TokenNotFoundException`grund av.
+Kommandot Job/HDFS Miss lyckas på grund av `TokenNotFoundException` .
 
 ### <a name="cause"></a>Orsak
 
@@ -198,7 +197,7 @@ Se till att du har loggat in på Ambari-portalen en gång via det användar namn
 
 ### <a name="issue"></a>Problem
 
-Användaren får ett fel `Error fetching access token`meddelande.
+Användaren får ett fel meddelande `Error fetching access token` .
 
 ### <a name="cause"></a>Orsak
 
@@ -208,7 +207,7 @@ Det här felet uppstår tillfälligt när användare försöker komma åt ADLS G
 
 * För Azure Data Lake Storage Gen1 rensar du webbläsarens cache och loggar in på Ambari igen.
 
-* För Azure Data Lake Storage Gen2 kör `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` du för den användare som användaren försöker logga in som
+* För Azure Data Lake Storage Gen2 kör du `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` för den användare som användaren försöker logga in som
 
 ---
 

@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: e241657186582955d21981f7dfe18856724aa692
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894412"
 ---
 # <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Scenario: det gick inte att hitta Jupyter Server 404 på grund av "blockering av cross origin API" i Azure HDInsight
@@ -36,7 +35,7 @@ Det här felet kan orsakas av ett par saker:
 
 - Om du har konfigurerat regler för nätverks säkerhets grupper (NSG) för att begränsa åtkomsten till klustret. Genom att begränsa åtkomsten med NSG-regler kan du fortfarande komma åt Apache Ambari och andra tjänster direkt med hjälp av IP-adressen i stället för kluster namnet. Men vid åtkomst till Jupyter kan du se ett 404-fel som inte hittades.
 
-- Om du har gett din HDInsight-Gateway ett anpassat DNS-namn som inte `xxx.azurehdinsight.net`är standard.
+- Om du har gett din HDInsight-Gateway ett anpassat DNS-namn som inte är standard `xxx.azurehdinsight.net` .
 
 ## <a name="resolution"></a>Lösning
 
@@ -47,11 +46,11 @@ Det här felet kan orsakas av ett par saker:
     /var/lib/ambari-agent/cache/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     ```
 
-1. Hitta raden som säger: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` och ändra den till:. `NotebookApp.allow_origin='\"*\"'`
+1. Hitta raden som säger: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` och ändra den till: `NotebookApp.allow_origin='\"*\"'` .
 
 1. Starta om Jupyter-tjänsten från Ambari.
 
-1. Om `ps aux | grep jupyter` du skriver i kommando tolken bör du visa att den tillåter alla URL: er att ansluta till den.
+1. Om du skriver `ps aux | grep jupyter` i kommando tolken bör du visa att den tillåter alla URL: er att ansluta till den.
 
 Detta är ett mindre säkert än den inställning som vi redan hade på plats. Men det förutsätts att åtkomst till klustret är begränsad och att en från utsidan tillåts ansluta till klustret eftersom vi har NSG på plats.
 

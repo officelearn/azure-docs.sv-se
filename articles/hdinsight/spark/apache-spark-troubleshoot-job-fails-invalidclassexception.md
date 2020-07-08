@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: be50f8716835b0842f854842e5340b0bb8594136
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894369"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Apache Spark jobbet Miss lyckas med InvalidClassException, klassen stämmer inte överens i Azure HDInsight
@@ -34,7 +33,7 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## <a name="cause"></a>Orsak
 
-Det här felet kan orsakas av att lägga till en ytterligare jar `spark.yarn.jars` i konfigurationen, särskilt en skuggad jar-version som innehåller en annan `commons-lang3` version av paketet och introducerar en klass matchning. Som standard använder Spark 2.1/2/3 version 3,5 av `commons-lang3`.
+Det här felet kan orsakas av att lägga till en ytterligare jar i `spark.yarn.jars` konfigurationen, särskilt en skuggad jar-version som innehåller en annan version av `commons-lang3` paketet och introducerar en klass matchning. Som standard använder Spark 2.1/2/3 version 3,5 av `commons-lang3` .
 
 > [!TIP]
 > För att skugga ett bibliotek är att flytta innehållet till en egen jar-fil och ändra dess paket. Det skiljer sig från paketeringen av biblioteket, vilket innebär att biblioteket placeras i din egen jar-post utan ompackning.

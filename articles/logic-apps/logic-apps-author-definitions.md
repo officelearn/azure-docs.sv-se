@@ -7,13 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979399"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för Logic app Workflow-definitioner i Azure Logic Apps
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för logikappars definitioner av arbetsflöden i Azure Logic Apps
 
 När du skapar lösningar för företags integrering med automatiserade arbets flöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md)använder de underliggande Logic app-definitionerna enkla och deklarativ JavaScript Object Notation (JSON) tillsammans med [WDL-schemat (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) för deras beskrivning och verifiering. De här formaten gör att Logic app-definitioner blir lättare att läsa och förstå utan att veta mer om kod.
 När du vill automatisera skapandet och distributionen av logi Kap par kan du inkludera Logic app-definitioner som [Azure-resurser](../azure-resource-manager/management/overview.md) inuti [Azure Resource Manager mallar](../azure-resource-manager/templates/overview.md).
@@ -46,7 +45,7 @@ I Visual Studio kan du öppna Logi Kap par som skapats och distribuerats antinge
 
 1. Öppna Visual Studio-lösningen eller [Azure Resource Group](../azure-resource-manager/management/overview.md) -projektet som innehåller din Logic app.
 
-2. Hitta och öppna din Logic Apps-definition, som standard visas i en [Resource Manager-mall](../azure-resource-manager/templates/overview.md)med namnet **LogicApp. JSON**.
+2. Hitta och öppna din Logic Apps-definition, som standard visas i en [Resource Manager-mall](../azure-resource-manager/templates/overview.md)med namnet **LogicApp.jspå**.
 Du kan använda och anpassa den här mallen för distribution till olika miljöer.
 
 3. Öppna snabb menyn för din Logic app-definition och-mall.
@@ -129,14 +128,14 @@ Dessa steg beskriver hur det här exemplet bearbetar den här strängen, som arb
 
 1. Hämta [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) för företags namnet så att du får det totala antalet tecken.
 
-2. Om du vill få en kortare sträng `5`subtraherar du.
+2. Om du vill få en kortare sträng subtraherar du `5` .
 
-3. Hämta nu en [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
-Starta vid index `5`och gå till resten av strängen.
+3. Hämta nu en [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md) .
+Starta vid index `5` och gå till resten av strängen.
 
-4. Konvertera den här del strängen till [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) en sträng.
+4. Konvertera den här del strängen till en [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) sträng.
 
-5. Nu [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) är `+` alla tecken med `-` tecken.
+5. Nu [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) är alla `+` tecken med `-` tecken.
 
 6. Slutligen [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) alla `/` tecken med `_` tecken.
 
@@ -147,7 +146,7 @@ Om du vill få olika resultat baserat på egenskapens värde kan du skapa en kar
 Det här arbets flödet definierar till exempel vissa kategorier som parametrar och en karta som matchar de kategorierna med en viss URL.
 Först hämtar arbets flödet en lista över artiklar. Sedan använder arbets flödet kartan för att hitta URL: en som matchar kategorin för varje artikel.
 
-*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) Funktionen kontrollerar om kategorin matchar en känd definierad kategori.
+*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md)Funktionen kontrollerar om kategorin matchar en känd definierad kategori.
 
 *   När en matchande kategori har hämtats hämtar exemplet objektet från kartan med hakparenteser:`parameters[...]`
 
@@ -228,19 +227,19 @@ Det här uttrycket hittar till exempel hur länge arbets flödets steg tar, som 
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Extrahera i `order` `startTime`åtgärden.
-2. Hämta den aktuella tiden med `utcNow()`.
+1. `order`Extrahera i åtgärden `startTime` .
+2. Hämta den aktuella tiden med `utcNow()` .
 3. Subtrahera en sekund:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md)
 
-   Du kan använda andra tidsenheter, t. `minutes` ex `hours`. eller.
+   Du kan använda andra tidsenheter, t `minutes` . ex `hours` . eller.
 
 3. Nu kan du jämföra dessa två värden.
 
    Om det första värdet är mindre än det andra värdet har fler än en sekund gått sedan ordern först placerades.
 
-Du kan använda String-formaterare för att formatera datum. Om du till exempel vill hämta RFC1123 använder [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md)du.
+Du kan använda String-formaterare för att formatera datum. Om du till exempel vill hämta RFC1123 använder du [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md) .
 Läs mer om [datum format](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json

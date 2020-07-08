@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75974408"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – säkerhets-och DevOps metod tips
@@ -45,11 +44,11 @@ Använd följande steg för att distribuera det domänanslutna HDInsight-klustre
     |Parameter |Beskrivning |
     |---|---|
     |Domännamn|Det domän namn som är associerat med Azure AD DS.|
-    |Domän användar namn|Tjänst kontot i den domänkontrollant-hanterade Azure AD DS-domän som du skapade i föregående avsnitt, till exempel: `hdiadmin@contoso.onmicrosoft.com`. Den här domän användaren kommer att vara administratör för det här HDInsight-klustret.|
+    |Domän användar namn|Tjänst kontot i den domänkontrollant-hanterade Azure AD DS-domän som du skapade i föregående avsnitt, till exempel: `hdiadmin@contoso.onmicrosoft.com` . Den här domän användaren kommer att vara administratör för det här HDInsight-klustret.|
     |Domän lösen ord|Lösen ordet för tjänst kontot.|
-    |Organisationsenhet|Det unika namnet på den ORGANISATIONSENHET som du vill använda med HDInsight-klustret, till exempel: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Om ORGANISATIONSENHETen inte finns försöker HDInsight-klustret skapa ORGANISATIONSENHETen med hjälp av tjänst kontots behörigheter.|
-    |LDAPS-URL|till exempel `ldaps://contoso.onmicrosoft.com:636`.|
-    |Åtkomst till användar grupp|De säkerhets grupper vars användare du vill synkronisera till klustret, till exempel: `HiveUsers`. Om du vill ange flera användar grupper avgränsar du dem med semikolone;. Grupp (er) måste finnas i katalogen innan du skapar ESP-klustret.|
+    |Organisationsenhet|Det unika namnet på den ORGANISATIONSENHET som du vill använda med HDInsight-klustret, till exempel: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com` . Om ORGANISATIONSENHETen inte finns försöker HDInsight-klustret skapa ORGANISATIONSENHETen med hjälp av tjänst kontots behörigheter.|
+    |LDAPS-URL|till exempel `ldaps://contoso.onmicrosoft.com:636` .|
+    |Åtkomst till användar grupp|De säkerhets grupper vars användare du vill synkronisera till klustret, till exempel: `HiveUsers` . Om du vill ange flera användar grupper avgränsar du dem med semikolone;. Grupp (er) måste finnas i katalogen innan du skapar ESP-klustret.|
 
 Mer information finns i följande artiklar:
 
@@ -86,7 +85,7 @@ Mer information finns i följande artiklar:
 - [Översikt över virtuella Azure-nätverk](../../virtual-network/virtual-networks-overview.md)
 - [Översikt över Azure nätverks säkerhets grupper](../../virtual-network/security-overview.md)
 - [Azure Virtual Network-peering](../../virtual-network/virtual-network-peering-overview.md)
-- [Säkerhetsguide för Azure Storage](../../storage/blobs/security-recommendations.md)
+- [Säkerhetsguiden för Azure Storage](../../storage/blobs/security-recommendations.md)
 - [Azure Storage tjänst kryptering i vila](../../storage/common/storage-service-encryption.md)
 
 ## <a name="use-monitoring--alerting"></a>Använda övervaknings & avisering

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75934210"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Lägga till eller ta bort noder i ett fristående Service Fabric-kluster som körs på Windows Server
@@ -29,7 +28,7 @@ När du har [skapat ditt fristående Service Fabric-kluster på Windows Server-d
 
 5. Kör PowerShell med utökade privilegier och gå till platsen för det zippade paketet.
 
-6. Kör skriptet *Addnode. ps1* med parametrarna som beskriver den nya noden som ska läggas till. I följande exempel lägger du till en ny nod med namnet VM5, med typen NodeType0 och IP-182.17.34.52 i UD1 och fd:/DC1/R0. `ExistingClusterConnectionEndPoint`är en anslutnings slut punkt för en nod som redan finns i det befintliga klustret, vilket kan vara IP-adressen för *en nod i* klustret. 
+6. Kör *AddNode.ps1* skriptet med parametrarna som beskriver den nya noden som ska läggas till. I följande exempel lägger du till en ny nod med namnet VM5, med typen NodeType0 och IP-182.17.34.52 i UD1 och fd:/DC1/R0. `ExistingClusterConnectionEndPoint`är en anslutnings slut punkt för en nod som redan finns i det befintliga klustret, vilket kan vara IP-adressen för *en nod i* klustret. 
 
    Osäker (prototyping):
 
@@ -69,7 +68,7 @@ När du har [skapat ditt fristående Service Fabric-kluster på Windows Server-d
    Du kan övervaka förloppet för uppgraderingen på Service Fabric Explorer. Du kan också köra [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Lägg till noder i kluster som kon figurer ATS med Windows-säkerhet med gMSA
-För kluster som kon figurer ATS med grupphanterat tjänst konto (https://technet.microsoft.com/library/hh831782.aspx)gMSA) (kan du lägga till en ny nod med en konfigurations uppgradering):
+För kluster som kon figurer ATS med grupphanterat tjänst konto (gMSA) ( https://technet.microsoft.com/library/hh831782.aspx) kan du lägga till en ny nod med en konfigurations uppgradering):
 1. Kör [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) på någon av de befintliga noderna för att hämta den senaste konfigurations filen och Lägg till information om den nya noden som du vill lägga till i avsnittet "noder". Se till att den nya noden är en del av samma grupphanterade konto. Det här kontot bör vara en administratör på alla datorer.
 
     ```
@@ -127,7 +126,7 @@ Lägg till parametern "NodesToBeRemoved" i avsnittet "FabricSettings". Värdet m
     Du kan övervaka förloppet för uppgraderingen på Service Fabric Explorer. Du kan också köra [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 > [!NOTE]
-> Borttagning av noder kan initiera flera uppgraderingar. Vissa noder är markerade med `IsSeedNode=”true”` tagg och kan identifieras genom att fråga kluster manifestet med hjälp `Get-ServiceFabricClusterManifest`av. Borttagning av sådana noder kan ta längre tid än andra eftersom startnoderna måste flyttas runt i sådana scenarier. Klustret måste ha minst tre primära noder av Node-typ.
+> Borttagning av noder kan initiera flera uppgraderingar. Vissa noder är markerade med `IsSeedNode=”true”` tagg och kan identifieras genom att fråga kluster manifestet med hjälp av `Get-ServiceFabricClusterManifest` . Borttagning av sådana noder kan ta längre tid än andra eftersom startnoderna måste flyttas runt i sådana scenarier. Klustret måste ha minst tre primära noder av Node-typ.
 > 
 > 
 

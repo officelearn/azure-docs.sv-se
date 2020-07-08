@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 2d0d5bb871612bc5e16a26eb49808c39661ffb50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75934691"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop kluster till Azure HDInsight-arkitektur metod tips
@@ -107,7 +106,7 @@ Några HDInsight-Hive-metaarkiv bästa praxis är följande:
 
 ## <a name="best-practices-for-different-workloads"></a>Metod tips för olika arbets belastningar
 
-- Överväg att använda LLAP-kluster för interaktiva Hive-frågor med förbättrad svars tid [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) är en ny funktion i Hive 2,0 som tillåter minnes intern cachelagring av frågor. LLAP gör Hive-frågor mycket snabbare, upp till [26x snabbare än Hive 1. x i vissa fall](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Överväg att använda LLAP-kluster för interaktiva Hive-frågor med förbättrad svars tid [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP)   är en ny funktion i Hive 2,0 som tillåter minnes intern cachelagring av frågor. LLAP gör Hive-frågor mycket snabbare, upp till [26x snabbare än Hive 1. x i vissa fall](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Överväg att använda Spark-jobb i stället för Hive-jobb.
 - Överväg att ersätta Impala-baserade frågor med LLAP-frågor.
 - Överväg att ersätta MapReduce-jobb med Spark-jobb.

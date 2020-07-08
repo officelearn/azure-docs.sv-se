@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887163"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Felsöka problem med Apache HBase-prestanda Azure HDInsight
@@ -65,17 +64,17 @@ Om du migrerar till Azure HDInsight bör du se till att migreringen utförs syst
 
 ## <a name="server-side-configuration-tunings"></a>Konfigurations justeringar på Server Sidan
 
-I HDInsight-HBase lagras HFiles på Fjärrlagring. När det finns ett cache-missar är kostnaden för läsningar högre än lokala system eftersom data på lokala system backas upp av Local HDFS. I de flesta fall är intelligent användning av HBase-cache (block-cache och Bucket cache) utformad för att kringgå det här problemet. I de fall där problemet inte kringgås kan det här problemet uppstå om du använder ett Premium Block Blob-konto. Windows Azure Storage Blob-drivrutinen förlitar sig på vissa egenskaper `fs.azure.read.request.size` , t. ex. för att hämta data i block baserat på vad det bestämmer sig för att vara läsnings läge (sekventiella kontra slumpmässiga), så det kan fortsätta att vara instanser av högre latens med läsningar. Med empiriska experiment har vi funnit att ställa in block storleken för läsnings`fs.azure.read.request.size`begär Anden () till 512 KB och matcha block storleken för HBase-tabellerna så att de får samma storlek som ger bäst resultat i praktiken.
+I HDInsight-HBase lagras HFiles på Fjärrlagring. När det finns ett cache-missar är kostnaden för läsningar högre än lokala system eftersom data på lokala system backas upp av Local HDFS. I de flesta fall är intelligent användning av HBase-cache (block-cache och Bucket cache) utformad för att kringgå det här problemet. I de fall där problemet inte kringgås kan det här problemet uppstå om du använder ett Premium Block Blob-konto. Windows Azure Storage Blob-drivrutinen förlitar sig på vissa egenskaper, t. ex. `fs.azure.read.request.size` för att hämta data i block baserat på vad det bestämmer sig för att vara läsnings läge (sekventiella kontra slumpmässiga), så det kan fortsätta att vara instanser av högre latens med läsningar. Med empiriska experiment har vi funnit att ställa in block storleken för läsnings begär Anden ( `fs.azure.read.request.size` ) till 512 KB och matcha block storleken för HBase-tabellerna så att de får samma storlek som ger bäst resultat i praktiken.
 
-För de flesta kluster med stora storleks noder tillhandahåller `bucketcache` HDInsight-HBase som en fil på en lokal Premium SSD som är kopplad till den virtuella datorn, som `regionservers`körs. Att använda cache utanför heap i stället kan ge en viss förbättring. Den här lösningen har begränsningen att använda tillgängligt minne och kan vara mindre än filbaserad cache, så det är inte alltid det bästa valet.
+För de flesta kluster med stora storleks noder tillhandahåller HDInsight-HBase `bucketcache` som en fil på en lokal Premium SSD som är kopplad till den virtuella datorn, som körs `regionservers` . Att använda cache utanför heap i stället kan ge en viss förbättring. Den här lösningen har begränsningen att använda tillgängligt minne och kan vara mindre än filbaserad cache, så det är inte alltid det bästa valet.
 
 Följande är några av de andra speciella parametrarna som vi har justerat, och som verkade hjälpa till med varierande grader:
 
-- Öka `memstore` storleken från standard 128 mb till 256 MB. Normalt rekommenderas den här inställningen för tunga Skriv scenarier.
+- Öka `memstore` storleken från standard 128 MB till 256 MB. Normalt rekommenderas den här inställningen för tunga Skriv scenarier.
 
 - Öka antalet trådar som är dedikerade för komprimering, från standardinställningen **1** till **4**. Den här inställningen är relevant om vi iakttar frekventa smärre komprimeringar.
 
-- Undvik att `memstore` blockera tömning på grund av en lagrings gräns. Öka `Hbase.hstore.blockingStoreFiles` inställningen till **100**för att tillhandahålla den här bufferten.
+- Undvik att blockera `memstore` tömning på grund av en lagrings gräns. Öka `Hbase.hstore.blockingStoreFiles` inställningen till **100**för att tillhandahålla den här bufferten.
 
 - Använd följande inställningar om du vill kontrol lera tömningar:
 
@@ -104,9 +103,9 @@ Följande är några av de andra speciella parametrarna som vi har justerat, och
 - RPC-tidsgräns: **3 minuter**
 
    - RPC-timeout inkluderar HBase RPC-timeout, timeout för klient skanner och Phoenix-tidsgräns. 
-   - Kontrol lera att `hbase.client.scanner.caching` parametern har angetts till samma värde både på Server sidan och klienten slutar. Om de inte är samma, leder den här inställningen till klient slut fel som är relaterade till `OutOfOrderScannerException`. Den här inställningen ska vara inställd på ett lågt värde för stora genomsökningar. Vi anger värdet **100**.
+   - Kontrol lera att `hbase.client.scanner.caching` parametern har angetts till samma värde både på Server sidan och klienten slutar. Om de inte är samma, leder den här inställningen till klient slut fel som är relaterade till `OutOfOrderScannerException` . Den här inställningen ska vara inställd på ett lågt värde för stora genomsökningar. Vi anger värdet **100**.
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 
 Följande är ytterligare parametrar för att överväga fin justering:
 
@@ -122,6 +121,6 @@ Om problemet inte är löst kan du gå till någon av följande kanaler för mer
 
 - Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
-- Anslut till [@AzureSupport](https://twitter.com/azuresupport). Detta är det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Den ansluter Azure-communityn till rätt resurser: svar, support och experter.
+- Anslut till [@AzureSupport](https://twitter.com/azuresupport) . Detta är det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Den ansluter Azure-communityn till rätt resurser: svar, support och experter.
 
 - Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Din Microsoft Azure prenumeration innehåller åtkomst till prenumerations hantering och fakturerings support, och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

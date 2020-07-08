@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: femila
 ms.openlocfilehash: f015bf682d7ce3475aba5baa73ab72b1426691fe
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560681"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps som en Event Grid källa
@@ -24,7 +23,7 @@ Den här artikeln innehåller egenskaper och schema för Azure Maps händelser. 
 
 Ett Azure Maps konto avger följande händelse typer:
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. Maps. GeofenceEntered | Utlöses när de mottagna koordinaterna har flyttats från utsidan av ett angivet geografiskt avgränsnings tecken till inom |
 | Microsoft. Maps. GeofenceExited | Utlöses när de mottagna koordinaterna har flyttats från ett angivet geografiskt avgränsnings tecken till utsidan |
@@ -104,7 +103,7 @@ I följande exempel visas schema för **GeofenceResult**
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -117,7 +116,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | apiCategory | sträng | Händelsens API-kategori. |
 | apiName | sträng | Händelsens API-namn. |
@@ -127,13 +126,13 @@ Data-objektet har följande egenskaper:
 
 Objektet Error returneras när ett fel uppstår i Maps-API: et. Objektet Error har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | fel | ErrorDetails |Det här objektet returneras när ett fel uppstår i Maps-API: et  |
 
 ErrorDetails-objektet returneras när ett fel uppstår i Maps-API: et. ErrorDetails eller-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | kod | sträng | HTTP-statuskod. |
 | meddelande | sträng | Om det är tillgängligt kan en läslig Beskrivning av felet. |

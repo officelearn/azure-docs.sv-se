@@ -4,10 +4,9 @@ description: Kunder kan visa loggad aktivitet för att se åtgärder som utförs
 ms.date: 01/15/2020
 ms.topic: how-to
 ms.openlocfilehash: 42af2aa7fca5031eb50bd421a5207320858b70cf
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84636452"
 ---
 # <a name="view-service-provider-activity"></a>Visa tjänstleverantörsaktivitet

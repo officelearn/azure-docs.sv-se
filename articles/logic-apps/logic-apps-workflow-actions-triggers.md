@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: 7c220ff2882e12f5239dbd5abc5f87b900cb3807
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609426"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Schema referens guide för utlösare och åtgärds typer i Azure Logic Apps
@@ -52,7 +51,7 @@ Utlösare har dessa toppnivå element, även om några är valfria:
 | <*utlösare-typ*> | Sträng | Utlösarens typ, till exempel "http" eller "ApiConnection" | 
 | <*trigger-Inputs*> | JSON-objekt | De indata som definierar utlösarens beteende | 
 | <*tidsenhet*> | Sträng | Den tidsenhet som beskriver hur ofta utlösaren utlöses: "sekund", "minut", "timme", "dag", "vecka", "månad" | 
-| <*antal-tidsenheter*> | Heltal | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. | 
+| <*antal-tidsenheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. | 
 |||| 
 
 *Valfritt*
@@ -133,7 +132,7 @@ Den här utlösaren kontrollerar eller *avsöker* en slut punkt med hjälp av [M
 | <*metod-typ*> | Sträng | HTTP-metoden för att kommunicera med hanterade API: "GET", "placera", "POST", "PATCH", "ta bort" |
 | <*API-åtgärd*> | Sträng | API-åtgärden som ska anropas |
 | <*tidsenhet*> | Sträng | Den tidsenhet som beskriver hur ofta utlösaren utlöses: "sekund", "minut", "timme", "dag", "vecka", "månad" |
-| <*antal-tidsenheter*> | Heltal | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. |
+| <*antal-tidsenheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. |
 ||||
 
 *Valfritt*
@@ -142,8 +141,8 @@ Den här utlösaren kontrollerar eller *avsöker* en slut punkt med hjälp av [M
 |-------|------|-------------| 
 | <*återförsök-beteende*> | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*fråga – parametrar*> | JSON-objekt | Alla frågeparametrar som ska ingå i API-anropet. Objektet läggs till exempel `"queries": { "api-version": "2018-01-01" }` `?api-version=2018-01-01` till i anropet. | 
-| <*Max-körningar*> | Heltal | Som standard körs arbets flödes instanser på samma tidpunkt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
-| <*Max-körning-kö*> | Heltal | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
+| <*Max-körningar*> | Integer | Som standard körs arbets flödes instanser på samma tidpunkt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
+| <*Max-körning-kö*> | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
 | <*splitOn – uttryck*> | Sträng | För utlösare som returnerar matriser refererar det här uttrycket till den matris som ska användas så att du kan skapa och köra en arbets flödes instans för varje mat ris objekt, i stället för att använda en "for each"-loop. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens bröd innehåll:`@triggerbody()?['value']` |
 | <*åtgärd – alternativ*> | Sträng | Du kan ändra standard beteendet genom att ange `operationOptions` egenskapen. Mer information finns i [Åtgärds alternativ](#operation-options). |
 ||||
@@ -154,7 +153,7 @@ Den här utlösaren kontrollerar eller *avsöker* en slut punkt med hjälp av [M
 |---------|------|-------------|
 | sidhuvud | JSON-objekt | Rubrikerna från svaret |
 | body | JSON-objekt | Texten från svaret |
-| statuskod | Heltal | Status koden från svaret |
+| statuskod | Integer | Status koden från svaret |
 |||| 
 
 *Exempel*
@@ -232,8 +231,8 @@ Den här utlösaren skickar en prenumerations förfrågan till en slut punkt med
 |-------|------|-------------|
 | <*återförsök-beteende*> | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
 | <*fråga – parametrar*> | JSON-objekt | Alla frågeparametrar som ska ingå i API-anropet <p>Objektet läggs till exempel `"queries": { "api-version": "2018-01-01" }` `?api-version=2018-01-01` till i anropet. |
-| <*Max-körningar*> | Heltal | Som standard körs arbets flödes instanser på samma tidpunkt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). |
-| <*Max-körning-kö*> | Heltal | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
+| <*Max-körningar*> | Integer | Som standard körs arbets flödes instanser på samma tidpunkt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). |
+| <*Max-körning-kö*> | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
 | <*splitOn – uttryck*> | Sträng | För utlösare som returnerar matriser refererar det här uttrycket till den matris som ska användas så att du kan skapa och köra en arbets flödes instans för varje mat ris objekt, i stället för att använda en "for each"-loop. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens bröd innehåll:`@triggerbody()?['value']` |
 | <*åtgärd – alternativ*> | Sträng | Du kan ändra standard beteendet genom att ange `operationOptions` egenskapen. Mer information finns i [Åtgärds alternativ](#operation-options). | 
 |||| 
@@ -306,7 +305,7 @@ Den här utlösaren skickar en begäran till den angivna HTTP-eller HTTPS-slutpu
 | `method` | <*metod-typ*> | Sträng | Den metod som ska användas för att skicka utgående begäran: "GET", "placera", "POST", "PATCH" eller "DELETE" |
 | `uri` | <*HTTP-eller-HTTPS-Endpoint-URL*> | Sträng | URL: en för HTTP-eller HTTPS-slutpunkt där du vill skicka den utgående begäran. Maximal sträng storlek: 2 KB <p>För en Azure-tjänst eller resurs inkluderar denna URI-syntax resurs-ID och sökvägen till den resurs som du vill få åtkomst till. |
 | `frequency` | <*tidsenhet*> | Sträng | Den tidsenhet som beskriver hur ofta utlösaren utlöses: "sekund", "minut", "timme", "dag", "vecka", "månad" |
-| `interval` | <*antal-tidsenheter*> | Heltal | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. |
+| `interval` | <*antal-tidsenheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. |
 |||||
 
 *Valfritt*
@@ -318,8 +317,8 @@ Den här utlösaren skickar en begäran till den angivna HTTP-eller HTTPS-slutpu
 | `body` | <*brödtext – innehåll*> | JSON-objekt | Meddelande innehållet som ska skickas som nytto last med begäran |
 | `authentication` | <*autentisering-typ-och-Property-Values*> | JSON-objekt | Den autentiseringsmetod som begäran använder för att autentisera utgående begär Anden. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Efter Scheduler `authority` stöds egenskapen. Om inget värde anges är standardvärdet `https://management.azure.com/` , men du kan använda ett annat värde. |
 | `retryPolicy` > `type` | <*återförsök-beteende*> | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
-| `runs` | <*Max-körningar*> | Heltal | Som standard körs arbets flödes instanser på samma tidpunkt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). |
-| `maximumWaitingRuns` | <*Max-körning-kö*> | Heltal | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). |
+| `runs` | <*Max-körningar*> | Integer | Som standard körs arbets flödes instanser på samma tidpunkt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). |
+| `maximumWaitingRuns` | <*Max-körning-kö*> | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). |
 | `operationOptions` | <*åtgärd – alternativ*> | Sträng | Du kan ändra standard beteendet genom att ange `operationOptions` egenskapen. Mer information finns i [Åtgärds alternativ](#operation-options). |
 |||||
 
@@ -329,7 +328,7 @@ Den här utlösaren skickar en begäran till den angivna HTTP-eller HTTPS-slutpu
 |---------|------|-------------|
 | `headers` | JSON-objekt | Rubrikerna från svaret |
 | `body` | JSON-objekt | Texten från svaret |
-| `status code` | Heltal | Status koden från svaret |
+| `status code` | Integer | Status koden från svaret |
 ||||
 
 *Krav för inkommande begär Anden*
@@ -339,8 +338,8 @@ För att fungera bra med din Logi Kap par måste slut punkten följa ett särski
 | Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
 | Statuskod | Ja | Status koden "200 OK" startar en körning. All annan status kod startar inte en körning. |
-| Nytt försök-efter-rubrik | Nej | Antalet sekunder tills din Logic-app avsöker slut punkten igen |
-| Plats rubrik | Nej | Den URL som ska anropas vid nästa avsöknings intervall. Om inget anges används den ursprungliga URL: en. |
+| Nytt försök-efter-rubrik | No | Antalet sekunder tills din Logic-app avsöker slut punkten igen |
+| Plats rubrik | No | Den URL som ska anropas vid nästa avsöknings intervall. Om inget anges används den ursprungliga URL: en. |
 |||| 
 
 *Exempel beteenden för olika begär Anden*
@@ -412,8 +411,8 @@ Vissa värden, till exempel <*metod-typ*>, är tillgängliga för både- `"subsc
 | <*brödtext – innehåll*> | Sträng | Meddelande innehåll som ska skickas i prenumerationen eller uppsägnings förfrågan | 
 | <*typ av autentisering*> | JSON-objekt | Den autentiseringsmetod som begäran använder för att autentisera utgående begär Anden. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*återförsök-beteende*> | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer för återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*Max-körningar*> | Heltal | Som standard körs alla arbets flödes instanser samtidigt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
-| <*Max-körning-kö*> | Heltal | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
+| <*Max-körningar*> | Integer | Som standard körs alla arbets flödes instanser samtidigt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
+| <*Max-körning-kö*> | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
 | <*åtgärd – alternativ*> | Sträng | Du kan ändra standard beteendet genom att ange `operationOptions` egenskapen. Mer information finns i [Åtgärds alternativ](#operation-options). | 
 |||| 
 
@@ -423,7 +422,7 @@ Vissa värden, till exempel <*metod-typ*>, är tillgängliga för både- `"subsc
 |---------|------|-------------| 
 | sidhuvud | JSON-objekt | Rubrikerna från svaret | 
 | body | JSON-objekt | Texten från svaret | 
-| statuskod | Heltal | Status koden från svaret | 
+| statuskod | Integer | Status koden från svaret | 
 |||| 
 
 *Exempel*
@@ -494,7 +493,7 @@ Den här utlösaren körs baserat på det angivna upprepnings schemat och ger et
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | <*tidsenhet*> | Sträng | Den tidsenhet som beskriver hur ofta utlösaren utlöses: "sekund", "minut", "timme", "dag", "vecka", "månad" | 
-| <*antal-tidsenheter*> | Heltal | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. | 
+| <*antal-tidsenheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader </br>– Dag: 1-500 dagar </br>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. | 
 |||| 
 
 *Valfritt*
@@ -506,8 +505,8 @@ Den här utlösaren körs baserat på det angivna upprepnings schemat och ger et
 | <*en-eller-fler-timmarsformat*> | Heltals-eller heltals mat ris | Om du anger "dag" eller "vecka" för `frequency` kan du ange ett eller flera heltal från 0 till 23, avgränsade med kommatecken, som de timmar på dagen då du vill köra arbets flödet. <p>Om du till exempel anger "10", "12" och "14" får du 10 AM, 12 PM och 2 PM som timvärdet. | 
 | <*en eller flera minuter-märken*> | Heltals-eller heltals mat ris | Om du anger "dag" eller "vecka" för `frequency` kan du ange ett eller flera heltal från 0 till 59, avgränsade med kommatecken, som minuter i timmen när du vill köra arbets flödet. <p>Du kan till exempel ange "30" som minut märke och använda föregående exempel för timmar på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. | 
 | weekDays | Sträng eller sträng mat ris | Om du anger "vecka" för `frequency` kan du ange en eller flera dagar, avgränsade med kommatecken, när du vill köra arbets flödet: "måndag", "tisdag", "onsdag", "torsdag", "fredag", "lördag" och "söndag" | 
-| <*Max-körningar*> | Heltal | Som standard körs alla arbets flödes instanser samtidigt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
-| <*Max-körning-kö*> | Heltal | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
+| <*Max-körningar*> | Integer | Som standard körs alla arbets flödes instanser samtidigt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
+| <*Max-körning-kö*> | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
 | <*åtgärd – alternativ*> | Sträng | Du kan ändra standard beteendet genom att ange `operationOptions` egenskapen. Mer information finns i [Åtgärds alternativ](#operation-options). | 
 |||| 
 
@@ -613,8 +612,8 @@ För att anropa den här utlösaren måste du använda `listCallbackUrl` API: et
 | <*metod-typ*> | Sträng | Metoden som inkommande begär Anden måste använda för att anropa din Logic app: "GET", "placera", "POST", "PATCH", "ta bort" |
 | <*relativ sökväg-för-godtagen parameter*> | Sträng | Den relativa sökvägen för parametern som URL: en för din slut punkt kan acceptera | 
 | <*obligatoriska – egenskaper*> | Matris | En eller flera egenskaper som kräver värden | 
-| <*Max-körningar*> | Heltal | Som standard körs alla arbets flödes instanser samtidigt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
-| <*Max-körning-kö*> | Heltal | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
+| <*Max-körningar*> | Integer | Som standard körs alla arbets flödes instanser samtidigt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra utlösare samtidighet](#change-trigger-concurrency). | 
+| <*Max-körning-kö*> | Integer | När arbets flödet redan kör det maximala antalet instanser, som du kan ändra baserat på `runtimeConfiguration.concurrency.runs` egenskapen, placeras alla nya körningar i kön upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | 
 | <*åtgärd – alternativ*> | Sträng | Du kan ändra standard beteendet genom att ange `operationOptions` egenskapen. Mer information finns i [Åtgärds alternativ](#operation-options). | 
 |||| 
 
@@ -820,7 +819,7 @@ Här följer några vanliga åtgärds typer:
 |-------------|-------------| 
 | [**Compose**](#compose-action) | Skapar ett enstaka utdata från indata, vilket kan ha olika typer. | 
 | [**Kör JavaScript-kod**](#run-javascript-code) | Kör kods tycken med JavaScript-kod som passar inom vissa villkor. Kod krav och mer information finns i [lägga till och köra kodfragment med infogad kod](../logic-apps/logic-apps-add-run-inline-code.md). |
-| [**Funktion**](#function-action) | Anropar en Azure-funktion. | 
+| [**Funktioner**](#function-action) | Anropar en Azure-funktion. | 
 | [**HTTP**](#http-action) | Anropar en HTTP-slutpunkt. | 
 | [**Slå ihop**](#join-action) | Skapar en sträng från alla objekt i en matris och avgränsar objekten med ett angivet avgränsnings tecken. | 
 | [**Parsa JSON**](#parse-json-action) | Skapar användarvänliga tokens från egenskaper i JSON-innehåll. Du kan sedan referera till dessa egenskaper genom att inkludera tokens i din Logic app. | 
@@ -1464,7 +1463,7 @@ Den här åtgärden skapar nytto lasten för svaret på en HTTP-begäran.
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*svar-status-kod*> | Heltal | HTTP-statuskod som skickas till den inkommande begäran. Standard koden är "200 OK", men koden kan vara vilken giltig status kod som helst som börjar med 2xx, 4xx eller 5xx, men inte med 3xxx. | 
+| <*svar-status-kod*> | Integer | HTTP-statuskod som skickas till den inkommande begäran. Standard koden är "200 OK", men koden kan vara vilken giltig status kod som helst som börjar med 2xx, 4xx eller 5xx, men inte med 3xxx. | 
 |||| 
 
 *Valfritt*
@@ -1820,7 +1819,7 @@ Den här åtgärden pausar arbets flödes körningen för det angivna intervalle
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*antal enheter*> | Heltal | För **fördröjnings** åtgärden, antalet enheter att vänta | 
+| <*antal enheter*> | Integer | För **fördröjnings** åtgärden, antalet enheter att vänta | 
 | <*intervall*> | Sträng | För **fördröjnings** åtgärden: vänte tiden: "sekund", "minut", "timme", "dag", "vecka", "månad" | 
 | <*datum/tidstämpel*> | Sträng | För **fördröjningen tills** åtgärden, datum och tid för att återuppta körningen. Det här värdet måste använda [tids formatet UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
@@ -1979,7 +1978,7 @@ Den här upprepnings åtgärden upprepas genom en matris och utför åtgärder p
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*reparationer*> | Heltal | Som standard körs loopen för varje upprepning samtidigt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra "för varje" loop-samtidighets](#change-for-each-concurrency). | 
+| <*reparationer*> | Integer | Som standard körs loopen för varje upprepning samtidigt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra "för varje" loop-samtidighets](#change-for-each-concurrency). | 
 | <*åtgärd – alternativ*> | Sträng | Om du vill köra en "for each"-loop i tur och ordning i stället för parallellt anger du antingen <*Åtgärds alternativ*> till `Sequential` eller <*antal*> till `1` , men inte båda. Mer information finns i [Kör "för varje" slingor i turordning](#sequential-for-each). | 
 |||| 
 
@@ -2304,7 +2303,7 @@ Den här slingan-åtgärden innehåller åtgärder som körs tills det angivna v
 | <*åtgärds typ*> | Sträng | Den åtgärds typ som du vill köra | 
 | <*åtgärds-input*> | Önskade | Indata för den åtgärd som ska köras | 
 | <*moduletype*> | Sträng | Villkoret eller uttrycket som ska utvärderas efter att alla åtgärder i slingan har körts | 
-| <*loop-antal*> | Heltal | Gränsen för det mest antal slingor som åtgärden kan köra. Mer information om standard gränsen och den maximala gränsen finns i [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
+| <*loop-antal*> | Integer | Gränsen för det mest antal slingor som åtgärden kan köra. Mer information om standard gränsen och den maximala gränsen finns i [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <*loop-timeout*> | Sträng | Gränsen på den längsta tid som slingan kan köras. `timeout`Standardvärdet är `PT1H` , vilket är det [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601)som krävs. |
 |||| 
 
@@ -2379,10 +2378,10 @@ Du kan ändra standard körnings beteendet för utlösare och åtgärder genom a
 
 | Egenskap | Typ | Beskrivning | Utlösare eller åtgärd | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Heltal | Ändra [*standard gränsen*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) för antalet arbets flödes instanser som kan köras samtidigt (samtidigt eller parallellt). Genom att justera det här värdet kan du begränsa antalet begär Anden som backend-system får. <p>Att ställa in `runs` egenskapen på `1` fungerar på samma sätt som när du anger `operationOptions` egenskapen till `SingleInstance` . Du kan ange antingen en egenskap, men inte båda. <p>Om du vill ändra standard gränsen, se [ändra utlösare](#change-trigger-concurrency) eller [Utlös instanser sekventiellt](#sequential-trigger). | Alla utlösare | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Heltal | Ändra [*standard gränsen*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) för antalet arbets flödes instanser som måste vänta på att köras när din Logic app redan kör maximalt antal samtidiga instanser. <p>Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | Alla utlösare | 
-| `runtimeConfiguration.concurrency.repetitions` | Heltal | Ändra [*standard gränsen*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) för antalet upprepningar för varje loop som kan köras samtidigt (samtidigt eller parallellt). <p>Att ställa in `repetitions` egenskapen på `1` fungerar på samma sätt som när du anger `operationOptions` egenskapen till `SingleInstance` . Du kan ange antingen en egenskap, men inte båda. <p>Om du vill ändra standard gränsen läser du [ändra "för varje" samtidighet](#change-for-each-concurrency) eller [Kör "för varje" slingor i följd](#sequential-for-each). | Åtgärd: <p>[Foreach](#foreach-action) | 
-| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Heltal | För vissa åtgärder som stöder och att sid brytning är aktiverat anger det här värdet det *minsta* antal resultat som ska hämtas. <p>Om du vill aktivera sid brytning, se [Hämta Mass data, objekt eller resultat med sid brytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Åtgärd: varierande |
+| `runtimeConfiguration.concurrency.runs` | Integer | Ändra [*standard gränsen*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) för antalet arbets flödes instanser som kan köras samtidigt (samtidigt eller parallellt). Genom att justera det här värdet kan du begränsa antalet begär Anden som backend-system får. <p>Att ställa in `runs` egenskapen på `1` fungerar på samma sätt som när du anger `operationOptions` egenskapen till `SingleInstance` . Du kan ange antingen en egenskap, men inte båda. <p>Om du vill ändra standard gränsen, se [ändra utlösare](#change-trigger-concurrency) eller [Utlös instanser sekventiellt](#sequential-trigger). | Alla utlösare | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Ändra [*standard gränsen*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) för antalet arbets flödes instanser som måste vänta på att köras när din Logic app redan kör maximalt antal samtidiga instanser. <p>Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](#change-waiting-runs). | Alla utlösare | 
+| `runtimeConfiguration.concurrency.repetitions` | Integer | Ändra [*standard gränsen*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) för antalet upprepningar för varje loop som kan köras samtidigt (samtidigt eller parallellt). <p>Att ställa in `repetitions` egenskapen på `1` fungerar på samma sätt som när du anger `operationOptions` egenskapen till `SingleInstance` . Du kan ange antingen en egenskap, men inte båda. <p>Om du vill ändra standard gränsen läser du [ändra "för varje" samtidighet](#change-for-each-concurrency) eller [Kör "för varje" slingor i följd](#sequential-for-each). | Åtgärd: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | För vissa åtgärder som stöder och att sid brytning är aktiverat anger det här värdet det *minsta* antal resultat som ska hämtas. <p>Om du vill aktivera sid brytning, se [Hämta Mass data, objekt eller resultat med sid brytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Åtgärd: varierande |
 | `runtimeConfiguration.secureData.properties` | Matris | På många utlösare och åtgärder döljer de här inställningarna indata, utdata eller både och från den logiska appens körnings historik. <p>Mer information om hur du skyddar dessa data finns i [Dölj indata och utdata från körnings historik](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | De flesta utlösare och åtgärder |
 | `runtimeConfiguration.staticResult` | JSON-objekt | För åtgärder som stöder och har den [statiska resultat](../logic-apps/test-logic-apps-mock-data-static-results.md) inställningen aktive rad `staticResult` har objektet följande attribut: <p>- `name`, som refererar till den aktuella åtgärdens statiska resultat definitions namn, som visas i `staticResults` attributet i ditt Logic app-arbetsflöde- `definition` attribut. Mer information finns i [statiska resultat – schema referens för språk för arbets flödes definition](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, som anger om statiska resultat är `Enabled` eller inte för den aktuella åtgärden. <p>Information om hur du aktiverar statiska resultat finns i [testa Logic Apps med blå data genom att konfigurera statiska resultat](../logic-apps/test-logic-apps-mock-data-static-results.md) | Åtgärd: varierande |
 ||||| 

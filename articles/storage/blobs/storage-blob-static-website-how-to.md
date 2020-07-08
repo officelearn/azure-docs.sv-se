@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609938"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
@@ -34,11 +33,11 @@ En statisk webbplats värd är en funktion som du måste aktivera på lagrings k
 
 4. Välj **Aktivera** för att aktivera hantering av statisk webbplats för lagringskontot.
 
-5. I fältet **index dokument namn** anger du en standard index sida (till exempel: *index. html*). 
+5. I fältet **index dokument namn** anger du en standard index sida (till exempel: *index.html*). 
 
    Standardindexsidan visas när en användare navigerar till roten för den statiska webbplatsen.  
 
-6. I fältet **fel dokument Sök väg** anger du en standard fel sida (till exempel: *404. html*). 
+6. I fältet **fel dokument Sök väg** anger du en standard fel sida (till exempel: *404.html*). 
 
    Standardfelsidan visas när en användare försöker navigera till en sida som inte finns på den statiska webbplatsen.
 
@@ -72,7 +71,7 @@ Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränss
 
    * Ersätt `<error-document-name>` plats hållaren med namnet på fel dokumentet som visas för användarna när en webbläsare begär en sida på din webbplats som inte finns.
 
-   * Ersätt `<index-document-name>` plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index. html".
+   * Ersätt `<index-document-name>` plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index.html".
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -124,7 +123,7 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
 
    * Ersätt `<error-document-name>` plats hållaren med namnet på fel dokumentet som visas för användarna när en webbläsare begär en sida på din webbplats som inte finns.
 
-   * Ersätt `<index-document-name>` plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index. html".
+   * Ersätt `<index-document-name>` plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index.html".
 
 ---
 

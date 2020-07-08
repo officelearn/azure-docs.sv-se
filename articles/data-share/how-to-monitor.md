@@ -7,10 +7,9 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: a3d13919a54e170d410abba5da66172c2029d9b5
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84636282"
 ---
 # <a name="monitor-azure-data-share"></a>Övervaka Azure Data Share  
@@ -54,6 +53,6 @@ Du kan konfigurera diagnostikinställningar för att spara loggdata eller hände
 
 ![Ögonblicks bilds historik](./media/diagnostic-settings.png "Diagnostikinställningar") 
 
-## <a name="next-steps"></a>Efterföljande moment 
+## <a name="next-steps"></a>Nästa steg 
 
 Lär dig mer om [Azure Data Share-terminologi](terminology.md)

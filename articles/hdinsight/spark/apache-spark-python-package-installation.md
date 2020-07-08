@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seoapr2020, tracking-python
 ms.date: 04/29/2020
 ms.openlocfilehash: f1ed0ae33d1f83fd77adb337aded95605c17f38b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84607320"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
@@ -50,8 +49,8 @@ HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-
 | |Python 2,7|Python 3,5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|Saknas|
-|Livy|Standard är inställt på 2,7|Saknas|
+|Spark|Standard är inställt på 2,7|E.t.|
+|Livy|Standard är inställt på 2,7|E.t.|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt

@@ -7,10 +7,9 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
 ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559965"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Utgående bindningar för Azure Queue Storage för Azure Functions
@@ -41,9 +40,9 @@ public static class QueueFunctions
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en HTTP trigger-bindning i en *Function. JSON* -fil och [C#-skript (. CSX)](functions-reference-csharp.md) som använder bindningen. Funktionen skapar ett köobjekt med en **CustomQueueMessage** objekt nytto last för varje http-begäran som tas emot.
+I följande exempel visas en HTTP trigger-bindning i en *function.jspå* fil [-och C#-skript (. CSX)](functions-reference-csharp.md) som använder bindningen. Funktionen skapar ett köobjekt med en **CustomQueueMessage** objekt nytto last för varje http-begäran som tas emot.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -102,9 +101,9 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en HTTP trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skapar ett köobjekt för varje HTTP-begäran som tas emot.
+I följande exempel visas en HTTP trigger-bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skapar ett köobjekt för varje HTTP-begäran som tas emot.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -153,9 +152,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas hur du matar utdata av enstaka och flera värden till lagrings köer. Konfigurationen som krävs för *Function. JSON* är på samma sätt.
+I följande exempel visas hur du matar utdata av enstaka och flera värden till lagrings köer. Konfigurationen som krävs för *function.jspå* är på samma sätt.
 
-En bindning för lagrings kön definieras i *Function. JSON* där *Type* har angetts till `queue` .
+En bindning för lagrings kön definieras i *function.jspå* WHERE- *typ* är inställd på `queue` .
 
 ```json
 {
@@ -313,9 +312,9 @@ Den parameter som är associerad med `QueueOutput` anteckningen skrivs som [en \
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Queue` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Queue` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste anges till `queue` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste anges till `out` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
@@ -345,7 +344,7 @@ I C#-och C#-skript skriver du flera meddelanden i kön genom att använda någon
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Skriv ett enskilt Queue-meddelande med hjälp av en metod parameter, till exempel `out T paramName` . `paramName`Är värdet som anges i `name` egenskapen för *Function. JSON*. Du kan använda metoden Return-typ i stället för en `out` parameter och `T` kan vara någon av följande typer:
+Skriv ett enskilt Queue-meddelande med hjälp av en metod parameter, till exempel `out T paramName` . `paramName`Värdet som anges i `name` egenskapen för *function.jspå*. Du kan använda metoden Return-typ i stället för en `out` parameter och `T` kan vara någon av följande typer:
 
 * Ett objekt som är serialiserbar som JSON
 * `string`
@@ -361,13 +360,13 @@ I C#-och C#-skript skriver du flera meddelanden i kön genom att använda någon
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Objektet utgående kö är tillgängligt via `context.bindings.<NAME>` där `<NAME>` matchar namnet som definierats i *Function. JSON*. Du kan använda en sträng eller ett JSON-serialiserbar objekt för nytto lasten i objektet.
+Objektet utgående kö är tillgängligt via `context.bindings.<NAME>` där `<NAME>` matchar namnet som definierades i *function.jspå*. Du kan använda en sträng eller ett JSON-serialiserbar objekt för nytto lasten i objektet.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Det finns två alternativ för att placera ett Event Hub-meddelande från en funktion:
 
-- **RETUR värde**: ange `name` egenskapen i *Function. JSON* till `$return` . Med den här konfigurationen sparas funktionens retur värde som ett kö lagrings meddelande.
+- **RETUR värde**: ange `name` egenskapen i *function.jspå* till `$return` . Med den här konfigurationen sparas funktionens retur värde som ett kö lagrings meddelande.
 
 - **Tvingande**: Skicka ett värde till [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) -metoden för den parameter som deklarerats som [Utdatatyp.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) Värdet som skickas till `set` behålls som ett kö lagrings meddelande.
 
@@ -391,12 +390,12 @@ Det finns två alternativ för att mata ut ett Event Hub-meddelande från en fun
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>Host. JSON-inställningar
+## <a name="hostjson-settings"></a>host.jspå Inställningar
 
-I det här avsnittet beskrivs de globala konfigurations inställningarna som är tillgängliga för den här bindningen i version 2. x och högre. Exemplet Host. JSON-filen nedan innehåller bara version 2. x +-inställningarna för den här bindningen. Mer information om globala konfigurations inställningar i version 2. x och mer finns i [Host. JSON-referens för Azure Functions](functions-host-json.md).
+I det här avsnittet beskrivs de globala konfigurations inställningarna som är tillgängliga för den här bindningen i version 2. x och högre. Exemplet host.jspå filen nedan innehåller bara version 2. x +-inställningarna för den här bindningen. Mer information om globala konfigurations inställningar i versionerna 2. x finns i [host.jsreferens för Azure Functions](functions-host-json.md).
 
 > [!NOTE]
-> En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md).
+> En referens för host.jspå i functions 1. x finns i [host.jsreferens för Azure Functions 1. x](functions-host-json-v1.md).
 
 ```json
 {
@@ -413,7 +412,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```
 
-|Egenskap  |Default | Description |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
 |maxPollingInterval|00:00:01|Det maximala intervallet mellan Queue-avsökningar. Minimum är 00:00:00.100 (100 MS) och ökar till 00:01:00 (1 min).  I 1. x är data typen millisekunder och i 2. x och högre är det ett TimeSpan.|
 |visibilityTimeout|00:00:00|Tidsintervall mellan återförsök vid bearbetning av ett meddelande Miss lyckas. |

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: femila
 ms.openlocfilehash: 5327efea8af734c723ba76d1a00b72c08f5c88b9
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560278"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Partner ämnen i Azure Event Grid (för hands version)
@@ -25,7 +24,7 @@ Den första partner som är tillgänglig via Event Grid partner ämnen är Auth0
 ## <a name="pricing"></a>Prissättning
 Partner ämnen debiteras enligt samma åtgärds takt som system ämnen.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 Partner ämnena finns i offentlig för hands version. Under den offentliga för hands versionen omfattas partner ämnen av [samma gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) som system ämnen och anpassade ämnen.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Hur gör jag för att bli en Event Grid-partner?

@@ -8,10 +8,9 @@ ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: tracking-python
 ms.openlocfilehash: b40da0c8746bc63a99394027b61d777a611727e3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559598"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
@@ -26,7 +25,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett Azure App Service-arbetsflöde har filen tre delar:
 
-|Section  |Aktiviteter  |
+|Avsnitt  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten <br /> 2. skapa en GitHub-hemlighet |
 |**Utveckla** | 1. Konfigurera miljön <br /> 2. Bygg webb programmet |
@@ -185,7 +184,7 @@ I följande exempel visas den del av arbets flödet som bygger webbappen på de 
 
 Om du vill distribuera din kod till en App Service-app använder du `azure/webapps-deploy@v2` åtgärden. Den här åtgärden har fyra parametrar:
 
-| **ProfileServiceApplicationProxy**  | **Förklaring**  |
+| **Parameter**  | **Förklaring**  |
 |---------|---------|
 | **App-Name** | Kunna Namnet på App Service-appen | 
 | **publicera – profil** | Valfritt Publicera profil filens innehåll med webb distributions hemligheter |
@@ -194,7 +193,7 @@ Om du vill distribuera din kod till en App Service-app använder du `azure/webap
 
 ### <a name="deploy-using-publish-profile"></a>Distribuera med publicerings profil
 
-Nedan visas exempel arbets flödet för att bygga och distribuera en Node. js-app till Azure med hjälp av publicerings profil.
+Nedan visas exempel arbets flödet för att bygga och distribuera en Node.js-app till Azure med hjälp av publicerings profil.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -228,7 +227,7 @@ jobs:
 
 ### <a name="deploy-using-azure-service-principal"></a>Distribuera med hjälp av Azure-tjänstens huvud namn
 
-Nedan visas exempel arbets flödet för att bygga och distribuera en Node. js-app till Azure med hjälp av ett Azure-tjänstens huvud namn.
+Nedan visas exempel arbets flödet för att bygga och distribuera en Node.js-app till Azure med hjälp av ett Azure-tjänstens huvud namn.
 
 ```yaml
 on: [push]

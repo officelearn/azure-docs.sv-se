@@ -8,10 +8,9 @@ ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
 ms.openlocfilehash: ca186fa62605953bfb90c1a4669fc8283eb78469
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559785"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
@@ -137,7 +136,7 @@ public void ConfigureServices(IServiceCollection services)
 #### <a name="java-sdk"></a>Java SDK
 - **Inkommande konfiguration**
 
-  - För Java EE-appar lägger du till följande i `<TelemetryModules>` taggen i ApplicationInsights. XML:
+  - För Java EE-appar lägger du till följande i `<TelemetryModules>` taggen i ApplicationInsights.xml:
 
     ```xml
     <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
@@ -153,7 +152,7 @@ public void ConfigureServices(IServiceCollection services)
 
 - **Utgående konfiguration**
 
-  Lägg till följande i AI-Agent. XML:
+  Lägg till följande i AI-Agent.xml:
 
   ```xml
   <Instrumentation>
@@ -353,7 +352,7 @@ Du kanske vill anpassa hur komponent namn visas i [program kartan](../../azure-m
     ```
     Du kan också ange namnet på moln rollen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_ROLE_NAME` .
 
-- Med Application Insights Java SDK 2.5.0 och senare kan du ange `cloud_RoleName` genom att lägga till `<RoleName>` i din ApplicationInsights. XML-fil:
+- Med Application Insights Java SDK 2.5.0 och senare kan du ange `cloud_RoleName` genom att lägga till `<RoleName>` i ApplicationInsights.xml-filen:
 
   ```XML
   <?xml version="1.0" encoding="utf-8"?>

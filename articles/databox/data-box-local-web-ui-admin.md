@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608255"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
@@ -105,8 +104,8 @@ Kontrol lera att enheten har slutförts **Förbered för att skicka** steget inn
     |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Sidblobbar         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blockblobar         |REST         |
-    |mydbmdrg1_MDisk-BOM. txt    |Hanterad disk         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM. txt     |Hanterad disk         |SMB/NFS         |
+    |mydbmdrg1_MDisk-BOM.txt    |Hanterad disk         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |Hanterad disk         |SMB/NFS         |
 
 Du använder den här listan för att bekräfta överföringen av filerna till Azure Storage-kontot när Data Box returnerats till Azure-datacentret. En exempelmanifestfil visas nedan.
 

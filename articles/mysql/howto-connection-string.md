@@ -1,6 +1,6 @@
 ---
 title: Anslutnings strängar – Azure Database for MySQL
-description: I det här dokumentet visas de anslutnings strängar som för närvarande stöds för program att ansluta till Azure Database for MySQL, inklusive ADO.NET (C#), JDBC, Node. js, ODBC, PHP, python och Ruby.
+description: I det här dokumentet visas de anslutnings strängar som för närvarande stöds för program att ansluta till Azure Database for MySQL, inklusive ADO.NET (C#), JDBC, Node.js, ODBC, PHP, python och Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 1683fba2d8f085569c7cc62a06d0fe95803d4346
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559201"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Så ansluter du program till Azure Database for MySQL

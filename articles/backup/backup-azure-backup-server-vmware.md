@@ -4,10 +4,9 @@ description: I den här artikeln lär du dig hur du använder Azure Backup Serve
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84628452"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
@@ -62,7 +61,7 @@ Konfigurera en säker kanal enligt följande:
 
 4. Spara filen på Azure Backup Server dator med fil namns tillägget. zip.
 
-5. Högerklicka på **Ladda ned. zip**  >  **extrahera alla**. Zip-filen extraherar dess innehåll till mappen **certifikat** , som innehåller:
+5. Högerklicka på **download.zip**  >  **extrahera alla**. Zip-filen extraherar dess innehåll till mappen **certifikat** , som innehåller:
    - Rot certifikat filen med ett tillägg som börjar med en numrerad sekvens som. 0 och. 1.
    - CRL-filen har ett tillägg som börjar med en sekvens som. R0 eller. R1. CRL-filen är associerad med ett certifikat.
 
@@ -136,7 +135,7 @@ Azure Backup Server behöver ett användar konto med behörighet att komma åt v
 
 | Behörigheter för vCenter 6,7-användar konto                     | Behörigheter för vCenter 6,5-användar konto                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Data lager kluster. Konfigurera ett datatstore-kluster            | Data lager kluster. Konfigurera ett datatstore-kluster            |
+| Data lager cluster.Configurera ett datatstore-kluster            | Data lager cluster.Configurera ett datatstore-kluster            |
 | Data lager. AllocateSpace                                      | Data lager. AllocateSpace                                      |
 | Data lager. browse-datalager                                   | Data lager. browse-datalager                                   |
 | Data lager för fil åtgärder på låg nivå                          | Data lager för fil åtgärder på låg nivå                          |
@@ -152,15 +151,15 @@ Azure Backup Server behöver ett användar konto med behörighet att komma åt v
 | vApp. Lägg till virtuell dator                                     | vApp. Lägg till virtuell dator                                     |
 | vApp. tilldela resurspool                                    | vApp. tilldela resurspool                                    |
 | vApp. avregistrera                                              | vApp. avregistrera                                              |
-| VirtualMachine. Configuration. Lägg till eller ta bort enhet          | VirtualMachine. Configuration. Lägg till eller ta bort enhet          |
-| Virtuell dator. Konfiguration. förvärva disk lån            | Virtuell dator. Konfiguration. disk lån                     |
-| Virtuell dator. Konfiguration. Lägg till ny disk                   | Virtuell dator. Konfiguration. Lägg till ny disk                   |
-| Virtuell dator. Konfiguration. Avancerad konfiguration        | Virtuell dator. Konfiguration. Avancerat                       |
-| Virtuell dator. Konfiguration. Växla spårning av disk ändring   | Virtuell dator. Konfiguration. spårning av disk ändring          |
-| Virtuell dator. Konfiguration. Konfigurera en värd USB-enhet     | Virtuell dator. Konfiguration. värd USB-enhet               |
-| Virtuell dator. Konfiguration. utöka virtuell disk           | Virtuell dator. Konfiguration. utöka virtuell disk           |
-| Virtuell dator. Konfiguration. fråga efter filer som inte ägs           | Virtuell dator. Konfiguration. fråga efter filer som inte ägs           |
-| Virtuell dator. Konfiguration. ändra swapfile placering     | Virtuell dator. Konfiguration. swapfile placering            |
+| VirtualMachine.Configuration. Lägg till eller ta bort enhet          | VirtualMachine.Configuration. Lägg till eller ta bort enhet          |
+| Virtuell machine.Configuration. Förvärva disk lån            | Virtuell machine.Configuration. Disk lån                     |
+| Virtuell machine.Configuration. Lägg till ny disk                   | Virtuell machine.Configuration. Lägg till ny disk                   |
+| Virtuell machine.Configuration. Avancerad konfiguration        | Virtuell machine.Configuration. Erfar                       |
+| Virtuell machine.Configuration. Växla spårning av disk ändring   | Virtuell machine.Configuration. Disk ändrings spårning          |
+| Virtuell machine.Configuration.Configurera-värd USB-enhet     | Virtuell machine.Configuration. Värd USB-enhet               |
+| Virtuell machine.Configuration. Utöka virtuell disk           | Virtuell machine.Configuration. Utöka virtuell disk           |
+| Virtuell machine.Configuration. Fråga efter filer som inte ägs           | Virtuell machine.Configuration. Fråga efter filer som inte ägs           |
+| Virtuell machine.Configuration. Ändra swapfile placering     | Virtuell machine.Configuration. Swapfile placering            |
 | Virtuell dator. Gäst verksamhet. körning av gäst åtgärds program | Virtuell dator. Gäst verksamhet. körning av gäst åtgärds program |
 | Virtuell dator. Gäst åtgärder. ändringar i gäst åtgärden | Virtuell dator. Gäst åtgärder. ändringar i gäst åtgärden |
 | Virtuell dator. Gäst verksamhet. frågor om gäst åtgärder    | Virtuell dator. Gäst verksamhet. frågor om gäst åtgärder    |
@@ -184,16 +183,16 @@ Azure Backup Server behöver ett användar konto med behörighet att komma åt v
 | ---------------------------------------------------------- | ------------------------------------------- |
 | Data lager. AllocateSpace                                    | Nätverk. tilldela                              |
 | Global. Hantera anpassade attribut                           | Data lager. AllocateSpace                     |
-| Globalt. Ange anpassat attribut                               | VirtualMachine. config. ChangeTracking        |
+| Globalt. Ange anpassat attribut                               | VirtualMachine.Config. ChangeTracking        |
 | Värd. local-åtgärder. Skapa virtuell dator              | VirtualMachine. State. RemoveSnapshot         |
 | Nätverks.  Tilldela nätverk                                   | VirtualMachine. State. CreateSnapshot         |
 | Klusterresursen.  Tilldela en virtuell dator till en resurspool         | VirtualMachine. Provisioning. DiskRandomRead  |
-| Virtuell dator. Konfiguration. Lägg till ny disk                | VirtualMachine. interagera. avstängnings läge            |
-| Virtuell dator. Konfiguration. Avancerat                    | VirtualMachine. Inventory. Create             |
-| Virtuell dator. Konfiguration. spårning av disk ändring        | VirtualMachine. config. AddNewDisk            |
-| Virtuell dator. Konfiguration. värd USB-enhet             | VirtualMachine. config. HostUSBDevice         |
-| Virtuell dator. Konfiguration. fråga efter filer som inte ägs         | VirtualMachine. config. AdvancedConfig        |
-| Virtuell dator. Konfiguration. swapfile placering          | VirtualMachine. config. SwapPlacement         |
+| Virtuell machine.Configuration. Lägg till ny disk                | VirtualMachine. interagera. avstängnings läge            |
+| Virtuell machine.Configuration. Erfar                    | VirtualMachine. Inventory. Create             |
+| Virtuell machine.Configuration. Disk ändrings spårning        | VirtualMachine.Config. AddNewDisk            |
+| Virtuell machine.Configuration. Värd USB-enhet             | VirtualMachine.Config. HostUSBDevice         |
+| Virtuell machine.Configuration. Fråga efter filer som inte ägs         | VirtualMachine.Config. AdvancedConfig        |
+| Virtuell machine.Configuration. Swapfile placering          | VirtualMachine.Config. SwapPlacement         |
 | Virtuell dator. Interaktion. Stäng av                     | Global. ManageCustomFields                   |
 | Virtuell dator. Hantering. Skapa ny                     |                                             |
 | Virtuell dator. Etablering. Tillåt disk åtkomst            |                                             |
@@ -422,7 +421,7 @@ Windows Registry Editor Version 5.00
 > [!NOTE]
 > Den här funktionen gäller för MABS v3-UR1.
 
-Med MABS v3-UR1 kan du undanta den angivna disken från VMware VM backup. Konfigurations skriptet **ExcludeDisk. ps1** finns i `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
+Med MABS v3-UR1 kan du undanta den angivna disken från VMware VM backup. Konfigurations skriptet **ExcludeDisk.ps1** finns i `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
 
 Följ stegen nedan om du vill konfigurera en disk undantags åtgärd:
 
@@ -479,7 +478,7 @@ Navigera till MABS-servern där den virtuella VMware-datorn har kon figurer ATS 
         Vcentervm1   TestVM4   VMware
         ```
 
-  4. Om du vill utesluta disken navigerar du till `Bin` mappen och kör skriptet *ExcludeDisk. ps1* med följande parametrar:
+  4. Om du vill utesluta disken navigerar du till `Bin` mappen och kör *ExcludeDisk.ps1* -skriptet med följande parametrar:
 
         > [!NOTE]
         > Stoppa DPMRA-tjänsten på MABS-servern innan du kör det här kommandot. Annars returnerar skriptet lyckades, men uppdaterar inte undantags listan. Se till att inga jobb pågår innan du stoppar tjänsten.

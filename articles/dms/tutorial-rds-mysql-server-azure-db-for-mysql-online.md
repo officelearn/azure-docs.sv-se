@@ -13,17 +13,16 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/09/2020
 ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609258"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera RDS MySQL till Azure Database for MySQL online med DMS
 
 Du kan använda Azure Database Migration Service för att migrera databaser från en RDS MySQL-instans till [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) medan käll databasen förblir online under migreringen. Med andra ord kan migreringen uppnås med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen **anställda** från en instans av RDS MySQL till Azure Database for MySQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > * Migrera exempel schema med hjälp av mysqldump-och MySQL-verktygen.

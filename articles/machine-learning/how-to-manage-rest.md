@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560163"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
@@ -33,7 +32,7 @@ I den här artikeln kan du se hur du:
 > * Rensa resurser med DELETE-begäranden 
 > * Använd nyckelbaserad auktorisering för att ange distribuerade modeller
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En **Azure-prenumeration** som du har administratörs behörighet för. Om du inte har en sådan prenumeration kan du prova den [kostnads fria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
 - En [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -271,7 +270,7 @@ En lyckad begäran får ett `201 Created` svar, men Observera att det här svare
 
 ### <a name="create-an-experimental-run"></a>Skapa en experimentell körning
 
-Om du vill starta en körning inom ett experiment behöver du en zip-mapp som innehåller ditt utbildnings skript och relaterade filer och en Run-definitions-JSON-fil. Zip-mappen måste ha filen python i dess rot Katalog. Du kan t. ex. skapa ett trivial python-program som följande i en mapp med namnet **Train. zip**.
+Om du vill starta en körning inom ett experiment behöver du en zip-mapp som innehåller ditt utbildnings skript och relaterade filer och en Run-definitions-JSON-fil. Zip-mappen måste ha filen python i dess rot Katalog. Du kan t. ex. zippa ett trivial python-program, till exempel följande i en mapp med namnet **train.zip**.
 
 ```python
 # hello.py
@@ -279,7 +278,7 @@ Om du vill starta en körning inom ett experiment behöver du en zip-mapp som in
 print("Hello, REST!")
 ```
 
-Spara nästa fragment som **definition. JSON**. Bekräfta att "script"-värdet matchar namnet på den python-fil som du precis har zippat upp. Bekräfta att "target"-värdet matchar namnet på en tillgänglig beräknings resurs. 
+Spara nästa kodfragment som **definition.jspå**. Bekräfta att "script"-värdet matchar namnet på den python-fil som du precis har zippat upp. Bekräfta att "target"-värdet matchar namnet på en tillgänglig beräknings resurs. 
 
 ```json
 {

@@ -12,10 +12,9 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560205"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Använd tolknings paketet för att förklara ML-modeller & förutsägelser i python
@@ -244,7 +243,7 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Exempelvis `train_explain.py`.
+1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Till exempel `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -304,7 +303,7 @@ När du har laddat ned förklaringarna i din lokala Jupyter-anteckningsbok kan d
 
 I följande områden finns en övergripande vy av den tränade modellen tillsammans med dess förutsägelser och förklaringar.
 
-|Basera|Description|
+|Basera|Beskrivning|
 |----|-----------|
 |Data utforskning| Visar en översikt över data uppsättningen tillsammans med förutsägelse värden.|
 |Global prioritet|Sammanställer funktions värden för enskilda Datapoints för att Visa modellens övergripande viktigaste K (konfigurerbara K) viktiga funktioner. Hjälper till att förstå den underliggande modellens övergripande beteende.|
@@ -318,7 +317,7 @@ I följande områden finns en övergripande vy av den tränade modellen tillsamm
 
 Du kan läsa in prioritets kurvan för enskilda funktioner för alla data punkter genom att klicka på någon av de enskilda data punkterna i de övergripande områdena.
 
-|Basera|Description|
+|Basera|Beskrivning|
 |----|-----------|
 |Lokal prioritet|Visar de viktigaste K (konfigurerbara K) viktiga funktioner för en enskild förutsägelse. Hjälper till att illustrera den underliggande modellens lokala beteende på en viss data punkt.|
 |Perturbation-utforskning (vad händer om-analys)|Tillåter ändringar av funktions värden för den valda data punkten och observerar resulterande ändringar i förutsägelse värde.|

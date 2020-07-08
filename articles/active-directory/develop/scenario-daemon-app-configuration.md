@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558553"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
@@ -26,7 +25,7 @@ Lär dig hur du konfigurerar koden för daemon-programmet som anropar webb-API: 
 
 Dessa Microsoft-bibliotek stöder daemon-appar:
 
-  MSAL-bibliotek | Description
+  MSAL-bibliotek | Beskrivning
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework-och .NET Core-plattformarna stöds för att skapa daemon-program. (UWP, Xamarin. iOS och Xamarin. Android stöds inte eftersom dessa plattformar används för att bygga offentliga klient program.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Stöd för daemon-program i python.
@@ -57,7 +56,7 @@ Konfigurations filen definierar:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appSettings. JSON](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) från daemon-exemplet för [.net Core Console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+[appsettings.jspå](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) från daemon-exemplet för [.net Core Console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
 
 ```json
 {
@@ -73,7 +72,7 @@ Du anger antingen en `ClientSecret` eller en `CertificateName` . De här instäl
 
 # <a name="python"></a>[Python](#tab/python)
 
-När du skapar en konfidentiell klient med klient hemligheter, är [parametrarna. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) -konfigurations filen i [python](https://github.com/Azure-Samples/ms-identity-python-daemon) -exemplet följande:
+När du skapar en konfidentiell klient med klient hemligheter är [parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) i konfigurations filen i [python-bakgrunds](https://github.com/Azure-Samples/ms-identity-python-daemon) exemplet följande:
 
 ```Json
 {
@@ -85,7 +84,7 @@ När du skapar en konfidentiell klient med klient hemligheter, är [parametrarna
 }
 ```
 
-När du skapar en konfidentiell klient med certifikat, är [parametrarna. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) -konfigurationsfilen i [python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) -exemplet följande:
+När du skapar en konfidentiell klient med certifikat, är [parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) i konfigurations filen i [python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) -exemplet följande:
 
 ```Json
 {

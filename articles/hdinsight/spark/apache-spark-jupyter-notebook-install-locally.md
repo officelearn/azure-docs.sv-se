@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020, tracking-python
 ms.date: 04/23/2020
 ms.openlocfilehash: 2084bf136300126e56414599caa63d24c98f4542
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84604243"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter Notebook på din dator och Anslut till Apache Spark på HDInsight
@@ -100,7 +99,7 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
     exit()
     ```
 
-3. I mappen `.sparkmagic` skapar du en fil med namnet **config. JSON** och lägger till följande JSON-kodfragment inuti den.  
+3. I mappen `.sparkmagic` skapar du en fil med namnet **config.jspå** och lägger till följande JSON-kodfragment inuti den.  
 
     ```json
     {
@@ -135,7 +134,7 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
     |{BASE64ENCODEDPASSWORD}|Ett base64-kodat lösen ord för det faktiska lösen ordet.  Du kan generera ett base64-lösenord på [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/) .|
     |`"livy_server_heartbeat_timeout_seconds": 60`|Behåll om du använder `sparkmagic 0.12.7` (kluster v 3.5 och v 3.6).  Om `sparkmagic 0.2.3` du använder (kluster v 3.4) ersätter du med `"should_heartbeat": true` .|
 
-    Du kan se en fullständig exempel fil vid [exempel config. JSON](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+    Du kan se en fullständig exempel fil vid [exempel config.jspå](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
    > Pulsslag skickas för att säkerställa att sessioner inte läcker. När en dator försätts i vilo läge eller stängs av skickas inte pulsslaget, vilket leder till att sessionen rensas. För kluster v 3.4, om du vill inaktivera det här beteendet, kan du ange livy-konfigurationen `livy.server.interactive.heartbeat.timeout` till `0` från AMBARI-användargränssnittet. För kluster som är v 3.5, om du inte ställer in 3,5-konfigurationen ovan, tas sessionen inte bort.
@@ -164,7 +163,7 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
 
     Om du kan hämta utdata testas anslutningen till HDInsight-klustret.
 
-    Om du vill uppdatera Notebook-konfigurationen för att ansluta till ett annat kluster uppdaterar du config. JSON med den nya värde uppsättningen, som du ser i steg 3 ovan.
+    Om du vill uppdatera Notebook-konfigurationen för att ansluta till ett annat kluster uppdaterar du config.jspå med den nya värde uppsättningen, som du ser i steg 3 ovan.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Varför ska jag installera Jupyter på datorn?
 

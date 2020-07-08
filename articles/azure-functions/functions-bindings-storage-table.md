@@ -7,10 +7,9 @@ ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: dd98d27f5a14d284174dd779ae20b29f534920b0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559942"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table Storage-bindningar för Azure Functions
@@ -148,9 +147,9 @@ Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att
 
 ### <a name="one-entity"></a>En entitet
 
-I följande exempel visas en tabell indata-bindning i en *Function. JSON* -fil och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen använder en Queue-utlösare för att läsa en enskild tabell rad. 
+I följande exempel visas en tabell indata-bindning i en *function.jspå* fil-och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen använder en Queue-utlösare för att läsa en enskild tabell rad. 
 
-Filen *Function. JSON* anger en `partitionKey` och en `rowKey` . `rowKey`Värdet {queueTrigger} anger att rad nyckeln kommer från köns meddelande sträng.
+*function.js* filen anger en `partitionKey` och en `rowKey` . `rowKey`Värdet {queueTrigger} anger att rad nyckeln kommer från köns meddelande sträng.
 
 ```json
 {
@@ -197,9 +196,9 @@ public class Person
 
 ### <a name="iqueryable"></a>IQueryable
 
-I följande exempel visas en tabell indata-bindning i en *Function. JSON* -fil och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen läser entiteter för en partitionsnyckel som anges i ett Queue-meddelande.
+I följande exempel visas en tabell indata-bindning i en *function.jspå* fil-och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen läser entiteter för en partitionsnyckel som anges i ett Queue-meddelande.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -313,9 +312,9 @@ Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en tabell indata-bindning i en *Function. JSON* -fil och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen använder en Queue-utlösare för att läsa en enskild tabell rad. 
+I följande exempel visas en tabell indata-bindning i en *function.jspå* fil-och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen använder en Queue-utlösare för att läsa en enskild tabell rad. 
 
-Filen *Function. JSON* anger en `partitionKey` och en `rowKey` . `rowKey`Värdet {queueTrigger} anger att rad nyckeln kommer från köns meddelande sträng.
+*function.js* filen anger en `partitionKey` och en `rowKey` . `rowKey`Värdet {queueTrigger} anger att rad nyckeln kommer från köns meddelande sträng.
 
 ```json
 {
@@ -553,9 +552,9 @@ I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtim
 
 ## <a name="input---configuration"></a>Indatamängds konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Table` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Table` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste anges till `table` . Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal.|
 |**position** | saknas | Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal. |
@@ -575,11 +574,11 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 * **Läs en rad i**
 
-  Ange `partitionKey` och `rowKey` . Få åtkomst till tabell data med hjälp av en metod parameter `T <paramName>` . I C#-skript `paramName` är värdet som anges i `name` egenskapen för *Function. JSON*. `T`är vanligt vis en typ som implementerar `ITableEntity` eller härleder från `TableEntity` . `filter`Egenskaperna och `take` används inte i det här scenariot.
+  Ange `partitionKey` och `rowKey` . Få åtkomst till tabell data med hjälp av en metod parameter `T <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T`är vanligt vis en typ som implementerar `ITableEntity` eller härleder från `TableEntity` . `filter`Egenskaperna och `take` används inte i det här scenariot.
 
 * **Läs en eller flera rader**
 
-  Få åtkomst till tabell data med hjälp av en metod parameter `IQueryable<T> <paramName>` . I C#-skript `paramName` är värdet som anges i `name` egenskapen för *Function. JSON*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity` . Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. `partitionKey`Egenskaperna, `rowKey` , `filter` och `take` används inte i det här scenariot.  
+  Få åtkomst till tabell data med hjälp av en metod parameter `IQueryable<T> <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity` . Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. `partitionKey`Egenskaperna, `rowKey` , `filter` och `take` används inte i det här scenariot.  
 
   > [!NOTE]
   > `IQueryable`stöds inte i [Functions v2-körningen](functions-versions.md). Ett alternativ är att [använda en CloudTable paramName-metod parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) för att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
@@ -588,11 +587,11 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 * **Läs en rad i**
 
-  Ange `partitionKey` och `rowKey` . Få åtkomst till tabell data med hjälp av en metod parameter `T <paramName>` . I C#-skript `paramName` är värdet som anges i `name` egenskapen för *Function. JSON*. `T`är vanligt vis en typ som implementerar `ITableEntity` eller härleder från `TableEntity` . `filter`Egenskaperna och `take` används inte i det här scenariot.
+  Ange `partitionKey` och `rowKey` . Få åtkomst till tabell data med hjälp av en metod parameter `T <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T`är vanligt vis en typ som implementerar `ITableEntity` eller härleder från `TableEntity` . `filter`Egenskaperna och `take` används inte i det här scenariot.
 
 * **Läs en eller flera rader**
 
-  Få åtkomst till tabell data med hjälp av en metod parameter `IQueryable<T> <paramName>` . I C#-skript `paramName` är värdet som anges i `name` egenskapen för *Function. JSON*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity` . Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. `partitionKey`Egenskaperna, `rowKey` , `filter` och `take` används inte i det här scenariot.  
+  Få åtkomst till tabell data med hjälp av en metod parameter `IQueryable<T> <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity` . Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. `partitionKey`Egenskaperna, `rowKey` , `filter` och `take` används inte i det här scenariot.  
 
   > [!NOTE]
   > `IQueryable`stöds inte i [Functions v2-körningen](functions-versions.md). Ett alternativ är att [använda en CloudTable paramName-metod parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) för att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
@@ -644,9 +643,9 @@ public class TableStorage
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en tabell utgående bindning i en *Function. JSON* -fil och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen skriver flera tabell enheter.
+I följande exempel visas en bindning av tabellens utdata i en *function.jspå* fil-och [C#-skript](functions-reference-csharp.md) kod som använder bindningen. Funktionen skriver flera tabell enheter.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -699,9 +698,9 @@ public class Person
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en tabell utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver flera tabell enheter.
+I följande exempel visas en bindning av tabellens utdata i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver flera tabell enheter.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -746,7 +745,7 @@ module.exports = function (context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Följande exempel visar hur du använder bindningen för tabell lagrings utdata. `table`Bindningen har kon figurer ATS i *funktionen. JSON* genom att tilldela värden till `name` , `tableName` ,, `partitionKey` och `connection` :
+Följande exempel visar hur du använder bindningen för tabell lagrings utdata. `table`Bindningen konfigureras i *function.jspå* genom att tilldela värden till `name` , `tableName` ,, `partitionKey` och `connection` :
 
 ```json
 {
@@ -940,9 +939,9 @@ Se [exemplet för mer information](#output).
 
 ## <a name="output---configuration"></a>Utdata-konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Table` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Table` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste anges till `table` . Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal.|
 |**position** | saknas | Måste anges till `out` . Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal. |
@@ -964,19 +963,19 @@ Du kan också använda en `CloudTable` metod parameter för att skriva till tabe
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Öppna entiteten utdata-tabell med hjälp av en metod parameter `ICollector<T> paramName` eller `IAsyncCollector<T> paramName` där `T` innehåller `PartitionKey` `RowKey` egenskaperna och. Dessa egenskaper åtföljs ofta av implementering `ITableEntity` eller arv `TableEntity` . `paramName`Värdet anges i `name` egenskapen för *Function. JSON*.
+Öppna entiteten utdata-tabell med hjälp av en metod parameter `ICollector<T> paramName` eller `IAsyncCollector<T> paramName` där `T` innehåller `PartitionKey` `RowKey` egenskaperna och. Dessa egenskaper åtföljs ofta av implementering `ITableEntity` eller arv `TableEntity` . `paramName`Värdet anges i `name` egenskapen för *function.jspå*.
 
 Du kan också använda en `CloudTable` metod parameter för att skriva till tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Få åtkomst till utdata-händelsen med hjälp av `context.bindings.<name>` WHERE `<name>` är värdet som anges i `name` egenskapen för *Function. JSON*.
+Få åtkomst till utdata-händelsen `context.bindings.<name>` genom `<name>` att använda WHERE är värdet som anges i `name` egenskapen för *function.jspå*.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Det finns två alternativ för att placera ett rad meddelande för tabell lagring från en funktion:
 
-- **RETUR värde**: ange `name` egenskapen i *Function. JSON* till `$return` . Med den här konfigurationen sparas funktionens retur värde som en tabell lagrings rad.
+- **RETUR värde**: ange `name` egenskapen i *function.jspå* till `$return` . Med den här konfigurationen sparas funktionens retur värde som en tabell lagrings rad.
 
 - **Tvingande**: Skicka ett värde till [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) -metoden för den parameter som deklarerats som [Utdatatyp.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) Värdet som skickas till `set` behålls som ett Event Hub-meddelande.
 

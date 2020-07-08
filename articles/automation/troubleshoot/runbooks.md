@@ -10,10 +10,9 @@ ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
 ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84606895"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Felsöka runbook-problem
@@ -625,7 +624,7 @@ När din Runbook eller ditt program försöker köras i ett Azure-sandbox nekar-
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet kan uppstå eftersom Azure-sand lådor förhindrar åtkomst till alla out-of-process COM-servrar. Ett begränsat program eller en Runbook kan till exempel inte anropa till Windows Management Instrumentation (WMI) eller till tjänsten Windows Installer (MSIServer. exe). 
+Det här problemet kan uppstå eftersom Azure-sand lådor förhindrar åtkomst till alla out-of-process COM-servrar. Ett begränsat program eller en Runbook kan till exempel inte anropa till Windows Management Instrumentation (WMI) eller till Windows Installer-tjänsten (msiserver.exe). 
 
 ### <a name="resolution"></a>Lösning
 

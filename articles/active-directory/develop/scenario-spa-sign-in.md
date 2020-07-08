@@ -12,17 +12,16 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558751"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Program med en sida: inloggning och utloggning
 
 Lär dig hur du lägger till inloggning till koden för ditt program på en sida.
 
-Innan du kan hämta token för att få åtkomst till API: er i ditt program behöver du en autentiserad användar kontext. Du kan logga in användare i ditt program i MSAL. js på två sätt:
+Innan du kan hämta token för att få åtkomst till API: er i ditt program behöver du en autentiserad användar kontext. Du kan logga in användare i ditt program i MSAL.js på två sätt:
 
 * [Popup-fönster](#sign-in-with-a-pop-up-window)med hjälp av `loginPopup` metoden
 * [Omdirigera](#sign-in-with-redirect)med hjälp av `loginRedirect` metoden
@@ -30,7 +29,7 @@ Innan du kan hämta token för att få åtkomst till API: er i ditt program beh�
 Du kan också välja att skicka omfattningarna för de API: er som du vill att användaren ska godkänna vid tidpunkten för inloggning.
 
 > [!NOTE]
-> Om programmet redan har åtkomst till en autentiserad användar kontext eller ID-token kan du hoppa över inloggnings steget och hämta token direkt. Mer information finns i [SSO utan MSAL. js-inloggning](msal-js-sso.md#sso-without-msaljs-login).
+> Om programmet redan har åtkomst till en autentiserad användar kontext eller ID-token kan du hoppa över inloggnings steget och hämta token direkt. Mer information finns i [SSO utan MSAL.js inloggning](msal-js-sso.md#sso-without-msaljs-login).
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Välja mellan en pop-up-eller Redirect-upplevelse
 

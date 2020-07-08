@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
 ms.openlocfilehash: ce7edf4dd5ae52f3ea604fe4b8d88d1a29de5a69
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608374"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
@@ -216,7 +215,7 @@ För Linux-agenten anges proxyservern under installationen eller [efter installa
 |proxyhost | Adress eller FQDN för proxyservern/Log Analytics Gateway |
 |port | Valfritt port nummer för proxyservern/Log Analytics Gateway |
 
-Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
+Exempel: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Om du använder specialtecken som " \@ " i ditt lösen ord får du ett anslutnings fel på grund av att värdet parsas felaktigt.  Undvik det här problemet genom att koda lösen ordet i URL: en med ett verktyg som [URLDecode](https://www.urldecoder.org/).  

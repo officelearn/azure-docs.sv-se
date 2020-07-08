@@ -7,10 +7,9 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: 1dbd3765b691d1ba7b958d765a59f6451f380a2e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559076"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Blob Storage-indata-bindning för Azure Functions
@@ -40,9 +39,9 @@ public static void Run(
 
 <!--Same example for input and output. -->
 
-I följande exempel visas BLOB-indata och utgående bindningar i en *Function. JSON* -fil och [C#-skript (. CSX)](functions-reference-csharp.md) som använder bindningarna. Funktionen gör en kopia av en text-blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
+I följande exempel visas BLOB-indata och utdata-bindningar i en *function.jspå* fil [-och C#-skript (. CSX)](functions-reference-csharp.md) som använder bindningarna. Funktionen gör en kopia av en text-blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
 
-I *Function. JSON* -filen `queueTrigger` används egenskapen metadata för att ange BLOB-namnet i `path` egenskaperna:
+I *function.jsi* filen `queueTrigger` används egenskapen metadata för att ange BLOB-namnet i `path` egenskaperna:
 
 ```json
 {
@@ -89,9 +88,9 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-I följande exempel visas BLOB-indata och utdata-bindningar i en *Function. JSON* -fil och [JavaScript-kod](functions-reference-node.md) som använder bindningarna. Funktionen gör en kopia av en blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
+I följande exempel visas BLOB-indata och utgående bindningar i en *function.jspå* fil-och [JavaScript-kod](functions-reference-node.md) som använder bindningarna. Funktionen gör en kopia av en blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
 
-I *Function. JSON* -filen `queueTrigger` används egenskapen metadata för att ange BLOB-namnet i `path` egenskaperna:
+I *function.jsi* filen `queueTrigger` används egenskapen metadata för att ange BLOB-namnet i `path` egenskaperna:
 
 ```json
 {
@@ -138,9 +137,9 @@ module.exports = function(context) {
 
 <!--Same example for input and output. -->
 
-I följande exempel visas BLOB-indata och utdata-bindningar i en *Function. JSON* -fil och [python-kod](functions-reference-python.md) som använder bindningarna. Funktionen gör en kopia av en blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
+I följande exempel visas BLOB-indata och utgående bindningar i en *function.jspå* fil-och [python-kod](functions-reference-python.md) som använder bindningarna. Funktionen gör en kopia av en blob. Funktionen utlöses av ett köat meddelande som innehåller namnet på den blob som ska kopieras. Den nya blobben heter *{originalblobname}-Copy*.
 
-I *Function. JSON* -filen `queueTrigger` används egenskapen metadata för att ange BLOB-namnet i `path` egenskaperna:
+I *function.jsi* filen `queueTrigger` används egenskapen metadata för att ange BLOB-namnet i `path` egenskaperna:
 
 ```json
 {
@@ -300,9 +299,9 @@ Attribut stöds inte av python.
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Blob` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Blob` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste anges till `blob` . |
 |**position** | saknas | Måste anges till `in` . Undantag anges i [användnings](#usage) avsnittet. |
@@ -325,7 +324,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Få åtkomst till BLOB-data med `context.bindings.<NAME>` WHERE `<NAME>` matchar värdet som definierats i *Function. JSON*.
+Få åtkomst till BLOB-data med `context.bindings.<NAME>` var `<NAME>` matchar värdet som definierades i *function.js*.
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
 ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84610244"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Konsekvens kontroll av data i kopierings aktiviteten (förhands granskning)
@@ -85,11 +84,11 @@ I följande exempel visas en JSON-definition för att aktivera data konsekvens k
 
 Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | Om du anger sant för den här egenskapen kontrollerar kopierings aktiviteten fil storlek, lastModifiedDate och MD5-kontrollsumma för varje objekt som kopieras från käll platsen till mål lagret för att säkerställa data konsekvensen mellan käll-och mål arkivet. Tänk på att kopierings prestandan kommer att påverkas genom att aktivera det här alternativet.  | Sant<br/>False (standard) | Nej
-dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa data.<br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa data.<br/> -Falskt: du vill avbryta kopierings aktiviteten när inkonsekventa data har hittats.<br/>Tänk på att den här egenskapen endast är giltig när du anger validateDataConsistency som true.  | Sant<br/>False (standard) | Nej
-logStorageSettings | En grupp egenskaper som kan anges för att aktivera sessionsinformation för att logga överhoppade objekt. | | Nej
-linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` `AzureBlobFS` länkad eller typ länkad tjänst, som refererar till den instans som du använder för att lagra loggfilerna. | Nej
-path | Sökvägen till loggfilerna. | Ange den sökväg där du vill lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej
+validateDataConsistency | Om du anger sant för den här egenskapen kontrollerar kopierings aktiviteten fil storlek, lastModifiedDate och MD5-kontrollsumma för varje objekt som kopieras från käll platsen till mål lagret för att säkerställa data konsekvensen mellan käll-och mål arkivet. Tänk på att kopierings prestandan kommer att påverkas genom att aktivera det här alternativet.  | Sant<br/>False (standard) | No
+dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa data.<br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa data.<br/> -Falskt: du vill avbryta kopierings aktiviteten när inkonsekventa data har hittats.<br/>Tänk på att den här egenskapen endast är giltig när du anger validateDataConsistency som true.  | Sant<br/>False (standard) | No
+logStorageSettings | En grupp egenskaper som kan anges för att aktivera sessionsinformation för att logga överhoppade objekt. | | No
+linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` `AzureBlobFS` länkad eller typ länkad tjänst, som refererar till den instans som du använder för att lagra loggfilerna. | No
+path | Sökvägen till loggfilerna. | Ange den sökväg där du vill lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | No
 
 >[!NOTE]
 >- Data konsekvens stöds inte i utvecklings kopierings scenariot. 
@@ -149,7 +148,7 @@ Exemplet på en loggfil är följande:
 Timestamp, Level, OperationName, OperationItem, Message
 2020-02-26 06:22:56.3190846, Warning, FileSkip, "sample1.csv", "File is skipped after read 548000000 bytes: ErrorCode=DataConsistencySourceDataChanged,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Source file 'sample1.csv' is changed by other clients during the copy activity run.,Source=,'." 
 ```
-Från logg filen ovan kan du se att sample1. csv har hoppats över eftersom det inte kunde verifieras att vara konsekvent mellan käll-och mål arkivet. Du kan få mer information om varför sample1. csv blir inkonsekvent beror på att den har ändrats av andra program när ADF Copy-aktivitet kopieras på samma gång. 
+I logg filen ovan kan du se sample1.csv har hoppats över eftersom den inte kunde verifieras för att vara konsekvent mellan käll-och mål arkivet. Du kan få mer information om varför sample1.csv blir inkonsekvent beror på att den har ändrats av andra program när ADF Copy-aktivitet kopieras på samma gång. 
 
 
 

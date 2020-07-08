@@ -10,10 +10,9 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, tracking-python
 ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559582"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om öppen källkod för Web Apps i Azure
@@ -31,8 +30,8 @@ Så här aktiverar du PHP-loggning:
 3. Välj mappen **plats** .
 4. Välj mappen **wwwroot** .
 5. Välj **+** ikonen och välj sedan **ny fil**.
-6. Ange fil namnet till **. user. ini**.
-7. Välj Penn ikonen bredvid **. user. ini**.
+6. Ange fil namnet till **.user.ini**.
+7. Välj Penn ikonen bredvid **.user.ini**.
 8. Lägg till den här koden i filen:`log_errors=on`
 9. Välj **Spara**.
 10. Välj Penn ikonen bredvid **wp-config. php**.
@@ -48,31 +47,31 @@ Mer information finns i [Aktivera fel loggar för WordPress](https://blogs.msdn.
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>Hur gör jag för att logga python-programfel i appar som finns i App Service?
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
-## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>Hur gör jag för att ändra den version av Node. js-programmet som finns i App Service?
+## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>Hur gör jag för att ändra versionen för det Node.js program som finns i App Service?
 
-Om du vill ändra versionen för Node. js-programmet kan du använda något av följande alternativ:
+Om du vill ändra versionen för Node.js programmet kan du använda något av följande alternativ:
 
 * Använd **appinställningar**i Azure Portal.
   1. I Azure Portal går du till din webbapp.
   2. Välj **program inställningar**på bladet **Inställningar** .
-  3. I **appinställningar**kan du inkludera WEBSITE_NODE_DEFAULT_VERSION som nyckel och den version av Node. js som du vill använda som värde.
+  3. I **appinställningar**kan du inkludera WEBSITE_NODE_DEFAULT_VERSION som nyckel och vilken VERSION av Node.js du vill ha som värde.
   4. Gå till **kudu-konsolen** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
-  5. Om du vill kontrol lera Node. js-versionen anger du följande kommando:  
+  5. Ange följande kommando för att kontrol lera Node.js-versionen:  
      ```
      node -v
      ```
-* Ändra filen iisnode. yml. Om du ändrar Node. js-versionen i filen iisnode. yml anges bara den körnings miljö som iisnode använder. Kudu cmd och andra använder fortfarande Node. js-versionen som anges i **appinställningar** i Azure Portal.
+* Ändra filen iisnode. yml. Om du ändrar Node.js versionen i filen iisnode. yml anges bara den körnings miljö som iisnode använder. Kudu cmd och andra använder fortfarande den Node.js version som anges i **appinställningar** i Azure Portal.
 
   Om du vill ange iisnode. yml manuellt skapar du en iisnode. YML-fil i rotmappen för din app. I filen inkluderar du följande rad:
   ```yml
   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
   ```
    
-* Ange filen iisnode. yml med hjälp av Package. JSON under käll kontroll distributionen.
+* Ange filen iisnode. yml genom att använda package.jspå under distribution av käll kontroll.
   Distributions processen för Azure käll kontroll omfattar följande steg:
   1. Flyttar innehåll till Azure-webbappen.
   2. Skapar ett standard skript för distribution, om det inte finns en (Deploy. cmd,. distributions-filer) i rotmappen för webbappar.
-  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node. js-versionen i filen Package. JSON-fil > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node.js-versionen i package.jspå fil > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
   4. Filen iisnode. yml har följande kodrad:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -89,11 +88,11 @@ När loggarna är aktiverade kan du återskapa felet och sedan kontrol lera logg
 
 Om du ser det här felet i fel söknings. log-eller php_errors. log-filerna överskrider din app antalet anslutningar. Om du är värd för ClearDB kontrollerar du antalet anslutningar som är tillgängliga i din [service plan](https://www.cleardb.com/pricing.view).
 
-## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Hur gör jag för att felsöka en Node. js-app som finns i App Service?
+## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Hur gör jag för att felsöka en Node.js app som finns i App Service?
 
 1.  Gå till **kudu-konsolen** ( `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` ).
 2.  Gå till mappen program loggar (D:\home\LogFiles\Application).
-3.  I filen logging_errors. txt söker du efter innehåll.
+3.  I logging_errors.txt-filen söker du efter innehåll.
 
 ## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>Hur gör jag för att installera inbyggda python-moduler i en App Service webbapp eller API-app?
 
@@ -138,7 +137,7 @@ Så här löser du felet:
 
 1. Ta bort filen sqljdbc*. jar från mappen app/lib.
 2. Om du använder den anpassade Tomcat eller Tomcat webb server för Azure Marketplace kopierar du den här jar-filen till mappen Tomcat lib.
-3. Om du aktiverar Java från Azure Portal (Välj **Java 1,8**  >  **Tomcat-Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i filen Web. config:
+3. Om du aktiverar Java från Azure Portal (Välj **Java 1,8**  >  **Tomcat-Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i web.config-filen:
 
     ```xml
     <httpPlatform>
@@ -206,7 +205,7 @@ Information om rekommenderade säkerhets metoder för WordPress finns i [metod t
 
 ## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>Jag försöker använda PHPMyAdmin och jag ser meddelandet "åtkomst nekad". Hur gör jag för att lösa det?
 
-Det här problemet kan uppstå om funktionen MySQL in-app inte körs ännu i App Service-instansen. Försök att komma åt din webbplats för att lösa problemet. Detta startar de nödvändiga processerna, inklusive MySQL in-app processen. För att kontrol lera att MySQL in-app körs i Process Explorer kontrollerar du att mysqld. exe är listad i processerna.
+Det här problemet kan uppstå om funktionen MySQL in-app inte körs ännu i App Service-instansen. Försök att komma åt din webbplats för att lösa problemet. Detta startar de nödvändiga processerna, inklusive MySQL in-app processen. För att verifiera att MySQL in-app körs i Process Explorer kontrollerar du att mysqld.exe visas i processerna.
 
 När du har säkerställt att MySQL in-app körs försöker du använda PHPMyAdmin.
 

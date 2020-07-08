@@ -9,10 +9,9 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: femila
 ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559421"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid händelse schema
@@ -87,7 +86,7 @@ Alla händelser har samma följande toppnivå data:
 | Händelsetyp | sträng | Ja | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Ja | Unikt ID för händelsen. |
-| data | objekt | Inga | Händelse data som är speciella för resurs leverantören. |
+| data | objekt | No | Händelse data som är speciella för resurs leverantören. |
 | Dataversion | sträng | Nej, men kommer att stämplas med ett tomt värde. | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Krävs inte, men om det ingår måste det matcha Event Grid schema `metadataVersion` exakt (endast för närvarande `1` ). Om den inte ingår stämplas Event Grid in på händelsen. | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 

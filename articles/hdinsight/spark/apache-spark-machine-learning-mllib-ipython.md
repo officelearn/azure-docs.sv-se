@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
 ms.date: 04/27/2020
 ms.openlocfilehash: c67e8a79e2339c4a329e276c52703bd749137037
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608425"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använd Apache Spark MLlib för att bygga ett Machine Learning-program och analysera en data uppsättning
@@ -38,7 +37,7 @@ I sammanfattning skapar processen för Logistisk regression en *logistik funktio
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>Exempel på förutsägelse analys av inspektions data för livsmedel
 
-I det här exemplet använder du Spark för att göra en förutsägelse analys av inspektions data för livsmedel (**Food_Inspections1. csv**). Data som hämtats via [data portalen City i Chicago](https://data.cityofchicago.org/). Den här data uppsättningen innehåller information om inspektioner för livsmedels etablering som genomfördes i Chicago. Inklusive information om varje anläggning, identifierade överträdelser (om sådana finns) och resultatet av kontrollen. CSV-datafilen finns redan i det lagrings konto som är associerat med klustret på **/hdisamples/hdisamples/foodinspectiondata/Food_Inspections1. csv**.
+I det här exemplet använder du Spark för att göra en förutsägelse analys av inspektions data för livsmedel (**Food_Inspections1.csv**). Data som hämtats via [data portalen City i Chicago](https://data.cityofchicago.org/). Den här data uppsättningen innehåller information om inspektioner för livsmedels etablering som genomfördes i Chicago. Inklusive information om varje anläggning, identifierade överträdelser (om sådana finns) och resultatet av kontrollen. CSV-datafilen finns redan i det lagrings konto som är associerat med klustret på **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 I stegen nedan utvecklar du en modell för att se vad som krävs för att kunna skicka eller underkänna en livsmedels inspektion.
 
@@ -252,7 +251,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>Utvärdera modellen med en annan data uppsättning
 
-Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resultaten av nya kontroller kommer att vara. Förutsägelserna baseras på de överträdelser som har observerats. Du har tränat den här modellen på data uppsättningen **Food_Inspections1. csv**. Du kan använda en andra data uppsättning, **Food_Inspections2. csv**, för att *utvärdera* den här modellens styrka på nya data. Den andra data uppsättningen (**Food_Inspections2. csv**) finns i standard lagrings behållaren som är kopplad till klustret.
+Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resultaten av nya kontroller kommer att vara. Förutsägelserna baseras på de överträdelser som har observerats. Du har tränat den här modellen på data uppsättningen **Food_Inspections1.csv**. Du kan använda en andra data uppsättning, **Food_Inspections2.csv**, för att *utvärdera* den här modellens styrka på nya data. Den här andra data uppsättningen (**Food_Inspections2.csv**) finns i standard lagrings behållaren som är kopplad till klustret.
 
 1. Kör följande kod för att skapa en ny dataframe, **predictionsDf** som innehåller den förutsägelse som genereras av modellen. Kodfragmentet skapar också en temporär tabell med namnet **förutsägelser** baserat på dataframe.
 

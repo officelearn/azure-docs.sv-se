@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558187"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiera data från MongoDB med Azure Data Factory (bakåtkompatibelt)
@@ -39,7 +38,7 @@ Mer specifikt stöder denna MongoDB-anslutning:
 - MongoDB- **versionerna 2,4, 2,6, 3,0, 3,2, 3,4 och 3,6**.
 - Kopiera data med **Basic** eller **Anonym** autentisering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -65,9 +64,9 @@ Följande egenskaper stöds för den länkade tjänsten MongoDB:
 | användarnamn |Användar konto för åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
 | password |Lösenordet för användaren. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrol lera autentiseringsuppgifterna för autentisering. |Nej. För grundläggande autentisering är standardvärdet att använda administratörs kontot och den databas som anges med egenskapen databaseName. |
-| enableSsl | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Inga |
-| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Inga |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Inga |
+| enableSsl | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | No |
+| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | No |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |No |
 
 **Exempel:**
 

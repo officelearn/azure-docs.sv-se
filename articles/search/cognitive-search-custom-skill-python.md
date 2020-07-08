@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84604702"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exempel: skapa en anpassad kunskap med hjälp av python
@@ -29,7 +28,7 @@ Den anpassade kunskapen är enkel genom design (den sammanfogar två strängar) 
 + Konfigurera din miljö. Vi följde [den här självstudien från slut punkt till slut punkt](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) för att konfigurera en server lös Azure-funktion med Visual Studio Code och python-tillägg. Självstudien vägleder dig genom installationen av följande verktyg och komponenter: 
 
   + [Python 3,75](https://www.python.org/downloads/release/python-375/)
-  + [Visual Studio-koden](https://code.visualstudio.com/)
+  + [Visuell Studio-kod](https://code.visualstudio.com/)
   + [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
   + [Azure Functions-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)

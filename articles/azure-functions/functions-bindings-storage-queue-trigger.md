@@ -7,10 +7,9 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
 ms.openlocfilehash: 4759541966de1d436c72cce4aaa46c2bd1235599
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559917"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Queue Storage-utlösare för Azure Functions
@@ -44,9 +43,9 @@ public static class QueueFunctions
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en kö trigger-bindning i en *Function. JSON* -fil och [C#-skript (. CSX)](functions-reference-csharp.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
+I följande exempel visas en kö trigger-bindning i en *function.jspå* fil [-och C#-skript (. CSX)](functions-reference-csharp.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -95,13 +94,13 @@ public static void Run(CloudQueueMessage myQueueItem,
 }
 ```
 
-I avsnittet [användning](#usage) beskrivs `myQueueItem` , som namnges av `name` egenskapen i function. JSON.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
+I avsnittet [användning](#usage) beskrivs `myQueueItem` , som namnges av `name` egenskapen i function.jspå.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en kö trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
+I följande exempel visas en Utlös ande bindning för kö i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -140,13 +139,13 @@ module.exports = async function (context, message) {
 };
 ```
 
-I avsnittet [användning](#usage) beskrivs `myQueueItem` , som namnges av `name` egenskapen i function. JSON.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
+I avsnittet [användning](#usage) beskrivs `myQueueItem` , som namnges av `name` egenskapen i function.jspå.  I [avsnittet meddelande metadata](#message-metadata) beskrivs alla andra variabler som visas.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Följande exempel visar hur du läser ett Queue-meddelande som skickas till en funktion via en utlösare.
 
-En utlösare för lagrings kön definieras i *Function. JSON* där *Type* har angetts till `queueTrigger` .
+En utlösare för lagrings kön definieras i *function.jspå* WHERE- *typ* är inställd på `queueTrigger` .
 
 ```json
 {
@@ -309,12 +308,12 @@ public class QueueTriggerDemo {
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `QueueTrigger` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `QueueTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas| Måste anges till `queueTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**position**| saknas | Endast i *Function. JSON* -filen. Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**position**| saknas | Endast i *function.jsendast på* fil. Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
 |**Namn** | saknas |Namnet på den variabel som innehåller köns objektets nytto Last i funktions koden.  |
 |**queueName** | **QueueName**| Namnet på kön som ska avsökas. |
 |**anslutningen** | **Anslutning** |Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` på "telestorage" söker Functions-körningen efter en app-inställning med namnet "Storage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna app-inställningen `AzureWebJobsStorage` .|
@@ -336,7 +335,7 @@ Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande, se t
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Få åtkomst till meddelande data med hjälp av en metod parameter, till exempel `string paramName` . `paramName`Är värdet som anges i `name` egenskapen för *Function. JSON*. Du kan binda till någon av följande typer:
+Få åtkomst till meddelande data med hjälp av en metod parameter, till exempel `string paramName` . `paramName`Värdet som anges i `name` egenskapen för *function.jspå*. Du kan binda till någon av följande typer:
 
 * Objekt-funktions körningen deserialiserar en JSON-nyttolast till en instans av en godtycklig klass som definierats i din kod. 
 * `string`
@@ -347,7 +346,7 @@ Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande, se t
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Objektet för köobjekt är tillgängligt via `context.bindings.<NAME>` där `<NAME>` matchar namnet som definierats i *Function. JSON*. Om nytto lasten är JSON deserialiseras värdet i ett objekt.
+Objektet för köobjekt är tillgängligt via `context.bindings.<NAME>` där `<NAME>` matchar det namn som definierats i *function.jspå*. Om nytto lasten är JSON deserialiseras värdet i ett objekt.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -363,9 +362,9 @@ Få åtkomst till Queue-meddelandet via parametern som anges som [QueueMessage](
 
 Utlösaren för kön innehåller flera [Egenskaper för metadata](./functions-bindings-expressions-patterns.md#trigger-metadata). Dessa egenskaper kan användas som en del av bindnings uttryck i andra bindningar eller som parametrar i koden. Egenskaperna är medlemmar i klassen [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Egenskap|Typ|Description|
+|Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om nytto lasten i kön är en sträng, `QueueTrigger` har samma värde som variabeln som namnges av `name` egenskapen i *Function. JSON*.|
+|`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om nytto lasten i kön är en sträng, `QueueTrigger` har samma värde som variabeln som namnges av `name` egenskapen i *function.jspå*.|
 |`DequeueCount`|`int`|Antal gånger som det här meddelandet har tagits ur kö.|
 |`ExpirationTime`|`DateTimeOffset`|Tiden som meddelandet upphör att gälla.|
 |`Id`|`string`|Meddelande-ID för kö.|
@@ -388,7 +387,7 @@ Algoritmen använder följande logik:
 - När ett meddelande hittas väntar körningen i två sekunder och söker sedan efter ett annat meddelande
 - När inget meddelande hittas väntar det cirka fyra sekunder innan det försöker igen.
 - Efter efterföljande misslyckade försök att hämta ett Queue-meddelande fortsätter vänte tiden att öka tills den når den maximala vänte tiden, vilket är en minut som standard.
-- Maximal vänte tid kan konfigureras via `maxPollingInterval` egenskapen i [Host. JSON-filen](functions-host-json.md#queues).
+- Maximal vänte tid kan konfigureras via `maxPollingInterval` egenskapen i [host.jsi filen](functions-host-json.md#queues).
 
 För lokal utveckling är det maximala avsöknings intervallet två sekunder som standard.
 
@@ -398,13 +397,13 @@ I samband med faktureringen är tids åtgången för avsökning av körningen "k
 
 När det finns flera köa meddelanden som väntar, hämtar kön utlösare en batch med meddelanden och anropar funktions instanserna samtidigt för att bearbeta dem. Som standard är batchstorleken 16. När antalet som bearbetas går ned till 8, får körningen en annan batch och börjar bearbeta dessa meddelanden. Det maximala antalet samtidiga meddelanden som bearbetas per funktion på en virtuell dator (VM) är 24. Den här gränsen gäller separat för varje funktion som utlöses av kön på varje virtuell dator. Om din Function-app skalar ut till flera virtuella datorer väntar varje virtuell dator på utlösare och försöker köra funktioner. Om till exempel en Function-app skalar ut till tre virtuella datorer är det maximala antalet samtidiga instanser av en funktion som utlöses av en kö 72.
 
-Batchstorleken och tröskelvärdet för att hämta en ny batch kan konfigureras i [Host. JSON-filen](functions-host-json.md#queues). Om du vill minimera parallell körning för köade funktioner i en Function-app kan du ange batchstorleken till 1. Med den här inställningen elimineras samtidighet endast så länge din funktions program körs på en enda virtuell dator (VM). 
+Batchstorleken och tröskelvärdet för att hämta en ny batch kan konfigureras ihost.jsi [filen](functions-host-json.md#queues). Om du vill minimera parallell körning för köade funktioner i en Function-app kan du ange batchstorleken till 1. Med den här inställningen elimineras samtidighet endast så länge din funktions program körs på en enda virtuell dator (VM). 
 
 Queue-utlösaren förhindrar automatiskt en funktion från att bearbeta ett köobjekt flera gånger; funktioner behöver inte skrivas för att vara idempotenta.
 
-## <a name="hostjson-properties"></a>egenskaper för Host. JSON
+## <a name="hostjson-properties"></a>host.jspå egenskaper
 
-[Host. JSON](functions-host-json.md#queues) -filen innehåller inställningar som styr beteendet för kön utlösare. Se avsnittet [Host. JSON-inställningar](functions-bindings-storage-queue-output.md#hostjson-settings) för information om tillgängliga inställningar.
+[host.js](functions-host-json.md#queues) filen innehåller inställningar som styr beteendet för kön utlösare. Mer information om tillgängliga inställningar finns i avsnittet [host.jsi inställningar](functions-bindings-storage-queue-output.md#hostjson-settings) .
 
 ## <a name="next-steps"></a>Nästa steg
 

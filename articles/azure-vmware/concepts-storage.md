@@ -4,10 +4,9 @@ description: Lär dig mer om de viktigaste lagrings funktionerna i Azure VMware-
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84604124"
 ---
 # <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Azure VMware Solution (AVS)-förhands granskning av lagrings koncept
@@ -21,7 +20,7 @@ Lokal lagring i varje kluster värd används som en del av ett virtuellt San-dat
 Lokal lagring i kluster värdar används i virtuellt San data lager för hela klustret. Alla data lager skapas som en del av en distribution av privata moln och är tillgängliga för användning omedelbart. Cloudadmin-användaren och alla användare i gruppen CloudAdmin kan hantera data lager med följande virtuellt San-behörigheter:
 - Data lager. AllocateSpace
 - Datastore.Browse
-- Data lager. config
+- Datastore.Config
 - Data lager. DeleteFile
 - Data lager. FileManagement
 - Data lager. UpdateVirtualMachineMetadata

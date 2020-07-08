@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 300b7e4fe3e3c150a78fee5b63458feab266aafe
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558678"
 ---
 # <a name="logging-in-msal-applications"></a>Logga in MSAL-program
@@ -126,7 +125,7 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
- Aktivera loggning i MSAL. js (Java Script) genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication` instans. Detta loggnings objekt har följande egenskaper:
+ Aktivera loggning i MSAL.js (Java Script) genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication` instans. Detta loggnings objekt har följande egenskaper:
 
 - `localCallback`: en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Implementera localCallback-metoden beroende på hur du vill dirigera om loggarna.
 - `level`(valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: `Error` , `Warning` , `Info` och `Verbose` . Standardvärdet är `Info`.
@@ -210,7 +209,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 Använd något av följande värden om du vill ange loggnings nivå när du loggar med MSAL för iOS och macOS:
 
-|Nivå  |Description |
+|Nivå  |Beskrivning |
 |---------|---------|
 | `MSALLogLevelNothing`| Inaktivera all loggning |
 | `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |
@@ -287,7 +286,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Använd något av följande värden om du vill ange loggnings nivå när du loggar med MSAL för iOS och macOS:
 
-|Nivå  |Description |
+|Nivå  |Beskrivning |
 |---------|---------|
 | `MSALLogLevelNothing`| Inaktivera all loggning |
 | `MSALLogLevelError` | Standard nivå skrivs bara ut information när fel uppstår |

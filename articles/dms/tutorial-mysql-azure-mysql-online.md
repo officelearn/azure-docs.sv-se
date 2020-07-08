@@ -13,17 +13,16 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609241"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera MySQL till Azure Database for MySQL online med DMS
 
 Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal MySQL-instans till [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) med minimal stillestånds tid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempel databasen **anställda** från en lokal instans av MySQL 5,7 till Azure Database for MySQL med hjälp av en online-migrering i Azure Database migration service.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > * Migrera exempelschemat med verktyget mysqldump.
@@ -100,7 +99,7 @@ Förutsatt att du har MySQL- **anställda** exempel databas i det lokala systeme
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-Till exempel:
+Ett exempel:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -112,7 +111,7 @@ Om du vill importera schemat till Azure Database for MySQL-mål kör du följand
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-Till exempel:
+Ett exempel:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql

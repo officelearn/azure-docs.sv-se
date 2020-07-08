@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: femila
 ms.openlocfilehash: dd7535030ea4f6d6769630e463618faab62944a0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558474"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
@@ -22,7 +21,7 @@ Den här artikeln beskriver hur du [verifierar en HTTP-slutpunkt](webhook-event-
 > [!NOTE]
 > Vi rekommenderar **starkt** att du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) när du utlöser en Azure-funktion med event Grid. Användning av en allmän webhook-utlösare här är demonstrerad.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Function-app med en HTTP-utlöst funktion.
 
@@ -32,7 +31,7 @@ Om du utvecklar i .NET lägger du [till ett beroende](../azure-functions/functio
 
 SDK: er för andra språk är tillgängliga via referens för att [publicera SDK](./sdk-overview.md#data-plane-sdks) : er. De här paketen har modeller för interna händelse typer som `EventGridEvent` , `StorageBlobCreatedEventData` och `EventHubCaptureFileCreatedEventData` .
 
-Klicka på länken "Visa filer" i din Azure-funktion (den högra rutan i Azure Functions-portalen) och skapa en fil med namnet Project. JSON. Lägg till följande innehåll i `project.json` filen och spara den:
+Klicka på länken "Visa filer" i din Azure-funktion (den högra rutan i Azure Functions-portalen) och skapa en fil med namnet project.jspå. Lägg till följande innehåll i `project.json` filen och spara den:
 
  ```json
 {

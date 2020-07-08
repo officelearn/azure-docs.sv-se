@@ -7,10 +7,9 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559982"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-utlösare för Azure Functions
@@ -59,9 +58,9 @@ Mer information om `BlobTrigger` attributet finns i [attribut och anteckningar](
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och kod som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` [behållaren](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+I följande exempel visas en BLOB trigger-bindning i en *function.jspå* fil och kod som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` [behållaren](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -80,7 +79,7 @@ Här är bindnings data i *Function. JSON* -filen:
 
 Strängen `{name}` i BLOB trigger-sökvägen `samples-workitems/{name}` skapar ett [bindnings uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktions koden för att komma åt fil namnet för den Utlös ande blobben. Mer information finns i [BLOB Name-mönster](#blob-name-patterns) längre fram i den här artikeln.
 
-Mer information om egenskaper för *Function. JSON* -filen finns i [konfigurations](#configuration) avsnittet förklarar dessa egenskaper.
+Mer information om hur du *function.jspå* fil egenskaper finns i avsnittet [konfiguration](#configuration) förklaras dessa egenskaper.
 
 Här är C#-skript kod som binder till en `Stream` :
 
@@ -106,9 +105,9 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` behållaren.
+I följande exempel visas en BLOB trigger-bindning i en *function.jspå* fil-och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` behållaren.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -127,7 +126,7 @@ Här är *Function. JSON* -filen:
 
 Strängen `{name}` i BLOB trigger-sökvägen `samples-workitems/{name}` skapar ett [bindnings uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktions koden för att komma åt fil namnet för den Utlös ande blobben. Mer information finns i [BLOB Name-mönster](#blob-name-patterns) längre fram i den här artikeln.
 
-Mer information om egenskaper för *Function. JSON* -filen finns i [konfigurations](#configuration) avsnittet förklarar dessa egenskaper.
+Mer information om hur du *function.jspå* fil egenskaper finns i avsnittet [konfiguration](#configuration) förklaras dessa egenskaper.
 
 Här är JavaScript-koden:
 
@@ -140,9 +139,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en BLOB-utlösnings bindning i en *Function. JSON* -fil och [python-kod](functions-reference-python.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` [behållaren](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+I följande exempel visas en BLOB-utlösnings bindning i en *function.jspå* fil-och [python-kod](functions-reference-python.md) som använder bindningen. Funktionen skriver en logg när en BLOB läggs till eller uppdateras i `samples-workitems` [behållaren](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -162,7 +161,7 @@ Här är *Function. JSON* -filen:
 
 Strängen `{name}` i BLOB trigger-sökvägen `samples-workitems/{name}` skapar ett [bindnings uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i funktions koden för att komma åt fil namnet för den Utlös ande blobben. Mer information finns i [BLOB Name-mönster](#blob-name-patterns) längre fram i den här artikeln.
 
-Mer information om egenskaper för *Function. JSON* -filen finns i [konfigurations](#configuration) avsnittet förklarar dessa egenskaper.
+Mer information om hur du *function.jspå* fil egenskaper finns i avsnittet [konfiguration](#configuration) förklaras dessa egenskaper.
 
 Här är python-koden:
 
@@ -273,9 +272,9 @@ Attribut stöds inte av python.
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `BlobTrigger` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `BlobTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste anges till `blobTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. Undantag anges i [användnings](#usage) avsnittet. |
@@ -297,7 +296,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Få åtkomst till BLOB-data med `context.bindings.<NAME>` WHERE `<NAME>` matchar värdet som definierats i *Function. JSON*.
+Få åtkomst till BLOB-data med `context.bindings.<NAME>` var `<NAME>` matchar värdet som definierades i *function.js*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -311,7 +310,7 @@ Få åtkomst till BLOB-data via parametern som anges som [InputStream](https://d
 
 ## <a name="blob-name-patterns"></a>BLOB Name-mönster
 
-Du kan ange ett BLOB Name-mönster i `path` egenskapen i *Function. JSON* eller i `BlobTrigger` attributhierarkin. Namn mönstret kan vara ett [filter eller ett bindnings uttryck](./functions-bindings-expressions-patterns.md). I följande avsnitt finns exempel.
+Du kan ange ett BLOB Name-mönster i `path` egenskapen i *function.jspå* eller i `BlobTrigger` konstruktorn Attribute. Namn mönstret kan vara ett [filter eller ett bindnings uttryck](./functions-bindings-expressions-patterns.md). I följande avsnitt finns exempel.
 
 ### <a name="get-file-name-and-extension"></a>Hämta fil namn och tillägg
 
@@ -321,7 +320,7 @@ I följande exempel visas hur du binder till BLOB-filens namn och tillägg separ
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Om blobben heter *original-Blob1. txt*, är värdena för `blobname` `blobextension` variablerna och i funktions koden *ursprungliga – Blob1* och *txt*.
+Om blobben heter *original-Blob1.txt*, är värdena för `blobname` `blobextension` variablerna och i funktions koden *originalfiler-Blob1* och *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrera på BLOB-namn
 
@@ -331,7 +330,7 @@ Följande exempel utlöser bara blobar i `input` behållaren som börjar med str
 "path": "input/original-{name}",
 ```
 
-Om BLOB-namnet är *original-Blob1. txt*, är värdet för `name` variabeln i funktions koden `Blob1` .
+Om BLOB-namnet är *original-Blob1.txt*är värdet för `name` variabeln i funktions koden `Blob1` .
 
 ### <a name="filter-on-file-type"></a>Filtrera efter filtyp
 
@@ -349,7 +348,7 @@ Om du vill söka efter klammerparenteser i fil namn, escapea klammerparenteser m
 "path": "images/{{20140101}}-{name}",
 ```
 
-Om blobben heter * {20140101} -Soundfile. mp3*, `name` är variabelvärdet i funktions koden *Soundfile. mp3*.
+Om blobben heter * {20140101}-soundfile.mp3*, `name` är variabelvärdet i funktions koden *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadata
 
@@ -408,7 +407,7 @@ Om alla fem försöken inte fungerar lägger Azure Functions till ett meddelande
 
 ## <a name="concurrency-and-memory-usage"></a>Samtidighet och minnes användning
 
-BLOB-utlösaren använder en kö internt, så det maximala antalet samtidiga funktions anrop styrs av [köernas konfiguration i Host. JSON](functions-host-json.md#queues). Standardinställnings gränsen samtidighet till 24 anrop. Den här gränsen gäller separat för varje funktion som använder en BLOB-utlösare.
+BLOB-utlösaren använder en kö internt, så det maximala antalet samtidiga funktions anrop styrs av [köernas konfiguration i host.jspå](functions-host-json.md#queues). Standardinställnings gränsen samtidighet till 24 anrop. Den här gränsen gäller separat för varje funktion som använder en BLOB-utlösare.
 
 [Förbruknings planen](functions-scale.md#how-the-consumption-and-premium-plans-work) begränsar en Function-app på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje intern körning av funktions instansen och av Functions-körningen. Om en BLOB-utlöst funktion läser in hela blobben i minnet är den maximala mängd minne som används av den funktionen bara för blobbar 24 * maximal BLOB-storlek. Till exempel skulle en Function-app med tre BLOB-utlöst funktioner och standardinställningarna ha ett maximalt antal per VM-concurrency på 3 * 24 = 72 funktions anrop.
 

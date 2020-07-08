@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: 2f67b73612bd970c903b179a4a02c787ee0320b0
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84629188"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Viktig information för Microsoft Azure Backup Server
@@ -97,7 +96,7 @@ Lösning **:** Utför följande steg för att uppgradera till MABS v3 med instal
 
     Du hittar de senaste uppdateringsfilerna i sökvägen`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
-    Exempelvis: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    Exempel: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     ![Ersätt filerna med de senaste uppdateringsfilerna](./media/backup-mabs-release-notes-v3/replace-files.png)
 

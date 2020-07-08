@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
 ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608697"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine agent
@@ -107,14 +106,14 @@ foreach ($vm in $vms) {
 
 ### <a name="manual-detection"></a>Manuell identifiering
 
-När du är inloggad på en virtuell Windows-dator kan du använda aktivitets hanteraren för att undersöka aktiva processer. Om du vill söka efter den virtuella Azure-agenten öppnar du aktivitets hanteraren, klickar på fliken *information* och letar efter ett process namn **WindowsAzureGuestAgent. exe**. Förekomsten av den här processen indikerar att VM-agenten är installerad.
+När du är inloggad på en virtuell Windows-dator kan du använda aktivitets hanteraren för att undersöka aktiva processer. Om du vill söka efter den virtuella Azure-agenten öppnar du aktivitets hanteraren, klickar på fliken *information* och letar efter ett process namn **WindowsAzureGuestAgent.exe**. Förekomsten av den här processen indikerar att VM-agenten är installerad.
 
 
 ## <a name="upgrade-the-vm-agent"></a>Uppgradera VM-agenten
 Azure VM-agenten för Windows uppgraderas automatiskt. När nya virtuella datorer distribueras till Azure får de den senaste virtuella dator agenten vid etablerings tiden för den virtuella datorn. Anpassade VM-avbildningar ska uppdateras manuellt för att inkludera den nya VM-agenten när avbildningen skapas.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Samling med automatiska loggar i Windows gästa Gent
-Windows gästa Gent har en funktion för att automatiskt samla in vissa loggar. Den här funktionen är kontrollant av processen CollectGuestLogs. exe. Det finns för både PaaS-Cloud Services och IaaS Virtual Machines och målet är att snabbt & automatiskt samla in vissa diagnostikloggar från en virtuell dator – så att de kan användas för offline-analys. De insamlade loggarna är händelse loggar, OS-loggar, Azure-loggar och vissa register nycklar. Den skapar en ZIP-fil som överförs till den virtuella datorns värd. Den här ZIP-filen kan sedan ses av teknik team och support tekniker för att undersöka problem på begäran av kunden som äger den virtuella datorn.
+Windows gästa Gent har en funktion för att automatiskt samla in vissa loggar. Den här funktionen är kontrollant i CollectGuestLogs.exe processen. Det finns för både PaaS-Cloud Services och IaaS Virtual Machines och målet är att snabbt & automatiskt samla in vissa diagnostikloggar från en virtuell dator – så att de kan användas för offline-analys. De insamlade loggarna är händelse loggar, OS-loggar, Azure-loggar och vissa register nycklar. Den skapar en ZIP-fil som överförs till den virtuella datorns värd. Den här ZIP-filen kan sedan ses av teknik team och support tekniker för att undersöka problem på begäran av kunden som äger den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om tillägg för virtuella datorer finns i [Översikt över virtuella Azure-datorer och funktioner](overview.md).

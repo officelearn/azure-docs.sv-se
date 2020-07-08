@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 32af8c1b19d57fdba58ce27700e5d1e7a34f9c64
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84604991"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Avro-format i Azure Data Factory
@@ -31,7 +30,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | ---------------- | ------------------------------------------------------------ | -------- |
 | typ             | Data uppsättningens typ-egenskap måste anges till **Avro**. | Ja      |
 | location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
-| avroCompressionCodec | Den komprimerings-codec som ska användas när du skriver till Avro-filer. Vid läsning från Avro-filer bestämmer Data Factory automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**" (standard),**DEFLATE**","**fästning**". Obs! kopierings aktiviteten stöder för närvarande inte fästfunktionen vid läsning/skrivning av Avro-filer. | Nej       |
+| avroCompressionCodec | Den komprimerings-codec som ska användas när du skriver till Avro-filer. Vid läsning från Avro-filer bestämmer Data Factory automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**" (standard),**DEFLATE**","**fästning**". Obs! kopierings aktiviteten stöder för närvarande inte fästfunktionen vid läsning/skrivning av Avro-filer. | No       |
 
 > [!NOTE]
 > Tomt utrymme i kolumn namn stöds inte för Avro-filer.
@@ -71,7 +70,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 | Egenskap      | Beskrivning                                                  | Obligatorisk |
 | ------------- | ------------------------------------------------------------ | -------- |
 | typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **AvroSource**. | Ja      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
 
 ### <a name="avro-as-sink"></a>Avro som mottagare
 
@@ -80,7 +79,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* mottagare \* *
 | Egenskap      | Beskrivning                                                  | Obligatorisk |
 | ------------- | ------------------------------------------------------------ | -------- |
 | typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **AvroSink**. | Ja      |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
 
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper

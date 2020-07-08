@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558926"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Webbapp som loggar in användare: inloggning och utloggning
@@ -74,7 +73,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-I vår Java snabb start finns inloggnings knappen i [main/Resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) -filen.
+I vår Java snabb start finns inloggnings knappen i [main/Resources/templates/index.html-](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) filen.
 
 ```html
 <!DOCTYPE html>
@@ -291,7 +290,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-I vår Java snabb start finns knappen Logga ut i filen main/resources/templates/auth_page.html.
+I vår Java snabb start finns knappen Logga ut i Main/Resources/templates/auth_page.html-filen.
 
 ```html
 <!DOCTYPE html>
@@ -306,7 +305,7 @@ I vår Java snabb start finns knappen Logga ut i filen main/resources/templates/
 
 # <a name="python"></a>[Python](#tab/python)
 
-I python-snabb starten finns knappen Logga ut i filen [templates/index. html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
+I python-snabb starten finns knappen Logga ut i filen [templates/index.html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
 
 ```html
 <!DOCTYPE html>
@@ -335,7 +334,7 @@ I tidigare versioner av ASP.NET Core-mallarna `Account` har kontrollanten bädda
 - Anrop `Signout()` , som låter OpenID ansluta mellanprogram kontakta Microsoft Identity Platform- `logout` slutpunkten. Slut punkten sedan:
 
   - Tar bort sessions-cookien från webbläsaren.
-  - Anropar utloggnings-URL: en. Som standard visar utloggnings-URL: en inloggad vy sidan [signerad. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Den här sidan tillhandahålls också som en del av MIcrosoft. Identity. Web.
+  - Anropar utloggnings-URL: en. Som standard visar utloggnings-URL: en sidan för inloggad vy [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Den här sidan tillhandahålls också som en del av MIcrosoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -418,11 +417,11 @@ public class AccountController : Controller
 
 # <a name="java"></a>[Java](#tab/java)
 
-I Java-snabb starten visar omdirigeringen av omutloggning-URI bara index. HTML-sidan.
+I Java-snabb starten visar omstarts-URI för omutloggning bara sidan index.html.
 
 # <a name="python"></a>[Python](#tab/python)
 
-I python-snabb starten visar omdirigeringen av omutloggning-URI bara index. HTML-sidan.
+I python-snabb starten visar omstarts-URL: en för omutloggning bara sidan index.html.
 
 ---
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: femila
 ms.openlocfilehash: 87d436024dae21b0122bf6b861b8a3ae4299db73
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559014"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Auktorisera åtkomst till Event Grid resurser
@@ -112,7 +111,7 @@ Om du behöver ange behörigheter som skiljer sig från de inbyggda rollerna kan
 
 Följande är exempel på Event Grid roll definitioner som gör det möjligt för användarna att vidta olika åtgärder. De här anpassade rollerna skiljer sig från de inbyggda rollerna eftersom de ger bredare åtkomst än bara händelse prenumerationer.
 
-**EventGridReadOnlyRole. JSON**: Tillåt endast skrivskyddade åtgärder.
+**EventGridReadOnlyRole.jspå**: Tillåt endast skrivskyddade åtgärder.
 
 ```json
 {
@@ -131,7 +130,7 @@ Följande är exempel på Event Grid roll definitioner som gör det möjligt fö
 }
 ```
 
-**EventGridNoDeleteListKeysRole. JSON**: Tillåt begränsade post åtgärder men tillåt inte borttagnings åtgärder.
+**EventGridNoDeleteListKeysRole.jspå**: Tillåt åtgärder med begränsad post men tillåt inte borttagnings åtgärder.
 
 ```json
 {
@@ -154,7 +153,7 @@ Följande är exempel på Event Grid roll definitioner som gör det möjligt fö
 }
 ```
 
-**EventGridContributorRole. JSON**: tillåter alla Event Grid-åtgärder.
+**EventGridContributorRole.jspå**: tillåter alla Event Grid-åtgärder.
 
 ```json
 {

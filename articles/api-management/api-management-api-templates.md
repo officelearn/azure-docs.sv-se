@@ -15,10 +15,9 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: tracking-python
 ms.openlocfilehash: 467d8b89ef5c114d647a257053ed3367d6336bdc
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559341"
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-mallar i Azure API Management
@@ -90,7 +89,7 @@ Med mallarna i det här avsnittet kan du anpassa innehållet i API-sidorna i Dev
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Description|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`apis`|Samling av [API-Sammanfattning](api-management-template-data-model-reference.md#APISummary) av entiteter.|De API: er som är synliga för den aktuella användaren.|  
   

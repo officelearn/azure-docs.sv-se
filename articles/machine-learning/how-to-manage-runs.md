@@ -13,10 +13,9 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.custom: tracking-python
 ms.openlocfilehash: c6d2e05104e2801129544b1cc91d3d7a00161f86
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560158"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta inlärnings körningar i python
@@ -31,7 +30,7 @@ Den här artikeln innehåller exempel på följande uppgifter:
 * Skapa underordnade körningar.
 * Tagga och hitta körningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande objekt:
 
@@ -403,7 +402,7 @@ Mer information om hur du frågar Azure CLI-resultat finns i [läsa utdata från
 
 1. Använd Sök fältet för att filtrera pipelines med taggar, beskrivningar, experiment namn och namn på sändning.
 
-## <a name="example-notebooks"></a>Exempel på bärbara datorer
+## <a name="example-notebooks"></a>Exempelnotebook-filer
 
 Följande antecknings böcker demonstrerar begreppen i den här artikeln:
 

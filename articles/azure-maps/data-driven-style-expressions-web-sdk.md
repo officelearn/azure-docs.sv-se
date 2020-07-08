@@ -10,10 +10,9 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 79f1188665208ec95e5d1d855d2247858e98653c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561655"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
@@ -41,7 +40,7 @@ Uttryck visas som JSON-matriser. Det första elementet i ett uttryck i matrisen 
 
 Azure Maps Web SDK stöder många typer av uttryck. Uttryck kan användas på egen hand eller i kombination med andra uttryck.
 
-| Typ av uttryck | Description |
+| Typ av uttryck | Beskrivning |
 |---------------------|-------------|
 | [Mängd uttryck](#aggregate-expression) | Ett uttryck som definierar en beräkning som bearbetas över en uppsättning data och som kan användas med `clusterProperties` alternativet i en `DataSource` . |
 | [Booleska uttryck](#boolean-expressions) | Booleska uttryck tillhandahåller en uppsättning booleska operator uttryck för att utvärdera booleska jämförelser. |
@@ -81,7 +80,7 @@ I alla exempel i det här dokumentet används följande funktion för att demons
 
 Data uttryck ger till gång till egenskaps data i en funktion. 
 
-| Uttryck | Returtyp | Description |
+| Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['at', number, array]` | objekt | Hämtar ett objekt från en matris. |
 | `['geometry-type']` | sträng | Hämtar funktionens geometri typ: punkt, MultiPoint, lin Est ring, MultiLineString, polygon, multipolygon. |
@@ -141,7 +140,7 @@ På samma sätt kommer konturen för polygoner att återges i linje lager. Om du
 
 Matematiska uttryck tillhandahåller matematiska operatorer för att utföra data drivna beräkningar i uttrycks ramverket.
 
-| Uttryck | Returtyp | Description |
+| Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | nummer | Beräknar summan av de angivna talen. |
 | `['-', number]` | nummer | Subtraherar 0 efter det angivna talet. |
@@ -196,7 +195,7 @@ Booleska uttryck tillhandahåller en uppsättning booleska operator uttryck för
 
 När värden jämförs skrivs jämförelsen strikt. Värden av olika typer betraktas alltid som likvärdiga. De fall där typerna är kända för olika tidpunkter för parsar betraktas som ogiltiga och genererar ett parsningsfel. 
 
-| Uttryck | Returtyp | Description |
+| Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolean | Logisk negation. Returnerar `true` Om indatatypen är `false` och `false` Om indatatypen är `true` . |
 | `['!= ', value, value]` | boolean | Returnerar `true` Om indatavärdena inte är lika, `false` annars. |
@@ -399,7 +398,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, t. ex. strängar, siffror och booleska värden.
 
-| Uttryck | Returtyp | Description |
+| Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | mat ris \| objekt | Returnerar en literal matris eller ett objekt värde. Använd det här uttrycket för att förhindra att en matris eller ett objekt utvärderas som ett uttryck. Detta är nödvändigt när en matris eller ett objekt måste returneras av ett uttryck. |
 | `['image', string]` | sträng | Kontrollerar om ett angivet bild-ID läses in i Maps-avbildningen Sprite. Om så är fallet returneras ID, annars returneras null. |
@@ -435,7 +434,7 @@ Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, 
 
 Färg uttryck gör det enklare att skapa och ändra färg värden.
 
-| Uttryck | Returtyp | Description |
+| Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Skapar ett färg värde från *röda*, *gröna*och *blå* komponenter som måste vara mellan `0` och och `255` en alpha-komponent i `1` . Om någon komponent är utanför intervallet är uttrycket ett fel. |
 | `['rgba', number, number, number, number]` | color | Skapar ett färg värde från *röda*, *gröna*, *blå* komponenter som måste vara mellan `0` och och `255` en alpha-komponent inom ett intervall av `0` och `1` . Om någon komponent är utanför intervallet är uttrycket ett fel. |
@@ -861,7 +860,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Variabel bindnings uttryck lagrar resultatet av en beräkning i en variabel. Så att beräknings resultaten kan refereras till någon annan stans i ett uttryck flera gånger. Det är en bra optimering för uttryck som omfattar många beräkningar.
 
-| Uttryck | Returtyp | Description |
+| Uttryck | Returtyp | Beskrivning |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Let",<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Lagrar ett eller flera värden som variabler som används av `var` uttrycket i det underordnade uttrycket som returnerar resultatet. |
 | `['var', name: string]` | valfri | Refererar till en variabel som skapats med `let` uttrycket. |

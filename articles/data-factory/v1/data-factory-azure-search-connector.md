@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194924"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Kognitiv sökning-index med Azure Data Factory
@@ -57,9 +56,9 @@ Följande tabell innehåller beskrivningar av JSON-element som är speciella fö
 
 | Egenskap | Beskrivning | Obligatorisk |
 | -------- | ----------- | -------- |
-| typ | Egenskapen Type måste anges till: **AzureSearch**. | Yes |
-| url | URL för Sök tjänsten. | Yes |
-| nyckel | Administratörs nyckel för Sök tjänsten. | Yes |
+| typ | Egenskapen Type måste anges till: **AzureSearch**. | Ja |
+| url | URL för Sök tjänsten. | Ja |
+| key | Administratörs nyckel för Sök tjänsten. | Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
@@ -67,8 +66,8 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap | Beskrivning | Obligatorisk |
 | -------- | ----------- | -------- |
-| typ | Egenskapen Type måste anges till **AzureSearchIndex**.| Yes |
-| indexName | Sök Indexets namn. Data Factory skapar inte indexet. Indexet måste finnas i Azure Kognitiv sökning. | Yes |
+| typ | Egenskapen Type måste anges till **AzureSearchIndex**.| Ja |
+| indexName | Sök Indexets namn. Data Factory skapar inte indexet. Indexet måste finnas i Azure Kognitiv sökning. | Ja |
 
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.custom: references_regions
 ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194838"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights som åsidosätter standard slut punkter
@@ -25,7 +24,7 @@ Om du vill skicka data från Application Insights till vissa regioner måste du 
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> Filen applicationinsights. config skrivs automatiskt över när en SDK-uppgradering utförs. När du har genomfört en SDK-uppgradering måste du ange regionens angivna slut punkts värden igen.
+> Den applicationinsights.config filen skrivs automatiskt över när en SDK-uppgradering utförs. När du har genomfört en SDK-uppgradering måste du ange regionens angivna slut punkts värden igen.
 
 ```xml
 <ApplicationInsights>
@@ -49,7 +48,7 @@ Om du vill skicka data från Application Insights till vissa regioner måste du 
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Ändra filen appSettings. json i projektet enligt följande för att justera huvud slut punkten:
+Ändra den appsettings.jsfilen i projektet på följande sätt för att justera huvud slut punkten:
 
 ```json
 "ApplicationInsights": {
@@ -83,7 +82,7 @@ Namn: `APPLICATIONINSIGHTS_CONNECTION_STRING` värde:`Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 
-Ändra applicationinsights. XML-filen om du vill ändra standard slut punkts adressen.
+Ändra den applicationinsights.xml filen om du vill ändra standard slut punkts adressen.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

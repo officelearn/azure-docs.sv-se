@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5fe1bf294c34afc2f7e0e0aa911dc05597ab9df
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252788"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuera en säker, Azure-hanterad arbets Station
@@ -29,20 +28,20 @@ Välj en profil innan du distribuerar lösningen. Du kan använda flera profiler
 > [!NOTE]
 > Använd någon av profilerna efter behov. Du kan flytta till en annan profil genom att tilldela den i Microsoft Intune.
 
-| Profil | Låg | Optimerad | Hög | Specialiserade | Ordentligt | Isolerat |
+| Profil | Låg | Optimerad | Hög | Specialiserade | Skyddad | Isolerat |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Användare i Azure AD | Ja | Ja | Ja | Ja | Ja | Ja |
 | Intune-hanterad | Ja | Ja | Ja | Ja | Ja | Ja |
-| Enhet – Azure AD har registrerats | Yes |  |  |  |  | |   |
+| Enhet – Azure AD har registrerats | Ja |  |  |  |  | |   |
 | Enhet – Azure AD-ansluten |   | Ja | Ja | Ja | Ja | Ja |
-| Säkerhets bas linje för Intune tillämpad |   | Yes <br> Förbättring | Yes <br> (HighSecurity) | Yes <br> (NCSC) | Yes <br> Ordentligt | NA |
+| Säkerhets bas linje för Intune tillämpad |   | Ja <br> Förbättring | Ja <br> (HighSecurity) | Ja <br> (NCSC) | Ja <br> Ordentligt | NA |
 | Maskin vara uppfyller säkra Windows 10-standarder |   | Ja | Ja | Ja | Ja | Ja |
 | Microsoft Defender ATP aktiverat |   | Ja  | Ja | Ja | Ja | Ja |
 | Borttagning av administratörs behörighet |   |   | Ja  | Ja | Ja | Ja |
 | Distribution med Microsoft autopilot |   |   | Ja  | Ja | Ja | Ja |
 | Appar som installeras endast av Intune |   |   |   | Ja | Ja |Ja |
 | URL: er begränsade till godkänd lista |   |   |   | Ja | Ja |Ja |
-| Blockerad Internet (inkommande/utgående) |   |   |   |  |  |Yes |
+| Blockerad Internet (inkommande/utgående) |   |   |   |  |  |Ja |
 
 > [!NOTE]
 > I guiderna för säker arbets Station **kommer att tilldelas** profiler och principer. Användarna har inte tillämpat principerna direkt, vilket gör att enhets delning (delade enheter) börjar gälla. Om en säker arbets Station inte delas i din distribution, eller om enskilda användar principer krävs, kan tilldelning av användar princip profiler tilldelas till användaren och enheten. 
@@ -61,7 +60,7 @@ När du skapar det skyddade administratörs kontot för arbets stationen exponer
 
 Kräv Multi-Factor Authentication, minst för dina administratörer. Se [distribuera MOLNBASERAD MFA](../authentication/howto-mfa-getstarted.md) för implementerings vägledning.
 
-### <a name="azure-ad-users-and-groups"></a>Azure AD-användare och-grupper
+### <a name="azure-ad-users-and-groups"></a>Azure AD-användare och -grupper
 
 1. Från Azure Portal bläddrar du till **Azure Active Directory**  >  **användare**  >  **ny användare**.
 1. Skapa din enhets administratör genom att följa stegen i [själv studie kursen skapa användare](/Intune/quickstart-create-user).
@@ -231,12 +230,12 @@ Slutför lösningen genom att ladda ned och köra lämpligt skript. Hitta nedlad
 
 | Profil | Hämtnings plats | Sökväg |
 | --- | --- | --- |
-| Låg säkerhet | Ej tillämpligt | Ej tillämpligt |
+| Låg säkerhet | E.t. | E.t. |
 | Förbättrad säkerhet | https://aka.ms/securedworkstationgit | Enhanced-Workstation-windows10-(1809). ps1 |
 | Hög säkerhet | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-windows10-(1809). ps1 |
 | Specialiserade | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-windows10 (1803) SecurityBaseline.ps1 |
 | Specialiserad kompatibilitet * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-windows10 (1803). ps1 |
-| Ordentligt | https://aka.ms/securedworkstationgit | Secure-Workstation-windows10-(1809) -SecurityBaseline.ps1 |
+| Skyddad | https://aka.ms/securedworkstationgit | Secure-Workstation-windows10-(1809) -SecurityBaseline.ps1 |
 
 \*Specialiserad kompatibilitet är ett skript som tillämpar den specialiserade konfigurationen i NCSC windows10 SecurityBaseline.
 

@@ -2,27 +2,23 @@
 title: Felsöka Azure Automation Uppdateringshantering problem
 description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation Uppdateringshantering.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/17/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801894"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
 Den här artikeln beskriver problem som du kan köra när du distribuerar Uppdateringshantering-funktionen på dina datorer. Det finns en agent fel sökare för Hybrid Runbook Worker agenten för att fastställa det underliggande problemet. Mer information om fel sökning finns i [Felsöka problem med Windows Update-agenten](update-agent-issues.md) och [Felsöka problem med problem med Linux-uppdaterings agenten](update-agent-issues-linux.md). Information om andra funktions distributions problem finns i [fel sökning av problem med funktions distribution](onboarding.md).
 
 >[!NOTE]
->Om du stöter på problem när du distribuerar Uppdateringshantering på en virtuell dator kontrollerar du **Operations Manager** loggen under **program-och tjänst loggar** på den lokala datorn. Sök efter händelser med händelse-ID 4502 och händelse information som innehåller `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
+>Om du stöter på problem när du distribuerar Uppdateringshantering på en Windows-dator öppnar du Windows Loggboken och kontrollerar **Operations Manager** händelse loggen under **program-och tjänst loggar** på den lokala datorn. Sök efter händelser med händelse-ID 4502 och händelse information som innehåller `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
 
-## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Scenario: du får felet "Det gick inte att aktivera uppdaterings lösningen"
+## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scenario: du får felet "Det gick inte att aktivera uppdaterings lösningen"
 
 ### <a name="issue"></a>Problem
 
@@ -48,9 +44,7 @@ Det här felet kan inträffa av följande orsaker:
 
 * Gå till [nätverks konfiguration](../automation-hybrid-runbook-worker.md#network-planning) och lär dig om vilka adresser och portar som måste tillåtas för att uppdateringshantering ska fungera.  
 
-* Gå till [nätverks konfiguration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) och lär dig om vilka adresser och portar som måste tillåtas för att Log Analytics agenten ska fungera.
-
-* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-scope-configurations-update-management.md) avgör vilka datorer som har kon figurer ats för uppdateringshantering. Om din dator visas på arbets ytan men inte i Uppdateringshantering portal måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-scope-configurations-update-management.md) avgör vilka datorer som har kon figurer ats för uppdateringshantering. Om din dator visas i arbets ytan men inte i Uppdateringshantering måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Ta bort arbets konfigurationen genom att följa stegen i [ta bort hybrid Runbook Worker från en lokal Windows-dator](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) eller [ta bort hybrid Runbook Worker från en lokal Linux-dator](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 

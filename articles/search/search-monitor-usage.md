@@ -7,111 +7,89 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: 421fddb819d4d396d3ab8890789e58ccb935cbc0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77462334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806819"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Övervaka åtgärder och aktiviteter i Azure Kognitiv sökning
 
-Den här artikeln introducerar övervakning på tjänste nivå (resurs) på arbets belastnings nivå (frågor och indexering) och föreslår ett ramverk för övervakning av användar åtkomst.
+Den här artikeln är en översikt över hur du övervakar koncept och verktyg för Azure Kognitiv sökning. För holistisk övervakning kan du använda en kombination av inbyggda funktioner och tilläggs tjänster som Azure Monitor.
 
-I spektrumet använder du en kombination av inbyggda infrastruktur-och grund tjänster som Azure Monitor, samt tjänst-API: er som returnerar statistik, antal och status. Att förstå möjligheterna med funktioner kan hjälpa dig att skapa en feedback-slinga så att du kan lösa problem när de uppstår.
+Du kan helt följa följande:
 
-## <a name="use-azure-monitor"></a>Använda Azure Monitor
+* Tjänst: hälso tillstånd/tillgänglighet och ändringar i tjänst konfigurationen.
+* Lagring: både Använd och tillgänglig, med antal för varje innehålls typ i förhållande till den kvot som tillåts för tjänst nivån.
+* Fråga aktivitet: volym, svars tid och begränsade eller avbrutna frågor. Loggade förfrågningar kräver [Azure Monitor](#add-azure-monitor).
+* Indexerings aktivitet: kräver [diagnostisk loggning](#add-azure-monitor) med Azure Monitor.
 
-Många tjänster, inklusive Azure Kognitiv sökning, utnyttjar [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) för aviseringar, mått och loggning av diagnostikdata. För Azure Kognitiv sökning används den inbyggda övervaknings infrastrukturen främst för övervakning på resurs nivå (tjänst hälsa) och [övervakning av frågor](search-monitor-queries.md).
+En Sök tjänst stöder inte autentisering per användare, så ingen identitets information finns i loggarna.
 
-På följande skärm bild kan du hitta Azure Monitor funktioner i portalen.
+## <a name="built-in-monitoring"></a>Inbyggd övervakning
 
-+ Fliken **övervakning** , som finns på huvud sidan för översikt, visar viktiga mått på ett ögonblick.
-+ **Aktivitets logg**, precis nedan – översikt, rapporter om åtgärder på resurs nivå: meddelanden om tjänstens hälso tillstånd och API-nyckel.
-+ **Övervakning**, mer ned i listan, innehåller konfigurerbara aviseringar, Mät värden och diagnostiska loggar. Skapa dem när du behöver dem. När data har samlats in och lagrats kan du fråga eller visualisera informationen för insikter.
+Inbyggd övervakning avser aktiviteter som loggas av en Sök tjänst. Med undantag för diagnostik krävs ingen konfiguration för den här övervaknings nivån.
+
+Azure Kognitiv sökning hanterar interna data på ett rullande 30-dagars schema för rapportering av service hälsa och Frågeregler, som du hittar i portalen eller via dessa REST-API: [er](#monitoring-apis).
+
+På följande skärm bild kan du hitta övervaknings information i portalen. Data blir tillgängliga så fort du börjar använda tjänsten. Portal sidor uppdateras en gång i minuten.
+
+* Fliken **övervakning** på sidan huvud översikt visar fråga volym, svars tid och om tjänsten är under tryck.
+* **Aktivitets loggen**i det vänstra navigerings fönstret är ansluten till Azure Resource Manager. Aktivitets logg rapporter om åtgärder som utförs av Resource Manager: tjänstens tillgänglighet och status, ändringar av kapacitet (repliker och partitioner) och API-relaterade aktiviteter.
+* **Övervaknings** inställningar, mer om, innehåller konfigurerbara aviseringar, mått och diagnostikloggar. Skapa dem när du behöver dem. När data har samlats in och lagrats kan du fråga eller visualisera informationen för insikter.
 
 ![Azure Monitor integrering i en Sök tjänst](./media/search-monitor-usage/azure-monitor-search.png
  "Azure Monitor integrering i en Sök tjänst")
 
-### <a name="precision-of-reported-numbers"></a>Precision för rapporterade siffror
+> [!NOTE]
+> Eftersom Portal sidorna uppdateras med några minuters mellanrum är de siffror som rapporteras ungefärliga och ger dig en allmän uppfattning om hur väl systemet hanterar begär Anden. Faktiska mått, till exempel frågor per sekund (frågor per sekund) kan vara högre eller lägre än det tal som visas på sidan. Om precisionen är ett krav bör du överväga att använda API: er.
 
-Portal sidor uppdateras en gång i minuten. Därför är tal som rapporteras i portalen ungefärliga, för att ge dig en allmän uppfattning om hur väl systemet hanterar begär Anden. Faktiska mått, till exempel frågor per sekund (frågor per sekund) kan vara högre eller lägre än det tal som visas på sidan.
+<a name="monitoring-apis"> </a>
 
-## <a name="activity-logs-and-service-health"></a>Aktivitets loggar och service hälsa
+### <a name="apis-useful-for-monitoring"></a>API: er som är användbara för övervakning
 
-[**Aktivitets loggen**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) samlar in information från Azure Resource Manager och rapporter om ändringar av tjänstens hälsa. Du kan övervaka aktivitets loggen för kritiska, fel och varnings villkor relaterade till tjänstens hälsa.
+Du kan använda följande API: er för att hämta samma information som finns på flikarna övervakning och användning i portalen.
 
-För tjänst uppgifter – till exempel frågor, indexering eller skapande av objekt – visas allmänna informations meddelanden som *Hämta administratörs nyckel* och *Hämta frågeinställningar* för varje begäran, men inte själva åtgärden. För information om denna kornig het måste du konfigurera diagnostisk loggning.
+* [Hämta tjänst statistik](/rest/api/searchservice/get-service-statistics)
+* [Hämta index statistik](/rest/api/searchservice/get-index-statistics)
+* [Hämta dokument antal](/rest/api/searchservice/count-documents)
+* [Hämta indexerings status](/rest/api/searchservice/get-indexer-status)
+
+### <a name="activity-logs-and-service-health"></a>Aktivitets loggar och service hälsa
+
+På sidan [**aktivitets logg**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) i portalen samlas information från Azure Resource Manager och rapporter om ändringar av tjänstens hälsa. Du kan övervaka aktivitets loggen för kritiska, fel och varnings villkor relaterade till tjänstens hälsa.
+
+Vanliga poster innehåller referenser till API-nycklar – allmänna informations meddelanden som *Hämta administratörs nyckel* och *Hämta frågeinställningar*. Dessa aktiviteter visar begär Anden som har gjorts med hjälp av administratörs nyckeln (skapa eller ta bort objekt) eller frågeinställningar, men som inte visar själva förfrågningen. För information om denna kornig het måste du konfigurera diagnostisk loggning.
 
 Du kan komma åt **aktivitets loggen** i det vänstra navigerings fönstret eller från meddelanden i det övre fönstrets kommando fält eller på sidan **diagnosticera och lösa problem** .
 
-## <a name="monitor-storage"></a>Övervaka lagring
+### <a name="monitor-storage-in-the-usage-tab"></a>Övervaka lagring på fliken användning
 
-Tabbade sidor som är inbyggda i översikts sidan rapporterar om resursanvändning. Den här informationen blir tillgänglig så snart du börjar använda tjänsten, utan konfiguration krävs, och sidan uppdateras med några minuters mellanrum. 
-
-Om du slutför beslut om [vilken nivå som ska användas för produktions arbets belastningar](search-sku-tier.md), eller om du vill [Justera antalet aktiva repliker och partitioner](search-capacity-planning.md), kan dessa mått hjälpa dig med dessa beslut genom att visa hur snabbt resurser förbrukas och hur väl den aktuella konfigurationen hanterar den befintliga belastningen.
-
-Aviseringar relaterade till lagring är inte tillgängliga för närvarande. lagrings förbrukningen är inte aggregerad eller inloggad i **AzureMetrics** -tabellen i Azure Monitor. Du behöver [bygga en anpassad lösning som utvecklar](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) resursbaserade meddelanden, där koden söker efter lagrings storlek och hanterar svaret. Mer information om lagrings mått finns i [Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
-
-För visuell övervakning i portalen visar fliken **användning** resurs tillgänglighet i förhållande till de aktuella [begränsningar](search-limits-quotas-capacity.md) som angetts av tjänst nivån. 
+För visuell övervakning i portalen visar fliken **användning** resurs tillgänglighet i förhållande till de aktuella [begränsningar](search-limits-quotas-capacity.md) som angetts av tjänst nivån. Om du slutför beslut om [vilken nivå som ska användas för produktions arbets belastningar](search-sku-tier.md), eller om du vill [Justera antalet aktiva repliker och partitioner](search-capacity-planning.md), kan dessa mått hjälpa dig med dessa beslut genom att visa hur snabbt resurser förbrukas och hur väl den aktuella konfigurationen hanterar den befintliga belastningen.
 
 Följande bild är avsedd för den kostnads fria tjänsten som är ett tak på 3 objekt av varje typ och 50 MB lagrings utrymme. En Basic-eller standard-tjänst har högre gränser, och om du ökar antalet partitioner, hamnar det maximala lagrings utrymmet proportionellt.
 
 ![Användnings status relativt nivå gränser](./media/search-monitor-usage/usage-tab.png
  "Användnings status relativt nivå gränser")
 
-## <a name="monitor-workloads"></a>Övervaka arbets belastningar
+> [!NOTE]
+> Aviseringar relaterade till lagring är inte tillgängliga för närvarande. lagrings förbrukningen är inte aggregerad eller inloggad i **AzureMetrics** -tabellen i Azure Monitor. För att få lagrings aviseringar måste du [skapa en anpassad lösning som utvecklar](../azure-monitor/insights/solutions-creating.md) resursbaserade meddelanden, där koden söker efter lagrings storlek och hanterar svaret.
 
-Loggade händelser inkluderar de som är relaterade till indexering och frågor. **AzureDiagnostics** -tabellen i Log Analytics samlar in drift data som rör frågor och indexering.
+<a name="add-azure-monitor"></a>
 
-De flesta av de loggade data är för skrivskyddade åtgärder. För andra åtgärder för att skapa-uppdatera-ta bort som inte har registrerats i loggen kan du söka efter system information i Sök tjänsten.
+## <a name="add-on-monitoring-with-azure-monitor"></a>Övervakning av tillägg med Azure Monitor
 
-| OperationName | Beskrivning |
-|---------------|-------------|
-| ServiceStats | Den här åtgärden är ett rutin anrop för att [Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), antingen kallat direkt eller implicit för att fylla i en portal översikts sida när den läses in eller uppdateras. |
-| Fråga. search |  Fråga begär Anden mot ett index se [övervaka frågor](search-monitor-queries.md) för information om loggade frågor.|
-| Indexering. index  | Den här åtgärden är ett anrop för att [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
-| index. Prototyp | Det här är ett index som skapats av guiden Importera data. |
-| Indexerare. skapa | Skapa en indexerare explicit eller implicit via guiden Importera data. |
-| Indexerare. Hämta | Returnerar namnet på en indexerare när indexeraren körs. |
-| Indexerare. status | Returnerar status för en indexerare när indexeraren körs. |
-| Data källor. get | Returnerar namnet på data källan när en indexerare körs.|
-| Index. get | Returnerar namnet på ett index när en indexerare körs. |
+Många tjänster, inklusive Azure Kognitiv sökning, integreras med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) för ytterligare aviseringar, mått och loggning av diagnostikdata. 
 
-### <a name="kusto-queries-about-workloads"></a>Kusto frågor om arbets belastningar
+[Aktivera diagnostisk loggning](search-monitor-logs.md) för en Sök tjänst om du vill ha kontroll över insamling och lagring av data. Loggade händelser som registrerats av Azure Monitor lagras i tabellen **AzureDiagnostics** och består av drift data som rör frågor och indexering.
 
-Om du har aktiverat loggning kan du fråga **AzureDiagnostics** efter en lista över åtgärder som kördes på din tjänst och när. Du kan också korrelera aktiviteter för att undersöka prestanda ändringar.
+Azure Monitor tillhandahåller flera lagrings alternativ och ditt val avgör hur du kan använda data:
 
-#### <a name="example-list-operations"></a>Exempel: list åtgärder 
+* Välj Azure Blob Storage om du vill [visualisera loggdata](search-monitor-logs-powerbi.md) i en Power BI rapport.
+* Välj Log Analytics om du vill utforska data via Kusto-frågor.
 
-Returnera en lista över åtgärder och antal var och en.
-
-```
-AzureDiagnostics
-| summarize count() by OperationName
-```
-
-#### <a name="example-correlate-operations"></a>Exempel: korrelera åtgärder
-
-Korrelera förfrågan med indexerings åtgärder och återge data punkter i ett tids diagram för att se att åtgärderna är sammanfallna.
-
-```
-AzureDiagnostics
-| summarize OperationName, Count=count()
-| where OperationName in ('Query.Search', 'Indexing.Index')
-| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
-| render timechart
-```
-
-### <a name="use-search-apis"></a>Använd Sök-API: er
-
-Både Azure Kognitiv sökning-REST API och .NET SDK ger programmerings åtkomst till tjänst statistik, index-och index information och dokument antal.
-
-+ [Hämta tjänst statistik](/rest/api/searchservice/get-service-statistics)
-+ [Hämta index statistik](/rest/api/searchservice/get-index-statistics)
-+ [Hämta dokument antal](/rest/api/searchservice/count-documents)
-+ [Hämta indexerings status](/rest/api/searchservice/get-indexer-status)
+Azure Monitor har en egen fakturerings struktur och diagnostiska loggar som refereras i det här avsnittet har en associerad kostnad. Mer information finns [i användning och uppskattade kostnader i Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
 
 ## <a name="monitor-user-access"></a>Övervaka användar åtkomst
 

@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 06/22/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: fe223030b98f95036f01cf69babdeb8a9a84dc2d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.openlocfilehash: b317c2a43352a750d4700fad56d5f7d741b2cc7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85242210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805760"
 ---
 | Resurs | Gräns |
 | --- | --- |
@@ -23,7 +22,7 @@ ms.locfileid: "85242210"
 |Minsta AzureFirewallSubnet-storlek |/26|
 |Portintervall i nätverk och regler|1 - 65535|
 |Offentliga IP-adresser|250 max. Alla offentliga IP-adresser kan användas i DNAT-regler och alla bidrar till tillgängliga SNAT-portar.|
-|IP-adresser i IP-grupper|50 IP-grupper eller mindre: maximalt 5000 enskilda IP-adresser per brand Väggs instans.<br>51-100 IP-grupper: 500 enskilda IP-adresser varje per brand Väggs instans.<br><br>Mer information finns i [IP-grupper (för hands version) i Azure-brandväggen](../articles/firewall/ip-groups.md#ip-address-limits)
+|IP-adresser i IP-grupper|Högst 100 IP-grupper per brand vägg.<br>Högst 5000 enskilda IP-adresser eller IP-prefix per IP-grupp.<br><br>Mer information finns i [IP-grupper i Azure-brandväggen](../articles/firewall/ip-groups.md#ip-address-limits).
 |Routningstabell|Som standard har AzureFirewallSubnet en router på 0.0.0.0/0 med NextHopType-värdet inställt på **Internet**.<br><br>Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP, måste du åsidosätta att med värdet 0.0.0.0/0 UDR med **NextHopType** -värdet inställt på **Internet** för att upprätthålla direkt Internet anslutning. Som standard stöder inte Azure-brandväggen Tvingad tunnel trafik till ett lokalt nätverk.<br><br>Men om konfigurationen kräver Tvingad tunnel trafik till ett lokalt nätverk, kommer Microsoft att stödja den på ett fall med hjälp av fall. Kontakta supporten så att vi kan granska ditt ärende. Om det godkänns kommer vi att tillåta din prenumeration och se till att den nödvändiga brand Väggs anslutningen för Internet underhålls.|
 
 <sup>1</sup> Kontakta Azure-supporten om du behöver öka dessa gränser.

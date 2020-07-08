@@ -4,12 +4,11 @@ description: Svar på vanliga frågor som rör Azure Container Instances tjänst
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 64dcd3da42083401d7086c1db6f3f930beb9a76d
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806609"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Vanliga frågor och svar om Azure Container Instances
 
@@ -27,7 +26,7 @@ Storleken på behållar avbildningen påverkar hur lång tid det tar att distrib
 
 Eftersom en av de huvudsakliga faktorerna för distributions tider är bild storleken kan du se till att minska storleken på olika sätt. Ta bort lager du inte behöver eller minska storleken på lagren i bilden (genom att välja en ljusare bas operativ system avbildning). Om du till exempel kör Linux-behållare bör du överväga att använda Alpine som bas avbildning i stället för en fullständig Ubuntu-Server. På samma sätt använder du en Nano Server-avbildning om det är möjligt för Windows-behållare. 
 
-Du bör också kontrol lera listan över cachelagrade avbildningar i Azure Container images, som är tillgängliga via API: et för [cachelagrade avbildningar](/rest/api/container-instances/listcachedimages) . Du kanske kan byta ut ett bild lager för en av de förcachelagrade bilderna. 
+Du bör också kontrol lera listan över cachelagrade avbildningar i Azure Container images, som är tillgängliga via API: et för [cachelagrade avbildningar](/rest/api/container-instances/location/listcachedimages) . Du kanske kan byta ut ett bild lager för en av de förcachelagrade bilderna. 
 
 Mer [detaljerad](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) information om hur du minskar start tiden för behållare.
 

@@ -15,10 +15,9 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791800"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klassiska Azure-prenumerationsadministratörer
@@ -27,7 +26,7 @@ Microsoft rekommenderar att du hanterar åtkomst till Azure-resurser med hjälp 
 
 I den här artikeln beskrivs hur du lägger till eller ändrar rollen som medadministratör och tjänst administratör och hur du visar konto administratören.
 
-## <a name="add-a-co-administrator"></a>Lägg till en gemensam administratör
+## <a name="add-a-co-administrator"></a>Lägga till en medadministratör
 
 > [!TIP]
 > Du behöver bara lägga till en medadministratör om användaren behöver hantera klassiska Azure-distributioner med hjälp av [Azure Service Management PowerShell-modulen](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Om användaren bara använder Azure Portal för att hantera de klassiska resurserna behöver du inte lägga till den klassiska administratören för användaren.
@@ -125,7 +124,7 @@ Det kan bara finnas en tjänst administratör per Azure-prenumeration. Att ändr
 
 | Konto administratörs konto | Kan du ändra tjänst administratör till en annan Microsoft-konto? | Kan du ändra tjänst administratör till ett Azure AD-konto i samma katalog? | Kan du ändra tjänst administratör till ett Azure AD-konto i en annan katalog? |
 | --- | --- | --- | --- |
-| Microsoft-konto | Yes | Inga | Inga |
+| Microsoft-konto | Ja | Nej | Nej |
 | Azure AD-konto | Ja | Ja | No |
 
 Om konto administratören är ett Azure AD-konto kan du ändra tjänst administratören till ett Azure AD-konto i samma katalog, men inte i en annan katalog. Kan till exempel abby@contoso.com ändra tjänst administratören till bob@contoso.com , men kan inte ändra tjänst administratören till john@notcontoso.com om den inte john@notcontoso.com har en närvaro i contoso.com-katalogen.

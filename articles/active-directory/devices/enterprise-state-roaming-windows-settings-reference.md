@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252975"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
@@ -28,10 +27,10 @@ I följande tabell finns en sammanfattning av de enheter och konto typer som st�
 
 | Konto typ och åtgärd | Skrivbord | Mobilt |
 | --- | --- | --- |
-| Azure Active Directory: synkronisera |Yes |No |
-| Azure Active Directory: säkerhets kopiering/återställning |Inga |Inga |
+| Azure Active Directory: synkronisera |Ja |No |
+| Azure Active Directory: säkerhets kopiering/återställning |Nej |Nej |
 | Microsoft-konto: synkronisera |Ja |Ja |
-| Microsoft-konto: säkerhets kopiering/återställning |No |Yes |
+| Microsoft-konto: säkerhets kopiering/återställning |No |Ja |
 
 ## <a name="what-is-backup"></a>Vad är säkerhets kopiering?
 

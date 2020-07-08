@@ -3,12 +3,11 @@ title: Azure Application Insights IP-webbplatssamling | Microsoft Docs
 description: Förstå hur IP-adresser och geolokalisering hanteras med Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 969061ec89ddd0f13caa675bc324207c6c5d8843
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77656525"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807136"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Hantering av geolokalisering och IP-adresser
 
@@ -18,7 +17,7 @@ Den här artikeln förklarar hur geolokalisering och IP-adress hantering sker i 
 
 Som standard samlas IP-adresser in tillfälligt, men lagras inte i Application Insights. Den grundläggande processen ser ut så här:
 
-IP-adresser skickas till Application Insights som en del av telemetri-data. När inläsnings slut punkten nåtts i Azure används IP-adressen för att genomföra en geolokalisering med [GeoLite2 från MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Resultatet av sökningen används för att fylla i följande fält `client_City`, `client_StateOrProvince`,. `client_CountryOrRegion` I det här läget ignoreras IP-adressen och `0.0.0.0` den skrivs till `client_IP` fältet.
+IP-adresser skickas till Application Insights som en del av telemetri-data. När inläsnings slut punkten nåtts i Azure används IP-adressen för att genomföra en geolokalisering med [GeoLite2 från MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Resultatet av sökningen används för att fylla i följande fält `client_City` , `client_StateOrProvince` , `client_CountryOrRegion` . I det här läget ignoreras IP-adressen och den `0.0.0.0` skrivs till `client_IP` fältet.
 
 * Webb läsar telemetri: vi samlar tillfälligt in avsändarens IP-adress. IP-adressen beräknas av inmatnings slut punkten.
 * Server telemetri: Application Insights-modulen samlar tillfälligt in klientens IP-adress. Den samlas inte in om `X-Forwarded-For` har angetts.
@@ -31,7 +30,7 @@ Det här beteendet är avsiktligt för att undvika onödig insamling av personli
 
 ## <a name="storing-ip-address-data"></a>Lagra IP-Datadata
 
-För att aktivera IP-insamling och lagring måste `DisableIpMasking` egenskapen för Application Insights-komponenten anges till. `true` Den här egenskapen kan anges antingen via Azure Resource Manager mallar eller genom att anropa REST API. 
+För att aktivera IP-insamling och lagring `DisableIpMasking` måste egenskapen för Application Insights-komponenten anges till `true` . Den här egenskapen kan anges antingen via Azure Resource Manager mallar eller genom att anropa REST API. 
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
@@ -59,7 +58,7 @@ För att aktivera IP-insamling och lagring måste `DisableIpMasking` egenskapen 
 
 Om du bara behöver ändra beteendet för en enskild Application Insights resurs är det enklaste sättet att göra detta via Azure Portal.  
 
-1. Gå till din Application Insights resurs > **Inställningar** > **Exportera mall** 
+1. Gå till din Application Insights resurs > **Inställningar**  >  **Exportera mall** 
 
     ![Exportera mall](media/ip-collection/export-template.png)
 
@@ -78,7 +77,7 @@ Om du bara behöver ändra beteendet för en enskild Application Insights resurs
     > [!WARNING]
     > Om det uppstår ett fel som säger att ** _resurs gruppen finns på en plats som inte stöds av en eller flera resurser i mallen. Välj en annan resurs grupp._** Välj tillfälligt en annan resurs grupp i list rutan och välj sedan den ursprungliga resurs gruppen igen för att lösa problemet.
 
-5. Välj **Jag accepterar** > **köp**. 
+5. Välj **Jag accepterar**  >  **köp**. 
 
     ![Redigera mall](media/ip-collection/purchase.png)
 
@@ -95,7 +94,7 @@ Om du bara behöver ändra beteendet för en enskild Application Insights resurs
     $AppInsights.Properties
     ```
     
-    En lista med egenskaper kommer att returneras som ett resultat. En av egenskaperna ska läsas `DisableIpMasking: true`. Om du kör PowerShell innan du distribuerar den nya egenskapen med Azure Resource Manager, finns inte egenskapen.
+    En lista med egenskaper kommer att returneras som ett resultat. En av egenskaperna ska läsas `DisableIpMasking: true` . Om du kör PowerShell innan du distribuerar den nya egenskapen med Azure Resource Manager, finns inte egenskapen.
 
 ### <a name="rest-api"></a>REST-API
 
@@ -120,7 +119,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Telemetri-initierare
 
-Om du behöver ett mer flexibelt alternativ `DisableIpMasking` än att registrera hela eller delar av IP-adresser kan du använda en [telemetri-initierare](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) för att kopiera hela eller delar av IP-adressen till ett anpassat fält. 
+Om du behöver ett mer flexibelt alternativ än `DisableIpMasking` att registrera hela eller delar av IP-adresser kan du använda en [telemetri-initierare](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) för att kopiera hela eller delar av IP-adressen till ett anpassat fält. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -148,7 +147,7 @@ namespace MyWebApp
 ```
 
 > [!NOTE]
-> Om du inte kan komma åt `ISupportProperties`kontrollerar du och kontrollerar att du kör den senaste stabila versionen av Application Insights SDK. `ISupportProperties`är avsedda för höga kardinal värden, och `GlobalProperties` är mer lämpliga för låga kardinal-värden som region namn, miljö namn osv. 
+> Om du inte kan komma åt `ISupportProperties` kontrollerar du och kontrollerar att du kör den senaste stabila versionen av Application Insights SDK. `ISupportProperties`är avsedda för höga kardinal värden, och `GlobalProperties` är mer lämpliga för låga kardinal-värden som region namn, miljö namn osv. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>Aktivera telemetri-initierare för ASP.NET
 
@@ -229,10 +228,10 @@ requests
 | project appName, operation_Name, url, resultCode, client_IP, customDimensions.["client-ip"]
 ```
 
-Nyligen insamlade IP-adresser ska `customDimensions_client-ip` visas i kolumnen. Standard `client-ip` kolumnen kommer fortfarande att ha alla 4 oktetter antingen noll eller bara visa de första tre oktetterna beroende på hur du har konfigurerat IP-adresspoolen på komponent nivå. Om du testar lokalt när du har implementerat telemetri-initieraren och värdet du ser `customDimensions_client-ip` för `::1` är detta förväntat beteende. `::1`representerar loopback-adressen i IPv6. Den motsvarar `127.0.01` i IPv4 och är resultatet som visas när du testar från localhost.
+Nyligen insamlade IP-adresser ska visas i `customDimensions_client-ip` kolumnen. Standard `client-ip` kolumnen kommer fortfarande att ha alla 4 oktetter antingen noll eller bara visa de första tre oktetterna beroende på hur du har KONFIGURERAT IP-adresspoolen på komponent nivå. Om du testar lokalt när du har implementerat telemetri-initieraren och värdet du ser för `customDimensions_client-ip` är `::1` detta förväntat beteende. `::1`representerar loopback-adressen i IPv6. Den motsvarar `127.0.01` i IPv4 och är resultatet som visas när du testar från localhost.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [insamling av personliga data](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) i Application Insights.
 
-* Lär dig mer om hur [IP-webbplatssamling](https://apmtips.com/blog/2016/07/05/client-ip-address/) i Application Insights fungerar. (Det här är ett äldre externt blogg inlägg som skrivits av någon av våra tekniker. Detta fördaterar det aktuella standard beteendet där IP-adressen registreras `0.0.0.0`som, men den ökar djupet på Mechanics för det inbyggda `ClientIpHeaderTelemetryInitializer`.)
+* Lär dig mer om hur [IP-webbplatssamling](https://apmtips.com/posts/2016-07-05-client-ip-address/) i Application Insights fungerar. (Det här är ett äldre externt blogg inlägg som skrivits av någon av våra tekniker. Detta fördaterar det aktuella standard beteendet där IP-adressen registreras som `0.0.0.0` , men den ökar djupet på Mechanics för det inbyggda `ClientIpHeaderTelemetryInitializer` .)

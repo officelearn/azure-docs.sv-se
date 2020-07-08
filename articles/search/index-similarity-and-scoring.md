@@ -8,12 +8,11 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 4c725fe74185088dea55b7506493fe667e71b7ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679653"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806643"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Likhet och bedömning i Azure Kognitiv sökning
 
@@ -38,7 +37,7 @@ En bedömnings profil är en del av index definitionen, som består av viktade f
 
 <a name="scoring-statistics"></a>
 
-## <a name="scoring-statistics-and-sticky-sessions-preview"></a>Bedömnings statistik och tröga sessioner (för hands version)
+## <a name="scoring-statistics-and-sticky-sessions"></a>Bedömnings statistik och tröga sessioner
 
 För skalbarhet distribuerar Azure Kognitiv sökning varje index vågrätt genom en horisontell partitionering process, vilket innebär att delar av ett index är fysiskt åtskilda.
 
@@ -47,14 +46,14 @@ Som standard beräknas poängen för ett dokument baserat på statistiska egensk
 Om du föredrar att beräkna poängen baserat på de statistiska egenskaperna för alla Shards kan du göra det genom att lägga till *scoringStatistics = global* som en [frågeparameter](https://docs.microsoft.com/rest/api/searchservice/search-documents) (eller lägga till *"scoringStatistics": "global"* som en text parameter för [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
 Om du använder scoringStatistics ser du till att alla Shards i samma replik ger samma resultat. Detta är att olika repliker kan skilja sig något från varandra när de alltid uppdateras med de senaste ändringarna i ditt index. I vissa fall kanske du vill att användarna ska få mer konsekventa resultat under en "frågenod". I sådana scenarier kan du ange en `sessionId` som del av dina frågor. `sessionId`Är en unik sträng som du skapar för att referera till en unik användarsession.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
@@ -72,6 +71,37 @@ Nu kan du ange vilken algoritm för rangordning av likheter som du vill använda
 Följande video segment snabb Spolar framåt till en förklaring av de rangordnings algoritmer som används i Azure Kognitiv sökning. Du kan se hela videon om du vill ha mer bakgrund.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+<a name="featuresMode-param"></a>
+
+## <a name="featuresmode-parameter-preview"></a>featuresMode-parameter (förhands granskning)
+
+[Search Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) -begäranden har en ny [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) -parameter som kan ge ytterligare information om relevans på fält nivå. Det `@searchScore` beräknas för hela dokumentet (hur relevant är det här dokumentet inom ramen för den här frågan) genom featuresMode. du kan få information om enskilda fält som uttrycks i en `@search.features` struktur. Strukturen innehåller alla fält som används i frågan (antingen vissa fält via **searchFields** i en fråga, eller alla fält som har attribut som **sökbara** i ett index). För varje fält får du följande värden:
+
++ Antalet unika tokens som hittades i fältet
++ Likhets poäng, eller ett mått på hur likartat innehållet i fältet är, relativt till frågeterm
++ Term frekvens eller antalet gånger som frågeterm hittades i fältet
+
+För en fråga som är inriktad på fälten "Beskrivning" och "title" kan ett svar som inkluderar `@search.features` se ut så här:
+
+```json
+"value": [
+ {
+    "@search.score": 5.1958685,
+    "@search.features": {
+        "description": {
+            "uniqueTokenMatches": 1.0,
+            "similarityScore": 0.29541412,
+            "termFrequency" : 2
+        },
+        "title": {
+            "uniqueTokenMatches": 3.0,
+            "similarityScore": 1.75451557,
+            "termFrequency" : 6
+        }
+```
+
+Du kan använda dessa data punkter i [anpassade bedömnings lösningar](https://github.com/Azure-Samples/search-ranking-tutorial) eller använda informationen för att felsöka problem med att söka efter relevans.
 
 ## <a name="see-also"></a>Se även
 

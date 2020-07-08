@@ -7,15 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791154"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av data flöde
 
-Med Azure Cosmos DB kan du ange antingen standard (manuell) eller autoskalning av allokerat data flöde på dina databaser och behållare. I den här artikeln beskrivs fördelarna med och användnings fall för autoskalning av allokerat data flöde. 
+Med Azure Cosmos DB kan du ange standardmässigt (manuell) dataflöde eller dataflöde som etablerats med autoskalning på dina databaser och containrar. I den här artikeln beskrivs fördelarna med och användningsfallen för autoskalningsetablerat dataflöde. 
 
 Autoskalning av allokerat data flöde passar bra för verksamhets kritiska arbets belastningar som har varierande eller oförutsägbara trafik mönster, och kräver service avtal för hög prestanda och skalning. 
 
@@ -63,11 +62,11 @@ Använd [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Data flödes-och lagrings gränser för autoskalning
 
-För ett värde av `Tmax` kan databasen eller containern lagra totalt `0.01 * Tmax GB` . När den här lagrings mängden uppnås ökas det högsta antalet RU/s automatiskt baserat på det nya lagring svärdet, utan att ditt program påverkas. 
+För ett värde av `Tmax` kan databasen eller containern lagra totalt `0.01 * Tmax GB` . När den här mängden lagring nås ökar maximalt antal RU:er automatiskt baserat på det nya lagringsvärdet, utan att ditt program påverkas. 
 
-Om du till exempel börjar med maximalt RU/s av 50 000 RU/s (skalas mellan 5000-50 000 RU/s) kan du lagra upp till 500 GB data. Om du överskrider 500 GB, t. ex. lagrings utrymmet är 600 GB, blir de nya maximalt RU/s 60 000 RU/s (skalas mellan 6000-60 000 RU/s).
+Om du till exempel börjar med maximalt antal RU:er på 50 000 RU/s (skalar mellan 5 000–50 000 RU/s) kan du lagra upp till 500 GB data. Om du överskrider 500 GB, och lagringen till exempel ökar till 600 GB, blir det nya maximala antalet RU:er 60 000 RU/s (skalar mellan 6 000–60 000 RU/s).
 
-När du använder data flöde med databas nivå med autoskalning kan du låta de första 25 behållarna dela med största antal RU/s på 4000 (skalas mellan 400-4000 RU/s), förutsatt att du inte överskrider 40 GB lagrings utrymme. Mer information finns i den här [dokumentationen](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) .
+När du använder dataflöde med autoskalning på databasnivå kan du låta de första 25 containrarna dela på ett maximalt antal RU:er med autoskala på 4 000 (skalar mellan 400–4 000 RU/s), så länge du inte överstiger 40 GB lagring. Mer information finns i den här [dokumentationen](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) .
 
 ## <a name="comparison--containers-configured-with-manual-vs-autoscale-throughput"></a>Jämförelse – behållare som kon figurer ATS med manuella vs-genomflöde med autoskalning
 Mer information finns i den här [dokumentationen](how-to-choose-offer.md) om hur du väljer mellan standard (manuell) och autoskalning av data flöde.  

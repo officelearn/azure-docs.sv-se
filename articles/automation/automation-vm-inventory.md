@@ -4,14 +4,14 @@ description: Den här artikeln beskriver hur du hanterar inventerings insamling 
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 01/28/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603119"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Hantera inventeringsinsamling från virtuella datorer
 
@@ -87,7 +87,7 @@ I följande avsnitt finns information om varje egenskap som kan konfigureras fö
 |Ange sökväg     | Sökvägen för att söka efter filen, till exempel **/etc/*. conf**.       |
 |Sökvägstyp     | Den typ av objekt som ska spåras. Värden är fil och katalog.        |
 |Rekursion     | Sant om rekursion används vid sökning efter objektet som ska spåras och falskt annars.        |
-|Använda Sudo     | Sant om sudo används vid sökning efter objektet och falskt annars.         |
+|Använd sudo     | Sant om sudo används vid sökning efter objektet och falskt annars.         |
 |Länkar     | Värde som anger hur symboliska länkar hanteras när du bläddrar i kataloger. Möjliga värden: <br> Ignorera – Ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger<br>Följ – Följer de symboliska länkarna under rekursion och inkluderar refererade filer/kataloger<br>Hantera – Följer de symboliska länkarna och tillåter ändring av behandling av returnerat innehåll      |
 
 ## <a name="manage-machine-groups"></a>Hantera dator grupper
@@ -100,7 +100,7 @@ Om du vill visa dator grupper väljer du fliken **dator grupper** på sidan inve
 
 ![Visa dator grupper på inventerings Sidan](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-Om du väljer en dator grupp i listan öppnas sidan dator grupper. Den här sidan visar information om dator gruppen. Den här informationen omfattar Log Analytics-frågan som används för att definiera gruppen. Längst ned på sidan finns en lista över de datorer som ingår i gruppen.
+Om du väljer en dator grupp i listan öppnas sidan dator grupper. Den här sidan visar information om dator gruppen. Informationen omfattar Azure Monitor logg frågan som används för att definiera gruppen. Längst ned på sidan finns en lista över de datorer som ingår i gruppen.
 
 ![Visa dator grupp Sidan](./media/automation-vm-inventory/machine-group-page.png)
 
@@ -115,15 +115,18 @@ Om du vill skapa en ny dator grupp klickar du på **+ skapa en dator grupp**. De
 Ta bort den virtuella datorn från Ändringsspårning och inventerings hantering:
 
 1. I den vänstra rutan i Azure Portal väljer du **Log Analytics**och väljer sedan den arbets yta som du använde när du aktiverade den virtuella datorn för ändringsspårning och inventering.
-2. Öppna menyn **resurs** på sidan Log Analytics.
+2. Öppna menyn **resurs** på sidan **Log Analytics** .
 3. Välj **Virtual Machines** under **arbets ytans data källor**.
 4. I listan väljer du den virtuella dator som du vill koppla från. Datorn har en grön bock bredvid **den här arbets ytan** i kolumnen **OMS-anslutning** .
 
    >[!NOTE]
    >Operations Management Suite (OMS) kallas nu Azure Monitor loggar.
-   
+
 5. Klicka på **Koppla från**överst på nästa sida.
 6. I bekräftelse fönstret klickar du på **Ja** för att koppla bort datorn från hantering.
+
+>[!NOTE]
+>Datorer visas fortfarande när du har avregistrerat dem eftersom vi rapporterar om alla datorer som har inventerats under de senaste 24 timmarna. När du har kopplat från datorn måste du vänta 24 timmar innan de inte längre visas.
 
 ## <a name="next-steps"></a>Nästa steg
 

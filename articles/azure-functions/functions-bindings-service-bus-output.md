@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus bindningar för Azure Functions
+title: Azure Service Bus utgående bindningar för Azure Functions
 description: Lär dig att skicka Azure Service Bus meddelanden från Azure Functions.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 1d3441847fc47146418265804457c37c693bd60b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603646"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
 
@@ -381,13 +381,14 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
     }
 }
 ```
+
 Om du har `isSessionsEnabled` ställt in till `true` , `sessionHandlerOptions` kommer att användas.  Om du har `isSessionsEnabled` ställt in till `false` , `messageHandlerOptions` kommer att användas.
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
 |prefetchCount|0|Hämtar eller anger antalet meddelanden som meddelande mottagaren samtidigt kan begära.|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|
-|Automatisk|true|Anger om utlösaren ska anropa Complete efter bearbetning eller om funktions koden ska anropas manuellt.|
+|Automatisk|true|Anger om utlösaren ska anropa Complete efter bearbetning eller om funktions koden ska anropas manuellt.<br><br>Inställningen till `false` stöds bara i C#.<br><br>Om detta är inställt på `true` , slutför utlösaren meddelandet automatiskt om funktions körningen slutförs utan problem, och överger meddelandet annars.<br><br>När det är inställt på `false` , ansvarar du för att anropa [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) -metoder för att slutföra, överge eller obeställbara meddelanden kön meddelandet. Om ett undantag genereras (och ingen av `MessageReceiver` metoderna anropas), kommer låset att fortsätta. När låset har gått ut placeras meddelandet i kö igen `DeliveryCount` och låset förnyas automatiskt.<br><br>I icke-C #-funktioner resulterar undantag i funktionen i körnings anropen `abandonAsync` i bakgrunden. Om inget undantag inträffar, `completeAsync` anropas sedan i bakgrunden. |
 |maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringningen som meddelande pumpen ska initiera per skalad instans. Som standard bearbetar Functions-körningen flera meddelanden samtidigt.|
 |maxConcurrentSessions|2000|Maximalt antal sessioner som kan hanteras samtidigt per skalad instans.|
 

@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df52969ea79e5d1af132aa82c2ec1ceedb92b82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87b063a4d51d5d5d1e3d7949be3754ccbe74acca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75422914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604122"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Tilldela roller som administratör och icke-administratör till användare med Azure Active Directory
 Om en användare i din organisation behöver behörighet att hantera Azure Active Directory (Azure AD)-resurser måste du tilldela användaren en lämplig roll i Azure AD, baserat på de åtgärder som användaren behöver behörighet att utföra.
@@ -38,7 +38,7 @@ Du kan också tilldela roller med Privileged Identity Management (PIM). Mer deta
       ![Azure Portal Sök efter Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
 
 
-3. Välj **Användare**.
+3. Välj **användare**.
 
 4. Sök efter och välj den användare som ska få roll tilldelningen. Till exempel _Alain Charon_.
 

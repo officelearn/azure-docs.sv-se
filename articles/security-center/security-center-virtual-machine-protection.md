@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8faff37e127e80447e0f066ef17e2885d4bcb597
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80435636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799742"
 ---
 # <a name="protect-your-machines-and-applications"></a>Skydda dina datorer och program
 När Azure Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
@@ -163,15 +162,13 @@ När du öppnar fliken **behållare** , beroende på din miljö, kan du se tre t
 
 ![Container värd](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) Container hosts-virtuella datorer som kör Docker 
 
-![Kubernetes-tjänst](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes service-kluster (AKS)
+![](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)AKS-kluster (Kubernetes service Azure Kubernetes service). [Läs mer om Security Center AKS-paketet](azure-kubernetes-service-integration.md)
 
-![Containerregister](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure Container Registry (ACR) register – visas bara när du är på standard pris nivån och när du har aktiverat Azure Container Registry-paketet.
+![](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)ACR-register (container registry Azure Container Registry). [Läs mer om Security Center ACR-paketet](azure-container-registry-integration.md)
 
 Instruktioner för hur du använder säkerhets funktionerna för behållare finns i [övervaka säkerheten för dina behållare](monitor-container-security.md).
 
-Fördelarna med Azure Container Registry-paketet beskrivs [här](azure-container-registry-integration.md)
 
-Fördelarna med Kubernetes Services-paketet beskrivs [här](azure-kubernetes-service-integration.md)
 
 [![Fliken behållare](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 

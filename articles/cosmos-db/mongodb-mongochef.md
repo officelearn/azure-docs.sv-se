@@ -8,12 +8,11 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 0159f69dcef2a98a8597762902ff2f45f30b0bef
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
-ms.translationtype: MT
+ms.openlocfilehash: 18a9f97d2cee9dd17345a1c8c0ae0efe442d79a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799402"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Ansluta till ett Azure Cosmos-konto med Studio 3T
 
@@ -63,25 +62,29 @@ Utför följande steg för att skapa en databas, samling och dokument med Studio
     :::image type="content" source="./media/mongodb-mongochef/AddDocument1.png" alt-text="Skärm bild av meny alternativet Lägg till dokument på Studio-3T":::
 5. I dialog rutan Lägg till dokument klistrar du in följande och klickar sedan på **Lägg till dokument**.
 
-        {
+    ```json
+    {
         "_id": "AndersenFamily",
         "lastName": "Andersen",
         "parents": [
-               { "firstName": "Thomas" },
-               { "firstName": "Mary Kay"}
+            { "firstName": "Thomas" },
+            { "firstName": "Mary Kay"}
         ],
         "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
+            {
+                "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+                "pets": [{ "givenName": "Fluffy" }]
+            }
         ],
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
-        }
+    }
+    ```
+    
 6. Lägg till ett annat dokument, den här gången med följande innehåll:
 
-        {
+    ```json
+    {
         "_id": "WakefieldFamily",
         "parents": [
             { "familyName": "Wakefield", "givenName": "Robin" },
@@ -90,7 +93,7 @@ Utför följande steg för att skapa en databas, samling och dokument med Studio
         "children": [
             {
                 "familyName": "Merriam",
-                 "givenName": "Jesse",
+                "givenName": "Jesse",
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
@@ -99,13 +102,15 @@ Utför följande steg för att skapa en databas, samling och dokument med Studio
             },
             {
                 "familyName": "Miller",
-                 "givenName": "Lisa",
-                 "gender": "female",
-                 "grade": 8 }
+                "givenName": "Lisa",
+                "gender": "female",
+                "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
-        }
+    }
+    ```
+
 7. Kör en exempel fråga. Du kan till exempel söka efter familjer med efter namnet "Andersen" och returnera fälten föräldrar och State.
 
     :::image type="content" source="./media/mongodb-mongochef/QueryDocument1.png" alt-text="Skärm bild av frågeresultatet Mongo chef":::

@@ -13,10 +13,9 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84675210"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
@@ -229,7 +228,7 @@ Det finns olika sätt att använda loggnings-API: er för att registrera olika t
 |Logg tabell med 2 numeriska kolumner|`run.log_table(name='Sine Wave', value=sines)`|Linje diagram med två variabler|
 
 
-## <a name="example-notebooks"></a>Exempel på bärbara datorer
+## <a name="example-notebooks"></a>Exempelnotebook-filer
 Följande antecknings böcker demonstrerar begrepp i den här artikeln:
 * [instruktionen att använda – azureml/Training/Train-i-Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [instruktionen att använda – azureml/Training/träna-on-Local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)

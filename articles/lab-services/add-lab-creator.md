@@ -4,10 +4,9 @@ description: Den här artikeln visar hur du lägger till en användare i labb sk
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444292"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Lägga till labb skapare i ett labb konto i Azure Lab Services

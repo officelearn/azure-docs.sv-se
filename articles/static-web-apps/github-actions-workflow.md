@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: 92d445991aa8b90a343ad7d015787cff35ddf183
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340927"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub åtgärder arbets flöden för för hands versionen av Azure static Web Apps
@@ -138,7 +137,7 @@ with:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |---|---|---|
-| `app_location` | Plats för program koden.<br><br>Ange till exempel `/` om din program käll kod är i roten för lagrings platsen eller `/app` om program koden finns i en katalog som kallas `app` . | Yes |
+| `app_location` | Plats för program koden.<br><br>Ange till exempel `/` om din program käll kod är i roten för lagrings platsen eller `/app` om program koden finns i en katalog som kallas `app` . | Ja |
 | `api_location` | Azure Functionss kodens plats.<br><br>Ange till exempel `/api` om din app-kod finns i en mapp med namnet `api` . Om det inte går att hitta någon Azure Functions app i mappen, kan inte versionen av det här arbets flödet antas att du inte vill ha något API. | No |
 | `app_artifact_location` | Platsen för build-utdatakatalogen i förhållande till `app_location` .<br><br>Om programmets käll kod till exempel finns i `/app` och bygg skriptet `/app/build` utvärderar filer till mappen, anger du `build` som `app_artifact_location` värde. | No |
 

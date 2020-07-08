@@ -8,14 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d5c0878a5999f1d7d716d8caaf9f3fffa5e401dc
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982378"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040341"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Så här fungerar förtroende relationer för resurs skogar i Azure Active Directory Domain Services
 
@@ -26,6 +25,10 @@ För att söka efter den här förtroende relationen beräknar Windows-säkerhet
 De åtkomst kontroll metoder som tillhandahålls av AD DS och Windows-distribuerad säkerhets modell ger en miljö för driften av domän-och skogs förtroenden. För att dessa förtroenden ska fungera korrekt måste varje resurs eller dator ha en direkt förtroende väg till en DOMÄNKONTROLLANT i domänen där den finns.
 
 Förtroende vägen implementeras av tjänsten Net Logon med en autentiserad RPC-anslutning (Remote Procedure Call) till den betrodda domän utfärdaren. En säker kanal utökar också andra AD DS-domäner genom förtroende relationer mellan domäner. Den här säkra kanalen används för att hämta och verifiera säkerhets information, inklusive säkerhets identifierare (sid) för användare och grupper.
+
+En översikt över hur förtroenden gäller för Azure AD DS finns i avsnittet om [begrepp och funktioner för resurs skogar][create-forest-trust].
+
+Kom igång med att använda förtroenden i Azure AD DS genom att [skapa en hanterad domän som använder skogs förtroenden][tutorial-create-advanced].
 
 ## <a name="trust-relationship-flows"></a>Betrodda Relations flöden
 
@@ -128,7 +131,7 @@ Om klienten använder Kerberos V5 för autentisering begär den en biljett till 
 
 2. Finns det en transitiv förtroende relation mellan den aktuella domänen och nästa domän på förtroende vägen?
     * Om ja, skicka klienten en hänvisning till nästa domän på förtroende Sök vägen.
-    * Om nej, skicka klienten ett meddelande om nekad inloggning.
+    * Om nej, skicka ett meddelande om nekad inloggning för klienten.
 
 ### <a name="ntlm-referral-processing"></a>Bearbetning av NTLM-referenser
 
@@ -152,7 +155,7 @@ När två skogar är anslutna via ett skogs förtroende kan autentiseringsbegär
 
 När ett skogs förtroende först upprättas samlar varje skog alla betrodda namn områden i sin partner skog och lagrar informationen i ett [betrott domän objekt](#trusted-domain-object). Betrodda namn områden inkluderar domän träds namn, User Principal Name (UPN) suffix, SPN-suffix (Service Principal Name) och säkerhets-ID: n (SID) som används i den andra skogen. TDO-objekt replikeras till den globala katalogen.
 
-Innan autentiseringsprotokollen kan följa sökvägen till skogs förtroendet, måste tjänstens huvud namn (SPN) för resurs datorn matchas till en plats i den andra skogen. Ett SPN kan vara något av följande:
+Innan autentiseringsprotokollen kan följa sökvägen till skogs förtroendet, måste tjänstens huvud namn (SPN) för resurs datorn matchas till en plats i den andra skogen. Ett SPN kan vara något av följande namn:
 
 * DNS-namnet för en värd.
 * DNS-namnet för en domän.
@@ -228,7 +231,7 @@ En lösen ords ändring slutförs inte förrän autentiseringen med lösen ordet
 
 Om autentisering med det nya lösen ordet Miss lyckas eftersom lösen ordet är ogiltigt försöker domänkontrollanten som är betrodd autentisera med det gamla lösen ordet. Om den autentiseras med det gamla lösen ordet återupptas processen för lösen ords ändring inom 15 minuter.
 
-Förtroende lösen ords uppdateringar måste replikeras till domän kontrol Lanterna på båda sidor om förtroende inom 30 dagar. Om lösen ordet för förtroendet ändras efter 30 dagar och en domänkontrollant bara har lösen ordet för N-2, kan det inte använda förtroendet från den betrodda sidan och kan inte skapa en säker kanal på den betrodda sidan.
+Förtroende lösen ords uppdateringar måste replikeras till domän kontrol Lanterna på båda sidor om förtroende inom 30 dagar. Om lösen ordet för förtroendet ändras efter 30 dagar och en domänkontrollant endast har lösen ordet för N-2, kan det inte använda förtroendet från den betrodda sidan och kan inte skapa en säker kanal på den betrodda sidan.
 
 ## <a name="network-ports-used-by-trusts"></a>Nätverks portar som används av förtroenden
 

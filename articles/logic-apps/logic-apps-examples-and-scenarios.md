@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 786655f8e8ee7e21f2615361b0bb1ea336ccb479
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84190740"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Vanliga scenarier, exempel, självstudier och genom gångar för Azure Logic Apps
@@ -86,7 +85,7 @@ För system och tjänster som inte har publicerade anslutningar kan du även ut�
 För företags integrerings lösningar och sömlös kommunikation mellan organisationer kan du bygga automatiserade skalbara arbets flöden för dessa scenarier med hjälp av Enterprise-integrationspaket (EIP) med Azure Logic Apps. Även om organisationer använder olika protokoll och format kan de utbyta meddelanden elektroniskt. EIP omvandlar olika format till ett format som organisationens system kan bearbeta och stöder bransch standard protokoll, inklusive AS2, X12, EDIFACT och RosettaNet. För att skapa dessa lösningar skapar du ett integrations konto, som är en separat Azure-resurs som tillhandahåller en säker, skalbar och hanterbar behållare för de artefakter som du definierar och använder med dina Logic app-arbetsflöden. Artefakter omfattar till exempel handels partners, avtal, kartor, scheman, certifikat och batch-konfigurationer.
 
 * [Översikt: B2B-lösningar för företags integrering med Azure Logic Apps och Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Skapa och hantera integrations konton för B2B Enterprise-integration i Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* [Skapa och hantera integrationskonton för B2B-företagsintegrationer i Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 ## <a name="access-azure-virtual-network-resources"></a>Få åtkomst till Azures virtuella nätverks resurser
 
@@ -103,8 +102,8 @@ Du kan helt utveckla och distribuera Logi Kap par med Visual Studio, Azure DevOp
 
 * [Snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Översikt: automatisera Logic app-distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Skapa Azure Resource Manager mallar för att automatisera distributionen av Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Distribuera Azure Resource Manager mallar för Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Skapa Azure Resource Manager-mallar för att automatisera distributionen för Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+* [Distribuera Azure Resource Manager-mallar för Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 * [Exempel: Anslut till Azure Service Bus köer från Azure Logic Apps och distribuera med Azure-pipelines i Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exempel: Anslut till Azure Storage konton från Azure Logic Apps och distribuera med Azure-pipelines i Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exempel: Konfigurera en Function-app-åtgärd för Azure Logic Apps och distribuera med Azure-pipelines i Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
@@ -119,9 +118,9 @@ Du kan helt utveckla och distribuera Logi Kap par med Visual Studio, Azure DevOp
 
 ### <a name="monitor"></a>Övervaka
 
-* [Övervaka körnings status, granska utlösnings historik och konfigurera aviseringar för Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
+* [Övervaka körningsstatus, granska utlösarhistorik och konfigurera aviseringar för Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
 * [Konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md)
-* [Konfigurera Azure Monitor loggar och samla in diagnostikdata för B2B-meddelanden i Azure Logic Apps](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* [Konfigurera Azure Monitor-loggar och samla in diagnostikdata för B2B-meddelanden i Azure Logic Apps](../logic-apps/monitor-b2b-messages-log-analytics.md)
 * [Visa och skapa frågor för att övervaka och spåra Azure Monitor loggar för Azure Logic Apps](../logic-apps/create-monitoring-tracking-queries.md)
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Hantera innehålls typer, konverteringar och transformeringar
@@ -141,7 +140,7 @@ Azure Logic Apps integreras med många tjänster, till exempel Azure Functions, 
 * [Självstudie: skapa en strömmande kund insikts instrument panel med Azure Logic Apps och Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Självstudie: skapa en funktion som integreras med Azure Logic Apps och Azure Cognitive Services för att analysera Twitter-inlägg sentiment](../azure-functions/functions-twitter-email.md)
 * [Självstudie: Bygg en AI-driven social instrument panel med hjälp av Power BI och Azure Logic Apps](https://aka.ms/logicappsdemo)
-* [Självstudie: övervaka ändringar av virtuella datorer med hjälp av Azure Event Grid och Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Självstudier: Övervaka ändringar av virtuella maskiner med Azure Event Grid och Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Självstudie: IoT-fjärrövervakning och-meddelanden med Azure Logic Apps du ansluter IoT Hub och post lådan](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blogg: anropa SOAP-tjänster med hjälp av Azure Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

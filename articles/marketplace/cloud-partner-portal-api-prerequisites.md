@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 1a20abf72ca25ba7c4b5600953766be4d62c708d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.openlocfilehash: c435e171c7e3cabea4007c7b78cf60727bf55efd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516348"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958237"
 ---
 <a name="api-prerequisites"></a>API-krav
 ================
@@ -26,7 +25,7 @@ Det finns två obligatoriska programmerings resurser som du behöver använda f�
 <a name="create-a-service-principal-in-your-azure-active-directory-tenant"></a>Skapa ett huvud namn för tjänsten i Azure Active Directory klient organisationen
 ----------------------------------------------------------------
 
-Först måste du skapa ett huvud namn för tjänsten i din Azure AD-klient. Den här klienten tilldelas en egen uppsättning behörigheter i Cloud Partner Portal. Din kod anropar API: er med som den här klienten i stället för att använda dina personliga autentiseringsuppgifter.  En fullständig förklaring av hur du skapar ett huvud namn för tjänsten finns i [använda portalen för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+Först måste du skapa ett huvud namn för tjänsten i din Azure AD-klient. Den här klienten tilldelas en egen uppsättning behörigheter i Cloud Partner Portal. Din kod anropar API: er med som den här klienten i stället för att använda dina personliga autentiseringsuppgifter.  En fullständig förklaring av hur du skapar ett huvud namn för tjänsten finns i [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md).
 
 
 <a name="add-the-service-principal-to-your-account"></a>Lägg till tjänstens huvud namn i ditt konto
@@ -63,7 +62,7 @@ Cloud Partner Portal-API: erna använder följande till gångar och protokoll vi
 
 - En JSON Web Token (JWT) Bearer-token för att begära åtkomst till resurser
 - [OpenID Connect](https://openid.net/connect/) -protokollet (OIDC) för att verifiera identitet
-- [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) som identitets utfärdare
+- [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) som identitets utfärdare
 
 Det finns två sätt att skaffa en JWT-token genom programmering:
 

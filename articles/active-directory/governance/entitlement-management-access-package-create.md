@@ -17,10 +17,9 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d54c4e5980383c721629143910eafbd5ae6a527
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078955"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
@@ -67,7 +66,7 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
    
     ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Grundläggande inställningar
+## <a name="basics"></a>Grunderna
 
 På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken katalog som du vill skapa åtkomst paketet i.
 

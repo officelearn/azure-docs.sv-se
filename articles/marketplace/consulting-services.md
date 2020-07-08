@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: dsindona
-ms.openlocfilehash: fb2031072ce93fcacdf52f8f0fad68f836049b22
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: 1267225f6b8557efc7ce36a973daef0a46aaba2d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560895"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957996"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -22,11 +21,11 @@ Konsult tjänster erbjuder kundspecifika engagemang. Utgivare har möjlighet att
 
 ## <a name="compare-consulting-services"></a>Jämför konsult tjänster
 
-Den kommersiella Marketplace butiker, Microsoft AppSource och Azure Marketplace, justeras med mål grupper och moln produkter så att kunderna kan hitta vad de behöver. Varje butik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaden mellan de två butiker finns i [jämföra Microsoft AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Den kommersiella Marketplace butiker, Microsoft AppSource och Azure Marketplace, justeras med mål grupper och moln produkter så att kunderna kan hitta vad de behöver. Varje butik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaden mellan de två butiker finns i [jämföra Microsoft AppSource och Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Konsult tjänst erbjudanden som baseras på Dynamics 365, Power Apps och Power BI är berättigade att listas på AppSource. Om du vill ha mer information kan du hämta PDF-filen med [rikt linjer för Microsoft AppSource konsult tjänster](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) .
 
-Konsult tjänster och hanterade tjänster är baserade på Microsoft Azure är berättigade att listas på Azure Marketplace. Mer information finns i [publicera ett erbjudande för Azure-konsulttjänster](./partner-center-portal/create-consulting-service-offer.md) och [publicera ett erbjudande för hanterade tjänster på Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Konsult tjänster och hanterade tjänster är baserade på Microsoft Azure är berättigade att listas på Azure Marketplace. Mer information finns i [publicera ett erbjudande för Azure-konsulttjänster](./partner-center-portal/create-consulting-service-offer.md) och [publicera ett erbjudande för hanterade tjänster på Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > Konsult tjänster på Azure Marketplace bör fokusera på erbjudanden för en teknisk publik och framhäva Azures tekniska lösningar och tjänster.
@@ -72,7 +71,7 @@ Mer information om kompetenser finns på sidan [Microsoft Partner Network kompet
 
 System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 20 länder/regioner:
 
-|   |   |   |   |
+| Länder  | (fortsatte..)   | (fortsatte..)  | (fortsatte..)  |
 |---------|----------|----------|----------|
 | Australien | Belgien | Kanada | Danmark |
 | Finland  | Frankrike | Tyskland  | Indien   |
@@ -83,7 +82,7 @@ System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registrera dig för konsult tjänster på den kommersiella marknaden
 
-Börja med att [Registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) företags informationen på Marketplace. En fullständig check lista över registrerings kraven finns i [bli utgivare i Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
+Börja med att [Registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) företags informationen på Marketplace. En fullständig check lista över registrerings kraven finns i [bli utgivare i Marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Förbereda dina publicerings artefakter
 Innan du registrerar dig kan du börja samla in och förbereda innehållet som gör att du kan lista tydliggör värdet för din tjänst och din lösning till mål kunden. 
@@ -152,7 +151,7 @@ När innehålls gransknings teamet har granskat dina erbjudande beskrivningar oc
 
 |Erbjudandetyp  |Obligatorisk |Rekommenderas  |
 |---------|---------|---------|
-|**Beskrivningar**    |   Ta med en detaljerad agenda för utvärderingar av flera dagar eller flera veckor, och tydliggör vilken slut produkt som kunden kan vänta sig.      |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
+|**Utvärdering**    |   Ta med en detaljerad agenda för utvärderingar av flera dagar eller flera veckor, och tydliggör vilken slut produkt som kunden kan vänta sig.      |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste tillhandahålla en *kortfattad* person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ.    |  Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.       |
 |**Implementering**    |  Ta med en detaljerad agenda för implementeringar av flera dagar eller flera veckor och tydliggör vilka tekniska artefakter, tekniska artefakter eller andra artefakter som en kund förväntar sig som ett resultat av ärendet.       |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
 |**Konceptbevis**    |    Tydliggör vilka tekniska förändringar, tekniska artefakter eller andra artefakter som en kund kan förväntar sig som ett resultat av ärendet.     | Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.        |

@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84674962"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitets registret i din IoT-hubb
@@ -186,7 +185,7 @@ Brödtext: det här avsnittet är i JSON-format och representerar den dubbla av 
 
 Enhets identiteter visas som JSON-dokument med följande egenskaper:
 
-| Egenskap | Alternativ | Description |
+| Egenskap | Alternativ | Beskrivning |
 | --- | --- | --- |
 | deviceId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | generationId |krävs, skrivskyddad |En IoT Hub-genererad, SKIFT läges känslig sträng som är upp till 128 tecken lång. Det här värdet används för att särskilja enheter med samma **deviceId**, när de har tagits bort och återskapas. |
@@ -210,7 +209,7 @@ Enhets identiteter visas som JSON-dokument med följande egenskaper:
 
 Modul identiteter representeras som JSON-dokument med följande egenskaper:
 
-| Egenskap | Alternativ | Description |
+| Egenskap | Alternativ | Beskrivning |
 | --- | --- | --- |
 | deviceId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | moduleId |krävs, skrivskyddad på uppdateringar |En Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken plus särskilda specialtecken: `- . + % _ # * ? ! ( ) , : = @ $ '` . |

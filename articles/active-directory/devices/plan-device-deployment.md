@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444258"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
@@ -66,7 +65,7 @@ När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga f�
 
 I den här planen lägger du till följande intressenter i listan:
 
-| Roll| Description |
+| Roll| Beskrivning |
 | - | - |
 | Enhets administratör| En representant från enhets teamet som kan verifiera att planen uppfyller enhets kraven för din organisation. |
 | Nätverks administratör| En representant från nätverks teamet som kan se till att de uppfyller nätverks kraven. |

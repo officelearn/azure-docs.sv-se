@@ -4,12 +4,11 @@ description: Batch stöder Azure AD för autentisering från batch-tjänsten. L�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 186de47b61c25485cec602cbc9bb208a795a7785
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757599"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958216"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -20,7 +19,7 @@ När du använder Azure AD-autentisering med Azure Batch kan du autentisera på 
 - Genom att använda **integrerad autentisering** för att autentisera en användare som interagerar med programmet. Ett program som använder integrerad autentisering samlar in en användares autentiseringsuppgifter och använder dessa autentiseringsuppgifter för att autentisera åtkomsten till batch-resurser.
 - Genom att använda ett **huvud namn för tjänsten** för att autentisera ett obevakat program. Ett huvud namn för tjänsten definierar principen och behörigheterna för ett program för att representera programmet vid åtkomst till resurser vid körning.
 
-Mer information om Azure AD finns i Azure Active Directory- [dokumentationen](https://docs.microsoft.com/azure/active-directory/).
+Mer information om Azure AD finns i Azure Active Directory- [dokumentationen](../active-directory/index.yml).
 
 ## <a name="endpoints-for-authentication"></a>Slut punkter för autentisering
 
@@ -140,20 +139,20 @@ En anpassad roll ger detaljerad behörighet till en användare för att skicka j
 
 Du kan använda en anpassad roll för att bevilja behörighet till en Azure AD-användare, en grupp eller ett tjänst huvud namn för följande RBAC-åtgärder:
 
-- Microsoft. batch/batchAccounts/pooler/Skriv
-- Microsoft. batch/batchAccounts/pooler/ta bort
-- Microsoft. batch/batchAccounts/pooler/läsa
-- Microsoft. batch/batchAccounts/jobSchedules/Write
-- Microsoft. batch/batchAccounts/jobSchedules/Delete
-- Microsoft. batch/batchAccounts/jobSchedules/Read
-- Microsoft. batch/batchAccounts/Jobs/Write
-- Microsoft. batch/batchAccounts/Jobs/Delete
-- Microsoft. batch/batchAccounts/Jobs/Read
-- Microsoft. batch/batchAccounts/certifikat/skriva
-- Microsoft. batch/batchAccounts/certifikat/ta bort
-- Microsoft. batch/batchAccounts/certifikat/läsa
-- Microsoft. batch/batchAccounts/Read (för alla Läs åtgärder)
-- Microsoft. batch/batchAccounts/Listnycklar/Action (för alla åtgärder)
+- Microsoft.BatCH/batchAccounts/pool/Write
+- Microsoft.BatCH/batchAccounts/pooler/ta bort
+- Microsoft.BatCH/batchAccounts/pooler/läsa
+- Microsoft.BatCH/batchAccounts/jobSchedules/Write
+- Microsoft.BatCH/batchAccounts/jobSchedules/Delete
+- Microsoft.BatCH/batchAccounts/jobSchedules/Read
+- Microsoft.BatCH/batchAccounts/Jobs/Write
+- Microsoft.BatCH/batchAccounts/Jobs/Delete
+- Microsoft.BatCH/batchAccounts/Jobs/Read
+- Microsoft.BatCH/batchAccounts/certificates/Write
+- Microsoft.BatCH/batchAccounts/certificates/Delete
+- Microsoft.BatCH/batchAccounts/certifikat/läsa
+- Microsoft.BatCH/batchAccounts/Read (för alla Läs åtgärder)
+- Microsoft.BatCH/batchAccounts/Listnycklar/Action (för alla åtgärder)
 
 Anpassade roller är för användare som autentiseras av Azure AD, inte för batch-kontots autentiseringsuppgifter (delad nyckel). Observera att autentiseringsuppgifterna för batch-kontot ger fullständig behörighet till batch-kontot. Observera också att jobb som använder autopoolen kräver behörigheter på grupp nivå.
 
@@ -419,7 +418,7 @@ Använd autentiseringsuppgifterna för tjänstens huvud namn för att öppna ett
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Azure AD finns i Azure Active Directory- [dokumentationen](https://docs.microsoft.com/azure/active-directory/). Djupgående exempel som visar hur du använder ADAL finns i [Azure kod exempel](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
+- Mer information om Azure AD finns i Azure Active Directory- [dokumentationen](../active-directory/index.yml). Djupgående exempel som visar hur du använder ADAL finns i [Azure kod exempel](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
 
 - Mer information om tjänstens huvud namn finns i [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Om du vill skapa ett huvud namn för tjänsten med hjälp av Azure Portal, se [använda Portal för att skapa Active Directory program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md). Du kan också skapa ett huvud namn för tjänsten med PowerShell eller Azure CLI.
 

@@ -11,10 +11,9 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
 ms.openlocfilehash: 60f83fae6e7e685a1065d1c01327a004d9bb2864
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84675660"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Återställning av tidpunkt för block-blobar (för hands version)

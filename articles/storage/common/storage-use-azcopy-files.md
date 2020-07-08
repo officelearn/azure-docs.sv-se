@@ -8,15 +8,14 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514957"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fil lagring 
 
-AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar eller filer till eller från ett lagrings konto. Den här artikeln innehåller exempel kommandon som fungerar med Azure Files.
+AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar eller filer till eller från ett lagringskonto. Den här artikeln innehåller exempel kommandon som fungerar med Azure Files.
 
 Innan du börjar kan du läsa artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att hämta AzCopy och bekanta dig med verktyget.
 
@@ -215,7 +214,7 @@ Du kan också utesluta filer med hjälp av `--exclude-pattern` alternativet. Mer
 
 ## <a name="copy-files-between-storage-accounts"></a>Kopiera filer mellan lagringskonton
 
-Du kan använda AzCopy för att kopiera filer till andra lagrings konton. Kopierings åtgärden är synkron så när kommandot returnerar, vilket indikerar att alla filer har kopierats.
+Du kan använda AzCopy för att kopiera filer till andra lagrings konton. Kopieringsåtgärden är synkron, så när kommandot returneras anger det att alla filer har kopierats.
 
 AzCopy använder [Server-till-Server-](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [API: er](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), så data kopieras direkt mellan lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd. Du kan öka data flödet för dessa åtgärder genom att ange värdet för `AZCOPY_CONCURRENCY_VALUE` miljövariabeln. Mer information finns i [optimera data flöde](storage-use-azcopy-configure.md#optimize-throughput).
 

@@ -3,17 +3,16 @@ title: Azure Batch analys
 description: Ämnena i batch Analytics innehåller referensinformation om de händelser och aviseringar som är tillgängliga för batch-tjänstens resurser.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: b07d362c3cc2d3b086cf0a82325025604907a393
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: 9d0e5c90c7bade82d76c7dbdfd4276e9671c961c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726867"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958114"
 ---
 # <a name="batch-analytics"></a>Batchanalys
 Ämnena i batch Analytics innehåller referensinformation om de händelser och aviseringar som är tillgängliga för batch-tjänstens resurser.
 
-Mer information om hur du aktiverar och använder batch-diagnostikloggar finns i [Azure Batch diagnostisk loggning](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) .
+Mer information om hur du aktiverar och använder batch-diagnostikloggar finns i [Azure Batch diagnostisk loggning](./batch-diagnostics.md) .
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 

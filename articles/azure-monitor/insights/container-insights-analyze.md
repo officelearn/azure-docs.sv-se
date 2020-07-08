@@ -4,10 +4,9 @@ description: Den här artikeln beskriver hur du kan visa och analysera prestanda
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340898"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Övervaka prestanda för Kubernetes-kluster med Azure Monitor för behållare
@@ -75,7 +74,7 @@ Följande tabell innehåller en analys av beräkningen som styr hälso tillstån
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Systemets Pod**| | |
 | |Felfri |100 % |
-| |Varning |Ej tillämpligt |
+| |Varning |E.t. |
 | |Kritiskt |<100% |
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Node** | | |

@@ -6,18 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a431df1ff4ef0984d1197933e7ca78979fa23089
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430986"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958386"
 ---
-# <a name="using-stored-procedures-in-sql-pool"></a>Använda lagrade procedurer i SQL-poolen
+# <a name="use-stored-procedures-in-sql-pool"></a>Använda lagrade procedurer i SQL-poolen
 
 Tips för att implementera lagrade procedurer i Synapse SQL-pool (Data Warehouse) för att utveckla lösningar.
 
@@ -68,9 +67,9 @@ EXEC prc_nesting
 ```
 
 > [!NOTE]
-> SQL-poolen stöder för närvarande [inte@NESTLEVEL@](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Du måste spåra kapslings nivån. Det är inte troligt att du överskrider gränsen på åtta kapslings nivåer, men om du gör det måste du återanvända koden för att passa de kapslade nivåerna inom den här gränsen.
+> SQL-poolen stöder för närvarande [inte @NESTLEVEL @](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Du måste spåra kapslings nivån. Det är inte troligt att du överskrider gränsen på åtta kapslings nivåer, men om du gör det måste du återanvända koden för att passa de kapslade nivåerna inom den här gränsen.
 
-## <a name="insertexecute"></a>Infoga.. KÖRA
+## <a name="insertexecute"></a>INSERT..EXESÖTA
 
 SQL-poolen tillåter inte att du använder resultat uppsättningen för en lagrad procedur med en INSERT-instruktion. Det finns dock en alternativ metod som du kan använda. Ett exempel finns i artikeln om [temporära tabeller](develop-tables-temporary.md).
 

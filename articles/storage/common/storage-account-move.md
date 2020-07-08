@@ -10,15 +10,14 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515022"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Flytta ett Azure Storage-konto till en annan region
 
-Om du vill flytta ett lagrings konto skapar du en kopia av ditt lagrings konto i en annan region. Sedan flyttar du dina data till det kontot med hjälp av AzCopy eller ett annat verktyg som du själv väljer.
+Om du vill flytta ett lagringskonto skapar du en kopia av lagringskontot i en annan region. Sedan flyttar du dina data till det kontot med hjälp av AzCopy eller ett annat verktyg som du själv väljer.
 
 I den här artikeln får du lära dig att:
 
@@ -33,9 +32,9 @@ I den här artikeln får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-- Kontrol lera att tjänsterna och funktionerna som ditt konto använder stöds i mål regionen.
+- Kontrollera att tjänsterna och funktionerna som kontot använder stöds i målregionen.
 
-- För för hands versions funktioner ser du till att din prenumeration är vit listas för mål regionen.
+- För förhandsgranskningsfunktioner ska du kontrollera att din prenumeration är vitlistad för målregionen.
 
 <a id="prepare"></a>
 
@@ -45,11 +44,11 @@ För att komma igång, exportera och sedan ändra en Resource Manager-mall.
 
 ### <a name="export-a-template"></a>Exportera en mall
 
-Den här mallen innehåller inställningar som beskriver ditt lagrings konto. 
+Den här mallen innehåller inställningar som beskriver ditt lagringskonto. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Exportera en mall med hjälp av Azure Portal:
+Så här exporterar du en mall med Azure-portalen:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -95,23 +94,23 @@ Exportera en mall med hjälp av PowerShell:
 
 ### <a name="modify-the-template"></a>Ändra mallen 
 
-Ändra mallen genom att ändra lagrings kontots namn och region.
+Ändra mallen genom att ändra namn och region för lagringskontot.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Distribuera mallen med hjälp av Azure Portal:
 
-1. I Azure-portalen väljer du **Skapa en resurs**.
+1. I Azure Portal väljer du **skapa en resurs**.
 
-2. I **Sök på Marketplace** skriver du **malldistribution** och trycker sedan på **RETUR**.
+2. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
 
-3. Välj **Malldistribution**.
+3. Välj **malldistribution**.
 
     ![Azure Resource Manager-mallbibliotek](./media/storage-account-move/azure-resource-manager-template-library.png)
 
 4. Välj **Skapa**.
 
-5. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
+5. Välj **Bygg en egen mall i redigeraren**.
 
 6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
 
@@ -178,7 +177,7 @@ Distribuera mallen med hjälp av PowerShell:
 
 ## <a name="move"></a>Flytta
 
-Distribuera mallen för att skapa ett nytt lagrings konto i mål regionen. 
+Distribuera mallen för att skapa ett nytt lagringskonto i målregionen. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -213,13 +212,13 @@ Distribuera mallen för att skapa ett nytt lagrings konto i mål regionen.
    ```
 ---
 
-### <a name="configure-the-new-storage-account"></a>Konfigurera det nya lagrings kontot
+### <a name="configure-the-new-storage-account"></a>Konfigurera det nya lagringskontot
 
-Vissa funktioner exporteras till en mall, så du måste lägga till dem i det nya lagrings kontot. 
+Vissa funktioner kan inte exporteras till en mall, så du måste lägga till dem i det nya lagringskontot. 
 
-I följande tabell visas dessa funktioner tillsammans med rikt linjer för att lägga till dem i ditt nya lagrings konto.
+I följande tabell visas dessa funktioner tillsammans med vägledning för hur du lägger till dem i ditt nya lagringskonto.
 
-| Funktion    | Riktlinjer    |
+| Funktion    | Vägledning    |
 |--------|-----------|
 | **Principer för livs cykel hantering** | [Hantera Azure Blob Storage-livscykeln](../blobs/storage-lifecycle-management-concepts.md) |
 | **Statiska webbplatser** | [Vara värd för en statisk webbplats i Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
@@ -230,15 +229,15 @@ I följande tabell visas dessa funktioner tillsammans med rikt linjer för att l
 > [!NOTE] 
 > Om du ställer in ett CDN för käll lagrings kontot ändrar du bara ursprunget för din befintliga CDN till den primära BLOB-tjänstens slut punkt (eller den primära statiska webbplats slut punkten) för ditt nya konto. 
 
-### <a name="move-data-to-the-new-storage-account"></a>Flytta data till det nya lagrings kontot
+### <a name="move-data-to-the-new-storage-account"></a>Flytta data till det nya lagringskontot
 
-AzCopy är det bästa verktyget för att flytta data över. Den är optimerad för prestanda.  Ett sätt att det går snabbare är att data kopieras direkt mellan lagrings servrar, så AzCopy inte använder datorns nätverks bandbredd. Använd AzCopy på kommando raden eller som en del av ett anpassat skript. Se [Kom igång med AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy är det bästa verktyget för att flytta data över. Den är optimerad för prestanda.  En sak som gör den snabbare är att data kopieras direkt mellan lagringsservrar, och därför använder AzCopy inte datorns nätverksbandbredd. Använd AzCopy på kommandoraden eller som en del av ett anpassat skript. Se [Kom igång med AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Du kan också använda Azure Data Factory för att flytta dina data. Det ger ett intuitivt användar gränssnitt. Om du vill använda Azure Data Factory, se någon av följande länkar:. 
 
-  - [Kopiera data till eller från Azure Blob Storage med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+  - [Kopiera data till och från Azure Blob Storage med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Kopiera data till eller från Azure Data Lake Storage Gen2 med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Kopiera data från eller till Azure File Storage med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
+  - [Kopiera data till och från Azure File Storage med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
   - [Kopiera data till och från Azure Table Storage med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
 
 ---
@@ -247,11 +246,11 @@ Du kan också använda Azure Data Factory för att flytta dina data. Det ger ett
 
 Om du vill börja om efter distributionen kan du ta bort mål lagrings kontot och upprepa stegen som beskrivs i avsnittet [förbereda](#prepare) och [Flytta](#move) i den här artikeln.
 
-Ta bort käll lagrings kontot för att genomföra ändringarna och slutföra flyttningen av ett lagrings konto.
+Ta bort källagringskontot för att genomföra ändringarna och slutföra flyttningen av ett lagringskonto.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Ta bort ett lagrings konto med hjälp av Azure Portal:
+Så här tar du bort ett lagringskonto med Azure-portalen:
 
 1. I Azure Portal expanderar du menyn på vänster sida för att öppna menyn med tjänster och väljer **lagrings konton** för att visa listan över dina lagrings konton.
 

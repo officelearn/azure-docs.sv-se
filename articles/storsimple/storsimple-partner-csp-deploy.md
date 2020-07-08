@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77466917"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuera virtuell StorSimple-matris för Cloud Solution Provider-program
@@ -81,7 +80,7 @@ I vissa fall kan du ha en befintlig kund och du måste lägga till en prenumerat
 
      ![Instrument panel i Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. Klicka på **kunder**i det vänstra fönstret. Hitta eller navigera till kunden som du vill lägga till en prenumeration på. Klicka på ![ikonen Expandera kontroll](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) ikon för att expandera raden för företags namnet för din kund. I detalj klickar du på **Lägg till prenumerationer**.
+2. Klicka på **kunder**i det vänstra fönstret. Hitta eller navigera till kunden som du vill lägga till en prenumeration på. Klicka på ![ ikonen Expandera kontroll ikon ](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) för att expandera raden för företags namnet för din kund. I detalj klickar du på **Lägg till prenumerationer**.
 
     ![Kunder](./media/storsimple-partner-csp-deploy/image10.png)
 

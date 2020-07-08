@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/29/2019
 ms.author: yelevin
 ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77581692"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Ta bort Azure Sentinel från din arbets yta
@@ -44,7 +43,7 @@ När du tar bort lösningen tar Azure Sentinel upp till 48 timmar innan den för
 När från kopplingen har identifierats börjar offboarding-processen.
 
 **Konfigurationen av dessa anslutningar tas bort:**
--   Office 365
+-   Office 365
 
 -   AWS
 

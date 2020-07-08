@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77198300"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Interaktions typer och kortkommandon i modulen rit verktyg
@@ -27,7 +26,7 @@ Drawing Manager har stöd för tre olika sätt att interagera med kartan, för a
 
 ## <a name="how-to-draw-shapes"></a>Rita former
 
- Innan en form kan ritas, ställer du `drawingMode` in alternativet för ritnings hanteraren till en ritnings inställning som stöds. Den här inställningen kan vara programmerad eller anropas genom att trycka på en av rit knapparna i verktygsfältet. Rit läget förblir aktiverat, även när en form har ritats, vilket gör det enkelt att rita ytterligare former av samma typ. Ställer in rit läget program mässigt i inaktivt läge. Eller växla till inaktivt läge genom att klicka på knappen nuvarande ritnings lägen i verktygsfältet.
+ Innan en form kan ritas, ställer du in `drawingMode` alternativet för ritnings hanteraren till en ritnings inställning som stöds. Den här inställningen kan vara programmerad eller anropas genom att trycka på en av rit knapparna i verktygsfältet. Rit läget förblir aktiverat, även när en form har ritats, vilket gör det enkelt att rita ytterligare former av samma typ. Ställer in rit läget program mässigt i inaktivt läge. Eller växla till inaktivt läge genom att klicka på knappen nuvarande ritnings lägen i verktygsfältet.
 
 I nästa avsnitt beskrivs alla olika sätt som former kan ritas på kartan.
 
@@ -37,16 +36,16 @@ När ritnings hanteraren är i `draw-point` rit läge kan du utföra följande �
 
 **Starta ritning**
  - Klicka på den vänstra mus knappen eller tryck på kartan för att lägga till en punkt på kartan. 
- - Om musen är över kartan trycker du `F` på tangenten så läggs en punkt till i mus pekarens koordinat. Den här metoden ger högre precision för att lägga till en punkt på kartan. Det kommer att röra sig om mindre rörelser på musen på grund av den vänstra mus knappens rörelse.
+ - Om musen är över kartan trycker du på tangenten så `F` läggs en punkt till i mus pekarens koordinat. Den här metoden ger högre precision för att lägga till en punkt på kartan. Det kommer att röra sig om mindre rörelser på musen på grund av den vänstra mus knappens rörelse.
  - Fortsätt att klicka, vidrör eller trycka `F` för att lägga till fler punkter på kartan.
  
 **Slutför ritning**
  - Klicka på en knapp i verktygsfältet Rita. 
  - Ange rit läget program mässigt. 
- - `C` Tryck på knappen.
+ - Tryck på knappen `C` .
 
 **Avbryt ritning**
- - `Escape` Tryck på knappen.
+ - Tryck på knappen `Escape` .
 
 ### <a name="how-to-draw-a-line"></a>Så här ritar du en linje
 
@@ -55,7 +54,7 @@ När ritnings hanteraren är i `draw-line` läget kan du utföra följande åtg�
 **Starta ritning**
  - Klicka på läge
    * Klicka på den vänstra mus knappen eller tryck på kartan för att lägga till varje punkt på en linje på kartan. En koordinat läggs till i raden för varje klick eller touch. 
-   * Om musen är över kartan trycker du `F` på tangenten så läggs en punkt till i mus pekarens koordinat. Den här metoden ger högre precision för att lägga till en punkt på kartan. Det kommer att röra sig om mindre rörelser på musen på grund av den vänstra mus knappens rörelse.
+   * Om musen är över kartan trycker du på tangenten så `F` läggs en punkt till i mus pekarens koordinat. Den här metoden ger högre precision för att lägga till en punkt på kartan. Det kommer att röra sig om mindre rörelser på musen på grund av den vänstra mus knappens rörelse.
    * Fortsätt att klicka tills alla önskade punkter har lagts till på raden.
  - FreeHand-läge
    * Tryck på vänster MUSKNAPP eller tryck på kartan och dra musen eller berörings punkten runt. Koordinater läggs till på raden när musen eller tryck punkten flyttas runt kartan. När musen eller touch-händelsen utlöses, slutförs ritningen. Den frekvens med vilken koordinater läggs till definieras av alternativet rit hanterare `freehandInterval` .
@@ -69,10 +68,10 @@ När ritnings hanteraren är i `draw-line` läget kan du utföra följande åtg�
    * Ange rit läget program mässigt. 
  - FreeHand-läge
    * Släpp mus knappen eller touch-punkten.
- - `C` Tryck på knappen.
+ - Tryck på knappen `C` .
 
 **Avbryt ritning**
- - `Escape` Tryck på knappen.
+ - Tryck på knappen `Escape` .
 
 ### <a name="how-to-draw-a-polygon"></a>Så här ritar du en polygon
 
@@ -81,7 +80,7 @@ När ritnings hanteraren är i `draw-polygon` läget kan du utföra följande å
 **Starta ritning**
  - Klicka på läge
    * Klicka på den vänstra mus knappen eller tryck på kartan för att lägga till varje punkt i en polygon på kartan. En koordinat läggs till i polygonen för varje klick eller touch. 
-   * Om musen är över kartan trycker du `F` på tangenten så läggs en punkt till i mus pekarens koordinat. Den här metoden ger högre precision för att lägga till en punkt på kartan. Det kommer att röra sig om mindre rörelser på musen på grund av den vänstra mus knappens rörelse.
+   * Om musen är över kartan trycker du på tangenten så `F` läggs en punkt till i mus pekarens koordinat. Den här metoden ger högre precision för att lägga till en punkt på kartan. Det kommer att röra sig om mindre rörelser på musen på grund av den vänstra mus knappens rörelse.
    * Fortsätt att klicka tills alla önskade punkter har lagts till i polygonen.
  - FreeHand-läge
    * Tryck på vänster MUSKNAPP eller tryck på kartan och dra musen eller berörings punkten runt. Koordinater läggs till i polygonen när musen eller touch-punkten flyttas runt kartan. När musen eller touch-händelsen utlöses, slutförs ritningen. Den frekvens med vilken koordinater läggs till definieras av alternativet rit hanterare `freehandInterval` .
@@ -96,10 +95,10 @@ När ritnings hanteraren är i `draw-polygon` läget kan du utföra följande å
    * Ange rit läget program mässigt. 
  - FreeHand-läge
    * Släpp mus knappen eller touch-punkten.
- - `C` Tryck på knappen.
+ - Tryck på knappen `C` .
 
 **Avbryt ritning**
- - `Escape` Tryck på knappen.
+ - Tryck på knappen `Escape` .
 
 ### <a name="how-to-draw-a-rectangle"></a>Så här ritar du en rektangel
 
@@ -111,10 +110,10 @@ När ritnings hanteraren är i `draw-rectangle` läget kan du utföra följande 
 **Slutför ritning**
  - Släpp mus knappen eller touch-punkten.
  - Ange rit läget program mässigt. 
- - `C` Tryck på knappen.
+ - Tryck på knappen `C` .
 
 **Avbryt ritning**
- - `Escape` Tryck på knappen.
+ - Tryck på knappen `Escape` .
 
 ### <a name="how-to-draw-a-circle"></a>Så här ritar du en cirkel
 
@@ -126,16 +125,16 @@ När ritnings hanteraren är i `draw-circle` läget kan du utföra följande åt
 **Slutför ritning**
  - Släpp mus knappen eller touch-punkten.
  - Ange rit läget program mässigt. 
- - `C` Tryck på knappen.
+ - Tryck på knappen `C` .
 
 **Avbryt ritning**
- - `Escape` Tryck på knappen.
+ - Tryck på knappen `Escape` .
 
 ## <a name="keyboard-shortcuts"></a>Kortkommandon
 
 Rit verktygen stöder kortkommandon. Dessa kortkommandon fungerar när kartan är i fokus.
 
-| Nyckel      | Action                            |
+| Tangent      | Åtgärd                            |
 |----------|-----------------------------------|
 | `C` | Slutför alla ritningar som pågår och ställer in ritnings läget på inaktiv. Fokus flyttas till ett kart element på översta nivån.  |
 | `Escape` | Avbryter alla ritningar som pågår och ställer in ritnings läget på inaktivt. Fokus flyttas till ett kart element på översta nivån.  |

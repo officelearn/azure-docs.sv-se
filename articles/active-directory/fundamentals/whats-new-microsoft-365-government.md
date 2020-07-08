@@ -14,10 +14,9 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425552"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Vad är nytt för Azure Active Directory i Microsoft 365 myndigheter
@@ -34,9 +33,9 @@ Den här artikeln gäller inte för Microsoft 365 myndigheter – GCC kunder.
 
 ## <a name="changes-to-the-initial-domain-name"></a>Ändringar i det ursprungliga domän namnet
 
-Under din organisations första registrering för en Microsoft 365 myndighets online-tjänst uppmanades du att välja din organisations domän namn `<your-domain-name>.onmicrosoft.com`. Om du redan har ett domän namn med. com-suffixet ändras ingenting.
+Under din organisations första registrering för en Microsoft 365 myndighets online-tjänst uppmanades du att välja din organisations domän namn `<your-domain-name>.onmicrosoft.com` . Om du redan har ett domän namn med. com-suffixet ändras ingenting.
 
-Men om du registrerar dig för en ny Microsoft 365 myndighets tjänst uppmanas du att välja ett domän namn med hjälp av `.us` suffixet. Därför är det `<your-domain-name>.onmicrosoft.us`.
+Men om du registrerar dig för en ny Microsoft 365 myndighets tjänst uppmanas du att välja ett domän namn med hjälp av `.us` suffixet. Därför är det `<your-domain-name>.onmicrosoft.us` .
 
 >[!Note]
 >Den här ändringen gäller inte för kunder som hanteras av moln tjänst leverantörer (CSP).
@@ -63,7 +62,7 @@ I följande tabell visas slut punkterna för alla kunder:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i dessa artiklar:
+Mer information finns i de här artiklarna:
 
 - [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 

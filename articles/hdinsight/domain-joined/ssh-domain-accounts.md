@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 5529989384df75b592afa8f5e4960eb9817fb2d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77472523"
 ---
 # <a name="manage-ssh-access-for-domain-accounts-in-azure-hdinsight"></a>Hantera SSH-åtkomst för domän konton i Azure HDInsight
@@ -20,7 +19,7 @@ I säkra kluster tillåts som standard alla domän användare i [Azure AD DS](..
 
 ## <a name="manage-access"></a>Hantera åtkomst
 
-Om du vill ändra SSH-åtkomst till vissa användare eller `/etc/ssh/sshd_config` grupper uppdaterar du på varje nod.
+Om du vill ändra SSH-åtkomst till vissa användare eller grupper uppdaterar du `/etc/ssh/sshd_config` på varje nod.
 
 1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
@@ -28,7 +27,7 @@ Om du vill ändra SSH-åtkomst till vissa användare eller `/etc/ssh/sshd_config
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Öppna `ssh_confi`g-filen.
+1. Öppna `ssh_confi` g-filen.
 
     ```bash
     sudo nano /etc/ssh/sshd_config
@@ -54,11 +53,11 @@ Om du vill ändra SSH-åtkomst till vissa användare eller `/etc/ssh/sshd_config
 
 ## <a name="ssh-authentication-log"></a>SSH-autentiseringsnyckel
 
-SSH-autentiseringsprocessen skrivs in i `/var/log/auth.log`. Om du ser inloggnings fel via SSH för lokala konton eller domän konton måste du gå igenom loggen för att felsöka felen. Ofta kan problemet vara relaterat till vissa användar konton och det är vanligt vis en bra idé att testa andra användar konton eller SSH med hjälp av standard SSH-användaren (lokalt konto) och sedan försöka med en kinit.
+SSH-autentiseringsprocessen skrivs in i `/var/log/auth.log` . Om du ser inloggnings fel via SSH för lokala konton eller domän konton måste du gå igenom loggen för att felsöka felen. Ofta kan problemet vara relaterat till vissa användar konton och det är vanligt vis en bra idé att testa andra användar konton eller SSH med hjälp av standard SSH-användaren (lokalt konto) och sedan försöka med en kinit.
 
 ## <a name="ssh-debug-log"></a>SSH fel söknings logg
 
-Om du vill aktivera utförlig loggning måste du starta om `sshd` med `-d` alternativet. Precis `/usr/sbin/sshd -d` som du kan köra `sshd` på en anpassad port (till exempel 2222) så att du inte behöver stoppa huvud SSH-daemonen. Du kan också använda `-v` alternativet med SSH-klienten för att få fler loggar (klient sidans vy över felen).
+Om du vill aktivera utförlig loggning måste du starta om `sshd` med `-d` alternativet. Precis som `/usr/sbin/sshd -d` du kan köra `sshd` på en anpassad port (till exempel 2222) så att du inte behöver stoppa huvud SSH-daemonen. Du kan också använda `-v` alternativet med SSH-klienten för att få fler loggar (klient sidans vy över felen).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
 ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77469773"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Aktivera Azure-diagnostik i Azure Cloud Services
@@ -136,12 +135,12 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Lägg till en XML-fil till ditt **WorkerRole1** -projekt genom att högerklicka på projektet **WorkerRole1** och välja **Lägg till** -> **nytt objekt...** -> **Visual C# objekt** -> **data** -> **XML-fil**. Ge filen namnet "WadExample. xml".
+2. Lägg till en XML-fil till ditt **WorkerRole1** -projekt genom att högerklicka på projektet **WorkerRole1** och välja **Lägg till**  ->  **nytt objekt...** -> **Visual C#-objekt**  ->  **Data**  ->  **XML-fil**. Ge filen namnet "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Associera WadConfig. xsd med konfigurations filen. Kontrol lera att fönstret WadExample. XML-redigeraren är det aktiva fönstret. Tryck på **F4** för att öppna fönstret **Egenskaper** . Klicka på **schema** -egenskapen i fönstret **Egenskaper** . Klicka på **...** i egenskapen **schemas** . Klicka på **Lägg …** för att gå till den plats där du sparade XSD-filen och välja filen WadConfig. xsd. Klicka på **OK**.
+3. Associera WadConfig. xsd med konfigurations filen. Kontrol lera att WadExample.xml redigerings fönstret är det aktiva fönstret. Tryck på **F4** för att öppna fönstret **Egenskaper** . Klicka på **schema** -egenskapen i fönstret **Egenskaper** . Klicka på **...** i egenskapen **schemas** . Klicka på **Lägg …** för att gå till den plats där du sparade XSD-filen och välja filen WadConfig. xsd. Klicka på **OK**.
 
-4. Ersätt innehållet i konfigurations filen WadExample. xml med följande XML och spara filen. Den här konfigurations filen definierar ett par prestanda räknare som ska samlas in: en för processor användning och en för minnes användning. Sedan definierar konfigurationen de fyra händelser som motsvarar metoderna i SampleEventSourceWriter-klassen.
+4. Ersätt innehållet i WadExample.xml konfigurations filen med följande XML och spara filen. Den här konfigurations filen definierar ett par prestanda räknare som ska samlas in: en för processor användning och en för minnes användning. Sedan definierar konfigurationen de fyra händelser som motsvarar metoderna i SampleEventSourceWriter-klassen.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -170,7 +169,7 @@ namespace WorkerRole1
 PowerShell-cmdletar för att hantera diagnostik på en webb-eller arbets roll är: set-AzureServiceDiagnosticsExtension, get-AzureServiceDiagnosticsExtension och Remove-AzureServiceDiagnosticsExtension.
 
 1. Öppna Azure PowerShell.
-2. Kör skriptet för att installera diagnostik i arbets rollen (Ersätt *StorageAccountKey* med lagrings konto nyckeln för ditt wadexample-lagrings konto och *config_path* med sökvägen till *wadexample. XML* -filen):
+2. Kör skriptet för att installera diagnostik i arbets rollen (Ersätt *StorageAccountKey* med lagrings konto nyckeln för ditt wadexample-lagrings konto och *config_path* med sökvägen till *WadExample.xml* -filen):
 
 ```powershell
 $storage_name = "wadexample"

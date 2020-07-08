@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77252235"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatisera mobilitets tjänst installation
@@ -42,9 +41,9 @@ Om du vill automatisera installationen behöver du följande objekt:
 
 I följande tabell sammanfattas verktyg och processer för automatisering av mobilitets tjänst distributionen.
 
-**Verktyg** | **Information** | **Instruktioner**
+**Verktyg** | **Detaljer** | **Instruktioner**
 --- | --- | ---
-**Konfigurationshanteraren** | 1. kontrol lera att du har de [krav](#prerequisites) som anges ovan på plats. <br/><br/> 2. distribuera haveri beredskap genom att konfigurera käll miljön, inklusive Ladda ned en ägg fil för att distribuera Site Recovery konfigurations servern som en virtuell VMware-dator med hjälp av en OVF-mall.<br/><br/> 3. du registrerar konfigurations servern med Site Recovery-tjänsten, ställer in Azure-miljön och konfigurerar en replikeringsprincip.<br/><br/> 4. för distribution av automatiserad mobilitets tjänst skapar du en nätverks resurs som innehåller konfigurations serverns lösen fras och mobilitets tjänstens installationsfiler.<br/><br/> 5. du skapar ett Configuration Manager-paket som innehåller installationen eller uppdateringarna och förbereder distributionen av mobilitets tjänsten.<br/><br/> 6. du kan sedan aktivera replikering till Azure för de datorer där mobilitets tjänsten är installerad. | [Automatisera med Configuration Manager](#automate-with-configuration-manager)
+**Configuration Manager** | 1. kontrol lera att du har de [krav](#prerequisites) som anges ovan på plats. <br/><br/> 2. distribuera haveri beredskap genom att konfigurera käll miljön, inklusive Ladda ned en ägg fil för att distribuera Site Recovery konfigurations servern som en virtuell VMware-dator med hjälp av en OVF-mall.<br/><br/> 3. du registrerar konfigurations servern med Site Recovery-tjänsten, ställer in Azure-miljön och konfigurerar en replikeringsprincip.<br/><br/> 4. för distribution av automatiserad mobilitets tjänst skapar du en nätverks resurs som innehåller konfigurations serverns lösen fras och mobilitets tjänstens installationsfiler.<br/><br/> 5. du skapar ett Configuration Manager-paket som innehåller installationen eller uppdateringarna och förbereder distributionen av mobilitets tjänsten.<br/><br/> 6. du kan sedan aktivera replikering till Azure för de datorer där mobilitets tjänsten är installerad. | [Automatisera med Configuration Manager](#automate-with-configuration-manager)
 **JetPatch** | 1. kontrol lera att du har de [krav](#prerequisites) som anges ovan på plats. <br/><br/> 2. distribuera haveri beredskap genom att konfigurera käll miljön, inklusive Ladda ned och distribuera JetPatch-Agent Manager för Azure Site Recovery i din Site Recovery-miljö med hjälp av en OVF-mall.<br/><br/> 3. du registrerar konfigurations servern med Site Recovery, ställer in Azure-miljön och konfigurerar en replikeringsprincip.<br/><br/> 4. för automatisk distribution initierar och slutför du konfigurationen av JetPatch Agent Manager.<br/><br/> 5. i JetPatch kan du skapa en Site Recovery-princip för att automatisera distributionen och uppgraderingen av mobilitets tjänst agenten. <br/><br/> 6. du kan sedan aktivera replikering till Azure för de datorer där mobilitets tjänsten är installerad. | [Automatisera med JetPatch Agent Manager](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/)<br/><br/> [Felsöka agent installation i JetPatch](https://kc.jetpatch.com/hc/articles/360035981812)
 
 ## <a name="automate-with-configuration-manager"></a>Automatisera med Configuration Manager
@@ -77,7 +76,7 @@ I följande tabell sammanfattas verktyg och processer för automatisering av mob
 
 1. Kopiera dessa installationsfiler till nätverks resursen:
 
-   - Kopiera _Microsoft-ASR_UA_version_Windows_GA_date_Release. exe_ till _MobSvcWindows_för Windows.
+   - För Windows kopierar du _Microsoft-ASR_UA_version_Windows_GA_date_Release.exe_ till _MobSvcWindows_.
    - För Linux kopierar du följande filer till _MobSvcLinux_:
      - _Microsoft-ASR_UARHEL6 -64release. tar. gz_
      - _Microsoft-ASR_UARHEL7 -64release. tar. gz_
@@ -88,14 +87,14 @@ I följande tabell sammanfattas verktyg och processer för automatisering av mob
 
 1. Kopiera koden till Windows-eller Linux-mapparna enligt beskrivningen i följande procedurer. Vi antar att:
 
-   - Konfigurations serverns IP-adress `192.168.3.121`är.
-   - Den säkra nätverks fil resursen är `\\ContosoSecureFS\MobilityServiceInstallers`.
+   - Konfigurations serverns IP-adress är `192.168.3.121` .
+   - Den säkra nätverks fil resursen är `\\ContosoSecureFS\MobilityServiceInstallers` .
 
 ### <a name="copy-code-to-the-windows-folder"></a>Kopiera kod till Windows-mappen
 
 Kopiera följande kod:
 
-- Spara koden i _MobSvcWindows_ -mappen som _install. bat_.
+- Spara koden i _MobSvcWindows_ -mappen som _install.bat_.
 - Ersätt `[CSIP]` plats hållarna i det här skriptet med de faktiska värdena för IP-adressen för konfigurations servern.
 - Skriptet stöder nya installationer av mobilitets tjänst agenten och uppdateringar av agenter som redan har installerats.
 
@@ -338,24 +337,24 @@ cd /tmp
 
 ### <a name="create-a-package"></a>Skapa ett paket
 
-1. Logga in på Configuration Manager-konsolen och gå till **program bibliotek** > **program hanterings** > **paket**.
-1. Högerklicka på **paket** > **skapa paket**.
+1. Logga in på Configuration Manager-konsolen och gå till **program bibliotek**  >  **program hanterings**  >  **paket**.
+1. Högerklicka på **paket**  >  **skapa paket**.
 1. Ange paket information som t. ex. namn, beskrivning, tillverkare, språk och version.
 1. Välj **det här paketet innehåller källfiler**.
 1. Klicka på **Bläddra**och välj nätverks resursen och mappen som innehåller relevanta installations program (_MobSvcWindows_ eller _MobSvcLinux_). Välj sedan **Nästa**.
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-1. I **Välj den program typ som du vill skapa** sidan väljer du **standard program** > **Nästa**.
+1. I **Välj den program typ som du vill skapa** sidan väljer du **standard program**  >  **Nästa**.
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 1. I **Ange information om den här standard program** sidan anger du följande värden:
 
-    **ProfileServiceApplicationProxy** | **Windows-värde** | **Linux-värde**
+    **Parameter** | **Windows-värde** | **Linux-värde**
     --- | --- | ---
     **Namn** | Installera Microsoft Azure Mobility Service (Windows) | Installera Microsoft Azure Mobility Service (Linux).
-    **Kommando rad** | Installera. bat | ./install_linux. sh
+    **Kommandorad** | install.bat | ./install_linux. sh
     **Programmet kan köra** | Huruvida en användare är inloggad eller inte | Huruvida en användare är inloggad eller inte
     **Andra parametrar** | Använd standardinställningen | Använd standardinställningen
 
@@ -392,7 +391,7 @@ cd /tmp
    - Du kan undvika onödiga omstarter genom att schemalägga paket installationen i fönstret för månatlig underhåll eller fönstret program uppdateringar.
 
 1. Konfigurera inställningarna på sidan **distributions platser** och Slutför guiden.
-1. Övervaka distributions förloppet i Configuration Manager-konsolen. Gå till **övervaknings** > **distributioner** > _\<ditt paket namn\>_.
+1. Övervaka distributions förloppet i Configuration Manager-konsolen. Gå till **övervaknings**  >  **distributioner**  >  _\<your package name\>_ .
 
 ### <a name="uninstall-the-mobility-service"></a>Avinstallera mobilitets tjänsten
 

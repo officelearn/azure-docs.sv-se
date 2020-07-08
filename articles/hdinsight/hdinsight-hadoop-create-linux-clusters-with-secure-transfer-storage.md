@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
 ms.openlocfilehash: c1e5ca8b0bb828e5e8ce896bba6a5278266b118e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77560090"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop kluster med lagrings konton för säker överföring i Azure HDInsight
@@ -32,13 +31,13 @@ Om du vill uppdatera ett befintligt lagrings konto med Azure Portal, se [Kräv s
 
 ### <a name="powershell"></a>PowerShell
 
-För PowerShell-cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)kontrollerar du `-EnableHttpsTrafficOnly` att parametern har `1`angetts till.
+För PowerShell-cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)kontrollerar du att parametern `-EnableHttpsTrafficOnly` har angetts till `1` .
 
 Om du vill uppdatera ett befintligt lagrings konto med PowerShell, se [Kräv säker överföring med PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 
 ### <a name="azure-cli"></a>Azure CLI
 
-För att skapa ett Azure CLI-kommando [AZ lagrings konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), se till att parametern `--https-only` är inställd på `true`.
+För att skapa ett Azure CLI-kommando [AZ lagrings konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), se till att parametern `--https-only` är inställd på `true` .
 
 Information om hur du uppdaterar ett befintligt lagrings konto med Azure CLI finns i [Kräv säker överföring med Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
 ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77591361"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program
@@ -147,7 +146,7 @@ Du behöver följande program vara från SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Installera en ASCS/SCS-instans på den första ASCS/SCS-klusternoden
 
-1. Installera en SAP ASCS/SCS-instans på den första klusternoden. Starta installations verktyget för SAP-SWPM och gå sedan till: **produkt** > -**DBMS** > installation > program Server ABAP (eller Java) > system med hög tillgänglighet > ASCS/SCS-instans > första klusternoden.  
+1. Installera en SAP ASCS/SCS-instans på den första klusternoden. Starta installations verktyget för SAP-SWPM och gå sedan till: **produkt**-  >  **DBMS** > installation > program Server ABAP (eller Java) > system med hög tillgänglighet > ASCS/SCS-instans > första klusternoden.  
 
 2. Välj **fil resurs kluster** som kluster resurs konfiguration i SWPM.  
 3. När du uppmanas till steg **SAP-systemets kluster parametrar**anger du värd namnet för den Azure NetApp Files SMB-resurs som du redan har skapat som **fil resurs värd namn**.  I det här exemplet är SMB-resursens värdnamn **anfsmb-9562**. 
@@ -162,7 +161,7 @@ Du behöver följande program vara från SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Installera en ASCS/SCS-instans på den andra ASCS/SCS-klusternoden
 
-1. Installera en SAP ASCS/SCS-instans på den andra klusternoden. Starta installations verktyget för SAP-SWPM och navigera sedan till **produkt** > -**DBMS** > installation > program Server ABAP (eller Java) > system med hög tillgänglighet > ASCS/SCS-instans > ytterligare klusternod.  
+1. Installera en SAP ASCS/SCS-instans på den andra klusternoden. Starta installations verktyget för SAP-SWPM och navigera sedan till **produkt**  >  -**DBMS** > installation > program Server ABAP (eller Java) > system med hög tillgänglighet > ASCS/SCS-instans > ytterligare klusternod.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installera en DBMS-instans och SAP-program servrar
 
@@ -177,9 +176,9 @@ Slutför din SAP-installation genom att installera:
 ### <a name="fail-over-from-cluster-node-a-to-cluster-node-b-and-back"></a>Redundansväxla från klusternod A till klusternod B och tillbaka
 I det här test scenariot kommer vi att referera till klusternoden sapascs1 som Node A, och till klusternoden sapascs2 som Node B.
 
-1. Kontrol lera att kluster resurserna körs på nod A. ![bild 1: Windows Server-redundanskluster resurser som körs på nod a före redundans testet](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
+1. Kontrol lera att kluster resurserna körs på nod A. ![ Bild 1: Windows Server-redundanskluster som körs på nod A före redundans testet](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
 
-2. Starta om klusternod A. SAP-kluster resurserna flyttas till klusternod B. ![bild 2: Windows Server-redundanskluster resurser som körs på nod B efter redundansväxlingen](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
+2. Starta om klusternod A. SAP-kluster resurserna flyttas till klusternod B. ![ Bild 2: kluster resurser för Windows Server som körs på nod B efter redundansväxlingen](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
 
 
 ## <a name="lock-entry-test"></a>Lås post-test

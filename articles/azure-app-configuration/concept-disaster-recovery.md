@@ -7,10 +7,9 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523772"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Återhämtning och haveriberedskap
@@ -60,7 +59,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 ```
 ---
 
-Observera att `optional` parametern har överförts `AddAzureAppConfiguration` till funktionen. När den här `true`parametern har angetts till förhindrar det att programmet inte kan fortsätta om funktionen inte kan läsa in konfigurations data.
+Observera att `optional` parametern har överförts till `AddAzureAppConfiguration` funktionen. När `true` den här parametern har angetts till förhindrar det att programmet inte kan fortsätta om funktionen inte kan läsa in konfigurations data.
 
 ## <a name="synchronization-between-configuration-stores"></a>Synkronisering mellan konfigurations lager
 
@@ -68,7 +67,7 @@ Det är viktigt att den geo-redundanta konfigurationen lagrar alla har samma upp
 
 Från Azure Portal kan du skicka en ändring till ett annat konfigurations Arkiv genom att följa dessa steg.
 
-1. Gå till fliken **Importera/exportera** och välj **Exportera** > **konfigurations** > **mål** > för app**Välj en resurs**.
+1. Gå till fliken **Importera/exportera** och välj **Exportera**  >  **konfigurations**  >  **mål**för app  >  **Välj en resurs**.
 
 1. På det nya bladet som öppnas anger du prenumerationen, resurs gruppen och resurs namnet för din sekundära lagring och väljer sedan **Använd**.
 

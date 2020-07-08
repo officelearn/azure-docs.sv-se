@@ -9,10 +9,9 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 1e2a4f7a7bc5db1b6a49f085821f7fa2bde54229
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523670"
 ---
 # <a name="point-in-time-snapshot"></a>Tidpunktsbaserad ögonblicksbild
@@ -21,7 +20,7 @@ Azure App-konfigurationen innehåller en post med ändringar som gjorts i nyckel
 
 ## <a name="key-value-retrieval"></a>Hämtning av nyckelvärde
 
-Du kan använda Azure PowerShell för att hämta tidigare nyckel värden.  Använd `az appconfig revision list`och Lägg till lämpliga parametrar för att hämta de värden som krävs.  Ange Azure App konfigurations instans genom att antingen ange Store-namnet`--name {app-config-store-name}`() eller med hjälp av en anslutnings`--connection-string {your-connection-string}`sträng (). Begränsa utdata genom att ange en viss tidpunkt (`--datetime`) och genom att ange det maximala antalet objekt som ska returneras (`--top`).
+Du kan använda Azure PowerShell för att hämta tidigare nyckel värden.  Använd `az appconfig revision list` och Lägg till lämpliga parametrar för att hämta de värden som krävs.  Ange Azure App konfigurations instans genom att antingen ange Store-namnet ( `--name {app-config-store-name}` ) eller med hjälp av en anslutnings sträng ( `--connection-string {your-connection-string}` ). Begränsa utdata genom att ange en viss tidpunkt ( `--datetime` ) och genom att ange det maximala antalet objekt som ska returneras ( `--top` ).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -31,13 +30,13 @@ Hämta alla registrerade ändringar till dina nyckel värden.
 az appconfig revision list --name {your-app-config-store-name}.
 ```
 
-Hämta alla registrerade ändringar för nyckeln `environment` och etiketterna `test` och. `prod`
+Hämta alla registrerade ändringar för nyckeln `environment` och etiketterna `test` och `prod` .
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --key environment --label test,prod
 ```
 
-Hämta alla registrerade ändringar i det hierarkiska nyckel `environment:prod`utrymmet.
+Hämta alla registrerade ändringar i det hierarkiska nyckel utrymmet `environment:prod` .
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --key environment:prod:* 
@@ -49,7 +48,7 @@ Hämta alla registrerade ändringar för nyckeln `color` vid en viss tidpunkt.
 az appconfig revision list --connection-string {your-app-config-connection-string} --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 
-Hämta de senaste 10 registrerade ändringarna till dina nyckel värden och returnera bara värdena för `key`, `label`och `last-modified` tidstämpelt.
+Hämta de senaste 10 registrerade ändringarna till dina nyckel värden och returnera bara värdena för `key` , och tidstämpelt `label` `last-modified` .
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --top 10 --fields key,label,last-modified

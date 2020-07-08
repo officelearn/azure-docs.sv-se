@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562130"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenario i Durable Functions – väder vakts exempel
@@ -38,7 +37,7 @@ Det här exemplet övervakar en platss aktuella väder förhållanden och varnar
 
 Det här exemplet förutsätter att du använder väder-API: et för att kontrol lera aktuella väder förhållanden för en plats.
 
-Det första du behöver är ett väderlek underjords konto. Du kan skapa ett kostnads fritt på [https://www.wunderground.com/signup](https://www.wunderground.com/signup). När du har ett konto måste du skaffa en API-nyckel. Du kan göra det genom att [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)besöka och sedan välja nyckel inställningar. Stratus Developer plan är gratis och tillräckligt för att köra det här exemplet.
+Det första du behöver är ett väderlek underjords konto. Du kan skapa ett kostnads fritt på [https://www.wunderground.com/signup](https://www.wunderground.com/signup) . När du har ett konto måste du skaffa en API-nyckel. Du kan göra det genom [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1) att besöka och sedan välja nyckel inställningar. Stratus Developer plan är gratis och tillräckligt för att köra det här exemplet.
 
 När du har en API-nyckel lägger du till följande **app-inställning** i din Function-app.
 
@@ -50,13 +49,13 @@ När du har en API-nyckel lägger du till följande **app-inställning** i din F
 
 I den här artikeln beskrivs följande funktioner i exempel appen:
 
-* `E3_Monitor`: En [Orchestrator-funktion](durable-functions-bindings.md#orchestration-trigger) som `E3_GetIsClear` anropar regelbundet. Den `E3_SendGoodWeatherAlert` anropas `E3_GetIsClear` om returnerar true.
+* `E3_Monitor`: En [Orchestrator-funktion](durable-functions-bindings.md#orchestration-trigger) som anropar `E3_GetIsClear` regelbundet. Den anropas `E3_SendGoodWeatherAlert` om `E3_GetIsClear` returnerar true.
 * `E3_GetIsClear`: En [aktivitets funktion](durable-functions-bindings.md#activity-trigger) som kontrollerar aktuella väder förhållanden för en plats.
 * `E3_SendGoodWeatherAlert`: En aktivitets funktion som skickar ett SMS-meddelande via Twilio.
 
 ### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor Orchestrator-funktion
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
@@ -64,7 +63,7 @@ Orchestrator kräver en plats för att övervaka och ett telefonnummer för att 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Funktionen **E3_Monitor** använder standard *funktionen. JSON* för Orchestrator functions.
+Funktionen **E3_Monitor** använder standard *function.jspå* för Orchestrator-funktioner.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/function.json)]
 
@@ -89,13 +88,13 @@ Flera Orchestrator-instanser kan köras samtidigt genom att anropa Orchestrator-
 
 Som med andra exempel är hjälp aktivitetens funktioner vanliga funktioner som använder sig av `activityTrigger` trigger-bindningen. Funktionen **E3_GetIsClear** hämtar aktuella väder förhållanden med hjälp av väder-API: et och avgör om himmelen är klar.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*Funktionen. JSON* definieras enligt följande:
+*function.jspå* definieras enligt följande:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/function.json)]
 
@@ -109,7 +108,7 @@ Här är implementeringen.
 
 Funktionen **E3_SendGoodWeatherAlert** använder bindningen Twilio för att skicka ett SMS-meddelande som meddelar slutanvändaren att det är en lämplig tid för en guidad användning.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
@@ -118,7 +117,7 @@ Funktionen **E3_SendGoodWeatherAlert** använder bindningen Twilio för att skic
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Dess *Function. JSON* är enkel:
+Dess *function.jspå* är enkelt:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/function.json)]
 
@@ -169,7 +168,7 @@ Du kan se dirigeringens aktivitet genom att titta på funktions loggarna i Azure
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-Dirigeringen [avslutas](durable-functions-instance-management.md) när tids gränsen nås eller Clear-Skies har identifierats. Du kan också använda `TerminateAsync` (.net) eller `terminate` (Java Script) i en annan funktion eller anropa **terminatePostUri** http post webhook som refereras i 202-svaret ovan `{text}` , vilket ersätter med orsaken till uppsägningen:
+Dirigeringen [avslutas](durable-functions-instance-management.md) när tids gränsen nås eller Clear-Skies har identifierats. Du kan också använda `TerminateAsync` (.net) eller `terminate` (Java Script) i en annan funktion eller anropa **terminatePostUri** http post webhook som refereras i 202-svaret ovan, `{text}` vilket ersätter med orsaken till uppsägningen:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

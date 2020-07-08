@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562077"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktions länkning i Durable Functions-Hello Sequence-exempel
@@ -22,17 +21,17 @@ Funktions länkning syftar på mönstret för att köra en sekvens med funktione
 
 I den här artikeln beskrivs följande funktioner i exempel appen:
 
-* `E1_HelloSequence`: En [Orchestrator-funktion](durable-functions-bindings.md#orchestration-trigger) som `E1_SayHello` anropar flera gånger i följd. Den lagrar utdata från `E1_SayHello` anropen och registrerar resultatet.
+* `E1_HelloSequence`: En [Orchestrator-funktion](durable-functions-bindings.md#orchestration-trigger) som anropar `E1_SayHello` flera gånger i följd. Den lagrar utdata från `E1_SayHello` anropen och registrerar resultatet.
 * `E1_SayHello`: En [aktivitets funktion](durable-functions-bindings.md#activity-trigger) som prepends en sträng med "Hello".
 * `HttpStart`: En HTTP-utlöst funktion som startar en instans av Orchestrator.
 
 ### <a name="e1_hellosequence-orchestrator-function"></a>E1_HelloSequence Orchestrator-funktion
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=13-25)]
 
-Alla C#-Orchestration-funktioner måste ha en parameter av `DurableOrchestrationContext`typen, som finns i `Microsoft.Azure.WebJobs.Extensions.DurableTask` sammansättningen. Med det här kontext objektet kan du anropa andra *aktivitets* funktioner och skicka indataparametrar med `CallActivityAsync` metoden.
+Alla C#-Orchestration-funktioner måste ha en parameter av typen `DurableOrchestrationContext` , som finns i `Microsoft.Azure.WebJobs.Extensions.DurableTask` sammansättningen. Med det här kontext objektet kan du anropa andra *aktivitets* funktioner och skicka indataparametrar med `CallActivityAsync` metoden.
 
 Koden anropar `E1_SayHello` tre gånger i följd med olika parameter värden. Returvärdet för varje anrop läggs till i `outputs` listan, som returneras i slutet av funktionen.
 
@@ -43,16 +42,16 @@ Koden anropar `E1_SayHello` tre gånger i följd med olika parameter värden. Re
 
 #### <a name="functionjson"></a>function.json
 
-Om du använder Visual Studio Code eller Azure Portal för utveckling så är innehållet i *Function. JSON* -filen för Orchestrator-funktionen. De flesta Orchestrator- *funktionen. JSON* -filer ser nästan exakt likadana ut.
+Om du använder Visual Studio Code eller Azure Portal för utveckling, är det här innehållet i *function.js* filen för Orchestrator-funktionen. De flesta Orchestrator- *function.jspå* filer ser ut ungefär så här.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 
 Det viktiga är `orchestrationTrigger` bindnings typen. Alla Orchestrator-funktioner måste använda den här typen av utlösare.
 
 > [!WARNING]
-> Om du vill följa regeln "ingen I/O" för Orchestrator-funktioner ska du inte använda några indata-eller utdata-bindningar när du `orchestrationTrigger` använder trigger-bindningen.  Om andra indata-eller utdata-bindningar behövs bör de i stället användas i kontexten `activityTrigger` för functions som anropas av Orchestrator. Mer information finns i artikeln om [begränsningar för Orchestrator-funktions kod](durable-functions-code-constraints.md) .
+> Om du vill följa regeln "ingen I/O" för Orchestrator-funktioner ska du inte använda några indata-eller utdata-bindningar när du använder `orchestrationTrigger` trigger-bindningen.  Om andra indata-eller utdata-bindningar behövs bör de i stället användas i kontexten för `activityTrigger` Functions som anropas av Orchestrator. Mer information finns i artikeln om [begränsningar för Orchestrator-funktions kod](durable-functions-code-constraints.md) .
 
-#### <a name="indexjs"></a>index. js
+#### <a name="indexjs"></a>index.js
 
 Här är funktionen:
 
@@ -61,37 +60,37 @@ Här är funktionen:
 Alla JavaScript-Orchestration-funktioner måste innehålla [ `durable-functions` modulen](https://www.npmjs.com/package/durable-functions). Det är ett bibliotek som du kan använda för att skriva Durable Functions i Java Script. Det finns tre viktiga skillnader mellan en Orchestration-funktion och andra JavaScript-funktioner:
 
 1. Funktionen är en [Generator-funktion.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript).
-2. Funktionen omges av ett anrop till `durable-functions` modulens `orchestrator` metod (här `df`).
+2. Funktionen omges av ett anrop till `durable-functions` modulens `orchestrator` metod (här `df` ).
 3. Funktionen måste vara synkron. Eftersom Orchestrator-metoden hanterar anrop av Context. klar, ska funktionen bara returnera.
 
-Objektet innehåller ett `df` beständigt Orchestration-kontext objekt som gör att du kan anropa andra *aktivitets* funktioner och skicka indataparametrar med `callActivity` hjälp av metoden. `context` Koden anropar `E1_SayHello` tre gånger i följd med olika parameter värden, med `yield` hjälp av för att indikera att körningen ska vänta på att de asynkrona aktivitets funktions anropen ska returneras. Returvärdet för varje anrop läggs till i `outputs` matrisen, som returneras i slutet av funktionen.
+`context`Objektet innehåller ett beständigt `df` Orchestration-kontext objekt som gör att du kan anropa andra *aktivitets* funktioner och skicka indataparametrar med hjälp av `callActivity` metoden. Koden anropar `E1_SayHello` tre gånger i följd med olika parameter värden, med hjälp av `yield` för att indikera att körningen ska vänta på att de asynkrona aktivitets funktions anropen ska returneras. Returvärdet för varje anrop läggs till i `outputs` matrisen, som returneras i slutet av funktionen.
 
 ---
 
 ### <a name="e1_sayhello-activity-function"></a>Funktionen E1_SayHello aktivitet
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=27-32)]
 
-Aktiviteter använder `ActivityTrigger` attributet. Använd för `IDurableActivityContext` att utföra åtgärder som är relaterade till aktiviteter, till exempel åtkomst till indatavärdet med `GetInput<T>`hjälp av.
+Aktiviteter använder `ActivityTrigger` attributet. Använd för `IDurableActivityContext` att utföra åtgärder som är relaterade till aktiviteter, till exempel åtkomst till indatavärdet med hjälp av `GetInput<T>` .
 
 Implementeringen av `E1_SayHello` är en relativt trivial sträng formaterings åtgärd.
 
-I stället för att binda `IDurableActivityContext`till en kan du binda direkt till den typ som skickas till funktionen aktivitet. Ett exempel:
+I stället för att binda till en `IDurableActivityContext` kan du binda direkt till den typ som skickas till funktionen aktivitet. Ett exempel:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.JSON
+#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.jspå
 
-*Function. JSON* -filen för aktivitets `E1_SayHello` funktionen liknar den, `E1_HelloSequence` förutom att den använder en `activityTrigger` bindnings typ i stället för en `orchestrationTrigger` bindnings typ.
+*function.jspå* fil för funktionen aktivitet `E1_SayHello` liknar detta `E1_HelloSequence` , förutom att den använder en `activityTrigger` bindnings typ i stället för en `orchestrationTrigger` bindnings typ.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/function.json)]
 
 > [!NOTE]
-> Alla funktioner som anropas av en Orchestration-funktion måste `activityTrigger` använda bindningen.
+> Alla funktioner som anropas av en Orchestration-funktion måste använda `activityTrigger` bindningen.
 
 Implementeringen av `E1_SayHello` är en relativt trivial sträng formaterings åtgärd.
 
@@ -99,15 +98,15 @@ Implementeringen av `E1_SayHello` är en relativt trivial sträng formaterings �
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-Till skillnad från en JavaScript-Orchestration-funktion behöver en aktivitets funktion inga särskilda inställningar. Indatamängden som skickas till den av Orchestrator-funktionen finns på `context.bindings` objektet under namnet på `activityTrigger` bindningen – i det här fallet. `context.bindings.name` Bindnings namnet kan anges som en parameter för den exporterade funktionen och nås direkt, vilket är vad exempel koden gör.
+Till skillnad från en JavaScript-Orchestration-funktion behöver en aktivitets funktion inga särskilda inställningar. Indatamängden som skickas till den av Orchestrator-funktionen finns på `context.bindings` objektet under namnet på `activityTrigger` bindningen – i det här fallet `context.bindings.name` . Bindnings namnet kan anges som en parameter för den exporterade funktionen och nås direkt, vilket är vad exempel koden gör.
 
 ---
 
 ### <a name="httpstart-client-function"></a>HttpStart-klient funktion
 
-Du kan starta en instans av Orchestrator-funktionen med hjälp av en klient funktion. Du kommer att använda `HttpStart` funktionen http-utlöst för att starta instanser `E1_HelloSequence`av.
+Du kan starta en instans av Orchestrator-funktionen med hjälp av en klient funktion. Du kommer att använda `HttpStart` funktionen http-utlöst för att starta instanser av `E1_HelloSequence` .
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs?range=13-30)]
 
@@ -115,30 +114,30 @@ För att interagera med Dirigerare måste funktionen innehålla en `DurableClien
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-#### <a name="httpstartfunctionjson"></a>HttpStart/function. JSON
+#### <a name="httpstartfunctionjson"></a>HttpStart/function.jspå
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json?highlight=16-20)]
 
 För att interagera med Dirigerare måste funktionen innehålla en `durableClient` Indatamask.
 
-#### <a name="httpstartindexjs"></a>HttpStart/index. js
+#### <a name="httpstartindexjs"></a>HttpStart/index.js
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-Används `df.getClient` för att hämta `DurableOrchestrationClient` ett objekt. Du kan använda klienten för att starta en dirigering. Det kan också hjälpa dig att returnera ett HTTP-svar som innehåller URL: er för att kontrol lera status för den nya dirigeringen.
+Används `df.getClient` för att hämta ett `DurableOrchestrationClient` objekt. Du kan använda klienten för att starta en dirigering. Det kan också hjälpa dig att returnera ett HTTP-svar som innehåller URL: er för att kontrol lera status för den nya dirigeringen.
 
 ---
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-Om du vill `E1_HelloSequence` köra dirigeringen skickar du följande HTTP POST-begäran till `HttpStart` funktionen.
+Om du vill köra `E1_HelloSequence` dirigeringen skickar du följande http post-begäran till `HttpStart` funktionen.
 
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
 
 > [!NOTE]
-> Det tidigare HTTP-kodfragmentet förutsätter att det finns `host.json` en post i filen som `api/` tar bort standardprefixet från alla URL: er för http-utlösare. Du hittar koden för den här konfigurationen i `host.json` filen i exemplen.
+> Det tidigare HTTP-kodfragmentet förutsätter att det finns en post i `host.json` filen som tar bort `api/` standardprefixet från alla URL: er för http-utlösare. Du hittar koden för den här konfigurationen i `host.json` filen i exemplen.
 
 Om du till exempel kör exemplet i en Function-app med namnet "myfunctionapp" ersätter du {Host} med "myfunctionapp.azurewebsites.net".
 
@@ -172,9 +171,9 @@ Content-Type: application/json; charset=utf-8
 Som du kan se `runtimeStatus` *slutförs* instansen och `output` innehåller det JSON-serialiserade resultatet av Orchestrator Function-körningen.
 
 > [!NOTE]
-> Du kan implementera liknande start logik för andra utlösare, `queueTrigger`t `eventHubTrigger`. ex `timerTrigger`., eller.
+> Du kan implementera liknande start logik för andra utlösare, `queueTrigger` t `eventHubTrigger` . ex `timerTrigger` ., eller.
 
-Titta på funktions körnings loggarna. `E1_HelloSequence` Funktionen startade och slutfördes flera gånger på grund av uppspelnings beteendet som beskrivs i avsnittet om [Dirigerings tillförlitlighet](durable-functions-orchestrations.md#reliability) . Å andra sidan fanns det bara tre körningar `E1_SayHello` eftersom dessa funktion körningar inte spelas upp.
+Titta på funktions körnings loggarna. `E1_HelloSequence`Funktionen startade och slutfördes flera gånger på grund av uppspelnings beteendet som beskrivs i avsnittet om [Dirigerings tillförlitlighet](durable-functions-orchestrations.md#reliability) . Å andra sidan fanns det bara tre körningar `E1_SayHello` eftersom dessa funktion körningar inte spelas upp.
 
 ## <a name="next-steps"></a>Nästa steg
 

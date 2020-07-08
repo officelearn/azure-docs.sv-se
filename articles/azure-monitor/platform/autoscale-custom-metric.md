@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425127"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Kom igång med automatisk skalning efter anpassade mått i Azure
@@ -23,7 +22,7 @@ Den här artikeln förutsätter att du har en webbapp med konfigurerat Applicati
 - Öppna [Azure Portal][2]
 - Klicka på Azure Monitor ikonen i det vänstra navigerings fönstret.
   ![Starta Azure Monitor][3]
-- Klicka på Inställningar för automatisk skalning för att visa alla resurser som den automatiska skalningen gäller för, tillsammans med dess aktuella status ![för automatisk skalning identifiera automatisk skalning i Azure Monitor][4]
+- Klicka på Inställningar för automatisk skalning för att visa alla resurser som den automatiska skalningen gäller för, tillsammans med dess aktuella status ![ för automatisk skalning identifiera automatisk skalning i Azure Monitor][4]
 - Öppna bladet autoskalning i Azure Monitor och välj en resurs som du vill skala
   > Obs! stegen nedan använder en app service-plan som är associerad med en webbapp som har konfigurerat App Insights.
 - Observera att det aktuella instans antalet är 1 på bladet skalnings inställning för resursen. Klicka på Aktivera autoskalning.

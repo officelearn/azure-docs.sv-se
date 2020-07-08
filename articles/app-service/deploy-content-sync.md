@@ -7,10 +7,9 @@ ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77482980"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synkronisera innehåll från en molnbaserad mapp till Azure App Service
@@ -22,7 +21,7 @@ Distributionen av innehålls synkronisering på begäran drivs av App Service [k
 
 Om du vill aktivera synkronisering av innehåll går du till sidan App Service app i [Azure Portal](https://portal.azure.com).
 
-I den vänstra menyn klickar du på **distributions Center** > **OneDrive** eller **Dropbox** > **auktorisera**. Följ anvisningarna i auktoriseringen. 
+I den vänstra menyn klickar du på **distributions Center**  >  **OneDrive** eller **Dropbox**  >  **auktorisera**. Följ anvisningarna i auktoriseringen. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -54,7 +53,7 @@ När du vill synkronisera innehåll i din Cloud-mapp med App Service går du til
 
 Om du vill inaktivera synkronisering av innehåll går du till sidan App Service app i [Azure Portal](https://portal.azure.com).
 
-I den vänstra menyn klickar du på **distributions Center** > **Koppla från**.
+I den vänstra menyn klickar du på **distributions Center**  >  **Koppla från**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

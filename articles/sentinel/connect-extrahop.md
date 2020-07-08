@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 8d82d8c5a76c34875e9a4aae22c547aec897c18a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588305"
 ---
 # <a name="connect-extrahop-revealx"></a>Ansluta ExtraHop Reveal(x)
@@ -34,7 +33,7 @@ Med ExtraHop Reveal (x) data Connector kan du enkelt ansluta ditt Reveal (x)-sys
 
 ## <a name="connect-azure-sentinel-to-extrahop-revealx"></a>Anslut Azure Sentinel till ExtraHop Reveal (x)
 
-1. I Azure Portal går du till **Azure Sentinel** > **data Connectors** och väljer sedan **ExtraHop Reveal (x)-** anslutaren.
+1. I Azure Portal går du till **Azure Sentinel**  >  **data Connectors** och väljer sedan **ExtraHop Reveal (x)-** anslutaren.
 
 2. Välj **Öppna kopplings sida**.
 

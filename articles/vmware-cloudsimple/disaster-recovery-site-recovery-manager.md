@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fa8b2da683d68a337df38e13726f22c5af43540a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77565935"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Konfigurera ett privat moln som ett haveri beredskaps mål med VMware Site Recovery Manager
@@ -146,7 +145,7 @@ Detaljerade installations anvisningar för vSphere-replikering 6,5 finns i VMwar
 
 Logga in på vCenter med cloudowner-användarautentiseringsuppgifter efter att ha eskalerat privilegier från CloudSimple-portalen.
 
-Skapa en ny användare, `srm-soln-admin`i vCenter och Lägg till den i gruppen Administratörer i vCenter.
+Skapa en ny användare, `srm-soln-admin` i vCenter och Lägg till den i gruppen Administratörer i vCenter.
 Logga ut från vCenter som cloudowner-användare och logga in som *SRM-soln-admin-* användaren.
 
 #### <a name="cloudsimple-portal-configure-firewall-rules-for-vra"></a>CloudSimple-Portal: Konfigurera brand Väggs regler för vRA

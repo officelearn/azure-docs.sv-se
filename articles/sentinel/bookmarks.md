@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588696"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Håll koll på data under jakt med Azure Sentinel
@@ -36,7 +35,7 @@ I för hands versionen kan du också visualisera dina data bok märken genom att
 
 ## <a name="add-a-bookmark"></a>Lägga till ett bokmärke
 
-1. I Azure Portal navigerar du till **kontroll** > **Threat Management** > **jakt** för att köra frågor om misstänkt och avvikande beteende.
+1. I Azure Portal navigerar du till **kontroll**  >  **Threat Management**  >  **jakt** för att köra frågor om misstänkt och avvikande beteende.
 
 2. Välj en av jakt frågorna och till höger, i frågor om jakt, väljer du **Kör fråga**. 
 
@@ -67,11 +66,11 @@ I för hands versionen kan du också visualisera dina data bok märken genom att
 
  
 > [!NOTE]
-> Resultatet av logg frågan stöder bok märken när det här fönstret öppnas från Azure Sentinel. Du kan till exempel välja **allmänna** > **loggar** i navigerings fältet, välja händelse länkar i utrednings diagrammet eller välja ett aviserings-ID från den fullständiga informationen om en incident (för närvarande i för hands version). Du kan inte skapa bok märken när fönstret **loggar** öppnas från andra platser, till exempel direkt från Azure Monitor.
+> Resultatet av logg frågan stöder bok märken när det här fönstret öppnas från Azure Sentinel. Du kan till exempel välja **allmänna**  >  **loggar** i navigerings fältet, välja händelse länkar i utrednings diagrammet eller välja ett aviserings-ID från den fullständiga informationen om en incident (för närvarande i för hands version). Du kan inte skapa bok märken när fönstret **loggar** öppnas från andra platser, till exempel direkt från Azure Monitor.
 
 ## <a name="view-and-update-bookmarks"></a>Visa och uppdatera bok märken 
 
-1. I Azure Portal går du till **kontroll** > **Threat Management** > **jakt**. 
+1. I Azure Portal går du till **kontroll**  >  **Threat Management**  >  **jakt**. 
 
 2. Välj fliken **bok märken** om du vill visa listan över bok märken.
 
@@ -88,7 +87,7 @@ I för hands versionen kan du också visualisera dina data bok märken genom att
 > Dessa funktioner tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. I Azure Portal navigerar du till fliken **Sentinel** > **Threat Management** > **jakt** > **bok märken** och väljer det bok märke eller bok märken som du vill undersöka.
+1. I Azure Portal navigerar du till fliken **Sentinel**  >  **Threat Management**  >  **jakt**  >  **bok märken** och väljer det bok märke eller bok märken som du vill undersöka.
 
 2. I bok märkes detaljerna ser du till att minst en entitet är mappad. För **entiteter**visas till exempel poster för **IP**, **dator**eller **konto**.
 
@@ -103,7 +102,7 @@ Anvisningar om hur du använder undersöknings diagrammet finns i [använda unde
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. I Azure Portal navigerar du till fliken **Sentinel** > **Threat Management** > **jakt** > **bok märken** och väljer det bok märke eller bok märken som du vill lägga till i en incident.
+1. I Azure Portal navigerar du till fliken **Sentinel**  >  **Threat Management**  >  **jakt**  >  **bok märken** och väljer det bok märke eller bok märken som du vill lägga till i en incident.
 
 2. Välj **incident åtgärder (förhands granskning)** från kommando fältet:
     
@@ -115,20 +114,20 @@ Anvisningar om hur du använder undersöknings diagrammet finns i [använda unde
     - För en ny incident: kan du uppdatera informationen om incidenten och sedan välja **skapa**.
     - För att lägga till ett bok märke till en befintlig incident: Välj en incident och välj sedan **Lägg till**. 
 
-Så här visar du bok märket i incidenten: gå till **kontroll** > **Threat Management** > -**incidenter** och välj incidenten med ditt bok märke. Välj **Visa fullständig information**och välj sedan fliken **bok märken** .
+Så här visar du bok märket i incidenten: gå till **kontroll**  >  **Threat Management**-  >  **incidenter** och välj incidenten med ditt bok märke. Välj **Visa fullständig information**och välj sedan fliken **bok märken** .
 
 > [!TIP]
 > Som ett alternativ till alternativet **incident åtgärder (förhands granskning)** i kommando fältet kan du använda snabb menyn (**...**) för en eller flera bok märken för att välja alternativ för att **skapa en ny incident**, **lägga till i befintlig incident**och **ta bort från incidenten**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Visa bok märkes data i loggar
 
-Om du vill visa frågor, resultat eller historik för bok märken väljer du bok märket på fliken **jakt** > **bok märken** och använder länkarna i informations fönstret: 
+Om du vill visa frågor, resultat eller historik för bok märken väljer du bok märket på fliken **jakt**  >  **bok märken** och använder länkarna i informations fönstret: 
 
 - **Visa käll frågan** om du vill visa käll frågan i fönstret **loggar** .
 
 - **Visa bok märkes loggar** om du vill visa alla metadata för bok märken som innehåller vem som gjort uppdateringen, de uppdaterade värdena och tidpunkten då uppdateringen ägde rum.
 
-Du kan också Visa rå data bok märken för alla bok märken genom att välja **bok märkes loggar** från kommando fältet på fliken **jakt** > **bok märken** :
+Du kan också Visa rå data bok märken för alla bok märken genom att välja **bok märkes loggar** från kommando fältet på fliken **jakt**  >  **bok märken** :
 
 > [!div class="mx-imgBorder"]
 > ![Bok märkes loggar](./media/bookmarks/bookmark-logs.png)
@@ -140,7 +139,7 @@ I den här vyn visas alla dina bok märken med tillhör ande metadata. Du kan an
 
 ## <a name="delete-a-bookmark"></a>Ta bort ett bok märke
  
-1.  I Azure Portal navigerar du till fliken **Sentinel** > **Threat Management** > **jakt** > **bok märken** och väljer det bok märke eller bok märken som du vill ta bort. 
+1.  I Azure Portal navigerar du till fliken **Sentinel**  >  **Threat Management**  >  **jakt**  >  **bok märken** och väljer det bok märke eller bok märken som du vill ta bort. 
 
 2. Högerklicka på dina val och välj alternativet för att ta bort bok märket eller bok märkena. Ta till exempel **bort bok märke** om du bara har valt ett bok märke och **ta bort 2 bok märken** om du har valt två bok märken.
     

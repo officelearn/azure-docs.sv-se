@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
 ms.openlocfilehash: 577bed7ce342be14a50077a3ffd841cd901b5b31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77473017"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Hantera disk utrymme i Azure HDInsight
@@ -20,9 +19,9 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="hive-log-configurations"></a>Konfigurationer av Hive-logg
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-1. Navigera till **Hive** > -**konfigurationer** > **Advanced** > **Advanced Hive-log4j**. Granska följande inställningar:
+1. Navigera till **Hive**  >  -**konfigurationer**  >  **Advanced**  >  **Advanced Hive-log4j**. Granska följande inställningar:
 
     * `hive.root.logger=DEBUG,RFA`. Detta är standardvärdet, ändra [logg nivån](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) till `INFO` för att skriva ut mindre logg poster.
 
@@ -36,13 +35,13 @@ Granska följande konfigurationer:
 
 * Apache Ambari
 
-    1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+    1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-    1. Navigera till **Hive** > -**konfigurationer** > **Avancerad** > **Resource Manager**. Se till att **Aktivera logg agg regering** är markerat. Om det här alternativet är inaktiverat behåller Name-noderna loggarna lokalt och inte samman dem i fjärrarkivet vid slut för ande av program.
+    1. Navigera till **Hive**-  >  **konfigurationer**  >  **Avancerad**  >  **Resource Manager**. Se till att **Aktivera logg agg regering** är markerat. Om det här alternativet är inaktiverat behåller Name-noderna loggarna lokalt och inte samman dem i fjärrarkivet vid slut för ande av program.
 
 * Kontrollera att klusterstorleken är lämplig för arbetsbelastningen. Arbets belastningen kan ha ändrats nyligen eller också har klustret ändrat storlek. [Skala upp](../hdinsight-scaling-best-practices.md) klustret så att det matchar en högre arbets belastning.
 
-* `/mnt/resource`kan fyllas med överblivna filer (som i fallet med Resource Manager omstart). Om det behövs kan du `/mnt/resource/hadoop/yarn/log` manuellt `/mnt/resource/hadoop/yarn/local`rensa och manuellt.
+* `/mnt/resource`kan fyllas med överblivna filer (som i fallet med Resource Manager omstart). Om det behövs kan du manuellt rensa `/mnt/resource/hadoop/yarn/log` och manuellt `/mnt/resource/hadoop/yarn/local` .
 
 ## <a name="next-steps"></a>Nästa steg
 

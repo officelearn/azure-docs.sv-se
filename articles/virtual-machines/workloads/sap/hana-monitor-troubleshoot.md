@@ -14,10 +14,9 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617079"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Övervaka och felsöka från HANA-sida
@@ -70,7 +69,7 @@ Läs mer i avsnittet [SAP HANA fel sökning: CPU-relaterade orsaker och lösning
 
 En av de viktigaste kontrollerna för SAP HANA på Linux är att se till att genomskinliga enorma sidor är inaktiverade, se [SAP Obs! #2131662 – transparenta enorma sidor (THP) på SAP HANA-servrar](https://launchpad.support.sap.com/#/notes/2131662).
 
-- Du kan kontrol lera om transparenta enorma sidor är aktiverade genom följande Linux-kommando: **Cat/sys/kernel/mm/transparent\_hugepage/Enabled**
+- Du kan kontrol lera om transparenta enorma sidor är aktiverade genom följande Linux-kommando: **Cat/sys/kernel/mm/transparent \_ hugepage/Enabled**
 - Om _alltid_ omges av hakparenteser som nedan, innebär det att de genomskinliga enorma sidorna är aktiverade: [Always] madvise aldrig; Om _aldrig_ omges av hakparenteser som nedan, innebär det att de genomskinliga enorma sidorna är inaktiverade: alltid madvise [Never]
 
 Följande Linux-kommando ska returnera inget: **rpm-frågor och svar | grep-ulimit.** Om den verkar vara installerad _ulimit_ avinstallerar du den omedelbart.
@@ -93,10 +92,10 @@ Mer information om fel söknings steg hittar du på webbplatsen för [SAP HANA f
 Se [SAP obs #2081065 – fel sökning SAP HANA nätverk](https://launchpad.support.sap.com/#/notes/2081065) och utföra fel söknings stegen i denna SAP-anteckning.
 
 1. Analysera fördröjnings tiden mellan server och klient.
-  A. Kör SQL-skriptet [_Hana\_-\_nätverks klienter_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Kör SQL-skriptet [_Hana- \_ nätverks \_ klienter_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Analysera kommunikation mellan noder.
-  A. Kör SQL- [_skript\_Hana\_nätverks tjänster_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Kör SQL-skript [_Hana \_ nätverks \_ tjänster_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Kör Linux- **ifconfig** (utdata visar om eventuella paket förluster inträffar).
 4. Kör Linux-kommandot **tcpdump**.
@@ -119,15 +118,15 @@ Läs mer i [SAP HANA fel sökning: i/O-relaterade Rotors Aker och lösningar](ht
 
 ## <a name="diagnostic-tools"></a>Diagnostikverktyg
 
-Utför en SAP HANA hälso kontroll via HANA\_-\_konfiguration Minichecks. Det här verktyget returnerar potentiella kritiska tekniska problem som redan borde ha höjts som aviseringar i SAP HANA Studio.
+Utför en SAP HANA hälso kontroll via HANA- \_ konfiguration \_ Minichecks. Det här verktyget returnerar potentiella kritiska tekniska problem som redan borde ha höjts som aviseringar i SAP HANA Studio.
 
-Se [SAP Note #1969700-SQL-instruktionen för SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) och hämta SQL-uttrycken. zip-filen som är kopplad till den anteckningen. Lagra denna zip-fil på den lokala hård disken.
+Se [SAP Note #1969700-SQL-instruktionen för SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) och hämta SQL Statements.zip-filen som är kopplad till den anteckningen. Lagra denna zip-fil på den lokala hård disken.
 
 I SAP HANA Studio går du till fliken **system information** , högerklickar på kolumnen **namn** och väljer **Importera SQL-uttryck**.
 
 ![I SAP HANA Studio går du till fliken system information, högerklickar på kolumnen namn och väljer Importera SQL-uttryck](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
-Välj SQL-uttrycken. zip-filen lagras lokalt och en mapp med motsvarande SQL-uttryck importeras. I det här läget kan många olika diagnostiska kontroller köras med dessa SQL-uttryck.
+Välj den SQL Statements.zip-fil som lagras lokalt och en mapp med motsvarande SQL-uttryck importeras. I det här läget kan många olika diagnostiska kontroller köras med dessa SQL-uttryck.
 
 Om du till exempel vill testa bandbredds kraven för SAP HANA system replikering högerklickar du på **bandbredds** policyn under **replikering: bandbredd** och väljer **Öppna** i SQL-konsolen.
 
@@ -143,29 +142,29 @@ Detta ger information som hjälper till med fel sökning:
 
 ![Detta leder till information som kan hjälpa till med fel sökning](./media/troubleshooting-monitoring/image10-import-statements-d.png)
 
-Gör samma sak för HANA\_-\_Minichecks och kontrol lera om det finns _X_ -markeringar i kolumnen _C_ (kritisk).
+Gör samma sak för HANA \_ \_ -Minichecks och kontrol lera om det finns _X_ -markeringar i kolumnen _C_ (kritisk).
 
 Exempel på utdata:
 
-**Hana\_-\_konfiguration\_MiniChecks rev 102.01 + 1** för allmänt SAP HANA kontroller.
+**Hana \_ Konfiguration \_ MiniChecks \_ rev 102.01 + 1** för allmänt SAP HANA kontroller.
 
-![HANA\_-\_konfiguration\_MiniChecks rev 102.01 + 1 för allmänt SAP HANA kontroller](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
+![HANA- \_ konfiguration \_ MiniChecks \_ rev 102.01 + 1 för allmänt SAP HANA kontroller](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
 
-**Översikt\_över\_Hana-tjänster** för en översikt över vilka SAP HANA-tjänster som körs för närvarande.
+**Hana \_ \_Översikt över tjänster** för en översikt över vilka SAP HANA-tjänster som körs för närvarande.
 
-![HANA\_-\_tjänster – översikt över vilka SAP HANA-tjänster som körs för närvarande](./media/troubleshooting-monitoring/image12-services-overview.png)
+![HANA- \_ tjänster \_ – Översikt över vilka SAP HANA-tjänster som körs för närvarande](./media/troubleshooting-monitoring/image12-services-overview.png)
 
-**Hana\_-\_tjänstestatistik** för SAP HANA tjänst information (CPU, minne osv.).
+**Hana \_ Tjänste \_ statistik** för SAP HANA tjänst information (CPU, minne osv.).
 
-![HANA\_Services\_statistik för SAP HANA tjänst information](./media/troubleshooting-monitoring/image13-services-statistics.png)
+![HANA \_ Services \_ statistik för SAP HANA tjänst information](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-**Hana\_\_konfigurations\_översikt Rev110 +** för allmän information om SAP HANA-instansen.
+**Hana \_ Konfigurations \_ Översikt \_ Rev110 +** för allmän information om SAP HANA-instansen.
 
-![HANA\_-\_konfiguration\_– översikt Rev110 + för allmän information om SAP HANA-instansen](./media/troubleshooting-monitoring/image14-configuration-overview.png)
+![HANA- \_ konfiguration \_ – Översikt \_ Rev110 + för allmän information om SAP HANA-instansen](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**Hana\_\_konfigurations\_parametrar Rev70 +** för att kontrol lera SAP HANA parametrar.
+**Hana \_ Konfigurations \_ parametrar \_ Rev70 +** för att kontrol lera SAP HANA parametrar.
 
-![HANA\_\_konfigurations\_parametrar Rev70 + för att kontrol lera SAP HANA parametrar](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
+![HANA \_ konfigurations \_ parametrar \_ Rev70 + för att kontrol lera SAP HANA parametrar](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 
 **Nästa steg**
 

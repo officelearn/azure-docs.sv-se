@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
 ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595373"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub-åtgärder för att distribuera till Kubernetes-tjänsten
@@ -21,7 +20,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett arbets flöde som riktar sig till AKS har filen tre delar:
 
-|Section  |Aktiviteter  |
+|Avsnitt  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | Logga in på ett privat container Registry (ACR) |
 |**Utveckla** | Bygg & push-överför behållar avbildningen  |
@@ -71,9 +70,9 @@ Följ stegen för att konfigurera hemligheterna:
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Bygg en behållar avbildning och distribuera till Azure Kubernetes service-kluster
 
-Att bygga och skicka behållar avbildningar görs med `Azure/docker-login@v1` hjälp av åtgärden. Om du vill distribuera en behållar avbildning till AKS måste du använda `Azure/k8s-deploy@v1` åtgärden. Den här åtgärden har fem parametrar:
+Att bygga och skicka behållar avbildningar görs med hjälp av `Azure/docker-login@v1` åtgärden. Om du vill distribuera en behållar avbildning till AKS måste du använda `Azure/k8s-deploy@v1` åtgärden. Den här åtgärden har fem parametrar:
 
-| **ProfileServiceApplicationProxy**  | **Förklaring**  |
+| **Parameter**  | **Förklaring**  |
 |---------|---------|
 | **namn område** | Valfritt Välj mål namn området Kubernetes. Om namn området inte anges körs kommandona i standard namn området | 
 | **manifest** |  Kunna Sökväg till manifest-filerna som ska användas för distribution |

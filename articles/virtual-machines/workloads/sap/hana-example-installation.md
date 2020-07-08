@@ -14,10 +14,9 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617211"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Installera HANA på SAP HANA på Azure (stora instanser)
@@ -39,7 +38,7 @@ De stora HANA-instans enheterna är inte direkt anslutna till Internet. Du kan i
 
 Du behöver en SAP S-användare eller en annan användare, vilket gör att du kan komma åt SAP Marketplace.
 
-1. Logga in och gå till [SAP Service Marketplace](https://support.sap.com/en/index.html). Välj **Hämta program varu** > **installationer och uppgradera** > **enligt alfabetiskt index**. Välj **under H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2,0** > -**installation**. Hämta filerna som visas i följande skärm bild.
+1. Logga in och gå till [SAP Service Marketplace](https://support.sap.com/en/index.html). Välj **Hämta program varu**  >  **installationer och uppgradera**  >  **enligt alfabetiskt index**. Välj **under H – SAP HANA Platform Edition**  >  **SAP HANA Platform Edition 2,0**-  >  **installation**. Hämta filerna som visas i följande skärm bild.
 
    ![Skärm bild av de filer som ska laddas ned](./media/hana-installation/image16_download_hana.PNG)
 

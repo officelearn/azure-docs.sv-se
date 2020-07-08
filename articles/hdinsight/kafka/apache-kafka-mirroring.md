@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425892"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka i HDInsight
@@ -63,7 +62,7 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
 
 1. Skapa två nya resurs grupper:
 
-    |Resursgrupp | Plats |
+    |Resursgrupp | Location |
     |---|---|
     | Kafka-Primary-rg | USA, centrala |
     | Kafka – sekundär-rg | USA, norra centrala |
@@ -90,8 +89,8 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
 
 Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adresser för Broker i stället för domän namn.
 
-1. Gå till Ambari-instrumentpanelen för det primära klustret `https://PRIMARYCLUSTERNAME.azurehdinsight.net`:.
-1. Välj **tjänster** > **Kafka**. CliSelectck fliken **configs** .
+1. Gå till Ambari-instrumentpanelen för det primära klustret: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
+1. Välj **tjänster**  >  **Kafka**. CliSelectck fliken **configs** .
 1. Lägg till följande konfigurations rader i det nedre **Kafka-avsnittet mall** . Välj **Spara**.
 
     ```
@@ -105,13 +104,13 @@ Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adr
 1. Skriv en anteckning på sidan **Spara konfiguration** och klicka på **Spara**.
 1. Om du uppmanas att konfigurera en konfigurations varning klickar du på **Fortsätt ändå**.
 1. Välj **OK** i **ändringarna Spara konfigurationen**.
-1. Välj **Starta** > om**omstart allt påverkat** i meddelandet **omstart krävs** . Välj **Bekräfta omstart av alla**.
+1. Välj **Starta**om  >  **omstart allt påverkat** i meddelandet **omstart krävs** . Välj **Bekräfta omstart av alla**.
 
     ![Apache Ambari-omstart alla påverkade](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Konfigurera Kafka för att lyssna på alla nätverks gränssnitt.
     
-1. Stanna kvar på fliken **configs** under **Services** > **Kafka**. I **Kafka Broker** -avsnittet anger du egenskapen **Listeners** till `PLAINTEXT://0.0.0.0:9092`.
+1. Stanna kvar på fliken **configs** under **Services**  >  **Kafka**. I **Kafka Broker** -avsnittet anger du egenskapen **Listeners** till `PLAINTEXT://0.0.0.0:9092` .
 1. Välj **Spara**.
 1. Välj **starta om**och **Bekräfta omstart av alla**.
 
@@ -136,14 +135,14 @@ Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adr
 
     Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-1. Använd följande kommando för att skapa en variabel med Apache Zookeeper-värdar för det primära klustret. Strängarna som `ZOOKEEPER_IP_ADDRESS1` måste ersättas med de faktiska IP-adresser som registrerats tidigare, `10.23.0.11` till `10.23.0.7`exempel och. Om du använder FQDN-matchning med en anpassad DNS-Server följer du [dessa steg](apache-kafka-get-started.md#getkafkainfo) för att hämta Broker-och Zookeeper-namn.:
+1. Använd följande kommando för att skapa en variabel med Apache Zookeeper-värdar för det primära klustret. Strängarna som `ZOOKEEPER_IP_ADDRESS1` måste ersättas med de faktiska IP-adresser som registrerats tidigare, till exempel `10.23.0.11` och `10.23.0.7` . Om du använder FQDN-matchning med en anpassad DNS-Server följer du [dessa steg](apache-kafka-get-started.md#getkafkainfo) för att hämta Broker-och Zookeeper-namn.:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-1. Använd följande kommando för att `testtopic`skapa ett ämne med namnet:
+1. Använd följande kommando för att skapa ett ämne med namnet `testtopic` :
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $PRIMARY_ZKHOSTS
@@ -155,7 +154,7 @@ Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adr
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $PRIMARY_ZKHOSTS
     ```
 
-    Svaret innehåller `testtopic`.
+    Svaret innehåller `testtopic` .
 
 1. Använd följande för att Visa Zookeeper-värd information för det här (det **primära**) klustret:
 
@@ -250,9 +249,9 @@ Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adr
 
         Gör så här för att konfigurera det sekundära klustret att automatiskt skapa ämnen:
 
-        1. Gå till Ambari-instrumentpanelen för det sekundära klustret `https://SECONDARYCLUSTERNAME.azurehdinsight.net`:.
-        1. Klicka på **Services** > **Kafka**. Klicka på fliken **konfigurationer** .
-        1. Ange ett värde i fältet __filter__ `auto.create`. Detta filtrerar listan över egenskaper och visar `auto.create.topics.enable` inställningen.
+        1. Gå till Ambari-instrumentpanelen för det sekundära klustret: `https://SECONDARYCLUSTERNAME.azurehdinsight.net` .
+        1. Klicka på **Services**  >  **Kafka**. Klicka på fliken **konfigurationer** .
+        1. Ange ett värde i fältet __filter__ `auto.create` . Detta filtrerar listan över egenskaper och visar `auto.create.topics.enable` inställningen.
         1. Ändra värdet `auto.create.topics.enable` till sant och välj sedan __Spara__. Lägg till en anteckning och välj sedan __Spara__ igen.
         1. Välj __Kafka__ -tjänsten, Välj __starta om__och välj sedan __starta om alla berörda__. När du uppmanas väljer du __Bekräfta omstart av alla__.
 
@@ -270,8 +269,8 @@ Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adr
 
     |Parameter |Beskrivning |
     |---|---|
-    |--Consumer. config|Anger den fil som innehåller konsument egenskaper. Dessa egenskaper används för att skapa en konsument som läser från det *primära* Kafka-klustret.|
-    |--Producer. config|Anger den fil som innehåller producent egenskaper. Dessa egenskaper används för att skapa en producent som skriver till det *sekundära* Kafka-klustret.|
+    |--consumer.config|Anger den fil som innehåller konsument egenskaper. Dessa egenskaper används för att skapa en konsument som läser från det *primära* Kafka-klustret.|
+    |--producer.config|Anger den fil som innehåller producent egenskaper. Dessa egenskaper används för att skapa en producent som skriver till det *sekundära* Kafka-klustret.|
     |--vitlista|En lista med avsnitt som MirrorMaker replikerar från det primära klustret till den sekundära.|
     |--antal. strömmar|Antalet konsument trådar som ska skapas.|
 
@@ -292,7 +291,7 @@ Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adr
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Listan med ämnen innehåller `testtopic`nu, som skapas när MirrorMaster speglar ämnet från det primära klustret till den sekundära. Meddelanden som hämtas från avsnittet är desamma som de som du angav i det primära klustret.
+    Listan med ämnen innehåller nu `testtopic` , som skapas när MirrorMaster speglar ämnet från det primära klustret till den sekundära. Meddelanden som hämtas från avsnittet är desamma som de som du angav i det primära klustret.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 

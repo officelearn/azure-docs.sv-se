@@ -14,10 +14,9 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77616981"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurera SMT-Server för SUSE Linux
@@ -34,7 +33,7 @@ Krav för att installera en SMT-server som uppfyller uppgiften för HANA-stora i
 
 Logga först in på [SUSE kund Center](https://scc.suse.com/).
 
-Gå till **Organization** > organisationens**organisations uppgifter**. I det avsnittet bör du hitta de autentiseringsuppgifter som krävs för att konfigurera SMT-servern.
+Gå till **organisationens**  >  **organisations uppgifter**. I det avsnittet bör du hitta de autentiseringsuppgifter som krävs för att konfigurera SMT-servern.
 
 Installera sedan en SUSE Linux-dator i det virtuella Azure-nätverket. Om du vill distribuera den virtuella datorn tar du en SLES 12 SP2 galleri bild av Azure (Välj BYOS SUSE image). I distributions processen definierar du inte ett DNS-namn och använder inte statiska IP-adresser.
 
@@ -83,7 +82,7 @@ Du kan också använda verktyget YAST för att installera SMT-paketen. Gå till 
 ![Skärm bild av SMT i YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Godkänn valet av installation på smtserver. När installationen är klar går du till konfiguration av SMT-servern. Ange organisationens autentiseringsuppgifter från det SUSE-kund Center som du hämtade tidigare. Ange även värd namnet för den virtuella Azure-datorn som URL för SMT-Server. I den här demonstrationen är https:\//smtserver.
+Godkänn valet av installation på smtserver. När installationen är klar går du till konfiguration av SMT-servern. Ange organisationens autentiseringsuppgifter från det SUSE-kund Center som du hämtade tidigare. Ange även värd namnet för den virtuella Azure-datorn som URL för SMT-Server. I den här demonstrationen är https: \/ /smtserver.
 
 ![Skärm bild av konfiguration av SMT-Server](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

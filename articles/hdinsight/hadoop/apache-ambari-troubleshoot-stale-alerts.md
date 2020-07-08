@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77539118"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Scenario: Apache Ambari inaktuella aviseringar i Azure HDInsight
@@ -74,7 +73,7 @@ Om du vill ta bort en inaktuell avisering inaktiverar du den och aktiverar den i
 
 Det finns en respitperiod innan en Ambari-agent rapporterar att en konfigurerad avisering missade sitt schema. Om aviseringen missade sin schemalagda tid men kördes inom respitperioden, genereras inte den inaktuella varningen.
 
-`alert_grace_period` Standardvärdet är 5 sekunder. Du kan konfigurera den här inställningen i/etc/Ambari-agent/conf/Ambari-agent.ini. Försök att öka värdet till 10 för värdar där inaktuella aviseringar sker med jämna mellanrum. Starta sedan om Ambari-agenten.
+`alert_grace_period`Standardvärdet är 5 sekunder. Du kan konfigurera den här inställningen i/etc/Ambari-agent/conf/ambari-agent.ini. Försök att öka värdet till 10 för värdar där inaktuella aviseringar sker med jämna mellanrum. Starta sedan om Ambari-agenten.
 
 ## <a name="next-steps"></a>Nästa steg
 

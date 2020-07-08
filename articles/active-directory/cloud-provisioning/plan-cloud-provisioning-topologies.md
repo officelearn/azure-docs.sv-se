@@ -12,10 +12,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77620876"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Topologier och scenarier som stöds av Azure AD Connect Cloud-etablering
@@ -50,7 +49,7 @@ En vanlig topologi är flera AD-skogar med en eller flera domäner och en enda A
 Det här scenariot är en topologi som liknar scenariot med flera skogar, men det här är en befintlig Azure AD Connect-miljö och sedan en ny skog med hjälp av Azure AD Connect moln etablering.  Ett exempel på det här scenariot finns i [självstudie: en befintlig skog med en enda Azure AD-klient](tutorial-existing-forest.md)
 
 ## <a name="piloting-azure-ad-connect-cloud-provisioning-in-an-existing-hybrid-ad-forest"></a>Pilotering Azure AD Connect moln etablering i en befintlig hybrid AD-skog
-![Topologi för en enskild skog och en enskild klient](media/plan-cloud-provisioning-topologies/migrate.png) som pilot scenariot omfattar förekomsten av både Azure AD Connect och Azure AD Connect moln etablering i samma skog och omfånget användare och grupper därefter. Obs: ett objekt ska finnas i omfånget i ett av verktygen. 
+![Topologi för en enskild skog och en enskild klient ](media/plan-cloud-provisioning-topologies/migrate.png) som pilot scenariot omfattar förekomsten av både Azure AD Connect och Azure AD Connect moln etablering i samma skog och omfånget användare och grupper därefter. Obs: ett objekt ska finnas i omfånget i ett av verktygen. 
 
 Ett exempel på det här scenariot finns i [självstudie: Pilot Azure AD Connect Cloud etableringen i en befintlig synkroniserad AD-skog](tutorial-pilot-aadc-aadccp.md)
 

@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617336"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver med hög tillgänglighet på ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser på Azure
@@ -236,8 +235,8 @@ Skapa följande volym och fil resurs i SOFS-klustret:
 * SAPMNT fil resurs
 
 * Ange säkerhet för fil resursen SAPMNT och mappen med fullständig behörighet för:
-    * \<Domänen> \ SAP_\<sid>_GlobalAdmin användar grupp
-    * ASCS för SAP/SCS-klusternoden \<domän> \clusternode1 $ och \<Domain> \clusternode2 $
+    * \<DOMAIN> \<SID> Användar gruppen \ SAP_ _GlobalAdmin
+    * SAP ASCS/SCS-klusternodens dator objekt \<DOMAIN> \ClusterNode1 $ och \<DOMAIN> \ClusterNode2 $
 
 Om du vill skapa en CSV-volym med speglings återhämtning kör du följande PowerShell-cmdlet på någon av SOFS-klusternoderna:
 
@@ -299,7 +298,7 @@ Skapa ett SAP ASCS/SCS-kluster nätverks namn (till exempel **PR1-ASCS [10.0.6.7
 
 Installera en SAP ASCS/SCS-instans på den första klusternoden. Om du vill installera instansen går du till följande i installations verktyget för SAP-SWPM:
 
-**\<Produkt>**  >   >  **Installation** >  >  >  **Java** **High-Availability System****Application Server ABAP** **First cluster node** ** \<-DBMS>** installations program Server ABAP (eller Java) >**ASCS/SCS-instans**med hög tillgänglighet först klusternoden.
+**\<Product>** > **\<DBMS>** > **Installation**  >  **Program Server ABAP** (eller **Java**) > ASCS med **hög tillgänglighet för system**  >  **/SCS-instans**  >  **först klusternoden**.
 
 ### <a name="add-a-probe-port"></a>Lägg till en avsöknings port
 
@@ -309,12 +308,12 @@ Konfigurera en SAP-kluster resurs, SAP-SID-IP-avsöknings porten med hjälp av P
 
 Installera en SAP ASCS/SCS-instans på den andra klusternoden. Om du vill installera instansen går du till följande i installations verktyget för SAP-SWPM:
 
-**\<Product>**  >   >  ** \<DBMS>** >  **installations****program Server ABAP** (eller **Java**) >**ASCS/SCS-instans** > med **hög tillgänglighet** > **ytterligare klusternod**.
+**\<Product>** > **\<DBMS>** > **Installation**  >  **Program Server ABAP** (eller **Java**) > **hög tillgänglig system**  >  **ASCS/SCS-instans**  >  **ytterligare klusternod**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Uppdatera instans profilen för SAP ASCS/SCS
 
-Uppdatera parametrarna i instansen av SAP ASCS/ \<SCS-instans profil sid>_ASCS/SCS\<nr>_ \<Host>.
+Uppdatera parametrarna i instansen för SAP ASCS/SCS- \<SID> _ASCS \<Nr> /SCS_ \<Host> .
 
 
 | Parameternamn | Parametervärde |
@@ -323,7 +322,7 @@ Uppdatera parametrarna i instansen av SAP ASCS/ \<SCS-instans profil sid>_ASCS/S
 | Placera/encni/set_so_keepalive  | **värdet** |
 | tjänst/ha_check_node | **1** |
 
-Starta om SAP ASCS/SCS-instansen. Ange `KeepAlive` parametrar på båda SAP ASCS/SCS-klusternoderna Följ anvisningarna för att [Ange register poster på KLUSTERNODERNA för SAP ASCS/SCS-instansen][high-availability-guide]. 
+Starta om SAP ASCS/SCS-instansen. Ange `KeepAlive` parametrar på båda SAP ASCS/SCS-klusternoderna Följ anvisningarna för att [Ange register poster på klusternoderna för SAP ASCS/SCS-instansen][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installera en DBMS-instans och SAP-program servrar
 

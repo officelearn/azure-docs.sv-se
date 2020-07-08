@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564031"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Konfigurera vCenter-identitets källor som ska använda Active Directory
@@ -51,16 +50,16 @@ Om du vill konfigurera din lokala Active Directory som en identitets källa för
 
 Använd informationen i följande tabell när du konfigurerar din Active Directory-domän.
 
-| **Alternativet** | **Beskrivning** |
+| **Alternativ** | **Beskrivning** |
 |------------|-----------------|
 | **Namn** | Namnet på identitets källan. |
 | **Grundläggande DN för användare** | Grundläggande unikt namn för användare. |
 | **Domän namn** | FQDN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
 | **Domän Ali Aset** | Domänens NetBIOS-namn. Lägg till NetBIOS-namnet för Active Directory domän som ett alias för identitets källan om du använder SSPI-autentiseringar. |
 | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. |
-| **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet `ldap://hostname:port` eller `ldaps://hostname:port`. Porten är vanligt vis 389 för LDAP-anslutningar och 636 för LDAPs-anslutningar. För att Active Directory distributioner av flera domänkontrollanter är porten vanligt vis 3268 för LDAP och 3269 för LDAPs.<br><br>Ett certifikat som upprättar förtroende för slut punkten för LDAPS-slutpunkten för Active Directory `ldaps://` -servern krävs när du använder i den primära eller sekundära LDAP-URL: en. |
+| **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet  `ldap://hostname:port`   eller  `ldaps://hostname:port` . Porten är vanligt vis 389 för LDAP-anslutningar och 636 för LDAPs-anslutningar. För att Active Directory distributioner av flera domänkontrollanter är porten vanligt vis 3268 för LDAP och 3269 för LDAPs.<br><br>Ett certifikat som upprättar förtroende för slut punkten för LDAPs-slutpunkten för Active Directory-servern krävs när du använder  `ldaps://`   i den primära eller sekundära LDAP-URL: en. |
 | **Sekundär server-URL** | Adress till en sekundär domänkontrollant LDAP-server som används för redundans. |
-| **Välj certifikat** | Om du vill använda LDAPS med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har `ldaps://` skrivit i text rutan URL. Det krävs ingen sekundär URL. |
+| **Välj certifikat** | Om du vill använda LDAPs med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har skrivit  `ldaps://`   i text rutan URL. Det krävs ingen sekundär URL. |
 | **Användar** | ID för en användare i domänen som har minst skrivskyddad åtkomst till bas-DN för användare och grupper. |
 | **Lösenord** | Lösen ordet för den användare som anges av användar namnet. |
 

@@ -7,19 +7,18 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77201279"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL-enskild server
 PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg buntar samman flera relaterade SQL-objekt i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Efter att ha lästs in i databasen, fungerar utöknings funktionen som inbyggda funktioner.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Använda PostgreSQL-tillägg
-PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [skapa tillägg](https://www.postgresql.org/docs/current/sql-createextension.html) från psql-verktyget för att läsa in de paketerade objekten i databasen.
+PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [skapa tillägg](https://www.postgresql.org/docs/current/sql-createextension.html)   från psql-verktyget för att läsa in de paketerade objekten i databasen.
 
-Azure Database for PostgreSQL stöder en delmängd av nyckel tillägg som anges nedan. Den här informationen är också tillgänglig genom `SELECT * FROM pg_available_extensions;`att köra. Tillägg utöver de som anges i listan stöds inte. Du kan inte skapa ditt eget tillägg i Azure Database for PostgreSQL.
+Azure Database for PostgreSQL stöder en delmängd av nyckel tillägg som anges nedan. Den här informationen är också tillgänglig genom att köra `SELECT * FROM pg_available_extensions;` . Tillägg utöver de som anges i listan stöds inte. Du kan inte skapa ditt eget tillägg i Azure Database for PostgreSQL.
 
 ## <a name="postgres-11-extensions"></a>Postgres 11-tillägg
 
@@ -205,9 +204,9 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 [Pg_stat_statements-tillägget](https://www.postgresql.org/docs/current/pgstatstatements.html) är förinstallerat på varje Azure Database for postgresql-server för att ge dig ett sätt att spåra körnings statistik över SQL-uttryck.
-Inställningen `pg_stat_statements.track`, som styr vilka instruktioner som räknas av tillägget, är standardvärdet, `top`vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna `none` är `all`och. Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+Inställningen `pg_stat_statements.track` , som styr vilka instruktioner som räknas av tillägget, är standardvärdet `top` , vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all` . Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
-Det uppstår en kompromiss mellan information om körningen pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du ställer in `pg_stat_statements.track` på. `none` Observera att vissa övervaknings tjänster från tredje part kan förlita sig på pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
+Det uppstår en kompromiss mellan information om körningen pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du ställer in `pg_stat_statements.track` på `none` . Observera att vissa övervaknings tjänster från tredje part kan förlita sig på pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 
 ## <a name="dblink-and-postgres_fdw"></a>dbLink och postgres_fdw
 med [dbLink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) och [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) kan du ansluta från en postgresql-server till en annan, eller till en annan databas på samma server. Den mottagande servern måste tillåta anslutningar från den sändande servern via brand väggen. När du använder dessa tillägg för att ansluta mellan Azure Database for PostgreSQL-servrar kan du göra detta genom att ange "Tillåt åtkomst till Azure-tjänster" till på. Detta behövs även om du vill använda tilläggen för att återgå till samma server. Inställningen "Tillåt åtkomst till Azure-tjänster" finns på Azure Portal sidan för postgres-servern under anslutnings säkerhet. Att aktivera "Tillåt åtkomst till Azure-tjänster" på placerar alla Azure IP-adresser i listan över tillåtna.
@@ -215,7 +214,7 @@ med [dbLink](https://www.postgresql.org/docs/current/contrib-dblink-function.htm
 För närvarande stöds inte utgående anslutningar från Azure Database for PostgreSQL, förutom för anslutningar till andra Azure Database for PostgreSQL-servrar.
 
 ## <a name="uuid"></a>uuid
-Om du planerar att `uuid_generate_v4()` använda från [UUID-ossp-tillägget](https://www.postgresql.org/docs/current/uuid-ossp.html)kan du jämföra med med `gen_random_uuid()` pgcrypto- [tillägget](https://www.postgresql.org/docs/current/pgcrypto.html) för prestanda förmåner.
+Om du planerar att använda `uuid_generate_v4()` från [UUID-ossp-tillägget](https://www.postgresql.org/docs/current/uuid-ossp.html)kan du jämföra med med `gen_random_uuid()` pgcrypto- [tillägget](https://www.postgresql.org/docs/current/pgcrypto.html) för prestanda förmåner.
 
 ## <a name="pgaudit"></a>pgAudit
 [PgAudit-tillägget](https://github.com/pgaudit/pgaudit/blob/master/README.md) innehåller loggning av session-och objekt granskning. Information om hur du använder det här tillägget i Azure Database for PostgreSQL finns i [artikeln gransknings begrepp](concepts-audit.md). 
@@ -258,7 +257,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 Nu kan du skapa en TimescaleDB-tabell [från början](https://docs.timescale.com/getting-started/creating-hypertables) eller migrera [befintliga Time Series-data i postgresql](https://docs.timescale.com/getting-started/migrating-data).
 
 ### <a name="restoring-a-timescale-database"></a>Återställa en tids Skale databas
-Om du vill återställa en tids Skale databas med pg_dump och pg_restore måste du köra två hjälp procedurer i mål databasen: `timescaledb_pre_restore()` och `timescaledb_post restore()`.
+Om du vill återställa en tids Skale databas med pg_dump och pg_restore måste du köra två hjälp procedurer i mål databasen: `timescaledb_pre_restore()` och `timescaledb_post restore()` .
 
 Förbered mål databasen först:
 

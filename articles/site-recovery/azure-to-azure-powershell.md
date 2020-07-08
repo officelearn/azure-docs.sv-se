@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 583511194fb100add1d5fc4ea9c06a869cf652b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77212285"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera katastrof återställning för virtuella Azure-datorer med hjälp av Azure PowerShell
@@ -41,7 +40,7 @@ Lär dig att:
 Innan du börjar:
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
 - Granska [kraven för stöd](azure-to-azure-support-matrix.md) för alla komponenter.
-- Du har Azure PowerShell `Az` -modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
+- Du har Azure PowerShell- `Az` modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Logga in på din Microsoft Azure prenumeration
 
@@ -59,7 +58,7 @@ Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 ## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Hämta information om den virtuella dator som ska replikeras
 
-I den här artikeln replikeras en virtuell dator i regionen USA, östra till och återställs i regionen USA, västra 2. Den virtuella datorn som replikeras har en operativ system disk och en enskild datadisk. Namnet på den virtuella datorn som används i exemplet är `AzureDemoVM`.
+I den här artikeln replikeras en virtuell dator i regionen USA, östra till och återställs i regionen USA, västra 2. Den virtuella datorn som replikeras har en operativ system disk och en enskild datadisk. Namnet på den virtuella datorn som används i exemplet är `AzureDemoVM` .
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -115,7 +114,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Skapa ett Recovery Services-valv. I det här exemplet skapas ett Recovery Services valv `a2aDemoRecoveryVault` med namnet i regionen USA, västra 2.
+Skapa ett Recovery Services-valv. I det här exemplet skapas ett Recovery Services valv med namnet `a2aDemoRecoveryVault` i regionen USA, västra 2.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -170,7 +169,7 @@ Objektet Fabric i valvet representerar en Azure-region. Det primära Fabric-obje
 - Det går bara att skapa ett infrastruktur objekt per region.
 - Om du tidigare har aktiverat Site Recovery replikering för en virtuell dator i Azure Portal, skapar Site Recovery ett Fabric-objekt automatiskt. Om det finns ett infrastruktur objekt för en region kan du inte skapa ett nytt.
 
-Innan du börjar är det viktigt att du förstår att Site Recovery åtgärder körs asynkront. När du startar en åtgärd skickas ett Azure Site Recovery jobb och ett jobb spårnings objekt returneras. Använd jobb spårnings objekt för att hämta den senaste statusen för jobbet (`Get-AzRecoveryServicesAsrJob`) och för att övervaka status för åtgärden.
+Innan du börjar är det viktigt att du förstår att Site Recovery åtgärder körs asynkront. När du startar en åtgärd skickas ett Azure Site Recovery jobb och ett jobb spårnings objekt returneras. Använd jobb spårnings objekt för att hämta den senaste statusen för jobbet ( `Get-AzRecoveryServicesAsrJob` ) och för att övervaka status för åtgärden.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -603,7 +602,7 @@ Errors           : {}
 
 ## <a name="reprotect-and-fail-back-to-the-source-region"></a>Återaktivera skyddet och växla tillbaka till käll regionen
 
-När du är redo att gå tillbaka till den ursprungliga regionen efter en redundansväxling startar du omvänd replikering för det skyddade objektet för replikering med hjälp `Update-AzRecoveryServicesAsrProtectionDirection` av cmdleten.
+När du är redo att gå tillbaka till den ursprungliga regionen efter en redundansväxling startar du omvänd replikering för det skyddade objektet för replikering med hjälp av `Update-AzRecoveryServicesAsrProtectionDirection` cmdleten.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region

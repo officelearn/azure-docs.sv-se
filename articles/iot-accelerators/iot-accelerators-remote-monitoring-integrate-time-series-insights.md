@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564652"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
@@ -51,18 +50,18 @@ Sedan distribuerar du Time Series Insights som en ytterligare resurs i din lösn
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Välj **skapa en resurs** > **Sakernas Internet** > **Time Series Insights**.
+1. Välj **skapa en resurs**  >  **Sakernas Internet**  >  **Time Series Insights**.
 
     ![Ny Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
 1. Använd värdena i följande tabell för att skapa en Time Series Insightss miljö:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn på miljö | Följande skärm bild använder namnet **contorosrmtsi**. Välj ditt eget unika namn när du är klar med det här steget. |
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
     | Resursgrupp | **Använd befintlig**. Välj namnet på din befintliga resurs grupp för fjärr övervakning. |
-    | Plats | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
+    | Location | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
     | Sku |**S1** |
     | Kapacitet | **1** |
 
@@ -86,7 +85,7 @@ Skapa en ny händelse källa för att ansluta till din IoT Hub. Se till att du a
 
 1. Om du vill konfigurera IoT-hubben som en ny händelse källa använder du värdena i följande tabell:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Händelsekällans namn | Följande skärm bild använder namnet **contosorm-IoT-Hub**. Använd ett eget unikt namn när du har slutfört det här steget. |
     | Källa | **IoT Hub** |
@@ -213,13 +212,13 @@ Konfigurera `basic` distributions miljön för uppdaterade mikrotjänster.
 
 1. Sök efter och klicka på ditt **ContosoRM** -program.
 
-1. Navigera till **inställnings** > **nycklar** och skapa sedan en ny nyckel för ditt program. Se till att kopiera nyckelvärdet till en säker plats.
+1. Navigera till **inställnings**  >  **nycklar** och skapa sedan en ny nyckel för ditt program. Se till att kopiera nyckelvärdet till en säker plats.
 
 1. Hämta den [senaste docker-yaml-filen](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) från GitHub lagrings platsen med den senaste taggen. 
 
 1. Använda SSH i den virtuella datorn genom att följa stegen som beskrivs i [skapa och använda SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
-1. När du är ansluten `cd /app`skriver du.
+1. När du är ansluten skriver du `cd /app` .
 
 1. Lägg till följande miljövariabler i varje mikrotjänst i Docker-yaml-filen och `env-setup` skriptet i den virtuella datorn:
 
@@ -233,9 +232,9 @@ Konfigurera `basic` distributions miljön för uppdaterade mikrotjänster.
 
 1. Navigera till **telemetri-tjänsten** och redigera Docker-filen genom att lägga till samma miljövariabler ovan.
 
-1. Navigera till **tjänsten ASA Manager** och redigera Docker Compose-filen genom att `PCS_TELEMETRY_STORAGE_TYPE`lägga till.
+1. Navigera till **tjänsten ASA Manager** och redigera Docker Compose-filen genom att lägga till `PCS_TELEMETRY_STORAGE_TYPE` .
 
-1. Starta om Docker-behållare `sudo ./start.sh` med hjälp av från den virtuella datorn.
+1. Starta om Docker-behållare med hjälp av `sudo ./start.sh` från den virtuella datorn.
 
 > [!NOTE]
 > Ovanstående konfiguration av miljövariabler är giltig för fjärrövervakning av versioner innan 1.0.2
@@ -244,7 +243,7 @@ Konfigurera `basic` distributions miljön för uppdaterade mikrotjänster.
 
 Konfigurera `standard` distributions miljön för de uppdaterade Micro-tjänsterna ovan
 
-1. Kör `kubectl proxy`på kommando raden. Mer information finns i [åtkomst till Kubernetes-API: et](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
+1. Kör på kommando raden `kubectl proxy` . Mer information finns i [åtkomst till Kubernetes-API: et](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
 
 1. Öppna hanterings konsolen för Kubernetes.
 

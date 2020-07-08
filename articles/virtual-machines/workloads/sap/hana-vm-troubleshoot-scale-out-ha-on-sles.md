@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617127"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och Felsök SAP HANA skalnings-och hög tillgänglighets installation på SLES 12 SP3 
@@ -91,7 +90,7 @@ Följande SAP HANA nätverks rekommendationer skapades tre undernät i ett virtu
 - 10.0.1.0/24 för SAP HANA System Replication (HSR)
 - 10.0.0.0/24 för allt annat
 
-Information om SAP HANA konfiguration som är relaterad till att använda flera nätverk finns i [SAP HANA global. ini](#sap-hana-globalini).
+Information om SAP HANA konfiguration som är relaterad till att använda flera nätverk finns i [SAP HANA global.ini](#sap-hana-globalini).
 
 Varje virtuell dator i klustret har tre virtuella nätverkskort som motsvarar antalet undernät. [Hur du skapar en virtuell Linux-dator i Azure med flera nätverkskort som][azure-linux-multiple-nics] beskriver ett möjligt problem med routning i Azure när du distribuerar en virtuell Linux-dator. Den här artikeln gäller endast för användning av flera virtuella nätverkskort. Problemet löses med SUSE per standard i SLES 12 SP3. Mer information finns i [multi-NIC med Cloud-netconfig i EC2 och Azure][suse-cloud-netconfig].
 
@@ -656,7 +655,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>Redundans eller övertag Ande
 
-Som det beskrivs i [viktiga anteckningar](#important-notes)bör du inte använda en vanlig standard avstängning för att testa kluster växling vid fel eller SAP HANA HSR övertag. I stället rekommenderar vi att du utlöser en kernel-panik, tvingar fram en resurstilldelning eller kan stänga av alla nätverk på OS-nivån för en virtuell dator. En annan metod är **kommandot \<väntar\> på CRM-noden** . Se [SUSE-dokumentet][sles-12-ha-paper]. 
+Som det beskrivs i [viktiga anteckningar](#important-notes)bör du inte använda en vanlig standard avstängning för att testa kluster växling vid fel eller SAP HANA HSR övertag. I stället rekommenderar vi att du utlöser en kernel-panik, tvingar fram en resurstilldelning eller kan stänga av alla nätverk på OS-nivån för en virtuell dator. En annan metod är **i \<node\> standby** -kommandot för CRM. Se [SUSE-dokumentet][sles-12-ha-paper]. 
 
 Följande tre exempel kommandon kan framtvinga en redundanskluster:
 
@@ -682,7 +681,7 @@ Det hjälper också att titta på den SAP HANA landskaps status som kommer från
 
 Det finns vissa försök att undvika onödig redundans. Klustret agerar bara om status ändras från **OK**, returnera värde **4**, till **fel**, returnera värde **1**. Så det är korrekt om utdata från **SAPHanaSR-showAttr** visar en virtuell dator med statusen **offline**. Men det finns ingen aktivitet som ännu inte kan växla mellan primär och sekundär. Ingen kluster aktivitet utlöses så länge SAP HANA inte returnerar ett fel.
 
-Du kan övervaka SAP HANA landskaps hälso status som användare ** \<Hana sid\>-ADM** genom att anropa SAP python-skriptet enligt följande. Du kan behöva anpassa sökvägen:
+Du kan övervaka SAP HANA landskaps hälso status som användar- ** \<HANA SID\> ADM** genom att anropa SAP python-skriptet enligt följande. Du kan behöva anpassa sökvägen:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -900,10 +899,10 @@ Sep 13 07:38:02 [4184] hso-hana-vm-s2-0       crmd:     info: pcmk_cpg_membershi
 
 
 
-## <a name="sap-hana-globalini"></a>SAP HANA global. ini
+## <a name="sap-hana-globalini"></a>SAP HANA global.ini
 
 
-Följande utdrag är från filen SAP HANA **Global. ini** på kluster plats 2. I det här exemplet visas matchnings poster för värdnamn för användning av olika nätverk för SAP HANA kommunikation mellan noder och HSR:
+Följande utdrag är från SAP HANA **global.ini** -filen på kluster plats 2. I det här exemplet visas matchnings poster för värdnamn för användning av olika nätverk för SAP HANA kommunikation mellan noder och HSR:
 
 <pre><code>
 [communication]
@@ -945,7 +944,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 Kluster lösningen tillhandahåller ett webb läsar gränssnitt som ger ett användar gränssnitt för användare som föredrar menyer och grafik för att få alla kommandon på Shell-nivå.
-Om du vill använda webb läsar ** \<gränssnittet\> ** ersätter du noden med en faktisk SAP HANA-nod i följande URL. Ange sedan autentiseringsuppgifterna för klustret (användar **kluster**):
+Om du vill använda webb läsar gränssnittet ersätter du **\<node\>** med en faktisk SAP HANA-nod i följande URL. Ange sedan autentiseringsuppgifterna för klustret (användar **kluster**):
 
 <pre><code>
 https://&ltnode&gt:7630

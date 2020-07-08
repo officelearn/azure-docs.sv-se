@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: b4f51b192d1a7c0ee14a769321793753e8217dea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77598841"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Förbättra hot skyddet genom att integrera säkerhets åtgärder med Microsoft Graph säkerhets & Azure Logic Apps
@@ -62,11 +61,11 @@ Mer information om Microsoft Graph säkerhet finns i [Översikt över Microsoft 
 
 1. För tomma Logi Kap par lägger du till utlösaren och andra åtgärder som du vill ha innan du lägger till en Microsoft Graph säkerhets åtgärd.
 
-   ELLER
+   \- eller -
 
    För befintliga Logi Kap par, under det sista steget där du vill lägga till en Microsoft Graph säkerhets åtgärd väljer du **nytt steg**.
 
-   ELLER
+   \- eller -
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (+) som visas och välj **Lägg till en åtgärd**.
 
@@ -95,8 +94,8 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya av
    |----------|-----------------|----------|------|-------------|
    | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p><p>– Månad: 1-16 månader <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
    | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
-   | **Tidszon** | `timeZone` | Nej | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
-   | **Starttid** | `startTime` | Nej | Sträng | Ange start datum och-tid i följande format: <p><p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill att 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Tidszon** | `timeZone` | No | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
+   | **Start tid** | `startTime` | No | Sträng | Ange start datum och-tid i följande format: <p><p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>\- eller - <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill att 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  När du är klar väljer du **Spara**i verktygsfältet designer.
@@ -109,26 +108,26 @@ Här är mer information om hur du använder de olika åtgärderna som finns til
 
 ### <a name="manage-alerts"></a>Hantera aviseringar
 
-Om du vill filtrera, sortera eller få de senaste resultaten anger du *bara* [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Ange inte* den fullständiga bas-URL: en eller http-åtgärden, `https://graph.microsoft.com/v1.0/security/alerts`till exempel eller `GET` åtgärden `PATCH` eller. Här är ett speciellt exempel som visar parametrar för en åtgärd för att **Hämta aviseringar** när du vill ha en lista med aviseringar med hög allvarlighets grad:
+Om du vill filtrera, sortera eller få de senaste resultaten anger du *bara* [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Ange inte* den fullständiga bas-URL: en eller http-åtgärden, till exempel eller `https://graph.microsoft.com/v1.0/security/alerts` `GET` `PATCH` åtgärden eller. Här är ett speciellt exempel som visar parametrar för en åtgärd för att **Hämta aviseringar** när du vill ha en lista med aviseringar med hög allvarlighets grad:
 
 `Filter alerts value as Severity eq 'high'`
 
 Mer information om frågor som du kan använda med den här anslutnings tjänsten finns i [referens dokumentationen för Microsoft Graph säkerhets aviseringar](https://docs.microsoft.com/graph/api/alert-list). Om du vill bygga förbättrade upplevelser med den här anslutningen kan du läsa mer om de [schema egenskaper](https://docs.microsoft.com/graph/api/resources/alert) som stöds av anslutnings programmet.
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 |--------|-------------|
-| **Hämta aviseringar** | Hämta aviseringar som filtrerats baserat på en eller flera [aviserings egenskaper](https://docs.microsoft.com/graph/api/resources/alert), till exempel `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
+| **Hämta aviseringar** | Hämta aviseringar som filtrerats baserat på en eller flera [aviserings egenskaper](https://docs.microsoft.com/graph/api/resources/alert), till exempel `Provider eq 'Azure Security Center' or 'Palo Alto Networks'` . | 
 | **Hämta avisering efter ID** | Få en speciell avisering baserat på aviserings-ID: t. | 
 | **Uppdatera avisering** | Uppdatera en speciell avisering baserat på aviserings-ID: t. För att se till att du överför de nödvändiga och redigerbara egenskaperna i din begäran, se de [redigerbara egenskaperna för aviseringar](https://docs.microsoft.com/graph/api/alert-update). Om du till exempel vill tilldela en avisering till en säkerhetsanalytiker så att de kan undersöka, kan du uppdatera aviseringens **tilldelade** egenskap. |
 |||
 
 ### <a name="manage-alert-subscriptions"></a>Hantera aviserings prenumerationer
 
-Microsoft Graph stöder [*prenumerationer*](https://docs.microsoft.com/graph/api/resources/subscription)eller [*Webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Om du vill hämta, uppdatera eller ta bort prenumerationer anger du [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) till entiteten Microsoft Graph `security/alerts` entitets konstruktion och inkluderar följt av OData-frågan. *Ta inte med* bas-URL: en, `https://graph.microsoft.com/v1.0`till exempel. Använd i stället formatet i det här exemplet:
+Microsoft Graph stöder [*prenumerationer*](https://docs.microsoft.com/graph/api/resources/subscription)eller [*Webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Om du vill hämta, uppdatera eller ta bort prenumerationer anger du [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) till entiteten Microsoft Graph entitets konstruktion och inkluderar `security/alerts` följt av OData-frågan. *Ta inte med* bas-URL: en, till exempel `https://graph.microsoft.com/v1.0` . Använd i stället formatet i det här exemplet:
 
 `security/alerts?$filter=status eq 'New'`
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 |--------|-------------|
 | **Skapa prenumerationer** | [Skapa en prenumeration](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) som meddelar dig om eventuella ändringar. Du kan filtrera den här prenumerationen för de olika aviserings typer som du vill använda. Du kan till exempel skapa en prenumeration som meddelar dig om aviseringar med hög allvarlighets grad. |
 | **Hämta aktiva prenumerationer** | [Hämta prenumerationer som inte har gått ut](https://docs.microsoft.com/graph/api/subscription-list). | 
@@ -138,13 +137,13 @@ Microsoft Graph stöder [*prenumerationer*](https://docs.microsoft.com/graph/api
 
 ### <a name="manage-threat-intelligence-indicators"></a>Hantera hot informations indikatorer
 
-Om du vill filtrera, sortera eller få de senaste resultaten anger du *bara* [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Ange inte* den fullständiga bas-URL: en eller http-åtgärden, `https://graph.microsoft.com/beta/security/tiIndicators`till exempel eller `GET` åtgärden `PATCH` eller. Här är ett speciellt exempel som visar parametrarna för en **Get tiIndicators** -åtgärd när du vill ha en lista med typen `DDoS` hot:
+Om du vill filtrera, sortera eller få de senaste resultaten anger du *bara* [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Ange inte* den fullständiga bas-URL: en eller http-åtgärden, till exempel eller `https://graph.microsoft.com/beta/security/tiIndicators` `GET` `PATCH` åtgärden eller. Här är ett speciellt exempel som visar parametrarna för en **Get tiIndicators** -åtgärd när du vill ha en lista med `DDoS` typen hot:
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
 Mer information om de frågor som du kan använda med den här anslutnings tjänsten finns [i "valfria frågeparametrar" i referens dokumentationen för Microsoft Graph Security Threat Intelligence-indikator](https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta&tabs=http). Om du vill bygga förbättrade upplevelser med den här anslutningen kan du läsa mer om den [schema egenskaper Hot information-indikator](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) som stöds av Connector.
 
-| Action | Beskrivning |
+| Åtgärd | Beskrivning |
 |--------|-------------|
 | **Hämta hot informations indikatorer** | Hämta tiIndicators filtreras baserat på en eller flera [tiIndicator-egenskaper](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta), till exempel`threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Hämta Hot information-indikator efter ID** | Hämta en speciell tiIndicator baserat på tiIndicator-ID: t. | 

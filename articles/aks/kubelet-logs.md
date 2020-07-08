@@ -5,17 +5,16 @@ services: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595390"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Hämta kubelet-loggar från AKS-klusternoder (Azure Kubernetes Service)
 
 Som en del av ett AKS-kluster kan du behöva granska loggar för att felsöka ett problem. Inbyggda i Azure Portal kan visa loggar för [AKS huvud komponenter][aks-master-logs] eller [behållare i ett AKS-kluster][azure-container-logs]. Ibland kan du behöva hämta *kubelet* -loggar från en AKS-nod i fel söknings syfte.
 
-Den här artikeln visar hur du kan använda `journalctl` för att visa *kubelet* -LOGGArna på en AKS-nod.
+Den här artikeln visar hur du kan använda `journalctl` för att visa *kubelet* -loggarna på en AKS-nod.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

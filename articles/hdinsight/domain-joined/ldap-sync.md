@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 99bd1ac156b12a5be7b8c5c17eb5b568b7070a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77463224"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>LDAP-synkronisering i Ranger-och Apache-Ambari i Azure HDInsight
@@ -33,9 +32,9 @@ När ett säkert kluster distribueras synkroniseras grupp medlemmar transitivt (
 
 ## <a name="ambari-user-sync-and-configuration"></a>Ambari och konfiguration av användar synkronisering
 
-Från huvudnoderna, körs ett cron- `/opt/startup_scripts/start_ambari_ldap_sync.py`jobb varje timme för att schemalägga användar synkroniseringen. Cron-jobbet anropar Ambari REST-API: er för att utföra synkroniseringen. Skriptet skickar en lista med användare och grupper som ska synkroniseras (eftersom användarna inte tillhör de angivna grupperna, båda anges individuellt). Ambari synkroniserar sAMAccountName som användar namn och alla grupp medlemmar, transitivt.
+Från huvudnoderna, körs ett cron-jobb `/opt/startup_scripts/start_ambari_ldap_sync.py` varje timme för att schemalägga användar synkroniseringen. Cron-jobbet anropar Ambari REST-API: er för att utföra synkroniseringen. Skriptet skickar en lista med användare och grupper som ska synkroniseras (eftersom användarna inte tillhör de angivna grupperna, båda anges individuellt). Ambari synkroniserar sAMAccountName som användar namn och alla grupp medlemmar, transitivt.
 
-Loggarna bör vara i `/var/log/ambari-server/ambari-server.log`. Mer information finns i [Konfigurera loggnings nivå för Ambari](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
+Loggarna bör vara i `/var/log/ambari-server/ambari-server.log` . Mer information finns i [Konfigurera loggnings nivå för Ambari](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
 I Data Lake kluster används hooken för att skapa användare för att skapa arbetsmapparna för de synkroniserade användarna och de har angetts som ägare till arbetsmapparna. Om användaren inte har synkroniserats till Ambari korrekt, kan användaren få ansikts fel vid åtkomst till mellanlagring och andra temporära mappar.
 
@@ -64,16 +63,16 @@ Stegvis synkronisering fungerar bara för användare som redan har synkroniserat
 
 ### <a name="update-ranger-sync-filter"></a>Uppdatera Ranger-synkroniseringsfilter
 
-LDAP-filtret finns i Ambari-ANVÄNDARGRÄNSSNITTET under konfigurations avsnittet Ranger användare-Sync. Det befintliga filtret kommer att ha formatet `(|(userPrincipalName=bob@contoso.com)(userPrincipalName=hdiwatchdog-core01@CONTOSO.ONMICROSOFT.COM)(memberOf:1.2.840.113556.1.4.1941:=CN=hadoopgroup,OU=AADDC Users,DC=contoso,DC=onmicrosoft,DC=com))`. Se till att du lägger till predikat i slutet och testa filtret genom `net ads` att använda search-kommandot eller Ldp. exe eller något liknande.
+LDAP-filtret finns i Ambari-ANVÄNDARGRÄNSSNITTET under konfigurations avsnittet Ranger användare-Sync. Det befintliga filtret kommer att ha formatet `(|(userPrincipalName=bob@contoso.com)(userPrincipalName=hdiwatchdog-core01@CONTOSO.ONMICROSOFT.COM)(memberOf:1.2.840.113556.1.4.1941:=CN=hadoopgroup,OU=AADDC Users,DC=contoso,DC=onmicrosoft,DC=com))` . Se till att du lägger till predikat i slutet och testa filtret med hjälp av `net ads` Sök kommandot eller ldp.exe eller något liknande.
 
 ## <a name="ranger-user-sync-logs"></a>Ranger loggar för användar synkronisering
 
-Ranger-användar synkronisering kan inträffa från någon av huvudnoderna. Loggarna finns i `/var/log/ranger/usersync/usersync.log`. Gör så här för att öka utförligheten för loggarna:
+Ranger-användar synkronisering kan inträffa från någon av huvudnoderna. Loggarna finns i `/var/log/ranger/usersync/usersync.log` . Gör så här för att öka utförligheten för loggarna:
 
 1. Logga in på Ambari.
 1. Gå till avsnittet Ranger-konfiguration.
 1. Gå till avsnittet Advanced **usersync-log4j** .
-1. Ändra `log4j.rootLogger` till `DEBUG` -nivå (efter ändring bör den se ut `log4j.rootLogger = DEBUG,logFile,FilterLog`).
+1. Ändra `log4j.rootLogger` till `DEBUG` -nivå (efter ändring bör den se ut `log4j.rootLogger = DEBUG,logFile,FilterLog` ).
 1. Spara konfigurationen och starta om Ranger.
 
 ## <a name="next-steps"></a>Nästa steg

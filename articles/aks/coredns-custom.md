@@ -7,17 +7,16 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
 ms.openlocfilehash: 78132a53313f4a8ee5c10af340c8dab08c3e42c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595832"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Anpassa CoreDNS med Azure Kubernetes Service
 
 I Azure Kubernetes service (AKS) används ett [CoreDNS][coredns] -projekt för kluster-DNS-hantering och-matchning med alla *1.12. x* och högre kluster. Tidigare användes Kube-DNS-projektet. Detta Kube-DNS-projekt är nu föråldrat. Mer information om anpassnings-och Kubernetes för CoreDNS finns i den [officiella överströms dokumentationen][corednsk8s].
 
-Eftersom AKS är en hanterad tjänst kan du inte ändra huvud konfigurationen för CoreDNS (en *CoreFile*). I stället använder du en Kubernetes- *ConfigMap* för att åsidosätta standardinställningarna. Om du vill se standard AKS CoreDNS-ConfigMaps använder `kubectl get configmaps --namespace=kube-system coredns -o yaml` du kommandot.
+Eftersom AKS är en hanterad tjänst kan du inte ändra huvud konfigurationen för CoreDNS (en *CoreFile*). I stället använder du en Kubernetes- *ConfigMap* för att åsidosätta standardinställningarna. Om du vill se standard AKS CoreDNS-ConfigMaps använder du `kubectl get configmaps --namespace=kube-system coredns -o yaml` kommandot.
 
 Den här artikeln visar hur du använder ConfigMaps för grundläggande anpassnings alternativ för CoreDNS i AKS. Den här metoden skiljer sig från att konfigurera CoreDNS i andra kontexter, t. ex. genom att använda CoreFile. Kontrol lera vilken version av CoreDNS som körs eftersom konfigurations värdena kan ändras mellan olika versioner.
 
@@ -34,7 +33,7 @@ Alla inbyggda plugin-program för CoreDNS stöds. Inga plugin-program för till�
 
 ## <a name="rewrite-dns"></a>Skriv över DNS
 
-Ett scenario du har för att utföra omskrivning av DNS-namn skrivs om. I följande exempel ersätter `<domain to be written>` du med ditt eget fullständigt kvalificerade domän namn. Skapa en fil med `corednsms.yaml` namnet och klistra in följande exempel konfiguration:
+Ett scenario du har för att utföra omskrivning av DNS-namn skrivs om. I följande exempel ersätter `<domain to be written>` du med ditt eget fullständigt kvalificerade domän namn. Skapa en fil med namnet `corednsms.yaml` och klistra in följande exempel konfiguration:
 
 ```yaml
 apiVersion: v1
@@ -64,18 +63,18 @@ Om du vill kontrol lera att anpassningarna har tillämpats använder du [kubectl
 kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
 ```
 
-Tvinga nu CoreDNS att läsa in ConfigMap igen. Kommandot [kubectl Delete Pod][kubectl delete] är inte destruktivt och orsakar inte någon tids gräns. `kube-dns` Poddar tas bort och Schemaläggaren för Kubernetes återskapar dem. Dessa nya poddar innehåller ändringen i TTL-värdet.
+Tvinga nu CoreDNS att läsa in ConfigMap igen. Kommandot [kubectl Delete Pod][kubectl delete] är inte destruktivt och orsakar inte någon tids gräns. `kube-dns`Poddar tas bort och Schemaläggaren för Kubernetes återskapar dem. Dessa nya poddar innehåller ändringen i TTL-värdet.
 
 ```console
 kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> Kommandot ovan är korrekt. Medan vi ändrar `coredns`är distributionen under **Kube-DNS-** namnet.
+> Kommandot ovan är korrekt. Medan vi ändrar `coredns` är distributionen under **Kube-DNS-** namnet.
 
 ## <a name="custom-forward-server"></a>Anpassad Forward Server
 
-Om du behöver ange en Forward-Server för nätverks trafiken kan du skapa en ConfigMap för att anpassa DNS. I följande exempel uppdaterar du `forward` namn och adress med värdena för din egen miljö. Skapa en fil med `corednsms.yaml` namnet och klistra in följande exempel konfiguration:
+Om du behöver ange en Forward-Server för nätverks trafiken kan du skapa en ConfigMap för att anpassa DNS. I följande exempel uppdaterar du `forward` namn och adress med värdena för din egen miljö. Skapa en fil med namnet `corednsms.yaml` och klistra in följande exempel konfiguration:
 
 ```yaml
 apiVersion: v1
@@ -101,7 +100,7 @@ kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 
 Du kanske vill konfigurera anpassade domäner som bara kan lösas internt. Du kanske till exempel vill matcha den anpassade domänen *puglife. local*, vilket inte är en giltig toppnivå domän. Utan en anpassad domän ConfigMap kan AKS-klustret inte matcha adressen.
 
-I följande exempel uppdaterar du den anpassade domänen och IP-adressen för att dirigera trafik till med värdena för din egen miljö. Skapa en fil med `corednsms.yaml` namnet och klistra in följande exempel konfiguration:
+I följande exempel uppdaterar du den anpassade domänen och IP-adressen för att dirigera trafik till med värdena för din egen miljö. Skapa en fil med namnet `corednsms.yaml` och klistra in följande exempel konfiguration:
 
 ```yaml
 apiVersion: v1
@@ -127,7 +126,7 @@ kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 
 ## <a name="stub-domains"></a>Stub-domäner
 
-CoreDNS kan också användas för att konfigurera stub-domäner. I följande exempel uppdaterar du de anpassade domänerna och IP-adresserna med värdena för din egen miljö. Skapa en fil med `corednsms.yaml` namnet och klistra in följande exempel konfiguration:
+CoreDNS kan också användas för att konfigurera stub-domäner. I följande exempel uppdaterar du de anpassade domänerna och IP-adresserna med värdena för din egen miljö. Skapa en fil med namnet `corednsms.yaml` och klistra in följande exempel konfiguration:
 
 ```yaml
 apiVersion: v1

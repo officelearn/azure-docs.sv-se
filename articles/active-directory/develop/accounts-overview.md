@@ -14,15 +14,14 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77611877"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Konton och klientorganisationsprofiler (Android)
 
-Den här artikeln innehåller en översikt över vad `account` som finns i Microsoft Identity Platform.
+Den här artikeln innehåller en översikt över vad som `account` finns i Microsoft Identity Platform.
 
 API: t för Microsoft Authentication Library (MSAL) ersätter termen *användare* med termen *konto*. En orsak är att en användare (mänsklig eller program varu agent) kan ha eller kan använda flera konton. Dessa konton kan finnas i användarens egen organisation och/eller i andra organisationer som användaren är medlem i.
 
@@ -32,7 +31,7 @@ Ett konto i Microsoft Identity Platform består av:
 - En eller flera autentiseringsuppgifter som används för att demonstrera ägarskapet/kontrollen av kontot.
 - En eller flera profiler som består av attribut som:
   - Bild, tilldelat namn, familje namn, titel, kontors plats
-- Ett konto har en källa till en myndighet eller en post i systemet. Det här är systemet där kontot skapas och var de autentiseringsuppgifter som är kopplade till kontot lagras. I datorer med flera innehavare, till exempel Microsoft Identity Platform, är systemet av Record `tenant` var kontot skapades. Den här klienten kallas även `home tenant`.
+- Ett konto har en källa till en myndighet eller en post i systemet. Det här är systemet där kontot skapas och var de autentiseringsuppgifter som är kopplade till kontot lagras. I datorer med flera innehavare, till exempel Microsoft Identity Platform, är systemet av Record `tenant` var kontot skapades. Den här klienten kallas även `home tenant` .
 - Konton i Microsoft Identity Platform har följande post system:
   - Azure Active Directory, inklusive Azure Active Directory B2C.
   - Microsoft-konto (Live).
@@ -43,7 +42,7 @@ Ett konto i Microsoft Identity Platform består av:
 - Med Microsoft Identity Platform kan ett konto användas för att få åtkomst till resurser som tillhör flera organisationer (Azure Active Directory klienter).
   - För att kunna registrera att ett konto från ett post system (AAD-klient A) har åtkomst till en resurs i ett annat postsystem (AAD klient B) måste kontot representeras i klient organisationen där resursen definieras. Detta görs genom att skapa en lokal post för kontot från system A i system B.
   - Den här lokala posten, som är representationen av kontot, är kopplad till det ursprungliga kontot.
-  - MSAL exponerar den här lokala posten som `Tenant Profile`en.
+  - MSAL exponerar den här lokala posten som en `Tenant Profile` .
   - Klient profilen kan ha olika attribut som är lämpliga för den lokala kontexten, till exempel befattning, kontor, kontakt information osv.
 - Eftersom ett konto kan finnas i en eller flera klienter kan ett konto ha fler än en profil.
 
@@ -67,7 +66,7 @@ I diagrammet ovan:
   - contoso.com
   - fabrikam.com
   - En klient profil för `tom@live.com` finns i var och en av dessa klienter.
-- Information om Tom och Bob i andra klient organisationer kan skilja sig från den i posten i systemet. De kan variera beroende på attribut som befattning, kontors plats och så vidare. De kan vara medlemmar i grupper och/eller roller inom varje organisation (Azure Active Directory klient). Vi refererar till den här informationen bob@contoso.com som klient organisations profil.
+- Information om Tom och Bob i andra klient organisationer kan skilja sig från den i posten i systemet. De kan variera beroende på attribut som befattning, kontors plats och så vidare. De kan vara medlemmar i grupper och/eller roller inom varje organisation (Azure Active Directory klient). Vi refererar till den här informationen som bob@contoso.com klient organisations profil.
 
 I diagrammet bob@contoso.com och tom@live.com har åtkomst till resurser i olika Azure Active Directory klienter. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
@@ -125,7 +124,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>Åtkomst till klient profil anspråk
 
-För att få åtkomst till anspråk om ett konto som de visas i andra klienter måste du först omvandla ditt konto objekt till `IMultiTenantAccount`. Alla konton kan vara flera klienter, men antalet klient profiler som är tillgängliga via MSAL baseras på vilka innehavare du har begärt token från att använda det aktuella kontot.  Ett exempel:
+För att få åtkomst till anspråk om ett konto som de visas i andra klienter måste du först omvandla ditt konto objekt till `IMultiTenantAccount` . Alla konton kan vara flera klienter, men antalet klient profiler som är tillgängliga via MSAL baseras på vilka innehavare du har begärt token från att använda det aktuella kontot.  Ett exempel:
 
 ```java
 // Psuedo Code
@@ -140,7 +139,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 Uppdaterade token för ett konto delas inte mellan B2C-principer. Det går därför inte att använda enkel inloggning med token. Detta innebär inte att enkel inloggning inte är möjlig. Det innebär att enkel inloggning måste använda en interaktiv upplevelse där en cookie är tillgänglig för att aktivera enkel inloggning.
 
-Det innebär också att om du hämtar token med olika B2C-principer, innebär det också att de behandlas som separata konton, var och en med sin egen identifierare. Om du vill använda ett konto för att begära en token `acquireTokenSilent`med måste du välja kontot i listan över konton som matchar den princip som du använder med Tokenbegäran. Ett exempel:
+Det innebär också att om du hämtar token med olika B2C-principer, innebär det också att de behandlas som separata konton, var och en med sin egen identifierare. Om du vill använda ett konto för att begära en token med `acquireTokenSilent` måste du välja kontot i listan över konton som matchar den princip som du använder med Tokenbegäran. Ett exempel:
 
 ```java
 // Get Account For Policy

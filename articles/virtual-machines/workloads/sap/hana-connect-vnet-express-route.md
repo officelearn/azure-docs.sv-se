@@ -14,10 +14,9 @@ ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617186"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Anslut ett virtuellt nätverk till HANA-stora instanser
@@ -35,7 +34,7 @@ Om det redan finns en gateway kontrollerar du om det är en ExpressRoute-gateway
   - Om du använder Azure Portal lägger du till en ny **Virtual Network Gateway**och väljer sedan **ExpressRoute** som typ av gateway.
   - Om du använder PowerShell måste du först hämta och använda den senaste [Azure PowerShell SDK: n](https://azure.microsoft.com/downloads/). 
  
-Följande kommandon skapar en ExpressRoute-Gateway. De texter som föregås av _$_ en är användardefinierade variabler som ska uppdateras med din speciella information.
+Följande kommandon skapar en ExpressRoute-Gateway. De texter som föregås av en _$_ är användardefinierade variabler som ska uppdateras med din speciella information.
 
 ```powershell
 # These Values should already exist, update to match your environment

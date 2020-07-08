@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588033"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Ansluta Trend Micro djup säkerhet
@@ -32,7 +31,7 @@ Med Trend Micro djupgående Security Connector kan du enkelt ansluta dina djupg�
 
 ## <a name="connect-azure-sentinel-to-trend-micro-deep-security"></a>Ansluta Azure Sentinel till Trend Micro djup säkerhet
 
-1. I Azure Portal går du till **Azure Sentinel** > **data Connectors** och väljer sedan **Trend Micro djup säkerhets** anslutning.
+1. I Azure Portal går du till **Azure Sentinel**  >  **data Connectors** och väljer sedan **Trend Micro djup säkerhets** anslutning.
 
 2. Välj **Öppna kopplings sida**.
 

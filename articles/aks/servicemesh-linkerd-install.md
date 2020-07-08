@@ -7,22 +7,21 @@ ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77593755"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Installera Linkerd i Azure Kubernetes service (AKS)
 
 [Linkerd][linkerd-github] är ett nät med öppen källkod för att skapa ett [CNCF-projekt][linkerd-cncf]. Linkerd är ett Ultralight service-nät som innehåller funktioner som omfattar trafik hantering, tjänst identitet och säkerhet, tillförlitlighet och att observera. Mer information om Linkerd finns i den officiella [Linkerd vanliga frågor och svar][linkerd-faq] och [Linkerd Architecture][linkerd-architecture] -dokumentation.
 
-Den här artikeln visar hur du installerar Linkerd. Linkerd `linkerd` -klientens binärfil installeras på klient datorn och Linkerd-komponenterna installeras i ett Kubernetes-kluster på AKS.
+Den här artikeln visar hur du installerar Linkerd. Linkerd- `linkerd` klientens binärfil installeras på klient datorn och Linkerd-komponenterna installeras i ett Kubernetes-kluster på AKS.
 
 > [!NOTE]
-> De här anvisningarna hänvisar till `stable-2.6.0`Linkerd-versionen.
+> De här anvisningarna hänvisar till Linkerd-versionen `stable-2.6.0` .
 >
-> Linkerd `stable-2.6.x` kan köras mot Kubernetes-versioner `1.13+`. Du hittar ytterligare stabila och Edge Linkerd-versioner på [GitHub-Linkerd-][linkerd-github-releases]versioner.
+> Linkerd `stable-2.6.x` kan köras mot Kubernetes-versioner `1.13+` . Du hittar ytterligare stabila och Edge Linkerd-versioner på [GitHub-Linkerd-][linkerd-github-releases]versioner.
 
 I den här artikeln kan du se hur du:
 
@@ -35,7 +34,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS `1.13` -kluster (Kubernetes och senare, med RBAC aktiverat) `kubectl` och har upprättat en anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart].
+De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS-kluster (Kubernetes `1.13` och senare, med RBAC aktiverat) och har upprättat en `kubectl` anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart].
 
 Alla Linkerd-poddar måste vara schemalagda att köras på Linux-noder – den här inställningen är standard i installations metoden som beskrivs nedan och kräver ingen ytterligare konfiguration.
 
@@ -117,7 +116,7 @@ linkerd-version
 Status check results are √
 ```
 
-Nu är det dags att installera Linkerd-komponenterna. Använd `linkerd` binärfilerna `kubectl` och för att installera Linkerd-komponenterna i ditt AKS-kluster. Ett `linkerd` namn område skapas automatiskt och komponenterna installeras i det här namn området.
+Nu är det dags att installera Linkerd-komponenterna. Använd `linkerd` `kubectl` binärfilerna och för att installera Linkerd-komponenterna i ditt AKS-kluster. Ett `linkerd` namn område skapas automatiskt och komponenterna installeras i det här namn området.
 
 ```console
 linkerd install | kubectl apply -f -
@@ -129,7 +128,7 @@ Nu har du distribuerat Linkerd till ditt AKS-kluster. För att säkerställa att
 
 ## <a name="validate-the-linkerd-installation"></a>Verifiera Linkerd-installationen
 
-Bekräfta att resurserna har skapats. Använd `linkerd install` kommandot [kubectl get SVC][kubectl-get] och [kubectl get Pod][kubectl-get] för att fråga efter `linkerd` namn området, där Linkerd-komponenterna har installerats med kommandot:
+Bekräfta att resurserna har skapats. Använd kommandot [kubectl get SVC][kubectl-get] och [kubectl get Pod][kubectl-get] för att fråga efter `linkerd` namn området, där Linkerd-komponenterna har installerats med `linkerd install` kommandot:
 
 ```console
 kubectl get svc --namespace linkerd --output wide
@@ -226,7 +225,7 @@ Status check results are √
 
 ## <a name="access-the-dashboard"></a>Åtkomst till instrument panelen
 
-Linkerd levereras med en instrument panel som ger insikt i tjänstens nät och arbets belastningar. Använd `linkerd dashboard` kommandot för att få åtkomst till instrument panelen. Det här kommandot använder [kubectl-Port-Forward][kubectl-port-forward] för att skapa en säker anslutning mellan klient datorn och den relevanta poddar i ditt AKS-kluster. Sedan öppnas instrument panelen automatiskt i din standard webbläsare.
+Linkerd levereras med en instrument panel som ger insikt i tjänstens nät och arbets belastningar. Använd kommandot för att få åtkomst till instrument panelen `linkerd dashboard` . Det här kommandot använder [kubectl-Port-Forward][kubectl-port-forward] för att skapa en säker anslutning mellan klient datorn och den relevanta poddar i ditt AKS-kluster. Sedan öppnas instrument panelen automatiskt i din standard webbläsare.
 
 ```console
 linkerd dashboard

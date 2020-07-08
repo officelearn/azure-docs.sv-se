@@ -14,10 +14,9 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617005"
 ---
 # <a name="onboarding-requirements"></a>Registreringskrav
@@ -50,7 +49,7 @@ I den här listan samlas kraven för att köra SAP HANA på Azure (större insta
 - Red Hat-prenumerations hanteraren distribuerad i Azure på en virtuell dator. Med Red Hat-prenumerations hanteraren får du SAP HANA på Azure (stora instanser) som ska registreras och uppdateras med Red Hat. (Det finns ingen direkt Internet åtkomst inifrån klienten som distribuerats på den stora Azure-instansnamnet.)
 - SAP kräver också att du har ett support avtal med din Linux-Provider. Detta krav tas inte bort i lösningen av HANA stor instans eller det faktum att du kör Linux i Azure. Till skillnad från vissa av Linux Azure Gallery-avbildningarna ingår *inte* service avgiften i lösnings erbjudandet för Hana stor instans. Det är ditt ansvar att uppfylla kraven i SAP angående support avtal med Linux-distributören. 
    - För SUSE Linux letar du upp kraven för support avtal i [SAP Note #1984787-SUSE Linux Enterprise Server 12: installations information](https://launchpad.support.sap.com/#/notes/1984787) och [SAP-anteckning #1056161-SUSE prioritets stöd för SAP-program](https://launchpad.support.sap.com/#/notes/1056161).
-   - För Red Hat Linux måste du ha rätt prenumerations nivåer som omfattar support-och tjänst uppdateringar till operativ systemen för HANA stor instans. Red Hat rekommenderar Red Hat Enterprise Linux prenumeration för SAP-lösning. Se https://access.redhat.com/solutions/3082481. 
+   - För Red Hat Linux måste du ha rätt prenumerations nivåer som omfattar support-och tjänst uppdateringar till operativ systemen för HANA stor instans. Red Hat rekommenderar Red Hat Enterprise Linux prenumeration för SAP-lösning. Se https://access.redhat.com/solutions/3082481 . 
 
 En support mat ris för olika SAP HANA versioner med olika Linux-versioner finns i [SAP Obs! #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523124"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Vad är identitetssäkerhetspoäng i Azure Active Directory?
@@ -48,9 +47,9 @@ Med hjälp av följande förbättringsåtgärder kan du:
 
 ## <a name="how-do-i-get-my-secure-score"></a>Hur får jag mina säkerhetspoäng?
 
-De säkraste poängen för identiteter finns i alla utgåvor av Azure AD. Organisationer kan komma åt sina identitets säkra Poäng från **Azure Portal** > **Azure Active Directory** > **säkerhets** > **identitet säkra Poäng**.
+De säkraste poängen för identiteter finns i alla utgåvor av Azure AD. Organisationer kan komma åt sina identitets säkra Poäng från **Azure Portal**  >  **Azure Active Directory**  >  **säkerhets**  >  **identitet säkra Poäng**.
 
-## <a name="how-does-it-work"></a>Hur fungerar det?
+## <a name="how-does-it-work"></a>Hur fungerar den?
 
 Var 48 timme tittar Azure på din säkerhetskonfiguration och jämför dina inställningar med de rekommenderade metoderna. Baserat på resultatet av den här utvärderingen beräknas en ny Poäng för din katalog. Det är möjligt att din säkerhets konfiguration inte är helt justerad med den bästa övnings vägledningen och att förbättrings åtgärderna endast delvis uppfylls. I dessa scenarion tilldelas du bara en del av det högsta antalet poäng som är tillgängliga för kontrollen.
 
@@ -66,7 +65,7 @@ Med säkerhetspoängen kan du:
 - Planera förbättringar i identitetssäkerheten
 - Granska framgången för dina förbättringar
 
-## <a name="what-you-should-know"></a>Det här bör du känna till
+## <a name="what-you-should-know"></a>Det här bör du veta
 
 ### <a name="who-can-use-the-identity-secure-score"></a>Vilka kan använda identitetssäkerhetspoängen?
 

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77566156"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Skapa virtuella VMware-datorer i ditt privata moln
@@ -96,7 +95,7 @@ Följande avsnitt innehåller information om hur du konfigurerar DNS-och DHCP-se
 
 ## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Lägg till användare och identitets källor till vCenter (valfritt)
 
-CloudSimple tilldelar ett standard-vCenter-användarkonto med användar namn `cloudowner@cloudsimple.local`. Det krävs inga ytterligare konto inställningar för att komma igång.  CloudSimple tilldelar vanligt vis administratörer de privilegier de behöver för att utföra normala åtgärder.  Konfigurera din lokala Active Directory eller Azure AD som en [ytterligare identitets källa](set-vcenter-identity.md) i ditt privata moln.
+CloudSimple tilldelar ett standard-vCenter-användarkonto med användar namn `cloudowner@cloudsimple.local` . Det krävs inga ytterligare konto inställningar för att komma igång.  CloudSimple tilldelar vanligt vis administratörer de privilegier de behöver för att utföra normala åtgärder.  Konfigurera din lokala Active Directory eller Azure AD som en [ytterligare identitets källa](set-vcenter-identity.md) i ditt privata moln.
 
 ## <a name="create-a-dns-and-dhcp-server-optional"></a>Skapa en DNS-och DHCP-server (valfritt)
 

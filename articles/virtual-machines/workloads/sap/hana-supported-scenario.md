@@ -14,10 +14,9 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617169"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenarier som stöds för HANA-stora instanser
@@ -67,10 +66,10 @@ Varje etablerad server levereras förkonfigurerad med uppsättningar med Etherne
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod|
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | STONITH |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Nod-till-nod|
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | STONITH |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod|
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | STONITH |
 
 Du väljer gränssnittet baserat på den topologi som är konfigurerad på HLI-enheten. Till exempel konfigureras gränssnittet "B" för kommunikation mellan noder, vilket är användbart när en skalbar topologi har kon figurer ATS. Det här gränssnittet används inte för en nod, skala upp konfigurationer. Om du vill ha mer information om gränssnitts användningen granskar du dina nödvändiga scenarier (senare i den här artikeln). 
 
@@ -100,7 +99,7 @@ För HANA-systemreplikering eller HANA-utskalning av distribution är en blads k
 Lagringen är förkonfigurerad baserat på den begärda topologin. Volym storlekarna och monterings punkterna varierar beroende på antalet servrar, antalet SKU: er och den konfigurerade topologin. Om du vill ha mer information granskar du dina nödvändiga scenarier (senare i den här artikeln). Om du behöver mer lagrings utrymme kan du köpa det i steg om 1 TB.
 
 >[!NOTE]
->Monterings punkten/usr/SAP/\<sid> är en symbolisk länk till/Hana/Shared-monterings punkten.
+>Monterings punkten/usr/SAP/ \<SID> är en symbolisk länk till/Hana/Shared-monterings punkten.
 
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
@@ -139,10 +138,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -174,10 +173,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -214,10 +213,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -255,10 +254,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -310,10 +309,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Används för STONITH |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Används för STONITH |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Används för STONITH |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -356,10 +355,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Används för STONITH |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Används för STONITH |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Används för STONITH |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -415,10 +414,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -456,10 +455,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -492,10 +491,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -531,10 +530,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -576,10 +575,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade på både HLI-enheter (primär och DR):
@@ -617,10 +616,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -667,10 +666,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -712,10 +711,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Konfigurerad men används inte |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Konfigurerad men används inte |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Konfigurerad men används inte |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:
@@ -763,10 +762,10 @@ Följande nätverks gränssnitt är förkonfigurerade:
 | B | TYP I | ETH2. Tenant | eno3. Tenant | Nod-till-nod-kommunikation |
 | C | TYP I | eth1. Tenant | eno2. Tenant | Nod-till-lagring |
 | D | TYP I | eth4. Tenant | eno4. Tenant | Konfigurerad men används inte |
-| A | TYP II | VLAN\<-tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
-| B | TYP II | VLAN\<-tenantNo + 2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
-| C | TYP II | VLAN\<-tenantNo + 1> | team0. klient organisation + 1 | Nod-till-lagring |
-| D | TYP II | VLAN\<-tenantNo + 3> | team0. klient + 3 | Konfigurerad men används inte |
+| A | TYP II | lokalt\<tenantNo> | team0. Tenant | Klient-till-HLI/HSR |
+| B | TYP II | lokalt\<tenantNo+2> | team0. Tenant + 2 | Nod-till-nod-kommunikation |
+| C | TYP II | lokalt\<tenantNo+1> | team0. klient organisation + 1 | Nod-till-lagring |
+| D | TYP II | lokalt\<tenantNo+3> | team0. klient + 3 | Konfigurerad men används inte |
 
 ### <a name="storage"></a>Storage
 Följande monterings punkter är förkonfigurerade:

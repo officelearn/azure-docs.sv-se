@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77605216"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>IoT Plug and Play Preview Modeling Developer Guide
@@ -97,7 +96,7 @@ Ett gränssnitt har vissa obligatoriska fält:
 
 I det här enkla exemplet finns det bara ett enda telemetri-fält. En minimal fält Beskrivning har:
 
-- `@type`: anger typen av funktion: `Telemetry`, `Property`, eller. `Command`
+- `@type`: anger typen av funktion: `Telemetry` , `Property` , eller `Command` .
 - `name`: anger namnet på telemetri-värdet.
 - `schema`: anger data typen för Telemetrin. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer, matriser och Maps stöds också.
 
@@ -127,11 +126,11 @@ Kommandon är antingen synkrona eller asynkrona. Ett synkront kommando måste k�
 
 Använd asynkrona kommandon för långvariga åtgärder. Enheten skickar förlopps information med telemetri-meddelanden. Dessa förlopps meddelanden har följande huvud egenskaper:
 
-- `iothub-command-name`: kommando namnet, till exempel `UpdateFirmware`.
+- `iothub-command-name`: kommando namnet, till exempel `UpdateFirmware` .
 - `iothub-command-request-id`: det begär ande-ID som genereras på Server sidan och skickas till enheten i det första anropet.
-- `iothub-interface-id`: ID: t för det gränssnitt som detta kommando är definierat på, `urn:example:AssetTracker:1`till exempel.
- `iothub-interface-name`: instans namnet för det här gränssnittet, till exempel `myAssetTracker`.
-- `iothub-command-statuscode`: status koden som returnerades från enheten, till exempel `202`.
+- `iothub-interface-id`: ID: t för det gränssnitt som detta kommando är definierat på, till exempel `urn:example:AssetTracker:1` .
+ `iothub-interface-name`: instans namnet för det här gränssnittet, till exempel `myAssetTracker` .
+- `iothub-command-statuscode`: status koden som returnerades från enheten, till exempel `202` .
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
@@ -182,11 +181,11 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 Med IoT-Plug and Play kan du använda enheter som har registrerat sina funktioner med IoT Hub. Du kan till exempel komma åt egenskaperna och kommandona för en enhet direkt.
 
-Om du vill använda en IoT Plug and Play-enhet som är ansluten till din IoT-hubb använder du antingen IoT Hub REST API eller någon av IoT-språksdk: erna. I följande exempel används IoT Hub REST API. Den aktuella versionen av API: t `2019-07-01-preview`är. Lägg `?api-version=2019-07-01-preview` till i dina rest PI-anrop.
+Om du vill använda en IoT Plug and Play-enhet som är ansluten till din IoT-hubb använder du antingen IoT Hub REST API eller någon av IoT-språksdk: erna. I följande exempel används IoT Hub REST API. Den aktuella versionen av API: t är `2019-07-01-preview` . Lägg `?api-version=2019-07-01-preview` till i dina rest PI-anrop.
 
-Om du vill hämta värdet för en enhets egenskap, till exempel versionen för`fwVersion`inbyggd program vara `DeviceInformation` () i gränssnittet i termostat, använder du de digitala dubbla REST API.
+Om du vill hämta värdet för en enhets egenskap, till exempel versionen för inbyggd program vara ( `fwVersion` ) i `DeviceInformation` gränssnittet i termostat, använder du de digitala dubbla REST API.
 
-Om din termostat-enhet anropas `t-123`får du alla egenskaper för alla gränssnitt som implementerats av enheten med ett REST API GET-anrop:
+Om din termostat-enhet anropas `t-123` får du alla egenskaper för alla gränssnitt som implementerats av enheten med ett REST API GET-anrop:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
@@ -198,7 +197,7 @@ I allmänhet används alla egenskaper på alla gränssnitt med denna REST API-ma
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-Om du känner till namnet på gränssnittet, t. ex `deviceInformation`., och vill hämta egenskaper för det aktuella gränssnittet, kan du ange begäran till ett särskilt gränssnitt med hjälp av namnet:
+Om du känner till namnet på gränssnittet, t. ex `deviceInformation` ., och vill hämta egenskaper för det aktuella gränssnittet, kan du ange begäran till ett särskilt gränssnitt med hjälp av namnet:
 
 ```REST
 GET /digitalTwins/t-123/interfaces/deviceInformation

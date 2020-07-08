@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564592"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Använd Azure AD som identitets leverantör för vCenter på CloudSimple privata moln
@@ -83,16 +82,16 @@ Du kan också konfigurera andra funktioner i Azure AD.  Dessa krävs inte för a
 1. [Eskalera privilegier](escalate-private-cloud-privileges.md) för ditt privata moln vCenter.
 2. Samla in de konfigurations parametrar som krävs för att konfigurera identitets källan.
 
-    | **Alternativet** | **Beskrivning** |
+    | **Alternativ** | **Beskrivning** |
     |------------|-----------------|
     | **Namn** | Namnet på identitets källan. |
-    | **Grundläggande DN för användare** | Grundläggande unikt namn för användare.  För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exempel: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
+    | **Grundläggande DN för användare** | Grundläggande unikt namn för användare.  För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exempel: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
     | **Domän namn** | FQDN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
     | **Domän Ali Aset** | *(valfritt)* Domänens NetBIOS-namn. Lägg till NetBIOS-namnet för Active Directory domän som ett alias för identitets källan om du använder SSPI-autentiseringar. |
     | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exempel:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet `ldaps://hostname:port`. Porten är vanligt vis 636 för LDAPs-anslutningar. <br><br>Ett certifikat som upprättar förtroende för slut punkten för LDAPS-slutpunkten för Active Directory `ldaps://` -servern krävs när du använder i den primära eller sekundära LDAP-URL: en. |
+    | **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet  `ldaps://hostname:port` . Porten är vanligt vis 636 för LDAPs-anslutningar. <br><br>Ett certifikat som upprättar förtroende för slut punkten för LDAPs-slutpunkten för Active Directory-servern krävs när du använder  `ldaps://`   i den primära eller sekundära LDAP-URL: en. |
     | **Sekundär server-URL** | Adress till en sekundär domänkontrollant LDAP-server som används för redundans. |
-    | **Välj certifikat** | Om du vill använda LDAPS med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har `ldaps://` skrivit i text rutan URL. Det krävs ingen sekundär URL. |
+    | **Välj certifikat** | Om du vill använda LDAPs med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har skrivit  `ldaps://`   i text rutan URL. Det krävs ingen sekundär URL. |
     | **Användar** | ID för en användare i domänen som har minst skrivskyddad åtkomst till bas-DN för användare och grupper. |
     | **Lösenord** | Lösen ordet för den användare som anges av användar namnet. |
 

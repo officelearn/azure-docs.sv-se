@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
 ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77471188"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka i HDInsight
@@ -23,7 +22,7 @@ Lär dig hur du använder Azure Monitor loggar för att analysera loggar som gen
 
 ## <a name="logs-location"></a>Plats för loggar
 
-Apache Kafka loggar i klustret finns på `/var/log/kafka`. Kafka-loggar sparas eller bevaras inte över klustrets livs cykel, oavsett om hanterade diskar används. I följande tabell visas de tillgängliga loggarna.
+Apache Kafka loggar i klustret finns på `/var/log/kafka` . Kafka-loggar sparas eller bevaras inte över klustrets livs cykel, oavsett om hanterade diskar används. I följande tabell visas de tillgängliga loggarna.
 
 |Logga |Beskrivning |
 |---|---|
@@ -96,9 +95,9 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
 
     | Loggtyp | Beskrivning |
     | ---- | ---- |
-    | Logga\_kafkaserver\_cl | Kafka Broker-Server. log |
-    | Logga\_kafkacontroller\_cl | Kafka Broker-styrenhet. log |
-    | mått\_Kafka\_cl | Kafka JMX-mått |
+    | Logga \_ kafkaserver \_ cl | Kafka Broker-Server. log |
+    | Logga \_ kafkacontroller \_ cl | Kafka Broker-styrenhet. log |
+    | mått \_ Kafka \_ cl | Kafka JMX-mått |
 
     ![Apache Kafka Log Analytics CPU-användning](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
 

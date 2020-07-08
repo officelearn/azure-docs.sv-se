@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d61600801286126ea6ffb9a97bc5655b6f233816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562198"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Exempel på anti-out/fläkt i scenario i Durable Functions-Cloud backup
@@ -31,7 +30,7 @@ En Durable Functions metod ger dig alla angivna förmåner med mycket låg belas
 
 I den här artikeln beskrivs följande funktioner i exempel appen:
 
-* `E2_BackupSiteContent`: En [Orchestrator-funktion](durable-functions-bindings.md#orchestration-trigger) som `E2_GetFileList` anropar för att hämta en lista över filer som ska säkerhets `E2_CopyFileToBlob` kopie ras och sedan anropas för att säkerhetskopiera varje fil.
+* `E2_BackupSiteContent`: En [Orchestrator-funktion](durable-functions-bindings.md#orchestration-trigger) som anropar `E2_GetFileList` för att hämta en lista över filer som ska säkerhets kopie ras och sedan anropas `E2_CopyFileToBlob` för att säkerhetskopiera varje fil.
 * `E2_GetFileList`: En [aktivitets funktion](durable-functions-bindings.md#activity-trigger) som returnerar en lista med filer i en katalog.
 * `E2_CopyFileToBlob`: En aktivitets funktion som säkerhetskopierar en enskild fil till Azure Blob Storage.
 
@@ -40,24 +39,24 @@ I den här artikeln beskrivs följande funktioner i exempel appen:
 Den här Orchestrator-funktionen gör i princip följande:
 
 1. Använder ett `rootDirectory` värde som indataparameter.
-2. Anropar en funktion för att hämta en rekursiv lista över filer `rootDirectory`under.
+2. Anropar en funktion för att hämta en rekursiv lista över filer under `rootDirectory` .
 3. Gör flera parallella funktions anrop för att ladda upp varje fil till Azure Blob Storage.
 4. Väntar på att alla uppladdningar ska slutföras.
 5. Returnerar summan av totalt antal byte som överförts till Azure Blob Storage.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Här är den kod som implementerar Orchestrator-funktionen:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=16-42)]
 
-Lägg märke `await Task.WhenAll(tasks);` till raden. Alla enskilda anrop till `E2_CopyFileToBlob` funktionen förväntades *inte* , vilket gör att de kan köras parallellt. När vi skickar den här uppgifts uppsättningen till `Task.WhenAll`, får vi tillbaka en aktivitet som inte slutförs *förrän alla kopierings åtgärder har slutförts*. Om du är bekant med aktivitets Parallel Library (TPL) i .NET är detta inte nytt för dig. Skillnaden är att dessa aktiviteter kan köras på flera virtuella datorer samtidigt, och Durable Functions-tillägget säkerställer att körningen från slut punkt till slut punkt är elastisk för att bearbeta återvinning.
+Lägg märke till `await Task.WhenAll(tasks);` raden. Alla enskilda anrop till `E2_CopyFileToBlob` funktionen förväntades *inte* , vilket gör att de kan köras parallellt. När vi skickar den här uppgifts uppsättningen till `Task.WhenAll` , får vi tillbaka en aktivitet som inte slutförs *förrän alla kopierings åtgärder har slutförts*. Om du är bekant med aktivitets Parallel Library (TPL) i .NET är detta inte nytt för dig. Skillnaden är att dessa aktiviteter kan köras på flera virtuella datorer samtidigt, och Durable Functions-tillägget säkerställer att körningen från slut punkt till slut punkt är elastisk för att bearbeta återvinning.
 
-Efter att ha väntat `Task.WhenAll`oss vet vi att alla funktions anrop har slutförts och har returnerat värdena tillbaka till oss. Varje anrop för `E2_CopyFileToBlob` att returnera antalet byte som har överförts, så att summan av total antalet byte är en del av att lägga till alla dessa retur värden tillsammans.
+Efter att ha väntat `Task.WhenAll` oss vet vi att alla funktions anrop har slutförts och har returnerat värdena tillbaka till oss. Varje anrop för att `E2_CopyFileToBlob` returnera antalet byte som har överförts, så att summan av total antalet byte är en del av att lägga till alla dessa retur värden tillsammans.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Funktionen använder standard *funktionen. JSON* för Orchestrator functions.
+Funktionen använder standard *function.jspå* för Orchestrator-funktioner.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/function.json)]
 
@@ -65,28 +64,28 @@ Här är den kod som implementerar Orchestrator-funktionen:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
-Lägg märke `yield context.df.Task.all(tasks);` till raden. Alla enskilda anrop till `E2_CopyFileToBlob` funktionen gavs *inte* ut, vilket gör att de kan köras parallellt. När vi skickar den här uppgifts uppsättningen till `context.df.Task.all`, får vi tillbaka en aktivitet som inte slutförs *förrän alla kopierings åtgärder har slutförts*. Om du är bekant med [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) i Java Script är detta inte nytt för dig. Skillnaden är att dessa aktiviteter kan köras på flera virtuella datorer samtidigt, och Durable Functions-tillägget säkerställer att körningen från slut punkt till slut punkt är elastisk för att bearbeta återvinning.
+Lägg märke till `yield context.df.Task.all(tasks);` raden. Alla enskilda anrop till `E2_CopyFileToBlob` funktionen gavs *inte* ut, vilket gör att de kan köras parallellt. När vi skickar den här uppgifts uppsättningen till `context.df.Task.all` , får vi tillbaka en aktivitet som inte slutförs *förrän alla kopierings åtgärder har slutförts*. Om du är bekant med [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) i Java Script är detta inte nytt för dig. Skillnaden är att dessa aktiviteter kan köras på flera virtuella datorer samtidigt, och Durable Functions-tillägget säkerställer att körningen från slut punkt till slut punkt är elastisk för att bearbeta återvinning.
 
 > [!NOTE]
-> Även om aktiviteterna är konceptuellt likartade med JavaScript-löfte, `context.df.Task.all` ska `context.df.Task.any` Orchestrator- `Promise.all` funktioner `Promise.race` använda och i stället för och för att hantera aktivitets parallellisering.
+> Även om aktiviteterna är konceptuellt likartade med JavaScript-löfte, ska Orchestrator-funktioner använda `context.df.Task.all` och `context.df.Task.any` i stället för `Promise.all` och `Promise.race` för att hantera aktivitets parallellisering.
 
-Efter att ha fått `context.df.Task.all`från, vet vi att alla funktions anrop har slutförts och att de returnerade värdena tillbaka till oss. Varje anrop för `E2_CopyFileToBlob` att returnera antalet byte som har överförts, så att summan av total antalet byte är en del av att lägga till alla dessa retur värden tillsammans.
+Efter `context.df.Task.all` att ha fått från, vet vi att alla funktions anrop har slutförts och att de returnerade värdena tillbaka till oss. Varje anrop för att `E2_CopyFileToBlob` returnera antalet byte som har överförts, så att summan av total antalet byte är en del av att lägga till alla dessa retur värden tillsammans.
 
 ---
 
 ### <a name="helper-activity-functions"></a>Hjälp aktivitetens funktioner
 
-Funktionerna i hjälp aktiviteten, precis som med andra exempel, är bara vanliga funktioner som använder sig `activityTrigger` av trigger-bindningen.
+Funktionerna i hjälp aktiviteten, precis som med andra exempel, är bara vanliga funktioner som använder sig av `activityTrigger` trigger-bindningen.
 
 #### <a name="e2_getfilelist-activity-function"></a>Funktionen E2_GetFileList aktivitet
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=44-54)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*Function. JSON* -filen för `E2_GetFileList` ser ut ungefär så här:
+*function.js* filen för att `E2_GetFileList` se ut så här:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/function.json)]
 
@@ -103,7 +102,7 @@ Funktionen använder `readdirp` modulen (version 2. x) för att rekursivt läsa 
 
 #### <a name="e2_copyfiletoblob-activity-function"></a>Funktionen E2_CopyFileToBlob aktivitet
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=56-81)]
 
@@ -114,7 +113,7 @@ Funktionen använder vissa avancerade funktioner i Azure Functions bindningar (d
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*Function. JSON* -filen för `E2_CopyFileToBlob` är på samma sätt enkla:
+*function.jspå* fil för `E2_CopyFileToBlob` är på samma sätt enkla:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/function.json)]
 
@@ -127,7 +126,7 @@ JavaScript-implementeringen använder [Azure Storage SDK för-noden](https://git
 Implementeringen läser in filen från disken och strömmar innehållet till en blob med samma namn i behållaren "säkerhets kopiering". Returvärdet är antalet byte som kopieras till Storage, som sedan används av Orchestrator-funktionen för att beräkna mängd summan.
 
 > [!NOTE]
-> Detta är ett perfekt exempel på hur du flyttar I/O- `activityTrigger` åtgärder till en funktion. Det går inte bara att distribuera arbetet på flera olika datorer, men du får också fördelarna med att göra en kontroll punkt för förloppet. Om värd processen avslutas av någon anledning vet du vilka uppladdningar som redan har slutförts.
+> Detta är ett perfekt exempel på hur du flyttar I/O-åtgärder till en `activityTrigger` funktion. Det går inte bara att distribuera arbetet på flera olika datorer, men du får också fördelarna med att göra en kontroll punkt för förloppet. Om värd processen avslutas av någon anledning vet du vilka uppladdningar som redan har slutförts.
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
@@ -142,7 +141,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> `HttpStart` Funktionen som du anropar fungerar bara med JSON-formaterat innehåll. Därför krävs `Content-Type: application/json` rubriken och katalog Sök vägen kodas som en JSON-sträng. HTTP-kodfragmentet förutsätter att det finns en post `host.json` i filen som tar bort `api/` standardprefixet från alla URL: er för http-utlösare. Du hittar koden för den här konfigurationen i `host.json` filen i exemplen.
+> `HttpStart`Funktionen som du anropar fungerar bara med JSON-formaterat innehåll. Därför `Content-Type: application/json` krävs rubriken och katalog Sök vägen kodas som en JSON-sträng. HTTP-kodfragmentet förutsätter att det finns en post i `host.json` filen som tar bort `api/` standardprefixet från alla URL: er för http-utlösare. Du hittar koden för den här konfigurationen i `host.json` filen i exemplen.
 
 Denna HTTP-begäran utlöser `E2_BackupSiteContent` Orchestrator och skickar strängen `D:\home\LogFiles` som en parameter. Svaret innehåller en länk för att hämta status för säkerhets kopieringen:
 

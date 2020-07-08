@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77468770"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
@@ -97,7 +96,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         |---|---|
         |id|Video-ID|
         |state|Videotillståndet|  
-    - Exempel: https:\//test.com/notifyme?projectName=myProject&ID = 1234ABCD&State = bearbetad
+    - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&State = bearbetad
 - Person som identifierades i videon:
   - Egenskaper
     
@@ -108,7 +107,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
       |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
       |personName|Namnet på personen|
         
-    - Exempel: https:\//test.com/notifyme?projectName=myProject&ID = 1234ABCD&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
+    - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
 ##### <a name="notes"></a>Obs!
 
@@ -126,7 +125,7 @@ Använd den här parametern om RAW-inspelningar eller externa inspelningar inneh
 
 > [!NOTE]
 > Video Indexer täcker upp till två ljud spår. Om det finns fler ljud spår i filen kommer de att behandlas som ett spår.<br/>
-Om du vill indexera spåren separat måste du extrahera den relevanta ljud filen och indexera den som `AudioOnly`.
+Om du vill indexera spåren separat måste du extrahera den relevanta ljud filen och indexera den som `AudioOnly` .
 
 Priset beror på det valda indexeringsalternativet.  
 
@@ -164,9 +163,9 @@ När du har kopierat koden till din utvecklings plattform måste du ange två pa
 
     För att hämta din API-nyckel går du igenom det här flödet:
 
-    * Navigera tillhttps://api-portal.videoindexer.ai/
+    * Navigera till https://api-portal.videoindexer.ai/
     * Inloggning
-    * Gå till **produkter** -> **auktorisering** -> av**Authorization-prenumeration**
+    * Gå till **produkter**  ->  **auktorisering**av  ->  **Authorization-prenumeration**
     * Kopiera **primär nyckeln**
 * Video-URL – en URL för video-/ljud filen som ska indexeras. URL:en måste peka på en mediefil (HTML-sidor stöds inte). Filen kan skyddas av en åtkomsttoken som tillhandahålls som en del av URI:n och slutpunkten som hanterar filen måste skyddas med TLS 1.2 eller senare. URL:en måste vara kodad.
 

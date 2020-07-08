@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425873"
 ---
 # <a name="agent-based-migration-architecture"></a>Agentbaserad migreringsarkitektur
@@ -38,10 +37,10 @@ Diagrammet illustrerar de komponenter som ingår i en agent-baserad migrering.
 
 Tabellen sammanfattar de komponenter som används för agent-baserad migrering.
 
-**Komponent** | **Information** | **Installation**
+**Komponent** | **Detaljer** | **Installation**
 --- | --- | ---
 **Replikeringsfil** | Replikeringstjänsten (konfigurations Server/processerver) är en lokal dator som fungerar som en brygga mellan den lokala miljön och Server migrering. Enheten identifierar den lokala dator inventeringen så att Server migreringen kan dirigera replikering och migrering. Enheten har två komponenter:<br/><br/> **Konfigurations Server**: ansluter till Server migration och samordnar replikering.<br/> **Processerver**: hanterar datareplikering. Processervern tar emot dator data, komprimerar och krypterar den och skickar dem till Azure. I Azure skriver server migrering data till Managed disks. | Som standard installeras processervern tillsammans med konfigurations servern på replikerings enheten.
-**Mobilitets tjänst** | Mobilitets tjänsten är en agent som är installerad på varje dator som du vill replikera och migrera. Den skickar replikeringsdata från datorn till processervern. | Installationsfiler för olika versioner av mobilitets tjänsten finns på replikerings enheten. Du kan hämta och installera den agent du behöver, i enlighet med operativ systemet och den version av datorn som du vill replikera.
+**Mobilitetstjänsten** | Mobilitets tjänsten är en agent som är installerad på varje dator som du vill replikera och migrera. Den skickar replikeringsdata från datorn till processervern. | Installationsfiler för olika versioner av mobilitets tjänsten finns på replikerings enheten. Du kan hämta och installera den agent du behöver, i enlighet med operativ systemet och den version av datorn som du vill replikera.
 
 ## <a name="mobility-service-installation"></a>Installation av mobilitetstjänsten
 
@@ -95,7 +94,7 @@ Använd värdena i den här tabellen för att avgöra om du behöver en ytterlig
 - Om din dagliga ändrings takt (omsättnings pris) är över 2 TB distribuerar du en ytterligare processerver.
 - Om du replikerar fler än 200 datorer kan du distribuera en ytterligare replikeringsfil.
 
-**REGISTRERA** | **Minnesoptimerade** | **Ledigt utrymme – cachelagring av data** | **Omsättnings pris** | **Begränsningar för replikering**
+**Processor** | **Minne** | **Ledigt utrymme – cachelagring av data** | **Omsättnings pris** | **Begränsningar för replikering**
 --- | --- | --- | --- | ---
 8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB eller mindre | < 100-datorer 
 12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB till 1 TB | 100-150-datorer.

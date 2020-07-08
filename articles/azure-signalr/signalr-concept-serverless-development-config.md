@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: dbacb6a5bbdead52750935c476f453423647fc0f
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457141"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions-utveckling och -konfiguration med Azure SignalR Service
@@ -215,7 +214,7 @@ JavaScript/TypeScript-klienten gör HTTP-förfrågningar till Negotiate-funktion
 
 #### <a name="localhost"></a>Värd
 
-När du kör Function-appen på den lokala datorn kan du lägga till ett `Host` avsnitt i *Local. Settings. JSON* för att aktivera CORS. I `Host` avsnittet lägger du till två egenskaper:
+När du kör Function-appen på den lokala datorn kan du lägga till ett `Host` avsnitt som *local.settings.jspå* för att aktivera CORS. I `Host` avsnittet lägger du till två egenskaper:
 
 * `CORS`-Ange bas-URL: en som är det ursprungliga klient programmet
 * `CORSCredentials`– Ställ in den på `true` för att tillåta "withCredentials"-begär Anden

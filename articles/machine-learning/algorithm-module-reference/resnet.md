@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: ea8c13e134eceeb27bd064e794d46d711092a867
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450733"
 ---
 # <a name="resnet"></a>ResNet
@@ -46,15 +45,15 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Namn       | Intervall | Typ    | Default           | Beskrivning                              |
+| Name       | Intervall | Typ    | Default           | Beskrivning                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
 | Modellnamn | Alla   | Läge    | resnext101 \_ 32x8d | Namn på en viss ResNet-struktur       |
 | Tränats | Alla   | Boolesk | Sant              | Om du vill använda en förtränad modell på ImageNet |
 |            |       |         |                   |                                          |
 
-###  <a name="output"></a>Resultat  
+###  <a name="output"></a>Utdata  
 
-| Namn            | Typ                    | Beskrivning                              |
+| Name            | Typ                    | Beskrivning                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modell som inte är tränad | UntrainedModelDirectory | En ResNet modell som kan anslutas till träna Pytorch-modellen. |
 

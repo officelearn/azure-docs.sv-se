@@ -1,5 +1,5 @@
 ---
-title: Använd avbildnings omvandling
+title: Använda bildtransformering
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder modulen Använd avbildnings omvandling för att tillämpa en avbildnings omvandling till en avbildnings katalog.
 services: machine-learning
@@ -10,13 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450726"
 ---
-# <a name="apply-image-transformation"></a>Använd avbildnings omvandling 
+# <a name="apply-image-transformation"></a>Använda bildtransformering 
 
 I den här artikeln beskrivs hur du använder modulen Använd avbildnings-transformering i Azure Machine Learning designer (för hands version) för att ändra en avbildnings katalog för indata baserat på en tidigare angiven avbildnings omvandling.  
 
@@ -47,20 +46,20 @@ Du måste ansluta en modul för [omvandling av init-bilder](init-image-transform
 
 ### <a name="module-parameters"></a>Parametrar för modul
 
-| Namn | Intervall | Typ | Default                   | Beskrivning                              |
+| Name | Intervall | Typ | Default                   | Beskrivning                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Läge | Alla   | Läge | (Kräv att användaren ska ange) | För vilket ändamål du använder Transformation av inflöde. Du bör undanta slumpmässiga transformerings åtgärder i en härlednings process men se till att de är i utbildning |
 
 ### <a name="expected-inputs"></a>Förväntade indata  
 
-| Namn                       | Typ                    | Beskrivning                       |
+| Name                       | Typ                    | Beskrivning                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | Transformering av inspelnings avbildning | TransformationDirectory | Transformering av inspelnings avbildning        |
 | Avbildnings katalog för indata      | ImageDirect          | Avbildnings katalog som ska transformeras |
 
 ### <a name="outputs"></a>Utdata  
 
-| Namn                   | Typ           | Beskrivning            |
+| Name                   | Typ           | Beskrivning            |
 | ---------------------- | -------------- | ---------------------- |
 | Avbildnings katalog för utdata | ImageDirect | Avbildnings katalog för utdata |
 

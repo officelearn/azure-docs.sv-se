@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84456801"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Välj och distribuera en säkerhets agent på din IoT-enhet
@@ -60,7 +59,7 @@ Den C-baserade säkerhets agenten har ett mindre minnes utrymme och är det idea
 
 ## <a name="security-agent-installation-guidelines"></a>Installations rikt linjer för säkerhets agent
 
-För **Windows**: skriptet install SecurityAgent. ps1 måste köras från ett administratörs PowerShell-fönster.
+För **Windows**: installations SecurityAgent.ps1s skriptet måste köras från ett administratörs PowerShell-fönster.
 
 För **Linux**: InstallSecurityAgent.sh måste köras som superanvändare. Vi rekommenderar att du förkorrigerar installations kommandot med "sudo".
 

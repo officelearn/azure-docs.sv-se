@@ -6,10 +6,9 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84451069"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Felsöka SDK-inläsnings fel för JavaScript-webbappar
@@ -101,7 +100,7 @@ I avsnitten nedan finns olika rapporterings alternativ, det rekommenderar att du
 
 Först kan du söka efter JavaScript-undantag, använda en webbläsare som stöder utvecklarverktyg (F12) läsa in sidan och granska om några undantag har uppstått.
 
-Om det finns undantag som rapporteras i SDK-skriptet (till exempel AI. 2. min. js), kan detta tyda på att konfigurationen som skickas till SDK: n innehåller oväntad eller saknad konfiguration eller en felaktig version har distribuerats till CDN.
+Om det finns undantag som rapporteras i SDK-skriptet (till exempel ai.2.min.js), kan det betyda att konfigurationen som skickas till SDK: n innehåller oväntad eller saknad konfiguration eller att en felaktig version har distribuerats till CDN.
 
 Du kan kontrol lera om konfigurationen är felaktig genom att ändra konfigurationen som skickas till kodfragmentet (om det inte redan finns) så att den bara innehåller din Instrumentation-nyckel som ett sträng värde.
 
@@ -128,7 +127,7 @@ Om det inte finns några undantag som genereras nästa steg är att aktivera fel
 > [!NOTE]
 > Under initieringen utför SDK några grundläggande kontroller för kända viktiga beroenden. Om dessa inte tillhandahålls av den aktuella körnings miljön rapporterar det att fel uppstår som varnings meddelanden till-konsolen, men endast om `loggingLevelConsole` är större än noll.
 
-Om det fortfarande inte går att initiera kan du försöka aktivera ```enableDebug``` konfigurations inställningen. Detta innebär att alla interna fel genereras som ett undantag (vilket leder till telemetri). Eftersom det här är en utvecklare som bara konfigurerar den kommer det förmodligen att få störningar med undantag som visas som en del av vissa interna kontroller, så du måste granska varje undantag för att avgöra vilket problem som gör att SDK: n Miss fungerar. Använd den icke-minified versionen av skriptet (Observera tillägget under det är ". js" och inte ". min. js"), annars blir undantagen oläsliga.
+Om det fortfarande inte går att initiera kan du försöka aktivera ```enableDebug``` konfigurations inställningen. Detta innebär att alla interna fel genereras som ett undantag (vilket leder till telemetri). Eftersom det här är en utvecklare som bara konfigurerar den kommer det förmodligen att få störningar med undantag som visas som en del av vissa interna kontroller, så du måste granska varje undantag för att avgöra vilket problem som gör att SDK: n Miss fungerar. Använd den icke-minified versionen av skriptet (Observera tillägget under det är ". js" och inte ".min.js"), annars blir undantagen oläsliga.
 
 > [!WARNING]
 > Detta är endast en utvecklare-inställning och ska aldrig aktive ras i en fullständig produktions miljö eftersom du förlorar telemetri.
@@ -194,7 +193,7 @@ Om slutanvändarna finns i ett företags nätverk är det förmodligen brand Vä
 
 #### <a name="host-the-sdk-on-your-own-cdn"></a>Var värd för SDK: n på din egen CDN
 
- I stället för att dina slutanvändare laddar ned Application Insights SDK från det offentliga CDN kan du vara värd för Application Insights SDK från din egen CDN-slutpunkt. Vi rekommenderar att du använder en enskild version (AI. 2. #. #. min. js) så att det är lättare att identifiera vilken version du använder. Du kan också regelbundet uppdatera den till den aktuella versionen (AI. 2. min. js) så att du kan utnyttja eventuella fel korrigeringar och nya funktioner som blir tillgängliga.
+ I stället för att dina slutanvändare laddar ned Application Insights SDK från det offentliga CDN kan du vara värd för Application Insights SDK från din egen CDN-slutpunkt. Vi rekommenderar att du använder en speciell version (AI. 2. #. # .min.js) så att det är lättare att identifiera vilken version du använder. Du kan också regelbundet uppdatera den till den aktuella versionen (ai.2.min.js) så att du kan utnyttja eventuella fel korrigeringar och nya funktioner som blir tillgängliga.
 
 #### <a name="use-npm-packages-to-embed-the-application-insight-sdk"></a>Använda NPM-paket för att bädda in Application Insight SDK
 

@@ -16,10 +16,9 @@ ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
 ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74969148"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd castLabs för att leverera Widevine-licenser till Azure Media Services 
@@ -84,7 +83,7 @@ I följande tabell beskrivs JWT-token i castLabs.
 
 Så här använder du konsol programmet:
 
-1. Ändra app. config för att konfigurera AMS-autentiseringsuppgifter, castLabs-autentiseringsuppgifter, STS-konfiguration och delad nyckel.
+1. Ändra app.config till att konfigurera AMS-autentiseringsuppgifter, castLabs-autentiseringsuppgifter, STS-konfiguration och delad nyckel.
 2. Ladda upp en till gång i AMS.
 3. Hämta UUID från den överförda till gången och ändra rad 32 i filen Program.cs:
    
@@ -96,7 +95,7 @@ Så här använder du konsol programmet:
 
 Så här använder du webb programmet (STS):
 
-1. Ändra Web. config för att konfigurera castlabs handlare-ID, STS-konfigurationen och den delade nyckeln.
+1. Ändra web.config till att konfigurera castlabs för handlare, STS-konfigurationen och den delade nyckeln.
 2. Distribuera till Azure Websites.
 3. Navigera till webbplatsen.
 

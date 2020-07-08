@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 9ef9eada9b9aec50642a8bf357edab0677868817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74949397"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Använd C#-användardefinierade funktioner med Apache Hive och Apache gris på Apache Hadoop i HDInsight
@@ -22,7 +21,7 @@ Lär dig hur du använder C#-användardefinierade funktioner (UDF) med [Apache H
 > [!IMPORTANT]
 > Stegen i det här dokumentet fungerar med Linux-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versions hantering av HDInsight-komponenter](../hdinsight-component-versioning.md).
 
-Både Hive och gris kan skicka data till externa program för bearbetning. Den här processen kallas för _strömning_. När du använder ett .NET-program skickas data till programmet på STDIN och programmet returnerar resultatet i STDOUT. Om du vill läsa och skriva från STDIN och STDOUT kan du `Console.ReadLine()` använda `Console.WriteLine()` och från ett konsol program.
+Både Hive och gris kan skicka data till externa program för bearbetning. Den här processen kallas för _strömning_. När du använder ett .NET-program skickas data till programmet på STDIN och programmet returnerar resultatet i STDOUT. Om du vill läsa och skriva från STDIN och STDOUT kan du använda `Console.ReadLine()` och `Console.WriteLine()` från ett konsol program.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -38,13 +37,13 @@ Både Hive och gris kan skicka data till externa program för bearbetning. Den h
 
 ## <a name="net-on-hdinsight"></a>.NET på HDInsight
 
-*Linux-baserade HDInsight-* kluster använder [mono (https://mono-project.com) ](https://mono-project.com) för att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6.
+*Linux-baserade HDInsight-* kluster använder [mono ( https://mono-project.com) ](https://mono-project.com) för att köra .NET-program. Mono version 4.2.1 ingår i HDInsight version 3,6.
 
 Mer information om mono-kompatibilitet med .NET Framework-versioner finns i [mono-kompatibilitet](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 Mer information om den version av .NET Framework och mono som ingår i HDInsight-versioner finns i versions [versioner för HDInsight](../hdinsight-component-versioning.md).
 
-## <a name="create-the-c-projects"></a>Skapa C\# -projekt
+## <a name="create-the-c-projects"></a>Skapa C- \# projekt
 
 I följande avsnitt beskrivs hur du skapar ett C#-projekt i Visual Studio för en Apache Hive UDF och en Apache-gris UDF.
 
@@ -56,9 +55,9 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 2. Välj **skapa ett nytt projekt**.
 
-3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj sedan **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj **Nästa**.
 
-4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *HiveCSharp*och navigerar till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **skapa**.
+4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *HiveCSharp*och navigerar till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
 
 5. I Visual Studio IDE ersätter du innehållet i *program.cs* med följande kod:
 
@@ -111,7 +110,7 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
     }
     ```
 
-6. Välj **bygge** > **build-lösning** i meny raden för att bygga projektet.
+6. Välj **bygge**  >  **build-lösning** i meny raden för att bygga projektet.
 
 7. Stäng lösningen.
 
@@ -123,9 +122,9 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
 
-3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj sedan **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj **Nästa**.
 
-4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *PigUDF*och går till eller skapar en **plats där** du sparar det nya projektet i. Välj sedan **skapa**.
+4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *PigUDF*och går till eller skapar en **plats där** du sparar det nya projektet i. Välj sedan **Skapa**.
 
 5. I Visual Studio IDE ersätter du innehållet i *program.cs* med följande kod:
 
@@ -158,9 +157,9 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
     }
     ```
 
-    Den här koden analyserar de rader som skickas från gris och formaterar om rader som `java.lang.Exception`börjar med.
+    Den här koden analyserar de rader som skickas från gris och formaterar om rader som börjar med `java.lang.Exception` .
 
-6. Välj **bygge** > **build-lösning** i meny raden för att bygga projektet.
+6. Välj **bygge**  >  **build-lösning** i meny raden för att bygga projektet.
 
 7. Lämna lösningen öppen.
 
@@ -168,7 +167,7 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-kluster.
 
-1. Gå till **Visa** > **Server Explorer**i Visual Studio.
+1. Gå till **Visa**  >  **Server Explorer**i Visual Studio.
 
 1. Från **Server Explorer**högerklickar du på **Azure**, väljer **Anslut till Microsoft Azure prenumeration**och slutför inloggnings processen.
 
@@ -186,17 +185,17 @@ Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-
 
         ![HDInsight upload-ikon för nytt projekt](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
-        Välj **Bläddra**under **fil namn**i dialog rutan **Ladda upp ny fil** . I dialog rutan **Ladda upp BLOB** går du till mappen *bin\debug* för *HiveCSharp* -projektet och väljer sedan filen *HiveCSharp. exe* . Klicka slutligen på **Öppna** och sedan på **OK** för att slutföra överföringen.
+        Välj **Bläddra**under **fil namn**i dialog rutan **Ladda upp ny fil** . I dialog rutan **Ladda upp BLOB** går du till mappen *bin\debug* för *HiveCSharp* -projektet och väljer sedan filen *HiveCSharp.exe* . Klicka slutligen på **Öppna** och sedan på **OK** för att slutföra överföringen.
 
-    * Om du använder **Azure Data Lake Storage**högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen filen *HiveCSharp. exe* och välj **Öppna**.
+    * Om du använder **Azure Data Lake Storage**högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen *HiveCSharp.exe* -filen och välj **Öppna**.
 
-    När *HiveCSharp. exe* -överföringen är färdig upprepar du överförings processen för filen *PigUDF. exe* .
+    När *HiveCSharp.exe* uppladdning har avslut ATS upprepar du överförings processen för *PigUDF.exes* filen.
 
 ## <a name="run-an-apache-hive-query"></a>Köra en Apache Hive fråga
 
 Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
 
-1. Gå till **Visa** > **Server Explorer**i Visual Studio.
+1. Gå till **Visa**  >  **Server Explorer**i Visual Studio.
 
 2. Expandera **Azure** och expandera därefter **HDInsight**.
 
@@ -222,7 +221,7 @@ Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
     > [!IMPORTANT]
     > Kommentera den `add file` instruktion som matchar den typ av standard lagring som används för klustret.
 
-    Den här frågan väljer `clientid`fälten `devicemake`, och `devicemodel` från `hivesampletable`, och skickar sedan fälten till programmet *HiveCSharp. exe* . Frågan förväntar sig att programmet ska returnera tre fält, som lagras som `clientid`, `phoneLabel`och `phoneHash`. Frågan förväntar sig också att hitta *HiveCSharp. exe* i roten för standard lagrings behållaren.
+    Den här frågan väljer `clientid` `devicemake` fälten, och `devicemodel` från `hivesampletable` , och skickar sedan fälten till *HiveCSharp.exe* -programmet. Frågan förväntar sig att programmet ska returnera tre fält, som lagras som `clientid` , `phoneLabel` och `phoneHash` . Frågan förväntar sig också att hitta *HiveCSharp.exe* i roten för standard lagrings behållaren.
 
 5. Ändra standardinställningen för **interaktiv** till **batch**och välj sedan **Skicka** för att skicka jobbet till HDInsight-klustret. Fönstret **Sammanfattning av Hive-jobb** öppnas.
 
@@ -232,7 +231,7 @@ Nu kan du köra en Hive-fråga som använder ditt Hive UDF-program.
 
 Du kan också köra ett jobb i gris som använder ditt UDF-program för svinhållning.
 
-1. Använd SSH för att ansluta till ditt HDInsight-kluster. (Du kan till exempel köra kommandot `ssh sshuser@<clustername>-ssh.azurehdinsight.net`.) Mer information finns i [använda SSH-withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Använd SSH för att ansluta till ditt HDInsight-kluster. (Du kan till exempel köra kommandot `ssh sshuser@<clustername>-ssh.azurehdinsight.net` .) Mer information finns i [använda SSH-withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Använd följande kommando för att starta kommando raden för gris:
 
@@ -252,10 +251,10 @@ Du kan också köra ett jobb i gris som använder ditt UDF-program för svinhål
     DUMP DETAILS;
     ```
 
-    `DEFINE` Instruktionen skapar ett alias `streamer` för *PigUDF. exe* -programmet och `CACHE` läser in det från standard lagrings utrymmet för klustret. `streamer` Senare används med `STREAM` operatorn för att bearbeta de enskilda raderna i `LOG` och returnera data som en serie kolumner.
+    `DEFINE`Instruktionen skapar ett alias för `streamer` för *PigUDF.exe* programmet och `CACHE` läser in det från standard lagrings utrymmet för klustret. Senare `streamer` används med `STREAM` operatorn för att bearbeta de enskilda raderna i `LOG` och returnera data som en serie kolumner.
 
     > [!NOTE]
-    > Det program namn som används för strömning måste omges av tecknet \` (baktick) vid alias och med tecknet "(enkelt citat tecken) när det används med. `SHIP`
+    > Det program namn som används för strömning måste omges av \` tecknet (baktick) vid alias och med tecknet "(enkelt citat tecken) när det används med `SHIP` .
 
 4. När du har angett den sista raden ska jobbet starta. Den returnerar utdata som liknar följande text:
 

@@ -7,10 +7,9 @@ ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
 ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75441221"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Skapa en syntetisk partitionsnyckel
@@ -44,15 +43,15 @@ I real tids scenarier kan du ha tusentals objekt i en databas. I stället för a
 
 En annan möjlig strategi att distribuera arbets belastningen jämnt är att lägga till ett slumpmässigt nummer i slutet av värdet för partitionsnyckel. När du distribuerar objekt på det här sättet kan du utföra parallella Skriv åtgärder mellan partitioner.
 
-Ett exempel är om en partitionsnyckel representerar ett datum. Du kan välja ett slumpmässigt nummer mellan 1 och 400 och sammanfoga det som ett suffix till datumet. Den här metoden resulterar i nyckel värden som `2018-08-09.1`,`2018-08-09.2`och så vidare, via `2018-08-09.400`. Eftersom du slumpar partitionsnyckel sprids Skriv åtgärderna på behållaren på varje dag jämnt över flera partitioner. Den här metoden resulterar i bättre parallellitet och övergripande data flöde.
+Ett exempel är om en partitionsnyckel representerar ett datum. Du kan välja ett slumpmässigt nummer mellan 1 och 400 och sammanfoga det som ett suffix till datumet. Den här metoden resulterar i nyckel värden som  `2018-08-09.1` , `2018-08-09.2` och så vidare, via  `2018-08-09.400` . Eftersom du slumpar partitionsnyckel sprids Skriv åtgärderna på behållaren på varje dag jämnt över flera partitioner. Den här metoden resulterar i bättre parallellitet och övergripande data flöde.
 
 ## <a name="use-a-partition-key-with-pre-calculated-suffixes"></a>Använd en partitionsnyckel med förberäknade suffix 
 
 Strategin för slumpmässigt suffix kan avsevärt förbättra Skriv data flödet, men det är svårt att läsa ett speciellt objekt. Du vet inte vilket suffix-värde som användes när du skrev objektet. För att göra det lättare att läsa enskilda objekt använder du strategin för förberäknade suffix. I stället för att använda ett slumpmässigt nummer för att distribuera objekten mellan partitionerna, använder du ett tal som beräknas baserat på något som du vill fråga.
 
-Överväg det tidigare exemplet där en behållare använder ett datum som partitionsnyckel. Anta nu att varje objekt har ett `Vehicle-Identification-Number` (`VIN`)-attribut som vi vill komma åt. Dessutom antar vi att du ofta kör frågor för att hitta objekt efter `VIN`, förutom datum. Innan ditt program skriver objektet till behållaren kan det beräkna ett hash-suffix baserat på VINet och lägga till det i partitionens nyckel datum. Beräkningen kan generera ett tal mellan 1 och 400 som är jämnt distribuerat. Det här resultatet liknar de resultat som genereras av strategi metoden för slumpmässigt suffix. Värdet för partitionsnyckel är sedan det datum som kombineras med det beräknade resultatet.
+Överväg det tidigare exemplet där en behållare använder ett datum som partitionsnyckel. Anta nu att varje objekt har ett  `Vehicle-Identification-Number` ( `VIN` )-attribut som vi vill komma åt. Dessutom antar vi att du ofta kör frågor för att hitta objekt efter `VIN` , förutom datum. Innan ditt program skriver objektet till behållaren kan det beräkna ett hash-suffix baserat på VINet och lägga till det i partitionens nyckel datum. Beräkningen kan generera ett tal mellan 1 och 400 som är jämnt distribuerat. Det här resultatet liknar de resultat som genereras av strategi metoden för slumpmässigt suffix. Värdet för partitionsnyckel är sedan det datum som kombineras med det beräknade resultatet.
 
-Med den här strategin sprids skrivningarna jämnt över nyckel värden och över partitionerna. Du kan enkelt läsa ett visst objekt och datum, eftersom du kan beräkna partitionens nyckel värde för en specifik `Vehicle-Identification-Number`. Fördelen med den här metoden är att du kan undvika att skapa en enskild snabb partitionsnyckel, d.v.s. en partitionsnyckel som tar all arbets belastning. 
+Med den här strategin sprids skrivningarna jämnt över nyckel värden och över partitionerna. Du kan enkelt läsa ett visst objekt och datum, eftersom du kan beräkna partitionens nyckel värde för en specifik `Vehicle-Identification-Number` . Fördelen med den här metoden är att du kan undvika att skapa en enskild snabb partitionsnyckel, d.v.s. en partitionsnyckel som tar all arbets belastning. 
 
 ## <a name="next-steps"></a>Nästa steg
 

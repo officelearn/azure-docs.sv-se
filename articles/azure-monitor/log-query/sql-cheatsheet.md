@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: c76ab145fd2fdd077075b345ecac9c6a473f2369
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75365197"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL till Azure Monitor lathund blad för logg frågor 

@@ -9,10 +9,9 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75434720"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Så här etablerar du äldre enheter med symmetriska nycklar
@@ -201,7 +200,7 @@ Enheten kommer att använda den härledda enhets nyckeln med ditt unika registre
 
 ## <a name="create-a-device-image-to-provision"></a>Skapa en enhets avbildning för att etablera
 
-I det här avsnittet ska du uppdatera ett etablerings exempel med namnet **test\_dev\_client\_-exempel** som finns i Azure IoT C SDK som du har skapat tidigare. 
+I det här avsnittet ska du uppdatera ett etablerings exempel med namnet ** \_ test dev \_ client- \_ exempel** som finns i Azure IoT C SDK som du har skapat tidigare. 
 
 Den här exempel koden simulerar en enhets startsekvens som skickar etablerings förfrågan till din enhets etablerings tjänst instans. Startsekvensen gör att enheten identifieras och tilldelas IoT-hubben som du konfigurerade i registrerings gruppen.
 
@@ -250,7 +249,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
 7. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
 
-8. På Visual Studio-menyn väljer du **Felsök** > **Start utan fel sökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
+8. På Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
 
     Följande utdata är ett exempel på när den simulerade enheten lyckas med starten och ansluter till etableringstjänstinstansen för att tilldelas en IoT-hubb:
 

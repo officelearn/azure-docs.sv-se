@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74978210"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurera principer för innehålls skydd med hjälp av Azure Portal
@@ -38,7 +37,7 @@ Gör så här för att använda portalen för att konfigurera globalt innehålls
 
 1. I [portalen](https://portal.azure.com/)väljer du ditt Media Services-konto.
 
-1. Välj **Inställningar** > **innehålls skydd**.
+1. Välj **Inställningar**  >  **innehålls skydd**.
 
     ![Innehållsskydd](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -90,7 +89,7 @@ Om du vill aktivera FairPlay-kryptering väljer du **Fairplay-konfiguration**. V
 Om du vill dra nytta av dynamisk kryptering kodar du käll filen till en uppsättning MP4-filer med anpassningsbar bit hastighet.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Välj en till gång som du vill kryptera
-Om du vill se alla dina till gångar väljer du **Inställningar** > **till gångar**.
+Om du vill se alla dina till gångar väljer du **Inställningar**  >  **till gångar**.
 
 ![Till gångar-alternativ](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 

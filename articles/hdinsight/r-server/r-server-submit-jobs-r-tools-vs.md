@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435259"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
@@ -32,9 +31,9 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 3. Du måste ha offentliga och privata nycklar för SSH-autentisering.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Installera [ml Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) på din dator. ML Server innehåller- [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) och `RxSpark` -funktionerna.
+4. Installera [ml Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) på din dator. ML Server innehåller- [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) och- `RxSpark` funktionerna.
 
-5. Installera [SparaTillFil](https://www.putty.org/) för att tillhandahålla en beräknings kontext för att `RevoScaleR` köra funktioner från din lokala klient till ditt HDInsight-kluster.
+5. Installera [SparaTillFil](https://www.putty.org/) för att tillhandahålla en beräknings kontext för att köra `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster.
 
 6. Du kan välja att tillämpa inställningarna för data vetenskap i Visual Studio-miljön, vilket ger en ny layout för din arbets yta för R-verktygen.
    1. Om du vill spara dina aktuella Visual Studio-inställningar använder du kommandot **verktyg > import-och export inställningar** och väljer sedan **Exportera valda miljö inställningar** och anger ett fil namn. Om du vill återställa de inställningarna använder du samma kommando och väljer **Importera valda miljö inställningar**.
@@ -52,7 +51,7 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 2. Installera [RTVS-tillägget](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Ladda ned [zip-filen samples](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Öppna `examples/Examples.sln` för att starta lösningen i Visual Studio.
-5. Öppna `1-Getting Started with R.R` filen i `A first look at R` Solution-mappen.
+5. Öppna `1-Getting Started with R.R` filen i Solution- `A first look at R` mappen.
 6. Börja överst i filen och tryck på CTRL + RETUR för att skicka varje rad, en i taget, till det interaktiva R-fönstret. Det kan ta en stund att installera några rader medan paketen installeras.
     * Alternativt kan du markera alla rader i R-filen (Ctrl + A), sedan antingen köra alla (CTRL + RETUR) eller välja ikonen kör interaktiv i verktygsfältet.
 
@@ -64,9 +63,9 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Skicka jobb till ett HDInsight ML-tjänst kluster
 
-Med hjälp av en Microsoft ML Server/Microsoft R-klient från en Windows-dator som är utrustad med SparaTillFil kan du skapa en beräknings kontext `RevoScaleR` som kör distribuerade funktioner från din lokala klient till ditt HDInsight-kluster. Använd `RxSpark` för att skapa beräknings kontexten, ange ditt användar namn, Apache Hadoop klustrets Edge-nod, SSH-växlar och så vidare.
+Med hjälp av en Microsoft ML Server/Microsoft R-klient från en Windows-dator som är utrustad med SparaTillFil kan du skapa en beräknings kontext som kör distribuerade `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster. Använd `RxSpark` för att skapa beräknings kontexten, ange ditt användar namn, Apache Hadoop klustrets Edge-nod, SSH-växlar och så vidare.
 
-1. De ML-tjänsternas Edge Node-adress `CLUSTERNAME-ed-ssh.azurehdinsight.net` i `CLUSTERNAME` HDInsight är där är namnet på ditt ml-tjänst kluster.
+1. De ML-tjänsternas Edge Node-adress i HDInsight är `CLUSTERNAME-ed-ssh.azurehdinsight.net` där `CLUSTERNAME` är namnet på ditt ml-tjänst kluster.
 
 1. Klistra in följande kod i det interaktiva fönstret R i Visual Studio och ändra värdena för de konfigurera variablerna så att de överensstämmer med din miljö.
 
@@ -108,8 +107,8 @@ Med hjälp av en Microsoft ML Server/Microsoft R-klient från en Windows-dator s
 
     Du bör se utdata som liknar följande:
 
-    ![Lyckade mottagnings kommando](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) körningar a
-1. Kontrol lera att `rxHadoopCopy` `people.json` filen har kopierats från mappen exempel data till den nya `/user/RevoShare/newUser` mappen:
+    ![Lyckade mottagnings kommando körningar ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) a
+1. Kontrol lera att `rxHadoopCopy` filen har kopierats `people.json` från mappen exempel data till den nya `/user/RevoShare/newUser` mappen:
 
     1. Från ditt kluster i HDInsight ML-tjänster i Azure väljer du **lagrings konton** i den vänstra menyn.
 
@@ -121,7 +120,7 @@ Med hjälp av en Microsoft ML Server/Microsoft R-klient från en Windows-dator s
 
         ![Azure HDInsight Storage-behållare](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare*, sedan **newUser**. `people.json` Filen ska visas i `newUser` mappen.
+    4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare*, sedan **newUser**. `people.json`Filen ska visas i `newUser` mappen.
 
         ![HDInsight kopierad mappsökväg](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 

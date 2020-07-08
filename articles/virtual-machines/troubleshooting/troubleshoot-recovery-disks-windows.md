@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
 ms.openlocfilehash: 66cda98f272e7353b620059a731972714db585ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75374140"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure PowerShell
@@ -51,7 +50,7 @@ Connect-AzAccount
 I följande exempel ersätter du parameter namnen med dina egna värden. 
 
 ## <a name="determine-boot-issues"></a>Fastställa start problem
-Du kan visa en skärm bild av den virtuella datorn i Azure för att hjälpa till med fel sökning av start problem. Den här skärm bilden kan hjälpa dig att identifiera varför en virtuell dator inte kan starta. I följande exempel hämtas skärm bilden från den virtuella Windows- `myVM` datorn som heter i resurs `myResourceGroup`gruppen med namnet:
+Du kan visa en skärm bild av den virtuella datorn i Azure för att hjälpa till med fel sökning av start problem. Den här skärm bilden kan hjälpa dig att identifiera varför en virtuell dator inte kan starta. I följande exempel hämtas skärm bilden från den virtuella Windows-datorn som heter `myVM` i resurs gruppen med namnet `myResourceGroup` :
 
 ```powershell
 Get-AzVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
@@ -62,7 +61,7 @@ Granska skärm bilden för att ta reda på varför den virtuella datorn inte kan
 
 ## <a name="stop-the-vm"></a>Stoppa den virtuella datorn
 
-I följande exempel stoppas den virtuella `myVM` datorn med namnet från resurs `myResourceGroup`gruppen med namnet:
+I följande exempel stoppas den virtuella datorn med namnet `myVM` från resurs gruppen med namnet `myResourceGroup` :
 
 ```powershell
 Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -73,7 +72,7 @@ Vänta tills den virtuella datorn har tagits bort innan du bearbetar nästa steg
 
 ## <a name="create-a-snapshot-from-the-os-disk-of-the-vm"></a>Skapa en ögonblicks bild från den virtuella datorns OS-disk
 
-I följande exempel skapas en ögonblicks bild `mySnapshot` med namnet från operativ system disken för den virtuella datorn med namnet "myVM". 
+I följande exempel skapas en ögonblicks bild med namnet `mySnapshot` från operativ system disken för den virtuella datorn med namnet "myVM". 
 
 ```powershell
 $resourceGroupName = 'myResourceGroup' 
@@ -103,7 +102,7 @@ En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård 
 
 ## <a name="create-a-disk-from-the-snapshot"></a>Skapa en disk från ögonblicks bilden
 
-Det här skriptet skapar en hanterad disk `newOSDisk` med namnet från ögonblicks bilden med namnet `mysnapshot`.  
+Det här skriptet skapar en hanterad disk med namnet `newOSDisk` från ögonblicks bilden med namnet `mysnapshot` .  
 
 ```powershell
 #Set the context to the subscription Id where Managed Disk will be created
@@ -144,7 +143,7 @@ Nu har du en kopia av den ursprungliga OS-disken. Du kan montera disken till en 
 
 ## <a name="attach-the-disk-to-another-windows-vm-for-troubleshooting"></a>Anslut disken till en annan virtuell Windows-dator för fel sökning
 
-Nu kopplar vi kopian av den ursprungliga OS-disken till en virtuell dator som en data disk. Med den här processen kan du korrigera konfigurations fel eller granska ytterligare program-eller systemloggfiler på disken. I följande exempel kopplas disken `newOSDisk` till den virtuella datorn med namnet `RecoveryVM`.
+Nu kopplar vi kopian av den ursprungliga OS-disken till en virtuell dator som en data disk. Med den här processen kan du korrigera konfigurations fel eller granska ytterligare program-eller systemloggfiler på disken. I följande exempel kopplas disken `newOSDisk` till den virtuella datorn med namnet `RecoveryVM` .
 
 > [!NOTE]
 > För att du ska kunna ansluta disken måste kopian av den ursprungliga OS-disken och den virtuella återställnings datorn vara på samma plats.
@@ -165,7 +164,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="connect-to-the-recovery-vm-and-fix-issues-on-the-attached-disk"></a>Anslut till den virtuella återställnings datorn och åtgärda problem på den anslutna disken
 
-1. RDP till den virtuella återställnings datorn med lämpliga autentiseringsuppgifter. Följande exempel laddar ned RDP-anslutningssträngen för den virtuella datorn `RecoveryVM` med namnet i resurs gruppen `myResourceGroup`med namnet och laddar ned `C:\Users\ops\Documents`den till
+1. RDP till den virtuella återställnings datorn med lämpliga autentiseringsuppgifter. Följande exempel laddar ned RDP-anslutningssträngen för den virtuella datorn med namnet `RecoveryVM` i resurs gruppen med namnet `myResourceGroup` och laddar ned den till `C:\Users\ops\Documents`
 
     ```powershell
     Get-AzRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
@@ -200,7 +199,7 @@ När dina fel har åtgärd ATS avmonterar du och kopplar från den befintliga di
     Set-Disk -Number 2 -IsOffline $True
     ```
 
-    Bekräfta att disken nu har angetts som offline med `Get-Disk` hjälp av igen. Följande exempel på utdata visar att disken nu har angetts som offline:
+    Bekräfta att disken nu har angetts som offline med hjälp av `Get-Disk` igen. Följande exempel på utdata visar att disken nu har angetts som offline:
 
     ```powershell
     Number   Friendly Name   Serial Number   HealthStatus   OperationalStatus   Total Size   Partition
@@ -211,7 +210,7 @@ När dina fel har åtgärd ATS avmonterar du och kopplar från den befintliga di
     2        Msft Virtu...                                  Healthy             Offline      127 GB MBR
     ```
 
-2. Avsluta RDP-sessionen. Från Azure PowerShell-sessionen tar du bort disken med `newOSDisk` namnet från den virtuella datorn med namnet "RecoveryVM".
+2. Avsluta RDP-sessionen. Från Azure PowerShell-sessionen tar du bort disken med namnet `newOSDisk` från den virtuella datorn med namnet "RecoveryVM".
 
     ```powershell
     $myVM = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "RecoveryVM"
@@ -223,7 +222,7 @@ När dina fel har åtgärd ATS avmonterar du och kopplar från den befintliga di
 
 Du kan använda Azure PowerShell för att växla OS-diskarna. Du behöver inte ta bort och återskapa den virtuella datorn.
 
-Det här exemplet stoppar den virtuella `myVM` datorn med namnet och tilldelar disken namnet `newOSDisk` som den nya OS-disken. 
+Det här exemplet stoppar den virtuella datorn med namnet `myVM` och tilldelar disken namnet `newOSDisk` som den nya OS-disken. 
 
 ```powershell
 # Get the VM 
@@ -247,7 +246,7 @@ Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>Verifiera och aktivera startdiagnostik
 
-I följande exempel aktive ras Diagnostic-tillägget på den `myVMDeployed` virtuella datorn som heter i `myResourceGroup`resurs gruppen med namnet:
+I följande exempel aktive ras Diagnostic-tillägget på den virtuella datorn som heter `myVMDeployed` i resurs gruppen med namnet `myResourceGroup` :
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"

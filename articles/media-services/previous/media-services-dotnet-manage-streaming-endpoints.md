@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74901278"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Hantera slut punkter för direkt uppspelning med .NET SDK  
@@ -50,7 +49,7 @@ Information om hur du skalar slut punkten för direkt uppspelning finns i [den h
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>Lägg till kod som hanterar slut punkter för direkt uppspelning
     

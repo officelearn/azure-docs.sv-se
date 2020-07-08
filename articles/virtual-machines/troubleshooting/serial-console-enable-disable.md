@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451309"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Aktivera och inaktivera Azures serie konsol
@@ -34,7 +33,7 @@ Serie konsolen kan inaktive ras för en angiven virtuell dator eller en virtuell
 ## <a name="subscription-level-enabledisable"></a>Aktivera/inaktivera prenumerations nivå
 
 > [!NOTE]
-> Se till att du befinner dig i rätt moln (offentliga Azure-moln, Azure-molnet för amerikanska myndigheter) innan du kör det här kommandot. Du kan kontrol lera `az cloud list` med och ange molnet `az cloud set -n <Name of cloud>`med.
+> Se till att du befinner dig i rätt moln (offentliga Azure-moln, Azure-molnet för amerikanska myndigheter) innan du kör det här kommandot. Du kan kontrol lera med `az cloud list` och ange molnet med `az cloud set -n <Name of cloud>` .
 
 ### <a name="azure-cli"></a>Azure CLI
 

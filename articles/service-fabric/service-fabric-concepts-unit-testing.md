@@ -4,10 +4,9 @@ description: Lär dig mer om begreppen och metoderna för enhets testning Servic
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75433913"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Enhets testning tillstånds känsliga tjänster i Service Fabric
@@ -40,13 +39,13 @@ Om du dessutom har flera instanser kan testerna växla rollerna för var och en 
 Tillstånds hanteraren bör behandlas som en fjär resurs och därför modelleras. När du modellerar tillstånds hanteraren måste det finnas en underliggande minnes lagring för att spåra vad som sparas i tillstånds hanteraren så att det kan läsas och verifieras. Ett enkelt sätt att åstadkomma detta är att skapa blå instanser av var och en av typerna av pålitliga samlingar. I dessa modeller använder du en datatyp som stämmer med de åtgärder som utförs mot den samlingen. Följande är några föreslagna data typer för varje tillförlitlig samling
 
 - IReliableDictionary<TKey, TValue>-> system. Collections. samtidig. ConcurrentDictionary<TKey, TValue>
-- IReliableQueue\<T>-> system. Collections. Generic\<. Queue t>
-- IReliableConcurrentQueue\<t>-> system. Collections. samtidig.\<ConcurrentQueue T>
+- IReliableQueue \<T> -> system. Collections. Generic. Queue\<T>
+- IReliableConcurrentQueue \<T> -> system. Collections. samtidig. ConcurrentQueue\<T>
 
 #### <a name="many-state-manager-instances-single-storage"></a>Många tillstånds hanterarens instanser, enkel lagring
 Som nämnts tidigare bör tillstånds hanteraren och pålitliga samlingar behandlas som en fjär resurs. Dessa resurser bör därför vara och de kommer att bli blå inom enhets testen. Men när du kör flera instanser av en tillstånds känslig tjänst är det en utmaning att hålla alla modellerade tillstånds hanterare synkroniserade över olika tillstånds känsliga tjänst instanser. När den tillstånds känsliga tjänsten körs på klustret tar Service Fabric hand om att hålla varje sekundär repliks tillstånds hanterare konsekvent med den primära repliken. Därför bör testerna beter sig på samma sätt så att de kan simulera roll ändringar.
 
-Ett enkelt sätt att utföra den här synkroniseringen kan vara att använda ett singleton-mönster för det underliggande objektet som lagrar data som skrivits till varje tillförlitlig samling. Till exempel om en tillstånds känslig tjänst använder en `IReliableDictionary<string, string>`. Den modellerande tillstånds hanteraren ska returnera en `IReliableDictionary<string, string>`skiss av. Den här skissen kan `ConcurrentDictionary<string, string>` använda en för att hålla reda på nyckel/värde-par som skrivits. `ConcurrentDictionary<string, string>` Ska vara en singleton som används av alla instanser av tillstånds hanterare som skickas till tjänsten.
+Ett enkelt sätt att utföra den här synkroniseringen kan vara att använda ett singleton-mönster för det underliggande objektet som lagrar data som skrivits till varje tillförlitlig samling. Till exempel om en tillstånds känslig tjänst använder en `IReliableDictionary<string, string>` . Den modellerande tillstånds hanteraren ska returnera en skiss av `IReliableDictionary<string, string>` . Den här skissen kan använda en `ConcurrentDictionary<string, string>` för att hålla reda på nyckel/värde-par som skrivits. `ConcurrentDictionary<string, string>`Ska vara en singleton som används av alla instanser av tillstånds hanterare som skickas till tjänsten.
 
 #### <a name="keep-track-of-cancellation-tokens"></a>Håll koll på inställda token
 Avbrutna token är en viktig men ofta överblickad aspekt av tillstånds känsliga tjänster. När Service Fabric startar en primär replik för en tillstånds känslig tjänst tillhandahålls en avbrotts-token. Denna uppsägnings-token är avsedd att signalera till tjänsten när den tas bort eller nedgraderas till en annan roll. Den tillstånds känsliga tjänsten bör stoppa eventuella tids krävande eller asynkrona åtgärder så att Service Fabric kan slutföra arbets flödet för roll ändringar.
@@ -68,7 +67,7 @@ Enhets test bör köras så mycket som möjligt av program koden som kan ändra 
     Then the request should should return the "John Smith" employee
 ```
 
-Det här testet kontrollerar att data som fångas på en replik är tillgängliga för en sekundär replik när de befordras till primär. Om vi antar att en tillförlitlig samling är lagrings platsen för de anställdas data, kan ett potentiellt fel som kan fångas upp med det här testet vara om program koden `CommitAsync` inte kördes på transaktionen för att spara den nya medarbetaren. I så fall skulle den andra begäran att hämta medarbetare inte returnera medarbetare som lagts till av den första begäran.
+Det här testet kontrollerar att data som fångas på en replik är tillgängliga för en sekundär replik när de befordras till primär. Om vi antar att en tillförlitlig samling är lagrings platsen för de anställdas data, kan ett potentiellt fel som kan fångas upp med det här testet vara om program koden inte kördes `CommitAsync` på transaktionen för att spara den nya medarbetaren. I så fall skulle den andra begäran att hämta medarbetare inte returnera medarbetare som lagts till av den första begäran.
 
 ### <a name="acting"></a>Reagera
 #### <a name="mimic-service-fabric-replica-orchestration"></a>Imitera Service Fabric replik dirigering

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435619"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analysera Twitter-data med Apache Hive och Apache Hadoop på HDInsight
@@ -28,7 +27,7 @@ Med Twitter kan du hämta data för varje tweet som ett JavaScript Object Notati
 
 ### <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
-1. Logga in på [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/)i en webbläsare. Välj länken **Registrera dig nu** om du inte har ett Twitter-konto.
+1. Logga in på i en webbläsare [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Välj länken **Registrera dig nu** om du inte har ett Twitter-konto.
 
 2. Välj **Skapa ny app**.
 
@@ -54,7 +53,7 @@ Med Twitter kan du hämta data för varje tweet som ett JavaScript Object Notati
 
 ### <a name="download-tweets"></a>Ladda ned tweets
 
-Följande python-kod laddar ned 10 000 tweets från Twitter och sparar dem i en fil med namnet **tweets. txt**.
+Följande python-kod laddar ned 10 000 tweets från Twitter och sparar dem till en fil med namnet **tweets.txt**.
 
 > [!NOTE]  
 > Följande steg utförs i HDInsight-klustret eftersom python redan har installerats.
@@ -84,7 +83,7 @@ Följande python-kod laddar ned 10 000 tweets från Twitter och sparar dem i en 
    nano gettweets.py
    ```
 
-1. Redigera koden nedan genom att ersätta `Your consumer secret`, `Your consumer key`, `Your access token`och `Your access token secret` med relevant information från Twitter-programmet. Klistra sedan in den redigerade koden som innehållet i **gettweets.py** -filen.
+1. Redigera koden nedan genom att ersätta `Your consumer secret` , `Your consumer key` , `Your access token` och `Your access token secret` med relevant information från Twitter-programmet. Klistra sedan in den redigerade koden som innehållet i **gettweets.py** -filen.
 
    ```python
    #!/usr/bin/python

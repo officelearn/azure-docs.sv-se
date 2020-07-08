@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435385"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
@@ -49,7 +48,7 @@ Det finns fördelar med att koppla från teknikerna. Kafka är till exempel en E
 
 ### <a name="scale-the-stream-buffering-layer"></a>Skala Stream buffer Layer
 
-Teknikerna för Stream Buffing Event Hubs och Kafka både använder partitioner och konsumenter läser från dessa partitioner. Skalning av indata-genomflöde kräver skalning av antalet partitioner, och om du lägger till partitioner ökar parallellitet. I Event Hubs kan du inte ändra antalet partitioner efter distributionen så det är viktigt att börja med mål skalan i åtanke. Med Kafka är det möjligt att [lägga till partitioner](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), även när Kafka bearbetar data. Kafka tillhandahåller ett verktyg för att omtilldela partitioner `kafka-reassign-partitions.sh`. HDInsight tillhandahåller ett [verktyg för ombalansering av partition Replica](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py`. Detta verktyg anropar `kafka-reassign-partitions.sh` verktyget på ett sådant sätt att varje replik finns i en separat feldomän och uppdaterings domän, vilket gör Kafka rack och ökar fel toleransen.
+Teknikerna för Stream Buffing Event Hubs och Kafka både använder partitioner och konsumenter läser från dessa partitioner. Skalning av indata-genomflöde kräver skalning av antalet partitioner, och om du lägger till partitioner ökar parallellitet. I Event Hubs kan du inte ändra antalet partitioner efter distributionen så det är viktigt att börja med mål skalan i åtanke. Med Kafka är det möjligt att [lägga till partitioner](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), även när Kafka bearbetar data. Kafka tillhandahåller ett verktyg för att omtilldela partitioner `kafka-reassign-partitions.sh` . HDInsight tillhandahåller ett [verktyg för ombalansering av partition Replica](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py` . Detta verktyg anropar `kafka-reassign-partitions.sh` verktyget på ett sådant sätt att varje replik finns i en separat feldomän och uppdaterings domän, vilket gör Kafka rack och ökar fel toleransen.
 
 ### <a name="scale-the-stream-processing-layer"></a>Skala Stream-bearbetnings skiktet
 
@@ -57,7 +56,7 @@ Både Apache Storm och Spark Streaming stöder tillägg av arbetsnoder till dera
 
 Om du vill dra nytta av nya noder som lagts till genom skalnings Storm måste du balansera om alla Storm-topologier som startats innan kluster storleken ökade. Den här ombalanseringen kan göras med storm Web UI eller dess CLI. Mer information finns i Apache Storm- [dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-Apache Spark använder tre nyckel parametrar för att konfigurera dess miljö, beroende på program krav: `spark.executor.instances`, `spark.executor.cores`och `spark.executor.memory`. En *utförar* är en process som startas för ett Spark-program. En utförar körs på Worker-noden och ansvarar för att utföra programmets uppgifter. Standard antalet körningar och utförar storlekarna för varje kluster beräknas utifrån antalet arbetsnoder och storleken på arbets noden. Dessa tal lagras i `spark-defaults.conf`filen på varje kluster huvud nod.
+Apache Spark använder tre nyckel parametrar för att konfigurera dess miljö, beroende på program krav: `spark.executor.instances` , `spark.executor.cores` och `spark.executor.memory` . En *utförar* är en process som startas för ett Spark-program. En utförar körs på Worker-noden och ansvarar för att utföra programmets uppgifter. Standard antalet körningar och utförar storlekarna för varje kluster beräknas utifrån antalet arbetsnoder och storleken på arbets noden. Dessa tal lagras i `spark-defaults.conf` filen på varje kluster huvud nod.
 
 Dessa tre parametrar kan konfigureras på kluster nivå, för alla program som körs i klustret och kan också anges för varje enskilt program. Mer information finns i [Hantera resurser för Apache Spark kluster](spark/apache-spark-resource-manager.md).
 

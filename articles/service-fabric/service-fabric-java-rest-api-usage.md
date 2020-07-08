@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
 ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451668"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>API: er för Azure Service Fabric Java-klient
@@ -62,7 +61,7 @@ Följ stegen nedan för att generera Service Fabric Java-klient kod med hjälp a
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   Följande kommando använder ``servicefabric.json`` filen som indata och genererar Java-klientens kod ``java-rest-api-     code`` i mappen och omsluter koden i ``servicefabricrest`` namn området. Efter det här steget hittar du två mappar ``models`` ``implementation`` och två filer ``ServiceFabricClientAPIs.java`` och ``package-info.java`` genererade i ``java-rest-api-code`` mappen.
+   Följande kommando använder ``servicefabric.json`` filen som indata och genererar Java-klientens kod i ``java-rest-api-     code`` mappen och omsluter koden i ``servicefabricrest`` namn området. Efter det här steget hittar du två mappar ``models`` ``implementation`` och två filer ``ServiceFabricClientAPIs.java`` och ``package-info.java`` genererade i ``java-rest-api-code`` mappen.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>Ta med och Använd den genererade klienten i projektet
@@ -114,14 +113,14 @@ Följ stegen nedan för att generera Service Fabric Java-klient kod med hjälp a
         ```
 
 ## <a name="understanding-the-generated-code"></a>Förstå den genererade koden
-För varje API kommer du att se fyra överlagringar av implementeringen. Om det finns valfria parametrar kan du se fyra fler variationer, inklusive de valfria parametrarna. Överväg till exempel API: ``removeReplica``et.
+För varje API kommer du att se fyra överlagringar av implementeringen. Om det finns valfria parametrar kan du se fyra fler variationer, inklusive de valfria parametrarna. Överväg till exempel API: et ``removeReplica`` .
  1. **offentlig void-removeReplica (String nodnamn, UUID partitionId, String replicaId, boolesk forceRemove, lång tids gräns)**
     * Detta är den synkrona varianten av API-anropet removeReplica
- 2. **offentlig ServiceFuture\<void> RemoveReplicaAsync (String NODNAMN, UUID PartitionID, String ReplicaID, boolesk ForceRemove, lång tids gräns, slutgiltig\<ServiceCallback void> ServiceCallback)**
+ 2. **offentlig ServiceFuture \<Void> -removeReplicaAsync (String nodnamn, UUID partitionId, String replicaId, boolesk forceRemove, lång tids gräns, slutlig ServiceCallback \<Void> ServiceCallback)**
     * Den här varianten av API-anrop kan användas om du vill använda framtida baserad asynkron programmering och använda återanrop
- 3. **offentligt observerbart\<Void-> RemoveReplicaAsync (String NODNAMN, UUID PartitionID, String replicaId)**
+ 3. **offentlig \<Void> removeReplicaAsync (String nodnamn, UUID partitionId, String replicaId)**
     * Den här varianten av API-anrop kan användas om du vill använda reaktiv asynkron programmering
- 4. **offentlig\<ServiceResponse\<void>> removeReplicaWithServiceResponseAsync (String nodnamn, UUID partitionId, String replicaId)**
+ 4. **offentligt observerbar \<ServiceResponse\<Void>>-removeReplicaWithServiceResponseAsync (String nodnamn, UUID partitionId, String replicaId)**
     * Den här varianten av API-anrop kan användas om du vill använda reaktiv asynkron programmering och hantera RAW rest-svar
 
 ## <a name="next-steps"></a>Nästa steg

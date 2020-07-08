@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75443577"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Vanliga frågor om identitets skydd i Azure Active Directory
@@ -24,7 +23,7 @@ ms.locfileid: "75443577"
 
 **Ignorera användar risk** i klassiskt identitets skydd ställer in aktören i användarens risk historik i identitets skydd till **Azure AD**.
 
-**Ignorera användar risk** i identitets skydd anger aktören i användarens risk historik i identitets skydd till ** \<administratörens namn med en hyperlänk som pekar på användarens blad\>**.
+**Ignorera användar risk** i identitets skydd anger aktören i användarens risk historik i identitets skydd till **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
 Det finns ett aktuellt känt problem som orsakar svars tider i det avstängda användar risk flödet. Om du har en "användar risk princip" slutar den här principen att gälla för avstängda användare i minuter att klicka på "Stäng användar risk". Det finns dock kända fördröjningar med UXen som uppdaterar "risk tillstånd" för avstängda användare. Som en lösning kan du uppdatera sidan på webb läsar nivån för att se den senaste användaren "risk status".
 
@@ -85,7 +84,7 @@ Alla risk identifieringar dokumenteras i artikeln [Vad är en risk](concept-iden
 
 **Bekräfta säker** (vid inloggning) – informerar Azure AD Identity Protection att inloggningen har utförts av identitets ägaren och inte tyder på en kompromiss.
 
-- När du får den här feedbacken flyttar vi inloggnings läget (inte användarens) risk tillstånd till **bekräftat säkert** och risk nivån till **-**.
+- När du får den här feedbacken flyttar vi inloggnings läget (inte användarens) risk tillstånd till **bekräftat säkert** och risk nivån till **-** .
 
 - Dessutom tillhandahåller vi informationen till våra Machine Learning-system för framtida förbättringar av riskbedömning.
 

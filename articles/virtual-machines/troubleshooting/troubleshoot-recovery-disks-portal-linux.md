@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
 ms.openlocfilehash: e45de5c12f0d93645a0b1253acf8300527cafdbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75374649"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal
@@ -37,7 +36,7 @@ Så här ser felsökningsprocessen ut:
 > Den här artikeln gäller inte för den virtuella datorn med en ohanterad disk.
 
 ## <a name="determine-boot-issues"></a>Fastställa start problem
-Granska skärm bilden startdiagnostik och VM för att avgöra varför den virtuella datorn inte kan starta korrekt. Ett vanligt exempel är en ogiltig post i `/etc/fstab`eller en underliggande virtuell hård disk som tas bort eller flyttas.
+Granska skärm bilden startdiagnostik och VM för att avgöra varför den virtuella datorn inte kan starta korrekt. Ett vanligt exempel är en ogiltig post i `/etc/fstab` eller en underliggande virtuell hård disk som tas bort eller flyttas.
 
 Välj din virtuella dator i portalen och rulla ned till avsnittet **support och fel sökning** . Klicka på **Starta diagnostik** för att Visa konsol meddelanden som strömmas från din virtuella dator. Granska konsol loggarna för att se om du kan avgöra varför den virtuella datorn påträffar ett problem. I följande exempel visas en virtuell dator som fastnat i underhålls läge och som kräver manuell interaktion:
 
@@ -105,9 +104,9 @@ För kommande steg använder du en annan virtuell dator i fel söknings syfte. N
 ## <a name="mount-the-attached-data-disk"></a>Montera den anslutna data disken
 
 > [!NOTE]
-> Följande exempel beskriver stegen som krävs på en virtuell Ubuntu-dator. Om du använder en annan Linux-distribution, till exempel Red Hat Enterprise Linux eller SUSE, kan logg filens platser `mount` och kommandon vara lite annorlunda. Se dokumentationen för din speciella distribution för lämpliga ändringar i kommandon.
+> Följande exempel beskriver stegen som krävs på en virtuell Ubuntu-dator. Om du använder en annan Linux-distribution, till exempel Red Hat Enterprise Linux eller SUSE, kan logg filens platser och `mount` kommandon vara lite annorlunda. Se dokumentationen för din speciella distribution för lämpliga ändringar i kommandon.
 
-1. SSH till din felsöka virtuella dator med hjälp av lämpliga autentiseringsuppgifter. Om den här disken är den första datadisk som är ansluten till den virtuella fel söknings datorn `/dev/sdc`är den förmodligen ansluten till. Använd `dmseg` för att lista anslutna diskar:
+1. SSH till din felsöka virtuella dator med hjälp av lämpliga autentiseringsuppgifter. Om den här disken är den första datadisk som är ansluten till den virtuella fel söknings datorn är den förmodligen ansluten till `/dev/sdc` . Använd `dmseg` för att lista anslutna diskar:
 
     ```bash
     dmesg | grep SCSI
@@ -122,22 +121,22 @@ För kommande steg använder du en annan virtuell dator i fel söknings syfte. N
     [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
     ```
 
-    I föregående exempel är OS-disken på `/dev/sda` och den temporära disken som anges för varje virtuell dator finns `/dev/sdb`på. Om du hade flera data diskar bör de vara på `/dev/sdd`, `/dev/sde`och så vidare.
+    I föregående exempel är OS-disken på `/dev/sda` och den temporära disken som anges för varje virtuell dator finns på `/dev/sdb` . Om du hade flera data diskar bör de vara på `/dev/sdd` , `/dev/sde` och så vidare.
 
-2. Skapa en katalog för att montera din befintliga virtuella hård disk. I följande exempel skapas en katalog med `troubleshootingdisk`namnet:
+2. Skapa en katalog för att montera din befintliga virtuella hård disk. I följande exempel skapas en katalog med namnet `troubleshootingdisk` :
 
     ```bash
     sudo mkdir /mnt/troubleshootingdisk
     ```
 
-3. Om du har flera partitioner på din befintliga virtuella hård disk monterar du den nödvändiga partitionen. I följande exempel monteras den första primära partitionen på `/dev/sdc1`:
+3. Om du har flera partitioner på din befintliga virtuella hård disk monterar du den nödvändiga partitionen. I följande exempel monteras den första primära partitionen på `/dev/sdc1` :
 
     ```bash
     sudo mount /dev/sdc1 /mnt/troubleshootingdisk
     ```
 
     > [!NOTE]
-    > Bästa praxis är att montera data diskar på virtuella datorer i Azure med hjälp av den virtuella hård diskens UUID (Universal Unique Identifier). För det här korta fel söknings scenariot är det inte nödvändigt att montera den virtuella hård disken med UUID. Men under normal användning kan redigering `/etc/fstab` av virtuella hård diskar med enhets namn i stället för UUID leda till att den virtuella datorn inte kan starta.
+    > Bästa praxis är att montera data diskar på virtuella datorer i Azure med hjälp av den virtuella hård diskens UUID (Universal Unique Identifier). För det här korta fel söknings scenariot är det inte nödvändigt att montera den virtuella hård disken med UUID. Men under normal användning kan redigering av `/etc/fstab` virtuella hård diskar med enhets namn i stället för UUID leda till att den virtuella datorn inte kan starta.
 
 
 ## <a name="fix-issues-on-original-virtual-hard-disk"></a>Åtgärda problem på den ursprungliga virtuella hård disken
@@ -152,7 +151,7 @@ När dina fel har åtgärd ATS kopplar du från den befintliga virtuella hård d
     cd /
     ```
 
-    Demontera nu den befintliga virtuella hård disken. I följande exempel demonterar du enheten på `/dev/sdc1`:
+    Demontera nu den befintliga virtuella hård disken. I följande exempel demonterar du enheten på `/dev/sdc1` :
 
     ```bash
     sudo umount /dev/sdc1

@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74932052"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell-skript – transformera data i molnet med hjälp av Azure Data Factory
@@ -54,7 +53,7 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
     if __name__ == "__main__":
         main()
     ```
-2. Ersätt ** &lt;storageAccountName&gt; ** med namnet på ditt Azure Storage-konto. Spara sedan filen. 
+2. Ersätt ** &lt; storageAccountName &gt; ** med namnet på ditt Azure Storage-konto. Spara sedan filen. 
 3. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte finns. 
 4. Skapa en mapp med namnet **spark**.
 5. Skapa en undermapp med namnet **script** under mappen **spark**. 
@@ -89,7 +88,7 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 I det här skriptet används följande kommandon:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Skapa en datafabrik. |

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377913"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Återställa säkerhets kopia i Azure Service Fabric
@@ -65,7 +64,7 @@ Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Kör ett PowerShell-skript för att använda REST API för att returnera en lista över de säkerhets kopior som har skapats `SampleApp` för alla partitioner i programmet. API: t kräver säkerhets kopierings lagrings informationen för att visa en lista över tillgängliga säkerhets kopior.
+Kör ett PowerShell-skript för att använda REST API för att returnera en lista över de säkerhets kopior som har skapats för alla partitioner i `SampleApp` programmet. API: t kräver säkerhets kopierings lagrings informationen för att visa en lista över tillgängliga säkerhets kopior.
 
 ```powershell
 $StorageInfo = @{
@@ -152,7 +151,7 @@ För återställnings-API: et måste du ange information om _BackupId_ och _Back
 
 Du måste också välja en måldisk i det alternativa klustret som beskrivs i [partitionsfunktionen](service-fabric-concepts-partitioning.md#get-started-with-partitioning). Den alternativa kluster säkerhets kopian återställs till partitionen som anges i partitionsfunktionen från det ursprungliga förlorade klustret.
 
-Om partitions-ID: t i `1c42c47f-439e-4e09-98b9-88b8f60800c6`det alternativa klustret är, kan du mappa det till det `974bd92a-b395-4631-8a7f-53bd4ae9cf22` ursprungliga partitions-ID: t genom att jämföra hög nyckel och låg nyckel för _intervall partitionering (UniformInt64Partition)_.
+Om partitions-ID: t i det alternativa klustret är `1c42c47f-439e-4e09-98b9-88b8f60800c6` , kan du mappa det till det ursprungliga partitions-ID: t `974bd92a-b395-4631-8a7f-53bd4ae9cf22` genom att jämföra hög nyckel och låg nyckel för _intervall partitionering (UniformInt64Partition)_.
 
 För _namngiven partitionering_jämförs name-värdet med att identifiera partitionen i ett alternativt kluster.
 
@@ -201,7 +200,7 @@ Du kan utlösa en återställning från Service Fabric Explorer. Kontrol lera at
 
     ![Utlös partition för återställning av partition][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>Data återställning för data_förlust_ av data _skada_/
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Data återställning för _data corruption_data / _förlust_ av data skada
 
 För _data förlust_ eller _skadade data_kan säkerhetskopierade partitioner för tillförlitliga tillstånds känsliga tjänster och Reliable Actors partitioner återställas till någon av de valda säkerhets kopiorna.
 
@@ -209,7 +208,7 @@ Följande exempel är en fortsättning av [aktivering av regelbunden säkerhets 
 
 Välj en säkerhets kopia från utdata från [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). I det här scenariot genereras säkerhets kopieringen från samma kluster som tidigare.
 
-Om du vill utlösa återställningen väljer du en säkerhets kopia i listan. Välj följande säkerhets kopia för skadade data _förlust_/_data_:
+Om du vill utlösa återställningen väljer du en säkerhets kopia i listan. _data loss_ / Välj följande säkerhets kopia för skadade data förlust_data_:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -317,7 +316,7 @@ $restoreResponse | Format-List
 
 ## <a name="automatic-restore"></a>Automatisk återställning
 
-Du kan konfigurera pålitliga tillstånds känsliga tjänster och Reliable Actors partitioner i Service Fabric-klustret för _Automatisk återställning_. I säkerhets kopierings principen `AutoRestore` har angetts till _True_. Aktivering av _Automatisk återställning_ återställer automatiskt data från den senaste säkerhets kopian när data går förlorade. Mer information finns i:
+Du kan konfigurera pålitliga tillstånds känsliga tjänster och Reliable Actors partitioner i Service Fabric-klustret för _Automatisk återställning_. I säkerhets kopierings principen har angetts `AutoRestore` till _True_. Aktivering av _Automatisk återställning_ återställer automatiskt data från den senaste säkerhets kopian när data går förlorade. Mer information finns i:
 
 - [Automatisk återställnings aktivering i säkerhets kopierings princip](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [RestorePartition API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)

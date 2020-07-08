@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75360845"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Så här konfigurerar du automatisk skalning för en moln tjänst i portalen
@@ -21,7 +20,7 @@ Villkor kan anges för en arbets roll för en moln tjänst som utlöser en skaln
 > [!NOTE]
 > Den här artikeln fokuserar på webb-och arbets roller i moln tjänster. När du skapar en virtuell dator (klassisk) direkt är den värdbaserad i en moln tjänst. Du kan skala en virtuell standard dator genom att associera den med en [tillgänglighets uppsättning](../virtual-machines/windows/classic/configure-availability-classic.md) och aktivera eller inaktivera dem manuellt.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 Du bör fundera över följande information innan du konfigurerar skalning för programmet:
 
 * Skalning påverkas av kärn användning.

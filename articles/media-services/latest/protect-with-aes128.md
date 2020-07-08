@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974180"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Självstudie: kryptera video med AES-128 och Använd Key Delivery Service
@@ -30,7 +29,7 @@ Du kan använda Media Services för att leverera HTTP Live Streaming (HLS), MPEG
 
 Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](content-protection-overview.md#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera. Se även [hur du skyddar med DRM](protect-with-drm.md).
 
-Utdata från exemplet i den här artikeln innehåller en URL till Azure Media Player, manifest-URL och den AES-token som krävs för att spela upp innehållet. Exemplet anger förfallo datum för token för JSON Web Token (JWT) till 1 timme. Du kan öppna en webbläsare och klistra in den resulterande URL: en för att starta Azure Media Player demonstrations sidan med URL och token ifyllda för dig redan i ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```följande format:.
+Utdata från exemplet i den här artikeln innehåller en URL till Azure Media Player, manifest-URL och den AES-token som krävs för att spela upp innehållet. Exemplet anger förfallo datum för token för JSON Web Token (JWT) till 1 timme. Du kan öppna en webbläsare och klistra in den resulterande URL: en för att starta Azure Media Player demonstrations sidan med URL och token ifyllda för dig redan i följande format: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}``` .
 
 I den här självstudiekursen lär du dig att:
 

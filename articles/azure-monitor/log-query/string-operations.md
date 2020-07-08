@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75397474"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor logg frågor
@@ -27,7 +26,7 @@ Varje tecken i en sträng har ett index nummer, baserat på dess plats. Det för
 
 
 ## <a name="strings-and-escaping-them"></a>Strängar och undantags tecken
-Sträng värden radbryts med antingen enkla eller dubbla citat tecken. Omvänt\\snedstreck () används för att undanta tecken till tecknet som följer, till exempel \t för tab, \n för ny rad \" och citat tecken.
+Sträng värden radbryts med antingen enkla eller dubbla citat tecken. Omvänt snedstreck ( \\ ) används för att undanta tecken till tecknet som följer, till exempel \t för tab, \n för ny rad och \" citat tecken.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -37,7 +36,7 @@ print "this is a 'string' literal in double \" quotes"
 print 'this is a "string" literal in single \' quotes'
 ```
 
-Om du vill\\förhindra att "" fungerar som ett escape-tecken\@lägger du till "" som ett prefix till strängen:
+Om du vill förhindra att " \\ " fungerar som ett escape-tecken lägger du till " \@ " som ett prefix till strängen:
 
 ```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
@@ -46,34 +45,34 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Sträng jämförelser
 
-Operator       |Beskrivning                         |Skift läges känslig|Exempel (avkastning `true`)
+Operator       |Beskrivning                         |Skift läges känslig|Exempel (avkastning `true` )
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Är lika med                              |Ja           |`"aBc" == "aBc"`
 `!=`           |Inte lika med                          |Ja           |`"abc" != "ABC"`
-`=~`           |Är lika med                              |Inga            |`"abc" =~ "ABC"`
-`!~`           |Inte lika med                          |Inga            |`"aBc" !~ "xyz"`
-`has`          |Höger sida är en hel term i vänster sida |Inga|`"North America" has "america"`
-`!has`         |Höger sida är inte en fullständig term i vänster sida       |Inga            |`"North America" !has "amer"` 
+`=~`           |Är lika med                              |No            |`"abc" =~ "ABC"`
+`!~`           |Inte lika med                          |No            |`"aBc" !~ "xyz"`
+`has`          |Höger sida är en hel term i vänster sida |No|`"North America" has "america"`
+`!has`         |Höger sida är inte en fullständig term i vänster sida       |No            |`"North America" !has "amer"` 
 `has_cs`       |Höger sida är en hel term i vänster sida |Ja|`"North America" has_cs "America"`
 `!has_cs`      |Höger sida är inte en fullständig term i vänster sida       |Ja            |`"North America" !has_cs "amer"` 
-`hasprefix`    |Höger sida är ett term prefix i vänster sida         |Inga            |`"North America" hasprefix "ame"`
-`!hasprefix`   |Höger sida är inte ett term prefix i vänster sida     |Inga            |`"North America" !hasprefix "mer"` 
+`hasprefix`    |Höger sida är ett term prefix i vänster sida         |No            |`"North America" hasprefix "ame"`
+`!hasprefix`   |Höger sida är inte ett term prefix i vänster sida     |No            |`"North America" !hasprefix "mer"` 
 `hasprefix_cs`    |Höger sida är ett term prefix i vänster sida         |Ja            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Höger sida är inte ett term prefix i vänster sida     |Ja            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |Höger sida är ett term suffix i vänster sida         |Inga            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Höger sida är inte ett term suffix i vänster sida     |Inga            |`"North America" !hassuffix "americ"`
+`hassuffix`    |Höger sida är ett term suffix i vänster sida         |No            |`"North America" hassuffix "ica"`
+`!hassuffix`   |Höger sida är inte ett term suffix i vänster sida     |No            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Höger sida är ett term suffix i vänster sida         |Ja            |`"North America" hassuffix_cs "ica"`
 `!hassuffix_cs`   |Höger sida är inte ett term suffix i vänster sida     |Ja            |`"North America" !hassuffix_cs "icA"`
-`contains`     |Höger sida visas som en underordnad sida till vänster  |Inga            |`"FabriKam" contains "BRik"`
-`!contains`    |Höger sida visas inte i vänster sida           |Inga            |`"Fabrikam" !contains "xyz"`
+`contains`     |Höger sida visas som en underordnad sida till vänster  |No            |`"FabriKam" contains "BRik"`
+`!contains`    |Höger sida visas inte i vänster sida           |No            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Höger sida visas som en underordnad sida till vänster  |Ja           |`"FabriKam" contains_cs "Kam"`
 `!contains_cs`  |Höger sida visas inte i vänster sida           |Ja           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |Höger sida är en inledande delsekvens av vänster sida|Inga            |`"Fabrikam" startswith "fab"`
-`!startswith`  |Höger sida är inte en inledande underordnad del i vänster sida|Inga        |`"Fabrikam" !startswith "kam"`
+`startswith`   |Höger sida är en inledande delsekvens av vänster sida|No            |`"Fabrikam" startswith "fab"`
+`!startswith`  |Höger sida är inte en inledande underordnad del i vänster sida|No        |`"Fabrikam" !startswith "kam"`
 `startswith_cs`   |Höger sida är en inledande delsekvens av vänster sida|Ja            |`"Fabrikam" startswith_cs "Fab"`
 `!startswith_cs`  |Höger sida är inte en inledande underordnad del i vänster sida|Ja        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |Höger sida är en avslutande delsekvens av den vänstra sidan|Inga             |`"Fabrikam" endswith "Kam"`
-`!endswith`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|Inga         |`"Fabrikam" !endswith "brik"`
+`endswith`     |Höger sida är en avslutande delsekvens av den vänstra sidan|No             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|No         |`"Fabrikam" !endswith "brik"`
 `endswith_cs`     |Höger sida är en avslutande delsekvens av den vänstra sidan|Ja             |`"Fabrikam" endswith "Kam"`
 `!endswith_cs`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|Ja         |`"Fabrikam" !endswith "brik"`
 `matches regex`|den vänstra hand sidan innehåller en matchning för höger sida        |Ja           |`"Fabrikam" matches regex "b.*k"`
@@ -93,9 +92,9 @@ countof(text, search [, kind])
 ### <a name="arguments"></a>Ogiltiga
 - `text`– Indatasträngen 
 - `search`– En vanlig sträng eller ett reguljärt uttryck som matchar text i text.
-- `kind` - _normalt_ | _regex_ (standard: normal).
+- `kind` - _Normal_  |  _regex_ (standard: normal).
 
-### <a name="returns"></a>Returnerar
+### <a name="returns"></a>Returer
 
 Antalet gånger som Sök strängen kan matchas i behållaren. Matchningar med oformaterade strängar kan överlappa även om regex matchar inte.
 
@@ -137,7 +136,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text`– En sträng att söka i.
 - `typeLiteral`– En valfri typ literal (till exempel typeof (Long)). Om den extraherade del strängen har angetts konverteras den till den här typen.
 
-### <a name="returns"></a>Returnerar
+### <a name="returns"></a>Returer
 Del strängen matchad mot den angivna insamlings gruppen captureGroup, eventuellt konverteras till typeLiteral.
 Om det inte finns någon matchning, eller om typ konverteringen Miss lyckas, returnerar du null.
 
@@ -243,7 +242,7 @@ replace(regex, rewrite, input_text)
 - `rewrite`– Ersättnings regex för all matchning som görs genom matchande regex. Använd \ 0 om du vill referera till hela matchningen, \ 1 för den första infångnings gruppen, \ 2, och så vidare för efterföljande infångnings grupper.
 - `input_text`– Den inmatade sträng som ska genomsökas.
 
-### <a name="returns"></a>Returnerar
+### <a name="returns"></a>Returer
 Texten efter att alla matchningar av regex har ersatts med utvärdering av omskrivning. Matchningar överlappar inte.
 
 ### <a name="examples"></a>Exempel

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vturecek
 ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75370467"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementera Reliable Actors säkerhets kopiering och återställning
@@ -18,7 +17,7 @@ ms.locfileid: "75370467"
 > Microsoft rekommenderar att du använder [Periodisk säkerhets kopiering och återställning](service-fabric-backuprestoreservice-quickstart-azurecluster.md) för att konfigurera data säkerhets kopiering av pålitliga tillstånds känsliga tjänster och Reliable Actors. 
 > 
 
-I följande exempel visar en anpassad aktörs tjänst en metod för att säkerhetskopiera aktörs data genom att dra nytta av den lyssnare för fjärr kommunikation som `ActorService`redan finns i:
+I följande exempel visar en anpassad aktörs tjänst en metod för att säkerhetskopiera aktörs data genom att dra nytta av den lyssnare för fjärr kommunikation som redan finns i `ActorService` :
 
 ```csharp
 public interface IMyActorService : IService
@@ -94,7 +93,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 }
 ```
 
-I det här exemplet `IMyActorService` är ett fjärr kommunikations kontrakt som implementeras `IService` (C#) `Service` och (Java) och implementeras sedan av `MyActorService`. Genom att lägga till det här fjärr kommunikations `IMyActorService` kontraktet är metoderna på nu också tillgängliga för en klient genom att skapa `ActorServiceProxy`en fjärrproxy via:
+I det här exemplet `IMyActorService` är ett fjärr kommunikations kontrakt som implementeras `IService` (C#) och `Service` (Java) och implementeras sedan av `MyActorService` . Genom att lägga till det här fjärr kommunikations kontraktet är metoderna på `IMyActorService` nu också tillgängliga för en klient genom att skapa en fjärrproxy via `ActorServiceProxy` :
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(

@@ -4,10 +4,9 @@ description: Beskriver parametrar för att uppgradera ett Service Fabric program
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377981"
 ---
 # <a name="application-upgrade-parameters"></a>Programuppgraderingsparametrar
@@ -45,7 +44,7 @@ UnmonitoredManual | PS | Anger att uppgraderings läget är oövervakad manuell.
 
 ### <a name="optional-parameters"></a>Valfria parametrar
 
-Parametrarna för hälso utvärdering är valfria. Om villkoren för hälso utvärdering inte anges när en uppgradering startar, använder Service Fabric de program hälso principer som anges i ApplicationManifest. xml för program instansen.
+Parametrarna för hälso utvärdering är valfria. Om villkoren för hälso utvärdering inte anges när en uppgradering startar, använder Service Fabric de program hälso principer som anges i ApplicationManifest.xml i program instansen.
 
 > [!div class="mx-tdBreakAll"]
 > | Parameter | Gäller för | Beskrivning |
@@ -80,7 +79,7 @@ Service Fabric program uppgraderingar med hjälp av Service Fabric CLI använder
 
 | Parameter | Beskrivning |
 | --- | --- |
-| program-ID  |ID för programmet som uppgraderas. <br> Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric:". Från och med version 6,0 avgränsas hierarkiska namn med\~-symbolen. Om program namnet exempelvis är Fabric:/MyApp/APP1, skulle program identiteten vara ' MyApp\~APP1 ' i 6.0 + och ' MyApp/APP1 ' i tidigare versioner.|
+| program-ID  |ID för programmet som uppgraderas. <br> Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric:". Från och med version 6,0 avgränsas hierarkiska namn med- \~ symbolen. Om program namnet exempelvis är Fabric:/MyApp/APP1, skulle program identiteten vara ' MyApp \~ APP1 ' i 6.0 + och ' MyApp/APP1 ' i tidigare versioner.|
 program version |Den version av program typen som uppgraderings målen gäller.|
 parameters  |En JSON-kodad lista över program parameter åsidosättningar som ska tillämpas vid uppgradering av programmet.|
 

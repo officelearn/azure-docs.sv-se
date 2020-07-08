@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75434526"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Ge moduler åtkomst till en enhets lokala lagring
@@ -72,9 +71,9 @@ Eller så kan du konfigurera den lokala lagringen direkt i distributions manifes
 
 Ersätt `<HostStoragePath>` och `<ModuleStoragePath>` med din lagrings Sök väg för värd och modul; båda värdena måste vara en absolut sökväg.
 
-I ett Linux- `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` system innebär till exempel att katalogen **/etc/iotedge/Storage** i värd systemet är mappad till katalogen **/iotedge/Storage/** i behållaren. I ett Windows-system `"Binds":["C:\\temp:C:\\contemp"]` innebär ett annat exempel katalogen **c:\\Temp** på värd systemet mappas till katalogen **c:\\Temp** i behållaren.
+I ett Linux-system innebär till exempel att `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` katalogen **/etc/iotedge/Storage** i värd systemet är mappad till katalogen **/iotedge/Storage/** i behållaren. I ett Windows-system innebär ett annat exempel `"Binds":["C:\\temp:C:\\contemp"]` katalogen **c: \\ Temp** på värd systemet mappas till katalogen **c: \\ Temp** i behållaren.
 
-På Linux-enheter måste du dessutom se till att användar profilen för modulen har behörighet att läsa, skriva och köra till värd system katalogen. Genom att gå tillbaka till det tidigare exemplet för att aktivera IoT Edge hubb för att lagra meddelanden i enhetens lokala lagring måste du bevilja behörighet till användar profilen, UID 1000. (IoT Edge agenten fungerar som rot, så den behöver inte fler behörigheter.) Det finns flera sätt att hantera katalog behörigheter på Linux-system, inklusive `chown` att använda för att ändra katalogens `chmod` ägare och sedan ändra behörigheter, till exempel:
+På Linux-enheter måste du dessutom se till att användar profilen för modulen har behörighet att läsa, skriva och köra till värd system katalogen. Genom att gå tillbaka till det tidigare exemplet för att aktivera IoT Edge hubb för att lagra meddelanden i enhetens lokala lagring måste du bevilja behörighet till användar profilen, UID 1000. (IoT Edge agenten fungerar som rot, så den behöver inte fler behörigheter.) Det finns flera sätt att hantera katalog behörigheter på Linux-system, inklusive `chown` att använda för att ändra Katalogens ägare och sedan `chmod` ändra behörigheter, till exempel:
 
 ```bash
 sudo chown 1000 <HostStoragePath>

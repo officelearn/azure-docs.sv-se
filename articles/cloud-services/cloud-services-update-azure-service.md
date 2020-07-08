@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75360352"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en moln tjänst
@@ -53,7 +52,7 @@ I följande tabell visas de tillåtna ändringarna av en tjänst under en uppdat
 | Inställningar för lokal lagring |Öka bara<sup>2</sup> |Ja |Ja |
 | Lägga till eller ta bort roller i en tjänst |Ja |Ja |Ja |
 | Antal instanser av en viss roll |Ja |Ja |Ja |
-| Antal eller typ av slut punkter för en tjänst |Ja<sup>2</sup> |Inga |Ja |
+| Antal eller typ av slut punkter för en tjänst |Ja<sup>2</sup> |Nej |Ja |
 | Namn och värden för konfigurations inställningar |Ja |Ja |Ja |
 | Värden (men inte namn) för konfigurations inställningar |Ja |Ja |Ja |
 | Lägg till nya certifikat |Ja |Ja |Ja |
@@ -124,7 +123,7 @@ Azure ger flexibilitet vid hantering av tjänster under en uppdatering genom att
 Återställningen av en pågående uppdatering har följande effekter i distributionen:
 
 * Alla roll instanser som inte har uppdaterats eller uppgraderats till den nya versionen uppdateras eller uppgraderas inte, eftersom dessa instanser redan kör mål versionen av tjänsten.
-* Alla roll instanser som redan har uppdaterats eller uppgraderats till den nya versionen av Service Pack-\*filen (. cspkg) eller tjänst konfigurations\*filen (. cscfg)-filen (eller båda filerna) återställs till före uppgraderings versionen av dessa filer.
+* Alla roll instanser som redan har uppdaterats eller uppgraderats till den nya versionen av Service Pack- \* filen (. cspkg) eller tjänst konfigurations \* filen (. cscfg)-filen (eller båda filerna) återställs till före uppgraderings versionen av dessa filer.
 
 Den här funktionen tillhandahålls av följande funktioner:
 

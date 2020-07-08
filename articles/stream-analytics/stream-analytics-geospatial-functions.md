@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75426227"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduktion till Stream Analytics geospatiala funktioner
@@ -30,7 +29,7 @@ Stream Analytics frågespråk har sju inbyggda geospatiala funktioner: **CreateL
 
 ## <a name="createlinestring"></a>CreateLineString
 
-`CreateLineString` Funktionen accepterar punkter och returnerar en lin Est ring som kan ritas som en linje på en karta. Du måste ha minst två punkter för att skapa en lin Est ring. Lin Est ring punkterna kommer att anslutas i ordning.
+`CreateLineString`Funktionen accepterar punkter och returnerar en lin Est ring som kan ritas som en linje på en karta. Du måste ha minst två punkter för att skapa en lin Est ring. Lin Est ring punkterna kommer att anslutas i ordning.
 
 Följande fråga används `CreateLineString` för att skapa en lin Est ring med tre punkter. Den första punkten skapas från strömmande indata, medan de andra två skapas manuellt.
 
@@ -57,7 +56,7 @@ Mer information finns på [CreateLineString](https://docs.microsoft.com/stream-a
 
 ## <a name="createpoint"></a>CreatePoint
 
-`CreatePoint` Funktionen accepterar en latitud och en longitud och returnerar en subjson-punkt som kan ritas på en karta. Dina latitud och longitudar måste vara av typen **float** .
+`CreatePoint`Funktionen accepterar en latitud och en longitud och returnerar en subjson-punkt som kan ritas på en karta. Dina latitud och longitudar måste vara av typen **float** .
 
 I följande exempel fråga används `CreatePoint` för att skapa en punkt med hjälp av latitud och longitudar från strömmande indata.
 
@@ -84,7 +83,7 @@ Mer information finns på [CreatePoint](https://docs.microsoft.com/stream-analyt
 
 ## <a name="createpolygon"></a>CreatePolygon
 
-`CreatePolygon` Funktionen accepterar punkter och returnerar en polyjson-polygon. Ordningen på punkter måste följa höger ring orientering eller moturs. Föreställ dig att flytta från en punkt till en annan i den ordning som de deklarerades. Mitten av polygonen skulle vara till vänster hela tiden.
+`CreatePolygon`Funktionen accepterar punkter och returnerar en POLYjson-polygon. Ordningen på punkter måste följa höger ring orientering eller moturs. Föreställ dig att flytta från en punkt till en annan i den ordning som de deklarerades. Mitten av polygonen skulle vara till vänster hela tiden.
 
 I följande exempel fråga används `CreatePolygon` för att skapa en polygon från tre punkter. De första två punkterna skapas manuellt och den sista punkten skapas från indata.
 
@@ -111,7 +110,7 @@ Mer information finns på [CreatePolygon](https://docs.microsoft.com/stream-anal
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
-`ST_DISTANCE` Funktionen returnerar avståndet mellan två punkter i meter. 
+`ST_DISTANCE`Funktionen returnerar avståndet mellan två punkter i meter. 
 
 Följande fråga används `ST_DISTANCE` för att generera en händelse när en gas Station är mindre än 10 km från bilen.
 
@@ -124,7 +123,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 Mer information finns på [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) referens.
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
-`ST_OVERLAPS` Funktionen Jämför två polygoner. Om polygonerna överlappar varandra returnerar funktionen 1. Funktionen returnerar 0 om polygonerna inte överlappar varandra. 
+`ST_OVERLAPS`Funktionen Jämför två polygoner. Om polygonerna överlappar varandra returnerar funktionen 1. Funktionen returnerar 0 om polygonerna inte överlappar varandra. 
 
 Följande fråga används `ST_OVERLAPS` för att generera en händelse när en byggnad är inom en möjlig överbelastnings zon.
 
@@ -145,7 +144,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 Mer information finns på [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) referens.
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
-`ST_INTERSECTS` Funktionen Jämför två lin Est ring. Om lin Est ring korsar, returnerar funktionen 1. Funktionen returnerar 0 om lin Est Ring inte överlappar varandra.
+`ST_INTERSECTS`Funktionen Jämför två lin Est ring. Om lin Est ring korsar, returnerar funktionen 1. Funktionen returnerar 0 om lin Est Ring inte överlappar varandra.
 
 I följande exempel fråga används `ST_INTERSECTS` för att avgöra om en förberedelse väg överlappar en smuts väg.
 
@@ -171,7 +170,7 @@ FROM input
 Mer information finns på [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) referens.
 
 ## <a name="st_within"></a>ST_WITHIN
-`ST_WITHIN` Funktionen avgör om en punkt eller polygon är i en polygon. Om polygonen innehåller punkten eller polygonen kommer funktionen att returnera 1. Funktionen kommer att returnera 0 om punkten eller polygonen inte finns i den deklarerade polygonen.
+`ST_WITHIN`Funktionen avgör om en punkt eller polygon är i en polygon. Om polygonen innehåller punkten eller polygonen kommer funktionen att returnera 1. Funktionen kommer att returnera 0 om punkten eller polygonen inte finns i den deklarerade polygonen.
 
 I följande exempel fråga används `ST_WITHIN` för att avgöra om leverans destinations platsen är inom den aktuella lager polygonen.
 

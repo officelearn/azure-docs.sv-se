@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435755"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Kör MapReduce-exemplen som ingår i HDInsight
@@ -29,7 +28,7 @@ Lär dig hur du kör MapReduce-exemplen som ingår i Apache Hadoop på HDInsight
 
 ## <a name="the-mapreduce-examples"></a>MapReduce-exemplen
 
-Exemplen finns i HDInsight-klustret på `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`. Käll koden för de här exemplen ingår i HDInsight-klustret `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`på.
+Exemplen finns i HDInsight-klustret på `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar` . Käll koden för de här exemplen ingår i HDInsight-klustret på `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples` .
 
 Följande exempel finns i det här arkivet:
 
@@ -94,10 +93,10 @@ Följande exempel finns i det här arkivet:
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
     ```
 
-    InInformationen för det här jobbet `/example/data/gutenberg/davinci.txt`läses från. Utdata för det här exemplet lagras i `/example/data/davinciwordcount`. Båda Sök vägarna finns i standard lagrings utrymmet för klustret, inte det lokala fil systemet.
+    InInformationen för det här jobbet läses från `/example/data/gutenberg/davinci.txt` . Utdata för det här exemplet lagras i `/example/data/davinciwordcount` . Båda Sök vägarna finns i standard lagrings utrymmet för klustret, inte det lokala fil systemet.
 
    > [!NOTE]  
-   > Som anges i hjälpen för WORDCOUNT-exemplet kan du också ange flera indatafiler. `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` Skulle till exempel räkna ord i både DaVinci. txt och Ulysses. txt.
+   > Som anges i hjälpen för WORDCOUNT-exemplet kan du också ange flera indatafiler. Till exempel `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` räknas ord i både davinci.txt och ulysses.txt.
 
 5. När jobbet har slutförts använder du följande kommando för att visa utdata:
 
@@ -184,13 +183,13 @@ I det här exemplet används tre uppsättningar MapReduce-program:
 
 Använd följande steg för att generera data, sortera och sedan verifiera utdata:
 
-1. Generera 10 GB data som lagras i HDInsight-klustrets standard lagring på `/example/data/10GB-sort-input`:
+1. Generera 10 GB data som lagras i HDInsight-klustrets standard lagring på `/example/data/10GB-sort-input` :
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    `-Dmapred.map.tasks` Talar om Hadoop hur många kart uppgifter som ska användas för det här jobbet. De två sista parametrarna instruerar jobbet att skapa 10 GB data och lagra det på `/example/data/10GB-sort-input`.
+    `-Dmapred.map.tasks`Talar om Hadoop hur många kart uppgifter som ska användas för det här jobbet. De två sista parametrarna instruerar jobbet att skapa 10 GB data och lagra det på `/example/data/10GB-sort-input` .
 
 2. Använd följande kommando för att sortera data:
 
@@ -198,7 +197,7 @@ Använd följande steg för att generera data, sortera och sedan verifiera utdat
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
     ```
 
-    `-Dmapred.reduce.tasks` Talar om Hadoop hur många minska uppgifter som ska användas för jobbet. De två sista parametrarna är bara platser för indata och utdata för data.
+    `-Dmapred.reduce.tasks`Talar om Hadoop hur många minska uppgifter som ska användas för jobbet. De två sista parametrarna är bara platser för indata och utdata för data.
 
 3. Använd följande för att validera data som genereras av sorteringen:
 

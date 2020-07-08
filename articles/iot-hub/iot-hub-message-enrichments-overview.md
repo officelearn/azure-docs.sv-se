@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75429112"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Meddelande anrikning för IoT Hub från enhet till molnet
@@ -29,7 +28,7 @@ En meddelande anrikning har tre viktiga element:
 
 * En eller flera [slut punkter](iot-hub-devguide-endpoints.md) som berikning ska användas för.
 
-**Nyckeln** är en sträng. En nyckel får bara innehålla alfanumeriska tecken eller följande specialtecken: bindestreck (`-`), under streck (`_`) och punkt (`.`).
+**Nyckeln** är en sträng. En nyckel får bara innehålla alfanumeriska tecken eller följande specialtecken: bindestreck ( `-` ), under streck ( `_` ) och punkt ( `.` ).
 
 **Värdet** kan vara något av följande exempel:
 

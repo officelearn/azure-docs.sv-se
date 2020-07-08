@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435499"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix i Azure HDInsight
@@ -43,7 +42,7 @@ Den här metoden kan ge en betydande prestanda ökning för att köra enstaka in
 
 Phoenix-vyer ger ett sätt att lösa en HBase begränsning, där prestanda börjar försämras när du skapar fler än cirka 100 fysiska tabeller. Phoenix-vyer gör det möjligt för flera *virtuella tabeller* att dela en underliggande fysisk HBase-tabell.
 
-Att skapa en Phoenix-vy liknar att använda standardsyntaxen för SQL-syntax. En skillnad är att du kan definiera kolumner för vyn, förutom kolumnerna som ärvts från bas tabellen. Du kan också lägga till `KeyValue` nya kolumner.
+Att skapa en Phoenix-vy liknar att använda standardsyntaxen för SQL-syntax. En skillnad är att du kan definiera kolumner för vyn, förutom kolumnerna som ärvts från bas tabellen. Du kan också lägga till nya `KeyValue` kolumner.
 
 Här är till exempel en fysisk tabell med namnet `product_metrics` med följande definition:
 
@@ -64,13 +63,13 @@ SELECT * FROM product_metrics
 WHERE metric_type = 'm';
 ```
 
-Om du vill lägga till fler kolumner senare `ALTER VIEW` använder du instruktionen.
+Om du vill lägga till fler kolumner senare använder du `ALTER VIEW` instruktionen.
 
 ### <a name="skip-scan"></a>Hoppa över sökning
 
 Hoppa över sökning använder en eller flera kolumner i ett sammansatt index för att hitta distinkta värden. Till skillnad från en intervalls ökning implementerar Skip-genomsökningen inläsning inom rad, vilket ger [bättre prestanda](https://phoenix.apache.org/performance.html#Skip-Scan). Vid genomsökningen hoppas det första matchade värdet över med indexet tills nästa värde påträffas.
 
-En Skip-genomsökning använder `SEEK_NEXT_USING_HINT` uppräkningen av HBase-filtret. Med `SEEK_NEXT_USING_HINT`hjälp av Skip-genomsökningen kan du spåra vilken uppsättning nycklar eller intervall med nycklar som söks i varje kolumn. Skip-genomsökningen tar sedan en nyckel som skickades till den under filter utvärderingen och avgör om den är en av kombinationerna. Annars utvärderar Skip-skanningen nästa högsta nyckel att gå till.
+En Skip-genomsökning använder `SEEK_NEXT_USING_HINT` uppräkningen av HBase-filtret. Med hjälp av `SEEK_NEXT_USING_HINT` Skip-genomsökningen kan du spåra vilken uppsättning nycklar eller intervall med nycklar som söks i varje kolumn. Skip-genomsökningen tar sedan en nyckel som skickades till den under filter utvärderingen och avgör om den är en av kombinationerna. Annars utvärderar Skip-skanningen nästa högsta nyckel att gå till.
 
 ### <a name="transactions"></a>Transaktioner
 
@@ -80,7 +79,7 @@ Precis som med traditionella SQL-transaktioner kan du med hjälp av transaktions
 
 Information om hur du aktiverar Phoenix-transaktioner finns i [dokumentationen för Apache Phoenix transaktion](https://phoenix.apache.org/transactions.html).
 
-Om du vill skapa en ny tabell med aktiverade transaktioner anger `TRANSACTIONAL` du egenskapen `true` till i `CREATE` en instruktion:
+Om du vill skapa en ny tabell med aktiverade transaktioner anger du `TRANSACTIONAL` egenskapen till `true` i en `CREATE` instruktion:
 
 ```sql
 CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
@@ -99,7 +98,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 *Region Server-Hotspotting* kan uppstå när du skriver poster med sekventiella nycklar till HBase. Även om du kan ha flera region servrar i klustret, sker dina skrivningar bara på en. Den här koncentrationen skapar Hotspotting-problemet där, i stället för din Skriv arbets belastning som distribueras på alla tillgängliga region servrar, bara en hanterar belastningen. Eftersom varje region har en fördefinierad Max storlek, delas den upp i två små regioner när en region når den storleks gränsen. När detta sker tar en av dessa nya regioner emot alla nya poster och blir den nya aktiva punkten.
 
-För att minimera det här problemet och uppnå bättre prestanda, så dela tabeller så att alla region servrar används lika bra. Phoenix tillhandahåller *saltade tabeller*och lägger transparent till saltning-byte i rad nyckeln för en viss tabell. Tabellen är i förväg delad på salt byte-gränserna för att säkerställa lika belastnings fördelning mellan region servrar under den inledande fasen i tabellen. Den här metoden distribuerar Skriv arbets belastningen över alla tillgängliga region servrar, vilket förbättrar Skriv-och Läs prestanda. Om du vill salt a tabell anger `SALT_BUCKETS` du tabell egenskapen när tabellen skapas:
+För att minimera det här problemet och uppnå bättre prestanda, så dela tabeller så att alla region servrar används lika bra. Phoenix tillhandahåller *saltade tabeller*och lägger transparent till saltning-byte i rad nyckeln för en viss tabell. Tabellen är i förväg delad på salt byte-gränserna för att säkerställa lika belastnings fördelning mellan region servrar under den inledande fasen i tabellen. Den här metoden distribuerar Skriv arbets belastningen över alla tillgängliga region servrar, vilket förbättrar Skriv-och Läs prestanda. Om du vill salt a tabell anger du `SALT_BUCKETS` tabell egenskapen när tabellen skapas:
 
 ```sql
 CREATE TABLE Saltedweblogs (
@@ -124,7 +123,7 @@ CREATE TABLE Saltedweblogs (
 
 An-HDInsight HBase-kluster innehåller [Ambari-gränssnittet](hdinsight-hadoop-manage-ambari.md) för att göra konfigurations ändringar.
 
-1. Om du vill aktivera eller inaktivera Phoenix och kontrol lera appens timeout-inställningar loggar du in på Ambari-webbgränssnittet (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`) med dina Hadoop-användarautentiseringsuppgifter.
+1. Om du vill aktivera eller inaktivera Phoenix och kontrol lera appens timeout-inställningar loggar du in på Ambari-webbgränssnittet ( `https://YOUR_CLUSTER_NAME.azurehdinsight.net` ) med dina Hadoop-användarautentiseringsuppgifter.
 
 2. Välj **HBase** i listan över tjänster i den vänstra menyn och välj fliken **konfigurationer** .
 

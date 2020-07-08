@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75452005"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
@@ -27,7 +26,7 @@ Anta att du vill komma igång med att skriva och distribuera tjänsten. I det h�
 | Mått | Tillstånds lös instans inläsning | Tillstånds känslig sekundär belastning | Tillstånds känslig primär belastning | Vikt |
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Hög |
-| ReplicaCount |0 |1 |1 |Medel |
+| ReplicaCount |0 |1 |1 |Medium |
 | Antal |1 |1 |1 |Låg |
 
 
@@ -183,7 +182,7 @@ Listan över mått som är associerade med tjänsten och egenskaperna för dessa
   - Aktivera endast ett nytt mått efter att koden redan har distribuerats och verifierats via andra mekanismer
   - ändra standard belastningen för en tjänst baserat på observerat beteende och förbrukning
 
-Huvud-API: erna för ändring av `FabricClient.ServiceManagementClient.UpdateServiceAsync` mått konfigurationen finns `Update-ServiceFabricService` i C# och PowerShell. Den information som du anger med dessa API: er ersätter den befintliga mått informationen för tjänsten omedelbart. 
+Huvud-API: erna för ändring av mått konfigurationen finns `FabricClient.ServiceManagementClient.UpdateServiceAsync` i C# och `Update-ServiceFabricService` PowerShell. Den information som du anger med dessa API: er ersätter den befintliga mått informationen för tjänsten omedelbart. 
 
 ## <a name="mixing-default-load-values-and-dynamic-load-reports"></a>Blanda standard inläsnings värden och dynamiska inläsnings rapporter
 Standard belastning och dynamiska inläsningar kan användas för samma tjänst. När en tjänst använder både standard belastning och dynamiska inläsnings rapporter fungerar standard belastningen som en uppskattning tills dynamiska rapporter visas. Standard belastning är användbart eftersom det ger kluster resurs hanteraren något att arbeta med. Med standard belastningen kan kluster resurs hanteraren placera tjänst objekt på lämpliga platser när de skapas. Om ingen standard inläsnings information anges är placeringen av tjänsterna i praktiken slumpmässigt. När inläsnings rapporter kommer till senare är den första slumpmässiga placeringen ofta fel och kluster resurs hanteraren måste flytta tjänster.

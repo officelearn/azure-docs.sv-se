@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430580"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Det gick inte att uppdatera API Management tjänst värdnamn
@@ -28,7 +27,7 @@ I den här artikeln beskrivs fel meddelandet "Det gick inte att uppdatera API Ma
 
 När du försöker lägga till en anpassad domän för din API Management-tjänst genom att använda ett certifikat från Azure Key Vault visas följande fel meddelande:
 
-- Det gick inte att uppdatera API Management tjänstens värdnamn. Begäran till resursenhttps://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0misslyckades med StatusCode: förbjuden för RequestId:. Undantags meddelande: åtgärden returnerade en ogiltig status kod som är förbjuden.
+- Det gick inte att uppdatera API Management tjänstens värdnamn. Begäran till resursen https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 misslyckades med StatusCode: förbjuden för RequestId:. Undantags meddelande: åtgärden returnerade en ogiltig status kod som är förbjuden.
 
 ## <a name="cause"></a>Orsak
 

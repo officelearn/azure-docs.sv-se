@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75426642"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Fjärrhantering av tjänster i Java med Reliable Services
@@ -25,7 +24,7 @@ För tjänster som inte är knutna till ett visst kommunikations protokoll eller
 Att konfigurera fjärr kommunikation för en tjänst görs i två enkla steg:
 
 1. Skapa ett gränssnitt för tjänsten som ska implementeras. Det här gränssnittet definierar de metoder som är tillgängliga för ett fjärran rop på din tjänst. Metoderna måste vara en uppgift som returnerar asynkrona metoder. Gränssnittet måste implementera `microsoft.serviceFabric.services.remoting.Service` för att signalera att tjänsten har ett Remoting-gränssnitt.
-2. Använd en Remoting-lyssnare i din tjänst. Det här är `CommunicationListener` en implementering som tillhandahåller funktioner för fjärr kommunikation. `FabricTransportServiceRemotingListener`kan användas för att skapa en Remoting-lyssnare med hjälp av standard transport protokollet för fjärr kommunikation.
+2. Använd en Remoting-lyssnare i din tjänst. Det här är en `CommunicationListener` implementering som tillhandahåller funktioner för fjärr kommunikation. `FabricTransportServiceRemotingListener`kan användas för att skapa en Remoting-lyssnare med hjälp av standard transport protokollet för fjärr kommunikation.
 
 Till exempel visar följande tillstånds lösa tjänst en enda metod för att få "Hello World" över ett fjärran rop.
 
@@ -67,7 +66,7 @@ class MyServiceImpl extends StatelessService implements MyService {
 >
 
 ## <a name="call-remote-service-methods"></a>Anropa fjärrtjänstens metoder
-Anrops metoder för en tjänst med hjälp av fjärran vändning görs med hjälp av en lokal proxy till tjänsten via `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klassen. `ServiceProxyBase` Metoden skapar en lokal proxy med samma gränssnitt som tjänsten implementerar. Med den proxyservern kan du bara anropa metoder i gränssnittet via fjärr anslutning.
+Anrops metoder för en tjänst med hjälp av fjärran vändning görs med hjälp av en lokal proxy till tjänsten via `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klassen. `ServiceProxyBase`Metoden skapar en lokal proxy med samma gränssnitt som tjänsten implementerar. Med den proxyservern kan du bara anropa metoder i gränssnittet via fjärr anslutning.
 
 ```java
 
@@ -77,16 +76,16 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 
 ```
 
-Fjärrramverket för fjärr kommunikation sprider undantag som har utlösts av tjänsten till klienten. Så undantags hanterings logiken på klienten med `ServiceProxyBase` hjälp av kan direkt hantera undantag som tjänsten genererar.
+Fjärrramverket för fjärr kommunikation sprider undantag som har utlösts av tjänsten till klienten. Så undantags hanterings logiken på klienten med hjälp av `ServiceProxyBase` kan direkt hantera undantag som tjänsten genererar.
 
 ## <a name="service-proxy-lifetime"></a>Livstid för Tjänstproxy
-ServiceProxy-skapande är en förenklad åtgärd så att du kan skapa så många som du behöver. Service proxy-instanser kan återanvändas så länge de behövs. Om ett RPC-anrop genererar ett undantag kan du fortfarande återanvända samma proxy-instans. Varje ServiceProxy innehåller en kommunikations klient som används för att skicka meddelanden via kabeln. Vid RPC-anrop utförs interna kontroller för att avgöra om kommunikations klienten är giltig. Baserat på resultatet av dessa kontroller återskapas kommunikations klienten om det behövs. Om ett undantag inträffar behöver du därför inte återskapa `ServiceProxy`.
+ServiceProxy-skapande är en förenklad åtgärd så att du kan skapa så många som du behöver. Service proxy-instanser kan återanvändas så länge de behövs. Om ett RPC-anrop genererar ett undantag kan du fortfarande återanvända samma proxy-instans. Varje ServiceProxy innehåller en kommunikations klient som används för att skicka meddelanden via kabeln. Vid RPC-anrop utförs interna kontroller för att avgöra om kommunikations klienten är giltig. Baserat på resultatet av dessa kontroller återskapas kommunikations klienten om det behövs. Om ett undantag inträffar behöver du därför inte återskapa `ServiceProxy` .
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory livs längd
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) är en fabrik som skapar proxy för olika fjärr kommunikations gränssnitt. Om du använder API `ServiceProxyBase.create` för att skapa proxy skapar ramverket en `FabricServiceProxyFactory`.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) är en fabrik som skapar proxy för olika fjärr kommunikations gränssnitt. Om du använder API `ServiceProxyBase.create` för att skapa proxy skapar ramverket en `FabricServiceProxyFactory` .
 Det är praktiskt att skapa en manuellt när du behöver åsidosätta [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) -egenskaper.
 Fabriken är en dyr åtgärd. `FabricServiceProxyFactory`upprätthåller cacheminnet för kommunikations klienter.
-Bästa praxis är att cachelagra `FabricServiceProxyFactory` så länge som möjligt.
+Bästa praxis är att cachelagra så `FabricServiceProxyFactory` länge som möjligt.
 
 ## <a name="remoting-exception-handling"></a>Undantags hantering för fjärr kommunikation
 Alla fjärrundantag som har utlösts av tjänst-API: et skickas tillbaka till klienten antingen som RuntimeException eller FabricException.

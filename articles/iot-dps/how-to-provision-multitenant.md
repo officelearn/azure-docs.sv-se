@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75434739"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Så här etablerar du för flera innehavare 
@@ -304,7 +303,7 @@ Exempel koden simulerar en enhets startsekvens som skickar etablerings förfråg
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-1. Öppna **~/Azure-IoT-SDK-c/Provisioning\_-klient/sampel/\_testa\_dev\_client-exemplet\_/\_bevisa\_dev client Sample. c** för redigering på båda virtuella datorerna.
+1. Öppna **~/Azure-IoT-SDK-c/Provisioning- \_ klient/sampel/ \_ \_ testa dev client- \_ exemplet/bevisa \_ dev \_ client \_ Sample. c** för redigering på båda virtuella datorerna.
 
     ```bash
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
@@ -327,7 +326,7 @@ Exempel koden simulerar en enhets startsekvens som skickar etablerings förfråg
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-1. På båda de virtuella datorerna hittar du `prov_dev_set_symmetric_key_info()` ett anrop till i **test av\_dev\_-klienten\_. c** som är kommenterad.
+1. På båda de virtuella datorerna hittar du ett anrop till `prov_dev_set_symmetric_key_info()` i **test av dev- \_ \_ klienten \_ . c** som är kommenterad.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -357,7 +356,7 @@ Exempel koden simulerar en enhets startsekvens som skickar etablerings förfråg
     cmake --build . --target prov_dev_client_sample --config Debug
     ```
 
-1. När versionen har slutförts kör du **testa\_dev\_client\_Sample. exe** på båda de virtuella datorerna för att simulera en klient enhet från varje region. Observera att varje enhet allokeras till den klient IoT-hubb som är närmast den simulerade enhetens regioner.
+1. När bygget lyckas kan du köra **en \_ dev dev- \_ klient \_sample.exe** på båda virtuella datorerna för att simulera en klient enhet från varje region. Observera att varje enhet allokeras till den klient IoT-hubb som är närmast den simulerade enhetens regioner.
 
     Kör simuleringen:
     ```bash

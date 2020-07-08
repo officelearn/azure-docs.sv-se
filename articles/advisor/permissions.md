@@ -4,10 +4,9 @@ description: Advisor-behörigheter och hur de kan blockera din möjlighet att ko
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75422322"
 ---
 # <a name="permissions-in-azure-advisor"></a>Behörigheter i Azure Advisor
@@ -18,7 +17,7 @@ Azure Advisor ger rekommendationer baserat på användningen och konfigurationen
 
 Följande tabell definierar de roller och den åtkomst som de har i Advisor:
 
-| **Roll** | **Visa rekommendationer** | **Redigera regler** | **Redigera prenumerations konfiguration** | **Redigera konfiguration av resurs grupp**| **Stäng och Senarelägg rekommendationer**|
+| **Role** | **Visa rekommendationer** | **Redigera regler** | **Redigera prenumerations konfiguration** | **Redigera konfiguration av resurs grupp**| **Stäng och Senarelägg rekommendationer**|
 |---|:---:|:---:|:---:|:---:|:---:|
 |Prenumerations ägare|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|
 |Prenumerations deltagare|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|

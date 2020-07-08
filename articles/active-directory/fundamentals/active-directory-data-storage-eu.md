@@ -13,10 +13,9 @@ ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7360b11f41cc08c2beb3ffa227e1658881798502
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75423006"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identitets data lagring för Europeiska kunder i Azure Active Directory
@@ -53,7 +52,7 @@ Azure AD DS lagrar användardata på samma plats som kundens valda Azure Virtual
 Mer information om Federation i Microsoft Exchange Server finns i hjälp artikeln [Federation: Exchange 2013](https://docs.microsoft.com/exchange/federation-exchange-2013-help) .
 
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 
 Tjänster och program som integreras med Azure AD har åtkomst till identitets data. Utvärdera varje tjänst och program som du använder för att avgöra hur identitets data bearbetas av den specifika tjänsten och programmet och om de uppfyller företagets data lagrings krav.
 

@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75360318"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Konfigurera och köra start åtgärder för en moln tjänst
@@ -27,7 +26,7 @@ Start åtgärder är åtgärder som vidtas innan dina roller börjar och definie
 
 Miljövariabler skickar information till en start uppgift och lokal lagring kan användas för att skicka information från en start aktivitet. En miljö variabel kan till exempel ange sökvägen till ett program som du vill installera, och filer kan skrivas till lokal lagring som sedan kan läsas senare av dina roller.
 
-Din start åtgärd kan logga information och fel i katalogen som anges av miljövariabeln **Temp** . Under start aktiviteten matchas miljövariabeln för den **temporära** miljön på *C:\\resurserna\\Temp\\[GUID]. [ rolename]\\RoleTemp* Directory när den körs i molnet.
+Din start åtgärd kan logga information och fel i katalogen som anges av miljövariabeln **Temp** . Under start aktiviteten matchas miljövariabeln för den **temporära** miljön på *C: \\ resurserna \\ Temp \\ [GUID]. [ rolename] \\ RoleTemp* Directory när den körs i molnet.
 
 Startåtgärder kan även köras flera gånger mellan omstarter. Startåtgärden körs till exempel varje gång rollen återanvänds och rollåteranvändningar kanske inte alltid innefattar en omstart. Start aktiviteter ska skrivas på ett sätt som gör att de kan köras flera gånger utan problem.
 
@@ -68,7 +67,7 @@ I det här exemplet skapas en miljö variabel, **MyVersionNumber**, för start a
 </Startup>
 ```
 
-I följande exempel skriver **Start. cmd** -batchfilen raden "den aktuella versionen är 1.0.0.0" till filen StartupLog. txt i katalogen som anges av miljövariabeln TEMP. `EXIT /B 0` Raden ser till att start aktiviteten slutar med en **errorlevel** noll.
+I följande exempel skriver **Start. cmd** -batchfilen raden "den aktuella versionen är 1.0.0.0" till den StartupLog.txt filen i katalogen som anges av variabeln temp. `EXIT /B 0`Raden ser till att start aktiviteten slutar med en **errorlevel** noll.
 
 ```cmd
 ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
@@ -76,7 +75,7 @@ EXIT /B 0
 ```
 
 > [!NOTE]
-> I Visual Studio bör egenskapen **Kopiera till utdata-katalog** för din start kommando fil vara inställd på **Kopiera alltid** för att vara säker på att din start kommando fil är korrekt distribuerad till projektet på Azure (**appens rot\\bin** för webb roller och **appens rot** för arbets roller).
+> I Visual Studio bör egenskapen **Kopiera till utdata-katalog** för din start kommando fil vara inställd på **Kopiera alltid** för att vara säker på att din start kommando fil är korrekt distribuerad till projektet på Azure (**appens rot \\ bin** för webb roller och **appens rot** för arbets roller).
 > 
 > 
 
@@ -87,7 +86,7 @@ I följande avsnitt beskrivs attributen för **aktivitets** elementet i filen [s
 
 * Kommandot med valfria kommando rads parametrar som startar start aktiviteten.
 * Detta är ofta fil namnet för en. cmd-eller. bat-kommando fil.
-* Aktiviteten är relativ i förhållande till appens rot\\bin-mappen för distributionen. Miljövariabler utökas inte vid fast ställande av uppgiftens sökväg och fil. Om miljö expansion krävs kan du skapa ett litet. cmd-skript som anropar start aktiviteten.
+* Aktiviteten är relativ i förhållande till appens rot \\ bin-mappen för distributionen. Miljövariabler utökas inte vid fast ställande av uppgiftens sökväg och fil. Om miljö expansion krävs kan du skapa ett litet. cmd-skript som anropar start aktiviteten.
 * Kan vara ett konsol program eller en kommando fil som startar ett [PowerShell-skript](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task).
 
 **ExecutionContext** -anger behörighets nivån för start aktiviteten. Behörighets nivån kan vara begränsad eller utökad:
@@ -112,8 +111,8 @@ I följande avsnitt beskrivs attributen för **aktivitets** elementet i filen [s
   > 
   > 
   
-    Kör kommandot `EXIT /B 0` i slutet av batch-filprocessen för att säkerställa att kommando filen slutar med en **errorlevel** på noll.
-* **Lägg**  
+    Kör kommandot **errorlevel** `EXIT /B 0` i slutet av batch-filprocessen för att säkerställa att kommando filen slutar med en ERRORLEVEL på noll.
+* **background**  
   Aktiviteter körs asynkront, parallellt med rollens start.
 * **överst**  
   Aktiviteter körs asynkront, parallellt med rollens start. Den största skillnaden mellan en **förgrunds** aktivitet och en **bakgrunds** aktivitet är att en **förgrunds** aktivitet förhindrar att rollen åter användning eller stängs av förrän uppgiften har avslut ATS. **Bakgrunds** aktiviteterna har inte den här begränsningen.
@@ -154,7 +153,7 @@ Lär dig hur du utför några [vanliga start uppgifter](cloud-services-startup-t
 [Paketera](cloud-services-model-and-package.md) din moln tjänst.  
 
 [Service definition. csdef]: cloud-services-model-and-package.md#csdef
-[Aktivitet]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Uppgift]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Start]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Körmiljö]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Miljö]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment

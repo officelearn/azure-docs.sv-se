@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75445743"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Rekommendationer för taggning och versions behållar avbildningar
@@ -53,11 +52,11 @@ Unik taggning innebär bara att varje bild som flyttas till ett register har en 
 * **Manifest Sammanfattning** -varje behållar avbildning som skickas till ett behållar register är associerad med ett manifest som identifieras av en unik SHA-256-hash eller Digest. När det är unikt är sammanfattningen lång, svår att läsa och korrelerad med din build-miljö.
 * **Build-ID** – det här alternativet kan vara bäst eftersom det är troligt vis stegvist, och det gör att du kan korrelera tillbaka till den specifika versionen för att hitta alla artefakter och loggar. Men liksom en manifest sammandrag kan det vara svårt för en mänsklig att läsa.
 
-  Om din organisation har flera build-system, är prefixet med build-systemnamnet en variant av detta alternativ: `<build-system>-<build-id>`. Du kan till exempel särskilja builds från API-teamets Jenkins build-system och webb teamets Azure pipelines build system.
+  Om din organisation har flera build-system, är prefixet med build-systemnamnet en variant av detta alternativ: `<build-system>-<build-id>` . Du kan till exempel särskilja builds från API-teamets Jenkins build-system och webb teamets Azure pipelines build system.
 
 ### <a name="lock-deployed-image-tags"></a>Lås distribuerade avbildnings Taggar
 
-Som bästa praxis rekommenderar vi att du [låser](container-registry-image-lock.md) alla distribuerade avbildnings etiketter genom att ställa in dess `write-enabled` attribut till `false`. Den här metoden hindrar dig från att oavsiktligt ta bort en avbildning från registret och eventuellt störa dina distributioner. Du kan inkludera låsnings steget i din versions pipeline.
+Som bästa praxis rekommenderar vi att du [låser](container-registry-image-lock.md) alla distribuerade avbildnings etiketter genom att ställa in dess `write-enabled` attribut till `false` . Den här metoden hindrar dig från att oavsiktligt ta bort en avbildning från registret och eventuellt störa dina distributioner. Du kan inkludera låsnings steget i din versions pipeline.
 
 Genom att låsa en distribuerad avbildning kan du fortfarande ta bort andra, icke distribuerade avbildningar från registret med hjälp av Azure Container Registry funktioner för att underhålla registret. Ta till exempel [automatiskt bort](container-registry-auto-purge.md) otaggade manifest eller olåsta bilder som är äldre än en angiven varaktighet eller ange en [bevarande princip](container-registry-retention-policy.md) för otaggade manifest.
 

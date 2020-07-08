@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430678"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Så här auktoriserar du utvecklares konton med OAuth 2,0 i Azure API Management
@@ -50,7 +49,7 @@ Den här guiden visar hur du konfigurerar API Management tjänst instansen att a
     > [!NOTE]
     > De här fälten används för att identifiera OAuth 2,0-auktoriseringsservern i den aktuella API Management tjänst instansen och deras värden kommer inte från OAuth 2,0-servern.
 
-3. Ange **URL för klient registrerings sidan**. Den här sidan är den plats där användare kan skapa och hantera sina konton och varierar beroende på vilken OAuth 2,0-provider som används. **URL: en för klient registrerings sidan** pekar på sidan som användarna kan använda för att skapa och konfigurera sina egna konton för OAuth 2,0-leverantörer som stöder användar hantering av konton. Vissa organisationer konfigurerar eller använder inte den här funktionen även om OAuth 2,0-providern stöder det. Om din OAuth 2,0-Provider inte har användar hantering av konfigurerade konton anger du en URL för plats hållare, till exempel URL: en för ditt företag eller en URL `https://placeholder.contoso.com`som.
+3. Ange **URL för klient registrerings sidan**. Den här sidan är den plats där användare kan skapa och hantera sina konton och varierar beroende på vilken OAuth 2,0-provider som används. **URL: en för klient registrerings sidan** pekar på sidan som användarna kan använda för att skapa och konfigurera sina egna konton för OAuth 2,0-leverantörer som stöder användar hantering av konton. Vissa organisationer konfigurerar eller använder inte den här funktionen även om OAuth 2,0-providern stöder det. Om din OAuth 2,0-Provider inte har användar hantering av konfigurerade konton anger du en URL för plats hållare, till exempel URL: en för ditt företag eller en URL som `https://placeholder.contoso.com` .
 
     ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -68,7 +67,7 @@ Den här guiden visar hur du konfigurerar API Management tjänst instansen att a
 
     ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-03.png)
 
-    För en Azure Active Directory OAuth 2,0-server har **URL: en för token-slutpunkt** följande format `<TenantID>` , där har formatet `yourapp.onmicrosoft.com`.
+    För en Azure Active Directory OAuth 2,0-server har **URL: en för token-slutpunkt** följande format, där `<TenantID>` har formatet `yourapp.onmicrosoft.com` .
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
@@ -120,7 +119,7 @@ När du väljer **auktoriseringskod** visas ett popup-fönster med inloggnings f
 
 ![Logga in][api-management-oauth2-signin]
 
-När du har loggat in fylls begärandehuvuden i med ett **Request headers** `Authorization : Bearer` huvud som godkänner begäran.
+När du har loggat in fylls **begärandehuvuden i** med ett `Authorization : Bearer` huvud som godkänner begäran.
 
 ![Token för begäran-huvud][api-management-request-header-token]
 

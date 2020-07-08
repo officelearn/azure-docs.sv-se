@@ -8,10 +8,9 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430519"
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa en extern App Service-miljö
@@ -59,7 +58,7 @@ App Service plan är en behållare för appar. När du skapar en app i App Servi
 
 Så här skapar du en ASE när du skapar en App Service plan:
 
-1. I [Azure Portal](https://portal.azure.com/)väljer du **skapa en resurs** > **webb och mobilt** > **-webbapp**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du **skapa en resurs**  >  **webb och mobilt**  >  **-webbapp**.
 
     ![Skapa webb program][1]
 
@@ -89,7 +88,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
     b. Ange ett nytt namn på under nätet.
 
-    c. Välj storlek på under nätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att kunna hantera framtida tillväxt av din ASE.* Vi rekommenderar `/24`, som har 128 adresser och kan hantera en maximal storlek ASE. Vi rekommenderar `/28`till exempel inte att bara 16 adresser är tillgängliga. Infrastrukturen använder minst sju adresser och Azure-nätverk använder en till 5. I ett `/28` undernät har du lämnat en maximal skalning på 4 App Service plan instanser för en extern ASE och endast tre App Service plan-instanser för en ILB-ASE.
+    c. Välj storlek på under nätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att kunna hantera framtida tillväxt av din ASE.* Vi rekommenderar `/24` , som har 128 adresser och kan hantera en maximal storlek ASE. Vi rekommenderar till `/28` exempel inte att bara 16 adresser är tillgängliga. Infrastrukturen använder minst sju adresser och Azure-nätverk använder en till 5. I ett `/28` undernät har du lämnat en maximal skalning på 4 App Service plan instanser för en extern ASE och endast tre App Service plan-instanser för en ILB-ASE.
 
     d. Välj IP-intervall för under nätet.
 
@@ -97,7 +96,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Skapa en ASE och en Linux-webbapp med hjälp av en anpassad Docker-avbildning
 
-1. **Skapa en resurs** > **webb och mobilt** > **Web App for containers** i [Azure Portal](https://portal.azure.com/). 
+1. [Azure portal](https://portal.azure.com/) **Skapa en resurs**  >  **webb och mobilt**  >  **Web App for containers** i Azure Portal. 
 
     ![Skapa webb program][7]
 
@@ -125,7 +124,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
     b. Ange ett nytt namn på under nätet.
 
-    c. Välj storlek på under nätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att kunna hantera framtida tillväxt av din ASE.* Vi rekommenderar `/24`, som har 128 adresser och kan hantera en maximal storlek ASE. Vi rekommenderar `/28`till exempel inte att bara 16 adresser är tillgängliga. Infrastrukturen använder minst sju adresser och Azure-nätverk använder en till 5. I ett `/28` undernät har du lämnat en maximal skalning på 4 App Service plan instanser för en extern ASE och endast tre App Service plan-instanser för en ILB-ASE.
+    c. Välj storlek på under nätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att kunna hantera framtida tillväxt av din ASE.* Vi rekommenderar `/24` , som har 128 adresser och kan hantera en maximal storlek ASE. Vi rekommenderar till `/28` exempel inte att bara 16 adresser är tillgängliga. Infrastrukturen använder minst sju adresser och Azure-nätverk använder en till 5. I ett `/28` undernät har du lämnat en maximal skalning på 4 App Service plan instanser för en extern ASE och endast tre App Service plan-instanser för en ILB-ASE.
 
     d. Välj IP-intervall för under nätet.
 
@@ -141,7 +140,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
 Om du skapar en fristående ASE, har den inget i sig. En tom ASE debiteras fortfarande för en månatlig avgift för infrastrukturen. Följ de här stegen för att skapa en ASE med en ILB eller för att skapa en ASE i en egen resurs grupp. När du har skapat din ASE kan du skapa appar i den med hjälp av normal processen. Välj den nya ASE som plats.
 
-1. Sök på Azure Marketplace efter **App Service-miljön**eller Välj **skapa en resurs** > **webb mobil** > **App Service-miljön**. 
+1. Sök på Azure Marketplace efter **App Service-miljön**eller Välj **skapa en resurs**  >  **webb mobil**  >  **App Service-miljön**. 
 
 1. Ange namnet på din ASE. Det här namnet används för de appar som skapas i ASE. Om namnet är *mynewdemoase*är under domän namnet *. mynewdemoase.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*kan den adresseras på mytestapp.mynewdemoase.p.azurewebsites.net. Du kan inte använda blank steg i namnet. Om du använder versaler är domän namnet den totala gemen versionen av namnet. Om du använder en ILB används inte ditt ASE-namn i under domänen, men anges i stället uttryckligen när ASE skapas.
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 9962d4333e458243670d1005ad2ccfbc0bb7c92a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75348921"
 ---
 # <a name="reliable-actors-state-management"></a>Hantering av Reliable Actors tillstånd
@@ -72,9 +71,9 @@ class MyActorImpl extends FabricActor implements MyActor
 Med den här inställningen används en InMemory-enda tillstånds leverantör och antalet repliker anges till 1.
 
 ### <a name="defaults-and-generated-settings"></a>Standardinställningar och genererade inställningar
-När du använder- `StatePersistence` attributet väljs en tillstånds leverantör automatiskt åt dig vid körning när aktörs tjänsten startar. Replik antalet anges dock i kompileringen av build-verktygen för Visual Studio-skådespelare. Build-verktygen genererar automatiskt en *standard tjänst* för aktörs tjänsten i ApplicationManifest. xml. Parametrar skapas för den **minsta replik uppsättningens storlek** och **storlek för mål replik uppsättningen**.
+När du använder `StatePersistence` -attributet väljs en tillstånds leverantör automatiskt åt dig vid körning när aktörs tjänsten startar. Replik antalet anges dock i kompileringen av build-verktygen för Visual Studio-skådespelare. Build-verktygen genererar automatiskt en *standard tjänst* för aktörs tjänsten i ApplicationManifest.xml. Parametrar skapas för den **minsta replik uppsättningens storlek** och **storlek för mål replik uppsättningen**.
 
-Du kan ändra parametrarna manuellt. Men varje gången `StatePersistence` attributet ändras, anges parametrarna som standardvärden för replik uppsättnings storlek för det valda `StatePersistence` attributet, vilket åsidosätter eventuella tidigare värden. Med andra ord åsidosätts de värden som du anger i ServiceManifest. xml *bara* vid Bygg tiden när du ändrar `StatePersistence` attributvärdet.
+Du kan ändra parametrarna manuellt. Men varje gången `StatePersistence` attributet ändras, anges parametrarna som standardvärden för replik uppsättnings storlek för det valda `StatePersistence` attributet, vilket åsidosätter eventuella tidigare värden. Med andra ord åsidosätts de värden som du anger i ServiceManifest.xml *bara* vid Bygg tiden när du ändrar `StatePersistence` attributvärdet.
 
 ```xml
 <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">

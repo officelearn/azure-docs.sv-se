@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75442529"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Övervaka dina API: er med Azure API Management, Event Hubs och Moesif
@@ -46,7 +45,7 @@ Event Hubs kan strömma händelser till flera konsument grupper. Detta gör att 
 ## <a name="a-policy-to-send-applicationhttp-messages"></a>En princip för att skicka program/http-meddelanden
 En Event Hub accepterar händelse data som en enkel sträng. Innehållet i den strängen är upp till dig. För att kunna packa upp en HTTP-begäran och skicka den till Event Hubs, måste vi formatera strängen med förfrågnings-eller svars informationen. I situationer som detta, om det finns ett befintligt format som vi kan återanvända, kanske vi inte behöver skriva vår egen tolknings kod. Från början jag övervägde [att använda har för att](http://www.softwareishard.com/blog/har-12-spec/) skicka HTTP-förfrågningar och-svar. Detta format är dock optimerat för att lagra en sekvens med HTTP-begäranden i ett JSON-baserat format. Det innehåller ett antal obligatoriska element som lade till onödig komplexitet för scenariot att skicka HTTP-meddelandet över kabeln.
 
-Ett alternativt alternativ var att använda `application/http` medie typen enligt beskrivningen i http-specifikationen [RFC 7230](https://tools.ietf.org/html/rfc7230). Den här medie typen använder exakt samma format som används för att skicka HTTP-meddelanden via kabeln, men hela meddelandet kan placeras i bröd texten i en annan HTTP-begäran. I vårt fall kommer vi bara att använda bröd texten som vårt meddelande att skicka till Event Hubs. Bekvämt finns det en tolk som finns i klient biblioteken [Microsoft ASP.net Web API 2,2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) som kan tolka det här formatet och konvertera det till det `HttpRequestMessage` ursprungliga `HttpResponseMessage` objektet och objekten.
+Ett alternativt alternativ var att använda `application/http` medie typen enligt beskrivningen i HTTP-specifikationen [RFC 7230](https://tools.ietf.org/html/rfc7230). Den här medie typen använder exakt samma format som används för att skicka HTTP-meddelanden via kabeln, men hela meddelandet kan placeras i bröd texten i en annan HTTP-begäran. I vårt fall kommer vi bara att använda bröd texten som vårt meddelande att skicka till Event Hubs. Bekvämt finns det en tolk som finns i klient biblioteken [Microsoft ASP.net Web API 2,2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) som kan tolka det här formatet och konvertera det till det `HttpRequestMessage` ursprungliga `HttpResponseMessage` objektet och objekten.
 
 För att kunna skapa det här meddelandet måste vi dra nytta av C#-baserade [princip uttryck](/azure/api-management/api-management-policy-expressions) i Azure API Management. Här är principen, som skickar ett meddelande om HTTP-begäran till Azure Event Hubs.
 
@@ -83,7 +82,7 @@ Det finns några saker som är värda att nämna detta policy uttryck. Logg-till
 För att säkerställa att våra meddelanden levereras till konsumenter i rätt ordning och dra nytta av belastnings fördelnings funktionen för partitioner väljer jag att skicka HTTP-begäranden till en partition och HTTP-svarsmeddelanden till en andra partition. Detta garanterar en jämn belastnings fördelning och vi kan garantera att alla begär Anden förbrukas i ordning och att alla svar används i ordning. Det är möjligt att ett svar förbrukas före motsvarande begäran, men eftersom vi inte är ett problem eftersom vi har en annan mekanism för att korrelera begär anden till svar och vi vet att förfrågningar alltid kommer före svar.
 
 ### <a name="http-payloads"></a>HTTP-nyttolaster
-När du har `requestLine`skapat den kontrollerar vi om texten i begäran ska trunkeras. Begär ande texten trunkeras till endast 1024. Detta kan ökas, men enskilda Event Hub-meddelanden är begränsade till 256 KB, så det är troligt att vissa HTTP-meddelande kroppar inte får plats i ett enda meddelande. När du loggar och analyserar en stor mängd information kan härledas från bara HTTP-begärans rad och sidhuvud. Dessutom returnerar många API: er bara små organ, så data förlust genom att trunkera stora kroppar är ganska minimal i jämförelse med minskningen av överförings-, bearbetnings-och lagrings kostnader för att hålla all brödtext. En slutgiltig kommentar om att bearbeta texten är att vi måste skicka `true` till `As<string>()` metoden eftersom vi läser innehållet i den, men ville också att Server dels-API: et skulle kunna läsa bröd texten. Genom att skicka sant till den här metoden gör vi att bröd texten buffras så att den kan läsas en andra gång. Detta är viktigt att vara medveten om om du har ett API som laddar upp stora filer eller använder lång avsökning. I dessa fall är det bäst att undvika att läsa bröd texten.
+När du har skapat den `requestLine` kontrollerar vi om texten i begäran ska trunkeras. Begär ande texten trunkeras till endast 1024. Detta kan ökas, men enskilda Event Hub-meddelanden är begränsade till 256 KB, så det är troligt att vissa HTTP-meddelande kroppar inte får plats i ett enda meddelande. När du loggar och analyserar en stor mängd information kan härledas från bara HTTP-begärans rad och sidhuvud. Dessutom returnerar många API: er bara små organ, så data förlust genom att trunkera stora kroppar är ganska minimal i jämförelse med minskningen av överförings-, bearbetnings-och lagrings kostnader för att hålla all brödtext. En slutgiltig kommentar om att bearbeta texten är att vi måste skicka `true` till `As<string>()` metoden eftersom vi läser innehållet i den, men ville också att Server dels-API: et skulle kunna läsa bröd texten. Genom att skicka sant till den här metoden gör vi att bröd texten buffras så att den kan läsas en andra gång. Detta är viktigt att vara medveten om om du har ett API som laddar upp stora filer eller använder lång avsökning. I dessa fall är det bäst att undvika att läsa bröd texten.
 
 ### <a name="http-headers"></a>HTTP-rubriker
 HTTP-huvuden kan överföras till meddelande formatet i ett enkelt format för nyckel/värde-par. Vi har valt att ta bort vissa säkerhets känsliga fält för att undvika att onödigt avslöja autentiseringsinformation. Det är inte troligt att API-nycklar och andra autentiseringsuppgifter används i analys syfte. Om vi vill göra analyser för användaren och den specifika produkt som de använder, kan vi hämta det från `context` objektet och lägga till det i meddelandet.
@@ -157,16 +156,16 @@ Principen för att skicka svars-HTTP-meddelandet ser ut ungefär som begäran oc
 </policies>
 ```
 
-`set-variable` Principen skapar ett värde som är tillgängligt för både `log-to-eventhub` principen i `<inbound>` avsnittet och i `<outbound>` avsnittet.
+`set-variable`Principen skapar ett värde som är tillgängligt för både `log-to-eventhub` principen i `<inbound>` avsnittet och i `<outbound>` avsnittet.
 
 ## <a name="receiving-events-from-event-hubs"></a>Ta emot händelser från Event Hubs
-Händelser från Azure Event Hub tas emot med [AMQP-protokollet](https://www.amqp.org/). Microsoft Service Bus-teamet har gjort klient bibliotek tillgängliga för att göra det enklare att använda händelser. Det finns två olika metoder som stöds, en är en *direkt konsument* och den andra använder- `EventProcessorHost` klassen. Exempel på dessa två metoder finns i [Event Hubs programmerings guide](../event-hubs/event-hubs-programming-guide.md). Den korta versionen av skillnaderna är, ger `Direct Consumer` dig fullständig kontroll och `EventProcessorHost` gör en del av arbetet för dig, men gör vissa antaganden om hur du behandlar dessa händelser.
+Händelser från Azure Event Hub tas emot med [AMQP-protokollet](https://www.amqp.org/). Microsoft Service Bus-teamet har gjort klient bibliotek tillgängliga för att göra det enklare att använda händelser. Det finns två olika metoder som stöds, en är en *direkt konsument* och den andra använder- `EventProcessorHost` klassen. Exempel på dessa två metoder finns i [Event Hubs programmerings guide](../event-hubs/event-hubs-programming-guide.md). Den korta versionen av skillnaderna är, `Direct Consumer` ger dig fullständig kontroll och gör `EventProcessorHost` en del av arbetet för dig, men gör vissa antaganden om hur du behandlar dessa händelser.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
 I det här exemplet använder vi `EventProcessorHost` för enkelhetens skull, men det kanske inte är det bästa valet för just det här scenariot. `EventProcessorHost`gör det svårt att se till att du inte behöver oroa dig för problem med trådar inom en viss händelse processor klass. I vårt scenario konverterar vi dock bara meddelandet till ett annat format och skickar det till en annan tjänst med hjälp av en asynkron metod. Det finns inget behov av att uppdatera delat tillstånd och därför är risken för problem med trådar. I de flesta fall `EventProcessorHost` är det förmodligen det bästa valet och det är verkligen det enklaste alternativet.
 
 ### <a name="ieventprocessor"></a>IEventProcessor
-Det centrala konceptet när du `EventProcessorHost` använder är att skapa en implementering av `IEventProcessor` gränssnittet, som innehåller metoden `ProcessEventAsync`. Grunden för den här metoden visas här:
+Det centrala konceptet när `EventProcessorHost` du använder är att skapa en implementering av `IEventProcessor` gränssnittet, som innehåller metoden `ProcessEventAsync` . Grunden för den här metoden visas här:
 
 ```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
@@ -193,7 +192,7 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 En lista över EventData-objekt överförs till-metoden och vi itererar över listan. Byte för varje metod parsas till ett HttpMessage-objekt och objektet skickas till en instans av IHttpMessageProcessor.
 
 ### <a name="httpmessage"></a>HttpMessage
-`HttpMessage` Instansen innehåller tre data typer:
+`HttpMessage`Instansen innehåller tre data typer:
 
 ```csharp
 public class HttpMessage
@@ -208,15 +207,15 @@ public class HttpMessage
 }
 ```
 
-`HttpMessage` Instansen innehåller `MessageId` ett GUID som gör att vi kan ansluta http-begäran till motsvarande http-svar och ett booleskt värde som identifierar om objektet innehåller en instans av en HttpRequestMessage och HttpResponseMessage. Genom att använda de inbyggda HTTP-klasserna `System.Net.Http`från kunde jag dra nytta av den `application/http` tolknings kod som ingår i. `System.Net.Http.Formatting`  
+`HttpMessage`Instansen innehåller ett `MessageId` GUID som gör att vi kan ansluta http-begäran till motsvarande http-svar och ett booleskt värde som identifierar om objektet innehåller en instans av en HttpRequestMessage och HttpResponseMessage. Genom att använda de inbyggda HTTP-klasserna från `System.Net.Http` kunde jag dra nytta av den `application/http` tolknings kod som ingår i `System.Net.Http.Formatting` .  
 
 ### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
-`HttpMessage` Instansen vidarebefordras sedan till implementering av `IHttpMessageProcessor`, vilket är ett gränssnitt som jag har skapat för att ta del av mottagning och tolkning av händelsen från Azure Event Hub och den faktiska bearbetningen av det.
+`HttpMessage`Instansen vidarebefordras sedan till implementering av `IHttpMessageProcessor` , vilket är ett gränssnitt som jag har skapat för att ta del av mottagning och tolkning av händelsen från Azure Event Hub och den faktiska bearbetningen av det.
 
 ## <a name="forwarding-the-http-message"></a>Vidarebefordrar HTTP-meddelandet
 I det här exemplet bestämde jag att det var intressant att skicka HTTP-begäran till [MOESIF API Analytics](https://www.moesif.com). Moesif är en molnbaserad tjänst som specialiserar sig på HTTP-analys och fel sökning. De har en kostnads fri nivå, så det är enkelt att testa och det gör att vi kan se HTTP-begärandena i real tid genom vår API Management-tjänst.
 
-`IHttpMessageProcessor` Implementeringen ser ut så här,
+`IHttpMessageProcessor`Implementeringen ser ut så här,
 
 ```csharp
 public class MoesifHttpMessageProcessor : IHttpMessageProcessor
@@ -294,7 +293,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-`MoesifHttpMessageProcessor` Drar nytta av ett [C# API-bibliotek för Moesif](https://www.moesif.com/docs/api?csharp#events) som gör det enkelt att skicka http-Datadata till deras tjänster. Du behöver ett konto och ett program-ID för att kunna skicka HTTP-data till Moesif Collector-API: et. Du får ett Moesif program-ID genom att skapa ett konto på [Moesif-webbplatsen](https://www.moesif.com) och gå sedan till den _översta högra menyn_ -> för att_ställa in appar_.
+`MoesifHttpMessageProcessor`Drar nytta av ett [C# API-bibliotek för Moesif](https://www.moesif.com/docs/api?csharp#events) som gör det enkelt att skicka http-Datadata till deras tjänster. Du behöver ett konto och ett program-ID för att kunna skicka HTTP-data till Moesif Collector-API: et. Du får ett Moesif program-ID genom att skapa ett konto på [Moesif-webbplatsen](https://www.moesif.com) och gå sedan till den _översta högra menyn_för att  ->  _ställa in appar_.
 
 ## <a name="complete-sample"></a>Fullständigt exempel
 [Käll koden](https://github.com/dgilling/ApimEventProcessor) och testerna för exemplet finns på GitHub. Du behöver en [API Management tjänst](get-started-create-service-instance.md), [en ansluten Händelsehubben](api-management-howto-log-event-hubs.md)och ett [lagrings konto](../storage/common/storage-create-storage-account.md) för att köra exemplet själv.   

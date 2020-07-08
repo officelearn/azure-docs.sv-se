@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: e643c7fe7b18eed30843e7cab3977036435d2112
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435807"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Ansluta Excel till Apache Hadoop med hjälp av Power Query
@@ -43,17 +42,17 @@ Med Power Query-tillägget för Excel kan du enkelt importera data från HDInsig
 
    * Excel 2016
 
-     * Välj > **data** > **Hämta data** > **från Azure** > **från Azure HDInsight (HDFS)**.
+     * Välj > **data**  >  **Hämta data**  >  **från Azure**  >  **från Azure HDInsight (HDFS)**.
 
        ![HDI. PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
 
    * Excel 2013/2010
 
-     * Välj **Power Query** > **från Azure** > **från Microsoft Azure HDInsight**.
+     * Välj **Power Query**  >  **från Azure**  >  **från Microsoft Azure HDInsight**.
 
        ![HDI. PowerQuery. SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
 
-       **Obs:** Om du inte ser **Power Query** menyn går du till **fil** > **alternativ** > **tillägg**och väljer **com-tillägg** i list rutan **Hantera** längst ned på sidan. Välj knappen **gå...** och kontrol lera att rutan för tillägget Power Query för Excel har marker ATS.
+       **Obs:** Om du inte ser **Power Query** menyn går du till **fil**  >  **alternativ**  >  **tillägg**och väljer **com-tillägg** i list rutan **Hantera** längst ned på sidan. Välj knappen **gå...** och kontrol lera att rutan för tillägget Power Query för Excel har marker ATS.
 
        **Obs:** Med Power Query kan du också importera data från HDFS genom att välja **från andra källor**.
 
@@ -63,7 +62,7 @@ Med Power Query-tillägget för Excel kan du enkelt importera data från HDInsig
 
 1. I **navigerings** fönstret till vänster i Frågeredigeraren dubbelklickar du på den behållare för Blob Storage-behållare som är kopplad till klustret. Behållarens namn är som standard samma namn som kluster namnet.
 
-1. Leta upp **HiveSampleData. txt** i kolumnen **namn** (mappsökvägen är **... /Hive/Warehouse/hivesampletable/**) och välj sedan **binär** till vänster om HiveSampleData. txt. HiveSampleData. txt levereras med alla kluster. Du kan också använda en egen fil.
+1. Leta upp **HiveSampleData.txt** i kolumnen **namn** (mappsökvägen är **... /Hive/Warehouse/hivesampletable/**) och välj sedan **binär** till vänster om HiveSampleData.txt. HiveSampleData.txt levereras med alla kluster. Du kan också använda en egen fil.
 
     ![Importera data från HDI Excel Power Query](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
 

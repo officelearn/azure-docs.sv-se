@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430716"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Så skapar och använder du grupper för att hantera utvecklarkonton i Azure API Management
@@ -53,7 +52,7 @@ I det här avsnittet visas hur du lägger till en ny grupp till ditt API Managem
 3. Ange ett unikt namn för gruppen och en valfri beskrivning.
 4. Tryck på **Skapa**.
 
-    ![Lägga till en ny grupp](./media/api-management-howto-create-groups/groups001.png)
+    ![Lägg till en ny grupp](./media/api-management-howto-create-groups/groups001.png)
 
 När gruppen har skapats läggs den till i listan **grupper** . <br/>Om du vill redigera **namnet** eller **beskrivningen** av gruppen klickar du på namnet på gruppen och **inställningarna**.<br/>Om du vill ta bort gruppen klickar du på namnet på gruppen och trycker på **ta bort**.
 

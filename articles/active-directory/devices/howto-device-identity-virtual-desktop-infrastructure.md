@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900379"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Enhets identitet och skriv bords virtualisering
@@ -44,19 +43,19 @@ Innan du konfigurerar enhets identiteter i Azure AD för din VDI-miljö kan du b
 | Enhets identitets typ | Identitets infrastruktur | Windows-enheter | VDI-plattforms version | Stöds |
 | --- | --- | --- | --- | --- |
 | Hybrid Azure AD-ansluten | Externt | Windows-aktuell * * * * och Windows-äldre * * * * | Permanent | Ja |
-|   |   | Windows-aktuell | Icke-beständig | Inga |
+|   |   | Windows-aktuell | Icke-beständig | No |
 |   |   | Äldre Windows-enheter | Icke-beständig | Ja |
 |   | Hanterad * * | Windows aktuella och Windows-äldre | Permanent | Ja |
-|   |   | Windows-aktuell | Icke-beständig | Inga |
+|   |   | Windows-aktuell | Icke-beständig | No |
 |   |   | Äldre Windows-enheter | Icke-beständig | Ja |
-| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | Inga |
-|   |   |   | Icke-beständig | Inga |
-|   | Hanterade | Windows-aktuell | Permanent | Inga |
-|   |   |   | Icke-beständig | Inga |
-| Azure AD-registrerad | Federerade | Windows-aktuell | Permanent | Inga |
-|   |   |   | Icke-beständig | Inga |
-|   | Hanterade | Windows-aktuell | Permanent | Inga |
-|   |   |   | Icke-beständig | Inga |
+| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | No |
+|   |   |   | Icke-beständig | No |
+|   | Hanterad | Windows-aktuell | Permanent | No |
+|   |   |   | Icke-beständig | No |
+| Azure AD-registrerad | Federerade | Windows-aktuell | Permanent | No |
+|   |   |   | Icke-beständig | No |
+|   | Hanterad | Windows-aktuell | Permanent | No |
+|   |   |   | Icke-beständig | No |
 
 \*En infrastruktur miljö för **federerade** identiteter representerar en miljö med en identitets leverantör som AD FS eller andra IdP från tredje part.
 
@@ -73,7 +72,7 @@ Administratörer ska referera till följande artiklar, baserat på deras identit
 - [Konfigurera hybrid Azure Active Directory anslutning för federerad miljö](hybrid-azuread-join-federated-domains.md)
 - [Konfigurera hybrid Azure Active Directorys anslutning för hanterad miljö](hybrid-azuread-join-managed-domains.md)
 
-Om du förlitar dig på system förberedelse verktyget (Sysprep. exe) och om du använder en avbildning med tidigare versioner än Windows 10 1809 för installation kontrollerar du att avbildningen inte är från en enhet som redan har registrerats med Azure AD som en hybrid Azure AD-ansluten.
+Om du förlitar dig på system förberedelse verktyget (sysprep.exe) och om du använder en avbildning med tidigare versioner än Windows 10 1809 för installation kontrollerar du att avbildningen inte är från en enhet som redan är registrerad i Azure AD som en hybrid Azure AD-ansluten.
 
 Om du förlitar dig på en ögonblicks bild av en virtuell dator (VM) för att skapa ytterligare virtuella datorer, se till att ögonblicks bilden inte är från en virtuell dator som redan är registrerad i Azure AD som en hybrid Azure AD-anslutning.
 
@@ -81,7 +80,7 @@ När du distribuerar icke-permanent VDI bör IT-administratörerna betala nära 
 
 - Skapa och Använd ett prefix för visnings namnet på datorn som anger Skriv bordet som VDI-baserat.
 - Implementera följande kommando som en del av utloggnings skriptet. Det här kommandot utlöser ett samtal med bästa prestanda till Azure AD för att ta bort enheten.
-   - För Windows-enheter på äldre nivå –/Leave för arbets plats. exe
+   - För Windows-enheter på äldre nivå – autoworkplace.exe/Leave
 - Definiera och implementera process för att [Hantera inaktuella enheter](manage-stale-devices.md).
    - När du har en strategi för att identifiera dina icke-beständiga Azure AD-anslutna enheter kan du vara mer aggressiva vid rensning av dessa enheter för att se till att din katalog inte används med massor av inaktuella enheter.
  

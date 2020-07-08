@@ -8,10 +8,9 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74975677"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
@@ -28,18 +27,18 @@ Arkitekturen för flera innehavare använder en form av hierarkisk databas model
 
 Citus (storskalig) kontrollerar frågor för att se vilket klient-ID de inkluderar och hittar matchande tabell-Shard. Den dirigerar frågan till en enda arbetsnoden som innehåller Shard. Att köra en fråga med alla relevanta data som placeras på samma nod kallas samplacering.
 
-Följande diagram illustrerar samplacering i data modellen för flera innehavare. Den innehåller två tabeller, konton och kampanjer, som var och `account_id`en distribueras av. De skuggade rutorna representerar Shards. Gröna Shards lagras tillsammans på en arbetsnoden och blå Shards lagras på en annan arbetsnod. Observera att en kopplings fråga mellan konton och kampanjer har alla data som krävs tillsammans på en nod när båda tabellerna är begränsade till samma konto\_-ID.
+Följande diagram illustrerar samplacering i data modellen för flera innehavare. Den innehåller två tabeller, konton och kampanjer, som var och en distribueras av `account_id` . De skuggade rutorna representerar Shards. Gröna Shards lagras tillsammans på en arbetsnoden och blå Shards lagras på en annan arbetsnod. Observera att en kopplings fråga mellan konton och kampanjer har alla data som krävs tillsammans på en nod när båda tabellerna är begränsade till samma konto \_ -ID.
 
 ![Samplacering för flera klienter](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
-Om du vill använda den här designen i ditt eget schema, identifierar du vad som utgör en klient i ditt program. Vanliga instanser är företag, konto, organisation eller kund. Kolumn namnet kommer att vara något som `company_id` liknar `customer_id`eller. Undersök var och en av dina frågor och fråga dig själv, så fungerar det om det hade ytterligare WHERE-satser för att begränsa alla tabeller som ingår i rader med samma klient-ID?
+Om du vill använda den här designen i ditt eget schema, identifierar du vad som utgör en klient i ditt program. Vanliga instanser är företag, konto, organisation eller kund. Kolumn namnet kommer att vara något som liknar `company_id` eller `customer_id` . Undersök var och en av dina frågor och fråga dig själv, så fungerar det om det hade ytterligare WHERE-satser för att begränsa alla tabeller som ingår i rader med samma klient-ID?
 Frågor i modellen för flera klienter är begränsade till en klient. Till exempel är frågor om försäljning eller lager begränsade inom en viss butik.
 
 #### <a name="best-practices"></a>Bästa praxis
 
--   **Partitionera distribuerade tabeller med en gemensam\_klient-ID-kolumn.** I ett SaaS-program där klienter är företag, är klient\_-ID: t sannolikt företags\_-ID: t.
+-   **Partitionera distribuerade tabeller med en gemensam klient \_ -ID-kolumn.** I ett SaaS-program där klienter är företag, \_ är klient-ID: t sannolikt företags-ID: t \_ .
 -   **Konvertera små kors klient tabeller till referens tabeller.** När flera klienter delar en liten tabell med information distribuerar du den som en referens tabell.
--   **Begränsa filtreringen av alla program frågor\_efter klient-ID.** Varje fråga bör begära information för en klient i taget.
+-   **Begränsa filtreringen av alla program frågor efter klient \_ -ID.** Varje fråga bör begära information för en klient i taget.
 
 Läs [själv studie kursen om flera innehavare](./tutorial-design-database-hyperscale-multi-tenant.md) för ett exempel på hur du skapar den här typen av program.
 

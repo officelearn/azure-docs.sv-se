@@ -14,10 +14,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fef9059700e2bd94029c40bb819870a7174e0812
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74930119"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Guiden Azure Data Factory kopiering
@@ -60,7 +59,7 @@ Använd en nedrullningsbar listruta för att välja en kolumn från det käll sc
 Du kan filtrera källdata om du bara vill välja de data som behöver kopieras till mottagar data lagret. Filtrering minskar mängden data som ska kopieras till Sink-datalagret och ökar därför data flödet för kopierings åtgärden. Det är ett flexibelt sätt att filtrera data i en Relations databas med hjälp av SQL-frågespråket eller filer i en Azure Blob-mapp med hjälp av [Data Factory Functions och variabler](data-factory-functions-variables.md).   
 
 ### <a name="filtering-of-data-in-a-database"></a>Filtrering av data i en databas
-Följande skärm bild visar en SQL-fråga med `Text.Format` hjälp av `WindowStart` funktionen och variabeln.
+Följande skärm bild visar en SQL-fråga med hjälp av `Text.Format` funktionen och `WindowStart` variabeln.
 
 ![Validera uttryck](./media/data-factory-copy-wizard/validate-expressions.png)
 

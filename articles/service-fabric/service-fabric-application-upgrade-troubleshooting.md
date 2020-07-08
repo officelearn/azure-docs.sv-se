@@ -4,10 +4,9 @@ description: Den här artikeln beskriver några vanliga problem med att uppgrade
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377930"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Felsök programuppgraderingar
@@ -190,7 +189,7 @@ Uppgraderingen fortsätter från uppgraderings domänen där den senast pausades
 
 Möjlig orsak 1:
 
-Service Fabric översätter alla procent andelar till faktiska antal entiteter (till exempel repliker, partitioner och tjänster) för utvärdering av hälso tillstånd och avrundar alltid upp till hela entiteter. Om den maximala *MaxPercentUnhealthyReplicasPerPartition* är till exempel 21% och det finns fem repliker, kan Service Fabric upp till två felaktiga repliker (det vill säga`Math.Ceiling (5*0.21)`). Därför bör hälso principerna anges i enlighet med detta.
+Service Fabric översätter alla procent andelar till faktiska antal entiteter (till exempel repliker, partitioner och tjänster) för utvärdering av hälso tillstånd och avrundar alltid upp till hela entiteter. Om den maximala *MaxPercentUnhealthyReplicasPerPartition* är till exempel 21% och det finns fem repliker, kan Service Fabric upp till två felaktiga repliker (det vill säga `Math.Ceiling (5*0.21)` ). Därför bör hälso principerna anges i enlighet med detta.
 
 Möjlig orsak 2:
 
@@ -200,7 +199,7 @@ Men under uppgraderingen kan D bli felfritt medan C blir skadad. Uppgraderingen 
 
 ### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Jag angav ingen hälso princip för program uppgradering, men uppgraderingen Miss lyckas under vissa tids gränser som jag aldrig har angett
 
-När det inte finns några hälso principer för uppgraderings förfrågan hämtas de från *ApplicationManifest. XML* för den aktuella program versionen. Om du till exempel uppgraderar program X från version 1,0 till version 2,0, används program hälso principer som anges i version 1,0. Om en annan hälso princip ska användas för uppgraderingen måste principen anges som en del av API-anropet för program uppgradering. De principer som anges som en del av API-anropet gäller endast under uppgraderingen. När uppgraderingen är klar används de principer som anges i *ApplicationManifest. XML* .
+När det inte finns några hälso principer för uppgraderings förfrågan hämtas de från den *ApplicationManifest.xml* av den aktuella program versionen. Om du till exempel uppgraderar program X från version 1,0 till version 2,0, används program hälso principer som anges i version 1,0. Om en annan hälso princip ska användas för uppgraderingen måste principen anges som en del av API-anropet för program uppgradering. De principer som anges som en del av API-anropet gäller endast under uppgraderingen. När uppgraderingen är klar används de principer som anges i *ApplicationManifest.xml* .
 
 ### <a name="incorrect-time-outs-are-specified"></a>Felaktiga tids gränser har angetts
 
@@ -212,9 +211,9 @@ Tiden då uppgraderingen ska slutföras beror på hälso kontrollerna och de ang
 
 Här är en snabb uppdatering av hur tids gränsen interagerar med uppgraderings tiderna:
 
-Uppgraderingar av en uppgraderings domän kan inte slutföras snabbare än *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
+Uppgraderingar av en uppgraderings domän kan inte slutföras snabbare än *HealthCheckWaitDuration*  +  *HealthCheckStableDuration*.
 
-Uppgraderings fel kan inte inträffa snabbare än *HealthCheckWaitDuration* + -*HealthCheckRetryTimeout*.
+Uppgraderings fel kan inte inträffa snabbare än *HealthCheckWaitDuration*-  +  *HealthCheckRetryTimeout*.
 
 Uppgraderings tiden för en uppgraderings domän begränsas av *UpgradeDomainTimeout*.  Om *HealthCheckRetryTimeout* och *HealthCheckStableDuration* är både icke-noll och hälso tillståndet för programmet fortsätter att växla fram och tillbaka, så kan uppgraderingen slutligen ta längre tid på *UpgradeDomainTimeout*. *UpgradeDomainTimeout* börjar räkna upp när uppgraderingen för den aktuella uppgraderings domänen börjar.
 

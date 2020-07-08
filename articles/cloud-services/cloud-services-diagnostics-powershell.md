@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: tagore
 ms.openlocfilehash: 76cdffed813fd182980b36f848e0ae42f3226539
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75386552"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivera diagnostik i Azure Cloud Services med PowerShell
@@ -37,7 +36,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 ```
 
-Om diagnostikens konfigurations fil anger `StorageAccount` ett element med ett lagrings konto namn använder `New-AzureServiceDiagnosticsExtensionConfig` cmdleten automatiskt det lagrings kontot. För att detta ska fungera måste lagrings kontot finnas i samma prenumeration som moln tjänsten som distribueras.
+Om diagnostikens konfigurations fil anger ett `StorageAccount` element med ett lagrings konto namn `New-AzureServiceDiagnosticsExtensionConfig` använder cmdleten automatiskt det lagrings kontot. För att detta ska fungera måste lagrings kontot finnas i samma prenumeration som moln tjänsten som distribueras.
 
 Från Azure SDK 2,6 kommer det att finnas lagrings konto namnet baserat på den diagnostiska konfigurations sträng som anges i tjänst konfigurations filen (. cscfg). Skriptet nedan visar hur du kan parsa konfigurationsfilerna för tillägg från publicerings målets utdata och konfigurera diagnostikprogrammet för varje roll när du distribuerar moln tjänsten.
 
@@ -80,7 +79,7 @@ foreach ($extPath in $diagnosticsExtensions)
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
 ```
 
-Visual Studio Online använder en liknande metod för automatiserade distributioner av Cloud Services med tillägget Diagnostics. Se [Publish-AzureCloudDeployment. ps1](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureCloudPowerShellDeploymentV1/Publish-AzureCloudDeployment.ps1) för ett fullständigt exempel.
+Visual Studio Online använder en liknande metod för automatiserade distributioner av Cloud Services med tillägget Diagnostics. Se [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureCloudPowerShellDeploymentV1/Publish-AzureCloudDeployment.ps1) för ett fullständigt exempel.
 
 Om inget `StorageAccount` har angetts i diagnostik-konfigurationen måste du skicka in parametern *StorageAccountName* till cmdleten. Om parametern *StorageAccountName* anges använder cmdlet: en alltid det lagrings konto som anges i parametern och inte den som anges i konfigurations filen för diagnostik.
 
@@ -129,7 +128,7 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Ytterligare vägledning om hur du använder Azure Diagnostics och andra tekniker för att felsöka problem finns i [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](cloud-services-dotnet-diagnostics.md).
 * [Konfigurations schemat för diagnostik](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) förklarar olika alternativ för XML-konfigurationer för tillägget för diagnostik.
 * Information om hur du aktiverar diagnostik-tillägget för Virtual Machines finns i [skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager mall](../virtual-machines/windows/extensions-diagnostics-template.md)

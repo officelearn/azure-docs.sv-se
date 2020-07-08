@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7652ab72fb972230d98913c2d7e2601737982532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74924351"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Flytta data från en lokal HDFS med hjälp av Azure Data Factory
@@ -64,15 +63,15 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 En länkad tjänst länkar ett data lager till en data fabrik. Du skapar en länkad tjänst av typen **HDFS** för att länka en lokal HDFS till din data fabrik. Följande tabell innehåller en beskrivning av JSON-element som är speciella för den länkade tjänsten HDFS.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **HDFS** |Ja |
 | url |URL till HDFS |Ja |
 | authenticationType |Anonym eller Windows. <br><br> Om du vill använda **Kerberos-autentisering** för HDFS Connector läser du [det här avsnittet](#use-kerberos-authentication-for-hdfs-connector) för att konfigurera din lokala miljö. |Ja |
-| userName |Användar namn för Windows-autentisering. För Kerberos-autentisering anger `<username>@<domain>.com`du. |Ja (för Windows-autentisering) |
+| userName |Användar namn för Windows-autentisering. För Kerberos-autentisering anger du `<username>@<domain>.com` . |Ja (för Windows-autentisering) |
 | password |Lösen ord för Windows-autentisering. |Ja (för Windows-autentisering) |
 | gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till HDFS. |Ja |
-| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) utdata från autentiseringsuppgifterna för åtkomst. |Inga |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) utdata från autentiseringsuppgifterna för åtkomst. |No |
 
 ### <a name="using-anonymous-authentication"></a>Använda anonym autentisering
 
@@ -117,13 +116,13 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **fileshare** (som innehåller HDFS-datauppsättningen) har följande egenskaper
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| folderPath |Sökväg till mappen. Exempel: `myfolder`<br/><br/>Använd escape-tecknet "\" för specialtecken i strängen. Exempel:\\\\för folder\subfolder, anger du undermappen mapp och för d:\samplefolder, anger du d\\\\: samplefolder.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt`(till exempel:: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Inga |
-| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Exempel: folderPath-parameter för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Inga |
-| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| folderPath |Sökväg till mappen. Exempel: `myfolder`<br/><br/>Använd escape-tecknet "\" för specialtecken i strängen. Exempel: för folder\subfolder, anger du \\ \\ undermappen mapp och för d:\samplefolder, anger du d: \\ \\ samplefolder.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt`(till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Exempel: folderPath-parameter för varje timme med data. |No |
+| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |No |
+| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > Det går inte att använda filename och fileFilter samtidigt.
@@ -168,9 +167,9 @@ För kopierings aktiviteten, när källan är av typen **FileSystemSource** , fi
 
 **FileSystemSource** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
+| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |No |
 
 ## <a name="supported-file-and-compression-formats"></a>Fil- och komprimeringsformat som stöds
 Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel om information.
@@ -434,11 +433,11 @@ Det finns två alternativ för att konfigurera den lokala miljön så att den an
 
    **Starta om** KDC-tjänsten efter konfigurationen.
 
-2. Förbered ett huvud namn med namnet **KRBTGT/REALM\@. com-AD.com** i KDC-servern med följande kommando:
+2. Förbered ett huvud namn med namnet **KRBTGT/REALM. COM- \@ AD.com** i KDC-servern med följande kommando:
 
            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3. I filen **Hadoop. Security. auth_to_local** HDFS-tjänsten lägger du `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`till.
+3. I filen **Hadoop. Security. auth_to_local** HDFS-tjänsten lägger du till `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
 
 **På domänkontrollant:**
 
@@ -447,7 +446,7 @@ Det finns två alternativ för att konfigurera den lokala miljön så att den an
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Upprätta förtroende från Windows-domän till Kerberos-sfär. [Password] är lösen ordet för det primära **KRBTGT/REALM. COM\@-AD.com**.
+2.  Upprätta förtroende från Windows-domän till Kerberos-sfär. [Password] är lösen ordet för det primära **KRBTGT/REALM. COM- \@ AD.com**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
@@ -469,7 +468,7 @@ Det finns två alternativ för att konfigurera den lokala miljön så att den an
 
     1. Starta administrations verktygen > **Active Directory användare och datorer**.
 
-    2. Konfigurera avancerade funktioner genom att klicka på **Visa** > **avancerade funktioner**.
+    2. Konfigurera avancerade funktioner genom att klicka på **Visa**  >  **avancerade funktioner**.
 
     3. Leta upp det konto som du vill skapa mappningar för och högerklicka för att visa **namn mappningar** > Klicka på fliken **Kerberos-namn** .
 

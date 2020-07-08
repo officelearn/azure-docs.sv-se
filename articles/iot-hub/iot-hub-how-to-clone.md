@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75429159"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Så här klonar du en Azure IoT-hubb till en annan region
@@ -121,7 +120,7 @@ Det här avsnittet innehåller information om hur du migrerar hubben.
 
 ### <a name="view-the-template"></a>Visa mallen 
 
-1. Gå till mappen Hämtade filer (eller till den mapp som du använde när du exporterade mallen) och hitta zip-filen. Öppna zip-filen och leta upp filen som `template.json`heter. Markera den och välj sedan Ctrl + C för att kopiera mallen. Gå till en annan mapp som inte finns i zip-filen och klistra in filen (Ctrl + V). Nu kan du redigera det.
+1. Gå till mappen Hämtade filer (eller till den mapp som du använde när du exporterade mallen) och hitta zip-filen. Öppna zip-filen och leta upp filen som heter `template.json` . Markera den och välj sedan Ctrl + C för att kopiera mallen. Gå till en annan mapp som inte finns i zip-filen och klistra in filen (Ctrl + V). Nu kan du redigera det.
  
     Följande exempel gäller för ett generiskt nav utan konfiguration av routning. Det är en hubb på S1-nivå (med 1 enhet) som kallas **ContosoTestHub29358** i region, **väst**. Här är den exporterade mallen.
 
@@ -487,7 +486,7 @@ Nu har du miljövariabler i en fil med SET-kommandon och du vet vad kommando rad
 
 1. Öppna ett kommandotolksfönster. Välj Windows och skriv in `command prompt` för att hämta kommando tolks fönstret.
 
-1. Kopiera de kommandon som anger miljövariablerna, en i taget, och klistra in dem i kommando tolkens fönster och välj RETUR. När du är klar skriver `SET` du i kommando tolkens fönster för att se miljövariablerna och deras värden. När du har kopierat dessa till kommando tolks fönstret behöver du inte kopiera dem igen, om du inte öppnar ett nytt kommando tolks fönster.
+1. Kopiera de kommandon som anger miljövariablerna, en i taget, och klistra in dem i kommando tolkens fönster och välj RETUR. När du är klar skriver du `SET` i kommando tolkens fönster för att se miljövariablerna och deras värden. När du har kopierat dessa till kommando tolks fönstret behöver du inte kopiera dem igen, om du inte öppnar ett nytt kommando tolks fönster.
 
 1. I kommando tolkens fönster ändrar du kataloger tills du är i./ImportExportDevicesSample (där filen ImportExportDevicesSample. CSPROJ finns). Skriv sedan följande och inkludera kommando rads argumenten.
 
@@ -549,7 +548,7 @@ Du kan visa enheterna i [Azure Portal](https://portal.azure.com) och kontrol ler
 
 1. Gå till den nya hubben med hjälp av [Azure Portal](https://portal.azure.com). Välj hubben och välj **IoT-enheter**. Du ser de enheter som du precis kopierade från den gamla hubben till den klonade hubben. Du kan också visa egenskaperna för den klonade hubben. 
 
-1. Sök efter import/export-fel genom att gå till Azure Storage-kontot i [Azure Portal](https://portal.azure.com) och leta i `devicefiles` behållaren för `ImportErrors.log`. Om filen är tom (storleken är 0) fanns det inga fel. Om du försöker importera samma enhet mer än en gång, avvisar den enheten den andra gången och lägger till ett fel meddelande i logg filen.
+1. Sök efter import/export-fel genom att gå till Azure Storage-kontot i [Azure Portal](https://portal.azure.com) och leta i `devicefiles` behållaren för `ImportErrors.log` . Om filen är tom (storleken är 0) fanns det inga fel. Om du försöker importera samma enhet mer än en gång, avvisar den enheten den andra gången och lägger till ett fel meddelande i logg filen.
 
 ### <a name="committing-the-changes"></a>Genomför ändringarna 
 

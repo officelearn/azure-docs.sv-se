@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75422950"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referens för Azure Active Directory General Operations Guide
@@ -31,7 +30,7 @@ Det här avsnittet i [hand boken för Azure AD-åtgärder](active-directory-ops-
 
 Hantering av Azure Active Directory kräver kontinuerlig körning av viktiga operativa uppgifter och processer, som kanske inte ingår i ett lanserings projekt. Det är fortfarande viktigt att du konfigurerar dessa uppgifter för att optimera din miljö. De viktigaste uppgifterna och deras rekommenderade ägare är:
 
-| Aktivitet | Ägare |
+| Uppgift | Ägare |
 | :- | :- |
 | Förbättringar av identitet för säkra Poäng för identitet | Åtgärds team för informations säkerhet |
 | Underhåll Azure AD Connect-servrar | IAM-åtgärds team |
@@ -127,7 +126,7 @@ Om din organisation för närvarande inte har något program på plats för att 
 
 Microsoft skickar e-postkommunikation till administratörer för att meddela olika ändringar i tjänsten, konfigurations uppdateringar som behövs och fel som kräver administratörs åtgärder. Det är viktigt att kunderna anger e-postadresserna för aviseringar så att meddelanden skickas till rätt team medlemmar som kan bekräfta och agera på alla meddelanden. Vi rekommenderar att du lägger till flera mottagare i [meddelande centret för Office 365](https://docs.microsoft.com/office365/admin/manage/message-center) och begär att meddelanden (inklusive Azure AD Connect Health meddelanden) skickas till en distributions lista eller delad post låda. Om du bara har ett globalt administratörs konto med en e-postadress måste du konfigurera minst två e-postkompatibla konton.
 
-Det finns två "från"-adresser som används av Azure <o365mc@email2.microsoft.com>AD:, som skickar meddelanden om Office 365 meddelande Center; och <azure-noreply@microsoft.com>, som skickar meddelanden som rör:
+Det finns två "från"-adresser som används av Azure AD: <o365mc@email2.microsoft.com> , som skickar meddelanden om Office 365 meddelande Center och <azure-noreply@microsoft.com> , som skickar meddelanden som rör:
 
 - [Åtkomst granskningar för Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
@@ -166,9 +165,9 @@ Active Directory administrativ nivå modell har utformats för att skydda identi
 
 [Nivå modellen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) består av tre nivåer och inkluderar bara administrativa konton, inte standard användar konton.
 
-- **Nivå 0** – direkt styrning av företags identiteter i miljön. Nivå 0 innehåller konton, grupper och andra resurser som har direkt eller indirekt administrativ kontroll över Active Directory-skogen, domäner eller domänkontrollanter och alla tillgångar i den. Säkerhetskänsligheten för alla tillgångar i nivå 0 är motsvarande eftersom de alla har effektiv kontroll av varandra.
-- **Nivå 1** – kontroll av företags servrar och program. Nivå 1-material inkluderar serveroperativsystem, molntjänster och företagsprogram. Nivå 1-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa tillgångar är värdar för. En vanlig exempelroll är serveradministratörer som hanterar de här operativsystemen med möjlighet att påverka alla företagstjänster.
-- **Nivå 2** – kontroll över användar arbets stationer och enheter. Nivå 2-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa arbetsstationer och enheter är värdar för. Exempel innefattar administratörer för supportavdelningen och datorsupport eftersom de kan påverka integriteten för nästan alla användardata.
+- **Nivå 0**   – Direkt kontroll över företags identiteter i miljön. Nivå 0 innehåller konton, grupper och andra resurser som har direkt eller indirekt administrativ kontroll över Active Directory-skogen, domäner eller domänkontrollanter och alla tillgångar i den. Säkerhetskänsligheten för alla tillgångar i nivå 0 är motsvarande eftersom de alla har effektiv kontroll av varandra.
+- **Nivå 1**   – Kontroll över företags servrar och program. Nivå 1-material inkluderar serveroperativsystem, molntjänster och företagsprogram. Nivå 1-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa tillgångar är värdar för. En vanlig exempelroll är serveradministratörer som hanterar de här operativsystemen med möjlighet att påverka alla företagstjänster.
+- **Nivå 2**   – Kontroll över användar arbets stationer och enheter. Nivå 2-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa arbetsstationer och enheter är värdar för. Exempel innefattar administratörer för supportavdelningen och datorsupport eftersom de kan påverka integriteten för nästan alla användardata.
 
 Lås åtkomst till lokala identitets komponenter som Azure AD Connect, AD FS och SQL-tjänster på samma sätt som du gör för domänkontrollanter.
 

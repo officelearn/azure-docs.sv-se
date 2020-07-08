@@ -7,10 +7,9 @@ ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75428713"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Anropa eller utlös Logi Kap par genom att använda Azure Functions och Azure Service Bus
@@ -117,7 +116,7 @@ Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
 
 1. Skriv en grundläggande funktion för att anropa den tidigare skapade Logic app-slutpunkten genom att använda Queue meddelandet som en utlösare. Innan du skriver din funktion bör du gå igenom följande överväganden:
 
-   * I `application/json` det här exemplet används meddelandets innehålls typ, men du kan ändra den här typen efter behov.
+   * I det här exemplet används `application/json` meddelandets innehålls typ, men du kan ändra den här typen efter behov.
    
    * På grund av möjlig körning av funktioner, höga volymer eller tung belastning, Undvik att instansiera [klassen HTTPClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) med `using` instruktionen och direkt skapa HTTPClient-instanser per begäran. Mer information finns i [använda HttpClientFactory för att implementera elastiska HTTP-begäranden](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
    

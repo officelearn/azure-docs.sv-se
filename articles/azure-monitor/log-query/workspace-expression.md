@@ -7,15 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75364959"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>uttryck för arbets yta () i Azure Monitor logg fråga
 
-`workspace` Uttrycket används i en Azure Monitor-fråga för att hämta data från en speciell arbets yta i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta är användbart om du vill inkludera loggdata i en Application Insights fråga och fråga efter data över flera arbets ytor i en logg fråga.
+`workspace`Uttrycket används i en Azure Monitor-fråga för att hämta data från en speciell arbets yta i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta är användbart om du vill inkludera loggdata i en Application Insights fråga och fråga efter data över flera arbets ytor i en logg fråga.
 
 
 ## <a name="syntax"></a>Syntax
@@ -34,7 +33,7 @@ ms.locfileid: "75364959"
 | Resurs-ID för Azure | Identifierare för Azure-resursen | arbets yta ("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
-## <a name="notes"></a>Anteckningar
+## <a name="notes"></a>Obs!
 
 * Du måste ha Läs behörighet till arbets ytan.
 * Ett relaterat uttryck är `app` att du kan fråga över Application Insights-program.

@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 876c4f5f45ff6c81a53274cf32e8bebecc1acfce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75349312"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Information om Service Fabric Reliable Actors typ serialisering
 Argumenten för alla metoder, resultat typer för de uppgifter som returneras av varje metod i ett aktörs gränssnitt och objekt som lagras i en aktörs tillstånds hanterare måste vara [serialiserbar för data kontrakt](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Detta gäller även argumenten för de metoder som definieras i [aktörens händelse gränssnitt](service-fabric-reliable-actors-events.md). (Aktörens händelse gränssnitts metoder returnerar alltid Void.)
 
 ## <a name="custom-data-types"></a>Anpassade data typer
-I det här exemplet definierar följande aktörs gränssnitt en metod som returnerar en anpassad datatyp som heter `VoicemailBox`:
+I det här exemplet definierar följande aktörs gränssnitt en metod som returnerar en anpassad datatyp som heter `VoicemailBox` :
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -68,7 +67,7 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 
 ```
 
-I det här exemplet serialiseras `VoicemailBox` objektet när:
+I det här exemplet `VoicemailBox` serialiseras objektet när:
 
 * Objektet överförs mellan en aktörs instans och en anropare.
 * Objektet sparas i tillstånds hanteraren där det sparas i en disk och replikeras till andra noder.

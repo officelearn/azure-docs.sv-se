@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 238f37cc1e8cbc8d3260693181d6e54ac5f592f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435707"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Använda MapReduce i Apache Hadoop på HDInsight
@@ -21,7 +20,7 @@ Lär dig hur du kör MapReduce-jobb på HDInsight-kluster.
 
 ## <a name="example-data"></a>Exempeldata
 
-HDInsight innehåller olika exempel data uppsättningar, som lagras i- `/example/data` och `/HdiSamples` -katalogen. Dessa kataloger finns i standard lagrings utrymmet för klustret. I det här dokumentet använder vi `/example/data/gutenberg/davinci.txt` filen. Den här filen innehåller antecknings böckerna för Leonardo da Vinci.
+HDInsight innehåller olika exempel data uppsättningar, som lagras i- `/example/data` och- `/HdiSamples` katalogen. Dessa kataloger finns i standard lagrings utrymmet för klustret. I det här dokumentet använder vi `/example/data/gutenberg/davinci.txt` filen. Den här filen innehåller antecknings böckerna för Leonardo da Vinci.
 
 ## <a name="example-mapreduce"></a>Exempel MapReduce
 

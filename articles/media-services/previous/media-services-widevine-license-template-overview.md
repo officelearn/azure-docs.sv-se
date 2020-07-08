@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c7511279e66ab598e4ae3c26f053915b7393b39d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74978398"
 ---
 # <a name="widevine-license-template-overview"></a>Översikt över Widevine-licensmallen 
@@ -27,7 +26,7 @@ Du kan använda Azure Media Services för att konfigurera och begära Google Wid
 En begäran om Widevine-licens formateras som ett JSON-meddelande.  
 
 >[!NOTE]
-> Du kan skapa ett tomt meddelande utan värden, bara "{}." Sedan skapas en licens mal len med standardinställningar. Standard fungerar i de flesta fall. Microsoft-baserade licens leverans scenarier bör alltid använda standardvärdena. Om du behöver ställa in värdena "Provider" och "content_id" måste en provider matcha Widevine-autentiseringsuppgifter.
+> Du kan skapa ett tomt meddelande utan värden, bara " {} ." Sedan skapas en licens mal len med standardinställningar. Standard fungerar i de flesta fall. Microsoft-baserade licens leverans scenarier bör alltid använda standardvärdena. Om du behöver ställa in värdena "Provider" och "content_id" måste en provider matcha Widevine-autentiseringsuppgifter.
 
     {  
        "payload": "<license challenge>",
@@ -64,7 +63,7 @@ En begäran om Widevine-licens formateras som ett JSON-meddelande.
 | payload |Base64-kodad sträng |Den licens förfrågan som skickas av en klient. |
 | content_id |Base64-kodad sträng |Identifierare som används för att härleda nyckel-ID och innehålls nyckel för varje content_key_specs. track_type. |
 | CSP |sträng |Används för att söka efter innehålls nycklar och principer. Om Microsoft Key Delivery används för Widevine License Delivery ignoreras den här parametern. |
-| policy_name |sträng |Namnet på en tidigare registrerad princip. Valfri. |
+| policy_name |sträng |Namnet på en tidigare registrerad princip. Valfritt. |
 | allowed_track_types |räkning |SD_ONLY eller SD_HD. Styr vilka innehålls nycklar som ingår i en licens. |
 | content_key_specs |Matrisen med JSON-strukturer finns i avsnittet "innehålls nyckel-specifikationer".  |En detaljerad kontroll som visar vilka innehålls nycklar som ska returneras. Mer information finns i avsnittet "innehålls nyckel specifikationer". Det går bara att ange ett av värdena allowed_track_types och content_key_specs. |
 | use_policy_overrides_exclusively |Booleskt värde, sant eller falskt |Använd de principmallar som anges av policy_overrides och utelämna alla tidigare lagrade principer. |

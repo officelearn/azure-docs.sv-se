@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74951487"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar för Azure Cloud Shell
@@ -33,7 +32,7 @@ Datorn som tillhandahåller Cloud Shell-sessionen är temporär och återvinns n
 
 * Med monterad lagring sparas endast ändringar i `$Home` katalogen.
 * Azure-filresurser kan bara monteras inifrån din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * I bash kör `env` du för att hitta din regions `ACC_LOCATION`uppsättning som.
+  * I bash kör `env` du för att hitta din regions uppsättning som `ACC_LOCATION` .
 
 ### <a name="browser-support"></a>Stöd för webbläsare
 
@@ -45,7 +44,7 @@ Cloud Shell stöder de senaste versionerna av Microsoft Edge, Microsoft Internet
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>För en specifik användare kan endast ett gränssnitt vara aktivt
 
-Användare kan bara starta en typ av gränssnitt i taget, antingen **bash** eller **PowerShell**. Du kan dock ha flera instanser av bash eller PowerShell som körs samtidigt. Växling mellan bash eller PowerShell med hjälp av menyn leder till att Cloud Shell startas om, vilket avslutar befintliga sessioner. Du kan också köra bash i PowerShell genom att skriva `bash`, och du kan köra PowerShell inuti bash genom att `pwsh`skriva.
+Användare kan bara starta en typ av gränssnitt i taget, antingen **bash** eller **PowerShell**. Du kan dock ha flera instanser av bash eller PowerShell som körs samtidigt. Växling mellan bash eller PowerShell med hjälp av menyn leder till att Cloud Shell startas om, vilket avslutar befintliga sessioner. Du kan också köra bash i PowerShell genom att skriva `bash` , och du kan köra PowerShell inuti bash genom att skriva `pwsh` .
 
 ### <a name="usage-limits"></a>Användnings gränser
 
@@ -65,19 +64,19 @@ Var försiktig när du redigerar. bashrc eller PowerShell $PROFILE-filen. Detta 
 
 ### <a name="azuread-module-name"></a>`AzureAD`Modulnamn
 
-`AzureAD` Modulnamnet är för närvarande `AzureAD.Standard.Preview`samma funktion.
+`AzureAD`Modulnamnet är för närvarande `AzureAD.Standard.Preview` samma funktion.
 
 ### <a name="sqlserver-module-functionality"></a>`SqlServer`modul funktioner
 
-`SqlServer` Modulen som ingår i Cloud Shell har bara för hands versions stöd för PowerShell Core. I synnerhet `Invoke-SqlCmd` är det inte tillgängligt ännu.
+`SqlServer`Modulen som ingår i Cloud Shell har bara för hands versions stöd för PowerShell Core. I synnerhet `Invoke-SqlCmd` är det inte tillgängligt ännu.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standard fil Sök väg när den skapas från Azure Drive:
 
-Med hjälp av PowerShell-cmdlets kan användarna inte skapa filer under Azure: Drive. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano, sparas `$HOME` filerna som standard. 
+Med hjälp av PowerShell-cmdlets kan användarna inte skapa filer under Azure: Drive. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna som `$HOME` standard. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
-Om användaren kör ett kommando som skapar en fönster dialog ruta, ser ett fel meddelande, till exempel: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Om användaren kör ett kommando som skapar en fönster dialog ruta, ser ett fel meddelande, till exempel: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` .
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Stort mellanrum när förlopps indikatorn visas
 

@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
 ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75443589"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop för Windows-omstart på en virtuell Azure-dator
@@ -62,7 +61,7 @@ Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-
 
 4. På den rädda virtuella datorn öppnar du Windows Registereditorn (regedit).
 
-5. Välj **HKEY_LOCAL_MACHINE** nyckel och välj sedan **fil** > **inläsning Hive** på menyn.
+5. Välj **HKEY_LOCAL_MACHINE** nyckel och välj sedan **fil**  >  **inläsning Hive** på menyn.
 
 6. Bläddra till SYSTEM filen i mappen **\Windows\System32\config**
 
@@ -86,7 +85,7 @@ Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Välj nyckeln **BROKENSYSTEM** och välj sedan **Arkiv** > **ta bort Hive** från menyn.
+13. Välj nyckeln **BROKENSYSTEM** och välj sedan **Arkiv**  >  **ta bort Hive** från menyn.
 
 14. Koppla bort OS-disken från den virtuella fel söknings datorn.
 
@@ -94,7 +93,7 @@ Lös problemet genom att [säkerhetskopiera OS-disken](../windows/snapshot-copy-
 
 16. [Skapa en ny virtuell dator från OS-disken](../windows/create-vm-specialized.md).
 
-17. Om problemet är löst kan du behöva installera om [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent. exe).
+17. Om problemet är löst kan du behöva installera om [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 

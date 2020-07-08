@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75364313"
 ---
 # <a name="understand-autoscale-settings"></a>Förstå inställningarna för automatisk skalning
@@ -85,14 +84,14 @@ För att illustrera schemat för autoskalning av inställningar används följan
 }
 ```
 
-| Section | Elementnamn | Beskrivning |
+| Avsnitt | Elementnamn | Beskrivning |
 | --- | --- | --- |
-| Inställning | ID | Resurs-ID för den autoskalningsinställning. Inställningarna för autoskalning är en Azure Resource Manager resurs. |
-| Inställning | namn | Namnet på den automatiska skalnings inställningen. |
-| Inställning | location | Platsen för den automatiska skalnings inställningen. Den här platsen kan skilja sig från platsen för den resurs som skalas. |
+| Inställningen | ID | Resurs-ID för den autoskalningsinställning. Inställningarna för autoskalning är en Azure Resource Manager resurs. |
+| Inställningen | name | Namnet på den automatiska skalnings inställningen. |
+| Inställningen | location | Platsen för den automatiska skalnings inställningen. Den här platsen kan skilja sig från platsen för den resurs som skalas. |
 | properties | targetResourceUri | Resurs-ID för den resurs som skalas. Du kan bara ha en inställning för autoskalning per resurs. |
 | properties | filer | En inställning för autoskalning består av en eller flera profiler. Varje gången den automatiska skalnings motorn körs körs en profil. |
-| profil | namn | Namnet på profilen. Du kan välja ett namn som hjälper dig att identifiera profilen. |
+| profil | name | Namnet på profilen. Du kan välja ett namn som hjälper dig att identifiera profilen. |
 | profil | Kapacitet. maximum | Den maximalt tillåtna kapaciteten. Det säkerställer att den automatiska skalningen, när den här profilen körs, inte skalar din resurs ovanför det här talet. |
 | profil | Kapacitet. minimum | Den minsta tillåtna kapaciteten. Det säkerställer att den automatiska skalningen, när den här profilen körs, inte skalar din resurs under det här talet. |
 | profil | Kapacitet. standard | Om det uppstår problem med att läsa resurs måttet (i det här fallet är CPU: n för "vmss1") och den aktuella kapaciteten är lägre än standardinställningen, skalar automatiskt ut till standardvärdet. Detta är för att säkerställa resursens tillgänglighet. Om den aktuella kapaciteten redan är högre än standard kapaciteten skalas inte autoskalning i. |
@@ -301,7 +300,7 @@ Anta till exempel att det finns en skalnings uppsättning för virtuella datorer
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om autoskalning genom att referera till följande:
 
-* [Översikt över autoskalning](../../azure-monitor/platform/autoscale-overview.md)
+* [Översikt över automatisk skalning](../../azure-monitor/platform/autoscale-overview.md)
 * [Azure Monitor vanliga mått för autoskalning](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Metodtips för autoskalning i Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Använda åtgärder för autoskalning för att skicka aviseringar via e-post och webhook](../../azure-monitor/platform/autoscale-webhook-email.md)

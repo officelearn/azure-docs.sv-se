@@ -7,10 +7,9 @@ ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75351723"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Självstudie: Lär dig hur du uppgraderar ett Service Fabric program med hjälp av Visual Studio
@@ -47,25 +46,25 @@ När du skapar en Service Fabric nätapp lägger Visual Studio till en **Paramet
 
 Vi uppdaterar `WebFrontEnd_cpu` parametern för att uppdatera CPU-resurserna till `1.5` i förväntat att **webfrontend** -tjänsten kommer att användas mer kraftigt.
 
-1. I **todolistapp** -projektet, under **miljöer** > **Cloud**, öppnar du filen **Parameters. yaml** . Ändra värdet `WebFrontEnd_cpu`, värde till `1.5`. Parameter namnet föregås av tjänst namnet `WebFrontEnd_` som en bästa praxis att skilja den från parametrar med samma namn som gäller för olika tjänster.
+1. I **todolistapp** -projektet, under **miljöer**  >  **Cloud**, öppnar du filen **Parameters. yaml** . Ändra `WebFrontEnd_cpu` värdet, värde till `1.5` . Parameter namnet föregås av tjänst namnet `WebFrontEnd_` som en bästa praxis att skilja den från parametrar med samma namn som gäller för olika tjänster.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Öppna filen **service. yaml** för **webfrontend** -projekt under **webfrontend** > **service-resurser**.
+2. Öppna filen **service. yaml** för **webfrontend** -projekt under **webfrontend**  >  **service-resurser**.
 
-    Observera att avsnittet i `resources:` `cpu:` är inställt på `"[parameters('WebFrontEnd_cpu')]"`. Om projektet skapas `'WebFrontEnd_cpu` för molnet hämtas värdet för från **miljöns** > **Cloud** > **Parameters. yaml** -fil och kommer att vara. `1.5` Om projektet skapas för att köras lokalt hämtas värdet från **miljöns** > **lokala** > **parametrar. yaml** -fil och blir "0,5".
+    Observera att avsnittet i `resources:` `cpu:` är inställt på `"[parameters('WebFrontEnd_cpu')]"` . Om projektet skapas för molnet hämtas värdet för `'WebFrontEnd_cpu` från **miljöns**  >  **Cloud**  >  **Parameters. yaml** -fil och kommer att vara `1.5` . Om projektet skapas för att köras lokalt hämtas värdet från **miljöns**  >  **lokala**  >  **parametrar. yaml** -fil och blir "0,5".
 
 > [!Tip]
 > Som standard används parameter filen som är en peer i filen Profile. yaml för att ange värden för filen Profile. yaml.
 > Till exempel miljöer > Cloud > Parameters. yaml innehåller parameter värden för miljöer > Cloud > Profile. yaml.
 >
-> Du kan åsidosätta detta genom att lägga till följande i filen Profile. yaml`parametersFilePath=”relative or full path to the parameters file”` : till exempel `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` eller`parametersFilePath=”..\CommonParameters.yaml”`
+> Du kan åsidosätta detta genom att lägga till följande i filen Profile. yaml: till `parametersFilePath=”relative or full path to the parameters file”` exempel `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` eller`parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Ändra modellen
 
-Om du vill införa en kod ändring lägger `Category` du till en `ToDoItem` egenskap i- `ToDoItem.cs` klassen i filen.
+Om du vill införa en kod ändring lägger du till en egenskap i- `Category` `ToDoItem` klassen i `ToDoItem.cs` filen.
 
 ```csharp
 public class ToDoItem
@@ -93,7 +92,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 ## <a name="modify-the-service"></a>Ändra tjänsten
 
-`WebFrontEnd` Projektet är ett ASP.net Core program med en webb sida som visar objekt i att göra-listan. I `WebFrontEnd` projektet öppnar `Index.cshtml` du och lägger till följande två rader, som anges nedan, för att Visa uppgiftens kategori:
+`WebFrontEnd`Projektet är ett ASP.net Core program med en webb sida som visar objekt i att göra-listan. I `WebFrontEnd` projektet öppnar du `Index.cshtml` och lägger till följande två rader, som anges nedan, för att Visa uppgiftens kategori:
 
 ```HTML
 <div>

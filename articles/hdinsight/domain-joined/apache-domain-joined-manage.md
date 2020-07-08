@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: 93880269edd72477f3aa85b2dbdc9d9f3ec8ef25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75435880"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Hantera HDInsight-kluster med Enterprise Security Package
@@ -21,7 +20,7 @@ Lär dig mer om användare och roller i HDInsight Enterprise Security Package (E
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Använda VSCode för att länka till domänanslutna kluster
 
-Du kan länka ett vanligt kluster med hjälp av Apache Ambari-hanterat användar namn, även länka ett säkerhets Apache Hadoop kluster genom att använda domän `user1@contoso.com`användar namn (t. ex.:).
+Du kan länka ett vanligt kluster med hjälp av Apache Ambari-hanterat användar namn, även länka ett säkerhets Apache Hadoop kluster genom att använda domän användar namn (t. ex.: `user1@contoso.com` ).
 
 1. Öppna [Visual Studio Code](https://code.visualstudio.com/). Se till att tillägget [Spark & Hive tools](../hdinsight-for-vscode.md) är installerat.
 
@@ -29,7 +28,7 @@ Du kan länka ett vanligt kluster med hjälp av Apache Ambari-hanterat användar
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Använda IntelliJ för att länka till domänanslutna kluster
 
-Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar namn, även länka ett Hadoop-kluster med domän namn ( `user1@contoso.com`t. ex.:).
+Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar namn, även länka ett Hadoop-kluster med domän namn (t. ex.: `user1@contoso.com` ).
 
 1. Öppna IntelliJ IDEA. Se till att alla [krav](../spark/apache-spark-intellij-tool-plugin.md#prerequisites) är uppfyllda.
 
@@ -37,7 +36,7 @@ Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar n
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Använda Eclipse för att länka till domänanslutna kluster
 
-Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar namn, även länka ett Hadoop-kluster med domän namn ( `user1@contoso.com`t. ex.:).
+Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar namn, även länka ett Hadoop-kluster med domän namn (t. ex.: `user1@contoso.com` ).
 
 1. Öppna Eclipse. Se till att alla [krav](../spark/apache-spark-eclipse-tool-plugin.md#prerequisites) är uppfyllda.
 
@@ -87,7 +86,7 @@ Om du vill hitta det fullständigt kvalificerade domän namnet för en huvudnode
 
 Ett icke-ESP HDInsight-kluster har två användar konton som skapas när klustret skapas:
 
-- **Ambari-administratör**: det här kontot kallas även för *Hadoop-användare* eller *http-användare*. Detta konto kan användas för att logga in på Ambari på `https://CLUSTERNAME.azurehdinsight.net`. Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med Hive ODBC-drivrutin och BI-verktyg (till exempel Excel, Power BI eller Tableau).
+- **Ambari-administratör**: det här kontot kallas även för *Hadoop-användare* eller *http-användare*. Detta konto kan användas för att logga in på Ambari på `https://CLUSTERNAME.azurehdinsight.net` . Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med Hive ODBC-drivrutin och BI-verktyg (till exempel Excel, Power BI eller Tableau).
 
 Ett HDInsight-kluster med ESP har tre nya användare utöver Ambari-administratören.
 

@@ -7,10 +7,9 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75445136"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimera kostnaden för frågor i Azure Cosmos DB
@@ -33,7 +32,7 @@ Frågor som läser data från en eller flera partitioner medför högre latens o
 
 När du har lagrat några data i dina Azure Cosmos-behållare kan du använda Datautforskaren i Azure Portal för att skapa och köra dina frågor. Du kan också få kostnaden för frågorna genom att använda data Utforskaren. Med den här metoden får du en uppfattning om de faktiska avgifterna som ingår i vanliga frågor och åtgärder som systemet stöder.
 
-Du kan också få kostnaden för frågor via programmering med SDK: er. För att mäta omkostnader för en åtgärd, till exempel skapa, uppdatera eller ta bort `x-ms-request-charge` , inspekterar du sidhuvudet när du använder REST API. Om du använder .NET eller Java SDK är `RequestCharge` egenskapen motsvarande egenskap för att hämta begär ande avgiften och den här egenskapen finns i ResourceResponse eller FeedResponse.
+Du kan också få kostnaden för frågor via programmering med SDK: er. För att mäta omkostnader för en åtgärd, till exempel skapa, uppdatera eller ta bort, inspekterar du `x-ms-request-charge` sidhuvudet när du använder REST API. Om du använder .NET eller Java SDK `RequestCharge` är egenskapen motsvarande egenskap för att hämta begär ande avgiften och den här egenskapen finns i ResourceResponse eller FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 

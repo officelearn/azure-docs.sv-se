@@ -4,19 +4,18 @@ description: Beskriver hur manifest används för att beskriva Service Fabric-pr
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75349968"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric program-och tjänst manifest
-I den här artikeln beskrivs hur Service Fabric-program och-tjänster definieras och versions hantering med filerna ApplicationManifest. xml och ServiceManifest. xml.  Mer detaljerade exempel finns i [exempel på program-och tjänst manifest](service-fabric-manifest-examples.md).  XML-schemat för dessa MANIFEST-filer dokumenteras i [dokumentation om ServiceFabricServiceModel. xsd-schema](service-fabric-service-model-schema.md).
+I den här artikeln beskrivs hur Service Fabric-program och-tjänster definieras och versions hantering med hjälp av ApplicationManifest.xml-och ServiceManifest.xml-filer.  Mer detaljerade exempel finns i [exempel på program-och tjänst manifest](service-fabric-manifest-examples.md).  XML-schemat för dessa MANIFEST-filer dokumenteras i [dokumentation om ServiceFabricServiceModel. xsd-schema](service-fabric-service-model-schema.md).
 
 > [!WARNING]
 > Manifest-XML-filschemat tillämpar korrekt ordning för underordnade element.  Som en del lösning öppnar du "C:\Program\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" i Visual Studio när du redigerar eller ändrar något av de Service Fabric manifesten. På så sätt kan du kontrol lera ordningen för underordnade element och ger Intelli.
 
-## <a name="describe-a-service-in-servicemanifestxml"></a>Beskriv en tjänst i ServiceManifest. XML
+## <a name="describe-a-service-in-servicemanifestxml"></a>Beskriv en tjänst i ServiceManifest.xml
 Tjänst manifestet definierar tjänst typ och version. Den anger tjänstens metadata som tjänst typ, hälso egenskaper, belastnings Utjämnings mått, binärfiler för tjänster och konfigurationsfiler.  På ett annat sätt beskrivs kod, konfiguration och data paket som utgör ett tjänst paket som stöder en eller flera tjänst typer. Ett tjänst manifest kan innehålla flera kod-, konfigurations-och data paket, som kan vara versioner oberoende av varandra. Här är ett tjänst manifest för ASP.NET Core webb klient tjänst för [röstnings exempel programmet](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (och här följer några [mer detaljerade exempel](service-fabric-manifest-examples.md)):
 
 ```xml
@@ -65,7 +64,7 @@ Den körbara filen som anges av **EntryPoint** är vanligt vis den tids krävand
 
 Vanliga scenarier för att använda **SetupEntryPoint** är när du kör en körbar fil innan tjänsten startar eller om du utför en åtgärd med utökade privilegier. Ett exempel:
 
-* Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Detta är inte begränsat till enbart körbara filer som skrivits via Service Fabric programmerings modeller. NPM. exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett Node. js-program.
+* Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Detta är inte begränsat till enbart körbara filer som skrivits via Service Fabric programmerings modeller. npm.exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett node.js-program.
 * Konfigurera åtkomst kontroll genom att installera säkerhets certifikat.
 
 Mer information om hur du konfigurerar SetupEntryPoint finns i [Konfigurera principen för en start punkt för tjänst konfiguration](service-fabric-application-runas-security.md)
@@ -74,7 +73,7 @@ Mer information om hur du konfigurerar SetupEntryPoint finns i [Konfigurera prin
 
 **DataPackage** (inte inställt i föregående exempel) deklarerar en mapp, med **namnet av namnattributet,** som innehåller godtyckligt statiska data som ska konsumeras av processen vid körnings tillfället.
 
-**ConfigPackage** deklarerar en mapp som heter med **namnattributet,** som innehåller en *Settings. XML-* fil. Inställnings filen innehåller avsnitt av användardefinierad, nyckel värdes par inställningar som processen läser tillbaka vid körning. Om endast **ConfigPackage** - **versionen** har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Här är en exempel på *Inställningar. XML-* fil:
+**ConfigPackage** deklarerar en mapp som heter med **namnattributet,** som innehåller en *Settings.xml* -fil. Inställnings filen innehåller avsnitt av användardefinierad, nyckel värdes par inställningar som processen läser tillbaka vid körning. Om endast **ConfigPackage** - **versionen** har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Här är ett exempel på en *Settings.xml* -fil:
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -101,7 +100,7 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## <a name="describe-an-application-in-applicationmanifestxml"></a>Beskriv ett program i ApplicationManifest. XML
+## <a name="describe-an-application-in-applicationmanifestxml"></a>Beskriv ett program i ApplicationManifest.xml
 Program manifestet beskriver till exempel program typen och versionen. Den anger tjänstens sammansättnings-metadata, till exempel stabila namn, partitionerings schema, instans antal/replikeringsräknare, säkerhets-/isolerings princip, placerings begränsningar, konfigurations åsidosättningar och komponent tjänst typer. De belastnings Utjämnings domäner som programmet placeras i beskrivs också.
 
 Därför beskriver ett program manifest element på program nivå och refererar till ett eller flera tjänst manifest för att skapa en program typ. Här är applikations manifestet för [röstnings exempel programmet](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (och här följer några [mer detaljerade exempel](service-fabric-manifest-examples.md)):
@@ -151,7 +150,7 @@ Precis som tjänst manifest är **versions** -attribut ostrukturerade strängar 
 
 **Parametrar** definierar de parametrar som används i applikations manifestet. Värdena för dessa parametrar kan anges när programmet instansieras och kan åsidosätta program-eller tjänst konfigurations inställningar.  Standardvärdet för parametern används om värdet inte ändras när programmet instansieras. Information om hur du hanterar olika program-och tjänst parametrar för enskilda miljöer finns i [hantera program parametrar för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
 
-**Service manifest import** innehåller referenser till tjänst manifest som utgör den här program typen. Ett program manifest kan innehålla flera tjänst manifest importer, och var och en kan vara versions oberoende av varandra. Importerade tjänst manifest avgör vilka tjänst typer som är giltiga inom den här program typen. I service manifest import åsidosätter du konfigurations värden i Settings. xml-och miljövariabler i ServiceManifest. XML-filer. **Principer** (har inte angetts i föregående exempel) för slut punkts bindning, säkerhet och åtkomst och paket delning kan anges för importerade tjänst manifest.  Mer information finns i [Konfigurera säkerhets principer för ditt program](service-fabric-application-runas-security.md).
+**Service manifest import** innehåller referenser till tjänst manifest som utgör den här program typen. Ett program manifest kan innehålla flera tjänst manifest importer, och var och en kan vara versions oberoende av varandra. Importerade tjänst manifest avgör vilka tjänst typer som är giltiga inom den här program typen. I service manifest import åsidosätter du konfigurations värden i Settings.xml-och miljövariabler i ServiceManifest.xml filer. **Principer** (har inte angetts i föregående exempel) för slut punkts bindning, säkerhet och åtkomst och paket delning kan anges för importerade tjänst manifest.  Mer information finns i [Konfigurera säkerhets principer för ditt program](service-fabric-application-runas-security.md).
 
 **DefaultServices** deklarerar tjänst instanser som skapas automatiskt när ett program instansieras mot den här program typen. Standard tjänster är bara en bekvämlighet och fungerar som vanliga tjänster i alla avseenden när de har skapats. De uppgraderas tillsammans med andra tjänster i program instansen och kan också tas bort. Ett program manifest kan innehålla flera standard tjänster.
 

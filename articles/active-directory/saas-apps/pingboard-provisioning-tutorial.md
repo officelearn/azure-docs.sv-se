@@ -16,10 +16,9 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061283"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Pingboard för automatisk användar etablering
@@ -58,7 +57,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till Pingboard-A
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till Pingboard i Azure AD
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory** > **Enterprise Apps** > **alla program** .
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory**  >  **Enterprise Apps**  >  **alla program** .
 
 1. Om du redan har konfigurerat Pingboard för enkel inloggning söker du efter din instans av Pingboard med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **Pingboard** i program galleriet. Välj **Pingboard** från Sök resultaten och Lägg till den i listan över program.
 
@@ -70,11 +69,11 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till Pingboard-A
 
 1. Under avsnittet **admin-autentiseringsuppgifter** använder du följande steg:
 
-    a. I **klient webb adress**anger `https://your_domain.pingboard.com/scim/v2`du och ersätter "your_domain" med din riktiga domän.
+    a. I **klient webb adress**anger `https://your_domain.pingboard.com/scim/v2` du och ersätter "your_domain" med din riktiga domän.
 
     b. Logga in på [Pingboard](https://pingboard.com/) med ditt administratörs konto.
 
-    c. Välj **Add-Ons** > **integrerings** > **Azure Active Directory**för tillägg.
+    c. Välj **Add-Ons**  >  **integrerings**  >  **Azure Active Directory**för tillägg.
 
     d. Gå till fliken **Konfigurera** och välj **Aktivera användar etablering från Azure**.
 

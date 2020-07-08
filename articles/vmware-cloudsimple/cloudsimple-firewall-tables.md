@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025052"
 ---
 # <a name="firewall-tables-overview"></a>Översikt över brand Väggs tabeller
@@ -26,10 +25,10 @@ I följande tabell beskrivs parametrarna i en brand Väggs regel.
 | Egenskap | Information |
 | ---------| --------|
 | **Namn** | Ett namn som unikt identifierar brand Väggs regeln och dess syfte. |
-| **Förtur** | Ett tal mellan 100 och 4096, med 100 som högsta prioritet. Regler bearbetas i prioritetsordning. När trafiken påträffar en regel matchning stoppas regel bearbetningen. Därför bearbetas inte regler med lägre prioriteter som har samma attribut som regler med högre prioritet.  Ta hand om att undvika motstridiga regler. |
+| **Priority** | Ett tal mellan 100 och 4096, med 100 som högsta prioritet. Regler bearbetas i prioritetsordning. När trafiken påträffar en regel matchning stoppas regel bearbetningen. Därför bearbetas inte regler med lägre prioriteter som har samma attribut som regler med högre prioritet.  Ta hand om att undvika motstridiga regler. |
 | **Tillstånds spårning** | Spårning kan vara tillstånds lös (privat moln, Internet eller VPN) eller tillstånds känslig (offentlig IP).  |
-| **Protokollhanterare** | Alternativen omfattar alla, TCP eller UDP. Om du behöver ICMP använder du valfri. |
-| **Position** | Om regeln gäller för inkommande eller utgående trafik. |
+| **Protokoll** | Alternativen omfattar alla, TCP eller UDP. Om du behöver ICMP använder du valfri. |
+| **Riktning** | Om regeln gäller för inkommande eller utgående trafik. |
 | **Åtgärd** | Tillåt eller neka för den typ av trafik som definierats i regeln. |
 | **Källa** | En IP-adress, CIDR-block (Classless Inter-Domain routing) (endast 10.0.0.0/24, till exempel) eller någon.  Genom att ange ett intervall, ett service tag eller en program säkerhets grupp kan du skapa färre säkerhets regler. |
 | **Källport** | Port som nätverks trafiken kommer från.  Du kan ange en enskild port eller ett port intervall, till exempel 443 eller 8000-8080. Om du anger intervall behöver du inte skapa lika många säkerhetsregler. |
@@ -53,7 +52,7 @@ Det kan krävas ytterligare regler för trafikflöde i omvänd riktning.  Använ
 
 Följande standard regler skapas i alla brand Väggs tabeller.
 
-|Prioritet|Name|Tillstånds spårning|Riktning|Trafik typ|Protokoll|Källa|Källport|Mål|Målport|Action|
+|Prioritet|Name|Tillstånds spårning|Riktning|Trafik typ|Protokoll|Källa|Källport|Mål|Målport|Åtgärd|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|Tillåt-allt-till-Internet|Tillståndskänslig|Utgående|Offentlig IP-eller Internet trafik|Alla|Alla|Alla|Alla|Alla|Tillåt|
 |65001|neka-alla-från-Internet|Tillståndskänslig|Inkommande|Offentlig IP-eller Internet trafik|Alla|Alla|Alla|Alla|Alla|Neka|

@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057846"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ett nät för automatisk användar etablering
@@ -53,7 +52,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering ska du best�
 
 ## <a name="set-up-harness-for-provisioning"></a>Konfigurera ett nät för etablering
 
-1. Logga in på din- [administrations konsol](https://app.harness.io/#/login)och gå sedan till **kontinuerlig** > **hantering**av säkerhets åtkomst.
+1. Logga in på din- [administrations konsol](https://app.harness.io/#/login)och gå sedan till **kontinuerlig**  >  **hantering**av säkerhets åtkomst.
 
     ![Nät administrations konsol](media/harness-provisioning-tutorial/admin.png)
 
@@ -86,7 +85,7 @@ Innan du konfigurerar ett nät för automatisk användar etablering med Azure AD
 
     ![Knappen "Azure Active Directory"](common/select-azuread.png)
 
-1. Välj **företags program** > **alla program**.
+1. Välj **företags program**  >  **alla program**.
 
     ![Länken alla program](common/enterprise-applications.png)
 
@@ -110,7 +109,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Gör så här för att konfigurera automatisk användar etablering för nät i Azure AD:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **företags program** > **alla program**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **företags program**  >  **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -130,7 +129,7 @@ Gör så här för att konfigurera automatisk användar etablering för nät i A
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. I rutan **klient webb adress** anger **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** du.  
+   a. I rutan **klient webb adress** anger du **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
    b. I rutan **hemlig token** anger du värdet för scim-autentisering som du sparade i steg 6 i avsnittet "Konfigurera ett nät för etablering".  
    c. Välj **Testa anslutning** för att se till att Azure AD kan ansluta till nätet. Om anslutningen Miss lyckas kontrollerar du att ditt konto för ditt konto har *Administratörs* behörighet och försöker sedan igen.
 

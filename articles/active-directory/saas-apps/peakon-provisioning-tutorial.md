@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
 ms.openlocfilehash: 0a67dc8069ee71305a47bd5d2a724a61cec234a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063420"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Peakon för automatisk användar etablering
@@ -147,7 +146,7 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* Alla anpassade användarattribut i Peakon måste utökas från peakons anpassade SCIM User-tillägg `urn:ietf:params:scim:schemas:extension:peakon:2.0:User`.
+* Alla anpassade användarattribut i Peakon måste utökas från peakons anpassade SCIM User-tillägg `urn:ietf:params:scim:schemas:extension:peakon:2.0:User` .
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064206"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Wrike för automatisk användar etablering
@@ -68,7 +67,7 @@ Innan du konfigurerar Wrike för automatisk användar etablering med Azure AD m�
 
     ![Grundläggande URL](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
 
-4. Välj **API** > **Azure-scim**.
+4. Välj **API**  >  **Azure-scim**.
 
     ![Azure-SCIM](media/Wrike-provisioning-tutorial/Wrike-add-scim.png)
 
@@ -113,7 +112,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Konfigurera automatisk användar etablering för Wrike i Azure AD
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program** > **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**  >  **alla program**.
 
     ![Alla program](common/enterprise-applications.png)
 

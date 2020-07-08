@@ -8,10 +8,9 @@ ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062157"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
@@ -44,7 +43,7 @@ Mer information om hur Azure Analysis Services fungerar med gatewayen finns i [a
 * Logga in på Azure med ett konto i Azure AD för samma [klient organisation](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) som den prenumeration som du registrerar gatewayen i. Konton för Azure B2B (gäst) stöds inte när du installerar och registrerar en gateway.
 * Om data källor finns på ett Azure-Virtual Network (VNet) måste du konfigurera egenskapen [AlwaysUseGateway](analysis-services-vnet-gateway.md) Server.
 
-## <a name="download"></a><a name="download"></a>Hämta
+## <a name="download"></a><a name="download"></a>Ladda ned
 
  [Hämta gatewayen](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
@@ -67,7 +66,7 @@ Mer information om hur Azure Analysis Services fungerar med gatewayen finns i [a
    > [!NOTE]
    > Om du loggar in med ett domän konto mappas det till ditt organisations konto i Azure AD. Ditt organisations konto används som gateway-administratör.
 
-## <a name="register"></a><a name="register"></a>Registrera
+## <a name="register"></a><a name="register"></a>Registrera dig
 
 För att kunna skapa en gateway-resurs i Azure måste du registrera den lokala instansen som du installerade med Gateway-moln tjänsten. 
 
@@ -125,10 +124,10 @@ När du har installerat och registrerat din gateway måste du skapa en gateway-r
 
     ![Anslutning av server till gateway-resurs lyckades](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-Klart! Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
+Och sedan är du klar. Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Manage Analysis Services](analysis-services-manage.md)   
+* [Hantera Analysis Services](analysis-services-manage.md)   
 * [Hämta data från Azure Analysis Services](analysis-services-connect.md)   
 * [Använda gateway för datakällor på ett virtuellt Azure-nätverk](analysis-services-vnet-gateway.md)

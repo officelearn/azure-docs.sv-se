@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 00348d36c38fdbfdf69a2e4e80a4c720268b40c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025375"
 ---
 # <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>Hantera konton på Azure VMware-lösningen från CloudSimple-portalen
@@ -35,6 +34,6 @@ Klicka på **X**om du vill ta bort en post.
 
 ## <a name="cloudsimple-operator-access"></a>Åtkomst till CloudSimple-operatör
 
-Med åtkomst inställningen operatör kan CloudSimple hjälpa dig med fel sökning genom att tillåta en support tekniker att logga in på din CloudSimple-Portal.  Inställningen är aktive rad som standard. Alla åtgärder som utförs av support teknikern när de är inloggade på ditt kund konto registreras och är tillgängliga för din granskning på sidan **aktivitets** > **granskning** .
+Med åtkomst inställningen operatör kan CloudSimple hjälpa dig med fel sökning genom att tillåta en support tekniker att logga in på din CloudSimple-Portal.  Inställningen är aktive rad som standard. Alla åtgärder som utförs av support teknikern när de är inloggade på ditt kund konto registreras och är tillgängliga för din granskning på sidan **aktivitets**  >  **granskning** .
 
 Klicka på **CloudSimple operatörs åtkomst aktive rad** växla för att aktivera eller inaktivera åtkomst.

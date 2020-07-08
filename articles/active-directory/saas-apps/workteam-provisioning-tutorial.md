@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: e9b1e93cf543836b282525c53756752630d5e4f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062814"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Självstudie: Konfigurera Workteam för automatisk användar etablering
@@ -56,7 +55,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 Innan du konfigurerar Workteam för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på Workteam.
 
-1. Logga in på [Workteam](https://app.workte.am/account/signin). Klicka på**Inställningar**för **organisations inställningar** > .
+1. Logga in på [Workteam](https://app.workte.am/account/signin). Klicka på Inställningar för **organisations inställningar**  >  **SETTINGS**.
 
     ![Workteam](media/workteam-provisioning-tutorial/settings.png)
 

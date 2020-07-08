@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019408"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutnings-och nätverks problem för Azure Cloud Services: vanliga frågor och svar
@@ -38,7 +37,7 @@ Lägg till regler i NSG som tillåter trafik på portarna **3389** och **20000**
 
 Nej, inte med det normala "ping"/ICMP-protokollet. ICMP-protokollet tillåts inte via Azure Load Balancer.
 
-För att testa anslutningen rekommenderar vi att du gör ett port-ping. Medan ping. exe använder ICMP kan du använda andra verktyg, till exempel PSPing, nmap och Telnet, för att testa anslutningen till en angiven TCP-port.
+För att testa anslutningen rekommenderar vi att du gör ett port-ping. Medan Ping.exe använder ICMP kan du använda andra verktyg, till exempel PSPing, nmap och Telnet, för att testa anslutningen till en angiven TCP-port.
 
 Mer information finns i [använda ping i Port i stället för ICMP för att testa Azure VM-anslutning](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
 
@@ -65,14 +64,14 @@ Den distributionsmapp som används är en 5-tupel (käll-IP, källport, mål-IP,
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Hur kan jag omdirigera inkommande trafik till standard-URL: en för min moln tjänst till en anpassad URL?
 
-URL-modulen för att skriva över IIS kan användas för att omdirigera trafik som kommer till standard-URL: en för moln tjänsten (till \*exempel. cloudapp.net) till en viss anpassad namn/URL. Eftersom modulen URL-omskrivning är aktive rad på webb roller som standard och dess regler har kon figurer ATS i programmets Web. config, är den alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningar. Mer information finns i:
+URL-modulen för att skriva över IIS kan användas för att omdirigera trafik som kommer till standard-URL: en för moln tjänsten (till exempel \* . cloudapp.net) till en viss anpassad namn/URL. Eftersom modulen URL-omskrivning är aktive rad på webb roller som standard och dess regler har kon figurer ATS i programmets web.config, är den alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningar. Mer information finns i:
 
 - [Skapa omskrivnings regler för modulen för att skriva över URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Ta bort en standard länk](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Hur kan jag blockera/inaktivera inkommande trafik till standard-URL: en för min moln tjänst?
 
-Du kan förhindra inkommande trafik till standard-URL: en/namnet på din moln tjänst (till \*exempel. cloudapp.net). Ange värd rubriken till ett anpassat DNS-namn (t. ex.\.www-MyCloudService.com) under plats bindnings konfigurationen i moln tjänst definitions filen (*. csdef), enligt beskrivningen:
+Du kan förhindra inkommande trafik till standard-URL: en/namnet på din moln tjänst (till exempel \* . cloudapp.net). Ange värd rubriken till ett anpassat DNS-namn (t. ex. www \. -MyCloudService.com) under plats bindnings konfigurationen i moln tjänst definitions filen (*. csdef), enligt beskrivningen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

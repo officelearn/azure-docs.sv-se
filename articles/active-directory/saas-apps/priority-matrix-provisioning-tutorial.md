@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/08/2019
 ms.author: Zhchia
 ms.openlocfilehash: 80ffaba6713027d216958e0be2cd4ae35a8d2d70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063483"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Självstudie: Konfigurera prioritets mat ris för automatisk användar etablering

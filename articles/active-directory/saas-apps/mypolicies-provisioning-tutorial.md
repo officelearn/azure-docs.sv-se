@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 353da826b6e339d40a5d85bbf63caac5bf7094f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061377"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Självstudie: konfigurera principer för automatisk användar etablering
@@ -107,8 +106,8 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin-autentiseringsuppgifter** , inmatat `https://<myPoliciesCustomDomain>.mypolicies.com/scim` i klient `<myPoliciesCustomDomain>` - **URL** , där är den anpassade domänen för principer. Du kan hämta din kund domän för principer från din URL.
-Exempel: `<demo0-qa>`. mypolicies.com.
+5. Under avsnittet **admin-autentiseringsuppgifter** , inmatat `https://<myPoliciesCustomDomain>.mypolicies.com/scim` i **klient-URL** , där `<myPoliciesCustomDomain>` är den anpassade domänen för principer. Du kan hämta din kund domän för principer från din URL.
+Exempel: `<demo0-qa>` . mypolicies.com.
 
 6. I **hemlig token**anger du det token-värde som hämtades tidigare. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till principer. Om anslutningen Miss lyckas kontrollerar du att kontot för ditt principer har administratörs behörighet och försöker igen.
 

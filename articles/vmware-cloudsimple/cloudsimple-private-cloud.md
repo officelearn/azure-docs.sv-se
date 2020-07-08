@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024966"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Översikt över CloudSimple privata moln
@@ -46,7 +45,7 @@ CloudSimple hanterar infrastrukturen och alla nödvändiga nätverks-och hanteri
 * Programetablering
 * Verksamhetskontinuitet
 * Support
-* Policyframtvingande
+* Principtillämpning
 
 ## <a name="private-cloud-environment-overview"></a>Översikt över privat moln miljö
 

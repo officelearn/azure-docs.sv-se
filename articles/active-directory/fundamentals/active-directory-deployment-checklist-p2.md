@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063653"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Distributions guide för Azure Active Directory funktion
@@ -33,7 +32,7 @@ Många av rekommendationerna i den här hand boken kan implementeras med Azure A
 Ytterligare information om licensiering finns på följande sidor:
 
 * [Azure AD-licensiering](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Microsoft 365 Företag](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
+* [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Vägledning för Azure AD B2B-licensiering](../b2b/licensing-guidance.md)
 
@@ -41,7 +40,7 @@ Ytterligare information om licensiering finns på följande sidor:
 
 I den här fasen aktiverar administratörer grundläggande säkerhets funktioner för att skapa en säkrare och lättanvänd grund i Azure AD innan vi importerar eller skapar vanliga användar konton. Den här grundläggande fasen säkerställer att du befinner dig i ett säkrare tillstånd från start och att dina slutanvändare bara behöver introduceras för nya koncept en gång.
 
-| Aktivitet | Information | Nödvändig licens |
+| Uppgift | Detalj | Nödvändig licens |
 | ---- | ------ | ---------------- |
 | [Ange mer än en global administratör](../users-groups-roles/directory-emergency-access.md) | Tilldela minst två permanenta globala administratörs konton för enbart molnet som ska användas om det finns en nöd situation. Dessa konton används inte dagligen och bör ha långa och komplexa lösen ord. | Azure AD Kostnadsfri |
 | [Använd icke-globala administrativa roller där det är möjligt](../users-groups-roles/directory-assign-admin-roles.md) | Ge dina administratörer bara den åtkomst som de behöver för att komma åt de områden som de behöver åtkomst till. Alla administratörer behöver inte vara globala administratörer. | Azure AD Kostnadsfri |
@@ -62,7 +61,7 @@ I den här fasen aktiverar administratörer grundläggande säkerhets funktioner
 
 Därefter lägger vi till den grund som anges i fas 1 genom att importera våra användare och aktivera synkronisering, planera för gäst åtkomst och förbereda stöd för ytterligare funktioner.
 
-| Aktivitet | Information | Nödvändig licens |
+| Uppgift | Detalj | Nödvändig licens |
 | ---- | ------ | ---------------- |
 | [Installera Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Förbered för att synkronisera användare från din befintliga lokala katalog till molnet. | Azure AD Kostnadsfri |
 | [Implementera hash-synkronisering av lösen ord](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synkronisera lösen ords-hashar för att tillåta att lösen ords ändringar replikeras, felaktig identifiering av lösen ord och reparation och läckta autentiseringsuppgifter rapporteras. | Azure AD Kostnadsfri |
@@ -78,7 +77,7 @@ Därefter lägger vi till den grund som anges i fas 1 genom att importera våra 
 
 Som vi fortsätter att bygga på föregående faser identifierar vi kandidat program för migrering och integrering med Azure AD och slutför installationen av programmen.
 
-| Aktivitet | Information | Nödvändig licens |
+| Uppgift | Detalj | Nödvändig licens |
 | ---- | ------ | ---------------- |
 | Identifiera dina program | Identifiera program som används i din organisation: lokalt, SaaS program i molnet och andra branschspecifika program. Ta reda på om dessa program kan och bör hanteras med Azure AD. | Ingen licens krävs |
 | [Integrera SaaS-program som stöds i galleriet](../manage-apps/add-application-portal.md) | Azure AD har ett galleri som innehåller tusentals förintegrerade program. Några av de program som organisationen använder är förmodligen i galleriet tillgängligt direkt från Azure Portal. | Azure AD Kostnadsfri |
@@ -88,7 +87,7 @@ Som vi fortsätter att bygga på föregående faser identifierar vi kandidat pro
 
 Fas 4 ser att administratörer tillämpar principer för minsta behörighet för administration, slutför sina första åtkomst granskningar och aktiverar automatisering av vanliga aktiviteter för användar livs cykeln.
 
-| Aktivitet | Information | Nödvändig licens |
+| Uppgift | Detalj | Nödvändig licens |
 | ---- | ------ | ---------------- |
 | [Använd Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Ta bort administrativa roller från vanliga dagar till dags användar konton. Gör administrativa användare berättigade att använda sina roller efter att ha slutfört en Multi-Factor Authentication-kontroll, ange en affärs motivering eller begära godkännande från angivna god kännare. | Azure AD Premium P2 |
 | [Slutför en åtkomst granskning för Azure AD Directory-roller i PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Arbeta med dina säkerhets-och ledarskaps grupper för att skapa en åtkomst gransknings princip för att granska administrativ åtkomst baserat på organisationens principer. | Azure AD Premium P2 |

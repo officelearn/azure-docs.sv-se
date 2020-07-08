@@ -17,10 +17,9 @@ ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abeac030db419f7fb7d561df5dcd407684f20ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058939"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudie: Konfigurera asana för automatisk användar etablering
@@ -59,7 +58,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till asana-API f
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till asana i Azure AD
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory** > **Enterprise Apps** > **alla program** .
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory**  >  **Enterprise Apps**  >  **alla program** .
 
 1. Om du redan har konfigurerat asana för enkel inloggning söker du efter din instans av asana med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **asana** i program galleriet. Välj **asana** från Sök resultaten och Lägg till den i listan över program.
 

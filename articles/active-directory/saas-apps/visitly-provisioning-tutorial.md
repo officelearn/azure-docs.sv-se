@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063180"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Självstudie: Konfigurera besök för automatisk användar etablering
@@ -56,7 +55,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bestämmer d
 
 Innan du konfigurerar för automatisk användar etablering med Azure AD måste du aktivera system för SCIM-etablering (Cross-Domain Identity Management) på plats.
 
-1. Logga in för att [besöka](https://app.visitly.io/login). Välj synkronisering av **integrations** > **värden**.
+1. Logga in för att [besöka](https://app.visitly.io/login). Välj synkronisering av **integrations**  >  **värden**.
 
     ![Synkronisering av värd](media/Visitly-provisioning-tutorial/login.png)
 
@@ -100,7 +99,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Konfigurera automatisk användar etablering för besök i Azure AD
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program** > **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**  >  **alla program**.
 
     ![Alla program](common/enterprise-applications.png)
 
@@ -116,7 +115,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etablerings läge inställt på automatiskt](common/provisioning-automatic.png)
 
-5. Under avsnittet admin `https://api.visitly.io/v1/usersync/SCIM` credentials måste du skriva in **API-nyckelvärdena** som hämtades tidigare i klient- **URL** respektive **hemlig token**. Välj **Testa anslutning** för att säkerställa att Azure AD kan ansluta till den. Om anslutningen Miss lyckas måste du kontrol lera att ditt konto för besöks konto har administratörs behörighet och försök igen.
+5. Under avsnittet admin credentials måste du skriva `https://api.visitly.io/v1/usersync/SCIM` in **API-nyckelvärdena** som hämtades tidigare i **klient-URL** respektive **hemlig token**. Välj **Testa anslutning** för att säkerställa att Azure AD kan ansluta till den. Om anslutningen Miss lyckas måste du kontrol lera att ditt konto för besöks konto har administratörs behörighet och försök igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 

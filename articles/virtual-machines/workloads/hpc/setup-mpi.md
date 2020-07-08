@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77023998"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Konfigurera Message Passing Interface för HPC
@@ -120,7 +119,7 @@ Följ installations processen.
 
 [Hämta Intel-MPI](https://software.intel.com/mpi-library/choose-download).
 
-Ändra I_MPI_FABRICS-miljövariabeln beroende på version. För Intel MPI 2018 använder `I_MPI_FABRICS=shm:ofa` du och för 2019. `I_MPI_FABRICS=shm:ofi`
+Ändra I_MPI_FABRICS-miljövariabeln beroende på version. För Intel MPI 2018 använder du `I_MPI_FABRICS=shm:ofa` och för 2019 `I_MPI_FABRICS=shm:ofi` .
 
 Processen att fästa fungerar korrekt för 15, 30 och 60 PPN som standard.
 
@@ -141,7 +140,7 @@ CC=<mpi-install-path/bin/mpicc>CXX=<mpi-install-path/bin/mpicxx> ./configure
 make
 ```
 
-MPI-benchmarks finns `mpi/` i mappen.
+MPI-benchmarks finns i `mpi/` mappen.
 
 
 ## <a name="discover-partition-keys"></a>Identifiera partitionerings nycklar

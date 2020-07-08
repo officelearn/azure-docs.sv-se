@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: fbd105ca1623512a3c16f3b609374f5c4055898b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063129"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Symantec Web Security Service (WSS) för automatisk användar etablering
@@ -56,11 +55,11 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 Innan du konfigurerar Symantec Web Security Service (WSS) för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering i Symantec Web Security Service (WSS).
 
-1. Logga in på [administrations konsolen för Symantec Web Security Service](https://portal.threatpulse.com/login.jsp). Gå till **lösnings** > **tjänsten**.
+1. Logga in på [administrations konsolen för Symantec Web Security Service](https://portal.threatpulse.com/login.jsp). Gå till **lösnings**  >  **tjänsten**.
 
     ![Symantec Web Security Service (WSS)](media/symantec-web-security-service/service.png)
 
-2. Navigera till **konto underhålls** > **integration** > **ny integrering**.
+2. Navigera till **konto underhålls**  >  **integration**  >  **ny integrering**.
 
     ![Symantec Web Security Service (WSS)](media/symantec-web-security-service/acount.png)
 

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063789"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Fel söknings fel: "Körmiljö för Azure Functions kan inte kontaktas"
@@ -44,7 +43,7 @@ I föregående steg, om du inte kan hitta någon anslutnings sträng för lagrin
 
 Mer information finns i [referens för app-inställningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
 
-### <a name="guidance"></a>Riktlinjer
+### <a name="guidance"></a>Vägledning
 
 * Kontrol lera inte "plats inställning" för någon av dessa inställningar. Om du växlar distributions platser bryts funktionens app.
 * Ändra inte inställningarna som en del av automatiserade distributioner.
@@ -66,7 +65,7 @@ Din Function-app måste kunna komma åt lagrings kontot. Vanliga problem som blo
 
 Om du har konfigurerat en daglig körnings kvot inaktive ras funktions appen tillfälligt, vilket gör att många av Portal kontrollerna blir otillgängliga. 
 
-Om du vill verifiera kvoten i [Azure Portal](https://portal.azure.com)väljer du **plattforms funktioner** > **Funktionsapp inställningar** i din Function-app. Om du är över den **dagliga användnings kvoten** som du har angett visas följande meddelande:
+Om du vill verifiera kvoten i [Azure Portal](https://portal.azure.com)väljer du **plattforms funktioner**  >  **Funktionsapp inställningar** i din Function-app. Om du är över den **dagliga användnings kvoten** som du har angett visas följande meddelande:
 
   > "Funktionsapp har nått kvoten för daglig användning och har stoppats till nästa tidsram på 24 timmar."
 

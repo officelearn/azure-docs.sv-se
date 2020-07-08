@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77050010"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicera Azure Media Services innehåll med REST 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
-> * [Portalen](media-services-portal-publish.md)
+> * [Portal](media-services-portal-publish.md)
 > 
 > 
 
@@ -46,7 +45,7 @@ I [följande](#types) avsnitt visas de uppräknings typer vars värden används 
 Information om hur du ansluter till AMS-API: et finns i [komma åt Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->När du har anslutit https://media.windows.nettill visas en 301-omdirigering som anger en annan Media Services-URI. Du måste göra efterföljande anrop till den nya URI: n.
+>När du har anslutit till visas https://media.windows.net en 301-omdirigering som anger en annan Media Services-URI. Du måste göra efterföljande anrop till den nya URI: n.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Skapa en lokaliserare för OnDemand-direktuppspelning
 Om du vill skapa en OnDemand streaming-positionerare och hämta URL: er måste du göra följande:

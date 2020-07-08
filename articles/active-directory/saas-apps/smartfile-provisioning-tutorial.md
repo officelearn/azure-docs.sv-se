@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: b113cc27195b2ce954d677ab0f1ec83e394946be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060243"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Självstudie: Konfigurera SmartFile för automatisk användar etablering
@@ -113,7 +112,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5.  Under avsnittet **admin credentials** , inmatat `https://<SmartFile sitename>.smartfile.com/ftp/scim` i **klient-URL**. Ett exempel skulle se ut `https://demo1test.smartfile.com/ftp/scim`. Ange värdet för **Bearer-token** (ProductKey: ProductPassword) som du hämtade tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till SmartFile. Om anslutningen Miss lyckas kontrollerar du att SmartFile-kontot har administratörs behörighet och försöker igen.
+5.  Under avsnittet **admin credentials** , inmatat `https://<SmartFile sitename>.smartfile.com/ftp/scim` i **klient-URL**. Ett exempel skulle se ut `https://demo1test.smartfile.com/ftp/scim` . Ange värdet för **Bearer-token** (ProductKey: ProductPassword) som du hämtade tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till SmartFile. Om anslutningen Miss lyckas kontrollerar du att SmartFile-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 

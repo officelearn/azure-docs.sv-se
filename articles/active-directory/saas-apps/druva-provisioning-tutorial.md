@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 3d1bb0bcbc0df98d7a884004cf96fe9810589185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058118"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Självstudie: Konfigurera druva för automatisk användar etablering
@@ -60,7 +59,7 @@ Innan du konfigurerar druva för automatisk användar etablering med Azure AD m�
 
     ![Druva-administratörskonsolen](media/druva-provisioning-tutorial/menubar.png)
 
-2. Navigera till **Hantera** > **distributioner** > -**användare**.
+2. Navigera till **Hantera**  >  **distributioner**-  >  **användare**.
 
     ![Druva Lägg till SCIM](media/druva-provisioning-tutorial/manage.png)
 
@@ -119,7 +118,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5.  Under avsnittet admin credentials, inmatat `https://apis.druva.com/insync/scim` i klient- **URL**. Mata in **token för autentisering** i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till druva. Om anslutningen Miss lyckas kontrollerar du att druva-kontot har administratörs behörighet och försöker igen.
+5.  Under avsnittet admin credentials, inmatat `https://apis.druva.com/insync/scim` i **klient-URL**. Mata in **token för autentisering** i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till druva. Om anslutningen Miss lyckas kontrollerar du att druva-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 

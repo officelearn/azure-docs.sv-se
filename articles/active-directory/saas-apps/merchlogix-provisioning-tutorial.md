@@ -17,10 +17,9 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4aa60fb565552961a3c85346c39c318a90c8adc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061343"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Självstudie: Konfigurera MerchLogix för automatisk användar etablering
@@ -48,7 +47,7 @@ Innan du konfigurerar MerchLogix för automatisk användar etablering med Azure 
 
     ![Azure Active Directory-knappen][1]
 
-2. Navigera till **företags program** > **alla program**.
+2. Navigera till **företags program**  >  **alla program**.
 
     ![Avsnittet företags program][2]
 

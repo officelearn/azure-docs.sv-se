@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: cd7aae05b064657c7b9072402f4bc4d4d7fef7a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057922"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Självstudie: Konfigurera flock för automatisk användar etablering
@@ -56,7 +55,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 Innan du konfigurerar flock för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på flock.
 
-1. Logga in i [flock](https://web.flock.com/?). Klicka på **Inställningar-ikonen** > **Hantera ditt team**.
+1. Logga in i [flock](https://web.flock.com/?). Klicka på **Inställningar-ikonen**  >  **Hantera ditt team**.
 
     ![Flock](media/flock-provisioning-tutorial/icon.png)
 
@@ -116,7 +115,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet admin credentials `https://api.flock-staging.com/v2/scim` måste du skriva in och API- **token** som hämtades tidigare i klient- **URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till flock. Om anslutningen Miss lyckas kontrollerar du att ditt flock-konto har administratörs behörighet och försöker igen.
+5. Under avsnittet admin credentials måste du skriva in `https://api.flock-staging.com/v2/scim` och **API-token** som hämtades tidigare i **klient-URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till flock. Om anslutningen Miss lyckas kontrollerar du att ditt flock-konto har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 

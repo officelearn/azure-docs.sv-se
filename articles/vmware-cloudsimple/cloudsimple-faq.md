@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025069"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Vanliga frågor om VMware-lösning av CloudSimple
@@ -150,7 +149,7 @@ CloudSimple utför inte uppgraderingar eller uppdateringar av program som är in
 
 **Vilka Azure-tjänster stöds?**
 
-CloudSimple tillhandahåller en Azure ExpressRoute-anslutning till din prenumeration på Azure.  Alla tjänster som körs i din prenumeration kan ansluta till ditt privata moln.  Exempel på rekommendationer:
+CloudSimple tillhandahåller en Azure ExpressRoute-anslutning till din prenumeration på Azure.  Alla tjänster som körs i din prenumeration kan ansluta till ditt privata moln.  Exempel:
 
 * **Azure Active Directory** som identitets källa för CloudSimple vCenter.
 * **Azure Storage** för lagring av säkerhets kopior, avbildningar och andra data från ditt privata moln.

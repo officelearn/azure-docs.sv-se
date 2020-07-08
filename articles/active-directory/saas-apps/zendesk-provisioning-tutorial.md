@@ -17,10 +17,9 @@ ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a480119ee88521b920be88669f6d80e3754d24d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062763"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zendesk för automatisk användar etablering
@@ -83,7 +82,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Konfigurera automatisk användar etablering för Zendesk i Azure AD
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program** > **alla program** > **Zendesk**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**  >  **alla program**  >  **Zendesk**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -105,9 +104,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
    * I rutan **hemlig token** fyller du i den hemliga token enligt beskrivningen i steg 6.
 
-   * I rutan **domän** fyller du i under domänen för din Zendesk-klient. Till exempel för ett konto med en klient-URL för `https://my-tenant.zendesk.com`är din under domän **min-klient**.
+   * I rutan **domän** fyller du i under domänen för din Zendesk-klient. Till exempel för ett konto med en klient-URL för `https://my-tenant.zendesk.com` är din under domän **min-klient**.
 
-6. Den hemliga token för ditt Zendesk-konto finns i **Administration** > **API** > -**Inställningar**. Kontrol lera att **token-åtkomst** är **aktive rad**.
+6. Den hemliga token för ditt Zendesk-konto finns i **Administration**  >  **API**-  >  **Inställningar**. Kontrol lera att **token-åtkomst** är **aktive rad**.
 
     ![Zendesk administratörs inställningar](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 

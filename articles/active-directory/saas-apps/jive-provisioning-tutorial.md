@@ -16,10 +16,9 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602eed65745eea1fd9096508c442a27ea79bcba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057742"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Självstudie: Konfigurera jives för automatisk användar etablering
@@ -80,7 +79,7 @@ Som en del av den här proceduren måste du ange en säkerhetstoken för använd
       
       > [!NOTE]
       > Jives-klientens URL är URL som används av din organisation för att logga in på jives.  
-      > URL: en har vanligt vis följande format: **www.\< organisation\>. Jive.com**.          
+      > URL: en har vanligt vis följande format: **www. \<organization\> . jive.com**.          
 
 1. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din jives-app.
 

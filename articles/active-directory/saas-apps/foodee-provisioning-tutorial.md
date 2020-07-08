@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057836"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en livsmedelsingrediens för automatisk användar etablering
@@ -79,7 +78,7 @@ Gör så här om du vill lägga till en livsmedelsingrediens från Azure AD-prog
 
     ![Kommandot Azure Active Directory](common/select-azuread.png)
 
-1. Välj **företags program** > **alla program**.
+1. Välj **företags program**  >  **alla program**.
 
     ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
@@ -100,7 +99,7 @@ I det här avsnittet konfigurerar du Azure AD Provisioning-tjänsten för att sk
 
 Konfigurera automatisk användar etablering för näring i Azure AD genom att göra följande:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **företags program** > **alla program**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **företags program**  >  **alla program**.
 
     ![Fönstret företags program](common/enterprise-applications.png)
 
@@ -118,7 +117,7 @@ Konfigurera automatisk användar etablering för näring i Azure AD genom att g�
 
 1. Under **admin-autentiseringsuppgifter**gör du följande:
 
-   a. I rutan **klient webb adress** anger du det **https:\//concierge.Food.ee/scim/v2-** värde som du hämtade tidigare.
+   a. I rutan **klient webb adress** anger du det **https: \/ /concierge.Food.ee/scim/v2-** värde som du hämtade tidigare.
 
    b. I rutan **hemlig token** anger du det **API-token** -värde som du hämtade tidigare.
    

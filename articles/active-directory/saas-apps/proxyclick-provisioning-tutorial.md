@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: 95cb0371c4b2181d8f09991fe6e652c0e939f3e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063364"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Proxyclick för automatisk användar etablering
@@ -102,7 +101,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Om du vill hämta **klient-URL: en** och den **hemliga token** för ditt Proxyclick-konto följer du genom gången enligt beskrivningen i steg 6.
 
-6. Logga in på din [Proxyclick-administratörs konsol](https://app.proxyclick.com/login//?destination=%2Fdefault). Navigera till **Inställningar** > **integreringar** > **Bläddra i Marketplace**.
+6. Logga in på din [Proxyclick-administratörs konsol](https://app.proxyclick.com/login//?destination=%2Fdefault). Navigera till **Inställningar**  >  **integreringar**  >  **Bläddra i Marketplace**.
 
     ![Proxyclick-inställningar](media/proxyclick-provisioning-tutorial/proxyclick09.png)
 
@@ -120,7 +119,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Proxyclick användar etablering](media/proxyclick-provisioning-tutorial/proxyclick05.png)
 
-    Konfigurations gränssnittet för rätt inställningar bör nu visas under **Inställningar** > **integreringar**. Välj **Inställningar** under **Azure AD (användar etablering)**.
+    Konfigurations gränssnittet för rätt inställningar bör nu visas under **Inställningar**  >  **integreringar**. Välj **Inställningar** under **Azure AD (användar etablering)**.
 
     ![Skapa Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick06.png)
 

@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: Zhchia
 ms.openlocfilehash: b7e1907e3fa1eb9d775fb7662445b08d5671e0b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063425"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Miro för automatisk användar etablering
@@ -54,7 +53,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 ## <a name="set-up-miro-for-provisioning"></a>Konfigurera Miro för etablering
 
-1.  Om du vill hämta **nödvändig kontakt** Miro support team på support@miro.com. Det här värdet anges i fältet Hemlig token på fliken etablering i ditt Miro-program i Azure Portal.
+1.  Om du vill hämta **nödvändig kontakt** Miro support team på support@miro.com . Det här värdet anges i fältet Hemlig token på fliken etablering i ditt Miro-program i Azure Portal.
 
 ## <a name="add-miro-from-the-gallery"></a>Lägg till Miro från galleriet
 

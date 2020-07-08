@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77020649"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Konfigurera virtuellt San-kryptering för CloudSimple privat moln
@@ -78,8 +77,8 @@ Om du vill distribuera ett HyTrust-i Azure Resource Manager det virtuella nätve
 3. Distribuera den inledande kontrollen av en-nod från avbildningen i Azure Marketplace.  Använd den offentliga nyckeln för det nyckel par som genererades och välj **NSG-HyTrust** som nätverks säkerhets grupp för noden nyckel kontroll.
 4. Konvertera den privata IP-adressen för en kontroll till en statisk IP-adress.
 5. SSH till den virtuella nyckel styrnings datorn med dess offentliga IP-adress och den privata nyckeln för det tidigare nämnda nyckel paret.
-6. När du uppmanas till SSH-gränssnittet `No` väljer du att ange noden som den första noden för att kontrol lera.
-7. Lägg till ytterligare Control-noder genom att upprepa steg 3-5 i den här `Yes` proceduren och välja när du tillfrågas om du vill lägga till i ett befintligt kluster.
+6. När du uppmanas till SSH-gränssnittet väljer `No` du att ange noden som den första noden för att kontrol lera.
+7. Lägg till ytterligare Control-noder genom att upprepa steg 3-5 i den här proceduren och välja `Yes` när du tillfrågas om du vill lägga till i ett befintligt kluster.
 
 ### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: Konfigurera KMIP-servern
 

@@ -16,10 +16,9 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058324"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudie: Konfigurera CERN central för automatisk användar etablering
@@ -85,7 +84,7 @@ För att kunna etablera användar konton till CERN Central måste du begära ett
 
    * Produktionshttps://cernercentral.com/system-accounts/
 
-4. Slutligen måste du skaffa användar domän-ID: t för användar domänen för både Sandbox-och produktions miljöerna i CERN för att slutföra konfigurationen. Information om hur du hämtar detta finns i: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+4. Slutligen måste du skaffa användar domän-ID: t för användar domänen för både Sandbox-och produktions miljöerna i CERN för att slutföra konfigurationen. Information om hur du hämtar detta finns i: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM . 
 
 5. Nu kan du konfigurera Azure AD för att etablera användar konton till CERN. Logga in på [Azure Portal](https://portal.azure.com)och bläddra till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 

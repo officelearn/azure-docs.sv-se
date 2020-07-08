@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 65167169248d83ebfec2c49c308673ec9315934e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019765"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migrera data till Azure VMware-lösning med hjälp av Azure Data Box
@@ -133,7 +132,7 @@ Den virtuella datorn kommer att migreras till NFS-datalagret från Data Box-enhe
 
 ### <a name="clone-a-virtual-machine-or-a-virtual-machine-template-to-the-data-box-datastore"></a>Klona en virtuell dator eller en mall för virtuella datorer till Data Box-enhet data lager
 
-1. Högerklicka på en virtuell dator eller en mall för virtuella datorer som du vill klona. Välj **klona** > **kloning till virtuell dator**.
+1. Högerklicka på en virtuell dator eller en mall för virtuella datorer som du vill klona. Välj **klona**  >  **kloning till virtuell dator**.
 
     ![Kloning av virtuell dator](media/databox-migration-vm-clone.png)
 
@@ -227,12 +226,12 @@ Kopiera först Blob Storage-data till en hanterad disk på en virtuell Linux-dat
 
 4. Installera [AzCopy på den virtuella Linux-datorn](../storage/common/storage-use-azcopy-v10.md).
 
-5. Hämta data från Azure Blob Storage till den hanterade disken med AzCopy.  Kommandosyntax: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`.  Ersätt `<storage-account-name>` med namnet på ditt Azure Storage- `<container-name>` konto och med den behållare som innehåller de data som kopieras via data Box-enhet.
+5. Hämta data från Azure Blob Storage till den hanterade disken med AzCopy.  Kommandosyntax: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"` .  Ersätt `<storage-account-name>` med namnet på ditt Azure Storage-konto och `<container-name>` med den behållare som innehåller de data som kopieras via data Box-enhet.
 
 6. Installera NFS-servern på den virtuella Linux-datorn:
 
-    - På en Ubuntu-/Debian- `sudo apt install nfs-kernel-server`distribution:.
-    - I en Enterprise Linux-distribution `sudo yum install nfs-utils`:.
+    - På en Ubuntu-/Debian-distribution: `sudo apt install nfs-kernel-server` .
+    - I en Enterprise Linux-distribution: `sudo yum install nfs-utils` .
 
 7. Ändra behörigheten för mappen på din hanterade disk där data från Azure Blob Storage kopierades.  Ändra behörigheterna för alla mappar som du vill exportera som en NFS-resurs.
 
@@ -241,7 +240,7 @@ Kopiera först Blob Storage-data till en hanterad disk på en virtuell Linux-dat
     chown nfsnobody:nfsnobody /<folder>/<subfolder>
     ```
 
-8. Tilldela behörigheter för klientens IP-adresser för att få åtkomst till NFS `/etc/exports` -resursen genom att redigera filen.
+8. Tilldela behörigheter för klientens IP-adresser för att få åtkomst till NFS-resursen genom att redigera `/etc/exports` filen.
 
     ```bash
     sudo vi /etc/exports
@@ -258,7 +257,7 @@ Kopiera först Blob Storage-data till en hanterad disk på en virtuell Linux-dat
 
 9. Exportera NFS-resurserna med hjälp av `sudo exportfs -a` kommandot.
 
-10. Starta om NFS kernel-servern med `sudo systemctl restart nfs-kernel-server` hjälp av kommandot.
+10. Starta om NFS kernel-servern med hjälp av `sudo systemctl restart nfs-kernel-server` kommandot.
 
 
 ### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-a-private-cloud-vcenter-cluster-and-then-copy-data"></a>Montera den virtuella Linux-datorns NFS-resurs som ett data lager i ett privat moln vCenter-kluster och kopiera sedan data

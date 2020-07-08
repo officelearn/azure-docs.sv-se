@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: a3e1c936d46e0d9b0ad3b98dafeda7df0b4a23db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058520"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Elium för automatisk användar etablering
@@ -55,7 +54,7 @@ När du tilldelar en användare till Elium måste du välja en giltig, programsp
 
 Innan du konfigurerar Elium för automatisk användar etablering med Azure AD måste du aktivera system för etablering av SCIM (Cross-Domain Identity Management) på Elium. Följ de här stegen:
 
-1. Logga in på Elium och gå till **Mina profil** > **Inställningar**.
+1. Logga in på Elium och gå till **Mina profil**  >  **Inställningar**.
 
     ![Meny alternativet Inställningar i Elium](media/Elium-provisioning-tutorial/setting.png)
 
@@ -112,7 +111,7 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för Eli
 
     ![Automatisk inställning för etablerings läge](common/provisioning-automatic.png)
 
-1. I avsnittet **admin-autentiseringsuppgifter** skriver ** \<du tenantURL\>/scim/v2** i fältet **klient-URL** . ( **TenantURL** är det värde som hämtades tidigare från administratörs konsolen för Elium.) Skriv också värdet Elium **Secret token** i fältet **hemligt token** . Välj slutligen **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till Elium. Om anslutningen Miss lyckas kontrollerar du att Elium-kontot har administratörs behörighet och försöker igen.
+1. I avsnittet **admin-autentiseringsuppgifter** skriver du ** \<tenantURL\> /scim/v2** i fältet **klient-URL** . ( **TenantURL** är det värde som hämtades tidigare från administratörs konsolen för Elium.) Skriv också värdet Elium **Secret token** i fältet **hemligt token** . Välj slutligen **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till Elium. Om anslutningen Miss lyckas kontrollerar du att Elium-kontot har administratörs behörighet och försöker igen.
 
     ![Fälten för klient-URL och hemlig token i admin-autentiseringsuppgifter](common/provisioning-testconnection-tenanturltoken.png)
 

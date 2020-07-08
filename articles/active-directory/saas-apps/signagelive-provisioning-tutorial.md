@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: bbd0d3c60c5cc4056d5cbadfc7c6d90ae2a37ca6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063262"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Självstudie: Konfigurera Signagelive för automatisk användar etablering
@@ -105,7 +104,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet admin credentials, inmatat ` https://samlapi.signagelive.com/scim/v2` i klient- **URL**. I fältet **hemlig token** anger du det värde för **Bearer-token** som tillhandahålls av teknik utvecklings teamet. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Signagelive. Om anslutningen Miss lyckas kontrollerar du att Signagelive-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet admin credentials, inmatat ` https://samlapi.signagelive.com/scim/v2` i **klient-URL**. I fältet **hemlig token** anger du det värde för **Bearer-token** som tillhandahålls av teknik utvecklings teamet. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Signagelive. Om anslutningen Miss lyckas kontrollerar du att Signagelive-kontot har administratörs behörighet och försöker igen.
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.

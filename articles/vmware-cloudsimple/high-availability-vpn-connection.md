@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025273"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurera en anslutning med hög tillgänglighet från lokal plats till CloudSimple VPN-gateway
@@ -97,7 +96,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### <a name="5-configure-the-transform-set"></a>5. Konfigurera Transformations uppsättningen
 
-Konfigurera transformerings uppsättningen (TS), som måste omfatta nyckelordet ```ikev1```. De krypterings-och hash-attribut som anges i TS måste matcha de parametrar som anges i [standard konfigurationen för CloudSimple VPN-gatewayer](cloudsimple-vpn-gateways.md).
+Konfigurera transformerings uppsättningen (TS), som måste omfatta nyckelordet ```ikev1``` . De krypterings-och hash-attribut som anges i TS måste matcha de parametrar som anges i [standard konfigurationen för CloudSimple VPN-gatewayer](cloudsimple-vpn-gateways.md).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
@@ -147,7 +146,7 @@ För att plats-till-plats-VPN ska fungera måste du tillåta UDP 500/4500 och ES
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. skapa primära och sekundära tunnel gränssnitt
 
-Logga in på Palo-brand väggen, Välj **nätverks** > **gränssnitt** > **tunnel** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Logga in på Palo-brand väggen, Välj **nätverks**  >  **gränssnitt**  >  **tunnel**  >  **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Gränssnitts namn. Det första fältet fylls i automatiskt med nyckelordet tunnel. I det intilliggande fältet anger du ett värde mellan 1 och 9999. Det här gränssnittet används som ett primärt tunnel gränssnitt för plats-till-plats-trafik mellan det lokala data centret och det privata molnet.
 * Kommentar. Ange kommentarer för enkel identifiering av syftet med tunneln
@@ -162,7 +161,7 @@ Eftersom den här konfigurationen gäller för VPN med hög tillgänglighet krä
 
 Vägar är nödvändiga för lokala undernät för att uppnå CloudSimple privata moln under nät.
 
-Välj virtuella **nätverks** > **routrar** > *standard* > **statiska vägar** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **Network**  >  **virtuella nätverks routrar**  >  *standard*  >  **statiska vägar**  >  **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett namn för att enkelt identifiera syftet med vägen.
 * Mål. Ange de CloudSimple-undernät för privata moln som ska nås via S2S tunnel Interfaces från lokala platser
@@ -180,7 +179,7 @@ Upprepa föregående steg för att skapa en annan väg för privata moln under n
 
 Definiera en kryptografisk profil som anger protokoll och algoritmer för identifiering, autentisering och kryptering som ska användas för att konfigurera VPN-tunnlar i IKEv1 fas 1.
 
-Välj **nätverk** > **expandera nätverks profiler** > **IKE-krypto** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **nätverk**  >  **expandera nätverks profiler**  >  **IKE-krypto**  >  **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett valfritt namn på IKE-kryptografi profilen.
 * DH-grupp. Klicka på **Lägg till** och välj lämplig DH-grupp.
@@ -193,7 +192,7 @@ Välj **nätverk** > **expandera nätverks profiler** > **IKE-krypto** > **Lägg
 
 Definiera IKE-gatewayer för att upprätta kommunikation mellan peer-datorer i varje ände av VPN-tunneln.
 
-Välj **nätverk** > **expandera nätverks profiler** > **IKE-gatewayer** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **nätverk**  >  **expandera nätverks profiler**  >  **IKE-gatewayer**  >  **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 Fliken Allmänt:
 
@@ -224,7 +223,7 @@ Upprepa föregående steg för att skapa den sekundära IKE-gatewayen.
 
 ### <a name="5-define-ipsec-crypto-profiles"></a>5. definiera IPSEC-kryptografi profiler
 
-Välj **nätverk** > **expandera nätverks profiler** > **IPSec-kryptografi** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **nätverk**  >  **expandera nätverks profiler**  >  **IPSec-kryptografi**  >  **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett namn för IPsec-kryptografi profilen.
 * IPsec-protokoll. Välj **ESP**.
@@ -238,7 +237,7 @@ Upprepa föregående steg för att skapa en annan IPsec-kryptografi profil som s
 
 ### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. definiera övervaknings profiler för tunnel övervakning
 
-Välj **nätverk** > **expandera nätverks profiler** > **övervaka** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **nätverk**  >  **expandera nätverks profiler**  >  **övervaka**  >  **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett namn på den övervaknings profil som ska användas för tunnel övervakning för proaktiv reaktion på problemet.
 * Tgärd. Välj **redundansväxla**.
@@ -247,7 +246,7 @@ Välj **nätverk** > **expandera nätverks profiler** > **övervaka** > **Lägg 
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. Konfigurera primära och sekundära IPsec-tunnlar.
 
-Välj **nätverk** > **IPSec-tunnlar** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
+Välj **nätverk**  >  **IPSec-tunnlar**  >  **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 Fliken Allmänt:
 
@@ -263,7 +262,7 @@ Fliken Allmänt:
 * Mål-IP. Ange en IP-adress som tillhör det CloudSimple privata moln under nätet som tillåts via plats-till-plats-anslutningen. Se till att tunnel gränssnitten (t. ex. tunnel. 20-10.64.5.2/32 och tunnel. 30-10.64.6.2/32) på Palo-kan komma åt den CloudSimple privata molnets IP-adress via VPN för plats till plats. Se följande konfiguration för proxy-ID: n.
 * Upphandlarprofil. Välj Monitor-profilen.
 
-Fliken Proxy-ID: Klicka på **IPv4** > **Lägg till** och konfigurera följande:
+Fliken Proxy-ID: Klicka på **IPv4**  >  **Lägg till** och konfigurera följande:
 
 * Proxy-ID. Ange ett namn för den intressanta trafiken. Det kan finnas flera proxy-ID i en IPsec-tunnel.
 * Inställningar. Ange lokala lokala undernät som tillåts att kommunicera med privata moln under nät över plats-till-plats-VPN.

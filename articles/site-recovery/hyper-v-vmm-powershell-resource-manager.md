@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77048603"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera katastrof återställning av virtuella Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
@@ -89,7 +88,7 @@ Kontrol lera att du har Azure PowerShell redo att gå:
    $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    ```
 
-   Du kan hämta valvet-objektet när du har skapat det med `Get-AzRecoveryServicesVault` hjälp av cmdleten.
+   Du kan hämta valvet-objektet när du har skapat det med hjälp av `Get-AzRecoveryServicesVault` cmdleten.
 
 ## <a name="set-the-vault-context"></a>Ange valv kontext
 
@@ -227,7 +226,7 @@ Följ stegen i [Övervaka aktivitet](#monitor-activity)för att kontrol lera att
    > [!NOTE]
    > Käll Virtual Machine Managers servern kan vara den första eller andra i Server matrisen. Kontrol lera Virtual Machine Manager Server namn och hämta nätverken på rätt sätt.
 
-1. Denna cmdlet skapar en mappning mellan det primära nätverket och återställnings nätverket. Den anger det primära nätverket som det första elementet i `$PrimaryNetworks`. Det anger återställnings nätverket som det första elementet `$RecoveryNetworks`i.
+1. Denna cmdlet skapar en mappning mellan det primära nätverket och återställnings nätverket. Den anger det primära nätverket som det första elementet i `$PrimaryNetworks` . Det anger återställnings nätverket som det första elementet i `$RecoveryNetworks` .
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
@@ -260,7 +259,7 @@ När servrarna, molnen och nätverken har kon figurer ATS korrekt aktiverar du s
 >
 > 1. Aktivera redundans till hanterade diskar genom att uppdatera VM-egenskaper
 > 1. Använd `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdleten för att hämta disk-ID: t för varje disk i det skyddade objektet
-> 1. Skapa ett Dictionary-objekt `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` med hjälp av en cmdlet som innehåller mappningen av disk-ID till disk krypterings uppsättning. De här disk krypterings uppsättningarna skapas i förväg av dig i mål regionen.
+> 1. Skapa ett Dictionary-objekt med hjälp av en `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` cmdlet som innehåller mappningen av disk-ID till disk krypterings uppsättning. De här disk krypterings uppsättningarna skapas i förväg av dig i mål regionen.
 > 1. Uppdatera VM-egenskaperna med `Set-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet genom att skicka Dictionary-objektet i **DiskIdToDiskEncryptionSetMap** -parametern.
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest

@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 87413932acee576934ee50b59546371b03ceaf7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064180"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler en för automatisk användar etablering
@@ -84,7 +83,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Konfigurera automatisk användar etablering för Zscaler en i Azure AD
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program** > **alla program** > **Zscaler One**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**  >  **alla program**  >  **Zscaler One**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -102,7 +101,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin-autentiseringsuppgifter** fyller du i rutorna **klient-URL** och **hemlig token** med inställningarna för ditt Zscaler-konto enligt beskrivningen i steg 6.
 
-6. Om du vill hämta klient-URL: en och den hemliga token går du till **Administration** > **autentiseringsinställningar** i Zscaler ett Portal gränssnitt. Under **Autentiseringstyp**väljer du **SAML**.
+6. Om du vill hämta klient-URL: en och den hemliga token går du till **Administration**  >  **autentiseringsinställningar** i Zscaler ett Portal gränssnitt. Under **Autentiseringstyp**väljer du **SAML**.
 
     ![Zscaler en autentiseringsinställningar](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 

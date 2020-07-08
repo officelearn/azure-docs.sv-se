@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 6ae423305b39c1335b5db1cd893d5f817be1929b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060872"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Självstudie: Konfigurera RFPIO för automatisk användar etablering
@@ -64,7 +63,7 @@ Innan du konfigurerar RFPIO för automatisk användar etablering med Azure AD m�
     
     ![RFPIO-administratör](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  Gå till **användar hanterings** > **säkerhet** > **scim**.
+3.  Gå till **användar hanterings**  >  **säkerhet**  >  **scim**.
 
     ![RFPIO Lägg till SCIM](media/rfpio-provisioning-tutorial/scim.png)
 
@@ -123,7 +122,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` i **klient-URL**. Ett exempel värde är `https://Azure-test1.rfpio.com/rfpserver/scim/v2`. Mata in värdet för **scim API-token** som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till RFPIO. Om anslutningen Miss lyckas kontrollerar du att RFPIO-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** , inmatat `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` i **klient-URL**. Ett exempel värde är `https://Azure-test1.rfpio.com/rfpserver/scim/v2` . Mata in värdet för **scim API-token** som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till RFPIO. Om anslutningen Miss lyckas kontrollerar du att RFPIO-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 

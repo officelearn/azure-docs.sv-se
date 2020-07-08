@@ -16,10 +16,9 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b8038896a11b65e835ce71f5fc34e85723cc91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060529"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
@@ -96,7 +95,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 10. Kopiera token, gå till Azure AD-fönstret och klistra in den i fältet **hemlig token** .
 
-11. **Klient-URL: en** måste anges om instansen av Salesforce finns på molnet för Salesforce-myndigheter. Annars är det valfritt. Ange klient webb adressen med\<formatet "https://Your-instance\>. My.Salesforce.com" och Ersätt \<din-instance\> med namnet på din Salesforce-instans.
+11. **Klient-URL: en** måste anges om instansen av Salesforce finns på molnet för Salesforce-myndigheter. Annars är det valfritt. Ange klient webb adressen med formatet "https:// \<your-instance\> . My.Salesforce.com" och Ersätt \<your-instance\> med namnet på din Salesforce-instans.
 
 12. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din Salesforce-app.
 

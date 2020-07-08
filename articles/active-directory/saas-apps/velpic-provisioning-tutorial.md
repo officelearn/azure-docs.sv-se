@@ -17,10 +17,9 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b7a6c2c9b7ecb0b160f7481d95f7682f3f7a109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064129"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Velpic för automatisk användar etablering
@@ -71,7 +70,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till Velpic-API 
 
     ![Velpic-etablering](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. Under avsnittet **admin credentials** kan du mata in **klient-URL: en&hemlig token** för Velpic. (Du hittar de här värdena under ditt Velpic-konto: **Hantera** > **integrations** > -**plugin** > -**scim**)
+5. Under avsnittet **admin credentials** kan du mata in **klient-URL: en&hemlig token** för Velpic. (Du kan hitta de här värdena under ditt Velpic-konto: **Hantera**  >  **Integrering**  >  **Plugin**  >  **Scim**)
 
     ![Authorization-värden](./media/velpic-provisioning-tutorial/Velpic2.png)
 

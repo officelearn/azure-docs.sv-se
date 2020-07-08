@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057081"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problem med pulsslag från Apache Ambari i Azure HDInsight
@@ -81,7 +80,7 @@ Aviseringarna orsakas av att Ambari-agenten inte körs.
     ps -ef | grep failover
     ```
 
-    Om tjänster för redundansväxling inte körs beror det förmodligen på ett problem som förhindrar att HDInsight-agenten startar redundansväxling. Kontrol lera HDInsight-agentens `/var/log/hdinsight-agent/hdinsight-agent.out` logg från filen.
+    Om tjänster för redundansväxling inte körs beror det förmodligen på ett problem som förhindrar att HDInsight-agenten startar redundansväxling. Kontrol lera HDInsight-agentens logg från `/var/log/hdinsight-agent/hdinsight-agent.out` filen.
 
 ## <a name="scenario-heartbeat-lost-for-ambari"></a>Scenario: pulsslag förlorat för Ambari
 

@@ -4,10 +4,9 @@ description: Konfigurera en Azure Load Balancer för att öppna portar för ditt
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025392"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Öppna portar för ett Service Fabric-kluster
@@ -21,7 +20,7 @@ När du har distribuerat Service Fabric-klustret till Azure skapades en belastni
 
 ## <a name="configure-service-fabric"></a>Konfigurera Service Fabric
 
-Konfigurations filen för din Service Fabric **-ServiceManifest. XML** definierar de slut punkter som programmet förväntar sig att använda. När konfigurations filen har uppdaterats för att definiera en slut punkt måste belastningsutjämnaren uppdateras för att exponera den (eller en annan) port. Mer information om hur du skapar Service Fabric-slutpunkten finns i [Konfigurera en slut punkt](service-fabric-service-manifest-resources.md).
+Konfigurations filen för Service Fabric program **ServiceManifest.xml** definierar de slut punkter som ska användas i programmet. När konfigurations filen har uppdaterats för att definiera en slut punkt måste belastningsutjämnaren uppdateras för att exponera den (eller en annan) port. Mer information om hur du skapar Service Fabric-slutpunkten finns i [Konfigurera en slut punkt](service-fabric-service-manifest-resources.md).
 
 ## <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
@@ -93,7 +92,7 @@ $lb.LoadBalancingRules.Add($lbrule)
 $lb | Set-AzLoadBalancer
 ```
 
-För `New-AzLoadBalancerRuleConfig` kommandot representerar den `-FrontendPort` port som belastningsutjämnaren exponerar för externa anslutningar och `-BackendPort` representerar den port som Service Fabric-appen lyssnar på.
+För `New-AzLoadBalancerRuleConfig` kommandot `-FrontendPort` representerar den port som belastningsutjämnaren exponerar för externa anslutningar och `-BackendPort` representerar den port som Service Fabric-appen lyssnar på.
 
 >[!NOTE]
 >Mer information om hur du skapar en belastningsutjämnare med PowerShell finns i [skapa en belastningsutjämnare med PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).

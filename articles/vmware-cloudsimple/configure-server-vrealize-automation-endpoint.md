@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77024848"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Konfigurera vCenter i ditt privata moln för VMware vRealize Automation
@@ -48,14 +47,14 @@ Slutför de här uppgifterna innan du konfigurerar vCenter-servern:
 2. Distribuera en vSphere-agent för Automation-slutpunkten för vRealize.
     1. Gå till https://*vra-URL*: 5480/Installer, där *vra-URL* är den URL som du använder för att komma åt vRealize Automation administration UI.
     2. Klicka på **installations programmet för IaaS** för att hämta installations programmet.<br>
-    Namngivnings konventionen för installations filen är setup_*vra-URL*@5480.exe.
+    Namngivnings konventionen för installations filen är setup_*vra-URL* @5480.exe .
     3. Kör installationsprogrammet. Klicka på **Nästa** på välkomstskärmen.
     4. Godkänn licens avtalet och klicka på **Nästa**.
     5. Ange inloggnings informationen, klicka på **acceptera certifikat**och klicka sedan på **Nästa**.
     ![vRA-autentiseringsuppgifter](media/configure-vra-endpoint-login.png)
     6. Välj **anpassad installation** och **proxy agenter** och klicka på **Nästa**.
     ![Installations typ för vRA](media/configure-vra-endpoint-install-type.png)
-    7. Ange inloggnings informationen för IaaS-servern och klicka på **Nästa**. Om du använder Active Directory anger du användar namnet i formatet **domän \ användare** . Annars använder **user@domain** du format.
+    7. Ange inloggnings informationen för IaaS-servern och klicka på **Nästa**. Om du använder Active Directory anger du användar namnet i formatet **domän \ användare** . Annars använder du **user@domain** format.
     ![vRA inloggnings information](media/configure-vra-endpoint-account.png)
     8. Ange **vSphere** för **agent typ**för proxyinställningarna. Ange ett namn för agenten.
     9. Ange IaaS-serverns FQDN i värd fälten för **hanterings tjänst** och i **webb tjänstens värd fält i modell hanteraren** . Klicka på **testa** för att testa anslutningen för varje FQDN-värde. Om testet Miss lyckas ändrar du DNS-inställningarna så att IaaS-serverns värdnamn är löst.
@@ -69,8 +68,8 @@ Slutför de här uppgifterna innan du konfigurerar vCenter-servern:
 ## <a name="configure-the-vsphere-agent"></a>Konfigurera vSphere-agenten
 
 1. Gå till https://*vra-URL*/vcac och logga in som **ConfigurationAdmin**.
-2. Välj**slut punkter**för **infrastruktur** > **slut** > punkter.
-3. Välj **ny** > **virtuell** > **vSphere**.
+2. Välj **Infrastructure**  >  **Endpoints**  >  **slut punkter**för infrastruktur slut punkter.
+3. Välj **ny**  >  **virtuell**  >  **vSphere**.
 4. Ange slut punkts namnet för vSphere som du angav i föregående procedur.
 5. För **adress**anger du det privata molnets vCenter Server URL i formatet https://*vCenter – FQDN*/SDK, där *vCenter-FQDN* är namnet på vCenter-servern.
 6. Ange autentiseringsuppgifterna för den administrativa användaren vRealize Automation IaaS som CloudSimple-stöd har skapats för dig.

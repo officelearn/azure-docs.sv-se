@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77014954"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>CloudSimple privata moln behörighets modell för VMware vCenter
@@ -52,7 +51,7 @@ Om du vill ge enskilda användare behörighet att hantera det privata molnet, sk
 | **Kategori** | **Grupperna** |
 |----------|-----------|
 | **Larm** | Bekräfta larm <br> Skapa alarm <br> Inaktivera alarm åtgärd <br> Ändra alarm <br> Ta bort alarm <br> Ange alarm status |
-| **Åtkomst** | Ändra behörighet |
+| **Behörigheter** | Ändra behörighet |
 | **Innehållsbibliotek** | Lägg till biblioteks objekt <br> Skapa lokalt bibliotek <br> Skapa prenumerations bibliotek <br> Ta bort biblioteks objekt <br> Ta bort lokalt bibliotek <br> Ta bort prenumerations bibliotek <br> Hämta filer <br> Avlägsna biblioteks objekt <br> Ta bort prenumerations bibliotek <br> Importera lagring <br> Avsöknings prenumerations information <br> Läs lagring <br> Synkronisera biblioteks objekt <br> Synkronisera prenumerations bibliotek <br> Skriv introspektionsfunktionerna <br> Uppdatera konfigurations inställningar <br> Uppdatera filer <br> Uppdatera bibliotek <br> Uppdatera biblioteks objekt <br> Uppdatera lokalt bibliotek <br> Uppdatera prenumerations bibliotek <br> Visa konfigurations inställningar |
 | **Kryptografiska åtgärder** | Lägg till disk <br> Klona <br> Avkryptera <br> Direktåtkomst <br> Kryptera <br> Kryptera ny <br> Hantera KMS <br> Hantera krypterings principer <br> Hantera nycklar <br> Migrera <br> Dekryptera om <br> Registrera VM <br> Registrera värd |
 | **dvPort-grupp** | Skapa <br> Ta bort <br> Ändra <br> Princip åtgärd <br> Omfattnings åtgärd |

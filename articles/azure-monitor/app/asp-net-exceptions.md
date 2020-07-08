@@ -4,10 +4,9 @@ description: Fånga undantag från ASP.NET-appar tillsammans med telemetri för 
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892350"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
@@ -157,7 +156,7 @@ Parametrarna för egenskaper och mätningar är valfria, men är användbara fö
 ## <a name="browser-exceptions"></a>Webbläsarundantag
 De flesta webb läsar undantag rapporteras.
 
-Om din webb sida innehåller skriptfiler från nätverk för innehålls leverans eller andra domäner, se till att skript tag gen har ```crossorigin="anonymous"```attributet och att servern skickar [CORS-huvuden](https://enable-cors.org/). På så sätt kan du hämta en stack spårning och information för ohanterade JavaScript-undantag från dessa resurser.
+Om din webb sida innehåller skriptfiler från nätverk för innehålls leverans eller andra domäner, se till att skript tag gen har attributet ```crossorigin="anonymous"``` och att servern skickar [CORS-huvuden](https://enable-cors.org/). På så sätt kan du hämta en stack spårning och information för ohanterade JavaScript-undantag från dessa resurser.
 
 ## <a name="reuse-your-telemetry-client"></a>Återanvänd din telemetri-klient
 
@@ -214,7 +213,7 @@ Ohanterade undantag från kontrollanter resulterar vanligt vis i svar på 500 "i
 ### <a name="prior-versions-support"></a>Stöd för tidigare versioner
 Om du använder MVC 4 (och tidigare) av Application Insights Web SDK 2,5 (och tidigare) kan du läsa följande exempel för att spåra undantag.
 
-Om [customErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) -konfigurationen är `Off`, blir undantag tillgängliga för [http-modulen](https://msdn.microsoft.com/library/ms178468.aspx) att samla in. Men om det är `RemoteOnly` (standard) eller `On`, så rensas undantaget och är inte tillgängligt för Application Insights att samlas in automatiskt. Du kan åtgärda detta genom att åsidosätta [klassen system. Web. MVC. HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)och tillämpa den åsidosatta klassen som visas för de olika MVC-versionerna nedan ([GitHub source](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Om [customErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) -konfigurationen är `Off` , blir undantag tillgängliga för [http-modulen](https://msdn.microsoft.com/library/ms178468.aspx) att samla in. Men om det är `RemoteOnly` (standard) eller, så `On` rensas undantaget och är inte tillgängligt för Application Insights att samlas in automatiskt. Du kan åtgärda detta genom att åsidosätta [klassen system. Web. MVC. HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)och tillämpa den åsidosatta klassen som visas för de olika MVC-versionerna nedan ([GitHub source](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;

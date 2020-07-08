@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010315"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
@@ -45,7 +44,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
     * [Schemauppdateringar](#schedule-updates)
     * [Geo-replikering](#geo-replication)
     * [Virtual Network](#virtual-network)
-    * [Vägg](#firewall)
+    * [Brandvägg](#firewall)
     * [Egenskaper](#properties)
     * [Hålls](#locks)
     * [Automationsskript](#automation-script)
@@ -58,7 +57,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
     * [Aviserings regler](#alert-rules)
     * [Diagnostik](#diagnostics)
 * Stöd för & fel söknings inställningar
-    * [Resurs hälsa](#resource-health)
+    * [Resurshälsa](#resource-health)
     * [Ny supportbegäran](#new-support-request)
 
 
@@ -97,7 +96,7 @@ I avsnittet **Inställningar** kan du komma åt och konfigurera följande instä
 * [Schemauppdateringar](#schedule-updates)
 * [Geo-replikering](#geo-replication)
 * [Virtual Network](#virtual-network)
-* [Vägg](#firewall)
+* [Brandvägg](#firewall)
 * [Egenskaper](#properties)
 * [Hålls](#locks)
 * [Automationsskript](#automation-script)
@@ -145,7 +144,7 @@ Mer information om `maxmemory` principer finns i [avlägsna principer](https://r
 
 **Maxfragmentationmemory-reserverad-** inställningen konfigurerar mängden minne i MB som är reserverad för att få plats för fragmentering. Genom att ange det här värdet kan du ha en mer konsekvent redis-server när cachen är full eller nära full och fragmenteringen är hög. När minnet är reserverat för sådana åtgärder är det inte tillgängligt för lagring av cachelagrade data.
 
-En sak att tänka på när du väljer ett nytt minnes reservations värde (**maxmemory-reserverad** eller **maxfragmentationmemory**) är hur den här ändringen kan påverka ett cacheminne som redan körs med stora mängder data. Om du till exempel har en 53 GB-cache med 49 GB data, ändrar du reservation svärdet till 8 GB, så tar den här ändringen bort det högsta tillgängliga minnet för systemet ned till 45 GB. Om antingen din aktuella `used_memory` eller dina `used_memory_rss` värden är högre än den nya gränsen på 45 GB måste systemet ta bort data förrän både `used_memory` och `used_memory_rss` är under 45 GB. Avlägsnandet kan öka Server belastningen och fragmenteringen av minnet. Mer information om cache-mått som `used_memory` och `used_memory_rss`finns i [tillgängliga mått och rapporterings intervall](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+En sak att tänka på när du väljer ett nytt minnes reservations värde (**maxmemory-reserverad** eller **maxfragmentationmemory**) är hur den här ändringen kan påverka ett cacheminne som redan körs med stora mängder data. Om du till exempel har en 53 GB-cache med 49 GB data, ändrar du reservation svärdet till 8 GB, så tar den här ändringen bort det högsta tillgängliga minnet för systemet ned till 45 GB. Om antingen din aktuella `used_memory` eller dina `used_memory_rss` värden är högre än den nya gränsen på 45 GB måste systemet ta bort data förrän både `used_memory` och `used_memory_rss` är under 45 GB. Avlägsnandet kan öka Server belastningen och fragmenteringen av minnet. Mer information om cache-mått som `used_memory` och `used_memory_rss` finns i [tillgängliga mått och rapporterings intervall](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > De **maxmemory-reserverade** och **maxfragmentationmemory** inställningarna är bara tillgängliga för cacheminnen standard och Premium.
@@ -356,7 +355,7 @@ Inställningarna i avsnittet **support och fel sökning** innehåller alternativ
 
 ![Support och felsökning](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-* [Resurs hälsa](#resource-health)
+* [Resurshälsa](#resource-health)
 * [Ny supportbegäran](#new-support-request)
 
 ### <a name="resource-health"></a>Resurshälsa
@@ -378,7 +377,7 @@ Klicka på **ny supportbegäran** för att öppna en supportbegäran för cachem
 Nya Azure cache för Redis-instanser konfigureras med följande standard konfigurations värden för Redis:
 
 > [!NOTE]
-> Det går inte att ändra inställningarna i det här avsnittet `StackExchange.Redis.IServer.ConfigSet` med hjälp av metoden. Om den här metoden anropas med ett av kommandona i det här avsnittet genereras ett undantag som liknar följande exempel:  
+> Det går inte att ändra inställningarna i det här avsnittet med hjälp av `StackExchange.Redis.IServer.ConfigSet` metoden. Om den här metoden anropas med ett av kommandona i det här avsnittet genereras ett undantag som liknar följande exempel:  
 >
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >
@@ -388,13 +387,13 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 
 | Inställningen | Standardvärde | Beskrivning |
 | --- | --- | --- |
-| `databases` |16 |Standard antalet databaser är 16 men du kan konfigurera ett annat nummer baserat på pris nivån. <sup>1</sup> standard databasen är dB 0, du kan välja en annan per-anslutnings-basis `connection.GetDatabase(dbid)` med där `dbid` är ett tal mellan `0` och. `databases - 1` |
+| `databases` |16 |Standard antalet databaser är 16 men du kan konfigurera ett annat nummer baserat på pris nivån. <sup>1</sup> standard databasen är dB 0, du kan välja en annan per-anslutnings-basis med `connection.GetDatabase(dbid)` där `dbid` är ett tal mellan `0` och `databases - 1` . |
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |
-| `maxmemory-policy` |`volatile-lru` |Maxmemory-principen är inställningen för hur Redis väljer vad som ska tas `maxmemory` bort när (storleken på det cache-erbjudande som du valde när du skapade cachen) har nåtts. Med Azure cache för Redis är `volatile-lru`standardvärdet, vilket tar bort nycklarna med en förfallo uppsättning med en LRU-algoritm. Den här inställningen kan konfigureras i Azure Portal. Mer information finns i [minnes principer](#memory-policies). |
+| `maxmemory-policy` |`volatile-lru` |Maxmemory-principen är inställningen för hur Redis väljer vad som ska tas bort när `maxmemory` (storleken på det cache-erbjudande som du valde när du skapade cachen) har nåtts. Med Azure cache för Redis är standardvärdet `volatile-lru` , vilket tar bort nycklarna med en förfallo uppsättning med en LRU-algoritm. Den här inställningen kan konfigureras i Azure Portal. Mer information finns i [minnes principer](#memory-policies). |
 | `maxmemory-samples` |3 |För att spara minne är LRU och minimala TTL-algoritmer approximerade algoritmer i stället för exakta algoritmer. Som standard kontrollerar Redis tre nycklar och plockar den som användes mindre nyligen. |
 | `lua-time-limit` |5 000 |Maximal körnings tid för ett Lua-skript i millisekunder. Om den maximala körnings tiden uppnås loggar Redis som ett skript fortfarande körs efter den längsta tillåtna tiden och börjar svara på frågor med ett fel. |
 | `lua-event-limit` |500 |Max storlek för skript händelse kön. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Gränserna för klientens utdatabuffert kan användas för att framtvinga från koppling av klienter som inte läser data från servern tillräckligt många skäl (en vanlig orsak är att en pub/sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns i [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Gränserna för klientens utdatabuffert kan användas för att framtvinga från koppling av klienter som inte läser data från servern tillräckligt många skäl (en vanlig orsak är att en pub/sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns i [https://redis.io/topics/clients](https://redis.io/topics/clients) . |
 
 <a name="databases"></a>
 <sup>1</sup> Gränsen för `databases` skiljer sig åt för varje Azure-cache för pris nivån Redis och kan ställas in när cachen skapas. Om ingen `databases` inställning anges när cachen skapas är standardvärdet 16.
@@ -412,12 +411,12 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
   * P2 (13 GB-130 GB) – upp till 32 databaser
   * P3 (26 GB-260 GB) – upp till 48 databaser
   * P4 (53 GB-530 GB) – upp till 64 databaser
-  * Alla Premium-cacheminnen med Redis Cluster Enabled-Redis Cluster stöder bara användning av databas 0 `databases` , så gränsen för alla Premium-cache med Redis-klustret är effektiv 1 och [Select](https://redis.io/commands/select) -kommandot är inte tillåtet. Mer information finns i [behöver jag göra ändringar i klient programmet för att använda kluster?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Alla Premium-cacheminnen med Redis Cluster Enabled-Redis Cluster stöder bara användning av databas 0, så `databases` gränsen för alla Premium-cache med Redis-klustret är effektiv 1 och [Select](https://redis.io/commands/select) -kommandot är inte tillåtet. Mer information finns i [behöver jag göra ändringar i klient programmet för att använda kluster?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> `databases` Inställningen kan bara konfigureras när cachelagring skapas och bara med POWERSHELL, CLI eller andra hanterings klienter. Ett exempel på hur du `databases` konfigurerar under generering av cache med PowerShell finns i [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
+> `databases`Inställningen kan bara konfigureras när cachelagring skapas och bara med PowerShell, CLI eller andra hanterings klienter. Ett exempel på hur `databases` du konfigurerar under generering av cache med PowerShell finns i [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 >
 >
 
@@ -447,7 +446,7 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 
 ## <a name="redis-commands-not-supported-in-azure-cache-for-redis"></a>Redis-kommandon stöds inte i Azure cache för Redis
 > [!IMPORTANT]
-> Eftersom konfiguration och hantering av Azure cache för Redis-instanser hanteras av Microsoft, är följande kommandon inaktiverade. Om du försöker anropa dem visas ett fel meddelande liknande `"(error) ERR unknown command"`.
+> Eftersom konfiguration och hantering av Azure cache för Redis-instanser hanteras av Microsoft, är följande kommandon inaktiverade. Om du försöker anropa dem visas ett fel meddelande liknande `"(error) ERR unknown command"` .
 >
 > * BGREWRITEAOF
 > * BGSAVE
@@ -461,14 +460,14 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 >
 >
 
-Mer information om Redis-kommandon finns i [https://redis.io/commands](https://redis.io/commands).
+Mer information om Redis-kommandon finns i [https://redis.io/commands](https://redis.io/commands) .
 
 ## <a name="redis-console"></a>Redis-konsol
 Du kan på ett säkert sätt utfärda kommandon till Azure cache för Redis-instanser med hjälp av **Redis-konsolen**, som finns i Azure Portal för alla cache-nivåer.
 
 > [!IMPORTANT]
 > - Redis-konsolen fungerar inte med [VNet](cache-how-to-premium-vnet.md). När din cache ingår i ett VNET kan endast klienter i VNET komma åt cacheminnet. Eftersom Redis-konsolen körs i din lokala webbläsare, som är utanför det virtuella nätverket, kan den inte ansluta till cacheminnet.
-> - Det finns inte stöd för alla Redis-kommandon i Azure cache för Redis. En lista över Redis-kommandon som är inaktiverade för Azure cache för Redis finns i föregående [Redis-kommandon som inte stöds i Azure cache för Redis](#redis-commands-not-supported-in-azure-cache-for-redis) -avsnittet. Mer information om Redis-kommandon finns i [https://redis.io/commands](https://redis.io/commands).
+> - Det finns inte stöd för alla Redis-kommandon i Azure cache för Redis. En lista över Redis-kommandon som är inaktiverade för Azure cache för Redis finns i föregående [Redis-kommandon som inte stöds i Azure cache för Redis](#redis-commands-not-supported-in-azure-cache-for-redis) -avsnittet. Mer information om Redis-kommandon finns i [https://redis.io/commands](https://redis.io/commands) .
 >
 >
 
@@ -494,7 +493,7 @@ shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```
 
-I det föregående exemplet är Shard 1 den valda Shard, men `myKey` finns i Shard 0, som anges i den `(shard 0)` del av fel meddelandet. I det här exemplet väljer du `myKey`Shard 0 med Shard-väljaren och utfärdar sedan det önskade kommandot.
+I det föregående exemplet är Shard 1 den valda Shard, men finns `myKey` i Shard 0, som anges i den `(shard 0)` del av fel meddelandet. I det här exemplet väljer du `myKey` Shard 0 med Shard-väljaren och utfärdar sedan det önskade kommandot.
 
 
 ## <a name="move-your-cache-to-a-new-subscription"></a>Flytta cacheminnet till en ny prenumeration

@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259960"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Åtgärder i standard regel motorn för Azure CDN
@@ -38,7 +37,7 @@ Ange om det saknas | När det här alternativet är markerat och regeln matchar,
 
 #### <a name="additional-fields"></a>Ytterligare fält
 
-Dagar | Timmar | Minuter | Sekunder
+Dagar | Tider | Minuter | Sekunder
 -----|-------|---------|--------
 Int | Int | Int | Int 
 
@@ -61,7 +60,7 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Action | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
@@ -73,7 +72,7 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Action | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
@@ -85,7 +84,7 @@ Använd den här åtgärden för att omdirigera klienter till en ny URL.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Field | Beskrivning 
+Fält | Beskrivning 
 ------|------------
 Typ | Välj den svarstyp som ska returneras till begär ande: hittas (302), flyttad (301), tillfällig omdirigering (307) och permanent omdirigering (308).
 Protokoll | Matcha begäran, HTTP, HTTPS.
@@ -102,9 +101,9 @@ Använd den här åtgärden för att skriva om sökvägen för en begäran som �
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Field | Beskrivning 
+Fält | Beskrivning 
 ------|------------
-Käll mönster | Definiera käll mönstret i URL-sökvägen som ska ersättas. För närvarande använder käll mönstret en prefix-baserad matchning. Använd ett snedstreck (**/**) som käll mönster värde för att matcha alla URL-sökvägar.
+Käll mönster | Definiera käll mönstret i URL-sökvägen som ska ersättas. För närvarande använder käll mönstret en prefix-baserad matchning. Använd ett snedstreck ( **/** ) som käll mönster värde för att matcha alla URL-sökvägar.
 Mål | Definiera den mål Sök väg som ska användas vid omskrivning. Mål Sök vägen skriver över käll mönstret.
 Bevara omatchad sökväg | Om värdet är **Ja**, läggs den återstående sökvägen efter käll mönstret till i den nya mål Sök vägen. 
 

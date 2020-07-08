@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259942"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Matchnings villkor i standard regel motorn för Azure CDN
@@ -62,7 +61,7 @@ Sträng | [Lista med standard operatorer](#standard-operator-list) | Sträng, he
 
 #### <a name="key-information"></a>Viktig information
 
-- Du kan inte använda jokertecken (inklusive asterisker\*()) när du anger namnet på en cookie. Du måste använda ett exakt cookie-namn.
+- Du kan inte använda jokertecken (inklusive asterisker ( \* )) när du anger ett cookie-namn. du måste använda ett exakt cookie-namn.
 - Du kan bara ange ett enda cookie-namn per instans av matchnings villkoret.
 - Cookie-namn jämförelser är inte Skift läges känsliga.
 - Om du vill ange flera cookie-värden använder du ett enda blank steg mellan varje cookie-värde. 
@@ -97,10 +96,10 @@ Identifierar förfrågningar baserat på beställarens plats eller IP-adress.
 
 Operator | Värden som stöds
 ---------|-----------------
-Alla | Ej tillämpligt
+Alla | E.t.
 Geo-matchning | Landskod
 IP-matchning | IP-adress (blankstegsavgränsad)
-Inte alla | Ej tillämpligt
+Inte alla | E.t.
 Ingen geo-matchning | Landskod
 Inte IP-matchning | IP-adress (blankstegsavgränsad)
 
@@ -158,19 +157,19 @@ Operator | Värden som stöds
 ---------|----------------
 Lika med, inte lika med | HTTP, HTTPS
 
-### <a name="request-url"></a>URL för begäran
+### <a name="request-url"></a>Begärans-URL
 
 Identifierar begär Anden som matchar angiven URL.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | URL för begäran | Skift läges omvandling
+Operator | Begärans-URL | Skift läges omvandling
 ---------|-------------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
 
 #### <a name="key-information"></a>Viktig information
 
-- När du använder det här regel villkoret ska du se till att inkludera protokoll information. Till exempel: *https://www.\<yourdomain\>.com*.
+- När du använder det här regel villkoret ska du se till att inkludera protokoll information. Exempel: * https://www . \<yourdomain\> . com*.
 
 ### <a name="url-file-extension"></a>URL-filtillägg
 

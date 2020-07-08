@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
 ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261014"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Så här implementerar du haveriberedskap med hjälp av säkerhetskopiering och återställning i Azure API Management
@@ -67,7 +66,7 @@ Alla aktiviteter som du gör på resurser som använder Azure Resource Manager m
 
 4. Ange ett namn på programmet.
 5. För program typ väljer du **intern**.
-6. Ange en plats hållares URL `http://resources` , till exempel för **omdirigerings-URI**, eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka i kryss rutan för att spara programmet.
+6. Ange en plats hållares URL, till exempel `http://resources` för **omdirigerings-URI**, eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka i kryss rutan för att spara programmet.
 7. Klicka på **Skapa**.
 
 ### <a name="add-an-application"></a>Lägga till ett program
@@ -113,9 +112,9 @@ namespace GetTokenResourceManagerRequests
 }
 ```
 
-Ersätt `{tenant id}`, `{application id}`och `{redirect uri}` Använd följande instruktioner:
+Ersätt `{tenant id}` , `{application id}` och `{redirect uri}` Använd följande instruktioner:
 
-1. Ersätt `{tenant id}` med klient-ID: t för det Azure Active Directory program som du har skapat. Du kan komma åt ID: t genom att klicka på **Appregistreringar** -> **slut punkter**.
+1. Ersätt `{tenant id}` med klient-ID: t för det Azure Active Directory program som du har skapat. Du kan komma åt ID: t genom att klicka på **Appregistreringar**  ->  **slut punkter**.
 
     ![Slutpunkter][api-management-endpoint]
 
@@ -165,9 +164,9 @@ I bröd texten i begäran anger du namnet på Azure Storage-kontot, åtkomst nyc
 }
 ```
 
-Ange värdet för `Content-Type` begär ande rubriken till `application/json`.
+Ange värdet för `Content-Type` begär ande rubriken till `application/json` .
 
-Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra. Om begäran lyckades och säkerhets kopierings processen började visas, får du `202 Accepted` en svars status kod `Location` med ett sidhuvud. Gör GET-begäranden till URL: en i `Location` rubriken för att ta reda på status för åtgärden. När säkerhets kopieringen pågår fortsätter du att ta emot status koden 202. Svars koden `200 OK` visar att säkerhets kopieringen har slutförts.
+Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra. Om begäran lyckades och säkerhets kopierings processen började visas, får du en `202 Accepted` svars status kod med ett `Location` sidhuvud. Gör GET-begäranden till URL: en i `Location` rubriken för att ta reda på status för åtgärden. När säkerhets kopieringen pågår fortsätter du att ta emot status koden 202. Svars koden `200 OK` visar att säkerhets kopieringen har slutförts.
 
 Observera följande begränsningar när du gör en säkerhets kopierings-eller återställnings förfrågan:
 
@@ -209,9 +208,9 @@ Ange platsen för säkerhets kopian i bröd texten i begäran. Det innebär att 
 }
 ```
 
-Ange värdet för `Content-Type` begär ande rubriken till `application/json`.
+Ange värdet för `Content-Type` begär ande rubriken till `application/json` .
 
-Restore är en tids krävande åtgärd som kan ta upp till 30 minuter att slutföra. Om begäran lyckades och återställnings processen började, får du en `202 Accepted` svars status kod med `Location` ett sidhuvud. Gör GET-begäranden till URL: en i `Location` rubriken för att ta reda på status för åtgärden. När återställningen pågår fortsätter du att ta emot status koden 202. Svars koden `200 OK` visar att återställningen har slutförts.
+Restore är en tids krävande åtgärd som kan ta upp till 30 minuter att slutföra. Om begäran lyckades och återställnings processen började, får du en `202 Accepted` svars status kod med ett `Location` sidhuvud. Gör GET-begäranden till URL: en i `Location` rubriken för att ta reda på status för åtgärden. När återställningen pågår fortsätter du att ta emot status koden 202. Svars koden `200 OK` visar att återställningen har slutförts.
 
 > [!IMPORTANT]
 > **SKU: n** för den tjänst som återställs till **måste matcha** SKU: n för den säkerhetskopierade tjänsten som återställs.
@@ -229,8 +228,8 @@ Kolla in följande resurser för olika genom gångar av säkerhets kopierings-/�
 
 -   [Replikera Azure API Management-konton](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automatisera API Management-säkerhetskopiering och -återställning med Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: säkerhetskopiera och återställa konfigurationen](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-    _den metod som beskrivs av Stuart överensstämmer inte med den officiella vägledningen, men det är intressant._
+-   [Azure API Management: säkerhetskopiera och återställa konfigurationen](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) 
+     _Metoden som beskrivs av Stuart överensstämmer inte med den officiella vägledningen, men det är intressant._
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

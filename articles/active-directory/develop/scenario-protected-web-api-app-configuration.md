@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 073eca94ad93c69811b02abe2c8649940a394e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882479"
 ---
 # <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
@@ -134,7 +133,7 @@ Föregående kodfragment extraheras från den stegvisa självstudien för ASP.NE
 
 ## <a name="token-validation"></a>Verifiering av token
 
-I föregående kodfragment kontrollerar JwtBearer mellan program varan, t. ex. OpenID Connect mellan program i webbappar, token baserat på värdet för `TokenValidationParameters`. Token dekrypteras vid behov, anspråken extraheras och signaturen verifieras. Mellanprogram validerar sedan token genom att söka efter dessa data:
+I föregående kodfragment kontrollerar JwtBearer mellan program varan, t. ex. OpenID Connect mellan program i webbappar, token baserat på värdet för `TokenValidationParameters` . Token dekrypteras vid behov, anspråken extraheras och signaturen verifieras. Mellanprogram validerar sedan token genom att söka efter dessa data:
 
 - Mål grupp: token är avsedd för webb-API: et.
 - Sub: det har utfärdats för en app som har tillåtelse att anropa webb-API: et.

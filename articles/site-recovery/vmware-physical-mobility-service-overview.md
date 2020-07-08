@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
 ms.openlocfilehash: ec4d1cfbe0c76c8245c4beeaa7c044d76d917a7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259820"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
@@ -172,7 +171,7 @@ Inställningen | Information
 --- | ---
 Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
-`-d` | Valfri parameter. Anger mobilitets tjänstens installations plats `/usr/local/ASR`:.
+`-d` | Valfri parameter. Anger mobilitets tjänstens installations plats: `/usr/local/ASR` .
 `-v` | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. <br/> **VMware** för virtuella VMware-datorer/fysiska servrar. <br/> Virtuella **Azure** -datorer i Azure.
 `-q` | Valfritt. Anger om installations programmet ska köras i tyst läge.
 

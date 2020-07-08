@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881256"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Gör så här: Konfigurera SSO på macOS och iOS
@@ -106,7 +105,7 @@ Mer information finns i [nyckel rings grupper](howto-v2-keychain-objc.md).
 
 ## <a name="configure-the-application-object"></a>Konfigurera programobjektet
 
-När du har aktiverat nyckel ringen i varje program och du är redo att använda SSO, konfigurerar `MSALPublicClientApplication` du med nyckel rings åtkomst gruppen som i följande exempel:
+När du har aktiverat nyckel ringen i varje program och du är redo att använda SSO, konfigurerar du `MSALPublicClientApplication` med nyckel rings åtkomst gruppen som i följande exempel:
 
 Mål-C:
 
@@ -145,7 +144,7 @@ MSAL tillhandahåller stöd för Brokered Authentication med Microsoft Authentic
 
 Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din app:
 
-1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. URI-formatet för Broker-kompatibel `msauth.<app.bundle.id>://auth`omdirigering är. Ersätt<app.bundle.id>med programmets paket-ID. Ett exempel:
+1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. URI-formatet för Broker-kompatibel omdirigering är `msauth.<app.bundle.id>://auth` . Ersätt<app.bundle.id>med programmets paket-ID. Ett exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -154,7 +153,7 @@ Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din a
     </array>
     ```
 
-1. Lägg till följande scheman i appens info. plist under `LSApplicationQueriesSchemes`:
+1. Lägg till följande scheman i appens info. plist under `LSApplicationQueriesSchemes` :
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>

@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80891517"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
@@ -256,19 +255,19 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Hämta klientinfo|
 |Kataloghantering|Hämta klienttillåtna funktioner|
 |Kataloghantering|Hämta tenantDomains|
-|Nyckel|Hämtar typ av klient|
-|Nyckel|Kontrollera om B2C-funktionen är aktiverad|
-|Nyckel|Verifiera om funktionen är aktive rad|
-|Nyckel|Lägg till partner till företag|
-|Nyckel|Lägg till overifierad domän|
-|Nyckel|Lägg till verifierad domän|
-|Nyckel|Skapa företag|
-|Nyckel|Skapa företagsinställningar|
-|Nyckel|Ta bort företagsinställningar|
-|Nyckel|Flytta ned partner|
-|Nyckel|Katalog borttagen|
-|Annat|Katalog borttagen permanent|
-|Annat|Katalog schemalagd för borttagning|
+|Tangent|Hämtar typ av klient|
+|Tangent|Kontrollera om B2C-funktionen är aktiverad|
+|Tangent|Verifiera om funktionen är aktive rad|
+|Tangent|Lägg till partner till företag|
+|Tangent|Lägg till overifierad domän|
+|Tangent|Lägg till verifierad domän|
+|Tangent|Skapa företag|
+|Tangent|Skapa företagsinställningar|
+|Tangent|Ta bort företagsinställningar|
+|Tangent|Flytta ned partner|
+|Tangent|Katalog borttagen|
+|Övrigt|Katalog borttagen permanent|
+|Övrigt|Katalog schemalagd för borttagning|
 |Resurs|Flytta upp företag till partner|
 |Resurs|Rensa egenskaper för Rights Management|
 |Resurs|Ta bort partner från företag|
@@ -469,11 +468,11 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Användarhantering|ActivationAborted|
 |Användarhantering|ActivationRequested|
 |Användarhantering|Lägg till berättigad medlem i rollen|
-|Användarhantering|Lägg till medlem till roll|
+|Användarhantering|Lägga till medlem till en roll|
 |Användarhantering|Lägg till rolltilldelning till rolldefinition|
 |Användarhantering|Lägg till roll från mall|
 |Användarhantering|Lägg till begränsad medlem till roll|
-|Användarhantering|Tillagt|
+|Användarhantering|Tillagd|
 |Användarhantering|Tilldela|
 |Användarhantering|Mass skapande av användare – startat|
 |Användarhantering|Mass skapande av användare – klart|
@@ -500,18 +499,18 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 
 
 
-## <a name="identity-protection"></a>Identitetsskydd
+## <a name="identity-protection"></a>Identity Protection
 
 |Granskningskategori|Aktivitet|
 |---|---|
 |Kataloghantering|Upphöj|
 |Kataloghantering|Borttaget|
 |Kataloghantering|Ändringar av rollinställningar|
-|Annat|ScanAlertsNow|
-|Annat|Registrera|
-|Annat|Ta bort behörighet|
-|Annat|UpdateAlertSettings|
-|Annat|UpdateCurrentState|
+|Övrigt|ScanAlertsNow|
+|Övrigt|Registrera|
+|Övrigt|Ta bort behörighet|
+|Övrigt|UpdateAlertSettings|
+|Övrigt|UpdateCurrentState|
 |Principhantering|Åtkomstgranskning avslutades|
 |Principhantering|Lägg till godkännare för begäran|
 |Principhantering|Lägg till granskare i åtkomstgranskning|
@@ -523,8 +522,8 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 
 |Granskningskategori|Aktivitet|
 |---|---|
-|Annat|Skapa godkännande av begäran|
-|Annat|Ta bort åtkomstgranskning|
+|Övrigt|Skapa godkännande av begäran|
+|Övrigt|Ta bort åtkomstgranskning|
 |Användarhantering|Ta bort granskare från åtkomstgranskning|
 |Användarhantering|Begär tillämpning av granskningsresultat|
 |Användarhantering|Begär granskningsstopp|
@@ -556,7 +555,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |PIM|ActivationAborted|
 |PIM|ActivationDenied|
 |PIM|ActivationRequested|
-|PIM|Tillagt|
+|PIM|Tillagd|
 |PIM|AddedOutsidePIM|
 |PIM|Tilldela|
 |PIM|DismissAlert|
@@ -605,7 +604,7 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Användarhantering|Blockerad från lösenordsåterställning via självbetjäning|
 
 
-## <a name="terms-of-use"></a>Användningsvillkor
+## <a name="terms-of-use"></a>Villkor för användning
 
 |Granskningskategori|Aktivitet|
 |---|---|

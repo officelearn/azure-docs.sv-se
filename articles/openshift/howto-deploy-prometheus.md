@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometheus, Aro, OpenShift, Metrics, Red Hat
 ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886896"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Distribuera en fristående Prometheus-instans i ett Azure Red Hat OpenShift-kluster
@@ -30,13 +29,13 @@ Du kommer att förbereda vissa Prometheus-konfigurationsfiler lokalt. Skapa en n
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Logga in på klustret med hjälp av verktyget OC
 
-1. Öppna en webbläsare och gå sedan till webb konsolen för klustret (https://openshift.* slumpmässigt ID*. *region*. azmosa.IO).
+1. Öppna en webbläsare och gå sedan till webb konsolen för klustret ( https://openshift .* slumpmässigt ID*. *region*. azmosa.IO).
 2. Logga in med dina Azure autentiseringsuppgifter.
 3. Välj ditt användar namn i det övre högra hörnet och välj sedan **Kopiera inloggnings kommando**.
 4. Klistra in ditt användar namn i den terminal som du ska använda.
 
 > [!NOTE]
-> Kör `oc whoami -c` kommandot för att se om du är inloggad på rätt kluster.
+> Kör kommandot för att se om du är inloggad på rätt kluster `oc whoami -c` .
 
 ## <a name="prepare-the-projects"></a>Förbereda projekten
 
@@ -49,7 +48,7 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> Du kan antingen använda parametern `-n` eller `--namespace` eller välja ett aktivt projekt genom att `oc project` köra kommandot.
+> Du kan antingen använda `-n` parametern eller `--namespace` eller välja ett aktivt projekt genom att köra `oc project` kommandot.
 
 ## <a name="prepare-the-prometheus-configuration-file"></a>Förbereda konfigurations filen för Prometheus
 Skapa en Prometheus. YML-fil genom att ange följande innehåll:
@@ -110,7 +109,7 @@ oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-
 Alertmanager. yml är aviserings hanterarens konfigurations fil.
 
 > [!NOTE]
-> Kör `oc get secret -n prometheus-project` kommandot för att kontrol lera de två föregående stegen.
+> Kör kommandot för att kontrol lera de två föregående stegen `oc get secret -n prometheus-project` .
 
 ## <a name="start-prometheus-and-alertmanager"></a>Starta Prometheus och Alertmanager
 Gå till [OpenShift/Origin-lagringsplatsen](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) och ladda ned mallen [Prometheus-standalone. yaml](
@@ -121,7 +120,7 @@ oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/ex
 Prometheus-standalone. yaml-filen är en OpenShift-mall. Den skapar en Prometheus-instans med OAuth-proxy framför den och en Alertmanager-instans, som också skyddas med OAuth-proxy. I den här mallen konfigureras OAuth-proxy för att tillåta alla användare som kan "Hämta" Prometheus-projektets namnrymd (se `-openshift-sar` flaggan).
 
 > [!NOTE]
-> Du kan kontrol lera om Prom-StatefulSet har samma önskade och aktuella nummer repliker genom `oc get statefulset -n prometheus-project` att köra kommandot. Om du vill kontrol lera alla resurser i projektet kör `oc get all -n prometheus-project` du kommandot.
+> Du kan kontrol lera om Prom-StatefulSet har samma önskade och aktuella nummer repliker genom att köra `oc get statefulset -n prometheus-project` kommandot. Om du vill kontrol lera alla resurser i projektet kör du `oc get all -n prometheus-project` kommandot.
 
 ## <a name="add-permissions-to-allow-service-discovery"></a>Lägg till behörigheter för att tillåta tjänst identifiering
 
@@ -178,11 +177,11 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 ```
 
 > [!NOTE]
-> Du kan kontrol lera att roll-och RoleBinding har skapats korrekt `oc get role` genom `oc get rolebinding` att köra kommandona och.
+> Du kan kontrol lera att roll-och RoleBinding har skapats korrekt genom att köra `oc get role` `oc get rolebinding` kommandona och.
 
 ## <a name="optional-deploy-example-application"></a>Valfritt: Distribuera exempel program
 
-Allt fungerar, men det finns inga mått källor. Gå till Prometheus-URL:https://prom-prometheus-project.appsen (.* slumpmässigt ID*. *region*. azmosa.IO/). Du hittar det genom att använda följande kommando:
+Allt fungerar, men det finns inga mått källor. Gå till Prometheus-URL: en ( https://prom-prometheus-project.apps .* slumpmässigt ID*. *region*. azmosa.IO/). Du hittar det genom att använda följande kommando:
 
 ```
 oc get route prom -n prometheus-project
@@ -200,7 +199,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 De nya programmen bör visas som giltiga mål på sidan för identifiering av tjänsten inom 30 sekunder efter distributionen.
 
-Om du vill ha mer information väljer du **status** > **mål**.
+Om du vill ha mer information väljer du **status**  >  **mål**.
 
 > [!NOTE]
 > För varje korrekt inkasserat mål lägger Prometheus till en data punkt i upp-måttet. Välj **Prometheus** i det övre vänstra hörnet, ange **upp** som-uttrycket och välj sedan **Kör**.

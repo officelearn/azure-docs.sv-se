@@ -12,15 +12,14 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882326"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Program med en sida: Hämta en token för att anropa ett API
 
-Mönstret för att hämta token för API: er med MSAL. js är att först försöka utföra en begäran om tyst token med hjälp av `acquireTokenSilent` metoden. När den här metoden anropas kontrollerar biblioteket först cacheminnet i webbläsarens lagring för att se om det finns en giltig token och returnerar den. När det inte finns någon giltig token i cacheminnet, skickar den en begäran om tyst token till Azure Active Directory (Azure AD) från en dold iframe. Den här metoden gör det också möjligt för biblioteket att förnya tokens. För ytterligare information om enkel inloggning och token för token i Azure AD, se [livs längd för token](active-directory-configurable-token-lifetimes.md).
+Mönstret för att hämta token för API: er med MSAL.js är att först försöka utföra en begäran om tyst token med hjälp av `acquireTokenSilent` metoden. När den här metoden anropas kontrollerar biblioteket först cacheminnet i webbläsarens lagring för att se om det finns en giltig token och returnerar den. När det inte finns någon giltig token i cacheminnet, skickar den en begäran om tyst token till Azure Active Directory (Azure AD) från en dold iframe. Den här metoden gör det också möjligt för biblioteket att förnya tokens. För ytterligare information om enkel inloggning och token för token i Azure AD, se [livs längd för token](active-directory-configurable-token-lifetimes.md).
 
 Begär Anden om obevakade token till Azure AD kan Miss Miss kan bero på att en Azure AD-session eller ett lösen ord har ändrats. I så fall kan du anropa en av de interaktiva metoderna (vilket uppmanas användaren) att hämta tokens:
 
@@ -126,7 +125,7 @@ ngOnDestroy() {
  }
 ```
 
-Alternativt kan du uttryckligen Hämta token genom att använda metoderna för att hämta token enligt beskrivningen i biblioteket Core MSAL. js.
+Alternativt kan du uttryckligen Hämta token genom att använda metoderna för att hämta token enligt beskrivningen i kärn MSAL.jss biblioteket.
 
 ---
 
@@ -168,7 +167,7 @@ Du kan använda valfria anspråk i följande syfte:
 - Ändra beteendet för vissa anspråk som Azure AD returnerar i tokens.
 - Lägg till och få till gång till anpassade anspråk för ditt program.
 
-Om du vill begära valfria `IdToken`anspråk i kan du skicka ett stringified-anspråks objekt `claimsRequest` till `AuthenticationParameters.ts` fältet i klassen.
+Om du vill begära valfria anspråk i `IdToken` kan du skicka ett stringified-anspråks objekt till `claimsRequest` fältet i `AuthenticationParameters.ts` klassen.
 
 ```javascript
 "optionalClaims":

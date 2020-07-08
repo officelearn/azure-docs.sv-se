@@ -12,10 +12,9 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f159105046231ba5fb4e458cdd70d930a411a920
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882343"
 ---
 # <a name="single-page-application-code-configuration"></a>Program med en sida: kod konfiguration
@@ -28,8 +27,8 @@ Microsoft Identity Platform tillhandahåller följande bibliotek för Microsoft 
 
 | MSAL-bibliotek | Beskrivning |
 |--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Oformaterat JavaScript-bibliotek för användning i alla webb program på klient sidan som bygger på JavaScript-eller SPA-ramverk, till exempel vinkel, Vue. js och reagerar. js. |
-| ![MSAL-vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL-vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Omslutning av kärnan MSAL. js-biblioteket för att förenkla användningen av appar på en sida som är byggda genom ram-ramverket. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Oformaterat JavaScript-bibliotek för användning i alla webb program på klient sidan som bygger på JavaScript-eller SPA-ramverk, till exempel vinkel, Vue.js och React.js. |
+| ![MSAL-vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL-vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Omslutningen av kärn MSAL.jss biblioteket för att förenkla användningen av appar på en sida som är byggda genom ram-ramverket. |
 
 ## <a name="application-code-configuration"></a>Program kod konfiguration
 
@@ -50,7 +49,7 @@ const config = {
 const userAgentApplication = new UserAgentApplication(config);
 ```
 
-Mer information om konfigurerbara alternativ finns i avsnittet [om att initiera program med MSAL. js](msal-js-initializing-client-applications.md).
+Mer information om konfigurerbara alternativ finns i avsnittet [om att initiera program med MSAL.js](msal-js-initializing-client-applications.md).
 
 # <a name="angular"></a>[Angular](#tab/angular)
 

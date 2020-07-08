@@ -15,18 +15,17 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: allensu
 ms.openlocfilehash: 2475bdce3ab8f153cc837601964bf4a2e90a470c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260422"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Felsöka HTTP-huvud för Azure CDN från Microsoft
-Rubriken för fel söknings `X-Cache`svar, innehåller information om vilket lager i CDN-stacken som innehållet betjänades från. Den här rubriken är unik för Azure CDN från Microsoft.
+Rubriken för fel söknings svar, `X-Cache` innehåller information om vilket lager i CDN-stacken som innehållet betjänades från. Den här rubriken är unik för Azure CDN från Microsoft.
 
 ### <a name="response-header-format"></a>Format för svars huvud
 
-Huvud | Beskrivning
+Sidhuvud | Beskrivning
 -------|------------
 X-cache: TCP_HIT | Den här rubriken returneras när innehållet hanteras från CDN Edge-cachen. 
 X-cache: TCP_REMOTE_HIT | Den här rubriken returneras när innehållet hanteras från CDN regional cache (ursprungs skikt)

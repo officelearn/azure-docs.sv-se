@@ -7,10 +7,9 @@ ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892265"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
@@ -31,7 +30,7 @@ Att aktivera distribuerad spårning mellan tjänsterna i ett program är lika en
 
 ## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Aktivera via Application Insights via Auto-Instrumentation eller SDK: er
 
-Application Insights agenter och/eller SDK: er för .NET, .NET Core, Java, Node. js och Java Script all stöder distribuerad spårning internt. Instruktioner för att installera och konfigurera varje Application Insights SDK finns nedan:
+Application Insights agenter och/eller SDK: er för .NET, .NET Core, Java, Node.js och Java Script stöder distribuerad spårning internt. Instruktioner för att installera och konfigurera varje Application Insights SDK finns nedan:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)

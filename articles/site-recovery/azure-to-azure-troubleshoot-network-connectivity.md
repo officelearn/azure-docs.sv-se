@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80884876"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
@@ -20,7 +19,7 @@ För att Site Recovery replikering ska fungera krävs utgående anslutning till 
 
 | URL | Information |
 |---|---|
-| `*.blob.core.windows.net` | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du använda en lista över tillåtna för de angivna URL: erna för lagrings kontot. Till exempel `cache1.blob.core.windows.net` och `cache2.blob.core.windows.net` i stället för `*.blob.core.windows.net`. |
+| `*.blob.core.windows.net` | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du använda en lista över tillåtna för de angivna URL: erna för lagrings kontot. Till exempel `cache1.blob.core.windows.net` och `cache2.blob.core.windows.net` i stället för `*.blob.core.windows.net` . |
 | `login.microsoftonline.com` | Krävs för auktorisering och autentisering till Site Recovery tjänst-URL: er. |
 | `*.hypervrecoverymanager.windowsazure.com` | Krävs så att kommunikationen mellan Site Recoverys tjänsten kan ske från den virtuella datorn. Du kan använda motsvarande _Site Recovery-IP_ om brand Väggs-proxyn har stöd för IP-adresser. |
 | `*.servicebus.windows.net` | Krävs så att Site Recovery övervakning och diagnostikdata kan skrivas från den virtuella datorn. Du kan använda motsvarande _Site Recovery övervakning av IP_ om din brand vägg stöder IP-adresser. |
@@ -51,7 +50,7 @@ Försök att komma åt DNS-servern från den virtuella datorn. Om DNS-servern in
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Site Recovery konfiguration misslyckades (151196)
 
 > [!NOTE]
-> Om de virtuella datorerna finns **bakom en intern belastningsutjämnare som standard har** den inte åtkomst till Office 365-IP-adresser som `login.microsoftonline.com`. Ändra den till en **grundläggande** typ av intern belastningsutjämnare eller skapa utgående åtkomst som anges i artikeln [Konfigurera belastnings utjämning och utgående regler i standard load BALANCER med Azure CLI](/azure/load-balancer/configure-load-balancer-outbound-cli).
+> Om de virtuella datorerna finns **bakom en intern belastningsutjämnare som standard har** den inte åtkomst till Office 365-IP-adresser som `login.microsoftonline.com` . Ändra den till en **grundläggande** typ av intern belastningsutjämnare eller skapa utgående åtkomst som anges i artikeln [Konfigurera belastnings utjämning och utgående regler i standard load BALANCER med Azure CLI](/azure/load-balancer/configure-load-balancer-outbound-cli).
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
@@ -82,7 +81,7 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 1. Skapa HTTPS-port 443 utgående regler för de Site Recovery IP-adresser som motsvarar mål platsen:
 
-   | Plats | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
+   | Location | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
    | --- | --- | --- |
    | USA, centrala | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +101,7 @@ I det här exemplet krävs dessa NSG-regler för att replikeringen ska kunna akt
 
 1. Skapa HTTPS-port 443 utgående regler för de Site Recovery IP-adresser som motsvarar käll platsen:
 
-   | Plats | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
+   | Location | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
    | --- | --- | --- |
    | USA, östra | 13.82.88.226 | 104.45.147.24 |
 

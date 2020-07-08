@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
 ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114437"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
@@ -29,7 +28,7 @@ De grundläggande stegen är följande:
 Nedan beskrivs hur du skapar en Resource Manager-mall först för en avisering, sedan för en avisering när du skapar en annan resurs.
 
 ## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Resource Manager-mall för en klassisk måtta avisering
-Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du `Microsoft.Insights/alertRules` en resurs av typen och fyller i alla relaterade egenskaper. Nedan visas en mall som skapar en varnings regel.
+Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/alertRules` och fyller i alla relaterade egenskaper. Nedan visas en mall som skapar en varnings regel.
 
 ```json
 {
@@ -179,7 +178,7 @@ Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du `
 En förklaring av schema och egenskaper för en varnings regel [finns här](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Resource Manager-mall för en resurs med en klassisk måtta avisering
-En avisering i en Resource Manager-mall är oftast användbar när du skapar en avisering när du skapar en resurs. Du kanske till exempel vill se till att en "CPU% > 80"-regel konfigureras varje gång du distribuerar en virtuell dator. Om du vill göra det lägger du till varnings regeln som en resurs i resurs mat ris mal len för VM-mallen och lägger till `dependsOn` ett beroende med egenskapen till resurs-ID för virtuell dator. Här är ett fullständigt exempel som skapar en virtuell Windows-dator och lägger till en avisering som meddelar prenumerations administratörer när processor användningen går över 80%.
+En avisering i en Resource Manager-mall är oftast användbar när du skapar en avisering när du skapar en resurs. Du kanske till exempel vill se till att en "CPU% > 80"-regel konfigureras varje gång du distribuerar en virtuell dator. Om du vill göra det lägger du till varnings regeln som en resurs i resurs mat ris mal len för VM-mallen och lägger till ett beroende med `dependsOn` egenskapen till resurs-ID för virtuell dator. Här är ett fullständigt exempel som skapar en virtuell Windows-dator och lägger till en avisering som meddelar prenumerations administratörer när processor användningen går över 80%.
 
 ```json
 {

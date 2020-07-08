@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: 44d06030d8015d2df9499ce903eb9cb06e1ef27a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885658"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Så här använder Azure AD SAML-protokoll
@@ -31,8 +30,8 @@ Azure AD använder moln tjänstens **metadata-URI** för att hämta signerings n
 
 Azure Active Directory exponerar klient-och common (klient oberoende) enkel inloggning och enkel inloggnings slut punkter. Dessa URL: er representerar adresser bara platser – de är inte bara identifierare – så att du kan gå till slut punkten för att läsa metadata.
 
-* Den klient-/regionsspecifika slut punkten finns på `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. Plats hållaren * \<TenantDomainName>* representerar ett registrerat domän namn eller ett TenantID-GUID för en Azure AD-klient. Contoso.com-klientens federationsmetadata är till exempel:https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Den klient-/regionsspecifika slut punkten finns på `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml` . *\<TenantDomainName>* Plats hållaren representerar ett registrerat domän namn eller ett TenantID-GUID för en Azure AD-klient. Contoso.com-klientens federationsmetadata är till exempel:https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
-* Klient oberoende slut punkt finns på `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. I den här slut punkts adressen visas **vanligt** i stället för ett klient domän namn eller-ID.
+* Klient oberoende slut punkt finns på `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml` . I den här slut punkts adressen visas **vanligt** i stället för ett klient domän namn eller-ID.
 
 Information om de dokument för federationsmetadata som Azure AD publicerar finns i [federationsmetadata](../azuread-dev/azure-ad-federation-metadata.md).

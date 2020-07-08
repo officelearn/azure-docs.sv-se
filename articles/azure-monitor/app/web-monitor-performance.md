@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80985073"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Övervaka prestanda i webbprogram
@@ -21,7 +20,7 @@ Application Insights kan övervaka både Java-och ASP.NET-webbprogram och-tjäns
 På klient sidan kan Application Insights ta telemetri från webb sidor och en rad olika enheter, inklusive iOS-, Android-och Windows Store-appar.
 
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Konfigurera prestanda övervakning
-Om du ännu inte har lagt till Application Insights i projektet (det vill säga om det inte har ApplicationInsights. config) väljer du något av följande sätt för att komma igång:
+Om du ännu inte har lagt till Application Insights i projektet (det vill säga om det inte har ApplicationInsights.config) väljer du något av följande sätt för att komma igång:
 
 * [ASP.NET-webbappar](../../azure-monitor/app/asp-net.md)
   * [Lägg till undantags övervakning](../../azure-monitor/app/asp-net-exceptions.md)
@@ -84,7 +83,7 @@ Om du vill se vilka andra mått du kan visa klickar du på en graf och avmarkera
 
 Om du väljer något mått inaktive ras de andra som inte kan visas i samma diagram.
 
-## <a name="set-alerts"></a>Ange aviseringar
+## <a name="set-alerts"></a>Ställa in avisering
 För att få ett meddelande via e-post om ovanliga värden för alla mått, Lägg till en avisering. Du kan antingen välja att skicka e-postmeddelandet till konto administratörer eller till vissa e-postadresser.
 
 ![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)

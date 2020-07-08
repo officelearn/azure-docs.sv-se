@@ -9,15 +9,14 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 04/01/2020
 ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80879181"
 ---
-# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utföra avancerade JSON-omvandlingar med flytande mallar i Azure Logic Apps
+# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utför avancerade JSON-transformationer med Liquid-mallar i Azure Logic Apps
 
-Du kan utföra grundläggande JSON-omvandlingar i Logi Kap par med åtgärder för inbyggd data åtgärd, till exempel **skapa** eller **parsa JSON**. Om du vill utföra avancerade JSON-omvandlingar kan du skapa mallar eller kartor med [flytande](https://shopify.github.io/liquid/), som är ett mall-språk med öppen källkod för flexibla webb program. En flytande mall definierar hur JSON-utdata ska transformeras och stöder mer komplexa JSON-omvandlingar, till exempel iterationer, kontroll flöden, variabler och så vidare.
+Du kan utföra grundläggande JSON-omvandlingar i Logi Kap par med åtgärder för inbyggd data åtgärd, till exempel **skapa** eller **parsa JSON**. Om du vill utföra avancerade JSON-omvandlingar kan du skapa mallar eller kartor med [flytande](https://shopify.github.io/liquid/), som är ett mall-språk med öppen källkod för flexibla webb program. En Liquid-mall definierar hur du transformerar JSON-utdata och stöder mer komplexa JSON-transformationer, t.ex. iterationer, kontrollflöden och variabler.
 
 Innan du kan utföra en flytande omvandling i din Logic app måste du först definiera JSON-till-JSON-mappningen med en flytande mall och lagra mappningen i ditt integrations konto. Den här artikeln visar hur du skapar och använder den här vätske mal len eller kartan.
 
@@ -57,7 +56,7 @@ Innan du kan utföra en flytande omvandling i din Logic app måste du först def
    }
    ```
 
-1. I [Azure Portal](https://portal.azure.com), i rutan Azure Search, anger `integration accounts`du och väljer **integrations konton**.
+1. I [Azure Portal](https://portal.azure.com), i rutan Azure Search, anger du `integration accounts` och väljer **integrations konton**.
 
    ![Hitta "integrations konton"](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
 
@@ -75,7 +74,7 @@ Innan du kan utföra en flytande omvandling i din Logic app måste du först def
    |----------|-------|-------------|
    | **Namn** | `JsonToJsonTemplate` | Namnet på kartan, som är "JsonToJsonTemplate" i det här exemplet | 
    | **Kart typ** | **flytande** | Kartans typ. För JSON till JSON-transformering måste du välja **flytande**. | 
-   | **Mappa** | `SimpleJsonToJsonTemplate.liquid` | En befintlig flytande mall eller kart fil som ska användas för omvandling, som är "SimpleJsonToJsonTemplate. flytande" i det här exemplet. Du kan använda fil väljaren för att hitta den här filen. För mappnings storleks gränser, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
+   | **Karta** | `SimpleJsonToJsonTemplate.liquid` | En befintlig flytande mall eller kart fil som ska användas för omvandling, som är "SimpleJsonToJsonTemplate. flytande" i det här exemplet. Du kan använda fil väljaren för att hitta den här filen. För mappnings storleks gränser, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    ||| 
 
    ![Lägg till flytande mall](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
@@ -86,7 +85,7 @@ Innan du kan utföra en flytande omvandling i din Logic app måste du först def
 
 1. Lägg till [utlösaren för begäran](../connectors/connectors-native-reqres.md#add-request) till din Logic app i Logic App Designer.
 
-1. Under utlösaren väljer du **nytt steg**. I rutan Sök anger `liquid` du som filter och väljer den här åtgärden: **TRANSFORMERA JSON till JSON-flytande**
+1. Under utlösaren väljer du **nytt steg**. I rutan Sök anger `liquid` du som filter och väljer den här åtgärden: **transformera JSON till JSON-flytande**
 
    ![Sök och välj flytande åtgärd](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 

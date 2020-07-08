@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882972"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Stationär app som anropar webb-API: er: anropa ett webb-API
@@ -94,7 +93,7 @@ task.resume()
 
 ## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Anropa flera API: er: stegvist medgivande och villkorlig åtkomst
 
-Om du vill anropa flera API: er för samma användare när du har skaffat en token för `AcquireTokenSilent`det första API: et, anropa. Du får en token för de andra API: erna i bakgrunden av tiden.
+Om du vill anropa flera API: er för samma användare när du har skaffat en token för det första API: et, anropa `AcquireTokenSilent` . Du får en token för de andra API: erna i bakgrunden av tiden.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

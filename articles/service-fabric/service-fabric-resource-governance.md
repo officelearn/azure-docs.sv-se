@@ -4,10 +4,9 @@ description: Med Azure Service Fabric kan du ange resurs gränser för tjänster
 ms.topic: conceptual
 ms.date: 8/9/2017
 ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81115146"
 ---
 # <a name="resource-governance"></a>Resursstyrning
@@ -21,9 +20,9 @@ När du kör flera tjänster på samma nod eller kluster är det möjligt att en
 
 Resurs styrning stöds i Service Fabric i enlighet med [tjänst paketet](service-fabric-application-model.md). De resurser som är tilldelade till tjänst paketet kan delas ytterligare mellan kod paket. Resurs gränserna som anges innebär också att resurserna reserveras. Service Fabric har stöd för att ange CPU och minne per tjänst paket, med två inbyggda [mått](service-fabric-cluster-resource-manager-metrics.md):
 
-* *Processor* (Metric name `servicefabric:/_CpuCores`): en logisk kärna som är tillgänglig på värddatorn. Alla kärnor på alla noder viktas likadant.
+* *Processor* (Metric name `servicefabric:/_CpuCores` ): en logisk kärna som är tillgänglig på värddatorn. Alla kärnor på alla noder viktas likadant.
 
-* *Minne* (Metric name `servicefabric:/_MemoryInMB`): minnet uttrycks i megabyte och det mappas till det fysiska minne som är tillgängligt på datorn.
+* *Minne* (Metric name `servicefabric:/_MemoryInMB` ): minnet uttrycks i megabyte och det mappas till det fysiska minne som är tillgängligt på datorn.
 
 För dessa två mått spårar [kluster resurs hanteraren](service-fabric-cluster-resource-manager-cluster-description.md) den totala kluster kapaciteten, belastningen på varje nod i klustret och återstående resurser i klustret. Dessa två mått motsvarar andra användare eller anpassade mått. Alla befintliga funktioner kan användas med dem:
 

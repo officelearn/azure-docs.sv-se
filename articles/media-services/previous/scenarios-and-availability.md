@@ -14,10 +14,9 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80985940"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
@@ -111,7 +110,7 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
 3. Förhandsgranska din liveuppspelning.
 4. Leverera innehållet via vanliga strömningsprotokoll (t.ex. MPEG DASH, Smooth, HLS) direkt till dina kunder eller till ett nätverk för innehållsleverans för vidare distribution.
 
-    ELLER
+    \- eller -
 
     Spela in och lagra det infogade innehållet för att kunna strömma senare (Video-on-Demand).
 
@@ -210,12 +209,12 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
-|Azure Media Face Detector|Förhandsversion|Alla|
+|Azure Media Face Detector|Förhandsgranskning|Alla|
 |Azure Media Indexer|Allmän tillgänglighet (GA)|Alla|
-|Azure Media Motion Detector|Förhandsversion|Alla|
-|Azure Media OCR|Förhandsversion|Alla|
+|Azure Media Motion Detector|Förhandsgranskning|Alla|
+|Azure Media OCR|Förhandsgranskning|Alla|
 |Azure Media Redactor|Allmän tillgänglighet (GA)|Alla|
-|Azure Media Video Thumbnails|Förhandsversion|Alla|
+|Azure Media Video Thumbnails|Förhandsgranskning|Alla|
 
 ### <a name="protection"></a>Skydd
 

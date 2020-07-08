@@ -6,10 +6,9 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261082"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Mått aviseringar med dynamiska tröskelvärden i Azure Monitor
@@ -18,7 +17,7 @@ Mått varning med identifiering av dynamiskt tröskelvärden utnyttjar avancerad
 
 När en varnings regel har skapats aktive ras den bara när det övervakade måttet inte fungerar som förväntat, baserat på dess anpassade tröskelvärden.
 
-Vi vill gärna höra dina synpunkter, se till att de kommer <azurealertsfeedback@microsoft.com>.
+Vi vill gärna höra dina synpunkter, se till att de kommer <azurealertsfeedback@microsoft.com> .
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Varför och när använder dynamisk villkors typ rekommenderas?
 

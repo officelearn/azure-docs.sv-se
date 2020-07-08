@@ -9,14 +9,13 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811644"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domän namn för en Azure-moln tjänst
-När du skapar en moln tjänst tilldelar Azure den till en under domän till **cloudapp.net**. Om din moln tjänst till exempel heter Contoso, kommer användarna att kunna komma åt ditt program på en URL som `http://contoso.cloudapp.net`. Azure tilldelar också en virtuell IP-adress.
+När du skapar en moln tjänst tilldelar Azure den till en under domän till **cloudapp.net**. Om din moln tjänst till exempel heter Contoso, kommer användarna att kunna komma åt ditt program på en URL som `http://contoso.cloudapp.net` . Azure tilldelar också en virtuell IP-adress.
 
 Du kan dock också exponera ditt program på ditt eget domän namn, till exempel **contoso.com**. Den här artikeln förklarar hur du reserverar eller konfigurerar ett anpassat domän namn för webb roller för moln tjänster.
 
@@ -38,13 +37,13 @@ Förstår du redan vad CNAME och en post är? [Hoppa förbi förklaringen](#add-
 CNAME (eller Ali Aset poster) och en post gör att du kan associera ett domän namn med en speciell Server (eller tjänst i det här fallet) men de fungerar på olika sätt. Det finns även vissa saker att tänka på när du använder en post med Azure Cloud Services som du bör tänka på innan du bestämmer vilken du vill använda.
 
 ### <a name="cname-or-alias-record"></a>CNAME-eller Ali Aset
-En CNAME-post mappar en *speciell* domän, till exempel **contoso.com** eller **www\.-contoso.com**, till ett kanoniskt domän namn. I det här fallet är det kanoniska domän namnet **[Mittprog]. cloudapp. net** Domain Name för ditt Azure-värdbaserade program. När det har skapats skapar CNAME ett alias för **[MyApp]. cloudapp. net**. CNAME-posten kommer att matcha IP-adressen för din **[MyApp]. cloudapp. net** -tjänst automatiskt, så om moln TJÄNSTens IP-adress ändras, behöver du inte vidta några åtgärder.
+En CNAME-post mappar en *speciell* domän, till exempel **contoso.com** eller **www- \. contoso.com**, till ett kanoniskt domän namn. I det här fallet är det kanoniska domän namnet **[Mittprog]. cloudapp. net** Domain Name för ditt Azure-värdbaserade program. När det har skapats skapar CNAME ett alias för **[MyApp]. cloudapp. net**. CNAME-posten kommer att matcha IP-adressen för din **[MyApp]. cloudapp. net** -tjänst automatiskt, så om moln TJÄNSTens IP-adress ändras, behöver du inte vidta några åtgärder.
 
 > [!NOTE]
-> Vissa domän registratorer tillåter bara att du mappar under domäner när du använder en CNAME-post, t.\.ex. www-contoso.com och inte rot namn, till exempel contoso.com. Mer information om CNAME-poster finns i dokumentationen från din registrator, Wikipedia- [posten på CNAME-posten](https://en.wikipedia.org/wiki/CNAME_record)eller i [IETF-domän namn – implementering och Specifikations](https://tools.ietf.org/html/rfc1035) dokument.
+> Vissa domän registratorer tillåter bara att du mappar under domäner när du använder en CNAME-post, t. ex. www- \. contoso.com och inte rot namn, till exempel contoso.com. Mer information om CNAME-poster finns i dokumentationen från din registrator, Wikipedia- [posten på CNAME-posten](https://en.wikipedia.org/wiki/CNAME_record)eller i [IETF-domän namn – implementering och Specifikations](https://tools.ietf.org/html/rfc1035) dokument.
 
 ### <a name="a-record"></a>En post
-En *a* -post mappar en domän, till exempel **contoso.com** eller **www\.-contoso.com**, *eller en domän med jokertecken* , till exempel ** \*. contoso.com**, till en IP-adress. Om det gäller en Azure-molnbaserad tjänst är tjänstens virtuella IP-adress. Den största fördelen med en post över en CNAME-post är att du kan ha en post som använder ett jokertecken, till exempel \* **. contoso.com**, som hanterar begär Anden för flera under domäner som **mail.contoso.com**, **login.contoso.com**eller **\.www contso.com**.
+En *a* -post mappar en domän, till exempel **contoso.com** eller **www- \. contoso.com**, *eller en domän med jokertecken* , till exempel ** \* . contoso.com**, till en IP-adress. Om det gäller en Azure-molnbaserad tjänst är tjänstens virtuella IP-adress. Den största fördelen med en post över en CNAME-post är att du kan ha en post som använder ett jokertecken, till exempel \* **. contoso.com**, som hanterar begär Anden för flera under domäner som **mail.contoso.com**, **login.contoso.com**eller **www \. contso.com**.
 
 > [!NOTE]
 > Eftersom en A-post mappas till en statisk IP-adress, kan den inte automatiskt lösa ändringar i moln tjänstens IP-adress. Den IP-adress som används av moln tjänsten tilldelas första gången du distribuerar till ett tomt fack (produktion eller mellanlagring.) Om du tar bort distributionen för platsen, släpps IP-adressen av Azure och eventuella framtida distributioner till platsen kan tilldelas en ny IP-adress.
@@ -72,17 +71,17 @@ Om du vill skapa en CNAME-post måste du lägga till en ny post i DNS-tabellen f
      Spara domän namnet som används i URL: en som returneras av någon av metoderna, eftersom du behöver det när du skapar en CNAME-post.
 2. Logga in på din DNS-registrators webbplats och gå till sidan för att hantera DNS. Sök efter länkar eller områden på webbplatsen som är märkta som **domän namn**, **DNS**eller **namn server hantering**.
 3. Nu kan du se var du kan välja eller ange CNAME. Du kan behöva välja post typen från en listruta eller gå till sidan Avancerade inställningar. Du bör söka efter orden **CNAME**, **alias**eller **under domäner**.
-4. Du måste också ange domänen eller under domän Ali Aset för CNAME, till exempel **www** , om du vill skapa ett alias för **www\.-customdomain.com**. Om du vill skapa ett alias för rot domänen kan det visas som symbolen '**\@**' i din REGISTRATORS DNS-verktyg.
+4. Du måste också ange domänen eller under domän Ali Aset för CNAME, till exempel **www** , om du vill skapa ett alias för **www- \. customdomain.com**. Om du vill skapa ett alias för rot domänen kan det visas som **\@** symbolen ' ' i din registrators DNS-verktyg.
 5. Sedan måste du ange ett kanoniskt värdnamn, som är programmets **cloudapp.net** -domän i det här fallet.
 
-Till exempel vidarebefordrar följande CNAME-post all trafik från **www\.-contoso.com** till **contoso.cloudapp.net**, det anpassade domän namnet för det distribuerade programmet:
+Till exempel vidarebefordrar följande CNAME-post all trafik från **www- \. contoso.com** till **contoso.cloudapp.net**, det anpassade domän namnet för det distribuerade programmet:
 
 | Alias/värdnamn/under domän | Kanonisk domän |
 | --- | --- |
 | www |contoso.cloudapp.net |
 
 > [!NOTE]
-> En besökare av **www\.-contoso.com** kommer aldrig att se den sanna värden (contoso.cloudapp.net), så vidarebefordrings processen är osynlig för slutanvändaren.
+> En besökare av **www- \. contoso.com** kommer aldrig att se den sanna värden (contoso.cloudapp.net), så vidarebefordrings processen är osynlig för slutanvändaren.
 > 
 > Exemplet ovan gäller endast för trafik på **www** -underdomänen. Eftersom du inte kan använda jokertecken med CNAME-poster måste du skapa en CNAME-post för varje domän/under domän. Om du vill dirigera trafik från under domäner, till exempel *. contoso.com, till din cloudapp.net-adress kan du konfigurera en post för **URL-omdirigering** eller **URL-vidarebefordran** i dina DNS-inställningar eller skapa en a-post.
 
@@ -105,9 +104,9 @@ Om du vill skapa en A-post måste du först hitta den virtuella IP-adressen för
      Spara IP-adressen eftersom du kommer att behöva den när du skapar en A-post.
 2. Logga in på din DNS-registrators webbplats och gå till sidan för att hantera DNS. Sök efter länkar eller områden på webbplatsen som är märkta som **domän namn**, **DNS**eller **namn server hantering**.
 3. Nu kan du se var du kan välja eller ange en posts. Du kan behöva välja post typen från en listruta eller gå till sidan Avancerade inställningar.
-4. Välj eller ange den domän eller under domän som ska använda den här posten. Välj till exempel **www** om du vill skapa ett alias för **www\.-customdomain.com**. Om du vill skapa en post med jokertecken för alla under domäner anger du ' * * * * * '. Detta kommer att avse alla under domäner som **mail.customdomain.com**, **login.customdomain.com**och **www\.customdomain.com**.
+4. Välj eller ange den domän eller under domän som ska använda den här posten. Välj till exempel **www** om du vill skapa ett alias för www- ** \. customdomain.com**. Om du vill skapa en post med jokertecken för alla under domäner anger du ' * * * * * '. Detta kommer att avse alla under domäner som **mail.customdomain.com**, **login.customdomain.com**och **www \. customdomain.com**.
 
-    Om du vill skapa en post för rot domänen kan den visas som symbolen '**\@**' i din REGISTRATORS DNS-verktyg.
+    Om du vill skapa en post för rot domänen kan den visas som **\@** symbolen ' ' i din registrators DNS-verktyg.
 5. Ange IP-adressen för din moln tjänst i det angivna fältet. Detta associerar domän posten som används i A-posten med IP-adressen för moln tjänst distributionen.
 
 Följande A-post vidarebefordrar exempelvis all trafik från **contoso.com** till **137.135.70.239**, IP-adressen för det distribuerade programmet:

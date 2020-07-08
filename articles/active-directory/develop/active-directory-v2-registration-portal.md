@@ -14,10 +14,9 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885641"
 ---
 # <a name="app-registration-reference"></a>Referens för registrering av appar
@@ -26,7 +25,7 @@ Det här dokumentet innehåller kontext och beskrivningar av de olika funktioner
 
 ## <a name="my-applications-or-converged-applications"></a>Mina program eller konvergerade program
 
-Den här listan innehåller alla dina program som har registrerats för användning med Microsoft Identity Platform (v 2.0) slut punkten. Dessa program kan logga in användare med både personliga Microsoft-konton och arbets-eller skol konton från Azure Active Directory. Mer information om identitets Plattformens slut punkt finns i [Översikt över v 2.0](active-directory-appmodel-v2-overview.md). Dessa program kan också användas för att integrera med slut punkten för Microsoft-konto- `https://login.live.com`autentisering.
+Den här listan innehåller alla dina program som har registrerats för användning med Microsoft Identity Platform (v 2.0) slut punkten. Dessa program kan logga in användare med både personliga Microsoft-konton och arbets-eller skol konton från Azure Active Directory. Mer information om identitets Plattformens slut punkt finns i [Översikt över v 2.0](active-directory-appmodel-v2-overview.md). Dessa program kan också användas för att integrera med slut punkten för Microsoft-konto-autentisering `https://login.live.com` .
 
 ## <a name="azure-ad-only-applications"></a>Endast Azure AD-program
 
@@ -34,11 +33,11 @@ Den här listan innehåller alla dina program som har registrerats för användn
 
 ## <a name="live-sdk-applications"></a>Live SDK-program
 
-Den här listan innehåller alla dina program som är registrerade för användning enbart med Microsoft-konto. De är inte aktiverade för användning med Azure Active Directory. Här hittar du några program som tidigare har registrerats med MSA Developer-portalen på `https://account.live.com/developers/applications`. Alla funktioner som du har utfört tidigare `https://account.live.com/developers/applications` kan nu utföras i [Appregistreringar](https://aka.ms/appregistrations).
+Den här listan innehåller alla dina program som är registrerade för användning enbart med Microsoft-konto. De är inte aktiverade för användning med Azure Active Directory. Här hittar du några program som tidigare har registrerats med MSA Developer-portalen på `https://account.live.com/developers/applications` . Alla funktioner som du har utfört tidigare `https://account.live.com/developers/applications` kan nu utföras i [Appregistreringar](https://aka.ms/appregistrations).
 
 ## <a name="application-secrets"></a>Program hemligheter
 
-Program hemligheter är autentiseringsuppgifter som gör att ditt program kan utföra tillförlitlig [klientautentisering](https://tools.ietf.org/html/rfc6749#section-2.3) med Azure AD. I OAuth & OpenID Connect kallas en program hemlighet vanligt vis som en `client_secret`. I v 2.0-protokollet måste alla program som tar emot en säkerhetstoken på en plats med webb adresser (med hjälp `https` av ett schema) använda en program hemlighet för att identifiera sig själv för Azure AD vid inlösen av denna säkerhetstoken. Dessutom kommer alla interna klienter som tar emot token på en enhet att förbjudas att använda en program hemlighet för att utföra klientautentisering. Detta förhindrar lagring av hemligheter i osäkra miljöer.
+Program hemligheter är autentiseringsuppgifter som gör att ditt program kan utföra tillförlitlig [klientautentisering](https://tools.ietf.org/html/rfc6749#section-2.3) med Azure AD. I OAuth & OpenID Connect kallas en program hemlighet vanligt vis som en `client_secret` . I v 2.0-protokollet måste alla program som tar emot en säkerhetstoken på en plats med webb adresser (med hjälp av ett `https` schema) använda en program hemlighet för att identifiera sig själv för Azure AD vid inlösen av denna säkerhetstoken. Dessutom kommer alla interna klienter som tar emot token på en enhet att förbjudas att använda en program hemlighet för att utföra klientautentisering. Detta förhindrar lagring av hemligheter i osäkra miljöer.
 
 Varje app kan innehålla två giltiga program hemligheter vid en specifik tidpunkt. Genom att underhålla två hemligheter kan du utföra regelbunden nyckel förnyelse i hela programmets hela miljö. När du har migrerat hela programmet till en ny hemlighet kan du ta bort den gamla hemligheten och etablera en ny.
 

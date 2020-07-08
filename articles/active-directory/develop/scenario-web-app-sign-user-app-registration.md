@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881587"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Webbapp som loggar in användare: app-registrering
@@ -43,17 +42,17 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto. Du kan också logga in på Azure Portal val för det nationella molnet.
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet. Ange sedan din portal-session till önskad Azure Active Directory-klient (Azure AD).
-1. I den vänstra rutan väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar** > **ny registrering**.
+1. I den vänstra rutan väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**  >  **ny registrering**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
    1. Välj de konto typer som stöds för programmet. (Se [konto typer som stöds](./v2-supported-account-types.md).)
    1. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användare av appen. Ange till exempel **AspNetCore-webapp**.
-   1. För **omdirigerings-URI**lägger du till den typ av program och URI-destination som accepterar returnerade token-svar efter lyckad autentisering. Ange **https://localhost:44321**till exempel. Välj sedan **Registrera**.
+   1. För **omdirigerings-URI**lägger du till den typ av program och URI-destination som accepterar returnerade token-svar efter lyckad autentisering. Ange till exempel **https://localhost:44321** . Välj sedan **Registrera**.
 1. Välj menyn **Autentisering** och lägg sedan till följande information:
-   1. För **svars**-URL **https://localhost:44321/signin-oidc** , Lägg till typ **webb**.
-   1. I avsnittet **Avancerade inställningar** anger du **utloggnings** - **https://localhost:44321/signout-oidc**URL till.
+   1. För **svars-URL**, Lägg till **https://localhost:44321/signin-oidc** typ **webb**.
+   1. I avsnittet **Avancerade inställningar** anger du **utloggnings-URL** till **https://localhost:44321/signout-oidc** .
    1. Under **Implicit beviljande** väljer du **ID-token**.
    1. Välj **Spara**.
 
@@ -62,10 +61,10 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
 1. När **sidan Registrera ett program** visas anger du programmets registrerings information:
    1. Välj de konto typer som stöds för programmet. (Se [konto typer som stöds](./v2-supported-account-types.md).)
    1. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användare av appen. Ange till exempel **MailApp-openidconnect-v2**.
-   1. I avsnittet **omdirigerings-URI (valfritt)** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI: **https://localhost:44326/**.
+   1. I avsnittet **omdirigerings-URI (valfritt)** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI: **https://localhost:44326/** .
 1. Välj **Registrera** för att skapa programmet.
 1. Välj menyn **autentisering** .
-1. I avsnittet **Avancerade inställningar** | för**implicit beviljande** väljer du **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren.
+1. I avsnittet **Avancerade inställningar**för  |  **implicit beviljande** väljer du **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren.
 1. Välj **Spara**.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -97,7 +96,7 @@ Du kan använda dessa länkar för att starta skapandet av ditt webb program:
 1. När **sidan Registrera ett program** visas anger du programmets registrerings information:
    1. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användare av appen. Ange till exempel **python-webapp**.
    1. Ändra **konto typer som stöds** till **konton i alla organisations kataloger och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)**.
-   1. I avsnittet **omdirigerings-URI (valfritt)** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI: **http://localhost:5000/getAToken**.
+   1. I avsnittet **omdirigerings-URI (valfritt)** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI: **http://localhost:5000/getAToken** .
 1. Välj **Registrera** för att skapa programmet.
 1. På sidan **Översikt** för appen letar du reda på **programmets (klient) ID-** värde och registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för projektet.
 1. På den vänstra menyn väljer du **certifikat & hemligheter**.

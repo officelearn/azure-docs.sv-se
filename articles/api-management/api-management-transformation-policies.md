@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81260912"
 ---
 # <a name="api-management-transformation-policies"></a>Omvandlingsprinciper för API Management
@@ -45,7 +44,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 -   [TRANSFORMERA XML med hjälp av en XSLT](api-management-transformation-policies.md#XSLTransform) – använder en XSL-omvandling till XML i begäran eller svars texten.
 
 ##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Konvertera JSON till XML
- `json-to-xml` Principen konverterar en begäran eller en svars text från JSON till XML.
+ `json-to-xml`Principen konverterar en begäran eller en svars text från JSON till XML.
 
 ### <a name="policy-statement"></a>Princip kommentar
 
@@ -69,17 +68,17 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |JSON-till-XML|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Krävs|Standardvärde|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|apply|Attributet måste anges till ett av följande värden.<br /><br /> -alway-Always Always enconversion.<br />-Content-Type-JSON-Convert endast om svarets Content-Type-huvud indikerar förekomst av JSON.|Ja|Ej tillämpligt|
-|Överväg-accept-header|Attributet måste anges till ett av följande värden.<br /><br /> -True-Använd Conversion om XML har begärts i rubriken för begäran accept.<br />-falskt-Använd alltid konvertering.|Nej|true|
-|parse-datum|När ställs `false` in på datum värden kopieras bara under omvandlingen|Nej|true|
+|apply|Attributet måste anges till ett av följande värden.<br /><br /> -alway-Always Always enconversion.<br />-Content-Type-JSON-Convert endast om svarets Content-Type-huvud indikerar förekomst av JSON.|Ja|E.t.|
+|Överväg-accept-header|Attributet måste anges till ett av följande värden.<br /><br /> -True-Använd Conversion om XML har begärts i rubriken för begäran accept.<br />-falskt-Använd alltid konvertering.|No|true|
+|parse-datum|När ställs in på `false` datum värden kopieras bara under omvandlingen|No|true|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -89,7 +88,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 -   **Princip omfattningar:** alla omfattningar
 
 ##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Konvertera XML till JSON
- `xml-to-json` Principen konverterar en begäran eller svars text från XML till JSON. Den här principen kan användas för att modernisera-API: er baserat på Server dels webb tjänster för endast XML.
+ `xml-to-json`Principen konverterar en begäran eller svars text från XML till JSON. Den här principen kan användas för att modernisera-API: er baserat på Server dels webb tjänster för endast XML.
 
 ### <a name="policy-statement"></a>Princip kommentar
 
@@ -113,17 +112,17 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |XML-till-JSON|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Krävs|Standardvärde|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|metod|Attributet måste anges till ett av följande värden.<br /><br /> – anpassad Java Script – den konverterade JSON-filen har ett formulär som är användarvänligt för JavaScript-utvecklare.<br />– direkt – konverterad JSON visar strukturen för det ursprungliga XML-dokumentet.|Ja|Ej tillämpligt|
-|apply|Attributet måste anges till ett av följande värden.<br /><br /> -Always-Convert Always.<br />– Content-Type-XML-Convert endast om Content-Type-huvudet för svar anger förekomst av XML.|Ja|Ej tillämpligt|
-|Överväg-accept-header|Attributet måste anges till ett av följande värden.<br /><br /> -Sant-Använd konvertering om JSON begärs i rubriken för begäran accept.<br />-falskt-Använd alltid konvertering.|Nej|true|
+|metod|Attributet måste anges till ett av följande värden.<br /><br /> – anpassad Java Script – den konverterade JSON-filen har ett formulär som är användarvänligt för JavaScript-utvecklare.<br />– direkt – konverterad JSON visar strukturen för det ursprungliga XML-dokumentet.|Ja|E.t.|
+|apply|Attributet måste anges till ett av följande värden.<br /><br /> -Always-Convert Always.<br />– Content-Type-XML-Convert endast om Content-Type-huvudet för svar anger förekomst av XML.|Ja|E.t.|
+|Överväg-accept-header|Attributet måste anges till ett av följande värden.<br /><br /> -Sant-Använd konvertering om JSON begärs i rubriken för begäran accept.<br />-falskt-Använd alltid konvertering.|No|true|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -133,7 +132,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 -   **Princip omfattningar:** alla omfattningar
 
 ##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Sök och ersätt sträng i brödtext
- `find-and-replace` Principen söker efter en begär ande eller en svars under sträng och ersätter den med en annan under sträng.
+ `find-and-replace`Principen söker efter en begär ande eller en svars under sträng och ersätter den med en annan under sträng.
 
 ### <a name="policy-statement"></a>Princip kommentar
 
@@ -149,16 +148,16 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |Sök och ersätt|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Krävs|Standardvärde|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|Från|Strängen att söka efter.|Ja|Ej tillämpligt|
-|till|Ersättningssträngen. Ange en ersättnings sträng med längden noll för att ta bort Sök strängen.|Ja|Ej tillämpligt|
+|Från|Strängen att söka efter.|Ja|E.t.|
+|till|Ersättningssträngen. Ange en ersättnings sträng med längden noll för att ta bort Sök strängen.|Ja|E.t.|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -168,10 +167,10 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 -   **Princip omfattningar:** alla omfattningar
 
 ##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a>Maskera URL: er i innehåll
- `redirect-content-urls` (Maskera) länkar (maskerar) länkar i svars texten så att de pekar på motsvarande länk via gatewayen. Använd i avsnittet utgående om du vill skriva över länkar för svars text så att de pekar på gatewayen. Använd i avsnittet inkommande för en motsatt påverkan.
+ `redirect-content-urls`(Maskera) länkar (maskerar) länkar i svars texten så att de pekar på motsvarande länk via gatewayen. Använd i avsnittet utgående om du vill skriva över länkar för svars text så att de pekar på gatewayen. Använd i avsnittet inkommande för en motsatt påverkan.
 
 > [!NOTE]
->  Den här principen ändrar inte några rubrik värden, till `Location` exempel sidhuvuden. Om du vill ändra rubrik värden använder du [Ange huvud](api-management-transformation-policies.md#SetHTTPheader) princip.
+>  Den här principen ändrar inte några rubrik värden, till exempel `Location` sidhuvuden. Om du vill ändra rubrik värden använder du [Ange huvud](api-management-transformation-policies.md#SetHTTPheader) princip.
 
 ### <a name="policy-statement"></a>Princip kommentar
 
@@ -187,7 +186,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |omdirigera-innehålls-URL: er|Rot element.|Ja|
 
@@ -238,9 +237,9 @@ eller
 ```
 I det här exemplet anger princip för Server dels tjänst begär Anden baserat på version svärdet som skickades i frågesträngen till en annan server dels tjänst än den som angetts i API: et.
 
-Från början är bas-URL: en för backend-tjänsten härledd från API-inställningarna. URL-adressen `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` är `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` då `http://contoso.com/api/10.4/` den URL för Server del som anges i API-inställningarna.
+Från början är bas-URL: en för backend-tjänsten härledd från API-inställningarna. URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` -adressen är då den URL för Server del som `http://contoso.com/api/10.4/` anges i API-inställningarna.
 
-När [<Välj\> ](api-management-advanced-policies.md#choose) princip uttryck tillämpas, kan bas-URL: en för Server delen ändras igen antingen `http://contoso.com/api/9.1`till `http://contoso.com/api/8.2` eller, beroende på värdet för Frågeparametern för versions förfrågan. Om värdet till exempel är `"2013-15"` den slutgiltiga URL: en för begäran `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`blir det.
+När [<Välj \> ](api-management-advanced-policies.md#choose) princip uttryck tillämpas, kan bas-URL: en för Server delen ändras igen antingen till `http://contoso.com/api/8.2` eller `http://contoso.com/api/9.1` , beroende på värdet för Frågeparametern för versions förfrågan. Om värdet till exempel är `"2013-15"` den slutgiltiga URL: en för begäran blir det `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef` .
 
 Om ytterligare omvandling av begäran önskas kan du använda andra [omvandlings principer](api-management-transformation-policies.md#TransformationPolicies) . Om du till exempel vill ta bort versions fråge parametern nu att begäran dirigeras till en versions Server del, kan du använda [parameter principen ange frågesträng](api-management-transformation-policies.md#SetQueryStringParameter) för att ta bort det nu redundanta versions-attributet.
 
@@ -260,21 +259,21 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |Set-backend-tjänst|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Krävs|Standardvärde|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|bas-URL|Bas-URL för ny server dels tjänst.|En av `base-url` eller `backend-id` måste vara närvarande.|Ej tillämpligt|
-|backend-ID|Identifierare för den server del som ska skickas till. (Backend-entiteter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En av `base-url` eller `backend-id` måste vara närvarande.|Ej tillämpligt|
-|SF-partition – nyckel|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Används för att matcha en speciell partition från namn matchnings tjänsten.|Nej|Ej tillämpligt|
-|SF-Replica-typ|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Kontrollerar om begäran ska gå till den primära eller sekundära repliken av en partition. |Nej|Ej tillämpligt|
-|SF-resolve-Condition|Endast tillgängligt om Server delen är en Service Fabric-tjänst. Villkor som identifierar om anropet till Service Fabric Server del måste upprepas med ny lösning.|Nej|Ej tillämpligt|
-|SF-tjänst-instans-namn|Endast tillgängligt om Server delen är en Service Fabric-tjänst. Gör det möjligt att ändra tjänst instanser vid körning. |Nej|Ej tillämpligt|
-|SF-Listener-Name|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Med Service Fabric Reliable Services kan du skapa flera lyssnare i en tjänst. Det här attributet används för att välja en speciell lyssnare när en server del Reliable service har fler än en lyssnare. Om det här attributet inte anges kommer API Management att försöka använda en lyssnare utan ett namn. En lyssnare utan ett namn är vanligt för Reliable Services som bara har en lyssnare. |Nej|Ej tillämpligt|
+|bas-URL|Bas-URL för ny server dels tjänst.|En av `base-url` eller `backend-id` måste vara närvarande.|E.t.|
+|backend-ID|Identifierare för den server del som ska skickas till. (Backend-entiteter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En av `base-url` eller `backend-id` måste vara närvarande.|E.t.|
+|SF-partition – nyckel|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Används för att matcha en speciell partition från namn matchnings tjänsten.|No|E.t.|
+|SF-Replica-typ|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Kontrollerar om begäran ska gå till den primära eller sekundära repliken av en partition. |No|E.t.|
+|SF-resolve-Condition|Endast tillgängligt om Server delen är en Service Fabric-tjänst. Villkor som identifierar om anropet till Service Fabric Server del måste upprepas med ny lösning.|No|E.t.|
+|SF-tjänst-instans-namn|Endast tillgängligt om Server delen är en Service Fabric-tjänst. Gör det möjligt att ändra tjänst instanser vid körning. |No|E.t.|
+|SF-Listener-Name|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Med Service Fabric Reliable Services kan du skapa flera lyssnare i en tjänst. Det här attributet används för att välja en speciell lyssnare när en server del Reliable service har fler än en lyssnare. Om det här attributet inte anges kommer API Management att försöka använda en lyssnare utan ett namn. En lyssnare utan ett namn är vanligt för Reliable Services som bara har en lyssnare. |No|E.t.|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -284,19 +283,19 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 -   **Princip omfattningar:** alla omfattningar
 
 ##  <a name="set-body"></a><a name="SetBody"></a>Ange brödtext
- Använd `set-body` principen för att ange meddelande texten för inkommande och utgående begär Anden. För att komma åt meddelande texten kan du använda `context.Request.Body` `context.Response.Body`-egenskapen eller, beroende på om principen finns i avsnittet ingående eller utgående.
+ Använd `set-body` principen för att ange meddelande texten för inkommande och utgående begär Anden. För att komma åt meddelande texten kan du använda `context.Request.Body` -egenskapen eller `context.Response.Body` , beroende på om principen finns i avsnittet ingående eller utgående.
 
 > [!IMPORTANT]
->  Observera att som standard när du öppnar meddelande texten med `context.Request.Body` eller `context.Response.Body`, går den ursprungliga meddelande texten förlorad och måste anges genom att returnera bröd texten i uttrycket. Om du vill bevara bröd innehållet anger du `preserveContent` parametern till `true` vid åtkomst till meddelandet. Om `preserveContent` är inställt på `true` och en annan brödtext returneras av uttrycket används den returnerade texten.
+>  Observera att som standard när du öppnar meddelande texten med `context.Request.Body` eller `context.Response.Body` , går den ursprungliga meddelande texten förlorad och måste anges genom att returnera bröd texten i uttrycket. Om du vill bevara bröd innehållet anger du `preserveContent` parametern till `true` vid åtkomst till meddelandet. Om `preserveContent` är inställt på `true` och en annan brödtext returneras av uttrycket används den returnerade texten.
 >
->  Tänk på följande när du `set-body` använder principen.
+>  Tänk på följande när du använder `set-body` principen.
 >
 > - Om du använder `set-body` principen för att returnera en ny eller uppdaterad text behöver du inte ange `preserveContent` till `true` eftersom du uttryckligen levererar det nya innehållet.
 >   -   Att bevara innehållet i ett svar i den inkommande pipelinen är inte meningsfullt eftersom det inte finns något svar ännu.
 >   -   Att bevara innehållet i en begäran i den utgående pipelinen är inte meningsfullt eftersom begäran redan har skickats till Server delen i det här läget.
 >   -   Om den här principen används när det inte finns någon meddelande text, till exempel i ett inkommande GET, uppstår ett undantag.
 
- `context.Request.Body`Mer information finns i `context.Response.Body` `IMessage` avsnitten, och i [Sammanhangs variabel](api-management-policy-expressions.md#ContextVariables) tabellen.
+ Mer information finns i `context.Request.Body` `context.Response.Body` avsnitten, och `IMessage` i [Sammanhangs variabel](api-management-policy-expressions.md#ContextVariables) tabellen.
 
 ### <a name="policy-statement"></a>Princip kommentar
 
@@ -342,7 +341,7 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 ```
 
 #### <a name="filter-response-based-on-product"></a>Filtrera svar baserat på produkt
- I det här exemplet visas hur du utför innehålls filtrering genom att ta bort data element från svaret som tagits emot från backend `Starter` -tjänsten när du använder produkten. En demonstration av hur du konfigurerar och använder den här principen finns i avsnittet [Cloud Cover avsnitt 177: fler API Management funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och fast-forward till 34:30. Börja vid 31:50 för att se en översikt över [den mörke prognos-API: et](https://developer.forecast.io/) som används för den här demon.
+ I det här exemplet visas hur du utför innehålls filtrering genom att ta bort data element från svaret som tagits emot från backend-tjänsten när du använder `Starter` produkten. En demonstration av hur du konfigurerar och använder den här principen finns i avsnittet [Cloud Cover avsnitt 177: fler API Management funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och fast-forward till 34:30. Börja vid 31:50 för att se en översikt över [den mörke prognos-API: et](https://developer.forecast.io/) som används för den här demon.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -361,7 +360,7 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 ```
 
 ### <a name="using-liquid-templates-with-set-body"></a>Använda flytande mallar med uppsättnings text
-`set-body` Principen kan konfigureras för att använda [vätske](https://shopify.github.io/liquid/basics/introduction/) mall-språket för att transformera bröd texten i en begäran eller ett svar. Detta kan vara mycket effektivt om du behöver ändra form på formatet fullständigt för ditt meddelande.
+`set-body`Principen kan konfigureras för att använda [vätske](https://shopify.github.io/liquid/basics/introduction/) mall-språket för att transformera bröd texten i en begäran eller ett svar. Detta kan vara mycket effektivt om du behöver ändra form på formatet fullständigt för ditt meddelande.
 
 > [!IMPORTANT]
 > Implementeringen av vätska som används i `set-body` principen konfigureras i C#-läge. Detta är särskilt viktigt när du gör saker som filtrering. Som exempel kräver ett datum filter användning av Pascal-hölje och C#-datum format, t. ex.:
@@ -369,7 +368,7 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 > {{Body. foo. startDateTime | Date: "yyyyMMddTHH: mm: ddZ"}}
 
 > [!IMPORTANT]
-> För att korrekt binda till en XML-text med hjälp av vätske mal len använder `set-header` du en princip för att ange innehålls typ till antingen Application/XML, text/XML (eller någon typ som slutar med + XML). för en JSON-text måste det vara Application/JSON, text/JSON (eller någon typ som slutar med + JSON).
+> För att korrekt binda till en XML-text med hjälp av vätske mal len använder du en `set-header` princip för att ange innehålls typ till antingen Application/XML, text/XML (eller någon typ som slutar med + XML). för en JSON-text måste den vara Application/JSON, text/JSON (eller någon typ som slutar med + JSON).
 
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Konvertera JSON till SOAP med en flytande mall
 ```xml
@@ -396,15 +395,15 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |Set-Body|Rot element. Innehåller bröd texten eller ett uttryck som returnerar en brödtext.|Ja|
 
 ### <a name="properties"></a>Egenskaper
 
-|Name|Beskrivning|Krävs|Standardvärde|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|mall|Används för att ändra det mall-läge som den angivna text principen ska köras i. För närvarande är det enda värde som stöds:<br /><br />– flytande – den uppsättnings huvud principen använder vätske mall-motorn |Nej||
+|mall|Används för att ändra det mall-läge som den angivna text principen ska köras i. För närvarande är det enda värde som stöds:<br /><br />– flytande – den uppsättnings huvud principen använder vätske mall-motorn |No||
 
 För att få åtkomst till information om begäran och svar kan den flytande mallen binda till ett kontext objekt med följande egenskaper: <br />
 <pre>context.
@@ -454,7 +453,7 @@ OriginalUrl.
 -   **Princip omfattningar:** alla omfattningar
 
 ##  <a name="set-http-header"></a><a name="SetHTTPheader"></a>Ange HTTP-huvud
- `set-header` Principen tilldelar ett värde till ett befintligt svar och/eller begär ande huvud eller lägger till ett nytt svar och/eller begär ande huvud.
+ `set-header`Principen tilldelar ett värde till ett befintligt svar och/eller begär ande huvud eller lägger till ett nytt svar och/eller begär ande huvud.
 
  Infogar en lista med HTTP-huvuden i ett HTTP-meddelande. När den placeras i en inkommande pipeline anger den här principen HTTP-huvuden för den begäran som skickas till mål tjänsten. När den placeras i en utgående pipeline anger den här principen HTTP-huvudena för det svar som skickas till gatewayens klient.
 
@@ -500,9 +499,9 @@ OriginalUrl.
 > Flera värden i ett sidhuvud sammanfogas till en CSV-sträng, till exempel:`headerName: value1,value2,value3`
 >
 > Undantag inkluderar standardiserade rubriker, vilka värden:
-> - får innehålla kommatecken (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
-> - kan innehålla datum (`Cookie`, `Set-Cookie`, `Warning`),
-> - innehåller datum (`Date`, `Expires`, `If-Modified-Since` `If-Unmodified-Since` `Last-Modified`,,, `Retry-After`).
+> - får innehålla kommatecken ( `User-Agent` , `WWW-Authenticate` , `Proxy-Authenticate` ),
+> - kan innehålla datum ( `Cookie` , `Set-Cookie` , `Warning` ),
+> - innehåller datum ( `Date` ,,,,, `Expires` `If-Modified-Since` `If-Unmodified-Since` `Last-Modified` `Retry-After` ).
 >
 > I händelse av dessa undantag kommer flera huvud värden inte att sammanfogas till en sträng och skickas som separata huvuden, till exempel:`User-Agent: value1`
 >`User-Agent: value2`
@@ -510,17 +509,17 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |Ange rubrik|Rot element.|Ja|
-|värde|Anger värdet för huvudet som ska ställas in. För flera rubriker med samma namn lägger du till `value` ytterligare element.|Nej|
+|värde|Anger värdet för huvudet som ska ställas in. För flera rubriker med samma namn lägger du till ytterligare `value` element.|No|
 
 ### <a name="properties"></a>Egenskaper
 
-|Name|Beskrivning|Krävs|Standardvärde|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|exists-åtgärd|Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När du har `override` angett att flera poster med samma namn ska visas i rubriken anges alla poster (som visas flera gånger). endast värden som visas i resultatet anges.|Nej|åsidosättningsinställning|
-|name|Anger namnet på den rubrik som ska anges.|Ja|Ej tillämpligt|
+|exists-åtgärd|Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När du har angett `override` flera poster med samma namn resulterar det i att rubriken anges enligt alla poster (som visas flera gånger). endast listade värden anges i resultatet.|No|åsidosättningsinställning|
+|name|Anger namnet på den rubrik som ska anges.|Ja|E.t.|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -530,7 +529,7 @@ OriginalUrl.
 -   **Princip omfattningar:** alla omfattningar
 
 ##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Ange frågesträngparametern
- `set-query-parameter` Principen lägger till, ersätter värdet eller tar bort förfrågan om frågesträngparametern. Kan användas för att skicka frågeparametrar som förväntas av backend-tjänsten som är valfria eller aldrig finns i begäran.
+ `set-query-parameter`Principen lägger till, ersätter värdet eller tar bort förfrågan om frågesträngparametern. Kan användas för att skicka frågeparametrar som förväntas av backend-tjänsten som är valfria eller aldrig finns i begäran.
 
 ### <a name="policy-statement"></a>Princip kommentar
 
@@ -565,17 +564,17 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |Set-Query-parameter|Rot element.|Ja|
 |värde|Anger värdet på frågeparametern som ska ställas in. För flera frågeparametrar med samma namn lägger du till ytterligare `value` element.|Ja|
 
 ### <a name="properties"></a>Egenskaper
 
-|Name|Beskrivning|Krävs|Standardvärde|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|exists-åtgärd|Anger vilken åtgärd som ska vidtas när frågeparametern redan är angiven. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet för den befintliga parametern.<br />-Skip-ersätter inte det befintliga värdet för Frågeparametern.<br />-append – lägger till värdet i det befintliga värdet för Frågeparametern.<br />-Delete-tar bort Frågeparametern från begäran.<br /><br /> När du `override` har angett flera poster med samma namn resulterar det i att Frågeparametern anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges.|Nej|åsidosättningsinställning|
-|name|Anger namnet på frågeparametern som ska anges.|Ja|Ej tillämpligt|
+|exists-åtgärd|Anger vilken åtgärd som ska vidtas när frågeparametern redan är angiven. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet för den befintliga parametern.<br />-Skip-ersätter inte det befintliga värdet för Frågeparametern.<br />-append – lägger till värdet i det befintliga värdet för Frågeparametern.<br />-Delete-tar bort Frågeparametern från begäran.<br /><br /> När du har angett `override` flera poster med samma namn resulterar det i att Frågeparametern anges enligt alla poster (som visas flera gånger). endast listade värden anges i resultatet.|No|åsidosättningsinställning|
+|name|Anger namnet på frågeparametern som ska anges.|Ja|E.t.|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -585,7 +584,7 @@ OriginalUrl.
 -   **Princip omfattningar:** alla omfattningar
 
 ##  <a name="rewrite-url"></a><a name="RewriteURL"></a>Skriv om URL
- `rewrite-uri` Principen KONVERTERAR en URL för begäran från det offentliga formuläret till det formulär som förväntas av webb tjänsten, som visas i följande exempel.
+ `rewrite-uri`Principen konverterar en URL för begäran från det offentliga formuläret till det formulär som förväntas av webb tjänsten, som visas i följande exempel.
 
 - Offentlig URL-`http://api.example.com/storenumber/ordernumber`
 
@@ -644,16 +643,16 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |omskrivning – URI|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Attribut|Beskrivning|Krävs|Standardvärde|
+|Attribut|Beskrivning|Obligatorisk|Default|
 |---------------|-----------------|--------------|-------------|
-|mall|Den faktiska webb tjänst-URL: en med parametrar för frågesträng. När du använder uttryck måste hela värdet vara ett uttryck.|Ja|Ej tillämpligt|
-|Kopiera omatchade-params|Anger om frågeparametrar i den inkommande begäran som inte finns i den ursprungliga URL-mallen läggs till i URL: en som definieras av mallen för omskrivning|Nej|true|
+|mall|Den faktiska webb tjänst-URL: en med parametrar för frågesträng. När du använder uttryck måste hela värdet vara ett uttryck.|Ja|E.t.|
+|Kopiera omatchade-params|Anger om frågeparametrar i den inkommande begäran som inte finns i den ursprungliga URL-mallen läggs till i URL: en som definieras av mallen för omskrivning|No|true|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -663,7 +662,7 @@ OriginalUrl.
 -   **Princip omfattningar:** alla omfattningar
 
 ##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Transformera XML med hjälp av en XSLT
- `Transform XML using an XSLT` Principen använder en XSL-transformering för XML i begäran eller svars texten.
+ `Transform XML using an XSLT`Principen använder en XSL-transformering för XML i begäran eller svars texten.
 
 ### <a name="policy-statement"></a>Princip kommentar
 
@@ -713,10 +712,10 @@ OriginalUrl.
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Krävs|
+|Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
 |XSL-Transform|Rot element.|Ja|
-|parameter|Används för att definiera variabler som används i transformeringen|Nej|
+|parameter|Används för att definiera variabler som används i transformeringen|No|
 |XSL: stylesheet|Rot format element. Alla element och attribut som definieras i följer standard [specifikationen för XSLT](https://www.w3.org/TR/xslt)|Ja|
 
 ### <a name="usage"></a>Användning

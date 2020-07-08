@@ -4,10 +4,9 @@ description: Lägg till distribution eller skapa markörer i dina Metrics Explor
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010751"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på mått diagram i Application Insights
@@ -63,7 +62,7 @@ Skapa en separat API-nyckel för var och en av dina mallar för Azure-pipeliner.
    
 1. I fönstret frigör mall på fliken **variabler** väljer du **Lägg till** för att skapa en variabel definition för den nya API-nyckeln.
 
-1. Under **namn**anger `ApiKey`du och under **värde**klistrar du in API-nyckeln som du kopierade från fliken **API-åtkomst** .
+1. Under **namn**anger du `ApiKey` och under **värde**klistrar du in API-nyckeln som du kopierade från fliken **API-åtkomst** .
    
    ![På fliken Azure DevOps-variabler väljer du Lägg till, namnger variabeln ApiKey och klistrar in API-nyckeln under värde.](./media/annotations/7-paste-api-key.png)
    
@@ -94,11 +93,11 @@ Välj en antecknings markör för att öppna information om versionen, inklusive
 ## <a name="create-custom-annotations-from-powershell"></a>Skapa anpassade anteckningar från PowerShell
 Du kan använda [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell-skriptet från GitHub för att skapa anteckningar från vilken process som helst, utan att använda Azure DevOps. 
 
-1. Gör en lokal kopia av [CreateReleaseAnnotation. ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Gör en lokal kopia av [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
 1. Använd stegen i föregående procedur för att hämta ditt Application Insights-ID och skapa en API-nyckel från fliken Application Insights- **API-åtkomst** .
    
-1. Anropa PowerShell-skriptet med följande kod och ersätt plats hållarna för vinkel paren tes med dina värden. `-releaseProperties` Är valfria. 
+1. Anropa PowerShell-skriptet med följande kod och ersätt plats hållarna för vinkel paren tes med dina värden. `-releaseProperties`Är valfria. 
    
    ```powershell
    

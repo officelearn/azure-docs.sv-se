@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886746"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använd en statisk offentlig IP-adress och DNS-etikett med belastningsutjämnaren för Azure Kubernetes service (AKS)
@@ -74,7 +73,7 @@ az role assignment create \
 
 Du kan också använda systemtilldelad hanterad identitet för behörigheter i stället för tjänstens huvud namn. Mer information finns i [använda hanterade identiteter](use-managed-identity.md).
 
-Om du vill skapa en *Loadbalancer* -tjänst med den statiska offentliga IP- `loadBalancerIP` adressen lägger du till egenskapen och värdet för den statiska offentliga IP-adressen i yaml-manifestet. Skapa en fil med `load-balancer-service.yaml` namnet och kopiera i följande yaml. Ange din egen offentliga IP-adress som skapades i föregående steg. I följande exempel anges även anteckningen till resurs gruppen med namnet *myResourceGroup*. Ange ett eget namn på din resurs grupp.
+Om du vill skapa en *Loadbalancer* -tjänst med den statiska offentliga IP-adressen lägger du till `loadBalancerIP` egenskapen och värdet för den statiska offentliga IP-adressen i yaml-manifestet. Skapa en fil med namnet `load-balancer-service.yaml` och kopiera i följande yaml. Ange din egen offentliga IP-adress som skapades i föregående steg. I följande exempel anges även anteckningen till resurs gruppen med namnet *myResourceGroup*. Ange ett eget namn på din resurs grupp.
 
 ```yaml
 apiVersion: v1
@@ -102,7 +101,7 @@ kubectl apply -f load-balancer-service.yaml
 
 Om tjänsten använder en dynamisk eller statisk offentlig IP-adress kan du använda tjänst anteckningen `service.beta.kubernetes.io/azure-dns-label-name` för att ange en offentlig DNS-etikett. Detta publicerar ett fullständigt kvalificerat domän namn för tjänsten med Azures offentliga DNS-servrar och toppnivå domänen. Anteckning svärdet måste vara unikt inom Azure-platsen, så vi rekommenderar att du använder en tillräckligt kvalificerad etikett.   
 
-Azure lägger sedan automatiskt till ett standard under nät, till `<location>.cloudapp.azure.com` exempel (där platsen är den region som du har valt) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Ett exempel:
+Azure lägger sedan automatiskt till ett standard under nät, till exempel `<location>.cloudapp.azure.com` (där platsen är den region som du har valt) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Ett exempel:
 
 ```yaml
 apiVersion: v1
@@ -122,7 +121,7 @@ spec:
 > [!NOTE] 
 > Information om hur du publicerar tjänsten på din domän finns i [Azure DNS][azure-dns-zone] och det [externa-DNS-][external-dns] projektet.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 Om den statiska IP-adressen som definierats i *loadBalancerIP* -egenskapen för Kubernetes-tjänst manifestet inte finns eller inte har skapats i resurs gruppen för noden och inga ytterligare delegeringar har kon figurer ATS, Miss lyckas skapandet av tjänsten för belastningsutjämnare. Du kan felsöka genom att granska tjänstens skapande händelser med kommandot [kubectl beskriver][kubectl-describe] . Ange namnet på tjänsten enligt vad som anges i YAML-manifestet, som du ser i följande exempel:
 

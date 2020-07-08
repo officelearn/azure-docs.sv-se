@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
 ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811172"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt VNET med Application Gateway
@@ -87,7 +86,7 @@ I den här guiden kommer vi också att exponera **utvecklings portalen** för ex
 > Om du använder autentisering med Azure AD eller tredje part, aktiverar du funktionen [cookie-baserad sessionsgräns](../application-gateway/features.md#session-affinity) i Application Gateway.
 
 > [!WARNING]
-> Om du vill förhindra att Application Gateway WAF avbryter hämtningen av OpenAPI-specifikationen i Developer-portalen måste du `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`inaktivera brand Väggs regeln.
+> Om du vill förhindra att Application Gateway WAF avbryter hämtningen av OpenAPI-specifikationen i Developer-portalen måste du inaktivera brand Väggs regeln `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` .
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
 
@@ -191,7 +190,7 @@ När kommandot ovan har slutförts refererar den [DNS-konfiguration som krävs f
 
 ### <a name="step-1"></a>Steg 1
 
-Initiera följande variabler med information om certifikaten med privata nycklar för domänerna. I det här exemplet ska vi använda `api.contoso.net` och `portal.contoso.net`.  
+Initiera följande variabler med information om certifikaten med privata nycklar för domänerna. I det här exemplet ska vi använda `api.contoso.net` och `portal.contoso.net` .  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -220,7 +219,7 @@ Set-AzApiManagement -InputObject $apimService
 ```
 
 > [!NOTE]
-> Om du vill konfigurera den äldre anslutningen för utvecklare-portalen `-HostnameType DeveloperPortal` måste `-HostnameType Portal`du ersätta med.
+> Om du vill konfigurera den äldre anslutningen för utvecklare-portalen måste du ersätta `-HostnameType DeveloperPortal` med `-HostnameType Portal` .
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Skapa en offentlig IP-adress för frontend-konfigurationen
 
@@ -280,10 +279,10 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Steg 6
 
-Skapa anpassade avsökningar till domän slut `ContosoApi` punkten för API Management tjänstens proxy. Sökvägen `/status-0123456789abcdef` är en standard hälso slut punkt som finns på alla API Management-tjänster. Ange `api.contoso.net` som ett anpassat avsöknings-värdnamn för att skydda det med TLS/SSL-certifikatet.
+Skapa anpassade avsökningar till domän slut punkten för API Management tjänstens `ContosoApi` proxy. Sökvägen `/status-0123456789abcdef` är en standard hälso slut punkt som finns på alla API Management-tjänster. Ange `api.contoso.net` som ett anpassat avsöknings-värdnamn för att skydda det med TLS/SSL-certifikatet.
 
 > [!NOTE]
-> Hostname `contosoapi.azure-api.net` är standardvärdet för proxy som konfigureras när en `contosoapi` tjänst med namnet skapas i en offentlig Azure.
+> Hostname `contosoapi.azure-api.net` är standardvärdet för proxy som konfigureras när en tjänst med namnet `contosoapi` skapas i en offentlig Azure.
 >
 
 ```powershell

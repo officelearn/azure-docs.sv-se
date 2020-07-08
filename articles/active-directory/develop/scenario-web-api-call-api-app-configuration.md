@@ -13,10 +13,9 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991015"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Ett webb-API som anropar webb-API: er kod konfiguration
@@ -73,7 +72,7 @@ Metoden AddAccountToCacheFromJwt () måste vara:
 
 ### <a name="instantiate-a-confidential-client-application"></a>Instansiera ett konfidentiellt klient program
 
-Det här flödet är endast tillgängligt i det konfidentiella klient flödet, så att det skyddade webb-API: et tillhandahåller klientautentiseringsuppgifter (klient hemlighet eller certifikat) till [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) - `WithClientSecret` klassen `WithCertificate` via antingen-eller-metoden.
+Det här flödet är endast tillgängligt i det konfidentiella klient flödet, så att det skyddade webb-API: et tillhandahåller klientautentiseringsuppgifter (klient hemlighet eller certifikat) till [ConfidentialClientApplicationBuilder-klassen](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via antingen- `WithClientSecret` eller- `WithCertificate` metoden.
 
 ![Lista över IConfidentialClientApplication-metoder](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -100,13 +99,13 @@ Mer information om det här avancerade scenariot finns i [konfidentiell klient k
 
 Du gör OBO-anropet genom att anropa [AcquireTokenOnBehalf-metoden](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) i `IConfidentialClientApplication` gränssnittet.
 
-`UserAssertion` Klassen bygger på Bearer-token som tas emot av webb-API: et från sina egna klienter. Det finns [två konstruktorer](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
+`UserAssertion`Klassen bygger på Bearer-token som tas emot av webb-API: et från sina egna klienter. Det finns [två konstruktorer](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
 * En som tar en JSON Web Token (JWT) Bearer-token
 * En som har någon typ av användar kontroll, en annan typ av säkerhetstoken, vars typ sedan anges i en ytterligare parameter med namnet`assertionType`
 
 ![Egenskaper och metoder för UserAssertion](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-I praktiken används ofta OBO-flödet för att hämta en token för ett underordnat API och lagra det i MSAL.NET-användartoken. Det gör du så att andra delar av webb-API: n senare kan anropa de [åsidosättningar](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) ``AcquireTokenOnSilent`` som anropar de underordnade API: erna. Det här anropet kommer att uppdatera tokens, om det behövs.
+I praktiken används ofta OBO-flödet för att hämta en token för ett underordnat API och lagra det i MSAL.NET-användartoken. Det gör du så att andra delar av webb-API: n senare kan anropa de [åsidosättningar](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) som ``AcquireTokenOnSilent`` anropar de underordnade API: erna. Det här anropet kommer att uppdatera tokens, om det behövs.
 
 ```csharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
@@ -145,7 +144,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 
 OBO-flödet (on-behalf-of) används för att hämta en token för att anropa det underordnade webb-API: et. I det här flödet tar ditt webb-API emot en Bearer-token med användar delegerade behörigheter från klient programmet och utbyter sedan denna token för en annan åtkomsttoken för att anropa det underordnade webb-API: et.
 
-I koden nedan används våren Security Framework `SecurityContextHolder` i webb-API: et för att hämta den validerade Bearer-token. Den använder sedan MSAL Java-biblioteket för att hämta en token för underordnad API med hjälp av `acquireToken` anropet med `OnBehalfOfParameters`. MSAL cachelagrar token så att efterföljande anrop till API: et kan `acquireTokenSilently` användas för att hämta den cachelagrade token.
+I koden nedan används våren Security Framework `SecurityContextHolder` i webb-API: et för att hämta den validerade Bearer-token. Den använder sedan MSAL Java-biblioteket för att hämta en token för underordnad API med hjälp av `acquireToken` anropet med `OnBehalfOfParameters` . MSAL cachelagrar token så att efterföljande anrop till API: et kan användas `acquireTokenSilently` för att hämta den cachelagrade token.
 
 ```Java
 @Component
@@ -214,11 +213,11 @@ class MsalAuthHelper {
 
 OBO-flödet (on-behalf-of) används för att hämta en token för att anropa det underordnade webb-API: et. I det här flödet tar ditt webb-API emot en Bearer-token med användar delegerade behörigheter från klient programmet och utbyter sedan denna token för en annan åtkomsttoken för att anropa det underordnade webb-API: et.
 
-Ett python-webb-API måste använda vissa mellanprogram för att verifiera Bearer-token som tas emot från klienten. Webb-API: et kan sedan hämta åtkomsttoken för underordnad API med hjälp av MSAL python [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) Library genom att anropa metoden. Ett exempel på hur du använder det här API: et finns i [test koden för Microsoft-Authentication-Library-for-python på GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Se även diskussionen om [problem 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) i samma lagrings plats för en metod som kringgår behovet av ett program på mellan nivå.
+Ett python-webb-API måste använda vissa mellanprogram för att verifiera Bearer-token som tas emot från klienten. Webb-API: et kan sedan hämta åtkomsttoken för underordnad API med hjälp av MSAL python Library genom att anropa [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metoden. Ett exempel på hur du använder det här API: et finns i [test koden för Microsoft-Authentication-Library-for-python på GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Se även diskussionen om [problem 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) i samma lagrings plats för en metod som kringgår behovet av ett program på mellan nivå.
 
 ---
 
-Du kan också se ett exempel på OBO Flow-implementering i [Node. js och Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
+Du kan också se ett exempel på OBO Flow-implementering i [Node.js och Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
 
 ## <a name="protocol"></a>Protokoll
 

@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: peterpfr
 ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80999042"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Självstudie: Använd enhets grupper för att analysera enhets telemetri
@@ -47,7 +46,7 @@ Så här skapar du en enhets grupp:
 
 1. Välj **enhets grupper** i det vänstra fönstret.
 
-1. Välj **+**:
+1. Välj **+** :
 
     ![Ny enhets grupp](media/tutorial-use-device-groups/image1.png)
 
@@ -65,7 +64,7 @@ Så här skapar du en enhets grupp:
 > [!NOTE]
 > För Azure IoT Edge enheter väljer du Azure IoT Edge mallar för att skapa en enhets grupp.
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 Du kan använda **Analytics** med en enhets grupp för att analysera Telemetrin från enheterna i gruppen. Du kan till exempel rita den genomsnittliga temperatur som rapporteras av alla Contosos miljö sensorer.
 

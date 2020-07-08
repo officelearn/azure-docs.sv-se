@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811408"
 ---
 # <a name="how-to-configure-cloud-services"></a>Så här konfigurerar du Cloud Services
@@ -46,7 +45,7 @@ Om du behöver ange en speciell operativ Systems version som mål kan du ange de
 
 ## <a name="monitoring"></a>Övervakning
 
-Du kan lägga till aviseringar till moln tjänsten. Klicka på **Inställningar** > **varnings regler** > **Lägg till avisering**.
+Du kan lägga till aviseringar till moln tjänsten. Klicka på **Inställningar**  >  **varnings regler**  >  **Lägg till avisering**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +61,7 @@ Härifrån kan du konfigurera en avisering. Med list rutan **mått** kan du stä
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurera övervakning från en mått panel
 
-I stället för att använda**varnings regler**för **Inställningar** > kan du klicka på någon av mått panelerna i **övervaknings** avsnittet i moln tjänsten.
+I stället för **Settings**att använda  >  **varnings regler**för inställningar kan du klicka på någon av mått panelerna i **övervaknings** avsnittet i moln tjänsten.
 
 ![Övervakning av moln tjänst](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -92,7 +91,7 @@ Du kan behöva konfigurera om moln tjänsten via [tjänst konfigurations filen (
     ![Konfigurations blad](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Klicka på knappen **Hämta**.
 
-    ![Hämta](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Ladda ned](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. När du har uppdaterat tjänst konfigurations filen laddar du upp och tillämpar konfigurations uppdateringarna:
 
     ![Ladda upp](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)

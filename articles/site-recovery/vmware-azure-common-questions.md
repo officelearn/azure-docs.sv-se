@@ -4,10 +4,9 @@ description: Få svar på vanliga frågor om haveri beredskap för lokala virtue
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259518"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
@@ -282,7 +281,7 @@ Ja, men Observera att den fysiska datorn inte kan återställas till en virtuell
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Var kan jag hämta valv registrerings nycklar?
 
-I Recovery Services-valvet väljer du **konfigurations servrar** i **Site Recovery infrastruktur** > **hantering**. I **servrar**väljer du sedan **Hämta registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
+I Recovery Services-valvet väljer du **konfigurations servrar** i **Site Recovery infrastruktur**  >  **hantering**. I **servrar**väljer du sedan **Hämta registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Kan en enda konfigurations Server användas för att skydda flera vCenter-instanser?
 

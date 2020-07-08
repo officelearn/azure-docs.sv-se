@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80876300"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
@@ -31,7 +30,7 @@ Det här avsnittet i [hand boken för Azure AD-åtgärder](active-directory-ops-
 
 Hantering av Azure Active Directory kräver kontinuerlig körning av viktiga operativa uppgifter och processer, som kanske inte ingår i ett lanserings projekt. Det är fortfarande viktigt att du konfigurerar dessa uppgifter för att optimera din miljö. De viktigaste uppgifterna och deras rekommenderade ägare är:
 
-| Aktivitet | Ägare |
+| Uppgift | Ägare |
 | :- | :- |
 | Hantera konfiguration av enkel inloggning (SSO) i Azure AD | IAM-åtgärds team |
 | Design principer för villkorlig åtkomst för Azure AD-program | Arkitektur team för informations säkerhet |
@@ -128,7 +127,7 @@ Som en användare i din organisation är en enhet en kärn identitet som du vill
 Du kan utföra det här målet genom att sätta enhets identiteter och hantera dem i Azure AD genom att använda någon av följande metoder:
 
 - Organisationer kan använda [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) för att hantera enheten och genomdriva efterlevnadsprinciper, intyga enhetens hälsa och ange principer för villkorlig åtkomst baserat på om enheten är kompatibel. Microsoft Intune kan hantera iOS-enheter, Mac-datorer (via JAMF-integrering), Windows-skrivbord (internt med hantering av mobila enheter för Windows 10 och samhantering med Microsoft Endpoint Configuration Manager) och mobila Android-enheter.
-- [Hybrid Azure AD-anslutning](../devices/hybrid-azuread-join-managed-domains.md) ger hantering med grup principer eller Microsoft Endpoint Configuration Manager i en miljö med Active Directory domänanslutna dator enheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med sömlös SSO. Genom att ta med dina enheter till Azure AD kan du maximera användar produktiviteten via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../conditional-access/overview.md) på samma gång.
+- [Hybrid Azure AD-anslutning](../devices/hybrid-azuread-join-managed-domains.md) ger hantering med grup principer eller Microsoft Endpoint Configuration Manager i en miljö med Active Directory domänanslutna dator enheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med sömlös SSO. Genom att ta med dina enheter till Azure AD kan du maximera användar produktiviteten via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../conditional-access/overview.md)   på samma gång.
 
 Om du har domänanslutna Windows-enheter som inte är registrerade i molnet, eller domänanslutna Windows-enheter som är registrerade i molnet men utan principer för villkorlig åtkomst, bör du registrera de oregistrerade enheterna och i båda fallen [använda hybrid Azure AD Join som en kontroll](../conditional-access/require-managed-devices.md) i dina principer för villkorlig åtkomst.
 
@@ -205,7 +204,7 @@ Med [namngivna platser](https://docs.microsoft.com/azure/active-directory/report
 
 Baserat på prioritet använder du tabellen nedan för att hitta den rekommenderade lösning som bäst uppfyller organisationens behov:
 
-| **Förtur** | **Scenario** | **Rekommendation** |
+| **Priority** | **Scenario** | **Rekommendation** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | Om du använder PHS eller PTA och namngivna platser inte har definierats | Definiera namngivna platser för att förbättra identifieringen av risk händelser |
 | 2 | Om du är federerad och inte använder "insideCorporateNetwork"-anspråk och namngivna platser inte har definierats | Definiera namngivna platser för att förbättra identifieringen av risk händelser |
@@ -296,7 +295,7 @@ Vid en olaglig godkännande attack skapar angriparen ett Azure AD-registrerat pr
 
 Nedan visas en lista över appar med behörigheter som du kanske vill granska för Microsofts moln tjänster:
 
-- Appar med app eller delegerad \*. ReadWrite-behörigheter
+- Appar med app eller delegerad \* . ReadWrite-behörigheter
 - Appar med delegerade behörigheter kan läsa, skicka eller hantera e-post för användarens räkning
 - Appar som beviljas med följande behörigheter:
 
@@ -305,7 +304,7 @@ Nedan visas en lista över appar med behörigheter som du kanske vill granska f�
 | Office 365 Exchange Online | EA. AccessAsUser. all |
 | | EWS. AccessAsUser. all |
 | | E-post. Read |
-| Microsoft Graph-API | E-post. Read |
+| Microsoft Graph API | E-post. Read |
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
@@ -313,7 +312,7 @@ Nedan visas en lista över appar med behörigheter som du kanske vill granska f�
 
 |Resurs | Behörighet |
 | :- | :- |
-| Microsoft Graph-API| Directory. AccessAsUser. all |
+| Microsoft Graph API| Directory. AccessAsUser. all |
 | REST-API för Azure | user_impersonation |
 
 För att undvika det här scenariot bör du läsa om att [identifiera och åtgärda illegala medgivande i Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) för att identifiera och åtgärda alla program med illegala bidrag eller program som har fler bidrag än vad som behövs. Ta sedan bort självbetjäningen [helt och hållet](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) och [upprätta styrnings procedurer](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Slutligen kan du schemalägga regelbundna granskningar av app-behörigheter och ta bort dem när de inte behövs.

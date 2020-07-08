@@ -12,10 +12,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 88a0177755fbd913bdaaf0ecf3e12c62dee294c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885080"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Scenario: ett webb-API som anropar webb-API: er
@@ -29,8 +28,8 @@ Det här scenariot, där ett skyddat webb-API anropar webb-API: er, bygger ovanp
 ## <a name="overview"></a>Översikt
 
 - En webb-, skriv bords-, mobil-eller mobil-eller Enkels Ides program klient (visas inte i det medföljande diagrammet) anropar ett skyddat webb-API och tillhandahåller en JSON Web Token (JWT) Bearer-token i HTTP-huvudet "Authorization".
-- Det skyddade webb-API: et validerar token och använder Microsoft Authentication Library `AcquireTokenOnBehalfOf` (MSAL)-metoden för att begära en annan token från Azure Active Directory (Azure AD) så att det skyddade webb-API: et kan anropa ett andra webb-API eller underordnat webb-API för användarens räkning.
-- Det skyddade webb-API: et `AcquireTokenSilent`kan också anropa senare för att begära token för andra underordnade API: er för samma användares räkning. `AcquireTokenSilent`uppdaterar token vid behov.
+- Det skyddade webb-API: et validerar token och använder Microsoft Authentication Library (MSAL)- `AcquireTokenOnBehalfOf` metoden för att begära en annan token från Azure Active Directory (Azure AD) så att det skyddade webb-API: et kan anropa ett andra webb-API eller underordnat webb-API för användarens räkning.
+- Det skyddade webb-API: et kan också anropa `AcquireTokenSilent` senare för att begära token för andra underordnade API: er för samma användares räkning. `AcquireTokenSilent`uppdaterar token vid behov.
 
 ![Diagram över ett webb-API som anropar ett webb-API](media/scenarios/web-api.svg)
 

@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81253517"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Azure CDN från ett villkorligt uttryck i Verizon Premium Rules Engine
@@ -26,7 +25,7 @@ IF | Ett IF-uttryck är alltid en del av den första satsen i en regel. Precis s
 OCH OM | Ett och IF-uttryck får bara läggas till efter följande typer av villkors uttryck: IF, och IF. Det tyder på att det finns ett annat villkor som måste uppfyllas för den inledande IF-instruktionen.
 ANNARS OM| Ett ELSE IF-uttryck anger ett alternativt villkor som måste uppfyllas innan en uppsättning funktioner som är speciella för den här ELSE-instruktionen sker. Förekomsten av en ELSE IF-instruktion anger slutet på den föregående instruktionen. Det enda villkors uttryck som kan placeras efter en ELSE IF-instruktion är en annan ELSE IF-instruktion. Det innebär att en ELSE IF-instruktion bara kan användas för att ange ett enda ytterligare villkor som måste uppfyllas.
 
-**Exempel**: ![CDN match villkor](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
+**Exempel**: ![ CDN match villkor](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
 
  > [!TIP]
    > En efterföljande regel kan åsidosätta de åtgärder som anges av en tidigare regel.
@@ -36,6 +35,6 @@ ANNARS OM| Ett ELSE IF-uttryck anger ett alternativt villkor som måste uppfylla
 
 - [Översikt över Azure CDN](cdn-overview.md)
 - [Regel motor referens](cdn-verizon-premium-rules-engine-reference.md)
-- [Regel motor matchnings villkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
-- [Funktioner i regel motorn](cdn-verizon-premium-rules-engine-reference-features.md)
+- [Regelmotor – matchningsvillkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regelmotor – funktioner](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Åsidosätta standard-HTTP-beteendet med hjälp av regel motorn](cdn-verizon-premium-rules-engine.md)

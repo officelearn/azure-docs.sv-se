@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892401"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållar grupp och instans loggning med Azure Monitor loggar
@@ -39,9 +38,9 @@ Gör följande för att hämta ID och den primära nyckeln för Log Analytics-ar
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Inställningar**väljer du **Avancerade inställningar**
-1. Välj **anslutna källor** > **Windows-servrar** (eller **Linux-servrar**--ID: t och nycklarna är desamma för båda)
+1. Välj **anslutna källor**  >  **Windows-servrar** (eller **Linux-servrar**--ID: t och nycklarna är desamma för båda)
 1. Anteckna:
-   * **Arbetsplats-ID**
+   * **ARBETSYTE-ID**
    * **Primär nyckel**
 
 ## <a name="create-container-group"></a>Skapa containergrupp
@@ -102,7 +101,7 @@ Du bör få ett svar från Azure som innehåller distributionsinformation strax 
 
 ## <a name="view-logs"></a>Visa loggar
 
-När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Så här visar du behållar gruppens `ContainerInstanceLog_CL` loggar i tabellen:
+När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Så här visar du behållar gruppens loggar i `ContainerInstanceLog_CL` tabellen:
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Allmänt**väljer du **loggar**  
@@ -130,7 +129,7 @@ Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i
 
 Azure Monitor-loggar innehåller ett omfattande [frågespråk][query_lang] för att hämta information från potentiellt tusentals rader med loggutdata.
 
-Den grundläggande strukturen i en fråga är käll tabellen (i den här artikeln, `ContainerInstanceLog_CL` eller `ContainerEvent_CL`) följt av en serie operatorer avgränsade med pipe-`|`tecknet (). Du kan länka flera operatorer för att förfina resultatet och utför avancerade funktioner.
+Den grundläggande strukturen i en fråga är käll tabellen (i den här artikeln, `ContainerInstanceLog_CL` eller `ContainerEvent_CL` ) följt av en serie operatorer avgränsade med pipe-tecknet ( `|` ). Du kan länka flera operatorer för att förfina resultatet och utför avancerade funktioner.
 
 Om du vill se resultatet av frågan klistrar du in följande fråga i text rutan fråga och väljer **Kör** -knappen för att köra frågan. Den här frågan visar alla loggposter vars Meddelande-fält innehåller ordet varning:
 
@@ -153,7 +152,7 @@ ContainerInstanceLog_CL
 
 Mer information om att köra frågor mot loggar och konfigurera aviseringar i Azure Monitor-loggar finns i:
 
-* [Förstå loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-search.md)
+* [Förstå loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-search.md)
 * [Enhetliga aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

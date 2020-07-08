@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114415"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Förbered dina logikappar och runbooks för migrering av klassiska aviseringsregler
@@ -24,7 +23,7 @@ Om du väljer att frivilligt migrera dina klassiska aviserings regler till nya v
 
 ## <a name="api-changes"></a>API-ändringar
 
-De API: er som skapar och hanterar klassiska varnings regler (`microsoft.insights/alertrules`) skiljer sig från de API: er som skapar och`microsoft.insights/metricalerts`hanterar nya mått varningar (). Om du program mässigt skapar och hanterar klassiska varnings regler idag, kan du uppdatera dina distributions skript så att de fungerar med de nya API: erna.
+De API: er som skapar och hanterar klassiska varnings regler ( `microsoft.insights/alertrules` ) skiljer sig från de API: er som skapar och hanterar nya mått varningar ( `microsoft.insights/metricalerts` ). Om du program mässigt skapar och hanterar klassiska varnings regler idag, kan du uppdatera dina distributions skript så att de fungerar med de nya API: erna.
 
 Följande tabell är en referens till programmerings gränssnitten för både de klassiska och nya aviseringarna:
 

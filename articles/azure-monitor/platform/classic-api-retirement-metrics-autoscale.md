@@ -5,10 +5,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114217"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor pensionering av klassiska API: er för distributions modeller för mått och autoskalning
@@ -35,9 +34,9 @@ Den här artikeln gäller om du använder följande komponenter:
 
 Om du är osäker på om din kod eller anpassade verktyg anropar de klassiska API: erna kan du titta på följande:
 
-- Granska den URI som refereras i din kod eller ditt verktyg. De klassiska API: erna använder https://management.core.windows.netURI: n. Du bör använda den nyare URI: n för Resource Manager-baserade API: `https://management.azure.com/`er som börjar med.
+- Granska den URI som refereras i din kod eller ditt verktyg. De klassiska API: erna använder URI: n https://management.core.windows.net . Du bör använda den nyare URI: n för Resource Manager-baserade API: er som börjar med `https://management.azure.com/` .
 
-- Jämför sammansättnings namnet på din dator. Den äldre klassiska sammansättningen finns på https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
+- Jämför sammansättnings namnet på din dator. Den äldre klassiska sammansättningen finns på https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ .
 
 - Om du använder certifikatautentisering för att få åtkomst till mått eller autoskalning av API: er, använder du en klassisk slut punkt och ett bibliotek. De nyare Resource Manager-API: erna kräver Azure Active Directory autentisering via ett huvud namn för tjänsten eller användarens huvud namn.
 
@@ -83,7 +82,7 @@ Ett meddelande om indragningen skickades till e-postadresser för följande kont
 - Konto-och tjänst administratörer
 - Medadministratörer  
 
-Om du har några frågor kan du kontakta oss MonitorClassicAPIhelp@microsoft.compå.  
+Om du har några frågor kan du kontakta oss på MonitorClassicAPIhelp@microsoft.com .  
 
 ## <a name="references"></a>Referenser
 

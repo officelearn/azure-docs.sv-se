@@ -1,25 +1,24 @@
 ---
 title: Använda Redis-CLI med Azure cache för Redis
-description: Lär dig hur du använder *Redis-cli. exe* som ett kommando rads verktyg för att interagera med en Azure-cache för Redis som en klient.
+description: Lär dig hur du använder *redis-cli.exe* som ett kommando rads verktyg för att interagera med en Azure-cache för Redis som en klient.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.openlocfilehash: bd2da798cae92a7e47bd879b69dd108618463402
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010778"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Använda kommando rads verktyget Redis med Azure cache för Redis
 
-*Redis-cli. exe* är ett populärt kommando rads verktyg för att interagera med en Azure-cache för Redis som en klient. Det här verktyget är också tillgängligt för användning med Azure cache för Redis.
+*redis-cli.exe* är ett populärt kommando rads verktyg för att interagera med en Azure-cache för Redis som en klient. Det här verktyget är också tillgängligt för användning med Azure cache för Redis.
 
 Verktyget är tillgängligt för Windows-plattformar genom att hämta [kommando rads verktygen för Redis för Windows](https://github.com/MSOpenTech/redis/releases/). 
 
-Om du vill köra kommando rads verktyget på en annan plattform laddar du ned Azure cache för Redis från [https://redis.io/download](https://redis.io/download).
+Om du vill köra kommando rads verktyget på en annan plattform laddar du ned Azure cache för Redis från [https://redis.io/download](https://redis.io/download) .
 
 ## <a name="gather-cache-access-information"></a>Samla in information om cache-åtkomst
 
@@ -36,11 +35,11 @@ I det här avsnittet hämtar du nycklarna från Azure Portal.
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
-## <a name="enable-access-for-redis-cliexe"></a>Aktivera åtkomst för Redis-cli. exe
+## <a name="enable-access-for-redis-cliexe"></a>Aktivera åtkomst för redis-cli.exe
 
-Med Azure cache för Redis är endast TLS-porten (6380) aktive rad som standard. `redis-cli.exe` Kommando rads verktyget stöder inte TLS. Du har två konfigurations alternativ att använda den:
+Med Azure cache för Redis är endast TLS-porten (6380) aktive rad som standard. `redis-cli.exe`Kommando rads verktyget stöder inte TLS. Du har två konfigurations alternativ att använda den:
 
-1. [Aktivera icke-TLS-porten (6379)](cache-configure.md#access-ports) - **den här konfigurationen rekommenderas inte** eftersom i den här konfigurationen skickas åtkomst nycklarna via TCP i klartext. Den här ändringen kan kompromettera åtkomst till din cache. Det enda scenariot där du kan tänka på den här konfigurationen är när du bara har åtkomst till en testcache.
+1. [Aktivera porten för icke-TLS (6379)](cache-configure.md#access-ports)  -  **Den här konfigurationen rekommenderas inte** eftersom i den här konfigurationen skickas åtkomst nycklarna via TCP i klartext. Den här ändringen kan kompromettera åtkomst till din cache. Det enda scenariot där du kan tänka på den här konfigurationen är när du bara har åtkomst till en testcache.
 
 2. Hämta och installera [stunnelserver](https://www.stunnel.org/downloads.html).
 
@@ -48,9 +47,9 @@ Med Azure cache för Redis är endast TLS-porten (6380) aktive rad som standard.
 
     Högerklicka på ikonen i aktivitets fältet för stunnelserver-servern och klicka på **Visa logg fönster**.
 
-    På stunnelserver logg fönstret klickar du på **konfiguration** > **Redigera konfiguration** för att öppna den aktuella konfigurations filen.
+    På stunnelserver logg fönstret klickar du på **konfiguration**  >  **Redigera konfiguration** för att öppna den aktuella konfigurations filen.
 
-    Lägg till följande post för *Redis-cli. exe* under avsnittet **tjänst definitioner** . Infoga det faktiska cache-namnet i stället `yourcachename`för. 
+    Lägg till följande post för *redis-cli.exe* under avsnittet **tjänst definitioner** . Infoga det faktiska cache-namnet i stället för `yourcachename` . 
 
     ```
     [redis-cli]
@@ -61,12 +60,12 @@ Med Azure cache för Redis är endast TLS-porten (6380) aktive rad som standard.
 
     Spara och Stäng konfigurations filen. 
   
-    På stunnelserver-fönstrets logg fönster klickar du på **konfiguration** > **Läs in på nytt**.
+    På stunnelserver-fönstrets logg fönster klickar du på **konfiguration**  >  **Läs in på nytt**.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Anslut med hjälp av kommando rads verktyget Redis.
 
-När du använder stunnelserver kör du *Redis-cli. exe*och skickar bara din *port*och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till cacheminnet.
+När du använder stunnelserver, kör *redis-cli.exe*och bara skickar *porten*och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till cacheminnet.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
@@ -74,7 +73,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![stunnelserver med Redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Om du använder en testcache med en **osäker** icke-TLS- `redis-cli.exe` port kör och skickar du *värd namnet*, *porten*och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till test-cachen.
+Om du använder en testcache med en **osäker** icke-TLS-port kör `redis-cli.exe` och skickar du *värd namnet*, *porten*och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till test-cachen.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

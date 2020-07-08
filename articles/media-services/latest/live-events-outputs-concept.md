@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
 ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010587"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Live-händelser och Live-utdata i Media Services
@@ -30,7 +29,7 @@ Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azur
 
 ## <a name="live-events"></a>Livehändelser
 
-[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en Live-händelse skapas en slut punkt för primär och sekundär ingång som du kan använda för att skicka en Live-signal från en fjär kodare. Remote Live Encoder skickar bidrags flödet till den angivna slut punkten med hjälp av antingen [RTMP](https://www.adobe.com/devnet/rtmp.html) -eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) -protokollet (fragmenterad-MP4). I RTMP-inmatnings protokollet kan innehållet skickas i klartext (`rtmp://`) eller säkert krypterat i kabeln (`rtmps://`). För det Smooth Streaming inmatnings protokollet är de URL- `http://` scheman `https://`som stöds eller.  
+[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. När du skapar en Live-händelse skapas en slut punkt för primär och sekundär ingång som du kan använda för att skicka en Live-signal från en fjär kodare. Remote Live Encoder skickar bidrags flödet till den angivna slut punkten med hjälp av antingen [RTMP](https://www.adobe.com/devnet/rtmp.html) -eller [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) -protokollet (fragmenterad-MP4). I RTMP-inmatnings protokollet kan innehållet skickas i klartext ( `rtmp://` ) eller säkert krypterat i kabeln ( `rtmps://` ). För det Smooth Streaming inmatnings protokollet är de URL-scheman som stöds `http://` eller `https://` .  
 
 ## <a name="live-event-types"></a>Direktsända händelse typer
 
@@ -87,7 +86,7 @@ När du skapar en Live-händelse kan du ange följande alternativ:
 ### <a name="naming-rules"></a>Namngivningsregler
 
 * Max namnet för Live-händelser är 32 tecken.
-* Namnet ska följa det här [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönstret `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`:.
+* Namnet ska följa det här [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönstret: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 Se även [namn konventioner för direkt uppspelnings slut punkter](streaming-endpoint-concept.md#naming-convention).
 
@@ -116,11 +115,11 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
     > [!NOTE]
     > I Azure Portal får URL: en för anpassad namnet "*beständig indatamängds-URL*".
 
-    Om du vill ange det här läget i API `vanityUrl` : `true` t väljer du vid skapande tid `false`(standard är). Du måste också skicka din egen åtkomsttoken (`LiveEventInput.accessToken`) vid skapande tillfället. Du anger värdet för token för att undvika en slumpmässig token i URL: en. Åtkomsttoken måste vara en giltig GUID-sträng (med eller utan bindestreck). När läget har angetts kan det inte uppdateras.
+    Om du vill ange det här läget i API: t väljer `vanityUrl` du `true` vid skapande tid (standard är `false` ). Du måste också skicka din egen åtkomsttoken ( `LiveEventInput.accessToken` ) vid skapande tillfället. Du anger värdet för token för att undvika en slumpmässig token i URL: en. Åtkomsttoken måste vara en giltig GUID-sträng (med eller utan bindestreck). När läget har angetts kan det inte uppdateras.
 
     Åtkomsttoken måste vara unik i ditt data Center. Om din app behöver använda en anpassad-URL, rekommenderar vi att alltid skapa en ny GUID-instans för din åtkomsttoken (i stället för att återanvända befintliga GUID).
 
-    Använd följande API: er för att aktivera anpassad-URL: en och ange åtkomsttoken till ett giltigt GUID (till `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`exempel).  
+    Använd följande API: er för att aktivera anpassad-URL: en och ange åtkomsttoken till ett giltigt GUID (till exempel `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
     |Språk|Aktivera anpassad-URL|Ange åtkomst-token|
     |---|---|---|

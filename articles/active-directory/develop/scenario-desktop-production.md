@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882887"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Stationär app som anropar webb-API: er: flytta till produktion
@@ -31,7 +30,7 @@ I de olika flödena har du lärt dig hur du hanterar felen för de tysta flöden
 > [!NOTE]
 > Att få ett medgivande för flera resurser fungerar för Microsoft Identity Platform men inte för Azure Active Directory (Azure AD) B2C. Azure AD B2C stöder endast administrativt godkännande, inte användar medgivande.
 
-Du kan inte hämta en token för flera resurser samtidigt med slut punkten för Microsoft Identity Platform (v 2.0). `scopes` Parametern får bara innehålla omfång för en enda resurs. Du kan se till att användaren i förväg samtycka till flera resurser genom att `extraScopesToConsent` använda-parametern.
+Du kan inte hämta en token för flera resurser samtidigt med slut punkten för Microsoft Identity Platform (v 2.0). `scopes`Parametern får bara innehålla omfång för en enda resurs. Du kan se till att användaren i förväg samtycka till flera resurser genom att använda- `extraScopesToConsent` parametern.
 
 Du kan till exempel ha två resurser som har två omfång:
 
@@ -95,7 +94,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Det här anropet får du en åtkomsttoken för det första webb-API: et.
 
-Anropa `AcquireTokenSilent` API: et när du behöver anropa det andra webb-API: et.
+Anropa API: et när du behöver anropa det andra webb-API: `AcquireTokenSilent` et.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80989535"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
@@ -112,7 +111,7 @@ namespace CustomInitializer.Telemetry
 
 **ASP.NET appar: läsa in initieraren till den aktiva TelemetryConfiguration**
 
-I ApplicationInsights. config:
+I ApplicationInsights.config:
 
 ```xml
     <ApplicationInsights>
@@ -138,11 +137,11 @@ En alternativ metod för ASP.NET-webbappar är att instansiera initieraren i kod
 ```
 
 > [!NOTE]
-> Det går inte att `ApplicationInsights.config` lägga till `TelemetryConfiguration.Active` initieraren med eller använda är ogiltig för ASP.net Core-program. 
+> Det går inte att lägga till initieraren med `ApplicationInsights.config` eller använda `TelemetryConfiguration.Active` är ogiltig för ASP.net Core-program. 
 
 **ASP.NET Core appar: läsa in initieraren till TelemetryConfiguration**
 
-Om du vill [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program lägger du `TelemetryInitializer` till en ny genom att lägga till den i behållaren för beroende insprutning, som du ser nedan. Detta görs i `ConfigureServices` -metoden för din `Startup.cs` klass.
+Om du vill [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program lägger du till en ny `TelemetryInitializer` genom att lägga till den i behållaren för beroende insprutning, som du ser nedan. Detta görs i- `ConfigureServices` metoden för din `Startup.cs` klass.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -169,11 +168,11 @@ För [Java-agent 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in
 }
 ```
 
-Du kan också ange namnet på moln rollen med hjälp av miljövariabeln ```APPLICATIONINSIGHTS_ROLE_NAME```.
+Du kan också ange namnet på moln rollen med hjälp av miljövariabeln ```APPLICATIONINSIGHTS_ROLE_NAME``` .
 
 **Java SDK**
 
-Om du använder SDK, från och med Application Insights Java SDK 2.5.0, kan du ange namnet på moln rollen genom att lägga `<RoleName>` till i `ApplicationInsights.xml` filen, t. ex.
+Om du använder SDK, från och med Application Insights Java SDK 2.5.0, kan du ange namnet på moln rollen genom att lägga till `<RoleName>` i `ApplicationInsights.xml` filen, t. ex.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -199,7 +198,7 @@ appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
 appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
 ```
 
-### <a name="alternate-method-for-nodejs"></a>Alternativ metod för Node. js
+### <a name="alternate-method-for-nodejs"></a>Alternativ metod för Node.js
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -229,7 +228,7 @@ Så långt som möjligt att tänka på **namn på moln rollen**, kan det vara br
 
 ![Skärm bild för program karta](media/app-map/cloud-rolename.png)
 
-I program kartan ovanför var och en av namnen i gröna rutor är namn värden för moln roller för olika aspekter av just det distribuerade programmet. Så för den här appen består dess roller av `Authentication`: `acmefrontend`, `Inventory Management`,, `Payment Processing Worker Role`. 
+I program kartan ovanför var och en av namnen i gröna rutor är namn värden för moln roller för olika aspekter av just det distribuerade programmet. Så för den här appen består dess roller av: `Authentication` , `acmefrontend` , `Inventory Management` , `Payment Processing Worker Role` . 
 
 När det gäller den här appen representerar var och en av dessa namn på moln rollerna också en annan unik Application Insights resurs med sina egna instrument nycklar. Eftersom ägaren av det här programmet har åtkomst till var och en av dessa fyra olika Application Insights-resurser kan program kartan sammanfoga en karta över de underliggande relationerna.
 

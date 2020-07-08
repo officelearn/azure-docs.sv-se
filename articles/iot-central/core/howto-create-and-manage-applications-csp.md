@@ -9,10 +9,9 @@ ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
 ms.openlocfilehash: 02481d5dcbaba15c9b17a27348207d9af64f3355
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80982046"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
@@ -73,7 +72,7 @@ Om du inte har någon Azure-prenumeration kan du skapa en i Microsoft Partner Ce
 
 Mer information finns i [Azure-prenumerationer](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
-## <a name="location"></a>Plats
+## <a name="location"></a>Location
 
 **Plats** är den [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill skapa programmet. Normalt bör du välja den plats som är fysiskt närmast dina enheter för att få optimala prestanda. För närvarande kan du skapa ett IoT Central-program i regionerna **Australien**, **Asien och Stillahavsområdet**, **Europa**, **USA**, **Storbritannien**och **Japan** . När du har valt en plats kan du inte senare flytta programmet till en annan plats.
 

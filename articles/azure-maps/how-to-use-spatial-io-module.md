@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804647"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Använda den Azure Maps spatiala IO-modulen
@@ -127,7 +126,7 @@ Du kan läsa in den Azure Maps spatiala IO-modulen med något av de två alterna
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-3. Initiera en `datasource`och Lägg till data källan till kartan. Initiera en `layer`och Lägg till data källan till kart skiktet. Sedan återger du både data källan och lagret. Innan du bläddrar nedåt för att se den fullständiga koden i nästa steg bör du tänka på de bästa platserna för att placera data källan och lager kods tycken. Kom ihåg att innan vi program mässigt ändrar kartan bör vi vänta tills kart resursen är klar.
+3. Initiera en `datasource` och Lägg till data källan till kartan. Initiera en `layer` och Lägg till data källan till kart skiktet. Sedan återger du både data källan och lagret. Innan du bläddrar nedåt för att se den fullständiga koden i nästa steg bör du tänka på de bästa platserna för att placera data källan och lager kods tycken. Kom ihåg att innan vi program mässigt ändrar kartan bör vi vänta tills kart resursen är klar.
 
     ```javascript
     var datasource, layer;
@@ -222,7 +221,7 @@ Du kan läsa in den Azure Maps spatiala IO-modulen med något av de två alterna
     </html>
     ```
 
-5. Kom ihåg att `<Your Azure Maps Key>` ersätta med den primära nyckeln. Öppna HTML-filen så ser du resultat som liknar följande bild:
+5. Kom ihåg att ersätta `<Your Azure Maps Key>` med den primära nyckeln. Öppna HTML-filen så ser du resultat som liknar följande bild:
 
     <center>
 
@@ -235,22 +234,22 @@ Du kan läsa in den Azure Maps spatiala IO-modulen med något av de två alterna
 Funktionen som vi demonstrerar här är bara en av de många funktionerna som är tillgängliga i den spatiala IO-modulen. Läs rikt linjerna nedan för att lära dig hur du använder andra funktioner i den spatiala i/o-modulen:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett enkelt data lager](spatial-io-add-simple-data-layer.md)
+> [Lägga till ett enkelt datalager](spatial-io-add-simple-data-layer.md)
 
 > [!div class="nextstepaction"]
-> [Läsa och skriva spatialdata](spatial-io-read-write-spatial-data.md)
+> [Läsa och skriva rumsliga data](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
-> [Lägg till ett OGC-kart skikt](spatial-io-add-ogc-map-layer.md)
+> [Lägga till ett OGC-kartskikt](spatial-io-add-ogc-map-layer.md)
 
 > [!div class="nextstepaction"]
 > [Ansluta till en WFS-tjänst](spatial-io-connect-wfs-service.md)
 
 > [!div class="nextstepaction"]
-> [Utnyttja kärn åtgärder](spatial-io-core-operations.md)
+> [Använda kärnåtgärder](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Information om data format som stöds](spatial-io-supported-data-format-details.md)
+> [Information om dataformat som stöds](spatial-io-supported-data-format-details.md)
 
 Läs dokumentationen om Azure Maps spatial IO:
 

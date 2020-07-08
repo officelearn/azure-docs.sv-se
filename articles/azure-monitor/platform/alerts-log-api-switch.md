@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7950b3f584c36b68a4eff66b05e83ba94c1ec1dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114355"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Växla API-inställning för logg aviseringar
@@ -50,7 +49,7 @@ Påverkan av växeln av preferens till scheduledQueryRules-API: n kompileras ned
 Processen för att flytta aviserings regler från [äldre Log Analytics varnings-API: t](api-alerts.md) inbegriper inte ändring av aviserings definition, fråga eller konfiguration på något sätt. Aviserings reglerna och övervakningen påverkas inte och aviseringarna kommer inte att stoppas eller stoppas, under eller efter växeln. De enda ändringarna är:
 
 - En ändring i API-inställningar och åtkomst till dina regler via ett nytt API.
-- En modifierad varnings regel resurs-URI som innehåller de ID: n som används i [äldre Log Analytics aviserings-API](api-alerts.md) i `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`stället för varnings regel namnet i den här strukturen. Visnings namnet för varnings regeln är oförändrat.
+- En modifierad varnings regel resurs-URI som innehåller de ID: n som används i [äldre Log Analytics aviserings-API](api-alerts.md) i stället för varnings regel namnet i den här strukturen `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Visnings namnet för varnings regeln är oförändrat.
 
 En kund som vill växla frivilligt till den nya [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och blockera användningen från den [äldre Log Analytics varnings-API: et](api-alerts.md). kan göra detta genom att utföra ett parkera-anrop på nedanstående API för att växla alla aviserings regler som är kopplade till den aktuella Log Analytics-arbetsytan.
 

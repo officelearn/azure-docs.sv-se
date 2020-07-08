@@ -4,10 +4,9 @@ description: Lär dig hur du skapar en Resource Manager-mall för ett Service Fa
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 6cf0f9c3b8b54db7bd27ec8dd9c9d59d849c74cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80985379"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa en Service Fabric Cluster Resource Manager-mall
@@ -24,13 +23,13 @@ Innan du distribuerar ett produktions kluster för att köra produktions arbets 
 ## <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 Exempel på Resource Manager-mallar finns i [Azure-exemplen på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångs punkt för kluster mal len.
 
-I den här artikeln används mallarna för säker kluster och mallparametrar i [fem noder][service-fabric-secure-cluster-5-node-1-nodetype] . Ladda ned *azuredeploy. JSON* och *azuredeploy. Parameters. JSON* till datorn och öppna båda filerna i din favorit text redigerare.
+I den här artikeln används mallarna för säker kluster och mallparametrar i [fem noder][service-fabric-secure-cluster-5-node-1-nodetype] . Hämta *azuredeploy.jspå* och *azuredeploy.parameters.jspå* din dator och öppna båda filerna i din favorit text redigerare.
 
 > [!NOTE]
-> För nationella moln (Azure Government, Azure Kina, Azure Germany) bör du även `fabricSettings` lägga till följande i mallen: `AADLoginEndpoint`, `AADTokenEndpointFormat` och. `AADCertEndpointFormat`
+> För nationella moln (Azure Government, Azure Kina, Azure Germany) bör du även lägga till följande `fabricSettings` i mallen: `AADLoginEndpoint` , `AADTokenEndpointFormat` och `AADCertEndpointFormat` .
 
 ## <a name="add-certificates"></a>Lägg till certifikat
-Du lägger till certifikat i en kluster resurs hanterare-mall genom att referera till nyckel valvet som innehåller certifikat nycklarna. Lägg till dessa nyckel-valv parametrar och värden i en parameter fil för Resource Manager-mall (*azuredeploy. Parameters. JSON*).
+Du lägger till certifikat i en kluster resurs hanterare-mall genom att referera till nyckel valvet som innehåller certifikat nycklarna. Lägg till dessa nyckel-valv parametrar och värden i en parameter fil för Resource Manager-mall (*azuredeploy.parameters.jspå*).
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Lägg till alla certifikat i den virtuella datorns skalnings uppsättning osProfile
 Alla certifikat som är installerade i klustret måste konfigureras i avsnittet **osProfile** i skalnings uppsättnings resursen (Microsoft. Compute/virtualMachineScaleSets). Den här åtgärden instruerar resurs leverantören att installera certifikatet på de virtuella datorerna. Den här installationen omfattar både kluster certifikatet och alla program säkerhets certifikat som du planerar att använda för dina program:
@@ -132,7 +131,7 @@ Certifikatet för klientautentisering måste konfigureras i både den Service Fa
 
 ## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Lägga till Azure AD-konfiguration för att använda Azure AD för klientåtkomst
 
-Du lägger till Azure AD-konfigurationen i en kluster resurs hanterare-mall genom att referera till nyckel valvet som innehåller certifikat nycklarna. Lägg till de Azure AD-parametrar och-värden i en parameter fil för Resource Manager-mall (*azuredeploy. Parameters. JSON*). 
+Du lägger till Azure AD-konfigurationen i en kluster resurs hanterare-mall genom att referera till nyckel valvet som innehåller certifikat nycklarna. Lägg till de Azure AD-parametrar och-värden i en parameter fil för Resource Manager-mall (*azuredeploy.parameters.jspå*). 
 
 > [!NOTE]
 > I Linux måste du skapa Azure AD-klienter och användare innan du skapar klustret.  Mer information finns [i Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).

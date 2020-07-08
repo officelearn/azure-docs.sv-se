@@ -9,10 +9,9 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878977"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Utgående autentisering för Azure Scheduler
@@ -32,23 +31,23 @@ Scheduler stöder följande autentiseringsmetoder:
 
 ## <a name="add-or-remove-authentication"></a>Lägg till eller ta bort autentisering
 
-* Om du vill lägga till autentisering till ett Scheduler-jobb, när du skapar eller uppdaterar jobbet, `authentication` lägger du till det underordnade elementet JavaScript Object Notation ( `request` JSON) i elementet. 
+* Om du vill lägga till autentisering till ett Scheduler-jobb, när du skapar eller uppdaterar jobbet, lägger du till det `authentication` underordnade elementet JavaScript Object Notation (JSON) i `request` elementet. 
 
   Svar returnerar aldrig hemligheter som skickas till tjänsten Scheduler via en skicka-, PATCH-eller POST-begäran i `authentication` objektet. 
   Svar anger hemlig information till null eller kan använda en offentlig token som representerar den autentiserade entiteten. 
 
-* Om du vill ta bort autentisering från ett Scheduler-jobb kan du uttryckligen köra en begäran eller en PATCH-begäran för `authentication` jobbet och ange objektet som null. Svaret innehåller inga egenskaper för autentisering.
+* Om du vill ta bort autentisering från ett Scheduler-jobb kan du uttryckligen köra en begäran eller en PATCH-begäran för jobbet och ange `authentication` objektet som null. Svaret innehåller inga egenskaper för autentisering.
 
 ## <a name="client-certificate"></a>Klient certifikat
 
 ### <a name="request-body---client-certificate"></a>Brödtext för begäran-klient certifikat
 
-När du lägger till autentisering `ClientCertificate` med modellen, anger du dessa ytterligare element i begär ande texten.  
+När du lägger till autentisering med `ClientCertificate` modellen, anger du dessa ytterligare element i begär ande texten.  
 
 | Element | Krävs | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnat element) | Objektet Authentication för att använda ett SSL/TLS-klientcertifikat |
-| **bastyp** | Ja | Autentiseringstypen. För SSL/TLS-klientcertifikat är `ClientCertificate`värdet. |
+| **bastyp** | Ja | Autentiseringstypen. För SSL/TLS-klientcertifikat är värdet `ClientCertificate` . |
 | **-** | Ja | Det Base64-kodade innehållet i PFX-filen |
 | **lösenord** | Ja | Lösen ordet för att komma åt PFX-filen |
 ||| 
@@ -60,7 +59,7 @@ När en begäran skickas med autentiseringsinformation innehåller svaret dessa 
 | Element | Beskrivning | 
 |---------|-------------| 
 | **autentisering** (överordnat element) | Objektet Authentication för att använda ett SSL/TLS-klientcertifikat |
-| **bastyp** | Autentiseringstypen. För SSL/TLS-klientcertifikat är `ClientCertificate`värdet. |
+| **bastyp** | Autentiseringstypen. För SSL/TLS-klientcertifikat är värdet `ClientCertificate` . |
 | **certificateThumbprint** |Certifikatets tumavtryck |
 | **certificateSubjectName** |Unikt namn för certifikat mottagare |
 | **certificateExpiration** | Certifikatets förfallo datum |
@@ -163,12 +162,12 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 ### <a name="request-body---basic"></a>Brödtext i begäran – grundläggande
 
-När du lägger till autentisering `Basic` med modellen, anger du dessa ytterligare element i begär ande texten.
+När du lägger till autentisering med `Basic` modellen, anger du dessa ytterligare element i begär ande texten.
 
 | Element | Krävs | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnat element) | Objektet Authentication för att använda grundläggande autentisering | 
-| **bastyp** | Ja | Autentiseringstypen. För grundläggande autentisering är `Basic`värdet. | 
+| **bastyp** | Ja | Autentiseringstypen. För grundläggande autentisering är värdet `Basic` . | 
 | **användar** | Ja | Användar namnet som ska autentiseras | 
 | **lösenord** | Ja | Lösen ordet för att autentisera |
 |||| 
@@ -180,7 +179,7 @@ När en begäran skickas med autentiseringsinformation innehåller svaret dessa 
 | Element | Beskrivning | 
 |---------|-------------|
 | **autentisering** (överordnat element) | Objektet Authentication för att använda grundläggande autentisering |
-| **bastyp** | Autentiseringstypen. För grundläggande autentisering är `Basic`värdet. |
+| **bastyp** | Autentiseringstypen. För grundläggande autentisering är värdet `Basic` . |
 | **användar** | Autentiserat användar namn |
 ||| 
 
@@ -281,14 +280,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 ### <a name="request-body---active-directory-oauth"></a>Brödtext för begäran – Active Directory OAuth 
 
-När du lägger till autentisering `ActiveDirectoryOAuth` med modellen, anger du dessa ytterligare element i begär ande texten.
+När du lägger till autentisering med `ActiveDirectoryOAuth` modellen, anger du dessa ytterligare element i begär ande texten.
 
 | Element | Krävs | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnat element) | Ja | Objektet Authentication för att använda ActiveDirectoryOAuth-autentisering |
-| **bastyp** | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är `ActiveDirectoryOAuth`värdet. |
-| **innehav** | Ja | Klient-ID för Azure AD-klienten. Du hittar klient-ID: t för Azure AD-klienten `Get-AzureAccount` genom att köra i Azure PowerShell. |
-| **filmen** | Ja | Det här värdet är inställt på `https://management.core.windows.net/`. | 
+| **bastyp** | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth` . |
+| **tenant** | Ja | Klient-ID för Azure AD-klienten. Du hittar klient-ID: t för Azure AD-klienten genom att köra `Get-AzureAccount` i Azure PowerShell. |
+| **filmen** | Ja | Det här värdet är inställt på `https://management.core.windows.net/` . | 
 | **clientId** | Ja | Klient-ID för Azure AD-programmet | 
 | **icke** | Ja | Hemligheten för klienten som begär token | 
 |||| 
@@ -300,9 +299,9 @@ När en begäran skickas med autentiseringsinformation innehåller svaret dessa 
 | Element | Beskrivning |
 |---------|-------------|
 | **autentisering** (överordnat element) | Objektet Authentication för att använda ActiveDirectoryOAuth-autentisering |
-| **bastyp** | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är `ActiveDirectoryOAuth`värdet. | 
-| **innehav** | Klient-ID för Azure AD-klienten |
-| **filmen** | Det här värdet är inställt på `https://management.core.windows.net/`. |
+| **bastyp** | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth` . | 
+| **tenant** | Klient-ID för Azure AD-klienten |
+| **filmen** | Det här värdet är inställt på `https://management.core.windows.net/` . |
 | **clientId** | Klient-ID för Azure AD-programmet |
 ||| 
 

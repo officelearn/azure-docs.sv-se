@@ -14,10 +14,9 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.openlocfilehash: e96442be50a075ebf2cd81bf1b6fb0f58f883bad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885590"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå medgivande i Azure AD-program
@@ -31,7 +30,7 @@ Samtycke är en användare som ger behörighet till ett program för att få åt
 Den faktiska användar upplevelsen för godkännandet kan variera beroende på principer som anges på användarens klient organisation, användarens auktoritets område (eller roll) och vilken typ av [behörighet](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) som begärs av klient programmet. Det innebär att program utvecklare och klient administratörer har viss kontroll över medgivande upplevelsen. Administratörer har flexibiliteten att ställa in och inaktivera principer på en klient eller app för att kontrol lera medgivande upplevelsen i sina klienter. Programutvecklare kan diktera vilka typer av behörigheter som begärs och om de vill ge användarna möjlighet att använda flödet för användarens medgivande eller det administrativa godkännande flödet.
 
 - **Flöde för användar godkännande** är när en programutvecklare dirigerar användare till behörighets slut punkten med avsikt att registrera medgivande för enbart den aktuella användaren.
-- **Flöde för administratörs medgivande** är när en programutvecklare dirigerar användare till en slut punkt för administratörs medgivande med avsikt att registrera medgivande för hela klienten. För att säkerställa att det administrativa godkännande flödet fungerar korrekt måste programutvecklare lista alla behörigheter `RequiredResourceAccess` i egenskapen i program manifestet. Mer information finns i [program manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- **Flöde för administratörs medgivande** är när en programutvecklare dirigerar användare till en slut punkt för administratörs medgivande med avsikt att registrera medgivande för hela klienten. För att säkerställa att det administrativa godkännande flödet fungerar korrekt måste programutvecklare lista alla behörigheter i `RequiredResourceAccess` egenskapen i program manifestet. Mer information finns i [program manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>Bygg stenar av medgivande frågan
 

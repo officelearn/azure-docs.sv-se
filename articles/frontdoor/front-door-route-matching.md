@@ -12,13 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878603"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Hur en frontend-dörr matchar begär anden till en regel för routning
+# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Så här matchar Front Door begäranden till en hanteringsregel
 
 När du har upprättat en anslutning och gjort en TLS-handskakning, och en begäran skickas till en front dörr miljö, en av de första saker som front dörren bestämmer från alla konfigurationer, vilken specifika routningsregler som ska matcha begäran till och sedan vidta den definierade åtgärden. I följande dokument förklaras hur front dörren avgör vilken väg konfiguration som ska användas vid bearbetning av en HTTP-begäran.
 
@@ -29,8 +28,8 @@ En regel för routning av front dörr består av två huvud delar: en "vänsters
 Följande egenskaper avgör om den inkommande begäran matchar regeln för routning (eller vänster sida):
 
 * **Http-protokoll** (http/https)
-* **Värdar** (till exempel www\.-foo.com, \*. bar.com)
-* **Sökvägar** (till exempel,\*/,\*/Users/,/File.gif)
+* **Värdar** (till exempel www \. -foo.com, \* . bar.com)
+* **Sökvägar** (till exempel/ \* ,/users/ \* ,/file.gif)
 
 De här egenskaperna expanderas internt så att varje kombination av protokoll/värd/sökväg är en möjlig matchnings uppsättning.
 
@@ -52,19 +51,19 @@ För att förklara den här processen ytterligare, ska vi titta på ett exempel 
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /Users\* |
-| C | www\.-fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
+| C | www \. -fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
 
 Om följande inkommande begär Anden skickas till frontend-dörren, matchas de mot följande regler för routning från ovan:
 
 | Inkommande klient dels värd | Matchade routningsregler |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www\.-fabrikam.com | C |
+| www- \. fabrikam.com | C |
 | images.fabrikam.com | Fel 400: felaktig begäran |
 | foo.adventure-works.com | C |
 | contoso.com | Fel 400: felaktig begäran |
-| www\.-Adventure-Works.com | Fel 400: felaktig begäran |
-| www\.-northwindtraders.com | Fel 400: felaktig begäran |
+| www- \. Adventure-Works.com | Fel 400: felaktig begäran |
+| www- \. northwindtraders.com | Fel 400: felaktig begäran |
 
 ### <a name="path-matching"></a>Sök vägs matchning
 När du har fastställt den angivna klient dels värden och filtrerat möjliga routningsregler till bara vägarna med denna klient dels värd, filtrerar front dörren sedan routningsregler baserat på sökväg för begäran. Vi använder en liknande logik som värd för klient delen:
@@ -80,35 +79,35 @@ Vi vill förklara ytterligare genom att titta på en annan uppsättning exempel:
 
 | Routingregeln | Klient dels värd    | Sökväg     |
 |-------|---------|----------|
-| A     | www\.-contoso.com | /        |
-| B     | www\.-contoso.com | /\*      |
-| C     | www\.-contoso.com | /ab      |
-| D     | www\.-contoso.com | /abc     |
-| E     | www\.-contoso.com | Pia    |
-| F     | www\.-contoso.com | Pia\*  |
-| G     | www\.-contoso.com | /abc/def |
-| H     | www\.-contoso.com | /Path   |
+| A     | www- \. contoso.com | /        |
+| B     | www- \. contoso.com | /\*      |
+| C     | www- \. contoso.com | /ab      |
+| D     | www- \. contoso.com | /abc     |
+| E     | www- \. contoso.com | Pia    |
+| F     | www- \. contoso.com | Pia\*  |
+| G     | www- \. contoso.com | /abc/def |
+| H     | www- \. contoso.com | /Path   |
 
 Med den här konfigurationen kommer följande exempel som matchar tabellen att resultera i:
 
 | Inkommande begäran    | Matchad väg |
 |---------------------|---------------|
-| www\.-contoso.com/            | A             |
-| www\.-contoso.com/a           | B             |
-| www\.-contoso.com/AB          | C             |
-| www\.-contoso.com/ABC         | D             |
-| www\.-contoso.com/abzzz       | B             |
-| www\.-contoso.com/ABC/        | E             |
-| www\.-contoso.com/ABC/d       | F             |
-| www\.-contoso.com/ABC/DEF     | G             |
-| www\.-contoso.com/ABC/defzzz  | F             |
-| www\.-contoso.com/ABC/DEF/GHI | F             |
-| www\.-contoso.com/Path        | B             |
-| www\.-contoso.com/Path/       | H             |
-| www\.-contoso.com/Path/ZZZ    | B             |
+| www- \. contoso.com/            | A             |
+| www- \. contoso.com/a           | B             |
+| www- \. contoso.com/AB          | C             |
+| www- \. contoso.com/ABC         | D             |
+| www- \. contoso.com/abzzz       | B             |
+| www- \. contoso.com/ABC/        | E             |
+| www- \. contoso.com/ABC/d       | F             |
+| www- \. contoso.com/ABC/DEF     | G             |
+| www- \. contoso.com/ABC/defzzz  | F             |
+| www- \. contoso.com/ABC/DEF/GHI | F             |
+| www- \. contoso.com/Path        | B             |
+| www- \. contoso.com/Path/       | H             |
+| www- \. contoso.com/Path/ZZZ    | B             |
 
 >[!WARNING]
-> </br> Om det inte finns några regler för routning av en klient dels värd med en catch-all väg Sök väg`/*`(), kommer det inte att finnas någon matchning till någon routningsprincip.
+> </br> Om det inte finns några regler för routning av en klient dels värd med en catch-all väg Sök väg ( `/*` ), kommer det inte att finnas någon matchning till någon routningsprincip.
 >
 > Exempel på konfiguration:
 >

@@ -7,10 +7,9 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114313"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Förstå hur migreringsverktyget fungerar
@@ -121,12 +120,12 @@ Dessa är klassiska varnings regler för mått som tidigare stöddes men som tid
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>Hur motsvarande nya varnings regler och åtgärds grupper skapas
 
-Migreringsverktyget konverterar de klassiska varnings reglerna till motsvarande nya varnings regler och åtgärds grupper. För de flesta klassiska varnings regler finns motsvarande nya varnings regler på samma mått med samma egenskaper som `windowSize` och. `aggregationType` Det finns dock vissa klassiska varnings regler på mått som har ett annat, motsvarande mått i det nya systemet. Följande principer gäller för migrering av klassiska varningar, om inte anges i avsnittet nedan:
+Migreringsverktyget konverterar de klassiska varnings reglerna till motsvarande nya varnings regler och åtgärds grupper. För de flesta klassiska varnings regler finns motsvarande nya varnings regler på samma mått med samma egenskaper som `windowSize` och `aggregationType` . Det finns dock vissa klassiska varnings regler på mått som har ett annat, motsvarande mått i det nya systemet. Följande principer gäller för migrering av klassiska varningar, om inte anges i avsnittet nedan:
 
-- **Frekvens**: anger hur ofta en klassisk eller ny varnings regel kontrollerar villkoret. I `frequency` de klassiska varnings reglerna kunde inte konfigureras av användaren och var alltid 5 minuter för alla resurs typer förutom Application Insights-komponenter som den var 1 min. Därför är frekvensen av motsvarande regler också inställd på 5 min respektive 1 min.
-- **Sammansättnings typ**: definierar hur måttet ska aggregeras över intresse fönstret. `aggregationType` Är också detsamma mellan klassiska aviseringar och nya aviseringar för de flesta mått. I vissa fall, eftersom måttet skiljer sig mellan klassiska aviseringar och nya aviseringar `aggregationType` , används `primary Aggregation Type` motsvarande eller det definierade värdet för måttet.
+- **Frekvens**: anger hur ofta en klassisk eller ny varnings regel kontrollerar villkoret. `frequency`I de klassiska varnings reglerna kunde inte konfigureras av användaren och var alltid 5 minuter för alla resurs typer förutom Application Insights-komponenter som den var 1 min. Därför är frekvensen av motsvarande regler också inställd på 5 min respektive 1 min.
+- **Sammansättnings typ**: definierar hur måttet ska aggregeras över intresse fönstret. `aggregationType`Är också detsamma mellan klassiska aviseringar och nya aviseringar för de flesta mått. I vissa fall, eftersom måttet skiljer sig mellan klassiska aviseringar och nya aviseringar, `aggregationType` används motsvarande eller det `primary Aggregation Type` definierade värdet för måttet.
 - **Units (units**): egenskapen för måttet som aviseringen skapas för. Vissa motsvarande mått har olika enheter. Tröskelvärdet justeras på lämpligt sätt vid behov. Om till exempel det ursprungliga måttet har sekunder som enheter men motsvarande nya mått har millisekunder som enheter multipliceras det ursprungliga tröskelvärdet med 1000 för att säkerställa samma beteende.
-- **Fönster storlek**: definierar fönstret över vilka mått data aggregeras för att jämföra mot tröskelvärdet. För `windowSize` standardvärden som 5mins, 15mins, 30mins, efter, 3hours, 6 timmar, 12 timmar, 1 dag, har inga ändringar gjorts för motsvarande nya aviserings regel. För andra värden väljs närmast `windowSize` som ska användas. För de flesta kunder påverkas inte den här ändringen. För en liten del av kunderna kan det vara nödvändigt att justera tröskelvärdet för att få exakt samma beteende.
+- **Fönster storlek**: definierar fönstret över vilka mått data aggregeras för att jämföra mot tröskelvärdet. För `windowSize` standardvärden som 5mins, 15mins, 30mins, efter, 3hours, 6 timmar, 12 timmar, 1 dag, har inga ändringar gjorts för motsvarande nya aviserings regel. För andra värden `windowSize` väljs närmast som ska användas. För de flesta kunder påverkas inte den här ändringen. För en liten del av kunderna kan det vara nödvändigt att justera tröskelvärdet för att få exakt samma beteende.
 
 I följande avsnitt beskriver vi de mått som har ett annat, motsvarande mått i det nya systemet. Alla mått som förblir desamma för klassiska och nya varnings regler visas inte. Du kan hitta en lista över mått som stöds i det nya systemet [här](metrics-supported.md).
 
@@ -197,7 +196,7 @@ För Application Insights är motsvarande mått det som visas nedan:
 | requestFailed. Count | begär Anden/misslyckade| Använd `aggregationType` Count i stället för sum.   |
 | Visa. Count | pageViews/antal| Använd `aggregationType` Count i stället för sum.   |
 
-### <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft. DocumentDB/databaseAccounts
+### <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 För Cosmos DB är motsvarande mått det som visas nedan:
 

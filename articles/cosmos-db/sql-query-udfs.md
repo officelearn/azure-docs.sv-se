@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81011131"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Användardefinierade funktioner (UDF: er) i Azure Cosmos DB
@@ -32,7 +31,7 @@ Om du måste använda samma UDF flera gånger i en fråga bör du referera till 
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel registreras en UDF under en objekt behållare i Cosmos-databasen. I exemplet skapas en UDF vars namn är `REGEX_MATCH`. Det accepterar två JSON- `input` sträng värden och `pattern`kontrollerar om det första matchar mönstret som anges i den andra med hjälp av JavaScript- `string.match()` funktionen.
+I följande exempel registreras en UDF under en objekt behållare i Cosmos-databasen. I exemplet skapas en UDF vars namn är `REGEX_MATCH` . Det accepterar två JSON-sträng värden `input` och `pattern` kontrollerar om det första matchar mönstret som anges i den andra med hjälp av JavaScript- `string.match()` funktionen.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -48,7 +47,7 @@ I följande exempel registreras en UDF under en objekt behållare i Cosmos-datab
            regexMatchUdf).Result;  
 ```
 
-Använd nu denna UDF i en fråga-projektion. Du måste kvalificera UDF: er med Skift läges känsligt `udf.` prefix när du anropar dem inifrån frågor.
+Använd nu denna UDF i en fråga-projektion. Du måste kvalificera UDF: er med Skift läges känsligt prefix `udf.` när du anropar dem inifrån frågor.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -68,7 +67,7 @@ Resultatet är:
     ]
 ```
 
-Du kan använda UDF-filen som är `udf.` kvalificerad med prefixet inuti ett filter, som i följande exempel:
+Du kan använda UDF-filen som är kvalificerad med `udf.` prefixet inuti ett filter, som i följande exempel:
 
 ```sql
     SELECT Families.id, Families.address.city

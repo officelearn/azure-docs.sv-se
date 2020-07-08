@@ -6,10 +6,9 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80877906"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metod tips för lagring och säkerhets kopiering i Azure Kubernetes service (AKS)
@@ -36,7 +35,7 @@ I följande tabell beskrivs tillgängliga lagrings typer och deras funktioner:
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Delad konfiguration       | Azure Files   | Ja | Ja | Ja | Ja |
 | Strukturerade AppData        | Azure-diskar   | Ja | Nej  | Nej  | Ja |
-| Ostrukturerade data, fil system åtgärder | [BlobFuse][blobfuse] | Ja | Ja | Ja | Nej |
+| Ostrukturerade data, fil system åtgärder | [BlobFuse][blobfuse] | Ja | Ja | Ja | No |
 
 De två primära typerna av lagring som tillhandahålls för volymer i AKS backas upp av Azure-diskar eller Azure Files. För att förbättra säkerheten, använder båda typerna av lagring Azure Storage Service Encryption (SSE) som standard som krypterar data i vila. Diskar kan för närvarande inte krypteras med hjälp av Azure Disk Encryption på AKS Node-nivå.
 

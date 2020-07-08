@@ -4,10 +4,9 @@ description: Skapa en SSL-eller TLS-slutpunkt för en behållar grupp som körs 
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80984614"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Aktivera en TLS-slutpunkt i en sidvagn-behållare
@@ -46,19 +45,19 @@ Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-f
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-Nu bör du se tre filer i katalogen: certifikat förfrågan (`ssl.csr`), den privata nyckeln (`ssl.key`) och det självsignerade certifikatet (`ssl.crt`). Du använder `ssl.key` och `ssl.crt` i senare steg.
+Nu bör du se tre filer i katalogen: certifikat förfrågan ( `ssl.csr` ), den privata nyckeln ( `ssl.key` ) och det självsignerade certifikatet ( `ssl.crt` ). Du använder `ssl.key` och `ssl.crt` i senare steg.
 
 ## <a name="configure-nginx-to-use-tls"></a>Konfigurera nginx att använda TLS
 
 ### <a name="create-nginx-configuration-file"></a>Skapa konfigurations fil för nginx
 
-I det här avsnittet skapar du en konfigurations fil för nginx för att använda TLS. Börja med att kopiera följande text till en ny fil med `nginx.conf`namnet. I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
+I det här avsnittet skapar du en konfigurations fil för nginx för att använda TLS. Börja med att kopiera följande text till en ny fil med namnet `nginx.conf` . I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
 
 ```console
 code nginx.conf
 ```
 
-I `location`, måste du ange `proxy_pass` med rätt port för din app. I det här exemplet anger vi port 80 för `aci-helloworld` behållaren.
+I `location` , måste du ange `proxy_pass` med rätt port för din app. I det här exemplet anger vi port 80 för `aci-helloworld` behållaren.
 
 ```console
 # nginx Configuration File
@@ -138,13 +137,13 @@ Distribuera nu behållar gruppen genom att ange behållar konfigurationerna i en
 
 ### <a name="create-yaml-file"></a>Skapa YAML-fil
 
-Kopiera följande YAML till en ny fil med namnet `deploy-aci.yaml`. I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
+Kopiera följande YAML till en ny fil med namnet `deploy-aci.yaml` . I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
 
 ```console
 code deploy-aci.yaml
 ```
 
-Ange innehållet i base64-kodade filer som anges under `secret`. Till exempel var `cat` och en av de base64-kodade filerna för att se dess innehåll. Under distributionen läggs de här filerna till i en [hemlig volym](container-instances-volume-secret.md) i behållar gruppen. I det här exemplet monteras den hemliga volymen till behållaren nginx.
+Ange innehållet i base64-kodade filer som anges under `secret` . Till exempel var och en `cat` av de base64-kodade filerna för att se dess innehåll. Under distributionen läggs de här filerna till i en [hemlig volym](container-instances-volume-secret.md) i behållar gruppen. I det här exemplet monteras den hemliga volymen till behållaren nginx.
 
 ```YAML
 api-version: 2018-10-01
@@ -223,7 +222,7 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## <a name="verify-tls-connection"></a>Verifiera TLS-anslutning
 
-Använd webbläsaren för att navigera till behållar gruppens offentliga IP-adress. Den IP-adress som visas i det `52.157.22.76`här exemplet är, så **https://52.157.22.76**URL: en är. Du måste använda HTTPS för att se programmet som körs, på grund av nginx-serverkonfigurationen. Försök att ansluta via HTTP Miss lyckas.
+Använd webbläsaren för att navigera till behållar gruppens offentliga IP-adress. Den IP-adress som visas i det här exemplet är `52.157.22.76` , så URL: en är **https://52.157.22.76** . Du måste använda HTTPS för att se programmet som körs, på grund av nginx-serverkonfigurationen. Försök att ansluta via HTTP Miss lyckas.
 
 ![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-containern](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 

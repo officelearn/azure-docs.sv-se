@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81113316"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
@@ -30,7 +29,7 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 - **Aktivitet** 
     - **Inloggningar** – information om användningen av hanterade program och användar inloggnings aktiviteter.
-    - **Gransknings loggar** - [gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
+    - **Gransknings loggar**  -  [Gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
     - **Etablerings loggar** – ger system aktivitet om användare, grupper och roller som tillhandahålls av Azure AD Provisioning-tjänsten. 
 
 - **Säkerhet** 
@@ -94,9 +93,9 @@ Du kan filtrera dina etablerings data. Vissa filter värden fylls i dynamiskt ba
 I standardvyn kan du välja följande filter:
 
 - Identitet
-- Date
+- Datum
 - Status
-- Action
+- Åtgärd
 
 
 ![Filter](./media/concept-provisioning-logs/default-filter.png "Filter")
@@ -131,11 +130,11 @@ Med **Åtgärds** filtret kan du filtrera:
 - Uppdatera
 - Ta bort
 - Inaktivera
-- Annat
+- Övrigt
 
 Dessutom kan du också ange följande filter till filtren i standardvyn:
 
-- Jobb-ID
+- Job-ID
 - Cykel-ID
 - Ändra ID
 - Käll-ID
@@ -238,7 +237,7 @@ Använd tabellen nedan för att bättre förstå hur du löser fel som du kan hi
 |SchemaAttributeNotFound |Det gick inte att utföra åtgärden eftersom ett attribut som inte finns i mål programmet har angetts. Se [dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) om attribut anpassning och se till att konfigurationen är korrekt.|
 |InternalError |Ett internt tjänst fel uppstod i Azure AD Provisioning-tjänsten. Det finns inget att göra. Det här försöket görs automatiskt om 40 minuter.|
 |InvalidDomain |Det gick inte att utföra åtgärden på grund av ett attributvärde som innehåller ett ogiltigt domän namn. Uppdatera domän namnet på användaren eller Lägg till det i listan över tillåtna i mål programmet. |
-|Timeout |Det gick inte att utföra åtgärden eftersom mål programmet tog för lång tid att svara. Det finns inget att göra. Det här försöket görs automatiskt om 40 minuter.|
+|Tidsgräns |Det gick inte att utföra åtgärden eftersom mål programmet tog för lång tid att svara. Det finns inget att göra. Det här försöket görs automatiskt om 40 minuter.|
 |LicenseLimitExceeded|Det gick inte att skapa användaren i mål programmet eftersom det inte finns några tillgängliga licenser för den här användaren. Du kan antingen köpa ytterligare licenser för mål programmet eller granska användar tilldelningarna och mappnings konfigurationen för attribut för att säkerställa att rätt användare tilldelas rätt attribut.|
 |DuplicateTargetEntries  |Det gick inte att slutföra åtgärden eftersom mer än en användare i mål programmet hittades med de konfigurerade matchande attributen. Ta antingen bort den duplicerade användaren från mål programmet eller konfigurera om dina mappningar för attribut enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | Det gick inte att slutföra åtgärden eftersom mer än en användare hittades med de konfigurerade matchande attributen. Ta antingen bort den duplicerade användaren eller konfigurera om dina mappningar för attribut enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|

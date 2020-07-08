@@ -10,10 +10,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81258464"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT Remote Monitor Solution Accelerator
@@ -54,7 +53,7 @@ En aktiv Azure-prenumeration. Om du inte har någon kan du registrera dig via n�
 
    ![Instrumentpanel](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
-   ![Konsolen](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+   ![Konsol](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. Klicka på **Lägg till en enhet**.
 
@@ -62,7 +61,7 @@ En aktiv Azure-prenumeration. Om du inte har någon kan du registrera dig via n�
   
    ![Lägg till en ny enhet](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
 
-7. Klicka på **Låt mig definiera mitt eget enhets-ID**, ange `AZ3166`och klicka sedan på **skapa**.
+7. Klicka på **Låt mig definiera mitt eget enhets-ID**, ange `AZ3166` och klicka sedan på **skapa**.
   
    ![Skapa enhet med ID](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
@@ -82,11 +81,11 @@ En aktiv Azure-prenumeration. Om du inte har någon kan du registrera dig via n�
 4. Expandera exempel avsnittet för vänster **ARDUINO** , bläddra till **exempel för MXCHIP AZ3166 > AzureIoT**och välj **RemoteMonitoring**. Den öppnar ett nytt VS Code-fönster med en projektmapp i det.
 
    > [!NOTE]
-   > Om du råkar stänga fönstret kan du öppna det igen. Använd `Ctrl+Shift+P` (MacOS: `Cmd+Shift+P`) för att öppna kommando-paletten, Skriv **Arduino**och leta upp och välj **Arduino: exempel**.
+   > Om du råkar stänga fönstret kan du öppna det igen. Använd `Ctrl+Shift+P` (MacOS: `Cmd+Shift+P` ) för att öppna kommando-paletten, Skriv **Arduino**och leta upp och välj **Arduino: exempel**.
 
 ## <a name="provision-required-azure-services"></a>Tillhandahåll nödvändiga Azure-tjänster
 
-Kör uppgiften via `Ctrl+P` (MacOS: `Cmd+P`) i lösnings fönstret genom att ange `task cloud-provision` i text rutan tillhandahållen.
+Kör uppgiften via `Ctrl+P` (MacOS:) i lösnings fönstret `Cmd+P` genom att ange `task cloud-provision` i text rutan tillhandahållen.
 
 I VS Code-terminalen guidar en interaktiv kommando rad dig genom etableringen av de nödvändiga Azure-tjänsterna.
 
@@ -94,7 +93,7 @@ I VS Code-terminalen guidar en interaktiv kommando rad dig genom etableringen av
 
 ## <a name="build-and-upload-the-device-code"></a>Bygg och ladda upp enhets koden
 
-1. Använd `Ctrl+P` (MacOS: `Cmd + P`) och ange **uppgiften konfiguration-enhets anslutning**.
+1. Använd `Ctrl+P` (MacOS: `Cmd + P` ) och ange **uppgiften konfiguration-enhets anslutning**.
 
 2. Terminalen frågar om du vill använda en anslutnings sträng som hämtas från `task cloud-provision` steget. Du kan också ange din egen enhets anslutnings sträng genom att klicka på "Skapa ny..."
 
@@ -102,7 +101,7 @@ I VS Code-terminalen guidar en interaktiv kommando rad dig genom etableringen av
 
    ![Ingående anslutnings sträng](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
 
-4. När `task config-device-connection` du är klar klickar `F1` du för att läsa in vs Code `Arduino: Upload`-kommandon och väljer. VS Code börjar verifiera och ladda upp Arduino-skissen.
+4. När `task config-device-connection` du är klar klickar `F1` du för att läsa in vs Code-kommandon och väljer `Arduino: Upload` . VS Code börjar verifiera och ladda upp Arduino-skissen.
   
    ![Verifiering och uppladdning av Arduino-skissen](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 

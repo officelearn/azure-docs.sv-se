@@ -4,10 +4,9 @@ description: Ta bort Application Insights SDK för ASP.NET och ASP.NET Core i Vi
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1c9ff8d3d305645ac7d113421e2c6c5f8451bd2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80805110"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Ta bort Application Insights i Visual Studio
@@ -49,7 +48,7 @@ Om du vill ta bort Application Insights måste du ta bort NuGet-paketen och refe
 
 # <a name="net"></a>[.NET](#tab/net)
 
-1. I *Solution Explorer* till höger högerklickar du på **lösning** och väljer **Hantera NuGet-paket för lösningen**.
+1. I *Solution Explorer*   till höger högerklickar du på **lösning**   och väljer **Hantera NuGet-paket för lösningen**.
 
     Sedan visas en skärm som gör att du kan redigera alla NuGet-paket som ingår i projektet.
     
@@ -58,9 +57,9 @@ Om du vill ta bort Application Insights måste du ta bort NuGet-paketen och refe
     > [!NOTE]
     > Om spårnings insamling är aktiverat måste du först avinstallera Microsoft. ApplicationInsights. TraceListener utan att ta bort beroenden och sedan följa stegen nedan för att avinstallera Microsoft. ApplicationInsights. Web med ta bort beroenden markerade.
     
-1. Klicka på paketet "Microsoft. ApplicationInsights. Web".Till höger markerar du kryss rutan bredvid *projekt* för att markera alla projekt.
+1. Klicka på paketet "Microsoft. ApplicationInsights. Web".Till höger markerar du kryss rutan bredvid *projekt*   för att markera alla projekt.
     
-1. Om du vill ta bort alla beroenden när du avinstallerar väljer du knappen **alternativ** i list rutan under det avsnitt där du har valt projekt.
+1. Om du vill ta bort alla beroenden när du avinstallerar väljer du knappen **alternativ**i   list rutan under det avsnitt där du har valt projekt.
 
     Under *avinstallations alternativ*markerar du kryss rutan bredvid *ta bort beroenden*.
 
@@ -68,15 +67,15 @@ Om du vill ta bort Application Insights måste du ta bort NuGet-paketen och refe
     
     ![Markera ta bort beroenden och avinstallera](./media/remove-application-insights/uninstall-framework.png)
 
-    En dialog ruta som visar alla beroenden som ska tas bort från programmet visas.Välj **OK** för att avinstallera.
+    En dialog ruta som visar alla beroenden som ska tas bort från programmet visas.Välj **OK**   för att avinstallera.
     
     ![Markera ta bort beroenden och avinstallera](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  När allt har avinstallerats kan du fortfarande se "ApplicationInsights. config" och "AiHandleErrorAttribute.cs" i *Solution Explorer*.Du kan ta bort de två filerna manuellt.
+1.  När allt har avinstallerats kan du fortfarande se "ApplicationInsights.config" och "AiHandleErrorAttribute.cs" i *Solution Explorer*.Du kan ta bort de två filerna manuellt.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-1. I *Solution Explorer* till höger högerklickar du på **lösning** och väljer **Hantera NuGet-paket för lösningen**.
+1. I *Solution Explorer*   till höger högerklickar du på **lösning**   och väljer **Hantera NuGet-paket för lösningen**.
 
     Sedan visas en skärm som gör att du kan redigera alla NuGet-paket som ingår i projektet.
 
@@ -107,7 +106,7 @@ Följande delar av kod läggs till:
      <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
     ```
 
-- Packages. config
+- Packages.config
 
     ```xml
     <packages>
@@ -155,7 +154,7 @@ Följande delar av kod läggs till:
     </head>
     ```
 
-- ConnectedService. JSON
+- ConnectedService.jspå
 
     ```json
     {
@@ -197,14 +196,14 @@ När du lägger till Application Insights Telemetry i ett projekt i Visual Studi
       </ItemGroup>
     ```
 
-- AppSettings. JSON:
+- Appsettings.jspå:
 
     ```json
     "ApplicationInsights": {
         "InstrumentationKey": "00000000-0000-0000-0000-000000000000"
     ```
 
-- ConnectedService. JSON
+- ConnectedService.jspå
     
     ```json
     {

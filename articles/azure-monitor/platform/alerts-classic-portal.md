@@ -6,10 +6,9 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114586"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, Visa och hantera klassiska mått varningar med Azure Monitor
@@ -34,7 +33,7 @@ Klassiska mått varningar i Azure Monitor ger ett sätt att få ett meddelande n
 
 6. Välj **e-postägare...** om du vill att administratörer och medadministratörer ska kunna ta emot e-postaviseringar när aviseringen utlöses.
 
-7. Om du vill skicka meddelanden till ytterligare e-postadresser när aviseringen utlöses, lägger du till dem i fältet **ytterligare administratörs e-post (er)** . Separera flera e-postmeddelanden med semikolon i följande format: *e-post\@contoso. com; email2\@contoso.com*
+7. Om du vill skicka meddelanden till ytterligare e-postadresser när aviseringen utlöses, lägger du till dem i fältet **ytterligare administratörs e-post (er)** . Separera flera e-postmeddelanden med semikolon i följande format: *e-post \@ contoso. com; email2 \@ contoso.com*
 
 8. Placera i en giltig URI i fältet **webhook** om du vill att det ska anropas när aviseringen utlöses.
 

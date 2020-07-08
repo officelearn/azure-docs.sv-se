@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
 ms.openlocfilehash: 56df6e28940eb15597a3d6bccca3f85e5f690f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991662"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Metod tips för Azure Service Fabric program design
@@ -57,9 +56,9 @@ Spara kostnader och förbättra tillgängligheten:
 
 ## <a name="how-to-work-with-reliable-services"></a>Så här arbetar du med Reliable Services
 Med Service Fabric Reliable Services kan du enkelt skapa tillstånds lösa och tillstånds känsliga tjänster. Mer information finns i [Introduktion till Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
-- Följ alltid [token för avbrott](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) i `RunAsync()` metoden för tillstånds lösa och tillstånds känsliga `ChangeRole()` tjänster och metoden för tillstånds känsliga tjänster. Om du inte gör det vet Service Fabric inte om tjänsten kan stängas. Om du till exempel inte följer den token för avbrytande token kan mycket längre program uppgraderings tider uppstå.
+- Följ alltid [token för avbrott](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) i `RunAsync()` metoden för tillstånds lösa och tillstånds känsliga tjänster och `ChangeRole()` metoden för tillstånds känsliga tjänster. Om du inte gör det vet Service Fabric inte om tjänsten kan stängas. Om du till exempel inte följer den token för avbrytande token kan mycket längre program uppgraderings tider uppstå.
 -    Öppna och Stäng [kommunikations lyssnare](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) i tid och följ de token för avbrutna.
--    Blanda aldrig synkronisera kod med asynkron kod. Använd `.GetAwaiter().GetResult()` till exempel inte i dina asynkrona anrop. Använd asynkront *hela vägen* via anrops stacken.
+-    Blanda aldrig synkronisera kod med asynkron kod. Använd till exempel inte `.GetAwaiter().GetResult()` i dina asynkrona anrop. Använd asynkront *hela vägen* via anrops stacken.
 
 ## <a name="how-to-work-with-reliable-actors"></a>Så här arbetar du med Reliable Actors
 Med Service Fabric Reliable Actors kan du enkelt skapa tillstånds känsliga, virtuella aktörer. Mer information finns i [Introduktion till Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
@@ -70,7 +69,7 @@ Med Service Fabric Reliable Actors kan du enkelt skapa tillstånds känsliga, vi
 - På grund av deras egna [samtidiga samtidighet](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)används aktörerna bäst som oberoende objekt. Skapa inte diagram av multi-skådespelare, synkrona metod anrop (var och en av de mest sannolika nätverks anropen) eller skapa förfrågningar om cirkulär aktör. Dessa påverkar avsevärt prestanda och skalning.
 - Blanda inte synkronisera kod med asynkron kod. Använd asynkront för att förhindra prestanda problem.
 - Gör inte långvariga anrop i aktörer. Med tids krävande anrop blockeras andra anrop till samma aktör, på grund av den omkopplade samtidigheten.
-- Om du kommunicerar med andra tjänster genom att använda [Service Fabric fjärr kommunikation](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) och du skapar `ServiceProxyFactory`en skapar du fabriken på [aktörs service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) nivå och *inte* på aktörs nivån.
+- Om du kommunicerar med andra tjänster genom att använda [Service Fabric fjärr kommunikation](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) och du skapar en `ServiceProxyFactory` skapar du fabriken på [aktörs service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) nivå och *inte* på aktörs nivån.
 
 
 ## <a name="application-diagnostics"></a>Programdiagnostik

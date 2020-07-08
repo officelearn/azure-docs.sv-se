@@ -6,10 +6,9 @@ ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811693"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Använd ett TLS/SSL-certifikat i koden i Azure App Service
@@ -29,7 +28,7 @@ För att följa den här instruktions guiden:
 
 ## <a name="find-the-thumbprint"></a>Hitta tumavtrycket
 
-I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** > **\<App-Name>** på menyn till vänster.
+I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services**på menyn till vänster  >  **\<app-name>** .
 
 Välj **TLS/SSL-inställningar**i den vänstra navigeringen i din app och välj sedan **privat nyckel certifikat (. pfx)** eller **certifikat för offentlig nyckel (. cer)**.
 
@@ -39,22 +38,22 @@ Hitta det certifikat som du vill använda och kopiera tumavtrycket.
 
 ## <a name="make-the-certificate-accessible"></a>Gör certifikatet tillgängligt
 
-Om du vill komma åt ett certifikat i din app-kod lägger du `WEBSITE_LOAD_CERTIFICATES` till dess tumavtryck i appens inställning genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+Om du vill komma åt ett certifikat i din app-kod lägger du till dess tumavtryck i `WEBSITE_LOAD_CERTIFICATES` appens inställning genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-Ange värdet till `*`om du vill göra alla dina certifikat tillgängliga.
+Ange värdet till om du vill göra alla dina certifikat tillgängliga `*` .
 
 ## <a name="load-certificate-in-windows-apps"></a>Läs in certifikat i Windows-appar
 
-`WEBSITE_LOAD_CERTIFICATES` App-inställningen gör de angivna certifikaten tillgängliga för din Windows-värdbaserade app i Windows certifikat Arkiv och platsen är beroende av [pris nivån](overview-hosting-plans.md):
+`WEBSITE_LOAD_CERTIFICATES`App-inställningen gör de angivna certifikaten tillgängliga för din Windows-värdbaserade app i Windows certifikat Arkiv och platsen är beroende av [pris nivån](overview-hosting-plans.md):
 
 - **Isolerad** nivå – i [lokalt Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
 - Alla andra nivåer – i [aktuell User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
-I C#-koden får du åtkomst till certifikatet med tumavtrycket för certifikatet. Följande kod läser in ett certifikat med tumavtrycket `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
+I C#-koden får du åtkomst till certifikatet med tumavtrycket för certifikatet. Följande kod läser in ett certifikat med tumavtrycket `E661583E8FABEF4C0BEF694CBC41C28FB81CD870` .
 
 ```csharp
 using System;
@@ -109,7 +108,7 @@ För språk som inte stöder eller som inte erbjuder stöd för Windows certifik
 
 ## <a name="load-certificate-in-linux-apps"></a>Läs in certifikat i Linux-appar
 
-`WEBSITE_LOAD_CERTIFICATES` Appinställningar gör de angivna certifikaten tillgängliga för dina Linux-värdbaserade appar (inklusive anpassade behållar appar) som filer. Filerna finns under följande kataloger:
+`WEBSITE_LOAD_CERTIFICATES`Appinställningar gör de angivna certifikaten tillgängliga för dina Linux-värdbaserade appar (inklusive anpassade behållar appar) som filer. Filerna finns under följande kataloger:
 
 - Privata certifikat – `/var/ssl/private` ( `.p12` filer)
 - Offentliga certifikat – `/var/ssl/certs` ( `.der` filer)
@@ -128,7 +127,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Information om hur du läser in ett TLS/SSL-certifikat från en fil i Node. js, PHP, python, Java eller ruby finns i dokumentationen för respektive språk eller webb plattform.
+Information om hur du läser in ett TLS/SSL-certifikat från en fil i Node.js, PHP, python, Java eller ruby finns i dokumentationen för respektive språk eller webb plattform.
 
 ## <a name="load-certificate-from-file"></a>Läs in certifikat från fil
 
@@ -157,7 +156,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Information om hur du läser in ett TLS/SSL-certifikat från en fil i Node. js, PHP, python, Java eller ruby finns i dokumentationen för respektive språk eller webb plattform.
+Information om hur du läser in ett TLS/SSL-certifikat från en fil i Node.js, PHP, python, Java eller ruby finns i dokumentationen för respektive språk eller webb plattform.
 
 ## <a name="more-resources"></a>Fler resurser
 

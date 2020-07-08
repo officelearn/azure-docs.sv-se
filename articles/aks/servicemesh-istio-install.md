@@ -7,22 +7,21 @@ ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: d1d02cb42a86023e5c341daab678c39f22f75dda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80877702"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes service (AKS)
 
 [Istio][istio-github] är ett nät med öppen källkod som ger en nyckel uppsättning över mikrotjänster i ett Kubernetes-kluster. Dessa funktioner omfattar trafik hantering, tjänst identitet och säkerhet, princip tillämpning och upprätthållande. Mer information om Istio finns i den officiella [Istio?][istio-docs-concepts] -dokumentationen.
 
-Den här artikeln visar hur du installerar Istio. Istio `istioctl` -klientens binärfil installeras på klient datorn och Istio-komponenterna installeras i ett Kubernetes-kluster på AKS.
+Den här artikeln visar hur du installerar Istio. Istio- `istioctl` klientens binärfil installeras på klient datorn och Istio-komponenterna installeras i ett Kubernetes-kluster på AKS.
 
 > [!NOTE]
-> Följande instruktioner hänvisar till Istio- `1.4.0`versionen.
+> Följande instruktioner hänvisar till Istio-versionen `1.4.0` .
 >
-> Istio `1.4.x` -versionerna har testats av Istio-teamet mot Kubernetes- `1.13`versioner `1.14`, `1.15`,. Du hittar fler Istio-versioner på [GitHub-Istio-][istio-github-releases]versioner, information om var och en av versionerna på [Istio nyheter][istio-release-notes] och Kubernetes-versioner som stöds på [Istio allmänna vanliga frågor och svar][istio-faq].
+> Istio `1.4.x` -versionerna har testats av Istio-teamet mot Kubernetes `1.13` -versioner, `1.14` , `1.15` . Du hittar fler Istio-versioner på [GitHub-Istio-][istio-github-releases]versioner, information om var och en av versionerna på [Istio nyheter][istio-release-notes] och Kubernetes-versioner som stöds på [Istio allmänna vanliga frågor och svar][istio-faq].
 
 I den här artikeln kan du se hur du:
 
@@ -35,7 +34,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS `1.13` -kluster (Kubernetes och senare, med RBAC aktiverat) `kubectl` och har upprättat en anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart].
+De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS-kluster (Kubernetes `1.13` och senare, med RBAC aktiverat) och har upprättat en `kubectl` anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart].
 
 Se till att du har läst dokumentationen för [Istio-prestanda och skalbarhet](https://istio.io/docs/concepts/performance-and-scalability/) för att förstå de ytterligare resurs kraven för att köra Istio i ditt AKS-kluster. Kärn-och minnes kraven varierar beroende på din särskilda arbets belastning. Välj ett lämpligt antal noder och storlek för virtuella datorer för din installation.
 
@@ -101,7 +100,7 @@ Installations metoden för [Helm][helm] för Istio kommer att bli inaktuell i fr
 >
 > Observera att Kubernetes-funktionen för [tjänst kontots token för volym projektion][kubernetes-feature-sa-projected-volume] (ett krav för SDS) nu är **aktive rad** för alla Kubernetes 1,13 och högre versioner på AKS.
 
-Skapa en fil med `istio.aks.yaml` namnet med följande innehåll. Den här filen innehåller [Specifikations informationen för Istio Control plan][istio-control-plane] för att konfigurera Istio.
+Skapa en fil `istio.aks.yaml` med namnet med följande innehåll. Den här filen innehåller [Specifikations informationen för Istio Control plan][istio-control-plane] för att konfigurera Istio.
 
 ```yaml
 apiVersion: install.istio.io/v1alpha2
@@ -134,7 +133,7 @@ spec:
       enabled: true
 ```
 
-Installera istio med `istioctl apply` kommandot och följande Specifikations `istio.aks.yaml` fil för istio kontroll plan enligt följande:
+Installera istio med `istioctl apply` kommandot och följande `istio.aks.yaml` Specifikations fil för istio kontroll plan enligt följande:
 
 ```console
 istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
@@ -248,12 +247,12 @@ kubectl get svc --namespace istio-system --output wide
 Följande exempel på utdata visar de tjänster som nu ska köras:
 
 - `istio-*`Terminal
-- `jaeger-*`, `tracing`och `zipkin` tillägg spårnings tjänster
+- `jaeger-*`, `tracing` och `zipkin` tillägg spårnings tjänster
 - `prometheus`tilläggs mått tjänst
 - `grafana`instrument panels tjänsten för analys och övervakning av tillägg
 - `kiali`tjänst för nät instrument panel för tillägg till service
 
-Om visar `istio-ingressgateway` en extern IP- `<pending>`adress väntar du några minuter tills en IP-adress har tilldelats av Azure-nätverk.
+Om `istio-ingressgateway` visar en extern IP- `<pending>` adress väntar du några minuter tills en IP-adress har tilldelats av Azure-nätverk.
 
 ```console
 NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                                                                                                      AGE   SELECTOR
@@ -282,10 +281,10 @@ kubectl get pods --namespace istio-system
 
 Följande exempel på utdata visar de poddar som kör:
 
-- `istio-*` poddar
-- `prometheus-*` måtten Pod
-- instrument `grafana-*` panelens Pod för analys och övervakning av tillägg
-- Pod `kiali` för tillägg till tjänstens nät instrument panel
+- `istio-*`poddar
+- `prometheus-*`måtten Pod
+- `grafana-*`instrument panelens Pod för analys och övervakning av tillägg
+- `kiali`Pod för tillägg till tjänstens nät instrument panel
 
 ```console
 NAME                                          READY   STATUS    RESTARTS   AGE
@@ -302,13 +301,13 @@ kiali-59b7fd7f68-92zrh                        1/1     Running   0          95s
 prometheus-7c7cf9dbd6-rjxcv                   1/1     Running   0          94s
 ```
 
-Alla poddar bör visa status för `Running`. Om din poddar inte har dessa status värden väntar du en minut eller två tills de gör det. Om en poddar rapporterar ett problem använder du kommandot [kubectl beskriver Pod][kubectl-describe] för att granska deras utdata och status.
+Alla poddar bör visa status för `Running` . Om din poddar inte har dessa status värden väntar du en minut eller två tills de gör det. Om en poddar rapporterar ett problem använder du kommandot [kubectl beskriver Pod][kubectl-describe] för att granska deras utdata och status.
 
 ## <a name="accessing-the-add-ons"></a>Åtkomst till tilläggen
 
 Ett antal tillägg har installerats av Istio i vår installation ovan som tillhandahåller ytterligare funktioner. Webb programmen för tilläggen visas **inte** offentligt via en extern IP-adress. 
 
-Använd `istioctl dashboard` kommandot för att få åtkomst till användar gränssnitten för tillägg. Det här kommandot använder [kubectl Port-Forward][kubectl-port-forward] och en slumpmässig port för att skapa en säker anslutning mellan din klient dator och den relevanta Pod i ditt AKS-kluster. Sedan öppnas webb programmet för tillägg automatiskt i din standard webbläsare.
+Använd kommandot för att få åtkomst till användar gränssnitten för tillägg `istioctl dashboard` . Det här kommandot använder [kubectl Port-Forward][kubectl-port-forward] och en slumpmässig port för att skapa en säker anslutning mellan din klient dator och den relevanta Pod i ditt AKS-kluster. Sedan öppnas webb programmet för tillägg automatiskt i din standard webbläsare.
 
 Vi har lagt till ett extra säkerhets lager för Grafana och Kiali genom att ange autentiseringsuppgifter för dem tidigare i den här artikeln.
 
@@ -359,7 +358,7 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 ### <a name="remove-istio-components-and-namespace"></a>Ta bort Istio-komponenter och namn område
 
-Om du vill ta bort Istio från ditt AKS- `istioctl manifest generate` kluster använder du `istio.aks.yaml` kommandot med Specifikations filen Istio Control plan. Detta genererar det distribuerade manifestet, som vi ska skicka vidare `kubectl delete` till för att ta bort alla installerade komponenter och `istio-system` namn området.
+Om du vill ta bort Istio från ditt AKS-kluster använder du `istioctl manifest generate` kommandot med `istio.aks.yaml` Specifikations filen Istio Control plan. Detta genererar det distribuerade manifestet, som vi ska skicka vidare till för `kubectl delete` att ta bort alla installerade komponenter och `istio-system` namn området.
 
 ```console
 istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 

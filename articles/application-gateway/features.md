@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
 ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80810241"
 ---
 # <a name="azure-application-gateway-features"></a>Azure Application Gateway-funktioner
@@ -153,10 +152,10 @@ En fullständig lista över gränserna för programgateways finns i avsnittet om
 
 I följande tabell visas ett genomsnittligt prestanda data flöde för varje Application Gateway v1-instans med SSL-avlastning aktive rad:
 
-| Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medel | Stor |
+| Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medium | Stor |
 | --- | --- | --- | --- |
 | 6 kB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
-| 100 kB |35 Mbit/s |100 Mbps |200 Mbit/s |
+| 100 kB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
 
 > [!NOTE]
 > De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.

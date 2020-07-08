@@ -12,10 +12,9 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885165"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Skriv bords app som anropar webb-API: registrera appar
@@ -40,10 +39,10 @@ Om ditt Skriv bords program använder interaktiv autentisering kan du logga in a
 
 De omdirigerings-URI: er som ska användas i ett Skriv bords program beror på det flöde som du vill använda.
 
-- Om du använder interaktiv autentisering eller enhets kod flöde använder `https://login.microsoftonline.com/common/oauth2/nativeclient`du. Välj motsvarande URL i avsnittet **autentisering** för ditt program för att uppnå den här konfigurationen.
+- Om du använder interaktiv autentisering eller enhets kod flöde använder du `https://login.microsoftonline.com/common/oauth2/nativeclient` . Välj motsvarande URL i avsnittet **autentisering** för ditt program för att uppnå den här konfigurationen.
   
   > [!IMPORTANT]
-  > Idag använder MSAL.NET en annan omdirigerings-URI som standard i Skriv bords program`urn:ietf:wg:oauth:2.0:oob`som körs på Windows (). I framtiden kommer vi att behöva ändra denna standard, så vi rekommenderar att du använder `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+  > Idag använder MSAL.NET en annan omdirigerings-URI som standard i Skriv bords program som körs på Windows ( `urn:ietf:wg:oauth:2.0:oob` ). I framtiden kommer vi att behöva ändra denna standard, så vi rekommenderar att du använder `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 
 - Om du skapar en ursprunglig mål-C-eller Swift-app för macOS registrerar du omdirigerings-URI: n baserat på programmets paket-ID i följande format: msauth. <your.app.bundle.id>://auth. ersätter <your.app.bundle.id> med programmets paket-ID.
 - Om din app endast använder integrerad Windows-autentisering eller ett användar namn och ett lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. Dessa flöden gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten. Programmet kommer inte att anropas igen på någon specifik URI.

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: alzam
 ms.openlocfilehash: 2d07a13c654f30e48c37d2e8d3e801166e26f4f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886593"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Fjärran sluten arbete med Azure VPN Gateway punkt-till-plats
@@ -75,7 +74,7 @@ Information om hur du konfigurerar en plats-till-plats-VPN-tunnel finns i [den h
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera en P2S-anslutning – Azure AD-autentisering](openvpn-azure-ad-tenant.md)
 

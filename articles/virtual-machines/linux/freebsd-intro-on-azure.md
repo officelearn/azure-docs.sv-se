@@ -8,10 +8,9 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
 ms.openlocfilehash: 0825a29b45ea701315a57ff5248731e64e29de32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261643"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
@@ -52,7 +51,7 @@ sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-Under installationen uppmanas `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`du att. Om du svarar `y` och anger `/etc/rc.conf` som `a path to an rc file to update`kan du möta problemet `ERROR: [Errno 13] Permission denied`. För att lösa det här problemet bör du ge den aktuella användaren Skriv behörighet till den aktuella `etc/rc.conf`användaren.
+Under installationen uppmanas du att `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` . Om du svarar `y` och anger `/etc/rc.conf` som kan `a path to an rc file to update` du möta problemet `ERROR: [Errno 13] Permission denied` . För att lösa det här problemet bör du ge den aktuella användaren Skriv behörighet till den aktuella användaren `etc/rc.conf` .
 
 Nu kan du logga in på Azure och skapa din virtuella FreeBSD-dator. Nedan visas ett exempel på hur du skapar en virtuell FreeBSD 11,0-dator. Du kan också lägga till parametern `--public-ip-address-dns-name` med ett globalt unikt DNS-namn för en nyligen skapad offentlig IP-adress. 
 
@@ -103,7 +102,7 @@ Följande virtuella dator tillägg stöds i FreeBSD.
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>Autentisering: användar namn, lösen ord och SSH-nycklar
 När du skapar en virtuell FreeBSD-dator med hjälp av Azure Portal måste du ange ett användar namn, lösen ord eller en offentlig SSH-nyckel.
 Användar namn för att distribuera en virtuell FreeBSD-dator på Azure får inte matcha namn på system konton (UID <100) som redan finns på den virtuella datorn ("rot", t. ex.).
-För närvarande stöds endast RSA SSH-nyckeln. En SSH-nyckel för flera rader måste `---- BEGIN SSH2 PUBLIC KEY ----` börja med och `---- END SSH2 PUBLIC KEY ----`sluta med.
+För närvarande stöds endast RSA SSH-nyckeln. En SSH-nyckel för flera rader måste börja med `---- BEGIN SSH2 PUBLIC KEY ----` och sluta med `---- END SSH2 PUBLIC KEY ----` .
 
 ## <a name="obtaining-superuser-privileges"></a>Hämta behörigheter för superanvändare
 Det användar konto som anges under distributionen av virtuella dator instanser på Azure är ett konto med privilegier. Paketet med sudo installerades i den publicerade FreeBSD-avbildningen.
@@ -113,7 +112,7 @@ När du har loggat in via det här användar kontot kan du köra kommandon som r
 $ sudo <COMMAND>
 ```
 
-Du kan också hämta ett rot gränssnitt genom att använda `sudo -s`.
+Du kan också hämta ett rot gränssnitt genom att använda `sudo -s` .
 
 ## <a name="known-issues"></a>Kända problem
 [Azure VM-gästens agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 har ett [känt problem](https://github.com/Azure/WALinuxAgent/pull/517) som orsakar etablerings fel för FreeBSD VM på Azure. Korrigeringen samlades in av [Azure VM-gäst Gent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 och senare versioner. 

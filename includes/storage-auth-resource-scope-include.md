@@ -1,19 +1,19 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 74ef8270b5efcd3b7cdf756c103dcc2e1c935508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b97a62626666fa39a5b0622852d9eec47c2410a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460492"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024915"
 ---
 Innan du tilldelar en RBAC-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.
 
@@ -24,6 +24,3 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Azur
 - **Lagrings kontot.** I det här omfånget gäller en roll tilldelning för alla behållare och deras blobbar, eller till alla köer och deras meddelanden.
 - **Resursgruppen.** I det här omfånget gäller en roll tilldelning för alla behållare eller köer i alla lagrings konton i resurs gruppen.
 - **Prenumerationen.** I det här omfånget gäller en roll tilldelning för alla behållare eller köer i alla lagrings konton i alla resurs grupper i prenumerationen.
-
-> [!IMPORTANT]
-> Om din prenumeration innehåller ett namn område för ett Azure-DataBricks beviljas inte åtkomst till blob-och Queue-data för roller som är begränsade till prenumerationen. Omfattnings roller för resurs gruppen, lagrings kontot eller behållaren eller kön i stället.     

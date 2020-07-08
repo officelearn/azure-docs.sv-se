@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: f4c4f2a1c140e3d0f181c4fd55482056f9f91b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614323"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Så här anger du miljövariabler för tjänster i Service Fabric
@@ -20,8 +19,8 @@ Den här artikeln visar hur du anger miljövariabler för en tjänst eller behå
 
 I det här exemplet anger du en miljö variabel för en behållare. Artikeln förutsätter att du redan har ett program-och tjänst manifest.
 
-1. Öppna filen ServiceManifest. xml.
-2. I elementet `CodePackage` lägger du till ett nytt `EnvironmentVariables` element och ett `EnvironmentVariable` -element för varje miljö variabel.
+1. Öppna ServiceManifest.xml-filen.
+2. I `CodePackage` elementet lägger du till ett nytt `EnvironmentVariables` element och ett- `EnvironmentVariable` element för varje miljö variabel.
 
     ```xml
     <CodePackage Name="MyCode" Version="CodeVersion1">
@@ -35,7 +34,7 @@ I det här exemplet anger du en miljö variabel för en behållare. Artikeln fö
 
    Miljövariabler kan åsidosättas i applikations manifestet.
 
-3. Om du vill åsidosätta miljövariablerna i applikations manifestet använder du `EnvironmentOverrides` -elementet.
+3. Om du vill åsidosätta miljövariablerna i applikations manifestet använder du- `EnvironmentOverrides` elementet.
 
     ```xml
       <ServiceManifestImport>

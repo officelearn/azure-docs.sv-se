@@ -6,19 +6,18 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609782"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurera Reliable Actors--KVSActorStateProvider
-Du kan ändra standard konfigurationen för KVSActorStateProvider genom att ändra filen Settings. xml som genereras i Microsoft Visual Studio-paket roten under mappen config för den angivna aktören.
+Du kan ändra standard konfigurationen för KVSActorStateProvider genom att ändra settings.xml-filen som genereras i Microsoft Visual Studio-paket roten under mappen config för den angivna aktören.
 
-Azure Service Fabric runtime söker efter fördefinierade avsnitts namn i Settings. XML-filen och använder konfigurations värden när de underliggande kör komponenterna skapas.
+Azure Service Fabric runtime söker efter fördefinierade avsnitts namn i settings.xml-filen och använder konfigurations värden när de underliggande kör komponenterna skapas.
 
 > [!NOTE]
-> Ta **inte** bort eller ändra avsnitts namnen för följande konfigurationer i filen Settings. xml som genereras i Visual Studio-lösningen.
+> Ta **inte** bort eller ändra avsnitts namnen för följande konfigurationer i settings.xml-filen som genereras i Visual Studio-lösningen.
 > 
 > 
 
@@ -31,20 +30,20 @@ Som standard förhindrar ett tomt säkerhets konfigurations avsnitt replikeringe
 > 
 
 ### <a name="section-name"></a>Avsnitts namn
-&lt;ActorName&gt;ServiceReplicatorSecurityConfig
+&lt;ActorName &gt; ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Konfiguration av replikerare
 Konfigurationer för duplicering konfigurerar den ansvariga för att göra providerns tillstånd för aktörs status mycket tillförlitligt.
 Standard konfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. I det här avsnittet beskrivs ytterligare konfigurationer som är tillgängliga för att finjustera replikeringen.
 
 ### <a name="section-name"></a>Avsnitts namn
-&lt;ActorName&gt;ServiceReplicatorConfig
+&lt;ActorName &gt; ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Name | Enhet | Standardvärde | Anmärkningar |
+| Name | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekunder |0,015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
-| ReplicatorEndpoint |Ej tillämpligt |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i tjänst manifestet. |
+| ReplicatorEndpoint |E.t. |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i tjänst manifestet. |
 | RetryInterval |Sekunder |5 |Tids period efter vilken rereplikeringen skickar ett meddelande igen om den inte får någon bekräftelse för en åtgärd. |
 | MaxReplicationMessageSize |Byte |50 MB |Maximal storlek på replikeringsdata som kan överföras i ett enda meddelande. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |1024 |Maximalt antal åtgärder i den primära kön. En åtgärd frigörs efter att den primära replikeraren får en bekräftelse från alla sekundära replikeringar. Värdet måste vara större än 64 och en potens på 2. |
@@ -55,10 +54,10 @@ Store-konfigurationer används för att konfigurera det lokala arkivet som anvä
 Standard konfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. Det här avsnittet innehåller information om ytterligare konfigurationer som är tillgängliga för att justera det lokala arkivet.
 
 ### <a name="section-name"></a>Avsnitts namn
-&lt;ActorName&gt;ServiceLocalStoreConfig
+&lt;ActorName &gt; ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Name | Enhet | Standardvärde | Anmärkningar |
+| Name | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Millisekunder |200 |Anger det maximala antalet batching-intervall för beständiga lokala arkiv-skrivningar. |
 | MaxVerPages |Antal sidor |16384 |Det maximala antalet versions sidor i den lokala lagrings databasen. Den fastställer det maximala antalet utestående transaktioner. |
@@ -85,7 +84,7 @@ Standard konfigurationen genereras av Visual Studio-mallen och bör vara tillrä
    </Section>
 </Settings>
 ```
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 Parametern BatchAcknowledgementInterval styr svars tiden för replikering. Värdet "0" resulterar i lägsta möjliga svars tid, med kostnaden för data flödet (som fler bekräftelse meddelanden måste skickas och bearbetas, var och en innehåller färre bekräftelser).
 Ju större värde för BatchAcknowledgementInterval, desto högre det övergripande antalet data flöde för replikering, till kostnaden för högre åtgärds fördröjning. Detta översätter direkt till svars tiden för transaktions incheckningar.
 

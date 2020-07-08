@@ -6,19 +6,18 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609748"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Konfigurera Reliable Actors--ReliableDictionaryActorStateProvider
-Du kan ändra standard konfigurationen för ReliableDictionaryActorStateProvider genom att ändra Settings. XML-filen som genererats i Visual Studio-paket roten under config-mappen för den angivna aktören.
+Du kan ändra standard konfigurationen för ReliableDictionaryActorStateProvider genom att ändra settings.xml-filen som genereras i Visual Studio-paket roten under mappen config för den angivna aktören.
 
-Azure Service Fabric runtime söker efter fördefinierade avsnitts namn i Settings. XML-filen och använder konfigurations värden när de underliggande kör komponenterna skapas.
+Azure Service Fabric runtime söker efter fördefinierade avsnitts namn i settings.xml-filen och använder konfigurations värden när de underliggande kör komponenterna skapas.
 
 > [!NOTE]
-> Ta **inte** bort eller ändra avsnitts namnen för följande konfigurationer i filen Settings. xml som genereras i Visual Studio-lösningen.
+> Ta **inte** bort eller ändra avsnitts namnen för följande konfigurationer i settings.xml-filen som genereras i Visual Studio-lösningen.
 > 
 > 
 
@@ -27,10 +26,10 @@ Det finns också globala inställningar som påverkar konfigurationen av Reliabl
 ## <a name="global-configuration"></a>Global konfiguration
 Den globala konfigurationen anges i kluster manifestet för klustret i avsnittet KtlLogger. Den tillåter konfiguration av den delade logg platsen och storlek plus de globala minnes gränserna som används av loggaren. Observera att ändringar i kluster manifestet påverkar alla tjänster som använder ReliableDictionaryActorStateProvider och tillförlitliga tillstånds känsliga tjänster.
 
-Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis ClusterManifest. xml. Du kan se kluster manifestet för klustret med hjälp av PowerShell-kommandot Get-ServiceFabricClusterManifest.
+Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis för ClusterManifest.xml. Du kan se kluster manifestet för klustret med hjälp av PowerShell-kommandot Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Name | Enhet | Standardvärde | Anmärkningar |
+| Name | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Minsta antal KB som ska allokeras i kernel-läge för loggen för Write buffer-anslutningspoolen. Den här mediepoolen används för cachelagring av statusinformation innan den skrivs till disken. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobyte |Obegränsat |Maximal storlek som mediepoolen för logg skrivnings buffert kan växa till. |
@@ -49,10 +48,10 @@ Kluster manifestet är en enskild XML-fil som innehåller inställningar och kon
    </Section>
 ```
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 Loggaren har en global pool av minne som tilldelas från icke-växlat kernel-minne som är tillgängligt för alla pålitliga tjänster på en nod för cachelagring av tillstånds data innan de skrivs till den dedikerade logg som är associerad med tillförlitlig tjänst replik. Poolens storlek styrs av inställningarna WriteBufferMemoryPoolMinimumInKB och WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB anger både den ursprungliga storleken på den här lagringspoolen och den lägsta storlek som mediepoolen kan krympa till. WriteBufferMemoryPoolMaximumInKB är den högsta storleken som mediepoolen kan växa till. Varje tillförlitlig tjänst replik som har öppnats kan öka storleken på minnesbufferten genom ett fastställt system som är upp till WriteBufferMemoryPoolMaximumInKB. Om det finns mer efter frågan på minne från mediepoolen än vad som är tillgängligt, kommer begär Anden för minnet att fördröjas tills minnet är tillgängligt. Om lagringspoolen för skrivcache är för liten för en viss konfiguration kan prestanda försämras.
 
-Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att definiera GUID och platsen för den delade standard loggen för alla noder i klustret. Den delade standard loggen används för alla pålitliga tjänster som inte anger inställningarna i Settings. xml för den aktuella tjänsten. För bästa prestanda bör delade loggfiler placeras på diskar som endast används för den delade logg filen för att minska konkurrens.
+Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att definiera GUID och platsen för den delade standard loggen för alla noder i klustret. Den delade standard loggen används för alla pålitliga tjänster som inte anger inställningarna i settings.xml för den aktuella tjänsten. För bästa prestanda bör delade loggfiler placeras på diskar som endast används för den delade logg filen för att minska konkurrens.
 
 SharedLogSizeInMB anger mängden disk utrymme som ska förallokeras för den delade standard loggen på alla noder.  SharedLogId och SharedLogPath behöver inte anges för att SharedLogSizeInMB ska kunna anges.
 
@@ -65,20 +64,20 @@ Som standard förhindrar ett tomt säkerhets konfigurations avsnitt replikeringe
 > 
 
 ### <a name="section-name"></a>Avsnitts namn
-&lt;ActorName&gt;ServiceReplicatorSecurityConfig
+&lt;ActorName &gt; ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Konfiguration av replikerare
 Konfigurationer för duplicering används för att konfigurera den ansvarige som ansvarar för att göra aktörs leverantörens tillstånd hög tillförlitlig genom att replikera och bevara tillstånd lokalt.
 Standard konfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. I det här avsnittet beskrivs ytterligare konfigurationer som är tillgängliga för att finjustera replikeringen.
 
 ### <a name="section-name"></a>Avsnitts namn
-&lt;ActorName&gt;ServiceReplicatorConfig
+&lt;ActorName &gt; ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Name | Enhet | Standardvärde | Anmärkningar |
+| Name | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekunder |0,015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
-| ReplicatorEndpoint |Ej tillämpligt |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Läs mer om hur du definierar slut punkts resurser i tjänst manifestet i [tjänst manifest resurser](service-fabric-service-manifest-resources.md) . |
+| ReplicatorEndpoint |E.t. |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Läs mer om hur du definierar slut punkts resurser i tjänst manifestet i [tjänst manifest resurser](service-fabric-service-manifest-resources.md) . |
 | MaxReplicationMessageSize |Byte |50 MB |Maximal storlek på replikeringsdata som kan överföras i ett enda meddelande. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |8192 |Maximalt antal åtgärder i den primära kön. En åtgärd frigörs efter att den primära replikeraren får en bekräftelse från alla sekundära replikeringar. Värdet måste vara större än 64 och en potens på 2. |
 | MaxSecondaryReplicationQueueSize |Antal åtgärder |16384 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigörs när den har gjort sitt tillstånd hög tillgängligt genom persistence. Värdet måste vara större än 64 och en potens på 2. |
@@ -109,7 +108,7 @@ Standard konfigurationen genereras av Visual Studio-mallen och bör vara tillrä
 </Settings>
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 Parametern BatchAcknowledgementInterval styr svars tiden för replikering. Värdet "0" resulterar i lägsta möjliga svars tid, med kostnaden för data flödet (som fler bekräftelse meddelanden måste skickas och bearbetas, var och en innehåller färre bekräftelser).
 Ju större värde för BatchAcknowledgementInterval, desto högre det övergripande antalet data flöde för replikering, till kostnaden för högre åtgärds fördröjning. Detta översätter direkt till svars tiden för transaktions incheckningar.
 

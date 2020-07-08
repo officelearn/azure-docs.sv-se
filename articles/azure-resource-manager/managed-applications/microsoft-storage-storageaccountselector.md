@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 4fcaf0e5842ce8a65175d2fc1dfa2483a1203b2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651896"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>GRÄNSSNITTs element för Microsoft. Storage. StorageAccountSelector
@@ -60,11 +59,11 @@ Kontrollen gör det möjligt för användaren att skapa ett nytt lagrings konto 
 }
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
-- Om `defaultValue.name` det här värdet anges verifieras automatiskt för unikhet. Om lagrings konto namnet inte är unikt måste användaren ange ett annat namn eller välja ett befintligt lagrings konto.
+- Om det här värdet anges `defaultValue.name` verifieras automatiskt för unikhet. Om lagrings konto namnet inte är unikt måste användaren ange ett annat namn eller välja ett befintligt lagrings konto.
 - Standardvärdet för `defaultValue.type` är **Premium_LRS**.
-- Alla typer som inte anges `constraints.allowedTypes` i är dolda och alla typer som inte anges `constraints.excludedTypes` i visas. `constraints.allowedTypes`och `constraints.excludedTypes` är både valfria, men kan inte användas samtidigt.
+- Alla typer som inte anges i `constraints.allowedTypes` är dolda och alla typer som inte anges i `constraints.excludedTypes` visas. `constraints.allowedTypes`och `constraints.excludedTypes` är både valfria, men kan inte användas samtidigt.
 - Om `options.hideExisting` är **Sant**kan användaren inte välja ett befintligt lagrings konto. Standardvärdet är **falskt**.
 
 ## <a name="next-steps"></a>Nästa steg

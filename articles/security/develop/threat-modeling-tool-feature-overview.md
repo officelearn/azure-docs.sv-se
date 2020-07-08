@@ -8,10 +8,9 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552125"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Översikt över Threat Modeling Tool funktioner
@@ -39,7 +38,7 @@ Upplevelsen liknar andra Microsoft-produkter. Nu ska vi granska meny objekt på 
 
 ![Meny alternativ](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Label (Etikett)                               | Information      |
+| Etikett                               | Information      |
 | --------------------------------------- | ------------ |
 | **Fil** | <ul><li>Öppna, Spara och Stäng filer</li><li>Logga in och logga ut från OneDrive-konton.</li><li>Dela länkar (Visa och redigera).</li><li>Visa fil information.</li><li>Använd en ny mall för befintliga modeller.</li></ul> |
 | **Redigera** | Ångra och gör om åtgärder, samt kopiera, klistra in och ta bort. |
@@ -91,8 +90,8 @@ Utifrån den mall du väljer kan du hitta alla stenciler som är tillgängliga f
 
 | Komponent                               | Information      |
 | --------------------------------------- | ------------ |
-| **Kömeddelanden** | Intern verktygs logik som varnar användare när ett fel uppstår, till exempel att inga data flödar mellan element. |
-| **Obs!** | Manuella anteckningar läggs till i filen av teknik team i hela design-och gransknings processen. |
+| **Meddelanden** | Intern verktygs logik som varnar användare när ett fel uppstår, till exempel att inga data flödar mellan element. |
+| **Anteckningar** | Manuella anteckningar läggs till i filen av teknik team i hela design-och gransknings processen. |
 
 ### <a name="element-properties"></a>Element egenskaper
 
@@ -160,7 +159,7 @@ Om du skapar en hot modell och glömmer att ansluta data flöden till element f�
 
 ![Meddelanden](./media/threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Obs!
 
 Om du vill lägga till anteckningar i diagrammet växlar du från fliken **meddelanden** till fliken **anteckningar** .
 
@@ -194,11 +193,11 @@ Som du ser i föregående bild kan du ändra den information som genereras av ve
 
 ## <a name="reports"></a>Rapporter
 
-När du har ändrat prioritet och uppdaterat statusen för varje genererat hot kan du spara filen och/eller skriva ut en rapport. Gå till **rapporten** > **skapa fullständig rapport**. Namnge rapporten och se något som liknar följande bild:
+När du har ändrat prioritet och uppdaterat statusen för varje genererat hot kan du spara filen och/eller skriva ut en rapport. Gå till **rapporten**  >  **skapa fullständig rapport**. Namnge rapporten och se något som liknar följande bild:
 
 ![Rapport](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skicka frågor, kommentarer och problem till tmtextsupport@microsoft.com. **[Hämta](https://aka.ms/threatmodelingtool)** Threat Modeling Tool för att komma igång.
+- Skicka frågor, kommentarer och problem till tmtextsupport@microsoft.com . **[Hämta](https://aka.ms/threatmodelingtool)** Threat Modeling Tool för att komma igång.
 - Om du vill bidra till en mall för communityn går du till vår [GitHub](https://github.com/Microsoft/threat-modeling-templates) -sida.

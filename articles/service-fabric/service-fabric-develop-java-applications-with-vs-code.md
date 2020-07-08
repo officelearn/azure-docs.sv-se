@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75610054"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Utveckla Java Service Fabric-program med Visual Studio Code
@@ -25,7 +24,7 @@ Den här artikeln visar hur du skapar, distribuerar och felsöker ett Java-Servi
 
 Den här artikeln förutsätter att du redan har installerat VS Code, Service Fabric Reliable Services tillägget för VS Code och eventuella beroenden som krävs för utvecklings miljön. Läs mer i [komma igång](./service-fabric-get-started-vs-code.md#prerequisites).
 
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-the-sample"></a>Ladda ned exemplet
 I den här artikeln används röstnings programmet i [exemplet Service Fabric Java-GitHub för snabb starts lagring](https://github.com/Azure-Samples/service-fabric-java-quickstart). 
 
 Om du vill klona lagrings platsen till utvecklings datorn kör du följande kommando från ett terminalfönster (kommando fönster i Windows):
@@ -36,7 +35,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## <a name="open-the-application-in-vs-code"></a>Öppna programmet i VS Code
 
-Öppen VS Code.  Klicka på Explorer-ikonen i **aktivitets fältet** och klicka på **Öppna mapp**, eller klicka på **Arkiv-> Öppna mapp**. Navigera till *./Service-Fabric-Java-QuickStart/Voting* -katalogen i den mapp där du klonade lagrings platsen och klicka sedan på **OK**. Arbets ytan bör innehålla samma filer som visas i skärm bilden nedan.
+Öppna VS Code.  Klicka på Explorer-ikonen i **aktivitets fältet** och klicka på **Öppna mapp**, eller klicka på **Arkiv-> Öppna mapp**. Navigera till *./Service-Fabric-Java-QuickStart/Voting* -katalogen i den mapp där du klonade lagrings platsen och klicka sedan på **OK**. Arbets ytan bör innehålla samma filer som visas i skärm bilden nedan.
 
 ![Java röstnings program på arbets ytan](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
@@ -57,11 +56,11 @@ När du har skapat programmet kan du distribuera det till det lokala klustret.
 
    ![Distribuera program kommando i VS Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
-4. När distributionen är klar startar du en webbläsare och öppnar Service Fabric Explorer: `http://localhost:19080/Explorer`. Du bör se att programmet körs. Det kan ta lite tid, så därför måste du vara patient. 
+4. När distributionen är klar startar du en webbläsare och öppnar Service Fabric Explorer: `http://localhost:19080/Explorer` . Du bör se att programmet körs. Det kan ta lite tid, så därför måste du vara patient. 
 
    ![Röstnings program i Service Fabric Explorer](./media/service-fabric-develop-java-applications-with-vs-code/sfx-localhost-java.png)
 
-4. När du har kontrollerat att programmet körs startar du en webbläsare och öppnar den här sidan: `http://localhost:8080`. Det här är webb klient delen av programmet. Du kan lägga till objekt och klicka på dem för att rösta.
+4. När du har kontrollerat att programmet körs startar du en webbläsare och öppnar den här sidan: `http://localhost:8080` . Det här är webb klient delen av programmet. Du kan lägga till objekt och klicka på dem för att rösta.
 
    ![Röstnings program i webbläsare](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
@@ -82,19 +81,19 @@ Kommentera ut kommandot på rad 6 (Använd ' # ') och Lägg till följande komma
    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingDataService.jar
    ```
 
-2. Uppdatera filen *röstning/VotingApplication/ApplicationManifest. XML* . Ange attributen **MinReplicaSetSize** och **TargetReplicaSetSize** till "1" i elementet **StatefulService** :
+2. Uppdatera *röstnings-VotingApplication/ApplicationManifest.xml-* filen. Ange attributen **MinReplicaSetSize** och **TargetReplicaSetSize** till "1" i elementet **StatefulService** :
    
    ```xml
          <StatefulService MinReplicaSetSize="1" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="1">
    ```
 
-3. Klicka på ikonen Felsök i **aktivitets fältet** för att öppna fel söknings vyn i vs Code. Klicka på kugg hjuls ikonen överst i vyn för fel sökning och välj **Java** på menyn List Rute miljö. Starta. JSON-filen öppnas. 
+3. Klicka på ikonen Felsök i **aktivitets fältet** för att öppna fel söknings vyn i vs Code. Klicka på kugg hjuls ikonen överst i vyn för fel sökning och välj **Java** på menyn List Rute miljö. launch.jsfilen öppnas. 
 
    ![Fel söknings ikon i VS Code-arbetsyta](./media/service-fabric-develop-java-applications-with-vs-code/debug-icon-workspace.png)
 
-3. I filen Launch. JSON anger du Portvärdet i konfigurationen med namnet **debug (Attach)** till **8001**. Spara filen.
+3. I launch.jspå fil anger du Portvärdet i konfigurationen med namnet **debug (Attach)** till **8001**. Spara filen.
 
-   ![Felsök konfiguration för starta. JSON](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
+   ![Felsök konfiguration för launch.jspå](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
 4. Distribuera programmet till det lokala klustret med hjälp av kommandot **Service Fabric: distribuera program (localhost)** . Kontrol lera att programmet körs i Service Fabric Explorer. Ditt program är nu klart att felsöka.
 
@@ -105,7 +104,7 @@ Utför följande steg för att ange en Bryt punkt:
    ![Ange Bryt punkten i röstnings data tjänsten](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-set.png)
 
    > [!IMPORTANT]
-   > Se till att du ställer in Bryt punkter på körbara rader kod. Till exempel Bryt punkter som anges för metod deklarationer, `try` - `catch` instruktioner eller-instruktioner kommer att missas av fel söknings programmet.
+   > Se till att du ställer in Bryt punkter på körbara rader kod. Till exempel Bryt punkter som anges för metod deklarationer,- `try` instruktioner eller- `catch` instruktioner kommer att missas av fel söknings programmet.
 2. Starta fel sökningen genom att klicka på fel söknings ikonen i **aktivitets fältet**, Välj **fel söknings konfiguration (bifoga)** på Felsök-menyn och klicka på knappen Kör (grön pil).
 
    ![Felsök (bifoga) konfiguration](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)

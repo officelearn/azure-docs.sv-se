@@ -7,10 +7,9 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75497962"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montering med hög tillgänglighet Service Fabric tillförlitlig disk baserad volym i ett Service Fabric nätprogram 
@@ -25,7 +24,7 @@ Med `counterService` jämna mellanrum läser du ett räknar värde från en fil,
 
 ## <a name="prerequisites"></a>Krav
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra uppgiften. Om du vill använda Azure CLI med den här artikeln kontrollerar `az --version` du att returnerar `azure-cli (2.0.43)`minst.  Installera (eller uppdatera) Azure Service Fabric mask CLI-modulen för tillägg genom att följa dessa [anvisningar](service-fabric-mesh-howto-setup-cli.md).
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra uppgiften. Om du vill använda Azure CLI med den här artikeln kontrollerar du att `az --version` returnerar minst `azure-cli (2.0.43)` .  Installera (eller uppdatera) Azure Service Fabric mask CLI-modulen för tillägg genom att följa dessa [anvisningar](service-fabric-mesh-howto-setup-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -46,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Följande kommando distribuerar ett Linux-program med hjälp av [mallen Counter. sfreliablevolume. Linux. JSON](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Du distribuerar ett Windows-program med hjälp av [mallen Counter. sfreliablevolume. Windows. JSON](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Tänk på att det kan ta längre tid att distribuera större behållar avbildningar.
+Följande kommando distribuerar ett Linux-program med hjälp av [counter.sfreliablevolume.linux.jspå mall](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Använd [counter.sfreliablevolume.windows.jspå-mallen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json)för att distribuera ett Windows-program. Tänk på att det kan ta längre tid att distribuera större behållar avbildningar.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/counter/counter.sfreliablevolume.linux.json
@@ -58,7 +57,7 @@ Du kan också se status för distributionen med kommandot
 az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
-Lägg märke till namnet på den gateway-resurs som har `Microsoft.ServiceFabricMesh/gateways`resurs typen som. Detta används för att hämta appens offentliga IP-adress.
+Lägg märke till namnet på den gateway-resurs som har resurs typen som `Microsoft.ServiceFabricMesh/gateways` . Detta används för att hämta appens offentliga IP-adress.
 
 ## <a name="open-the-application"></a>Öppna programmet
 

@@ -6,20 +6,19 @@ ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645522"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillstånds känsliga Reliable Services
 Det finns två uppsättningar konfigurations inställningar för Reliable Services. En uppsättning är global för alla pålitliga tjänster i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.
 
 ## <a name="global-configuration"></a>Global konfiguration
-Den globala pålitliga tjänst konfigurationen anges i kluster manifestet för klustret under avsnittet KtlLogger. Den tillåter konfiguration av den delade logg platsen och storlek plus de globala minnes gränserna som används av loggaren. Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis ClusterManifest. xml. Du kan se kluster manifestet för klustret med hjälp av PowerShell-kommandot Get-ServiceFabricClusterManifest.
+Den globala pålitliga tjänst konfigurationen anges i kluster manifestet för klustret under avsnittet KtlLogger. Den tillåter konfiguration av den delade logg platsen och storlek plus de globala minnes gränserna som används av loggaren. Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis för ClusterManifest.xml. Du kan se kluster manifestet för klustret med hjälp av PowerShell-kommandot Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Name | Enhet | Standardvärde | Anmärkningar |
+| Name | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Minsta antal KB som ska allokeras i kernel-läge för loggen för Write buffer-anslutningspoolen. Den här mediepoolen används för cachelagring av statusinformation innan den skrivs till disken. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobyte |Obegränsat |Maximal storlek som mediepoolen för logg skrivnings buffert kan växa till. |
@@ -38,7 +37,7 @@ I exemplet nedan i Azure ARM eller lokal JSON-mall visas hur du ändrar den dela
     }]
 
 ### <a name="sample-local-developer-cluster-manifest-section"></a>Exempel avsnitt för lokalt utvecklare-kluster
-Om du vill ändra detta i din lokala utvecklings miljö måste du redigera den lokala clustermanifest. XML-filen.
+Om du vill ändra detta i din lokala utvecklings miljö måste du redigera den lokala clustermanifest.xmls filen.
 
 ```xml
    <Section Name="KtlLogger">
@@ -50,23 +49,23 @@ Om du vill ändra detta i din lokala utvecklings miljö måste du redigera den l
    </Section>
 ```
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 Loggaren har en global pool av minne som tilldelas från icke-växlat kernel-minne som är tillgängligt för alla pålitliga tjänster på en nod för cachelagring av tillstånds data innan de skrivs till den dedikerade logg som är associerad med tillförlitlig tjänst replik. Poolens storlek styrs av inställningarna WriteBufferMemoryPoolMinimumInKB och WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB anger både den ursprungliga storleken på den här lagringspoolen och den lägsta storlek som mediepoolen kan krympa till. WriteBufferMemoryPoolMaximumInKB är den högsta storleken som mediepoolen kan växa till. Varje tillförlitlig tjänst replik som har öppnats kan öka storleken på minnesbufferten genom ett fastställt system som är upp till WriteBufferMemoryPoolMaximumInKB. Om det finns mer efter frågan på minne från mediepoolen än vad som är tillgängligt, kommer begär Anden för minnet att fördröjas tills minnet är tillgängligt. Om lagringspoolen för skrivcache är för liten för en viss konfiguration kan prestanda försämras.
 
-Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att definiera GUID och platsen för den delade standard loggen för alla noder i klustret. Den delade standard loggen används för alla pålitliga tjänster som inte anger inställningarna i Settings. xml för den aktuella tjänsten. För bästa prestanda bör delade loggfiler placeras på diskar som endast används för den delade logg filen för att minska konkurrens.
+Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att definiera GUID och platsen för den delade standard loggen för alla noder i klustret. Den delade standard loggen används för alla pålitliga tjänster som inte anger inställningarna i settings.xml för den aktuella tjänsten. För bästa prestanda bör delade loggfiler placeras på diskar som endast används för den delade logg filen för att minska konkurrens.
 
 SharedLogSizeInMB anger mängden disk utrymme som ska förallokeras för den delade standard loggen på alla noder.  SharedLogId och SharedLogPath behöver inte anges för att SharedLogSizeInMB ska kunna anges.
 
 ## <a name="service-specific-configuration"></a>Tjänstspecifik konfiguration
 Du kan ändra tillstånds känsliga Reliable Services standardkonfigurationer med hjälp av konfigurations paketet (config) eller tjänst implementeringen (kod).
 
-* **Konfiguration – konfiguration** via konfigurations paketet görs genom att ändra filen Settings. xml som genereras i Microsoft Visual Studio-paket roten under mappen config för varje tjänst i programmet.
+* **Konfiguration – konfiguration** via konfigurations paketet görs genom att ändra Settings.xml-filen som genereras i Microsoft Visual Studio-paket roten under mappen config för varje tjänst i programmet.
 * **Kod** – konfiguration via kod görs genom att skapa en ReliableStateManager med hjälp av ett ReliableStateManagerConfiguration-objekt med lämpliga alternativ angivna.
 
-Som standard söker Azure Service Fabric runtime efter fördefinierade avsnitts namn i filen Settings. xml och använder konfigurations värden när de underliggande kör komponenterna skapas.
+Som standard söker Azure Service Fabric runtime efter fördefinierade avsnitts namn i Settings.xml-filen och använder konfigurations värden när de underliggande kör komponenterna skapas.
 
 > [!NOTE]
-> Ta **inte** bort avsnitts namnen för följande konfigurationer i filen Settings. xml som genereras i Visual Studio-lösningen om du inte planerar att konfigurera tjänsten via kod.
+> Ta **inte** bort avsnitts namnen för följande konfigurationer i Settings.xml-filen som genereras i Visual Studio-lösningen om du inte planerar att konfigurera tjänsten via kod.
 > Att byta namn på konfigurations paketets eller avsnittets namn kräver en kod ändring när du konfigurerar ReliableStateManager.
 > 
 > 
@@ -100,10 +99,10 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Konfigurations namn
-| Name | Enhet | Standardvärde | Anmärkningar |
+| Name | Enhet | Standardvärde | Kommentarer |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Sekunder |0,015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
-| ReplicatorEndpoint |Ej tillämpligt |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i ett tjänst manifest. |
+| ReplicatorEndpoint |E.t. |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i ett tjänst manifest. |
 | MaxPrimaryReplicationQueueSize |Antal åtgärder |8192 |Maximalt antal åtgärder i den primära kön. En åtgärd frigörs efter att den primära replikeraren får en bekräftelse från alla sekundära replikeringar. Värdet måste vara större än 64 och en potens på 2. |
 | MaxSecondaryReplicationQueueSize |Antal åtgärder |16384 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigörs när den har gjort sitt tillstånd hög tillgängligt genom persistence. Värdet måste vara större än 64 och en potens på 2. |
 | CheckpointThresholdInMB |MB |50 |Mängden logg fils utrymme som används för att ange en kontroll punkt. |
@@ -116,7 +115,7 @@ ReplicatorConfig
 | SharedLogPath |Fullständigt kvalificerat Sök vägs namn |"" |Anger den fullständiga sökvägen dit den delade logg filen för repliken kommer att skapas. Normalt bör inte tjänsterna använda den här inställningen. Men om SharedLogPath anges måste SharedLogId också anges. |
 | SlowApiMonitoringDuration |Sekunder |300 |Anger övervaknings intervallet för hanterade API-anrop. Exempel: användare som tillhandahöll funktionen motringning. När intervallet har passerat skickas en varnings hälso rapport till Health Manager. |
 | LogTruncationIntervalSeconds |Sekunder |0 |Konfigurerbart intervall då logg trunkering ska initieras på varje replik. Den används för att säkerställa att loggen också trunkeras baserat på tid istället för bara logg storleken. Den här inställningen tvingar även borttagning av borttagna poster i en tillförlitlig ord lista. Därför kan det användas för att se till att borttagna objekt rensas i rätt tid. |
-| EnableStableReads |Boolesk |False |Aktivering av stabila läsningar begränsar sekundära repliker för att returnera värden som har varit bekräftat. |
+| EnableStableReads |Boolesk |Falskt |Aktivering av stabila läsningar begränsar sekundära repliker för att returnera värden som har varit bekräftat. |
 
 ### <a name="sample-configuration-via-code"></a>Exempel på konfiguration via kod
 ```csharp
@@ -172,7 +171,7 @@ class MyStatefulService : StatefulService
 ```
 
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 BatchAcknowledgementInterval styr svars tiden för replikering. Värdet "0" resulterar i lägsta möjliga svars tid, med kostnaden för data flödet (som fler bekräftelse meddelanden måste skickas och bearbetas, var och en innehåller färre bekräftelser).
 Ju större värde för BatchAcknowledgementInterval, desto högre det övergripande antalet data flöde för replikering, till kostnaden för högre åtgärds fördröjning. Detta översätter direkt till svars tiden för transaktions incheckningar.
 

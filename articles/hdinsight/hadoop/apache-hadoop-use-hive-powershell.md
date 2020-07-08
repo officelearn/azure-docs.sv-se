@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: deaa934b257fab74830d75e308a283e7608dc590
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552601"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Kör Apache Hive frågor med PowerShell
@@ -46,7 +45,7 @@ Följande cmdletar används vid körning av Hive-frågor i ett fjärran slutet H
 
 Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HDInsight-klustret:
 
-1. Använd en redigerare och spara följande kod som `hivejob.ps1`.
+1. Använd en redigerare och spara följande kod som `hivejob.ps1` .
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=5-42)]
 
@@ -82,7 +81,7 @@ Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HD
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Visa fel loggarna om ingen information returneras när jobbet har slutförts. Om du vill visa fel information för det här jobbet lägger du till följande i slutet `hivejob.ps1` av filen, sparar det och kör det igen.
+Visa fel loggarna om ingen information returneras när jobbet har slutförts. Om du vill visa fel information för det här jobbet lägger du till följande i slutet av `hivejob.ps1` filen, sparar det och kör det igen.
 
 ```powershell
 # Print the output of the Hive job.

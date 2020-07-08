@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75563368"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentering av mått och belastning i Service Fabric
@@ -58,7 +57,7 @@ Experimentering krävs för att fastställa den exakta konfiguration som krävs.
 ## <a name="configuring-defragmentation-metrics"></a>Konfigurera defragmentering-mått
 Konfigurering av defragmentering-mått är ett globalt beslut i klustret och enskilda mått kan väljas för defragmentering. Följande config-kodfragment visar hur du konfigurerar mått för defragmentering. I det här fallet är "Metric1" konfigurerat som ett defragmentering-mått, medan "Metric2" fortsätter att bal anse ras som vanligt. 
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ```xml
 <Section Name="DefragmentationMetrics">
@@ -67,7 +66,7 @@ ClusterManifest. XML:
 </Section>
 ```
 
-via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
+via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [

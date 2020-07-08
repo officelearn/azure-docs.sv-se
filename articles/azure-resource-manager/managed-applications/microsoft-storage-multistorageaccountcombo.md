@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 06412a1f08f1f242a3f3bd9be17b795ee09fcf9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651883"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Storage. MultiStorageAccountCombo
@@ -58,13 +57,13 @@ En grupp kontroller för att skapa flera lagrings konton med namn som börjar me
 }
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
-- Värdet för `defaultValue.prefix` kombineras med ett eller flera heltal för att generera sekvensen av lagrings konto namn. `defaultValue.prefix` Om till exempel är **sa** och `count` är **2**genereras lagrings konto namn **SA1** och **SA2** . Genererade lagrings konto namn verifieras automatiskt för unika data.
-- Lagrings konto namnen genereras lexicographically baserat på `count`. Om `count` till exempel är 10 är lagrings kontots namn slut med tvåsiffriga heltal (01, 02, 03).
+- Värdet för `defaultValue.prefix` kombineras med ett eller flera heltal för att generera sekvensen av lagrings konto namn. Om till exempel `defaultValue.prefix` är **sa** och `count` är **2**genereras lagrings konto namn **SA1** och **SA2** . Genererade lagrings konto namn verifieras automatiskt för unika data.
+- Lagrings konto namnen genereras lexicographically baserat på `count` . Om till exempel `count` är 10 är lagrings kontots namn slut med tvåsiffriga heltal (01, 02, 03).
 - Standardvärdet för `defaultValue.prefix` är **Null**och för `defaultValue.type` är **Premium_LRS**.
-- Alla typer som inte anges `constraints.allowedTypes` i är dolda och alla typer som inte anges `constraints.excludedTypes` i visas. `constraints.allowedTypes`och `constraints.excludedTypes` är både valfria, men kan inte användas samtidigt.
-- Förutom att skapa lagrings konto namn `count` används för att ange lämplig multiplikator för elementet. Det stöder ett statiskt värde, till exempel **2**, eller ett dynamiskt värde från ett annat `[steps('step1').storageAccountCount]`element, t. ex.. Standardvärdet är **1**.
+- Alla typer som inte anges i `constraints.allowedTypes` är dolda och alla typer som inte anges i `constraints.excludedTypes` visas. `constraints.allowedTypes`och `constraints.excludedTypes` är både valfria, men kan inte användas samtidigt.
+- Förutom att skapa lagrings konto namn `count` används för att ange lämplig multiplikator för elementet. Det stöder ett statiskt värde, till exempel **2**, eller ett dynamiskt värde från ett annat element, t `[steps('step1').storageAccountCount]` . ex.. Standardvärdet är **1**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551700"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Översikt över kluster Resource Manager-arkitektur
@@ -25,7 +24,7 @@ För att kunna hantera resurserna i klustret måste Service Fabric Cluster Resou
 
 Resursförbrukning för en specifik tjänst kan ändras över tid och tjänster är vanligt vis mer än en typ av resurs. Det kan finnas både verkliga fysiska och fysiska resurser som mäts mellan olika tjänster. Tjänster kan spåra fysiska mått som minnes-och disk förbrukning. Oftare kan tjänster vara försiktiga om logiska mått, till exempel "WorkQueueDepth" eller "TotalRequests". Både logiska och fysiska mått kan användas i samma kluster. Mått kan delas mellan många tjänster eller vara specifika för en viss tjänst.
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 Ägare och operatörer i klustret kan skilja sig från tjänst-och program författare, eller så är det minst samma personer som använder olika hattar. När du utvecklar ditt program vet du några saker om vad som krävs. Du har en uppskattning av de resurser som den kommer att använda och hur olika tjänster ska distribueras. Till exempel måste webb nivån köras på noder som exponeras för Internet, medan databas tjänsterna inte bör vara det. Som ett annat exempel är webb tjänsterna förmodligen begränsade av CPU och nätverk, medan data skikt tjänsterna är mer om minnes-och disk användning. Den person som hanterar en incident för Live-platsen för tjänsten i produktion, eller som hanterar en uppgradering till tjänsten, har dock ett annat jobb att göra och kräver olika verktyg. 
 
 Både klustret och tjänsterna är dynamiska:

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639674"
 ---
 # <a name="actor-events"></a>Aktörs händelser
@@ -85,7 +84,7 @@ GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new Act
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
-I händelse av redundans kan aktören redundansväxla till en annan process eller nod. Aktörens proxy hanterar de aktiva prenumerationerna och prenumererar automatiskt på nytt. Du kan styra omprenumerations intervallet via `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API: et. Om du vill avbryta prenumerationen `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` använder du API: et.
+I händelse av redundans kan aktören redundansväxla till en annan process eller nod. Aktörens proxy hanterar de aktiva prenumerationerna och prenumererar automatiskt på nytt. Du kan styra omprenumerations intervallet via API: `ActorProxyEventExtensions.SubscribeAsync<TEvent>` et. Om du vill avbryta prenumerationen använder du `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API: et.
 
 Publicera händelserna när de sker på aktören. Om det finns prenumeranter på händelsen skickas meddelandet via körnings miljön.
 

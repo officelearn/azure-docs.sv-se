@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614408"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Fråga EventStore-API: er för kluster händelser
@@ -44,14 +43,14 @@ Varje entitet i ett kluster kan vara frågor om händelser. Du kan också fråga
 * Replica`/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
 
 >[!NOTE]
->När du refererar till ett program eller tjänst namn behöver inte frågan inkludera "Fabric:/" protokollprefixet. Om ditt program eller tjänst namn har en "/" i dem, kan du även växla till "~" för att hålla frågan igång. Om ditt program exempelvis visas som "Fabric:/APP1/FrontendApp", struktureras dina app-specifika frågor som `/EventsStore/Applications/App1~FrontendApp/$/Events`.
+>När du refererar till ett program eller tjänst namn behöver inte frågan inkludera "Fabric:/" protokollprefixet. Om ditt program eller tjänst namn har en "/" i dem, kan du även växla till "~" för att hålla frågan igång. Om ditt program exempelvis visas som "Fabric:/APP1/FrontendApp", struktureras dina app-specifika frågor som `/EventsStore/Applications/App1~FrontendApp/$/Events` .
 >Dessutom visas hälso rapporter för tjänster i dag i motsvarande program, så du skulle fråga efter `DeployedServiceHealthReportCreated` händelser för rätt program enhet. 
 
 ## <a name="query-the-eventstore-via-rest-api-endpoints"></a>Fråga EventStore via REST API-slutpunkter
 
-Du kan fråga EventStore direkt via en REST-slutpunkt genom att göra `GET` förfrågningar till: `<your cluster address>/EventsStore/<entity>/Events/`.
+Du kan fråga EventStore direkt via en REST-slutpunkt genom att göra `GET` förfrågningar till: `<your cluster address>/EventsStore/<entity>/Events/` .
 
-För att till exempel fråga efter alla kluster händelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`, skulle din begäran se ut så här:
+För att till exempel fråga efter alla kluster händelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z` , skulle din begäran se ut så här:
 
 ```
 Method: GET 
@@ -106,7 +105,7 @@ Body:
 ]
 ```
 
-Här kan vi se `2018-04-03T18:00:00Z` att `2018-04-04T18:00:00Z`det här klustret har slutfört sin första uppgradering när det var första Stood, från `"CurrentClusterVersion": "0.0.0.0:"` till `"TargetClusterVersion": "6.2:1.0"`, i. `"OverallUpgradeElapsedTimeInMs": "120196.5212"`
+Här kan vi se att `2018-04-03T18:00:00Z` `2018-04-04T18:00:00Z` det här klustret har slutfört sin första uppgradering när det var första Stood, från `"CurrentClusterVersion": "0.0.0.0:"` till `"TargetClusterVersion": "6.2:1.0"` , i `"OverallUpgradeElapsedTimeInMs": "120196.5212"` .
 
 ## <a name="query-the-eventstore-programmatically"></a>Fråga EventStore program mässigt
 
@@ -114,7 +113,7 @@ Du kan också fråga EventStore program mässigt via [Service Fabric klient bibl
 
 När du har konfigurerat Service Fabric-klienten kan du fråga efter händelser genom att komma åt EventStore så här:`sfhttpClient.EventStore.<request>`
 
-Här är en exempel förfrågan för alla kluster händelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z`, via `GetClusterEventListAsync` funktionen.
+Här är en exempel förfrågan för alla kluster händelser mellan `2018-04-03T18:00:00Z` och `2018-04-04T18:00:00Z` , via `GetClusterEventListAsync` funktionen.
 
 ```csharp
 var sfhttpClient = ServiceFabricClientFactory.Create(clusterUrl, settings);
@@ -187,7 +186,7 @@ Du kan också spåra dina senaste program distributioner och uppgraderingar. Anv
 
 *Historisk hälso tillstånd för ett program:*
 
-Förutom att bara se programmets livs cykel händelser kanske du också vill se historiska data om hälsan för ett särskilt program. Du kan göra detta genom att ange det program namn som du vill samla in data för. Använd den här frågan för att hämta alla program hälso händelser `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport`:. Om du vill ta med hälso tillstånds händelser som kan ha upphört att gälla (passerat TTL-värdet (Time `,ApplicationHealthReportExpired` to Live)) lägger du till i slutet av frågan för att filtrera på två typer av händelser.
+Förutom att bara se programmets livs cykel händelser kanske du också vill se historiska data om hälsan för ett särskilt program. Du kan göra detta genom att ange det program namn som du vill samla in data för. Använd den här frågan för att hämta alla program hälso händelser: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport` . Om du vill ta med hälso tillstånds händelser som kan ha upphört att gälla (passerat TTL-värdet (Time to Live)) lägger du till `,ApplicationHealthReportExpired` i slutet av frågan för att filtrera på två typer av händelser.
 
 *Historisk hälsa för alla tjänster i "myApp":*
 
@@ -195,7 +194,7 @@ Hälso rapport händelser för tjänster visas för närvarande som `DeployedSer
 
 *Omkonfiguration av partition:*
 
-Fråga efter `PartitionReconfigured` händelsen om du vill se alla partitioner som har hänt i klustret. Detta kan hjälpa dig att ta reda på vilka arbets belastningar som körs på den noden vid specifika tidpunkter när du diagnostiserar problem i klustret. Här är en exempel fråga som gör följande:`https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
+Fråga efter händelsen om du vill se alla partitioner som har hänt i klustret `PartitionReconfigured` . Detta kan hjälpa dig att ta reda på vilka arbets belastningar som körs på den noden vid specifika tidpunkter när du diagnostiserar problem i klustret. Här är en exempel fråga som gör följande:`https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
 
 *Kaos-tjänst:*
 

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
 ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75610156"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric
@@ -45,7 +44,7 @@ En säkerhets kopierings princip består av följande konfigurationer:
         ```
 
     2. **Tidsbaserat säkerhets kopierings schema**: den här schema typen ska användas om behovet är att säkerhetskopiera data vid vissa tidpunkter på dagen eller i veckan. Typ av schema frekvens kan vara varje dag eller varje vecka.
-        1. ** _Dagligt_ tidsbaserat säkerhets kopierings schema**: den här schema typen ska användas om behovs-ID: t ska säkerhets kopie ras vid vissa tidpunkter på dagen. Om du vill ange detta `ScheduleFrequencyType` anger du till _dagligt_. och ange `RunTimes` en lista över önskad tid under dagen i iso8601-format, det datum som anges tillsammans med tiden kommer att ignoreras. Till exempel `0001-01-01T18:00:00` representerar _6:00_ varje dag, vilket ignorerar datum del _0001-01-01_. I exemplet nedan visas konfigurationen för att utlösa en daglig säkerhets kopia vid _9:00 am_ och _6:00_ varje dag.
+        1. ** _Dagligt_ tidsbaserat säkerhets kopierings schema**: den här schema typen ska användas om behovs-ID: t ska säkerhets kopie ras vid vissa tidpunkter på dagen. Om du vill ange detta anger `ScheduleFrequencyType` du till _dagligt_och anger en `RunTimes` lista över önskad tid under dagen i iso8601-format, det datum som anges tillsammans med tiden kommer att ignoreras. Till exempel `0001-01-01T18:00:00` representerar _6:00_ varje dag, vilket ignorerar datum del _0001-01-01_. I exemplet nedan visas konfigurationen för att utlösa en daglig säkerhets kopia vid _9:00 am_ och _6:00_ varje dag.
 
             ```json
             {
@@ -58,7 +57,7 @@ En säkerhets kopierings princip består av följande konfigurationer:
             }
             ```
 
-        2. **Tidsbaserad säkerhets kopiering _per vecka_ **: den här schema typen ska användas om behovs-ID: t ska säkerhets kopie ras vid vissa tidpunkter på dagen. Om du vill ange detta `ScheduleFrequencyType` väljer du _veckovis_. Ange `RunDays` en lista över dagar i en vecka när säkerhets kopieringen måste utlösas och `RunTimes` anges till en lista över önskad tid under dagen i iso8601-format, det datum som anges tillsammans med tiden kommer att ignoreras. Lista över dagar i veckan när den periodiska säkerhets kopieringen ska aktive ras. I exemplet nedan visas konfigurationen för att utlösa en daglig säkerhets kopia vid _9:00 am_ och _6:00 PM_ under måndag till fredag.
+        2. **Tidsbaserad säkerhets kopiering _per vecka_ **: den här schema typen ska användas om behovs-ID: t ska säkerhets kopie ras vid vissa tidpunkter på dagen. Om du vill ange detta ställer du in `ScheduleFrequencyType` på _veckovis_, anger `RunDays` en lista med dagar i veckan när säkerhets kopieringen måste utlösas och anges `RunTimes` till lista över önskad tid under dagen i iso8601-format, det datum som anges tillsammans med tiden ignoreras. Lista över dagar i veckan när den periodiska säkerhets kopieringen ska aktive ras. I exemplet nedan visas konfigurationen för att utlösa en daglig säkerhets kopia vid _9:00 am_ och _6:00 PM_ under måndag till fredag.
 
             ```json
             {
@@ -119,7 +118,7 @@ En säkerhets kopierings princip består av följande konfigurationer:
 >
 
 * **Bevarande princip**: anger principen för att behålla säkerhets kopior i den konfigurerade lagringen. Det finns bara stöd för grundläggande bevarande principer.
-    1. **Princip för grundläggande bevarande**: den här bevarande principen gör det möjligt att säkerställa optimal lagrings användning genom att ta bort säkerhetskopierade filer som inte behövs längre. `RetentionDuration`kan anges för att ställa in tidsintervallet för vilka säkerhets kopieringar måste behållas i lagringen. `MinimumNumberOfBackups`är en valfri parameter som kan anges för att se till att det angivna antalet säkerhets kopior alltid behålls oberoende av `RetentionDuration`. I exemplet nedan visas konfigurationen för att bevara säkerhets kopior i _10_ dagar och antalet säkerhets kopior kan inte gå under _20_.
+    1. **Princip för grundläggande bevarande**: den här bevarande principen gör det möjligt att säkerställa optimal lagrings användning genom att ta bort säkerhetskopierade filer som inte behövs längre. `RetentionDuration`kan anges för att ställa in tidsintervallet för vilka säkerhets kopieringar måste behållas i lagringen. `MinimumNumberOfBackups`är en valfri parameter som kan anges för att se till att det angivna antalet säkerhets kopior alltid behålls oberoende av `RetentionDuration` . I exemplet nedan visas konfigurationen för att bevara säkerhets kopior i _10_ dagar och antalet säkerhets kopior kan inte gå under _20_.
 
         ```json
         {
@@ -140,7 +139,7 @@ Det kan finnas ett scenario där data säkerhets kopiering med samma säkerhets 
 
 ### <a name="example"></a>Exempel
 
-I det här exemplet används installationen med två program, _MyApp_A_ och _MyApp_B_. Program _MyApp_A_ innehåller två pålitliga tillstånds känsliga tjänster, _SvcA1_ & _SvcA3_och en pålitlig aktörs tjänst, _ActorA2_. _SvcA1_ innehåller tre partitioner medan _ActorA2_ och _SvcA3_ innehåller två partitioner.  Program _MyApp_B_ innehåller tre pålitliga tillstånds känsliga tjänster, _SvcB1_, _SvcB2_och _SvcB3_. _SvcB1_ och _SvcB2_ innehåller två partitioner, medan _SvcB3_ innehåller tre partitioner.
+I det här exemplet används installationen med två program, _MyApp_A_ och _MyApp_B_. Program _MyApp_A_ innehåller två pålitliga tillstånds känsliga tjänster, _SvcA1_  &  _SvcA3_och en pålitlig aktörs tjänst, _ActorA2_. _SvcA1_ innehåller tre partitioner medan _ActorA2_ och _SvcA3_ innehåller två partitioner.  Program _MyApp_B_ innehåller tre pålitliga tillstånds känsliga tjänster, _SvcB1_, _SvcB2_och _SvcB3_. _SvcB1_ och _SvcB2_ innehåller två partitioner, medan _SvcB3_ innehåller tre partitioner.
 
 Anta att dessa programs krav för säkerhets kopiering av data är följande
 
@@ -182,7 +181,7 @@ Säkerhets kopierings principer kan inaktive ras när det inte finns några beho
 
 * Om du inaktiverar säkerhets kopierings principen för en _partition_ stoppas alla regelbundna data säkerhets kopieringar på grund av säkerhets kopierings principen på partitionen.
 
-* När du inaktiverar säkerhets kopiering för en entitet (program/tjänst/partition `CleanBackup` ) kan anges till _Sant_ för att ta bort alla säkerhets kopior i den konfigurerade lagringen.
+* När du inaktiverar säkerhets kopiering för en entitet (program/tjänst/partition) `CleanBackup` kan anges till _Sant_ för att ta bort alla säkerhets kopior i den konfigurerade lagringen.
     ```json
     {
         "CleanBackup": true 
@@ -214,7 +213,7 @@ Inaktive ring kan bara anropas på en nivå som tidigare har Aktiver ATS för s�
 ## <a name="auto-restore-on-data-loss"></a>Automatisk återställning vid data förlust
 -Tjänstepartitionen kan förlora data på grund av oväntade fel. Till exempel kan disken för två av tre repliker för en partition (inklusive den primära repliken) skadas eller rensas.
 
-När Service Fabric upptäcker att partitionen har data förlust, anropar den `OnDataLossAsync` gränssnitts metod på partitionen och förväntar sig att partitionen ska vidta den nödvändiga åtgärden för att ta bort data förlust. I det här fallet utlöses återställningen automatiskt med den senaste `AutoRestoreOnDataLoss` tillgängliga säkerhets kopian för den här partitionen, om den gällande säkerhets kopierings principen vid partitionen har angetts till `true` .
+När Service Fabric upptäcker att partitionen har data förlust, anropar den `OnDataLossAsync` gränssnitts metod på partitionen och förväntar sig att partitionen ska vidta den nödvändiga åtgärden för att ta bort data förlust. I det här fallet `AutoRestoreOnDataLoss` `true` utlöses återställningen automatiskt med den senaste tillgängliga säkerhets kopian för den här partitionen, om den gällande säkerhets kopierings principen vid partitionen har angetts till.
 
 ## <a name="get-backup-configuration"></a>Hämta säkerhets kopierings konfiguration
 Separata API: er görs tillgängliga för att hämta konfigurations information för säkerhets kopiering i en _program_-, _tjänst_-och _partition_ omfattning. [Hämta konfigurations information för program säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Hämta konfigurations information för tjänst säkerhets kopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)och [Hämta konfigurations information för säkerhets kopiering av partitioner](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) är dessa API: er Huvudsakligen returnerar dessa API: er den tillämpliga säkerhets kopierings principen, omfattning som säkerhets kopierings principen tillämpas på och information om SUS pension. Följande är en kort beskrivning av returnerade resultat från dessa API: er.

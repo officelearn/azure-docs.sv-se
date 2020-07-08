@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
 ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614374"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Lägga till loggning för ditt Service Fabric-program
@@ -132,7 +131,7 @@ Vissa leverantörer av tredje part använder den metod som beskrivs i föregåen
    Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
    ```
 
-3. Lägg till `Serilog.ILogger` ett argument i konstruktorn för tjänsten och skicka den nyligen skapade loggen.
+3. Lägg till ett `Serilog.ILogger` argument i konstruktorn för tjänsten och skicka den nyligen skapade loggen.
 
    ```csharp
    ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
@@ -161,7 +160,7 @@ Vissa leverantörer av tredje part använder den metod som beskrivs i föregåen
 5. Instrumenterar koden på samma sätt som om du använde ASP.NET Core utan Serilog.
 
    >[!NOTE]
-   >Vi rekommenderar att du *inte* använder den statiska `Log.Logger` med föregående exempel. Service Fabric kan vara värd för flera instanser av samma tjänst typ inom en enda process. Om du använder den statiska `Log.Logger`, kommer den sista skrivaren av egenskaps berikare att visa värden för alla instanser som kör. Detta är en orsak till att _logger-variabeln är en privat medlems variabel för tjänste klassen. Du måste också vara `_logger` tillgänglig för vanlig kod som kan användas i olika tjänster.
+   >Vi rekommenderar att du *inte* använder den statiska `Log.Logger` med föregående exempel. Service Fabric kan vara värd för flera instanser av samma tjänst typ inom en enda process. Om du använder den statiska `Log.Logger` , kommer den sista skrivaren av egenskaps berikare att visa värden för alla instanser som kör. Detta är en orsak till att _logger-variabeln är en privat medlems variabel för tjänste klassen. Du måste också vara `_logger` tillgänglig för vanlig kod som kan användas i olika tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c7544ae7d872a64547cb6c57ce8af9a09fc6c3d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651909"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. UserNameTextBox
@@ -45,13 +44,13 @@ En text Rute kontroll med inbyggd verifiering för Windows-och Linux-användarna
 "Example name"
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
 - Om `constraints.required` är inställt på **Sant**måste text rutan ha ett värde för att kunna verifiera. Standardvärdet är **True**.
 - `osPlatform`måste anges och kan vara antingen **Windows** eller **Linux**.
 - `constraints.regex`är ett mönster för reguljära JavaScript-uttryck. Om det här alternativet anges måste text rutans värde matcha mönstret för att kunna verifieras. Standardvärdet är **Null**.
-- `constraints.validationMessage`är en sträng som ska visas när text rutans värde inte klarar den verifiering som `constraints.regex`anges av. Om inget värde anges används text rutans inbyggda verifierings meddelanden. Standardvärdet är **Null**.
-- Det här elementet har en inbyggd verifiering som baseras på det värde som har angetts `osPlatform`för. Den inbyggda verifieringen kan användas tillsammans med ett anpassat reguljärt uttryck. Om ett värde för `constraints.regex` anges utlöses båda de inbyggda och anpassade valideringarna.
+- `constraints.validationMessage`är en sträng som ska visas när text rutans värde inte klarar den verifiering som anges av `constraints.regex` . Om inget värde anges används text rutans inbyggda verifierings meddelanden. Standardvärdet är **Null**.
+- Det här elementet har en inbyggd verifiering som baseras på det värde som har angetts för `osPlatform` . Den inbyggda verifieringen kan användas tillsammans med ett anpassat reguljärt uttryck. Om ett värde för `constraints.regex` anges utlöses båda de inbyggda och anpassade valideringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

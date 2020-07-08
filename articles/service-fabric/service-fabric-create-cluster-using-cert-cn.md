@@ -4,10 +4,9 @@ description: Lär dig hur du skapar ett Service Fabric kluster med hjälp av cer
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614561"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric kluster som använder certifikatets delade namn i stället för tumavtryck
@@ -65,10 +64,10 @@ Write-Host "Common Name              :"  $CommName
 ```
 
 ## <a name="download-and-update-a-sample-template"></a>Hämta och uppdatera en exempel mall
-I den här artikeln används mallen [5-nods säkra kluster exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) och mallparametrar. Ladda ned filerna *azuredeploy. JSON* och *azuredeploy. Parameters. JSON* till datorn.
+I den här artikeln används mallen [5-nods säkra kluster exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) och mallparametrar. Ladda ned *azuredeploy.js* och *azuredeploy.parameters.jspå* filer till datorn.
 
 ### <a name="update-parameters-file"></a>Uppdatera parameter fil
-Öppna först filen *azuredeploy. Parameters. JSON* i en text redigerare och Lägg till följande parameter värde:
+Öppna först *azuredeploy.parameters.js* filen i en text redigerare och Lägg till följande parameter värde:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
@@ -95,7 +94,7 @@ Ange sedan *certificateCommonName*-, *SourceVaultValue*-och *certificateUrlValue
 ```
 
 ### <a name="update-the-template-file"></a>Uppdatera mallfilen
-Öppna sedan filen *azuredeploy. JSON* i en text redigerare och gör tre uppdateringar till att ge stöd för certifikatets egna namn.
+Öppna sedan *azuredeploy.js* filen i en text redigerare och gör tre uppdateringar till att ge stöd för certifikatets egna namn.
 
 1. I avsnittet **parametrar** lägger du till en *certificateCommonName* -parameter:
     ```json
@@ -120,14 +119,14 @@ Ange sedan *certificateCommonName*-, *SourceVaultValue*-och *certificateUrlValue
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. I **Microsoft. Compute/virtualMachineScaleSets** -resursen uppdaterar du tillägget för den virtuella datorn så att det använder det egna namnet i certifikat inställningarna i stället för tumavtrycket.  I **virtualMachineProfile**->**extensionProfile**->**tillägg**->**settings****certificate****properties**egenskaper inställningar->certifikat,->Lägg till 
+3. I **Microsoft. Compute/virtualMachineScaleSets** -resursen uppdaterar du tillägget för den virtuella datorn så att det använder det egna namnet i certifikat inställningarna i stället för tumavtrycket.  I **virtualMachineProfile** -> **extensionProfile** -> **tillägg** -> **Egenskaper** -> **Inställningar** -> **certifikat**, Lägg till 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
        ],
     ```
 
-    och ta `"thumbprint": "[parameters('certificateThumbprint')]",`bort.
+    och ta bort `"thumbprint": "[parameters('certificateThumbprint')]",` .
 
     ```json
     "virtualMachineProfile": {

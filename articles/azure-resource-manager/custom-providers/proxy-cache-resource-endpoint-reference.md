@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650388"
 ---
 # <a name="custom-resource-cache-reference"></a>Anpassad Resource cache-referens
@@ -42,11 +41,11 @@ Exempel på anpassad resurs leverantör:
 
 ## <a name="building-proxy-resource-endpoint"></a>Skapar resurs slut punkt för proxy
 
-En **slut punkt** som implementerar en "proxy, cache"-resurs **slut punkt** måste hantera begäran och svara på det nya API: et i Azure. I det här fallet genererar **resourceType** ett nytt Azure Resource API `PUT`för, `GET`och `DELETE` för att utföra CRUD på en enskild resurs, samt `GET` för att hämta alla befintliga resurser:
+En **slut punkt** som implementerar en "proxy, cache"-resurs **slut punkt** måste hantera begäran och svara på det nya API: et i Azure. I det här fallet genererar **resourceType** ett nytt Azure Resource API för `PUT` , `GET` och `DELETE` för att utföra CRUD på en enskild resurs, samt `GET` för att hämta alla befintliga resurser:
 
 > [!NOTE]
-> Azure API genererar förfrågnings metoderna `PUT`, `GET`och `DELETE`, men cache- **slutpunkten** behöver bara hantera `PUT` och. `DELETE`
-> Vi rekommenderar också att **slut punkten** också implementerar `GET`.
+> Azure API genererar förfrågnings metoderna `PUT` , `GET` och `DELETE` , men cache- **slutpunkten** behöver bara hantera `PUT` och `DELETE` .
+> Vi rekommenderar också att **slut punkten** också implementerar `GET` .
 
 ### <a name="create-a-custom-resource"></a>Skapa en anpassad resurs
 
@@ -87,8 +86,8 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
 - Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
-- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
-- Den anpassade resurs leverantören kommer att skriva över `name`fälten `type`,, `id` och för begäran.
+- `Content-Type`Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- Den anpassade resurs leverantören kommer att skriva över `name` `type` fälten,, och `id` för begäran.
 - Den anpassade resurs leverantören kommer bara att returnera fält under `properties` objektet för en cache-slutpunkt.
 
 **Slut punkt** Svarade
@@ -107,7 +106,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Fälten `name`, `id`och `type` kommer automatiskt att genereras för den anpassade resursen av den anpassade resurs leverantören.
+`name`Fälten, `id` och `type` kommer automatiskt att genereras för den anpassade resursen av den anpassade resurs leverantören.
 
 Svar från Azures anpassade resurs leverantör:
 
@@ -149,7 +148,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
 - Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
-- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- `Content-Type`Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
 - Den anpassade Azure-providern tar bara bort objektet från cachen om ett svar på 200 nivå returneras. Även om resursen inte finns ska **slut punkten** returnera 204.
 
 **Slut punkt** Svarade

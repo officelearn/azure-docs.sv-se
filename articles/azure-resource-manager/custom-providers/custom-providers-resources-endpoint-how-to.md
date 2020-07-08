@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650531"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Lägga till anpassade resurser i Azure REST API
@@ -18,7 +17,7 @@ Den här artikeln går igenom kraven och bästa praxis för att skapa Azure-slut
 
 ## <a name="how-to-define-a-resource-endpoint"></a>Definiera en resurs slut punkt
 
-En **slut punkt** är en URL som pekar på en tjänst, som implementerar det underliggande kontraktet mellan det och Azure. Slut punkten definieras i den anpassade resurs leverantören och kan vara en offentligt tillgänglig URL. Exemplet nedan har en **resourceType** som heter `myCustomResource` implementerad `endpointURL`av.
+En **slut punkt** är en URL som pekar på en tjänst, som implementerar det underliggande kontraktet mellan det och Azure. Slut punkten definieras i den anpassade resurs leverantören och kan vara en offentligt tillgänglig URL. Exemplet nedan har en **resourceType** som heter `myCustomResource` implementerad av `endpointURL` .
 
 Exempel på **ResourceProvider**:
 
@@ -42,39 +41,39 @@ Exempel på **ResourceProvider**:
 
 ## <a name="building-a-resource-endpoint"></a>Skapa en resurs slut punkt
 
-En **slut punkt** som implementerar en **resourceType** måste hantera begäran och svar för det nya API: et i Azure. När en anpassad resurs leverantör med en **resourceType** skapas, genererar den en ny uppsättning API: er i Azure. I det här fallet genererar **resourceType** en ny Azure Resource API `PUT`för, `GET`och `DELETE` för att utföra CRUD på en enskild resurs samt `GET` för att hämta alla befintliga resurser:
+En **slut punkt** som implementerar en **resourceType** måste hantera begäran och svar för det nya API: et i Azure. När en anpassad resurs leverantör med en **resourceType** skapas, genererar den en ny uppsättning API: er i Azure. I det här fallet genererar **resourceType** en ny Azure Resource API för `PUT` , `GET` och `DELETE` för att utföra CRUD på en enskild resurs samt `GET` för att hämta alla befintliga resurser:
 
-Ändra enskild resurs (`PUT`, `GET`, och `DELETE`):
+Ändra enskild resurs ( `PUT` , `GET` , och `DELETE` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
 ```
 
-Hämta alla resurser (`GET`):
+Hämta alla resurser ( `GET` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
-För anpassade resurser erbjuder anpassade resurs leverantörer två typer av **routingTypes**: "`Proxy`" och "`Proxy, Cache`".
+För anpassade resurser erbjuder anpassade resurs leverantörer två typer av **routingTypes**: " `Proxy` " och " `Proxy, Cache` ".
 
 ### <a name="proxy-routing-type"></a>typ av proxy-routning
 
-"`Proxy`" **RoutingType** proxy alla begär ande metoder till den **slut punkt** som anges i den anpassade resurs leverantören. När du ska använda`Proxy`"":
+" `Proxy` " **RoutingType** proxy alla begär ande metoder till den **slut punkt** som anges i den anpassade resurs leverantören. När du ska använda " `Proxy` ":
 
 - Fullständig kontroll över svaret krävs.
 - Integrera system med befintliga resurser.
 
-Mer information om`Proxy`resurser finns i [den anpassade resursens proxy-referens](proxy-resource-endpoint-reference.md)
+Mer information om `Proxy` resurser finns i [den anpassade resursens proxy-referens](proxy-resource-endpoint-reference.md)
 
 ### <a name="proxy-cache-routing-type"></a>Dirigerings typ för proxy-cache
 
-`Proxy, Cache`Endast `PUT` `DELETE` **routingType** -proxy och begär metoder till den **slut punkt** som anges i den anpassade resurs leverantören. Den anpassade resurs leverantören returnerar `GET` begär Anden automatiskt baserat på vad den har lagrat i cacheminnet. Om en anpassad resurs har marker ATS med cache, kommer den anpassade resurs leverantören också att lägga till/skriva över fält i svaret för att göra API: erna Azure-kompatibla. När du ska använda`Proxy, Cache`"":
+`Proxy, Cache`Endast **routingType** -proxy `PUT` och `DELETE` begär metoder till den **slut punkt** som anges i den anpassade resurs leverantören. Den anpassade resurs leverantören returnerar `GET` begär Anden automatiskt baserat på vad den har lagrat i cacheminnet. Om en anpassad resurs har marker ATS med cache, kommer den anpassade resurs leverantören också att lägga till/skriva över fält i svaret för att göra API: erna Azure-kompatibla. När du ska använda " `Proxy, Cache` ":
 
 - Skapa ett nytt system som inte har några befintliga resurser.
 - Arbeta med befintliga Azure-eko system.
 
-Mer information om`Proxy, Cache`resurser finns i [den anpassade Resource cache-referensen](proxy-cache-resource-endpoint-reference.md)
+Mer information om `Proxy, Cache` resurser finns i [den anpassade Resource cache-referensen](proxy-cache-resource-endpoint-reference.md)
 
 ## <a name="creating-a-custom-resource"></a>Skapa en anpassad resurs
 
@@ -131,9 +130,9 @@ id | *Ja* | Resurs-ID för den anpassade resursen. Detta bör finnas utanför **
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
 > [!NOTE]
-> Resurser kräver att svaret innehåller `id`lämplig, `name`och `type` från **slut punkten**.
+> Resurser kräver att svaret innehåller lämplig `id` , `name` och `type` från **slut punkten**.
 
-Azure Resource Manager mallar kräver att `id`, `name`och `type` returneras korrekt från slut punkten. Ett returnerat resurs svar ska ha formatet:
+Azure Resource Manager mallar kräver att `id` , `name` och `type` returneras korrekt från slut punkten. Ett returnerat resurs svar ska ha formatet:
 
 Exempel på **slut punkts** svar:
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: adefeadf939d398268624343d82c18cbf5ec87cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609646"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Säker kommunikation mellan tjänster i en Java-tjänst
@@ -23,7 +22,7 @@ Säkerhet är en av de viktigaste aspekterna av kommunikationen. Reliable Servic
 
 Följ dessa steg för att skydda en tjänst när du använder service Remoting med Java-tjänster:
 
-1. Skapa ett gränssnitt, `HelloWorldStateless`som definierar de metoder som ska vara tillgängliga för ett fjärran rop på tjänsten. Tjänsten kommer att använda `FabricTransportServiceRemotingListener`, som deklareras i `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paketet. Det här är `CommunicationListener` en implementering som tillhandahåller funktioner för fjärr kommunikation.
+1. Skapa ett gränssnitt, `HelloWorldStateless` som definierar de metoder som ska vara tillgängliga för ett fjärran rop på tjänsten. Tjänsten kommer att använda `FabricTransportServiceRemotingListener` , som deklareras i `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paketet. Det här är en `CommunicationListener` implementering som tillhandahåller funktioner för fjärr kommunikation.
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -53,7 +52,7 @@ Följ dessa steg för att skydda en tjänst när du använder service Remoting m
 
    1. Ange dem med hjälp av ett [konfigurations paket](service-fabric-application-and-service-manifests.md):
 
-       Lägg till ett `TransportSettings` namngivet avsnitt i filen Settings. xml.
+       Lägg till ett namngivet `TransportSettings` avsnitt i settings.xml-filen.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -68,7 +67,7 @@ Följ dessa steg för att skydda en tjänst när du använder service Remoting m
 
        ```
 
-       I det här fallet kommer `createServiceInstanceListeners` metoden att se ut så här:
+       I det här fallet `createServiceInstanceListeners` kommer metoden att se ut så här:
 
        ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -80,7 +79,7 @@ Följ dessa steg för att skydda en tjänst när du använder service Remoting m
         }
        ```
 
-        Om du lägger till `TransportSettings` ett avsnitt i filen Settings. XML utan något prefix `FabricTransportListenerSettings` , kommer alla inställningar från det här avsnittet att läsas in som standard.
+        Om du lägger till ett `TransportSettings` avsnitt i settings.xml-filen utan något prefix, `FabricTransportListenerSettings` kommer alla inställningar från det här avsnittet att läsas in som standard.
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -88,7 +87,7 @@ Följ dessa steg för att skydda en tjänst när du använder service Remoting m
             ...
         </Section>
         ```
-        I det här fallet kommer `CreateServiceInstanceListeners` metoden att se ut så här:
+        I det här fallet `CreateServiceInstanceListeners` kommer metoden att se ut så här:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -99,9 +98,9 @@ Följ dessa steg för att skydda en tjänst när du använder service Remoting m
             return listeners;
         }
        ```
-3. När du anropar metoder på en säker tjänst med hjälp av fjärrstacken, i stället `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` för att använda klassen för att skapa en `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`Tjänstproxy, använder du.
+3. När du anropar metoder på en säker tjänst med hjälp av fjärrstacken, i stället för `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` att använda klassen för att skapa en Tjänstproxy, använder du `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory` .
 
-    Om klient koden körs som en del av en tjänst kan du läsa in `FabricTransportSettings` från filen Settings. xml. Skapa ett TransportSettings-avsnitt som liknar tjänst koden, som du ser ovan. Gör följande ändringar i klient koden:
+    Om klient koden körs som en del av en tjänst kan du läsa in `FabricTransportSettings` från settings.xml-filen. Skapa ett TransportSettings-avsnitt som liknar tjänst koden, som du ser ovan. Gör följande ändringar i klient koden:
 
     ```java
 

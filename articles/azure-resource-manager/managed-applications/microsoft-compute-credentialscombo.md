@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652143"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. CredentialsCombo
@@ -100,7 +99,7 @@ Om `osPlatform` är **Windows**, eller `osPlatform` är **Linux** och användare
 }
 ```
 
-Om `osPlatform` är **Linux** och användaren tillhandahöll en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
+Om `osPlatform` är **Linux** och användaren TILLHANDAHÖLL en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
 
 ```json
 {
@@ -109,7 +108,7 @@ Om `osPlatform` är **Linux** och användaren tillhandahöll en offentlig SSH-ny
 }
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
 - `osPlatform`måste anges och kan vara antingen **Windows** eller **Linux**.
 - Om `constraints.required` är inställt på **Sant**måste text rutorna lösen ord eller SSH-offentlig nyckel ha värden för att kunna verifiera. Standardvärdet är **True**.

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551870"
 ---
 # <a name="availability-of-service-fabric-services"></a>Tillgänglighet för Service Fabric tjänster
@@ -18,7 +17,7 @@ Den här artikeln ger en översikt över hur Azure Service Fabric upprätthålle
 ## <a name="availability-of-service-fabric-stateless-services"></a>Tillgänglighet för Service Fabric tillstånds lösa tjänster
 Service Fabric tjänster kan vara antingen tillstånds känsliga eller tillstånds lösa. En tillstånds lös tjänst är en program tjänst som inte har ett [lokalt tillstånd](service-fabric-concepts-state.md) som måste vara hög tillgängligt eller tillförlitligt.
 
-Att skapa en tillstånds lös tjänst kräver `InstanceCount`att du definierar en. Instans antalet definierar antalet instanser av den tillstånds lösa tjänstens program logik som ska köras i klustret. Att öka antalet instanser är det rekommenderade sättet att skala ut en tillstånds lös tjänst.
+Att skapa en tillstånds lös tjänst kräver att du definierar en `InstanceCount` . Instans antalet definierar antalet instanser av den tillstånds lösa tjänstens program logik som ska köras i klustret. Att öka antalet instanser är det rekommenderade sättet att skala ut en tillstånds lös tjänst.
 
 När en instans av en tillstånds lös namngiven tjänst Miss lyckas skapas en ny instans på en berättigad nod i klustret. En tillstånds lös tjänst instans kan till exempel Miss Miss Missing på Nod1 och skapas på nytt på Nod5.
 

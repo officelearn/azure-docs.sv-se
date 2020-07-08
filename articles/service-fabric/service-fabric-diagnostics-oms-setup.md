@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
 ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609935"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Konfigurera Azure Monitor loggar för ett kluster
@@ -47,17 +46,17 @@ Om du använder Windows fortsätter du med följande steg för att ansluta Azure
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Anslut Log Analytics arbets ytan till klustret 
 
-1. Arbets ytan måste vara ansluten till de diagnostikdata som kommer från klustret. Gå till resurs gruppen där du skapade Service Fabric-analys-lösningen. Välj **ServiceFabric\<nameOfWorkspace\> ** och gå till sidan Översikt. Därifrån kan du ändra lösnings inställningar, inställningar för arbets ytan och komma åt Log Analytics-arbetsytan.
+1. Arbets ytan måste vara ansluten till de diagnostikdata som kommer från klustret. Gå till resurs gruppen där du skapade Service Fabric-analys-lösningen. Välj **ServiceFabric \<nameOfWorkspace\> ** och gå till sidan Översikt. Därifrån kan du ändra lösnings inställningar, inställningar för arbets ytan och komma åt Log Analytics-arbetsytan.
 
 2. På den vänstra navigerings menyn går du till **data källor för arbets ytan**och väljer **lagrings konto loggar**.
 
 3. På sidan **lagrings konto loggar** väljer du **Lägg till** överst för att lägga till klustrets loggar i arbets ytan.
 
-4. Välj **lagrings konto** för att lägga till rätt konto som skapats i klustret. Om du använde standard namnet är lagrings kontot **sfdg\<resourceGroupName\>**. Du kan också bekräfta detta med Azure Resource Manager-mallen som används för att distribuera klustret, genom att kontrol lera värdet som används för **applicationDiagnosticsStorageAccountName**. Om namnet inte visas rullar du ned och väljer **Läs in mer**. Välj lagrings kontots namn.
+4. Välj **lagrings konto** för att lägga till rätt konto som skapats i klustret. Om du använde standard namnet är lagrings kontot **sfdg \<resourceGroupName\> **. Du kan också bekräfta detta med Azure Resource Manager-mallen som används för att distribuera klustret, genom att kontrol lera värdet som används för **applicationDiagnosticsStorageAccountName**. Om namnet inte visas rullar du ned och väljer **Läs in mer**. Välj lagrings kontots namn.
 
 5. Ange data typen. Ange det som **Service Fabric händelser**.
 
-6. Se till att källan ställs in automatiskt **på\*WADServiceFabric EventTable**.
+6. Se till att källan ställs in automatiskt på **WADServiceFabric \* EventTable**.
 
 7. Välj **OK** för att ansluta din arbets yta till klustrets loggar.
 

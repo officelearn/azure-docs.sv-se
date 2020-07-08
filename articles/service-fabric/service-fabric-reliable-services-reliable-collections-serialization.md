@@ -4,10 +4,9 @@ description: Lär dig mer om Azure Service Fabric Reliable Collections-objekt se
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639555"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Tillförlitlig serialisering av samlings objekt i Azure Service Fabric
@@ -44,7 +43,7 @@ En tillförlitlig tillstånds hanterare har inbyggd serialisering för följande
 
 Anpassade serialiserare används ofta för att öka prestandan eller för att kryptera data via kabeln och på disk. Bland annat är anpassade serialiserare ofta mer effektiva än allmän serialisering eftersom de inte behöver serialisera information om typen. 
 
-[IReliableStateManager. TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialiserare för den aktuella typen T. Registreringen bör ske i StatefulServiceBase för att säkerställa att innan återställningen startar, har alla pålitliga samlingar åtkomst till den relevanta serialiseraren för att läsa sina sparade data.
+[IReliableStateManager. TryAddStateSerializer \<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialiserare för den aktuella typen T. Registreringen bör ske i StatefulServiceBase för att säkerställa att innan återställningen startar, har alla pålitliga samlingar åtkomst till den relevanta serialiseraren för att läsa sina sparade data.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -62,10 +61,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Implementera en anpassad serialiserare
 
-En anpassad serialisering måste implementera [\<IStateSerializer T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) -gränssnittet.
+En anpassad serialisering måste implementera [IStateSerializer \<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) -gränssnittet.
 
 > [!NOTE]
-> IStateSerializer\<T> innehåller en överlagring för skrivning och läsning som tar i ett ytterligare T-kallat bas värde. Detta API är för differentiell serialisering. Funktionen för för närvarande differentiell serialisering visas inte. Dessa två överlagringar anropas därför inte förrän differentiell serialisering exponeras och aktive ras.
+> IStateSerializer \<T> innehåller en överlagring för skrivning och läsning som tar i ett ytterligare T-kallat bas värde. Detta API är för differentiell serialisering. Funktionen för för närvarande differentiell serialisering visas inte. Dessa två överlagringar anropas därför inte förrän differentiell serialisering exponeras och aktive ras.
 
 Följande är ett exempel på en anpassad typ som heter OrderKey som innehåller fyra egenskaper
 
@@ -85,7 +84,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Följande är ett exempel på en implementering\<av IStateSerializer OrderKey>.
+Följande är ett exempel på en implementering av IStateSerializer \<OrderKey> .
 Observera att Läs-och skriv överföringar som tar i baseValue anropar deras respektive överlagring för vidarebefordring av kompatibilitet.
 
 ```csharp

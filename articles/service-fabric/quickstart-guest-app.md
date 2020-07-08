@@ -4,10 +4,9 @@ description: Använda en Azure Service Fabric-kluster som värd för ett befintl
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614850"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
@@ -41,9 +40,9 @@ Du kan skapa alla typer av Service Fabric-tjänster från nästa dialogruta. Fö
 
 Namnge tjänsten **MyGuestService** och ange önskade alternativ till höger som följande värden:
 
-| Inställning                   | Värde |
+| Inställningen                   | Värde |
 | ------------------------- | ------ |
-| Kodpaketmapp       | _&lt;mappen med din Node. js-app&gt;_ |
+| Kodpaketmapp       | _&lt;mappen med Node.js-appen&gt;_ |
 | Kodpaketbeteende     | Kopiera innehållet i mappen till projektet |
 | Program                   | node.exe |
 | Argument                 | server.js |
@@ -97,13 +96,13 @@ Välj målprofilen **PublishProfiles\Cloud.xml**.
 
 Om du inte gjort detta tidigare väljer du ett Azure-konto för distribution. Om du inte har en ännu, kan du [registrera dig för en][create-account].
 
-Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har en sådan väljer ** &lt;du skapa nytt kluster... &gt; ** som öppnar fönstret webbläsare till Azure Portal. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har en sådan väljer du ** &lt; Skapa nytt kluster.. &gt; .** som öppnar webbläsarfönstret till Azure Portal. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 När du skapar Service Fabric-kluster, se till att ange **Anpassade slutpunkter** till **80**.
 
 ![Service Fabric-nod-typkonfiguration med anpassad slutpunkt][custom-endpoint]
 
-Det tar en stund att skapa ett nytt Service Fabric-kluster. När den har skapats går du tillbaka till dialog rutan publicera och väljer ** &lt;uppdatera&gt;**. Det nya klustret visas i listrutan. Markera det.
+Det tar en stund att skapa ett nytt Service Fabric-kluster. När den har skapats går du tillbaka till dialog rutan publicera och väljer ** &lt; uppdatera &gt; **. Det nya klustret visas i listrutan. Markera det.
 
 Tryck på **Publicera** och vänta tills distributionen är klar.
 

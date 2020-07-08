@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614425"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric behållare som kör Apache Tomcat server på Linux
@@ -58,7 +57,7 @@ Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserad p�
    docker build . -t tomcattest
    ```
 
-   Det här kommandot skapar den nya avbildningen med hjälp av anvisningarna i Dockerfile och namnger (-t taggning `tomcattest`) bilden. För att bygga en behållar avbildning hämtas bas avbildningen först ned från Docker-hubben och programmet läggs till i den. 
+   Det här kommandot skapar den nya avbildningen med hjälp av anvisningarna i Dockerfile och namnger (-t taggning) bilden `tomcattest` . För att bygga en behållar avbildning hämtas bas avbildningen först ned från Docker-hubben och programmet läggs till i den. 
 
    När build-kommandot har slutförts kör du `docker images`-kommandot för att se information om den nya avbildningen:
 
@@ -79,7 +78,7 @@ Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserad p�
    * `-p`anger port mappningen mellan behållaren och värd operativ systemet. 
 
    > [!Note]
-   > Porten som du öppnar med `-p` parametern ska vara den port som Tomcat-programmet lyssnar på. I det aktuella exemplet finns en anslutning som kon figurer ATS i filen *ApacheTomcat/conf/server. XML* för att lyssna på Port 8080 för HTTP-begäranden. Den här porten är mappad till Port 8080 på värden. 
+   > Porten som du öppnar med `-p` parametern ska vara den port som Tomcat-programmet lyssnar på. I det aktuella exemplet finns en anslutning som kon figurer ATS i filen *ApacheTomcat/conf/server.xml* för att lyssna på Port 8080 för HTTP-begäranden. Den här porten är mappad till Port 8080 på värden. 
 
    Läs mer om andra parametrar i [Docker-körnings dokumentationen](https://docs.docker.com/engine/reference/commandline/run/).
 
@@ -139,7 +138,7 @@ Nu när du har skickat Tomcat-avbildningen till ett behållar register kan du by
 
    ![Service Fabric Yeoman-generator för containrar](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
-10. I tjänst manifestet (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest. XML*) lägger du till följande XML under roten **ServiceManfest** -taggen för att öppna porten som programmet lyssnar på begär Anden. **Slut punkts** tag gen deklarerar protokollet och porten för slut punkten. I den här artikeln lyssnar tjänsten behållar tjänsten på Port 8080: 
+10. I tjänst manifestet (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*) lägger du till följande XML under roten **ServiceManfest** -taggen för att öppna porten som programmet lyssnar på begär Anden. **Slut punkts** tag gen deklarerar protokollet och porten för slut punkten. I den här artikeln lyssnar tjänsten behållar tjänsten på Port 8080: 
 
    ```xml
    <Resources>
@@ -152,7 +151,7 @@ Nu när du har skickat Tomcat-avbildningen till ett behållar register kan du by
    </Resources>
    ```
 
-11. I program manifestet (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest. XML*), under taggen **service manifest import** , lägger du till följande XML. Ersätt **AccountName** och **lösen ordet** i **RepositoryCredentials** -taggen med namnet på behållar registret och det lösen ord som krävs för att logga in på det.
+11. I program manifestet (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), under taggen **service manifest import** , lägger du till följande XML. Ersätt **AccountName** och **lösen ordet** i **RepositoryCredentials** -taggen med namnet på behållar registret och det lösen ord som krävs för att logga in på det.
 
    ```xml
    <Policies>
@@ -182,7 +181,7 @@ Nu när du har skickat Tomcat-avbildningen till ett behållar register kan du by
      ```bash
      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
      ```
-     I föregående kommando ersätter `your-certificate.pem` du med namnet på klient certifikat filen. I utvecklings-och test miljöer används ofta kluster certifikatet som klient certifikat. Utelämna `-no-verify` parametern om ditt certifikat inte är självsignerat. 
+     I föregående kommando ersätter du `your-certificate.pem` med namnet på klient certifikat filen. I utvecklings-och test miljöer används ofta kluster certifikatet som klient certifikat. Utelämna parametern om ditt certifikat inte är självsignerat `-no-verify` . 
        
      Kluster certifikat laddas vanligt vis ned lokalt som. PFX-filer. Om du inte redan har ditt certifikat i PEM-format kan du köra följande kommando för att skapa en. PEM-fil från en. pfx-fil:
 
@@ -202,7 +201,7 @@ Nu när du har skickat Tomcat-avbildningen till ett behållar register kan du by
    När du har kört installations skriptet öppnar du en webbläsare och går till Service Fabric Explorer:
     
    * I ett lokalt kluster använder `http://localhost:19080/Explorer` du (Ersätt *localhost* med den virtuella datorns privata IP om du använder Vagrant på Mac OS X).
-   * Använd `https://PublicIPorFQDN:19080/Explorer`i ett säkert Azure-kluster. 
+   * Använd i ett säkert Azure-kluster `https://PublicIPorFQDN:19080/Explorer` . 
     
    Expandera noden **program** och Observera att det nu finns en post för din program typ, **ServiceFabricTomcatType**och en annan för den första instansen av den typen. Det kan ta några minuter för programmet att distribueras fullständigt, så du måste ha tålamod.
 

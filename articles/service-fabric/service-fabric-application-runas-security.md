@@ -4,14 +4,13 @@ description: Lär dig hur du kör ett Service Fabric program under system-och lo
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75610138"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Köra en tjänst som ett lokalt användar konto eller lokalt system konto
-Genom att använda Azure Service Fabric kan du skydda program som körs i klustret under olika användar konton. Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Service Fabric ger också möjlighet att köra program under ett lokalt användar-eller system konto. Lokala system konto typer som stöds är **lokal användare**, **NetworkService**, **LocalService**och **LocalSystem**.  Om du kör Service Fabric på ett fristående Windows-kluster kan du köra en tjänst under [Active Directory domän konton](service-fabric-run-service-as-ad-user-or-group.md) eller [grupphanterade tjänst konton](service-fabric-run-service-as-gmsa.md).
+Genom att använda Azure Service Fabric kan du skydda program som körs i klustret under olika användar konton. Som standard körs Service Fabric-program under det konto som Fabric.exe processen körs under. Service Fabric ger också möjlighet att köra program under ett lokalt användar-eller system konto. Lokala system konto typer som stöds är **lokal användare**, **NetworkService**, **LocalService**och **LocalSystem**.  Om du kör Service Fabric på ett fristående Windows-kluster kan du köra en tjänst under [Active Directory domän konton](service-fabric-run-service-as-ad-user-or-group.md) eller [grupphanterade tjänst konton](service-fabric-run-service-as-gmsa.md).
 
 I applikations manifestet definierar du de användar konton som krävs för att köra tjänster eller säkra resurser i avsnittet **säkerhets objekt** . Du kan också definiera och skapa användar grupper så att en eller flera användare kan hanteras tillsammans. Detta är användbart när det finns flera användare för olika tjänst start punkter och de behöver vanliga behörigheter på grupp nivå.  Användarna refereras sedan till i en RunAs-princip som tillämpas på en specifik tjänst eller alla tjänster i programmet. 
 

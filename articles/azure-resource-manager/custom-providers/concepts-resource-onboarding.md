@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650414"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Översikt över resurs onboarding för Azure Custom providers
@@ -54,9 +53,9 @@ Här är ett exempel på en anpassad Azure-provider:
 }
 ```
 
-Egenskap | Krävs? | Beskrivning
+Egenskap | Obligatoriskt? | Beskrivning
 ---|---|---
-namn | Ja | Namnet på slut punkts definitionen. För resurs onboarding måste namnet vara "associationer".
+name | Ja | Namnet på slut punkts definitionen. För resurs onboarding måste namnet vara "associationer".
 routingType | Ja | Bestämmer typen av kontrakt med slut punkten. För resurs onboarding är giltiga **routingTypes** "proxy, cache, Extension" och "webhook, cache, Extension".
 slutpunkt | Ja | Slut punkten för att dirigera begär anden till. Detta hanterar svaret och eventuella sido effekter i begäran.
 
@@ -76,7 +75,7 @@ Exempel på Azure-anpassade providers-Association:
 }
 ```
 
-Egenskap | Krävs? | Beskrivning
+Egenskap | Obligatoriskt? | Beskrivning
 ---|---|---
 targetResourceId | Ja | Resurs-ID för Microsoft. CustomProviders/resourceProviders eller Microsoft. Solutions/Applications.
 

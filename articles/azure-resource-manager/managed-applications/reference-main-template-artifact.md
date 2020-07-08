@@ -6,19 +6,18 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651467"
 ---
 # <a name="reference-deployment-template-artifact"></a>Referens: artefakt för distributions mal len
 
-Den här artikeln är en referens för en *mainTemplate. JSON* -artefakt i Azure Managed Applications. Mer information om distributions mal len för redigering finns i [Azure Resource Manager mallar](../templates/template-syntax.md).
+Den här artikeln är en referens för en *mainTemplate.jspå* artefakten i Azure Managed Applications. Mer information om distributions mal len för redigering finns i [Azure Resource Manager mallar](../templates/template-syntax.md).
 
 ## <a name="deployment-template"></a>Distributionsmall
 
-Följande JSON visar ett exempel på *mainTemplate. JSON* -fil för Azure Managed Applications:
+Följande JSON visar ett exempel på *mainTemplate.jspå* filen för Azure Managed Applications:
 
 ```json
 {

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: 302ba583f11b15be98832316b1ea05c7f9be931f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75530671"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exempel Apache Storm topologier och komponenter för Apache Storm i HDInsight
@@ -42,7 +41,7 @@ Följande är en lista över exempel som skapats och underhålls av Microsoft f�
 
 Se [använda python med Apache storm på HDInsight](apache-storm-develop-python-topology.md) för att se ett exempel på python-komponenter med en flödes sto pol Ogin.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Skapa och övervaka en Apache Storm topologi i Azure HDInsight](./apache-storm-quickstart.md)
 * [Lär dig hur du distribuerar och hanterar Apache Storm topologier med Apache Storm på HDInsight][6eb0d3b8]

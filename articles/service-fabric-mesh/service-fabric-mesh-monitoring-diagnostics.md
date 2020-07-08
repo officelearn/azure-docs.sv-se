@@ -7,10 +7,9 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75498155"
 ---
 # <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
@@ -43,19 +42,19 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 Nät miljön visar en fåtal av mått som anger hur dina behållare presterar. Följande mått är tillgängliga via Azure Portal och Azure Monitor CLI:
 
-| Mått | Beskrivning | Enheter|
+| Metric | Beskrivning | Enheter|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu som en procent andel | % |
 | MemoryUtilization | ActualMem/AllocatedMem som en procent andel | % |
 | AllocatedCpu | Allokerad processor per Azure Resource Manager mall | Millicores |
 | AllocatedMemory | Allokerat minne per Azure Resource Manager mall | MB |
-| ActualCpu | CPU-användning | Millicores |
+| ActualCpu | Processoranvändning | Millicores |
 | ActualMemory | Minnes användning | MB |
-| Container status | 0 – ogiltig: behållar statusen är okänd <br> 1 – väntar: behållaren har schemalagts att starta <br> 2-start: behållaren håller på att starta <br> 3-startad: behållaren har startats <br> 4-stopp: behållaren stoppas <br> 5-stoppad: behållaren har stoppats | Ej tillämpligt |
-| ApplicationStatus | 0-okänd: statusen kan inte hämtas <br> 1 – klart: programmet körs <br> 2 – uppgradering: en pågående uppgradering pågår <br> 3 – skapar: programmet skapas <br> 4-tar bort: programmet tas bort <br> 5 – misslyckades: det gick inte att distribuera programmet | Ej tillämpligt |
-| ServiceStatus | 0 – ogiltig: tjänsten har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | Ej tillämpligt |
-| ServiceReplicaStatus | 0 – ogiltig: repliken har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | Ej tillämpligt | 
-| RestartCount | Antal omstarter av behållare | Ej tillämpligt |
+| Container status | 0 – ogiltig: behållar statusen är okänd <br> 1 – väntar: behållaren har schemalagts att starta <br> 2-start: behållaren håller på att starta <br> 3-startad: behållaren har startats <br> 4-stopp: behållaren stoppas <br> 5-stoppad: behållaren har stoppats | E.t. |
+| ApplicationStatus | 0-okänd: statusen kan inte hämtas <br> 1 – klart: programmet körs <br> 2 – uppgradering: en pågående uppgradering pågår <br> 3 – skapar: programmet skapas <br> 4-tar bort: programmet tas bort <br> 5 – misslyckades: det gick inte att distribuera programmet | E.t. |
+| ServiceStatus | 0 – ogiltig: tjänsten har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | E.t. |
+| ServiceReplicaStatus | 0 – ogiltig: repliken har för närvarande ingen hälso status <br> 1 – OK: tjänsten är felfri  <br> 2-varning: det kan vara något fel som kräver undersökning <br> 3-fel: det är något fel som kräver undersökning <br> 4-okänd: statusen kan inte hämtas | E.t. | 
+| RestartCount | Antal omstarter av behållare | E.t. |
 
 > [!NOTE]
 > Värdena för ServiceStatus och ServiceReplicaStatus är desamma som för [hälso](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) tillstånd i Service Fabric. 
@@ -101,7 +100,7 @@ I varje exempel är resurs-ID: t följande mönster
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
-### <a name="metrics-explorer"></a>Mått Utforskaren
+### <a name="metrics-explorer"></a>Måttutforskare
 
 Metrics Explorer är ett blad i portalen där du kan visualisera alla mät värden för ditt nätprogram. Det här bladet är tillgängligt på programmets sida i portalen och på bladet Azure Monitor, som du kan använda för att visa mått för alla dina Azure-resurser som stöder Azure Monitor. 
 

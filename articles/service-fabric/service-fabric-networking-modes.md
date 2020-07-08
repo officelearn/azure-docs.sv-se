@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639810"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverks lägen för Service Fabric behållare
@@ -191,7 +190,7 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
  
 3. För Windows-kluster konfigurerar du en regel för Azure nätverks säkerhets grupp (NSG) som öppnar port UDP/53 för det virtuella nätverket med följande värden:
 
-   |Inställning |Värde | |
+   |Inställningen |Värde | |
    | --- | --- | --- |
    |Prioritet |2000 | |
    |Name |Custom_Dns  | |
@@ -201,7 +200,7 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
    |Åtgärd | Tillåt  | |
    | | |
 
-4. Ange Nätverks läget i applikations manifestet för varje tjänst: `<NetworkConfig NetworkType="Open">`. **Öppna** nätverks läge resultat i tjänsten hämtar en dedikerad IP-adress. Om ett läge inte har angetts använder tjänsten **NAT** -läge som standard. I följande manifest-exempel kan- `NodeContainerServicePackage1` och `NodeContainerServicePackage2` -tjänsterna varje lyssning på samma port (båda tjänsterna lyssnar på `Endpoint1`). När du har angett öppna nätverks `PortBinding` läge kan du inte ange konfigurationer.
+4. Ange Nätverks läget i applikations manifestet för varje tjänst: `<NetworkConfig NetworkType="Open">` . **Öppna** nätverks läge resultat i tjänsten hämtar en dedikerad IP-adress. Om ett läge inte har angetts använder tjänsten **NAT** -läge som standard. I följande manifest-exempel kan- `NodeContainerServicePackage1` och- `NodeContainerServicePackage2` tjänsterna varje lyssning på samma port (båda tjänsterna lyssnar på `Endpoint1` ). När du har angett öppna nätverks läge `PortBinding` kan du inte ange konfigurationer.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

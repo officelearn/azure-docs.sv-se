@@ -4,14 +4,13 @@ description: Lär dig hur du tilldelar säkerhets åtkomst principer till HTTP-e
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.openlocfilehash: c7d30e85848f045b5724bb8bdc6e5c810102c044
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614663"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Tilldela en säkerhets åtkomst princip för HTTP-och HTTPS-slutpunkter
-Om du använder en kör som-princip och tjänst manifestet deklarerar resurser för HTTP-slutpunkt måste du ange en **SecurityAccessPolicy**.  **SecurityAccessPolicy** garanterar att portarna som allokeras till dessa slut punkter är korrekt begränsade till det användar konto som tjänsten kör som. Annars har **http. sys** inte åtkomst till tjänsten och du får problem med anrop från klienten. I följande exempel används Customer1-kontot till en slut punkt som kallas **EndpointName**, vilket ger fullständig åtkomst behörighet.
+Om du använder en kör som-princip och tjänst manifestet deklarerar resurser för HTTP-slutpunkt måste du ange en **SecurityAccessPolicy**.  **SecurityAccessPolicy** garanterar att portarna som allokeras till dessa slut punkter är korrekt begränsade till det användar konto som tjänsten kör som. Annars har **http.sys** inte åtkomst till tjänsten och du får problem med anrop från klienten. I följande exempel används Customer1-kontot till en slut punkt som kallas **EndpointName**, vilket ger fullständig åtkomst behörighet.
 
 ```xml
 <Policies>

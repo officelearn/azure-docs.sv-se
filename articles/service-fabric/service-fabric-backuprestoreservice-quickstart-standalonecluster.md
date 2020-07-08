@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75526251"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Periodisk säkerhets kopiering och återställning i en fristående Service Fabric
@@ -77,7 +76,7 @@ Först måste du aktivera _säkerhets kopierings-och återställnings tjänsten_
     }
     ```
 
-2. Aktivera _säkerhets kopierings-och återställnings tjänsten_ genom `addonFeatures` att lägga `properties` till följande avsnitt under avsnittet som visas i följande kodfragment: 
+2. Aktivera _säkerhets kopierings-och återställnings tjänsten_ genom att lägga till följande `addonFeatures` avsnitt under `properties` avsnittet som visas i följande kodfragment: 
 
     ```json
         "properties": {
@@ -89,7 +88,7 @@ Först måste du aktivera _säkerhets kopierings-och återställnings tjänsten_
 
     ```
 
-3. Konfigurera X. 509-certifikat för kryptering av autentiseringsuppgifter. Detta är viktigt för att se till att de angivna autentiseringsuppgifterna för att ansluta till lagring krypteras innan de sparas. Konfigurera krypterings certifikat genom att lägga `BackupRestoreService` till följande `fabricSettings` avsnitt under avsnittet som visas i följande kodfragment: 
+3. Konfigurera X. 509-certifikat för kryptering av autentiseringsuppgifter. Detta är viktigt för att se till att de angivna autentiseringsuppgifterna för att ansluta till lagring krypteras innan de sparas. Konfigurera krypterings certifikat genom att lägga till följande `BackupRestoreService` avsnitt under `fabricSettings` avsnittet som visas i följande kodfragment: 
 
     ```json
     "properties": {
@@ -106,20 +105,20 @@ Först måste du aktivera _säkerhets kopierings-och återställnings tjänsten_
     }
     ```
 
-4. När du har uppdaterat kluster konfigurations filen med föregående ändringar, tillämpar du dem och låter distributionen/uppgraderingen slutföras. När du är klar börjar _säkerhets kopierings-och återställnings tjänsten_ att köras i klustret. URI: n för den här `fabric:/System/BackupRestoreService` tjänsten är och tjänsten kan finnas i avsnittet system service i Service Fabric Explorer. 
+4. När du har uppdaterat kluster konfigurations filen med föregående ändringar, tillämpar du dem och låter distributionen/uppgraderingen slutföras. När du är klar börjar _säkerhets kopierings-och återställnings tjänsten_ att köras i klustret. URI: n för den här tjänsten är `fabric:/System/BackupRestoreService` och tjänsten kan finnas i avsnittet system service i Service Fabric Explorer. 
 
 
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Aktivera regelbunden säkerhets kopiering för tillförlitliga tillstånds känsliga tjänster och Reliable Actors
 Låt oss gå igenom stegen för att aktivera regelbunden säkerhets kopiering för tillförlitliga tillstånds känsliga tjänster och Reliable Actors. De här stegen förutsätter
 - Att klustret har kon figurer ATS med _säkerhets kopierings-och återställnings tjänsten_.
-- En tillförlitlig tillstånds känslig tjänst har distribuerats i klustret. I den här snabb starts guiden är `fabric:/SampleApp` program-URI och URI för tillförlitlig tillstånds känslig tjänst som tillhör det här programmet. `fabric:/SampleApp/MyStatefulService` Den här tjänsten distribueras med en enda partition och partitions-ID `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`: t är.  
+- En tillförlitlig tillstånds känslig tjänst har distribuerats i klustret. I den här snabb starts guiden är program-URI `fabric:/SampleApp` och URI för tillförlitlig tillstånds känslig tjänst som tillhör det här programmet `fabric:/SampleApp/MyStatefulService` . Den här tjänsten distribueras med en enda partition och partitions-ID: t är `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7` .  
 
 ### <a name="create-backup-policy"></a>Skapa säkerhets kopierings princip
 
 Det första steget är att skapa en säkerhets kopierings princip som beskriver säkerhets kopierings schema, mål lagring för säkerhets kopierings data, princip namn, maximala stegvisa säkerhets kopior som ska tillåtas innan fullständig säkerhets kopiering och bevarande princip för säkerhets kopierings lagringen utlöses. 
 
-För säkerhets kopierings lagring skapar du fil resurs och ger ReadWrite åtkomst till den här fil resursen för alla Service Fabric Node-datorer. Det här exemplet förutsätter att resursen `BackupStore` med namnet finns `StorageServer`på.
+För säkerhets kopierings lagring skapar du fil resurs och ger ReadWrite åtkomst till den här fil resursen för alla Service Fabric Node-datorer. Det här exemplet förutsätter att resursen med namnet finns `BackupStore` på `StorageServer` .
 
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell med hjälp av modulen Microsoft. ServiceFabric. PowerShell. http
@@ -184,7 +183,7 @@ Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupP
 ```
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
-Kör följande PowerShell-skript för att anropa nödvändiga REST API för att associera en säkerhets `BackupPolicy1` kopierings princip med ett namn `SampleApp`som skapats i ovanstående steg med programmet.
+Kör följande PowerShell-skript för att anropa nödvändiga REST API för att associera en säkerhets kopierings princip med ett namn som `BackupPolicy1` skapats i ovanstående steg med programmet `SampleApp` .
 
 ```powershell
 $BackupPolicyReference = @{
@@ -225,7 +224,7 @@ Säkerhets kopieringar som är kopplade till alla partitioner som tillhör påli
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Kör följande PowerShell-skript för att anropa HTTP API för att räkna upp de säkerhets kopior som skapats för `SampleApp` alla partitioner i programmet.
+Kör följande PowerShell-skript för att anropa HTTP API för att räkna upp de säkerhets kopior som skapats för alla partitioner i `SampleApp` programmet.
 
 ```powershell
 $url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"

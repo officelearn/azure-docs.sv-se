@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: a9d71c8aebb9cc4a0adbd461aead6e2612bd13bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552499"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Köra Apache Hive frågor med HDInsight .NET SDK
@@ -45,7 +44,7 @@ HDInsight .NET SDK innehåller .NET-klient bibliotek, vilket gör det enklare at
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-1. Redigera koden nedan för att initiera värdena för variablerna: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`. Använd sedan den ändrade koden som hela innehållet i **program.cs** i Visual Studio.
+1. Redigera koden nedan för att initiera värdena för variablerna: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` . Använd sedan den ändrade koden som hela innehållet i **program.cs** i Visual Studio.
 
     ```csharp
     using System.Collections.Generic;

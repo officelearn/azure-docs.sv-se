@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: c6bf26d8f3a73db6ee69b2aa0de73872911893bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552720"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analysera webbplats loggar med ett anpassat python-bibliotek med Apache Spark kluster i HDInsight
@@ -25,11 +24,11 @@ Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kl
 
 ## <a name="save-raw-data-as-an-rdd"></a>Spara rå data som en RDD
 
-I det här avsnittet använder vi den [Jupyter](https://jupyter.org) Notebook som är associerad med ett Apache Spark kluster i HDInsight för att köra jobb som bearbetar dina rå data och spara dem som en Hive-tabell. Exempel data är en. csv-fil (HVAC. csv) som är tillgänglig i alla kluster som standard.
+I det här avsnittet använder vi den [Jupyter](https://jupyter.org) Notebook som är associerad med ett Apache Spark kluster i HDInsight för att köra jobb som bearbetar dina rå data och spara dem som en Hive-tabell. Exempel data är en. csv-fil (hvac.csv) som är tillgänglig i alla kluster som standard.
 
 När dina data har sparats som en Apache Hive tabell i nästa avsnitt ska vi ansluta till Hive-tabellen med BI-verktyg som Power BI och Tableau.
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/jupyter`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/jupyter` , där `CLUSTERNAME` är namnet på klustret.
 
 1. Skapa en ny anteckningsbok. Välj **nytt**och sedan **PySpark**.
 
@@ -46,7 +45,7 @@ När dina data har sparats som en Apache Hive tabell i nästa avsnitt ska vi ans
     from pyspark.sql.types import *
     ```
 
-1. Skapa en RDD med hjälp av de exempel logg data som redan är tillgängliga i klustret. Du kan komma åt data i det standard lagrings konto som är associerat `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`med klustret på. Kör följande kod:
+1. Skapa en RDD med hjälp av de exempel logg data som redan är tillgängliga i klustret. Du kan komma åt data i det standard lagrings konto som är associerat med klustret på `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log` . Kör följande kod:
 
     ```pyspark
     logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
@@ -70,9 +69,9 @@ När dina data har sparats som en Apache Hive tabell i nästa avsnitt ska vi ans
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Analysera loggdata med ett anpassat python-bibliotek
 
-1. I utdata ovan inkluderar de första raderna rubrik informationen och varje återstående rad matchar schemat som beskrivs i rubriken. Det kan vara svårt att parsa sådana loggar. Vi använder därför ett anpassat python-bibliotek (**iislogparser.py**) som gör det mycket enklare att parsa dessa loggar. Som standard ingår det här biblioteket i ditt Spark-kluster i HDInsight på `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`.
+1. I utdata ovan inkluderar de första raderna rubrik informationen och varje återstående rad matchar schemat som beskrivs i rubriken. Det kan vara svårt att parsa sådana loggar. Vi använder därför ett anpassat python-bibliotek (**iislogparser.py**) som gör det mycket enklare att parsa dessa loggar. Som standard ingår det här biblioteket i ditt Spark-kluster i HDInsight på `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py` .
 
-    Det här biblioteket är inte i `PYTHONPATH` så fall att vi inte kan använda det med hjälp av en `import iislogparser`import instruktion som. För att kunna använda det här biblioteket måste vi distribuera det till alla arbetsnoder. Kör följande kodfragment.
+    Det här biblioteket är inte i `PYTHONPATH` så fall att vi inte kan använda det med hjälp av en import instruktion som `import iislogparser` . För att kunna använda det här biblioteket måste vi distribuera det till alla arbetsnoder. Kör följande kodfragment.
 
     ```pyspark
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -100,7 +99,7 @@ När dina data har sparats som en Apache Hive tabell i nästa avsnitt ska vi ans
     2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
     ```
 
-1. `LogLine` Klassen, i sin tur, har en del användbara metoder, `is_error()`till exempel, som returnerar om en loggpost innehåller en felkod. Använd den här klassen för att beräkna antalet fel i de extraherade logg raderna och sedan logga alla fel till en annan fil.
+1. `LogLine`Klassen, i sin tur, har en del användbara metoder, till exempel `is_error()` , som returnerar om en loggpost innehåller en felkod. Använd den här klassen för att beräkna antalet fel i de extraherade logg raderna och sedan logga alla fel till en annan fil.
 
     ```pyspark
     errors = logLines.filter(lambda p: p.is_error())
@@ -110,7 +109,7 @@ När dina data har sparats som en Apache Hive tabell i nästa avsnitt ska vi ans
     errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
     ```
 
-    Utdata ska anges `There are 30 errors and 646 log entries`.
+    Utdata ska anges `There are 30 errors and 646 log entries` .
 
 1. Du kan också använda **matplotlib** för att skapa en visualisering av data. Om du till exempel vill isolera orsaken till begär Anden som körs under en längre tid kanske du vill hitta de filer som tar mest tid att betjäna i genomsnitt. I kodfragmentet nedan hämtas de 25 främsta resurser som tog mest tid att betjäna en begäran.
 
@@ -172,7 +171,7 @@ När dina data har sparats som en Apache Hive tabell i nästa avsnitt ska vi ans
     SELECT * FROM AverageTime
     ```
 
-   `%%sql` Magic följt av `-o averagetime` ser till att utdata från frågan sparas lokalt på Jupyter-servern (vanligt vis huvudnoden i klustret). Utdata sparas som en [Pandas](https://pandas.pydata.org/) -dataframe med det angivna namnet **averagetime**.
+   `%%sql`Magic följt av `-o averagetime` ser till att utdata från frågan sparas lokalt på Jupyter-servern (vanligt vis huvudnoden i klustret). Utdata sparas som en [Pandas](https://pandas.pydata.org/) -dataframe med det angivna namnet **averagetime**.
 
    Du bör se utdata som följande bild:
 

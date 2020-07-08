@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609629"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Säker kommunikation mellan tjänster i en C#-tjänst
@@ -23,7 +22,7 @@ Säkerhet är en av de viktigaste aspekterna av kommunikationen. Reliable Servic
 
 Följ dessa steg om du vill skydda en tjänst när du använder service Remoting med C#-tjänster:
 
-1. Skapa ett gränssnitt, `IHelloWorldStateful`som definierar de metoder som ska vara tillgängliga för ett fjärran rop på tjänsten. Din tjänst kommer att `FabricTransportServiceRemotingListener`använda, som deklareras i `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namn området. Det här är `ICommunicationListener` en implementering som tillhandahåller funktioner för fjärr kommunikation.
+1. Skapa ett gränssnitt, `IHelloWorldStateful` som definierar de metoder som ska vara tillgängliga för ett fjärran rop på tjänsten. Din tjänst kommer att använda `FabricTransportServiceRemotingListener` , som deklareras i `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` namn området. Det här är en `ICommunicationListener` implementering som tillhandahåller funktioner för fjärr kommunikation.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -90,7 +89,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder service Remoting
        ```
    2. Ange dem med hjälp av ett [konfigurations paket](service-fabric-application-and-service-manifests.md):
 
-       Lägg till ett `TransportSettings` namngivet avsnitt i filen Settings. xml.
+       Lägg till ett namngivet `TransportSettings` avsnitt i settings.xml-filen.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -106,7 +105,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder service Remoting
        </Section>
        ```
 
-       I det här fallet kommer `CreateServiceReplicaListeners` metoden att se ut så här:
+       I det här fallet `CreateServiceReplicaListeners` kommer metoden att se ut så här:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -120,7 +119,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder service Remoting
        }
        ```
 
-        Om du lägger till `TransportSettings` ett avsnitt i Settings. xml- `FabricTransportRemotingListenerSettings` filen, kommer alla inställningar från det här avsnittet att läsas in som standard.
+        Om du lägger till ett `TransportSettings` avsnitt i settings.xml-filen `FabricTransportRemotingListenerSettings` kommer alla inställningar från det här avsnittet att läsas in som standard.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -128,7 +127,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder service Remoting
             ...
         </Section>
         ```
-        I det här fallet kommer `CreateServiceReplicaListeners` metoden att se ut så här:
+        I det här fallet `CreateServiceReplicaListeners` kommer metoden att se ut så här:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -141,7 +140,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder service Remoting
             };
         }
         ```
-3. När du anropar metoder på en säker tjänst med hjälp av fjärrstacken, i stället `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` för att använda klassen för att skapa en `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`Tjänstproxy, använder du. Skicka i `FabricTransportRemotingSettings`, som innehåller `SecurityCredentials`.
+3. När du anropar metoder på en säker tjänst med hjälp av fjärrstacken, i stället för `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` att använda klassen för att skapa en Tjänstproxy, använder du `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory` . Skicka i `FabricTransportRemotingSettings` , som innehåller `SecurityCredentials` .
 
     ```csharp
 
@@ -171,7 +170,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder service Remoting
 
     ```
 
-    Om klient koden körs som en del av en tjänst kan du läsa in `FabricTransportRemotingSettings` från filen Settings. xml. Skapa ett HelloWorldClientTransportSettings-avsnitt som liknar tjänst koden, som du ser ovan. Gör följande ändringar i klient koden:
+    Om klient koden körs som en del av en tjänst kan du läsa in `FabricTransportRemotingSettings` från settings.xml-filen. Skapa ett HelloWorldClientTransportSettings-avsnitt som liknar tjänst koden, som du ser ovan. Gör följande ändringar i klient koden:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -184,9 +183,9 @@ Följ dessa steg om du vill skydda en tjänst när du använder service Remoting
 
     ```
 
-    Om klienten inte körs som en del av en tjänst kan du skapa en client_name. Settings. XML-fil på samma plats som client_name. exe är. Skapa sedan en TransportSettings-sektion i filen.
+    Om klienten inte körs som en del av en tjänst kan du skapa en client_name.settings.xml-fil på samma plats som client_name.exe är. Skapa sedan en TransportSettings-sektion i filen.
 
-    På samma sätt som för tjänsten, om du `TransportSettings` lägger till ett avsnitt i klient inställningar. xml/client_name. Settings. xml `FabricTransportRemotingSettings` läser in alla inställningar från det här avsnittet som standard.
+    På samma sätt som för tjänsten, om du lägger till ett `TransportSettings` avsnitt i klient settings.xml/client_name.settings.xml, `FabricTransportRemotingSettings` läser in alla inställningar från det här avsnittet som standard.
 
     I så fall är den tidigare koden ännu enklare:  
 

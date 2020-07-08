@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609867"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Så här anger du Port numret för en tjänst med hjälp av parametrar i Service Fabric
@@ -23,10 +22,10 @@ I det här exemplet anger du Port numret för ditt asp.net Core webb-API med hj�
 1. Öppna Visual Studio och skapa ett nytt Service Fabric-program.
 1. Välj mall för tillstånds lös ASP.NET Core.
 1. Välj webb-API.
-1. Öppna filen ServiceManifest. xml.
+1. Öppna ServiceManifest.xml-filen.
 1. Anteckna namnet på den slut punkt som har angetts för din tjänst. Standardvärdet är `ServiceEndpoint`.
-1. Öppna filen ApplicationManifest. XML
-1. I `ServiceManifestImport` elementet lägger du till ett nytt `RessourceOverrides` element med en referens till slut punkten i din ServiceManifest. XML-fil.
+1. Öppna ApplicationManifest.xml-filen
+1. I `ServiceManifestImport` elementet lägger du till ett nytt `RessourceOverrides` element med en referens till slut punkten i ServiceManifest.xmls filen.
 
     ```xml
       <ServiceManifestImport>
@@ -40,7 +39,7 @@ I det här exemplet anger du Port numret för ditt asp.net Core webb-API med hj�
       </ServiceManifestImport>
     ```
 
-1. I- `Endpoint` elementet kan du nu åsidosätta alla attribut med en parameter. I det här exemplet anger `Port` du och anger det till ett parameter namn med hakparenteser – till exempel`[MyWebAPI_PortNumber]`
+1. I `Endpoint` -elementet kan du nu åsidosätta alla attribut med en parameter. I det här exemplet anger du `Port` och anger det till ett parameter namn med hakparenteser – till exempel`[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -54,7 +53,7 @@ I det här exemplet anger du Port numret för ditt asp.net Core webb-API med hj�
       </ServiceManifestImport>
     ```
 
-1. I filen ApplicationManifest. XML anger du sedan parametern i `Parameters` elementet
+1. Fortfarande i ApplicationManifest.xml-filen anger du sedan parametern i `Parameters` elementet
 
     ```xml
       <Parameters>
@@ -79,7 +78,7 @@ I det här exemplet anger du Port numret för ditt asp.net Core webb-API med hj�
       </Parameters>
     ```
 
-När du publicerar ditt program från Visual Studio med hjälp av publicerings profilen Cloud. xml är din tjänst konfigurerad för att använda port 80. Om du distribuerar programmet utan att ange parametern MyWebAPI_PortNumber, använder tjänsten Port 8080.
+När du publicerar ditt program från Visual Studio med hjälp av Cloud.xml publicerings profil, konfigureras tjänsten att använda port 80. Om du distribuerar programmet utan att ange parametern MyWebAPI_PortNumber, använder tjänsten Port 8080.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om några av de grundläggande begreppen som beskrivs i den här artikeln finns i artikeln [hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).

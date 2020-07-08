@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651389"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications
@@ -34,9 +33,9 @@ Den här artikeln fokuserar på de åtgärder som utgivaren vidtar för att akti
 
 ## <a name="add-jit-access-step-to-ui"></a>Lägg till JIT-åtkomst steg i användar gränssnittet
 
-Din CreateUiDefinition. JSON-fil är precis som den GRÄNSSNITTs fil som du skapar för permanent åtkomst, förutom att du måste inkludera ett steg som låter konsumenterna Aktivera JIT-åtkomst. Mer information om hur du publicerar ditt första hanterade program på Azure Marketplace finns i [Azure Managed Applications på Marketplace](publish-marketplace-app.md).
+Din CreateUiDefinition.jsi filen är precis som den GRÄNSSNITTs fil som du skapar för permanent åtkomst, förutom att du måste inkludera ett steg som låter konsumenterna Aktivera JIT-åtkomst. Mer information om hur du publicerar ditt första hanterade program på Azure Marketplace finns i [Azure Managed Applications på Marketplace](publish-marketplace-app.md).
 
-För att stödja JIT-funktioner för ditt erbjudande lägger du till följande innehåll i din CreateUiDefinition. JSON-fil:
+För att stödja JIT-funktioner för ditt erbjudande lägger du till följande innehåll i CreateUiDefinition.jspå filen:
 
 I "steg":
 
@@ -98,7 +97,7 @@ Skicka en begäran om JIT-åtkomst:
 
 1. Visa meddelanden för att se att den nya JIT-begäran har skickats till konsumenten.
 
-   ![Avisering](./media/request-just-in-time-access/in-progress.png)
+   ![Meddelande](./media/request-just-in-time-access/in-progress.png)
 
    Nu måste du vänta tills konsumenten har [godkänt din begäran](approve-just-in-time-access.md#approve-requests).
 

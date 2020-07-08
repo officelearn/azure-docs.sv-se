@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614170"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Säker WCF-baserad kommunikation för en tjänst
@@ -17,7 +16,7 @@ Säkerhet är en av de viktigaste aspekterna av kommunikationen. Reliable Servic
 
 Vi använder ett befintligt [exempel](service-fabric-reliable-services-communication-wcf.md) som förklarar hur du konfigurerar en WCF-baserad kommunikations stack för Reliable Services. Följ dessa steg om du vill skydda en tjänst när du använder en WCF-baserad kommunikations stack:
 
-1. För tjänsten måste du skydda den WCF Communication-lyssnare (`WcfCommunicationListener`) som du skapar. Det gör du genom att ändra `CreateServiceReplicaListeners` metoden.
+1. För tjänsten måste du skydda den WCF Communication-lyssnare ( `WcfCommunicationListener` ) som du skapar. Det gör du genom att ändra `CreateServiceReplicaListeners` metoden.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -54,7 +53,7 @@ Vi använder ett befintligt [exempel](service-fabric-reliable-services-communica
         return b;
     }
     ```
-2. I-klienten förblir `WcfCommunicationClient` klassen som skapades i föregående [exempel](service-fabric-reliable-services-communication-wcf.md) oförändrad. Men du måste åsidosätta `CreateClientAsync` metoden för: `WcfCommunicationClientFactory`
+2. I-klienten `WcfCommunicationClient` förblir klassen som skapades i föregående [exempel](service-fabric-reliable-services-communication-wcf.md) oförändrad. Men du måste åsidosätta `CreateClientAsync` metoden för `WcfCommunicationClientFactory` :
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -104,7 +103,7 @@ Vi använder ett befintligt [exempel](service-fabric-reliable-services-communica
     }
     ```
 
-    Används `SecureWcfCommunicationClientFactory` för att skapa en WCF Communication-`WcfCommunicationClient`klient (). Använd-klienten för att anropa service metoder.
+    Används `SecureWcfCommunicationClientFactory` för att skapa en WCF Communication-klient ( `WcfCommunicationClient` ). Använd-klienten för att anropa service metoder.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();

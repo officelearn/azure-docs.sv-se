@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551836"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktur som kod
@@ -20,7 +19,7 @@ Exempel på Resource Manager-mallar är tillgängliga för Windows och Linux i [
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill `azuredeploy.json` distribuera `azuredeploy.parameters.json` och-mallarna som du laddade ned ovan använder du följande Azure CLI-kommandon:
+Om du vill distribuera `azuredeploy.json` och `azuredeploy.parameters.json` -mallarna som du laddade ned ovan använder du följande Azure CLI-kommandon:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"

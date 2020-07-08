@@ -4,10 +4,9 @@ description: Lär dig mer om enhets testning i Azure Service Fabric för tillst�
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639844"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Skapa enhets test för tillstånds känsliga tjänster
@@ -22,15 +21,15 @@ Den här artikeln förutsätter att [enheten testar tillstånds känsliga tjäns
 ## <a name="the-servicefabricmocks-library"></a>Biblioteket ServiceFabric. skisser
 Från och med version 3.3.0 tillhandahåller [ServiceFabric.](https://www.nuget.org/packages/ServiceFabric.Mocks/) ett API för att modellera både dirigeringen av replikerna och tillstånds hanteringen. Detta kommer att användas i exemplen.
 
-[NuGet](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
+[NuGet](https://www.nuget.org/packages/ServiceFabric.Mocks/) 
+ [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric. skisser ägs inte av Microsoft. Detta är dock för närvarande Microsofts rekommenderade bibliotek för tillstånds känsliga tjänster för enhets testning.*
 
 ## <a name="set-up-the-mock-orchestration-and-state"></a>Konfigurera en modell för att dirigera och delstaten
-Som en del av den ordnade delen av ett test skapas en modell med en blå replik uppsättning och en tillstånds hanterare. Replik uppsättningen äger sedan skapandet av en instans av den testade tjänsten för varje replik. Den kommer också att äga körning av livs cykel händelser `OnChangeRole` som `RunAsync`och. Den modellerade tillstånds hanteraren ser till att alla åtgärder som utförs mot tillstånds hanteraren körs och hålls som den faktiska tillstånds hanteraren.
+Som en del av den ordnade delen av ett test skapas en modell med en blå replik uppsättning och en tillstånds hanterare. Replik uppsättningen äger sedan skapandet av en instans av den testade tjänsten för varje replik. Den kommer också att äga körning av livs cykel händelser som `OnChangeRole` och `RunAsync` . Den modellerade tillstånds hanteraren ser till att alla åtgärder som utförs mot tillstånds hanteraren körs och hålls som den faktiska tillstånds hanteraren.
 
-1. Skapa ett tjänst fabriks ombud som kommer att instansiera den tjänst som testas. Detta bör vara liknande eller samma som återanropet av tjänst fabriken som `Program.cs` vanligt vis finns i för en Service Fabric tjänst eller aktör. Detta bör följa följande signatur:
+1. Skapa ett tjänst fabriks ombud som kommer att instansiera den tjänst som testas. Detta bör vara liknande eller samma som återanropet av tjänst fabriken som vanligt vis finns i `Program.cs` för en Service Fabric tjänst eller aktör. Detta bör följa följande signatur:
    ```csharp
    MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
    ```
@@ -90,7 +89,7 @@ PromoteNewReplicaToPrimaryAsync(4)
 ```
 
 ## <a name="putting-it-all-together"></a>Färdigställa allt
-Följande test visar hur du konfigurerar en replik uppsättning med tre noder och kontrollerar att data är tillgängliga från en sekundär efter en roll ändring. Ett vanligt problem som detta kan fånga är om data som lagts `InsertAsync` till under sparats antingen i minnet eller till en tillförlitlig samling utan att köra `CommitAsync`. I båda fallen är den sekundära synkroniseringen inte synkroniserad med den primära. Detta skulle leda till inkonsekventa svar när tjänsten har flyttats.
+Följande test visar hur du konfigurerar en replik uppsättning med tre noder och kontrollerar att data är tillgängliga från en sekundär efter en roll ändring. Ett vanligt problem som detta kan fånga är om data som lagts till under `InsertAsync` sparats antingen i minnet eller till en tillförlitlig samling utan att köra `CommitAsync` . I båda fallen är den sekundära synkroniseringen inte synkroniserad med den primära. Detta skulle leda till inkonsekventa svar när tjänsten har flyttats.
 
 ```csharp
 [TestMethod]

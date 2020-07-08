@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650466"
 ---
 # <a name="custom-resource-proxy-reference"></a>Referens för anpassad resurs-proxy
@@ -42,10 +41,10 @@ Exempel på anpassad resurs leverantör:
 
 ## <a name="building-proxy-resource-endpoint"></a>Skapar resurs slut punkt för proxy
 
-En **slut punkt** som implementerar en "proxy"-resurs **slut punkt** måste hantera begäran och svar för det nya API: et i Azure. I det här fallet genererar **resourceType** ett nytt Azure Resource API `PUT`för, `GET`och `DELETE` för att utföra CRUD på en enskild resurs, samt `GET` för att hämta alla befintliga resurser.
+En **slut punkt** som implementerar en "proxy"-resurs **slut punkt** måste hantera begäran och svar för det nya API: et i Azure. I det här fallet genererar **resourceType** ett nytt Azure Resource API för `PUT` , `GET` och `DELETE` för att utföra CRUD på en enskild resurs, samt `GET` för att hämta alla befintliga resurser.
 
 > [!NOTE]
-> Fälten `id`, `name`och `type` krävs inte, men behövs för att integrera den anpassade resursen med ett befintligt Azure-eko system.
+> `id`Fälten, `name` och krävs `type` inte, men behövs för att integrera den anpassade resursen med ett befintligt Azure-eko system.
 
 Exempel resurs:
 
@@ -67,7 +66,7 @@ Parameter referens:
 
 Egenskap | Exempel | Beskrivning
 ---|---|---
-namn | '{myCustomResourceName}' | Namnet på den anpassade resursen.
+name | '{myCustomResourceName}' | Namnet på den anpassade resursen.
 typ | Microsoft. CustomProviders/resourceProviders/{resourceTypeName} | Namn området för resurs typen.
 id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | Resurs-ID.
 
@@ -110,7 +109,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
 - Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
-- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- `Content-Type`Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
 
 **Slut punkt** Svarade
 
@@ -171,7 +170,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
 - Giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
-- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- `Content-Type`Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
 
 **Slut punkt** Svarade
 
@@ -208,7 +207,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
 - Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
-- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- `Content-Type`Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
 
 **Slut punkt** Svarade
 
@@ -269,7 +268,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
 - Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
-- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- `Content-Type`Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
 - Listan över resurser ska placeras under den översta nivån `value` .
 
 **Slut punkt** Svarade

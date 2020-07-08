@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75563351"
 ---
 # <a name="service-movement-cost"></a>Kostnad för tjänste rörelse
@@ -94,7 +93,7 @@ MoveCost hjälper dig att hitta de lösningar som orsakar minsta möjliga avbrot
 För att kunna ta hänsyn till mer detaljerade MoveCosts måste MoveCost vara aktiverat i klustret. Utan den här inställningen används standard läget för att räkna antalet flyttningar för att beräkna MoveCost, och MoveCost-rapporter ignoreras.
 
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -102,7 +101,7 @@ ClusterManifest. XML:
         </Section>
 ```
 
-via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
+via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [

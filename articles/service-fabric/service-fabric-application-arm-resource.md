@@ -4,10 +4,9 @@ description: Lär dig hur du distribuerar program och tjänster till ett Service
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75610258"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager resurser
@@ -244,7 +243,7 @@ I följande kodfragment visas olika typer av resurser som kan hanteras via en ma
    ```
 
    > [!NOTE] 
-   > *API version* måste vara inställt `"2019-03-01"`på. Den här mallen kan också distribueras oberoende av klustret, så länge klustret redan har distribuerats.
+   > *API version* måste vara inställt på `"2019-03-01"` . Den här mallen kan också distribueras oberoende av klustret, så länge klustret redan har distribuerats.
 
 5. Distribuera! 
 

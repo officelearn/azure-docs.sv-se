@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614531"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Utveckla C# Service Fabric-program med Visual Studio Code
@@ -22,7 +21,7 @@ Den här artikeln visar hur du skapar, distribuerar och felsöker ett .NET Core 
 
 Den här artikeln förutsätter att du redan har installerat VS Code, Service Fabric Reliable Services tillägget för VS Code och eventuella beroenden som krävs för utvecklings miljön. Läs mer i [komma igång](./service-fabric-get-started-vs-code.md#prerequisites).
 
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-the-sample"></a>Ladda ned exemplet
 I den här artikeln används CounterService-programmet i [Service Fabric .net Core komma igång-exempel GitHub-lagringsplatsen](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started). 
 
 Om du vill klona lagrings platsen till utvecklings datorn kör du följande kommando från ett terminalfönster (kommando fönster i Windows):
@@ -61,11 +60,11 @@ När du har skapat programmet kan du distribuera det till det lokala klustret.
 
    ![Distribuera program kommando i VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. När distributionen är klar startar du en webbläsare och öppnar Service Fabric Explorer: http:\//localhost: 19080/Explorer. Du bör se att programmet körs. Det kan ta lite tid, så därför måste du vara patient. 
+4. När distributionen är klar startar du en webbläsare och öppnar Service Fabric Explorer: http: \/ /localhost: 19080/Explorer. Du bör se att programmet körs. Det kan ta lite tid, så därför måste du vara patient. 
 
    ![Counter service-program i Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. När du har verifierat att programmet körs startar du en webbläsare och öppnar den här sidan: http\/:/localhost: 31002. Det här är webb klient delen av programmet. Uppdatera sidan om du vill se räknarens aktuella värde när det ökar.
+4. När du har verifierat att programmet körs startar du en webbläsare och öppnar den här sidan: http: \/ /localhost: 31002. Det här är webb klient delen av programmet. Uppdatera sidan om du vill se räknarens aktuella värde när det ökar.
 
    ![Counter service-program i webbläsare](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -78,14 +77,14 @@ Förutom att distribuera programmet till det lokala klustret kan du också publi
 
    ![Kommandot Publicera program i VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
-3. När distributionen är klar startar du en webbläsare och öppnar Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Du bör se att programmet körs. Det kan ta lite tid, så därför måste du vara patient. 
+3. När distributionen är klar startar du en webbläsare och öppnar Service Fabric Explorer: `https:<clusterurl>:19080/Explorer` . Du bör se att programmet körs. Det kan ta lite tid, så därför måste du vara patient. 
 
 ## <a name="debug-the-application"></a>Felsök programmet
 När program felsöks i VS Code måste programmet köras på ett lokalt kluster. Bryt punkter kan sedan läggas till i koden.
 
 Utför följande steg för att ange en Bryt punkt och fel sökning:
 1. Öppna */src/CounterServiceApplication/CounterService/CounterService.cs* -filen i Utforskaren och ange en Bryt punkt på rad 62 i `RunAsync` metoden.
-3. Klicka på ikonen Felsök i **aktivitets fältet** för att öppna fel söknings vyn i vs Code. Klicka på kugg hjuls ikonen överst i vyn för fel sökning och välj **.net Core** på menyn List Rute miljö. Starta. JSON-filen öppnas. Du kan stänga den här filen. Nu bör du se konfigurations alternativ på menyn för fel söknings konfiguration bredvid knappen Kör (grön pil).
+3. Klicka på ikonen Felsök i **aktivitets fältet** för att öppna fel söknings vyn i vs Code. Klicka på kugg hjuls ikonen överst i vyn för fel sökning och välj **.net Core** på menyn List Rute miljö. launch.jsfilen öppnas. Du kan stänga den här filen. Nu bör du se konfigurations alternativ på menyn för fel söknings konfiguration bredvid knappen Kör (grön pil).
 
    ![Fel söknings ikon i VS Code-arbetsyta](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-icon-workspace.png)
 
@@ -93,7 +92,7 @@ Utför följande steg för att ange en Bryt punkt och fel sökning:
 
    ![Fel söknings ikon i VS Code-arbetsyta](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Öppna Service Fabric Explorer i en webbläsare: http:\//localhost: 19080/Explorer. Klicka på **program** och öka detalj nivån för att avgöra vilken primär nod som CounterService körs på. I bilden nedanför den primära noden för CounterService är Node 0.
+3. Öppna Service Fabric Explorer i en webbläsare: http: \/ /localhost: 19080/Explorer. Klicka på **program** och öka detalj nivån för att avgöra vilken primär nod som CounterService körs på. I bilden nedanför den primära noden för CounterService är Node 0.
 
    ![Primär nod för CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

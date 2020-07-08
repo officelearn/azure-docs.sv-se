@@ -4,10 +4,9 @@ description: I den här artikeln förklaras hur du beviljar åtkomst till hanter
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614801"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Bevilja en Service Fabric programmets hanterade identitets åtkomst till Azure-resurser (förhands granskning)
@@ -24,7 +23,7 @@ Du kan använda det Service Fabric programmets hanterade identitet (användar ti
 3. valfritt Kontrol lera befintlig åtkomst: Välj system-eller användardefinierad hanterad identitet i find-kontrollen; Välj lämplig identitet i resultat listan
 4. Klicka på + Lägg till roll tilldelning ovanpå sidan för att lägga till en ny roll tilldelning för programmets identitet.
 Under roll i list rutan väljer du Storage BLOB data Reader.
-5. I nästa listruta under tilldela åtkomst till väljer `User assigned managed identity`du.
+5. I nästa listruta under tilldela åtkomst till väljer du `User assigned managed identity` .
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan Prenumeration. Under Resursgrupper väljer du Alla resursgrupper.
 7. Under Välj väljer du den UAI som motsvarar Service Fabric programmet och klickar sedan på Spara.
 
@@ -35,7 +34,7 @@ På samma sätt som med lagring kan du använda den hanterade identiteten för e
 
 ![Key Vault åtkomst princip](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-I följande exempel visas hur du beviljar åtkomst till ett valv via en mall distribution. Lägg till kodfragmenten nedan som en annan post under mallens `resources` element. Exemplet visar åtkomst beviljande för både tilldelade och systemtilldelade identitets typer – Välj lämplig.
+I följande exempel visas hur du beviljar åtkomst till ett valv via en mall distribution. Lägg till kodfragmenten nedan som en annan post under `resources` mallens element. Exemplet visar åtkomst beviljande för både tilldelade och systemtilldelade identitets typer – Välj lämplig.
 
 ```json
     # under 'variables':

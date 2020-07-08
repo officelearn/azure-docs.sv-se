@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650401"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Lägga till anpassade åtgärder i Azure REST API
@@ -18,7 +17,7 @@ Den här artikeln går igenom kraven och bästa praxis för att skapa Azure-slut
 
 ## <a name="how-to-define-an-action-endpoint"></a>Definiera en åtgärds slut punkt
 
-En **slut punkt** är en URL som pekar på en tjänst, som implementerar det underliggande kontraktet mellan det och Azure. Slut punkten definieras i den anpassade resurs leverantören och kan vara en offentligt tillgänglig URL. Exemplet nedan har en **åtgärd** som kallas `myCustomAction` implementerad `endpointURL`av.
+En **slut punkt** är en URL som pekar på en tjänst, som implementerar det underliggande kontraktet mellan det och Azure. Slut punkten definieras i den anpassade resurs leverantören och kan vara en offentligt tillgänglig URL. Exemplet nedan har en **åtgärd** som kallas `myCustomAction` implementerad av `endpointURL` .
 
 Exempel på **ResourceProvider**:
 
@@ -81,7 +80,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 På samma sätt vidarebefordras svaret från **slut punkten** tillbaka till kunden. Svaret från slut punkten ska returnera:
 
 - Ett giltigt JSON-objekt dokument. Alla matriser och strängar ska kapslas under ett översta objekt.
-- `Content-Type` Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
+- `Content-Type`Rubriken ska vara inställd på "Application/JSON; charset = utf-8 ".
 
 ``` HTTP
 HTTP/1.1 200 OK

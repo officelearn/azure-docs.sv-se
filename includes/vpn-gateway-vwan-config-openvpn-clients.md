@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80986783"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Windows-klienter
@@ -25,12 +25,12 @@ ms.locfileid: "80986783"
    * [VPN gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) -instruktioner
    
    * [Virtuella WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) -instruktioner
-5. Extrahera den privata nyckeln och base64-tumavtrycket från *. pfx*-filen. Det finns flera sätt att göra detta på. Att använda OpenSSL på din dator är ett sätt. Filen *profileinfo. txt* innehåller den privata nyckeln och TUMAVTRYCK för ca: n och klient certifikatet. Se till att använda tumavtrycket för klient certifikatet.
+5. Extrahera den privata nyckeln och base64-tumavtrycket från *. pfx*-filen. Det finns flera sätt att göra detta på. Att använda OpenSSL på din dator är ett sätt. *profileinfo.txt* -filen innehåller den privata nyckeln och TUMAVTRYCK för ca: n och klient certifikatet. Se till att använda tumavtrycket för klient certifikatet.
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
-6. Öppna *profileinfo. txt* i anteckningar. Om du vill hämta tumavtrycket för klientens (underordnat) certifikat väljer du texten (inklusive och mellan) "-----BEGIN CERTIFICATe-----" och "-----END CERTIFICATe-----" för det underordnade certifikatet och kopierar det. Du kan identifiera det underordnade certifikatet genom att titta på subject =/rad.
+6. Öppna *profileinfo.txt* i anteckningar. Om du vill hämta tumavtrycket för klientens (underordnat) certifikat väljer du texten (inklusive och mellan) "-----BEGIN CERTIFICATe-----" och "-----END CERTIFICATe-----" för det underordnade certifikatet och kopierar det. Du kan identifiera det underordnade certifikatet genom att titta på subject =/rad.
 7. Växla till filen *vpnconfig. ovpn* som du öppnade i anteckningar från steg 3. Hitta avsnittet som visas nedan och Ersätt allt mellan "cert" och "/cert".
 
    ```
@@ -40,7 +40,7 @@ ms.locfileid: "80986783"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Öppna filen *profileinfo. txt* i anteckningar. Om du vill hämta den privata nyckeln markerar du texten (inklusive och mellan) "-----börjar privat nyckel-----" och "-----END PRIVATE KEY-----" och kopierar den.
+8. Öppna *profileinfo.txt* i anteckningar. Om du vill hämta den privata nyckeln markerar du texten (inklusive och mellan) "-----börjar privat nyckel-----" och "-----END PRIVATE KEY-----" och kopierar den.
 9. Gå tillbaka till filen vpnconfig. ovpn i anteckningar och hitta det här avsnittet. Klistra in den privata nyckeln och Ersätt allt mellan och "Key" och "/Key".
 
    ```
@@ -132,9 +132,9 @@ ms.locfileid: "80986783"
     ```
     openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
-   Filen *profileinfo. txt* kommer att innehålla den privata nyckeln och TUMAVTRYCK för ca: n och klient certifikatet. Se till att använda tumavtrycket för klient certifikatet.
+   *profileinfo.txt* -filen innehåller den privata nyckeln och TUMAVTRYCK för ca: n och klient certifikatet. Se till att använda tumavtrycket för klient certifikatet.
 
-6. Öppna *profileinfo. txt* i en text redigerare. Om du vill hämta tumavtrycket för klientens (underordnat) certifikat väljer du texten inklusive och mellan "-----BEGIN CERTIFICATe-----" och "-----END CERTIFICATe-----" för det underordnade certifikatet och kopierar det. Du kan identifiera det underordnade certifikatet genom att titta på subject =/rad.
+6. Öppna *profileinfo.txt* i en text redigerare. Om du vill hämta tumavtrycket för klientens (underordnat) certifikat väljer du texten inklusive och mellan "-----BEGIN CERTIFICATe-----" och "-----END CERTIFICATe-----" för det underordnade certifikatet och kopierar det. Du kan identifiera det underordnade certifikatet genom att titta på subject =/rad.
 
 7. Öppna filen *vpnconfig. ovpn* och hitta avsnittet som visas nedan. Ersätt allt mellan och "cert" och "/cert".
 
@@ -145,7 +145,7 @@ ms.locfileid: "80986783"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Öppna profileinfo. txt i en text redigerare. Om du vill hämta den privata nyckeln markerar du texten inklusive och mellan "-----börjar privat nyckel-----" och "-----avsluta den privata nyckeln-----" och kopierar den.
+8. Öppna profileinfo.txt i en text redigerare. Om du vill hämta den privata nyckeln markerar du texten inklusive och mellan "-----börjar privat nyckel-----" och "-----avsluta den privata nyckeln-----" och kopierar den.
 
 9. Öppna filen vpnconfig. ovpn i en text redigerare och leta upp det här avsnittet. Klistra in den privata nyckeln och Ersätt allt mellan och "Key" och "/Key".
 

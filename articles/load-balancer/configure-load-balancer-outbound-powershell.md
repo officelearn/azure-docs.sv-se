@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: bd429ee5fc5564c55e6a9c758e1c53e821060f0e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84809534"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>Konfigurera belastnings utjämning och utgående regler i Standard Load Balancer med Azure PowerShell

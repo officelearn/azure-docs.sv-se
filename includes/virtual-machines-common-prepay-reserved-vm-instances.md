@@ -5,10 +5,10 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 03/27/2020
 ms.openlocfilehash: d41affc55134ad34c325c12ab4a14f4013c58f9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371646"
 ---
 När du genomför en virtuell Azure-instans kan du spara pengar. Reservations rabatten tillämpas automatiskt på antalet virtuella datorer som körs och som matchar reservations omfånget och attributen. Du behöver inte tilldela en reservation till en virtuell dator för att få rabatterna. En reserverad instans köps bara täcker beräknings delen av din virtuella dator användning. Användnings mätaren delas upp i två separata meter för virtuella Windows-datorer. Det finns en beräknings mätare, som är samma som Linux-mätaren och en Windows IP-mätare. De kostnader som du ser när du gör köpet är bara för beräknings kostnader. Avgifter omfattar inte kostnader för Windows-programvara. Mer information om program varu kostnader finns i [program varu kostnader som inte ingår i Azure Reserved VM instances](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
@@ -57,7 +57,7 @@ Mer information om flexibel instansstorlek finns i artikeln om [flexibel storlek
 
 ### <a name="analyze-your-usage-information"></a>Analysera din användnings information
 
-Analysera användnings informationen för att avgöra vilka reservationer du bör köpa. Användnings data är tillgängliga i användnings filen och API: erna. Använd dem tillsammans för att avgöra vilken reservation som ska köpas. Sök efter virtuella dator instanser som har hög användning dagligen för att fastställa antalet reservationer som ska köpas. `Meter` Undvik under kategori och `Product` fält i användnings data. De skiljer inte mellan VM-storlekar som använder Premium Storage. Om du använder dessa fält för att fastställa storleken på den virtuella datorn för reservations köp kan du köpa fel storlek. Sedan får du inte den reservations rabatt som du förväntar dig. Läs i stället in i `AdditionalInfo` fältet i användnings filen eller användnings-API: et för att fastställa rätt storlek på den virtuella datorn.
+Analysera användnings informationen för att avgöra vilka reservationer du bör köpa. Användnings data är tillgängliga i användnings filen och API: erna. Använd dem tillsammans för att avgöra vilken reservation som ska köpas. Sök efter virtuella dator instanser som har hög användning dagligen för att fastställa antalet reservationer som ska köpas. Undvik under `Meter` kategori och `Product` fält i användnings data. De skiljer inte mellan VM-storlekar som använder Premium Storage. Om du använder dessa fält för att fastställa storleken på den virtuella datorn för reservations köp kan du köpa fel storlek. Sedan får du inte den reservations rabatt som du förväntar dig. Läs i stället in i `AdditionalInfo` fältet i användnings filen eller användnings-API: et för att fastställa rätt storlek på den virtuella datorn.
 
 Din användnings fil visar dina avgifter per fakturerings period och daglig användning. Information om hur du hämtar din användnings fil finns i [Visa och ladda ned Azure-användning och-kostnader](../articles/cost-management-billing/understand/download-azure-daily-usage.md). Sedan kan du med hjälp av informationen om användnings filen [avgöra vilken reservation som ska köpas](../articles/cost-management-billing/reservations/determine-reservation-purchase.md).
 
@@ -87,21 +87,21 @@ Dessa krav gäller för att köpa en reserverad VM-instans:
 Så här köper du en instans:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **alla tjänster** > **reservationer**.
+1. Välj **Alla tjänster** > **Reservationer**.
 1. Välj **Lägg till** för att köpa en ny reservation och klicka sedan på **virtuell dator**.
 1. Fyll i obligatoriska fält. Om du kör virtuella datorinstanser som matchar de attribut du väljer gäller det för att hämta reservationsrabatten. Det faktiska antalet virtuella datorinstanser som erhåller rabatten beror på omfattning och vald kvantitet.
 
 Om du har ett EA-avtal kan du använda **alternativet Lägg till fler** för att snabbt lägga till fler instanser. Alternativet är inte tillgängligt för andra prenumerations typer.
 
 
-| Field      | Beskrivning|
+| Fält      | Beskrivning|
 |------------|--------------|
 |Prenumeration|Prenumerationen som används för att betala för reservationen. Betalnings metoden för prenumerationen debiteras kostnaderna för reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller Microsoft-kundavtal eller en enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). Avgifterna dras av från betalnings åtagande beloppet, om det är tillgängligt eller debiteras som överanvändning. För en prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.|    
-|Omfång       |Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>**Omfång för enskild resursgrupp** – tillämpar reservationsrabatten på de matchande resurserna enkom i den valda resursgruppen.</li><li>**Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.</li><li>**Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.</li></ul>|
+|Omfång       |Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>**Omfång för enskild resursgrupp** – reservationsrabatten tillämpas endast på matchande resurser i den valda resursgruppen.</li><li>**Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.</li><li>**Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.</li></ul>|
 |Region    |Den Azure-region som omfattas av reservationen.|    
 |Storlek på virtuell dator     |Storleken på de virtuella dator instanserna.|
 |Optimera för     |Flexibilitet för storlek på virtuell dator instans är markerad som standard. Klicka på **Avancerade inställningar** för att ändra storlek på flexibiliteten för instans storlek för att tillämpa reservations rabatten på andra virtuella datorer i samma [storleks grupp för virtuell dator](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). Om du prioriterar kapaciteten prioriteras datacenterkapaciteten för dina distributioner. Det ger ytterligare förtroende för möjligheten att starta de virtuella dator instanserna när du behöver dem. Kapacitets prioritet är bara tillgängligt när reservations omfånget är en enskild prenumeration. |
-|Period        |Ett år eller tre år.|
+|Term        |Ett år eller tre år.|
 |Kvantitet    |Antalet instanser som köps i reservationen. Antalet är antalet aktiva VM-instanser som kan hämta fakturerings rabatten. Om du till exempel kör 10 Standard_D2 virtuella datorer i USA, kan du ange kvantitet som 10 för att maximera fördelarna med alla virtuella datorer som körs. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
@@ -133,7 +133,7 @@ Du kan dock *byta* ut en reservation om du vill göra ändringar.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Mer information finns i [självbetjänings utbyten och åter betalningar för Azure reservations](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
@@ -142,8 +142,8 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du hanterar en reservation finns i [Hantera Azure-reservationer](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md).
-- Du kan läsa mer om Azure-reservationer i följande artiklar:
-    - [Vad är Azure Reservations?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+- Mer information om Azure-reservationer finns i följande artiklar:
+    - [Vad är Azure-reservationer?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
     - [Hantera reservationer i Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
     - [Förstå hur reservationsrabatten tillämpas](../articles/cost-management-billing/manage/understand-vm-reservation-charges.md)
     - [Förstå reservationsanvändning för en prenumeration med Betala per användning-priser](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)

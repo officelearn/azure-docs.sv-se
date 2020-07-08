@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187018"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -27,7 +27,7 @@ Du kan definiera upp till 252 anpassade egenskaper för en entitet.
 
 ### <a name="add-table-entities"></a>Lägg till tabell enheter
 
-Lägg till entiteter i en tabell med **Add-AzTableRow**. I de här exemplen används partitionsalternativ `partition1` med `partition2`värden och rad nycklar som är lika med delstats förkortningar. Egenskaperna i varje entitet är `username` och. `userid` 
+Lägg till entiteter i en tabell med **Add-AzTableRow**. I de här exemplen används partitionsalternativ med värden `partition1` och `partition2` rad nycklar som är lika med delstats förkortningar. Egenskaperna i varje entitet är `username` och `userid` . 
 
 ```powershell
 $partitionKey1 = "partition1"

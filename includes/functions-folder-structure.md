@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
@@ -8,10 +8,10 @@ ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 5f5f682c8c31c17f1a645bcdacdc78f32bd5c001
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77205741"
 ---
 Koden för alla funktioner i en speciell Function-app finns i en rotmapp som innehåller en värd konfigurations fil och en eller flera undermappar. Varje undermapp innehåller koden för en separat funktion. Mappstrukturen visas i följande representation:
@@ -31,7 +31,7 @@ FunctionApp
 
 I version 2. x och högre av Functions-körningsmiljön måste alla funktioner i Function-appen dela samma språks tack.  
 
-[Host. JSON](../articles/azure-functions/functions-host-json.md) -filen innehåller körnings bara konfigurationer och finns i rotmappen i Function-appen. En *bin* -mapp innehåller paket och andra biblioteks filer som funktions programmet kräver. Se språkspecifika krav för ett Function app-projekt:
+[host.jsi](../articles/azure-functions/functions-host-json.md) filen innehåller körnings bara konfigurationer och finns i rotmappen i Function-appen. En *bin* -mapp innehåller paket och andra biblioteks filer som funktions programmet kräver. Se språkspecifika krav för ett Function app-projekt:
 
 * [C#-klass bibliotek (. CSPROJ)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
 * [C#-skript (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)

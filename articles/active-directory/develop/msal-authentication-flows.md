@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 9a0315fadefac0269a6d9670844ef8c3886eef12
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975630"
 ---
 # <a name="authentication-flows"></a>Autentiserings flöden
@@ -88,7 +88,7 @@ I föregående diagram är programmet:
 1. Begär en auktoriseringskod som löses in för en åtkomsttoken.
 2. Använder åtkomsttoken för att anropa ett webb-API.
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 - Du kan bara använda auktoriseringskod en gång för att lösa in en token. Försök inte att hämta en token flera gånger med samma auktoriseringskod eftersom den uttryckligen förbjuds av protokoll standard specifikationen. Om du löser in koden flera gånger, antingen avsiktligt eller på grund av att ett ramverk också gör det, får du följande fel meddelande:
 

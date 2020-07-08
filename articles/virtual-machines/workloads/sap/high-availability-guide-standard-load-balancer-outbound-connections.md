@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
 ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84907473"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet

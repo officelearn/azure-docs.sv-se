@@ -9,15 +9,15 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84974525"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer fel söknings guide
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
-Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, macOS och Linux. Appen kan ansluta till lagrings konton som finns i Azure, nationella moln och Azure Stack.
+Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux. Appen kan anslutas till lagringskonton som finns i Azure, nationella moln och Azure Stack.
 
 I den här guiden sammanfattas lösningar för problem som ofta visas i Storage Explorer.
 

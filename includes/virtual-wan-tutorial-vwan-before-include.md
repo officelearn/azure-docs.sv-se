@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,14 +9,14 @@ ms.date: 09/12/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 945d701a2a7dffc259c601b4dab9fa1333ccc066
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896608"
 ---
 Innan du startar konfigurationen kontrollerar du att du uppfyller följande kriterier:
 
 * Om du redan har ett virtuellt nätverk som du vill ansluta till kontrollerar du att inget av under näten i det lokala nätverket överlappar det. Ditt virtuella nätverk kräver inte ett Gateway-undernät och kan inte ha några virtuella nätverksgateway. Om du inte har ett virtuellt nätverk kan du skapa ett med hjälp av stegen i den här artikeln.
 * Hämta ett IP-adressintervall för din hubbregion. Hubben är ett virtuellt nätverk och det adress intervall som du anger för Hub-regionen får inte överlappa med ett befintligt virtuellt nätverk som du ansluter till. Det får inte heller överlappa de adress intervall som du ansluter till lokalt. Om du inte känner till IP-adressintervall som finns i din lokala nätverks konfiguration, koordinerar du med någon som kan ge den informationen åt dig.
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.

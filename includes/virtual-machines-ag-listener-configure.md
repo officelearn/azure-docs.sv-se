@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75469438"
 ---
 Tillgänglighets gruppens lyssnare är en IP-adress och ett nätverks namn som SQL Server tillgänglighets gruppen lyssnar på. Skapa tillgänglighets gruppens lyssnare genom att göra följande:
@@ -28,7 +28,7 @@ Tillgänglighets gruppens lyssnare är en IP-adress och ett nätverks namn som S
 
     a. Expandera kluster namnet och klicka sedan på **roller**.
 
-    b. I fönstret **roller** högerklickar du på namnet på tillgänglighets gruppen och väljer sedan **Lägg till resurs** > **klient åtkomst punkt**.
+    b. I fönstret **roller** högerklickar du på namnet på tillgänglighets gruppen och väljer sedan **Lägg till resurs**  >  **klient åtkomst punkt**.
 
    ![Klient åtkomst punkt](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
@@ -116,7 +116,7 @@ Om det behövs upprepar du stegen ovan för att ange kluster parametrar för IP-
 
 1. Högerklicka på **IP-adress**och välj **Egenskaper**.
 
-1. Kopiera **namnet** på IP-adressen. Det kan vara `Cluster IP Address`. 
+1. Kopiera **namnet** på IP-adressen. Det kan vara `Cluster IP Address` . 
 
 1. <a name="setwsfcparam"></a>Ange kluster parametrarna i PowerShell.
   

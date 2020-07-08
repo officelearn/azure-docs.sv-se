@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
 ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75541808"
 ---
 1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
@@ -26,7 +26,7 @@ ms.locfileid: "75541808"
     
 1. Gå till design avsnittet i arbets ytan om du vill visa en lista över pipeline-utkast. 
     
-    Du hittar de konverterade webb tjänsterna genom att navigera till **slut** > punkter i**real tid i real tid**.
+    Du hittar de konverterade webb tjänsterna genom att navigera till **slut**punkter i  >  **real tid i real tid**.
 
 1. Välj ett pipeline-utkast för att öppna det.
 

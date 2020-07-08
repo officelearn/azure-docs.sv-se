@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: 4e07334e859f2c1401547cc3f88988830b71c5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77192767"
 ---
 Den här artikeln beskriver hur du migrerar infrastruktur som en tjänst (IaaS) resurser från de klassiska distributions modellerna för Resource Manager och hur du ansluter resurser från de två distributions modeller som finns i din prenumeration med hjälp av virtuella nätverks plats-till-plats-gatewayer. Du kan läsa mer om [Azure Resource Manager funktioner och förmåner](../articles/azure-resource-manager/management/overview.md). 
@@ -44,7 +44,7 @@ Det finns fyra olika sätt att slutföra migreringen av beräknings-, nätverks-
 * [Migrering av ej anslutna resurser](#migration-of-unattached-resources)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>Migrering av virtuella datorer (inte i ett virtuellt nätverk)
-I distributions modellen för Resource Manager tillämpas säkerheten på dina program som standard. Alla virtuella datorer måste finnas i ett virtuellt nätverk i Resource Manager-modellen. Azure-plattformen startar om (`Stop`, `Deallocate`och `Start`) de virtuella datorerna som en del av migreringen. Du har två alternativ för de virtuella nätverk som Virtual Machines ska migreras till:
+I distributions modellen för Resource Manager tillämpas säkerheten på dina program som standard. Alla virtuella datorer måste finnas i ett virtuellt nätverk i Resource Manager-modellen. Azure-plattformen startar om ( `Stop` , `Deallocate` och `Start` ) de virtuella datorerna som en del av migreringen. Du har två alternativ för de virtuella nätverk som Virtual Machines ska migreras till:
 
 * Du kan begära plattformen för att skapa ett nytt virtuellt nätverk och migrera den virtuella datorn till det nya virtuella nätverket.
 * Du kan migrera den virtuella datorn till ett befintligt virtuellt nätverk i Resource Manager.

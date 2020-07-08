@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81422103"
 ---
 Att placera virtuella datorer i en enda region minskar det fysiska avståndet mellan instanserna. Att placera dem i en enda tillgänglighets zon kommer också att ta dem fysiskt närmare varandra. I takt med att Azure-utrymmet växer kan en enda tillgänglighets zon sträcka sig över flera fysiska data Center, vilket kan leda till en nätverks fördröjning som påverkar ditt program. 
@@ -51,6 +51,6 @@ Närhets placerings grupper erbjuder samplacering i samma data Center. Men efter
 ## <a name="best-practices"></a>Bästa praxis 
 - Använd närhets placerings grupper tillsammans med accelererat nätverk för lägsta latens. Mer information finns i [skapa en virtuell Linux-dator med accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [skapa en virtuell Windows-dator med accelererat nätverk](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Distribuera alla VM-storlekar i en enda mall. För att undvika landning på maskin vara som inte stöder alla VM-SKU: er och storlekar som du behöver, måste du ta med alla program nivåer i en enda mall så att de kan distribueras på samma gång.
-- Om du kör skript för distributionen med PowerShell, CLI eller SDK kan du få ett allokeringsfel `OverconstrainedAllocationRequest`. I det här fallet bör du stoppa/frigöra alla befintliga virtuella datorer och ändra ordningen i distributions skriptet så att den börjar med VM-SKU: n/storlekarna som misslyckades. 
+- Om du kör skript för distributionen med PowerShell, CLI eller SDK kan du få ett allokeringsfel `OverconstrainedAllocationRequest` . I det här fallet bör du stoppa/frigöra alla befintliga virtuella datorer och ändra ordningen i distributions skriptet så att den börjar med VM-SKU: n/storlekarna som misslyckades. 
 - När du återanvänder en befintlig placerings grupp som de virtuella datorerna togs bort från, väntar du tills borttagningen har slutförts innan du lägger till virtuella datorer i den.
 - Om svars tiden är din första prioritet ska du placera virtuella datorer i en närhets placerings grupp och hela lösningen i en tillgänglighets zon. Men om återhämtning är din högsta prioritet sprider du dina instanser över flera tillgänglighets zoner (en enda närhets placerings grupp kan inte omfatta zoner).

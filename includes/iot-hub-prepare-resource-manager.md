@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67133038"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Förbered för att autentisera Azure Resource Manager begär Anden
@@ -41,8 +41,8 @@ Följande steg visar hur du konfigurerar lösenordsautentisering för ett AD-pro
 3. Skapa ett nytt Azure Active Directory program med hjälp av följande kommando och ersätt plats innehavarna:
    
    * **{Visnings namn}:** ett visnings namn för programmet, till exempel **MySampleApp**
-   * **{URL för hem sida}:** URL: en för appens start sida, till exempel **http\/:/mysampleapp/Home**. URL: en behöver inte peka på ett verkligt program.
-   * **{Program identifierare}:** En unik identifierare, till exempel **http\/:/mysampleapp**. URL: en behöver inte peka på ett verkligt program.
+   * **{URL för hem sida}:** URL: en för appens start sida, till exempel **http: \/ /mysampleapp/Home**. URL: en behöver inte peka på ett verkligt program.
+   * **{Program identifierare}:** En unik identifierare, till exempel **http: \/ /mysampleapp**. URL: en behöver inte peka på ett verkligt program.
    * **{Password}:** Ett lösen ord som du använder för att autentisera med din app.
      
      ```powershell
@@ -66,7 +66,7 @@ Nu har du skapat Azure AD-programmet som gör att du kan autentisera från ditt 
 * TenantId
 * SubscriptionId
 * ApplicationId
-* lösenord
+* lösenordsinställning
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: /powershell/azure/install-az-ps

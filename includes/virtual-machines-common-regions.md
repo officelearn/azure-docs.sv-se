@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76020937"
 ---
 Det är viktigt att förstå hur och var dina virtuella datorer körs i Azure och vilka alternativ du har för att maximera prestanda, tillgänglighet och redundans. Den här artikeln ger en översikt över funktionerna för tillgänglighet och redundans i Azure.
@@ -74,7 +74,7 @@ Följande tabell ger en snabb översikt över skillnaderna mellan lagringsreplik
 
 | Replikeringsstrategi | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Data replikeras över flera anläggningar. |Nej |Ja |Ja |Ja |
+| Data replikeras över flera anläggningar. |No |Ja |Ja |Ja |
 | Data kan läsas från den sekundära platsen och från den primära platsen. |Nej |Nej |Nej |Ja |
 | Antal kopior av data som finns på olika noder. |3 |3 |6 |6 |
 

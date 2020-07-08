@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
 ms.openlocfilehash: 4c9998488013ce89b17a30a6c3948a02407d06bb
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84945332"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa mått varningar för loggar i Azure Monitor

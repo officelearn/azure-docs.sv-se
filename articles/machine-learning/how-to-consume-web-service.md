@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: seodec18, tracking-python
 ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84974678"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning modell som distribueras som en webb tjänst
@@ -88,7 +88,7 @@ Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tj
 
 |Autentiseringsmetod|ACI|AKS|
 |---|---|---|
-|Nyckel|Inaktiverat som standard| Aktiverat som standard|
+|Tangent|Inaktiverat som standard| Aktiverat som standard|
 |Token| Inte tillgängligt| Inaktiverat som standard |
 
 När du skickar en begäran till en tjänst som skyddas med en nyckel eller token ska du använda __Authorization__ -huvudet för att skicka nyckeln eller token. Nyckeln eller token måste formateras som `Bearer <key-or-token>` , där `<key-or-token>` är nyckel-eller token-värdet.

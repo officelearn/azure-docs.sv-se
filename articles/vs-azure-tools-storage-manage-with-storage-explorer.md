@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975273"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
 ## <a name="overview"></a>Översikt
 
-Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, macOS och Linux. I den här artikeln lär du dig flera olika sätt att ansluta till och hantera dina Azure Storage-konton.
+Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux. I den här artikeln lär du dig flera olika sätt att ansluta till och hantera dina Azure Storage-konton.
 
 ![Microsoft Azure Storage Explorer][0]
 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d1ec61bf18248ea56c8ee5e430a671af7f39d732
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458682"
 ---
 Det är viktigt att du håller den virtuella datorn säker för de program som du kör. Att skydda dina virtuella datorer kan omfatta en eller flera Azure-tjänster och-funktioner som omfattar säker åtkomst till dina virtuella datorer och säker lagring av dina data. Den här artikeln innehåller information som gör att du kan skydda dina virtuella datorer och program.
 
-## <a name="antimalware"></a>Skadlig kod
+## <a name="antimalware"></a>Programvara mot skadlig kod
 
 Modern Threat landskap för moln miljöer är dynamisk, vilket ökar trycket för att upprätthålla det effektiva skyddet för att uppfylla efterlevnads-och säkerhets kraven. [Microsoft Antimalware för Azure](../articles/security/fundamentals/antimalware.md) är en kostnads fri real tids skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Aviseringar kan konfigureras för att meddela dig när kända skadlig eller oönskad program vara försöker installera sig själv eller köra på den virtuella datorn. Det finns inte stöd för virtuella datorer som kör Linux eller Windows Server 2008.
 

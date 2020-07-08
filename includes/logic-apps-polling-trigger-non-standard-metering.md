@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/09/2018
 ms.openlocfilehash: 89c2467843d7abc7c005804fd5263fe3beb668b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74793435"
 ---
 Om du vill beräkna mer exakta förbruknings kostnader bör du ta hänsyn till det möjliga antalet meddelanden eller händelser som kan komma att komma till en bestämd dag, i stället för att basera dina beräkningar enbart på avsöknings intervallet. När en händelse eller ett meddelande uppfyller utlösarens villkor försöker många utlösare omedelbart läsa eventuella och alla andra väntande händelser eller meddelanden som uppfyller villkoren. Det innebär att även om du väljer ett längre avsöknings intervall utlöses utlösaren baserat på antalet väntande händelser eller meddelanden som är kvalificerade för start av arbets flöden. Utlösare som följer detta beteende är Azure Service Bus och Azure Event Hub.

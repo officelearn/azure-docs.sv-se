@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
 ms.openlocfilehash: a037eddb13645036fcbe501ecba33923733b6d03
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84944380"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer
@@ -44,7 +44,7 @@ Plattforms loggar och-mått kan skickas till målen i följande tabell. Följ va
 | Mål | Beskrivning |
 |:---|:---|
 | [Log Analytics-arbetsyta](#log-analytics-workspace) | Genom att skicka loggar och mått till en Log Analytics arbets yta kan du analysera dem med andra övervaknings data som samlas in av Azure Monitor använda kraftfulla logg frågor och även använda andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. |
-| [Event Hub](#event-hub) | Genom att skicka loggar och mått till Event Hubs kan du strömma data till externa system, till exempel Siem för tredje part och andra Log Analytics-lösningar. |
+| [Event Hubs](#event-hub) | Genom att skicka loggar och mått till Event Hubs kan du strömma data till externa system, till exempel Siem för tredje part och andra Log Analytics-lösningar. |
 | [Azure Storage-konto](#azure-storage) | Arkivering av loggar och mått till ett Azure Storage-konto är användbart för granskning, statisk analys eller säkerhets kopiering. Jämfört med Azure Monitor loggar och en Log Analytics arbets yta är Azure Storage billigare och loggar kan sparas där på obestämd tid. |
 
 

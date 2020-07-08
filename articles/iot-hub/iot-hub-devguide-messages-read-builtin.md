@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
 ms.openlocfilehash: a9bc0564a69124618d0a7e3ff6bafb65b2be0ee4
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84907490"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten

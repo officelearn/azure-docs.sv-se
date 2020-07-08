@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.openlocfilehash: 938f10b621d6081af84cf15d7e04c5f5ab517417
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84977751"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blockera anslutningar som skapats av anslutningar i Azure Logic Apps
@@ -125,11 +125,11 @@ Följ dessa steg om du vill blockera skapandet av en anslutning helt i en Logic 
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Definitions plats** | Yes | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
-   | **Namn** | Yes | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
+   | **Definitions plats** | Ja | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
+   | **Namn** | Ja | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
    | **Beskrivning** | No | <*princip-definition-namn*> | En beskrivning av princip definitionen |
-   | **Kategori** | Yes | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
-   | **Policyframtvingande** | Yes | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
+   | **Kategori** | Ja | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
+   | **Principtillämpning** | Ja | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
    ||||
 
 1. Under **princip regel**fylls JSON-redigerings rutan i förväg med en princip definitions mall. Ersätt den här mallen med din [princip definition](../governance/policy/concepts/definition-structure.md) baserat på de egenskaper som beskrivs i tabellen nedan och genom att följa den här syntaxen:
@@ -246,11 +246,11 @@ När du skapar en anslutning i en Logic app, finns anslutningen som separat Azur
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Definitions plats** | Yes | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
-   | **Namn** | Yes | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
+   | **Definitions plats** | Ja | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
+   | **Namn** | Ja | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
    | **Beskrivning** | No | <*princip-definition-namn*> | En beskrivning av princip definitionen |
-   | **Kategori** | Yes | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
-   | **Policyframtvingande** | Yes | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
+   | **Kategori** | Ja | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
+   | **Principtillämpning** | Ja | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
    ||||
 
 1. Under **princip regel**fylls JSON-redigerings rutan i förväg med en princip definitions mall. Ersätt den här mallen med din [princip definition](../governance/policy/concepts/definition-structure.md) baserat på de egenskaper som beskrivs i tabellen nedan och genom att följa den här syntaxen:
@@ -331,13 +331,13 @@ Därefter måste du tilldela den princip definition där du vill genomdriva prin
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Omfång** | Yes | De resurser där du vill genomdriva princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **omfång** . <br>2. Välj Azure-prenumerationen i listan **prenumeration** . <br>3. du kan också välja resurs gruppen från listan **resurs grupp** . <br>4. När du är klar väljer du **Välj**. |
+   | **Omfång** | Ja | De resurser där du vill genomdriva princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **omfång** . <br>2. Välj Azure-prenumerationen i listan **prenumeration** . <br>3. du kan också välja resurs gruppen från listan **resurs grupp** . <br>4. När du är klar väljer du **Välj**. |
    | **Undantag** | No | Alla Azure-resurser som ska undantas från princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **undantag** . <br>2. Välj resurs > **Lägg till i det valda omfånget**i **resurs** listan. <br>3. När du är klar väljer du **Spara**. |
-   | **Definition av princip** | Yes | Namnet på den princip definition som du vill tilldela och tillämpa. Det här exemplet fortsätter med exempel Instagram-principen "blockera Instagram-anslutningar". <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **princip definition** . <br>2 **. Sök efter** och välj princip definitionen med hjälp av **typ** filtret eller sökrutan. <br>3. Välj **Välj**när du är klar. |
-   | **Tilldelnings namn** | Yes | Namnet som ska användas för princip tilldelningen, om det skiljer sig från princip definitionen |
-   | **Tilldelnings-ID** | Yes | Automatiskt genererat ID för princip tilldelningen |
+   | **Definition av princip** | Ja | Namnet på den princip definition som du vill tilldela och tillämpa. Det här exemplet fortsätter med exempel Instagram-principen "blockera Instagram-anslutningar". <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **princip definition** . <br>2 **. Sök efter** och välj princip definitionen med hjälp av **typ** filtret eller sökrutan. <br>3. Välj **Välj**när du är klar. |
+   | **Tilldelnings namn** | Ja | Namnet som ska användas för princip tilldelningen, om det skiljer sig från princip definitionen |
+   | **Tilldelnings-ID** | Ja | Automatiskt genererat ID för princip tilldelningen |
    | **Beskrivning** | No | En beskrivning av princip tilldelningen |
-   | **Policyframtvingande** | Yes | Inställningen som aktiverar eller inaktiverar princip tilldelningen |
+   | **Principtillämpning** | Ja | Inställningen som aktiverar eller inaktiverar princip tilldelningen |
    | **Tilldelad av** | No | Namnet på den person som skapade och tillämpade princip tilldelningen |
    ||||
 

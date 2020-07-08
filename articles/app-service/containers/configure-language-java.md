@@ -11,10 +11,10 @@ ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 496f519ba5e4eb17060ee35ed86fba45c85336d6
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84905739"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
@@ -308,7 +308,7 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 
 Som standard förväntar App Service att JAR-programmet ska ha namnet *app. jar*. Om det har det här namnet kommer det att köras automatiskt. För maven-användare kan du ange JAR-namnet genom `<finalName>app</finalName>` att inkludera i `<build>` avsnittet i *pom.xml*. [Du kan göra samma sak i Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) genom att ange `archiveFileName` egenskapen.
 
-Om du vill använda ett annat namn för din JAR måste du också ange [Start kommandot](app-service-linux-faq.md#built-in-images) som kör jar-filen. Exempelvis `java -jar my-jar-app.jar`. Du kan ställa in värdet för ditt Start kommando i portalen, under konfiguration > allmänna inställningar eller med en program inställning med namnet `STARTUP_COMMAND` .
+Om du vill använda ett annat namn för din JAR måste du också ange [Start kommandot](app-service-linux-faq.md#built-in-images) som kör jar-filen. Till exempel `java -jar my-jar-app.jar`. Du kan ställa in värdet för ditt Start kommando i portalen, under konfiguration > allmänna inställningar eller med en program inställning med namnet `STARTUP_COMMAND` .
 
 ### <a name="server-port"></a>Server Port
 

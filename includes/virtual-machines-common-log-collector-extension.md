@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74085281"
 ---
 Att diagnostisera problem med en Microsoft Azure moln tjänst kräver att tjänstens loggfiler samlas in på virtuella datorer när det uppstår problem. Du kan använda AzureLogCollector-tillägget på begäran för att utföra en engångs insamling av loggar från en eller flera virtuella datorer i moln tjänsten (från både webb roller och arbets roller) och överföra de insamlade filerna till ett Azure Storage-konto – allt utan att fjärrlogga in på någon av de virtuella datorerna.
@@ -33,7 +33,7 @@ I båda samlings lägena kan ytterligare data insamlings mappar anges med hjälp
 
 * **Namn**: namnet på samlingen, används som namn på undermappen inuti zip-filen med de insamlade filerna.
 * **Plats**: sökvägen till mappen på den virtuella datorn där de filer som ska samlas in finns.
-* **SearchPattern**: mönstret för namnen på de filer som ska samlas in. Standardvärdet\*är ""
+* **SearchPattern**: mönstret för namnen på de filer som ska samlas in. Standardvärdet är " \* "
 * **Rekursiv**: om de filer som ska samlas in rekursivt under den angivna platsen.
 
 ## <a name="prerequisites"></a>Krav
@@ -139,7 +139,7 @@ Du kan följa ett av de två följande stegen för att lägga till AzureLogColle
    $StorageAccountKey  = 'YourStorageAccountKey'
    ```
 
-5. Anropa SetAzureServiceLogCollector. ps1 (ingår i slutet av artikeln) enligt följande för att aktivera AzureLogCollector-tillägget för en moln tjänst. När körningen är klar kan du hitta den överförda filen under`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+5. Anropa SetAzureServiceLogCollector.ps1 (ingår i slutet av artikeln) enligt följande för att aktivera AzureLogCollector-tillägget för en moln tjänst. När körningen är klar kan du hitta den överförda filen under`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
    ```powershell
    .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
@@ -231,7 +231,7 @@ Följ anvisningarna för att ansluta Azure PowerShell till din prenumeration.
    $StorageAccountKey  = 'YourStorageAccountKey'
    ```
 
-3. Anropa SetAzureVMLogCollector. ps1 (ingår i slutet av artikeln) enligt följande för att aktivera AzureLogCollector-tillägget för en moln tjänst. När körningen är klar kan du hitta den överförda filen under`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+3. Anropa SetAzureVMLogCollector.ps1 (ingår i slutet av artikeln) enligt följande för att aktivera AzureLogCollector-tillägget för en moln tjänst. När körningen är klar kan du hitta den överförda filen under`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
 Följande är definitionen av de parametrar som skickas till skriptet. (Detta kopieras även nedan.)
 
@@ -276,7 +276,7 @@ param (
   ```
 
 ## <a name="extention-powershell-script-files"></a>PowerShell-skriptfiler för omfattning
-### <a name="setazureservicelogcollectorps1"></a>SetAzureServiceLogCollector. ps1
+### <a name="setazureservicelogcollectorps1"></a>SetAzureServiceLogCollector.ps1
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -385,7 +385,7 @@ $SasUri = $SasUri + "&restype=container&comp=list"
 Write-Output "The container for uploaded file can be accessed using this link:`r`n$sasuri"
 ```
 
-### <a name="setazurevmlogcollectorps1"></a>SetAzureVMLogCollector. ps1
+### <a name="setazurevmlogcollectorps1"></a>SetAzureVMLogCollector.ps1
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]

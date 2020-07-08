@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar en anpassad Linux-behållare i Azure A
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 57281bedb34078dff6878d69be1bfe7f7300f545
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84905807"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
@@ -97,7 +97,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För att
 ## <a name="configure-multi-container-apps"></a>Konfigurera appar med flera behållare
 
 - [Använd beständigt lagrings utrymme i Docker Compose](#use-persistent-storage-in-docker-compose)
-- [Begränsningar för förhandsversion](#preview-limitations)
+- [För hands versions begränsningar](#preview-limitations)
 - [Docker Skriv alternativ](#docker-compose-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Använd beständigt lagrings utrymme i Docker Compose

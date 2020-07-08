@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cd7b889560acbe484581f065b641375c222f7ca8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536510"
 ---
 Som standard kan standard fil resurser bara omfatta upp till 5 TiB, även om resurs gränsen kan ökas till 100 TiB. För att göra detta måste funktionen *stor fil resurs* vara aktive rad på lagrings konto nivå. Premium Storage-konton (*FileStorage* lagrings konton) har inte den stora fil resursens funktions flagga eftersom alla Premium-filresurser redan har Aktiver ATS för etablering upp till den fullständiga 100 TIB-kapaciteten.

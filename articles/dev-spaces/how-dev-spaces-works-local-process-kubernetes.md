@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Beskriver processer för att använda lokal process med Kubernetes för att ansluta din utvecklings dator till ditt Kubernetes-kluster
 keywords: Lokal process med Kubernetes, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: dd126fc55a86b1de115239a31e5adb7b1d264846
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84974429"
 ---
 # <a name="how-local-process-with-kubernetes-works"></a>Så fungerar lokal process med Kubernetes

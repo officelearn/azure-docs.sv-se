@@ -8,10 +8,10 @@ ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84945366"
 ---
 # <a name="azure-activity-log-event-schema"></a>Händelse schema för Azure aktivitets logg
@@ -799,7 +799,7 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 > Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](diagnostic-logs-append-blobs.md) för information om det här formatet.
 
 
-| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Kommentarer |
+| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Obs! |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName är härledda från resourceId. |
@@ -808,12 +808,12 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 | resultType | status. Value | |
 | resultSignature | under status. värde | |
 | resultDescription | description |  |
-| durationMs | Ej tillämpligt | Alltid 0 |
+| durationMs | E.t. | Alltid 0 |
 | callerIpAddress | httpRequest. clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | anspråk och egenskaper för auktorisering |  |
 | Nivå | Nivå |  |
-| location | Ej tillämpligt | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
+| location | E.t. | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
 | Egenskaper | egenskaper. eventProperties |  |
 | egenskaper. eventCategory | category | Om Properties. eventCategory inte finns är kategorin "administrativ" |
 | egenskaper. eventName | eventName |  |

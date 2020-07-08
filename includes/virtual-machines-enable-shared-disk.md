@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81008373"
 ---
 ## <a name="limitations"></a>Begränsningar
@@ -27,12 +27,12 @@ ms.locfileid: "81008373"
 
 ### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Distribuera en Premium SSD som en delad disk
 
-Om du vill distribuera en hanterad disk med funktionen delad disk aktive rad använder `maxShares` du den nya egenskapen och anger ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
+Om du vill distribuera en hanterad disk med funktionen delad disk aktive rad använder du den nya egenskapen `maxShares` och anger ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
 
 > [!IMPORTANT]
-> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares`.
+> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares` .
 
-Innan du `[parameters('dataDiskName')]`använder följande mall ersätter du, `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]`, och `[parameters('maxShares')]` med dina egna värden.
+Innan du använder följande mall ersätter du `[parameters('dataDiskName')]` , `[resourceGroup().location]` , `[parameters('dataDiskSizeGB')]` och `[parameters('maxShares')]` med dina egna värden.
 
 ```json
 { 
@@ -77,10 +77,10 @@ Innan du `[parameters('dataDiskName')]`använder följande mall ersätter du, `[
 
 #### <a name="cli"></a>CLI
 
-Om du vill distribuera en hanterad disk med funktionen delad disk aktive `maxShares` rad, ändra parametern till ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
+Om du vill distribuera en hanterad disk med funktionen delad disk aktive rad, ändra `maxShares` parametern till ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
 
 > [!IMPORTANT]
-> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares`.
+> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares` .
 
 ```azurecli
 #Creating an Ultra shared Disk 
@@ -95,12 +95,12 @@ az disk show -g rg1 -n clidisk
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Om du vill distribuera en hanterad disk med funktionen delad disk aktive rad `maxShares` använder du egenskapen och definierar ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
+Om du vill distribuera en hanterad disk med funktionen delad disk aktive rad använder du egenskapen `maxShares` och definierar ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
 
 > [!IMPORTANT]
-> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares`.
+> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares` .
 
-Innan du använder `[parameters('dataDiskName')]`följande mall ersätter du, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]`,,,, och `[parameters('diskMBpsReadOnly')]` med dina egna värden.
+Innan du använder följande mall ersätter du,,,,,, `[parameters('dataDiskName')]` `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` och `[parameters('diskMBpsReadOnly')]` med dina egna värden.
 
 ```json
 {
@@ -170,7 +170,7 @@ Innan du använder `[parameters('dataDiskName')]`följande mall ersätter du, `[
 
 ### <a name="using-azure-shared-disks-with-your-vms"></a>Använda Azure delade diskar med dina virtuella datorer
 
-När du har distribuerat en delad disk med `maxShares>1`kan du montera disken till en eller flera av dina virtuella datorer.
+När du har distribuerat en delad disk med `maxShares>1` kan du montera disken till en eller flera av dina virtuella datorer.
 
 > [!IMPORTANT]
 > Alla virtuella datorer som delar en disk måste distribueras i samma [närhets placerings grupp](../articles/virtual-machines/windows/proximity-placement-groups.md).

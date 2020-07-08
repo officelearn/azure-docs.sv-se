@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: 14c43e4557275d6a425127acfee7495f68d1d354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77165558"
 ---
 # <a name="the-account-being-accessed-does-not-support-http-error-in-azure-hdinsight"></a>Kontot som används har inte stöd för HTTP-fel i Azure HDInsight
@@ -36,7 +35,7 @@ Det finns flera orsaker till varför fel meddelandet tas emot:
 
 ## <a name="resolution"></a>Lösning
 
-Om säker överföring har Aktiver ATS för Azure Storage eller Data Lake Storage Gen2, skulle URI `wasbs://` : `abfss://`n vara respektive.  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
+Om säker överföring har Aktiver ATS för Azure Storage eller Data Lake Storage Gen2, skulle URI: n vara `wasbs://` respektive `abfss://` .  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 
 För nya kluster använder du ett lagrings konto som redan har den önskade inställningen för säker överföring. Ändra inte inställningen för säker överföring för ett lagrings konto som används av ett befintligt kluster.
 

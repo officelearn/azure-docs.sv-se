@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: ddf69a75a39911293277a4a4189cf4e79256e09d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77186864"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Programmerings guide för SCP för Apache Storm i Azure HDInsight
@@ -357,7 +356,7 @@ public void Abort();
     public T GetAttribute<T>(string key);
 ```
 
-När **simpleMode** har angetts till **True**, tar metoden **commit** bort motsvarande ZNode i ZooKeeper. Annars tar metoden bort den aktuella ZNode och lägger till en ny nod i den ALLOKERAde\_sökvägen.
+När **simpleMode** har angetts till **True**, tar metoden **commit** bort motsvarande ZNode i ZooKeeper. Annars tar metoden bort den aktuella ZNode och lägger till en ny nod i den ALLOKERAde \_ sökvägen.
 
 ### <a name="scpruntime"></a>SCPRuntime
 
@@ -668,7 +667,7 @@ public interface ICustomizedInteropJavaDeserializer {
 
 ## <a name="scp-host-mode"></a>Värd läge för SCP
 
-I det här läget kan du kompilera din kod som en DLL och använda SCPHost. exe som anges av SCP för att skicka en topologi. En Specifikations fil ser ut som den här koden:
+I det här läget kan du kompilera din kod som en DLL och använda SCPHost.exe som anges av SCP för att skicka en topologi. En Specifikations fil ser ut som den här koden:
 
 ```csharp
 (scp-spout
@@ -679,7 +678,7 @@ I det här läget kan du kompilera din kod som en DLL och använda SCPHost. exe 
   })
 ```
 
-`"plugin.name"` Här anges som `"SCPHost.exe"`, som tillhandahålls av SCP SDK. SCPHost. exe accepterar tre parametrar i följande ordning:
+Här `"plugin.name"` anges som `"SCPHost.exe"` , som tillhandahålls av SCP SDK. SCPHost.exe accepterar tre parametrar i följande ordning:
 
 1. DLL-namnet, som finns `"HelloWorld.dll"` i det här exemplet.
 1. Klass namnet, som är `"Scp.App.HelloWorld.Generator"` i det här exemplet.
@@ -693,7 +692,7 @@ I värd läge kompilerar du koden som en DLL för anrop av SCP-plattformen. Efte
 
 I följande enkla HelloWorld-exempel visas en smak på SCP.NET. Den använder en intransaktionskö-topologi med en kanalen som kallas **Generator** och två bultar som kallas **delare** och **räknare**. **Generator** -kanalen skapar slumpmässigt meningar och genererar dessa meningar till **delare**. **Delnings** blixten delar upp meningarna i ord och genererar dessa ord till **räknar** bulten. **Counters** bult använder en ord lista för att registrera förekomst av varje ord.
 
-Det här exemplet har två Specification-filer: HelloWorld. spec\_och HelloWorld EnableAck. spec. C#-koden kan ta reda på om bekräftelsen har Aktiver `pluginConf` ATS genom att hämta objektet från Java-sidan.
+Det här exemplet har två Specification-filer: HelloWorld. spec och HelloWorld \_ EnableAck. spec. C#-koden kan ta reda på om bekräftelsen har Aktiver ATS genom `pluginConf` att hämta objektet från Java-sidan.
 
 ```csharp
 /* demo how to get pluginConf info */
@@ -728,7 +727,7 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 
 ### <a name="helloworldtx"></a>HelloWorldTx
 
-Följande HelloWorldTx-exempel visar hur du implementerar en transaktionell topologi. Exemplet har en kanalen som kallas **Generator**, en batch-bult som kallas för **partiellt antal**och en commit bult som heter **Count-sum**. Exemplet innehåller också tre befintliga textfiler: DataSource0. txt, DataSource1. txt och DataSource2. txt.
+Följande HelloWorldTx-exempel visar hur du implementerar en transaktionell topologi. Exemplet har en kanalen som kallas **Generator**, en batch-bult som kallas för **partiellt antal**och en commit bult som heter **Count-sum**. Exemplet innehåller också tre befintliga textfiler: DataSource0.txt, DataSource1.txt och DataSource2.txt.
 
 I varje transaktion väljer **Generator** -kanalen slumpmässigt två filer från de befintliga tre filerna och genererar de två fil namnen till en **avdelare** bult. Den **partiella Count-** bult:
 
@@ -783,11 +782,11 @@ public void FinishBatch(Dictionary<string, Object> parms)
 
 ### <a name="hybridtopology"></a>HybridTopology
 
-Den här topologin innehåller en Java-kanalen och en C#-bult. Den använder den standardinställda serialisering och deserialiserings-implementering som tillhandahålls av SCP-plattformen. Se filen HybridTopology. spec i mappen exempel\\HybridTopology för information om Specifikations filen. Se även SubmitTopology. bat för att ange Java-classpath.
+Den här topologin innehåller en Java-kanalen och en C#-bult. Den använder den standardinställda serialisering och deserialiserings-implementering som tillhandahålls av SCP-plattformen. Se filen HybridTopology. spec i \\ mappen exempel HybridTopology för information om Specifikations filen. Se även SubmitTopology.bat för hur du anger Java-classpath.
 
 ### <a name="scphostdemo"></a>SCPHostDemo
 
-Det här exemplet är i grunden samma som HelloWorld. Den enda skillnaden är att din kod kompileras som en DLL och att topologin skickas med hjälp av SCPHost. exe. I avsnittet SCP-värd läge finns en mer detaljerad förklaring.
+Det här exemplet är i grunden samma som HelloWorld. Den enda skillnaden är att din kod kompileras som en DLL och att topologin skickas med hjälp av SCPHost.exe. I avsnittet SCP-värd läge finns en mer detaljerad förklaring.
 
 ## <a name="next-steps"></a>Nästa steg
 

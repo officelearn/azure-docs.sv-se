@@ -4,10 +4,9 @@ description: Den här artikeln innehåller en översikt över komponenter och ar
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162845"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för fysisk server till Azure
@@ -18,7 +17,7 @@ Den här artikeln beskriver arkitekturen och processerna som används när du re
 
 Följande tabell och bild ger en övergripande bild av de komponenter som används för replikering av fysiska servrar till Azure.
 
-| **Komponent** | **Krav** | **Information** |
+| **Komponent** | **Krav** | **Detaljer** |
 | --- | --- | --- |
 | **Azure** | En Azure-prenumeration och ett Azure-nätverk. | Replikerade data från lokala fysiska datorer lagras på Azure Managed disks. Virtuella Azure-datorer skapas med replikerade data när du kör en redundansväxling från en lokal plats till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas. |
 | **Processerver** | Installeras som standard tillsammans med konfigurations servern. | Fungerar som en replikeringsgateway. Den tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage.<br/><br/> Processervern installerar också mobilitets tjänsten på de servrar som du vill replikera.<br/><br/> När distributionen växer kan du lägga till ytterligare separata process servrar för att hantera större volymer av replikeringstrafiken. |

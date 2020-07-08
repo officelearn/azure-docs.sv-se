@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77111764"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Använd en Azure-hanterad identitet i ACR-aktiviteter 
@@ -52,7 +51,7 @@ Hoppa över det här steget om du endast planerar att använda en tilldelad iden
 
 När du skapar en ACR-uppgift kan du välja att aktivera en tilldelad identitet, en tilldelad identitet eller både och. Du kan till exempel skicka `--assign-identity` parametern när du kör kommandot [AZ ACR Task Create][az-acr-task-create] i Azure CLI.
 
-Om du vill aktivera en tilldelad identitet `--assign-identity` skickar du utan värde `assign-identity [system]`eller. Följande exempel kommando skapar en Linux-uppgift från en offentlig GitHub-lagringsplats som skapar `hello-world` avbildningen och aktiverar en systemtilldelad hanterad identitet:
+Om du vill aktivera en tilldelad identitet skickar du `--assign-identity` utan värde eller `assign-identity [system]` . Följande exempel kommando skapar en Linux-uppgift från en offentlig GitHub-lagringsplats som skapar `hello-world` avbildningen och aktiverar en systemtilldelad hanterad identitet:
 
 ```azurecli
 az acr task create \
@@ -64,7 +63,7 @@ az acr task create \
     --assign-identity
 ```
 
-Om du vill aktivera en användardefinierad identitet skickar `--assign-identity` du ett värde för identitetens *resurs-ID* . Följande exempel kommando skapar en Linux-uppgift från en offentlig GitHub-lagringsplats som skapar `hello-world` avbildningen och gör det möjligt att tilldela en användardefinierad hanterad identitet:
+Om du vill aktivera en användardefinierad identitet skickar du `--assign-identity` ett värde för identitetens *resurs-ID* . Följande exempel kommando skapar en Linux-uppgift från en offentlig GitHub-lagringsplats som skapar `hello-world` avbildningen och gör det möjligt att tilldela en användardefinierad hanterad identitet:
 
 ```azurecli
 az acr task create \
@@ -84,7 +83,7 @@ Du kan hämta resurs-ID för identiteten genom att köra kommandot [AZ Identity 
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. ge identitets behörigheterna åtkomst till andra Azure-resurser
 
-Beroende på kraven för din uppgift ger du identitets behörighet att få åtkomst till andra Azure-resurser. Exempel på rekommendationer:
+Beroende på kraven för din uppgift ger du identitets behörighet att få åtkomst till andra Azure-resurser. Exempel:
 
 * Tilldela den hanterade identiteten en roll med pull, push och pull eller andra behörigheter till ett mål behållar register i Azure. En fullständig lista över register roller finns i [Azure Container Registry roller och behörigheter](container-registry-roles.md). 
 * Tilldela den hanterade identiteten en roll för att läsa hemligheter i ett Azure Key Vault.
@@ -105,7 +104,7 @@ az role assignment create \
 
 Om aktiviteten behöver autentiseringsuppgifter för att hämta eller skicka avbildningar till ett annat anpassat register, eller om du vill komma åt andra resurser, lägger du till autentiseringsuppgifter för aktiviteten. Kör kommandot [AZ ACR Task Credential Add][az-acr-task-credential-add] för att lägga till autentiseringsuppgifter och skicka `--use-identity` parametern för att ange att identiteten har åtkomst till autentiseringsuppgifterna. 
 
-Om du till exempel vill lägga till autentiseringsuppgifter för en systemtilldelad identitet för att autentisera med Azure *targetregistry*container Registry- `use-identity [system]`targetregistry, skicka:
+Om du till exempel vill lägga till autentiseringsuppgifter för en systemtilldelad identitet för att autentisera med Azure Container Registry- *targetregistry*, skicka `use-identity [system]` :
 
 ```azurecli
 az acr task credential add \
@@ -115,7 +114,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Om du vill lägga till autentiseringsuppgifter för en användardefinierad identitet för att autentisera med registret *targetregistry*, `use-identity` skickar du ett värde för identitetens *klient-ID* . Ett exempel:
+Om du vill lägga till autentiseringsuppgifter för en användardefinierad identitet för att autentisera med registret *targetregistry*, skickar du `use-identity` ett värde för IDENTITETENS *klient-ID* . Ett exempel:
 
 ```azurecli
 az acr task credential add \
@@ -125,7 +124,7 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-Du kan hämta klient-ID: t för identiteten genom att köra kommandot [AZ Identity show][az-identity-show] . Klient-ID är ett GUID för formuläret `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+Du kan hämta klient-ID: t för identiteten genom att köra kommandot [AZ Identity show][az-identity-show] . Klient-ID är ett GUID för formuläret `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` .
 
 ### <a name="5-run-the-task"></a>5. Kör uppgiften
 

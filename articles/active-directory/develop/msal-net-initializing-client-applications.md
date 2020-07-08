@@ -14,16 +14,15 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083983"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initiera klient program med MSAL.NET
 I den här artikeln beskrivs hur du initierar offentlig klient och konfidentiella klient program med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).  Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
 
-Med MSAL.NET 3. x är det rekommenderade sättet att instansiera ett program med hjälp av program byggare: `PublicClientApplicationBuilder` och. `ConfidentialClientApplicationBuilder` De erbjuder en kraftfull mekanism för att konfigurera programmet antingen från koden eller från en konfigurations fil, eller till och med genom att kombinera båda metoderna.
+Med MSAL.NET 3. x är det rekommenderade sättet att instansiera ett program med hjälp av program byggare: `PublicClientApplicationBuilder` och `ConfidentialClientApplicationBuilder` . De erbjuder en kraftfull mekanism för att konfigurera programmet antingen från koden eller från en konfigurations fil, eller till och med genom att kombinera båda metoderna.
 
 ## <a name="prerequisites"></a>Krav
 Innan du initierar ett program måste du först [registrera det](quickstart-register-app.md) så att din app kan integreras med Microsoft Identity Platform.  Efter registreringen kan du behöva följande information (som du hittar i Azure Portal):
@@ -48,7 +47,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
 
 ### <a name="initializing-a-confidential-client-application-from-code"></a>Initiera ett konfidentiellt klient program från kod
 
-På samma sätt instansierar följande kod ett konfidentiellt program (en webbapp som finns på `https://myapp.azurewebsites.net`) som hanterar tokens från användare i det Microsoft Azure offentliga molnet, med sina arbets-och skol konton eller deras personliga Microsoft-konton. Programmet identifieras med identitets leverantören genom att dela en klient hemlighet:
+På samma sätt instansierar följande kod ett konfidentiellt program (en webbapp som finns på) som `https://myapp.azurewebsites.net` hanterar tokens från användare i det Microsoft Azure offentliga molnet, med sina arbets-och skol konton eller deras personliga Microsoft-konton. Programmet identifieras med identitets leverantören genom att dela en klient hemlighet:
 
 ```csharp
 string redirectUri = "https://myapp.azurewebsites.net";
@@ -79,7 +78,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### <a name="initializing-a-confidential-client-application-from-configuration-options"></a>Initiera ett konfidentiellt klient program från konfigurations alternativ
 
-Samma typ av mönster gäller för konfidentiella klient program. Du kan också lägga till andra parametrar `.WithXXX` med modifierare (här ett certifikat).
+Samma typ av mönster gäller för konfidentiella klient program. Du kan också lägga till andra parametrar med `.WithXXX` modifierare (här ett certifikat).
 
 ```csharp
 ConfidentialClientApplicationOptions options = GetOptions(); // your own method
@@ -90,7 +89,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## <a name="builder-modifiers"></a>Builder-modifierare
 
-I kodfragmenten med hjälp av program byggare kan ett antal `.With` metoder användas som modifierare (till exempel `.WithCertificate` och `.WithRedirectUri`). 
+I kodfragmenten med hjälp av program byggare kan ett antal `.With` metoder användas som modifierare (till exempel `.WithCertificate` och `.WithRedirectUri` ). 
 
 ### <a name="modifiers-common-to-public-and-confidential-client-applications"></a>Ändringar som är gemensamma för offentliga och konfidentiella klient program
 
@@ -103,8 +102,8 @@ De modifierare som du kan ställa in på en offentlig klient eller en konfidenti
 |`.WithB2CAuthority(string)` | Anger att programmets standard auktoritet ska vara en Azure AD B2C utfärdare.|
 |`.WithClientId(string)` | Åsidosätter klient-ID: t.|
 |`.WithComponent(string)` | Anger namnet på biblioteket med hjälp av MSAL.NET (för telemetri skäl). |
-|`.WithDebugLoggingCallback()` | Om det här anropas anropar `Debug.Write` programmet helt enkelt genom att aktivera fel söknings spårning. Se [loggning](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) för mer information.|
-|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Ange ytterligare frågeparametrar för program nivån som ska skickas i alla autentiseringsbegäranden. Detta är åsidosättningsbar på varje nivå för token för hämtning (med `.WithExtraQueryParameters pattern`samma).|
+|`.WithDebugLoggingCallback()` | Om det här anropas anropar programmet `Debug.Write` helt enkelt genom att aktivera fel söknings spårning. Se [loggning](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) för mer information.|
+|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Ange ytterligare frågeparametrar för program nivån som ska skickas i alla autentiseringsbegäranden. Detta är åsidosättningsbar på varje nivå för token för hämtning (med samma `.WithExtraQueryParameters pattern` ).|
 |`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Aktiverar avancerade scenarier som att konfigurera för en HTTP-proxy eller tvinga MSAL att använda en viss HttpClient (till exempel i ASP.NET Core Web Apps/API: er).|
 |`.WithLogging()` | Om det anropas anropar programmet ett återanrop med fel söknings spår. Se [loggning](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) för mer information.|
 |`.WithRedirectUri(string redirectUri)` | Åsidosätter standardvärdet för omdirigerings-URI. Om det gäller offentliga klient program är detta användbart för scenarier som involverar Service Broker.|

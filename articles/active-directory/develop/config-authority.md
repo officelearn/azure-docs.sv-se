@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77085203"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Gör så här: Konfigurera MSAL för iOS och macOS för att använda olika identitets leverantörer
@@ -26,7 +25,7 @@ Den här artikeln visar hur du konfigurerar din Microsoft Authentication Library
 
 ## <a name="default-authority-configuration"></a>Standard auktoritets konfiguration
 
-`MSALPublicClientApplication`är konfigurerad med standard auktoritets-URL `https://login.microsoftonline.com/common`: en, som är lämplig för de flesta Azure Active Directory-scenarier (AAD). Om du inte implementerar avancerade scenarier som nationella moln eller arbetar med B2C behöver du inte ändra det.
+`MSALPublicClientApplication`är konfigurerad med standard auktoritets-URL: en `https://login.microsoftonline.com/common` , som är lämplig för de flesta Azure Active Directory-scenarier (AAD). Om du inte implementerar avancerade scenarier som nationella moln eller arbetar med B2C behöver du inte ändra det.
 
 > [!NOTE]
 > Modern autentisering med Active Directory Federation Services (AD FS) som identitets leverantör (ADFS) stöds inte (se [ADFS för utvecklare](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) för mer information). ADFS stöds via Federation.
@@ -37,9 +36,9 @@ I vissa fall, t. ex. företags-till-konsument (B2C), kan du behöva ändra stand
 
 ### <a name="b2c"></a>B2C
 
-För att arbeta med B2C kräver [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) en annan auktoritets konfiguration. MSAL känner igen ett URL-format för auktoritet som B2C. Formatet känd B2C Authority är `https://<host>/tfp/<tenant>/<policy>`till exempel. `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy` Du kan dock också använda andra URL: er som stöds av B2C genom att deklarera utfärdare som B2C-auktoritet.
+För att arbeta med B2C kräver [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) en annan auktoritets konfiguration. MSAL känner igen ett URL-format för auktoritet som B2C. Formatet känd B2C Authority är `https://<host>/tfp/<tenant>/<policy>` till exempel `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy` . Du kan dock också använda andra URL: er som stöds av B2C genom att deklarera utfärdare som B2C-auktoritet.
 
-För att stödja ett godtyckligt URL-format `MSALB2CAuthority` för B2C kan ställas in med en godtycklig URL, så här:
+För att stödja ett godtyckligt URL-format för B2C `MSALB2CAuthority` kan ställas in med en godtycklig URL, så här:
 
 Objective-C
 ```objc
@@ -76,7 +75,7 @@ b2cApplicationConfig.knownAuthorities = [b2cAuthority]
 
 När din app begär en ny princip måste auktoritets-URL: en ändras eftersom auktoritets-URL: en är olika för varje princip. 
 
-Konfigurera ett B2C-program genom att `@property MSALAuthority *authority` ange en instans av `MSALB2CAuthority` i `MSALPublicClientApplicationConfig` innan du `MSALPublicClientApplication`skapar, så här:
+Konfigurera ett B2C-program genom att ange `@property MSALAuthority *authority` en instans av `MSALB2CAuthority` i `MSALPublicClientApplicationConfig` innan du skapar `MSALPublicClientApplication` , så här:
 
 Objective-C
 ```ObjC
@@ -129,7 +128,7 @@ do{
 
 ### <a name="sovereign-clouds"></a>Nationella moln
 
-Om din app körs i ett suveränt moln kan du behöva ändra auktoritets-URL: en `MSALPublicClientApplication`i. I följande exempel anges auktoritets-URL: en för att fungera med tyska AAD-molnet:
+Om din app körs i ett suveränt moln kan du behöva ändra auktoritets-URL: en i `MSALPublicClientApplication` . I följande exempel anges auktoritets-URL: en för att fungera med tyska AAD-molnet:
 
 Objective-C
 ```objc
@@ -178,9 +177,9 @@ Du kan behöva skicka olika omfattningar till varje suverän moln. Vilka omfattn
 
 ### <a name="signing-a-user-into-a-specific-tenant"></a>Signera en användare till en speciell klient
 
-När auktoritets-URL: en `"login.microsoftonline.com/common"`är inställt på, kommer användaren att loggas in på sin hem klient. Vissa appar kan dock behöva signera användaren till en annan klient och vissa appar fungerar bara med en enda klient.
+När auktoritets-URL: en är inställt på `"login.microsoftonline.com/common"` , kommer användaren att loggas in på sin hem klient. Vissa appar kan dock behöva signera användaren till en annan klient och vissa appar fungerar bara med en enda klient.
 
-Om du vill signera användaren till en speciell klient konfigurerar `MSALPublicClientApplication` du med en speciell myndighet. Ett exempel:
+Om du vill signera användaren till en speciell klient konfigurerar du `MSALPublicClientApplication` med en speciell myndighet. Ett exempel:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 
@@ -232,19 +231,19 @@ do{
 
 ### <a name="msalauthority"></a>MSALAuthority
 
-`MSALAuthority` Klassen är den grundläggande abstrakta klassen för MSAL-auktoritets klasserna. Försök inte att skapa en instans av den `alloc` med `new`hjälp av eller. Skapa i stället en av dess underklasser direkt (`MSALAADAuthority`, `MSALB2CAuthority`) eller Använd fabriks metoden `authorityWithURL:error:` för att skapa underklasser med en auktoritets-URL.
+`MSALAuthority`Klassen är den grundläggande abstrakta klassen för MSAL-auktoritets klasserna. Försök inte att skapa en instans av den med hjälp av `alloc` eller `new` . Skapa i stället en av dess underklasser direkt ( `MSALAADAuthority` , `MSALB2CAuthority` ) eller Använd fabriks metoden `authorityWithURL:error:` för att skapa underklasser med en auktoritets-URL.
 
 Använd `url` egenskapen för att hämta en normaliserad auktoritets-URL. Extra parametrar och Sök vägs komponenter eller fragment som inte tillhör en instans finns inte i den returnerade normaliserade auktoritets-URL: en.
 
-Följande är underklasser till som `MSALAuthority` du kan skapa en instans av, beroende på vilken auktoritet som ska användas.
+Följande är underklasser till `MSALAuthority` som du kan skapa en instans av, beroende på vilken auktoritet som ska användas.
 
 ### <a name="msalaadauthority"></a>MSALAADAuthority
 
-`MSALAADAuthority`representerar en AAD-utfärdare. Auktoritets-URL: en ska ha följande format, `<port>` där är valfritt:`https://<host>:<port>/<tenant>`
+`MSALAADAuthority`representerar en AAD-utfärdare. Auktoritets-URL: en ska ha följande format, där `<port>` är valfritt:`https://<host>:<port>/<tenant>`
 
 ### <a name="msalb2cauthority"></a>MSALB2CAuthority
 
-`MSALB2CAuthority`representerar en B2C-utfärdare. Som standard ska URL: en för B2C-utfärdare ha följande format, `<port>` där är valfritt `https://<host>:<port>/tfp/<tenant>/<policy>`:. MSAL stöder dock även andra godtyckliga B2C-auktoritets format.
+`MSALB2CAuthority`representerar en B2C-utfärdare. Som standard ska URL: en för B2C-utfärdare ha följande format, där `<port>` är valfritt: `https://<host>:<port>/tfp/<tenant>/<policy>` . MSAL stöder dock även andra godtyckliga B2C-auktoritets format.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 300acaf4a9d2a11ef107e19df99452c909257d54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190576"
 ---
 # <a name="security-controls-for-linux-virtual-machines"></a>Säkerhets kontroller för Virtuella Linux-datorer
@@ -37,7 +36,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Vir
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [övervaka och uppdatera en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/tutorial-monitoring). |
 | Loggning och granskning av kontroll-och hanterings plan| Ja |  |
-| Loggning och granskning av data planet | Nej |  |
+| Loggning och granskning av data planet | No |  |
 
 ## <a name="identity"></a>Identitet
 
@@ -53,7 +52,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Vir
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Se [Azure Disk Encryption för virtuella Linux-datorer](disk-encryption-overview.md). |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Azure Virtual Machines stöder [ExpressRoute](/azure/expressroute) och VNET-kryptering. Se [kryptering under överföring i virtuella datorer](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kundhanterade nycklar är ett Azure-krypterings scenario som stöds. Se [Översikt över Azure-kryptering](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
-| Kryptering på kolumn nivå (Azure Data Services)| Ej tillämpligt | |
+| Kryptering på kolumn nivå (Azure Data Services)| E.t. | |
 | Krypterade API-anrop| Ja | Via HTTPS och TLS. |
 
 ## <a name="configuration-management"></a>Konfigurationshantering

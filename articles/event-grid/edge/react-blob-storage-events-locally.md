@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086600"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Självstudie: reagera på Blob Storage händelser på IoT Edge (förhands granskning)
@@ -134,8 +133,8 @@ I det här avsnittet visas hur du distribuerar Azure Blob Storage-modulen, som f
 
    > [!IMPORTANT]
    > - Blob Storage-modulen kan publicera händelser med både HTTPS och HTTP. 
-   > - Om du har aktiverat den klientbaserade autentiseringen för EventGrid, se till att uppdatera värdet för EVENTGRID_ENDPOINT att tillåta https, så här: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`.
-   > - Lägg också till en annan `AllowUnknownCertificateAuthority=true` miljö variabel till ovanstående JSON. När du pratar med EventGrid över HTTPS tillåter **AllowUnknownCertificateAuthority** lagrings modulen att lita på självsignerade EventGrid-servercertifikat.
+   > - Om du har aktiverat den klientbaserade autentiseringen för EventGrid, se till att uppdatera värdet för EVENTGRID_ENDPOINT att tillåta https, så här: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` .
+   > - Lägg också till en annan miljö variabel `AllowUnknownCertificateAuthority=true` till ovanstående JSON. När du pratar med EventGrid över HTTPS tillåter **AllowUnknownCertificateAuthority** lagrings modulen att lita på självsignerade EventGrid-servercertifikat.
 
 4. Uppdatera JSON som du kopierade med följande information:
 
@@ -199,7 +198,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
     > - Om klientautentisering är aktive rad via certifikat för HTTPS-flödet blir förfrågan om att:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om du vill ta emot en händelse måste du skapa en Event Grid prenumeration för **MicrosoftStorage** -avsnittet.
-    1. Skapa blobsubscription. JSON med följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md)
+    1. Skapa blobsubscription.jsmed följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md)
 
        ```json
         {
@@ -217,7 +216,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
        >[!NOTE]
        > Egenskapen **endpointType** anger att prenumeranten är en **webhook**.  **EndpointUrl** anger URL: en där prenumeranten lyssnar efter händelser. URL: en motsvarar Azure Function-exemplet som du distribuerade tidigare.
 
-    2. Kör följande kommando för att skapa en prenumeration för ämnet. Bekräfta att du ser HTTP-statuskoden är `200 OK`.
+    2. Kör följande kommando för att skapa en prenumeration för ämnet. Bekräfta att du ser HTTP-statuskoden är `200 OK` .
 
        ```sh
        curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
@@ -341,14 +340,14 @@ Data-objektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| api | sträng | Den åtgärd som utlöste händelsen. Det kan vara något av följande värden: <ul><li>BlobCreated-tillåtna värden är: `PutBlob` och`PutBlockList`</li><li>BlobDeleted-tillåtna värden är `DeleteBlob` `DeleteAfterUpload` och `AutoDelete`. <p>`DeleteAfterUpload` Händelsen genereras när BLOB tas bort automatiskt eftersom den önskade deleteAfterUpload-egenskapen har angetts till true. </p><p>`AutoDelete`händelsen genereras när blobben tas bort automatiskt eftersom det önskade egenskap svärdet för deleteAfterMinutes har upphört att gälla.</p></li></ul>|
+| api | sträng | Den åtgärd som utlöste händelsen. Det kan vara något av följande värden: <ul><li>BlobCreated-tillåtna värden är: `PutBlob` och`PutBlockList`</li><li>BlobDeleted-tillåtna värden är `DeleteBlob` `DeleteAfterUpload` och `AutoDelete` . <p>`DeleteAfterUpload`Händelsen genereras när BLOB tas bort automatiskt eftersom den önskade deleteAfterUpload-egenskapen har angetts till true. </p><p>`AutoDelete`händelsen genereras när blobben tas bort automatiskt eftersom det önskade egenskap svärdet för deleteAfterMinutes har upphört att gälla.</p></li></ul>|
 | clientRequestId | sträng | ett ID för begäran som tillhandahållits för Storage API-åtgärden. Detta ID kan användas för att korrelera Azure Storage diagnostikloggar med hjälp av fältet "client-Request-ID" i loggarna och kan tillhandahållas i klient begär Anden med hjälp av huvudet "x-MS-client-Request-ID". Mer information finns i [logg format](/rest/api/storageservices/storage-analytics-log-format). |
 | requestId | sträng | Service-genererat förfrågnings-ID för Storage API-åtgärden. Kan användas för att korrelera Azure Storage diagnostikloggar som använder fältet "Request-ID-huvud" i loggarna och returneras från initiering av API-anrop i huvudet "x-MS-Request-ID". Se [logg format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | sträng | Det värde som du kan använda för att utföra åtgärder villkorligt. |
 | Innehålls | sträng | Den innehålls typ som angetts för blobben. |
 | contentLength | heltal | Storleken på blobben i byte. |
 | blobType | sträng | Typ av BLOB. Giltiga värden är antingen "BlockBlob" eller "PageBlob". |
-| url | sträng | Sökvägen till blobben. <br>Om klienten använder en BLOB-REST API, har URL: en följande struktur: * \<lagrings konto\>namn\<. blob.Core.Windows.net/container-\>/\<Name File-name\>*. <br>Om klienten använder en data Lake Storage REST API, har URL: en följande struktur: * \<Storage-Account-\>Name. DFS.Core.Windows.net/\<-fil\>/\<\>*-Name. |
+| url | sträng | Sökvägen till blobben. <br>Om klienten använder en BLOB-REST API, har URL: en följande struktur: * \<storage-account-name\> . blob.Core.Windows.net/ \<container-name\> / \<file-name\> *. <br>Om klienten använder en Data Lake Storage REST API har URL: en följande struktur: * \<storage-account-name\> . DFS.Core.Windows.net/ \<file-system-name\> / \<file-name\> *. |
 
 
 ## <a name="next-steps"></a>Nästa steg

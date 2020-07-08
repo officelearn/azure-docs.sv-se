@@ -20,13 +20,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153884"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>OData-språk översikt `$filter`för `$orderby`, och `$select` i Azure kognitiv sökning
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>OData-språk översikt för `$filter` , `$orderby` och `$select` i Azure kognitiv sökning
 
 Azure Kognitiv sökning stöder en delmängd av OData-uttryckets syntax för **$filter**, **$OrderBy**och **$Select** uttryck. Filter uttryck utvärderas under analys av frågor, vilket begränsar sökningen till vissa fält eller lägger till matchnings villkor som används vid index genomsökningar. Order by-uttryck används som ett steg efter bearbetning över en resultat uppsättning för att sortera de dokument som returneras. Välj uttryck avgör vilka dokument fält som ska ingå i resultat uppsättningen. Syntaxen för dessa uttryck skiljer sig från den [enkla](query-simple-syntax.md) eller [fullständiga](query-lucene-syntax.md) frågesyntaxen som används i **Sök** parametern, men det finns vissa överlappande i syntaxen för att referera till fält.
 
@@ -66,26 +65,26 @@ Ett interaktivt syntax diagram är också tillgängligt:
 
 En fält Sök väg består av en eller flera **identifierare** avgränsade med snedstreck. Varje identifierare är en sekvens med tecken som måste inledas med en ASCII-bokstav eller ett under streck och får bara innehålla ASCII-bokstäver, siffror eller under streck. Bokstäverna kan vara versaler eller gemener.
 
-En identifierare kan referera antingen till namnet på ett fält eller till en **intervall variabel** i kontexten för ett [samlings uttryck](search-query-odata-collection-operators.md) (`any` eller `all`) i ett filter. En Range-variabel är som en loop-variabel som representerar det aktuella elementet i mängden. För komplexa samlingar representerar variabeln ett objekt, vilket är anledningen till att du kan använda fält Sök vägar för att referera till underordnade fält i variabeln. Detta motsvarar punkt notation i många programmeringsspråk.
+En identifierare kan referera antingen till namnet på ett fält eller till en **intervall variabel** i kontexten för ett [samlings uttryck](search-query-odata-collection-operators.md) ( `any` eller `all` ) i ett filter. En Range-variabel är som en loop-variabel som representerar det aktuella elementet i mängden. För komplexa samlingar representerar variabeln ett objekt, vilket är anledningen till att du kan använda fält Sök vägar för att referera till underordnade fält i variabeln. Detta motsvarar punkt notation i många programmeringsspråk.
 
 Exempel på fält Sök vägar visas i följande tabell:
 
 | Fält Sök väg | Beskrivning |
 | --- | --- |
 | `HotelName` | Refererar till ett fält på översta nivån i indexet |
-| `Address/City` | Refererar till `City` under fältet för ett komplext fält i indexet. `Address` är av typen `Edm.ComplexType` i det här exemplet |
-| `Rooms/Type` | Refererar till `Type` under fältet för ett komplext samlings fält i indexet. `Rooms` är av typen `Collection(Edm.ComplexType)` i det här exemplet |
-| `Stores/Address/Country` | Refererar till `Country` under fältet för `Address` under fältet för ett komplext samlings fält i indexet. `Stores` är av typen `Collection(Edm.ComplexType)` och `Address` är av typen `Edm.ComplexType` i det här exemplet |
-| `room/Type` | Refererar till `Type` under fältet för variabeln `room` Range, till exempel i filter uttrycket`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Refererar till `Country` under fältet i `Address` under fältet för variabeln `store` Range, till exempel i filter uttrycket`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `Address/City` | Refererar till `City` under fältet för ett komplext fält i indexet, `Address` är av typen `Edm.ComplexType` i det här exemplet |
+| `Rooms/Type` | Refererar till `Type` under fältet för ett komplext samlings fält i indexet, `Rooms` är av typen `Collection(Edm.ComplexType)` i det här exemplet |
+| `Stores/Address/Country` | Refererar till `Country` under fältet för `Address` under fältet för ett komplext samlings fält i indexet, `Stores` är av typen `Collection(Edm.ComplexType)` och `Address` är av typen `Edm.ComplexType` i det här exemplet |
+| `room/Type` | Refererar till `Type` under fältet för `room` variabeln Range, till exempel i filter uttrycket`Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Refererar till `Country` under fältet i `Address` under fältet för `store` variabeln Range, till exempel i filter uttrycket`Stores/any(store: store/Address/Country eq 'Canada')` |
 
 Betydelsen av en fält Sök väg varierar beroende på kontexten. I filter refererar en fält Sök väg till värdet för en *enda instans* av ett fält i det aktuella dokumentet. I andra sammanhang, t. ex. **$OrderBy**, **$Select**eller i [fältet sökning i den fullständiga Lucene-syntaxen](query-lucene-syntax.md#bkmk_fields), refererar en fält Sök väg till själva fältet. Denna skillnad har vissa följder för hur du använder fält Sök vägar i filter.
 
-Överväg fält Sök vägen `Address/City`. I ett filter refererar detta till en enda stad för det aktuella dokumentet, t. ex. "San Francisco". Till skillnad från `Rooms/Type` `Type` , refererar till under fältet för många rum (som "standard" för det första rummet, "Deluxe" för det andra rummet osv.). Eftersom `Rooms/Type` inte refererar till en *enskild instans* av det underordnade fältet `Type`, kan den inte användas direkt i ett filter. Om du i stället vill filtrera efter rums typ använder du ett [lambda-uttryck](search-query-odata-collection-operators.md) med en intervall variabel, så här:
+Överväg fält Sök vägen `Address/City` . I ett filter refererar detta till en enda stad för det aktuella dokumentet, t. ex. "San Francisco". `Rooms/Type`Till skillnad från, refererar till `Type` under fältet för många rum (som "standard" för det första rummet, "Deluxe" för det andra rummet osv.). Eftersom `Rooms/Type` inte refererar till en *enskild instans* av det underordnade fältet `Type` , kan den inte användas direkt i ett filter. Om du i stället vill filtrera efter rums typ använder du ett [lambda-uttryck](search-query-odata-collection-operators.md) med en intervall variabel, så här:
 
     Rooms/any(room: room/Type eq 'deluxe')
 
-I det här exemplet visas variabeln `room` Range i `room/Type` fält Sök vägen. På så sätt `room/Type` refererar du till typen av aktuellt rum i det aktuella dokumentet. Det här är en enskild instans av `Type` under fältet, så den kan användas direkt i filtret.
+I det här exemplet visas variabeln Range `room` i `room/Type` fält Sök vägen. På så sätt `room/Type` refererar du till typen av aktuellt rum i det aktuella dokumentet. Det här är en enskild instans av `Type` under fältet, så den kan användas direkt i filtret.
 
 ### <a name="using-field-paths"></a>Använda fält Sök vägar
 
@@ -93,7 +92,7 @@ Fält Sök vägar används i många parametrar för [Azure KOGNITIV sökning RES
 
 | API | Parameternamn | Begränsningar |
 | --- | --- | --- |
-| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `suggesters/sourceFields` | Inga |
+| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `suggesters/sourceFields` | Ingen |
 | [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/text/weights` | Kan endast referera till **sökbara** fält |
 | [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/functions/fieldName` | Kan endast referera till **filter** bara fält |
 | [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`När `queryType` är`full` | Kan endast referera till **sökbara** fält |
@@ -126,7 +125,7 @@ I följande tabell visas exempel på konstanter för var och en av de data typer
 
 Sträng konstanter i OData är avgränsade med enkla citat tecken. Om du behöver skapa en fråga med en strängkonstant som kanske bara innehåller enkla citat tecken kan du undanta de inbäddade citat tecknen genom att dubblera dem.
 
-Till exempel skulle en fras med en oformaterad apostrof som "Alices bil" visas i OData som strängkonstant `'Alice''s car'`.
+Till exempel skulle en fras med en oformaterad apostrof som "Alices bil" visas i OData som strängkonstant `'Alice''s car'` .
 
 > [!IMPORTANT]
 > När du skapar filter program mässigt är det viktigt att komma ihåg att undvika sträng konstanter som kommer från användarindata. Detta är att minska risken för [injektions attacker](https://wikipedia.org/wiki/SQL_injection), särskilt när du använder filter för att implementera [säkerhets trimning](search-security-trimming-for-azure-search.md).
@@ -229,7 +228,7 @@ Ett interaktivt syntax diagram är också tillgängligt:
 > [!NOTE]
 > Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Parametrarna **$OrderBy** och **$Select** är båda kommaavgränsade listor med enklare uttryck. Parametern **$filter** är ett booleskt uttryck som består av enklare del uttryck. Dessa under uttryck kombineras med logiska operatorer som [ `and` `or`,, `not`och ](search-query-odata-logical-operators.md), jämförelse operatorer som [ `eq`, `lt` `gt`, och så](search-query-odata-comparison-operators.md)vidare, och samlings operatorer som [ `any` och `all` ](search-query-odata-collection-operators.md).
+Parametrarna **$OrderBy** och **$Select** är båda kommaavgränsade listor med enklare uttryck. Parametern **$filter** är ett booleskt uttryck som består av enklare del uttryck. Dessa under uttryck kombineras med logiska operatorer som [ `and` , `or` , `not` och ](search-query-odata-logical-operators.md), jämförelse operatorer som [ `eq` ,, `lt` `gt` och så](search-query-odata-comparison-operators.md)vidare, och samlings operatorer som [ `any` och `all` ](search-query-odata-collection-operators.md).
 
 Parametrarna **$filter**, **$OrderBy**och **$Select** visas mer ingående i följande artiklar:
 

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153782"
 ---
 # <a name="select-columns-in-dataset-module"></a>Välj kolumner i data uppsättnings modul
@@ -40,7 +39,7 @@ Det finns flera alternativ i modulen för att välja kolumner efter namn:
 
     Om du har anslutit en data mängd som redan är ifylld, ska en lista över tillgängliga kolumner visas. Om inga kolumner visas kan du behöva köra överordnade moduler för att Visa kolumn listan.
 
-    Filtrera listan genom att skriva i sökrutan. Om du till exempel skriver bokstaven `w` i sökrutan filtreras listan för att visa de kolumn namn som innehåller bokstaven. `w`
+    Filtrera listan genom att skriva i sökrutan. Om du till exempel skriver bokstaven `w` i sökrutan filtreras listan för att visa de kolumn namn som innehåller bokstaven `w` .
 
     Markera kolumner och klicka på högerpilen för att flytta de markerade kolumnerna till listan i den högra rutan.
 
@@ -96,7 +95,7 @@ Om din data uppsättning till exempel har minst åtta kolumner kan du klistra in
 + `1,3-8`
 + `1,3-6,4` 
 
-det sista exemplet resulterar inte i ett fel. den returnerar dock en enda instans av en kolumn `4`.
+det sista exemplet resulterar inte i ett fel. den returnerar dock en enda instans av en kolumn `4` .
 
 
 

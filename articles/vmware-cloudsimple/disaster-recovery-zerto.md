@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083144"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Konfigurera CloudSimple privata moln som en katastrof återställnings plats för lokala VMware-arbetsbelastningar
@@ -51,7 +50,7 @@ I följande avsnitt beskrivs hur du distribuerar en DR-lösning med Zerto Virtua
 Om du vill aktivera Zerto virtuell replikering från din lokala miljö till ditt privata moln måste du uppfylla följande krav.
 
 1. [Konfigurera en plats-till-plats-VPN-anslutning mellan ditt lokala nätverk och ditt CloudSimple privata moln](set-up-vpn.md).
-2. [Konfigurera DNS-sökning så att dina hanterings komponenter för privata moln vidarebefordras till privata moln DNS-servrar](on-premises-dns-setup.md).  Om du vill aktivera vidarebefordran av DNS-sökning skapar du en post för vidarebefordran i din lokala `*.cloudsimple.io` DNS-server för att CloudSimple DNS-servrar.
+2. [Konfigurera DNS-sökning så att dina hanterings komponenter för privata moln vidarebefordras till privata moln DNS-servrar](on-premises-dns-setup.md).  Om du vill aktivera vidarebefordran av DNS-sökning skapar du en post för vidarebefordran i din lokala DNS-server för `*.cloudsimple.io` att CloudSimple DNS-servrar.
 3. Konfigurera DNS-sökning så att lokala vCenter-komponenter vidarebefordras till lokala DNS-servrar.  DNS-servrarna måste gå att komma åt från ditt CloudSimple privata moln över plats-till-plats-VPN. Om du behöver hjälp kan du skicka en [supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)och ange följande information.  
 
     * Lokalt DNS-domännamn

@@ -7,10 +7,9 @@ ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153000"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure App Service
@@ -45,7 +44,7 @@ Det enklaste sättet att aktivera lokal Git-distribution för din app med kudu A
 
 ### <a name="get-the-deployment-url"></a>Hämta distributions-URL: en
 
-Om du vill hämta URL: en för att aktivera lokal Git-distribution för [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) en befintlig app, kör du i Cloud Shell. Ersätt \<app-name-> \<och grupp namn> med namnen på din app och dess Azure-resurs grupp.
+Om du vill hämta URL: en för att aktivera lokal Git-distribution för en befintlig app, kör [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) du i Cloud Shell. Ersätt \<app-name> och \<group-name> med namnet på din app och dess Azure-resurs grupp.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -54,17 +53,17 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 > Om du använder en Linux app-service-plan måste du lägga till den här parametern:--Runtime python | 3.7
 
 
-Eller skapa en ny git-aktiverad app genom att köra [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med `--deployment-local-git` parametern. Ersätt \<app-name-> \<, grupp-namn> och \<plan-namn> med namnen för din nya git-app, dess Azure-resurs grupp och dess Azure App Service plan.
+Eller skapa en ny git-aktiverad app genom att köra [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med `--deployment-local-git` parametern. Ersätt \<app-name> , \<group-name> och \<plan-name> med namnen för din nya git-app, dess Azure-adressresurs och dess Azure App Service plan.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
-Antingen returnerar kommandot en URL som: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Använd den här URL: en för att distribuera din app i nästa steg.
+Antingen returnerar kommandot en URL som: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` . Använd den här URL: en för att distribuera din app i nästa steg.
 
 I stället för att använda den här URL: en på konto nivå kan du också aktivera lokal git genom att använda autentiseringsuppgifter på program nivå. Azure App Service automatiskt genererar dessa autentiseringsuppgifter för varje app. 
 
-Hämta appens autentiseringsuppgifter genom att köra följande kommando i Cloud Shell. Ersätt \<app-name-> \<och grupp namn> med appens namn och namnet på Azure-resurs gruppen.
+Hämta appens autentiseringsuppgifter genom att köra följande kommando i Cloud Shell. Ersätt \<app-name> och \<group-name> med appens namn och namnet på Azure-resurs gruppen.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
@@ -74,17 +73,17 @@ Använd den URL som används för att distribuera din app i nästa steg.
 
 ### <a name="deploy-the-web-app"></a>Distribuera webbappen
 
-1. Öppna ett lokalt terminalfönster till din lokala git-lagringsplats och Lägg till en Azure-fjärrserver. I följande kommando ersätter \<du URL: en> med den användarspecifika URL: en för distributionen eller den app-Specific URL som du fick från föregående steg.
+1. Öppna ett lokalt terminalfönster till din lokala git-lagringsplats och Lägg till en Azure-fjärrserver. I följande kommando ersätter \<url> du med den användarspecifika URL: en för distributionen eller den app-Specific URL som du fick från föregående steg.
    
    ```bash
    git remote add azure <url>
    ```
    
-1. Skicka till Azure-fjärrservern med `git push azure master`. 
+1. Skicka till Azure-fjärrservern med `git push azure master` . 
    
 1. I fönstret **git Credential Manager** anger du ditt [distributions användar lösen ord](#configure-a-deployment-user), inte ditt Azures inloggnings lösen ord.
    
-1. Granska utdata. Du kan se körnings bara en automatisering, till exempel MSBuild för ASP.NET `npm install` , för Node. js och `pip install` för python. 
+1. Granska utdata. Du kan se en körnings bestämd automatisering, till exempel MSBuild för ASP.NET, `npm install` för Node.js och `pip install` för python. 
    
 1. Bläddra till din app i Azure Portal för att kontrol lera att innehållet har distribuerats.
 
@@ -125,17 +124,17 @@ Så här aktiverar du lokal Git-distribution för din app med Azure-pipeliner (f
    
    ![Kopiera git-lagringsplatsens URL](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-1. I det lokala terminalfönstret lägger du till en Azure-fjärrkontroll till din lokala git-lagringsplats. I kommandot ersätter \<du URL> med URL: en för git-lagringsplatsen som du fick från föregående steg.
+1. I det lokala terminalfönstret lägger du till en Azure-fjärrkontroll till din lokala git-lagringsplats. I kommandot ersätter \<url> du med URL: en för git-lagringsplatsen som du fick från föregående steg.
    
    ```bash
    git remote add azure <url>
    ```
    
-1. Skicka till Azure-fjärrservern med `git push azure master`. 
+1. Skicka till Azure-fjärrservern med `git push azure master` . 
    
 1. Logga in med ditt visualstudio.com-användarnamn på sidan **git Credential Manager** . Andra autentiseringsmetoder finns i [Översikt över Azure DevOps Services-autentisering](/vsts/git/auth-overview?view=vsts).
    
-1. När distributionen är färdig visar du Bygg förloppet vid `https://<azure_devops_account>.visualstudio.com/<project_name>/_build`och distributions förloppet på `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`.
+1. När distributionen är färdig visar du Bygg förloppet vid `https://<azure_devops_account>.visualstudio.com/<project_name>/_build` och distributions förloppet på `https://<azure_devops_account>.visualstudio.com/<project_name>/_release` .
    
 1. Bläddra till din app i Azure Portal för att kontrol lera att innehållet har distribuerats.
 
@@ -149,10 +148,10 @@ Följande vanliga fel meddelanden kan visas när du använder Git för att publi
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|Appen är inte igång.|Starta appen i Azure Portal. Git-distribution är inte tillgängligt när webbappen har stoppats.|
 |`Couldn't resolve host 'hostname'`|Adress informationen för fjärran slutet av Azure är felaktig.|Använd `git remote -v` kommandot för att lista alla fjärranslutna, tillsammans med tillhör ande URL. Kontrol lera att URL: en för "Azure"-fjärrplatsen är korrekt. Om det behövs tar du bort och återskapar denna fjärr anslutning med rätt URL.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Du har inte angett någon `git push`gren under eller så har du `push.default` inte angett värdet i `.gitconfig`.|Kör `git push` igen och ange huvud grenen: `git push azure master`.|
-|`src refspec [branchname] does not match any.`|Du försökte skicka till en annan gren än Master på Azure-fjärrplatsen.|Kör `git push` igen och ange huvud grenen: `git push azure master`.|
-|`RPC failed; result=22, HTTP code = 5xx.`|Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.|Ändra git-konfigurationen på den lokala datorn så att den `postBuffer` blir större. Till exempel: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node. js-app med en _Package. JSON_ -fil som anger ytterligare nödvändiga moduler.|Granska `npm ERR!` fel meddelandena före det här felet för mer information om felet. Följande är kända orsaker till det här felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Skadad Package. JSON-fil**:`npm ERR! Couldn't read dependencies.`<br /><br />**Den ursprungliga modulen har ingen binär distribution för Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Du har inte angett någon gren under `git push` eller så har du inte angett `push.default` värdet i `.gitconfig` .|Kör `git push` igen och ange huvud grenen: `git push azure master` .|
+|`src refspec [branchname] does not match any.`|Du försökte skicka till en annan gren än Master på Azure-fjärrplatsen.|Kör `git push` igen och ange huvud grenen: `git push azure master` .|
+|`RPC failed; result=22, HTTP code = 5xx.`|Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.|Ändra git-konfigurationen på den lokala datorn så att den blir `postBuffer` större. Exempel: `git config --global http.postBuffer 524288000`.|
+|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node.js-app med en _package.jspå_ en fil som anger ytterligare nödvändiga moduler.|Granska `npm ERR!` fel meddelandena före det här felet för mer information om felet. Följande är kända orsaker till det här felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Felaktig package.jspå fil**:`npm ERR! Couldn't read dependencies.`<br /><br />**Den ursprungliga modulen har ingen binär distribution för Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

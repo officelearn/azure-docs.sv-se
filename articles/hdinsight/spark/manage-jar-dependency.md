@@ -9,15 +9,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.openlocfilehash: da3387dd9846847f7643ded43c8cbff8ed8b166e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77135738"
 ---
 # <a name="jar-dependency-management-best-practices"></a>Metod tips för JAR-beroende hantering
 
-Komponenter som är installerade i HDInsight-kluster har beroenden på bibliotek från tredje part. En speciell version av vanliga moduler som Guava refereras vanligt vis till av dessa inbyggda komponenter. När du skickar ett program med dess beroenden kan det orsaka en konflikt mellan olika versioner av samma modul. Om den komponent version som du refererar till i classpath först kan inbyggda komponenter utlösa undantag på grund av versions inkompatibilitet. Men om inbyggda komponenter matar in sina beroenden till Klasen först, kan ditt program utlösa fel som `NoSuchMethod`.
+Komponenter som är installerade i HDInsight-kluster har beroenden på bibliotek från tredje part. En speciell version av vanliga moduler som Guava refereras vanligt vis till av dessa inbyggda komponenter. När du skickar ett program med dess beroenden kan det orsaka en konflikt mellan olika versioner av samma modul. Om den komponent version som du refererar till i classpath först kan inbyggda komponenter utlösa undantag på grund av versions inkompatibilitet. Men om inbyggda komponenter matar in sina beroenden till Klasen först, kan ditt program utlösa fel som `NoSuchMethod` .
 
 För att undvika versions konflikt bör du överväga att skugga dina program beroenden.
 
@@ -34,7 +33,7 @@ Maven kan bygga program skrivna både i Java och Scala. Maven-Shader-plugin-prog
 
 Exemplet nedan visar en fil `pom.xml` som har uppdaterats för att skugga ett paket med maven-Shader-plugin.  XML-avsnittet `<relocation>…</relocation>` flyttar klasser från paketet `com.google.guava` till paketet `com.google.shaded.guava` genom att flytta motsvarande jar-filposter och skriva om den aktuella bytekod-filen.
 
-När du `pom.xml`har ändrat kan du `mvn package` köra för att bygga den skuggade Uber-burken.
+När du har ändrat `pom.xml` kan du köra `mvn package` för att bygga den skuggade Uber-burken.
 
 ```xml
   <build>
@@ -67,7 +66,7 @@ När du `pom.xml`har ändrat kan du `mvn package` köra för att bygga den skugg
 ### <a name="shade-package-using-sbt"></a>Skugga paket med SBT
 SBT är också ett build-verktyg för Scala och Java. SBT har inte något skuggat plugin-program som maven-Shader-plugin. Du kan ändra `build.sbt` filen för att skugga paket. 
 
-Om du till exempel vill `com.google.guava`skugga kan du lägga till nedanstående kommando i `build.sbt` filen:
+Om du till exempel vill skugga kan `com.google.guava` du lägga till nedanstående kommando i `build.sbt` filen:
 
 ```scala
 assemblyShadeRules in assembly := Seq(

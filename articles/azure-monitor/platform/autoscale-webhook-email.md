@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77120698"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använd åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor
@@ -56,7 +55,7 @@ När du använder REST API-eller Resource Manager-mallen inkluderar du meddeland
     ]
 ```
 
-| Field | Erforderlig? | Beskrivning |
+| Fält | Erforderlig? | Beskrivning |
 | --- | --- | --- |
 | reparation |ja |värdet måste vara "Scale" |
 | sendToSubscriptionAdministrator |ja |värdet måste vara "sant" eller "falskt" |
@@ -67,7 +66,7 @@ När du använder REST API-eller Resource Manager-mallen inkluderar du meddeland
 | properties |ja |värdet måste vara tomt {} eller innehålla nyckel/värde-par |
 
 ## <a name="authentication-in-webhooks"></a>Autentisering i Webhooks
-Webhooken kan autentiseras med hjälp av tokenbaserad autentisering, där du sparar webhook-URI: n med ett token-ID som frågeparameter. Till exempel https:\//mysamplealert/webcallback? tokenID = sometokenid&someparameter = someValue
+Webhooken kan autentiseras med hjälp av tokenbaserad autentisering, där du sparar webhook-URI: n med ett token-ID som frågeparameter. Till exempel https: \/ /mysamplealert/webcallback? tokenID = sometokenid&someparameter = someValue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Autoskalning meddelande webhook nytto Last schema
 När meddelandet för autoskalning skapas, ingår följande metadata i webhook-nytto lasten:
@@ -99,7 +98,7 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 ```
 
 
-| Field | Erforderlig? | Beskrivning |
+| Fält | Erforderlig? | Beskrivning |
 | --- | --- | --- |
 | status |ja |Status som anger att en åtgärd för autoskalning har genererats |
 | reparation |ja |För en ökning av instanser blir det "skala ut" och en minskning av instanserna blir "skala in" |
@@ -116,5 +115,5 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 | portalLink |Ja |Azure Portal länk till sidan Sammanfattning för mål resursen |
 | oldCapacity |Ja |Det aktuella (gamla) instans antalet när autoskalning vidtog en skalnings åtgärd |
 | newCapacity |Ja |Den nya instansen räknas som autoskalning som skalar resursen till |
-| properties |Nej |Valfritt. Uppsättning <nyckel, värde> par (till exempel ord lista <sträng, sträng>). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
+| properties |No |Valfritt. Uppsättning <nyckel, värde> par (till exempel ord lista <sträng, sträng>). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
 

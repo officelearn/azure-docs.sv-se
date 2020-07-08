@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
 ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77121715"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS vanliga frågor och svar
@@ -42,7 +41,7 @@ Mer information finns på sidan om [Azure DNS service avtal](https://azure.micro
 
 En domän är ett unikt namn i domän namn systemet. Ett exempel kan vara contoso.com.
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Posterna kan innehålla mail.contoso.com för en e-postserver och\.en webb-contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Posterna kan innehålla mail.contoso.com för en e-postserver och \. en webb-contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
 
 Ett domän namn är *bara ett namn*. En DNS-zon är en data resurs som innehåller DNS-poster för ett domän namn. Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. Den innehåller också DNS-namnservrar för att besvara DNS-frågor från Internet.
 
@@ -96,7 +95,7 @@ Ja. Azure DNS stöder utökade ASCII-teckenuppsättningar för TXT-postuppsättn
 
 Du kan till exempel ange en sträng som värde för en TXT-post som har det utökade ASCII-tecken \ 128. Ett exempel är "abcd\128efgh." Azure DNS använder byte-värdet för det här specialtecknet, som är 128, i intern representation. Vid DNS-matchning returneras det här byte-värdet i svaret. Observera också att "ABC" och "\ 097 \ 098 \ 099" är utbytbara i mån av en lösning. 
 
-Vi följer [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) Zone File Master format Escape Rules for TXT-poster. Nu kan du `\` till exempel i själva verket undanta allting per RFC. Om du anger `A\B` som TXT-postvärdet representeras och matchas det `AB`bara. Om du verkligen vill att TXT-posten ska `A\B` ha en upplösning måste du kringgå `\` igen. Som exempel anger `A\\B`du.
+Vi följer [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) Zone File Master format Escape Rules for TXT-poster. Nu kan du till exempel i `\` själva verket undanta allting per RFC. Om du anger `A\B` som TXT-postvärdet representeras och matchas det bara `AB` . Om du verkligen vill att TXT-posten ska ha en `A\B` upplösning måste du kringgå `\` igen. Som exempel anger du `A\\B` .
 
 Det här stödet är för närvarande inte tillgängligt för TXT-poster som skapats från Azure Portal.
 

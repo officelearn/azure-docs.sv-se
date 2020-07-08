@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162216"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Apache Hadoop-arkitektur i HDInsight
@@ -66,7 +65,7 @@ Om du vill ångra borttagningen av en fil från ditt lagrings konto, se:
 
 ## <a name="trash-purging"></a>Rensning av skräp
 
-`fs.trash.interval` Egenskapen från **HDFS** > **Advanced Core – site** ska vara kvar på standardvärdet `0` eftersom du inte bör lagra några data i det lokala fil systemet. Det här värdet påverkar inte fjär lagrings konton (WASB, ADLS GEN1, ABFS)
+`fs.trash.interval`Egenskapen från **HDFS**  >  **Advanced Core – site** ska vara kvar på standardvärdet `0` eftersom du inte bör lagra några data i det lokala fil systemet. Det här värdet påverkar inte fjär lagrings konton (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Nästa steg
 

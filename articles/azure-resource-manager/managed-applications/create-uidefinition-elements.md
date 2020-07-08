@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: 12bf5d131001d95a3f4327f95c24125dbf3fb510
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086700"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition-element
@@ -35,14 +34,14 @@ Schemat för de flesta element är följande:
 
 | Egenskap | Krävs | Beskrivning |
 | -------- | -------- | ----------- |
-| name | Ja | En intern identifierare som refererar till en angiven instans av ett element. Den vanligaste användningen av element namnet är i `outputs`, där indatavärdena för de angivna elementen mappas till parametrarna i mallen. Du kan också använda den för att binda utmatning svärdet för ett element till `defaultValue` ett annat element. |
+| name | Ja | En intern identifierare som refererar till en angiven instans av ett element. Den vanligaste användningen av element namnet är i `outputs` , där indatavärdena för de angivna elementen mappas till parametrarna i mallen. Du kan också använda den för att binda utmatning svärdet för ett element till ett `defaultValue` annat element. |
 | typ | Ja | GRÄNSSNITTs kontroll som ska renderas för elementet. En lista över typer som stöds finns i [element](#elements). |
 | etikett | Ja | Objektets visnings text. Vissa element typer innehåller flera etiketter, så värdet kan vara ett objekt som innehåller flera strängar. |
-| Standar | Nej | Standardvärdet för elementet. Vissa element typer stöder komplexa standardvärden, vilket innebär att värdet kan vara ett objekt. |
-| Angiven | Nej | Texten som ska visas i verktygs tipset för-elementet. `label`På liknande sätt stöder vissa element flera verktygs tips strängar. Infogade länkar kan bäddas in med markdown-syntax.
-| begränsningar | Nej | En eller flera egenskaper som används för att anpassa elementets validerings beteende. De egenskaper som stöds för begränsningar varierar beroende på element typ. Vissa element typer stöder inte anpassning av verifierings beteendet och har därför ingen egenskap för begränsning. |
-| alternativ | Nej | Ytterligare egenskaper som anpassar elementets beteende. `constraints`På liknande sätt varierar de egenskaper som stöds beroende på element typ. |
-| tydligt | Nej | Anger om elementet visas. Om `true`, element och tillämpliga underordnade element visas. Standardvärdet är `true`. Använd [logiska funktioner](create-uidefinition-functions.md#logical-functions) för att dynamiskt styra egenskapens värde.
+| Standar | No | Standardvärdet för elementet. Vissa element typer stöder komplexa standardvärden, vilket innebär att värdet kan vara ett objekt. |
+| Angiven | No | Texten som ska visas i verktygs tipset för-elementet. På liknande sätt `label` stöder vissa element flera verktygs tips strängar. Infogade länkar kan bäddas in med markdown-syntax.
+| begränsningar | No | En eller flera egenskaper som används för att anpassa elementets validerings beteende. De egenskaper som stöds för begränsningar varierar beroende på element typ. Vissa element typer stöder inte anpassning av verifierings beteendet och har därför ingen egenskap för begränsning. |
+| alternativ | No | Ytterligare egenskaper som anpassar elementets beteende. På liknande sätt `constraints` varierar de egenskaper som stöds beroende på element typ. |
+| tydligt | No | Anger om elementet visas. Om `true` , element och tillämpliga underordnade element visas. Standardvärdet är `true`. Använd [logiska funktioner](create-uidefinition-functions.md#logical-functions) för att dynamiskt styra egenskapens värde.
 
 ## <a name="elements"></a>Element
 

@@ -14,21 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77167034"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-kommandon – CMD och PowerShell
 
 Det här avsnittet innehåller exempel kommandon för att utföra vanliga uppgifter i scenarier där du kan behöva använda SAC för att få åtkomst till din virtuella Windows-dator, till exempel när du behöver felsöka RDP-anslutningsfel.
 
-SAC har inkluderats i alla versioner av Windows sedan Windows Server 2003 men är inaktiverat som standard. SAC förlitar sig `sacdrv.sys` på kernel-drivrutinen `Special Administration Console Helper` , tjänsten`sacsvr`() och `sacsess.exe` processen. Mer information finns i [verktyg och inställningar för Emergency Management Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC har inkluderats i alla versioner av Windows sedan Windows Server 2003 men är inaktiverat som standard. SAC förlitar sig på `sacdrv.sys` kernel-drivrutinen, `Special Administration Console Helper` tjänsten ( `sacsvr` ) och `sacsess.exe` processen. Mer information finns i [verktyg och inställningar för Emergency Management Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
-Med SAC kan du ansluta till ditt operativ system via en seriell port. När du startar CMD från SAC `sacsess.exe` startar `cmd.exe` du i det operativ system som körs. Du kan se att i aktivitets hanteraren om du använder RDP till den virtuella datorn på samma gång som du är ansluten till SAC via funktionen serie konsol. CMD som du kommer åt via SAC är samma `cmd.exe` som du använder när du är ansluten via RDP. Alla samma kommandon och verktyg är tillgängliga, inklusive möjligheten att starta PowerShell från den CMD-instansen. Det är en stor skillnad mellan SAC och Windows återställnings miljö (WinRE) i den SAC som låter dig hantera ditt drift operativ system, där WinRE startar i ett annat, minimalt operativ system. Virtuella Azure-datorer har inte stöd för möjligheten att komma åt WinRE, med funktionen för serie konsol, och virtuella Azure-datorer kan hanteras via SAC.
+Med SAC kan du ansluta till ditt operativ system via en seriell port. När du startar CMD från SAC `sacsess.exe` startar du `cmd.exe` i det operativ system som körs. Du kan se att i aktivitets hanteraren om du använder RDP till den virtuella datorn på samma gång som du är ansluten till SAC via funktionen serie konsol. CMD som du kommer åt via SAC är samma `cmd.exe` som du använder när du är ansluten via RDP. Alla samma kommandon och verktyg är tillgängliga, inklusive möjligheten att starta PowerShell från den CMD-instansen. Det är en stor skillnad mellan SAC och Windows återställnings miljö (WinRE) i den SAC som låter dig hantera ditt drift operativ system, där WinRE startar i ett annat, minimalt operativ system. Virtuella Azure-datorer har inte stöd för möjligheten att komma åt WinRE, med funktionen för serie konsol, och virtuella Azure-datorer kan hanteras via SAC.
 
-Eftersom SAC är begränsat till en 80x24 utan att rulla tillbaka, lägger `| more` du till kommandon för att visa utdata en sida i taget. Använd `<spacebar>` för att se nästa sida eller `<enter>` för att se nästa rad.
+Eftersom SAC är begränsat till en 80x24 utan att rulla tillbaka, lägger du till `| more` kommandon för att visa utdata en sida i taget. Använd `<spacebar>` för att se nästa sida eller `<enter>` för att se nästa rad.
 
 `SHIFT+INSERT`är den infogade genvägen för serie konsol fönstret.
 
@@ -62,7 +61,7 @@ Ett blank steg krävs efter likhets tecknet.
 ### <a name="set-service-start-type"></a>Ange starttyp för tjänst
 `sc config termservice start= demand`
 
-Ett blank steg krävs efter likhets tecknet. Möjliga start värden är `boot`, `system`, `auto` `demand`,, `disabled`, `delayed-auto`.
+Ett blank steg krävs efter likhets tecknet. Möjliga start värden är `boot` , `system` ,,, `auto` `demand` `disabled` , `delayed-auto` .
 ### <a name="set-service-dependencies"></a>Ange tjänst beroenden
 `sc config termservice depend= RPCSS`
 
@@ -91,7 +90,7 @@ eller
 ### <a name="set-nic-to-use-dhcp"></a>Ange NIC för att använda DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-[Klicka här](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts)om du `netsh`vill ha mer information om.
+`netsh` [Klicka här](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts)om du vill ha mer information om.
 
 Virtuella Azure-datorer måste alltid konfigureras i gäst operativ systemet för att använda DHCP för att hämta en IP-adress. Den statiska IP-inställningen i Azure använder fortfarande DHCP för att ge den statiska IP-adressen till den virtuella datorn.
 ### <a name="ping"></a>Pinga
@@ -128,7 +127,7 @@ Du kan använda det här kommandot när du felsöker för att tillfälligt utesl
 ### <a name="verify-user-account-is-enabled"></a>Kontrol lera att användar kontot är aktiverat
 `net user <username> | find /i "active"`
 
-Virtuella Azure-datorer som skapas från en generaliserad avbildning kommer att ha det lokala administratörs kontot bytt namn till det namn som angavs under VM-etableringen. Därför är det vanligt vis inte `Administrator`.
+Virtuella Azure-datorer som skapas från en generaliserad avbildning kommer att ha det lokala administratörs kontot bytt namn till det namn som angavs under VM-etableringen. Därför är det vanligt vis inte `Administrator` .
 ### <a name="enable-user-account"></a>Aktivera användar konto
 `net user <username> /active:yes`
 ### <a name="view-user-account-properties"></a>Visa egenskaper för användar konto
@@ -179,7 +178,7 @@ Ersätt `<name>` med namnet som returneras i ovanstående kommando för det prog
 ### <a name="get-file-version"></a>Hämta fil version
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
 
-Det här exemplet returnerar fil versionen av den virtuella nätverkskort driv rutinen, som är netvsc. sys, netvsc63. sys eller netvsc60. sys beroende på Windows-versionen.
+Det här exemplet returnerar fil versionen av den virtuella nätverkskort driv rutinen, som är netvsc.sys, netvsc63.sys eller netvsc60.sys beroende på Windows-versionen.
 ### <a name="scan-for-system-file-corruption"></a>Söker efter skadad system fil
 `sfc /scannow`
 
@@ -195,7 +194,7 @@ Se även [Reparera en Windows-avbildning](https://docs.microsoft.com/windows-har
 ### <a name="restore-file-permissions-from-acl-file"></a>Återställ fil behörigheter från ACL-filen
 `icacls %programdata%\Microsoft\Crypto\RSA /save %temp%\MachineKeys_permissions_before.aclfile /t`
 
-Sökvägen när du använder `/restore` måste vara den överordnade mappen till den mapp som du angav när du `/save`använde. I det här exemplet `\RSA` är överordnad till `\MachineKeys` den mapp som anges `/save` i exemplet ovan.
+Sökvägen när du använder `/restore` måste vara den överordnade mappen till den mapp som du angav när du använde `/save` . I det här exemplet `\RSA` är överordnad till den `\MachineKeys` mapp som anges i `/save` exemplet ovan.
 ### <a name="take-ntfs-ownership-of-a-folder"></a>Ta NTFS-ägande av en mapp
 `takeown /f %programdata%\Microsoft\Crypto\RSA\MachineKeys /a /r`
 ### <a name="grant-ntfs-permissions-to-a-folder-recursively"></a>Ge NTFS-behörigheter till en mapp rekursivt
@@ -236,7 +235,7 @@ eller
 ### <a name="restart-windows"></a>Starta om Windows
 `shutdown /r /t 0`
 
-Om `/f` du lägger till tvingas körning av program att stängas utan varnings användare.
+`/f`Om du lägger till tvingas körning av program att stängas utan varnings användare.
 ### <a name="detect-safe-mode-boot"></a>Identifiera start i fel säkert läge
 `bcdedit /enum | find /i "safeboot"`
 
@@ -280,11 +279,11 @@ Den andra nyckeln (under \Policies) behövs bara om den relevanta grup princip i
 ### <a name="set-service-logon-account"></a>Ange tjänst inloggnings konto
 `(get-wmiobject win32_service -filter "name='termservice'").Change($null,$null,$null,$null,$null,$false,'NT Authority\NetworkService')`
 
-När du använder ett annat tjänst konto `NT AUTHORITY\LocalService`än `NT AUTHORITY\NetworkService`, eller `LocalSystem`, anger du konto lösen ordet som det sista (åttonde) argumentet efter konto namnet.
+När du använder ett annat tjänst konto än `NT AUTHORITY\LocalService` , `NT AUTHORITY\NetworkService` eller `LocalSystem` , anger du konto lösen ordet som det sista (åttonde) argumentet efter konto namnet.
 ### <a name="set-service-startup-type"></a>Ange starttyp för tjänst
 `set-service termservice -startuptype Manual`
 
-`Set-service`accepterar `Automatic`, `Manual`eller `Disabled` för start metod.
+`Set-service`accepterar `Automatic` , `Manual` eller `Disabled` för start metod.
 ### <a name="set-service-dependencies"></a>Ange tjänst beroenden
 `Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\TermService' -Name DependOnService -Value @('RPCSS','TermDD')`
 ### <a name="start-service"></a>Starta tjänst
@@ -299,7 +298,7 @@ eller
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
-`Get-NetAdapter`är tillgängligt i 2012 + för 2008R2-användning `Get-WmiObject`.
+`Get-NetAdapter`är tillgängligt i 2012 + för 2008R2-användning `Get-WmiObject` .
 ### <a name="show-ip-properties"></a>Visa IP-egenskaper
 `get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'" |  format-list DNSHostName,IPAddress,DHCPEnabled,IPSubnet,DefaultIPGateway,MACAddress,DHCPServer,DNSServerSearchOrder`
 ### <a name="enable-nic"></a>Aktivera NIC
@@ -309,13 +308,13 @@ eller
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
-`Get-NetAdapter`är tillgängligt i 2012 + för 2008R2-användning `Get-WmiObject`.
+`Get-NetAdapter`är tillgängligt i 2012 + för 2008R2-användning `Get-WmiObject` .
 ### <a name="set-nic-to-use-dhcp"></a>Ange NIC för att använda DHCP
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | Set-NetIPInterface -DHCP Enabled`
 
 `(get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'").EnableDHCP()`
 
-`Get-NetAdapter`är tillgängligt på 2012 +. För användning `Get-WmiObject`av 2008R2. Virtuella Azure-datorer måste alltid konfigureras i gäst operativ systemet för att använda DHCP för att hämta en IP-adress. Den statiska IP-inställningen i Azure använder fortfarande DHCP för att ge IP-adressen till den virtuella datorn.
+`Get-NetAdapter`är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Virtuella Azure-datorer måste alltid konfigureras i gäst operativ systemet för att använda DHCP för att hämta en IP-adress. Den statiska IP-inställningen i Azure använder fortfarande DHCP för att ge IP-adressen till den virtuella datorn.
 ### <a name="ping"></a>Pinga
 `test-netconnection`
 
@@ -326,7 +325,7 @@ eller
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
-`Test-Netconnection`utan parametrar kommer att försöka pinga `internetbeacon.msedge.net`. Den är tillgänglig på 2012 +. För 2008R2 används `Get-WmiObject` som i det andra exemplet.
+`Test-Netconnection`utan parametrar kommer att försöka pinga `internetbeacon.msedge.net` . Den är tillgänglig på 2012 +. För 2008R2 används `Get-WmiObject` som i det andra exemplet.
 ### <a name="port-ping"></a>Port-ping
 `test-netconnection -ComputerName bing.com -Port 80`
 
@@ -342,7 +341,7 @@ eller
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
-`Resolve-DnsName`är tillgängligt på 2012 +. För användning `System.Net.DNS`av 2008R2.
+`Resolve-DnsName`är tillgängligt på 2012 +. För användning av 2008R2 `System.Net.DNS` .
 ### <a name="show-windows-firewall-rule-by-name"></a>Visa regel för Windows-brandvägg efter namn
 `get-netfirewallrule -name RemoteDesktop-UserMode-In-TCP`
 ### <a name="show-windows-firewall-rule-by-port"></a>Visa regel för Windows-brandvägg per port
@@ -356,7 +355,7 @@ eller
 ### <a name="disable-windows-firewall"></a>Inaktivera Windows-brandväggen
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
-`Set-NetFirewallProfile`är tillgängligt på 2012 +. För 2008R2- `netsh advfirewall` användning som det hänvisas till i avsnittet cmd ovan.
+`Set-NetFirewallProfile`är tillgängligt på 2012 +. För 2008R2-användning `netsh advfirewall` som det hänvisas till i avsnittet cmd ovan.
 ## <a name="manage-users-and-groups"></a>Hantera användare och grupper
 ### <a name="create-local-user-account"></a>Skapa lokalt användar konto
 `new-localuser <name>`
@@ -367,13 +366,13 @@ eller
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
-`Get-LocalUser`är tillgängligt på 2012 +. För användning `Get-WmiObject`av 2008R2. Det här exemplet visar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500`. Virtuella Azure-datorer som skapas från en generaliserad avbildning kommer att ha det lokala administratörs kontot bytt namn till det namn som angavs under VM-etableringen. Därför är det vanligt vis inte `Administrator`.
+`Get-LocalUser`är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Det här exemplet visar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500` . Virtuella Azure-datorer som skapas från en generaliserad avbildning kommer att ha det lokala administratörs kontot bytt namn till det namn som angavs under VM-etableringen. Därför är det vanligt vis inte `Administrator` .
 ### <a name="add-local-user-to-local-group"></a>Lägg till lokal användare i lokal grupp
 `add-localgroupmember -group Administrators -member <username>`
 ### <a name="enable-local-user-account"></a>Aktivera lokalt användar konto
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | enable-localuser`
 
-Det här exemplet aktiverar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500`. Virtuella Azure-datorer som skapas från en generaliserad avbildning kommer att ha det lokala administratörs kontot bytt namn till det namn som angavs under VM-etableringen. Därför är det vanligt vis inte `Administrator`.
+Det här exemplet aktiverar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500` . Virtuella Azure-datorer som skapas från en generaliserad avbildning kommer att ha det lokala administratörs kontot bytt namn till det namn som angavs under VM-etableringen. Därför är det vanligt vis inte `Administrator` .
 ### <a name="view-user-account-properties"></a>Visa egenskaper för användar konto
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
 
@@ -381,11 +380,11 @@ eller
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 
-`Get-LocalUser`är tillgängligt på 2012 +. För användning `Get-WmiObject`av 2008R2. Det här exemplet visar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500`.
+`Get-LocalUser`är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Det här exemplet visar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500` .
 ### <a name="view-local-groups"></a>Visa lokala grupper
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
-`Get-LocalUser`är tillgängligt på 2012 +. För användning `Get-WmiObject`av 2008R2.
+`Get-LocalUser`är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` .
 ## <a name="manage-the-windows-event-log"></a>Hantera händelse loggen i Windows
 ### <a name="query-event-log-errors"></a>Händelse logg fel för fråga
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
@@ -410,11 +409,11 @@ Använd `604800000` för att se tillbaka 7 dagar i stället för 24 timmar. |
 ### <a name="get-file-version"></a>Hämta fil version
 `(get-childitem $env:windir\system32\drivers\netvsc*.sys).VersionInfo.FileVersion`
 
-Det här exemplet returnerar fil versionen av den virtuella nätverkskort driv rutinen, som heter netvsc. sys, netvsc63. sys eller netvsc60. sys beroende på Windows-versionen.
+Det här exemplet returnerar fil versionen av den virtuella nätverkskort driv rutinen, som heter netvsc.sys, netvsc63.sys eller netvsc60.sys beroende på Windows-versionen.
 ### <a name="download-and-extract-file"></a>Ladda ned och extrahera fil
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
-Det här exemplet skapar `c:\bin` en mapp och hämtar och extraherar sedan Sysinternals-serien med `c:\bin`verktyg till.
+Det här exemplet skapar en `c:\bin` mapp och hämtar och extraherar sedan Sysinternals-serien med verktyg till `c:\bin` .
 ## <a name="miscellaneous-tasks"></a>Diverse aktiviteter
 ### <a name="show-os-version"></a>Visa OS-version
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
@@ -425,11 +424,11 @@ Det här exemplet skapar `c:\bin` en mapp och hämtar och extraherar sedan Sysin
 ### <a name="view-windows-uptime"></a>Visa Windows-drift tid
 `"{0:dd}:{0:hh}:{0:mm}:{0:ss}.{0:ff}" -f ((get-date)-(get-wmiobject win32_operatingsystem).converttodatetime((get-wmiobject win32_operatingsystem).lastbootuptime))`
 
-Returnerar drift tid `<days>:<hours>:<minutes>:<seconds>:<milliseconds>`, till exempel `49:16:48:00.00`.
+Returnerar drift tid `<days>:<hours>:<minutes>:<seconds>:<milliseconds>` , till exempel `49:16:48:00.00` .
 ### <a name="restart-windows"></a>Starta om Windows
 `restart-computer`
 
-Om `-force` du lägger till tvingas körning av program att stängas utan varnings användare.
+`-force`Om du lägger till tvingas körning av program att stängas utan varnings användare.
 ## <a name="instance-metadata"></a>Metadata för instans
 
 Du kan fråga Azure instance metadata från din virtuella Azure-dator om du vill visa information som osType, Location, vmSize, vmId, Name, resourceGroupName, subscriptionId, privateIpAddress och publicIpAddress.

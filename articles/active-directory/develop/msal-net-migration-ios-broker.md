@@ -13,10 +13,9 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77185833"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrera iOS-program som använder Microsoft Authenticator från ADAL.NET till MSAL.NET
@@ -98,7 +97,7 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### <a name="step-2-set-a-uiviewcontroller"></a>Steg 2: Ange en UIViewController ()
-I ADAL.NET angav du en UIViewController som en del av `PlatformParameters`. (Se exemplet i steg 1.) I MSAL.NET används ett objekt fönster, men det krävs inte i normal iOS-användning för att ge utvecklare mer flexibilitet. Om du vill använda Service Broker ställer du in fönstret objekt för att skicka och ta emot svar från Service Broker. 
+I ADAL.NET angav du en UIViewController som en del av `PlatformParameters` . (Se exemplet i steg 1.) I MSAL.NET används ett objekt fönster, men det krävs inte i normal iOS-användning för att ge utvecklare mer flexibilitet. Om du vill använda Service Broker ställer du in fönstret objekt för att skicka och ta emot svar från Service Broker. 
 <table>
 <tr><td>Aktuell ADAL-kod:</td><td>MSAL motsvarighet:</td></tr>
 <tr><td>
@@ -115,10 +114,10 @@ page.BrokerParameters = new PlatformParameters(
 </td><td>
 I MSAL.NET gör du två saker för att ange objekt fönstret för iOS:
 
-1. I `AppDelegate.cs`anger `App.RootViewController` du till en ny `UIViewController()`. Den här tilldelningen säkerställer att det finns en UIViewController med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande:`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-1. På AcquireTokenInteractive-anropet använder `.WithParentActivityOrWindow(App.RootViewController)`och skickar du i referensen till objekt fönstret som du använder.
+1. I `AppDelegate.cs` anger `App.RootViewController` du till en ny `UIViewController()` . Den här tilldelningen säkerställer att det finns en UIViewController med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande:`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. På AcquireTokenInteractive-anropet använder `.WithParentActivityOrWindow(App.RootViewController)` och skickar du i referensen till objekt fönstret som du använder.
 
-**Exempel:**
+**Ett exempel:**
 
 Följande gäller i `App.cs`:
 ```csharp
@@ -184,7 +183,7 @@ Exempel: `$"msauth.(BundleId")`
 
 ### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Steg 5: Lägg till Service Broker-identifieraren i avsnittet LSApplicationQueriesSchemes
 
-ADAL.NET och MSAL.NET använder `-canOpenURL:` båda för att kontrol lera om Service Broker är installerat på enheten. Lägg till rätt ID för iOS-Broker i avsnittet LSApplicationQueriesSchemes i filen info. plist enligt följande:
+ADAL.NET och MSAL.NET använder båda `-canOpenURL:` för att kontrol lera om Service Broker är installerat på enheten. Lägg till rätt ID för iOS-Broker i avsnittet LSApplicationQueriesSchemes i filen info. plist enligt följande:
 
 <table>
 <tr><td>Aktuell ADAL-kod:</td><td>MSAL motsvarighet:</td></tr>

@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086623"
 ---
 # <a name="persist-state-in-windows"></a>Sparat tillstånd i Windows
@@ -73,9 +72,9 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
     1. Starta Utforskaren.
     1. Navigera till mappen som är påpekad av **monterings punkt**.
     1. Högerklicka på och välj sedan **Egenskaper**.
-    1. Välj **säkerhet**.
+    1. Välj **Säkerhet**.
     1. Under * grupp-eller användar namn väljer du **Redigera**.
-    1. Välj **Lägg till**, `Users`ange, Välj **kontrol lera namn**och välj **OK**.
+    1. Välj **Lägg till**, ange `Users` , Välj **kontrol lera namn**och välj **OK**.
     1. Under *behörigheter för användare*väljer du **ändra**och sedan **OK**.
 1. Använd **bindningar** för att montera volymen och distribuera om Event Grid modul från Azure Portal
 
@@ -112,7 +111,7 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
     ```
 
    >[!IMPORTANT]
-   >Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För Event Grid modul i Windows måste den vara **C:\\app\\metadataDb**.
+   >Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För Event Grid modul i Windows måste den vara **C: \\ app \\ metadataDb**.
 
 
     Exempel:
@@ -176,7 +175,7 @@ I stället för att montera en volym kan du skapa en katalog på värd systemet 
     ```
 
     >[!IMPORTANT]
-    >Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För Event Grid modulen i Windows måste den vara **C\\: app\\-metadataDb**.
+    >Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För Event Grid modulen i Windows måste den vara **C: \\ app- \\ metadataDb**.
 
     Exempel:
 
@@ -220,7 +219,7 @@ Viktiga saker att tänka på när du behåller händelser:
 * Händelse persistence konfigureras för en händelse prenumeration när den skapas och kan inte ändras när händelse prenumerationen har skapats. Om du vill växla händelse beständighet måste du ta bort och återskapa händelse prenumerationen.
 * Beständiga händelser är nästan alltid långsammare än i minnes åtgärder, men hastigheten är mycket beroende av enhetens egenskaper. Kompromissen mellan hastighet och tillförlitlighet är till för alla meddelande system men blir bara en märkbart synlig i stor skala.
 
-Om du vill aktivera händelse beständighet för en `persistencePolicy` händelse `true`prenumeration anger du till:
+Om du vill aktivera händelse beständighet för en händelse prenumeration anger `persistencePolicy` du till `true` :
 
  ```json
         {

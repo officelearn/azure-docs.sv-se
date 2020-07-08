@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77167020"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure-seriekonsol för Linux
@@ -46,7 +45,7 @@ Information om en dokumentation för Windows i serie konsolen finns i [serie kon
 
 - Inställningar som är tillgängliga för Linux-distributioner finns i [seriell konsol Linux-distributions tillgänglighet](#serial-console-linux-distribution-availability).
 
-- Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste konfigureras för seriella utdata på `ttys0`. Det här är standardinställningen för Azure-avbildningar, men du behöver bara markera det här på anpassade avbildningar. Information [nedan](#custom-linux-images).
+- Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste konfigureras för seriella utdata på `ttys0` . Det här är standardinställningen för Azure-avbildningar, men du behöver bara markera det här på anpassade avbildningar. Information [nedan](#custom-linux-images).
 
 
 > [!NOTE]
@@ -70,11 +69,11 @@ SUSE        | Nyare SLES-avbildningar som är tillgängliga i Azure har åtkomst
 Oracle Linux        | Seriell konsol åtkomst aktiverat som standard.
 
 ### <a name="custom-linux-images"></a>Anpassade Linux-avbildningar
-Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra `ttyS0`en terminal på. Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service`.
+Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
 
 Du ska också lägga till ttyS0 som mål för seriella utdata. Mer information om hur du konfigurerar en anpassad avbildning för att arbeta med serie konsolen finns i system krav för att [skapa och ladda upp en Linux-VHD i Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
-Om du skapar en anpassad kernel bör du överväga att aktivera dessa kernel- `CONFIG_SERIAL_8250=y` flaggor `CONFIG_MAGIC_SYSRQ_SERIAL=y`: och. Konfigurations filen finns vanligt vis i */Boot/* -sökvägen.
+Om du skapar en anpassad kernel bör du överväga att aktivera dessa kernel-flaggor: `CONFIG_SERIAL_8250=y` och `CONFIG_MAGIC_SYSRQ_SERIAL=y` . Konfigurations filen finns vanligt vis i */Boot/* -sökvägen.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Vanliga scenarier för åtkomst till serie konsolen
 
@@ -108,13 +107,13 @@ All åtkomst till serie konsolen är för närvarande inloggad i [Start](https:/
 Om en användare är ansluten till serie konsolen och en annan användare kan begära åtkomst till samma virtuella dator, kommer den första användaren att kopplas från och den andra användaren som är ansluten till samma session.
 
 > [!CAUTION]
-> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC (administrations konsol). för Linux kan du dock konfigurera inställningen för timeout för Terminal. Det gör du genom att `export TMOUT=600` lägga till i din *. bash_profile* -eller *. Profile* -fil för den användare som du använder för att logga in i-konsolen. Den här inställningen tar bort sessionen efter 10 minuter.
+> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC (administrations konsol). för Linux kan du dock konfigurera inställningen för timeout för Terminal. Det gör du genom att lägga till `export TMOUT=600` i din *. bash_profile* -eller *. Profile* -fil för den användare som du använder för att logga in i-konsolen. Den här inställningen tar bort sessionen efter 10 minuter.
 
-## <a name="accessibility"></a>Hjälpmedel
+## <a name="accessibility"></a>Tillgänglighet
 Hjälpmedel är en viktig fokus för Azures serie konsol. Vi har därför säkerställt att serie konsolen är fullständigt tillgänglig.
 
 ### <a name="keyboard-navigation"></a>Tangentbordsnavigering
-Använd **TABB** -tangenten på tangent bordet för att navigera i gränssnittet för den seriella konsolen från Azure Portal. Din plats kommer att vara markerad på skärmen. Tryck på **CTRL**+**F6** på tangent bordet för att lämna fönstret för serie konsolen.
+Använd **TABB** -tangenten på tangent bordet för att navigera i gränssnittet för den seriella konsolen från Azure Portal. Din plats kommer att vara markerad på skärmen. Tryck på **CTRL** + **F6** på tangent bordet för att lämna fönstret för serie konsolen.
 
 ### <a name="use-serial-console-with-a-screen-reader"></a>Använda en-serie konsol med en skärm läsare
 Serie konsolen har stöd för skärm läsare inbyggd. Om du navigerar runt med en skärm läsare aktive rad kan alternativ texten för den markerade knappen läsas högt av skärm läsaren.
@@ -124,21 +123,21 @@ Vi är medvetna om några problem med serie konsolen och den virtuella datorns o
 
 Problem                           |   Åtgärd
 :---------------------------------|:--------------------------------------------|
-Om du trycker på **RETUR** efter det att anslutningens banderoll inte leder till att en inloggnings tolk visas. | GRUB kanske inte har kon figurer ATS korrekt. Kör följande kommandon: `grub2-mkconfig -o /etc/grub2-efi.cfg` och/eller. `grub2-mkconfig -o /etc/grub2.cfg` För mer information, se att [trycka på RETUR gör ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här problemet kan uppstå om du kör en anpassad virtuell dator, en härdnings apparat eller en GRUB-konfiguration som gör att Linux inte kan ansluta till den seriella porten.
-Seriell konsol text tar bara upp en del av skärm storleken (ofta efter att ha använt en text redigerare). | Serie konsoler har inte stöd för förhandling om fönster storlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att ingen SIGWINCH-signal skickas till uppdateringens skärm storlek och att den virtuella datorn inte kommer att ha någon kunskap om din Terminals storlek. Installera xterm eller ett liknande verktyg för att tillhandahålla `resize` kommandot och kör `resize`sedan.
+Om du trycker på **RETUR** efter det att anslutningens banderoll inte leder till att en inloggnings tolk visas. | GRUB kanske inte har kon figurer ATS korrekt. Kör följande kommandon: `grub2-mkconfig -o /etc/grub2-efi.cfg` och/eller `grub2-mkconfig -o /etc/grub2.cfg` . För mer information, se att [trycka på RETUR gör ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här problemet kan uppstå om du kör en anpassad virtuell dator, en härdnings apparat eller en GRUB-konfiguration som gör att Linux inte kan ansluta till den seriella porten.
+Seriell konsol text tar bara upp en del av skärm storleken (ofta efter att ha använt en text redigerare). | Serie konsoler har inte stöd för förhandling om fönster storlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att ingen SIGWINCH-signal skickas till uppdateringens skärm storlek och att den virtuella datorn inte kommer att ha någon kunskap om din Terminals storlek. Installera xterm eller ett liknande verktyg för att tillhandahålla `resize` kommandot och kör sedan `resize` .
 Att klistra in långa strängar fungerar inte. | Serie konsolen begränsar längden på strängar som klistras in i terminalen till 2048 tecken för att förhindra överbelastning av bandbredden för den seriella porten.
-Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskrivning känns bara igen sporadiskt. | Detta är ett problem med Plymouth-paketet. Plymouth bör inte köras i Azure eftersom du inte behöver en välkomst skärm och Plymouth stör plattforms möjligheten att använda serie konsol. Ta bort Plymouth `sudo zypper remove plymouth` med och starta sedan om. Du kan också ändra kernel-raden för GRUB-konfigurationen genom `plymouth.enable=0` att lägga till i slutet av raden. Du kan göra detta genom att [Redigera start posten vid start](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), eller genom att redigera GRUB_CMDLINE_LINUX raden i `/etc/default/grub`, återskapa grub med `grub2-mkconfig -o /boot/grub2/grub.cfg`och sedan starta om.
+Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskrivning känns bara igen sporadiskt. | Detta är ett problem med Plymouth-paketet. Plymouth bör inte köras i Azure eftersom du inte behöver en välkomst skärm och Plymouth stör plattforms möjligheten att använda serie konsol. Ta bort Plymouth med `sudo zypper remove plymouth` och starta sedan om. Du kan också ändra kernel-raden för GRUB-konfigurationen genom att lägga till `plymouth.enable=0` i slutet av raden. Du kan göra detta genom att [Redigera start posten vid start](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), eller genom att redigera GRUB_CMDLINE_LINUX raden i `/etc/default/grub` , återskapa grub med `grub2-mkconfig -o /boot/grub2/grub.cfg` och sedan starta om.
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F. Hur gör jag för att skicka feedback?**
 
-A. Ge feedback genom att skapa ett GitHub- https://aka.ms/serialconsolefeedbackproblem på. Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för. https://feedback.azure.com
+A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback . Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com .
 
 **F. har serie konsolen stöd för kopiera/klistra in?**
 
-A. Ja. Använd **CTRL**+**Shift**+**C** och **CTRL**+**Shift**Shift+**V** för att kopiera och klistra in i terminalen.
+A. Ja. Använd **CTRL** + **Shift** + **C** och **CTRL** + **Shift** + **V** för att kopiera och klistra in i terminalen.
 
 **F. kan jag använda en serie konsol i stället för en SSH-anslutning?**
 

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77185912"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migrering av klassisk princip för villkorlig åtkomst
@@ -33,7 +32,7 @@ Den här artikeln förklarar vad du behöver veta för att migrera dina befintli
 
 ## <a name="classic-policies"></a>Klassiska principer
 
-I [Azure Portal](https://portal.azure.com)finns villkorliga åtkomst principer under **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**. Din organisation kan också ha äldre principer för villkorlig åtkomst som inte skapas på den här sidan. Dessa principer kallas *klassiska principer*. Klassiska principer är principer för villkorlig åtkomst, du har skapat i:
+I [Azure Portal](https://portal.azure.com)finns villkorliga åtkomst principer under **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**. Din organisation kan också ha äldre principer för villkorlig åtkomst som inte skapas på den här sidan. Dessa principer kallas *klassiska principer*. Klassiska principer är principer för villkorlig åtkomst, du har skapat i:
 
 - Den klassiska Azure-portalen
 - Den klassiska Intune-portalen

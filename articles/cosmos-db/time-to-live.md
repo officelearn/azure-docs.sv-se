@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77188724"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live i Azure Cosmos DB 
@@ -24,7 +23,7 @@ Borttagning av utgångna objekt är en bakgrunds aktivitet som förbrukar [enhet
 
 TTL-värdet är inställt på några sekunder och tolkas som en delta från den tidpunkt då ett objekt senast ändrades. Du kan ställa in Time to Live på en behållare eller ett objekt i behållaren:
 
-1. **Time to Live på en behållare** (anges med `DefaultTimeToLive`):
+1. **Time to Live på en behållare** (anges med `DefaultTimeToLive` ):
 
    - Om det saknas (eller är inställt på null), kommer objekten inte att förfalla automatiskt.
 
@@ -32,7 +31,7 @@ TTL-värdet är inställt på några sekunder och tolkas som en delta från den 
 
    - Om det är tillgängligt och värdet är inställt på en siffra *"n"* , kommer objekten att förfalla *"n"* sekunder efter deras senaste ändrings tid.
 
-2. **Time to Live på ett objekt** (anges med `ttl`):
+2. **Time to Live på ett objekt** (anges med `ttl` ):
 
    - Den här egenskapen gäller bara om `DefaultTimeToLive` finns och är inte inställd på null för den överordnade behållaren.
 

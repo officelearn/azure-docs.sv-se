@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77084050"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>ADAL till MSAL migration guide för Android
@@ -40,19 +39,19 @@ Uppfyller
 MSAL offentliga API inför viktiga ändringar, inklusive:
 
 - En ny modell för åtkomst till token:
-  - ADAL ger åtkomst till token via `AuthenticationContext`, som representerar-servern. MSAL ger åtkomst till token via `PublicClientApplication`, som representerar-klienten. Klient utvecklare behöver inte skapa en ny `PublicClientApplication` instans för varje myndighet som de behöver för att interagera med. Endast en `PublicClientApplication` konfiguration krävs.
+  - ADAL ger åtkomst till token via `AuthenticationContext` , som representerar-servern. MSAL ger åtkomst till token via `PublicClientApplication` , som representerar-klienten. Klient utvecklare behöver inte skapa en ny `PublicClientApplication` instans för varje myndighet som de behöver för att interagera med. Endast en `PublicClientApplication` konfiguration krävs.
   - Stöd för att begära åtkomsttoken med hjälp av omfattningar, förutom resurs identifierare.
   - Stöd för stegvist godkännande. Utvecklare kan begära omfattningar när användaren får åtkomst till fler och fler funktioner i appen, inklusive de som inte ingår under registreringen av appen.
   - Myndigheterna verifieras inte längre vid körning. I stället deklareras utvecklaren av en lista med kända myndigheter under utvecklingen.
 - API-ändringar för token:
-  - I ADAL skapar `AcquireToken()` först en tyst begäran. Detta innebär att en interaktiv begäran görs. Detta beteende ledde till att vissa utvecklare bara förlitar sig på `AcquireToken`, vilket ledde till att användaren uppmanas att ange autentiseringsuppgifter vid ett tillfälle. MSAL kräver att utvecklare är avsiktliga när användaren får en UI-prompt.
+  - I ADAL `AcquireToken()` skapar först en tyst begäran. Detta innebär att en interaktiv begäran görs. Detta beteende ledde till att vissa utvecklare bara förlitar sig på `AcquireToken` , vilket ledde till att användaren uppmanas att ange autentiseringsuppgifter vid ett tillfälle. MSAL kräver att utvecklare är avsiktliga när användaren får en UI-prompt.
     - `AcquireTokenSilent`resulterar alltid i en tyst begäran som antingen lyckas eller Miss lyckas.
     - `AcquireToken`alltid resulterar i en begäran som efterfrågar användaren via användar gränssnittet.
 - MSAL stöder inloggning från antingen en standard webbläsare eller en inbäddad webbvy:
   - Som standard används standard webbläsaren på enheten. Detta gör att MSAL kan använda Authentication State (cookies) som redan finns för ett eller flera konton som är inloggade. Om det inte finns något autentiserings tillstånd kan autentisering under auktorisering via MSAL resultera i autentiserings tillstånd (cookies) som skapas för att dra nytta av andra webb program som ska användas i samma webbläsare.
 - Ny undantags modell:
   - Undantagen tydligare definierar den typ av fel som inträffat och vad utvecklare måste göra för att lösa det.
-- MSAL stöder parameter objekt för `AcquireToken` och `AcquireTokenSilent` -anrop.
+- MSAL stöder parameter objekt för `AcquireToken` och- `AcquireTokenSilent` anrop.
 - MSAL stöder deklarativ konfiguration för:
   - Klient-ID, omdirigerings-URI.
   - Inbäddad vs standard-webbläsare
@@ -86,7 +85,7 @@ Organisations administratörer kan samtycka till att ge ditt program behörighet
 Om du för närvarande använder ADAL och inte behöver använda ett stegvist tillstånd är det enklaste sättet att börja använda MSAL att göra en `acquireToken` begäran med det nya `AcquireTokenParameter` objektet och ange resurs-ID-värdet.
 
 > [!CAUTION]
-> Det går inte att ange både scope och resurs-ID. Om du försöker ange båda leder det till en `IllegalArgumentException`.
+> Det går inte att ange både scope och resurs-ID. Om du försöker ange båda leder det till en `IllegalArgumentException` .
 
  Detta leder till samma v1-beteende som du använder. Alla behörigheter som begärs i din app-registrering begärs från användaren under den första interaktionen.
 
@@ -108,7 +107,7 @@ Parameter-objektet som används för att göra din begäran till MSAL stöder:
 
 ### <a name="constructing-publicclientapplication"></a>Konstruera PublicClientApplication
 
-När du använder MSAL instansierar du en `PublicClientApplication`. Det här objektet modellerar appens identitet och används för att göra förfrågningar till en eller flera utfärdare. Med det här objektet konfigurerar du din klient identitet, omdirigerings-URI, standard auktoritet, om du vill använda enhetens webbläsare jämfört med inbäddad webbvy, loggnings nivå och mycket mer.
+När du använder MSAL instansierar du en `PublicClientApplication` . Det här objektet modellerar appens identitet och används för att göra förfrågningar till en eller flera utfärdare. Med det här objektet konfigurerar du din klient identitet, omdirigerings-URI, standard auktoritet, om du vill använda enhetens webbläsare jämfört med inbäddad webbvy, loggnings nivå och mycket mer.
 
 Du kan deklarativ konfigurera det här objektet med JSON, som du antingen anger som en fil eller lagra som en resurs i din APK.
 
@@ -116,7 +115,7 @@ Du kan deklarativ konfigurera det här objektet med JSON, som du antingen anger 
 
 ### <a name="business-to-business"></a>Företag till företag
 
-I ADAL kräver varje organisation som du begär åtkomst-token från en separat instans av `AuthenticationContext`. I MSAL är detta inte längre ett krav. Du kan ange från vilken myndighet du vill begära en token som en del av din obevakade eller interaktiva begäran.
+I ADAL kräver varje organisation som du begär åtkomst-token från en separat instans av `AuthenticationContext` . I MSAL är detta inte längre ett krav. Du kan ange från vilken myndighet du vill begära en token som en del av din obevakade eller interaktiva begäran.
 
 ### <a name="migrate-from-authority-validation-to-known-authorities"></a>Migrera från auktoritets verifiering till kända myndigheter
 
@@ -125,7 +124,7 @@ MSAL har inte någon flagga för att aktivera eller inaktivera verifiering av ut
 > [!TIP]
 > Om du är en Azure Business to Consumer-användare (B2C) innebär det att du inte längre behöver inaktivera verifiering av utfärdare. Inkludera i stället var och en av de Azure AD B2C principerna som stöds som utfärdare i din MSAL-konfiguration.
 
-Om du försöker använda en auktoritet som inte är känd för Microsoft, och som inte ingår i din konfiguration, får du en `UnknownAuthorityException`.
+Om du försöker använda en auktoritet som inte är känd för Microsoft, och som inte ingår i din konfiguration, får du en `UnknownAuthorityException` .
 
 ### <a name="logging"></a>Loggning
 Du kan nu deklarativ Konfigurera loggning som en del av konfigurationen, så här:
@@ -140,7 +139,7 @@ Du kan nu deklarativ Konfigurera loggning som en del av konfigurationen, så hä
 
 ## <a name="migrate-from-userinfo-to-account"></a>Migrera från UserInfo till konto
 
-I ADAL `AuthenticationResult` tillhandahåller ett `UserInfo` -objekt som används för att hämta information om det autentiserade kontot. Termen "användare", som avsåg en mänsklig-eller program varu agent, tillämpades på ett sätt som gjorde det svårt att kommunicera med att vissa appar har stöd för en enskild användare (oavsett om det gäller en mänsklig-eller program varu agent) som har flera konton.
+I ADAL `AuthenticationResult` tillhandahåller ett- `UserInfo` objekt som används för att hämta information om det autentiserade kontot. Termen "användare", som avsåg en mänsklig-eller program varu agent, tillämpades på ett sätt som gjorde det svårt att kommunicera med att vissa appar har stöd för en enskild användare (oavsett om det gäller en mänsklig-eller program varu agent) som har flera konton.
 
 Överväg ett bank konto. Du kan ha fler än ett konto på mer än ett finansiellt institut. När du öppnar ett konto tilldelas du (användaren) autentiseringsuppgifter, till exempel ett ATM-kort & PIN-kod, som används för att få åtkomst till saldot, faktura betalningar och så vidare för varje konto. Dessa autentiseringsuppgifter kan endast användas på det finansiella institutet som utfärdade dem.
 
@@ -156,7 +155,7 @@ När ett lyckat `acquireToken` anrop görs visas en referens till ett `IAccount`
 
 ### <a name="imultitenantaccount"></a>IMultiTenantAccount
 
-Om du har en app som har åtkomst till anspråk om ett konto från var och en av de klienter där kontot visas, kan du omvandla `IAccount` objekt till. `IMultiTenantAccount` Det här gränssnittet innehåller en karta `ITenantProfiles`över, som ställts in efter klient-ID, som gör att du kan komma åt de anspråk som tillhör kontot i varje klient organisation som du har begärt en token från, i förhållande till det aktuella kontot.
+Om du har en app som har åtkomst till anspråk om ett konto från var och en av de klienter där kontot visas, kan du omvandla `IAccount` objekt till `IMultiTenantAccount` . Det här gränssnittet innehåller en karta över `ITenantProfiles` , som ställts in efter klient-ID, som gör att du kan komma åt de anspråk som tillhör kontot i varje klient organisation som du har begärt en token från, i förhållande till det aktuella kontot.
 
 Anspråk i roten av `IAccount` och `IMultiTenantAccount` innehåller alltid anspråk från hem klienten. Om du ännu inte har gjort en begäran om en token inom hem klienten, kommer den här samlingen att vara tom.
 
@@ -235,7 +234,7 @@ public interface SilentAuthenticationCallback {
 
 ## <a name="migrate-to-the-new-exceptions"></a>Migrera till de nya undantagen
 
-I ADAL finns en typ av undantag, som innehåller `AuthenticationException`en metod för att `ADALError` Hämta Enum-värdet.
+I ADAL finns en typ av undantag, `AuthenticationException` som innehåller en metod för att hämta `ADALError` Enum-värdet.
 I MSAL finns det en hierarki med undantag och var och en har en egen uppsättning av tillhör ande specifika felkoder.
 
 Lista över MSAL-undantag

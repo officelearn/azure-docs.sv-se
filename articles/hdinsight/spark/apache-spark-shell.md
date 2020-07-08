@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162811"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Köra Apache Spark från Spark-gränssnittet
@@ -59,7 +58,7 @@ Ett interaktivt [Apache Spark](https://spark.apache.org/) -gränssnitt ger en re
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. Fråga en CSV-fil. Observera att språket nedan fungerar för `spark-shell` och `pyspark`.
+1. Fråga en CSV-fil. Observera att språket nedan fungerar för `spark-shell` och `pyspark` .
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
@@ -101,17 +100,17 @@ Ett interaktivt [Apache Spark](https://spark.apache.org/) -gränssnitt ger en re
 
 Som standard när du kör Spark-gränssnittet instansieras instanser av SparkSession och SparkContext automatiskt åt dig.
 
-För att få åtkomst till SparkSession- `spark`instansen anger du. För att få åtkomst till SparkContext- `sc`instansen anger du.
+För att få åtkomst till SparkSession-instansen anger du `spark` . För att få åtkomst till SparkContext-instansen anger du `sc` .
 
 ## <a name="important-shell-parameters"></a>Viktiga Shell-parametrar
 
-Spark Shell-kommandot (`spark-shell`, eller `pyspark`) stöder många kommando rads parametrar. Om du vill se en fullständig lista över parametrar startar du Spark-gränssnittet med `--help`växeln. En del av dessa parametrar kan endast tillämpas `spark-submit`på, vilket Spark-gränssnittet radbryts.
+Spark Shell-kommandot ( `spark-shell` , eller `pyspark` ) stöder många kommando rads parametrar. Om du vill se en fullständig lista över parametrar startar du Spark-gränssnittet med växeln `--help` . En del av dessa parametrar kan endast tillämpas på `spark-submit` , vilket Spark-gränssnittet radbryts.
 
 | växla | description | exempel |
 | --- | --- | --- |
-| --huvud MASTER_URL | Anger huvud-URL: en. I HDInsight är det här värdet alltid `yarn`. | `--master yarn`|
+| --huvud MASTER_URL | Anger huvud-URL: en. I HDInsight är det här värdet alltid `yarn` . | `--master yarn`|
 | --jar v7 JAR_LIST | Kommaavgränsad lista över lokala jar v7 som ska ingå i classpath-driv rutiner och utförar. I HDInsight består den här listan av sökvägar till standard fil systemet i Azure Storage eller Data Lake Storage. | `--jars /path/to/examples.jar` |
-| – paket MAVEN_COORDS | Kommaavgränsad lista över maven-koordinaterna för JAR v7 som ska ingå på driv rutins-och utförar-classpath. Söker i den lokala maven-lagrings platsen, sedan maven Central och sedan alla ytterligare fjärrdatabaser som anges med `--repositories`. Formatet för koordinaterna är*artifactId* *:**version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| – paket MAVEN_COORDS | Kommaavgränsad lista över maven-koordinaterna för JAR v7 som ska ingå på driv rutins-och utförar-classpath. Söker i den lokala maven-lagrings platsen, sedan maven Central och sedan alla ytterligare fjärrdatabaser som anges med `--repositories` . Formatet för koordinaterna är*artifactId* *:**version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --PY-fillista | Endast för python, en kommaavgränsad lista med zip-,. ägg-eller. py-filer som ska placeras på PYTHONPATH. | `--pyfiles "samples.py"` |
 
 ## <a name="next-steps"></a>Nästa steg

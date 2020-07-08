@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
 ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064314"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Självstudie: Konfigurera StarLeaf för automatisk användar etablering
@@ -54,7 +53,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 Innan du konfigurerar StarLeaf för automatisk användar etablering med Azure AD måste du konfigurera SCIM-etablering i StarLeaf:
 
-1. Logga in på din [StarLeaf-administratörs konsol](https://portal.starleaf.com/#page=login). Navigera till **integreringar** > **Lägg till integrering**.
+1. Logga in på din [StarLeaf-administratörs konsol](https://portal.starleaf.com/#page=login). Navigera till **integreringar**  >  **Lägg till integrering**.
 
     ![StarLeaf Lägg till SCIM](media/starleaf-provisioning-tutorial/image00.png)
 

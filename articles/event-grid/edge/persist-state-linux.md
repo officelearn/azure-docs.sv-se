@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086650"
 ---
 # <a name="persist-state-in-linux"></a>Sparat tillstånd i Linux
@@ -25,7 +24,7 @@ Som standard sparas endast metadata och händelser lagras fortfarande i minnet f
 Den här artikeln innehåller steg för att distribuera Event Grid-modulen med persistence i Linux-distributioner.
 
 > [!NOTE]
->Event Grid-modulen körs som en låg privilegie rad användare med UID `2000` och namn `eventgriduser`.
+>Event Grid-modulen körs som en låg privilegie rad användare med UID `2000` och namn `eventgriduser` .
 
 ## <a name="persistence-via-volume-mount"></a>Persistence via volym montering
 
@@ -170,7 +169,7 @@ Viktiga saker att tänka på när du behåller händelser:
 * Händelse persistence konfigureras för en händelse prenumeration när den skapas och kan inte ändras när händelse prenumerationen har skapats. Om du vill växla händelse beständighet måste du ta bort och återskapa händelse prenumerationen.
 * Beständiga händelser är nästan alltid långsammare än i minnes åtgärder, men hastigheten är mycket beroende av enhetens egenskaper. Kompromissen mellan hastighet och tillförlitlighet är till för alla meddelande system, men vanligt vis blir det bara en märkbart synligt i stor skala.
 
-Om du vill aktivera händelse beständighet för en `persistencePolicy` händelse `true`prenumeration anger du till:
+Om du vill aktivera händelse beständighet för en händelse prenumeration anger `persistencePolicy` du till `true` :
 
  ```json
         {

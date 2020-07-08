@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77132056"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Hämta drönare-bilder från drönare-partners
@@ -32,10 +31,10 @@ Genom att integrera drönare bilder-data med Azure FarmBeats kan du få orthomos
 Ange följande information för din enhets leverantör för att aktivera integrering med FarmBeats:
  - API-slutpunkt
  - Klientorganisations-ID
- - Klientorganisations-ID
+ - Klient-ID
  - Klienthemlighet
 
-Följ de här stegen.
+Gör så här:
 
 1. Hämta det här [skriptet](https://aka.ms/farmbeatspartnerscript)och extrahera det till den lokala enheten. Två filer finns inuti zip-filen.
 2. Logga in i [Azure-portalen](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet i portalen.

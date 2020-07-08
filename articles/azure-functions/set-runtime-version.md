@@ -4,10 +4,9 @@ description: Azure Functions stöder flera versioner av körnings miljön. Lär 
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77151963"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Så här riktar du Azure Functions runtime-versioner
@@ -16,7 +15,7 @@ En Function-App körs på en viss version av Azure Functions Runtime. Det finns 
 
 ## <a name="automatic-and-manual-version-updates"></a>Automatiska och manuella versions uppdateringar
 
-Med Azure Functions kan du rikta en specifik version av körningen genom att `FUNCTIONS_EXTENSION_VERSION` använda program inställningen i en Function-app. Function-appen sparas på den angivna huvud versionen tills du uttryckligen väljer att flytta till en ny version.
+Med Azure Functions kan du rikta en specifik version av körningen genom att använda `FUNCTIONS_EXTENSION_VERSION` program inställningen i en Function-app. Function-appen sparas på den angivna huvud versionen tills du uttryckligen väljer att flytta till en ny version.
 
 Om du bara anger huvud versionen uppdateras Function-appen automatiskt till nya lägre versioner av körnings miljön när de blir tillgängliga. Nya del versioner bör inte införa ändringar. Om du anger en lägre version (till exempel "2.0.12345") fästs Function-appen till den aktuella versionen tills du ändrar den explicit.
 
@@ -54,7 +53,7 @@ Du kan ändra den körnings version som används av din Function-app. På grund 
 Du kan också visa och ställa in `FUNCTIONS_EXTENSION_VERSION` från Azure CLI.
 
 >[!NOTE]
->Eftersom andra inställningar kan påverkas av körnings versionen bör du ändra versionen i portalen. Portalen gör de andra nödvändiga uppdateringarna automatiskt, till exempel Node. js-version och körnings stack när du ändrar körnings versioner.  
+>Eftersom andra inställningar kan påverkas av körnings versionen bör du ändra versionen i portalen. Portalen gör de andra nödvändiga uppdateringarna automatiskt, till exempel Node.js version och körnings stacken, när du ändrar körnings versioner.  
 
 Använd Azure CLI för att visa den aktuella körnings versionen med kommandot [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings) .
 
@@ -63,7 +62,7 @@ az functionapp config appsettings list --name <function_app> \
 --resource-group <my_resource_group>
 ```
 
-I den här koden ersätter `<function_app>` du med namnet på din Function-app. Ersätt `<my_resource_group>` också med namnet på resurs gruppen för din Function-app. 
+I den här koden ersätter du `<function_app>` med namnet på din Function-app. Ersätt också `<my_resource_group>` med namnet på resurs gruppen för din Function-app. 
 
 Du ser `FUNCTIONS_EXTENSION_VERSION` i följande utdata, som har trunkerats för tydlighetens skull:
 
@@ -98,7 +97,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
 
-Ersätt `<function_app>` med namnet på din Function-app. Ersätt `<my_resource_group>` också med namnet på resurs gruppen för din Function-app. Ersätt `<version>` också med en giltig version av 1. x-körningsmiljön eller `~2` för version 2. x.
+Ersätt `<function_app>` med namnet på din Function-app. Ersätt också `<my_resource_group>` med namnet på resurs gruppen för din Function-app. Ersätt också `<version>` med en giltig version av 1. x-körningsmiljön eller `~2` för version 2. x.
 
 Du kan köra det här kommandot från [Azure Cloud Shell](../cloud-shell/overview.md) genom att välja **prova** i föregående kod exempel. Du kan också använda [Azure CLI lokalt](/cli/azure/install-azure-cli) för att köra det här kommandot när du har kört [AZ-inloggning](/cli/azure/reference-index#az-login) för att logga in.
 

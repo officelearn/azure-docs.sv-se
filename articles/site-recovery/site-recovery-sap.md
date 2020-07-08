@@ -6,10 +6,9 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190786"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveri beredskap för en distribution med flera nivåer av SAP NetWeaver-appar
@@ -119,7 +118,7 @@ Om du vill börja replikera alla virtuella SAP-program till data centret för Az
 
 ## <a name="networking-configuration"></a>Nätverks konfiguration
 
-Om du använder en statisk IP-adress kan du ange den IP-adress som du vill att den virtuella datorn ska ta. Om du vill ange IP-adressen går du till**nätverkskortet** **beräknings-och nätverks inställningar** > .
+Om du använder en statisk IP-adress kan du ange den IP-adress som du vill att den virtuella datorn ska ta. Om du vill ange IP-adressen går du till nätverkskortet **beräknings-och nätverks inställningar**  >  **Network interface card**.
 
 ![Skärm bild som visar hur du ställer in en privat IP-adress i fönstret för nätverkskortet Site Recovery nätverkskort](./media/site-recovery-sap/sap-static-ip.png)
 

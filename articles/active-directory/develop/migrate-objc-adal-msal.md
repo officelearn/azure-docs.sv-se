@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77085174"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrera program till MSAL för iOS och macOS
@@ -55,7 +54,7 @@ MSAL offentliga API motsvarar några viktiga skillnader mellan Azure AD v 1.0 oc
 
 `ADAuthenticationContext`är det första objektet som en ADAL-app skapar. Den representerar en instansiering av ADAL. Appar skapar en ny instans av `ADAuthenticationContext` för varje kombination av Azure Active Directory Cloud och Tenant (auktoritet). Samma `ADAuthenticationContext` kan användas för att hämta tokens för flera offentliga klient program.
 
-I MSAL är huvud interaktionen via ett- `MSALPublicClientApplication` objekt som modelleras efter den [offentliga OAuth 2,0-klienten](https://tools.ietf.org/html/rfc6749#section-2.1). En instans av `MSALPublicClientApplication` kan användas för att interagera med flera AAD-moln, och klienter, utan att behöva skapa en ny instans för varje instans. För de flesta appar räcker `MSALPublicClientApplication` en instans.
+I MSAL är huvud interaktionen via ett- `MSALPublicClientApplication` objekt som modelleras efter den [offentliga OAuth 2,0-klienten](https://tools.ietf.org/html/rfc6749#section-2.1). En instans av `MSALPublicClientApplication` kan användas för att interagera med flera AAD-moln, och klienter, utan att behöva skapa en ny instans för varje instans. För de flesta appar `MSALPublicClientApplication` räcker en instans.
 
 ### <a name="scopes-instead-of-resources"></a>Omfattningar i stället för resurser
 
@@ -69,35 +68,35 @@ Det finns två sätt att tillhandahålla omfång i MSAL:
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
-    I det här fallet begär appen `directory.read` och `directory.write` -behörigheterna. Användaren uppmanas att godkänna behörigheten om de inte har samtyckt till dem före för den här appen. Programmet kan också få ytterligare behörigheter som användaren redan har samtyckt till för programmet. Användaren uppmanas bara att ange medgivande för nya behörigheter eller behörigheter som inte har beviljats.
+    I det här fallet begär appen och- `directory.read` `directory.write` behörigheterna. Användaren uppmanas att godkänna behörigheten om de inte har samtyckt till dem före för den här appen. Programmet kan också få ytterligare behörigheter som användaren redan har samtyckt till för programmet. Användaren uppmanas bara att ange medgivande för nya behörigheter eller behörigheter som inte har beviljats.
 
-* `/.default` Omfånget.
+* `/.default`Omfånget.
 
-Detta är det inbyggda omfånget för varje program. Den refererar till den statiska listan med behörigheter som kon figurer ATS när programmet registrerades. Det fungerar på samma sätt som för `resource`. Detta kan vara användbart när du migrerar för att säkerställa att en liknande uppsättning omfång och användar upplevelse upprätthålls.
+Detta är det inbyggda omfånget för varje program. Den refererar till den statiska listan med behörigheter som kon figurer ATS när programmet registrerades. Det fungerar på samma sätt som för `resource` . Detta kan vara användbart när du migrerar för att säkerställa att en liknande uppsättning omfång och användar upplevelse upprätthålls.
 
-Om du vill `/.default` använda omfånget lägger `/.default` du till i resurs identifieraren. Till exempel: `https://graph.microsoft.com/.default`. Om resursen slutar med ett snedstreck (`/`) bör du fortfarande lägga till `/.default`, inklusive det inledande snedstrecket, vilket resulterar i en omfattning som har ett dubbelt snedstreck (`//`).
+Om du vill använda `/.default` omfånget lägger du till i `/.default` resurs identifieraren. Exempel: `https://graph.microsoft.com/.default`. Om resursen slutar med ett snedstreck ( `/` ) bör du fortfarande lägga till `/.default` , inklusive det inledande snedstrecket, vilket resulterar i en omfattning som har ett dubbelt snedstreck ( `//` ).
 
 Du kan läsa mer om hur du använder området "/.default" [här](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
 
 ### <a name="supporting-different-webview-types--browsers"></a>Stöd för olika WebView-typer & webbläsare
 
-ADAL stöder endast UIWebView/WKWebView för iOS och webbvy för macOS. MSAL för iOS stöder fler alternativ för att Visa webb innehåll när du begär en auktoriseringskod och inte längre stöder `UIWebView`. vilket kan förbättra användar upplevelsen och säkerheten.
+ADAL stöder endast UIWebView/WKWebView för iOS och webbvy för macOS. MSAL för iOS stöder fler alternativ för att Visa webb innehåll när du begär en auktoriseringskod och inte längre stöder `UIWebView` , vilket kan förbättra användar upplevelsen och säkerheten.
 
 Som standard använder MSAL på iOS [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), vilket är webb komponenten som Apple rekommenderar för autentisering på iOS 12 +-enheter. Den ger till gång till enkel inloggning (SSO) via cookie-delning mellan appar och Safari-webbläsaren.
 
 Du kan välja att använda en annan webb komponent beroende på appens krav och den slut användar upplevelse som du vill ha. Fler alternativ finns i [WebView-typer som stöds](customize-webviews.md) .
 
-När du migrerar från ADAL till `WKWebView` MSAL ger den användar upplevelsen som liknar ADAL på iOS och MacOS. Vi rekommenderar att du migrerar `ASWebAuthenticationSession` till på iOS, om möjligt. För macOS rekommenderar vi att du använder `WKWebView`.
+När du migrerar från ADAL till MSAL `WKWebView` ger den användar upplevelsen som liknar ADAL på iOS och MacOS. Vi rekommenderar att du migrerar till `ASWebAuthenticationSession` på iOS, om möjligt. För macOS rekommenderar vi att du använder `WKWebView` .
 
 ### <a name="account-management-api-differences"></a>API-skillnader för konto hantering
 
-När du anropar ADAL- `acquireToken()` metoderna `acquireTokenSilent()`eller får du ett `ADUserInformation` objekt som innehåller en lista över anspråk från `id_token` som representerar det konto som autentiseras. Dessutom `ADUserInformation` returneras en `userId` baserat på `upn` anspråket. Efter den inledande interaktiva token-hämtningen förväntar `userId` ADAL utvecklare att tillhandahålla i alla tysta anrop.
+När du anropar ADAL `acquireToken()` -metoderna eller `acquireTokenSilent()` får du ett `ADUserInformation` objekt som innehåller en lista över anspråk från `id_token` som representerar det konto som autentiseras. Dessutom `ADUserInformation` returneras en `userId` baserat på `upn` anspråket. Efter den inledande interaktiva token-hämtningen förväntar ADAL utvecklare att tillhandahålla `userId` i alla tysta anrop.
 
 ADAL tillhandahåller inte ett API för att hämta kända användar identiteter. Den förlitar sig på appen för att spara och hantera dessa konton.
 
 MSAL innehåller en uppsättning API: er som visar alla konton som är kända för MSAL utan att behöva skaffa en token.
 
-Som ADAL returnerar MSAL konto information som innehåller en lista över anspråk från `id_token`. Den är en del av `MSALAccount` objektet i `MSALResult` objektet.
+Som ADAL returnerar MSAL konto information som innehåller en lista över anspråk från `id_token` . Den är en del av `MSALAccount` objektet i `MSALResult` objektet.
 
 MSAL innehåller en uppsättning API: er för att ta bort konton, vilket gör de borttagna kontona otillgängliga för appen. När kontot har tagits bort uppmanas användaren att göra interaktiva token-hämtningar vid senare anrop. Konto borttagning gäller endast för det klient program som startade det och tar inte bort kontot från de andra appar som körs på enheten eller från system läsaren. Detta säkerställer att användaren fortsätter att ha en SSO-upplevelse på enheten även efter att ha loggat ut från en enskild app.
 
@@ -105,17 +104,17 @@ Dessutom returnerar MSAL också en konto identifierare som kan användas för at
 
 ### <a name="migrating-the-account-cache"></a>Migrerar konto-cachen
 
-När du migrerar från ADAL lagrar appar vanligt vis `userId`ADAL, som inte har `identifier` den som krävs av MSAL. Som ett steg med migreringen kan en app fråga ett MSAL-konto med hjälp av ADAL-userId med följande API:
+När du migrerar från ADAL lagrar appar vanligt vis ADAL `userId` , som inte har den `identifier` som krävs av MSAL. Som ett steg med migreringen kan en app fråga ett MSAL-konto med hjälp av ADAL-userId med följande API:
 
 `- (nullable MSALAccount *)accountForUsername:(nonnull NSString *)username error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
 Detta API läser både MSAL och ADAL cacheminne för att hitta kontot efter ADAL userId (UPN).
 
-Om kontot hittas bör utvecklaren använda kontot för att utföra hämtning av tysta token. Den första hämtningen av tyst token kommer att uppgradera kontot och utvecklaren får en MSAL-kompatibel konto identifierare i MSAL-resultatet`identifier`(). Efter det ska endast `identifier` användas för kontos ökningar med hjälp av följande API:
+Om kontot hittas bör utvecklaren använda kontot för att utföra hämtning av tysta token. Den första hämtningen av tyst token kommer att uppgradera kontot och utvecklaren får en MSAL-kompatibel konto identifierare i MSAL-resultatet ( `identifier` ). Efter det ska endast `identifier` användas för kontos ökningar med hjälp av följande API:
 
 `- (nullable MSALAccount *)accountForIdentifier:(nonnull NSString *)identifier error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
-Även om det är möjligt att fortsätta använda ADAL `userId` för alla åtgärder i MSAL, eftersom `userId` är baserat på UPN, är det beroende av flera begränsningar som resulterar i en felaktig användar upplevelse. Om UPN t. ex. ändras måste användaren logga in igen. Vi rekommenderar att alla appar använder ett icke-displayt `identifier` konto för alla åtgärder.
+Även om det är möjligt att fortsätta använda ADAL `userId` för alla åtgärder i MSAL, eftersom `userId` är baserat på UPN, är det beroende av flera begränsningar som resulterar i en felaktig användar upplevelse. Om UPN t. ex. ändras måste användaren logga in igen. Vi rekommenderar att alla appar använder ett icke-displayt konto `identifier` för alla åtgärder.
 
 Läs mer om [migrering av cache-tillstånd](sso-between-adal-msal-apps-macos-ios.md).
 
@@ -123,9 +122,9 @@ Läs mer om [migrering av cache-tillstånd](sso-between-adal-msal-apps-macos-ios
 
 MSAL introducerar vissa anrops ändringar för token-hämtning:
 
-* Som ADAL resulterar `acquireTokenSilent` alltid i en tyst begäran.
+* Som ADAL `acquireTokenSilent` resulterar alltid i en tyst begäran.
 * Till skillnad från ADAL `acquireToken` resulterar alltid i användar åtgärds bara användar gränssnitt via webbvy eller appen Microsoft Authenticator. Beroende på SSO-status i webbvy/Microsoft Authenticator kan användaren uppmanas att ange sina autentiseringsuppgifter.
-* I ADAL, `acquireToken` med `AD_PROMPT_AUTO` första försök att hämta tyst token, och endast visar gränssnitt om den tysta begäran Miss lyckas. I MSAL kan du uppnå den här logiken genom att `acquireTokenSilent` först anropa och `acquireToken` bara anropa om tyst förvärv Miss lyckas. På så sätt kan utvecklare anpassa användar upplevelsen innan den börjar hämta interaktiva token.
+* I ADAL, `acquireToken` med `AD_PROMPT_AUTO` första försök att hämta tyst token, och endast visar gränssnitt om den tysta begäran Miss lyckas. I MSAL kan du uppnå den här logiken genom att först anropa `acquireTokenSilent` och bara anropa `acquireToken` om tyst förvärv Miss lyckas. På så sätt kan utvecklare anpassa användar upplevelsen innan den börjar hämta interaktiva token.
 
 ### <a name="error-handling-differences"></a>Fel hanterings skillnader
 
@@ -144,9 +143,9 @@ MSAL, från och med version 0.3.0, ger stöd för Brokered Authentication med hj
 
 Så här aktiverar du koordinator för ditt program:
 
-1. Registrera ett Service Broker-kompatibelt omdirigerings-URI-format för programmet. URI-formatet för Broker-kompatibel `msauth.<app.bundle.id>://auth`omdirigering är. Ersätt `<app.bundle.id>` med programmets paket-ID. Om du migrerar från ADAL och ditt program redan har stöd för Service Broker behöver du inte göra något. Din tidigare omdirigerings-URI är helt kompatibel med MSAL, så du kan gå vidare till steg 3.
+1. Registrera ett Service Broker-kompatibelt omdirigerings-URI-format för programmet. URI-formatet för Broker-kompatibel omdirigering är `msauth.<app.bundle.id>://auth` . Ersätt `<app.bundle.id>` med programmets paket-ID. Om du migrerar från ADAL och ditt program redan har stöd för Service Broker behöver du inte göra något. Din tidigare omdirigerings-URI är helt kompatibel med MSAL, så du kan gå vidare till steg 3.
 
-2. Lägg till programmets omdirigerings-URI-schema i filen info. plist. För standard omdirigerings-URI för MSAL är `msauth.<app.bundle.id>`formatet. Ett exempel:
+2. Lägg till programmets omdirigerings-URI-schema i filen info. plist. För standard omdirigerings-URI för MSAL är formatet `msauth.<app.bundle.id>` . Ett exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -202,7 +201,7 @@ På macOS kan MSAL nå enkel inloggning med andra MSAL för iOS-och macOS-basera
 
 MSAL på iOS stöder också två typer av SSO:
 
-* Enkel inloggning via webbläsaren. MSAL för iOS stöder `ASWebAuthenticationSession`, vilket ger enkel inloggning via cookies som delas mellan andra appar på enheten och särskilt Safari-webbläsaren.
+* Enkel inloggning via webbläsaren. MSAL för iOS stöder `ASWebAuthenticationSession` , vilket ger enkel inloggning via cookies som delas mellan andra appar på enheten och särskilt Safari-webbläsaren.
 * SSO via en autentiseringstjänst. Microsoft Authenticator fungerar som Authentication Broker på en iOS-enhet. Det kan följa principer för villkorlig åtkomst, t. ex. krav på en kompatibel enhet, och ger enkel inloggning för registrerade enheter. MSAL SDK: er som börjar med version 0.3.0 stöder en Service Broker som standard.
 
 ## <a name="intune-mam-sdk"></a>Intune MAM SDK
@@ -224,9 +223,9 @@ ADAL-och MSAL-samexistens mellan flera program stöds fullt ut.
 
 Du behöver inte ändra ditt befintliga AAD-program för att växla till MSAL och aktivera AAD-konton. Om ditt ADAL-baserade program inte stöder Broker-autentisering måste du dock registrera en ny omdirigerings-URI för programmet innan du kan växla till MSAL.
 
-Omdirigerings-URI: n måste ha `msauth.<app.bundle.id>://auth`följande format:. Ersätt `<app.bundle.id>` med programmets paket-ID. Ange omdirigerings-URI i [Azure Portal](https://aka.ms/MobileAppReg).
+Omdirigerings-URI: n måste ha följande format: `msauth.<app.bundle.id>://auth` . Ersätt `<app.bundle.id>` med programmets paket-ID. Ange omdirigerings-URI i [Azure Portal](https://aka.ms/MobileAppReg).
 
-För att endast iOS ska stödja certifikatbaserad autentisering måste ytterligare en omdirigerings-URI registreras i programmet och Azure Portal i följande format: `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. Till exempel, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+För att endast iOS ska stödja certifikatbaserad autentisering måste ytterligare en omdirigerings-URI registreras i programmet och Azure Portal i följande format: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Till exempel, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 Vi rekommenderar att alla appar registrerar båda omdirigerings-URI: er.
 
@@ -240,7 +239,7 @@ Du kan lägga till MSAL SDK i din app med det önskade paket hanterings verktyge
 
 ### <a name="update-your-apps-infoplist-file"></a>Uppdatera appens info. plist-fil
 
-För endast iOS lägger du till programmets omdirigerings-URI-schema i filen info. plist. För ADAL-kompatibla appar bör det redan finnas. Standardvärdet för omdirigering av MSAL-URI är i `msauth.<app.bundle.id>`formatet:.  
+För endast iOS lägger du till programmets omdirigerings-URI-schema i filen info. plist. För ADAL-kompatibla appar bör det redan finnas. Standardvärdet för omdirigering av MSAL-URI är i formatet: `msauth.<app.bundle.id>` .  
 
 ```xml
 <key>CFBundleURLSchemes</key>
@@ -249,7 +248,7 @@ För endast iOS lägger du till programmets omdirigerings-URI-schema i filen inf
 </array>
 ```
 
-Lägg till följande scheman i appen info. plist under `LSApplicationQueriesSchemes`.
+Lägg till följande scheman i appen info. plist under `LSApplicationQueriesSchemes` .
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>
@@ -321,8 +320,8 @@ Som standard cachelagrar MSAL appens tokens i nyckel ringen för iOS eller macOS
 
 Så här aktiverar du cachelagring av token:
 1. Se till att ditt program är korrekt signerat
-2. Gå till Xcode-projekt inställningar **fliken** > > funktioner**Aktivera delning av nyckel ringar**
-3. Klicka **+** på och ange följande **grupper för nyckel ringar** : 3. a för iOS, `com.microsoft.adalcache` ange 3. b för MacOS Enter`com.microsoft.identity.universalstorage`
+2. Gå till Xcode-projekt inställningar **fliken > funktioner**  >  **Aktivera delning av nyckel ringar**
+3. Klicka på **+** och ange följande **grupper för nyckel ringar** : 3. a för iOS, ange `com.microsoft.adalcache` 3. b för MacOS Enter`com.microsoft.identity.universalstorage`
 
 ### <a name="create-msalpublicclientapplication-and-switch-to-its-acquiretoken-and-acquiretokesilent-calls"></a>Skapa MSALPublicClientApplication och växla till dess acquireToken-och acquireTokeSilent-anrop
 
@@ -402,7 +401,7 @@ do {
 
 
 
-Om ett konto hittas anropar du MSAL `acquireTokenSilent` -API: et:
+Om ett konto hittas anropar du MSAL- `acquireTokenSilent` API: et:
 
 Mål-C:
 

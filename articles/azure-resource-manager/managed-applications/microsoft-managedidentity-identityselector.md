@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087549"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>GRÄNSSNITTs element för Microsoft. ManagedIdentity. IdentitySelector
@@ -67,9 +66,9 @@ De valda identiteterna visas i tabellen. Användaren kan lägga till eller ta bo
 }
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
-- Använd **DefaultValue. systemAssignedIdentity** för att ange ett ursprungligt värde för den tilldelade identitets alternativ kontrollen. Standardvärdet är **inaktiverat**. Följande värden är tillåtna:
+- Använd **defaultValue.systemAssignedIdentity** för att ange ett ursprungligt värde för den tilldelade identitets alternativ kontrollen. Standardvärdet är **inaktiverat**. Följande värden är tillåtna:
   - **På** – en tilldelad dator identitet tilldelas till resursen.
   - **Av** – en tilldelad system identitet är inte tilldelad till resursen.
   - **OnOnly** – en tilldelad dator identitet tilldelas till resursen. Användare kan inte redigera det här värdet under distributionen.

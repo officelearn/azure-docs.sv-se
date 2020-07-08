@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792366"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Avkoda X12-meddelanden i Azure Logic Apps med Enterprise-integrationspaket
 
-Med avkoda X12 Message Connector kan du verifiera kuvertet mot ett handels partner avtal, verifiera EDI-och partner-/regionsspecifika egenskaper, dela upp ändringar i transaktioner eller bevara hela interändringar och generera bekräftelser för bearbetade transaktioner. Om du vill använda den här anslutningen måste du lägga till anslutningen till en befintlig utlösare i din Logic app.
+Med anslutningsappen för avkodning av X12-meddelanden kan du verifiera kuvertet mot ett handelspartneravtal, verifiera EDI- och partnerspecifika egenskaper, dela upp utbyten i transaktionsuppsättningar eller bevara hela utbyten, samt generera bekräftelser för bearbetade transaktioner. För att kunna använda den här anslutningsappen måste du lägga till den till en befintlig utlösare i din logikapp.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -88,13 +87,13 @@ X12 avkodnings koppling utför följande uppgifter:
   * Kontrollerar transaktions uppsättningens kontroll nummer mot andra kontroll nummer för transaktions uppsättningar i gruppen.
 * Delar upp Interchange i transaktions uppsättningar eller bevarar hela utbytet:
   * Dela upp utbyte som transaktions uppsättningar – inaktivera transaktions uppsättningar vid fel: delar upp Interchange i transaktions uppsättningar och parsar varje transaktions uppsättning. 
-  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som `badMessages`inte kan verifieras till, och de återstående `goodMessages`transaktions uppsättningarna matas ut till.
+  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som inte kan verifieras till `badMessages` , och de återstående transaktions uppsättningarna matas ut till `goodMessages` .
   * Dela upp utbyte som transaktions uppsättningar – pausa utbyte vid fel: delar upp Interchange i transaktions uppsättningar och parsar varje transaktions uppsättning. 
-  Om en eller flera transaktions uppsättningar i växlingen inte kan verifieras, kommer X12-avkodnings åtgärden att mata ut alla `badMessages`transaktions uppsättningar i som Interchange till.
+  Om en eller flera transaktions uppsättningar i växlingen inte kan verifieras, kommer X12-avkodnings åtgärden att mata ut alla transaktions uppsättningar i som Interchange till `badMessages` .
   * Bevara Interchange – pausa transaktions uppsättningar vid fel: bevara Interchange och bearbeta hela det batchade utbytet. 
-  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som `badMessages`inte kan verifieras till, och de återstående `goodMessages`transaktions uppsättningarna matas ut till.
+  X12-avkodnings åtgärden matar bara ut de transaktions uppsättningar som inte kan verifieras till `badMessages` , och de återstående transaktions uppsättningarna matas ut till `goodMessages` .
   * Bevara Interchange – pausa utbyte vid fel: bevara Interchange och bearbeta hela det batchade utbytet. 
-  Om en eller flera transaktions uppsättningar i växlingen inte kan verifieras, kommer X12-avkodnings åtgärden att mata ut alla `badMessages`transaktions uppsättningar i som Interchange till. 
+  Om en eller flera transaktions uppsättningar i växlingen inte kan verifieras, kommer X12-avkodnings åtgärden att mata ut alla transaktions uppsättningar i som Interchange till `badMessages` . 
 * Genererar en teknisk och/eller funktionell bekräftelse (om den är konfigurerad).
   * En teknisk bekräftelse skapas till följd av huvud verifiering. Den tekniska bekräftelsen rapporterar statusen för bearbetningen av ett utbytes huvud och en släpvagn från mottagar adressen.
   * En funktionell bekräftelse skapas till följd av verifiering av brödtext. Funktions bekräftelsen rapporterar varje fel som påträffades vid bearbetning av det mottagna dokumentet

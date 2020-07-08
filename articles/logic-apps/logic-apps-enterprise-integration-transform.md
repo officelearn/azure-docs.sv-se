@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
 ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792389"
 ---
-# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Skapa Maps som transformerar XML mellan format i Azure Logic Apps med Enterprise-integrationspaket
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Skapa kartor som transformerar XML mellan format i Azure Logic Apps med Enterprise-integrationspaket
 
-Transformerings kopplingen för företags integrering konverterar data från ett format till ett annat. Du kan till exempel ha ett inkommande meddelande som innehåller det aktuella datumet i YearMonthDay-formatet. Du kan använda en transformering för att formatera om datumet i MonthDayYear-format.
+Anslutningsprogrammet Transformera för Enterprise-integration konverterar data från ett format till ett annat. Du kan till exempel ha ett inkommande meddelande som innehåller det aktuella datumet i formatet YearMonthDay. Du kan använda en transformering för att formatera om datumet till formatet MonthDayYear.
 
 ## <a name="what-does-a-transform-do"></a>Vad gör en transformering?
 En transformering, som även kallas en karta, består av ett käll-XML-schema (indata) och ett XML-schema för målet (utdata). Du kan använda olika inbyggda funktioner för att manipulera eller kontrol lera data, inklusive sträng manipulationer, villkors tilldelningar, aritmetiska uttryck, datum tids formatering och till och med loopa konstruktioner.
@@ -47,7 +46,7 @@ Nu när du har vidtagit kraven är det dags att skapa din Logic app:
 6. Lägg till det XML- **innehåll** som du transformerar. Du kan använda alla XML-data som du får i HTTP-begäran som **innehåll**. I det här exemplet väljer du innehållet i HTTP-begäran som utlöste Logic-appen.
 
    > [!NOTE]
-   > Se till att innehållet för XML- **transformeringen** är XML. Om innehållet inte är i XML-format eller Base64-kodat måste du ange ett uttryck som bearbetar innehållet. Du kan till exempel använda [Functions](logic-apps-workflow-definition-language.md#functions), t ```@base64ToBinary``` . ex. för att ```@xml``` avkoda innehåll eller för att bearbeta innehållet som XML.
+   > Se till att innehållet för XML- **transformeringen** är XML. Om innehållet inte är i XML-format eller Base64-kodat måste du ange ett uttryck som bearbetar innehållet. Du kan till exempel använda [Functions](logic-apps-workflow-definition-language.md#functions), t ```@base64ToBinary``` . ex. för att avkoda innehåll eller ```@xml``` för att bearbeta innehållet som XML.
  
 
 7. Välj namnet på den **karta** som du vill använda för att utföra omvandlingen. Kartan måste redan finnas i ditt integrations konto. I ett tidigare steg gav du redan till gång till din Logic app-åtkomst till ditt integrations konto som innehåller din karta.      
@@ -84,7 +83,7 @@ Transformation-åtgärden stöder också Maps eller transformationer med en refe
     * **namn** är namnet på den anpassade sammansättningen.
     * **namespace** är namn området i din sammansättning som innehåller den anpassade koden.
 
-  I det här exemplet visas en karta som refererar till `circumreference` en sammansättning med namnet "XslUtilitiesLib" och anropar-metoden från sammansättningen.
+  I det här exemplet visas en karta som refererar till en sammansättning med namnet "XslUtilitiesLib" och anropar- `circumreference` metoden från sammansättningen.
 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
@@ -111,7 +110,7 @@ Transformation-åtgärden stöder också Maps eller transformationer med en refe
 
 
 ### <a name="byte-order-mark"></a>Markering av byte ordning
-Som standard börjar svaret från transformationen med byte ordnings tecknet (BOM). Du kan bara komma åt den här funktionen när du arbetar i kodvyn. Om du vill inaktivera den här `disableByteOrderMark` funktionen anger `transformOptions` du för egenskapen:
+Som standard börjar svaret från transformationen med byte ordnings tecknet (BOM). Du kan bara komma åt den här funktionen när du arbetar i kodvyn. Om du vill inaktivera den här funktionen anger `disableByteOrderMark` du för `transformOptions` egenskapen:
 
 ```json
 "Transform_XML": {

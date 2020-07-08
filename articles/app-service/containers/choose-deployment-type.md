@@ -8,10 +8,9 @@ ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687518"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Anpassad avbildning, multi-container eller inbyggd plattforms avbildning?
@@ -31,7 +30,7 @@ De främsta faktorer som du bör tänka på är:
 - **Program prestanda**: öka prestandan för din app med flera behållare med hjälp av ett cache-lager, till exempel Redis. Välj multi-container för att uppnå detta.
 - **Unika körnings krav**: de inbyggda plattforms avbildningarna är utformade för att uppfylla behoven hos de flesta webbappar, men är begränsade i deras anpassningsbarhet. Din app kan ha unika beroenden eller andra körnings krav som överskrider vad de inbyggda avbildningarna kan hantera.
 - **Versions krav**: med [kontinuerlig distribution](../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)kan du få igång din app på Azure direkt från käll koden. Ingen extern version eller publicerings process krävs. Det finns dock en gräns för anpassningsbarhet och tillgänglighet för build-verktyg i [kudu](https://github.com/projectkudu/kudu/wiki) -distributions motorn. Din app kan utvidga kudu-funktionerna när de växer i dess beroenden eller krav för anpassad versions logik.
-- **Läs/skriv-krav för disk**: alla webbappar tilldelas en lagrings volym för webb innehåll. Den här volymen, som backas upp av Azure Storage, `/home` monteras på i appens fil system. Till skillnad från filer i behållarens fil system, är filer i innehålls volymen tillgängliga i alla skalnings instanser av en app, och ändringar behålls i appens omstarter. Disk fördröjningen för innehålls volymen är dock högre och mer variabel än svars tiden för det lokala behållar systemet och åtkomst kan påverkas av plattforms uppgraderingar, oplanerade avbrott och problem med nätverks anslutningen. Appar som kräver tung skrivskyddad åtkomst till innehållsfiler kan dra nytta av anpassad avbildnings distribution, som placerar filer i avbildnings fil systemet i stället för på innehålls volymen.
+- **Läs/skriv-krav för disk**: alla webbappar tilldelas en lagrings volym för webb innehåll. Den här volymen, som backas upp av Azure Storage, monteras på `/home` i appens fil system. Till skillnad från filer i behållarens fil system, är filer i innehålls volymen tillgängliga i alla skalnings instanser av en app, och ändringar behålls i appens omstarter. Disk fördröjningen för innehålls volymen är dock högre och mer variabel än svars tiden för det lokala behållar systemet och åtkomst kan påverkas av plattforms uppgraderingar, oplanerade avbrott och problem med nätverks anslutningen. Appar som kräver tung skrivskyddad åtkomst till innehållsfiler kan dra nytta av anpassad avbildnings distribution, som placerar filer i avbildnings fil systemet i stället för på innehålls volymen.
 - **Skapa resursanvändning**: när en app distribueras från källan använder distributions skripten som kör av Kudu samma app service planera beräknings-och lagrings resurser som appen som körs. Stora distributioner av appar kan förbruka fler resurser eller tid än vad som önskas. I synnerhet genererar många distributions arbets flöden tung disk aktivitet på appens innehålls volym, som inte är optimerad för sådan aktivitet. En anpassad avbildning ger all din apps filer och beroenden till Azure i ett enda paket utan några behov av ytterligare fil överföringar eller distributions åtgärder.
 - **Behov av snabb iteration**: Dockerizing en app kräver ytterligare build-steg. För att ändringarna ska börja gälla måste du skicka den nya avbildningen till en lagrings plats med varje uppdatering. De här uppdateringarna hämtas sedan till Azure-miljön. Om någon av de inbyggda behållarna uppfyller appens behov kan distributionen från källan erbjuda ett snabbare utvecklings arbets flöde.
 

@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792873"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema uppdateringar för Azure Logic Apps – 1 juni 2016
@@ -85,7 +84,7 @@ I tidigare schema versioner var villkor och slingor kopplade till en enda åtgä
 
 ## <a name="runafter-property"></a>egenskapen ' runAfter '
 
-`runAfter` Egenskapen ersätter `dependsOn`, vilket ger mer precision när du anger körnings ordningen för åtgärder baserat på status för tidigare åtgärder. `dependsOn` Egenskapen anger om åtgärden kördes och lyckades, baserat på om föregående åtgärd lyckades, misslyckades eller hoppades över – inte antalet gånger som du ville köra åtgärden. `runAfter` Egenskapen ger flexibilitet som ett objekt som anger alla åtgärds namn som objektet körs efter. Den här egenskapen definierar också en matris med statusar som är godtagbara som utlösare. Om du till exempel vill att en åtgärd ska köras efter att åtgärden lyckades och även efter att åtgärd B lyckas eller Miss lyckas, ställer du in `runAfter` den här egenskapen:
+`runAfter`Egenskapen ersätter `dependsOn` , vilket ger mer precision när du anger körnings ordningen för åtgärder baserat på status för tidigare åtgärder. `dependsOn`Egenskapen anger om åtgärden kördes och lyckades, baserat på om föregående åtgärd lyckades, misslyckades eller hoppades över – inte antalet gånger som du ville köra åtgärden. `runAfter`Egenskapen ger flexibilitet som ett objekt som anger alla åtgärds namn som objektet körs efter. Den här egenskapen definierar också en matris med statusar som är godtagbara som utlösare. Om du till exempel vill att en åtgärd ska köras efter att åtgärden lyckades och även efter att åtgärd B lyckas eller Miss lyckas, ställer du in den här `runAfter` egenskapen:
 
 ```json
 {
@@ -127,7 +126,7 @@ Om du vill uppgradera till det [senaste schemat](https://schema.management.azure
 
 ### <a name="mapping-conditions"></a>Mappnings villkor
 
-I den uppgraderade definitionen gör verktyget det bästa arbetet vid gruppering av sant och falskt gren åtgärder tillsammans som ett omfång. Mer specifikt visas mönster i `@equals(actions('a').status, 'Skipped')` designern som en `else` åtgärd. Men om verktyget identifierar okända mönster kan verktyget skapa separata villkor för både True och false-grenen. Du kan mappa om åtgärder efter uppgraderingen, om det behövs.
+I den uppgraderade definitionen gör verktyget det bästa arbetet vid gruppering av sant och falskt gren åtgärder tillsammans som ett omfång. Mer specifikt visas mönster i designern `@equals(actions('a').status, 'Skipped')` som en `else` åtgärd. Men om verktyget identifierar okända mönster kan verktyget skapa separata villkor för både True och false-grenen. Du kan mappa om åtgärder efter uppgraderingen, om det behövs.
 
 #### <a name="foreach-loop-with-condition"></a>"förgrunds"-loop med villkor
 
@@ -141,19 +140,19 @@ När du har uppgraderat tas resurs taggarna bort, så du måste återställa dem
 
 ### <a name="renamed-manual-trigger-to-request-trigger"></a>Omdöpt till "Request"-utlösaren
 
-`manual` Utlösarens typ var inaktuell och har bytt namn till `request` av typen `http`. Den här ändringen skapar mer konsekvens för den typ av mönster som utlösaren används för att skapa.
+`manual`Utlösarens typ var inaktuell och har bytt namn till `request` av typen `http` . Den här ändringen skapar mer konsekvens för den typ av mönster som utlösaren används för att skapa.
 
 ### <a name="new-filter-action"></a>Ny filter åtgärd
 
-För att filtrera en stor matris nedåt till en mindre uppsättning objekt, accepterar den `filter` nya typen en matris och ett villkor, utvärderar villkoret för varje objekt och returnerar en matris med objekt som uppfyller villkoret.
+För att filtrera en stor matris nedåt till en mindre uppsättning objekt, accepterar den nya `filter` typen en matris och ett villkor, utvärderar villkoret för varje objekt och returnerar en matris med objekt som uppfyller villkoret.
 
 ### <a name="restrictions-for-foreach-and-until-actions"></a>Begränsningar för åtgärderna "förgrunds åtgärder" och "till"
 
-`foreach` Och `until` -loopen är begränsad till en enda åtgärd.
+`foreach`Och- `until` loopen är begränsad till en enda åtgärd.
 
 ### <a name="new-trackedproperties-for-actions"></a>New ' trackedProperties ' för åtgärder
 
-Åtgärder kan nu ha en ytterligare egenskap som `trackedProperties`kallas, som är på samma `runAfter` nivå `type` som egenskaperna och. Det här objektet anger vissa åtgärds indata eller utdata som du vill ta med i Azure Diagnostic-telemetri som genereras som en del av ett arbets flöde. Ett exempel:
+Åtgärder kan nu ha en ytterligare egenskap `trackedProperties` som kallas, som är på samma nivå som `runAfter` `type` egenskaperna och. Det här objektet anger vissa åtgärds indata eller utdata som du vill ta med i Azure Diagnostic-telemetri som genereras som en del av ett arbets flöde. Ett exempel:
 
 ``` json
 {

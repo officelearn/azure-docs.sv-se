@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 4e029428a3709bacdbcd50a6ac3714e730377242
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74763631"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Anpassa Server konfigurations parametrar för Azure Database for PostgreSQL-enskild server med Azure CLI
@@ -32,14 +31,14 @@ az postgres server configuration list --resource-group myresourcegroup --server 
 ## <a name="show-server-configuration-parameter-details"></a>Visa information om Server konfigurations parameter
 Om du vill visa information om en viss konfigurations parameter för en server kör du kommandot [AZ postgres Server Configuration show](/cli/azure/postgres/server/configuration) .
 
-I det här exemplet visas information om konfigurations parametern för **loggen\_för\_min e-post** för Server- **mydemoserver.postgres.Database.Azure.com** under resurs grupp **myresourcegroup.**
+I det här exemplet visas information om konfigurations parametern för **loggen för \_ min \_ e-post** för Server- **mydemoserver.postgres.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>Ändra värdet för Server konfigurations parameter
 Du kan också ändra värdet för en viss server konfigurations parameter, som uppdaterar det underliggande konfiguration svärdet för PostgreSQL-Server motorn. Om du vill uppdatera konfigurationen använder du kommandot [AZ postgres Server Configuration set](/cli/azure/postgres/server/configuration) . 
 
-Så här uppdaterar du serverns konfigurations parameter för **\_minsta\_antal meddelanden** i Server **mydemoserver.postgres.Database.Azure.com** under resurs grupp **myresourcegroup.**
+Så här uppdaterar du serverns konfigurations parameter för ** \_ minsta antal \_ meddelanden** i Server **mydemoserver.postgres.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver --value INFO
 ```
@@ -47,7 +46,7 @@ Om du vill återställa värdet för en konfigurations parameter väljer du bara
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
-Det här kommandot återställer konfigurationen **för\_minsta\_antal meddelanden** till **varningen**för standardvärdet. Mer information om Server konfiguration och tillåtna värden finns i PostgreSQL-dokumentation om [Server konfiguration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
+Det här kommandot återställer konfigurationen **för \_ minsta antal \_ meddelanden** till **varningen**för standardvärdet. Mer information om Server konfiguration och tillåtna värden finns i PostgreSQL-dokumentation om [Server konfiguration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lär dig hur du startar om en server](howto-restart-server-cli.md)

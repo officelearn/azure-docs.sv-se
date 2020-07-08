@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
 ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74873343"
 ---
 # <a name="getting-started-with-sql-queries"></a>Komma igång med SQL-frågor
@@ -23,7 +22,7 @@ Azure Cosmos DB SQL API-konton har stöd för att skicka frågor till objekt med
 
 ## <a name="upload-sample-data"></a>Ladda upp exempel data
 
-Skapa en behållare med namnet `Families`i ditt SQL API Cosmos DB-konto. Skapa två enkla JSON-objekt i behållaren. Du kan köra de flesta exempel frågorna i Azure Cosmos DB Query-dokument med hjälp av den här data uppsättningen.
+Skapa en behållare med namnet i ditt SQL API Cosmos DB-konto `Families` . Skapa två enkla JSON-objekt i behållaren. Du kan köra de flesta exempel frågorna i Azure Cosmos DB Query-dokument med hjälp av den här data uppsättningen.
 
 ### <a name="create-json-items"></a>Skapa JSON-objekt
 
@@ -52,7 +51,7 @@ Följande kod skapar två enkla JSON-objekt om familjer. De enkla JSON-objekten 
 }
 ```
 
-Det andra objektet använder `givenName` och `familyName` i stället `firstName` för `lastName`och.
+Det andra objektet använder `givenName` och `familyName` i stället för `firstName` och `lastName` .
 
 ```json
 {
@@ -88,7 +87,7 @@ Det andra objektet använder `givenName` och `familyName` i stället `firstName`
 
 Prova några frågor mot JSON-data för att förstå några av de viktigaste aspekterna i Azure Cosmos DB SQL-frågespråket.
 
-Följande fråga returnerar de objekt där `id` fältet matchar. `AndersenFamily` Eftersom det är en `SELECT *` fråga är resultatet av frågan det fullständiga JSON-objektet. Mer information om SELECT-syntax finns i [Select Statement](sql-query-select.md). 
+Följande fråga returnerar de objekt där `id` fältet matchar `AndersenFamily` . Eftersom det är en `SELECT *` fråga är resultatet av frågan det fullständiga JSON-objektet. Mer information om SELECT-syntax finns i [Select Statement](sql-query-select.md). 
 
 ```sql
     SELECT *
@@ -118,7 +117,7 @@ Frågeresultatet är:
     }]
 ```
 
-Följande fråga formaterar om JSON-utdata till en annan form. Frågan Projects ett nytt JSON `Family` -objekt med två markerade fält `Name` , `City`och när adressens ort är samma som status. "NY, NY" matchar det här ärendet.
+Följande fråga formaterar om JSON-utdata till en annan form. Frågan Projects ett nytt JSON `Family` -objekt med två markerade fält, `Name` och `City` när adressens ort är samma som status. "NY, NY" matchar det här ärendet.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -137,7 +136,7 @@ Frågeresultatet är:
     }]
 ```
 
-Följande fråga returnerar alla namn på underordnade objekt i den familj vars `id` matchningar `WakefieldFamily`beställs efter ort.
+Följande fråga returnerar alla namn på underordnade objekt i den familj vars `id` matchningar `WakefieldFamily` beställs efter ort.
 
 ```sql
     SELECT c.givenName
@@ -156,11 +155,11 @@ Resultatet är:
     ]
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
 I föregående exempel visas flera aspekter av Cosmos DB frågespråket:  
 
-* Eftersom SQL API fungerar med JSON-värden, hanterar den Tree-formade entiteter i stället för rader och kolumner. Du kan referera till trädnoden i godtyckligt djup, som `Node1.Node2.Node3…..Nodem`liknar referensen för två delar av `<table>.<column>` i ANSI SQL.
+* Eftersom SQL API fungerar med JSON-värden, hanterar den Tree-formade entiteter i stället för rader och kolumner. Du kan referera till trädnoden i godtyckligt djup, som `Node1.Node2.Node3…..Nodem` liknar referensen för två delar av `<table>.<column>` i ANSI SQL.
 
 * Eftersom frågespråket fungerar med schemabaserade data, måste typ systemet bindas dynamiskt. Samma uttryck kan ge olika typer på olika objekt. Resultatet av en fråga är ett giltigt JSON-värde, men det är inte säkert att det är ett fast schema.  
 

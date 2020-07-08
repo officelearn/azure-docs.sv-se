@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74789281"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av Azure Logic Apps
@@ -57,8 +56,8 @@ SFTP-utlösare fungerar genom att söka i SFTP-filsystemet och leta efter en fil
 
 | SFTP-klient | Åtgärd |
 |-------------|--------|
-| WinSCP | Gå till **alternativ** > **Inställningar** > **överför** > **Edit**redigera > **bevara tidsstämpel** > **inaktivera** |
-| FileZilla | Gå till **överför** > **bevara tidsstämplar för överförda filer** > **inaktivera** |
+| WinSCP | Gå till **alternativ**  >  **Inställningar**  >  **överför**  >  **Redigera**  >  **bevara tidsstämpel**  >  **inaktivera** |
+| FileZilla | Gå till **överför**  >  **bevara tidsstämplar för överförda filer**  >  **inaktivera** |
 |||
 
 När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen är fullständig och inte delvis skriven. En fil kan till exempel ha ändringar som pågår när utlösaren kontrollerar fil servern. För att undvika att returnera en delvis skriven fil, noterar utlösaren tidsstämpeln för filen som har nyligen gjorda ändringar, men returnerar inte omedelbart den filen. Utlösaren returnerar filen endast när servern avsöks igen. Ibland kan det här problemet orsaka en fördröjning som är upp till två gånger utlösaren för avsöknings intervall.
@@ -71,11 +70,11 @@ När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen ä
 
 1. För tomma Logi Kap par anger du "SFTP" som filter i rutan Sök. Välj den utlösare som du vill använda under listan utlösare.
 
-   ELLER
+   \- eller -
 
    För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg**. I rutan Sök anger du "SFTP" som filter. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Ange nödvändig information för anslutningen.
 
@@ -84,13 +83,13 @@ När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen ä
    > När du anger den privata SSH-nyckeln i egenskapen för den **privata SSH-nyckeln** följer du dessa ytterligare steg, som hjälper dig att ange det fullständiga och korrekta värdet för den här egenskapen. 
    > En ogiltig nyckel gör att anslutningen Miss fungerar.
 
-   Även om du kan använda valfri text redigerare är det exempel steg som visar hur du kopierar och klistrar in nyckeln på rätt sätt med notepad. exe som exempel.
+   Även om du kan använda en text redigerare kan du följa exempel steg som visar hur du kopierar och klistrar in nyckeln på rätt sätt med hjälp av Notepad.exe som exempel.
 
    1. Öppna din privata SSH-nyckel fil i en text redigerare. I dessa steg används anteckningar som exempel.
 
    1. I **redigerings** menyn i Anteckningar väljer du **Markera alla**.
 
-   1. Välj **Redigera** > **kopia**.
+   1. Välj **Redigera**  >  **kopia**.
 
    1. I en SFTP-utlösare eller åtgärd som du har lagt till klistrar du in den *fullständiga* nyckeln som du kopierade i egenskapen **SSH Private Key** , som stöder flera rader. ***Se till att klistra in*** nyckeln. ***Ange eller redigera inte nyckeln manuellt***.
 

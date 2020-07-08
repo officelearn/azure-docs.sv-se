@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74887096"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services felkoder
@@ -51,7 +50,7 @@ Det gick inte att autentisera begäran (innan den kan auktoriseras) på grund av
   * Token har upphört att gälla. 
   * Token innehåller en ogiltig signatur.
 
-## <a name="403-forbidden"></a>403 förbud
+## <a name="403-forbidden"></a>403 – Förbjuden
 Begäran tillåts inte på grund av en av följande orsaker:
 
 * Det går inte att hitta Media Services kontot eller så har det tagits bort.
@@ -105,9 +104,9 @@ Servern kan för närvarande inte ta emot begär Anden. Det här felet kan orsak
 
 Beskrivningar av möjliga status är:
 
-* "Servern är upptagen. Tidigare körningar av den här typen av begäran tog {0} mer än sekunder. "
+* "Servern är upptagen. Tidigare körningar av den här typen av begäran tog mer än {0} sekunder. "
 * "Servern är upptagen. Fler än {0} begär Anden per sekund kan begränsas. "
-* "Servern är upptagen. Fler än {0} begär Anden {1} inom några sekunder kan begränsas. "
+* "Servern är upptagen. Fler än {0} begär Anden inom {1} några sekunder kan begränsas. "
 
 För att hantera det här felet rekommenderar vi att du använder exponentiella omprövnings logik. Det innebär att användningen av progressivt väntar mellan upprepade försök för efterföljande fel svar.  Mer information finns i [program block för tillfälligt fel hantering](https://msdn.microsoft.com/library/hh680905.aspx).
 

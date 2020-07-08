@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: b00df5e8176aaad86be5cf3ae4e04c736f36cf5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74885610"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Felsökningsguide för liveuppspelning  
@@ -30,7 +29,7 @@ Det här avsnittet innehåller förslag på hur du felsöker problem som rör lo
 ### <a name="problem-would-like-to-see-logs"></a>Problem: vill du se loggar
 * **Möjligt problem**: det går inte att hitta kodare loggar som kan hjälpa till att felsöka problem.
   
-  * **Wirecast för multistream**: du hittar oftast loggar under C:\Users\{username} \AppData\Roaming\Wirecast\ 
+  * **Wirecast för multistream**: du hittar oftast loggar under C:\Users \{ username} \AppData\Roaming\Wirecast\ 
   * **Grundämne Live**: du hittar länkar till loggar på hanterings portalen. Klicka på **statistik**och sedan **loggar**. På sidan **loggfiler** visas en lista över loggar för alla LiveEvent-objekt. Välj den som matchar din aktuella session. 
   * **Flash Media Live Encoder**: du hittar **logg katalogen...** genom att gå till fliken **encoding-logg** .
 

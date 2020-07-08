@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 2305a02e5b094ec9e98f39363ddbd0c39221ab0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768902"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Anslutnings bibliotek för Azure Database for PostgreSQL-enskild server
@@ -27,7 +26,7 @@ De flesta språk klient biblioteken som används för att ansluta till PostgreSQ
 | Java | [JDBC](https://jdbc.postgresql.org/) | Typ 4 JDBC-drivrutin | [Hämta](https://jdbc.postgresql.org/download.html)  |
 | Ruby | [PG-gem](https://deveiate.org/code/pg/) | Ruby-gränssnitt | [Ladda ned](https://rubygems.org/downloads/pg-0.20.0.gem) |
 | Go | [Paketets PQ](https://godoc.org/github.com/lib/pq) | Ren go postgres-drivrutin | [Installera](https://github.com/lib/pq/blob/master/README.md) |
-| C\#/.net | [Npgsql](https://www.npgsql.org/) | ADO.NET data leverantör | [Ladda ned](https://www.microsoft.com/net/) |
+| C \# /.net | [Npgsql](https://www.npgsql.org/) | ADO.NET data leverantör | [Ladda ned](https://www.microsoft.com/net/) |
 | ODBC | [psqlODBC](https://odbc.postgresql.org/) | ODBC-drivrutin | [Ladda ned](https://www.postgresql.org/ftp/odbc/versions/) |
 | C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Primärt språk gränssnitt för C | Ingår |
 | C++ | [libpqxx](http://pqxx.org/) | New-Style C++-gränssnitt | [Ladda ned](http://pqxx.org/download/software/) |
@@ -35,4 +34,4 @@ De flesta språk klient biblioteken som används för att ansluta till PostgreSQ
 ## <a name="next-steps"></a>Nästa steg
 Läs de här snabb starterna om hur du ansluter till och frågar Azure Database for PostgreSQL med hjälp av ditt val av språk:
 
-[Python](./connect-python.md) | [Node. js](./connect-nodejs.md) | [Java](./connect-java.md) | [ruby](./connect-ruby.md) |  | [Go](./connect-go.md) [PHP](./connect-php.md)php .net[(C#) go](./connect-csharp.md) | 
+[Python](./connect-python.md)  |  [Node.JS](./connect-nodejs.md)  |  [Java](./connect-java.md)  |  [Ruby](./connect-ruby.md)  |  [Php](./connect-php.md)  |  [.net (C#)](./connect-csharp.md)  |  [Gå](./connect-go.md)

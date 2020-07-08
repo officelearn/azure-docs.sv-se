@@ -4,10 +4,9 @@ description: Använd rollbaserad åtkomst kontroll i Azure (RBAC) och identitets
 ms.topic: article
 ms.date: 12/02/2019
 ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74893492"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry roller och behörigheter
@@ -30,7 +29,7 @@ När du använder en viss tids period är det en bra idé att tillhandahålla de
 
 ### <a name="cicd-solutions"></a>CI/CD-lösningar
 
-När du automatiserar `docker build` kommandon från CI/CD-lösningar behöver `docker push` du funktioner. Vi föreslår att du tilldelar **AcrPush** -rollen för dessa scenarier för konsol lös tjänst. Den här rollen, till skillnad från rollen bredare **deltagare** , förhindrar att kontot utför andra register åtgärder eller använder Azure Resource Manager.
+När du automatiserar `docker build` kommandon från CI/CD-lösningar behöver du `docker push` funktioner. Vi föreslår att du tilldelar **AcrPush** -rollen för dessa scenarier för konsol lös tjänst. Den här rollen, till skillnad från rollen bredare **deltagare** , förhindrar att kontot utför andra register åtgärder eller använder Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Noder i container värden
 
@@ -38,7 +37,7 @@ Noder som kör dina behållare behöver inte heller **AcrPull** -rollen, men beh
 
 ### <a name="visual-studio-code-docker-extension"></a>Tillägg för Visual Studio Code Docker
 
-För verktyg som Visual Studio Code [Docker-tillägget](https://code.visualstudio.com/docs/azure/docker)krävs ytterligare resurs leverantörs åtkomst för att lista tillgängliga Azure Container register. I det här fallet ger du användarna åtkomst till **läsaren** eller **deltagar** rollen. De här rollerna `docker push`tillåter `az acr list` `docker pull`, `az acr build`,, och andra funktioner. 
+För verktyg som Visual Studio Code [Docker-tillägget](https://code.visualstudio.com/docs/azure/docker)krävs ytterligare resurs leverantörs åtkomst för att lista tillgängliga Azure Container register. I det här fallet ger du användarna åtkomst till **läsaren** eller **deltagar** rollen. De här rollerna tillåter `docker pull` , `docker push` ,, `az acr list` `az acr build` och andra funktioner. 
 
 ## <a name="access-resource-manager"></a>Åtkomst till Resource Manager
 
@@ -81,7 +80,7 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 För att definiera en anpassad roll, se [steg för att skapa en anpassad roll](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 > [!IMPORTANT]
-> I en anpassad roll stöder Azure Container Registry för närvarande inte jokertecken som till `Microsoft.ContainerRegistry/*` exempel `Microsoft.ContainerRegistry/registries/*` eller som beviljar åtkomst till alla matchande åtgärder. Ange eventuella nödvändiga åtgärder individuellt i rollen.
+> I en anpassad roll stöder Azure Container Registry för närvarande inte jokertecken som till exempel `Microsoft.ContainerRegistry/*` eller `Microsoft.ContainerRegistry/registries/*` som beviljar åtkomst till alla matchande åtgärder. Ange eventuella nödvändiga åtgärder individuellt i rollen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74885644"
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över slut punkter för direkt uppspelning  
@@ -33,7 +32,7 @@ Azure Media Services lade till följande egenskaper i entiteten för strömnings
 När du skapar ett Azure Media Services konto skapas en standard slut punkt för standard strömning för dig i **stoppat** läge. Det går inte att ta bort standard slut punkten för direkt uppspelning. Beroende på Azure CDN tillgänglighet i mål regionen innehåller som standard den nyskapade standard slut punkten för direkt uppspelning även "StandardVerizon" CDN Provider integration. 
                 
 > [!NOTE]
-> Azure CDN integration kan inaktive ras innan du startar slut punkten för direkt uppspelning. URL `hostname` : en och direkt uppspelnings-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
+> Azure CDN integration kan inaktive ras innan du startar slut punkten för direkt uppspelning. `hostname`URL: en och direkt uppspelnings-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
 
 Det här avsnittet ger en översikt över de viktigaste funktionerna som tillhandahålls av slut punkter för direkt uppspelning.
 
@@ -77,7 +76,7 @@ Om din **version "1,0"** för strömnings slut punkten har >= 1 Premium streamin
 
 |Typ|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klassisk|1.0|0|Ej tillämpligt|Kostnadsfri|
+|Klassisk|1.0|0|NA|Kostnadsfri|
 |Standard slut punkt för direkt uppspelning (förhands granskning)|2.0|0|Ja|Förutbetalt|
 |Premium – direktuppspelningsenheter|1.0|> 0|Ja|Förutbetalt|
 |Premium – direktuppspelningsenheter|2.0|> 0|Ja|Förutbetalt|

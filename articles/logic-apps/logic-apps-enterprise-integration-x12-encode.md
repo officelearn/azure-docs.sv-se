@@ -9,16 +9,15 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792360"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Koda X12-meddelanden i Azure Logic Apps med Enterprise-integrationspaket
 
-Med X12 Message Connector kan du validera EDI-och partnerbaserade egenskaper, konvertera XML-kodade meddelanden till EDI-transaktions uppsättningar i utbytet och begära en teknisk bekräftelse, funktions bekräftelse eller både och.
-Om du vill använda den här anslutningen måste du lägga till anslutningen till en befintlig utlösare i din Logic app.
+Med anslutningsappen för X12-meddelanden kan du verifiera EDI-egenskaper och partnerspecifika egenskaper, konvertera XML-kodade meddelanden i EDI-transaktionsuppsättningar och begära en teknisk bekräftelse, funktionsbekräftelse eller både och.
+För att kunna använda den här anslutningsappen måste du lägga till den till en befintlig utlösare i din logikapp.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -70,7 +69,7 @@ Om du väljer att koda X12-meddelanden efter identiteter anger du avsändar-ID, 
    
 ![Ange identiteter för avsändare och mottagare, Välj XML-meddelande för att koda](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage5.png) 
 
-## <a name="x12-encode-details"></a>Information om X12-kod
+## <a name="x12-encode-details"></a>Information om X12-kodning
 
 X12 kodnings koppling utför följande uppgifter:
 

@@ -1,24 +1,23 @@
 ---
-title: Azure Functions utlösare och bindnings exempel
+title: Exempel på utlösare och bindning i Azure Functions
 description: Lär dig att konfigurera Azure Function-bindningar
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74227245"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions utlösare och bindnings exempel
+# <a name="azure-functions-trigger-and-binding-example"></a>Exempel på utlösare och bindning i Azure Functions
 
 Den här artikeln visar hur du konfigurerar en [utlösare och bindningar](./functions-triggers-bindings.md) i en Azure-funktion.
 
 Anta att du vill skriva en ny rad i Azure Table Storage varje gång ett nytt meddelande visas i Azure Queue Storage. Det här scenariot kan implementeras med hjälp av en Azure Queue Storage-utlösare och en Azure Table Storage-utdatabindning. 
 
-Här är en *Function. JSON* -fil för det här scenariot. 
+Här är en *function.jspå* filen för det här scenariot. 
 
 ```json
 {
@@ -41,18 +40,18 @@ Här är en *Function. JSON* -fil för det här scenariot.
 }
 ```
 
-Det första elementet i `bindings` matrisen är kön Storage-utlösare. - `type` Och `direction` -egenskaperna identifierar utlösaren. `name` Egenskapen identifierar funktions parametern som tar emot köns meddelande innehåll. Namnet på kön som ska övervakas är i `queueName`och anslutnings strängen är i den app-inställning som identifieras av `connection`.
+Det första elementet i `bindings` matrisen är kön Storage-utlösare. - `type` Och- `direction` egenskaperna identifierar utlösaren. `name`Egenskapen identifierar funktions parametern som tar emot köns meddelande innehåll. Namnet på kön som ska övervakas är i `queueName` och anslutnings strängen är i den app-inställning som identifieras av `connection` .
 
-Det andra elementet i `bindings` matrisen är Azure-Table Storage utgående bindning. - `type` Och `direction` -egenskaperna identifierar bindningen. `name` Egenskapen anger hur funktionen tillhandahåller den nya tabell raden, i det här fallet genom att använda funktionens retur värde. Namnet på tabellen är i `tableName`och anslutnings strängen är i den app-inställning som identifieras av. `connection`
+Det andra elementet i `bindings` matrisen är Azure-Table Storage utgående bindning. - `type` Och- `direction` egenskaperna identifierar bindningen. `name`Egenskapen anger hur funktionen tillhandahåller den nya tabell raden, i det här fallet genom att använda funktionens retur värde. Namnet på tabellen är i `tableName` och anslutnings strängen är i den app-inställning som identifieras av `connection` .
 
-Om du vill visa och redigera innehållet i *Function. JSON* i Azure Portal klickar du på alternativet **avancerad redigerare** på fliken **integrera** i din funktion.
+Om du vill visa och redigera innehållet i *function.js* i Azure Portal klickar du på alternativet **avancerad redigerare** på fliken **integrera** i din funktion.
 
 > [!NOTE]
-> Värdet för `connection` är namnet på en app-inställning som innehåller anslutnings strängen, inte själva anslutnings strängen. Bindningar använder anslutnings strängar som är lagrade i appinställningar för att framtvinga bästa praxis som *Function. JSON* inte innehåller tjänst hemligheter.
+> Värdet för `connection` är namnet på en app-inställning som innehåller anslutnings strängen, inte själva anslutnings strängen. Bindningar använder anslutnings strängar som är lagrade i appinställningar för att säkerställa bästa praxis som *function.jspå* inte innehåller tjänst hemligheter.
 
 ## <a name="c-script-example"></a>C#-skript exempel
 
-Här är C#-skript koden som fungerar med denna utlösare och bindning. Observera att namnet på parametern som tillhandahåller innehållet i kön är `order`. Det här namnet måste anges eftersom `name` egenskap svärdet i *Function. JSON* är`order` 
+Här är C#-skript koden som fungerar med denna utlösare och bindning. Observera att namnet på parametern som tillhandahåller innehållet i kön är `order` . det här namnet är obligatoriskt eftersom `name` egenskap svärdet i *function.jspå* är`order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -82,7 +81,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript-exempel
 
-Samma *Function. JSON* -fil kan användas med en JavaScript-funktion:
+Samma *function.jsi* filen kan användas med en JavaScript-funktion:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -102,7 +101,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>Exempel på klass bibliotek
 
-I ett klass bibliotek tillhandahålls samma Utlös ande och bindande informations &mdash; kön och tabell namn, lagrings konton, funktions parametrar för indata &mdash; och utdata från attribut i stället för en function. JSON-fil. Här är ett exempel:
+I ett klass bibliotek tillhandahålls samma Utlös ande och bindande informations &mdash; kön och tabell namn, lagrings konton, funktions parametrar för indata och utdata från &mdash; attribut i stället för en function.jspå filen. Här är ett exempel:
 
 ```csharp
 public static class QueueTriggerTableOutput

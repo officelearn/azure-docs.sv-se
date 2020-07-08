@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74689254"
 ---
 # <a name="restore-an-app-in-azure"></a>Återställ en app i Azure
@@ -82,7 +81,7 @@ Du kan automatisera säkerhets kopierings hanteringen med skript med hjälp av [
 Exempel finns i:
 
 - [Azure CLI-exempel](samples-cli.md)
-- [Azure PowerShell exempel](samples-powershell.md)
+- [Azure PowerShell-exempel](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

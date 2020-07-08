@@ -5,10 +5,9 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74324511"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrering av Azure blockchain Workbench-meddelanden
@@ -470,7 +469,7 @@ Innehåller information om ett kontrakt. Meddelandet innehåller ett avsnitt med
 | Name               | Beskrivning |
 |--------------------|-------------|
 | workflowPropertyId | Unikt ID för arbets flödes egenskapen i Azure blockchain Workbench |
-| namn | Namn på arbets flödes egenskapen |
+| name | Namn på arbets flödes egenskapen |
 | värde | Värdet för arbets flödes egenskapen |
 
 Exempel på en *ContractMessage* från blockchain Workbench:
@@ -581,7 +580,7 @@ Innehåller information när en kontrakts funktion anropas, t. ex. funktions nam
 
 | Name | Beskrivning |
 |------|-------------|
-| namn | Parameternamn |
+| name | Parameternamn |
 | värde | Parametervärde |
 
 #### <a name="event-message-transaction-information"></a>Transaktions information för händelse meddelande
@@ -663,14 +662,14 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 | Name | Beskrivning |
 |------|-------------|
 | id | Unikt ID för program rollen i Azure blockchain Workbench |
-| namn | Namn på program rollen |
+| name | Namn på program rollen |
 
 #### <a name="application-workflow-information"></a>Information om program arbets flöde
 
 | Name | Beskrivning |
 |------|-------------|
 | id | Unikt ID för program arbets flödet i Azure blockchain Workbench |
-| namn | Namn på program arbets flöde |
+| name | Namn på program arbets flöde |
 | displayName | Visnings namn för program arbets flöde |
 | funktionen | Insamling av [funktioner för program arbets flödet](#workflow-function-information)|
 | USA | Insamling av [tillstånd för program arbets flödet](#workflow-state-information) |
@@ -681,14 +680,14 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 | Name | Beskrivning |
 |------|-------------|
 | id | Unik identifierare för program arbets flödes funktionen i Azure blockchain Workbench |
-| namn | Funktionsnamn |
+| name | Funktionsnamn |
 | parameters | Parametrar för funktionen |
 
 ##### <a name="workflow-state-information"></a>Information om arbets flödes tillstånd
 
 | Name | Beskrivning |
 |------|-------------|
-| namn | Tillstånds namn |
+| name | Tillstånds namn |
 | displayName | Visnings namn för tillstånd |
 | stil | Tillstånds format (lyckades eller misslyckades) |
 
@@ -697,7 +696,7 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 | Name | Beskrivning |
 |------|-------------|
 | id | Unikt ID för egenskapen för program arbets flödet i Azure blockchain Workbench |
-| namn | Egenskapsnamn |
+| name | Egenskapsnamn |
 | typ | Egenskaps typ |
 
 Exempel på en *EventMessage-ApplicationIngestion* från blockchain Workbench:
@@ -848,7 +847,7 @@ Innehåller information när en användare tilldelas en roll i Workbench, till e
 | Name | Beskrivning |
 |------|-------------|
 | id | Unikt ID för program rollen i Azure blockchain Workbench |
-| namn | Namn på program rollen |
+| name | Namn på program rollen |
 
 #### <a name="roleassignment-assigner"></a>RoleAssignment tilldelas
 

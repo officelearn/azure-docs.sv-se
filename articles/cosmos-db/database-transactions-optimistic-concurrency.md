@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74806532"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Kontroll över transaktioner och optimistisk samtidighet
@@ -20,7 +19,7 @@ Databas transaktioner tillhandahåller en säker och förutsägbar programmering
 
 Databas motorn i Azure Cosmos DB har stöd för fullständiga syror (atomiska, konsekvens, isolering, hållbarhet)-kompatibla transaktioner med ögonblicks bild isolering. Alla databas åtgärder inom omfånget för en behållares [logiska partition](partition-data.md) är transaktionella exekverade i databas motorn som är värd för partitionens replik. Dessa åtgärder omfattar både skrivning (uppdatering av ett eller flera objekt i den logiska partitionen) och Läs åtgärder. I följande tabell visas olika åtgärder och transaktions typer:
 
-| **Åtgärd**  | **Åtgärdstyp** | **Transaktion för enkel eller flera objekt** |
+| **Åtgärd**  | **Åtgärds typ** | **Transaktion för enkel eller flera objekt** |
 |---------|---------|---------|
 | Infoga (utan en utlösare före/efter) | Skriva | Transaktion för enskilt objekt |
 | Infoga (med en utlösare före/efter) | Skriv och Läs | Transaktion med flera objekt |
@@ -47,13 +46,13 @@ JavaScript-baserade lagrade procedurer, utlösare, UDF: er och sammanfognings pr
 
 Möjligheten att köra Java Script direkt i databas motorn ger prestanda och transaktionell körning av databas åtgärder mot objekt i en behållare. Eftersom Azure Cosmos Database Engine har inbyggt stöd för JSON och Java Script, finns det dessutom inget hinder mellan typ systemen i ett program och databasen.
 
-## <a name="optimistic-concurrency-control"></a>Optimistisk concurrency-kontroll
+## <a name="optimistic-concurrency-control"></a>Optimistisk samtidighetskontroll
 
 Med optimistisk concurrency-kontroll kan du förhindra förlorade uppdateringar och borttagningar. Samtidiga är att motstridiga åtgärder har den vanliga pessimistiska låsningen av databas motorn som är värd för den logiska partition som äger objektet. När två samtidiga åtgärder försöker uppdatera den senaste versionen av ett objekt i en logisk partition, kommer en av dem att vinna och det andra Miss lyckas. Men om en eller två åtgärder som försöker uppdatera samma objekt tidigare hade läst ett äldre värde av objektet, vet inte databasen om det tidigare läsning svärdet av antingen eller båda de motstridiga åtgärderna faktiskt var det senaste värdet för objektet. I tur och miljö kan den här situationen identifieras med **optimistisk Samtidighets kontroll (OCC)** innan de två åtgärderna anges i databas motorn. OCC skyddar dina data från att oavsiktligt skriva över ändringar som har gjorts av andra. Det förhindrar också andra från att av misstag skriva över dina egna ändringar.
 
 Samtidiga uppdateringar av ett objekt underkastas OCC av protokoll skiktet för Azure Cosmos DB. Azure Cosmos Database säkerställer att versions versionen av det objekt som du uppdaterar (eller tar bort) är samma som versionen av objektet i Azure Cosmos-behållaren. Detta garanterar att dina skrivningar är skyddade från att skrivas över av misstag av andras skrivningar och tvärtom. I en miljö med flera användare skyddar den optimistisk samtidighets kontrollen dig från att oavsiktligt ta bort eller uppdatera fel version av ett objekt. Därför skyddas objekt mot Infamous "förlorad uppdatering" eller "förlorad borttagning".
 
-Alla objekt som lagras i en Azure Cosmos-behållare har en `_etag` systemdefinierad egenskap. Värdet för `_etag` genereras automatiskt och uppdateras av servern varje gång objektet uppdateras. `_etag`kan användas med klientens `if-match` begär ande huvud för att tillåta att servern bestämmer om ett objekt kan uppdateras villkorligt. Värdet för `if-match` rubriken matchar värdet på `_etag` på servern, objektet uppdateras sedan. Om värdet för `if-match` begär ande rubriken inte längre är aktuellt, avvisar servern åtgärden med svarsmeddelandet "HTTP 412-förhands fel". Klienten kan sedan återskapa objektet för att hämta den aktuella versionen av objektet på servern eller åsidosätta versionen av objektet på servern med ett eget `_etag` värde för objektet. `_etag` Kan dessutom användas med `if-none-match` rubriken för att avgöra om en återhämtning av en resurs behövs.
+Alla objekt som lagras i en Azure Cosmos-behållare har en systemdefinierad `_etag` egenskap. Värdet för `_etag` genereras automatiskt och uppdateras av servern varje gång objektet uppdateras. `_etag`kan användas med klientens `if-match` begär ande huvud för att tillåta att servern bestämmer om ett objekt kan uppdateras villkorligt. Värdet för `if-match` rubriken matchar värdet på `_etag` på servern, objektet uppdateras sedan. Om värdet för `if-match` begär ande rubriken inte längre är aktuellt, avvisar servern åtgärden med svarsmeddelandet "HTTP 412-förhands fel". Klienten kan sedan återskapa objektet för att hämta den aktuella versionen av objektet på servern eller åsidosätta versionen av objektet på servern med ett eget `_etag` värde för objektet. `_etag`Kan dessutom användas med `if-none-match` rubriken för att avgöra om en återhämtning av en resurs behövs.
 
 Objektets `_etag` värde ändras varje gång objektet uppdateras. För att ersätta objekt åtgärder `if-match` måste uttryckligen uttryckas som en del av begär ande alternativen. Ett exempel finns i exempel koden i [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`värden kontrol leras implicit för alla skrivna objekt som vidrörs av den lagrade proceduren. Om en konflikt upptäcks återställer den lagrade proceduren transaktionen och genererar ett undantag. Med den här metoden tillämpas alla eller inga skrivningar inom den lagrade proceduren på ett atomict sätt. Detta är en signal till programmet att tillämpa uppdateringar på nytt och försöka utföra den ursprungliga klientbegäran igen.
 

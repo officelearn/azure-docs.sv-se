@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 41112359408497d84243ed9bb06f396acf008dc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74666009"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för data migrering
@@ -38,7 +37,7 @@ Följande tabell innehåller ungefärlig data överförings tid baserat på data
 
 |Data mängd|Nätverks bandbredd||||
 |---|---|---|---|---|
-|| **45 Mbit/s (T3)**|**100 Mbps**|**1 Gbit/s**|**10 Gbit/s**|
+|| **45 Mbit/s (T3)**|**100 Mbit/s**|**1 Gbit/s**|**10 Gbit/s**|
 |1 TB|2 dagar|1 dag| 2 timmar|14 minuter|
 |10 TB|22 dagar|10 dagar|1 dag|2 timmar|
 |35 TB|76 dagar|34 dagar|3 dagar|8 timmar|
@@ -73,11 +72,11 @@ Om det finns ett litet antal stora filer kan du överväga att dela upp dem i 25
 
 ### <a name="use-the-strategy-command-line-parameter"></a>Använda kommando rads parametern "strategi"
 
-Överväg att `strategy = dynamic` använda parameter på kommando raden. Standardvärdet för `strategy` parametern är `uniform size`, i vilket fall varje karta kopierar ungefär samma antal byte. När den här parametern ändras till `dynamic`delas list filen upp i flera "segment-filer". Antalet segment-filer är en multipel av antalet kartor. Varje kart aktivitet tilldelas en av segment-filerna. När alla sökvägar i ett segment har bearbetats raderas det aktuella segmentet och ett nytt segment förvärvas. Processen fortsätter tills inga fler segment är tillgängliga. Med den här metoden "dynamisk" kan du snabbare mappa aktiviteter för att förbruka fler sökvägar än långsammare, vilket påskyndar DistCp-jobbet.
+Överväg att använda `strategy = dynamic` parameter på kommando raden. Standardvärdet för `strategy` parametern är `uniform size` , i vilket fall varje karta kopierar ungefär samma antal byte. När den här parametern ändras till `dynamic` delas list filen upp i flera "segment-filer". Antalet segment-filer är en multipel av antalet kartor. Varje kart aktivitet tilldelas en av segment-filerna. När alla sökvägar i ett segment har bearbetats raderas det aktuella segmentet och ett nytt segment förvärvas. Processen fortsätter tills inga fler segment är tillgängliga. Med den här metoden "dynamisk" kan du snabbare mappa aktiviteter för att förbruka fler sökvägar än långsammare, vilket påskyndar DistCp-jobbet.
 
 ### <a name="increase-the-number-of-threads"></a>Öka antalet trådar
 
-Se om ökningen `-numListstatusThreads` av parametern ger bättre prestanda. Den här parametern styr antalet trådar som ska användas för att skapa fil listor och 40 är det maximala värdet.
+Se om ökningen av `-numListstatusThreads` parametern ger bättre prestanda. Den här parametern styr antalet trådar som ska användas för att skapa fil listor och 40 är det maximala värdet.
 
 ### <a name="use-the-output-committer-algorithm"></a>Använda committer-algoritmen för utdata
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870742"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Skalära uttryck i Azure Cosmos DB SQL-frågor
@@ -54,7 +53,7 @@ ms.locfileid: "74870742"
   
 - `input_alias`  
   
-   Representerar ett värde som definieras av `input_alias` introduceraren i `FROM` -satsen.  
+   Representerar ett värde som definieras av `input_alias` introduceraren i- `FROM` satsen.  
   Det här värdet är inte **odefinierat** –**odefinierade** värden i inaktuella inaktuella värden hoppas över.  
   
 - `<scalar_expression>.property_name`  
@@ -97,7 +96,7 @@ ms.locfileid: "74870742"
   
    Representerar ett värde för det angivna parameter namnet. Parameter namn måste ha ett enda \@ som första Character.  
   
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
   
   När du anropar en inbyggd eller användardefinierad skalär funktion måste alla argument definieras. Om något av argumenten är odefinierat kommer funktionen inte att anropas och resultatet blir odefinierat.  
   
@@ -143,4 +142,4 @@ Resultatet är:
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Under frågor](sql-query-subquery.md)
+- [Underfrågor](sql-query-subquery.md)

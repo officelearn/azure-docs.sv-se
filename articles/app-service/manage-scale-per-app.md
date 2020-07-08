@@ -8,10 +8,9 @@ ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74672354"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hög densitets värd för Azure App Service med skalning per app
@@ -65,7 +64,7 @@ Set-AzWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> `$newapp.SiteConfig.NumberOfWorkers`skiljer sig från `$newapp.MaxNumberOfWorkers`. Skalning per app använder `$newapp.SiteConfig.NumberOfWorkers` för att fastställa appens skalnings egenskaper.
+> `$newapp.SiteConfig.NumberOfWorkers`skiljer sig från `$newapp.MaxNumberOfWorkers` . Skalning per app använder `$newapp.SiteConfig.NumberOfWorkers` för att fastställa appens skalnings egenskaper.
 
 ## <a name="per-app-scaling-using-azure-resource-manager"></a>Skalning per app med hjälp av Azure Resource Manager
 
@@ -74,7 +73,7 @@ Följande Azure Resource Manager mall skapar:
 - En App Service plan som skalas ut till 10 instanser
 - en app som har kon figurer ATS för skalning till högst fem instanser.
 
-App Service plan anger egenskapen **PerSiteScaling** till True `"perSiteScaling": true`. Appen anger **antalet arbetare** som ska användas till 5 `"properties": { "numberOfWorkers": "5" }`.
+App Service plan anger egenskapen **PerSiteScaling** till True `"perSiteScaling": true` . Appen anger **antalet arbetare** som ska användas till 5 `"properties": { "numberOfWorkers": "5" }` .
 
 ```json
 {

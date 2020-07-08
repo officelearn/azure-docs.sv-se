@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74535462"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Referens guide för Azure Active Directory styrnings åtgärder
@@ -31,7 +30,7 @@ Det här avsnittet i [hand boken för Azure AD-åtgärder](active-directory-ops-
 
 Hantering av Azure Active Directory kräver kontinuerlig körning av viktiga operativa uppgifter och processer, som kanske inte ingår i ett lanserings projekt. Det är fortfarande viktigt att du konfigurerar dessa uppgifter för att optimera din miljö. De viktigaste uppgifterna och deras rekommenderade ägare är:
 
-| Aktivitet | Ägare |
+| Uppgift | Ägare |
 | :- | :- |
 | Arkivera Azure AD audit-loggar i SIEM system | Åtgärds team för informations säkerhet |
 | Identifiera program som hanteras av efterlevnad | IAM-åtgärds team |

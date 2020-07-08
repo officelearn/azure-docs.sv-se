@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792438"
 ---
-# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Lägg till handels partner till integrations konton för Azure Logic Apps
+# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Lägga till handelspartner till integrationskonton för Azure Logic Apps
 
-I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)kan du skapa automatiserade integrations arbets flöden för Business-to-Business (B2B) genom att använda ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) med dina Logic Apps. För att representera din organisation och andra, skapar du och lägger till handels partner som artefakter till ditt integrations konto. Partner är entiteter som ingår i B2B-transaktioner och Exchange-meddelanden med varandra.
+I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)kan du skapa automatiserade integrations arbets flöden för Business-to-Business (B2B) genom att använda ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) med dina Logic Apps. För att representera din organisation och andra, skapar du och lägger till handels partner som artefakter till ditt integrations konto. Partner är entiteter som deltar i B2B-transaktioner och utbyter meddelanden med varandra.
 
 Innan du skapar dessa partner ska du se till att diskutera och dela information med dina partner om hur du identifierar och validerar de meddelanden som de andra skickar. När du har samtycker till dessa uppgifter är du redo att skapa partner i ditt integrations konto.
 
@@ -86,12 +85,12 @@ Välj panelen **partner** .
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Partner klassificering** | Inga | Partnerns organisations typ |
-   | **Kod för leverans kedja** | Inga | Partnerns kod för leverans kedja, till exempel "informations teknik" eller "elektroniska komponenter" |
-   | **Kontaktnamn** | Inga | Partnerns kontakt namn |
-   | **E-post** | Inga | Partnerns e-postadress |
-   | **Fax** | Inga | Partnerns Fax nummer |
-   | **Telefon** | Inga | Partnerns telefonnummer |
+   | **Partner klassificering** | No | Partnerns organisations typ |
+   | **Kod för leverans kedja** | No | Partnerns kod för leverans kedja, till exempel "informations teknik" eller "elektroniska komponenter" |
+   | **Kontakt namn** | No | Partnerns kontakt namn |
+   | **E-post** | No | Partnerns e-postadress |
+   | **Fax** | No | Partnerns Fax nummer |
+   | **Telefon** | No | Partnerns telefonnummer |
    ||||
 
 1. När du är klar väljer du **OK** för att spara ändringarna.

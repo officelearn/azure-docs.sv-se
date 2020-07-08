@@ -10,10 +10,9 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74671688"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Vanliga frågor om distribution för Web Apps i Azure
@@ -86,7 +85,7 @@ Du har två alternativ för att använda kontinuerlig distribution med Azure Dev
 *   Använd ett git-projekt. Anslut via App Service med hjälp av distributions Center.
 *   Använd ett TFVC-projekt (Team Foundation Version Control). Distribuera med hjälp av build-agenten för App Service.
 
-Kontinuerlig kod distribution för båda dessa alternativ beror på befintliga arbets flöden för utvecklare och inchecknings procedurer. Mer information finns i dessa artiklar: 
+Kontinuerlig kod distribution för båda dessa alternativ beror på befintliga arbets flöden för utvecklare och inchecknings procedurer. Mer information finns i de här artiklarna: 
 
 *   [Implementera kontinuerlig distribution av din app till en Azure-webbplats](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
 *   [Konfigurera en Azure DevOps-organisation så att den kan distribueras till en webbapp](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: sngun
 ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74869841"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Unika nyckel begränsningar i Azure Cosmos DB
@@ -20,9 +19,9 @@ Unika nycklar Lägg till ett lager med data integritet i en Azure Cosmos-behåll
 
 När du har skapat en behållare med en unik nyckel princip förhindras skapandet av en ny eller en uppdatering av ett befintligt objekt som resulterar i en dubblett i en logisk partition, enligt vad som anges i den unika nyckel begränsningen. Partitionsnyckel i kombination med den unika nyckeln garanterar att ett objekt är unikt inom omfånget för behållaren.
 
-Anta till exempel en Azure Cosmos-behållare med e-postadress som unik nyckel begränsning och `CompanyID` som partitionsnyckel. När du konfigurerar användarens e-postadress med en unik nyckel har varje objekt en unik e-postadress inom ett angivet `CompanyID`. Det går inte att skapa två objekt med dubbla e-postadresser och med samma partitionsnyckel. 
+Anta till exempel en Azure Cosmos-behållare med e-postadress som unik nyckel begränsning och `CompanyID` som partitionsnyckel. När du konfigurerar användarens e-postadress med en unik nyckel har varje objekt en unik e-postadress inom ett angivet `CompanyID` . Det går inte att skapa två objekt med dubbla e-postadresser och med samma partitionsnyckel. 
 
-Om du vill skapa objekt med samma e-postadress, men inte samma förnamn, efter namn och e-postadress, lägger du till fler sökvägar i den unika nyckel principen. I stället för att skapa en unik nyckel som enbart baseras på e-postadressen, kan du också skapa en unik nyckel med en kombination av förnamn, efter namn och e-postadress. Den här nyckeln kallas en sammansatt unik nyckel. I det här fallet tillåts varje unik kombination av de tre värdena inom ett `CompanyID` angivet. 
+Om du vill skapa objekt med samma e-postadress, men inte samma förnamn, efter namn och e-postadress, lägger du till fler sökvägar i den unika nyckel principen. I stället för att skapa en unik nyckel som enbart baseras på e-postadressen, kan du också skapa en unik nyckel med en kombination av förnamn, efter namn och e-postadress. Den här nyckeln kallas en sammansatt unik nyckel. I det här fallet tillåts varje unik kombination av de tre värdena inom ett angivet `CompanyID` . 
 
 Behållaren kan till exempel innehålla objekt med följande värden, där varje objekt följer den unika nyckel begränsningen.
 
@@ -43,15 +42,15 @@ Du kan bara definiera unika nycklar när du skapar en Azure Cosmos-behållare. E
 
 * Du kan inte uppdatera en befintlig behållare för att använda en annan unik nyckel. När en behållare har skapats med en unik nyckel princip kan du med andra ord inte ändra principen.
 
-* Om du vill ange en unik nyckel för en befintlig behållare skapar du en ny behållare med den unika nyckel begränsningen. Använd lämpligt verktyg för datamigrering för att flytta data från den befintliga behållaren till den nya behållaren. För SQL-behållare använder du [verktyget datamigrering](import-data.md) för att flytta data. För MongoDB-behållare använder du [mongoimport. exe eller mongorestore. exe](mongodb-migrate.md) för att flytta data.
+* Om du vill ange en unik nyckel för en befintlig behållare skapar du en ny behållare med den unika nyckel begränsningen. Använd lämpligt verktyg för datamigrering för att flytta data från den befintliga behållaren till den nya behållaren. För SQL-behållare använder du [verktyget datamigrering](import-data.md) för att flytta data. För MongoDB-behållare använder du [mongoimport.exe eller mongorestore.exe](mongodb-migrate.md) för att flytta data.
 
-* En unik nyckel princip kan innehålla högst 16 Sök vägs värden. Värdena kan till exempel vara `/firstName`, `/lastName`och. `/address/zipCode` Varje unik nyckel princip kan innehålla högst 10 unika nyckel begränsningar eller kombinationer. De kombinerade Sök vägarna för varje Unique index-begränsning får inte överstiga 60 byte. I det tidigare exemplet är förnamn, efter namn och e-postadress tillsammans en begränsning. Den här begränsningen använder 3 av de 16 möjliga Sök vägarna.
+* En unik nyckel princip kan innehålla högst 16 Sök vägs värden. Värdena kan till exempel vara `/firstName` , `/lastName` och `/address/zipCode` . Varje unik nyckel princip kan innehålla högst 10 unika nyckel begränsningar eller kombinationer. De kombinerade Sök vägarna för varje Unique index-begränsning får inte överstiga 60 byte. I det tidigare exemplet är förnamn, efter namn och e-postadress tillsammans en begränsning. Den här begränsningen använder 3 av de 16 möjliga Sök vägarna.
 
 * När en behållare har en unik nyckel princip, [begär enhet (ru)](request-units.md) avgifter för att skapa, uppdatera och ta bort ett objekt är något högre.
 
 * Null-optimerade unika nycklar stöds inte. Om vissa unika Sök vägs värden saknas, behandlas de som null-värden som ingår i unikhetsvillkoret. Därför kan det bara finnas ett enda objekt med ett null-värde för att uppfylla den här begränsningen.
 
-* Unika nyckel namn är Skift läges känsliga. Anta till exempel att en behållare med den unika nyckel begränsningen är `/address/zipcode`inställd på. Om dina data har ett fält med `ZipCode`namnet Azure Cosmos DB infogar "null" som den unika nyckeln eftersom `zipcode` det inte är samma `ZipCode`som. På grund av den här Skift läges känsligheten kan inte alla andra poster med Postummer infogas eftersom dubbletten "null" bryter mot den unika nyckel begränsningen.
+* Unika nyckel namn är Skift läges känsliga. Anta till exempel att en behållare med den unika nyckel begränsningen är inställd på `/address/zipcode` . Om dina data har ett fält med namnet `ZipCode` Azure Cosmos DB infogar "null" som den unika nyckeln eftersom `zipcode` det inte är samma som `ZipCode` . På grund av den här Skift läges känsligheten kan inte alla andra poster med Postummer infogas eftersom dubbletten "null" bryter mot den unika nyckel begränsningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

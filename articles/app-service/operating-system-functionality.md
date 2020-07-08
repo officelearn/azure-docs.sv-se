@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74671614"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativ system funktioner på Azure App Service
@@ -33,7 +32,7 @@ Eftersom App Service stöder en sömlös skalnings upplevelse mellan olika nivå
 ## <a name="development-frameworks"></a>Utvecklings ramverk
 App Service pris nivåer styr mängden data bearbetnings resurser (CPU, disk lagring, minne och utgående nätverk) som är tillgängliga för appar. Däremot är de olika Ramverks funktionerna som är tillgängliga för apparna desamma oavsett skalnings nivåerna.
 
-App Service stöder flera olika utvecklings ramverk, inklusive ASP.NET, klassisk ASP, Node. js, PHP och python – alla som körs som tillägg i IIS. För att förenkla och normalisera säkerhets konfigurationen kör App Service appar vanligt vis de olika utvecklings ramverken med standardinställningarna. En metod för att konfigurera appar kan ha varit att anpassa API-ytan och funktionaliteten för varje enskilt utvecklings ramverk. App Service i stället en mer allmän metod genom att aktivera en gemensam bas linje för operativ systemets funktionalitet, oavsett appens utvecklings ramverk.
+App Service stöder flera olika utvecklings ramverk, inklusive ASP.NET, klassisk ASP, node.js, PHP och python – alla som körs som tillägg i IIS. För att förenkla och normalisera säkerhets konfigurationen kör App Service appar vanligt vis de olika utvecklings ramverken med standardinställningarna. En metod för att konfigurera appar kan ha varit att anpassa API-ytan och funktionaliteten för varje enskilt utvecklings ramverk. App Service i stället en mer allmän metod genom att aktivera en gemensam bas linje för operativ systemets funktionalitet, oavsett appens utvecklings ramverk.
 
 I följande avsnitt sammanfattas de allmänna typerna av operativ system funktioner som är tillgängliga för App Service appar.
 
@@ -55,7 +54,7 @@ Det är viktigt att du övervakar disk användningen när programmet växer. Om 
 
 - Appen kan utlösa ett fel som anger att det inte finns tillräckligt med utrymme på disken.
 - Du kan se disk fel när du bläddrar till kudu-konsolen.
-- Distribution från Azure DevOps eller Visual Studio kan Miss lyckas `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`med.
+- Distribution från Azure DevOps eller Visual Studio kan Miss lyckas med `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)` .
 - Din app kan medföra sämre prestanda.
 
 <a id="NetworkDrives"></a>
@@ -76,7 +75,7 @@ På de lokala enheter som är kopplade till den virtuella datorn som kör en app
 
 Två exempel på hur App Service använder temporär lokal lagring är katalogen för temporära ASP.NET-filer och katalogen för IIS-komprimerade filer. ASP.NET Compilation-systemet använder katalogen "Temporary ASP.NET Files" som en tillfällig plats för cachelagring av kompilering. IIS använder katalogen "temporära komprimerade filer i IIS" för att lagra komprimerade svar på utdata. Båda dessa typer av fil användning (och andra) mappas om i App Service till temporär lokal lagring per app. Den här ommappningen säkerställer att funktionen fortsätter som förväntat.
 
-Varje app i App Service körs som en slumpmässig unik, låg privilegie rad arbets process identitet med namnet "programpoolsidentitet", som beskrivs här: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Program koden använder den här identiteten för grundläggande skrivskyddad åtkomst till operativ system enheten (D:\ enhet). Det innebär att program koden kan visa vanliga katalog strukturer och läsa vanliga filer på operativ systemen het. Det kan verka som om det är en mycket stor åtkomst nivå, men samma kataloger och filer är tillgängliga när du etablerar en arbets roll i en Azure-värdbaserad tjänst och läser enhets innehållet. 
+Varje app i App Service körs som en slumpmässig unik, låg privilegie rad arbets process identitet med namnet "programpoolsidentitet", som beskrivs här: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) . Program koden använder den här identiteten för grundläggande skrivskyddad åtkomst till operativ system enheten (D:\ enhet). Det innebär att program koden kan visa vanliga katalog strukturer och läsa vanliga filer på operativ systemen het. Det kan verka som om det är en mycket stor åtkomst nivå, men samma kataloger och filer är tillgängliga när du etablerar en arbets roll i en Azure-värdbaserad tjänst och läser enhets innehållet. 
 
 <a name="multipleinstances"></a>
 
@@ -115,7 +114,7 @@ Områden i diagnostik-loggning och-spårning som inte är tillgängliga för app
 <a id="RegistryAccess"></a>
 
 ## <a name="registry-access"></a>Register åtkomst
-Appar har skrivskyddad åtkomst till mycket (men inte alla) registret på den virtuella datorn som de körs på. I praktiken innebär detta att register nycklar som tillåter skrivskyddad åtkomst till den lokala användar gruppen kan nås av appar. En del av registret som för närvarande inte stöds för antingen Läs-eller skriv åtkomst är den aktuella\_\_användar strukturen för HKEY.
+Appar har skrivskyddad åtkomst till mycket (men inte alla) registret på den virtuella datorn som de körs på. I praktiken innebär detta att register nycklar som tillåter skrivskyddad åtkomst till den lokala användar gruppen kan nås av appar. En del av registret som för närvarande inte stöds för antingen Läs-eller skriv åtkomst är den \_ aktuella \_ användar strukturen för HKEY.
 
 Skriv åtkomst till registret blockeras, inklusive åtkomst till alla register nycklar per användare. I appens perspektiv ska skriv åtkomst till registret aldrig förlita sig på i Azure-miljön eftersom appar kan (och göra) migreras mellan olika virtuella datorer. Den enda beständiga skrivbara lagring som kan vara beroende av en app är innehålls katalog strukturen per app som lagras på App Service UNC-resurser. 
 

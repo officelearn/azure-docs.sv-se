@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74888503"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ansluta till Media Services v3 API-Java
@@ -33,7 +32,7 @@ I den här artikeln används Visual Studio Code för att utveckla exempel appen.
    - JDK
    - Apache maven
    - Java Extension Pack
-- Se till att ställa `JAVA_HOME` in `PATH` och miljövariabler.
+- Se till att ställa in `JAVA_HOME` och `PATH` miljövariabler.
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
 - Följ stegen i avsnittet [åtkomst-API: er](access-api-cli-how-to.md) . Registrera prenumerations-ID, program-ID (klient-ID), den autentiseringsnyckel (hemlighet) och klient-ID som du behöver i ett senare steg.
 
@@ -53,7 +52,7 @@ Granska även:
 mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-När du kör kommandot skapas `pom.xml`, `App.java`, och andra filer. 
+När du kör kommandot `pom.xml` `App.java` skapas,, och andra filer. 
 
 ## <a name="add-dependencies"></a>Lägg till beroenden
 
@@ -128,6 +127,6 @@ När du kör kommandot skapas `pom.xml`, `App.java`, och andra filer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu kan du ta `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` med och börja ändra entiteter.
+Nu kan du ta med `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` och börja ändra entiteter.
 
 Fler kod exempel finns i [Java SDK-exempel](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) lagrings platsen.

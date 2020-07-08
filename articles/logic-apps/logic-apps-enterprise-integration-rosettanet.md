@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792414"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Exchange RosettaNet-meddelanden för B2B Enterprise-integration i Azure Logic Apps
@@ -118,8 +117,8 @@ Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt i
    | **Värd identitet** | Ja | En identifierare för värd partnern |
    | **Gäst partner** | Ja | Ett avtal kräver både värd-och gäst partner. Gäst partnern representerar den organisation som gör affärer med värd partnern. |
    | **Gäst identitet** | Ja | En identifierare för gäst partnern |
-   | **Ta emot inställningar** | Varierar | Dessa egenskaper gäller för alla meddelanden som tas emot av värd partnern |
-   | **Skicka inställningar** | Varierar | Dessa egenskaper gäller för alla meddelanden som skickas av värd partnern |  
+   | **Ta emot inställningar** | Det varierar | Dessa egenskaper gäller för alla meddelanden som tas emot av värd partnern |
+   | **Skicka inställningar** | Det varierar | Dessa egenskaper gäller för alla meddelanden som skickas av värd partnern |  
    | **RosettaNet PIP-referenser** | Ja | PIP-referenser för avtalet. Alla RosettaNet-meddelanden kräver PIP-konfigurationer. |
    ||||
 
@@ -131,9 +130,9 @@ Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt i
 
       | Egenskap | Krävs | Beskrivning |
       |----------|----------|-------------|
-      | **Meddelandet ska vara signerat** | Inga | Signera inkommande meddelanden med det valda certifikatet. |
+      | **Meddelandet ska vara signerat** | No | Signera inkommande meddelanden med det valda certifikatet. |
       | **Certifikatmallens** | Ja, om signering är aktiverat | Certifikatet som ska användas för signering |
-      | **Aktivera meddelande kryptering** | Inga | Kryptera inkommande meddelanden med det valda certifikatet. |
+      | **Aktivera meddelande kryptering** | No | Kryptera inkommande meddelanden med det valda certifikatet. |
       | **Certifikatmallens** | Ja, om kryptering är aktiverat | Certifikatet som ska användas för kryptering |
       ||||
 
@@ -147,10 +146,10 @@ Följ dessa steg om du vill lägga till en PIP-process konfiguration till ditt i
 
       | Egenskap | Krävs | Beskrivning |
       |----------|----------|-------------|
-      | **Aktivera meddelande signering** | Inga | Signera utgående meddelanden med den valda signeringsalgoritmen och certifikat. |
+      | **Aktivera meddelande signering** | No | Signera utgående meddelanden med den valda signeringsalgoritmen och certifikat. |
       | **Signeringsalgoritm** | Ja, om signering är aktiverat | Signeringsalgoritmen som ska användas, baserat på det valda certifikatet |
       | **Certifikatmallens** | Ja, om signering är aktiverat | Certifikatet som ska användas för signering |
-      | **Aktivera meddelande kryptering** | Inga | Kryptera utgående med den valda krypteringsalgoritmen och certifikatet. |
+      | **Aktivera meddelande kryptering** | No | Kryptera utgående med den valda krypteringsalgoritmen och certifikatet. |
       | **Krypteringsalgoritm** | Ja, om kryptering är aktiverat | Krypteringsalgoritmen som ska användas, baserat på det valda certifikatet |
       | **Certifikatmallens** | Ja, om kryptering är aktiverat | Certifikatet som ska användas för kryptering |
       ||||
@@ -203,7 +202,7 @@ För att påskynda utvecklingen och rekommendera integrations mönster kan du an
    |----------|----------|-------------|
    | **Meddelande** | Ja | RosettaNet-meddelandet att avkoda  |
    | **Rubriker** | Ja | HTTP-huvuden som innehåller värdena för-versionen, som är RNIF-versionen och svars typen, som anger kommunikations typen mellan partnerna och kan vara synkron eller asynkron |
-   | **Roll** | Ja | Rollen som värd partner i PIP |
+   | **Role** | Ja | Rollen som värd partner i PIP |
    ||||
 
    Från RosettaNet avkodnings åtgärd inkluderar utdata, tillsammans med andra egenskaper, **utgående signal**, som du kan välja att koda och returnera tillbaka till partnern, eller vidta andra åtgärder på dessa utdata.
@@ -237,7 +236,7 @@ För att påskynda utvecklingen och rekommendera integrations mönster kan du an
    | **PIP-version** | Ja | PIP-versionen |  
    | **PIP-instans identitet** | Ja | Den unika identifieraren för det här PIP-meddelandet |  
    | **Meddelandetyp** | Ja | Typ av meddelande som ska kodas |  
-   | **Roll** | Ja | Värd partnerns roll |
+   | **Role** | Ja | Värd partnerns roll |
    ||||
 
    Det kodade meddelandet är nu klart att skickas till partnern.

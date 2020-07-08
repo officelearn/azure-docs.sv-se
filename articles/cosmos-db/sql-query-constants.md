@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74873428"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL Query-konstanter  
@@ -22,12 +21,12 @@ ms.locfileid: "74873428"
 |**Typ**|**Värden ordning**|  
 |-|-|  
 |**Odefinierad**|Enskilt värde: **odefinierat**|  
-|**Ha**|Enskilt värde: **Null**|  
+|**Null**|Enskilt värde: **Null**|  
 |**Boolesk**|Värden: **false**, **True**.|  
-|**Många**|Ett flyttal med dubbel precision, IEEE 754-standard.|  
+|**Nummer**|Ett flyttal med dubbel precision, IEEE 754-standard.|  
 |**Sträng**|En sekvens med noll eller flera Unicode-tecken. Strängar måste omges av enkla eller dubbla citat tecken.|  
-|**Matris**|En sekvens med noll eller flera element. Varje-element kan vara ett värde av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
-|**Jobbobjektet**|En oordnad uppsättning med noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
+|**Lagringsmatriser**|En sekvens med noll eller flera element. Varje-element kan vara ett värde av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
+|**Objekt**|En oordnad uppsättning med noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
   
@@ -107,7 +106,7 @@ ms.locfileid: "74873428"
 |-|-|-|  
 |\\'|apostrof (')|U + 0027|  
 |\\"|citat tecken (")|U + 0022|  
-|\\\ |omvänt snedstreck (\\)|U + 005C|  
+|\\\ |omvänt snedstreck ( \\ )|U + 005C|  
 |\\/|snedstreck (/)|U + 002F|  
 |\b|Backsteg|U + 0008|  
 |f|formulär inmatning|U + 000C|  

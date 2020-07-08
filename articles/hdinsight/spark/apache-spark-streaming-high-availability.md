@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: ac51b77e1ffc2b476b0a73dac9b6917552a86ce4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74807161"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Skapa Apache Spark strömnings jobb med hög tillgänglighet med garn
@@ -71,8 +70,8 @@ Men om en **driv rutin** Miss lyckas, Miss lyckas alla tillhör ande körningar 
 
 Återställa driv rutiner med DStream-kontroll punkter:
 
-* Konfigurera automatisk omstart av driv rutin på garn med konfigurations inställningen `yarn.resourcemanager.am.max-attempts`.
-* Ange en kontroll punkts katalog i ett HDFS-kompatibelt fil `streamingContext.checkpoint(hdfsDirectory)`system med.
+* Konfigurera automatisk omstart av driv rutin på garn med konfigurations inställningen `yarn.resourcemanager.am.max-attempts` .
+* Ange en kontroll punkts katalog i ett HDFS-kompatibelt fil system med `streamingContext.checkpoint(hdfsDirectory)` .
 * Omstrukturera käll koden för att använda kontroll punkter för återställning, till exempel:
 
     ```scala
@@ -88,7 +87,7 @@ Men om en **driv rutin** Miss lyckas, Miss lyckas alla tillhör ande körningar 
         context.start()
     ```
 
-* Konfigurera förlorad återställning av data genom att aktivera loggen för Skriv åtgärder (WAL `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`) med och inaktivera minnes intern replikering för indata- `StorageLevel.MEMORY_AND_DISK_SER`DStreams med.
+* Konfigurera förlorad återställning av data genom att aktivera loggen för Skriv åtgärder (WAL) med `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")` och inaktivera minnes intern replikering för indata-DStreams med `StorageLevel.MEMORY_AND_DISK_SER` .
 
 För att sammanfatta, med hjälp av kontroll punkter + WAL + Reliable receiver, kan du leverera "minst en gång" Data återställning:
 

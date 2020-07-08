@@ -12,17 +12,16 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3508865d9f89501cf70e09087c6a609beb6662b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74273190"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Användar anspråk mappning för B2B-samarbete i Azure Active Directory
 
 Azure Active Directory (Azure AD) stöder anpassning av anspråk som utfärdas i SAML-token för B2B-samarbets användare. När en användare autentiserar sig till programmet utfärdar Azure AD en SAML-token till den app som innehåller information (eller anspråk) om den användare som unikt identifierar dem. Som standard innehåller detta användarens användar namn, e-postadress, förnamn och efter namn.
 
-I [Azure Portal](https://portal.azure.com)kan du Visa eller redigera de anspråk som skickas i SAML-token till programmet. För att få åtkomst till inställningarna väljer du **Azure Active Directory** > **företags program** > programmet som är konfigurerat för enkel inloggning > **enkel inloggning**. Se inställningarna för SAML-token i avsnittet **användarattribut** .
+I [Azure Portal](https://portal.azure.com)kan du Visa eller redigera de anspråk som skickas i SAML-token till programmet. För att få åtkomst till inställningarna väljer du **Azure Active Directory**  >  **företags program** > programmet som är konfigurerat för enkel inloggning > **enkel inloggning**. Se inställningarna för SAML-token i avsnittet **användarattribut** .
 
 ![Visar attributen för SAML-token i användar gränssnittet](media/claims-mapping/view-claims-in-saml-token.png)
 

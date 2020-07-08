@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4c4bac16917be0064ebb111328753d378d462a2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74770143"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Optimera Mass infogningar och använda tillfälliga data på en Azure Database for PostgreSQL-enskild server 
@@ -24,10 +23,10 @@ Ej loggade tabeller är en PostgreSQL-funktion som kan användas effektivt för 
 Infogning i en ej loggad tabell innebär att PostgreSQL infogar utan att skriva till transaktions loggen, som själva är en I/O-åtgärd. Därför är tabellerna betydligt snabbare än vanliga tabeller.
 
 Använd följande alternativ för att skapa en ej loggad tabell:
-- Skapa en ny ej loggad tabell med hjälp av `CREATE UNLOGGED TABLE <tableName>`syntaxen.
-- Konvertera en befintlig loggad tabell till en ej loggad tabell med hjälp `ALTER TABLE <tableName> SET UNLOGGED`av syntaxen.  
+- Skapa en ny ej loggad tabell med hjälp av syntaxen `CREATE UNLOGGED TABLE <tableName>` .
+- Konvertera en befintlig loggad tabell till en ej loggad tabell med hjälp av syntaxen `ALTER TABLE <tableName> SET UNLOGGED` .  
 
-Använd syntaxen `ALTER TABLE <tableName> SET LOGGED`om du vill ångra processen.
+Använd syntaxen om du vill ångra processen `ALTER TABLE <tableName> SET LOGGED` .
 
 ## <a name="unlogged-table-tradeoff"></a>Inloggad tabell kompromiss
 Ej loggade tabeller är inte krasch säkra. En ej loggad tabell trunkeras automatiskt efter en krasch eller genomgår en ren avstängning. Innehållet i en ej loggad tabell replikeras inte heller till vänte läges servrar. Alla index som skapats i en ej loggad tabell loggas inte automatiskt. När INSERT-åtgärden har slutförts konverterar du tabellen så att den loggas så att infogningen är hållbar.

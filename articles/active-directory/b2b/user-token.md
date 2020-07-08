@@ -12,15 +12,14 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74271779"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Förstå användar-tokens i Azure AD B2B-samarbete
 
-Om du vill veta hur token ser ut för en B2B-samarbets användare finns här information om Bearer-token och token-innehåll för en Azure Active Directory (Azure AD) gäst och en Microsoft-konto gäst i resurs klienten (för tenantid 04dcc6ab-388a-4559-B527-fbec656300ea). Om du vill se JSON Web Token (JWT)-innehållet [https://jwt.io/](https://jwt.io/) använder [https://jwt.ms/](https://jwt.ms/)du eller.
+Om du vill veta hur token ser ut för en B2B-samarbets användare finns här information om Bearer-token och token-innehåll för en Azure Active Directory (Azure AD) gäst och en Microsoft-konto gäst i resurs klienten (för tenantid 04dcc6ab-388a-4559-B527-fbec656300ea). Om du vill se JSON Web Token (JWT)-innehållet använder du [https://jwt.io/](https://jwt.io/) eller [https://jwt.ms/](https://jwt.ms/) .
 
 ## <a name="azure-ad-guest-token"></a>Azure AD-gäst-token
 ```

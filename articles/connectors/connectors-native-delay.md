@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74787344"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Fördröj körningen av nästa åtgärd i Azure Logic Apps
@@ -53,7 +52,7 @@ Här följer några exempel på hur du kan använda dessa åtgärder:
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
    | Antal | count | Ja | Integer | Antalet tidsenheter som ska förskjutas |
-   | Enhet | unit | Ja | Sträng | Tidsenhet, till `Second`exempel:, `Minute`, `Hour` `Day` `Week`,, eller`Month` |
+   | Enhet | unit | Ja | Sträng | Tidsenhet, till exempel: `Second` ,,, `Minute` , `Hour` `Day` `Week` eller`Month` |
    ||||||
 
 1. Lägg till andra åtgärder som du vill köra i arbets flödet.

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232760"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Versions hantering i Durable Functions (Azure Functions)
@@ -35,7 +34,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Den här förenklad-funktionen tar resultatet av **foo** och skickar det till **bar**. Vi antar att vi behöver ändra returvärdet för **foo** från `bool` till `int` som stöd för en större mängd resultat värden. Resultatet ser ut så här:
+Den här förenklad-funktionen tar resultatet av **foo** och skickar det till **bar**. Vi antar att vi behöver ändra returvärdet för **foo** från `bool` till som stöd för `int` en större mängd resultat värden. Resultatet ser ut så här:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -47,9 +46,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Föregående C#-exempel riktar sig Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-exempel riktar sig Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-Den här ändringen fungerar bra för alla nya instanser av Orchestrator-funktionen men alla eventuella instansen bryts. Anta till exempel att en Dirigerings instans anropar en funktion med namnet `Foo`, hämtar ett booleskt värde och sedan kontroll punkter. Om ändring av signaturen har distribuerats i det här läget Miss kan den inloggade instansen omedelbart när den återupptas och spelar upp `context.CallActivityAsync<int>("Foo")`anropet till. Det här felet uppstår eftersom resultatet i historik tabellen är `bool` men den nya koden försöker deserialisera den till. `int`
+Den här ändringen fungerar bra för alla nya instanser av Orchestrator-funktionen men alla eventuella instansen bryts. Anta till exempel att en Dirigerings instans anropar en funktion med namnet `Foo` , hämtar ett booleskt värde och sedan kontroll punkter. Om ändring av signaturen har distribuerats i det här läget Miss kan den inloggade instansen omedelbart när den återupptas och spelar upp anropet till `context.CallActivityAsync<int>("Foo")` . Det här felet uppstår eftersom resultatet i historik tabellen är `bool` men den nya koden försöker deserialisera den till `int` .
 
 Det här exemplet är bara en av många olika sätt att en signaturverifiering kan bryta befintliga instanser. I allmänhet är det troligt att om en Orchestrator behöver ändra hur den anropar en funktion, är ändringen sannolikt problematisk.
 
@@ -85,9 +84,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Föregående C#-exempel riktar sig Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-exempel riktar sig Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-Den här ändringen lägger till ett nytt funktions anrop till **SendNotification** mellan **foo** och **bar**. Det finns inga ändringar i signaturen. Problemet uppstår när en befintlig instans återupptas från anropet till **bar**. Om det ursprungliga anropet till **foo** returnerades `true`under uppspelningen, kommer Orchestrator-uppspelningen att anropa till **SendNotification**, som inte finns i dess körnings historik. Därför Miss lyckas det varaktiga aktivitets ramverket med en `NonDeterministicOrchestrationException` eftersom det påträffade ett anrop till **SendNotification** när det förväntades Visa ett anrop till **bar**. Samma typ av problem kan uppstå när du lägger till anrop till "varaktiga" API: `CreateTimer`er `WaitForExternalEvent`, inklusive, osv.
+Den här ändringen lägger till ett nytt funktions anrop till **SendNotification** mellan **foo** och **bar**. Det finns inga ändringar i signaturen. Problemet uppstår när en befintlig instans återupptas från anropet till **bar**. Om det ursprungliga anropet till **foo** returnerades under uppspelningen, `true` kommer Orchestrator-uppspelningen att anropa till **SendNotification**, som inte finns i dess körnings historik. Därför Miss lyckas det varaktiga aktivitets ramverket med en `NonDeterministicOrchestrationException` eftersom det påträffade ett anrop till **SendNotification** när det förväntades Visa ett anrop till **bar**. Samma typ av problem kan uppstå när du lägger till anrop till "varaktiga" API: er, inklusive `CreateTimer` , `WaitForExternalEvent` osv.
 
 ## <a name="mitigation-strategies"></a>Strategier för minskning
 
@@ -116,11 +115,11 @@ Det vanligaste sättet att se till att de hårda ändringarna distribueras på e
 
 * Distribuera alla uppdateringar som helt nya funktioner och lämna befintliga funktioner i befintligt skick. Detta kan vara svårt eftersom anroparna i de nya funktions versionerna måste uppdateras och följer samma rikt linjer.
 * Distribuera alla uppdateringar som en ny function-app med ett annat lagrings konto.
-* Distribuera en ny kopia av Function-appen med samma lagrings konto, men med ett `taskHub` uppdaterat namn. Distributioner sida vid sida är den rekommenderade metoden.
+* Distribuera en ny kopia av Function-appen med samma lagrings konto, men med ett uppdaterat `taskHub` namn. Distributioner sida vid sida är den rekommenderade metoden.
 
 ### <a name="how-to-change-task-hub-name"></a>Ändra namn på aktivitets hubb
 
-Aktivitets navet kan konfigureras i *Host. JSON* -filen på följande sätt:
+Aktivitets navet kan konfigureras i *host.jspå filen på* följande sätt:
 
 #### <a name="functions-1x"></a>Functions 1.x
 
@@ -144,7 +143,7 @@ Aktivitets navet kan konfigureras i *Host. JSON* -filen på följande sätt:
 }
 ```
 
-Standardvärdet för Durable Functions v1. x `DurableFunctionsHub`. Från och med Durable Functions v 2.0 är standard namnet på aktivitets navet samma som namnet på appens funktion i Azure, `TestHubName` eller om det körs utanför Azure.
+Standardvärdet för Durable Functions v1. x `DurableFunctionsHub` . Från och med Durable Functions v 2.0 är standard namnet på aktivitets navet samma som namnet på appens funktion i Azure, eller `TestHubName` om det körs utanför Azure.
 
 Alla Azure Storage entiteter namnges baserat på `hubName` konfiguration svärdet. Genom att ge huvudhubben ett nytt namn ser du till att separata köer och historik tabell skapas för den nya versionen av programmet. Function-appen kommer dock att sluta bearbeta händelser för dirigeringar eller entiteter som skapats under föregående aktivitets nav namn.
 

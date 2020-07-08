@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2912777c001a36ec913e2cfd618091ada5aa107a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74807144"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Ta bort ett HDInsight-kluster med hjälp av webbläsaren, PowerShell eller Azure CLI
@@ -26,7 +25,7 @@ Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Gå till den vänstra menyn och navigera till **alla tjänster** > **Analytics** > **HDInsight-kluster** och välj ditt kluster.
+2. Gå till den vänstra menyn och navigera till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster** och välj ditt kluster.
 
 3. Välj ikonen **ta bort** i standardvyn. Följ anvisningarna för att ta bort klustret.
 

@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: be679be91d49516bd2f6c672eb53640cfad2ae2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74763580"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och få åtkomst till Server loggar med hjälp av Azure CLI
@@ -25,7 +24,7 @@ För att gå igenom den här instruktions guiden behöver du:
 ## <a name="configure-logging"></a>Konfigurera loggning
 Du kan konfigurera servern för att få åtkomst till Query-loggar och fel loggar. Fel loggar kan ha Auto-vakuum, anslutnings-och kontroll punkts information.
 1. Aktivera loggning.
-2. Om du vill aktivera loggning av frågor uppdaterar du **logg\_satsen** och **\_loggen för min\_varaktighet\_**.
+2. Om du vill aktivera loggning av frågor uppdaterar du **logg \_ satsen** och **loggen för \_ min \_ varaktighet \_ **.
 3. Uppdaterings kvarhållningsperiod.
 
 Mer information finns i [Anpassa Server konfigurations parametrar](howto-configure-server-parameters-using-cli.md).
@@ -33,7 +32,7 @@ Mer information finns i [Anpassa Server konfigurations parametrar](howto-configu
 ## <a name="list-logs"></a>Lista loggar
 Om du vill visa en lista över tillgängliga loggfiler för servern kör du kommandot [AZ postgres Server-logs List](/cli/azure/postgres/server-logs) .
 
-Du kan visa en lista över loggfilerna för Server **mydemoserver.postgres.Database.Azure.com** under resurs gruppen **myresourcegroup**. Dirigera sedan listan över loggfiler till en textfil med namnet **log\_Files\_List. txt**.
+Du kan visa en lista över loggfilerna för Server **mydemoserver.postgres.Database.Azure.com** under resurs gruppen **myresourcegroup**. Dirigera sedan listan över loggfiler till en textfil som kallas **loggfiler \_ \_list.txt**.
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```

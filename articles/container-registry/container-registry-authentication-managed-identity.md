@@ -4,10 +4,9 @@ description: Ge till gång till avbildningar i ditt privata behållar register m
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456488"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Använd en Azure-hanterad identitet för att autentisera till ett Azure Container Registry 
@@ -49,7 +48,7 @@ Använd sedan identiteten för att autentisera till en [tjänst som stöder Azur
 
 Om du inte redan har ett Azure Container Registry kan du skapa ett register och skicka en exempel behållar avbildning till den. Anvisningar finns i [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
 
-I den här artikeln förutsätter `aci-helloworld:v1` vi att du har behållar avbildningen som lagras i registret. I exemplen används register namnet *myContainerRegistry*. Ersätt med dina egna register-och avbildnings namn i senare steg.
+I den här artikeln förutsätter vi att du har `aci-helloworld:v1` behållar avbildningen som lagras i registret. I exemplen används register namnet *myContainerRegistry*. Ersätt med dina egna register-och avbildnings namn i senare steg.
 
 ## <a name="create-a-docker-enabled-vm"></a>Skapa en Docker-aktiverad virtuell dator
 
@@ -160,19 +159,19 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH till Docker virtuell dator som har kon figurer ATS med identiteten. Kör följande Azure CLI-kommandon med hjälp av Azure CLI installerat på den virtuella datorn.
 
-Börja med att autentisera till Azure CLI med [AZ-inloggning][az-login]med den identitet som du konfigurerade på den virtuella datorn. För `<userID>`ersätter du ID: t för den identitet som du hämtade i föregående steg. 
+Börja med att autentisera till Azure CLI med [AZ-inloggning][az-login]med den identitet som du konfigurerade på den virtuella datorn. För `<userID>` ersätter du ID: t för den identitet som du hämtade i föregående steg. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Autentisera sedan till registret med [AZ ACR-inloggning][az-acr-login]. När du använder det här kommandot använder CLI Active Directory token som skapades när du körde `az login` för att enkelt autentisera sessionen med behållar registret. (Beroende på den virtuella datorns konfiguration kan du behöva köra kommandot och Docker-kommandona med `sudo`.)
+Autentisera sedan till registret med [AZ ACR-inloggning][az-acr-login]. När du använder det här kommandot använder CLI Active Directory token som skapades när du körde `az login` för att enkelt autentisera sessionen med behållar registret. (Beroende på den virtuella datorns konfiguration kan du behöva köra kommandot och Docker-kommandona med `sudo` .)
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-Du bör se ett `Login succeeded` meddelande. Du kan sedan köra `docker` kommandon utan att ange autentiseringsuppgifter. Du kan till exempel köra [Docker pull][docker-pull] för att `aci-helloworld:v1` Hämta avbildningen och ange namnet på inloggnings servern för registret. Inloggnings serverns namn består av ditt behållar register namn (alla gemener) följt `.azurecr.io` av `mycontainerregistry.azurecr.io`– till exempel.
+Du bör se ett `Login succeeded` meddelande. Du kan sedan köra `docker` kommandon utan att ange autentiseringsuppgifter. Du kan till exempel köra [Docker pull][docker-pull] för att hämta `aci-helloworld:v1` avbildningen och ange namnet på inloggnings servern för registret. Inloggnings serverns namn består av ditt behållar register namn (alla gemener) följt av `.azurecr.io` – till exempel `mycontainerregistry.azurecr.io` .
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
@@ -218,13 +217,13 @@ Autentisera först Azure CLI med AZ- [inloggning][az-login]med den systemtilldel
 az login --identity
 ```
 
-Autentisera sedan till registret med [AZ ACR-inloggning][az-acr-login]. När du använder det här kommandot använder CLI Active Directory token som skapades när du körde `az login` för att enkelt autentisera sessionen med behållar registret. (Beroende på den virtuella datorns konfiguration kan du behöva köra kommandot och Docker-kommandona med `sudo`.)
+Autentisera sedan till registret med [AZ ACR-inloggning][az-acr-login]. När du använder det här kommandot använder CLI Active Directory token som skapades när du körde `az login` för att enkelt autentisera sessionen med behållar registret. (Beroende på den virtuella datorns konfiguration kan du behöva köra kommandot och Docker-kommandona med `sudo` .)
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-Du bör se ett `Login succeeded` meddelande. Du kan sedan köra `docker` kommandon utan att ange autentiseringsuppgifter. Du kan till exempel köra [Docker pull][docker-pull] för att `aci-helloworld:v1` Hämta avbildningen och ange namnet på inloggnings servern för registret. Inloggnings serverns namn består av ditt behållar register namn (alla gemener) följt `.azurecr.io` av `mycontainerregistry.azurecr.io`– till exempel.
+Du bör se ett `Login succeeded` meddelande. Du kan sedan köra `docker` kommandon utan att ange autentiseringsuppgifter. Du kan till exempel köra [Docker pull][docker-pull] för att hämta `aci-helloworld:v1` avbildningen och ange namnet på inloggnings servern för registret. Inloggnings serverns namn består av ditt behållar register namn (alla gemener) följt av `.azurecr.io` – till exempel `mycontainerregistry.azurecr.io` .
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1

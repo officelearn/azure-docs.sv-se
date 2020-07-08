@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: 6ea215b6aa826231e940f88c3687bb65591303f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74225321"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurera DHCPv6 för virtuella Linux-datorer
@@ -64,7 +63,7 @@ Inkludera en *dhcp6: true* -instruktion för varje Ethernet-gränssnitt i konfig
             eno1:
               dhcp6: true
 
-Under tidig start skriver netplan "Network renderare"-konfigurationen till/Run för att kunna lämna kontroll över enheter till den angivna Network daemonen för att få referensinformation om netplan https://netplan.io/reference, se.
+Under tidig start skriver netplan "Network renderare"-konfigurationen till/Run för att kunna lämna kontroll över enheter till den angivna Network daemonen för att få referensinformation om netplan, se https://netplan.io/reference .
  
 ## <a name="debian"></a>Debian
 
@@ -105,7 +104,7 @@ Under tidig start skriver netplan "Network renderare"-konfigurationen till/Run f
 
 De senaste SUSE Linux Enterprise Server (SLES) och openSUSE-avbildningarna i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder de här avbildningarna. Om du har en virtuell dator som baseras på en äldre eller anpassad SUSE-avbildning gör du följande:
 
-1. Installera paketet `dhcp-client` om det behövs:
+1. Installera `dhcp-client` paketet om det behövs:
 
     ```bash
     sudo zypper install dhcp-client

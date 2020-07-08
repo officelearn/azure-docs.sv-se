@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870827"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Parametriserade frågor i Azure Cosmos DB
@@ -19,7 +18,7 @@ Cosmos DB stöder frågor med parametrar som uttrycks av den välkända @-notati
 
 ## <a name="examples"></a>Exempel
 
-Du kan till exempel skriva en fråga som `lastName` använder och `address.state` som parametrar och köra den för olika värden för `lastName` och `address.state` baserat på användarindata.
+Du kan till exempel skriva en fråga som använder `lastName` och `address.state` som parametrar och köra den för olika värden för `lastName` och `address.state` baserat på användarindata.
 
 ```sql
     SELECT *

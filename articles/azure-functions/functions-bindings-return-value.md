@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74480571"
 ---
 # <a name="using-the-azure-function-return-value"></a>Använda Azures funktions retur värde
@@ -20,13 +19,13 @@ På språk som har ett retur värde kan du binda en funktions [utgående bindnin
 
 * I ett C#-klass bibliotek använder du attributet utgående bindning till metodens retur värde.
 * I Java använder du kommentaren utgående bindning till funktions metoden.
-* På andra språk ställer du in `name` egenskapen i *Function. JSON* till `$return`.
+* På andra språk ställer du in `name` egenskapen i *function.jspå* till `$return` .
 
 Om det finns flera utgående bindningar använder du returvärdet för bara en av dem.
 
-I C#-och C#-skript är `out` alternativa sätt att skicka data till en utgående bindning parametrar och [insamlade objekt](functions-reference-csharp.md#writing-multiple-output-values).
+I C#-och C#-skript är alternativa sätt att skicka data till en utgående bindning `out` parametrar och [insamlade objekt](functions-reference-csharp.md#writing-multiple-output-values).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Här är C#-koden som använder returvärdet för en utgående bindning, följt av ett asynkront exempel:
 
@@ -54,7 +53,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Här är utdata-bindningen i *Function. JSON* -filen:
+Här är utdata-bindningen i *function.jspå* filen:
 
 ```json
 {
@@ -87,7 +86,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 
 # <a name="f"></a>[F#](#tab/fsharp)
 
-Här är utdata-bindningen i *Function. JSON* -filen:
+Här är utdata-bindningen i *function.jspå* filen:
 
 ```json
 {
@@ -109,7 +108,7 @@ let Run(input: WorkItem, log: ILogger) =
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Här är utdata-bindningen i *Function. JSON* -filen:
+Här är utdata-bindningen i *function.jspå* filen:
 
 ```json
 {
@@ -120,7 +119,7 @@ Här är utdata-bindningen i *Function. JSON* -filen:
 }
 ```
 
-I Java Script går returvärdet i den andra parametern för `context.done`:
+I Java Script går returvärdet i den andra parametern för `context.done` :
 
 ```javascript
 module.exports = function (context, input) {
@@ -132,7 +131,7 @@ module.exports = function (context, input) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Här är utdata-bindningen i *Function. JSON* -filen:
+Här är utdata-bindningen i *function.jspå* filen:
 
 ```json
 {

@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74267329"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – motivation och fördelar
@@ -51,9 +50,9 @@ Azure HDInsight är en moln distribution av Hadoop-komponenter. Med Azure HDInsi
 
 - **Produktivitet** – du kan använda olika verktyg för Hadoop och spark i din önskade utvecklings miljö.
 
-- **Utöknings barhet med anpassade verktyg eller program från tredje part** – HDInsight-kluster kan utökas med installerade komponenter och kan också integreras med de andra Big data-lösningarna genom att använda distributioner med [en enda klickning](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) från Azures marknads plats.
+- **Utöknings barhet med anpassade verktyg eller program från tredje part** – HDInsight-kluster kan utökas med installerade komponenter och kan också integreras med de andra Big data-lösningarna genom att använda distributioner med [en enda klickning](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)   från Azures marknads plats.
 
-- **Enkel hantering, administration och övervakning** – Azure HDInsight integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) för att tillhandahålla ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.
+- **Enkel hantering, administration och övervakning** – Azure HDInsight integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md)   för att tillhandahålla ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.
 
 - **Integrering med andra Azure-tjänster** – HDInsight kan enkelt integreras med andra populära Azure-tjänster, till exempel följande:
 
@@ -87,7 +86,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 
 ### <a name="on-premises-deployment-questionnaire"></a>Lokalt distributions fråge formulär
 
-| **Ifrågasätta** | **Exempel** | **Svarsfilen** |
+| **Fråga** | **Exempel** | **Svar** |
 |---|---|---|
 |**Ämne**: **miljö**|||
 |Kluster distributions version|HDP 2.6.5, CDH 5,7|
@@ -119,7 +118,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 
 ### <a name="project-details-questionnaire"></a>Projekt informations enkät
 
-|**Ifrågasätta**|**Exempel**|**Svarsfilen**|
+|**Fråga**|**Exempel**|**Svar**|
 |---|---|---|
 |**Ämne**: **arbets belastningar och frekvens**|||
 |MapReduce-jobb|10 jobb – två gånger per dag||
@@ -129,7 +128,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Strukturerade strömmande jobb|5 jobb – varje minut||
 |ML modell utbildnings jobb|2 jobb – en gång i veckan||
 |Programmeringsspråk|Python, Scala, Java||
-|Skriptning|Shell, python||
+|Använda skript|Shell, python||
 |**Ämne**: **data**|||
 |Datakällor|Flata filer, JSON, Kafka, RDBMS||
 |Data dirigering|Oozie-arbetsflöden, luft flöde||
@@ -165,7 +164,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 
 |**Ämne**: **infrastruktur** |||
 |---|---|---|
-|**Ifrågasätta**|**Exempel**|**Svarsfilen**|
+|**Fråga**|**Exempel**|**Svar**|
 | Önskad region|USA, Östra||
 |Virtuellt nätverk?|Ja||
 |Krävs/DR?|Ja||
@@ -183,7 +182,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Antal AD-användare som ska synkroniseras?|          100||
 |OK för att synkronisera lösen ord till molnet?|    Ja||
 |Endast moln användare?|                 Ja||
-|MFA krävs?|                       Inga|| 
+|MFA krävs?|                       No|| 
 |Krav för data auktorisation?|  Ja||
 |Rollbaserad Access Control?|        Ja||
 |Krävs granskning?|                  Ja||
@@ -197,7 +196,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Använd en fjärran sluten metaarkiv?|Ja||
 |Vill du dela metastores mellan olika kluster?|Ja||
 |Vill du skapa arbets belastningar?|Ersätt Hive-jobb med Spark-jobb||
-|Använd ADF för data dirigering?|Inga||
+|Använd ADF för data dirigering?|Nej||
 
 ## <a name="next-steps"></a>Nästa steg
 

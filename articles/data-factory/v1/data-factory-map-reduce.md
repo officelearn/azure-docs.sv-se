@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703153"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Anropa MapReduce-program från Data Factory
@@ -181,13 +180,13 @@ Pipelinen i det här exemplet tar inga indata. Du anger en utdata-datauppsättni
 ### <a name="pipeline"></a>Pipeline
 Pipelinen i det här exemplet har endast en aktivitet av typen: HDInsightMapReduce. Några av de viktiga egenskaperna i JSON är: 
 
-| Egenskap | Anteckningar |
+| Egenskap | Obs! |
 |:--- |:--- |
 | typ |Typen måste anges till **HDInsightMapReduce**. |
 | className |Namnet på klassen är: **WORDCOUNT** |
 | jarFilePath |Sökväg till jar-filen som innehåller klassen. Om du kopierar eller klistrar in följande kod ska du inte glömma att ändra namnet på klustret. |
 | jarLinkedService |Azure Storage länkad tjänst som innehåller jar-filen. Den här länkade tjänsten refererar till det lagrings utrymme som är associerat med HDInsight-klustret. |
-| ogiltiga |WORDCOUNT-programmet tar två argument, in-och utdata. Indatafilen är filen DaVinci. txt. |
+| ogiltiga |WORDCOUNT-programmet tar två argument, in-och utdata. Indatafilen är den davinci.txt filen. |
 | frekvens/intervall |Värdena för dessa egenskaper matchar utdata-datauppsättningen. |
 | linkedServiceName |refererar till den länkade HDInsight-tjänsten som du skapade tidigare. |
 

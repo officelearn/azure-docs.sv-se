@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
 ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74327197"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Använda en Java UDF med Apache Hive i HDInsight
@@ -24,7 +23,7 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
 * [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
-* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta skulle vara wasb://för Azure Storage, abfs://för Azure Data Lake Storage Gen2 eller adl://för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: `wasbs://`n.  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
+* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta skulle vara wasb://för Azure Storage, abfs://för Azure Data Lake Storage Gen2 eller adl://för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` .  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 
 * En text redigerare eller Java IDE
 
@@ -50,7 +49,7 @@ cd C:\HDI
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    Det här kommandot skapar en katalog `exampleudf`med namnet, som innehåller maven-projektet.
+    Det här kommandot skapar en katalog med namnet `exampleudf` , som innehåller maven-projektet.
 
 2. När projektet har skapats tar du bort den `exampleudf/src/test` katalog som skapades som en del av projektet genom att ange följande kommando:
 
@@ -86,7 +85,7 @@ cd C:\HDI
 
     Dessa poster anger vilken version av Hadoop och Hive som ingår i HDInsight 3,6. Du kan hitta information om de versioner av Hadoop och Hive som medföljer HDInsight från [versions](../hdinsight-component-versioning.md) dokumentet för HDInsight-komponenten.
 
-    Lägg till `<build>` ett avsnitt före `</project>` raden i slutet av filen. Det här avsnittet ska innehålla följande XML:
+    Lägg till ett `<build>` avsnitt före `</project>` raden i slutet av filen. Det här avsnittet ska innehålla följande XML:
 
     ```xml
     <build>
@@ -144,7 +143,7 @@ cd C:\HDI
 
     Spara filen när ändringarna har gjorts.
 
-4. Ange kommandot nedan för att skapa och öppna en ny fil `ExampleUDF.java`:
+4. Ange kommandot nedan för att skapa och öppna en ny fil `ExampleUDF.java` :
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java

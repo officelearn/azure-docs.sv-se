@@ -4,10 +4,9 @@ description: Lär dig mer om att enhets test Durable Functions.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74231227"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions enhets testning
@@ -39,7 +38,7 @@ Det finns stöd för att modellera genom tre abstrakta klasser i Durable Functio
 
 * `DurableActivityContextBase`
 
-Dessa klasser är bas klasser för `DurableOrchestrationClient`, `DurableOrchestrationContext`och `DurableActivityContext` som definierar Orchestration-klient, Orchestrator-och aktivitets metoder. De här modellerna anger förväntat beteende för Bask lass metoder, vilket innebär att enhets testet kan verifiera affärs logiken. Det finns ett arbets flöde i två steg för enhet som testar affärs logiken i Orchestration-klienten och Orchestrator:
+Dessa klasser är bas klasser för `DurableOrchestrationClient` , `DurableOrchestrationContext` och `DurableActivityContext` som definierar Orchestration-klient, Orchestrator-och aktivitets metoder. De här modellerna anger förväntat beteende för Bask lass metoder, vilket innebär att enhets testet kan verifiera affärs logiken. Det finns ett arbets flöde i två steg för enhet som testar affärs logiken i Orchestration-klienten och Orchestrator:
 
 1. Använd bas klasserna i stället för konkret implementering när du definierar Dirigerings klienten och Orchestrator-funktionen signaturer.
 2. I enhets testerna har du till gång till bas klassernas beteende och kontrollerar affärs logiken.
@@ -52,9 +51,9 @@ I det här avsnittet kommer enhets testet att validera logiken för följande HT
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-Uppgiften enhets test kommer att verifiera värdet för `Retry-After` huvudet i svarets nytto Last. Därför kommer enhets testet att modellera `DurableOrchestrationClientBase` några av metoderna för att säkerställa förutsägbara beteenden.
+Uppgiften enhets test kommer att verifiera värdet för `Retry-After` huvudet i svarets nytto Last. Därför kommer enhets testet att modellera några av `DurableOrchestrationClientBase` metoderna för att säkerställa förutsägbara beteenden.
 
-Först krävs en skiss av Bask Lassen `DurableOrchestrationClientBase`. De blå modellerna kan vara en ny klass som implementerar `DurableOrchestrationClientBase`. Men med hjälp av ett modell ramverk som [MOQ](https://github.com/moq/moq4) fören klar processen:
+Först krävs en skiss av Bask Lassen `DurableOrchestrationClientBase` . De blå modellerna kan vara en ny klass som implementerar `DurableOrchestrationClientBase` . Men med hjälp av ett modell ramverk som [MOQ](https://github.com/moq/moq4) fören klar processen:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -94,7 +93,7 @@ Nu `CreateCheckStatusResponse` är det en tom HTTP 200-svar att returnera.
     var loggerMock = new Mock<ILogger>();
 ```  
 
-Nu anropas `Run` metoden från enhets testet:
+Nu `Run` anropas metoden från enhets testet:
 
 ```csharp
     // Call Orchestration trigger function
@@ -127,7 +126,7 @@ Efter att ha kombinerat alla steg har enhets testet följande kod:
 
 Orchestrator Functions är ännu mer intressant för enhets testning eftersom de ofta har mycket mer affärs logik.
 
-I det här avsnittet kommer enhets testerna att verifiera utdata `E1_HelloSequence` från Orchestrator-funktionen:
+I det här avsnittet kommer enhets testerna att verifiera utdata från `E1_HelloSequence` Orchestrator-funktionen:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
@@ -172,7 +171,7 @@ I det här avsnittet verifierar enhets testet beteendet för `E1_SayHello` funkt
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-Och enhets testerna kontrollerar utdataformatets format. Enhets testerna kan använda parameter typerna direkt eller en `DurableActivityContextBase` modell klass:
+Och enhets testerna kontrollerar utdataformatets format. Enhets testerna kan använda parameter typerna direkt eller en modell `DurableActivityContextBase` klass:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

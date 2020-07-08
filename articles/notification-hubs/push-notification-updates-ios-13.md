@@ -9,10 +9,9 @@ ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 697e8ba9c9f27e8d5644e3a78950ff006290efe7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74228146"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Azure Notification Hubs-uppdateringar för iOS 13
@@ -23,7 +22,7 @@ Apple har nyligen gjort några ändringar i sin offentliga push-tjänst. ändrin
 
 ### <a name="apns-push-type"></a>APNS-push-typ
 
-Apple kräver nu att utvecklare identifierar meddelanden som aviseringar eller bakgrunds meddelanden via `apns-push-type` den nya rubriken i APN-API: et. Enligt [Apples dokumentation](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns): "värdet för den här rubriken måste återge innehållet i meddelandets nytto Last korrekt. Om det finns ett matchnings fel, eller om huvudet saknas på nödvändiga system, kan APN returnera ett fel, försena leveransen av meddelandet eller ta bort det helt. "
+Apple kräver nu att utvecklare identifierar meddelanden som aviseringar eller bakgrunds meddelanden via den nya `apns-push-type` rubriken i APN-API: et. Enligt [Apples dokumentation](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns): "värdet för den här rubriken måste återge innehållet i meddelandets nytto Last korrekt. Om det finns ett matchnings fel, eller om huvudet saknas på nödvändiga system, kan APN returnera ett fel, försena leveransen av meddelandet eller ta bort det helt. "
 
 Utvecklare måste nu ange rubriken i program som skickar meddelanden via Azure Notification Hubs. På grund av en teknisk begränsning måste kunderna använda tokenbaserad autentisering för autentiseringsuppgifter för APN med begär Anden som inkluderar det här attributet. Om du använder certifikatbaserad autentisering för dina APN-autentiseringsuppgifter måste du växla till med hjälp av tokenbaserad autentisering.
 

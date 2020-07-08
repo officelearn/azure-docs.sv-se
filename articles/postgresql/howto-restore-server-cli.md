@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: f0ea24133d7b6acdc4b099ee21a8711a2d99095d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74775712"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL-enskild server med hjälp av Azure CLI
@@ -27,7 +26,7 @@ För att slutföra den här instruktions guiden behöver du:
  
 
 > [!IMPORTANT]
-> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange `az --version`i kommando tolken för Azure CLI. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
+> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange i kommando tolken för Azure CLI `az --version` . Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Ange konfiguration för säkerhets kopiering
 
@@ -37,9 +36,9 @@ Du väljer mellan att konfigurera servern för antingen lokalt redundanta säker
 > När en server har skapats har den typ av redundans som den har, geografiskt redundant vs lokalt redundant, inte växlats.
 >
 
-När du skapar en server via `az postgres server create` kommandot, bestämmer `--geo-redundant-backup` parametern säkerhets kopians redundans alternativ. Om `Enabled`så tas geo-redundanta säkerhets kopieringar. Eller om `Disabled` lokalt redundanta säkerhets kopieringar görs. 
+När du skapar en server via `az postgres server create` kommandot, `--geo-redundant-backup` bestämmer parametern säkerhets kopians redundans alternativ. Om `Enabled` så tas geo-redundanta säkerhets kopieringar. Eller om `Disabled` lokalt redundanta säkerhets kopieringar görs. 
 
-Kvarhållningsperioden för säkerhets kopior anges av parametern `--backup-retention-days`. 
+Kvarhållningsperioden för säkerhets kopior anges av parametern `--backup-retention-days` . 
 
 Mer information om hur du anger dessa värden under skapa finns i [snabb starten för Azure Database for postgresql server CLI](quickstart-create-server-database-azure-cli.md).
 
@@ -66,13 +65,13 @@ Om du vill återställa servern använder du kommandot Azure CLI [AZ postgres Se
 az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
 ```
 
-`az postgres server restore` Kommandot kräver följande parametrar:
+`az postgres server restore`Kommandot kräver följande parametrar:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
-| namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
-| restore-point-in-time | 2018-03-13T13:59:00Z | Välj en tidpunkt då du vill återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601 datum-och tids format. Du kan till exempel använda din egen lokala tidszon, till exempel `2018-03-13T05:59:00-08:00`. Du kan också använda formatet UTC-Zulu, till exempel `2018-03-13T13:59:00Z`. |
+| name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| restore-point-in-time | 2018-03-13T13:59:00Z | Välj en tidpunkt då du vill återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601 datum-och tids format. Du kan till exempel använda din egen lokala tidszon, till exempel `2018-03-13T05:59:00-08:00` . Du kan också använda formatet UTC-Zulu, till exempel `2018-03-13T13:59:00Z` . |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 
 När du återställer en server till en tidigare tidpunkt skapas en ny server. Den ursprungliga servern och dess databaser från den angivna tidpunkten kopieras till den nya servern.
@@ -81,12 +80,12 @@ Plats-och pris nivå värden för den återställda servern förblir samma som d
 
 När återställnings processen har slutförts letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen initierades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
 
-Den nya servern som skapades under en återställning saknar de brand Väggs regler eller virtuella nätverks slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den här nya servern.
+Den nya servern som skapas under en återställning saknar de brandväggsregler eller VNet-tjänstslutpunkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den nya servern.
 
 ## <a name="geo-restore"></a>Geo-återställning
 Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringar kan en ny server skapas från säkerhets kopian av den befintliga servern. Den nya servern kan skapas i vilken region som helst som Azure Database for PostgreSQL tillgänglig.  
 
-Använd Azure CLI `az postgres server georestore` -kommandot om du vill skapa en server med hjälp av en Geo-redundant säkerhets kopia.
+Använd Azure CLI-kommandot om du vill skapa en server med hjälp av en Geo-redundant säkerhets kopia `az postgres server georestore` .
 
 > [!NOTE]
 > När en server först skapas kanske den inte är omedelbart tillgänglig för geo Restore. Det kan ta några timmar för nödvändiga metadata att fyllas i.
@@ -106,12 +105,12 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 ```
 
-`az postgres server georestore` Kommandot kräver följande parametrar:
+`az postgres server georestore`Kommandot kräver följande parametrar:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
-|namn | mydemoserver – omåterställd | Namnet på den nya servern. |
+|name | mydemoserver – omåterställd | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga server vars geo-redundanta säkerhets kopieringar används. |
 |location | eastus | Platsen för den nya servern. |
 |sku-name| GP_Gen4_8 | Den här parametern anger pris nivån, beräknings genereringen och antalet virtuella kärnor för den nya servern. GP_Gen4_8 mappar till en Generell användning, gen 4-Server med 8 virtuella kärnor.|
@@ -120,7 +119,7 @@ När du skapar en ny server med en geo-återställning ärver den samma lagrings
 
 När återställnings processen har slutförts letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen initierades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
 
-Den nya servern som skapades under en återställning saknar de brand Väggs regler eller virtuella nätverks slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den här nya servern.
+Den nya servern som skapas under en återställning saknar de brandväggsregler eller VNet-tjänstslutpunkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den nya servern.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om tjänstens [säkerhets kopior](concepts-backup.md)

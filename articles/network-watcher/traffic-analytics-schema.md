@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74666383"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema-och data agg regering i Trafikanalys
@@ -96,7 +95,7 @@ Trafikanalys skapas ovanpå Log Analytics, så att du kan köra anpassade frågo
 
 Nedan visas fälten i schemat och vad de betecknar
 
-| Field | Format | Kommentarer |
+| Fält | Format | Kommentarer |
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | Tabell för Trafikanalys data
 | SubType_s | Logg | Undertyp för flödes loggarna. Använd endast "logg", andra värden för SubType_s är för interna arbeten av produkten |
@@ -117,7 +116,7 @@ Nedan visas fälten i schemat och vad de betecknar
 | FlowDirection_s | * I = inkommande<br> * O = utgående | Riktningen på flödet in/ut ur NSG som per flödes logg |
 | FlowStatus_s  | * A = tillåts av NSG-regeln <br> * D = nekad av NSG-regeln  | Status för flöde som tillåts/nblocked av NSG som per flödes logg |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Nätverks säkerhets grupp (NSG) som är associerad med flödet |
-| NSGRules_s | \<Index värde 0) >\| \<NSG_RULENAME>\| \<flödes riktning \| \<>flödes \| \<status>FlowCount ProcessedByRule> |  NSG-regel som tillåter eller nekar det här flödet |
+| NSGRules_s | \<Index value 0)>\|\<NSG_RULENAME>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> |  NSG-regel som tillåter eller nekar det här flödet |
 | NSGRule_s | NSG_RULENAME |  NSG-regel som tillåter eller nekar det här flödet |
 | NSGRuleType_s | * Användardefinierad * standard |   Typ av NSG-regel som används av flödet |
 | MACAddress_s | MAC-adress | MAC-adressen för NÄTVERKSKORTet som flödet registrerades med |
@@ -127,10 +126,10 @@ Nedan visas fälten i schemat och vad de betecknar
 | Region_s | Azure-region för virtuellt nätverk/nätverks gränssnitt/virtuell dator som IP-adressen i flödet tillhör | Endast tillämpligt för FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow och UnknownPrivate flödes typer (flödes typer där bara en sida är Azure) |
 | Region1_s | Azure-region | Azure-region för virtuellt nätverk/nätverks gränssnitt/virtuell dator som käll-IP i flödet tillhör |
 | Region2_s | Azure-region | Azure-regionen för det virtuella nätverk som mål-IP i flödet tillhör |
-| NIC_s | \<resourcegroup_Name>\/ \<NetworkInterfaceName> |  NÄTVERKSKORT som är kopplat till den virtuella datorn som skickar eller tar emot trafiken |
+| NIC_s | \<resourcegroup_Name>\/\<NetworkInterfaceName> |  NÄTVERKSKORT som är kopplat till den virtuella datorn som skickar eller tar emot trafiken |
 | NIC1_s | <resourcegroup_Name>/\<NetworkInterfaceName> | NÄTVERKSKORT som är kopplat till käll-IP i flödet |
 | NIC2_s | <resourcegroup_Name>/\<NetworkInterfaceName> | NÄTVERKSKORT som är associerat med mål-IP i flödet |
-| VM_s | <resourcegroup_Name>\/ \<NetworkInterfaceName> | Virtuell dator som är associerad med nätverks gränssnittet NIC_s |
+| VM_s | <resourcegroup_Name>\/\<NetworkInterfaceName> | Virtuell dator som är associerad med nätverks gränssnittet NIC_s |
 | VM1_s | <resourcegroup_Name>/\<VirtualMachineName> | Virtuell dator som är associerad med käll-IP i flödet |
 | VM2_s | <resourcegroup_Name>/\<VirtualMachineName> | Virtuell dator som är associerad med mål-IP i flödet |
 | Subnet_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Undernät som är associerat med NIC_s |
@@ -143,7 +142,7 @@ Nedan visas fälten i schemat och vad de betecknar
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Lokal nätverksgateway kopplad till käll-IP i flödet |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Lokal nätverksgateway kopplad till mål-IP i flödet |
 | ConnectionType_s | Möjliga värden är VNetPeering, VpnGateway och ExpressRoute |    Anslutningstyp |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<connectionName> | Anslutnings namn. För FlowType-P2S formateras detta som <gateway name>_<VPN Client IP> |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Anslutnings namn. För FlowType-P2S formateras detta som <gateway name> _<VPN Client IP> |
 | ConnectingVNets_s | Blankstegsavgränsad lista över virtuella nätverks namn | I händelse av hubb och eker-topologi kommer hubbens virtuella nätverk att fyllas här |
 | Country_s | Landskod med två bokstäver (ISO 3166-1 alpha-2) | Ifyllt för flödes typen ExternalPublic. Alla IP-adresser i PublicIPs_s fält kommer att dela samma landskod |
 | AzureRegion_s | Azure-region platser | Ifyllt för flödes typen AzurePublic. Alla IP-adresser i PublicIPs_s fält kommer att dela Azure-regionen |
@@ -157,11 +156,11 @@ Nedan visas fälten i schemat och vad de betecknar
 | InboundBytes_d |  Byte som tagits emot som avbildning i nätverks gränssnittet där NSG-regeln tillämpades | Detta är endast ifyllt för version 2 av NSG flödes logg schema |
 | OutboundBytes_d | Byte som har skickats som avbildningar i nätverks gränssnittet där NSG-regeln tillämpades | Detta är endast ifyllt för version 2 av NSG flödes logg schema |
 | CompletedFlows_d  |  | Detta fylls med ett värde som inte är noll för logg schema för version 2 av NSG Flow |
-| PublicIPs_s | <PUBLIC_IP>\| \<FLOW_STARTED_COUNT>\| \<FLOW_ENDED_COUNT>\| \<OUTBOUND_PACKETS>\| \<INBOUND_PACKETS>\| \<OUTBOUND_BYTES>\| \<INBOUND_BYTES> | Poster avgränsade med staplar |
-| SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\| \<FLOW_STARTED_COUNT>\| \<FLOW_ENDED_COUNT>\| \<OUTBOUND_PACKETS>\| \<INBOUND_PACKETS>\| \<OUTBOUND_BYTES>\| \<INBOUND_BYTES> | Poster avgränsade med staplar |
-| DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\| \<FLOW_STARTED_COUNT>\| \<FLOW_ENDED_COUNT>\| \<OUTBOUND_PACKETS>\| \<INBOUND_PACKETS>\| \<OUTBOUND_BYTES>\| \<INBOUND_BYTES> | Poster avgränsade med staplar |
+| PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Poster avgränsade med staplar |
+| SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Poster avgränsade med staplar |
+| DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Poster avgränsade med staplar |
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Obs!
 
 1. I händelse av AzurePublic-och ExternalPublic-flöden fylls den kund som äger den virtuella Azure-datorns IP-adress i VMIP_s-fältet, medan de offentliga IP-adresserna fylls i fältet PublicIPs_s. För dessa två flödes typer bör vi använda VMIP_s och PublicIPs_s i stället för SrcIP_s och DestIP_s fält. För AzurePublic-och ExternalPublicIP-adresser aggregerar vi ytterligare, så att antalet poster som matas in till kund Log Analytics-arbetsytan är minimalt. (Det här fältet kommer att inaktive ras snart och vi bör använda SrcIP_ och DestIP_s beroende på om den virtuella Azure-datorn är källan eller målet i flödet)
 1. Information om flödes typer: baserat på de IP-adresser som ingår i flödet, kategoriseras flödena i till följande flödes typer:
@@ -174,7 +173,7 @@ Nedan visas fälten i schemat och vad de betecknar
 1. MaliciousFlow – en av IP-adresserna tillhör Azure Virtual Network medan den andra IP-adressen är en offentlig IP-adress som inte finns i Azure och som rapporteras som skadlig i de ASC-flöden som Trafikanalys använder sig av bearbetnings intervallet mellan "FlowIntervalStartTime_t" och "FlowIntervalEndTime_t".
 1. UnknownPrivate – en av IP-adresserna tillhör Azure Virtual Network medan den andra IP-adressen tillhör det privata IP-intervallet som definieras i RFC 1918 och inte kunde mappas av Trafikanalys till en kundägda webbplats eller Azure-Virtual Network.
 1. Okänd – det går inte att mappa någon av IP-adresserna i flödena med kundens topologi i Azure och lokalt (plats).
-1. Vissa fält namn läggs till i \_s eller \_d. Dessa säger inte källa och mål, men anger sträng och decimaler för data typerna.
+1. Vissa fält namn läggs till i \_ s eller \_ d. Dessa säger inte källa och mål, men anger sträng och decimaler för data typerna.
 
-### <a name="next-steps"></a>Efterföljande moment
+### <a name="next-steps"></a>Nästa steg
 För att få svar på vanliga frågor, se [vanliga frågor och svar om trafik analys](traffic-analytics-faq.md) för att se information om funktioner, se [Traffic Analytics-dokumentation](traffic-analytics.md)

@@ -9,13 +9,12 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
 ms.openlocfilehash: ff21b059e712489c1914b2d12c6aa6a3d78d66d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792158"
 ---
-# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Verifiera XML for B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
+# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Verifiera XML för B2B-företagsintegrering i Azure Logic Apps med Enterprise-integrationspaket
 
 I B2B-scenarier måste handels partner i ett avtal ofta se till att de meddelanden som de utbyter är giltiga innan data bearbetning kan starta. Du kan validera dokument mot ett fördefinierat schema med hjälp av XML-verifieringen, som är tillgänglig med Enterprise-integrationspaket.
 
@@ -31,11 +30,11 @@ I B2B-scenarier måste handels partner i ett avtal ofta se till att de meddeland
 
 1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-1. Om du har en tom Logic-app, i Logic App Designer, i sökrutan, anger `HTTP request` du som filter och väljer alternativet **när en http-begäran tas emot** . Annars fortsätter du till nästa steg.
+1. Om du har en tom Logic-app, i Logic App Designer, i sökrutan, anger du `HTTP request` som filter och väljer alternativet **när en http-begäran tas emot** . Annars fortsätter du till nästa steg.
 
 1. Under det sista steget i arbets flödet väljer du **nytt steg**.
 
-   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du pekaren över pilen som kopplar stegen så att plus tecknet (**+**) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du pekaren över pilen som kopplar stegen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger `xml validation` du som filter. I listan åtgärder väljer du **XML-validering**.
 

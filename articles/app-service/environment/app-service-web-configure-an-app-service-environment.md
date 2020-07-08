@@ -8,10 +8,9 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687263"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Konfigurera en App Service-miljön v1
@@ -125,13 +124,13 @@ I en ASE är alla App Service planer dedikerade App Service planer. Det innebär
 ### <a name="settings"></a>Inställningar
 I bladet ASE finns det ett **inställnings** avsnitt som innehåller flera viktiga funktioner:
 
-**Inställnings** > **Egenskaper**: **inställnings** bladet öppnas automatiskt när du öppnar ASE-bladet. Högst upp är **Egenskaper**. Det finns ett antal objekt som är överflödiga till det du ser i **Essentials**, men vad är mycket användbart för **virtuella IP**-adresser, samt **utgående IP-adresser**.
+**Inställningar**  >  **Egenskaper**: **inställnings** bladet öppnas automatiskt när du hämtar ditt ASE-blad. Högst upp är **Egenskaper**. Det finns ett antal objekt som är överflödiga till det du ser i **Essentials**, men vad är mycket användbart för **virtuella IP**-adresser, samt **utgående IP-adresser**.
 
 ![Bladet inställningar och egenskaper][4]
 
-**Inställningar** > **IP-adresser**: när du skapar en app för IP-Secure Sockets Layer (SSL) i ASE behöver du en IP SSL-adress. Din ASE behöver IP SSL adresser som det äger som kan allokeras för att kunna hämta en. När en ASE skapas har den en IP SSL-adress för det här ändamålet, men du kan lägga till fler. Det finns en avgift för ytterligare IP SSL adresser, som du ser i [App Service priser][AppServicePricing] (i avsnittet om SSL-anslutningar). Det ytterligare priset är IP SSL priset.
+**Inställningar**  >  **IP-adresser**: när du skapar en IP Secure Sockets Layer-app (SSL) i din ASE behöver du en IP SSL-adress. Din ASE behöver IP SSL adresser som det äger som kan allokeras för att kunna hämta en. När en ASE skapas har den en IP SSL-adress för det här ändamålet, men du kan lägga till fler. Det finns en avgift för ytterligare IP SSL adresser, som du ser i [App Service priser][AppServicePricing] (i avsnittet om SSL-anslutningar). Det ytterligare priset är IP SSL priset.
 
-**Inställningar** > **Front End Pool**klient / organisationens**pooler**: var och en av de här mallarna för resurspool ger möjlighet att bara se information i den resurspoolen, förutom att tillhandahålla kontroller för att skala resurspoolen fullständigt.  
+**Inställningar**  >  **Klient dels grupp**  /  **Yrkespooler**: var och en av de här mallarna för resurspooler ger möjlighet att bara se information i den resurspoolen, förutom att tillhandahålla kontroller för att skala resurspoolen fullständigt.  
 
 Bas bladet för varje resurspool ger ett diagram med mät värden för den resurspoolen. Precis som med diagrammen från bladet ASE kan du gå till diagrammet och ställa in aviseringar efter behov. Att ställa in en avisering från ASE-bladet för en speciell resurspool gör samma sak som att göra den från resurspoolen. Från bladet **Inställningar** för arbets grupp har du åtkomst till alla appar eller App Service planer som körs i den här arbets gruppen.
 
@@ -154,7 +153,7 @@ Om du vill använda skalnings åtgärden på bladet ASE drar du skjutreglaget ti
 
 ![Skalnings gränssnitt][6]
 
-Om du vill använda funktionerna för manuell eller autoskalning i en speciell resurspool går du till **Inställningar** > **klient delen** / **Worker-pooler** efter behov. Öppna sedan den pool som du vill ändra. Gå till **Inställningar** > **skala ut** eller **Inställningar** > **skala upp**. På bladet **skala ut** kan du kontrol lera instans antal. Genom att **skala upp** kan du kontrol lera resursens storlek.  
+Om du vill använda funktionerna för manuell eller autoskalning i en speciell resurspool går du till **Inställningar**  >  **klient delen**  /  **Worker-pooler** efter behov. Öppna sedan den pool som du vill ändra. Gå till **Inställningar**  >  **skala ut** eller **Inställningar**  >  **skala upp**. På bladet **skala ut** kan du kontrol lera instans antal. Genom att **skala upp** kan du kontrol lera resursens storlek.  
 
 ![Skalnings inställningar gränssnitt][7]
 

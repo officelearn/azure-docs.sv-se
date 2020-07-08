@@ -4,10 +4,9 @@ description: Använd Azure Portal för att Visa Azure Container Registry-databas
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456291"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visa behållare register Arkiv i Azure Portal
@@ -24,7 +23,7 @@ Med Azure Container Registry kan du lagra Docker-behållar avbildningar i-databa
 
 Du kan se en lista över de databaser som är värdar för dina avbildningar, samt avbildnings taggarna i Azure Portal.
 
-Om du följde stegen i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md) (och sedan inte har tagit bort avbildningen) bör du ha en nginx-avbildning i ditt container Registry. Anvisningarna i artikeln anger att du taggar avbildningen med ett namn område, "Samples" i `/samples/nginx`. Som en uppdaterare var [Docker push][docker-push] -kommandot som anges i artikeln:
+Om du följde stegen i [skicka och hämta en avbildning](container-registry-get-started-docker-cli.md) (och sedan inte har tagit bort avbildningen) bör du ha en nginx-avbildning i ditt container Registry. Anvisningarna i artikeln anger att du taggar avbildningen med ett namn område, "Samples" i `/samples/nginx` . Som en uppdaterare var [Docker push][docker-push] -kommandot som anges i artikeln:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx

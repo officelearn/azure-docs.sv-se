@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74871150"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Kopplingar i Azure Cosmos DB
@@ -21,11 +20,11 @@ Inre kopplingar resulterar i en fullständig kors produkt av uppsättningarna so
 
 ## <a name="syntax"></a>Syntax
 
-Språket stöder syntaxen `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Den här frågan returnerar en uppsättning tupler med `N` värden. Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar. 
+Språket stöder syntaxen `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` . Den här frågan returnerar en uppsättning tupler med `N` värden. Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar. 
 
 Nu ska vi titta på följande FROM-sats:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Låt varje källa definiera `input_alias1, input_alias2, …, input_aliasN`. Denna FROM-sats returnerar en uppsättning av N-tupler (tupel med N värden). Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar.  
+ Låt varje källa definiera `input_alias1, input_alias2, …, input_aliasN` . Denna FROM-sats returnerar en uppsättning av N-tupler (tupel med N värden). Varje tuppel har värden som skapas när alla containeralias itereras över sina respektive uppsättningar.  
   
 **Exempel 1** – 2 Källor  
   
@@ -70,7 +69,7 @@ Nu ska vi titta på följande FROM-sats:`<from_source1> JOIN <from_source2> JOIN
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
   > [!NOTE]
-  > Avsaknad av tupler för andra värden för `input_alias1`, `input_alias2`, för vilka `<from_source3>` inga värden returnerades.  
+  > Avsaknad av tupler för andra värden för `input_alias1` , `input_alias2` , för vilka inga `<from_source3>` värden returnerades.  
   
 **Exempel 3** – 3 Källor  
   
@@ -99,7 +98,7 @@ Nu ska vi titta på följande FROM-sats:`<from_source1> JOIN <from_source2> JOIN
     (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300), (C, 5, 300)  
   
   > [!NOTE]
-  > Detta resulterade i mellanprodukter `<from_source2>` mellan `<from_source3>` och eftersom båda är begränsade till samma `<from_source1>`.  Detta resulterade i 4 (2x2) tupler med värdet A, 0 tupler med värde B (1x0) och 2 (2x1) tupler med värdet C.  
+  > Detta resulterade i mellanprodukter mellan `<from_source2>` och `<from_source3>` eftersom båda är begränsade till samma `<from_source1>` .  Detta resulterade i 4 (2x2) tupler med värdet A, 0 tupler med värde B (1x0) och 2 (2x1) tupler med värdet C.  
   
 ## <a name="examples"></a>Exempel
 
@@ -167,9 +166,9 @@ FROM-källa för JOIN-satsen är en iterator. Därför är flödet i föregåend
 
 1. Expandera varje underordnat element `c` i matrisen.
 2. Använd en kors produkt med roten för objektet `f` med varje underordnat element `c` som det första steget är utplattat.
-3. Till sist projicerar du rot `f` `id` objekts egenskapen endast.
+3. Till sist projicerar du rot objekts `f` `id` egenskapen endast.
 
-Det första objektet, `AndersenFamily`, innehåller endast ett `children` -element, så resultat uppsättningen innehåller bara ett enda objekt. Det andra objektet, `WakefieldFamily`, som innehåller `children`två, så att kors produkten genererar två objekt, ett för `children` varje element. Rotfälten i båda dessa objekt är detsamma, vilket är det som förväntas i en kryssprodukt.
+Det första objektet, `AndersenFamily` , innehåller endast ett `children` -element, så resultat uppsättningen innehåller bara ett enda objekt. Det andra objektet, `WakefieldFamily` , som innehåller två `children` , så att kors produkten genererar två objekt, ett för varje `children` element. Rotfälten i båda dessa objekt är detsamma, vilket är det som förväntas i en kryssprodukt.
 
 Det verkliga verktyget i JOIN-satsen är att forma tupler från kors produkten i en form som annars är svår att projicera. I exemplet nedan filtreras kombinationen av en tupel som gör det möjligt för användaren att välja ett villkor som är uppfyllt av tupelarna generellt.
 
@@ -224,9 +223,9 @@ Följande tillägg i föregående exempel utför en dubbel koppling. Du kan visa
     }
 ```
 
-`AndersenFamily`har en underordnad som har ett hus djur, så att kors produkten ger en rad\*(\*1 1) från den här familjen. `WakefieldFamily`har två underordnade, endast en av som har hus djur, men att barnet har två hus djur. Den här seriens kors produkt ger 1\*1\*2 = 2 rader.
+`AndersenFamily`har en underordnad som har ett hus djur, så att kors produkten ger en rad (1 1 \* \* ) från den här familjen. `WakefieldFamily`har två underordnade, endast en av som har hus djur, men att barnet har två hus djur. Den här seriens kors produkt ger 1 \* 1 \* 2 = 2 rader.
 
-I nästa exempel finns ett ytterligare filter på `pet`, som utesluter alla tupler där PET-namnet inte `Shadow`är det. Du kan bygga tupler från matriser, filtrera efter alla element i tuppeln och projicera en kombination av elementen.
+I nästa exempel finns ett ytterligare filter på `pet` , som utesluter alla tupler där PET-namnet inte är det `Shadow` . Du kan bygga tupler från matriser, filtrera efter alla element i tuppeln och projicera en kombination av elementen.
 
 ```sql
     SELECT 
@@ -256,4 +255,4 @@ Resultatet är:
 
 - [Komma igång](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Under frågor](sql-query-subquery.md)
+- [Underfrågor](sql-query-subquery.md)

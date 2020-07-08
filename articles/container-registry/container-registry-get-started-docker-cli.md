@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456356"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-containerregister med hjälp av Docker CLI
@@ -36,10 +35,10 @@ Du kan också logga in med [Docker-inloggning](https://docs.docker.com/engine/re
 docker login myregistry.azurecr.io
 ```
 
-Båda kommandona `Login Succeeded` returnerades när de har slutförts.
+Båda kommandona returnerades `Login Succeeded` när de har slutförts.
 
 > [!TIP]
-> Ange alltid det fullständigt kvalificerade register namnet (alla gemener) när du `docker login` använder och när du taggar avbildningar för att överföra till registret. I exemplen i den här artikeln är det fullständigt kvalificerade namnet *myregistry.azurecr.io*.
+> Ange alltid det fullständigt kvalificerade register namnet (alla gemener) när du använder `docker login` och när du taggar avbildningar för att överföra till registret. I exemplen i den här artikeln är det fullständigt kvalificerade namnet *myregistry.azurecr.io*.
 
 ## <a name="pull-the-official-nginx-image"></a>Hämta den officiella nginx-avbildningen
 
@@ -51,7 +50,7 @@ docker pull nginx
 
 ## <a name="run-the-container-locally"></a>Kör containern lokalt
 
-Kör följande [Docker-körnings](https://docs.docker.com/engine/reference/run/) kommando för att starta en lokal instans av nginx-behållaren interaktivt (`-it`) på Port 8080. `--rm` Argumentet anger att behållaren ska tas bort när du stoppar den.
+Kör följande [Docker-körnings](https://docs.docker.com/engine/reference/run/) kommando för att starta en lokal instans av nginx-behållaren interaktivt ( `-it` ) på Port 8080. `--rm`Argumentet anger att behållaren ska tas bort när du stoppar den.
 
 ```
 docker run -it --rm -p 8080:80 nginx
@@ -61,9 +60,9 @@ Bläddra till `http://localhost:8080` om du vill visa standard webb sidan som ha
 
 ![Nginx på lokal dator](./media/container-registry-get-started-docker-cli/nginx.png)
 
-Eftersom du startade behållaren interaktivt med `-it`kan du se nginx-serverns utdata på kommando raden när du har navigerat till den i webbläsaren.
+Eftersom du startade behållaren interaktivt med kan `-it` du se nginx-serverns utdata på kommando raden när du har navigerat till den i webbläsaren.
 
-Om du vill stoppa och ta bort behållaren `Control` + `C`trycker du på.
+Om du vill stoppa och ta bort behållaren trycker du på `Control` + `C` .
 
 ## <a name="create-an-alias-of-the-image"></a>Skapa ett alias för avbildningen
 
@@ -101,7 +100,7 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 
 Bläddra till `http://localhost:8080` för att Visa behållaren som körs.
 
-Om du vill stoppa och ta bort behållaren `Control` + `C`trycker du på.
+Om du vill stoppa och ta bort behållaren trycker du på `Control` + `C` .
 
 ## <a name="remove-the-image-optional"></a>Ta bort avbildningen (valfritt)
 

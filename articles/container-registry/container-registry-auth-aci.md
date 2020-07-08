@@ -4,10 +4,9 @@ description: Lär dig hur du ger åtkomst till avbildningar i ditt privata behå
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456515"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autentisera med Azure Container Registry från Azure Container Instances
@@ -28,7 +27,7 @@ Tjänstens huvud namn bör också användas när register [Administratörs anvä
 
 ## <a name="authenticate-using-the-service-principal"></a>Autentisera med hjälp av tjänstens huvud namn
 
-Om du vill starta en behållare i Azure Container Instances med ett huvud namn för tjänsten anger `--registry-username`du dess ID för och `--registry-password`lösen ordet för.
+Om du vill starta en behållare i Azure Container Instances med ett huvud namn för tjänsten anger du dess ID för `--registry-username` och lösen ordet för `--registry-password` .
 
 ```azurecli-interactive
 az container create \

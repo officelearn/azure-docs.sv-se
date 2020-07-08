@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: d86170a53b4bfbe712bbca12db4d6063214aba21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768171"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL – enskild server
@@ -39,7 +38,7 @@ Följande element hjälper till att säkerställa säker åtkomst till databasen
 |||
 |:--|:--|
 | **Autentisering och auktorisering** | Azure Database for PostgreSQL-server stöder ursprunglig PostgreSQL-autentisering. Du kan ansluta och autentisera till servern med serverns administratörsinloggning. |
-| **Protokollhanterare** | Tjänsten stöder ett Message-baserat protokoll som används av PostgreSQL. |
+| **Protokoll** | Tjänsten stöder ett Message-baserat protokoll som används av PostgreSQL. |
 | **TCP/IP** | Protokollet stöds över TCP/IP och över UNIX-domänsuffix. |
 | **Brandvägg** | För att skydda dina data förhindrar en brand Väggs regel all åtkomst till servern och dess databaser tills du anger vilka datorer som har behörighet. Se [Azure Database for postgresql server brand Väggs regler](concepts-firewall-rules.md). |
 

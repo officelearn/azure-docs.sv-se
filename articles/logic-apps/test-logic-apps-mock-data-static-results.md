@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74790274"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testa Logic Apps med bilddata genom att konfigurera statiska resultat
@@ -54,7 +53,7 @@ Om du till exempel ställer in statiska resultat för åtgärden skicka e-post i
 
       ![Välj "Aktivera statiskt resultat"](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
 
-      Om du vill ange ett JSON-format (modell data i JavaScript Object Notation) väljer du **Växla till JSON-läge** (![Välj växla till](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)JSON-läge).
+      Om du vill ange ett JSON-format (modell data i JavaScript Object Notation) väljer du **Växla till JSON-läge** ( ![ Välj växla till JSON ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png) -läge).
 
    1. För valfria egenskaper öppnar du listan **Välj valfria fält** och väljer de egenskaper som du vill använda för att modellera.
 
@@ -62,7 +61,7 @@ Om du till exempel ställer in statiska resultat för åtgärden skicka e-post i
 
 1. När du är redo att spara väljer du **klar**.
 
-   I åtgärdens övre högra hörn visar namn listen nu en testbägare ikon (![ikon för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)) som visar att du har aktiverat statiska resultat.
+   I åtgärdens övre högra hörn visar namn listen nu en testbägare ikon ( ![ ikon för statiska resultat ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ) som visar att du har aktiverat statiska resultat.
 
    ![Ikon som visar aktiverade statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
@@ -90,7 +89,7 @@ Om din Logic-app har en tidigare körning med utdata som du kan återanvända so
 
 1. När den **statiska resultat** rutan öppnas väljer du något av stegen:
 
-   * Om du vill klistra in ett fullständigt JSON-objekt väljer du **Växla till JSON-läge** (![Välj växla](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)till JSON-läge):
+   * Om du vill klistra in ett fullständigt JSON-objekt väljer du **Växla till JSON-läge** ( ![ Välj växla till JSON ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png) -läge):
 
      ![Välj växla till JSON-läge för det fullständiga objektet](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
 
@@ -102,7 +101,7 @@ Om din Logic-app har en tidigare körning med utdata som du kan återanvända so
 
    ![JSON-läge](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. När du är klar väljer du **Klar**. Om du vill återgå till designern väljer du **Växla redigerings läge** (![Välj "växla redigerings läge"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+1. När du är klar väljer du **Klar**. Om du vill återgå till designern väljer du **Växla redigerings läge** ( ![ Välj "växla redigerings läge" ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
 
 <a name="find-runs-mock-data"></a>
 
@@ -120,7 +119,7 @@ Din Logic Apps körnings historik identifierar de körningar där åtgärderna a
 
 1. Om du vill visa åtgärder som använder statiska resultat väljer du den plats där kolumnen **statiska resultat** är inställd på **aktive rad**.
 
-   Åtgärder som använder statiska resultat visar ikonen test bägare (![ikon för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), till exempel:
+   Åtgärder som använder statiska resultat visar ikonen test bägare ( ![ ikon för statiska resultat ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), till exempel:
 
    ![Kör historik – åtgärder som använder statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
@@ -128,11 +127,11 @@ Din Logic Apps körnings historik identifierar de körningar där åtgärderna a
 
 Om du inaktiverar statiska resultat kastas inte värdena från den senaste konfigurationen. Så när du aktiverar statiska resultat nästa gång kan du fortsätta att använda dina tidigare värden.
 
-1. Hitta den åtgärd där du vill inaktivera statiska utdata. I åtgärdens övre högra hörn väljer du ikonen test bägare (![ikonen för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
+1. Hitta den åtgärd där du vill inaktivera statiska utdata. I åtgärdens övre högra hörn väljer du ikonen test bägare ( ![ ikonen för statiska resultat ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ).
 
    ![Inaktivera statiska resultat](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. Välj **inaktivera statiskt resultat** > har**gjorts**.
+1. Välj **inaktivera statiskt resultat**har  >  **gjorts**.
 
    ![Inaktivera statiska resultat](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 

@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74559351"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
@@ -40,7 +39,7 @@ Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrni
 
  
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **alla tjänst** > **hanterings grupper**.
+2. Välj **alla tjänst**  >  **hanterings grupper**.
 3. På huvud sidan väljer du **ny hanterings grupp.** 
 
     ![Huvud grupp](./media/security-center-management-groups/main.png) 

@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703200"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av gris-aktivitet i Azure Data Factory
@@ -82,17 +81,17 @@ HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipe
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| namn |Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Inga |
+| name |Namn på aktiviteten |Ja |
+| description |Text som beskriver vad aktiviteten används för |No |
 | typ |HDinsightPig |Ja |
-| tillför |En eller flera indata som används av aktiviteten gris |Inga |
+| tillför |En eller flera indata som används av aktiviteten gris |No |
 | utdata |En eller flera utdata som produceras av gris-aktiviteten |Ja |
 | linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
-| -skriptet |Ange det infogade gris-skriptet |Inga |
-| scriptPath |Lagra ditt gris-skript i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Inga |
-| definierar |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |Inga |
+| skript |Ange det infogade gris-skriptet |No |
+| scriptPath |Lagra ditt gris-skript i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |No |
+| definierar |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |No |
 
 ## <a name="example"></a>Exempel
 Nu ska vi titta på ett exempel på Game logs Analytics där du vill identifiera den tid som spelare kan spela för spel som lanseras av ditt företag.

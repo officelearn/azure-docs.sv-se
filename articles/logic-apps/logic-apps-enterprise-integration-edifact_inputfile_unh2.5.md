@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792536"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Hantera EDIFACT-dokument med UNH 2.5-segment i Azure Logic Apps
 
-Om det finns ett UNH 2.5-segment i ett EDIFACT-dokument används segmentet för schema ökning. I det här exemplet är `EAN008`EDIFACT fältet UNH:
+Om det finns ett UNH 2.5-segment i ett EDIFACT-dokument används segmentet för schema ökning. I det här exemplet är EDIFACT fältet UNH `EAN008` :
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 
@@ -29,7 +28,7 @@ Följ de här stegen som beskrivs nedan för att hantera det här meddelandet:
 
 ## <a name="update-the-schema"></a>Uppdatera schemat
 
-För att kunna bearbeta meddelandet måste du distribuera ett schema som har rotnoden UNH 2,5. Till exempel är `EFACT_D03B_ORDERS_EAN008`schema rot namnet för fältet Sample UNH. För varje `D03B_ORDERS` som har ett annat UNH 2.5-segment måste du distribuera ett individuellt schema.
+För att kunna bearbeta meddelandet måste du distribuera ett schema som har rotnoden UNH 2,5. Till exempel är schema rot namnet för fältet Sample UNH `EFACT_D03B_ORDERS_EAN008` . För varje `D03B_ORDERS` som har ett annat UNH 2.5-segment måste du distribuera ett individuellt schema.
 
 ## <a name="add-schema-to-edifact-agreement"></a>Lägg till schema i EDIFACT-avtalet
 
@@ -59,7 +58,7 @@ Om du vill koda det inkommande meddelandet konfigurerar du schemat i EDIFACT-avt
 
 1. Välj EDIFACT-avtal och klicka på **Redigera som JSON**.  Lägg till UNH 2.5-värdet i **schemaReferences** för att skicka avtal
 
-1. Välj EDIFACT-avtalet och välj **Redigera som JSON**. Lägg till UNH 2.5-värdet i `schemaReferences` avsnittet om sändnings avtal:
+1. Välj EDIFACT-avtalet och välj **Redigera som JSON**. Lägg till UNH 2.5-värdet i avsnittet om sändnings avtal `schemaReferences` :
 
    ![Lägg till UNH 2.5 för att skicka avtal](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 

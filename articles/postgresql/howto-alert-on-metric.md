@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fe099dcb49d176d27466c08749a5873904d1ae2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74766845"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-enskild server
@@ -38,7 +37,7 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
 3. Välj **Lägg till mått avisering** (+ ikon).
 
-4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i den information som krävs:
+4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i nödvändig information:
 
    ![Lägg till mått aviserings formulär](./media/howto-alert-on-metric/4-add-rule-form.png)
 

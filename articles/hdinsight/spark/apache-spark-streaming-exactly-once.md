@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74228975"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Skapa Apache Spark strömmande jobb med exakt en händelse bearbetning
@@ -49,7 +48,7 @@ I Spark-direktuppspelning har källor som Event Hubs och Kafka *pålitliga motta
 
 ### <a name="use-the-write-ahead-log"></a>Använd loggen för att skriva framåt
 
-Spark streaming har stöd för att skriva över gångs logg, där varje mottagen händelse först skrivs till Spark-katalogen i feltolerant lagring och sedan lagras i en elastisk distribuerad data uppsättning (RDD). I Azure har den feltoleranta lagringen HDFS som backas upp av antingen Azure Storage eller Azure Data Lake Storage. I ditt Spark streaming-program aktive ras loggen för Skriv åtgärder för alla mottagare genom att ställa `spark.streaming.receiver.writeAheadLog.enable` in konfigurations `true`inställningen på. Loggen för Skriv åtgärder ger fel tolerans för fel i både driv rutinen och körningarna.
+Spark streaming har stöd för att skriva över gångs logg, där varje mottagen händelse först skrivs till Spark-katalogen i feltolerant lagring och sedan lagras i en elastisk distribuerad data uppsättning (RDD). I Azure har den feltoleranta lagringen HDFS som backas upp av antingen Azure Storage eller Azure Data Lake Storage. I ditt Spark streaming-program aktive ras loggen för Skriv åtgärder för alla mottagare genom att ställa in `spark.streaming.receiver.writeAheadLog.enable` konfigurations inställningen på `true` . Loggen för Skriv åtgärder ger fel tolerans för fel i både driv rutinen och körningarna.
 
 För arbets uppgifter som kör uppgifter mot händelse data sker varje RDD av definition både replikerad och fördelad över flera arbetare. Om en aktivitet Miss lyckas eftersom den arbets rutin som körs kraschar, kommer aktiviteten att startas om på en annan arbets tagare som har en replik av händelse data, så händelsen förloras inte.
 

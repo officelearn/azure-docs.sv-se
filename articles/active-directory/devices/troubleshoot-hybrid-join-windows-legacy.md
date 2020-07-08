@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74379106"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner 
@@ -68,13 +67,13 @@ Om enheten inte var hybrid Azure AD-ansluten kan du försöka göra en hybrid Az
 
     ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-   - Det går inte att tyst autentisera den med automatisk arbets plats. exe med Azure AD eller AD FS. Detta kan orsakas av saknade eller felkonfigurerade AD FS (för federerade domäner) eller saknad eller felkonfigurerad Azure AD sömlös enkel inloggning (för hanterade domäner) eller nätverks problem. 
+   - Autoworkplace.exe kan inte tyst autentisera med Azure AD eller AD FS. Detta kan orsakas av saknade eller felkonfigurerade AD FS (för federerade domäner) eller saknad eller felkonfigurerad Azure AD sömlös enkel inloggning (för hanterade domäner) eller nätverks problem. 
    - Det kan bero på att Multi-Factor Authentication (MFA) är aktiverat/konfigurerat för användaren och WIAORMULTIAUTHN inte har kon figurer ATS på den AD FS servern. 
-   - En annan möjlighet är att sidan för identifiering av start sfär (HRD) väntar på användar interaktion, vilket förhindrar att automatisk installation av **arbets plats. exe** blockerar en token.
+   - En annan möjlighet är att sidan för identifiering av start sfär (HRD) väntar på användar interaktion, vilket förhindrar **autoworkplace.exe** från att tyst begära en token.
    - Det kan bero på att AD FS och Azure AD-URL: er saknas i Internet Explorers intranäts zon på klienten.
-   - Problem med nätverks anslutningen kan förhindra att **autoarbetsplats. exe** når AD FS eller Azure AD-URL: er. 
-   - För automatisk **arbets plats. exe** krävs att klienten har direkt insikter från klienten till organisationens lokala AD-domänkontrollant, vilket innebär att hybrid Azure AD Join bara lyckas när klienten är ansluten till organisationens intranät.
-   - Din organisation använder Azure AD sömlös enkel inloggning `https://autologon.microsoftazuread-sso.com` eller `https://aadg.windows.net.nsatc.net` finns inte på enhetens intranäts inställningar på Internet och Tillåt att **uppdateringar av statusfältet via skript** inte har Aktiver ATS för zonen Intranät.
+   - Problem med nätverks anslutningen kan hindra **autoworkplace.exe** från att nå AD FS eller Azure AD-URL: er. 
+   - **Autoworkplace.exe** kräver att klienten har direkt insikter från klienten till organisationens lokala AD-domänkontrollant, vilket innebär att hybrid Azure AD Join bara lyckas när klienten är ansluten till organisationens intranät.
+   - Din organisation använder Azure AD sömlös enkel inloggning `https://autologon.microsoftazuread-sso.com` eller finns `https://aadg.windows.net.nsatc.net` inte på enhetens intranäts inställningar på Internet och **Tillåt att uppdateringar av statusfältet via skript** inte har Aktiver ATS för zonen Intranät.
 - Du är inte inloggad som domän användare
 
    ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)

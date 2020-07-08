@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 8b7f52ea318432e97a450a54526f6481b14139c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74776151"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Avancerat skydd för Azure Database for PostgreSQL-enskild server
@@ -27,7 +26,7 @@ Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som ä
 > Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for PostgreSQL distribueras för Generell användning och minnesoptimerade servrar.
 
 ## <a name="set-up-threat-detection"></a>Konfigurera hot identifiering
-1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 2. Gå till konfigurations sidan för den Azure Database for PostgreSQL-server som du vill skydda. I säkerhets inställningarna väljer du **Avancerat skydd (för hands version)**.
 3. På konfigurations sidan för **Advanced Threat Protection (för hands version)** :
 

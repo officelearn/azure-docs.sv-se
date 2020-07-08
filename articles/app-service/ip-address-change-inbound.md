@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 999511c4759ee761f028a61fbfaa0310ac93d9b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74672419"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Förbereda för en ändring av en inkommande IP-adress
@@ -29,7 +28,7 @@ Om du har fått ett meddelande om att den inkommande IP-adressen för din Azure 
 
 Den nya inkommande IP-adressen som tilldelas till din app finns i portalen i fältet **virtuell IP-adress** . Både den nya IP-adressen och den gamla är anslutna till din app nu, och senare kommer den gamla att kopplas från.
 
-1.  Öppna [Azure-portalen](https://portal.azure.com).
+1.  Öppna [Azure Portal](https://portal.azure.com).
 
 2.  I den vänstra navigerings menyn väljer du **app Services**.
 

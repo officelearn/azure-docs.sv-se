@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74226728"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installera Körmiljö för Azure Functions för hands version 2
@@ -91,7 +90,7 @@ För att slutföra installationen av Körmiljö för Azure Functions måste du s
 
     ![Körmiljö för Azure Functions för hands versions konfiguration slutförd][12]
 
-1. Bläddra till **körmiljö för Azure Functions Portal** som `https://<machinename>.<domain>/`.
+1. Bläddra till **körmiljö för Azure Functions Portal** som `https://<machinename>.<domain>/` .
 
     ![Körmiljö för Azure Functions för hands versions portalen][13]
 
@@ -99,7 +98,7 @@ För att slutföra installationen av Körmiljö för Azure Functions måste du s
 
 Skapa din första funktion i Körmiljö för Azure Functions för hands version
 
-1. Bläddra till **körmiljö för Azure Functions Portal** `https://<machinename>.<domain>` till exempel `https://mycomputer.mydomain.com`.
+1. Bläddra till **körmiljö för Azure Functions Portal** till `https://<machinename>.<domain>` exempel `https://mycomputer.mydomain.com` .
 
 1. Du uppmanas att **Logga**in, om distribuerat i en domän använder ditt domän konto användar namn och lösen ord, annars använder du ditt lokala konto användar namn och lösen ord för att logga in på portalen.
 
@@ -113,7 +112,7 @@ Skapa din första funktion i Körmiljö för Azure Functions för hands version
 
     ![Körmiljö för Azure Functions prenumerations plan och namn för Preview-portalen][16]
 
-1. Alla dina funktions-appar visas i den vänstra rutan i portalen.  Om du vill skapa en ny Funktionsapp väljer du rubrik **funktionen appar** och klickar **+** på alternativet.
+1. Alla dina funktions-appar visas i den vänstra rutan i portalen.  Om du vill skapa en ny Funktionsapp väljer du rubrik **funktionen appar** och klickar på **+** alternativet.
 
 1. Ange ett namn för din Function-app, Välj rätt prenumeration, Välj vilken version av Azure Functions runtime du vill program vara mot och klicka på **skapa**
 

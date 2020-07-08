@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870572"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exempel på SQL-underfrågan för Azure Cosmos DB
@@ -109,7 +108,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-Metoden är inte begränsad till UDF: er. Den gäller för ett potentiellt kostsamt uttryck. Du kan till exempel ta samma metod med den matematiska funktionen `avg`:
+Metoden är inte begränsad till UDF: er. Den gäller för ett potentiellt kostsamt uttryck. Du kan till exempel ta samma metod med den matematiska funktionen `avg` :
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -366,7 +365,7 @@ Om nyckelordet VALUE i föregående under fråga utelämnas, kommer frågan att 
 SELECT EXISTS (SELECT undefined) 
 ```
 
-Under frågan omger listan med värden i den markerade listan i ett objekt. Om den markerade listan inte har några värden returnerar under frågan det enskilda värdet{}. Det här värdet är definierat, så det finns utvärderas till sant.
+Under frågan omger listan med värden i den markerade listan i ett objekt. Om den markerade listan inte har några värden returnerar under frågan det enskilda värdet {} . Det här värdet är definierat, så det finns utvärderas till sant.
 
 ### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exempel: skriva om ARRAY_CONTAINS och delta som det finns
 
@@ -388,7 +387,7 @@ WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 
 Dessutom kan ARRAY_CONTAINS bara kontrol lera om ett värde är lika med ett element i en matris. Om du behöver mer komplexa filter på mat ris egenskaper använder du JOIN.
 
-Tänk på följande fråga som filtrerar baserat på enheter och `nutritionValue` egenskaper i matrisen: 
+Tänk på följande fråga som filtrerar baserat på enheter och `nutritionValue` Egenskaper i matrisen: 
 
 ```sql
 SELECT VALUE c.description

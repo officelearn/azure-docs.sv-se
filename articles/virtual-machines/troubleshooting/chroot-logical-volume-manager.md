@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74684131"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Felsöka en virtuell Linux-dator när det inte finns någon åtkomst till Azures serie konsol och disklayouten använder LVM (Logical Volume Manager)
@@ -143,7 +142,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Kommandon kan användas för att installera, ta bort och uppdatera program vara. Felsök virtuella datorer för att åtgärda fel.
 
 
-Kör kommandot lsblk och/Rescue är nu/och/Rescue/Boot/Boot ![chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+Kör kommandot lsblk och/Rescue är nu/och/Rescue/Boot/Boot ![ chrooted](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Utför korrigeringar
 
@@ -171,13 +170,13 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 **Grep** -kommandot visar de kärnor som **grub. cfg** är medvetna om.
 ![Kernels](./media/chroot-logical-volume-manager/kernels.png)
 
-**grub2 – editenv** visar vilken kernel som ska läsas in vid nästa start ![-kernel standard](./media/chroot-logical-volume-manager/kernel-default.png)
+**grub2 – editenv** visar vilken kernel som ska läsas in vid nästa start- ![ kernel standard](./media/chroot-logical-volume-manager/kernel-default.png)
 
-**grub2-set-default** används för att ändra till en annan ![kernel grub2-uppsättning](./media/chroot-logical-volume-manager/grub2-set-default.png)
+**grub2-set-default** används för att ändra till en annan kernel ![ grub2-uppsättning](./media/chroot-logical-volume-manager/grub2-set-default.png)
 
-**grub2 – editenv** visar vilken kernel som ska läsas in vid nästa start ![nya kernel](./media/chroot-logical-volume-manager/kernel-new.png)
+**grub2 – editenv** visar vilken kernel som ska läsas in vid nästa start ![ nya kernel](./media/chroot-logical-volume-manager/kernel-new.png)
 
-**grub2-mkconfig** återkonstruerar grub. cfg med de versioner som ![krävs grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
+**grub2-mkconfig** återkonstruerar grub. cfg med de versioner som krävs ![ grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
@@ -204,8 +203,8 @@ Fråga den installerade **kerneln**
 
 ![Avancerat](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-Om det behövs tar du bort eller uppgraderar **kerneln**
-![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
+Om det behövs tar du bort eller uppgraderar **kerneln** 
+ ![ Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### <a name="example-3---enable-serial-console"></a>Exempel 3 – Aktivera serie konsol
@@ -252,15 +251,15 @@ umount /rescue
 
 Koppla bort disken från den virtuella datorn för räddning och utför en disk växling.
 
-Välj den virtuella datorn från Portal **diskarna** och välj **koppla**
-![från från kopplings disk](./media/chroot-logical-volume-manager/detach-disk.png) 
+Välj den virtuella datorn från Portal **diskarna** och välj **koppla** 
+ ![ från från kopplings disk](./media/chroot-logical-volume-manager/detach-disk.png) 
 
-Spara ändringarna ![Spara från koppling](./media/chroot-logical-volume-manager/save-detach.png) 
+Spara ändringarna ![ Spara från koppling](./media/chroot-logical-volume-manager/save-detach.png) 
 
 Disken blir nu tillgänglig så att den kan växlas med den ursprungliga OS-disken för den berörda virtuella datorn.
 
-Navigera i Azure Portal till den virtuella datorn som inte går att återställa och välj **diskar** -> **Växla disk för operativ system disk**
-![växling](./media/chroot-logical-volume-manager/swap-disk.png) 
+Navigera i Azure Portal till den virtuella datorn som inte går att återställa och välj **diskar**  ->  **Växla disk för operativ system disk** 
+ ![ växling](./media/chroot-logical-volume-manager/swap-disk.png) 
 
 Fyll i fälten **Välj disk** är den ögonblicks bild disk som du just har frånkopplat i föregående steg. Det virtuella dator namnet för den berörda virtuella datorn måste också Välj **OK** .
 

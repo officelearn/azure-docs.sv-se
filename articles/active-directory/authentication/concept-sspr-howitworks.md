@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74848586"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösen ord för självbetjäning i Azure AD
@@ -34,9 +33,9 @@ När en användare går till portalen för lösen ords återställning startas e
 
 Läs igenom följande steg för att lära dig mer om logiken bakom sidan för lösen ords återställning:
 
-1. Användaren väljer länken **kan inte komma åt ditt konto** eller går direkt till [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
+1. Användaren väljer länken **kan inte komma åt ditt konto** eller går direkt till [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) .
    * Baserat på webbläsarens nationella inställningar, återges upplevelsen på det aktuella språket. Lösen ords återställnings upplevelsen lokaliseras på samma språk som Office 365 stöder.
-   * Om du vill visa portalen för återställning av lösen ord på ett annat lokaliserat språk lägger du till "? mkt =" i slutet av URL: en för lösen ords återställning med [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)exemplet som följer nationella inställningar till spanska.
+   * Om du vill visa portalen för återställning av lösen ord på ett annat lokaliserat språk lägger du till "? mkt =" i slutet av URL: en för lösen ords återställning med exemplet som följer nationella inställningar till spanska [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) .
 2. Användaren anger ett användar-ID och skickar en captcha.
 3. Azure AD kontrollerar att användaren kan använda den här funktionen genom att göra följande:
    * Kontrollerar att användaren har den här funktionen aktive rad och har tilldelats en Azure AD-licens.
@@ -92,10 +91,10 @@ När du använder en mobilapp, t. ex. Microsoft Authenticator-appen, som en meto
 | :---: | :---: | :---: |
 | Mobile app-funktioner som är tillgängliga | Kod | Kod eller meddelande |
 
-Användarna har inte möjlighet att registrera sin mobilapp när de registrerar sig för lösen ords återställning via självbetjäning från [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Användare kan registrera sina mobilappar på [https://aka.ms/mfasetup](https://aka.ms/mfasetup)eller i den nya för hands versionen av säkerhets information på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+Användarna har inte möjlighet att registrera sin mobilapp när de registrerar sig för lösen ords återställning via självbetjäning från [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Användare kan registrera sina mobilappar på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) eller i den nya för hands versionen av säkerhets information på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!WARNING]
-> Du måste aktivera den [konvergerade registreringen för självbetjäning för återställning av lösen ord och Azure Multi-Factor Authentication (offentlig för hands version)](concept-registration-mfa-sspr-converged.md) innan användarna kan komma åt den nya [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)upplevelsen på.
+> Du måste aktivera den [konvergerade registreringen för självbetjäning för återställning av lösen ord och Azure Multi-Factor Authentication (offentlig för hands version)](concept-registration-mfa-sspr-converged.md) innan användarna kan komma åt den nya upplevelsen på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!IMPORTANT]
 > Det går inte att välja Authenticator-appen som den enda autentiseringsmetoden när du konfigurerar en princip för 1-grind. På samma sätt kan inte Authenticator-appen och endast en ytterligare metod väljas när du konfigurerar en princip på 2 portar.
@@ -198,7 +197,7 @@ Den här kontrollen anger om användare som besöker portalen för återställni
 * **Användare som registrerar sig via** självbetjänings registrering: om den organisation som du samarbetar med använder funktionen för [självbetjänings registrering](../users-groups-roles/directory-self-service-signup.md) för att ansluta till en klient kan vi återställa lösen ordet med det e-postmeddelande som de har registrerat.
 * **B2B-användare**: alla nya B2B-användare som skapats med hjälp av de nya [Azure AD B2B-funktionerna](../active-directory-b2b-what-is-azure-ad-b2b.md) kommer också att kunna återställa sina lösen ord med e-postmeddelandet som de registrerade under den inbjudna processen.
 
-För att testa det här scenariot https://passwordreset.microsoftonline.com går du till med någon av dessa partner användare. Om en annan e-postadress eller ett e-postmeddelande har definierats fungerar lösen ords återställning som förväntat.
+För att testa det här scenariot går du till https://passwordreset.microsoftonline.com med någon av dessa partner användare. Om en annan e-postadress eller ett e-postmeddelande har definierats fungerar lösen ords återställning som förväntat.
 
 > [!NOTE]
 > Microsoft-konton som har beviljats gäst åtkomst till din Azure AD-klient, t. ex. från Hotmail.com, Outlook.com eller andra personliga e-postadresser, kan inte använda Azure AD SSPR. De behöver återställa sina lösen ord med hjälp av informationen i [när du inte kan logga in på Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) -artikeln.

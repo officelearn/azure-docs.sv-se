@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74847857"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Versions historik för Azure AD Password Protection-Agent
@@ -42,9 +41,9 @@ Utgivnings datum: 3/13/2019
   * På Server Core-system kan det vara nödvändigt att skicka flaggan/q till .NET 4,7-installations programmet för att det ska gå att slutföra.
 * Proxy-tjänsten stöder nu automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard.
 * Automatisk uppgradering kan aktive ras eller inaktive ras med cmdleten Set-AzureADPasswordProtectionProxyConfiguration. Den aktuella inställningen kan frågas med hjälp av cmdleten Get-AzureADPasswordProtectionProxyConfiguration.
-* Tjänstens binärfil för DC-agenttjänsten har bytt namn till AzureADPasswordProtectionDCAgent. exe.
-* Tjänstens binärfil för proxy-tjänsten har bytt namn till AzureADPasswordProtectionProxy. exe. Brand Väggs regler kan behöva ändras i enlighet med detta om en brand vägg från tredje part används.
-  * OBS! om en http-proxy-konfigurationsfil användes i en tidigare proxy-installation måste den byta namn (från *proxyservice. exe. config* till *AzureADPasswordProtectionProxy. exe. config*) efter den här uppgraderingen.
+* Tjänstens binärfil för DC-agenttjänsten har döpts om till AzureADPasswordProtectionDCAgent.exe.
+* Tjänstens binärfil för proxy-tjänsten har döpts om till AzureADPasswordProtectionProxy.exe. Brand Väggs regler kan behöva ändras i enlighet med detta om en brand vägg från tredje part används.
+  * OBS! om en http-proxy-konfigurationsfil användes i en tidigare proxy-installation måste den byta namn (från *proxyservice.exe.config* till *AzureADPasswordProtectionProxy.exe.config*) efter uppgraderingen.
 * Alla tids kontroller för tidsbegränsade funktioner har tagits bort från DC-agenten.
 * Mindre fel korrigeringar och loggnings förbättringar.
 

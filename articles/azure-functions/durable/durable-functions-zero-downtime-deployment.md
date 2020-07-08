@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74231260"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Distribution utan drift avbrott för Durable Functions
@@ -54,17 +53,17 @@ Använd följande procedur för att konfigurera det här scenariot.
 
 1. För varje plats ställer du in [program inställningen AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) på anslutnings strängen för ett delat lagrings konto. Den här anslutnings strängen för lagrings kontot används av Azure Functions Runtime. Det här kontot används av Azure Functions Runtime och hanterar funktionens nycklar.
 
-1. Skapa en ny app-inställning för varje plats, till exempel `DurableManagementStorage`. Ange värdet för anslutnings strängen för olika lagrings konton. Dessa lagrings konton används av Durable Functions-tillägget för [tillförlitlig körning](durable-functions-checkpointing-and-replay.md). Använd ett separat lagrings konto för varje plats. Markera inte den här inställningen som en distributions plats inställning.
+1. Skapa en ny app-inställning för varje plats, till exempel `DurableManagementStorage` . Ange värdet för anslutnings strängen för olika lagrings konton. Dessa lagrings konton används av Durable Functions-tillägget för [tillförlitlig körning](durable-functions-checkpointing-and-replay.md). Använd ett separat lagrings konto för varje plats. Markera inte den här inställningen som en distributions plats inställning.
 
-1. I programmets [Host. JSON-fils durableTask-avsnitt](durable-functions-bindings.md#hostjson-settings)anger `azureStorageConnectionStringName` du namnet på den app-inställning som du skapade i steg 3.
+1. I din Function-appens [host.jspå filens durableTask-avsnitt](durable-functions-bindings.md#hostjson-settings)anger `azureStorageConnectionStringName` du som namn på den app-inställning som du skapade i steg 3.
 
 Följande diagram visar den beskrivna konfigurationen av distributions platser och lagrings konton. I det här scenariot för för distribution körs version 2 av en Function-app på produktions platsen, medan version 1 är kvar på mellanlagringsplatsen.
 
 ![Distributions platser och lagrings konton](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>Host. JSON-exempel
+### <a name="hostjson-examples"></a>host.jspå exempel
 
-Följande JSON-fragment är exempel på inställningen för anslutnings strängen i *Host. JSON* -filen.
+Följande JSON-fragment är exempel på inställningen för anslutnings strängen i *host.js* i filen.
 
 #### <a name="functions-20"></a>Functions 2,0
 
@@ -164,7 +163,7 @@ Routern övervakar status för dirigeringar i 1.0.1-versionen och tar bort appar
 
 ### <a name="tracking-store-settings"></a>Spårar butiks inställningar
 
-Varje Function-app bör använda separata schemaläggnings köer, eventuellt i separata lagrings konton. Om du vill fråga alla Dirigerings instanser i alla versioner av programmet kan du dela instans-och historik tabeller i dina funktions appar. Du kan dela tabeller genom att konfigurera `trackingStoreConnectionStringName` inställningarna `trackingStoreNamePrefix` och i filen [Host. JSON-inställningar](durable-functions-bindings.md#host-json) så att alla använder samma värden.
+Varje Function-app bör använda separata schemaläggnings köer, eventuellt i separata lagrings konton. Om du vill fråga alla Dirigerings instanser i alla versioner av programmet kan du dela instans-och historik tabeller i dina funktions appar. Du kan dela tabeller genom att konfigurera `trackingStoreConnectionStringName` `trackingStoreNamePrefix` inställningarna och i [host.jspå inställnings](durable-functions-bindings.md#host-json) filen så att alla använder samma värden.
 
 Mer information finns i [Hantera instanser i Durable Functions i Azure](durable-functions-instance-management.md).
 

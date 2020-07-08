@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74895783"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services telemetri  
@@ -78,7 +77,7 @@ Egenskap|Värde|Exempel/anteckningar
 ---|---|---
 PartitionKey|{konto-ID} _ {enhets-ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Konto-ID ingår i partitionsnyckel för att förenkla arbets flöden där flera Media Services-konton skriver till samma lagrings konto.
 RowKey|{sekunder till midnatt} _ {slump värde}|01688_00199<br/><br/>Rad nyckeln börjar med antalet sekunder till midnatt för att tillåta flest n format frågor i en partition. Mer information finns i [den här](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artikeln. 
-Tidsstämpel|Date/Time|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
+Tidsstämpel|Datum/tid|Automatisk tidsstämpel från Azure-tabellen 2016-09-09T22:43:42.241 Z
 Typ|Typ av entitet som tillhandahåller telemetridata|Kanal/StreamingEndpoint/Arkiv<br/><br/>Händelse typen är bara ett sträng värde.
 Name|Namnet på telemetri händelsen|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|Tiden då telemetri-händelsen inträffade (UTC)|2016-09-09T22:42:36.924 Z<br/><br/>Den observerade tiden tillhandahålls av den entitet som skickar Telemetrin (till exempel en kanal). Det kan finnas tidssynkroniserings problem mellan komponenter så att värdet är ungefärligt
@@ -132,10 +131,10 @@ OverlapCount|Överlappa i inmatningen|0
 DiscontinuityCount|Diskontinuitet för spår|0
 LastTimestamp|Senaste inmatade data tidsstämpel|1800488800
 NonincreasingCount|Antal fragment som har tagits bort på grund av en icke-ökande tidsstämpel|2
-UnalignedKeyFrames|Om vi har tagit emot fragment (mellan kvalitets nivåer) där nyckel ramar inte justeras |True
-UnalignedPresentationTime|Om vi har tagit emot fragment (mellan kvalitets nivåer/spår) där presentations tiden inte är justerad|True
-UnexpectedBitrate|Sant, om beräknad/faktisk bit hastighet för ljud-/video spår > 40 000 bps och IncomingBitrate = = 0 eller IncomingBitrate och actualBitrate skiljer sig med 50% |True
-Felfri|Sant, om <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> är 0|True<br/><br/>Felfri är en sammansatt funktion som returnerar FALSE när något av följande villkor är uppfyllt:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames = = True<br/>-UnalignedPresentationTime = = True<br/>-UnexpectedBitrate = = True
+UnalignedKeyFrames|Om vi har tagit emot fragment (mellan kvalitets nivåer) där nyckel ramar inte justeras |Sant
+UnalignedPresentationTime|Om vi har tagit emot fragment (mellan kvalitets nivåer/spår) där presentations tiden inte är justerad|Sant
+UnexpectedBitrate|Sant, om beräknad/faktisk bit hastighet för ljud-/video spår > 40 000 bps och IncomingBitrate = = 0 eller IncomingBitrate och actualBitrate skiljer sig med 50% |Sant
+Felfri|Sant, om <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> är 0|Sant<br/><br/>Felfri är en sammansatt funktion som returnerar FALSE när något av följande villkor är uppfyllt:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames = = True<br/>-UnalignedPresentationTime = = True<br/>-UnexpectedBitrate = = True
 
 **Live-Arkiv**
 

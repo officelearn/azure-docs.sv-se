@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74483528"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Haveriberedskap med hjälp av Azure DNS och Traffic Manager
@@ -72,7 +71,7 @@ Den Azure DNS manuella redundansväxlingen för haveri beredskap använder stand
 
 De antaganden som görs för lösningen är:
 - Både primära och sekundära slut punkter har statiska IP-adresser som inte ändras ofta. Anta att IP-adressen för den primära platsen är 100.168.124.44 och att IP-adressen för den sekundära platsen är 100.168.124.43.
-- Det finns en Azure DNS zon för både den primära och den sekundära platsen. Anta att slut punkten är prod.contoso.com för den primära platsen och att säkerhets kopierings platsen är dr.contoso.com. En DNS-post för huvud programmet som kallas www\.-contoso.com finns också.   
+- Det finns en Azure DNS zon för både den primära och den sekundära platsen. Anta att slut punkten är prod.contoso.com för den primära platsen och att säkerhets kopierings platsen är dr.contoso.com. En DNS-post för huvud programmet som kallas www- \. contoso.com finns också.   
 - TTL-värdet är på eller under SLA-uppsättningen RTO i organisationen. Om ett företag till exempel anger RTO för ett katastrof svar som ska vara 60 minuter bör TTL vara mindre än 60 minuter, helst desto lägre desto bättre. 
   Du kan konfigurera Azure DNS för manuell redundans enligt följande:
 - Skapa en DNS-zon
@@ -80,7 +79,7 @@ De antaganden som görs för lösningen är:
 - Uppdatera CNAME-post
 
 ### <a name="step-1-create-a-dns"></a>Steg 1: skapa en DNS
-Skapa en DNS-zon (till exempel www\.-contoso.com) enligt nedan:
+Skapa en DNS-zon (till exempel www \. -contoso.com) enligt nedan:
 
 ![Skapa en DNS-zon i Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +87,13 @@ Skapa en DNS-zon (till exempel www\.-contoso.com) enligt nedan:
 
 ### <a name="step-2-create-dns-zone-records"></a>Steg 2: skapa DNS-zon poster
 
-I den här zonen skapar du tre poster (till exempel\.www-contoso.com, prod.contoso.com och Dr.Consoto.com) som visas nedan.
+I den här zonen skapar du tre poster (till exempel www- \. contoso.com, Prod.contoso.com och Dr.Consoto.com) som visas nedan.
 
 ![Skapa DNS-zon poster](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Bild – skapa DNS-zon poster i Azure*
 
-I det här scenariot har webbplatsens\.contoso.com ett TTL-värde på 30 minuter, vilket är bra under den angivna RTO och pekar på produktions platsens Prod.contoso.com. Den här konfigurationen är under normal affärs verksamhet. TTL-värdet för prod.contoso.com och dr.contoso.com har angetts till 300 sekunder eller 5 minuter. Du kan använda en tjänst för Azure-övervakning, till exempel Azure Monitor eller Azure App insikter, eller alla partner övervaknings lösningar som dynaTrace, du kan även använda hemutvecklande lösningar som kan övervaka eller identifiera problem med program eller virtuella infrastrukturer.
+I det här scenariot har webbplatsens \. contoso.com ett TTL-värde på 30 minuter, vilket är bra under den angivna RTO och pekar på produktions platsens Prod.contoso.com. Den här konfigurationen är under normal affärs verksamhet. TTL-värdet för prod.contoso.com och dr.contoso.com har angetts till 300 sekunder eller 5 minuter. Du kan använda en tjänst för Azure-övervakning, till exempel Azure Monitor eller Azure App insikter, eller alla partner övervaknings lösningar som dynaTrace, du kan även använda hemutvecklande lösningar som kan övervaka eller identifiera problem med program eller virtuella infrastrukturer.
 
 ### <a name="step-3-update-the-cname-record"></a>Steg 3: uppdatera CNAME-posten
 
@@ -104,7 +103,7 @@ När ett problem har identifierats ändrar du värdet för posten så att det pe
 
 *Bild – uppdatera CNAME-posten i Azure*
 
-Inom 30 minuter omdirigeras alla frågor till www\.-contoso.com till Dr.contoso.com när de flesta matchare kommer att uppdatera den cachelagrade zonfilen.
+Inom 30 minuter omdirigeras alla frågor till www-contoso.com till dr.contoso.com när de flesta matchare kommer att uppdatera den cachelagrade zonfilen \. .
 Du kan också köra följande Azure CLI-kommando för att ändra CNAME-värdet:
  ```azurecli
    az network dns record-set cname set-record \

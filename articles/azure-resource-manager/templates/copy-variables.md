@@ -4,10 +4,9 @@ description: Använd kopierings åtgärden i en Azure Resource Manager mall för
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84678451"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Variabel iteration i ARM-mallar
@@ -314,7 +313,7 @@ I nästa exempel visas olika sätt som du kan använda kopiera med variabler.
 
 I följande exempel visas vanliga scenarier för att skapa mer än ett värde för en variabel.
 
-|Mall  |Description  |
+|Mall  |Beskrivning  |
 |---------|---------|
 |[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Visar de olika sätten att iterera på variabler. |
 |[Flera säkerhets regler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhets regler till en nätverks säkerhets grupp. Den skapar säkerhets reglerna från en parameter. För-parametern, se [flera NSG-parameter fil](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |

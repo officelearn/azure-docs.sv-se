@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697450"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Azure Functions HTTP-utgående bindningar
@@ -64,7 +63,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
 | customHeaders|inget|Gör att du kan ange anpassade rubriker i HTTP-svaret. I föregående exempel läggs `X-Content-Type-Options` rubriken till i svaret för att undvika avlyssning av innehålls typ. |
 |dynamicThrottlesEnabled|värdet<sup>\*</sup>|När den här inställningen är aktive rad kommer pipeline för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare `connections/threads/processes/memory/cpu/etc` , som och om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med ett `429 "Too Busy"` svar tills räknarna återgår till normala nivåer.<br/><sup>\*</sup>Standardvärdet i en förbruknings plan är `true` . Standardvärdet i en dedikerad plan är `false` .|

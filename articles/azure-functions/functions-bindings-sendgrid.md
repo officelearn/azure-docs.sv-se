@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697365"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindningar
@@ -360,10 +359,10 @@ I följande tabell visas de egenskaper för bindnings konfiguration som är till
 | riktning |saknas| Måste anges till `out` .| No |
 | name |saknas| Variabel namnet som används i funktions koden för begäran eller begär ande texten. Det här värdet är `$return` när det bara finns ett retur värde. | No |
 | apiKey | ApiKey | Namnet på en app-inställning som innehåller din API-nyckel. Om den inte anges är standardinställnings namnet för appen *AzureWebJobsSendGridApiKey*.| No |
-| till| Till | Mottagarens e-postadress. | Yes |
-| Från| Från | Avsändarens e-postadress. |  Yes |
-| motiv| Subjekt | E-postmeddelandets ämne. | Yes |
-| text| Text | E-postinnehållet. | Yes |
+| till| Till | Mottagarens e-postadress. | Ja |
+| Från| Från | Avsändarens e-postadress. |  Ja |
+| motiv| Subjekt | E-postmeddelandets ämne. | Ja |
+| text| Text | E-postinnehållet. | Ja |
 
 Valfria egenskaper kan ha standardvärden definierade i bindningen och antingen läggas till eller åsidosättas program mässigt.
 
@@ -389,7 +388,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```  
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
 |Från|saknas|Avsändarens e-postadress för alla funktioner.| 
 

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84690039"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Data modell referens för Azure API Management-mall
@@ -46,7 +45,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 -   [Åtgärds meny](#Menu)  
 -   [Meny alternativ för åtgärd](#MenuItem)  
 -   [Sidindelning](#Paging)  
--   [ProfileServiceApplicationProxy](#Parameter)  
+-   [Parameter](#Parameter)  
 -   [Produkt](#Product)  
 -   [Leverantör](#Provider)  
 -   [Bilden](#Representation)  

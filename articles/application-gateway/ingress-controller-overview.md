@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
 ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84668108"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Vad är Application Gateway ingress-styrenhet?
@@ -69,8 +68,8 @@ Följande tabeller sorterar vilka scenarier som för närvarande stöds med Helm
 ### <a name="helm-deployed-agic-2-aks-clusters"></a>Helm distribuerade AGIC (2 + AKS-kluster)
 |                  |1 Application Gateway |2 + Application Gateway |
 |------------------|---------|--------|
-|**1 AGIC**|Saknas |Saknas |
-|**2 + AGICs**|Måste använda delade ProhibitedTarget-funktioner |Saknas |
+|**1 AGIC**|E.t. |E.t. |
+|**2 + AGICs**|Måste använda delade ProhibitedTarget-funktioner |E.t. |
 
 ## <a name="next-steps"></a>Nästa steg
 - [**AKS Bygg-distribution**](tutorial-ingress-controller-add-on-new.md): instruktioner om hur du installerar AGIC-tillägg, AKS och Application Gateway på en tom infrastruktur.

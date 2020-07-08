@@ -8,10 +8,9 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699438"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Flytta Analysis Services till en annan region
@@ -36,7 +35,7 @@ Den här artikeln beskriver hur du använder en mall för att migrera en enskild
 Innan du flyttar en server till en annan region rekommenderar vi att du skapar en detaljerad plan. Överväg ytterligare resurser, till exempel gateways och lagring som kan behöva flyttas. Med en plan är det viktigt att slutföra en eller flera utvärderings åtgärder med test servrar innan du flyttar en produktions server.
 
 > [!IMPORTANT]
-> Klient program och anslutnings strängar ansluter till Analysis Services med hjälp av det fullständiga Server namnet, som är en URI som innehåller den region som servern finns i. Exempelvis `asazure://westcentralus.asazure.windows.net/advworks01`. När du flyttar en server till en annan region skapar du effektivt en ny server resurs i en annan region, vilket kommer att ha en annan region i Server namns-URI: n. Klient program och anslutnings strängar som används i skript måste ansluta till den nya servern med hjälp av den nya server namns-URI: n. Användning av ett [Server namns Ali Aset](analysis-services-server-alias.md) kan minska antalet platser som server namn-URI: n måste ändras, men måste implementeras innan en region flyttas.
+> Klient program och anslutnings strängar ansluter till Analysis Services med hjälp av det fullständiga Server namnet, som är en URI som innehåller den region som servern finns i. Till exempel `asazure://westcentralus.asazure.windows.net/advworks01`. När du flyttar en server till en annan region skapar du effektivt en ny server resurs i en annan region, vilket kommer att ha en annan region i Server namns-URI: n. Klient program och anslutnings strängar som används i skript måste ansluta till den nya servern med hjälp av den nya server namns-URI: n. Användning av ett [Server namns Ali Aset](analysis-services-server-alias.md) kan minska antalet platser som server namn-URI: n måste ändras, men måste implementeras innan en region flyttas.
 
 > [!IMPORTANT]
 > Azure-regioner använder olika IP-adressintervall. Om du har konfigurerat brand Väggs undantag för regionen som servern och/eller lagrings kontot finns i, kan det vara nödvändigt att konfigurera ett annat IP-adressintervall. Mer information finns i [vanliga frågor och svar om Analysis Services nätverks anslutning](analysis-services-network-faq.md).
@@ -68,7 +67,7 @@ Mallen innehåller konfigurations egenskaper för käll servern.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Exportera en mall med hjälp av Azure Portal:
+Så här exporterar du en mall med Azure-portalen:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -190,13 +189,13 @@ Om du vill distribuera en ny server resurs i en annan region använder du **temp
 
 1. I portalen väljer du **skapa en resurs**.
 
-2. I **Sök på Marketplace** skriver du **malldistribution** och trycker sedan på **RETUR**.
+2. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
 
-3. Välj **Malldistribution**.
+3. Välj **malldistribution**.
 
 4. Välj **Skapa**.
 
-5. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
+5. Välj **Bygg en egen mall i redigeraren**.
 
 6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in **template.jspå** filen som du exporterade och ändrade.
 

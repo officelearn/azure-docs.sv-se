@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
 ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697348"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions bindnings tillägg
@@ -29,7 +28,7 @@ I följande tabell visas när och hur du registrerar bindningar.
 |Azure Portal|Automatiskt|Automatiskt|
 |Non-.NET-språk eller utveckling av lokala Azure Core-verktyg|Automatiskt|[Använda Azure Functions Core Tools-och paket paket](#extension-bundles)|
 |C#-klass bibliotek med Visual Studio|[Använda NuGet-verktyg](#vs)|[Använda NuGet-verktyg](#vs)|
-|C#-klass bibliotek med Visual Studio Code|Ej tillämpligt|[Använd .NET Core CLI](#vs-code)|
+|C#-klass bibliotek med Visual Studio Code|E.t.|[Använd .NET Core CLI](#vs-code)|
 
 ## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Tilläggs paket för lokal utveckling
 

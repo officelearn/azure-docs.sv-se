@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jingwang
 ms.openlocfilehash: 8b4876377501209e19ac496d605d228208d2323d
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84670924"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel-format i Azure Data Factory
@@ -29,9 +28,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Obligatorisk |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Excel**.   | Yes      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . | Yes      |
-| Inställda SheetName        | Namnet på Excel-kalkylbladet för att läsa data.                       | Yes      |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Excel**.   | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . | Ja      |
+| Inställda SheetName        | Namnet på Excel-kalkylbladet för att läsa data.                       | Ja      |
 | intervall            | Cell området i det aktuella kalkyl bladet för att hitta de selektiva data, t. ex. `A3:H5` (en tabell från a3 till H5), `A3` (en tabell som börjar från cell A3), `A3:A3` (enkel cell). Om inget anges läser ADF-filen från hela kalkyl bladet som en tabell. | No       |
 | firstRowAsHeader | Anger om den första raden i angivet kalkyl blad/intervall ska behandlas som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | No       |
 | nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | No       |
@@ -74,7 +73,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 
 | Egenskap      | Beskrivning                                                  | Obligatorisk |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ExcelSource**. | Yes      |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ExcelSource**. | Ja      |
 | storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | Nej       |
 
 ```json

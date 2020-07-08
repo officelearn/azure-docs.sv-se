@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692531"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Hantera VMware vCenter Server
@@ -38,7 +37,7 @@ När du konfigurerar haveri beredskap för lokala virtuella VMware-datorer behö
 
 ### <a name="account-permissions"></a>Konto behörigheter
 
-|**Uppgift** | **Konto** | **Behörigheter** | **Information**|
+|**Uppgift** | **Konto** | **Behörigheter** | **Detaljer**|
 |--- | --- | --- | ---|
 |**Identifiering/migrering av virtuell dator (utan återställning)** | Minst ett skrivskyddat användar konto. | Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).|
 |**Replikering/redundans** | Minst ett skrivskyddat användar konto. | Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med **spridning till underordnat** objekt till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).<br/><br/> Användbart för migrering, men inte fullständig replikering, redundans och återställning efter fel.|

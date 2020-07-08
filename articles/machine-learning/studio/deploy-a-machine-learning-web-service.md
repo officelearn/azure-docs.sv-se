@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696396"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuera en Azure Machine Learning Studio (klassisk)-webb tjänst
@@ -40,7 +39,7 @@ Du kan distribuera din modell i tre steg från en överblick på hög nivå:
 
 För att träna en förutsägelse analys modell använder du Azure Machine Learning Studio (klassisk) för att skapa ett utbildnings experiment där du inkluderar olika moduler för att läsa in tränings data, förbereda data vid behov, använda Machine Learning-algoritmer och utvärdera resultatet. Du kan iterera vidare till ett experiment och prova olika Machine Learning-algoritmer för att jämföra och utvärdera resultatet.
 
-Processen för att skapa och hantera utbildnings experiment omfattas mer noggrant. Mer information finns i dessa artiklar:
+Processen för att skapa och hantera utbildnings experiment omfattas mer noggrant. Mer information finns i de här artiklarna:
 
 * [Skapa ett enkelt experiment i Azure Machine Learning Studio (klassisk)](create-experiment.md)
 * [Utveckla en förutsägelse lösning med Azure Machine Learning Studio (klassisk)](tutorial-part1-credit-risk.md)

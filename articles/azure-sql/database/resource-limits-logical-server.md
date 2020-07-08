@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 06/10/2020
 ms.openlocfilehash: eac5814eb977a01135ad2fcd9551b3475673dbca
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691772"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Resurs gränser för Azure SQL Database-och Azure Synapse Analytics-servrar
@@ -158,7 +157,7 @@ De faktiska taxan för logg skapande som påförs vid körning kan också påver
 
 Trafikstyrningen för logg hastighets styrning sker via följande vänte lägen (visas i [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) vyer):
 
-| Wait-typ | Kommentarer |
+| Wait-typ | Obs! |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | Databas begränsning |
 | POOL_LOG_RATE_GOVERNOR | Begränsning av pool |

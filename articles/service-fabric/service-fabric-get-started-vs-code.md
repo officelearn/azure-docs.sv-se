@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692606"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric för Visual Studio Code
@@ -52,7 +51,7 @@ Följande krav måste vara installerade för .NET Core/C#-utveckling:
 
 ## <a name="setup"></a>Installation
 
-1. Öppen VS Code.
+1. Öppna VS Code.
 2. Klicka på ikonen tillägg i **aktivitets fältet** på vänster sida om vs Code. Sök efter "Service Fabric". Klicka på **Installera** för Service Fabric Reliable Services-tillägget.
 
 ## <a name="commands"></a>Kommandon

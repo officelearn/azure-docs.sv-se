@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84690327"
 ---
 # <a name="api-management-cross-domain-policies"></a>Korsdomänprinciper för API Management
@@ -55,7 +54,7 @@ Använd `cross-domain` principen för att göra API: et tillgängligt från webb
 
 |Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
-|mellan domäner|Rot element. Underordnade element måste följa [specifikationen för Adobe Cross-domain policy File](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Yes|
+|mellan domäner|Rot element. Underordnade element måste följa [specifikationen för Adobe Cross-domain policy File](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|
 
 ### <a name="usage"></a>Användning
 Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -122,20 +121,20 @@ I det här exemplet visas hur du stöder för-flygnings begär Anden, t. ex. de 
 
 ### <a name="elements"></a>Element
 
-|Name|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|CORS|Rot element.|Yes|Ej tillämpligt|
-|tillåtna-ursprung|Innehåller `origin` element som beskriver tillåtna ursprung för frågor mellan domäner. `allowed-origins`kan innehålla antingen ett enda `origin` element som anger `*` att alla ursprung eller ett eller flera `origin` element som innehåller en URI ska tillåtas.|Yes|Ej tillämpligt|
-|ursprung|Värdet kan antingen vara `*` att tillåta alla ursprung eller en URI som anger ett enda ursprung. URI: n måste innehålla ett schema, en värd och en port.|Yes|Om porten utelämnas i en URI används port 80 för HTTP och port 443 för HTTPS.|
+|CORS|Rot element.|Ja|E.t.|
+|tillåtna-ursprung|Innehåller `origin` element som beskriver tillåtna ursprung för frågor mellan domäner. `allowed-origins`kan innehålla antingen ett enda `origin` element som anger `*` att alla ursprung eller ett eller flera `origin` element som innehåller en URI ska tillåtas.|Ja|E.t.|
+|ursprung|Värdet kan antingen vara `*` att tillåta alla ursprung eller en URI som anger ett enda ursprung. URI: n måste innehålla ett schema, en värd och en port.|Ja|Om porten utelämnas i en URI används port 80 för HTTP och port 443 för HTTPS.|
 |tillåtna metoder|Det här elementet krävs om andra metoder än GET eller POST tillåts. Innehåller `method` element som anger de HTTP-verb som stöds. Värdet `*` anger alla metoder.|No|Om det här avsnittet inte finns stöds GET och POST.|
-|metod|Anger ett HTTP-verb.|Minst ett- `method` element krävs om `allowed-methods` avsnittet finns.|Ej tillämpligt|
-|tillåtna – rubriker|Det här elementet innehåller `header` element som anger namn på de huvuden som kan tas med i begäran.|No|Ej tillämpligt|
+|metod|Anger ett HTTP-verb.|Minst ett- `method` element krävs om `allowed-methods` avsnittet finns.|E.t.|
+|tillåtna – rubriker|Det här elementet innehåller `header` element som anger namn på de huvuden som kan tas med i begäran.|No|E.t.|
 |exponera – rubriker|Det här elementet innehåller `header` element som anger namn på de rubriker som ska vara tillgängliga för klienten.|No|Saknas|
-|sidhuvud|Anger ett rubrik namn.|Minst ett `header` element krävs i `allowed-headers` eller `expose-headers` om avsnittet är tillgängligt.|Ej tillämpligt|
+|sidhuvud|Anger ett rubrik namn.|Minst ett `header` element krävs i `allowed-headers` eller `expose-headers` om avsnittet är tillgängligt.|E.t.|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
 |Tillåt-autentiseringsuppgifter|`Access-Control-Allow-Credentials`Rubriken i preflight-svaret anges till värdet för det här attributet och påverkar klientens möjlighet att skicka autentiseringsuppgifter i kors domän begär Anden.|No|falskt|
 |preflight-resultat-max-ålder|`Access-Control-Max-Age`Rubriken i preflight-svaret ställs in på värdet för det här attributet och påverkar användar agentens möjlighet att cachelagra svar före flygning.|No|0|
@@ -169,13 +168,13 @@ Om du lägger till en callback `?cb=XXX` -parameter returnerar den ett JSONP-res
 
 |Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
-|JSONP|Rot element.|Yes|
+|JSONP|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|motanrop-parameter-Name|JavaScript-funktionen för Cross-Domain anropas med det fullständigt kvalificerade domän namnet där funktionen finns.|Yes|Ej tillämpligt|
+|motanrop-parameter-Name|JavaScript-funktionen för Cross-Domain anropas med det fullständigt kvalificerade domän namnet där funktionen finns.|Ja|E.t.|
 
 ### <a name="usage"></a>Användning
 Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).

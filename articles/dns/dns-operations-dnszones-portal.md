@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689171"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Hantera DNS-zoner i Azure Portal
@@ -38,7 +37,7 @@ Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure Portal. Du
 4. På bladet **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
 
-   | **Inställning** | **Värde** | **Information** |
+   | **Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
    |**Namn**|contoso.com|Namnet på DNS-zonen|
    |**Prenumeration**|[Din prenumeration]|Välj en prenumeration att skapa DNS-zonen i.|

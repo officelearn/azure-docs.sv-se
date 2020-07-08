@@ -13,10 +13,9 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689766"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webb tabell källa med Azure Data Factory
@@ -72,9 +71,9 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| typ |Egenskapen Type måste anges till: **webb** |Yes |
-| URL |URL till webb adressen |Yes |
-| authenticationType |Antal. |Yes |
+| typ |Egenskapen Type måste anges till: **webb** |Ja |
+| URL |URL till webb adressen |Ja |
+| authenticationType |Antal. |Ja |
 
 ### <a name="using-anonymous-authentication"></a>Använda anonym autentisering
 
@@ -100,9 +99,9 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ |typ av data uppsättning. måste vara inställd på **Webtable** |Yes |
+| typ |typ av data uppsättning. måste vara inställd på **Webtable** |Ja |
 | path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
-| Tabbindex |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Yes |
+| Tabbindex |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Ja |
 
 **Exempel:**
 

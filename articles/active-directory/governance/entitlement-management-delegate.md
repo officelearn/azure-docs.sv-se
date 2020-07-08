@@ -17,10 +17,9 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692146"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegering och roller i hantering av Azure AD-rättigheter
@@ -86,12 +85,12 @@ Dessutom har en utsedd god kännare och en beställare av ett Access-paket även
 
 | Höger | Beskrivning |
 | --- | --- |
-| Approver | Auktoriserad av en princip för att godkänna eller neka begär Anden om åtkomst till paket, även om de inte kan ändra definitioner för åtkomst paket. |
+| God kännare | Auktoriserad av en princip för att godkänna eller neka begär Anden om åtkomst till paket, även om de inte kan ändra definitioner för åtkomst paket. |
 | Requestor | Auktoriserad av en princip för ett Access-paket för att begära det Access-paketet. |
 
 I följande tabell visas de aktiviteter som rättighets hanterings rollerna kan utföra.
 
-| Uppgift | Administratör | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren |
+| Uppgift | Admin | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegera till en katalog skapare](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Lägga till en ansluten organisation](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |

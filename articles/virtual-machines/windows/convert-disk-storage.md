@@ -8,10 +8,9 @@ ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 4d43311ece7cb72e9f4abb3f8a18f3550fe48f71
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660689"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagrings typen för en hanterad disk
@@ -111,7 +110,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 Följ de här stegen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj den virtuella datorn i listan över **virtuella datorer** i portalen.
 3. Om den virtuella datorn inte är stoppad väljer du **stoppa** längst upp i **översikts** fönstret för den virtuella datorn och väntar på att den virtuella datorn ska stoppas.
 3. I fönstret för den virtuella datorn väljer du **diskar** på menyn.

@@ -1,6 +1,6 @@
 ---
 title: 'Azure SQL Database: hantera långsiktig kvarhållning av säkerhets kopior'
-description: Lär dig hur du lagrar och återställer automatiserade säkerhets kopieringar för en Azure SQL Database enskild eller poolad databas i Azure Storage (i upp till 10 år) med hjälp av Azure Portal och PowerShell
+description: Lär dig hur du lagrar och återställer automatiserade säkerhets kopieringar för Azure SQL Database i Azure Storage (i upp till 10 år) med hjälp av Azure Portal och PowerShell
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
@@ -11,11 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/14/2020
-ms.openlocfilehash: e3abe203c32994c63ddd1cecc45cbcc8b566c45a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027910"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087375"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

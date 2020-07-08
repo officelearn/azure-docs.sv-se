@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972799"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087749"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Skapa Apache HBase-kluster på HDInsight i Azure Virtual Network
 
@@ -51,7 +51,7 @@ I det här avsnittet skapar du ett Linux-baserat Apache HBase-kluster med det be
 
 1. Välj **Redigera mall**i dialog rutan **Anpassad distribution** .
 
-1. Ändra värde `Standard_A3` till `Standard_A4_V2`på rad 165. Välj sedan **Spara**.
+1. Ändra värde till på rad 165 `Standard_A3` `Standard_A4_V2` . Välj sedan **Spara**.
 
 1. Slutför den återstående mallen med följande information:
 
@@ -130,14 +130,16 @@ Den del av domän namnet som börjar med kluster namnet är DNS-suffixet. Till e
 
 ### <a name="verify-communication-inside-virtual-network"></a>Verifiera kommunikation i virtuellt nätverk
 
-Du kan kontrol lera att den virtuella datorn kan kommunicera med HBase-klustret genom att `ping headnode0.<dns suffix>` använda kommandot från den virtuella datorn. Till exempel `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
+Du kan kontrol lera att den virtuella datorn kan kommunicera med HBase-klustret genom att använda kommandot `ping headnode0.<dns suffix>` från den virtuella datorn. Till exempel `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
-Om du vill använda den här informationen i ett Java-program kan du följa stegen i [använda Apache Maven för att skapa Java-program som använder Apache HBase med HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) för att skapa ett program. Om du vill att programmet ska ansluta till en fjärran sluten HBase-Server ändrar du filen **HBase-site. XML** i det här exemplet för att använda det fullständiga domän namnet för Zookeeper. Ett exempel:
+Om du vill använda den här informationen i ett Java-program kan du följa stegen i [använda Apache Maven för att skapa Java-program som använder Apache HBase med HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) för att skapa ett program. Om du vill att programmet ska ansluta till en fjärran sluten HBase-Server ändrar du **hbase-site.xml** filen i det här exemplet för att använda det fullständiga domän namnet för Zookeeper. Ett exempel:
 
-    <property>
-        <name>hbase.zookeeper.quorum</name>
-        <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
-    </property>
+```xml
+<property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
+</property>
+```
 
 > [!NOTE]  
 > Mer information om namn matchning i virtuella Azure-nätverk, inklusive hur du använder din egen DNS-server, finns i [namn matchning (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).

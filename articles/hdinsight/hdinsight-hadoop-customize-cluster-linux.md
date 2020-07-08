@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f78157fc0873787ce13ed4e9e62ebfd3d3271d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36aaee030dd5267a391dd9a235dd5f8dc0932fa0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192084"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087099"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -25,8 +25,8 @@ Skript åtgärder kan också publiceras på Azure Marketplace som ett HDInsight-
 
 För ett domänanslutet HDInsight-kluster finns det två Apache Ambari-behörigheter som krävs när du använder skript åtgärder med klustret:
 
-* **AMBARI. KÖR\_anpassat\_kommando**. Administratörs rollen Ambari har den här behörigheten som standard.
-* **Kluster. KÖR\_anpassat\_kommando**. Både HDInsight-kluster administratören och Ambari-administratören har den här behörigheten som standard.
+* **AMBARI. KÖR \_ anpassat \_ kommando**. Administratörs rollen Ambari har den här behörigheten som standard.
+* **Kluster. KÖR \_ anpassat \_ kommando**. Både HDInsight-kluster administratören och Ambari-administratören har den här behörigheten som standard.
 
 Mer information om hur du arbetar med behörigheter med domänanslutna HDInsight finns i [Hantera HDInsight-kluster med Enterprise Security Package](./domain-joined/apache-domain-joined-manage.md).
 
@@ -49,7 +49,7 @@ En skript åtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster
 
     * För vanliga kluster:
 
-      * ADLS Gen1: HDInsight-tjänstens huvud namn använder för att få åtkomst till Data Lake Storage måste ha Läs behörighet till skriptet. URI-formatet för skript som lagras i Data Lake Storage Gen1 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`är.
+      * ADLS Gen1: HDInsight-tjänstens huvud namn använder för att få åtkomst till Data Lake Storage måste ha Läs behörighet till skriptet. URI-formatet för skript som lagras i Data Lake Storage Gen1 är `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` .
 
       * En BLOB i ett Azure Storage konto som antingen är det primära eller ytterligare lagrings kontot för HDInsight-klustret. HDInsight beviljas åtkomst till båda typerna av lagrings konton när klustret skapas.
 
@@ -62,7 +62,7 @@ En skript åtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster
 
 * Kan begränsas till att endast köras på vissa nodtyper. Exempel är Head-noder eller arbetsnoder.
 
-* Kan vara bestående eller `ad hoc`.
+* Kan vara bestående eller `ad hoc` .
 
     Beständiga skript åtgärder måste ha ett unikt namn. Bestående skript används för att anpassa nya arbetsnoder som läggs till i klustret genom skalnings åtgärder. Ett bestående skript kan också tillämpa ändringar av en annan nodtyp när skalnings åtgärder sker. Ett exempel är en head-nod.
 
@@ -108,12 +108,14 @@ Ett skript fel på ett kluster som redan körs medför inte automatiskt att klus
 
 Skript åtgärder körs med rot privilegier. Se till att du förstår vad ett skript gör innan du tillämpar det på klustret.
 
-När du tillämpar ett skript på ett kluster ändras kluster statusen från att **köras** till **godkänd**. Sedan ändras den till **HDInsight-konfigurationen** och slutligen tillbaka till att **köras** för lyckade skript. Skript status loggas i historiken för skript åtgärden. Den här informationen visar om skriptet lyckades eller misslyckades. `Get-AzHDInsightScriptActionHistory` PowerShell-cmdleten visar till exempel status för ett skript. Den returnerar information som liknar följande text:
+När du tillämpar ett skript på ett kluster ändras kluster statusen från att **köras** till **godkänd**. Sedan ändras den till **HDInsight-konfigurationen** och slutligen tillbaka till att **köras** för lyckade skript. Skript status loggas i historiken för skript åtgärden. Den här informationen visar om skriptet lyckades eller misslyckades. `Get-AzHDInsightScriptActionHistory`PowerShell-cmdleten visar till exempel status för ett skript. Den returnerar information som liknar följande text:
 
-    ScriptExecutionId : 635918532516474303
-    StartTime         : 8/14/2017 7:40:55 PM
-    EndTime           : 8/14/2017 7:41:05 PM
-    Status            : Succeeded
+```output
+ScriptExecutionId : 635918532516474303
+StartTime         : 8/14/2017 7:40:55 PM
+EndTime           : 8/14/2017 7:41:05 PM
+Status            : Succeeded
+```
 
 > [!IMPORTANT]  
 > Om du ändrar kluster användaren, administratören, lösen ordet efter att klustret har skapats kan skript åtgärder som körs mot det här klustret Miss förväntas. Om du har bestående skript åtgärder som riktar sig mot arbetsnoder kan dessa skript Miss Miss förväntat när du skalar klustret.
@@ -245,12 +247,14 @@ Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](https://
 
 När åtgärden har slutförts visas information som liknar följande text:
 
-    OperationState  : Succeeded
-    ErrorMessage    :
-    Name            : Giraph
-    Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-    Parameters      :
-    NodeTypes       : {HeadNode, WorkerNode}
+```output
+OperationState  : Succeeded
+ErrorMessage    :
+Name            : Giraph
+Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+Parameters      :
+NodeTypes       : {HeadNode, WorkerNode}
+```
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Tillämpa en skript åtgärd på ett kluster som körs från Azure CLI
 
@@ -268,9 +272,9 @@ Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure C
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    Giltiga roller är `headnode`, `workernode`, `zookeepernode`, `edgenode`. Om skriptet ska tillämpas på flera nodtyper avgränsar du rollerna med ett blank steg. Till exempel `--roles headnode workernode`.
+    Giltiga roller är `headnode` , `workernode` , `zookeepernode` , `edgenode` . Om skriptet ska tillämpas på flera nodtyper avgränsar du rollerna med ett blank steg. Till exempel `--roles headnode workernode`.
 
-    Lägg till `--persist-on-success`för att spara skriptet. Du kan också Spara skriptet senare med hjälp `az hdinsight script-action promote`av.
+    Lägg till för att spara skriptet `--persist-on-success` . Du kan också Spara skriptet senare med hjälp av `az hdinsight script-action promote` .
 
 ### <a name="apply-a-script-action-to-a-running-cluster-by-using-rest-api"></a>Tillämpa en skript åtgärd på ett kluster som körs med hjälp av REST API
 

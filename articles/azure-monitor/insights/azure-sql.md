@@ -7,11 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249439"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087188"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database att använda Azure SQL-analys (förhands granskning)
 
@@ -71,7 +72,7 @@ När du lägger till Azure SQL-analys på din arbets yta läggs panelen Azure SQ
 
 ![Azure SQL-analys sammanfattnings panel](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-När den har lästs in visar panelen antalet databaser och elastiska pooler i SQL Database och hanterade instanser och instans databaser i SQL-hanterad instans från vilka Azure SQL-analys ta emot telemetri för diagnostik.
+När den har lästs in visar panelen antalet databaser och elastiska pooler i SQL Database och instanser och instans databaser i SQL-hanterad instans från vilka Azure SQL-analys ta emot telemetri för diagnostik.
 
 ![Azure SQL-analys panel](./media/azure-sql/azure-sql-sol-tile-02.png)
 
@@ -105,7 +106,7 @@ När Azure SQL-analys panelen för databaserna är markerad visas övervaknings 
 
 Om du väljer någon av panelerna öppnas en detaljerad rapport i det aktuella perspektivet. När perspektivet är markerat öppnas rapporten för att öka detalj nivån.
 
-Välja vyn SQL-hanterad instans, visar information om användningen av hanterade instanser, databaser den innehåller och telemetri för de frågor som körs över instansen.
+Om du väljer vyn SQL-hanterad instans visas information om instansen, instans databaser och telemetri för de frågor som körs över den hanterade instansen.
 
 ![Azure SQL-analys tids gränser](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
@@ -268,7 +269,7 @@ AzureDiagnostics
 
 > [!NOTE]
 >
-> - Krav för att ställa in den här aviseringen är att övervakad den hanterade instansen har strömningen av ResourceUsageStats logg aktive rad till Azure SQL-analys.
+> - Krav för att ställa in den här aviseringen är att den övervakade hanterade instansen har strömningen av ResourceUsageStats logg aktive rad till Azure SQL-analys.
 > - Den här frågan kräver att en varnings regel har kon figurer ATS för att utlösa en avisering när det finns resultat (> 0 resultat) från frågan, vilket anger att villkoret finns på den hanterade instansen. Utdatan är lagrings procent användning på den hanterade instansen.
 
 #### <a name="cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Genomsnittlig förbrukning för CPU är över 95% under de senaste 1 timme

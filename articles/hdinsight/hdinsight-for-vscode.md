@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: tracking-python
-ms.openlocfilehash: a20cbf14ea2aa2475f25236615b85d6697ce252b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704870"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087137"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
 
@@ -21,7 +21,7 @@ Lär dig hur du använder Apache Spark & Hive-verktyg för Visual Studio Code. A
 
 Spark & Hive-verktyg kan installeras på plattformar som stöds av Visual Studio Code. Observera följande krav för olika plattformar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
@@ -71,7 +71,7 @@ För en nationell moln användare följer du de här stegen för att konfigurera
 
 ## <a name="connect-to-an-azure-account"></a>Ansluta till ett Azure-konto
 
-Innan du kan skicka skript till dina kluster från Visual Studio Code måste du antingen ansluta till ditt Azure-konto eller länka ett kluster. Använd Apache Ambari användar namn och autentiseringsuppgifter för lösen ord eller ett domänanslutet konto. Följ dessa steg för att ansluta till Azure:
+Innan du kan skicka skript till dina kluster från Visual Studio Code kan användaren antingen logga in i Azure-prenumerationen eller [Länka ett HDInsight-kluster](#link-a-cluster). Använd Ambari användar namn/lösen ord eller domänanslutna autentiseringsuppgifter för ESP-kluster för att ansluta till HDInsight-klustret. Följ dessa steg för att ansluta till Azure:
 
 1. I meny raden navigerar du till **Visa**  >  **kommando paletten...** och anger **Azure: Logga**in:
 
@@ -291,6 +291,21 @@ Verktyget stöder även **Spark SQL** -fr åga:
    ![Skicka python jobb resultat utdata](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
 När du har skickat ett python-jobb visas sändnings loggar i fönstret **utdata** i Visual Studio Code. URL: en för Spark UI URL och garn-UI visas också. Du kan öppna webb adressen i en webbläsare för att spåra jobbets status.
+
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integrera med HDInsight Identity Broker (HIB)
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Ansluta till ditt HDInsight ESP-kluster med ID-Broker (HIB)
+
+Du kan följa de vanliga stegen för att logga in på Azure-prenumerationen för att ansluta till ditt HDInsight ESP-kluster med ID Broker (HIB). När du har loggat in visas kluster listan i Azure Explorer. Mer information finns i [ansluta till ditt HDInsight-kluster](#connect-to-an-azure-account).
+
+### <a name="run-a-hivepyspark-job-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Kör ett Hive/PySpark-jobb på ett HDInsight ESP-kluster med ID-Broker (HIB)
+
+För att köra ett Hive-jobb kan du följa de normala stegen för att skicka jobb till HDInsight ESP-kluster med ID-Broker (HIB). Mer information hittar du i [Skicka interaktiva Hive-frågor och Hive-batch-skript](#submit-interactive-hive-queries-and-hive-batch-scripts) .
+
+För att köra ett interaktivt PySpark-jobb kan du följa de normala stegen för att skicka jobb till HDInsight ESP-kluster med ID Broker (HIB). Mer information hittar du i [Skicka interaktiva PySpark-frågor](#submit-interactive-pyspark-queries) .
+
+För att köra ett PySpark batch-jobb kan du följa de normala stegen för att skicka jobb till HDInsight ESP-kluster med ID Broker (HIB). Mer information hittar du i [batch-jobbet skicka PySpark](#submit-pyspark-batch-job) .
+
 
 ## <a name="apache-livy-configuration"></a>Apache livy-konfiguration
 

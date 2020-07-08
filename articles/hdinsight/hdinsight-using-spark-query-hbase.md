@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: e5d9d4f215752d95ee1d676e8a5b126b6d0d3ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ddb8734a3d15a6cd5f4a43ee069d6364f7523ed
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190630"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087495"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
@@ -23,16 +23,16 @@ Apache HBase frågas vanligt vis antingen med dess lågnivå-API (genomsökninga
 
 * Två separata HDInsight-kluster distribuerade i samma [virtuella nätverk](./hdinsight-plan-virtual-network-deployment.md). En HBase och en spark med minst Spark 2,1 (HDInsight 3,6) installerad. Mer information finns i [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* URI-schemat för klustrets primära lagring. Det här schemat är wasb://för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller adl://för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Blob Storage är URI: `wasbs://`n.  Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
+* URI-schemat för klustrets primära lagring. Det här schemat är wasb://för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller ADL://för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Blob Storage är URI: n `wasbs://` .  Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Övergripande process
 
 Den övergripande processen för att aktivera Spark-klustret för att fråga ditt HDInsight-kluster är följande:
 
 1. Förbered några exempel data i HBase.
-2. Hämta filen HBase-site. XML från HBase-klustrets konfigurations mapp (/etc/HBase/conf).
-3. Placera en kopia av HBase-site. xml i din spark 2-installationsmapp (/etc/spark2/conf).
-4. Kör `spark-shell` referens för Spark HBase-anslutningen med dess maven-koordinater `packages` i alternativet.
+2. Hämta hbase-site.xml-filen från/etc/HBase/conf (HBase Cluster Configuration).
+3. Placera en kopia av hbase-site.xml i din spark 2-konfigurationsfil (/etc/spark2/conf).
+4. Kör `spark-shell` referens för Spark HBase-anslutningen med dess maven-koordinater i `packages` alternativet.
 5. Definiera en katalog som mappar schemat från Spark till HBase.
 6. Interagera med HBase-data med antingen RDD-eller DataFrame-API: erna.
 
@@ -77,9 +77,9 @@ I det här steget skapar du och fyller i en tabell i Apache HBase som du sedan k
     exit
     ```
 
-## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Kopiera HBase-site. xml till Spark-kluster
+## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Kopiera hbase-site.xml till Spark-kluster
 
-Kopiera HBase-site. XML från lokal lagring till roten av ditt Spark-klusters standard lagring.  Redigera kommandot nedan för att avspegla konfigurationen.  Sedan anger du kommandot från den öppna SSH-sessionen till HBase-klustret:
+Kopiera hbase-site.xml från lokal lagring till roten av ditt Spark-klusters standard lagring.  Redigera kommandot nedan för att avspegla konfigurationen.  Sedan anger du kommandot från den öppna SSH-sessionen till HBase-klustret:
 
 | Syntax-värde | Nytt värde|
 |---|---|
@@ -97,7 +97,7 @@ Avsluta sedan ssh-anslutningen till ditt HBase-kluster.
 exit
 ```
 
-## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Lägg HBase-site. xml på ditt Spark-kluster
+## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Lägg hbase-site.xml på ditt Spark-kluster
 
 1. Anslut till Head-noden i Spark-klustret med hjälp av SSH. Redigera kommandot nedan genom att ersätta `SPARKCLUSTER` med namnet på ditt Spark-kluster och ange sedan kommandot:
 
@@ -113,13 +113,49 @@ exit
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Kör Spark-gränssnitt som refererar till Spark HBase-anslutningen
 
-1. Från din öppna SSH-session till Spark-klustret anger du kommandot nedan för att starta ett Spark-gränssnitt:
+När du har slutfört föregående steg bör du kunna köra Spark-gränssnittet, som refererar till rätt version av Spark HBase Connector. För att hitta den senaste lämpliga Spark HBase Connector Core-versionen för ditt kluster scenario, se [SHC Core-lagringsplatsen](https://repo.hortonworks.com/content/groups/public/com/hortonworks/shc/shc-core/).
+
+I följande tabell listas exempelvis två versioner och motsvarande kommandon som HDInsight-teamet använder för närvarande. Du kan använda samma versioner av klustren om versionerna av HBase och Spark är desamma som anges i tabellen. 
+
+
+1. I den öppna SSH-sessionen till Spark-klustret anger du följande kommando för att starta ett Spark-gränssnitt:
+
+    |Spark-version| HDI HBase-version  | SHC-version    |  Kommando  |
+    | :-----------:| :----------: | :-----------: |:----------- |
+    |      2.1    | HDI 3,6 (HBase 1,1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2.4    | HDI 4,0 (HBase 2,0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+
+2. Behåll den här Spark Shell-instansen öppen och fortsätt att [definiera en katalog och fråga](#define-a-catalog-and-query). Om du inte hittar den jar v7 som motsvarar dina versioner i SHC Core lager fortsätter du att läsa. 
+
+Du kan bygga jar v7 direkt från GitHub-grenen [Spark-HBase-Connector](https://github.com/hortonworks-spark/shc) . Om du till exempel kör med Spark 2,3 och HBase 1,1 slutför du följande steg:
+
+1. Klona lagringsplatsen:
 
     ```bash
-    spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
-    ```  
+    git clone https://github.com/hortonworks-spark/shc
+    ```
+    
+2. Gå till grenen – 2,3:
 
-2. Behåll den här Spark Shell-instansen öppen och fortsätt till nästa steg.
+    ```bash
+    git checkout branch-2.3
+    ```
+
+3. Skapa från grenen (skapar en. jar-fil):
+
+    ```bash
+    mvn clean package -DskipTests
+    ```
+    
+3. Kör följande kommando (Glöm inte att ändra det. jar-namn som motsvarar den jar-fil som du har skapat):
+
+    ```bash
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    ```
+    
+4. Behåll den här Spark Shell-instansen öppen och fortsätt till nästa avsnitt. 
+
+
 
 ## <a name="define-a-catalog-and-query"></a>Definiera en katalog och fråga
 
@@ -150,11 +186,11 @@ I det här steget definierar du ett katalog objekt som mappar schemat från Apac
     |}""".stripMargin
     ```
 
-    Koden gör följande:  
+    Koden:  
 
-     a. Definiera ett katalog schema för HBase-tabellen med `Contacts`namnet.  
-     b. Identifiera rowkey som `key`och mappa kolumn namnen som används i Spark till kolumn serien, kolumn namnet och kolumn typen som används i HBase.  
-     c. Rowkey måste också definieras i detalj som en namngiven kolumn (`rowkey`) som har en viss kolumn familj `cf` av. `rowkey`  
+    1. Definierar ett katalog schema för HBase-tabellen med namnet `Contacts` .  
+    1. Identifierar rowkey som `key` och mappar kolumn namnen som används i Spark till kolumn serien, kolumn namnet och kolumn typen som används i HBase.  
+    1. Definierar rowkey i detalj som en namngiven kolumn ( `rowkey` ) som har en speciell kolumn familj `cf` av `rowkey` .  
 
 1. Ange kommandot nedan för att definiera en metod som tillhandahåller en DataFrame runt din `Contacts` tabell i HBase:
 
@@ -216,7 +252,7 @@ I det här steget definierar du ett katalog objekt som mappar schemat från Apac
 
 ## <a name="insert-new-data"></a>Infoga nya data
 
-1. Om du vill infoga en ny kontakt post definierar `ContactRecord` du en klass:
+1. Om du vill infoga en ny kontakt post definierar du en `ContactRecord` klass:
 
     ```scala
     case class ContactRecord(

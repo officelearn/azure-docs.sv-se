@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81383049"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087430"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänsten med Apache Kafka på HDInsight
 
@@ -24,7 +24,7 @@ Lär dig hur du använder Azure Kubernetes service (AKS) med [Apache Kafka](http
 > [!NOTE]  
 > Det här dokumentet fokuserar på de steg som krävs för att aktivera Azure Kubernetes-tjänsten för att kommunicera med Kafka på HDInsight. Själva exemplet är bara en grundläggande Kafka-klient för att demonstrera att konfigurationen fungerar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * En Azure-prenumeration

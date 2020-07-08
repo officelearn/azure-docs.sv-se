@@ -11,16 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 47f766e8e5c1ea43d0c9bde8138c0ab17533f539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708696"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087589"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server instans migrering till Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-I den här artikeln får du lära dig mer om metoderna för att migrera en SQL Server 2005-instans eller senare version till en [hanterad Azure SQL-instans](sql-managed-instance-paas-overview.md). Information om hur du migrerar till en enskild databas eller elastisk pool finns i [migrera till en databas med en eller flera](../database/migrate-to-database-from-sql-server.md)databaser. Information om migrering om migrering från andra plattformar finns i [guiden Migrera Azure Database](https://datamigration.microsoft.com/).
+I den här artikeln får du lära dig mer om metoderna för att migrera en SQL Server 2005-instans eller senare version till en [hanterad Azure SQL-instans](sql-managed-instance-paas-overview.md). Information om hur du migrerar till en enskild databas eller elastisk pool finns i [migrera till SQL Database](../database/migrate-to-database-from-sql-server.md). Information om migrering om migrering från andra plattformar finns i [guiden Migrera Azure Database](https://datamigration.microsoft.com/).
 
 > [!NOTE]
 > Om du snabbt vill starta och testa Azure SQL-hanterad instans kanske du vill gå till snabb starts [guiden](quickstart-content-reference-guide.md) i stället för den här sidan.

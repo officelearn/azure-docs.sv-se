@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735106"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086933"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
 
@@ -60,7 +61,7 @@ Azure-galleriet har flera versioner, inklusive Windows 10 Enterprise multi-sessi
  
 ## <a name="which-windows-10-enterprise-multi-session-versions-are-supported"></a>Vilka Windows 10 Enterprise-versioner av flera sessioner stöds?
 
-Windows 10 Enterprise multi-session, version 1809 och senare stöds och är tillgängliga i Azure-galleriet. De här versionerna följer samma support livs cykel princip som Windows 10 Enterprise, vilket innebär att våren-versionen stöds i 18 månader och att hösten frigörs i 30 månader.
+Windows 10 Enterprise multi-session, version 1809 och senare stöds och är tillgängliga i Azure-galleriet. De här versionerna följer samma support livs cykel princip som Windows 10 Enterprise, vilket innebär att den mars utgåvan stöds i 18 månader och den september som ingår i 30 månader.
  
 ## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Vilken profil hanterings lösning ska jag använda för Windows 10 Enterprise multi-session?
 

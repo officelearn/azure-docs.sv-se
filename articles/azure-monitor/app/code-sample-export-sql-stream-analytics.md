@@ -3,12 +3,12 @@ title: Exportera till SQL från Azure Application Insights | Microsoft Docs
 description: Exportera Application Insights data kontinuerligt till SQL med Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 811d86c0a9b8e55f548046402885e2ec5967c477
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254692"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087239"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genom gång: exportera till SQL från Application Insights med Stream Analytics
 Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights][start] till Azure SQL Database genom att använda [kontinuerlig export][export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -77,14 +77,14 @@ När du har börjat starta från din prenumeration i [Azure Portal][portal]skapa
 
 ![Ny, data, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
-Kontrol lera att databas servern tillåter åtkomst till Azure-tjänster:
+Kontrol lera att servern tillåter åtkomst till Azure-tjänster:
 
 ![Bläddra, servrar, Server, inställningar, brand vägg, Tillåt åtkomst till Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## <a name="create-a-table-in-azure-sql-db"></a>Skapa en tabell i Azure SQL DB
+## <a name="create-a-table-in-azure-sql-database"></a>Skapa en tabell i Azure SQL Database
 Anslut till databasen som du skapade i föregående avsnitt med det önskade hanterings verktyget. I den här genom gången ska vi använda [hanteringsverktyg för SQL Server](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
-![](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
+![Ansluta till Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
 Skapa en ny fråga och kör följande T-SQL:
 
@@ -126,7 +126,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ```
 
-![](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
+![Skapa PageViewsTable](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
 
 I det här exemplet använder vi data från sid visningar. Om du vill se andra tillgängliga data kontrollerar du JSON-utdata och går till [Exportera data modell](../../azure-monitor/app/export-data-model.md).
 
@@ -135,7 +135,7 @@ Välj tjänsten Azure Stream Analytics från [Azure Portal](https://portal.azure
 
 ![Stream Analytics-inställningar](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/code-sample-export-sql-stream-analytics/SA002.png)
+![Nytt Stream Analytics-jobb](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 När det nya jobbet skapas väljer **du gå till resurs**.
 
@@ -157,7 +157,9 @@ Nu behöver du den primära åtkomst nyckeln från ditt lagrings konto, som du n
 
 Mönstret Path prefix anger hur Stream Analytics hittar indatafilerna i lagringen. Du måste ange den som motsvarar hur fort löp ande export lagrar data. Ställ in den så här:
 
-    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```sql
+webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```
 
 I det här exemplet:
 
@@ -235,9 +237,10 @@ Du kan välja om du vill börja bearbeta data som börjar från och med nu, elle
 
 Efter några minuter går du tillbaka till Hanteringsverktyg för SQL Server och tittar på de data som flödar in. Använd exempelvis en fråga som detta:
 
-    SELECT TOP 100 *
-    FROM [dbo].[PageViewsTable]
-
+```sql
+SELECT TOP 100 *
+FROM [dbo].[PageViewsTable]
+```
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Exportera till Power BI med Stream Analytics](../../azure-monitor/app/export-power-bi.md )

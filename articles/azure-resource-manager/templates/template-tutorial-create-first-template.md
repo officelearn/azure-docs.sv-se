@@ -5,12 +5,12 @@ author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 1e286a3b59279ed9658a373210f1425ece05eff4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676156"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102083"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Självstudie: skapa och distribuera din första ARM-mall
 
@@ -28,7 +28,7 @@ Låt oss börja med att kontrol lera att du har de verktyg du behöver för att 
 
 ### <a name="editor"></a>Redigerare
 
-Mallar är JSON-filer. Om du vill skapa mallar behöver du en lämplig JSON-redigerare. Vi rekommenderar Visual Studio Code med Resource Manager Tools-tillägget. Om du behöver installera dessa verktyg går [du till använda Visual Studio Code för att skapa arm-mallar](use-vs-code-to-create-template.md).
+Mallar är JSON-filer. Om du vill skapa mallar behöver du en lämplig JSON-redigerare. Vi rekommenderar Visual Studio Code med Resource Manager Tools-tillägget. Om du behöver installera dessa verktyg går du till [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### <a name="command-line-deployment"></a>Kommando rads distribution
 
@@ -183,7 +183,7 @@ Distributions kommandot returnerar resultat. Leta efter för `ProvisioningState`
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **resurs grupper**på den vänstra menyn.
 

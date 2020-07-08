@@ -11,14 +11,82 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 13a7250bc89b1c9f81996dfa4e15d7d4469779ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607881"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086318"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="text-to-speech-2020-july-release"></a>Text till tal 2020 – juli version
+
+### <a name="new-features"></a>Nya funktioner
+
+* **NEURALA TTS, 15 nya neurala-röster**: de nya rösterna som läggs till i neurala TTS-portföljen är Salma i arabiska (Egypten), Zariyah i arabiska (Saudiarabien), Alba i katalanska (Spanien), Christel i danska (Danmark), Neerja på engelska (Indien). swara i Hindi (Indien), Colette i nederländska (Nederländerna), Zofia i polska (Polen), Fernanda i portugisiska (Portugal), Dariya i ryska (Ryssland), Hillevi i svenska (Sverige), Achara i thailändska (Thailand), Iselin norska (bokmål) i (Norge), HiuGaai i kinesiska (Hongkong) och HsiaoYu på kinesiska (Taiwan). Kontrol lera alla [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+
+* **Anpassad röst, strömlinjeformad röst testning med utbildnings flödet för att förenkla användar upplevelsen**: med den nya testnings funktionen testas varje röst automatiskt med en fördefinierad test uppsättning som är optimerad för varje språk och som kan användas i scenarier med allmänt röst och röst assistent. De här test uppsättningarna väljs noggrant och testas för att inkludera typiska användnings fall och fonem på språket. Förutom kan användarna fortfarande välja att överföra egna test skript när de tränar en modell.
+
+* **Skapa ljud innehåll: en uppsättning nya funktioner släpps för att aktivera mer kraftfulla funktioner för röst justering och ljud hantering**
+
+    * `Pitch`, `rate` och `volume` har förbättrats för att stödja justering med ett fördefinierat värde, t. ex. långsam, medelhög och snabb. Det är nu enkelt för användarna att välja ett konstant värde för ljud redigering.
+
+    ![Ljud justering](media/release-notes/audio-tuning.png)
+
+    * Användarna kan nu granska `Audio history` för sin arbets fil. Med den här funktionen kan användare enkelt spåra alla genererade ljud som är relaterade till en fungerande fil. De kan kontrol lera historik versionen och jämföra kvaliteten samtidigt som du justerar. 
+
+    ![Ljud historik](media/release-notes/audio-history.png)
+
+    * `Clear`Funktionen är nu mer flexibel. Användare kan rensa en viss justerings parameter samtidigt som andra parametrar är tillgängliga för det valda innehållet.  
+
+    * En självstudie video lades till på [landnings sidan](https://speech.microsoft.com/audiocontentcreation) för att hjälpa användarna att snabbt komma igång med tal röst justering och ljud hantering. 
+
+### <a name="general-tts-voice-quality-improvements"></a>Vanliga förbättringar av tal röst kvalitet
+
+* Förbättrad text i TTS-vocoder för högre åter givning och lägre latens.
+
+    * Uppdaterade Elsa i Italien till en ny vocoder som uppnått + 0,464 CMOS (jämför medelvärde) vinst i röst kvalitet, 40% snabbare i syntes och 30% reducering vid första byte-fördröjning. 
+    * Uppdaterade Xiaoxiao i kinesiska till den nya vocoder med + 0148 CMOS-förstärkning för den allmänna domänen + 0,348 för newscast-formatet och + 0,195 för Lyrical-formatet. 
+
+* Uppdaterade `de-DE` och `ja-JP` röst modeller för att göra TTS-utdata mer naturlig.
+    
+    * Uppdaterad Katja på tyska med den senaste prosody-modellerings metoden, MOS (Mean score score) är + 0,13. 
+    * Uppdaterad Nanami på japanska med en ny prosody-modell med en ny färg modell, MOS (Mean score score) är + 0,19;  
+
+* Bättre uttal av ord nivå på 5 språk.
+
+    | Språk | Fel minskning av uttal |
+    |---|---|
+    | en-GB | 51% |
+    | ko-KR | 43 |
+    | pt-BR | 39% |
+    | pt-PT | 77% |
+    | id-ID | 46% |
+
+### <a name="bug-fixes"></a>Felkorrigeringar
+
+* Valuta läsning
+    * Har åtgärdat problemet med valuta läsning för `es-ES` och`es-MX`
+     
+    | Språk | Indata | Avläsning efter förbättring |
+    |---|---|---|
+    | ES – MX | $1,58 | cincuenta pesos y Ocho Centavos |
+    | es-ES | $1,58 | un dólar cincuenta y Ocho Centavos |
+
+    * Stöd för negativ valuta (t. ex. "-€325") i följande språk:,,,,, `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` .
+
+* Förbättrad adress läsning i `pt-PT` .
+* Natasha ( `en-AU` ) och Libby ( `en-UK` ) uttal på ordet "for" och "fyra".  
+* Fast buggar i verktyget för att skapa ljud innehåll
+    * Den ytterligare och oväntade pausen efter det andra stycket har åtgärd ATS.  
+    * Funktionen "ingen rast" läggs tillbaka från en Regressions bugg. 
+    * Det slumpmässiga uppdaterings problemet för tal Studio är fast.  
+
+### <a name="samplessdk"></a>Exempel/SDK
+
+* Java Script: korrigerar uppspelnings problem i FireFox och Safari på macOS och iOS. 
+
 ## <a name="speech-sdk-1121-2020-june-release"></a>Speech SDK-1.12.1:2020 – juni version
 **Tal CLI (aka SPX)**
 -   Tillagda hjälp Sök funktioner i CLI:
@@ -322,7 +390,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 - Tal-SDK för Java, .NET Core, C++ och mål-C har fått stöd för macOS. Mål-C-supporten för macOS är för närvarande beta version.
 - iOS: talet SDK för iOS (mål-C) har nu också publicerats som en CocoaPod.
 - Java Script: stöd för mikrofon som inte är standard som en inmatad enhet.
-- Java Script: proxy-stöd för Node. js.
+- Java Script: proxy-stöd för Node.js.
 
 **Exempel**
 
@@ -412,7 +480,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
   - Beta versionen av python-supporten (3,5 och senare) är tillgänglig i den här versionen. Mer information finns här] (snabb start-python.md).
 - JavaScript
   - Tal-SDK för Java Script har öppnats med öppen källkod. Käll koden finns på [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
-  - Vi har nu stöd för Node. js, mer information finns [här](quickstart-js-node.md).
+  - Vi har nu stöd för Node.js. mer information finns [här](quickstart-js-node.md).
   - Längd begränsningen för ljudsessioner har tagits bort, åter anslutning sker automatiskt under locket.
 - `Connection`jobbobjektet
   - Från kan `Recognizer` du komma åt ett `Connection` objekt. Med det här objektet kan du uttryckligen initiera tjänst anslutningen och prenumerera på att ansluta och koppla från händelser.
@@ -443,7 +511,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
 **Exempel**
 
 - Uppdaterade och korrigerade flera exempel (till exempel utmatnings röster för översättning osv.).
-- Node. js-exempel har lagts till i [exempel lagrings platsen](https://aka.ms/csspeech/samples).
+- Lade till Node.js exempel i [exempel lagrings platsen](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-110"></a>1.1.0 för tal-SDK
 

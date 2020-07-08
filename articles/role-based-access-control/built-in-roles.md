@@ -7,13 +7,13 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 06/18/2020
-ms.openlocfilehash: b645945cc082b321e63e9d02e0bb6a799e82364d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/06/2020
+ms.openlocfilehash: 24e964ec37184e38358b5c64eff05a8aa10a431d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086819"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda Azure-roller
 
@@ -26,7 +26,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 ## <a name="all"></a>Alla
 
 > [!div class="mx-tableFixed"]
-> | Inbyggd roll | Beskrivning | ID |
+> | Inbyggd roll | Description | ID |
 > | --- | --- | --- |
 > | **Allmänt** |  |  |
 > | [Deltagare](#contributor) | Låter dig hantera allt, förutom att bevilja åtkomst till resurser. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -2815,7 +2815,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -3575,6 +3575,7 @@ Låter dig hantera SQL-hanterade instanser och nödvändig nätverks konfigurati
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)-/networkSecurityGroups/* |  |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)-/routeTables/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/locations/*/Read |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/locations/instanceFailoverGroups/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/* |  |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)-/virtualNetworks/subnets/* |  |
@@ -3607,6 +3608,7 @@ Låter dig hantera SQL-hanterade instanser och nödvändig nätverks konfigurati
         "Microsoft.Network/networkSecurityGroups/*",
         "Microsoft.Network/routeTables/*",
         "Microsoft.Sql/locations/*/read",
+        "Microsoft.Sql/locations/instanceFailoverGroups/*",
         "Microsoft.Sql/managedInstances/*",
         "Microsoft.Support/*",
         "Microsoft.Network/virtualNetworks/subnets/*",
@@ -5196,6 +5198,7 @@ Låter dig hantera Azure Stack-registreringar.
 > |  |  |
 > | --- | --- |
 > | **Åtgärder** |  |
+> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/Read | Hämta egenskaperna för en Azure Stack Edge-prenumeration |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/*/Action |  |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/Read | Hämtar egenskaperna för en Azure Stack Marketplace-produkt |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Read | Hämtar egenskaperna för en Azure Stack registrering |
@@ -5217,6 +5220,7 @@ Låter dig hantera Azure Stack-registreringar.
   "permissions": [
     {
       "actions": [
+        "Microsoft.AzureStack/edgeSubscriptions/read",
         "Microsoft.AzureStack/registrations/products/*/action",
         "Microsoft.AzureStack/registrations/products/read",
         "Microsoft.AzureStack/registrations/read"
@@ -6547,7 +6551,7 @@ Gör att du kan skapa, hantera och ta bort dina hanterade labb under dina Azure 
 }
 ```
 
-## <a name="monitor"></a>Övervaka
+## <a name="monitor"></a>Monitor
 
 
 ### <a name="application-insights-component-contributor"></a>Application Insights komponent deltagare

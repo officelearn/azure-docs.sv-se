@@ -15,12 +15,12 @@ ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0a8781a5afb8b6df0444ce177be452f84c73413e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172356"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087229"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Token-baserad (HTTP/2) autentisering för APN
 
@@ -53,15 +53,15 @@ Om du vill aktivera tokenbaserad autentisering behöver du följande egenskaper 
 
 Nyckel identifieraren kan hämtas från sidan **nycklar** under **certifikat, identifierare & profiler**, i ditt Apple Developer-konto:
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
+![Certifikat](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
+![Identifierare](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
 ### <a name="application-identifier-and-application-name"></a>Program-ID och program namn
 
 Program namnet och identifieraren är också tillgängliga på sidan **certifikat, identifierare & profiler** i Developer-kontot:
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
+![Certifikat och ID](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
 ### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Konfigurera via .NET SDK eller Azure Portal
 
@@ -77,9 +77,9 @@ Token-baserade autentiseringsuppgifter består av följande fält:
 
 * **Nyckel-ID**: identifierare för den privata nyckel som genereras i Apple Developer-portalen. till exempel `2USFGKSKLT` .
 * **Team-ID**: kallas även prefix eller app-prefix. Detta är identifieraren för organisationen i Apple Developer-portalen. till exempel `S4V3D7CHJR` .
-* **Paket-ID**: kallas även "app-ID". Detta är paket-ID: t för programmet. till exempel `com.microsoft.nhubsample2019` . Observera att du kan använda en nyckel för många appar. Det här värdet mappar till `apns-topic` http-huvudet när ett meddelande skickas, och används för att rikta in sig på det specifika programmet.
+* **Paket-ID**: kallas även "app-ID". Detta är paket-ID: t för programmet. till exempel `com.example.myapp` . Observera att du kan använda en nyckel för många appar. Det här värdet mappar till `apns-topic` http-huvudet när ett meddelande skickas, och används för att rikta in sig på det specifika programmet. Observera att du inte kan ange värdet `apns-topic` explicit.
 * **Token**: kallas även för nyckeln Key eller Private. Detta hämtas från. P8-filen som genereras på Apple Developer-portalen. Nyckeln måste ha APN aktiverat (som väljs på Apple Developer-portalen när nyckeln skapas). Värdet måste ha PEM huvud/sidfot från den när du anger det till NH-portalen/API: et.
-* **Slut punkt**: det här är en växling på bladet Notification Hubs Portal och ett sträng fält i API: et. Giltiga värden är `https://api.push.apple.com` eller `https://api.sandbox.push.apple.com` . Notification Hubs använder det här värdet för antingen produktions-eller sandbox-miljön för att skicka meddelanden. Detta måste matcha `aps-environment` rättigheten i appen, annars genereras inte APN-enhetens tokens, och de kan inte skickas.
+* **Slut punkt**: det här är en växling på bladet Notification Hubs Portal och ett sträng fält i API: et. Giltiga värden är `https://api.development.push.apple.com:443/3/device` eller `https://api.sandbox.push.apple.com:443/3/device` . Notification Hubs använder det här värdet för antingen produktions-eller sandbox-miljön för att skicka meddelanden. Detta måste matcha `aps-environment` rättigheten i appen, annars genereras inte APN-enhetens tokens, och de kan inte skickas.
 
 Här är ett kod exempel som illustrerar rätt användning:
 

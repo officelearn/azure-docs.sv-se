@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 148b344d469c78936b56b96090c76e379bb63731
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027502"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087154"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -100,27 +101,42 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 
 |Nationell inställning  | Språk            | Kön | Röst namn | Format stöd |
 |--|--|--|--|--|
+| `ar-EG` | Arabiska (Egypten)                  | Kvinna | `ar-EG-SalmaNeural`      | Allmänt |
+| `ar-SA` | Arabiska (Saudiarabien)           | Kvinna | `ar-SA-ZariyahNeura`     | Allmänt |
+| `ca-ES` | Katalanska (Spanien)                 | Kvinna | `ca-ES-AlbaNeural`       | Allmänt |
+| `da-DK` | Danska (Danmark)                | Kvinna | `da-DK-ChristelNeural`   | Allmänt |
 | `de-DE` | Tyska (Tyskland)                | Kvinna | `de-DE-KatjaNeural`      | Allmänt |
 | `en-AU` | Engelska (Australien)             | Kvinna | `en-AU-NatashaNeural`    | Allmänt |
 | `en-CA` | Engelska (Kanada)                | Kvinna | `en-CA-ClaraNeural`      | Allmänt |
 | `en-GB` | Engelska (Storbritannien)                    | Kvinna | `en-GB-LibbyNeural`      | Allmänt |
 |         |                                 | Kvinna | `en-GB-MiaNeural`        | Allmänt |
+| `en-IN` | Engelska (Indien)                 | Kvinna | `en-IN-NeerjaNeural`     | Allmänt |
 | `en-US` | Engelska (USA)                    | Kvinna | `en-US-AriaNeural`       | Allmänt, flera röst format är tillgängliga |
 |         |                                 | Man   | `en-US-GuyNeural`        | Allmänt |
 | `es-ES` | Spanska (Spanien)                 | Kvinna | `es-ES-ElviraNeural`     | Allmänt |
 | `es-MX` | Spanska (Mexiko)                | Kvinna | `es-MX-DaliaNeural`      | Allmänt |
+| `fi-FI` | Finska (Finland)               | Kvinna | `fi-FI-NooraNeural`      | Allmänt |
 | `fr-CA` | Franska (Kanada)                 | Kvinna | `fr-CA-SylvieNeural`     | Allmänt |
 | `fr-FR` | Franska (Frankrike)                 | Kvinna | `fr-FR-DeniseNeural`     | Allmänt |
+| `hi-IN` | Hindi (Indien)                   | Kvinna | `hi-IN-SwaraNeural`      | Allmänt |
 | `it-IT` | Italienska (Italien)                 | Kvinna | `it-IT-ElsaNeural`       | Allmänt |
 | `ja-JP` | Japanska                        | Kvinna | `ja-JP-NanamiNeural`     | Allmänt |
 | `ko-KR` | Koreanska                          | Kvinna | `ko-KR-SunHiNeural`      | Allmänt |
 | `nb-NO` | Norska                       | Kvinna | `nb-NO-IselinNeural`     | Allmänt |
-| `pt-BR` | Portugisiska (Brasilien)             | Kvinna | `pt-BR-FranciscaNeural`  | Allmänt |
+| `nl-NL` | Nederländska (Netherland)              | Kvinna | `nl-NL-ColetteNeural`    | Allmänt |
+| `pl-PL` | Polska (Polen)                 | Kvinna | `pl-PL-ZofiaNeural`      | Allmänt |
+| `pt-BR` | Portugisiska (Brasilien)             | Kvinna | `pt-BR-FranciscaNeural`  | Allmänt, flera röst format är tillgängliga |
 | `tr-TR` | Turkiska                         | Kvinna | `tr-TR-EmelNeural`       | Allmänt |
+| `pt-PT` | Portugisiska (Portugal)           | Kvinna | `pt-PT-FernandaNeural`   | Allmänt |
+| `ru-RU` | Ryska (Ryssland)                | Kvinna | `ru-RU-DariyaNeural`     | Allmänt |
+| `sv-SE` | Svenska (Sverige)                | Kvinna | `sv-SE-HilleviNeural`    | Allmänt |
+| `th-TH` | Thailändska (Thailand)                 | Kvinna | `th-TH-AcharaNeural`     | Allmänt |
 | `zh-CN` | Kinesiska (mandariner, förenklad)  | Kvinna | `zh-CN-XiaoxiaoNeural`   | Allmänt, flera röst format är tillgängliga |
 |         |                                 | Kvinna | `zh-CN-XiaoyouNeural`    | Röst för barn, optimerad för artikel-berättarröst |
 |         |                                 | Man   | `zh-CN-YunyangNeural`    | Optimerad för nyhets läsning, flera röst format är tillgängliga |
 |         |                                 | Man   | `zh-CN-YunyeNeural`      | Optimerad för artikel-berättarröst |
+| `zh-HK` | Kinesiska (kantonesiska, tranditional)   | Kvinna | `zh-HK-HiuGaaiNeural`| Allmänt |
+| `zh-TW` | Kinesiska (Taiwan-mandariner)   | Kvinna | `zh-TW-HsiaoYuNeural`    | Allmänt |
 
 > [!IMPORTANT]
 > `en-US-JessaNeural`Rösten har ändrats till `en-US-AriaNeural` . Om du använde "Jessa" tidigare, konvertera till "Aria".

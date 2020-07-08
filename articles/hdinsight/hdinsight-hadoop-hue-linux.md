@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: fabc8b7b2a97b75959eb7d82723d6af6bc55bbe5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ef30672e250e598688d1b81fd33fe0a995e78c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835486"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087732"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda nyans på HDInsight Hadoop-kluster
 
@@ -72,7 +72,9 @@ Du kan bara ha ett användar konto med nyans i vanliga kluster. Aktivera [Enterp
 
     Detta kommer att returnera ett namn som liknar följande:
 
-        myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    ```output
+    myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    ```
 
     Detta är värd namnet för den primära huvudnoden där nyans webbplatsen finns.
 
@@ -107,7 +109,7 @@ Du kan bara ha ett användar konto med nyans i vanliga kluster. Aktivera [Enterp
 > [!NOTE]  
 > Filen för nyans-filen kan bara visa innehållet i standard behållaren som är associerad med HDInsight-klustret. Eventuella ytterligare lagrings konton/behållare som du kanske har associerat med klustret kommer inte att vara tillgängliga via fil läsaren. Dock är de ytterligare behållare som är kopplade till klustret alltid tillgängliga för Hive-jobben. Om du till exempel anger kommandot `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` i Hive-redigeraren kan du även se innehållet i ytterligare behållare. I det här kommandot är **newcontainer** inte standard behållaren som är associerad med ett kluster.
 
-## <a name="important-considerations"></a>Viktiga överväganden
+## <a name="important-considerations"></a>Att tänka på
 
 1. Skriptet som används för att installera nyans installerar bara det på den primära huvudnoden i klustret.
 
@@ -115,7 +117,7 @@ Du kan bara ha ett användar konto med nyans i vanliga kluster. Aktivera [Enterp
 
 1. Nyansen förstår inte Apache Tez-jobb, vilket är den aktuella standardinställningen för Hive. Om du vill använda MapReduce som Hive-körnings motor uppdaterar du skriptet så att det använder följande kommando i skriptet:
 
-         set hive.execution.engine=mr;
+   `set hive.execution.engine=mr;`
 
 1. Med Linux-kluster kan du ha ett scenario där dina tjänster körs på den primära huvudnoden medan Resource Manager kan köras på den sekundära. Ett sådant scenario kan resultera i fel (visas nedan) när du använder nyans för att visa information om jobb som körs i klustret. Du kan dock Visa jobb informationen när jobbet har slutförts.
 

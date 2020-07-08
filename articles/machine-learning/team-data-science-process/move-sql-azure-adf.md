@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aed35ec583af83e6ee6cb81c4e59e694cef493e1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194411"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086661"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Flytta data från en SQL Server databas till SQL Database med Azure Data Factory
 
@@ -46,7 +47,7 @@ Vi konfigurerar en ADF-pipeline som består av två data migrerings aktiviteter.
 >
 >
 
-## <a name="prerequisites"></a><a name="prereqs"></a>Krav
+## <a name="prerequisites"></a><a name="prereqs"></a>Förutsättningar
 Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
@@ -139,7 +140,9 @@ Kolumn namnen ingår inte här. Du kan välja att markera kolumn namnen genom at
 
 Kopiera JSON-definitionen för tabellen till en fil med namnet *onpremtabledef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\onpremtabledef.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
-    New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```
 
 
 ### <a name="blob-table"></a><a name="adf-table-blob-store"></a>BLOB-tabell
@@ -172,7 +175,9 @@ Definitionen för tabellen för BLOB-platsen för utdata är i följande (detta 
 
 Kopiera JSON-definitionen för tabellen till en fil med namnet *bloboutputtabledef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\bloboutputtabledef.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```
 
 ### <a name="sql-azure-table"></a><a name="adf-table-azure-sql"></a>SQL Azure tabell
 Definitionen för tabellen för SQL Azure utdata finns i följande (det här schemat mappar data som kommer från blobben):
@@ -204,7 +209,9 @@ Definitionen för tabellen för SQL Azure utdata finns i följande (det här sch
 
 Kopiera JSON-definitionen för tabellen till en fil med namnet *AzureSqlTable.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\AzureSqlTable.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```
 
 
 ## <a name="define-and-create-the-pipeline"></a><a name="adf-pipeline"></a>Definiera och skapa pipelinen
@@ -289,13 +296,17 @@ Med de tabell definitioner som tillhandahölls tidigare, anges pipelinen för AD
 
 Kopiera den här JSON-definitionen för pipelinen till en fil *med namnetpipelinedef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\pipelinedef.jspå*). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
 
-    New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```azurepowershell
+New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```
 
 
 ## <a name="start-the-pipeline"></a><a name="adf-pipeline-start"></a>Starta pipelinen
 Pipelinen kan nu köras med följande kommando:
 
-    Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```azurepowershell
+Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```
 
 Parameter värden för *StartDate* och *EndDate* måste ersättas med de faktiska datum som du vill att pipelinen ska köras mellan.
 

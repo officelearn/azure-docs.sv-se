@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 5ec6778e3e00a85a2fa7d43383df5c2ce6c47faa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629494"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087766"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Kopiera data från HDFS-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av tjänsten Data Factory som du använder:"]
@@ -39,7 +40,7 @@ Mer specifikt stöder HDFS-anslutningen:
 - Kopiera filer med hjälp av *webhdfs* -protokollet eller *inbyggt DistCp* -stöd.
 - Kopiera filer som de är eller genom att parsa eller generera filer med de [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -58,9 +59,9 @@ Följande egenskaper stöds för den länkade tjänsten HDFS:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen *Type* måste anges till *HDFS*. | Ja |
-| url |URL: en till HDFS |Ja |
-| authenticationType | De tillåtna värdena är *anonyma* eller *Windows*. <br><br> Om du vill konfigurera din lokala miljö läser du avsnittet [använda Kerberos-autentisering för HDFS-anslutaren](#use-kerberos-authentication-for-the-hdfs-connector) . |Ja |
+| typ | Egenskapen *Type* måste anges till *HDFS*. | Yes |
+| url |URL: en till HDFS |Yes |
+| authenticationType | De tillåtna värdena är *anonyma* eller *Windows*. <br><br> Om du vill konfigurera din lokala miljö läser du avsnittet [använda Kerberos-autentisering för HDFS-anslutaren](#use-kerberos-authentication-for-the-hdfs-connector) . |Yes |
 | userName |Användar namnet för Windows-autentisering. För Kerberos-autentisering anger du ** \<username> @ \<domain> . com**. |Ja (för Windows-autentisering) |
 | password |Lösen ordet för Windows-autentisering. Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i din data fabrik eller [referera till en hemlighet som lagras i ett Azure Key Vault](store-credentials-in-key-vault.md). |Ja (för Windows-autentisering) |
 | connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Mer information finns i avsnittet [krav](#prerequisites) . Om integration runtime inte har angetts använder tjänsten standard Azure Integration Runtime. |No |
@@ -119,7 +120,7 @@ Följande egenskaper stöds för HDFS under `location` Inställningar i den form
 
 | Egenskap   | Beskrivning                                                  | Obligatorisk |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Egenskapen *Type* under `location` i data uppsättningen måste anges till *HdfsLocation*. | Ja      |
+| typ       | Egenskapen *Type* under `location` i data uppsättningen måste anges till *HdfsLocation*. | Yes      |
 | folderPath | Sökvägen till mappen. Om du vill använda ett jokertecken för att filtrera mappen, hoppar du över den här inställningen och anger sökvägen i aktivitetens käll inställningar. | No       |
 | fileName   | Fil namnet under den angivna folderPath. Om du vill använda ett jokertecken för att filtrera filer, hoppar du över den här inställningen och anger fil namnet i inställningarna för aktivitets källan. | No       |
 
@@ -161,11 +162,11 @@ Följande egenskaper stöds för HDFS under `storeSettings` Inställningar i den
 
 | Egenskap                 | Beskrivning                                                  | Obligatorisk                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | *Typ* egenskapen under `storeSettings` måste anges till **HdfsReadSettings**. | Ja                                           |
+| typ                     | *Typ* egenskapen under `storeSettings` måste anges till **HdfsReadSettings**. | Yes                                           |
 | ***Leta upp de filer som ska kopieras*** |  |  |
 | ALTERNATIV 1: statisk sökväg<br> | Kopiera från mappen eller fil Sök vägen som anges i data uppsättningen. Om du vill kopiera alla filer från en mapp anger du även `wildcardFileName` som `*` . |  |
 | ALTERNATIV 2: jokertecken<br>- wildcardFolderPath | Mappsökvägen med jokertecken för att filtrera källmappen. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i. <br>Fler exempel finns i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | No                                            |
-| ALTERNATIV 2: jokertecken<br>- wildcardFileName | Fil namnet med jokertecken under den angivna folderPath/wildcardFolderPath för att filtrera källfiler. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Använd `^` för att undanta om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i.  Fler exempel finns i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Ja |
+| ALTERNATIV 2: jokertecken<br>- wildcardFileName | Fil namnet med jokertecken under den angivna folderPath/wildcardFolderPath för att filtrera källfiler. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Använd `^` för att undanta om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i.  Fler exempel finns i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Yes |
 | ALTERNATIV 3: en lista över filer<br>- fileListPath | Anger om du vill kopiera en angiven fil uppsättning. Peka på en textfil som innehåller en lista över filer som du vill kopiera (en fil per rad, med den relativa sökvägen till den sökväg som kon figurer ATS i data uppsättningen).<br/>När du använder det här alternativet ska du inte ange fil namnet i data uppsättningen. Fler exempel finns i [exempel på fil lista](#file-list-examples). |No |
 | ***Ytterligare inställningar*** |  | |
 | rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Om `recursive` är inställt på *Sant* och mottagaren är en filbaserad lagring, kopieras eller skapas inte en tom mapp eller undermapp till mottagaren. <br>Tillåtna värden är *True* (standard) och *false*.<br>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . |No |
@@ -246,7 +247,7 @@ I det här avsnittet beskrivs det beteende som är resultatet av att använda en
 
 Kopierings aktiviteten stöder användning av DistCp för att kopiera filer som är i Azure Blob Storage (inklusive [mellanlagrad kopia](copy-activity-performance.md)) eller en Azure Data Lake Store. I det här fallet kan DistCp dra nytta av klustrets kraft i stället för att köras på den lokala integrerings körningen. Med DistCp får du bättre kopiering av data genom att i synnerhet om klustret är mycket kraftfullt. Baserat på konfigurationen i din data fabrik konstruerar kopierings aktiviteten automatiskt ett DistCp-kommando, skickar det till ditt Hadoop-kluster och övervakar kopierings statusen.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda DistCp för att kopiera filer från HDFS till Azure Blob Storage (inklusive mellanlagrad kopia) eller Azure Data Lake Store kontrollerar du att Hadoop-klustret uppfyller följande krav:
 
@@ -286,17 +287,21 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
     Datorn måste vara konfigurerad som medlem i en arbets grupp, eftersom en Kerberos-sfär skiljer sig från en Windows-domän. Du kan uppnå den här konfigurationen genom att ange Kerberos-sfären och lägga till en KDC-Server genom att köra följande kommandon. Ersätt *REALM.com* med ditt eget sfär namn.
 
-            C:> Ksetup /setdomain REALM.COM
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```console
+    C:> Ksetup /setdomain REALM.COM
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```
 
     När du har kört dessa kommandon startar du om datorn.
 
 2.  Verifiera konfigurationen med `Ksetup` kommandot. Utdata bör vara som:
 
-            C:> Ksetup
-            default realm = REALM.COM (external)
-            REALM.com:
-                kdc = <your_kdc_server_address>
+    ```output
+    C:> Ksetup
+    default realm = REALM.COM (external)
+    REALM.com:
+        kdc = <your_kdc_server_address>
+    ```
 
 **I din data fabrik:**
 
@@ -318,45 +323,49 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
 1. Redigera KDC-konfigurationen i filen *krb5. conf* för att låta KDC lita på Windows-domänen genom att referera till följande konfigurations mall. Konfigurationen finns som standard på */etc/krb5.conf*.
 
-           [logging]
-            default = FILE:/var/log/krb5libs.log
-            kdc = FILE:/var/log/krb5kdc.log
-            admin_server = FILE:/var/log/kadmind.log
+   ```config
+   [logging]
+    default = FILE:/var/log/krb5libs.log
+    kdc = FILE:/var/log/krb5kdc.log
+    admin_server = FILE:/var/log/kadmind.log
             
-           [libdefaults]
-            default_realm = REALM.COM
-            dns_lookup_realm = false
-            dns_lookup_kdc = false
-            ticket_lifetime = 24h
-            renew_lifetime = 7d
-            forwardable = true
+   [libdefaults]
+    default_realm = REALM.COM
+    dns_lookup_realm = false
+    dns_lookup_kdc = false
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
             
-           [realms]
-            REALM.COM = {
-             kdc = node.REALM.COM
-             admin_server = node.REALM.COM
-            }
-           AD.COM = {
-            kdc = windc.ad.com
-            admin_server = windc.ad.com
-           }
+   [realms]
+    REALM.COM = {
+     kdc = node.REALM.COM
+     admin_server = node.REALM.COM
+    }
+   AD.COM = {
+    kdc = windc.ad.com
+    admin_server = windc.ad.com
+   }
             
-           [domain_realm]
-            .REALM.COM = REALM.COM
-            REALM.COM = REALM.COM
-            .ad.com = AD.COM
-            ad.com = AD.COM
+   [domain_realm]
+    .REALM.COM = REALM.COM
+    REALM.COM = REALM.COM
+    .ad.com = AD.COM
+    ad.com = AD.COM
             
-           [capaths]
-            AD.COM = {
-             REALM.COM = .
-            }
+   [capaths]
+    AD.COM = {
+     REALM.COM = .
+    }
+    ```
 
    När du har konfigurerat filen startar du om KDC-tjänsten.
 
 2. Förbered ett huvud namn med namnet *KRBTGT/REALM. COM- \@ AD.com* i KDC-servern med följande kommando:
 
-           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```cmd
+    Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```
 
 3. I konfigurations filen *Hadoop. Security. auth_to_local* HDFS-tjänsten lägger du till `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
 
@@ -364,12 +373,16 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
 1.  Kör följande `Ksetup` kommandon för att lägga till en sfär post:
 
-        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```cmd
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```
 
 2.  Upprätta förtroende från Windows-domänen till Kerberos-sfären. [Password] är lösen ordet för det primära *KRBTGT/REALM. COM- \@ AD.com*.
 
-        C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```cmd
+    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```
 
 3.  Välj krypteringsalgoritmen som används i Kerberos.
 
@@ -383,7 +396,9 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
     d. Använd `Ksetup` kommandot för att ange krypteringsalgoritmen som ska användas på den angivna sfären.
 
-        C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```cmd
+    C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```
 
 4.  Skapa mappningen mellan domän kontot och Kerberos-huvudobjektet så att du kan använda Kerberos-huvudobjektet i Windows-domänen.
 
@@ -401,8 +416,10 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
 * Kör följande `Ksetup` kommandon för att lägga till en resurs post.
 
-        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```cmd
+   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
 **I din data fabrik:**
 
@@ -421,8 +438,8 @@ Information om egenskaper för söknings aktiviteter finns [i lookup-aktivitet i
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens *typ* -egenskap måste anges till *fileshare* |Ja |
-| folderPath | Sökvägen till mappen. Ett Wildcard-filter stöds. Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inte noll eller ett enskilt tecken). används `^` för att undanta om det faktiska fil namnet har ett jokertecken eller detta escape-tecken i. <br/><br/>Exempel: RootFolder/undermapp/, se fler exempel i [mapp-och fil filter exempel](#folder-and-file-filter-examples). |Ja |
+| typ | Data uppsättningens *typ* -egenskap måste anges till *fileshare* |Yes |
+| folderPath | Sökvägen till mappen. Ett Wildcard-filter stöds. Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inte noll eller ett enskilt tecken). används `^` för att undanta om det faktiska fil namnet har ett jokertecken eller detta escape-tecken i. <br/><br/>Exempel: RootFolder/undermapp/, se fler exempel i [mapp-och fil filter exempel](#folder-and-file-filter-examples). |Yes |
 | fileName |  Namnet eller wildcard-filtret för filerna under den angivna "folderPath". Om du inte anger ett värde för den här egenskapen pekar data uppsättningen på alla filer i mappen. <br/><br/>För filter är tillåtna jokertecken `*` (matchar noll eller flera tecken) och `?` (matchar noll eller ett enskilt tecken).<br/>– Exempel 1:`"fileName": "*.csv"`<br/>– Exempel 2:`"fileName": "???20180427.txt"`<br/>Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i. |No |
 | modifiedDatetimeStart | Filerna filtreras baserat på det *senast ändrade*attributet. Filerna väljs om deras senaste ändrings tid ligger inom intervallet `modifiedDatetimeStart` till `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet *2018-12-01T05:00:00Z*. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill tillämpa ett fil filter på ett stort antal filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| No |
 | modifiedDatetimeEnd | Filerna filtreras baserat på det *senast ändrade*attributet. Filerna väljs om deras senaste ändrings tid ligger inom intervallet `modifiedDatetimeStart` till `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet *2018-12-01T05:00:00Z*. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill tillämpa ett fil filter på ett stort antal filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| No |
@@ -466,7 +483,7 @@ Information om egenskaper för söknings aktiviteter finns [i lookup-aktivitet i
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | *Typ* egenskapen för kopierings aktivitets källan måste anges till *HdfsSource*. |Ja |
+| typ | *Typ* egenskapen för kopierings aktivitets källan måste anges till *HdfsSource*. |Yes |
 | rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. När rekursivt är inställt på *True* och sinken är en filbaserad lagring, kommer en tom mapp eller undermapp inte att kopieras eller skapas i mottagaren.<br/>Tillåtna värden är *True* (standard) och *false*. | No |
 | distcpSettings | Egenskaps gruppen när du använder HDFS-DistCp. | No |
 | resourceManagerEndpoint | GARN Resource Manager-slutpunkt | Ja, om du använder DistCp |

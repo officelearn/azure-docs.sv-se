@@ -3,12 +3,12 @@ title: Lärlings läge – Personanpassare
 description: ''
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 2697ab4b32edbd4841f2b11725fda46e90e7ae7e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087205"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Använd lärlings läget för att träna Personanpassare utan att påverka ditt befintliga program
 
@@ -30,7 +30,7 @@ Lärlings läget ger dig förtroende för tjänsten personanpassa och dess funkt
 
 De två huvudsakliga orsakerna till att använda lärlings läget är:
 
-* Att förhindra **kall startar**: lärlings läget hjälper till att hantera och utvärdera kostnaden för den nya modellens inlärnings tid – när den inte returnerar den bästa åtgärden och inte uppnår en lämplig effektivitets nivå på cirka 75-85%.
+* Att förhindra **kall startar**: lärlings läget hjälper till att hantera och utvärdera kostnaden för den nya modellens inlärnings tid – när den inte returnerar den bästa åtgärden och inte uppnår en lämplig effektivitets nivå på cirka 60-80%.
 * **Verifierar åtgärds-och kontext funktioner**: funktioner som skickas i åtgärder och kontext kan vara otillräckliga eller felaktiga, för mycket, felaktiga eller för att träna personanpassare att uppnå den perfekta effektivitets takten. Använd [funktions utvärderingar](concept-feature-evaluation.md) för att hitta och åtgärda problem med funktioner.
 
 ## <a name="when-should-you-use-apprentice-mode"></a>När bör du använda lärlings läge?
@@ -57,7 +57,7 @@ Lärlings läget är användbart för utvecklare, data forskare och affärs besl
 
 Lär dig om i lärlings läge skiljer sig från online-läget på följande sätt.
 
-|Område|Lärlings läge|Online-läge|
+|Område|Lärlingsläge|Online-läge|
 |--|--|--|
 |Påverkan på användar upplevelsen|Du kan använda ett befintligt användar beteende för att träna Personanpassare genom att låta den se till att den fungerar (inte påverkar) vad din **standard åtgärd** skulle ha och den erhållna belöningen. Det innebär att användarnas upplevelse och att affärs resultaten från dem inte påverkas.|Visa topp åtgärd som returnerades från rang anrop för att påverka användar beteendet.|
 |Inlärnings hastighet|Personanpassare kommer att lära sig långsammare i lärlings läge än vid inlärning i online-läge. Lärlings läget kan bara lära sig genom att känna till de förmåner som erhålls av din **standard åtgärd**, vilket begränsar inlärnings hastigheten, eftersom ingen utforskning kan utföras.|Lär dig snabbare eftersom det kan utnyttja den aktuella modellen och utforska nya trender.|
@@ -68,7 +68,7 @@ Lär dig om i lärlings läge skiljer sig från online-läget på följande sät
 En kommentar om lärlings läges effektivitet:
 
 * Personanpassare effektivitet i lärlings läge uppnås sällan i nära 100% av programmets bas linje. och överskrider aldrig.
-* Bästa praxis skulle vara att inte försöka att komma till 100% för uppnående; men ett intervall på 75 – 85% ska vara mål beroende på användnings fallet.
+* Bästa praxis skulle vara att inte försöka att komma till 100% för uppnående; men ett intervall på 60% – 80% ska vara mål beroende på användnings fallet.
 
 ## <a name="using-apprentice-mode-to-train-with-historical-data"></a>Använda lärlings läget för att träna med historiska data
 

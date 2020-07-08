@@ -10,11 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 601717ce487f8564ed2d431db9b31a3b43fcee75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee2a830d8d87ff2d82825791cb4d3554232cfa12
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086168"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Omträna och distribuera en maskin inlärnings modell
 
@@ -75,7 +76,9 @@ Följande skärm bild visar sidan **förbruka** i Azure Machine Learning Web Ser
 
 Leta upp **apiKey** -deklarationen:
 
-    const string apiKey = "abc123"; // Replace this with the API key for the web service
+```csharp
+const string apiKey = "abc123"; // Replace this with the API key for the web service
+```
 
 I avsnittet **grundläggande förbruknings information** på sidan **förbrukning** letar du upp den primära nyckeln och kopierar den till **apiKey** -deklarationen.
 
@@ -93,9 +96,11 @@ Exempel koden BES laddar upp en fil från en lokal enhet (till exempel "C:\temp\
 
 Leta upp *StorageAccountName*-, *StorageAccountKey*-och *StorageContainerName* -deklarationerna och uppdatera värdena som du sparade från portalen.
 
-    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
-    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
-    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+```csharp
+const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
+const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
+const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+```
 
 Du måste också se till att indatafilen är tillgänglig på den plats som du anger i koden.
 
@@ -103,15 +108,17 @@ Du måste också se till att indatafilen är tillgänglig på den plats som du a
 
 När du anger platsen för utdata i nytto lasten för begäran måste fil namns tillägget som anges i *RelativeLocation* anges som `ilearner` .
 
-    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+```csharp
+Outputs = new Dictionary<string, AzureBlobDataReference>() {
+    {
+        "output1",
+        new AzureBlobDataReference()
         {
-            "output1",
-            new AzureBlobDataReference()
-            {
-                ConnectionString = storageConnectionString,
-                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
-            }
-        },
+            ConnectionString = storageConnectionString,
+            RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
+        }
+    },
+```
 
 Här är ett exempel på omskolning av utdata:
 
@@ -137,55 +144,67 @@ Logga först in på ditt Azure-konto inifrån PowerShell-miljön med hjälp av c
 
 Hämta sedan webb tjänst definitions objekt genom att anropa cmdleten [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) .
 
-    $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```azurepowershell
+$wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```
 
 Du kan ta reda på resurs grupps namnet för en befintlig webb tjänst genom att köra cmdleten Get-AzMlWebService utan parametrar för att Visa webb tjänsterna i din prenumeration. Leta upp webb tjänsten och titta på webb tjänstens ID. Namnet på resurs gruppen är det fjärde elementet i ID: t, precis efter *resourceGroups* -elementet. I följande exempel är resurs gruppens namn standard-MachineLearning-Usasödracentrala.
 
-    Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
-    Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
-    Name : RetrainSamplePre.2016.8.17.0.3.51.237
-    Location : South Central US
-    Type : Microsoft.MachineLearning/webServices
-    Tags : {}
+```azurepowershell
+Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
+Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+Name : RetrainSamplePre.2016.8.17.0.3.51.237
+Location : South Central US
+Type : Microsoft.MachineLearning/webServices
+Tags : {}
+```
 
 Du kan också ta reda på resurs grupp namnet för en befintlig webb tjänst genom att logga in på Azure Machine Learning Web Services-portalen. Välj webb tjänsten. Resurs gruppens namn är det femte elementet i URL: en för webb tjänsten, precis efter *resourceGroups* -elementet. I följande exempel är resurs gruppens namn standard-MachineLearning-Usasödracentrala.
 
-    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+`https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237`
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>Exportera webb tjänst definitions objekt som JSON
 
 Om du vill ändra definitionen av den tränade modellen till att använda den nyligen utbildade modellen måste du först använda cmdleten [export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) för att exportera den till en JSON-format fil.
 
-    Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+```azurepowershell
+Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+```
 
 ### <a name="update-the-reference-to-the-ilearner-blob"></a>Uppdatera referensen till ilearner-blobben
 
 Leta upp [tränad modell] i till gångarna och uppdatera *URI* -värdet i *locationInfo* -noden med URI: n för ilearner-blobben. URI: n genereras genom att kombinera *BaseLocation* och *RelativeLocation* från utdata från anropet bes Retrain.
 
-     "asset3": {
-        "name": "Retrain Sample [trained model]",
-        "type": "Resource",
-        "locationInfo": {
-          "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
-        },
-        "outputPorts": {
-          "Results dataset": {
+```json
+"asset3": {
+    "name": "Retrain Sample [trained model]",
+    "type": "Resource",
+    "locationInfo": {
+        "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
+    },
+    "outputPorts": {
+        "Results dataset": {
             "type": "Dataset"
-          }
         }
-      },
+    }
+},
+```
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>Importera JSON till ett webb tjänst definitions objekt
 
 Använd cmdleten [import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) för att konvertera den ändrade JSON-filen tillbaka till ett definitions objekt för webb tjänsten som du kan använda för att uppdatera predicative-experimentet.
 
-    $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
+```azurepowershell
+$wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
+```
 
 ### <a name="update-the-web-service"></a>Uppdatera webb tjänsten
 
 Använd slutligen cmdleten [Update-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) för att uppdatera förutsägelse experimentet.
 
-    Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```azurepowershell
+Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

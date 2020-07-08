@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656554"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087171"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API för Machine Learning avvikelse identifiering
 
@@ -62,44 +63,48 @@ För att anropa API: et måste du känna till slut punkts platsen och API-nyckel
 ### <a name="sample-request-body"></a>Exempel på begär ande text
 Begäran innehåller två objekt: `Inputs` och `GlobalParameters` .  I exempel förfrågan nedan skickas vissa parametrar explicit medan andra inte (Rulla nedåt för en fullständig lista över parametrar för varje slut punkt).  Parametrar som inte skickas uttryckligen i begäran kommer att använda standardvärdena som anges nedan.
 
-    {
-                "Inputs": {
-                        "input1": {
-                                "ColumnNames": ["Time", "Data"],
-                                "Values": [
-                                        ["5/30/2010 18:07:00", "1"],
-                                        ["5/30/2010 18:08:00", "1.4"],
-                                        ["5/30/2010 18:09:00", "1.1"]
-                                ]
-                        }
-                },
-        "GlobalParameters": {
-            "tspikedetector.sensitivity": "3",
-            "zspikedetector.sensitivity": "3",
-            "bileveldetector.sensitivity": "3.25",
-            "detectors.spikesdips": "Both"
-        }
+```json
+{
+            "Inputs": {
+                    "input1": {
+                            "ColumnNames": ["Time", "Data"],
+                            "Values": [
+                                    ["5/30/2010 18:07:00", "1"],
+                                    ["5/30/2010 18:08:00", "1.4"],
+                                    ["5/30/2010 18:09:00", "1.1"]
+                            ]
+                    }
+            },
+    "GlobalParameters": {
+        "tspikedetector.sensitivity": "3",
+        "zspikedetector.sensitivity": "3",
+        "bileveldetector.sensitivity": "3.25",
+        "detectors.spikesdips": "Both"
     }
+}
+```
 
 ### <a name="sample-response"></a>Exempelsvar
 För att kunna se `ColumnNames` fältet måste du ta med `details=true` som en URL-parameter i din begäran.  I tabellerna nedan visas innebörden bakom vart och ett av dessa fält.
 
-    {
-        "Results": {
-            "output1": {
-                "type": "table",
-                "value": {
-                    "Values": [
-                        ["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
-                        ["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
-                        ["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
-                    ],
-                    "ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
-                    "ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
-                }
+```json
+{
+    "Results": {
+        "output1": {
+            "type": "table",
+            "value": {
+                "Values": [
+                    ["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
+                    ["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
+                    ["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
+                ],
+                "ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
+                "ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
             }
         }
     }
+}
+```
 
 
 ## <a name="score-api"></a>Poängsättnings-API
@@ -110,7 +115,7 @@ Figuren nedan visar ett exempel på avvikelser som Poäng-API: et kan identifier
 ### <a name="detectors"></a>Detektorer
 API: t för avvikelse identifiering stöder identifierare i tre breda kategorier. Information om speciella indataparametrar och utdata för varje detektor finns i följande tabell.
 
-| Detektor kategori | Igenkänning | Beskrivning | Indataparametrar | Utdata |
+| Detektor kategori | Igenkänning | Description | Indataparametrar | Utdata |
 | --- | --- | --- | --- | --- |
 | Insamling av identifieringar |TSpike detektor |Identifiera toppar och DIP utifrån värdena från första och tredje kvartilen |*tspikedetector. känslighet:* tar heltals värde i intervallet 1-10, standard: 3; Högre värden kommer att fånga mer extrema värden, vilket gör det mindre känsligt |TSpike: binära värden – 1 om en insamling/DIP identifieras, 0 |
 | Insamling av identifieringar | ZSpike detektor |Identifiera toppar och DIP utifrån hur långt Datapoints är från deras medelvärde |*zspikedetector. känslighet:* ta heltals värde i intervallet 1-10, standard: 3; Högre värden kommer att fånga fler extrema värden vilket gör det mindre känsligt |ZSpike: binära värden – 1 om en insamling/DIP identifieras, 0 |
@@ -120,7 +125,7 @@ API: t för avvikelse identifiering stöder identifierare i tre breda kategorier
 ### <a name="parameters"></a>Parametrar
 Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 
-| Indataparametrar | Beskrivning | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
+| Indataparametrar | Description | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
 | --- | --- | --- | --- | --- | --- |
 | detektorer. historywindow |Historik (i antal data punkter) som används för avvikelse beräkning |500 |heltal |10-2000 |Tids serie beroende |
 | detektorer. spikesdips | Om endast toppar, endast DIP eller båda ska identifieras |Båda |räknas upp |Både, toppar, DIP |Båda |
@@ -133,7 +138,7 @@ Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 ### <a name="output"></a>Utdata
 API: et kör alla identifieringar i dina tids serie data och returnerar avvikelser och binära inöknings indikatorer för varje tidpunkt. I tabellen nedan visas utdata från API: et.
 
-| Utdata | Beskrivning |
+| Utdata | Description |
 | --- | --- |
 | Tid |Tidsstämplar från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
 | Data |Värden från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
@@ -156,7 +161,7 @@ Identifierarna i säsongs beroende-slutpunkten liknar dem i den icke-säsongs be
 
 Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 
-| Indataparametrar | Beskrivning | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
+| Indataparametrar | Description | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
 | --- | --- | --- | --- | --- | --- |
 | preprocess. aggregationInterval |Agg regerings intervall i sekunder för agg regering av indatamängds tids serier |0 (ingen agg regering utförs) |heltal |0: hoppa över agg regering, > 0 annars |5 minuter till 1 dag, tids serie beroende |
 | preprocess. aggregationFunc |Funktion som används för att aggregera data till angiven AggregationInterval |medelvärde |räknas upp |medelvärde, Summa, längd |E.t. |
@@ -176,7 +181,7 @@ Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 ### <a name="output"></a>Utdata
 API: et kör alla identifieringar i dina tids serie data och returnerar avvikelser och binära inöknings indikatorer för varje tidpunkt. I tabellen nedan visas utdata från API: et.
 
-| Utdata | Beskrivning |
+| Utdata | Description |
 | --- | --- |
 | Tid |Tidsstämplar från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
 | OriginalData |Värden från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |

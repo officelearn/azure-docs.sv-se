@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 17c73866a11aae23efea90073f64b61808c13a35
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834721"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086491"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använd tomma Edge-noder på Apache Hadoop kluster i HDInsight
 
@@ -62,7 +62,6 @@ När du har skapat en Edge-nod kan du ansluta till Edge-noden med SSH och köra 
 > Anpassade komponenter som är installerade på Edge-noden får kommersiellt skälig support från Microsoft. Detta kan resultera i att lösa problem som du stöter på. Eller så kan du hänvisas till community-resurser för att få hjälp. Följande är några av de mest aktiva webbplatserna för att få hjälp från communityn:
 >
 > * [Microsoft Q&en fråge sida för HDInsight] (https://docs.microsoft.com/answers/topics/azure-hdinsight.html
-
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Om du använder en Apache-teknik kanske du kan hitta hjälp genom Apache-projekt webbplatser på [https://apache.org](https://apache.org) , till exempel [Apache Hadoop](https://hadoop.apache.org/) webbplats.
@@ -84,7 +83,7 @@ I det här avsnittet använder du en Resource Manager-mall för att lägga till 
     |---|---|
     |Prenumeration|Välj en Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Välj den resurs grupp som används för det befintliga HDInsight-klustret.|
-    |Plats|Välj platsen för det befintliga HDInsight-klustret.|
+    |Location|Välj platsen för det befintliga HDInsight-klustret.|
     |Klusternamn|Ange namnet på ett befintligt HDInsight-kluster.|
 
 1. Kontrol lera **att jag godkänner de allmänna villkoren som anges ovan**och välj sedan **köp** för att skapa Edge-noden.
@@ -108,7 +107,7 @@ I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsi
     |---|---|
     |Prenumeration|Välj en Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Skapa en ny resurs grupp som används för klustret.|
-    |Plats|Välj en plats för resursgruppen.|
+    |Location|Välj en plats för resursgruppen.|
     |Klusternamn|Ange ett namn för det nya klustret som ska skapas.|
     |Användarnamn för klusterinloggning|Ange användar namnet för Hadoop HTTP.  Standardnamnet är **admin**.|
     |Lösenord för klusterinloggning|Ange användarens lösen ord för Hadoop HTTP.|
@@ -143,11 +142,15 @@ Edge-noden visas som ett program på Azure Portal.  Portalen ger dig information
 
 2. När du har anslutit till Edge-noden med SSH använder du följande kommando för att öppna Hive-konsolen:
 
-        hive
+    ```console
+    hive
+    ```
 
 3. Kör följande kommando för att Visa Hive-tabeller i klustret:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
 
 ## <a name="delete-an-edge-node"></a>Ta bort en Edge-nod
 

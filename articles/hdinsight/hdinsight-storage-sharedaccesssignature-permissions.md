@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 77314514ca26997fecd6b5d7c6ba1fc7d14c2584
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3756e7d1f58c37038347888a21d98326cd4eb71f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209068"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087460"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använda signaturer för delad åtkomst i Azure Storage för att begränsa åtkomsten till data med HDInsight
 
@@ -39,11 +39,11 @@ HDInsight har fullständig åtkomst till data i Azure Storage konton som är kop
 
 * Om du använder C# måste Visual Studio vara version 2013 eller högre.
 
-* URI-schemat för ditt lagrings konto. Det här schemat är `wasb://` för Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: `wasbs://`n.
+* URI-schemat för ditt lagrings konto. Det här schemat är `wasb://` för Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` .
 
 * Ett befintligt HDInsight-kluster för att lägga till en signatur för delad åtkomst till. Annars kan du använda Azure PowerShell för att skapa ett kluster och lägga till en signatur för delad åtkomst när klustret skapas.
 
-* Exempelfilerna från [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Den här lagrings platsen innehåller följande objekt:
+* Exempelfilerna från [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature) . Den här lagrings platsen innehåller följande objekt:
 
   * Ett Visual Studio-projekt som kan skapa en lagrings behållare, lagrad princip och SAS för användning med HDInsight
   * Ett Python-skript som kan skapa en lagrings behållare, lagrad princip och SAS för användning med HDInsight
@@ -88,7 +88,7 @@ Spara SAS-token som skapas i slutet av varje metod. Token ser ut ungefär som f�
 
 ### <a name="using-powershell"></a>Använda PowerShell
 
-Ersätt `RESOURCEGROUP`, `STORAGEACCOUNT`och `STORAGECONTAINER` med lämpliga värden för din befintliga lagrings behållare. Ändra katalogen till `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` eller ändra `-File` parametern så att den innehåller den absoluta sökvägen för `Set-AzStorageblobcontent`. Ange följande PowerShell-kommando:
+Ersätt `RESOURCEGROUP` , `STORAGEACCOUNT` och `STORAGECONTAINER` med lämpliga värden för din befintliga lagrings behållare. Ändra katalogen till `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` eller ändra `-File` parametern så att den innehåller den absoluta sökvägen för `Set-AzStorageblobcontent` . Ange följande PowerShell-kommando:
 
 ```powershell
 $resourceGroupName = "RESOURCEGROUP"
@@ -154,7 +154,7 @@ Set-AzStorageblobcontent `
 
 Användningen av variabler i det här avsnittet baseras på en Windows-miljö. Små variationer kommer att krävas för bash eller andra miljöer.
 
-1. Ersätt `STORAGEACCOUNT`och `STORAGECONTAINER` med lämpliga värden för din befintliga lagrings behållare.
+1. Ersätt `STORAGEACCOUNT` och `STORAGECONTAINER` med lämpliga värden för din befintliga lagrings behållare.
 
     ```azurecli
     # set variables
@@ -178,7 +178,7 @@ Användningen av variabler i det här avsnittet baseras på en Windows-miljö. S
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
 
-3. Ändra katalogen till `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` eller ändra `--file` parametern så att den innehåller den absoluta sökvägen för `az storage blob upload`. Kör återstående kommandon:
+3. Ändra katalogen till `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` eller ändra `--file` parametern så att den innehåller den absoluta sökvägen för `az storage blob upload` . Kör återstående kommandon:
 
     ```azurecli
     # Create stored access policy on the containing object
@@ -199,9 +199,9 @@ Användningen av variabler i det här avsnittet baseras på en Windows-miljö. S
 
 ### <a name="using-python"></a>Använda Python
 
-Öppna `SASToken.py` filen och Ersätt `storage_account_name`, `storage_account_key`och `storage_container_name` med lämpliga värden för din befintliga lagrings behållare, och kör sedan skriptet.
+Öppna `SASToken.py` filen och Ersätt `storage_account_name` , `storage_account_key` och `storage_container_name` med lämpliga värden för din befintliga lagrings behållare, och kör sedan skriptet.
 
-Du kan behöva köra `pip install --upgrade azure-storage` om du får fel meddelandet. `ImportError: No module named azure.storage`
+Du kan behöva köra `pip install --upgrade azure-storage` om du får fel meddelandet `ImportError: No module named azure.storage` .
 
 ### <a name="using-c"></a>Använda C\#
 
@@ -228,7 +228,7 @@ Använd en signatur för delad åtkomst för att begränsa åtkomsten till behå
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Skapa ett kluster som använder SAS
 
-Ersätt `CLUSTERNAME`, `RESOURCEGROUP` `DEFAULTSTORAGEACCOUNT` `STORAGECONTAINER`,,, och `TOKEN` med lämpliga `STORAGEACCOUNT`värden. Ange PowerShell-kommandon:
+Ersätt,,,, `CLUSTERNAME` `RESOURCEGROUP` `DEFAULTSTORAGEACCOUNT` `STORAGECONTAINER` `STORAGEACCOUNT` och `TOKEN` med lämpliga värden. Ange PowerShell-kommandon:
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -351,9 +351,9 @@ Det tar en stund innan skriptet slutförs, vanligt vis cirka 15 minuter. När sk
 
 Om du har ett befintligt kluster kan du lägga till SAS i **Core-site-** konfigurationen med hjälp av följande steg:
 
-1. Öppna Ambari-webbgränssnittet för klustret. Adressen till den här sidan är `https://YOURCLUSTERNAME.azurehdinsight.net`. När du uppmanas till detta ska du autentisera till klustret med administratörs namnet (admin) och lösen ordet som du använde när du skapade klustret.
+1. Öppna Ambari-webbgränssnittet för klustret. Adressen till den här sidan är `https://YOURCLUSTERNAME.azurehdinsight.net` . När du uppmanas till detta ska du autentisera till klustret med administratörs namnet (admin) och lösen ordet som du använde när du skapade klustret.
 
-1. Navigera till **HDFS** > **configs** > **Advanced** > **anpassad Core-site**.
+1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site**.
 
 1. Expandera avsnittet **anpassad Core-site** , bläddra till slutet och välj sedan **Lägg till egenskap...**. Använd följande värden för **nyckel** och **värde**:
 
@@ -411,9 +411,9 @@ Använd följande steg för att kontrol lera att du bara kan läsa och lista obj
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Det här kommandot laddar ned filen till en lokal fil med namnet **testfile. txt**.
+    Det här kommandot laddar ned filen till en lokal fil med namnet **testfile.txt**.
 
-5. Använd följande kommando för att överföra den lokala filen till en ny fil med namnet **testUpload. txt** på SAS-lagringen:
+5. Använd följande kommando för att överföra den lokala filen till en ny fil med namnet **testupload.txt** på SAS-lagringen:
 
     ```bash
     hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
@@ -421,7 +421,9 @@ Använd följande steg för att kontrol lera att du bara kan läsa och lista obj
 
     Du får ett meddelande som liknar följande text:
 
-        put: java.io.IOException
+    ```output
+    put: java.io.IOException
+    ```
 
     Felet beror på att lagrings platsen är Read + List. Använd följande kommando för att lagra data på standard lagrings utrymmet för klustret, vilket är skrivbart:
 

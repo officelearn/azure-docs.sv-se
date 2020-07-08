@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537235"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086559"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Förstå affärs kontinuitet i Azure Database for MySQL
 
@@ -47,6 +47,10 @@ Det andra alternativet är att använda Azure Database for MySQL ' geo-Restore-f
 
 > [!IMPORTANT]
 > Geo-återställning är bara möjlig om du har upprättat servern med Geo-redundant lagring av säkerhets kopior. Om du vill växla från lokalt redundant till Geo-redundant säkerhets kopiering för en befintlig server måste du ta en dump med mysqldump av din befintliga server och återställa den till en nyskapad server som kon figurer ATS med geo-redundanta säkerhets kopieringar.
+
+## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
+
+Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med MySQL: s binära logg teknik för replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

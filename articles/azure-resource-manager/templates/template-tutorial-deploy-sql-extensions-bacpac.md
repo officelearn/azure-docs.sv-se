@@ -5,11 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2bc160418df7cb2d68f474da541f8f81ebb819fc
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054771"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101893"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Självstudie: importera SQL BACPAC-filer med ARM-mallar
 
@@ -29,11 +30,11 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code med verktygstillägget för Resource Manager. Se [använda Visual Studio Code för att skapa arm-mallar](./use-vs-code-to-create-template.md).
+* Visual Studio Code med verktygstillägget för Resource Manager. Se [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Om du vill öka säkerheten använder du ett genererat lösen ord för Server administratörs kontot. Här är ett exempel som du kan använda för att generera ett lösen ord:
 
     ```console

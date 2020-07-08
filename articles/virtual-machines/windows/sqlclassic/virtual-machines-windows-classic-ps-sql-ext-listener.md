@@ -15,11 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4517a600acaf581ad240d634e89bba3984f835db
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75978188"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087341"
 ---
 # <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Konfigurera en extern lyssnare för tillgänglighets grupper på Azure SQL Server virtuella datorer
 > [!div class="op_single_selector"]
@@ -61,22 +62,26 @@ Du måste skapa en belastningsutjämnad slut punkt för varje virtuell dator som
 5. Starta **Azure PowerShell**. En ny PowerShell-session öppnas med de Azure-administrativa moduler som lästs in.
 6. Kör **Get-AzurePublishSettingsFile**. Denna cmdlet dirigerar dig till en webbläsare för att ladda ned en fil för publicerings inställningar till en lokal katalog. Du kan uppmanas att ange dina inloggnings uppgifter för din Azure-prenumeration.
 7. Kör kommandot **import-AzurePublishSettingsFile** med sökvägen till filen med publicerings inställningar som du laddade ned:
-   
-        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
-   
+
+    ```powershell
+    Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+    ```
+
     När publicerings inställnings filen har importer ATS kan du hantera din Azure-prenumeration i PowerShell-sessionen.
     
 1. Kopiera PowerShell-skriptet nedan till en text redigerare och ange variabel värden som passar din miljö (standardvärden har angetts för vissa parametrar). Observera att om din tillgänglighets grupp sträcker sig över Azure-regioner måste du köra skriptet en gång i varje data Center för moln tjänsten och noder som finns i det data centret.
+
+    ```powershell
+    # Define variables
+    $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+    $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
    
-        # Define variables
-        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-   
-        # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
-        ForEach ($node in $AGNodes)
-        {
-            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
-        }
+    # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
+    ForEach ($node in $AGNodes)
+    {
+        Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
+    }
+    ```
 
 2. När du har angett variablerna kopierar du skriptet från text redigeraren till din Azure PowerShell-session för att köra det. Om meddelandet fortfarande visar >> skriver du in RETUR för att kontrol lera att skriptet börjar köras.
 
@@ -97,18 +102,21 @@ Skapa tillgänglighets gruppens lyssnare i två steg. Först skapar du kluster r
 1. För extern belastnings utjämning måste du hämta den offentliga virtuella IP-adressen för den moln tjänst som innehåller dina repliker. Logga in på Azure-portalen. Navigera till moln tjänsten som innehåller din tillgänglighets grupps virtuella dator. Öppna vyn **instrument panel** .
 2. Observera adressen som visas under **offentlig virtuell IP-adress (VIP)**. Om din lösning omfattar virtuella nätverk upprepar du det här steget för varje moln tjänst som innehåller en virtuell dator som är värd för en replik.
 3. På en av de virtuella datorerna kopierar du PowerShell-skriptet nedan till en text redigerare och anger variablerna till de värden som du antecknade tidigare.
+
+    ```powershell
+    # Define variables
+    $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP Address resource name
+    $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
    
-        # Define variables
-        $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
+    Import-Module FailoverClusters
    
-        Import-Module FailoverClusters
+    # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
    
-        # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
-   
-        # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-        # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+    # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
+    # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+    ```
+
 4. När du har angett variablerna, öppnar du ett upphöjt Windows PowerShell-fönster och kopierar skriptet från text redigeraren och klistrar in det i Azure PowerShell-sessionen för att köra det. Om meddelandet fortfarande visar >> skriver du in RETUR för att kontrol lera att skriptet börjar köras.
 5. Upprepa detta på varje virtuell dator. Det här skriptet konfigurerar IP-adressresursen med IP-adressen för moln tjänsten och anger andra parametrar som avsöknings port. När IP-adressresursen är online kan den svara på avsökningen på avsöknings porten från den belastningsutjämnade slut punkten som skapades tidigare i den här självstudien.
 
@@ -124,7 +132,9 @@ Skapa tillgänglighets gruppens lyssnare i två steg. Först skapar du kluster r
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Testa tillgänglighets gruppens lyssnare (via Internet)
 För att få åtkomst till lyssnaren utanför det virtuella nätverket måste du använda extern/offentlig belastnings utjämning (beskrivs i det här avsnittet) i stället för ILB, som endast är tillgängligt inom samma VNet. I anslutnings strängen anger du namnet på moln tjänsten. Om du till exempel har en moln tjänst med namnet *mycloudservice*skulle SQLCMD-instruktionen vara följande:
 
-    sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+```console
+sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+```
 
 Till skillnad från föregående exempel måste SQL-autentisering användas, eftersom anroparen inte kan använda Windows-autentisering via Internet. Mer information finns i [tillgänglighets gruppen Always on i Azure VM: klient anslutnings scenarier](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). När du använder SQL-autentisering ser du till att du skapar samma inloggning på båda replikerna. Mer information om hur du felsöker inloggningar med tillgänglighets grupper finns i [så här mappar du inloggningar eller använder SQL Database-användare som är anslutna till andra repliker och mappar till tillgänglighets databaser](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 

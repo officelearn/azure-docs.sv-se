@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: b67bd5b6310e1f8ce35dc14690757209ef62c9d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75660264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087613"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Alternativ för beräknings kontext för ML-tjänster i HDInsight
 
@@ -34,7 +34,7 @@ I allmänhet körs ett R-skript som körs i ML Services-kluster på Edge-noden i
 - Reducera karta
 - Spark
 
-De *lokala* alternativen och *localpar* -alternativen skiljer sig bara i hur **rxExec** -anrop utförs. Båda kör andra RX-funktions anrop på ett parallellt sätt i alla tillgängliga kärnor, om inget annat anges genom användning av alternativet RevoScaleR **numCoresToUse** , till exempel `rxOptions(numCoresToUse=6)`. Alternativ för parallell körning ger optimala prestanda.
+De *lokala* alternativen och *localpar* -alternativen skiljer sig bara i hur **rxExec** -anrop utförs. Båda kör andra RX-funktions anrop på ett parallellt sätt i alla tillgängliga kärnor, om inget annat anges genom användning av alternativet RevoScaleR **numCoresToUse** , till exempel `rxOptions(numCoresToUse=6)` . Alternativ för parallell körning ger optimala prestanda.
 
 I följande tabell sammanfattas olika beräknings kontext alternativ för att ange hur samtal ska utföras:
 
@@ -73,7 +73,9 @@ Med hänsyn till dessa principer, erbjuder följande avsnitt några allmänna re
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Infogad hjälp på rxSetComputeContext
 Mer information och exempel på RevoScaleR Compute-kontexter finns i den infogade hjälpen i R på rxSetComputeContext-metoden, till exempel:
 
-    > ?rxSetComputeContext
+```console
+> ?rxSetComputeContext
+```
 
 Du kan också läsa [översikten över distribuerade data behandling](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) i [Machine Learning Server-dokumentationen](https://docs.microsoft.com/machine-learning-server/).
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a793de35ffff84009d362f005e599b4419f0763f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50bf1502589ea0932fd45367c039e6e37135d761
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532781"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086066"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Koncept med hög tillgänglighet i Azure Database for MySQL
 Tjänsten Azure Database for MySQL ger en garanterad hög tillgänglighets nivå. Det ekonomiskt åtgärdade service nivå avtalet (SLA) är 99,99% vid allmän tillgänglighet. Det finns praktiskt taget ingen programs otillgänglig tid när du använder den här tjänsten.
@@ -29,7 +29,7 @@ Internt i Azure används en gateway för att omdirigera anslutningarna till den 
 ## <a name="scaling-up-or-down"></a>Skala upp eller ned
 Precis som för HA-modellen skapas en ny Server instans med den angivna storleken när en Azure Database for MySQL skalas upp eller ned. Den befintliga data lagringen kopplas från den ursprungliga instansen och kopplas till den nya instansen.
 
-Under skalnings åtgärden sker ett avbrott i databas anslutningarna. Klient programmen är frånkopplade och öppna ej allokerade transaktioner avbryts. När klient programmet försöker ansluta igen eller skapar en ny anslutning, dirigerar gatewayen anslutningen till den nya instansen. 
+Under skalnings åtgärden sker ett avbrott i databas anslutningarna. Klient programmen är frånkopplade och öppna ej allokerade transaktioner avbryts. När klient programmet försöker ansluta igen eller skapar en ny anslutning, dirigerar gatewayen anslutningen till den nya instansen.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [hantering av tillfälliga anslutnings fel](concepts-connectivity.md)

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 06/11/2020
-ms.openlocfilehash: 6e3a4b61c86d476a9e5c5a0392c51a72f06f048d
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.date: 07/05/2020
+ms.openlocfilehash: 607f622bc484883ecbeae0552eecc9561cf4c3ef
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84761339"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969610"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -208,13 +208,10 @@ Den här åtgärden är asynkron och kan vara en stund att slutföra.
 > [!IMPORTANT]
 > Kopiera och spara svaret eftersom du kommer att behöva informationen i nästa steg.
 > 
-**PowerShell**
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} 
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" 
 ```
-
-**REST**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -303,13 +300,9 @@ Uppdatera *kluster* resursens KeyVaultProperties med information om nyckel ident
 
 Den här åtgärden är asynkron vid uppdatering av nyckel-ID-information och kan ta en stund att slutföra. Den är synkron vid uppdatering av kapacitet svärdet.
 
-**PowerShell**
-
 ```powershell
-Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -KeyVaultUri {key-uri} -KeyName {key-name} -KeyVersion {key-version}
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
-
-**REST**
 
 > [!NOTE]
 > Du kan uppdatera *kluster* resursen *SKU*, *keyVaultProperties* eller *billingType* med hjälp av patch.
@@ -391,14 +384,10 @@ Du måste ha behörigheten "Skriv" till både din arbets yta och *kluster* resur
 
 Den här åtgärden är asynkron och kan vara en stund att slutföra.
 
-**PowerShell**
-
 ```powershell
-$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
-Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId
+$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name").id
+Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId
 ```
-
-**REST**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
@@ -472,17 +461,84 @@ Rotationen av CMK kräver explicit uppdatering av *kluster* resursen med den nya
 
 Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom data alltid krypteras med konto krypterings nyckeln (AEK) medan AEK nu krypteras med din nya KEK-version (Key Encryption Key) i Key Vault.
 
-## <a name="cmk-manage"></a>Hantera CMK
+## <a name="saving-queries-protected-with-cmk"></a>Spara frågor som skyddas med CMK
+
+Frågespråket som används i Log Analytics är lättfattliga programspecifika och kan innehålla känslig information i kommentarer som du lägger till i frågor eller i frågesyntaxen. Vissa organisationer kräver att sådan information hålls skyddad som en del av CMK-principen och du måste spara dina frågor krypterade med din nyckel. Med Azure Monitor kan du lagra *sparade sökningar* och *Logga aviserings* frågor i ditt eget lagrings konto som du ansluter till din arbets yta. 
+
+> Observera CMK för frågor som används i arbets böcker och Azure-instrumentpaneler stöds inte än. Dessa frågor förblir krypterade med Microsoft Key.  
+
+Med ta med din egen lagring (BYOS) laddar tjänsten upp frågor till det lagrings konto som du har kontroll över. Det innebär att du styr [principen för kryptering vid vila](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
+
+**Att tänka på innan du ställer in CMK för frågor**
+* Du måste ha Skriv behörighet till både din arbets yta och ditt lagrings konto
+* Se till att skapa ditt lagrings konto i samma region som din Log Analytics arbets yta finns
+* *Spara sökningar* i lagring anses som tjänst artefakter och deras format kan ändras
+* Befintliga *sparade sökningar* tas bort från din arbets yta. Kopiera och *Spara sökningar* som du behöver före konfigurationen. Du kan visa dina *sparade sökningar* med hjälp av denna [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0)
+* Frågans historik stöds inte och du kommer inte att kunna se frågor som du körde
+* Du kan associera ett enda lagrings konto till arbets ytan för att kunna spara frågor, men kan användas i både *sparade sökningar* och *logg aviserings* frågor
+* Fäst på instrument panelen stöds inte
+
+**Konfiguration av BYOS för frågor**
+
+Associera ett lagrings konto med *query* dataSourceType till din arbets yta. 
+
+```powershell
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
+```
+
+```rst
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-03-01-preview
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "dataSourceType": "Query", 
+    "storageAccountIds": 
+    [
+      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+    ]
+  }
+}
+```
+
+Efter konfigurationen sparas alla nya *sparade Sök* frågor i ditt lagrings utrymme.
+
+**Konfiguration av BYOS för log-Alerts**
+
+Koppla ett lagrings konto till en *avisering* dataSourceType till din arbets yta. 
+
+```powershell
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
+```
+
+```rst
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-03-01-preview
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "dataSourceType": "Alerts", 
+    "storageAccountIds": 
+    [
+      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+    ]
+  }
+}
+```
+
+Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
+
+## <a name="cmk-management"></a>Hantering av CMK
 
 - **Hämta alla *kluster* resurser för en resurs grupp**
   
-  **PowerShell**
-
   ```powershell
-  Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name}
+  Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
-
-  **REST**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -526,13 +582,9 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 
 - **Hämta alla *kluster* resurser för en prenumeration**
   
-  **PowerShell**
-
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
-
-  **REST**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -547,14 +599,10 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 
   När data volymen till dina associerade arbets ytor ändras med tiden och du vill uppdatera kapacitets reservations nivån korrekt. Följ [uppdaterings *kluster* resursen](#update-cluster-resource-with-key-identifier-details) och ange ditt nya kapacitets värde. Det kan vara mellan 1 000 och 2 000 GB per dag och i steg om 100. För högre nivå än 2 000 GB per dag når du din Microsoft-kontakt för att aktivera den. Observera att du inte behöver ange den fullständiga texten i REST-begäran och ska innehålla SKU: n:
 
-  **PowerShell**
-
   ```powershell
-  Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -SkuCapacity {daily-ingestion-gigabyte}
+  Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"
   ```
 
-  **REST**
-   
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
@@ -594,13 +642,9 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 
   Den här åtgärden är asynkron och kan vara en stund att slutföra.
 
-  **PowerShell**
-
   ```powershell
-  Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -Name {workspace-name} -LinkedServiceName cluster
+  Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
-
-  **REST**
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
@@ -616,12 +660,12 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
   1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
   2. Skicka en [arbets yta – get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) -begäran och Observera att svaret, den Avassocierade arbets ytan inte har *clusterResourceId* under *funktioner*.
 
-- **Kontrol lera Association status för arbets ytan** Utför åtgärden Hämta på arbets ytan och kontrol lera om *clusterId* finns i svaret. Den associerade arbets ytan kommer att ha *clusterId* -egenskapen.
-
-  **PowerShell**
+- **Kontrol lera Association status för arbets ytan**
+  
+  Utför åtgärden Hämta på arbets ytan och observera om egenskapen *clusterResourceId* finns i svaret under *funktioner*. Den associerade arbets ytan kommer att ha *clusterResourceId* -egenskapen.
 
   ```powershell
-  Get-AzOperationalInsightsWorkspace -ResourceGroupName {resource-group-name} -Name {workspace-name}
+  Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
   ```
 
 - **Ta bort *kluster* resursen**
@@ -630,14 +674,10 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
   
   Den Avassocierade arbets ytans åtgärd är asynkron och kan ta upp till 90 minuter att slutföra.
 
-  **PowerShell**
-
   ```powershell
-  Remove-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
 
-  **REST**
-  
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
@@ -689,8 +729,6 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 
 - Om du uppdaterar en befintlig *kluster* resurs med KeyVaultProperties och get nyckel åtkomst principen saknas i Key Vault, Miss kommer åtgärden.
 
-- Om du försöker ta bort en *kluster* resurs som är kopplad till en arbets yta kommer borttagnings åtgärden att Miss förväntas.
-
 - Om du får ett konflikt fel när du skapar en *kluster* resurs – det kan bero på att du har tagit bort *kluster* resursen under de senaste 14 dagarna och att den är i en mjuk borttagnings period. *Kluster* resurs namnet är reserverat under den mjuka borttagnings perioden och du kan inte skapa ett nytt kluster med det namnet. Namnet släpps efter den mjuka borttagnings perioden när *kluster* resursen tas bort permanent.
 
 - Om du uppdaterar *kluster* resursen medan en åtgärd pågår, fungerar inte åtgärden.
@@ -698,5 +736,9 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom dat
 - Om du inte kan distribuera *kluster* resursen kontrollerar du att Azure Key Vault, *kluster*   resursen och tillhör ande Log Analytics arbets ytor finns i samma region. Kan finnas i olika prenumerationer.
 
 - Om du uppdaterar din nyckel version i Key Vault och inte uppdaterar informationen om den nya nyckel identifieraren i *kluster* resursen, fortsätter Log Analytics klustret att använda din tidigare nyckel och dina data blir otillgängliga. Uppdatera informationen om den nya nyckel identifieraren i *kluster* resursen för att återuppta data inmatning och möjlighet att fråga data.
+
+- Vissa åtgärder är långa och kan ta en stund att slutföra – dessa är *kluster* skapa, *kluster* nyckel uppdatering och *kluster* borttagning. Du kan kontrol lera åtgärds statusen på två sätt:
+  1. När du använder REST kopierar du URL-värdet för Azure-AsyncOperation från svaret och följer [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+  2. Skicka GET-begäran till *kluster* eller arbets yta och observera svaret. Till exempel har inte den kopplade arbets ytan *clusterResourceId* under *funktioner*.
 
 - För support och hjälp som är relaterat till kund Managed Key använder du dina kontakter i Microsoft.

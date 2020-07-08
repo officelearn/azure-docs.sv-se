@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: fc779d6caba2b896b869440ad523291bc3c9a9b2
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726442"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965288"
 ---
 # <a name="rendering-using-azure"></a>Rendering med hjälp av Azure
 
@@ -48,7 +48,7 @@ Det finns ett antal Azure-funktioner som kan användas för att återge arbets b
 
 Det vanligaste fallet är att det finns en befintlig lokal åter givning-grupp som hanteras av ett program för rendering Management, till exempel PipelineFX Qube, den senaste åter givningen eller tids gränsen.  Kravet är att utöka den lokala åter givnings Server gruppens kapacitet med hjälp av virtuella Azure-datorer.
 
-Program varan för åter givnings hantering har stöd för inbyggd Azure-support eller så gör vi tillgängliga plugin-program som lägger till Azure-support. Mer information om de åter givnings hanterare och funktioner som stöds är aktiverade finns i artikeln om att [använda åter givnings hanterare](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
+Program varan för åter givnings hantering har stöd för inbyggd Azure-support eller så gör vi tillgängliga plugin-program som lägger till Azure-support. Mer information om de åter givnings hanterare och funktioner som stöds är aktiverade finns i artikeln om att [använda åter givnings hanterare](./batch-rendering-render-managers.md).
 
 ### <a name="custom-rendering-workflow"></a>Anpassat åter givnings arbets flöde
 
@@ -77,9 +77,9 @@ Azure Batch används för många arbets belastningar, men följande funktioner �
 Det finns flera sätt att använda Azure Batch, som alla gäller även för Azure Batch åter givning.
 
 * API:er:
-  * Skriv kod med hjälp av [rest](https://docs.microsoft.com/rest/api/batchservice), [.net](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch)eller andra API: er som stöds.  Utvecklare kan integrera Azure Batch funktioner i befintliga program eller arbets flöden, oavsett om de är molnbaserade eller baserade lokalt.  [Autodesk Maya-plugin-programmet](https://github.com/Azure/azure-batch-maya) använder till exempel batch python-API: et för att anropa batch, skapa och hantera pooler, skicka jobb och uppgifter och övervaknings status.
+  * Skriv kod med hjälp av [rest](/rest/api/batchservice), [.net](/dotnet/api/overview/azure/batch), [python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch)eller andra API: er som stöds.  Utvecklare kan integrera Azure Batch funktioner i befintliga program eller arbets flöden, oavsett om de är molnbaserade eller baserade lokalt.  [Autodesk Maya-plugin-programmet](https://github.com/Azure/azure-batch-maya) använder till exempel batch python-API: et för att anropa batch, skapa och hantera pooler, skicka jobb och uppgifter och övervaknings status.
 * Kommando rads verktyg:
-  * [Kommando rads](https://docs.microsoft.com/cli/azure/) -eller [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) för Azure kan användas för att använda skript för batch-användning.
+  * [Kommando rads](/cli/azure/) -eller [Azure PowerShell](/powershell/azure/overview) för Azure kan användas för att använda skript för batch-användning.
   * I synnerhet gör stödet för batch CLI det mycket enklare att skapa pooler och skicka jobb.
 * UIs:
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett klient verktyg för flera plattformar som också tillåter att batch-konton hanteras och övervakas, men ger till gång till en del rikare funktioner jämfört med Azure Portal gränssnittet.  En uppsättning pool-och jobbmallar tillhandahålls som är skräddarsydda för varje program som stöds och som kan användas för att enkelt skapa pooler och skicka jobb.
@@ -95,9 +95,9 @@ Det finns flera sätt att använda Azure Batch, som alla gäller även för Azur
 
 Se följande inledande självstudier för att prova Azure Batch åter givning:
 
-* [Använda Batch Explorer för att återge en över gångs scen](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
-* [Använd batch CLI för att rendera en Autodesk 3ds Max-scen](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Använda Batch Explorer för att återge en över gångs scen](./tutorial-rendering-batchexplorer-blender.md)
+* [Använd batch CLI för att rendera en Autodesk 3ds Max-scen](./tutorial-rendering-cli.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta reda på listan över åter givnings program och versioner som finns på virtuella Azure Marketplace-avbildningar i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-rendering-applications).
+Ta reda på listan över åter givnings program och versioner som finns på virtuella Azure Marketplace-avbildningar i [den här artikeln](./batch-rendering-applications.md).

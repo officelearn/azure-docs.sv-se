@@ -3,12 +3,12 @@ title: Skapa principer programmässigt
 description: Den här artikeln vägleder dig genom program mässigt skapa och hantera principer för Azure Policy med Azure CLI, Azure PowerShell och REST API.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3f785556dd86aa8b02f5aa0af09190266b8c509f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682131"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969897"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
@@ -40,7 +40,7 @@ Det första steget mot bättre insyn i resurserna är att skapa och tilldela pri
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Skapa och tilldela en princip definition med PowerShell
 
-1. Använd följande JSON-kodfragment för att skapa en JSON-fil med namnet AuditStorageAccounts. JSON.
+1. Använd följande JSON-kodfragment för att skapa en JSON-fil med namnet AuditStorageAccounts.jspå.
 
    ```json
    {
@@ -63,7 +63,7 @@ Det första steget mot bättre insyn i resurserna är att skapa och tilldela pri
 
    Mer information om hur du skapar en princip definition finns i [Azure policy definitions struktur](../concepts/definition-structure.md).
 
-1. Kör följande kommando för att skapa en princip definition med hjälp av filen AuditStorageAccounts. JSON.
+1. Kör följande kommando för att skapa en princip definition med hjälp av AuditStorageAccounts.jsi filen.
 
    ```azurepowershell-interactive
    New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
@@ -95,7 +95,7 @@ Det första steget mot bättre insyn i resurserna är att skapa och tilldela pri
    - Prenumerera`/subscriptions/{subId}/`
    - Hanterings grupp –`/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Mer information om hur du hanterar resurs principer med hjälp av Azure Resource Manager PowerShell-modulen finns i [AZ. Resources](/powershell/module/az.resources/#policies).
+Mer information om hur du hanterar resurs principer med hjälp av Resource Manager PowerShell-modulen finns i [AZ. Resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Skapa och tilldela en princip definition med ARMClient
 

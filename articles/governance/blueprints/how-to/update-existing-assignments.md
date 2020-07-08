@@ -3,12 +3,12 @@ title: Uppdatera en befintlig tilldelning från portalen
 description: Lär dig mer om mekanismen för att uppdatera en befintlig skiss tilldelning från portalen i Azure-ritningar.
 ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381794"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969472"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Så här uppdaterar du en befintlig skiss tilldelning
 
@@ -50,18 +50,18 @@ Distributionen av de uppdaterade tilldelningarna följer några viktiga regler. 
   - Om definitionen av princip tilldelningen ändras skapas en ny princip tilldelning.
     Princip tilldelningar som tidigare har distribuerats är kvar på plats.
   - Om principen tilldelnings artefakt tas bort från skissen, lämnas distribuerade princip tilldelningar kvar.
-- Azure Resource Manager-mallar
+- Azure Resource Manager mallar (ARM-mallar)
   - Mallen bearbetas via Resource Manager som en **placering**. När varje resurs typ hanterar den här åtgärden på olika sätt kan du läsa igenom dokumentationen för varje resurs som ingår för att fastställa effekten av den här åtgärden när den körs av ritningar.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Möjliga fel vid uppdatering av tilldelningar
 
-När du uppdaterar tilldelningar är det möjligt att göra ändringar som bryts när de körs. Ett exempel är att ändra platsen för en resurs grupp när den redan har distribuerats. Alla ändringar som stöds av [Azure Resource Manager](../../../azure-resource-manager/management/overview.md) kan göras, men eventuella ändringar som skulle resultera i ett fel via Azure Resource Manager kommer också att resultera i att tilldelningen Miss lyckas.
+När du uppdaterar tilldelningar är det möjligt att göra ändringar som bryts när de körs. Ett exempel är att ändra platsen för en resurs grupp när den redan har distribuerats. Alla ändringar som stöds av [Resource Manager](../../../azure-resource-manager/management/overview.md) kan göras, men eventuella ändringar som skulle resultera i ett fel via Resource Manager leder också till att tilldelningen Miss lyckas.
 
 Det finns ingen gräns för hur många gånger en tilldelning kan uppdateras. Om ett fel inträffar bestämmer du felet och gör en annan uppdatering av tilldelningen.  Exempel på fel scenarier:
 
 - En felaktig parameter
 - Ett befintligt objekt som redan finns
-- En ändring som inte stöds av Azure Resource Manager
+- En ändring som inte stöds av Resource Manager
 
 ## <a name="next-steps"></a>Nästa steg
 

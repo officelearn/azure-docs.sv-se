@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: cebc1d54443c63a3fb9a2c8b6e9471525e0d7403
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 997b7b1442d29c4daa4e47c89a7f53d46c3b8c81
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341262"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969593"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -29,6 +29,19 @@ Azure-säkerhet ligger i aktiv utveckling och tar emot förbättringar kontinuer
 
 Den här sidan uppdateras regelbundet, så du kan uppdatera den ofta. Om du söker efter objekt som är äldre än sex månader hittar du dem i [arkivet för vad som är nytt i Azure Security Center](release-notes-archive.md).
 
+## <a name="july-2020"></a>Juli 2020
+
+I juli ingår följande uppdateringar:
+- [Skydd mot Azure Storage utökas till att omfatta Azure Files och Azure Data Lake Storage Gen2 (förhands granskning)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+
+### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Skydd mot Azure Storage utökas till att omfatta Azure Files och Azure Data Lake Storage Gen2 (förhands granskning)
+
+Skydd mot hot för Azure Storage identifierar potentiellt skadlig aktivitet på dina Azure Storage-konton. Security Center visar aviseringar när du upptäcker försök att komma åt eller utnyttja dina lagrings konton. 
+
+Dina data kan skyddas oavsett om de lagras som BLOB-behållare, fil resurser eller data sjöar. 
+
+Läs mer om [skydd mot hot för Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
 
 ## <a name="june-2020"></a>Juni 2020
 
@@ -38,6 +51,8 @@ Uppdateringarna i juni inkluderar:
 - [Två nya rekommendationer för att distribuera Log Analytics agent till Azure Arc-datorer (för hands version)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
 - [Nya principer för att skapa kontinuerliga konfigurationer för export och automatisering av arbets flöden i skala](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
 - [Ny rekommendation för att använda NSG: er för att skydda virtuella datorer som inte är Internet-riktade](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
+- [Nya principer för att aktivera hot skydd och avancerad data säkerhet](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
+
 
 
 ### <a name="secure-score-api-preview"></a>Secure score-API (för hands version)
@@ -119,6 +134,32 @@ Läs mer i tabellen med [nätverks rekommendationer](recommendations-reference.m
 
 
 
+
+### <a name="new-policies-for-enabling-threat-protection-and-advanced-data-security"></a>Nya principer för att aktivera hot skydd och avancerad data säkerhet
+
+De nya principerna nedan lades till i ASC-standardinitiativet och är utformade för att hjälpa till med att aktivera skydd av hot eller avancerad data säkerhet för relevanta resurs typer.
+
+Du hittar principerna i Azure policy:
+
+
+| Princip                                                                                                                                                                                                                                                                | Princip-ID                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [Avancerad data säkerhet ska vara aktiverat på Azure SQL Database servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
+| [Avancerad data säkerhet ska vara aktiverat på SQL-servrar på datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
+| [Avancerat skydd bör vara aktiverat på lagrings konton](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [Avancerat skydd bör vara aktiverat på Azure Key Vault valv](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
+| [Avancerat skydd bör vara aktiverat på App Service planer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [Avancerat skydd bör vara aktiverat på Azure Container Registry register](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
+| [Avancerat skydd bör vara aktiverat på Azure Kubernetes service-kluster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
+| [Avancerat skydd bör vara aktiverat på Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
+|                                                                                                                                                                                                                                                                       |                                      |
+
+Läs mer om [skydd av hot i Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+
+
+
+
+
 ## <a name="may-2020"></a>Maj 2020
 
 Uppdateringar i kan vara:
@@ -195,6 +236,7 @@ Säkerhets kontrollerna – och den här växlingen är en del av den nya säkra
 
 Läs mer om säkerhets kontroller i [förbättrade säkra poäng (för hands version) i Azure Security Center](secure-score-security-controls.md).
 
+!["Gruppera efter kontroller"-växla för rekommendationer](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Utökad säkerhets kontroll "implementera säkerhets metod tips" 
 
@@ -380,13 +422,3 @@ När angripare ökar angreppet med stealthier-metoder för att undvika identifie
 
 För att räkna ut det här hotet Azure Security Center lanserad fil lös attack identifiering för Windows i oktober 2018 och har nu utökad avkänning av fil lös attacker på Linux också. 
 
-
-## <a name="january-2020"></a>Januari 2020
-
-### <a name="enhanced-secure-score-preview"></a>Förbättrade säkra poäng (för hands version)
-
-Nu finns en förbättrad version av den säkra poängen-funktionen i Azure Security Center tillgänglig i för hands versionen. I den här versionen är flera rekommendationer grupperade i säkerhets kontroller som bättre återspeglar dina sårbara attack ytor (till exempel begränsa åtkomst till hanterings portar).
-
-Bekanta dig med de säkra Poäng ändringarna under förhands gransknings fasen och bestäm andra åtgärder som kan hjälpa dig att skydda din miljö ytterligare.
-
-Läs mer om [förbättrade säkra poäng (för hands version) i Azure Security Center](secure-score-security-controls.md).

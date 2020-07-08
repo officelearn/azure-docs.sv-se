@@ -13,10 +13,9 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ca3f4b1e1061b0ca86cc836849499b83ee055fe
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826527"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka självbetjäning av lösenordsåterställning
@@ -97,7 +96,7 @@ Ett bra tips när du felsöker problem med tillbakaskrivning av lösen ord är a
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Om händelsens källa är ADSync
 
-| Kod | Namn eller meddelande | Description |
+| Kod | Namn eller meddelande | Beskrivning |
 | --- | --- | --- |
 | 6329 | BAIL: MMS (4924) 0x80230619: "en begränsning förhindrar att lösen ordet ändras till den aktuella som anges." | Den här händelsen inträffar när tjänsten för tillbakaskrivning av lösen ord försöker att ange ett lösen ord för din lokala katalog som inte uppfyller lösen ordets ålder, historik, komplexitet eller filtrerings krav för domänen. <br> <br> Om du har en lägsta ålder för lösen ord och nyligen har ändrat lösen ordet inom tids perioden kan du inte ändra lösen ordet igen förrän det når den angivna åldern i din domän. För test ändamål ska den lägsta åldern anges till 0. <br> <br> Om du har krav på lösen ords historik aktive rad måste du välja ett lösen ord som inte har använts under de senaste *N* tiderna, där *n* är inställningen för lösen ords historik. Om du väljer ett lösen ord som har använts under de senaste *N* tiderna visas ett problem i det här fallet. I test syfte ska lösen ords historiken anges till 0. <br> <br> Om du har krav på lösen ords komplexitet tillämpas alla dem när användaren försöker ändra eller återställa ett lösen ord. <br> <br> Om du har aktiverat lösen ords filter och en användare väljer ett lösen ord som inte uppfyller filtrerings villkoren, Miss lyckas återställnings-eller ändrings åtgärden. |
 | 6329 | MMS (3040): admaexport. cpp (2837): servern innehåller inte princip kontrollen för LDAP-lösenord. | Det här problemet uppstår om LDAP_SERVER_POLICY_HINTS_OID kontroll (1.2.840.113556.1.4.2066) inte är aktive rad i domänkontrollanten. Om du vill använda funktionen för tillbakaskrivning av lösen ord måste du aktivera kontrollen. För att göra det måste DCs vara på Windows Server 2008R2 eller senare. |
@@ -105,7 +104,7 @@ Ett bra tips när du felsöker problem med tillbakaskrivning av lösen ord är a
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Om händelsens källa är PasswordResetService
 
-| Kod | Namn eller meddelande | Description |
+| Kod | Namn eller meddelande | Beskrivning |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Den här händelsen indikerar att den lokala tjänsten har identifierat en begäran om lösen ords återställning för en federerad, direktautentisering eller en lösenordsskyddad användare som kommer från molnet. Den här händelsen är den första händelsen vid varje tillbakaskrivning av lösen ords återställning. |
 | 31002 | PasswordResetSuccess | Den här händelsen anger att en användare har valt ett nytt lösen ord under en åtgärd för lösen ords återställning. Vi har fastställt att det här lösen ordet uppfyller företagets lösen ords krav. Lösen ordet har skrivits tillbaka till den lokala Active Directorys miljön. |

@@ -9,10 +9,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83832970"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Vanliga fråge mönster i Azure Stream Analytics
@@ -35,14 +34,14 @@ Du kan använda en enkel direkt sändnings fråga för att kopiera data Ströms 
 
 **Inmatade**:
 
-| Tillverkning | Tid | Vikt |
+| Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
 **Utdata**:
 
-| Tillverkning | Tid | Vikt |
+| Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
@@ -60,7 +59,7 @@ En **Select** *-fråga projekterar alla fält i en inkommande händelse och skic
 
 **Inmatade**:
 
-| Tillverkning | Tid | Vikt |
+| Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |1000 |
 | Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
@@ -68,7 +67,7 @@ En **Select** *-fråga projekterar alla fält i en inkommande händelse och skic
 
 **Utdata**:
 
-| Tillverkning | Tid |
+| Modell | Tid |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |2015-01-01T00:00:02.0000000 Z |
@@ -88,7 +87,7 @@ Om du vill beräkna information över ett tidsfönster kan data aggregeras tills
 
 **Inmatade**:
 
-| Tillverkning | Tid | Vikt |
+| Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |1000 |
 | Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
@@ -96,7 +95,7 @@ Om du vill beräkna information över ett tidsfönster kan data aggregeras tills
 
 **Utdata**:
 
-| Tillverkning | Antal |
+| Modell | Antal |
 | --- | --- |
 | Make1 | 2 |
 | Make2 | 1 |
@@ -126,14 +125,14 @@ Data kan omvandlas i real tid med hjälp av **Cast** -metoden. Bil vikt kan till
 
 **Inmatade**:
 
-| Tillverkning | Tid | Vikt |
+| Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
 **Utdata**:
 
-| Tillverkning | Vikt |
+| Modell | Vikt |
 | --- | --- |
 | Make1 |3000 |
 
@@ -160,7 +159,7 @@ Mer information om [data konverterings funktioner](/stream-analytics-query/conve
 
 **Inmatade**:
 
-| Tillverkning | License_plate | Tid |
+| Modell | License_plate | Tid |
 | --- | --- | --- |
 | Make1 |ABC – 123 |2015-01-01T00:00:01.0000000 Z |
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
@@ -168,7 +167,7 @@ Mer information om [data konverterings funktioner](/stream-analytics-query/conve
 
 **Utdata**:
 
-| Tillverkning | License_plate | Tid |
+| Modell | License_plate | Tid |
 | --- | --- | --- |
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
 | Make3 |ABC – 369 |2015-01-01T00:00:03.0000000 Z |
@@ -192,7 +191,7 @@ Använd **like** -instruktionen för att kontrol lera värdet för **License_pla
 
 **Inmatade**:
 
-| Tillverkning | Tid |
+| Modell | Tid |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make2 |2015-01-01T00:00:02.0000000 Z |
@@ -200,7 +199,7 @@ Använd **like** -instruktionen för att kontrol lera värdet för **License_pla
 
 **Utdata**:
 
-| Tillverkning |Dispatch_to_lane | Tid |
+| Modell |Dispatch_to_lane | Tid |
 | --- | --- | --- |
 | Make1 |En |2015-01-01T00:00:01.0000000 Z |
 | Make2 |T |2015-01-01T00:00:02.0000000 Z |
@@ -229,7 +228,7 @@ Flera **Select** -uttryck kan användas för att mata ut data till olika utgåen
 
 **Inmatade**:
 
-| Tillverkning | Tid |
+| Modell | Tid |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |2015-01-01T00:00:02.0000000 Z |
@@ -239,7 +238,7 @@ Flera **Select** -uttryck kan användas för att mata ut data till olika utgåen
 
 **Utgående ArchiveOutput**:
 
-| Tillverkning | Tid |
+| Modell | Tid |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |2015-01-01T00:00:02.0000000 Z |
@@ -249,7 +248,7 @@ Flera **Select** -uttryck kan användas för att mata ut data till olika utgåen
 
 **Utgående AlertOutput**:
 
-| Tillverkning | Tid | Antal |
+| Modell | Tid | Antal |
 | --- | --- | --- |
 | Make2 |2015-01-01T00:00:10.0000000 Z |3 |
 
@@ -314,7 +313,7 @@ Mer information finns i [ **with** -satsen](/stream-analytics-query/with-azure-s
 
 **Inmatade**:
 
-| Tillverkning | Tid |
+| Modell | Tid |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |2015-01-01T00:00:02.0000000 Z |
@@ -349,14 +348,14 @@ Du kan använda funktionen **fördröjning** för att titta på tidigare händel
 
 **Inmatade**:
 
-| Tillverkning | Tid |
+| Modell | Tid |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 
 **Utdata**:
 
-| Tillverkning | Tid |
+| Modell | Tid |
 | --- | --- |
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 
@@ -382,7 +381,7 @@ Mer information finns i [**fördröjning**](/stream-analytics-query/lag-azure-st
 
 **Inmatade**:
 
-| License_plate | Tillverkning | Tid |
+| License_plate | Modell | Tid |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
@@ -394,7 +393,7 @@ Mer information finns i [**fördröjning**](/stream-analytics-query/lag-azure-st
 
 **Utdata**:
 
-| License_plate | Tillverkning | Tid |
+| License_plate | Modell | Tid |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
@@ -416,7 +415,7 @@ WHERE
 
 **Utdata**:
 
-| License_plate | Tillverkning | Tid |
+| License_plate | Modell | Tid |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
@@ -445,7 +444,7 @@ När händelser används av systemet i real tid, finns det ingen funktion som ka
 
 **Inmatade**:
 
-| License_plate | Tillverkning | Tid |
+| License_plate | Modell | Tid |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
@@ -457,7 +456,7 @@ När händelser används av systemet i real tid, finns det ingen funktion som ka
 
 **Utdata**:
 
-| License_plate | Tillverkning | Tid |
+| License_plate | Modell | Tid |
 | --- | --- | --- |
 | VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
@@ -499,7 +498,7 @@ Att korrelera händelser i samma data ström kan göras genom att titta på tidi
 
 **Inmatade**:
 
-| Tillverkning | License_plate | Tid |
+| Modell | License_plate | Tid |
 | --- | --- | --- |
 | Make1 |ABC – 123 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
@@ -508,7 +507,7 @@ Att korrelera händelser i samma data ström kan göras genom att titta på tidi
 
 **Utdata**:
 
-| Tillverkning | Tid | Current_car_license_plate | First_car_license_plate | First_car_time |
+| Modell | Tid | Current_car_license_plate | First_car_license_plate | First_car_time |
 | --- | --- | --- | --- | --- |
 | Make1 |2015-01-01T00:00:02.0000000 Z |AAA-999 |ABC – 123 |2015-01-01T00:00:01.0000000 Z |
 
@@ -571,7 +570,7 @@ För villkor som sträcker sig över flera händelser kan du använda funktionen
 
 **Inmatade**:
 
-| Tillverkning | Tid | Vikt |
+| Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |2000 |
 | Make2 |2015-01-01T00:00:02.0000000 Z |25000 |
@@ -665,7 +664,7 @@ Till exempel är enhets klockan för *TollID* 2 fem sekunder bakom *TollID* 1 oc
 
 **Inmatade**:
 
-| LicensePlate | Tillverkning | Tid | TollID |
+| LicensePlate | Modell | Tid | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:01.0000000 Z | 1 |
 | YHN 6970 |Make2 |2015-07-27T00:00:05.0000000 Z | 1 |

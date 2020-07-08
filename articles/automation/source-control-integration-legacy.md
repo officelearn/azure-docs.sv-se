@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83828941"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Använd käll kontroll integrering i Azure Automation-bakåtkompatibelt
@@ -38,7 +37,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 
 2. Sidan käll kontroll öppnas där du kan konfigurera dina GitHub-konto uppgifter. Nedan visas en lista över de parametrar som du kan konfigurera:  
 
-   | **ProfileServiceApplicationProxy** | **Beskrivning** |
+   | **Parameter** | **Beskrivning** |
    |:--- |:--- |
    | Välj källa |Välj källa. För närvarande stöds endast **GitHub** . |
    | Auktorisering |Klicka på knappen **auktorisera** för att ge Azure Automation åtkomst till din GitHub-lagringsplats. Om du redan är inloggad på ditt GitHub-konto i ett annat fönster används autentiseringsuppgifterna för kontot. När auktoriseringen är klar visar sidan ditt GitHub-användarnamn under **egenskapen Authorization**. |
@@ -60,15 +59,15 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 
    * Variabeln **Microsoft. Azure. Automation. SourceControl. Connection** innehåller värdena för anslutnings strängen, som visas nedan.  
 
-     | **ProfileServiceApplicationProxy** | **Värde** |
+     | **Parameter** | **Värde** |
      |:--- |:--- |
      | `Name`  |Microsoft. Azure. Automation. SourceControl. Connection |
      | `Type`  |Sträng |
-     | `Value` |{"Gren": \< *Ditt gren namn*>, "RunbookFolderPath": \< *Runbook-mappsökväg*>, "ProviderType": \< *har värdet 1 för GitHub*>, "databas": \< *namnet på din databas*>, "username": \< *ditt GitHub-användarnamn*>} |
+     | `Value` |{"Gren": \<*Your branch name*> , "RunbookFolderPath": \<*Runbook folder path*> , "ProviderType": \<*has a value 1 for GitHub*> , "databas": \<*Name of your repository*> , "username": \<*Your GitHub user name*> } |
 
    * Variabeln **Microsoft. Azure. Automation. SourceControl. OAuthToken**innehåller det säkra krypterade värdet för din OAuthToken.  
 
-     |**ProfileServiceApplicationProxy**            |**Värde** |
+     |**Parameter**            |**Värde** |
      |:---|:---|
      | `Name`  | `Microsoft.Azure.Automation.SourceControl.OAuthToken` |
      | `Type`  | `Unknown(Encrypted)` |

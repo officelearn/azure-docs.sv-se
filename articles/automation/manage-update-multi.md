@@ -6,10 +6,9 @@ ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: d08afc6e501fd76167e0939633442213958f0d49
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834636"
 ---
 # <a name="manage-updates-for-multiple-vms"></a>Hantera uppdateringar för flera virtuella datorer
@@ -23,7 +22,7 @@ Du kan använda Azure Automation Uppdateringshantering för att hantera uppdater
 
 Mer information om system kraven för Uppdateringshantering finns [uppdateringshantering klient krav](automation-update-management.md#client-requirements).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En virtuell dator eller en dator med ett operativ system som stöds installerat.
 * Åtkomst till ett uppdaterings lager för virtuella Linux-datorer som är aktiverade för Uppdateringshantering.
@@ -74,11 +73,11 @@ Agenter som är installerade på virtuella datorer och datorer samlar in data om
 
 I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöder:
 
-| Ansluten källa | Stöds | Description |
+| Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| Windows-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och initierar sedan installationen av nödvändiga uppdateringar. |
-| Linux-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och initierar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Yes |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp. |
+| Windows-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och initierar sedan installationen av nödvändiga uppdateringar. |
+| Linux-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och initierar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
+| Operations Manager-hanteringsgrupp |Ja |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp. |
 | Azure-lagringskonto |No |Azure Storage innehåller inte information om system uppdateringar. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
@@ -144,7 +143,7 @@ I fönstret **ny uppdaterings distribution** anger du följande information:
 
 - **Starta om kontroll** – den här inställningen avgör hur omstarter hanteras för uppdaterings distributionen.
 
-   |Alternativ|Description|
+   |Alternativ|Beskrivning|
    |---|---|
    |Starta om vid behov| **(Standard)** Vid behov initieras en omstart om underhålls perioden tillåter.|
    |Starta alltid om|En omstart startas oavsett om det krävs en sådan. |

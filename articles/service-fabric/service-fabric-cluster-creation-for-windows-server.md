@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83827972"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
@@ -55,9 +54,9 @@ Klustret som skapades i den här artikeln är inte säkert.  Vem som helst kan a
 ### <a name="step-1-create-the-cluster"></a>Steg 1: skapa klustret
 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Scenario A: skapa ett oskyddat lokalt utvecklings kluster
-Service Fabric kan distribueras till ett utvecklings kluster med en enda dator med hjälp av filen *ClusterConfig. unsecure. DevCluster. JSON* som ingår i [exemplen](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Service Fabric kan distribueras till ett utvecklings kluster med en enda dator med hjälp av *ClusterConfig.Unsecure.DevCluster.jspå* en fil som ingår i [exempel](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
-Packa upp det fristående paketet på datorn, kopiera exempel-config-filen till den lokala datorn och kör sedan *CreateServiceFabricCluster. ps1* -skriptet via en administratörs PowerShell-session från mappen för det fristående paketet.
+Packa upp det fristående paketet på datorn, kopiera exempel konfigurations filen till den lokala datorn och kör sedan *CreateServiceFabricCluster.ps1* -skriptet via en administratörs-PowerShell-session, från mappen för det fristående paketet.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
@@ -97,7 +96,7 @@ Klusteradministratören som distribuerar och konfigurerar klustret måste ha adm
     Passed                     : True
     ```
 
-2. Skapa klustret: kör skriptet *CreateServiceFabricCluster. ps1* för att distribuera Service Fabric-klustret på varje dator i konfigurationen. 
+2. Skapa klustret: kör *CreateServiceFabricCluster.ps1* -skriptet för att distribuera Service Fabric-klustret på varje dator i konfigurationen. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```
@@ -115,7 +114,7 @@ Runtime-paketet kan laddas ned separat från en annan dator som är ansluten til
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
 
-*.\ClusterConfig.JSON* och *.\MicrosoftAzureServiceFabric.cab* är Sök vägarna till kluster konfigurationen och filen Runtime. cab.
+*.\ClusterConfig.jspå* och *.\MicrosoftAzureServiceFabric.cab* är Sök vägarna till kluster konfigurationen och filen Runtime. cab.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Steg 2: Anslut till klustret
 Anslut till klustret för att kontrol lera att klustret körs och är tillgängligt. ServiceFabric PowerShell-modulen installeras med runtime.  Du kan ansluta till klustret från en av klusternoderna eller från en fjärrdator med Service Fabric Runtime.  Cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) upprättar en anslutning till klustret.

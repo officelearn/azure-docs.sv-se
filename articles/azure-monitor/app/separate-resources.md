@@ -4,10 +4,9 @@ description: Dirigera telemetri till olika resurser för utveckling, testning oc
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83773702"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Hur många Application Insights-resurser ska jag distribuera
@@ -45,7 +44,7 @@ För att göra det enklare att ändra iKey när koden flyttas mellan produktions
 
 Ange nyckeln i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
-*C #*
+*C#*
 
     protected void Application_Start()
     {
@@ -108,7 +107,7 @@ Det finns flera olika metoder för att ange program versions egenskapen.
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Generera BuildInfo. config automatiskt i MSBuild. Det gör du genom att lägga till några rader i `.csproj` filen:
+* [ASP.NET] Generera BuildInfo.config automatiskt i MSBuild. Det gör du genom att lägga till några rader i `.csproj` filen:
 
     ```XML
 
@@ -117,7 +116,7 @@ Det finns flera olika metoder för att ange program versions egenskapen.
     </PropertyGroup>
     ```
 
-    Detta genererar en fil med namnet *yourProjectName*. BuildInfo. config. publicerings processen byter namn till BuildInfo. config.
+    Detta genererar en fil med namnet *yourProjectName*.BuildInfo.config. Publicerings processen byter namn till BuildInfo.config.
 
     Versions etiketten innehåller en plats hållare (AutoGen_...) när du skapar med Visual Studio. Men när det har skapats med MSBuild fylls det i med rätt versions nummer.
 

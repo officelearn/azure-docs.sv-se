@@ -7,10 +7,9 @@ ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 82ea6a27d5bd75c180928f6a8b5c9742c54ea5a1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834432"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
@@ -18,7 +17,7 @@ ms.locfileid: "83834432"
 > [!NOTE]
 > Den här artikeln beskriver hur du förstår och styr dina kostnader för Application Insights.  En relaterad artikel, [övervaknings användning och uppskattade kostnader](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) beskriver hur du visar användning och uppskattade kostnader i flera Azure-övervakningsfunktioner för olika pris modeller.
 
-Application Insights har utformats för att få allt du behöver för att övervaka tillgänglighet, prestanda och användning av dina webb program, oavsett om de finns på Azure eller lokalt. Application Insights stöder populära språk och ramverk, till exempel .NET, Java och Node. js, och kan integreras med DevOps-processer och verktyg som Azure DevOps, JIRA och PagerDuty. Det är viktigt att förstå vad som bestämmer kostnaderna för att övervaka dina program. I den här artikeln granskar vi vad som finns på dina program övervaknings kostnader och hur du kan övervaka och kontrol lera dem proaktivt.
+Application Insights har utformats för att få allt du behöver för att övervaka tillgänglighet, prestanda och användning av dina webb program, oavsett om de finns på Azure eller lokalt. Application Insights stöder populära språk och ramverk, till exempel .NET, Java och Node.js, och integreras med DevOps-processer och verktyg som Azure DevOps, JIRA och PagerDuty. Det är viktigt att förstå vad som bestämmer kostnaderna för att övervaka dina program. I den här artikeln granskar vi vad som finns på dina program övervaknings kostnader och hur du kan övervaka och kontrol lera dem proaktivt.
 
 Om du har frågor om hur prissättningen fungerar för Application Insights kan du publicera en fråga på vår [sida för Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-monitor.html).
 
@@ -187,7 +186,7 @@ Mängden data som du skickar kan hanteras med hjälp av följande tekniker:
 
 * **Begränsa AJAX-anrop**: du kan [begränsa antalet AJAX-anrop som kan rapporteras](../../azure-monitor/app/javascript.md#configuration) i varje sidvy eller inaktivera Ajax-rapportering.
 
-* **Inaktivera onödiga moduler**: [Redigera ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) för att inaktivera de insamlings moduler som du inte behöver. Du kan till exempel bestämma att prestanda räknare eller beroende data inte är nödvändiga.
+* **Inaktivera onödiga moduler**: [Redigera ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) för att inaktivera insamlings moduler som du inte behöver. Du kan till exempel bestämma att prestanda räknare eller beroende data inte är nödvändiga.
 
 * **Föraggregerade mått**: om du lägger till anrop till TrackMetric i din app kan du minska trafiken genom att använda överlagringen som godkänner beräkningen av medelvärdet och standard avvikelsen för en batch med mått. Eller så kan du använda ett [paket för](https://www.myget.org/gallery/applicationinsights-sdk-labs)församlings sammansättning.
  
@@ -197,7 +196,7 @@ Mängden data som du skickar kan hanteras med hjälp av följande tekniker:
     
     Varnings meddelanden om den dagliga gränsen skickas till konton som är medlemmar i dessa roller för din Application Insights-resurs: "ServiceAdmin", "AccountAdmin", "innehavaradministratör", "ägare".
 
-    Använd försiktighet när du anger den dagliga gränsen. Avsikten bör vara att *aldrig träffa den dagliga*gränsen. Om du når den dagliga gränsen förlorar du data för resten av dagen och du kan inte övervaka ditt program. Om du vill ändra den dagliga begränsningen använder du alternativet för **daglig volym begränsning** . Du kan komma åt det här alternativet i fönstret **användning och uppskattade kostnader** (detta beskrivs mer detaljerat längre fram i artikeln).
+    Var försiktig när du anger den dagliga gränsen. Avsikten bör vara att *aldrig träffa den dagliga*gränsen. Om du når den dagliga gränsen går data för resten av dagen förlorade och du kan inte övervaka ditt program. Om du vill ändra den dagliga begränsningen använder du alternativet för **daglig volym begränsning** . Du kan komma åt det här alternativet i fönstret **användning och uppskattade kostnader** (detta beskrivs mer detaljerat längre fram i artikeln).
     
     Vi har tagit bort begränsningen för vissa prenumerations typer som har kredit som inte kan användas för Application Insights. Om prenumerationen har en utgifts gräns har den dagliga Cap-dialog rutan instruktioner för att ta bort utgifts gränsen och göra det möjligt att öka den dagliga gränsen för mer än 32,3 MB/dag.
     
@@ -333,7 +332,7 @@ Eftersom den här nivån bara gäller för kunder med en Operations Management S
 
 ## <a name="automation"></a>Automation
 
-Du kan skriva ett skript för att ställa in pris nivån med hjälp av Azure Resource Management. [Lär dig mer](powershell.md#price).
+Du kan skriva ett skript för att ställa in pris nivån med hjälp av Azure Resource Management. [Lär dig hur](powershell.md#price).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
 ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83828890"
 ---
 # <a name="use-source-control-integration"></a>Använda källkontrollsintegrering
@@ -26,7 +25,7 @@ Azure Automation stöder tre typer av käll kontroll:
 * Azure-databaser (git)
 * Azure-databaser (TFVC)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
 * Ett [Kör som-konto](manage-runas-account.md)
@@ -62,7 +61,7 @@ Använd den här proceduren för att konfigurera käll kontroll med Azure Portal
     |Mappsökväg     | Mapp som innehåller Runbooks som ska synkroniseras, till exempel **/Runbooks**. Endast Runbooks i den angivna mappen synkroniseras. Rekursion stöds inte.        |
     |Automatisk synkronisering<sup>1</sup>     | Inställning som aktiverar eller inaktiverar automatisk synkronisering när ett genomförande görs i käll kontrollens lagrings plats.        |
     |Publicera Runbook     | Inställning av på om Runbooks publiceras automatiskt efter synkronisering från käll kontroll och av annat sätt.           |
-    |Description     | Text som anger ytterligare information om käll kontrollen.        |
+    |Beskrivning     | Text som anger ytterligare information om käll kontrollen.        |
 
     <sup>1</sup> om du vill aktivera automatisk synkronisering när du konfigurerar käll kontrolls integrering med Azure databaser måste du vara projekt administratör.
 
@@ -111,7 +110,7 @@ Käll kontrollen kräver vissa minimi behörigheter för PATs. Följande underav
 
 I följande tabell definieras de lägsta PAT-behörigheter som krävs för GitHub. Mer information om hur du skapar en PAT i GitHub finns i [skapa en personlig åtkomsttoken för kommando raden](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Omfång  |Description  |
+|Omfång  |Beskrivning  |
 |---------|---------|
 |**`repo`**     |         |
 |`repo:status`     | Status för åtkomst genomförande         |

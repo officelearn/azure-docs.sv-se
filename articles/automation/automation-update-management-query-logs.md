@@ -6,10 +6,9 @@ ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83830777"
 ---
 # <a name="query-update-management-logs"></a>Fråga Uppdateringshanteringsloggar
@@ -39,7 +38,7 @@ En post med en typ av `RequiredUpdate` skapas som representerar uppdateringar so
 | TenantId | Unik identifierare som representerar organisations instansen av Azure Active Directory. | 
 | TimeGenerated | Datum och tid då posten skapades. | 
 | Typ | *Uppdatera* | 
-| UpdateClassification | Anger vilken typ av uppdateringar som kan tillämpas. För Windows:<br> *Kritiska uppdateringar*<br> *Säkerhetsuppdateringar*<br> *Samlade uppdateringar*<br> *Funktionspaket*<br> *Service Pack*<br> *Definitionsuppdateringar*<br> *Verktyg*<br> *Uppdateringar*. För Linux:<br> *Kritiska uppdateringar och säkerhetsuppdateringar*<br> *Övrigt* |
+| UpdateClassification | Anger vilken typ av uppdateringar som kan tillämpas. För Windows:<br> *Kritiska uppdateringar*<br> *Säkerhets uppdateringar*<br> *Samlade uppdateringar*<br> *Funktionspaket*<br> *Service Pack*<br> *Definitionsuppdateringar*<br> *Verktyg*<br> *Uppdateringar*. För Linux:<br> *Kritiska uppdateringar och säkerhetsuppdateringar*<br> *Övrigt* |
 | UpdateSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Kritiskt*<br> *Viktigt*<br> *Medel*<br> *Låg* |
 | UpdateTitle | Uppdateringens rubrik.|
 

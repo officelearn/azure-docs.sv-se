@@ -4,10 +4,9 @@ description: Montera en Azure Files resurs från datornoder i en Linux-eller Win
 ms.topic: how-to
 ms.date: 05/24/2018
 ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83780271"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Använda en Azure-filresurs med en batch-pool
@@ -39,8 +38,8 @@ I batch måste du montera resursen varje gång en aktivitet körs på en Windows
 
 Du kan till exempel lägga `net use` till ett kommando för att montera fil resursen som en del av varje aktivitets kommando rad. Följande autentiseringsuppgifter krävs för att montera fil resursen:
 
-* **Användar namn**: Azure \\ \< STORAGEACCOUNTNAME \> , till exempel Azure \\ *mystorageaccountname*
-* **Lösen ord**: \< StorageAccountKeyWhichEnds i = =>, till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Användar namn**: Azure \\ \<storageaccountname\> , till exempel Azure \\ *mystorageaccountname*
+* **Lösen ord**: \<StorageAccountKeyWhichEnds in==> , till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Följande kommando monterar en fil resurs *myfileshare* i lagrings kontot *mystorageaccountname* som *S:* enhet:
 
@@ -116,8 +115,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 Kör sedan `mount` kommandot för att montera fil resursen och ange följande autentiseringsuppgifter:
 
-* **Användar namn**: \< storageaccountname \> , till exempel *mystorageaccountname*
-* **Lösen ord**: \< StorageAccountKeyWhichEnds i = =>, till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Användar namn**: \<storageaccountname\> , till exempel *mystorageaccountname*
+* **Lösen ord**: \<StorageAccountKeyWhichEnds in==> , till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Följande kommando monterar en fil resurs *myfileshare* i lagrings kontot *mystorageaccountname* på */mnt/MyAzureFileShare*: 
 

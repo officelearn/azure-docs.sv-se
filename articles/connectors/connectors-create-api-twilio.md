@@ -8,17 +8,16 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: bb7be1815364b3def9b22e50454dceabd17e6150
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829655"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Hantera meddelanden i Twilio med Azure Logic Apps
 
 Med Azure Logic Apps och Twilio-anslutningen kan du skapa automatiserade uppgifter och arbets flöden som hämtar, skickar och listar meddelanden i Twilio, som innehåller globala SMS-, MMS-och IP-meddelanden. Du kan använda dessa åtgärder för att utföra uppgifter med ditt Twilio-konto. Du kan också använda de andra åtgärderna för att använda utdata från Twilio-åtgärder. När ett nytt meddelande anländer kan du till exempel skicka meddelande innehållet med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

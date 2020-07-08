@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
 ms.openlocfilehash: 122725bff616a49d27981b88f465e04418db9526
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826125"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
@@ -72,10 +71,10 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 Egenskap | Beskrivning | Obligatorisk |
 -------- | ----------- | -------- |
-name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Yes |
-typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Yes |
+name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
+typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
 hierarkistruktur | Schema för data uppsättningen. Mer information finns i [data uppsättnings schema](#dataset-structure-or-schema). | No |
-typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Yes |
+typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Ja |
 
 ### <a name="data-flow-compatible-dataset"></a>Data flöde-kompatibel data mängd
 
@@ -117,10 +116,10 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 Egenskap | Beskrivning | Obligatorisk |
 -------- | ----------- | -------- |
-name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Yes |
-typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Yes |
+name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
+typ | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
 schema | Schema för data uppsättningen. Mer information finns i [Data Flow-kompatibla data uppsättningar](#dataset-type). | No |
-typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Yes |
+typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#dataset-type). | Ja |
 
 
 ## <a name="dataset-example"></a>Exempel på data uppsättning
@@ -183,7 +182,7 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 
 Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
-name | Kolumnens namn. | Yes
+name | Kolumnens namn. | Ja
 typ | Kolumnens datatyp. Data Factory stöder följande Interimistiska data typer som tillåtna värden: **Int16, Int32, Int64, Single, Double, decimal, byte [], Boolean, String, GUID, DateTime, DateTimeOffset och TimeSpan** | No
 substrat | . NET-baserad kultur som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . Standardvärdet är `en-us`. | No
 format | Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | No

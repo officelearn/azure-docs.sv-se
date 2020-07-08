@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 3023aa72d713dc25351a6e509319e1c4c0ed609a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829672"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Övervaka och hantera ditt Yammer-konto genom att använda Azure Logic Apps
@@ -24,7 +23,7 @@ Med Azure Logic Apps och Yammer-anslutningen kan du skapa automatiserade uppgift
 
 Du kan använda utlösare som får svar från ditt Yammer-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Yammer-konto. Du kan också använda andra åtgärder för att använda utdata från Yammer-åtgärder. Till exempel när nya meddelanden visas i matningar eller grupper kan du dela dessa meddelanden med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

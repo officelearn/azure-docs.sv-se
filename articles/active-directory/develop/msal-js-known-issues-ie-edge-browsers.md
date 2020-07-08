@@ -1,7 +1,7 @@
 ---
-title: Problem i Internet Explorer & Microsoft Edge (MSAL. js) | Azure
+title: Problem i Internet Explorer & Microsoft Edge (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig om kända problem när du använder Microsoft Authentication Library för Java Script (MSAL. js) med Internet Explorer och Microsoft Edge-webbläsare.
+description: Läs om kända problem när du använder Microsoft Authentication Library för Java Script (MSAL.js) med Internet Explorer och Microsoft Edge-webbläsare.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -14,19 +14,18 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83772088"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Kända problem i Internet Explorer och Microsoft Edge-webbläsare (MSAL. js)
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Kända problem i Internet Explorer och Microsoft Edge-webbläsare (MSAL.js)
 
 ## <a name="issues-due-to-security-zones"></a>Problem på grund av säkerhets zoner
 Vi hade flera rapporter om problem med autentisering i IE och Microsoft Edge (sedan uppdateringen av *Microsoft Edge browser-versionen till 40.15063.0.0*). Vi spårar dessa och har informerat Microsoft Edge-teamet. Microsoft Edge arbetar med en lösning, men här är en beskrivning av de ofta förekommande problemen och de möjliga lösningarna som kan implementeras.
 
 ### <a name="cause"></a>Orsak
-Orsaken till de flesta av de här problemen är som följer. Session Storage och Local Storage partitioneras av säkerhets zoner i Microsoft Edge-webbläsaren. I den här specifika versionen av Microsoft Edge, när programmet omdirigeras mellan zoner, rensas sessionens lagring och lokala lagrings enheter. Mer specifikt rensas sessionens lagrings utrymme i webbläsarens vanliga navigering, och både sessionen och den lokala lagringen rensas i webbläsarens InPrivate-läge. MSAL. js sparar vissa tillstånd i sessionens lagring och använder sig av att kontrol lera det här läget under autentiseringen. När sessionen har rensats går det inte att spara det här läget och därför resulterar det i trasiga upplevelser.
+Orsaken till de flesta av de här problemen är som följer. Session Storage och Local Storage partitioneras av säkerhets zoner i Microsoft Edge-webbläsaren. I den här specifika versionen av Microsoft Edge, när programmet omdirigeras mellan zoner, rensas sessionens lagring och lokala lagrings enheter. Mer specifikt rensas sessionens lagrings utrymme i webbläsarens vanliga navigering, och både sessionen och den lokala lagringen rensas i webbläsarens InPrivate-läge. MSAL.js sparar ett visst tillstånd i sessionens lagrings utrymme och förlitar sig på att kontrol lera det här läget under autentiseringen. När sessionen har rensats går det inte att spara det här läget och därför resulterar det i trasiga upplevelser.
 
 ### <a name="issues"></a>Problem
 
@@ -36,12 +35,12 @@ Orsaken till de flesta av de här problemen är som följer. Session Storage och
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **Popup-fönstret stängs eller fastnar inte när du använder inloggning via popup för att autentisera**. När du autentiserar via popup-fönstret i Microsoft Edge eller IE (InPrivate) efter att ha angett autentiseringsuppgifter och loggat in, om flera domäner i säkerhets zoner är involverade i navigeringen, stängs inte popup-fönstret eftersom MSAL. js förlorar referensen till popup-fönstret.  
+- **Popup-fönstret stängs eller fastnar inte när du använder inloggning via popup för att autentisera**. När du autentiserar via popup-fönstret i Microsoft Edge eller IE (InPrivate) efter att ha angett autentiseringsuppgifter och loggat in, om flera domäner i säkerhets zoner är involverade i navigeringen, stängs inte popup-fönstret eftersom MSAL.js förlorar handtaget till popup-fönstret.  
 
-### <a name="update-fix-available-in-msaljs-023"></a>Uppdatering: korrigering tillgänglig i MSAL. js 0.2.3
-Korrigeringar för problem med att omdirigera loopar för autentisering har släppts i [MSAL. js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Aktivera flaggan `storeAuthStateInCookie` i MSAL. js-konfigurationen för att dra nytta av den här korrigeringen. Som standard är den här flaggan inställd på falskt.
+### <a name="update-fix-available-in-msaljs-023"></a>Uppdatering: korrigeringen är tillgänglig i MSAL.js 0.2.3
+Korrigeringar för problem med att omdirigera loopar för autentisering har släppts i [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Aktivera flaggan `storeAuthStateInCookie` i MSAL.js config för att dra nytta av den här korrigeringen. Som standard är den här flaggan inställd på falskt.
 
-När `storeAuthStateInCookie` flaggan är aktive rad kommer MSAL. js att använda webbläsarens cookies för att lagra det begär ande tillstånd som krävs för verifiering av auth-flöden.
+När `storeAuthStateInCookie` flaggan är aktive rad använder MSAL.js webbläsarens cookies för att lagra det begär ande tillstånd som krävs för validering av auth-flöden.
 
 > [!NOTE]
 > Den här korrigeringen är ännu inte tillgänglig för msal-omslutningar och msal-AngularJS. Den här korrigeringen löser inte problemet med popup-fönster.
@@ -57,7 +56,7 @@ Det gör du på följande sätt:
     - Välj fliken **säkerhet**
     - Under alternativet **Betrodda platser** klickar du på knappen **platser** och lägger till URL: erna i dialog rutan som öppnas.
 
-2. Som tidigare nämnts, eftersom bara session Storage rensas under den vanliga navigeringen, kan du konfigurera MSAL. js så att den lokala lagringen används i stället. Detta kan anges som config- `cacheLocation` parameter vid initiering av MSAL.
+2. Som tidigare nämnts, eftersom bara session Storage rensas under den vanliga navigeringen, kan du konfigurera MSAL.js att använda den lokala lagringen i stället. Detta kan anges som config- `cacheLocation` parameter vid initiering av MSAL.
 
 Observera att detta inte löser problemet med InPrivate-surfning eftersom både sessionen och den lokala lagringen har rensats.
 
@@ -68,4 +67,4 @@ Det finns fall då popup-fönster blockeras i IE eller Microsoft Edge, till exem
 Som en **lösning**måste utvecklare tillåta popup-fönster i IE och Microsoft Edge innan de börjar använda appen för att undvika det här problemet.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur du [använder MSAL. js i Internet Explorer](msal-js-use-ie-browser.md).
+Läs mer om hur du [använder MSAL.js i Internet Explorer](msal-js-use-ie-browser.md).

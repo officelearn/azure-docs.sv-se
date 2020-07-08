@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829791"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Konfigurera en Linux-huvudmålserver för återställning efter fel
@@ -29,7 +28,7 @@ Den här artikeln innehåller anvisningar för hur du installerar ett Linux-huvu
 
 Publicera kommentarer eller frågor i slutet av den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du vill välja den värd som ska användas för att distribuera huvud målet kontrollerar du om återställning efter fel återställningen kommer till en befintlig lokal virtuell dator eller till en ny virtuell dator. 
     * För en befintlig virtuell dator ska värden för huvud målet ha åtkomst till den virtuella datorns data lager.
@@ -244,7 +243,7 @@ Använd följande steg för att skapa en lagrings disk:
 
     ![Multipath-ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatera enheten och skapa sedan ett fil system på den nya enheten: **mkfs. ext4/dev/mapper/ \< kvarhållning disk multipath ID>**.
+3. Formatera enheten och skapa sedan ett fil system på den nya enheten: **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id> **.
     
     ![Filsystem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +260,7 @@ Använd följande steg för att skapa en lagrings disk:
     
     Välj **Infoga** för att börja redigera filen. Skapa en ny rad och infoga sedan följande text. Redigera disk-multipath-ID: t baserat på det markerade multipath-ID: t från föregående kommando.
 
-    **/dev/mapper/ \< kvarhållning disks multipath-id>/mnt/retention ext4 rw 0 0**
+    **/dev/mapper/ \<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
     Välj **ESC**och skriv **: Wq** (Skriv och avsluta) för att stänga redigerings fönstret.
 
@@ -274,7 +273,7 @@ Använd följande steg för att skapa en lagrings disk:
 > [!NOTE]
 > Innan du installerar huvud mål servern kontrollerar du att **/etc/hosts** -filen på den virtuella datorn innehåller poster som mappar det lokala värd namnet till IP-adresserna som är associerade med alla nätverkskort.
 
-1. Kopiera lösen frasen från **C:\Programdata\Microsoft Azure Site Recovery\private\connection.Passphrase** på konfigurations servern. Spara den som **lösen fras. txt** i samma lokala katalog genom att köra följande kommando:
+1. Kopiera lösen frasen från **C:\Programdata\Microsoft Azure Site Recovery\private\connection.Passphrase** på konfigurations servern. Spara den som **passphrase.txt** i samma lokala katalog genom att köra följande kommando:
 
     `echo <passphrase> >passphrase.txt`
 

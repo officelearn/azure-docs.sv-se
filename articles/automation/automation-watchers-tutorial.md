@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83830590"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Spåra uppdaterade filer med en bevakare-uppgift
@@ -32,7 +31,7 @@ Den här självstudien vägleder dig genom att skapa en bevakare-uppgift som ska
 > * Utlös en övervakare
 > * Granska utdata
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att genomföra kursen:
 
@@ -47,7 +46,7 @@ I den här självstudien används en bevakad Runbook som kallas **Watch-NewFile*
 
 Den här import processen kan göras via [PowerShell-galleriet](https://www.powershellgallery.com).
 
-1. Gå till Galleri sidan för [Watch-NewFile. ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd).
+1. Gå till Galleri sidan för [Watch-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd).
 2. Klicka på **distribuera i Azure Automation**på fliken **Azure Automation** .
 
 Du kan också importera denna Runbook till ditt Automation-konto från portalen med hjälp av följande steg.
@@ -74,7 +73,7 @@ En åtgärds-Runbook används i en bevakare-uppgift för att agera på de data s
 
 Så här skapar du en åtgärds-Runbook:
 
-1. Gå till Galleri sidan för [process-NewFile. ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf).
+1. Gå till Galleri sidan för [Process-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf).
 2. Klicka på **distribuera i Azure Automation**på fliken **Azure Automation** .
 
 Du kan också importera denna Runbook till ditt Automation-konto från Azure Portal:

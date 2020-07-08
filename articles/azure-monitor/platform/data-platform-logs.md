@@ -10,10 +10,9 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: dae72454cd9c0b3cb7370873619595840b770ed3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83799979"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
@@ -88,7 +87,7 @@ Azure Monitor kan samla in loggdata från olika källor både i Azure och från 
 | Mått | Skicka plattforms mått för Azure Monitor resurser till en Log Analytics arbets yta för att spara loggdata under längre perioder och för att utföra komplex analys med andra data typer med hjälp av [Kusto-frågespråket](/azure/kusto/query/). Se [strömma Azure-resurshanteraren till Log Analytics](resource-logs-collect-storage.md). |
 | Azure Table Storage | Samla in data från Azure Storage där vissa Azure-resurser skriver övervaknings data. Se [använda Azure Blob Storage för IIS och Azure Table Storage för händelser med Log Analytics](diagnostics-extension-logs.md). |
 
-### <a name="virtual-machines"></a>Virtuella datorer
+### <a name="virtual-machines"></a>Virtual Machines
 
 | Data | Beskrivning |
 |:---|:---|

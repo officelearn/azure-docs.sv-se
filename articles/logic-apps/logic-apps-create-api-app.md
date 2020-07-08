@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
 ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834500"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
@@ -21,7 +20,7 @@ ms.locfileid: "83834500"
 * Hjälp kunderna att använda tjänsten för att hantera professionella eller personliga uppgifter.
 * Utöka räckvidden, identifierings möjligheten och användningen för din tjänst.
 
-I princip är kopplingar webb-API: er som använder REST för anslutnings bara gränssnitt, [Swagger metadata-format](https://swagger.io/specification/) för dokumentation och JSON som sitt data utbytes format. Eftersom kopplingar är REST-API: er som kommunicerar via HTTP-slutpunkter kan du använda valfritt språk, t. ex. .NET, Java, python eller Node. js, för att skapa anslutningar. Du kan också vara värd för dina API: er på [Azure App Service](../app-service/overview.md), ett PaaS-erbjudande (Platform-as-a-Service) som tillhandahåller ett av de bästa, enklaste och mest skalbara sätten för API-värd. 
+I princip är kopplingar webb-API: er som använder REST för anslutnings bara gränssnitt, [Swagger metadata-format](https://swagger.io/specification/) för dokumentation och JSON som sitt data utbytes format. Eftersom kopplingar är REST-API: er som kommunicerar via HTTP-slutpunkter kan du använda valfritt språk, t. ex. .NET, Java, python eller Node.js, för att skapa anslutningar. Du kan också vara värd för dina API: er på [Azure App Service](../app-service/overview.md), ett PaaS-erbjudande (Platform-as-a-Service) som tillhandahåller ett av de bästa, enklaste och mest skalbara sätten för API-värd. 
 
 För att anpassade API: er ska fungera med Logic Apps kan ditt API tillhandahålla [*åtgärder*](./logic-apps-overview.md#logic-app-concepts) som utför vissa uppgifter i Logic app-arbetsflöden. Ditt API kan också fungera som en [*utlösare*](./logic-apps-overview.md#logic-app-concepts) som startar ett Logic app-arbetsflöde när nya data eller en händelse uppfyller ett visst villkor. I det här avsnittet beskrivs vanliga mönster som du kan följa för att skapa åtgärder och utlösare i ditt API, baserat på vilket beteende du vill att ditt API ska tillhandahålla.
 
@@ -41,7 +40,7 @@ Du kan vara värd för dina API: er på [Azure App Service](../app-service/overv
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Hur skiljer sig anpassade API: er från anpassade anslutningar?
 
-Anpassade API: er och [anpassade anslutningar](../logic-apps/custom-connector-overview.md) är webb-API: er som använder rest för anslutnings bara gränssnitt, [Swagger metadata-format](https://swagger.io/specification/) för dokumentation och JSON som deras data utbytes format. Eftersom dessa API: er och anslutningar är REST-API: er som kommunicerar via HTTP-slutpunkter kan du använda valfritt språk, som .NET, Java, python eller Node. js, för att skapa anpassade API: er och anslutningar.
+Anpassade API: er och [anpassade anslutningar](../logic-apps/custom-connector-overview.md) är webb-API: er som använder rest för anslutnings bara gränssnitt, [Swagger metadata-format](https://swagger.io/specification/) för dokumentation och JSON som deras data utbytes format. Eftersom dessa API: er och anslutningar är REST-API: er som kommunicerar via HTTP-slutpunkter kan du använda valfritt språk, som .NET, Java, python eller Node.js, för att skapa anpassade API: er och anslutningar.
 
 Med anpassade API: er kan du anropa API: er som inte är kopplingar och tillhandahålla slut punkter som du kan anropa med HTTP + Swagger, Azure API Management eller App Services. Anpassade anslutningar fungerar som anpassade API: er men har även följande attribut:
 
@@ -53,7 +52,7 @@ Du kan också utse registrerade anslutningar för Microsoft-certifiering. Den h�
 
 Mer information om anpassade anslutningar finns i 
 
-* [Översikt över anpassade anslutningsappar](../logic-apps/custom-connector-overview.md)
+* [Översikt över anpassade anslutningar](../logic-apps/custom-connector-overview.md)
 * [Skapa anpassade anslutningar från webb-API: er](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
 * [Registrera anpassade anslutningar i Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
 
@@ -174,7 +173,7 @@ Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan 
 | Förfrågan ingår `triggerState` ? | API-svar | 
 | -------------------------------- | -------------| 
 | No | Returnera en HTTP- `202 ACCEPTED` status plus ett `location` sidhuvud med `triggerState` angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
-| Yes | Kontrol lera om det finns filer som har lagts till efter for i-tjänsten `DateTime` `triggerState` . | 
+| Ja | Kontrol lera om det finns filer som har lagts till efter for i-tjänsten `DateTime` `triggerState` . | 
 ||| 
 
 | Antal filer som hittades | API-svar | 

@@ -16,10 +16,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83827156"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
@@ -88,7 +87,7 @@ Följande är ett informations dokument som visar några av de bästa metoderna 
     - Mindre komplexitet
     - Du måste ange resurser för SQL och tillåta omkostnader för Azure AD Connect och OS
 - Kringgå proxy om du har möjlighet att kringgå proxyn måste du se till att timeoutvärdet är större än 5 minuter.
-- Om proxy krävs måste du lägga till proxyn i Machine. config-filen
+- Om proxy krävs måste du lägga till proxyn i machine.config-filen
 - Tänk på lokala SQL-jobb och underhåll och hur de påverkar Azure AD Connect – särskilt Omindexering
 - Kontrol lera att DNS kan lösa externt
 - Kontrol lera att [Server specifikationerna](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) är per rekommendation oavsett om du använder fysiska eller virtuella servrar
@@ -203,7 +202,7 @@ Förra året släppte vi en version av Azure AD Connect att, under vissa omstän
 
 Kör PowerShell-skriptet genom att [Ladda ned skriptet](https://aka.ms/repairaadconnect) och köra det på Azure AD Connect-servern i ett administrativt PowerShell-fönster. Om du vill lära dig hur du kör skriptet kan du [Visa den här korta videon](https://aka.ms/repairaadcau).
 
-Om du vill uppgradera manuellt måste du ladda ned och köra den senaste versionen av filen AADConnect. msi.
+Om du vill uppgradera manuellt måste du ladda ned och köra den senaste versionen av AADConnect.msi-filen.
  
 -  Om din aktuella version är äldre än 1.1.750.0 [hämtar och uppgraderar du till den senaste versionen](https://www.microsoft.com/download/details.aspx?id=47594).
 - Om din Azure AD Connect version är 1.1.750.0 eller senare krävs ingen ytterligare åtgärd. Du använder redan den version som innehåller korrigeringen för automatisk uppgradering. 

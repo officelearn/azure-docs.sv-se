@@ -12,10 +12,9 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83832800"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Ange variabel aktivitet i Azure Data Factory
@@ -28,7 +27,7 @@ Använd aktiviteten ange variabel för att ange värdet för en befintlig variab
 Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
 name | Namn på aktiviteten i pipeline | ja
-beskrivning | Text som beskriver vad aktiviteten gör | nej
+description | Text som beskriver vad aktiviteten gör | nej
 typ | Måste anges till **SetVariable** | ja
 värde | Sträng tecken eller uttrycks objekt värde som variabeln är tilldelad | ja
 variableName | Namnet på den variabel som anges av den här aktiviteten | ja

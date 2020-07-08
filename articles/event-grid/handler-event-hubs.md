@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
 ms.openlocfilehash: f46b17fdffc870e6afc5f3b0711169db8270a540
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83800447"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Event Hub som en händelse hanterare för Azure Event Grid händelser

@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83831593"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på grupp status med hjälp av omfång i Azure Logic Apps
@@ -23,7 +22,7 @@ Här är till exempel en övergripande Logic-app som använder en omfattning fö
 
 ![Ställ in utlösare för "schema upprepning"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa exemplet i den här artikeln behöver du följande objekt:
 
@@ -77,12 +76,12 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
       | ------- | ----- | ----------- |
       | **Waypoint 1** (Platsmarkör 1) | <*har*> | Ange din flödes ursprung. | 
       | **Waypoint 2** (Platsmarkör 2) | <*ändamål*> | Ange vägens mål. | 
-      | **Avoid** (Undvik) | Inga | Ange objekt som ska undvikas på vägen, till exempel vägar, väg tullar och så vidare. För möjliga värden, se [Beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Avoid** (Undvik) | Ingen | Ange objekt som ska undvikas på vägen, till exempel vägar, väg tullar och så vidare. För möjliga värden, se [Beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimera** | timeWithTraffic | Välj en parameter för att optimera vägen, till exempel avstånd, tid med aktuell trafik information och så vidare. I det här exemplet används detta värde: "timeWithTraffic" | 
       | **Avståndsenhet** | <*dina inställningar*> | Ange avstånds enheten för att beräkna din väg. I det här exemplet används detta värde: "mil" | 
       | **Travel mode** (Färdsätt) | Driving (Bil) | Ange rese läge för vägen. I det här exemplet används det här värdet "driver" | 
-      | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Inga | Gäller endast för överförings läge. | 
-      | **Typ av överförings datum** | Inga | Gäller endast för överförings läge. | 
+      | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Ingen | Gäller endast för överförings läge. | 
+      | **Typ av överförings datum** | Ingen | Gäller endast för överförings läge. | 
       ||||  
 
 1. [Lägg till ett villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md) som kontrollerar om den aktuella res tiden med trafik överskrider den angivna tiden. 

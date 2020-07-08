@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 1e95b7bfce3d57dfe579a5622c3c13fac2b6af68
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834823"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Hantera RSS-flöden med Azure Logic Apps
@@ -25,7 +24,7 @@ RSS (utförlig sammanfattning av webbplats), även kallat faktiskt enkelt syndik
 
 Du kan använda en RSS-utlösare som hämtar svar från en RSS-feed och gör utdata tillgängliga för andra åtgärder. Du kan använda en RSS-åtgärd i dina Logi Kap par för att utföra en uppgift med RSS-flödet. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

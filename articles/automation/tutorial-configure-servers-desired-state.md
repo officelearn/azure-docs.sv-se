@@ -6,10 +6,9 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: a45aa8299d61e89f2a21bc9c53de3a88f88cbb93
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83827904"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Konfigurera datorer till ett önskat tillstånd
@@ -25,7 +24,7 @@ Med Azure Automation tillstånds konfiguration kan du ange konfigurationer för 
 
 I den här självstudien använder vi en enkel [DSC-konfiguration](/powershell/scripting/dsc/configurations/configurations) som garanterar att IIS är installerat på den virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
 - En Azure Resource Manager virtuell dator (inte klassisk) som kör Windows Server 2008 R2 eller senare. Anvisningar om hur du skapar en virtuell dator finns [i skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
@@ -51,7 +50,7 @@ Connect-AzAccount
 ## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Skapa och ladda upp en konfiguration till Azure Automation
 
 
-Skriv följande i en text redigerare och spara den lokalt som **TestConfig. ps1**.
+Skriv följande i en text redigerare och spara den lokalt som **TestConfig.ps1**.
 
 ```powershell
 configuration TestConfig {

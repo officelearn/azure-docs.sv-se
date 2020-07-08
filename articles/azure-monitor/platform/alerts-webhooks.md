@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826918"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Anropa en webhook med en klassisk mått avisering i Azure Monitor
@@ -29,7 +28,7 @@ Om du vill lägga till eller uppdatera webhook-URI: n går du till **Skapa/uppda
 Du kan också konfigurera en avisering för att publicera till en webhook-URI genom att använda [Azure PowerShell cmdlets](../samples/powershell-samples.md#create-metric-alerts), ett [plattforms oberoende CLI](../samples/cli-samples.md#work-with-alerts)eller [Azure Monitor REST-API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Autentisera webhooken
-Webhooken kan autentiseras med hjälp av token-baserad auktorisering. Webhook-URI: n sparas med ett token-ID. Exempelvis: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+Webhooken kan autentiseras med hjälp av token-baserad auktorisering. Webhook-URI: n sparas med ett token-ID. Exempel: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Nytto Last schema
 POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric-baserade aviseringar:
@@ -68,14 +67,14 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 ```
 
 
-| Fält | Obligatorisk | Fast värde uppsättning | Anteckningar |
+| Fält | Obligatorisk | Fast värde uppsättning | Obs! |
 |:--- |:--- |:--- |:--- |
 | status |Y |Aktive rad, löst |Status för aviseringen baserat på de villkor du anger. |
 | Edit |Y | |Aviserings kontexten. |
 | timestamp |Y | |Tiden då aviseringen utlöstes. |
 | id |Y | |Varje varnings regel har ett unikt ID. |
 | name |Y | |Aviseringens namn. |
-| beskrivning |Y | |En beskrivning av aviseringen. |
+| description |Y | |En beskrivning av aviseringen. |
 | conditionType |Y |Mått, händelse |Två typer av aviseringar stöds: Metric och event. Mått varningar baseras på ett mått villkor. Händelse aviseringar baseras på en händelse i aktivitets loggen. Använd det här värdet för att kontrol lera om aviseringen baseras på ett mått eller en händelse. |
 | moduletype |Y | |De speciella fälten som ska kontrol leras baserat på **conditionType** -värdet. |
 | metricName |För mått varningar | |Namnet på måttet som definierar vad regeln övervakar. |

@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: ramakk
 ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83797438"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
@@ -27,7 +26,7 @@ Planering av nätverks arkitektur är ett viktigt element i att utforma alla pro
 
 Azure NetApp Files volymer är utformade för att ingå i ett särskilt syfte under nät som kallas för ett [delegerat undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) i Azure Virtual Network. Därför kan du komma åt volymerna direkt från ditt VNet, från peer-virtuella nätverk i samma region eller från lokala platser över en Virtual Network Gateway (ExpressRoute eller VPN Gateway) om det behövs. Under nätet är dedikerat för Azure NetApp Files och det finns ingen anslutning till andra Azure-tjänster eller Internet.
 
-## <a name="considerations"></a>Överväganden  
+## <a name="considerations"></a>Att tänka på  
 
 Du bör förstå några saker som du bör tänka på när du planerar för Azure NetApp Files nätverk.
 
@@ -57,7 +56,7 @@ I följande tabell beskrivs de nätverkstopologier som stöds av Azure NetApp Fi
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Anslutning till volym i ett lokalt virtuellt nätverk    |    Ja    |         |
 |    Anslutning till volym i ett peer-kopplat VNet (samma region)    |    Ja    |         |
-|    Anslutning till volym i ett peer-kopplat VNet (mellan regioner eller global peering)    |    Nej    |    Inga    |
+|    Anslutning till volym i ett peer-kopplat VNet (mellan regioner eller global peering)    |    No    |    Ingen    |
 |    Anslutning till en volym över ExpressRoute-Gateway    |    Ja    |         |
 |    Anslutning från lokal plats till en volym i ett eker VNet över ExpressRoute-gateway och VNet-peering med Gateway-överföring    |    Ja    |        |
 |    Anslutning från lokal plats till en volym i en eker VNet över VPN-gateway    |    Ja    |         |

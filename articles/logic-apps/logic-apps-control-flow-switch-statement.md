@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834534"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa switch-instruktioner som kör arbets flödes åtgärder baserat på vissa värden i Azure Logic Apps
@@ -23,7 +22,7 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
 > Precis som alla programmeringsspråk stöder switch-satser bara likhets operatorer. Om du behöver andra relationella operatorer, till exempel "större än", använder du en [villkors instruktion](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 > För att säkerställa deterministiska körnings beteenden måste fall innehålla ett unikt och statiskt värde i stället för dynamiska tokens eller uttryck.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -67,7 +66,7 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
    |--------|--------------------|--------|
    | Fall 1 | **Godkänn** | Lägg till Outlook **skicka en e-** poståtgärd för att skicka information om RSS-objektet endast när god kännaren valt **Godkänn**. |
    | Fall 2 | **Avvisa** | Lägg till Outlook **skicka en e-** poståtgärd för att meddela andra god kännare om att RSS-objektet avvisades. |
-   | Standard | Inga | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
+   | Default | Ingen | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
    |||
 
    ![Instruktionen avslutad switch](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
@@ -110,7 +109,7 @@ Nu när du har skapat en Logic app med en switch-instruktion ska vi titta på de
 }
 ```
 
-| Etikett | Description |
+| Etikett | Beskrivning |
 |-------|-------------|
 | `"Switch"`         | Namnet på Switch-instruktionen, som du kan byta namn på för läsbarhet |
 | `"type": "Switch"` | Anger att åtgärden är en switch-instruktion |

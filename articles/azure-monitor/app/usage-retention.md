@@ -7,10 +7,9 @@ ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
 ms.openlocfilehash: 654dba968ba4efec1c30c94082726da04059adc0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83797737"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analys av användar kvarhållning för webb program med Application Insights
@@ -42,7 +41,7 @@ För att få den mest användbara bevarande analysen kan du mäta händelser som
 
 Många användare kan till exempel öppna en sida i din app utan att spela upp spelet som visas. Att bara spåra sid visningarna skulle därför ge en felaktig uppskattning av hur många personer som går tillbaka till att spela spelet efter att ha besökt det tidigare. För att få en tydlig bild av att returnera spelare, ska appen skicka en anpassad händelse när en användare faktiskt spelar.  
 
-Det är en bra idé att koda anpassade händelser som representerar viktiga affärs åtgärder och använda dem för din bevarande analys. Om du vill avbilda spel resultatet måste du skriva en kodrad för att skicka en anpassad händelse till Application Insights. Om du skriver det i webb sidans kod eller Node. JS ser det ut så här:
+Det är en bra idé att koda anpassade händelser som representerar viktiga affärs åtgärder och använda dem för din bevarande analys. Om du vill avbilda spel resultatet måste du skriva en kodrad för att skicka en anpassad händelse till Application Insights. Om du skriver det i webb side koden eller i Node.JS, ser det ut så här:
 
 ```JavaScript
     appinsights.trackEvent("won game");

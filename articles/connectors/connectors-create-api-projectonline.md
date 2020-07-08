@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: a3e90fa3e3f57c1575a7ab09f9ce6941c13adcd1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834874"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Hantera Project Online-projekt,-uppgifter och-resurser med hjälp av Azure Logic Apps
@@ -25,7 +24,7 @@ Med Azure Logic Apps och Project Online Connector kan du skapa automatiserade up
 
 Project Online hjälper dig att planera, prioritera och hantera projekt och projekt portfölj investeringar från nästan var som helst på nästan vilken enhet som helst genom att tillhandahålla kraftfulla funktioner för projekt hantering. Du kan använda Project Online-utlösare som får svar från Project Online och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder i Logi Kap par för att utföra olika uppgifter i Project Online. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

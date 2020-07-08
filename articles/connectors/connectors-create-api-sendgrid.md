@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: b86a38278ae345fac376958d18912a878a53872b
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834806"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Skicka e-postmeddelanden och hantera e-postlistor i SendGrid med hjälp av Azure Logic Apps
@@ -27,7 +26,7 @@ Du kan använda SendGrid åtgärder i dina Logi Kap par för att utföra dessa u
 Den här kopplingen tillhandahåller endast åtgärder, så för att starta din Logi Kap par, använder du en separat utlösare, till exempel en **upprepnings** utlösare. Om du till exempel regelbundet lägger till mottagare i dina listor kan du skicka e-post om mottagare och listor med hjälp av Office 365 Outlook Connector eller Outlook.com Connector.
 Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

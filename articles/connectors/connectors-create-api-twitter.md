@@ -8,13 +8,12 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: f2db6d614c3c12cb1be87724e79d79a16769d6b8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829604"
 ---
-# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Övervaka och hantera Twitter genom att använda Azure Logic Apps
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Övervaka och hantera Twitter med hjälp av Azure Logic Apps
 
 Med Azure Logic Apps och Twitter-anslutningen kan du skapa automatiserade uppgifter och arbets flöden som övervakar och hanterar data som du bryr dig om i Twitter, till exempel tweets, följare, användare och följda användare, tids linjer och mer, tillsammans med andra åtgärder, till exempel:
 
@@ -23,7 +22,7 @@ Med Azure Logic Apps och Twitter-anslutningen kan du skapa automatiserade uppgif
 
 Du kan använda utlösare som får svar från ditt Twitter-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Twitter-konto. Du kan också använda andra åtgärder för att använda utdata från Twitter-åtgärder. Till exempel, när en ny tweet med en angiven hashtagg visas, kan du skicka meddelanden med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83831627"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som upprepar arbetsflödesåtgärder eller processmatriser i Azure Logic Apps
@@ -22,7 +21,7 @@ Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ä
 > [!TIP]
 > Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -232,8 +231,8 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
       | Egenskap | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
-      | **Att** | *\<e-postadress – \@ domän>* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
-      | **Subjekt** | Det aktuella värdet för "Limit" är **begränsat** | Ange e-postmeddelandets ämne. I det här exemplet ska du se till att du inkluderar **Limit** -variabeln. | 
+      | **Att** | *\<email-address\@domain>* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
+      | **Ämne** | Det aktuella värdet för "Limit" är **begränsat** | Ange e-postmeddelandets ämne. I det här exemplet ska du se till att du inkluderar **Limit** -variabeln. | 
       | **Brödtext** | <*e-post – innehåll*> | Ange det e-postmeddelande innehåll som du vill skicka. I det här exemplet anger du vilken text du vill. | 
       |||| 
 
@@ -247,10 +246,10 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
 En "till"-loop har standard gränser som slutar köras om något av dessa villkor inträffar:
 
-| Egenskap | Standardvärde | Description | 
+| Egenskap | Standardvärde | Beskrivning | 
 | -------- | ------------- | ----------- | 
 | **Reparationer** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
-| **Standardvärde** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 
+| **Tidsgräns** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 
 |||| 
 
 Om du vill ändra dessa standard gränser väljer du **Visa avancerade alternativ** i formen loop-åtgärd.

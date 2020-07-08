@@ -1,5 +1,5 @@
 ---
-title: Vägledning för utvecklare för Azure Active Directory villkorlig åtkomst
+title: Vägledning för utvecklare för villkorsstyrd åtkomst i Azure Active Directory
 titleSuffix: Microsoft identity platform
 description: Vägledning för utvecklare och scenarier för villkorlig åtkomst och Microsoft Identity Platform i Azure AD.
 services: active-directory
@@ -15,17 +15,16 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83771085"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för Azure Active Directory villkorlig åtkomst
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorsstyrd åtkomst i Azure Active Directory
 
 Funktionen för villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder ett av flera sätt som du kan använda för att skydda din app och skydda en tjänst. Med villkorlig åtkomst kan utvecklare och företags kunder skydda tjänster på flera olika sätt:
 
-* [Multifaktorautentisering](../authentication/concept-mfa-howitworks.md)
+* [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 * Tillåter endast att Intune-registrerade enheter får åtkomst till vissa tjänster
 * Begränsa användar platser och IP-intervall
 
@@ -49,7 +48,7 @@ Mer specifikt kräver följande scenarier kod för att hantera utmaningarna för
 
 * Appar som utför ett flöde på samma vägnar
 * Appar som har åtkomst till flera tjänster/resurser
-* Appar med en sida med MSAL. js
+* Appar med en sida som använder MSAL.js
 * Web Apps att anropa en resurs
 
 Principer för villkorlig åtkomst kan tillämpas på appen, men kan också tillämpas på ett webb-API som appen får åtkomst till. Mer information om hur du konfigurerar en princip för villkorlig åtkomst finns i [snabb start: KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](../conditional-access/app-based-mfa.md).
@@ -91,7 +90,7 @@ Utvecklare kan ta denna utmaning och lägga till den på en ny begäran till Azu
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Villkorlig åtkomst i Azure AD är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst.
 
@@ -101,7 +100,7 @@ Följande information gäller endast i följande scenarier för villkorlig åtko
 
 * Appar som utför ett flöde på samma vägnar
 * Appar som har åtkomst till flera tjänster/resurser
-* Appar med en sida med MSAL. js
+* Appar med en sida som använder MSAL.js
 
 I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. Kärn drifts principen är villkorliga åtkomst principer utvärderas när token begärs för tjänsten som har en tillämpad princip för villkorlig åtkomst.
 
@@ -150,11 +149,11 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Om appen använder MSAL-biblioteket, görs ett försök att hämta token alltid interaktivt. När den här interaktiva begäran sker har slutanvändaren möjlighet att följa den villkorliga åtkomsten. Detta är sant om begäran inte är en `AcquireTokenSilentAsync` eller `PromptBehavior.Never` i vilket fall appen behöver utföra en interaktiv ```AcquireToken``` begäran för att ge slutanvändaren möjlighet att följa principen.
 
-## <a name="scenario-single-page-app-spa-using-msaljs"></a>Scenario: en app med en sida (SPA) med MSAL. js
+## <a name="scenario-single-page-app-spa-using-msaljs"></a>Scenario: en app med en sida (SPA) med MSAL.js
 
-I det här scenariot går vi igenom fallet när vi har en enda sida-app (SPA) med hjälp av MSAL. js för att anropa ett skyddat webb-API för villkorlig åtkomst. Det här är en enkel arkitektur men har vissa olika delarna som måste beaktas när du utvecklar kring villkorlig åtkomst.
+I det här scenariot går vi igenom fallet när vi har en enda sida-app (SPA) som använder MSAL.js för att anropa ett skyddat webb-API för villkorlig åtkomst. Det här är en enkel arkitektur men har vissa olika delarna som måste beaktas när du utvecklar kring villkorlig åtkomst.
 
-I MSAL. js finns det några funktioner som hämtar tokens: `loginPopup()` , `acquireTokenSilent(...)` , `acquireTokenPopup(…)` och `acquireTokenRedirect(…)` .
+I MSAL.js finns det några funktioner som hämtar token: `loginPopup()` , `acquireTokenSilent(...)` , `acquireTokenPopup(…)` och `acquireTokenRedirect(…)` .
 
 * `loginPopup()`hämtar en ID-token via en interaktiv inloggnings förfrågan men får inte åtkomst-token för någon tjänst (inklusive ett skyddat webb-API för villkorlig åtkomst).
 * `acquireTokenSilent(…)`kan sedan användas för att tyst erhålla en åtkomsttoken, vilket innebär att den inte visar gränssnitt i någon omständighet.
@@ -176,7 +175,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Vår app behöver fånga in `error=interaction_required` . Programmet kan sedan använda antingen `acquireTokenPopup()` eller `acquireTokenRedirect()` på samma resurs. Användaren tvingas göra en Multi-Factor Authentication. När användaren har slutfört Multi-Factor Authentication utfärdas appen en ny åtkomsttoken för den begärda resursen.
 
-Om du vill testa det här scenariot, se vår [JS-kod exempel för JS på egen räkning](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). I det här kod exemplet används en princip för villkorlig åtkomst och webb-API som du registrerade tidigare med en JS-SPA för att demonstrera det här scenariot. Det visar hur du kan hantera anspråks utmaningen och få en åtkomsttoken som kan användas för ditt webb-API. Du kan också checka ut kod exemplet för generella [. js-kod](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) om du vill ha hjälp med ett vinkel Spa
+Om du vill testa det här scenariot, se vår [JS-kod exempel för JS på egen räkning](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). I det här kod exemplet används en princip för villkorlig åtkomst och webb-API som du registrerade tidigare med en JS-SPA för att demonstrera det här scenariot. Det visar hur du kan hantera anspråks utmaningen och få en åtkomsttoken som kan användas för ditt webb-API. Du kan också checka in exemplet på allmänt [Angular.jss kod](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) för vägledning om ett vinkel Spa
 
 ## <a name="see-also"></a>Se även
 

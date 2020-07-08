@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: a7f9ab478067cecbac6f01a5a969bf48653b6dd1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83831508"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorliga uttryck som styr arbets flödes åtgärder i Azure Logic Apps
@@ -22,7 +21,7 @@ Anta till exempel att du har en logisk app som skickar för många e-postmeddela
 > [!TIP]
 > Om du vill köra olika steg baserat på olika värden använder du en [*switch-instruktion*](../logic-apps/logic-apps-control-flow-switch-statement.md) i stället.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 

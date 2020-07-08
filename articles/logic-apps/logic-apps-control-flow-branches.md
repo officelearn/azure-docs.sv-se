@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: f857449d4511b6ae0a5a25bf7aca9e1abc1ae7c0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83833701"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Skapa eller Anslut parallella grenar för arbets flödes åtgärder i Azure Logic Apps
@@ -20,7 +19,7 @@ Som standard körs dina åtgärder i Logic app-arbetsflöden i tur och ordning. 
 > [!TIP] 
 > Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

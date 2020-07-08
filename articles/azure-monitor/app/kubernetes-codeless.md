@@ -6,16 +6,15 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/13/2020
 ms.openlocfilehash: 76f9f922697ef6be6c959ea7f9bafd0872dba6ff
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83773758"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes---azure-monitor-application-insights"></a>Övervakning av program vara med noll Kubernetes-Azure Monitor Application Insights
 
 > [!IMPORTANT]
->  För närvarande kan du aktivera övervakning av Java-appar som körs på Kubernetes utan att instrumentera din kod – Använd den [fristående Java-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). Även om lösningen för att sömlöst aktivera program övervakning finns i Works för andra språk, använder du SDK: er för att övervaka dina appar som körs på AKS: [ASP.net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node. js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [Java Script](https://docs.microsoft.com/azure/azure-monitor/app/javascript)och [python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+>  För närvarande kan du aktivera övervakning av Java-appar som körs på Kubernetes utan att instrumentera din kod – Använd den [fristående Java-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). Lösningen för att sömlöst aktivera program övervakning är i Works för andra språk, och använder SDK: erna för att övervaka dina appar som körs på AKS: [ASP.net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [Java Script](https://docs.microsoft.com/azure/azure-monitor/app/javascript)och [python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
 ## <a name="application-monitoring-without-instrumenting-the-code"></a>Program övervakning utan att behöva instrumentera koden
 För närvarande kan du aktivera program övervakning utan att behöva instrumentera koden med Java. Använd SDK: er för att övervaka program på andra språk. 

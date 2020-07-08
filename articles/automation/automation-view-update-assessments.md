@@ -6,10 +6,9 @@ ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 321146364897d46a403bdfd6789fcb219179d88c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83830607"
 ---
 # <a name="view-update-assessments"></a>Visa uppdateringsutvärderingar
@@ -34,7 +33,7 @@ I följande tabeller visas de uppdaterings klassificeringar som stöds i Uppdate
 
 ### <a name="windows"></a>Windows
 
-|Klassificering  |Description  |
+|Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar     | Uppdateringar för vissa problem som åtgärdar kritiska, icke-säkerhetsrelaterade buggar.        |
 |Säkerhetsuppdateringar     | Uppdateringar för produktspecifika, säkerhetsrelaterade problem.        |
@@ -47,7 +46,7 @@ I följande tabeller visas de uppdaterings klassificeringar som stöds i Uppdate
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
 
-|Klassificering  |Description  |
+|Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett enskilt problem eller ett produktspecifik, säkerhetsrelaterat problem.         |
 |Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska eller som inte är av säkerhets uppdateringar.        |

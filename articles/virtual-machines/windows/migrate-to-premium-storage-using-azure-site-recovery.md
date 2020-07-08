@@ -8,10 +8,9 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: ee6800d2d0f589c43c96b240a74a86db488e0b46
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83827802"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med Azure Site Recovery
@@ -62,7 +61,7 @@ Detta är Azure-kraven för det här migrerings scenariot:
 * Ett virtuellt Azure-nätverk som de virtuella datorerna ska ansluta till när de skapas vid en redundansväxling. Det virtuella Azure-nätverket måste finnas i samma region som det som Site Recovery körs i.
 * Ett Azure standard Storage-konto för att lagra loggar för replikering. Detta kan vara samma lagrings konto för de virtuella dator diskar som migreras.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Förstå relevanta komponenter för migrerings scenario i föregående avsnitt.
 * Planera stillestånds tiden genom att lära dig om [redundans i Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -218,7 +217,7 @@ Vissa scenarier för att migrera virtuella datorer finns i följande resurser:
 Se även följande resurser för att lära dig mer om Azure Storage och Azure Virtual Machines:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure-Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

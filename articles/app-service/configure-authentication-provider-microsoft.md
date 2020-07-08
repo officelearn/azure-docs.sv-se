@@ -8,10 +8,9 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 68af882bf240b354bdad1afe322135c048576ed4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83772844"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda inloggning med Microsoft-konto
@@ -28,7 +27,7 @@ Det här avsnittet visar hur du konfigurerar Azure App Service eller Azure Funct
 1. Gå till [**Appregistreringar**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal. Om det behövs loggar du in med din Microsoft-konto.
 1. Välj **ny registrering**och ange sedan ett program namn.
 1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog (alla Azure AD Directory-flera klienter) och personliga Microsoft-konton (t. ex. Skype, Xbox)**
-1. I **omdirigerings-URI: er**väljer du **webb**och anger sedan `https://<app-domain-name>/.auth/login/aad/callback` . Ersätt * \< app-Domain-Name>* med domän namnet för din app.  Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Se till att använda HTTPS-schemat i URL: en.
+1. I **omdirigerings-URI: er**väljer du **webb**och anger sedan `https://<app-domain-name>/.auth/login/aad/callback` . Ersätt *\<app-domain-name>* med domän namnet för din app.  Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Se till att använda HTTPS-schemat i URL: en.
 
 1. Välj **Registrera**.
 1. Kopiera **program-ID: t (klient)**. Du behöver det senare.

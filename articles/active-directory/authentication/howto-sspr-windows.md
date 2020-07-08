@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95d1ffec6a849cb97a6151717c3e30dc362b1403
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826612"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Gör så här: Aktivera lösen ords återställning från Windows inloggnings skärm
@@ -128,8 +127,8 @@ När användarna återställer sina lösen ord från inloggnings skärmen på en
 
 #### <a name="silent-installation"></a>Tyst installation
 
-- För tyst installation använder du kommandot "msiexec/i SsprWindowsLogon. PROD. msi/qn"
-- Vid tyst avinstallation använder du kommandot "msiexec/x SsprWindowsLogon. PROD. msi/qn"
+- För tyst installation använder du kommandot "msiexec/i SsprWindowsLogon.PROD.msi/Qn"
+- Vid tyst avinstallation använder du kommandot "msiexec/x SsprWindowsLogon.PROD.msi/Qn"
 
 #### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Fel sökning av lösen ords återställning för Windows 7, 8 och 8,1
 

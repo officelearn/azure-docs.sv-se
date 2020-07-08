@@ -4,10 +4,9 @@ description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 38c7e0754649d650521cc510bcac326496bcec38
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83816106"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
@@ -23,7 +22,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är API Management-tjänsten igång?</li></ul>|
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft. batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.BatCH/batchAccounts
 |Utförda kontroller|
 |---|
 |<ul><li>Är batch-kontot igång?</li><li>Har kvoten för poolen överskridits för det här batch-kontot?</li></ul>|
@@ -104,7 +103,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är IoT Hub igång?</li></ul>|
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft. DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Utförda kontroller|
 |---|
 |<ul><li>Har det funnits några databaser eller samlings begär Anden som inte hanteras på grund av en Azure Cosmos DB tjänsten inte är tillgänglig?</li><li>Har det inte kunnat hanteras några dokument begär Anden på grund av att en Azure Cosmos DB tjänsten inte är tillgänglig?</li></ul>|
@@ -229,7 +228,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är värd servern igång?</li><li>Körs Internet Information Server?</li><li>Körs belastningsutjämnaren?</li><li>Kan webb programmet nås från data centret?</li><li>Är lagrings kontot som är värd för plats innehållet tillgängligt?</li></ul>|
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 -  Se [Introduktion till Azure Service Health instrument panel](service-health-overview.md) och [Introduktion till Azure Resource Health](resource-health-overview.md) om du vill veta mer om dem. 
 -  [Vanliga frågor och svar om Azure Resource Health](resource-health-faq.md)
 - Konfigurera aviseringar så att du får ett meddelande om hälso problem. Mer information finns i [Konfigurera aviseringar för service Health-händelser](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

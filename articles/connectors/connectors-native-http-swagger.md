@@ -8,17 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83831933"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Anropa REST-slutpunkter genom att använda Azure Logic Apps
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http + Swagger-anslutningen kan du automatisera arbets flöden som regelbundet anropar en REST-slutpunkt via en [Swagger-fil](https://swagger.io) genom att skapa Logi Kap par. HTTP + Swagger-utlösare och åtgärder fungerar på samma sätt som [http-utlösaren och åtgärden,](connectors-native-http.md) men ger en bättre upplevelse i Logic App Designer genom att exponera API-strukturen och utdata som beskrivs av Swagger-filen. Om du vill implementera en avsöknings utlösare följer du det avsöknings mönster som beskrivs i [skapa anpassade API: er som anropar andra API: er, tjänster och system från Logic Apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -145,7 +144,7 @@ Du kan referera till en Swagger-fil som inte finns eller som inte uppfyller krav
 
 Här är mer information om utdata från en HTTP + Swagger-utlösare eller åtgärd. HTTP + Swagger-anropet returnerar denna information:
 
-| Egenskapsnamn | Typ | Description |
+| Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
 | body | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |

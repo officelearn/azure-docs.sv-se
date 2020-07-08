@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 4e62536b610595c7a53eb8333f06f147e628dec7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83772054"
 ---
 # <a name="using-web-browsers-msalnet"></a>Använda webbläsare (MSAL.NET)
@@ -45,15 +44,15 @@ I allmänhet rekommenderar vi att du använder plattforms standarden och det är
 
 ### <a name="at-a-glance"></a>Snabbt
 
-| Ramverk        | Inbäddning | System | Standard |
+| Ramverk        | Inbäddat | System | Default |
 | ------------- |-------------| -----| ----- |
-| .NET Classic     | Ja | Ja ^ | Inbäddning |
-| .NET Core     | Nej | Ja ^ | System |
-| .NET Standard | Nej | Ja ^ | System |
-| UWP | Ja | Nej | Inbäddning |
+| .NET Classic     | Ja | Ja ^ | Inbäddat |
+| .NET Core     | No | Ja ^ | System |
+| .NET Standard | No | Ja ^ | System |
+| UWP | Ja | Nej | Inbäddat |
 | Xamarin.Android | Ja | Ja  | System |
 | Xamarin.iOS | Ja | Ja  | System |
-| Xamarin. Mac| Ja | Nej | Inbäddning |
+| Xamarin. Mac| Ja | Nej | Inbäddat |
 
 ^ Kräver " http://localhost " omdirigerings-URI
 

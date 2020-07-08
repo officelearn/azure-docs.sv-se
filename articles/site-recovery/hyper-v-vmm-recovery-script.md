@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826289"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägga till ett VMM-skript i en återställnings plan
@@ -20,7 +19,7 @@ Den här artikeln beskriver hur du skapar ett System Center Virtual Machine Mana
 
 Publicera eventuella kommentarer eller frågor längst ned i den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du kan använda PowerShell-skript i dina återställnings planer. För att kunna nås från återställnings planen måste du skriva skriptet och placera skriptet i VMM-biblioteket. Tänk på följande när du skriver skriptet:
 
@@ -60,9 +59,9 @@ Du kan använda PowerShell-skript i dina återställnings planer. För att kunna
 
 Om du har en VMM-datakälla kan du skapa ett skript på VMM-servern. Ta sedan med skriptet i din återställnings plan.
 
-1. Skapa en ny mapp i biblioteks resursen. Till exempel \< VMM-servernamn> \msscvmmlibrary\rpscripts. Placera mappen på käll-och mål VMM-servrarna.
+1. Skapa en ny mapp i biblioteks resursen. Till exempel \<VMM server name> \MSSCVMMLibrary\RPScripts. Placera mappen på käll-och mål VMM-servrarna.
 1. Skapa skriptet. Namnge till exempel skriptet RPScript. Kontrol lera att skriptet fungerar som förväntat.
-1. Placera skriptet i VMM- \< serverns namn> \msscvmmlibrary-mappen på käll-och mål VMM-servrarna.
+1. Placera skriptet i \<VMM server name> mappen \MSSCVMMLibrary på käll-och mål VMM-servrarna.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Lägg till skriptet i en återställnings plan
 
@@ -71,7 +70,7 @@ När du har lagt till virtuella datorer eller replikeringsgrupper i en återstä
 1. Öppna återställnings planen.
 1. I listan **steg** väljer du ett objekt. Välj sedan antingen **skript** eller **manuell åtgärd**.
 1. Ange om du vill lägga till skriptet eller åtgärden före eller efter det valda objektet. Klicka på knapparna **Flytta upp** och **Flytta ned** om du vill flytta upp eller ned skript positionen.
-1. Om du lägger till ett VMM-skript väljer du **redundans till VMM-skript**. Ange den relativa sökvägen till resursen i **skript Sök väg**. Skriv till exempel **\RPScripts\RPScript.ps1**.
+1. Om du lägger till ett VMM-skript väljer du **redundans till VMM-skript**. Ange den relativa sökvägen till resursen i **skript Sök väg**. Ange till exempel **\RPScripts\RPScript.PS1**.
 1. Om du lägger till en Azure Automation Runbook anger du det Automation-konto som Runbook finns i. Välj sedan det Azure Runbook-skript som du vill använda.
 1. Kontrol lera att skriptet fungerar som förväntat genom att göra ett redundanstest för återställnings planen.
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
 ms.openlocfilehash: c9e1c9aa664065371595ed34a3af28330bd7e0db
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83798869"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus köer och ämnen som händelse hanterare för Azure Event Grid händelser

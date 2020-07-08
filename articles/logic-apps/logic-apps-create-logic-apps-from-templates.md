@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 8f9513c3ac28b8f65d9023fc529927b208323ca1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834466"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Skapa logikappsarbetsflöden från fördefinierade mallar
@@ -21,7 +20,7 @@ För att komma igång med att skapa arbets flöden snabbare, innehåller Logic A
 
 Här följer några Mallkategorier:
 
-| Malltyp | Description | 
+| Malltyp | Beskrivning | 
 | ------------- | ----------- | 
 | Mallar för företags moln | För integrering av Azure Blob, Dynamics CRM, Salesforce, Box och innehåller andra anslutningar för företagets moln behov. Du kan till exempel använda dessa mallar för att organisera affärs leads eller säkerhetskopiera företagets fildata. | 
 | Personliga produktivitets mallar | Förbättra den personliga produktiviteten genom att ställa in dagliga påminnelser, omvandla viktiga arbets objekt till att göra-listor och automatisera långvariga uppgifter till ett enda användar godkännande steg. | 

@@ -15,10 +15,9 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83774346"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
@@ -126,7 +125,7 @@ Om du har en situation där du inte kan komma åt den virtuella datorn med någo
 
 4.  Innan du gör några ändringar skapar du en kopia av mappen \Windows\System32\Config om du behöver återställa ändringarna.
 
-5.  Starta Registereditorn (regedit. exe) på den virtuella datorn för fel sökning. 
+5.  Starta Registereditorn (regedit.exe) på den virtuella datorn för fel sökning. 
 
 6.  I den här fel söknings proceduren monterar vi registreringsdatafiler som BROKENSYSTEM och BROKENSOFTWARE.
 

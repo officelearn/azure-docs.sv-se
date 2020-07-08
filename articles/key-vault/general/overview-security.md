@@ -12,10 +12,9 @@ ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ms.openlocfilehash: cd8557a33971be9fd0913bfdf84397d344901581
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834386"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault-säkerhet
@@ -95,7 +94,7 @@ Loggnings information kan nås inom 10 minuter efter nyckel valvs åtgärden. De
 
 Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i [Azure Storage säkerhets guide](../../storage/blobs/security-recommendations.md)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Tjänst slut punkter för virtuella nätverk för Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)

@@ -5,10 +5,9 @@ ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83816003"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Använd Azure Batch CLI-mallar och fil överföring
@@ -133,7 +132,7 @@ Följande är ett exempel på en mall som skapar en pool med virtuella Linux-dat
 }
 ```
 
-Om mallfilen hade namnet _pool-ffmpeg. JSON_, så anropa sedan mallen enligt följande:
+Om mallfilen heter _pool-ffmpeg.jspå_, anropar du mallen enligt följande:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
@@ -152,7 +151,7 @@ CLI uppmanas att ange värden för `poolId` `nodeCount` parametrarna och. Du kan
 }
 ```
 
-Om JSON-filen för parametrar hade namnet *pool-Parameters. JSON*, anropar du mallen enligt följande:
+Om JSON-filen för parametrar hette *pool-parameters.jspå*, så anropa sedan mallen enligt följande:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
@@ -242,7 +241,7 @@ Följande är ett exempel på en mall som skapar ett jobb för att Omkoda MP4-vi
 }
 ```
 
-Om mallfilen heter _Job-ffmpeg. JSON_, anropar du mallen enligt följande:
+Om mallfilen heter _job-ffmpeg.jspå_, anropar du mallen enligt följande:
 
 ```azurecli
 az batch job create --template job-ffmpeg.json

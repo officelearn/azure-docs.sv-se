@@ -12,13 +12,12 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: 642f2705f54fe8f84cfde7ff039c9a723be59595
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83770967"
 ---
-# <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings-och verifierings metoder finns i Azure Active Directory?
+# <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
 
 Som en del av inloggnings upplevelsen för konton i Azure Active Directory (Azure AD) finns det olika sätt som en användare kan autentisera sig på. Användar namn och lösen ord är det vanligaste sättet som en användare tidigare angav autentiseringsuppgifter. Med moderna autentiserings-och säkerhetsfunktioner i Azure AD kan det grundläggande lösen ordet kompletteras eller ersättas med ytterligare autentiseringsmetoder.
 
@@ -38,13 +37,13 @@ I följande tabell beskrivs vilka metoder som är tillgängliga för primär ell
 | [Lösenord](#password) | Ja | |
 | [Microsoft Authenticator-appen](#microsoft-authenticator-app) | Ja (för hands version) | MFA och SSPR |
 | [Säkerhets nycklar för FIDO2 (för hands version)](#fido2-security-keys) | Ja | Endast MFA |
-| [OATH-programvaru-token](#oath-software-tokens) | Nej | MFA |
+| [OATH-programvaru-token](#oath-software-tokens) | No | MFA |
 | [OATH-token för maskin vara (för hands version)](#oath-hardware-tokens-preview) | Ja | MFA |
 | [SMS](#phone-options) | Ja (för hands version) | MFA och SSPR |
-| [Röstsamtal](#phone-options) | Nej | MFA och SSPR |
-| [Säkerhetsfrågor](#security-questions) | Nej | SSPR – endast |
-| [E-postadress](#email-address) | Nej | SSPR – endast |
-| [Applösenord](#app-passwords) | Nej | MFA i vissa fall |
+| [Röstsamtal](#phone-options) | No | MFA och SSPR |
+| [Säkerhetsfrågor](#security-questions) | No | SSPR – endast |
+| [E-postadress](#email-address) | No | SSPR – endast |
+| [Applösenord](#app-passwords) | No | MFA i vissa fall |
 
 Den här artikeln beskriver dessa olika autentiserings-och verifierings metoder som är tillgängliga i Azure AD och eventuella specifika begränsningar eller begränsningar.
 

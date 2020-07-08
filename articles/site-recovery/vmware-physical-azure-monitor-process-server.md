@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 296254db83a065623b692d7947c130dfd71cd413
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83835061"
 ---
 # <a name="monitor-the-process-server"></a>Övervaka processervern
@@ -37,7 +36,7 @@ Det finns ett antal situationer som ofta påverkar process serverns prestanda. P
 
 Alla dessa problem kan påverka återställnings punkt målet för virtuella datorer. 
 
-**Varför det?** Eftersom generering av en återställnings punkt för en virtuell dator kräver att alla diskar på den virtuella datorn har en gemensam punkt. Om en disk har hög omsättnings tid är replikeringen långsam eller eftersom processervern inte är optimal, vilket påverkar hur effektivt återställnings punkter skapas.
+**Varför?** Eftersom generering av en återställnings punkt för en virtuell dator kräver att alla diskar på den virtuella datorn har en gemensam punkt. Om en disk har hög omsättnings tid är replikeringen långsam eller eftersom processervern inte är optimal, vilket påverkar hur effektivt återställnings punkter skapas.
 
 ## <a name="monitor-proactively"></a>Övervaka proaktivt
 
@@ -51,7 +50,7 @@ För att undvika problem med processervern är det viktigt att:
 
 Processervern genererar ett antal hälso aviseringar som sammanfattas i följande tabell.
 
-**Aviseringstyp** | **Information**
+**Aviseringstyp** | **Detaljer**
 --- | ---
 ![Felfri][green] | Processervern är ansluten och felfritt.
 ![Varning][yellow] | CPU-användning > 80% under de senaste 15 minuterna

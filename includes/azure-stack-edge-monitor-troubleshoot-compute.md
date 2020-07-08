@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 350d41980e3128a8747a673ebea82afbe4fab49b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85313214"
 ---
 På en Azure Stack Edge-enhet som har beräknings rollen konfigurerad, är en del av Docker-kommandona tillgängliga för övervakning eller fel sökning av moduler. Om du vill se en lista över tillgängliga kommandon [ansluter du till PowerShell-gränssnittet](#connect-to-the-powershell-interface) och använder `dkrdbe` funktionen.

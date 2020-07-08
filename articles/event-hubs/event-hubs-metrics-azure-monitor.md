@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du använder Azure
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 76df9920c517e8370409bca26e5a6533c7253c1e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314592"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Event Hubs-mått i Azure Monitor
@@ -52,8 +52,8 @@ Räknar antalet data-och hanterings åtgärder som begärs.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| Inkommande begär Anden  | Antalet förfrågningar som gjorts till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName |
-| Lyckade förfrågningar    | Antalet lyckade förfrågningar som gjorts till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName |
+| Inkommande förfrågningar  | Antalet förfrågningar som gjorts till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName |
+| Slutförda förfrågningar    | Antalet lyckade förfrågningar som gjorts till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName |
 | Server fel  | Antalet begär Anden som inte behandlats på grund av ett fel i Azure Event Hubs-tjänsten under en angiven period. <br/><br/>Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName |
 |Användar fel |Antalet begär Anden som inte behandlats på grund av användar fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Överskriden kvot fel |Antalet begär Anden överskred den tillgängliga kvoten. I [den här artikeln](event-hubs-quotas.md) finns mer information om Event Hubs kvoter.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
@@ -87,9 +87,9 @@ Du kan övervaka Event Hubs Infångnings mått när du aktiverar insamlings funk
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Samla in efter släpning |Antalet byte som ännu inte har registrerats till det valda målet.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Fångade meddelanden |Antalet meddelanden eller händelser som har fångats till det valda målet under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Hämtade byte |Antalet byte som har fångats till det valda målet under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|Samla in kvarvarande uppgifter |Antalet byte som ännu inte har registrerats till det valda målet.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|Insamlade meddelanden |Antalet meddelanden eller händelser som har fångats till det valda målet under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|Insamlade byte |Antalet byte som har fångats till det valda målet under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 

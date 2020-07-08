@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du flyttar ett Azure Event Hubs-namnomr
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85312958"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Flytta ett Azure Event Hubs-namnområde till en annan region
@@ -18,8 +18,8 @@ Det finns olika scenarier där du vill flytta ditt befintliga Event Hubs-namnomr
 
 ## <a name="prerequisites"></a>Krav
 
-- Kontrol lera att tjänsterna och funktionerna som ditt konto använder stöds i mål regionen.
-- För för hands versions funktioner ser du till att din prenumeration är vit listas för mål regionen.
+- Kontrollera att tjänsterna och funktionerna som kontot använder stöds i målregionen.
+- För förhandsgranskningsfunktioner ska du kontrollera att din prenumeration är vitlistad för målregionen.
 - Om du har aktiverat **funktionen** för händelse hubbar i namn området flyttar du [Azure Storage eller Azure Data Lake Store gen 2](../storage/common/storage-account-move.md) eller [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) -konton innan du flyttar Event Hubs namn området. Du kan också flytta resurs gruppen som innehåller både lagrings utrymmet och Event Hubs namn områden till den andra regionen genom att följa stegen som beskrivs i den här artikeln. 
 - Om Event Hubs namn området finns i ett **Event Hubs kluster** [skapar du ett dedikerat kluster](event-hubs-dedicated-cluster-create-portal.md) i **mål regionen** innan du går igenom stegen i den här artikeln. Du kan också använda [snabb starts mal len på GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) för att skapa ett Event Hubs-kluster. I mallen tar du bort namn områdes delen av JSON-filen för att endast skapa klustret. 
 
@@ -46,15 +46,15 @@ Kom igång genom att exportera en Resource Manager-mall. Den här mallen innehå
 Distribuera mallen för att skapa ett Event Hubs-namnområde i mål regionen. 
 
 
-1. I Azure-portalen väljer du **Skapa en resurs**.
+1. I Azure Portal väljer du **skapa en resurs**.
 
-2. I **Sök på Marketplace** skriver du **malldistribution** och trycker sedan på **RETUR**.
+2. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
 
-3. Välj **Malldistribution**.
+3. Välj **malldistribution**.
 
 4. Välj **Skapa**.
 
-5. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
+5. Välj **Bygg en egen mall i redigeraren**.
 
 6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
 

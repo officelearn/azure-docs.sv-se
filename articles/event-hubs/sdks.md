@@ -4,10 +4,10 @@ description: 'Den här artikeln innehåller information om klient-SDK: er för A
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4c3557556500f2a536e20331bd3d05d84f608f0b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85312562"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure-Event Hubs – klient-SDK: er

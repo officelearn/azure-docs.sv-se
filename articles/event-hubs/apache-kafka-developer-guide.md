@@ -4,10 +4,10 @@ description: Den här artikeln innehåller länkar till artiklar som beskriver h
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: bbd173a7f81042c0839cec81838172b21f80d5cd
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314245"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Apache Kafka Developer Guide för Azure Event Hubs
@@ -69,7 +69,7 @@ Se följande instruktions guider i vår dokumentation:
 | [Ansluta Apache Spark till en händelsehubb](event-hubs-kafka-spark-tutorial.md) | Vägleder dig genom att ansluta Spark-programmet till Event Hubs för strömning i real tid. |
 | [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md) | Visar hur du ansluter Apache Flink till en Event Hub utan att ändra protokoll klienter eller köra egna kluster. |
 | [Integrera Apache Kafka ansluta med en Event Hub (för hands version)](event-hubs-kafka-connect-tutorial.md) | Vägleder dig genom integreringen av Kafka ansluter till en Event Hub och distribuerar grundläggande FileStreamSource-och FileStreamSink-anslutningar. |
-| [Ansluta Akka-dataströmmar till en händelsehubb](event-hubs-kafka-akka-streams-tutorial.md) | Visar hur du ansluter Akka strömmar till en Event Hub utan att ändra protokoll klienter eller köra egna kluster. |
+| [Anslut Akka strömmar till en Event Hub](event-hubs-kafka-akka-streams-tutorial.md) | Visar hur du ansluter Akka strömmar till en Event Hub utan att ändra protokoll klienter eller köra egna kluster. |
 | [Använd start Start programmet våren för Apache Kafka med Azure Event Hubs](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Visar hur du konfigurerar en Java-baserad våren Cloud Stream-bindning som skapats med våren Boot-initieraren för att använda Apache Kafka med Azure Event Hubs. |
 
 ## <a name="next-steps"></a>Nästa steg

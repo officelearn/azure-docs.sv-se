@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en lista över exempel för Azure Eve
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9529b11d15460c713a0ae14f3bccfa1c2684a3ad
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85315519"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Git-databaser med exempel för Azure Event Hubs 

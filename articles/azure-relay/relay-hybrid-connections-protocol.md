@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs interaktionen på klient sidan med Hyb
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316652"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay Hybridanslutningar protokoll
@@ -135,8 +135,8 @@ Parameter alternativen för frågesträng är följande.
 
 | Parameter        | Krävs | Beskrivning
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Yes      | Parametern måste vara **SB-HC-Action = avlyssna** för Listener-rollen
-| `{path}`         | Yes      | Den URL-kodade namn områdets sökväg för den förkonfigurerade hybrid anslutningen för att registrera lyssnaren på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
+| `sb-hc-action`   | Ja      | Parametern måste vara **SB-HC-Action = avlyssna** för Listener-rollen
+| `{path}`         | Ja      | Den URL-kodade namn områdets sökväg för den förkonfigurerade hybrid anslutningen för att registrera lyssnaren på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
 | `sb-hc-token`    | Ja\*    | Lyssnaren måste ange en giltig URL-kodad Service Bus-token för delad åtkomst för namn området eller hybrid anslutningen som ger **lyssnings** rättigheten.
 | `sb-hc-id`       | No       | Det här tillhandahållna valfria ID: t för klienten möjliggör diagnostisk spårning från slut punkt till slut punkt.
 
@@ -195,8 +195,8 @@ URL: en måste användas för att upprätta en socket för godkännande, men inn
 
 | Parameter      | Krävs | Beskrivning
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Yes      | För att acceptera en socket måste parametern vara`sb-hc-action=accept`
-| `{path}`       | Yes      | (se följande stycke)
+| `sb-hc-action` | Ja      | För att acceptera en socket måste parametern vara`sb-hc-action=accept`
+| `{path}`       | Ja      | (se följande stycke)
 | `sb-hc-id`     | No       | Se tidigare beskrivning av **ID**.
 
 `{path}`är sökvägen till URL-kodad namnrymd för den förkonfigurerade hybrid anslutning som den här lyssnaren ska registreras på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
@@ -232,8 +232,8 @@ Om det uppstår ett fel kan tjänsten svara på följande sätt:
 
 | Param                   | Krävs | Beskrivning                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| SB-HC-statusCode        | Yes      | Numerisk HTTP-statuskod.                |
-| SB-HC-statusDescription | Yes      | Läslig anledning för avvisningen. |
+| SB-HC-statusCode        | Ja      | Numerisk HTTP-statuskod.                |
+| SB-HC-statusDescription | Ja      | Läslig anledning för avvisningen. |
 
 Den resulterande URI: n används sedan för att upprätta en WebSocket-anslutning.
 
@@ -367,7 +367,7 @@ För svar som överstiger 64 kB måste svaret levereras via en Rendezvous-socket
 
 | Parameter      | Krävs | Beskrivning
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Yes      | För att acceptera en socket måste parametern vara`sb-hc-action=request`
+| `sb-hc-action` | Ja      | För att acceptera en socket måste parametern vara`sb-hc-action=request`
 
 Om det uppstår ett fel kan tjänsten svara på följande sätt:
 
@@ -425,8 +425,8 @@ Parameter alternativen för frågesträngen är följande:
 
 | Param          | Obligatoriskt? | Beskrivning
 | -------------- | --------- | -------------------------- |
-| `sb-hc-action` | Yes       | Parametern måste vara för avsändarens roll `sb-hc-action=connect` .
-| `{path}`       | Yes       | (se följande stycke)
+| `sb-hc-action` | Ja       | Parametern måste vara för avsändarens roll `sb-hc-action=connect` .
+| `{path}`       | Ja       | (se följande stycke)
 | `sb-hc-token`  | Ja\*     | Lyssnaren måste ange en giltig URL-kodad Service Bus delad åtkomsttoken för namn området eller hybrid anslutningen som ger **send** -rättigheten.
 | `sb-hc-id`     | No        | Ett valfritt ID som möjliggör diagnostisk spårning från slut punkt till slut punkt och görs tillgängligt för lyssnaren under godkännande hand skakningen.
 

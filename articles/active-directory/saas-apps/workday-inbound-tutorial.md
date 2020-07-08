@@ -16,10 +16,9 @@ ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84013606"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
@@ -397,7 +396,7 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
      |------------|----------------------|------------------------|
      | https://####.workday.com/ccx/service/tenantName | v-21.1 | No |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | No |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Yes |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Ja |
 
       > [!NOTE]
      > Om ingen versions information anges i URL: en använder appen Workday-WWS (Web Services) och inga ändringar krävs för standard-XPATH API-uttryck som levereras med appen. Om du vill använda en viss WWS API-version anger du versions nummer i URL: en <br>
@@ -508,10 +507,10 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **Firm**         | company   |     |  Skapa + uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa + uppdatera |
 | **ManagerReference**   | manager  |     |  Skapa + uppdatera |
-| **BusinessTitle**   |  title     |     |  Skapa + uppdatera | 
+| **BusinessTitle**   |  rubrik     |     |  Skapa + uppdatera | 
 | **AddressLineData**    |  streetAddress  |     |   Skapa + uppdatera |
 | **Kommuner**   |   l   |     | Skapa + uppdatera |
-| **CountryReferenceTwoLetter**      |   företag |     |   Skapa + uppdatera |
+| **CountryReferenceTwoLetter**      |   co |     |   Skapa + uppdatera |
 | **CountryReferenceTwoLetter**    |  c  |     |         Skapa + uppdatera |
 | **CountryRegionReference** |  st     |     | Skapa + uppdatera |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Skapa + uppdatera |
@@ -667,8 +666,8 @@ Under konfigurationen uppmanas etablerings agenten för Azure AD admin-autentise
 
 #### <a name="how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication"></a>Hur gör jag för att konfigurerar du etablerings agenten så att den använder en proxyserver för utgående HTTP-kommunikation?
 
-Etablerings agenten stöder användning av utgående proxy. Du kan konfigurera den genom att redigera agentens konfigurations fil **C:\Program Files\Microsoft Azure AD Connect etablering Agent\AADConnectProvisioningAgent.exe.config**. Lägg till följande rader i den i slutet av filen precis innan den avslutande `</configuration>` taggen.
-Ersätt variablerna [proxy-server] och [proxy-port] med proxyserverns namn och port värden.
+Etablerings agenten stöder användning av utgående proxy. Du kan konfigurera den genom att redigera agentens konfigurations fil **C:\Program Files\Microsoft Azure AD Connect etablerings Agent\AADConnectProvisioningAgent.exe.config**. Lägg till följande rader i den i slutet av filen precis innan den avslutande `</configuration>` taggen.
+Ersätt variablerna [proxy-server] och [proxy-port] proxyserverns namn och portvärden.
 
 ```xml
     <system.net>

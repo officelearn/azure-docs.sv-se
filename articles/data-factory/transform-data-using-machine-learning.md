@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/20/2019
 ms.openlocfilehash: 26ba4c3da0bcfa36874e7b31241839c138809cec
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84019902"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
@@ -128,12 +127,12 @@ Följande JSON-kodfragment definierar en Azure Machine Learning batch execution-
 | Egenskap          | Beskrivning                              | Obligatorisk |
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Namn på aktiviteten i pipelinen     | Ja      |
-| description       | Text som beskriver vad aktiviteten gör.  | Nej       |
+| description       | Text som beskriver vad aktiviteten gör.  | No       |
 | typ              | För Data Lake Analytics U-SQL-aktivitet är aktivitets typen **AzureMLBatchExecution**. | Ja      |
 | linkedServiceName | Länkade tjänster till den länkade tjänsten Azure Machine Learning. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
-| webServiceInputs  | Nyckel, värdepar, mappar namnen på Azure Machine Learning webb tjänst indata. Nyckeln måste matcha de indataparametrar som definierats i webb tjänsten för publicerade Azure Machine Learning. Värdet är ett Azure Storage länkade tjänster och egenskaper för fil Sök väg som anger indata-BLOB-platser. | Nej       |
-| webServiceOutputs | Nyckel, värdepar, mappar namnen på Azure Machine Learning webb tjänstens utdata. Nyckeln måste matcha de utdataparametrar som definierats i den publicerade Azure Machine Learning-webbtjänsten. Värdet är ett Azure Storage länkade tjänster och egenskaper för fil Sök väg som anger utgående BLOB-platser. | Nej       |
-| Dublettparameternamnet  | Nyckel, värdepar som ska skickas till den Azure Machine Learning Studio (klassiska) slut punkt för batch-körning av tjänst. Nycklar måste matcha namnen på de webb tjänst parametrar som definierats i webb tjänsten publicerad Azure Machine Learning Studio (klassisk). Värden skickas i egenskapen Dublettparameternamnet för batch-körningen Azure Machine Learning Studio (klassisk) | Nej       |
+| webServiceInputs  | Nyckel, värdepar, mappar namnen på Azure Machine Learning webb tjänst indata. Nyckeln måste matcha de indataparametrar som definierats i webb tjänsten för publicerade Azure Machine Learning. Värdet är ett Azure Storage länkade tjänster och egenskaper för fil Sök väg som anger indata-BLOB-platser. | No       |
+| webServiceOutputs | Nyckel, värdepar, mappar namnen på Azure Machine Learning webb tjänstens utdata. Nyckeln måste matcha de utdataparametrar som definierats i den publicerade Azure Machine Learning-webbtjänsten. Värdet är ett Azure Storage länkade tjänster och egenskaper för fil Sök väg som anger utgående BLOB-platser. | No       |
+| Dublettparameternamnet  | Nyckel, värdepar som ska skickas till den Azure Machine Learning Studio (klassiska) slut punkt för batch-körning av tjänst. Nycklar måste matcha namnen på de webb tjänst parametrar som definierats i webb tjänsten publicerad Azure Machine Learning Studio (klassisk). Värden skickas i egenskapen Dublettparameternamnet för batch-körningen Azure Machine Learning Studio (klassisk) | No       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario 1: experiment som använder webb tjänst indata/utdata som refererar till data i Azure Blob Storage
 

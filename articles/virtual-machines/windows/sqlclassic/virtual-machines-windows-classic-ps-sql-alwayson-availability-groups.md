@@ -15,10 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: 7f20d79ea353830b41290c7b91d8d1de2b1b3abe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84014867"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Konfigurera tillgänglighets gruppen Always on på en virtuell Azure-dator med PowerShell
@@ -179,7 +178,7 @@ Domänkontrollantens Server har nu tillhandahållits. Sedan konfigurerar du Acti
 ## <a name="configure-the-domain-controller"></a>Konfigurera domänkontrollanten
 1. Anslut till domänkontrollanten genom att starta fjärr skrivbords filen. Använd dator administratörens användar namn AzureAdmin och lösen ord **contoso! 000**, som du angav när du skapade den nya virtuella datorn.
 2. Öppna ett PowerShell-fönster i administratörs läge.
-3. Kör följande **dcpromo. EXE** -kommando för att konfigurera **Corp.contoso.com** -domänen med data katalogerna på enhet M.
+3. Kör följande **DCPROMO.EXE** -kommando för att konfigurera **Corp.contoso.com** -domänen med data katalogerna på enhet M.
 
         dcpromo.exe `
             /unattend `
@@ -377,7 +376,7 @@ Domänkontrollantens Server har nu tillhandahållits. Sedan konfigurerar du Acti
     De virtuella datorerna i SQL Server är nu etablerade och körs, men de installeras med SQL Server med standard alternativ.
 
 ## <a name="initialize-the-failover-cluster-vms"></a>Initiera de virtuella datorerna i redundansklustret
-I det här avsnittet måste du ändra de tre servrar som du ska använda i redundansklustret och den SQL Server installationen. Mer specifikt:
+I det här avsnittet måste du ändra de tre servrar som du ska använda i redundansklustret och den SQL Server installationen. Specifikt:
 
 * Alla servrar: du måste installera funktionen **kluster för växling vid fel** .
 * Alla servrar: du måste lägga till **CORP\Install** som dator **administratör**.
@@ -481,7 +480,7 @@ Slutligen är du redo att konfigurera tillgänglighets gruppen. Du använder SQL
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Hämta **CreateAzureFailoverCluster. ps1** från [skapa redundanskluster för Always on-TILLGÄNGLIGHETSGRUPPER i Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) till den lokala arbets katalogen. Du använder det här skriptet för att hjälpa dig att skapa ett funktionellt kluster för växling vid fel. Viktig information om hur Windows-redundanskluster interagerar med Azure-nätverket finns i [hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Ladda ned **CreateAzureFailoverCluster.ps1** från [skapa redundanskluster för Always on-TILLGÄNGLIGHETSGRUPPER i Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) till den lokala arbets katalogen. Du använder det här skriptet för att hjälpa dig att skapa ett funktionellt kluster för växling vid fel. Viktig information om hur Windows-redundanskluster interagerar med Azure-nätverket finns i [hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Ändra till din arbets katalog och skapa redundansklustret med det nedladdade skriptet.
 
         Set-ExecutionPolicy Unrestricted -Force

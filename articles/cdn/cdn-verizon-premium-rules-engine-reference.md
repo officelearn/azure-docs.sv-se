@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83872506"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN från Verizon Premium-regel motor referens
@@ -43,7 +42,7 @@ Dessa element identifieras i följande bild.
 
 ![Arbets flöde för princip distribution](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Princip
 En princip som består av en uppsättning skrivskyddade regler innebär att:
 
 - Skapa, lagra och hantera flera varianter av reglerna.
@@ -99,7 +98,7 @@ Tecken | Beskrivning
 % | En procent symbol används för att indikera URL-kodning (till exempel `%20` ).
 \* | En asterisk är ett jokertecken som representerar ett eller flera tecken.
 Space | Ett blank steg anger att ett matchnings villkor kan uppfyllas av något av de angivna värdena eller mönstren.
-värde | Ett enkelt citat har ingen särskild betydelse. En uppsättning enkla citat tecken används dock för att ange att ett värde ska behandlas som ett litteralt värde. Den kan användas på följande sätt:<br><br/>– Det gör att ett matchnings villkor uppfylls när det angivna värdet matchar någon del av jämförelse värdet.  `'ma'`Skulle exempelvis matcha någon av följande strängar: <br/><br/>/Business/**ma**rathon/Asset.htm<br/>**ma**p. gif<br/>/business/template. **ma**p<br /><br />– Det gör att ett specialtecken kan anges som ett litteralt tecken. Du kan till exempel ange ett tecken för tecken avstånd genom att omsluta ett blank steg i en uppsättning enkla citat tecken (det vill säga `' '` eller `'sample value'` ).<br/>– Det gör att du kan ange ett tomt värde. Ange ett tomt värde genom att ange en uppsättning enkla citat tecken (det vill säga).<br /><br/>**Oviktig**<br/>-Om det angivna värdet inte innehåller ett jokertecken betraktas det automatiskt som ett tecken värde, vilket innebär att det inte är nödvändigt att ange en uppsättning enkla citat tecken.<br/>– Om ett omvänt snedstreck inte översätter ett annat tecken i tabellen, ignoreras det när det anges i en uppsättning enkla citat tecken.<br/>Ett annat sätt att ange ett specialtecken som ett litteralt tecken är att kringgå det med ett omvänt snedstreck (det vill säga `\` ).
+värde | Ett enkelt citat har ingen särskild betydelse. En uppsättning enkla citat tecken används dock för att ange att ett värde ska behandlas som ett litteralt värde. Den kan användas på följande sätt:<br><br/>– Det gör att ett matchnings villkor uppfylls när det angivna värdet matchar någon del av jämförelse värdet.  `'ma'`Skulle exempelvis matcha någon av följande strängar: <br/><br/>/Business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template. **ma**p<br /><br />– Det gör att ett specialtecken kan anges som ett litteralt tecken. Du kan till exempel ange ett tecken för tecken avstånd genom att omsluta ett blank steg i en uppsättning enkla citat tecken (det vill säga `' '` eller `'sample value'` ).<br/>– Det gör att du kan ange ett tomt värde. Ange ett tomt värde genom att ange en uppsättning enkla citat tecken (det vill säga).<br /><br/>**Viktigt!**<br/>-Om det angivna värdet inte innehåller ett jokertecken betraktas det automatiskt som ett tecken värde, vilket innebär att det inte är nödvändigt att ange en uppsättning enkla citat tecken.<br/>– Om ett omvänt snedstreck inte översätter ett annat tecken i tabellen, ignoreras det när det anges i en uppsättning enkla citat tecken.<br/>Ett annat sätt att ange ett specialtecken som ett litteralt tecken är att kringgå det med ett omvänt snedstreck (det vill säga `\` ).
 
 ### <a name="regular-expressions"></a>Reguljära uttryck
 

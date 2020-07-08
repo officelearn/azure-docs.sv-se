@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84045650"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för delad sammanslagning för att flytta data mellan shardade-databaser
@@ -27,7 +26,7 @@ Med verktyget Dela-sammanslagning kan du flytta data mellan shardade-databaser. 
 
 1. Hämta den senaste versionen av NuGet från [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
-1. Öppna en kommando tolk och navigera till den katalog där du laddade ned NuGet. exe. Hämtningen innehåller PowerShell-kommandon.
+1. Öppna en kommando tolk och navigera till den katalog där du laddade ned nuget.exe. Hämtningen innehåller PowerShell-kommandon.
 
 1. Hämta det senaste delade sammanslagnings paketet till den aktuella katalogen med kommandot nedan:
 
@@ -37,7 +36,7 @@ Med verktyget Dela-sammanslagning kan du flytta data mellan shardade-databaser. 
 
 Filerna placeras i en katalog med namnet **Microsoft. Azure. SqlDatabase. ElasticScale. service. SplitMerge. x. x. xxx. x** där *x. x. xxx. x* visar versions numret. Hitta filerna för delade sammanslagna tjänster i **content\splitmerge\service** under katalog och PowerShell-skripten för delad sammanslagning (och obligatoriska klient-dll: er) i under katalogen för **content\splitmerge\powershell** .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Skapa en Azure SQL Database-databas som ska användas som databas för delad sammanslagnings status. Gå till [Azure Portal](https://portal.azure.com). Skapa en ny **SQL Database**. Ge databasen ett namn och skapa en ny administratör och ett nytt lösen ord. Se till att du registrerar namnet och lösen ordet för senare användning.
 
@@ -176,9 +175,9 @@ Du kan testa distributionen och din miljö genom att köra PowerShell-skript som
 
 De skript filer som ingår är:
 
-1. *SetupSampleSplitMergeEnvironment. ps1* – konfigurerar en test data nivå för delning/sammanslagning (se tabellen nedan för detaljerad beskrivning)
-2. *ExecuteSampleSplitMerge. ps1* – kör test åtgärder på test data nivån (se tabellen nedan för detaljerad beskrivning)
-3. *GetMappings. ps1* – exempel skriptet på den översta nivån som skriver ut det aktuella läget för Shard-mappningar.
+1. *SetupSampleSplitMergeEnvironment.ps1* – konfigurerar en test data nivå för delning/sammanslagning (se tabellen nedan för detaljerad beskrivning)
+2. *ExecuteSampleSplitMerge.ps1* -kör test åtgärder på test data nivån (se tabellen nedan för detaljerad beskrivning)
+3. *GetMappings.ps1* -exempel skriptet på den översta nivån som skriver ut det aktuella läget för Shard-mappningar.
 4. *ShardManagement. psm1* – hjälp skript som omsluter API för ShardManagement
 5. *SqlDatabaseHelpers. psm1* – hjälp skript för att skapa och hantera databaser i SQL Database
 
@@ -188,7 +187,7 @@ De skript filer som ingår är:
        <th>Steg</th>
      </tr>
      <tr>
-       <th rowspan="5">SetupSampleSplitMergeEnvironment. ps1</th>
+       <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
        <td>1. Skapar en Shard Map Manager-databas</td>
      </tr>
      <tr>
@@ -210,7 +209,7 @@ De skript filer som ingår är:
        <th>Steg</th>
      </tr>
    <tr>
-       <th rowspan="4">ExecuteSampleSplitMerge. ps1 </th>
+       <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
        <td>1. Skickar en delad begäran till webb klient delen för den delade sammanslagnings tjänsten, som delar upp hälften av data från den första Shard till den andra Shard.</td>
      </tr>
      <tr>
@@ -231,13 +230,13 @@ De skript filer som ingår är:
 2. Skapa en server (eller Välj en befintlig server) där Shard Map Manager och Shards ska skapas.
 
    > [!NOTE]
-   > Skriptet *SetupSampleSplitMergeEnvironment. ps1* skapar alla dessa databaser på samma server som standard för att hålla skriptet enkelt. Detta är inte en begränsning för själva tjänsten för delad sammanslagning.
+   > *SetupSampleSplitMergeEnvironment.ps1* -skriptet skapar alla dessa databaser på samma server som standard för att hålla skriptet enkelt. Detta är inte en begränsning för själva tjänsten för delad sammanslagning.
 
    En SQL-autentisering med Läs-och Skriv behörighet till databaser krävs för att tjänsten för delad sammanslagning ska flytta data och uppdatera Shard-kartan. Eftersom tjänsten för delad sammanslagning körs i molnet stöder den inte integrerad autentisering.
 
    Kontrol lera att servern har kon figurer ATS för att tillåta åtkomst från IP-adressen för den dator som kör dessa skript. Du hittar den här inställningen under SQL Server/brand väggar och virtuella nätverk/klient-IP-adresser.
 
-3. Kör skriptet *SetupSampleSplitMergeEnvironment. ps1* för att skapa exempel miljön.
+3. Kör *SetupSampleSplitMergeEnvironment.ps1* -skriptet för att skapa exempel miljön.
 
    Genom att köra det här skriptet raderas alla befintliga Shard för mappnings hanterings data i Shard Map Manager-databasen och Shards. Det kan vara användbart att köra skriptet igen om du vill initiera om Shard-kartan eller Shards.
 
@@ -248,14 +247,14 @@ De skript filer som ingår är:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-4. Kör skriptet Getmappings. ps1 för att visa de mappningar som finns i exempel miljön.
+4. Kör Getmappings.ps1-skriptet för att visa de mappningar som för närvarande finns i exempel miljön.
 
    ```cmd
    .\GetMappings.ps1
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Kör skriptet *ExecuteSampleSplitMerge. ps1* för att köra en delad åtgärd (flytta hälften av data på de första Shard till den andra Shard) och sedan en sammanslagnings åtgärd (flytta tillbaka data till den första Shard). Om du har konfigurerat TLS och lämnat http-slutpunkten inaktive rad kontrollerar du att du använder https://-slutpunkten i stället.
+5. Kör *ExecuteSampleSplitMerge.ps1* -skriptet för att köra en delad åtgärd (flytta hälften av data på den första Shard till den andra Shard) och sedan en sammanslagnings åtgärd (flytta tillbaka data till den första Shard). Om du har konfigurerat TLS och lämnat http-slutpunkten inaktive rad kontrollerar du att du använder https://-slutpunkten i stället.
 
     Exempel kommando rad:
 
@@ -324,7 +323,7 @@ För att kunna utföra en delnings sammanslagning måste du deklarera de shardad
 4. Hämta en referens till ett **ShardMapManager** -objekt och anropa **GetSchemaInfoCollection**.
 5. Lägg till **SchemaInfo** i **SchemaInfoCollection**och ange namnet på Shard-kartan.
 
-Ett exempel på detta kan visas i skriptet SetupSampleSplitMergeEnvironment. ps1.
+Ett exempel på detta kan visas i SetupSampleSplitMergeEnvironment.ps1-skriptet.
 
 Tjänsten för delad sammanslagning skapar inte mål databasen (eller schemat för tabeller i databasen) åt dig. De måste skapas i förväg innan en begäran skickas till tjänsten.
 

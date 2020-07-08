@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 091ce1cc0b2540a02e62e1e85c5515f6aa62b93c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84018845"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Använda Apache Sqoop med Hadoop i HDInsight
@@ -78,7 +77,7 @@ Klustret, SQL-databasen och andra objekt skapas via Azure Portal med hjälp av e
 
 2. Ange följande egenskaper:
 
-    |Fält |Värde |
+    |Field |Värde |
     |---|---|
     |Prenumeration |Välj din Azure-prenumeration i list rutan.|
     |Resursgrupp |Välj din resurs grupp i den nedrullningsbara listan eller skapa en ny|

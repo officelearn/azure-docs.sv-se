@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
 ms.openlocfilehash: 11d1a4743f9aaf70d96e6cfd1f22ff31def440f1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84021270"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa det lokala Windows-lösenordet för en frånkopplad virtuell Azure-dator
@@ -45,7 +44,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 
 1. Ta en ögonblicks bild för OS-disken för den berörda virtuella datorn, skapa en disk från ögonblicks bilden och Anslut sedan disken till en Felsök virtuell dator. Mer information finns i [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal](troubleshoot-recovery-disks-portal-windows.md).
 2. Anslut till den virtuella fel söknings datorn med hjälp av fjärr skrivbord.
-3. Skapa `gpt.ini` på `\Windows\System32\GroupPolicy` den virtuella käll hård disken (om GPT. ini finns, Byt namn till GPT. ini. bak):
+3. Skapa `gpt.ini` på `\Windows\System32\GroupPolicy` den virtuella käll datorn (om gpt.ini finns, Byt namn till gpt.ini. bak):
    
    > [!WARNING]
    > Se till att du inte av misstag skapar följande filer i C:\Windows, OS-enheten för fel sökning av virtuell dator. Skapa följande filer i OS-enheten för din virtuella käll dator som är ansluten som en datadisk.
@@ -59,7 +58,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      Version=1
      ```
      
-     ![Skapa GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
+     ![Skapa gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
 
 4. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machine\Scripts\` . Kontrol lera att dolda mappar visas. Om det behövs skapar du- `Machine` eller- `Scripts` mapparna.
    
@@ -71,7 +70,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      0Parameters=
      ```
      
-     ![Skapa skript. ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![Skapa scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
 
 5. Skapa `FixAzureVM.cmd` i `\Windows\System32` med följande innehåll och Ersätt `<username>` och `<newpassword>` med dina egna värden:
    
@@ -96,9 +95,9 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
     * Från%windir%\System32
       * ta bort FixAzureVM. cmd
     * Från%windir%\System32\GroupPolicy\Machine\Scripts
-      * ta bort scripts. ini
+      * ta bort scripts.ini
     * Från%windir%\System32\GroupPolicy
-      * ta bort GPT. ini (om GPT. ini fanns före, och du har bytt namn på den till GPT. ini. bak, Byt namn på bak-filen till GPT. ini)
+      * ta bort gpt.ini (om gpt.ini fanns före, och du har bytt namn på den till gpt.ini. bak, byter du namn på bak-filen till gpt.ini)
 
 ## <a name="detailed-steps-for-classic-vm"></a>Detaljerade anvisningar för klassisk virtuell dator
 
@@ -163,7 +162,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      Version=1
      ```
      
-     ![Skapa GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     ![Skapa gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
 5. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machines\Scripts\` . Kontrol lera att dolda mappar visas. Om det behövs skapar du- `Machine` eller- `Scripts` mapparna.
    
@@ -175,7 +174,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      0Parameters=
      ```
      
-     ![Skapa skript. ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![Skapa scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
 
 6. Skapa `FixAzureVM.cmd` i `\Windows\System32` med följande innehåll och Ersätt `<username>` och `<newpassword>` med dina egna värden:
    

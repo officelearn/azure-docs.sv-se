@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83995198"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: blockera äldre autentisering
@@ -33,12 +32,12 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer alla konton som måste upprätthålla möjligheten att använda äldre autentisering. Undanta minst ett konto för att förhindra att ditt konto blir utelåst. Om du inte utesluter något konto kommer du inte att kunna skapa den här principen.
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**väljer du **alla molnappar**.
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**.
    1. Kontrol lera endast de **mobila apparna och skriv bords klienterna**  >  **andra klienter**.
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **åtkomst kontroller**  >  **bevilja**väljer du **blockera åtkomst**.
    1. Välj **Välj**.
 1. Bekräfta inställningarna och ange att **principen** endast ska **rapporteras**.

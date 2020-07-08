@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7af1347ac57e1a5c5ae99744924ea04fe9757581
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83995359"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Villkorlig åtkomst: Kräv MFA för alla användare
@@ -50,7 +49,7 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kr
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare**
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**.
    1. Under **exkludera**väljer du alla program som inte kräver Multi-Factor Authentication.
 1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**. Under **Välj de klient program som den här principen ska gälla för** lämna alla standardinställningar markerat och välj **färdig**.
@@ -68,8 +67,8 @@ I exempel principen ovan kan en organisation välja att inte kräva Multi-Factor
    1. Konfigurera **Ja**.
    1. Ta med **vilken plats som helst**.
    1. Undanta **alla betrodda platser**.
-   1. Välj **Done** (Klar).
-1. Välj **Done** (Klar).
+   1. Välj **Klar**.
+1. Välj **Klar**.
 1. **Spara** ändringarna i principen.
 
 ## <a name="next-steps"></a>Nästa steg

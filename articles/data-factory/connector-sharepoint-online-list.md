@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
 ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83871920"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiera data från SharePoint Online-listan med Azure Data Factory
@@ -81,11 +80,11 @@ Följande egenskaper stöds för en länkad SharePoint Online-lista:
 
 | **Egenskap**        | **Beskrivning**                                              | **Obligatoriskt** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| typ                | Egenskapen Type måste anges till: **SharePointOnlineList**.  | Yes          |
-| siteUrl             | SharePoint Online-webbplatsens URL, `https://contoso.sharepoint.com/sites/siteName` t. ex.. | Yes          |
-| servicePrincipalId  | Program-ID för programmet som är registrerat i Azure Active Directory. | Yes          |
-| servicePrincipalKey | Programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
-| tenantId            | Det klient-ID som ditt program finns under.          | Yes          |
+| typ                | Egenskapen Type måste anges till: **SharePointOnlineList**.  | Ja          |
+| siteUrl             | SharePoint Online-webbplatsens URL, `https://contoso.sharepoint.com/sites/siteName` t. ex.. | Ja          |
+| servicePrincipalId  | Program-ID för programmet som är registrerat i Azure Active Directory. | Ja          |
+| servicePrincipalKey | Programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja          |
+| tenantId            | Det klient-ID som ditt program finns under.          | Ja          |
 | connectVia          | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från [nödvändiga komponenter](#prerequisites)tidigare i den här artikeln. Om inget värde anges används standard Azure Integration Runtime. | No           |
 
 **Exempel:**
@@ -114,8 +113,8 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens **typ** -egenskap måste anges till **SharePointOnlineLResource**. | Yes |
-| listName | Namnet på SharePoint Online-listan. | Yes |
+| typ | Data uppsättningens **typ** -egenskap måste anges till **SharePointOnlineLResource**. | Ja |
+| listName | Namnet på SharePoint Online-listan. | Ja |
 
 **Exempel**
 
@@ -147,7 +146,7 @@ Om du vill kopiera data från SharePoint Online-listan stöds följande egenskap
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SharePointOnlineListSource**. | Yes |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SharePointOnlineListSource**. | Ja |
 | DocumentDB | Anpassade alternativ för OData-frågor för att filtrera data. Exempel: `"$top=10&$select=Title,Number"`. | No |
 | httpRequestTimeout | Tids gränsen (i sekund) för HTTP-begäran för att få ett svar. Standardvärdet är 300 (5 minuter). | No |
 

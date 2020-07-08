@@ -4,10 +4,9 @@ description: Azure Functions stöder flera versioner av körnings miljön. Lär 
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: 0989795d802b21e07ad9fea3bd417f0408df706c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83996728"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Översikt över Azure Functions körnings versioner
@@ -43,7 +42,7 @@ Du kan välja att migrera en befintlig app som skrivits för att använda versio
 
 Från och med version 2. x måste du installera tilläggen för vissa utlösare och bindningar som används av funktionerna i din app. Det enda undantaget för HTTP-och timer-utlösare, vilket inte kräver ett tillägg.  Mer information finns i [Registrera och installera bindnings tillägg](./functions-bindings-register.md).
 
-Det finns också några ändringar i *funktionen. JSON* eller attribut för funktionen mellan versioner. Till exempel är Event Hub- `path` egenskapen nu `eventHubName` . I den [befintliga bindnings tabellen](#bindings) finns länkar till dokumentation för varje bindning.
+Det finns också några ändringar i *function.jspå* eller attribut för funktionen mellan versioner. Till exempel är Event Hub- `path` egenskapen nu `eventHubName` . I den [befintliga bindnings tabellen](#bindings) finns länkar till dokumentation för varje bindning.
 
 ### <a name="changes-in-features-and-functionality-after-version-1x"></a>Ändringar i funktioner efter version 1. x
 
@@ -55,15 +54,15 @@ I version 2. x gjordes följande ändringar:
 
 * Version 2. x-körningsmiljön innehåller inget inbyggt stöd för webhook-providrar. Den här ändringen gjordes för att förbättra prestandan. Du kan fortfarande använda HTTP-utlösare som slut punkter för Webhooks.
 
-* Värd konfigurations filen (Host. JSON) måste vara tom eller ha strängen `"version": "2.0"` .
+* Värd konfigurations filen (host.jspå) måste vara tom eller ha strängen `"version": "2.0"` .
 
 * För att förbättra övervakningen ersätts instrument panelen WebJobs i portalen, som använde [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) inställningen med Azure Application insikter som använder [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) inställningen. Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
-* Alla funktioner i en Function-app måste dela samma språk. När du skapar en Function-app måste du välja en körnings stack för appen. Körnings stacken anges av [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) värdet i program inställningar. Detta krav har lagts till för att förbättra utrymme och start tid. När du utvecklar lokalt måste du också inkludera den här inställningen i [filen Local. Settings. JSON](functions-run-local.md#local-settings-file).
+* Alla funktioner i en Function-app måste dela samma språk. När du skapar en Function-app måste du välja en körnings stack för appen. Körnings stacken anges av [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) värdet i program inställningar. Detta krav har lagts till för att förbättra utrymme och start tid. När du utvecklar lokalt måste du också inkludera den här inställningen i [local.settings.jspå filen](functions-run-local.md#local-settings-file).
 
-* Standard tids gränsen för funktioner i en App Service plan ändras till 30 minuter. Du kan manuellt ändra tillbaka tids gränsen till obegränsad med hjälp av inställningen [functionTimeout](functions-host-json.md#functiontimeout) i Host. JSON.
+* Standard tids gränsen för funktioner i en App Service plan ändras till 30 minuter. Du kan manuellt ändra tillbaka tids gränsen till obegränsad med hjälp av [functionTimeout](functions-host-json.md#functiontimeout) -inställningen i host.jspå.
 
-* HTTP-samtidighets begränsning implementeras som standard för förbruknings plan funktioner, med standardvärdet 100 samtidiga begär Anden per instans. Du kan ändra detta i [`maxConcurrentRequests`](functions-host-json.md#http) inställningen i Host. JSON-filen.
+* HTTP-samtidighets begränsning implementeras som standard för förbruknings plan funktioner, med standardvärdet 100 samtidiga begär Anden per instans. Du kan ändra detta i [`maxConcurrentRequests`](functions-host-json.md#http) inställningen i host.jsi filen.
 
 * På grund av [begränsningar i .net Core](https://github.com/Azure/azure-functions-host/issues/3414)har stöd för F # script-funktioner (. FSX) tagits bort. Kompilerade F # functions (. FS) stöds fortfarande.
 
@@ -87,7 +86,7 @@ Följande är ändringar som du måste känna till innan du uppgraderar en 2. x-
 
 * Nytto lasten för HTTP-begäran kan inte längre nås via `context.bindingData.req` .  Den kan fortfarande kommas åt som en indataparameter, `context.req` och i `context.bindings` .
 
-* Node. js 8 stöds inte längre och körs inte i 3. x-funktioner.
+* Node.js 8 stöds inte längre och körs inte i 3. x-funktioner.
 
 #### <a name="net"></a>.NET
 

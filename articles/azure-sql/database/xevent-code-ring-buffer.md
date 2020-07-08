@@ -12,10 +12,9 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: faba9eaf59f5d1c941bacb58ba1faf9f817d39cf
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84046987"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Ring buffertens mål kod för utökade händelser i Azure SQL Database
@@ -41,14 +40,14 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 7. Släpper målet för ringbufferten för att frigöra resurser.
 8. Släpper händelsesessionen och demonstrations tabellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * Alla databaser du kan skapa en tabell i.
   
   * Du kan också [skapa en **AdventureWorksLT** demonstrations databas](single-database-create-quickstart.md) på bara några minuter.
-* SQL Server Management Studio (SSMS. exe), helst den senaste månatliga uppdaterings versionen.
-  Du kan hämta den senaste SSMS. exe från:
+* SQL Server Management Studio (ssms.exe), helst den senaste månatliga uppdaterings versionen.
+  Du kan hämta de senaste ssms.exe från:
   
   * Avsnitt med rubriken [hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
   * [En direkt länk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
@@ -220,7 +219,7 @@ Vi använde `ssms.exe` för att köra kod exemplet.
 
 För att visa resultaten klickade vi på cellen under kolumn rubriken **target_data_XML**.
 
-Sedan klickade du på cellen under kolumn rubriken **target_data_XML**i resultat fönstret. Då klickar du på fliken skapad en annan fil i SSMS. exe där innehållet i resultat cellen visades, som XML.
+Sedan klickade du på cellen under kolumn rubriken **target_data_XML**i resultat fönstret. Då klickar du på fliken skapad en annan fil i ssms.exe där innehållet i resultat cellen visades, som XML.
 
 Utdata visas i följande block. Det ser långt ut, men det är bara två **\<event>** element.
 

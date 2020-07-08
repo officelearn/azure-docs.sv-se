@@ -15,10 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 928162282ca973811315728a07b4fbe40100324e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84017587"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Utöka lokala AlwaysOn-tillgänglighetsgrupper till Azure
@@ -57,7 +56,7 @@ I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-repl
    
    | Inställningen | Beskrivning |
    | --- | --- |
-   | **Bild** |Välj önskad kombination av OS och SQL Server |
+   | **Avbildning** |Välj önskad kombination av OS och SQL Server |
    | **VM-storlek** |Välj storleken på den virtuella dator som passar dina affärs behov bäst |
    | **Namn på virtuell dator** |Ange ett unikt namn för den nya virtuella datorn. Namnet måste innehålla mellan 3 och 15 tecken, får bara innehålla bokstäver, siffror och bindestreck, och måste börja med en bokstav och sluta med antingen en bokstav eller en siffra. |
    | **VM-användarnamn** |Ange ett användar namn som ska bli administratörs kontot på den virtuella datorn |
@@ -65,7 +64,7 @@ I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-repl
    | **Bekräfta lösen ord** |Bekräfta lösen ordet för det nya kontot |
    | **Virtual Network** |Ange det virtuella Azure-nätverket som den nya virtuella datorn ska använda. Mer information om virtuella nätverk finns i [Virtual Network översikt](../../../virtual-network/virtual-networks-overview.md). |
    | **Virtual Network undernät** |Ange det undernät för virtuellt nätverk som den nya virtuella datorn ska använda |
-   | **Domain** |Bekräfta att det förifyllda värdet för domänen är korrekt |
+   | **Domän** |Bekräfta att det förifyllda värdet för domänen är korrekt |
    | **Domän användar namn** |Ange ett konto som finns i den lokala administratörs gruppen på de lokala klusternoderna |
    | **Lösenord** |Ange lösen ordet för domän användar namnet |
 8. Verifiera distributions inställningarna genom att klicka på **OK** .

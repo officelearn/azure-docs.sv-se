@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83873044"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Läs in inläsningar i alla format med anpassade .NET-deserialiserare
@@ -252,6 +251,6 @@ När du har implementerat deserialiseraren kan du hjälpa andra genom att dela d
 
 Om du har angett protobuf-format med schema som innehåller MapField-typ, kan du inte implementera en anpassad deserialiserare. Vi arbetar på att stödja den här typen som går framåt.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [.NET-anpassade deserialiserare för Azure Stream Analytics moln jobb](custom-deserializer.md)

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83995317"
 ---
 # <a name="conditional-access-block-access"></a>Villkorlig åtkomst: blockera åtkomst
@@ -49,7 +48,7 @@ Den första principen blockerar åtkomst till alla appar förutom Office 365-pro
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**väljer du följande alternativ:
    1. Under **Inkludera**väljer du **alla molnappar**.
    1. Under **exkludera**väljer du **Office 365 (för hands version)**, väljer **Välj**och väljer sedan **Slutför**.
@@ -58,7 +57,7 @@ Den första principen blockerar åtkomst till alla appar förutom Office 365-pro
       1. **Konfigurera** till **Ja**
       1. Under **Inkludera**väljer du **valfri plats**.
       1. Under **exkludera**väljer du **alla betrodda platser**.
-      1. Välj **Done** (Klar).
+      1. Välj **Klar**.
    1. Under **klient program (för hands version)** anger du **Konfigurera** till **Ja**och **väljer sedan** **klart**.
 1. Under **åtkomst kontroller**  >  **beviljas**väljer du **blockera åtkomst**och väljer sedan **Välj**.
 1. Bekräfta inställningarna och ange att **principen** endast ska **rapporteras**.
@@ -71,7 +70,7 @@ En andra princip skapas nedan för att kräva Multi-Factor Authentication eller 
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Done** (Klar).
+   1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**, sedan **Office 365 (för hands version)** och väljer **Välj**och sedan **Slutför**.
 1. Under **åtkomst kontroller**  >  **bevilja**väljer du **bevilja åtkomst**.
    1. Välj **Kräv Multi-Factor Authentication** och **Kräv att enheten är markerad som kompatibel** Välj **Välj**.

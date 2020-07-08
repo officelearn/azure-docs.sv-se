@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: 7bd0afe4d0ea01671c996a0f536151d943e4fca7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84013018"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Köra apache Sqoop-jobb i HDInsight med sväng
@@ -22,7 +21,7 @@ Lär dig hur du använder en sväng för att köra apache Sqoop-jobb på ett Apa
 
 Sväng används för att demonstrera hur du kan interagera med HDInsight genom att använda RAW HTTP-begäranden för att köra, övervaka och hämta resultatet av Sqoop-jobb. Detta fungerar med hjälp av WebHCat-REST API (tidigare kallat Templeton) som tillhandahålls av ditt HDInsight-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [konfiguration av test miljö](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) från att [använda Apache Sqoop med Hadoop i HDInsight](./hdinsight-use-sqoop.md).
 

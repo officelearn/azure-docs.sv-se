@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83860535"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda Azure AD-inloggning
@@ -65,7 +64,7 @@ Du kan konfigurera inställningar för appar manuellt om du vill använda en app
 
 Du behöver följande information när du konfigurerar din App Service-app:
 
-- Klientorganisations-ID
+- Klient-ID
 - Klientorganisations-ID
 - Klient hemlighet (valfritt)
 - Program-ID-URI
@@ -102,8 +101,8 @@ Utför följande steg:
 
     |Fält|Beskrivning|
     |-|-|
-    |Klientorganisations-ID| Använd **program-ID: t (klient)** för appens registrering. |
-    |Utfärdar-URL| Använd `<authentication-endpoint>/<tenant-id>/v2.0` och Ersätt * \< autentiserings slut punkts>* med [slut punkten för autentiseringen för din moln miljö](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (t. ex. " https://login.microsoft.com " för Global Azure), och ersätter även * \< klient-ID>* med den **katalog (klient)-ID** som program registreringen skapades i. Det här värdet används för att omdirigera användare till rätt Azure AD-klient, samt för att hämta lämpliga metadata för att fastställa lämpliga token för signerings nycklar och token Issuer-anspråk till exempel. `/v2.0`Avsnittet kan utelämnas för program som använder AAD v1. |
+    |Klient-ID| Använd **program-ID: t (klient)** för appens registrering. |
+    |Utfärdar-URL| Använd `<authentication-endpoint>/<tenant-id>/v2.0` och Ersätt *\<authentication-endpoint>* med [slut punkten för autentisering för din moln miljö](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (t. ex. " https://login.microsoft.com " för Global Azure), och ersätt även *\<tenant-id>* med den **katalog (klient) ID** där appens registrering skapades. Det här värdet används för att omdirigera användare till rätt Azure AD-klient, samt för att hämta lämpliga metadata för att fastställa lämpliga token för signerings nycklar och token Issuer-anspråk till exempel. `/v2.0`Avsnittet kan utelämnas för program som använder AAD v1. |
     |Klient hemlighet (valfritt)| Använd den klient hemlighet som du genererade i appens registrering.|
     |Tillåtna token-mottagare| Om det här är en moln-eller Server App och du vill tillåta autentiseringstoken från en webbapp lägger du till **program-ID-URI: n** för webbappen här. Det konfigurerade **klient-ID: t** anses *alltid* vara en tillåten mål grupp. |
 

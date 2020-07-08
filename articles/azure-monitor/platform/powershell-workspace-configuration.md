@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
 ms.openlocfilehash: a03fcf5748eaa215aa90b70dbd11e788e8beb3e4
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83860978"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Skapa och konfigurera en Log Analytics arbets yta i Azure Monitor med PowerShell
@@ -21,7 +20,7 @@ Den här artikeln innehåller två kod exempel som visar hur du skapar och konfi
 > Log Analytics kallades tidigare Operational Insights, vilket är anledningen till att det är det namn som används i cmdletarna.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Dessa exempel fungerar med version 1.0.0 eller senare av modulen AZ. OperationalInsights.
 
 ## <a name="create-workspace"></a>Skapa arbetsyta

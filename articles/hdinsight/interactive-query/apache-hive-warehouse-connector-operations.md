@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.openlocfilehash: 999c58871ed811d91fd96d158ea6f65db6c718f3
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83853843"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Apache Spark åtgärder som stöds av Hive Warehouse Connector i Azure HDInsight
@@ -142,6 +141,6 @@ Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Använd
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [INSTANSEN-integrering med Apache Spark och Apache Hive](./apache-hive-warehouse-connector.md)
+* [HWC-integrering med Apache Spark och Apache Hive](./apache-hive-warehouse-connector.md)
 * [Använda Interactive Query i HDInsight](./apache-interactive-query-get-started.md)
-* [INSTANSEN-integrering med Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
+* [HWC-integrering med Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)

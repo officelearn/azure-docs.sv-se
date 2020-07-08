@@ -9,10 +9,9 @@ description: Lär dig att använda Azure dev Spaces och Azure Kubernetes Service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
 ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83996932"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Verksamhets kontinuitet och haveri beredskap i Azure dev Spaces
@@ -67,7 +66,7 @@ När du har kört de här kommandona används det valda klustret och dev-utrymme
 
 Om du använder Visual Studio kan du växla klustret som används av ett befintligt projekt genom följande steg:
 
-1. Öppna projektet i Visual Studio.
+1. Öppna ditt projekt i Visual Studio.
 1. Högerklicka på projekt namnet i Solution Explorer och klicka på **Egenskaper**
 1. I den vänstra rutan klickar du på **Felsök**
 1. På sidan fel söknings egenskaper klickar du på list rutan **profil** och väljer **Azure dev Spaces**.

@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 503a55bf49d97f00f26044aef3e19b0fec58b37d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84047477"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skala ut databaser med mappnings hanteraren för Shard
@@ -70,7 +69,7 @@ Shard Maps kan konstrueras med hjälp **av listor med enskilda horisontell parti
 
 **Shards** innehåller **shardletar** och mappningen av shardletar till Shards underhålls av en Shard-karta. En **list Shard-karta** är en associering mellan de enskilda nyckel värden som identifierar shardletar och databaserna som fungerar som Shards.  **List mappningar** är explicita och olika nyckel värden kan mappas till samma databas. Till exempel, nyckel värde 1 mappar till databas A, och nyckel värden 3 och 6 mappas båda till databas B.
 
-| Nyckel | Shard-plats |
+| Tangent | Shard-plats |
 | --- | --- |
 | 1 |Database_A |
 | 3 |Database_B |
@@ -84,7 +83,7 @@ I en **Range Shard-karta**beskrivs nyckel intervallet av ett par **[lågt värde
 
 Till exempel innehåller **[0, 100)** alla heltal som är större än eller lika med 0 och mindre än 100. Observera att flera intervall kan peka på samma databas och åtskilda intervall stöds (till exempel [100 200) och [400 600) pekar båda på databas C i följande exempel.)
 
-| Nyckel | Shard-plats |
+| Tangent | Shard-plats |
 | --- | --- |
 | [1, 50) |Database_A |
 | [50 100) |Database_B |

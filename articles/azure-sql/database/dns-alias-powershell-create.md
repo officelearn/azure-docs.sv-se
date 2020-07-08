@@ -13,10 +13,9 @@ ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ms.openlocfilehash: 3acbdd5c933bc2010a26e2039ece378774055d30
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84050403"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell för DNS-alias till Azure SQL Database
@@ -35,7 +34,7 @@ För att ansluta en [logisk SQL-Server](logical-servers.md)kan en klient som SQL
 
    `<yourServer>.database.windows.net`
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill köra demonstrations PowerShell-skriptet som du fick i den här artikeln gäller följande krav:
 
@@ -59,7 +58,7 @@ De cmdletar som används är följande:
 
 Information om att installera och uppgradera finns i [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
 
-Använd `Get-Module -ListAvailable Az` i *PowerShell \_ ISE. exe*för att hitta versionen.
+Använd `Get-Module -ListAvailable Az` i *powershell- \_ise.exe*för att hitta versionen.
 
 ```powershell
 $subscriptionName = '<subscriptionName>';

@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84047526"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
@@ -141,7 +140,7 @@ Det delade sammanslagnings tjänst paketet innehåller en arbets roll och en web
 
 - **Käll intervall (dela och slå samman)**
 
-  En delnings-och sammanfognings åtgärd bearbetar ett intervall med hjälp av dess låga och höga nyckel. Om du vill ange en åtgärd med ett obundet högt nyckel värde markerar du kryss rutan "hög nyckel är max" och lämnar fältet för hög nyckel tomt. De intervall nyckel värden som du anger behöver inte exakt matcha en mappning och dess gränser i Shard-kartan. Om du inte anger några intervall gränser på alla tjänster kommer du att härleda det närmaste intervallet åt dig automatiskt. Du kan använda PowerShell-skriptet GetMappings. ps1 för att hämta de aktuella mappningarna i en specifik Shard-karta.
+  En delnings-och sammanfognings åtgärd bearbetar ett intervall med hjälp av dess låga och höga nyckel. Om du vill ange en åtgärd med ett obundet högt nyckel värde markerar du kryss rutan "hög nyckel är max" och lämnar fältet för hög nyckel tomt. De intervall nyckel värden som du anger behöver inte exakt matcha en mappning och dess gränser i Shard-kartan. Om du inte anger några intervall gränser på alla tjänster kommer du att härleda det närmaste intervallet åt dig automatiskt. Du kan använda GetMappings.ps1 PowerShell-skriptet för att hämta de aktuella mappningarna i en specifik Shard-karta.
 
 - **Beteende för delad källa (dela)**
 
@@ -207,7 +206,7 @@ Tjänsten för delad sammanslagning innehåller tabellen **RequestStatus** i dat
 
   En procentuell uppskattning av slut för ande för åtgärden. Värdet 50 anger att åtgärden är cirka 50% slutfört.
 
-- **Information**
+- **Detaljer**
 
   Ett XML-värde som innehåller en mer detaljerad förlopps rapport. Förlopps rapporten uppdateras regelbundet när rad uppsättningar kopieras från källa till mål. I händelse av fel eller undantag innehåller den här kolumnen också mer detaljerad information om felet.
 

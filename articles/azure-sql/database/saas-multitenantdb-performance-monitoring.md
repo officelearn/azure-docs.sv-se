@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: e4f26b21ad7458b4f5bcad9a902f4e048d726f1f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042437"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade Azure SQL Database flera innehavare i en SaaS för flera innehavare
@@ -64,7 +63,7 @@ För en god förståelse för hur prestanda övervakning och hantering fungerar 
 
 Om du redan har skapat en batch med klienter i en tidigare självstudie går du vidare till avsnittet [simulera användning på alla klient databaser](#simulate-usage-on-all-tenant-databases) .
 
-1. I **POWERSHELL ISE**öppnar du... \\ Inlärnings moduler \\ prestanda övervakning och hantering \\ *performancemonitoringandmanagement. ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. I **POWERSHELL ISE**öppnar du... \\ Learning-moduler \\ prestanda övervakning och hantering \\ *Demo-PerformanceMonitoringAndManagement.ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
 1. Ange **$DemoScenario**  =  **1**, _etablera en batch med klienter_
 1. Tryck **F5** för att köra skriptet.
 
@@ -74,7 +73,7 @@ Skriptet *New-TenantBatch* skapar nya klienter med unika klient nycklar i sharda
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simulera användning på alla klientdatabaser
 
-Skriptet *performancemonitoringandmanagement. ps1* tillhandahålls som simulerar en arbets belastning som körs mot databasen med flera innehavare. Belastningen genereras med något av de tillgängliga inläsnings scenarierna:
+*Demo-PerformanceMonitoringAndManagement.ps1* -skriptet tillhandahålls som simulerar en arbets belastning som körs mot databasen med flera innehavare. Belastningen genereras med något av de tillgängliga inläsnings scenarierna:
 
 | Demo | Scenario |
 |:--|:--|
@@ -85,7 +84,7 @@ Skriptet *performancemonitoringandmanagement. ps1* tillhandahålls som simulerar
 
 Belastningsgeneratorn tillämpar en *syntetisk* enbart-CPU-belastning på varje klientdatabas. Generatorn startar ett jobb för varje klientdatabas som anropar en lagrad procedur med jämna mellanrum, vilket genererar belastningen. Belastnings nivåerna (i DTU: er), varaktighet och intervall varierar i alla databaser, vilket simulerar oförutsägbar klient aktivitet.
 
-1. I **POWERSHELL ISE**öppnar du... \\ Inlärnings moduler \\ prestanda övervakning och hantering \\ *performancemonitoringandmanagement. ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. I **POWERSHELL ISE**öppnar du... \\ Learning-moduler \\ prestanda övervakning och hantering \\ *Demo-PerformanceMonitoringAndManagement.ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
 1. Ange **$DemoScenario**  =  **2**, _generera normal intensitets belastning_
 1. Tryck på **F5** för att använda en belastning för alla klienter.
 
@@ -154,7 +153,7 @@ Med shardade för flera klienter kan du välja om du vill etablera en ny klient 
 
 Om du redan har skapat en ny klient i en egen databas, hoppar du över nästa steg.
 
-1. I **POWERSHELL ISE**öppnar du... \\ Learning-moduler \\ ProvisionTenants \\ *demo-ProvisionTenants. ps1*. 
+1. I **POWERSHELL ISE**öppnar du... \\ ProvisionTenantsDemo-ProvisionTenants.ps1för inlärnings moduler \\ \\ * *. 
 1. Ändra **$TenantName = "Salix salsa"** och **$VenueType = "kontrollen åt"**
 1. Ange **$scenario**  =  **2**, _etablera en klient i en ny databas för en enda klient_
 1. Tryck **F5** för att köra skriptet.
@@ -167,7 +166,7 @@ Om en enskild klient i en databas med flera innehavare upplever en varaktig hög
 
 I den här övningen simuleras effekterna av Salix salsa som har hög belastning när biljetterna går till försäljning för en populär händelse.
 
-1. Öppna... \\ *Performancemonitoringandmanagement. ps1* -skript.
+1. Öppna... \\ *Demo-PerformanceMonitoringAndManagement.ps1* skript.
 1. Ange **$DemoScenario = 5**, _Generera en normal belastning plus en hög belastning på en enskild klient (cirka 90 DTU)._
 1. Ange **$SingleTenantName = Salix salsa**
 1. Kör skriptet med **F5**.

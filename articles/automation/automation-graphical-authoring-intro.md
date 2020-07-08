@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: fa1be31f90bd14c1f22d9e389132487094ecb4ff
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83849764"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Redigera grafiska runbooks i Azure Automation
@@ -34,7 +33,7 @@ Med kontrollen arbets yta kan du utforma din Runbook. Du kan lägga till aktivit
 
 Med biblioteks kontrollen kan du välja vilka [aktiviteter](#use-activities) som ska läggas till i din Runbook. Du lägger till dem på arbets ytan, där du kan ansluta dem till andra aktiviteter. Biblioteks kontrollen inkluderar de avsnitt som definieras i följande tabell.
 
-| Section | Beskrivning |
+| Avsnitt | Beskrivning |
 |:--- |:--- |
 | Cmdletar |Alla cmdletar som kan användas i din Runbook. Cmdletar är ordnade efter modul. Alla moduler som du har installerat i ditt Automation-konto är tillgängliga. |
 | Runbooks |Runbooks i ditt Automation-konto. Du kan lägga till dessa Runbooks i arbets ytan som ska användas som underordnade Runbooks. Endast Runbooks av samma kärn typ som den Runbook som redige ras visas. För grafiska runbooks visas endast PowerShell-baserade Runbooks. För grafiska PowerShell Workflow-Runbooks visas bara PowerShell Workflow-baserade Runbooks. |

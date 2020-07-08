@@ -17,10 +17,9 @@ ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 0717f6f75b6bd8bb7ba4d53f8240414b5169540d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84014797"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Anslut en virtuell SQL Server-dator på Azure (klassisk distribution)
@@ -103,7 +102,7 @@ Anslutnings Sök vägen sammanfattas i följande diagram:
 
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Om du också planerar att använda AlwaysOn-tillgänglighetsgrupper för hög tillgänglighet och haveri beredskap bör du överväga att implementera en lyssnare. Databas klienter ansluter till lyssnaren i stället för direkt till en av SQL Server instanserna. Lyssnaren dirigerar klienter till den primära repliken i tillgänglighets gruppen. Mer information finns i [Konfigurera en ILB-lyssnare för AlwaysOn-tillgänglighetsgrupper i Azure](../classic/ps-sql-int-listener.md).
 
 Det är viktigt att du går igenom alla rekommenderade säkerhets metoder för SQL Server som körs på en virtuell Azure-dator. Mer information finns i [Säkerhetsöverväganden för SQL Server på Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/security-considerations-best-practices.md).

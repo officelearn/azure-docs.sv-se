@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 70d21170bfc172f30b01c2af093bc82a54c80dd3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84043130"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använd geo-återställning för att återställa ett SaaS-program med flera innehavare från databas säkerhets kopior
@@ -108,7 +107,7 @@ I den här uppgiften startar du en process för att synkronisera konfigurationen
 
 1. Öppna filen. ..\Learning Modules\UserConfig.psm1 i PowerShell ISE. Ersätt `<resourcegroup>` och `<user>` på raderna 10 och 11 med det värde som används när du distribuerade appen. Spara filen.
 
-2. I PowerShell ISE öppnar du skriptet. ..\Learning Modules\Business kontinuitet och haveri Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1.
+2. I PowerShell ISE öppnar du ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skriptet.
 
     I den här självstudien kör du vart och ett av scenarierna i det här PowerShell-skriptet, så se till att filen är öppen.
 
@@ -172,7 +171,7 @@ Låt PowerShell-fönstret köras i bakgrunden och fortsätt med resten av den h�
 
 Tänk dig att det finns ett avbrott i den region där programmet distribueras och kör återställnings skriptet:
 
-1. I PowerShell ISE i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 anger du följande värde:
+1. I PowerShell ISE, i ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skript, anger du följande värde:
 
     $DemoScenario = 2: Återställ appen till en återställnings region genom att återställa från geo-redundanta säkerhets kopieringar.
 
@@ -207,7 +206,7 @@ När program slut punkten är inaktive rad i Traffic Manager är programmet inte
 ## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Etablera en ny klient i återställnings regionen
 Du kan etablera nya klienter i återställnings regionen även innan klient databaserna återställs. Nya klient databaser som etablerades i återställnings regionen är repatriated med de återställda databaserna senare.   
 
-1. I PowerShell ISE i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 anger du följande egenskap:
+1. I PowerShell ISE går du till ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skriptet och anger följande egenskap:
 
     $DemoScenario = 3: etablera en ny klient i återställnings regionen.
 
@@ -260,7 +259,7 @@ I den här uppgiften uppdaterar du en av de återställda klient databaserna. Re
 
 1. Leta upp händelse listan för Contoso konsert Hall i webbläsaren, bläddra igenom händelserna och Lägg märke till den sista händelsen, allvarligt Strauss.
 
-2. I PowerShell ISE i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 anger du följande värde:
+2. I PowerShell ISE, i ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skript, anger du följande värde:
 
     $DemoScenario = 4: ta bort en händelse från en klient i återställnings regionen.
 
@@ -318,7 +317,7 @@ Låt oss föreställa sig att avbrottet är löst och kör Repatriation-skriptet
 
 Om du har följt självstudien återaktiverar skriptet omedelbart den Fabrikam Jazz-klubben och Dogwood-Dojo i den ursprungliga regionen eftersom de är oförändrade. Sedan repatriates den nya klienten, Hawthorn hallen och contoso konsert Hall eftersom den har ändrats. Skriptet repatriates också katalogen, som uppdaterades när Hawthorn Hall etablerades.
   
-1. I PowerShell ISE, i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, kontrollerar du att katalogens synkronisering fortfarande körs i PowerShell-instansen. Om det behövs startar du om det genom att ange:
+1. I PowerShell ISE, i ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skript, verifierar du att katalogens synkronisering fortfarande körs i PowerShell-instansen. Om det behövs startar du om det genom att ange:
 
     $DemoScenario = 1: Starta synkronisering av klient server, pool och databas konfigurations information i katalogen.
 
@@ -350,7 +349,7 @@ När Repatriation har slutförts är det säkert att ta bort resurserna i åters
 
 Återställnings processen skapar alla återställnings resurser i en återställnings resurs grupp. Rensnings processen tar bort den här resurs gruppen och tar bort alla referenser till resurserna från katalogen. 
 
-1. I PowerShell ISE i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 anger du:
+1. I PowerShell ISE går du till ..\Learning Modules\Business-kontinuitet och katastrof Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 skriptet, ange:
     
     $DemoScenario = 6: ta bort föråldrade resurser från återställnings regionen.
 

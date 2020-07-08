@@ -11,10 +11,9 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
 ms.openlocfilehash: bc8fd73b18e197c42e4750612320c1b15a6db020
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83849220"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformera data med Spark-aktivitet i Azure Data Factory
@@ -61,13 +60,13 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
 | Egenskap              | Beskrivning                              | Obligatorisk |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | Namnet på aktiviteten i pipelinen.    | Yes      |
-| beskrivning           | Text som beskriver vad aktiviteten gör.  | No       |
-| typ                  | För Spark-aktivitet är aktivitets typen HDInsightSpark. | Yes      |
-| linkedServiceName     | Namnet på den länkade HDInsight Spark-tjänsten som Spark-programmet körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Yes      |
+| name                  | Namnet på aktiviteten i pipelinen.    | Ja      |
+| description           | Text som beskriver vad aktiviteten gör.  | No       |
+| typ                  | För Spark-aktivitet är aktivitets typen HDInsightSpark. | Ja      |
+| linkedServiceName     | Namnet på den länkade HDInsight Spark-tjänsten som Spark-programmet körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | SparkJobLinkedService | Den länkade tjänsten Azure Storage som innehåller Spark-jobbets fil, beroenden och loggar. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en Azure Storage länkad tjänst. | No       |
-| rootPath              | Azure Blob-behållaren och-mappen som innehåller Spark-filen. Fil namnet är Skift läges känsligt. Se avsnittet mappstruktur (nästa avsnitt) för information om den här mappens struktur. | Yes      |
-| entryFilePath         | Relativ sökväg till rotmappen för Spark-koden/-paketet. Post filen måste vara antingen en python-fil eller en. jar-fil. | Yes      |
+| rootPath              | Azure Blob-behållaren och-mappen som innehåller Spark-filen. Fil namnet är Skift läges känsligt. Se avsnittet mappstruktur (nästa avsnitt) för information om den här mappens struktur. | Ja      |
+| entryFilePath         | Relativ sökväg till rotmappen för Spark-koden/-paketet. Post filen måste vara antingen en python-fil eller en. jar-fil. | Ja      |
 | className             | Programmets Java/Spark-huvud klass      | No       |
 | ogiltiga             | En lista med kommando rads argument för Spark-programmet. | No       |
 | proxyUser             | Användar kontot som ska personifieras för att köra Spark-programmet | No       |
@@ -81,8 +80,8 @@ Skapa följande mappstruktur i Azure blob-lagringen som refereras av den länkad
 
 | Sökväg                  | Beskrivning                              | Krävs | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`skogen            | Spark-jobbets rot Sök väg i den länkade lagrings tjänsten | Yes      | Mapp |
-| &lt;användardefinierad&gt; | Sökvägen som pekar på post filen för Spark-jobbet | Yes      | Fil   |
+| `.`skogen            | Spark-jobbets rot Sök väg i den länkade lagrings tjänsten | Ja      | Mapp |
+| &lt;användardefinierad&gt; | Sökvägen som pekar på post filen för Spark-jobbet | Ja      | Fil   |
 | ./jars                | Alla filer i den här mappen laddas upp och placeras i Java-classpath för klustret | No       | Mapp |
 | ./pyFiles             | Alla filer i den här mappen överförs och placeras i PYTHONPATH i klustret | No       | Mapp |
 | ./files               | Alla filer i den här mappen överförs och placeras i utförar arbets katalog | No       | Mapp |

@@ -8,10 +8,9 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84014544"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Skapa brand Väggs principer för webb program för Application Gateway
@@ -29,7 +28,7 @@ Om din Application Gateway har en princip tillämpad och du tillämpar en annan 
 
 Alla nya WAF-inställningar för webb program brand väggen (anpassade regler, hanterade rulset-konfigurationer, undantag osv.) i en WAF-princip. Om du har en befintlig WAF kan de här inställningarna fortfarande finnas i WAF-konfigurationen. Anvisningar om hur du flyttar till den nya WAF-principen finns i [migrera din WAF-konfiguration till WAF-princip](#migrate) senare i den här artikeln. 
 
-## <a name="create-a-policy"></a>Skapa en policy
+## <a name="create-a-policy"></a>Skapa en princip
 
 Börja med att skapa en grundläggande WAF-princip med en hanterad standard regel uppsättning (DRS) med hjälp av Azure Portal.
 

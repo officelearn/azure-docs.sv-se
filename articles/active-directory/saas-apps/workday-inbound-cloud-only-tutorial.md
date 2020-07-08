@@ -15,10 +15,9 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 6fb80af84379a1a0bc174a7318c8150a98bea95e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84041815"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Självstudie: Konfigurera arbets dag till användar etablering i Azure AD
@@ -119,8 +118,8 @@ I följande avsnitt beskrivs hur du konfigurerar användar etablering från Work
    
      | URL-format | WWS-API-version som används | XPATH-ändringar krävs |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v-21.1 | Nej |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | Nej |
+     | https://####.workday.com/ccx/service/tenantName | v-21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | No |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Ja |
 
       > [!NOTE]

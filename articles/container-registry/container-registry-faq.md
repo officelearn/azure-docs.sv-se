@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
 ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390371"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
@@ -314,7 +314,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Till exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Ett exempel:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -503,8 +503,8 @@ Vi stöder för närvarande inte GitLab för käll utlösare.
 |---|---|---|---|
 | GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Ja |
 | Azure-lagringsplatser | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Ja | Ja |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | Inga |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | Inga |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Nej |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Ja | Nej |
 
 ## <a name="run-error-message-troubleshooting"></a>Köra fel meddelande fel sökning
 

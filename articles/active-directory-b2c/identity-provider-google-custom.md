@@ -12,10 +12,10 @@ ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 91a55782492c1b2612652b147e0aca37941bf4db
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85388212"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Google-konto med anpassade principer i Azure Active Directory B2C
@@ -54,7 +54,7 @@ Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-k
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
 6. För **alternativ**väljer du `Manual` .
-7. Ange ett **namn** för princip nyckeln. Exempelvis `GoogleSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+7. Ange ett **namn** för princip nyckeln. Till exempel `GoogleSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 8. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
 9. För **nyckel användning**väljer du `Signature` .
 10. Klicka på **Skapa**.
@@ -130,7 +130,7 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"` .
 3. Öppna *TrustFrameworkExtensions.xml* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
 4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
-5. Byt namn på användar resans ID. Exempelvis `SignUpSignInGoogle`.
+5. Byt namn på användar resans ID. Till exempel `SignUpSignInGoogle`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
@@ -154,7 +154,7 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Exempelvis `Google-OAuth`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Till exempel `Google-OAuth`.
 
 3. Spara *TrustFrameworkExtensions.xml* -filen och ladda upp den igen för verifiering.
 
@@ -169,7 +169,7 @@ Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-kli
 Uppdatera den förlitande parten (RP) som initierar användar resan som du har skapat.
 
 1. Gör en kopia av *SignUpOrSignIn.xml* i din arbets katalog och Byt namn på den. Du kan till exempel byta namn på den till *SignUpSignInGoogle.xml*.
-2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Exempelvis `SignUpSignInGoogle`.
+2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInGoogle`.
 3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_google`
 4. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID för den nya användar resan som du skapade (SignUpSignGoogle).
 5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.

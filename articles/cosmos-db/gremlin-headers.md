@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390864"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin Server-svarshuvuden

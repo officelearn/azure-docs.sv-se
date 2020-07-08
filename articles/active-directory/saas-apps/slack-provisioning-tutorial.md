@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389876"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera slack för automatisk användar etablering

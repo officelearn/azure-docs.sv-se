@@ -11,10 +11,10 @@ ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387532"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Använd Azure Portal för att skapa och ta bort konsument användare i Azure AD B2C
@@ -31,7 +31,7 @@ Enligt beskrivningen i [Översikt över användar konton i Azure AD B2C](user-ov
 
 * Arbete
 * Gäst
-* Kund
+* Konsument
 
 Den här artikeln fokuserar på att arbeta med **konsument konton** i Azure Portal. Information om hur du skapar och tar bort arbets-och gäst konton finns i [lägga till eller ta bort användare med hjälp av Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 

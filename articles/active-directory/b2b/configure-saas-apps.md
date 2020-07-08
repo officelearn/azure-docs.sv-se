@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387358"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurera SaaS-appar för B2B-samarbete
@@ -32,7 +32,7 @@ Innan du tittar på App-Specific-instruktioner är här några regler för tumme
 * I användarattribut, för att minimera eventuella problem med Mangled-UPD (User profile disk) i gäst användare, anger du alltid **användar-ID** till **User. mail**.
 
 
-## <a name="dropbox-business"></a>Dropbox-företag
+## <a name="dropbox-business"></a>Dropbox Business
 
 Om du vill att användarna ska kunna logga in med sitt organisations konto måste du manuellt konfigurera Dropbox-företag att använda Azure AD som en Security Assertion Markup Language (SAML) identitets leverantör. Om Dropbox-företag inte har kon figurer ATS för detta, kan det inte ställas in eller på annat sätt tillåta att användare loggar in med Azure AD.
 

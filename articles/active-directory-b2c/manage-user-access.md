@@ -11,10 +11,10 @@ ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387736"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användar åtkomst i Azure Active Directory B2C
@@ -78,7 +78,7 @@ Följande steg visar vilken logik som används för att beräkna **ageGroup** fr
 
 4. Om ingen av beräkningarna returnerar true returnerar beräkningen **vuxen**.
 
-Om ett program har samlat in information om DOB eller land/region på andra sätt kan programmet använda Graph API för att uppdatera användar posten med den här informationen. Till exempel:
+Om ett program har samlat in information om DOB eller land/region på andra sätt kan programmet använda Graph API för att uppdatera användar posten med den här informationen. Ett exempel:
 
 - Om en användare är känd som vuxen, uppdaterar du **ageGroup** med värdet **vuxen**.
 - Om en användare är känd som en mindre uppdaterar du **ageGroup** med värdet **moll** och anger **consentProvidedForMinor**, efter behov.

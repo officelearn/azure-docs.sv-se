@@ -4,10 +4,10 @@ description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: f9e51521e9bd35c6afb3dbe7cafb1e56e847756a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390133"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
@@ -103,7 +103,7 @@ Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.c
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Till exempel:
+    Ett exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -201,7 +201,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Fullständig lista över inställningar i`ApplicationInsightsServiceOptions`
 
-|Inställningen | Beskrivning | Standard
+|Inställningen | Beskrivning | Default
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Aktivera/inaktivera`PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Aktivera/inaktivera`RequestTrackingTelemetryModule` | true

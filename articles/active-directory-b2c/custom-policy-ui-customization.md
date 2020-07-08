@@ -12,10 +12,10 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85388892"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
@@ -39,7 +39,7 @@ Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess 
 1. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions.xml*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
 1. Klistra in hela innehållet i **ContentDefinitions** -elementet som du kopierade som ett underordnat objekt till **BuildingBlocks** -elementet.
 1. Sök efter det **ContentDefinition** -element som innehåller `Id="api.signuporsignin"` i XML-filen som du kopierade.
-1. Ändra värdet för **LoadUri** till URL: en för HTML-filen som du laddade upp till lagringen. Exempelvis `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. Ändra värdet för **LoadUri** till URL: en för HTML-filen som du laddade upp till lagringen. Till exempel `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
     Den anpassade principen bör se ut som följande kodfragment:
 

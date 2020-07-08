@@ -11,10 +11,10 @@ ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: accd32f376c6030900a9f9a3c29547118d0a1a7b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85388518"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: tillägg-appen
@@ -36,7 +36,7 @@ Så här kontrollerar du att B2C-Extensions-appen finns:
 
 Om du av misstag har tagit bort B2C-Extensions-appen har du 30 dagar på dig att återställa den. Du kan återställa appen med hjälp av Graph API:
 
-1. Bläddra till [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/) .
+1. Bläddra till [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
 1. Logga in på platsen som global administratör för den Azure AD B2C katalog som du vill återställa den borttagna appen för. Den globala administratören måste ha en e-postadress som liknar följande: `username@{yourTenant}.onmicrosoft.com` .
 1. Utfärda ett HTTP GET mot URL: en `https://graph.windows.net/myorganization/deletedApplications` med API-version = 1.6. Den här åtgärden visar en lista över alla program som har tagits bort under de senaste 30 dagarna.
 1. Hitta programmet i listan där namnet börjar med "B2C-extension-app" och kopiera dess `objectid` egenskaps värde.

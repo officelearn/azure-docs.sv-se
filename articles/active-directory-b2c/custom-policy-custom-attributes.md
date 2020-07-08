@@ -12,10 +12,10 @@ ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389334"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Aktivera anpassade attribut i en anpassad profil princip
@@ -96,7 +96,7 @@ Samma attribut för tillägg delas mellan inbyggda och anpassade principer. När
 
 Du kan skapa de här attributen med hjälp av portalens användar gränssnitt innan du använder dem i dina anpassade principer. Följ anvisningarna för hur du [definierar anpassade attribut i Azure Active Directory B2C](user-flow-custom-attributes.md). När du skapar ett attribut **loyaltyId** i portalen måste du referera till det enligt följande:
 
-|Namn     |Används i |
+|Name     |Används i |
 |---------|---------|
 |`extension_loyaltyId`  | Anpassad princip|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|

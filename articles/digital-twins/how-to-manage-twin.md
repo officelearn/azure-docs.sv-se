@@ -1,5 +1,5 @@
 ---
-title: Hantera digitala dubbla
+title: Hantera digitala tvillingar
 titleSuffix: Azure Digital Twins
 description: Se hur du hämtar, uppdaterar och tar bort enskilda dubbla och relationer.
 author: baanders
@@ -8,13 +8,13 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 707cfb2e9bea3286daa92ea54f7bb9659a455caf
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390524"
 ---
-# <a name="manage-digital-twins"></a>Hantera digitala dubbla
+# <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
 Entiteter i din miljö representeras av [digitala dubbla](concepts-twins-graph.md). Att hantera digitala dubbla, kan vara att skapa, ändra och ta bort. Om du vill utföra dessa åtgärder kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187377"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Så här kopplar du SAS-kablar
@@ -18,7 +18,7 @@ ms.locfileid: "67187377"
    
     **Tillbaka vy över primär-och EBOD-höljen**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |Primärt kabinett |
    | 2 |EBOD-hölje |
@@ -28,7 +28,7 @@ ms.locfileid: "67187377"
    
     **Placering av serie nummer etikett**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    |:--- |:--- |
    | 1 |Öron av höljet |
 3. Använd de angivna SAS-kablarna för att ansluta EBOD-kabinettet till den primära inne slutningen enligt följande:
@@ -41,7 +41,7 @@ ms.locfileid: "67187377"
       
       **SAS-kablar**
       
-      | Label (Etikett) | Beskrivning |
+      | Etikett | Beskrivning |
       |:--- |:--- |
       | A |Primärt kabinett |
       | B |EBOD-hölje |

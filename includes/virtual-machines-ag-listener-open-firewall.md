@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187289"
 ---
 I det här steget skapar du en brand Väggs regel för att öppna avsöknings porten för den belastningsutjämnade slut punkten (59999 som anges ovan) och en annan regel för att öppna tillgänglighets gruppens lyssnar port. Eftersom du skapade den belastningsutjämnade slut punkten på de virtuella datorer som innehåller tillgänglighets grupp repliker måste du öppna avsöknings porten och lyssnar porten på respektive virtuell dator.

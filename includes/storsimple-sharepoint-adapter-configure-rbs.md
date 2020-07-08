@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187383"
 ---
 > [!NOTE]
@@ -55,7 +55,7 @@ ms.locfileid: "67187383"
    
    1. Ladda upp ett dokument till SharePoint. 
    2. Bläddra till den UNC-sökväg som du har konfigurerat. Se till att katalog strukturen för RBS har skapats och att den innehåller det överförda objektet.
-6. Valfritt Du kan använda Microsoft RBS `Migrate()` PowerShell-cmdleten som ingår i SharePoint för att MIGRERA befintligt BLOB-innehåll till StorSimple-enheten. Mer information finns i [Migrera innehåll till eller från RBS i SharePoint 2013][6] eller [Migrera innehåll till eller från RBS (SharePoint Foundation 2010)][7].
+6. Valfritt Du kan använda Microsoft RBS `Migrate()` PowerShell-cmdleten som ingår i SharePoint för att migrera befintligt BLOB-innehåll till StorSimple-enheten. Mer information finns i [Migrera innehåll till eller från RBS i SharePoint 2013][6] eller [Migrera innehåll till eller från RBS (SharePoint Foundation 2010)][7].
 7. Valfritt I test installationer kan du kontrol lera att BLOBarna har flyttats ut från innehålls databasen på följande sätt: 
    
    1. Starta SQL Management Studio.

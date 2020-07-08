@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187397"
 ---
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 1. Använd dina Microsoft-konto autentiseringsuppgifter för att logga in på [Microsoft Azure Government Portal](https://portal.azure.us/).
-2. I myndighets portalen klickar **+** du på och sedan på **Visa alla**på Marketplace. Sök efter _StorSimple Physical_. Markera och klicka på **StorSimple Physical Device Series** och sedan på **Skapa**. Alternativt, i myndighets portalen, klicka på **+** och under **lagring**klickar du på **StorSimple fysisk enhets serie**.
+2. I myndighets portalen klickar du på **+** och sedan på **Visa alla**på Marketplace. Sök efter _StorSimple Physical_. Markera och klicka på **StorSimple Physical Device Series** och sedan på **Skapa**. Alternativt, i myndighets portalen, klicka på **+** och under **lagring**klickar du på **StorSimple fysisk enhets serie**.
 3. Utför följande steg på bladet för **StorSimple Device Manager**:
    
    1. Ange ett unikt **resursnamn** för tjänsten. Det här är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 2 och 50 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.

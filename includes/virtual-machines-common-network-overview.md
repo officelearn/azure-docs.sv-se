@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: a665c3c27cca03a084896895ae51c56732ceb7b6
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84237741"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
@@ -34,15 +34,15 @@ Utöver dessa grundläggande resurser bör du även överväga dessa valfria res
 
 ## <a name="network-interfaces"></a>Nätverksgränssnitt
 
-Ett [nätverksgränssnitt (NIC)](../articles/virtual-network/virtual-network-network-interface.md) är gränssnittet mellan en virtuell dator och ett virtuellt nätverk (VNet). En virtuell dator måste ha minst ett NIC, men kan ha flera, beroende på storleken på den virtuella dator som du skapar. Lär dig mer om hur många nätverkskort varje VM-storlek stöder för [Windows](../articles/virtual-machines/windows/sizes.md) eller [Linux](../articles/virtual-machines/linux/sizes.md).
+Ett [nätverks gränssnitt (NIC)](../articles/virtual-network/virtual-network-network-interface.md) är sammanlänkningen mellan en virtuell dator och ett virtuellt nätverk (VNet). En virtuell dator måste ha minst ett NIC, men kan ha flera, beroende på storleken på den virtuella dator som du skapar. Lär dig mer om hur många NIC varje VM-storlek stöder för [Windows](../articles/virtual-machines/windows/sizes.md) eller [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Du kan skapa en virtuell dator med flera nätverkskort och lägga till eller ta bort nätverkskort genom livs cykeln för en virtuell dator. Flera nätverkskort gör det möjligt för en virtuell dator att ansluta till olika undernät och skicka eller ta emot trafik via det mest lämpliga gränssnittet. Virtuella datorer med valfritt antal nätverks gränssnitt kan finnas i samma tillgänglighets uppsättning, upp till det antal som stöds av storleken på den virtuella datorn. 
+Du kan skapa en virtuell dator med flera NIC samt lägga till eller ta bort NIC i hela livscykeln för en virtuell dator. Flera NIC gör det möjligt för en virtuell dator att ansluta till olika undernät och skicka eller ta emot trafik via det mest lämpliga gränssnittet. Virtuella datorer med valfritt antal nätverksgränssnitt kan finnas i samma tillgänglighetsuppsättning, upp till det antal som stöds av VM-storleken. 
 
-Varje NIC som är kopplat till en virtuell dator måste befinna sig på samma plats och prenumeration som den virtuella datorn. Varje NIC måste anslutas till ett VNet som finns på samma Azure-plats och i samma Azure-prenumeration som denna NIC. Du kan ändra det undernät som en virtuell dator är ansluten till när den har skapats, men du kan inte ändra VNet. Varje nätverkskort som är kopplat till en virtuell dator tilldelas en MAC-adress som inte ändras förrän den virtuella datorn tas bort.
+Varje NIC som är kopplat till en virtuell dator måste befinna sig på samma plats och prenumeration som den virtuella datorn. Varje NIC måste anslutas till ett VNet som finns på samma Azure-plats och i samma Azure-prenumeration som denna NIC. Du kan ändra det undernät som en virtuell dator är ansluten till efter att den har skapats, men du kan inte ändra det virtuella nätverket. Varje NIC som är kopplad till en virtuell dator tilldelas en MAC-adress som inte ändras förrän den virtuella datorn tas bort.
 
 Den här tabellen anger de metoder som du kan använda för att skapa ett nätverksgränssnitt.
 
-| Metod | Description |
+| Metod | Beskrivning |
 | ------ | ----------- |
 | Azure Portal | När du skapar en virtuell dator i Azure Portal skapas automatiskt ett nätverksgränssnitt åt dig (du kan inte använda ett NIC som du skapar separat). Portalen skapar en virtuell dator med bara ett NIC. Om du vill skapa en virtuell dator med mer än ett NIC måste du skapa det med en annan metod. |
 | [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Använd [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) med parametern **-PublicIpAddressId** för att ange identifieraren för den offentliga IP-adress som du skapade tidigare. |
@@ -64,7 +64,7 @@ Om du inte vill att IP-adressen för den virtuella datorn ska ändras kan du utt
     
 Den här tabellen anger de metoder som du kan använda för att skapa en IP-adress.
 
-| Metod | Description |
+| Metod | Beskrivning |
 | ------ | ----------- |
 | [Azure Portal](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Som standard är offentliga IP-adresser dynamiska och den adress som är associerad med dem kan ändras när den virtuella datorn har stoppats eller tagits bort. För att garantera att den virtuella datorn alltid använder samma offentliga IP-adress skapar du en statisk offentlig IP-adress. Som standard tilldelar portalen en dynamisk privat IP-adress till ett NIC när du skapar en virtuell dator. Du kan ändra den här IP-adressen till statisk när den virtuella datorn har skapats.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Du använder [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) med parametern **-AllocationMethod** som dynamisk eller statisk. |
@@ -85,7 +85,7 @@ Som standard finns ingen säkerhetsgräns mellan undernät, så virtuella datore
 
 Den här tabellen anger de metoder som du kan använda för att skapa ett VNet och undernät.    
 
-| Metod | Description |
+| Metod | Beskrivning |
 | ------ | ----------- |
 | [Azure Portal](../articles/virtual-network/quick-create-portal.md) | Om du låter Azure skapa ett VNet när du skapar en virtuell dator är namnet en kombination av resursgruppens namn som innehåller VNet och **-vnet**. Adressutrymmet är 10.0.0.0/24, det nödvändiga undernätets namn är **standard**, och adressintervallet för undernätet är 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Du använder [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkSubnetConfig) och [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) för att skapa ett undernät och ett VNet. Du kan också använda [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/Az.Network/Add-AzVirtualNetworkSubnetConfig) för att lägga till ett undernät i ett befintligt VNet. |
@@ -106,7 +106,7 @@ Se till att [planera](../articles/virtual-network/virtual-network-vnet-plan-desi
 
 Den här tabellen anger de metoder som du kan använda för att skapa en nätverkssäkerhetsgrupp.
 
-| Metod | Description |
+| Metod | Beskrivning |
 | ------ | ----------- |
 | [Azure Portal](../articles/virtual-network/tutorial-filter-network-traffic.md) | När du skapar en virtuell dator i Azure-portalen skapas en NSG automatiskt och kopplas till det NIC som portalen skapar. Namnet på denna NSG är en kombination av namnet på den virtuella datorn och **-nsg**. Denna NSG innehåller en inkommande regel med prioritet 1000, tjänst inställd på RDP, protokoll inställt på TCP, port inställd på 3389 och åtgärd inställd på Tillåt. Om du vill tillåta annan inkommande trafik till den virtuella datorn måste du lägga till ytterligare regler i NSG. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Använd [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) och ange den regel information som krävs. Använd [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) för att skapa NSG. Använd [set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig) för att konfigurera NSG för under nätet. Använd [set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) för att lägga till NSG i VNet. |
@@ -130,7 +130,7 @@ Du måste också beakta dessa konfigurationselement när du skapar en lastbalans
 
 Den här tabellen anger de metoder som du kan använda för att skapa en internetuppkopplad lastbalanserare.
 
-| Metod | Description |
+| Metod | Beskrivning |
 | ------ | ----------- |
 | Azure Portal |  Du kan [belastningsutjämna Internet trafik till virtuella datorer med hjälp av Azure Portal](../articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
 | [Azure PowerShell](/azure/load-balancer/load-balancer-get-started-ilb-arm-ps) | Om du vill ange identifieraren för den offentliga IP-adress som du skapade tidigare använder du [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) med parametern **-PublicIpAddress** . Använd [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) för att skapa konfigurationen för backend-adresspoolen. Använd [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) för att skapa inkommande NAT-regler som är associerade med den frontend-IP-konfiguration som du har skapat. Använd [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) för att skapa de avsökningar som du behöver. Använd [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) för att skapa belastnings Utjämnings konfigurationen. Använd [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) för att skapa belastningsutjämnaren.|
@@ -139,7 +139,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en interne
     
 Den här tabellen anger de metoder som du kan använda för att skapa en intern lastbalanserare.
 
-| Metod | Description |
+| Metod | Beskrivning |
 | ------ | ----------- |
 | Azure Portal | Du kan [utjämna belastningen på intern trafik med en belastningsutjämnare i Azure Portal](../articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Om du vill ange en privat IP-adress i nätverks under nätet använder du [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) med parametern **-PrivateIpAddress** . Använd [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) för att skapa konfigurationen för backend-adresspoolen. Använd [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) för att skapa inkommande NAT-regler som är associerade med den frontend-IP-konfiguration som du har skapat. Använd [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) för att skapa de avsökningar som du behöver. Använd [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) för att skapa belastnings Utjämnings konfigurationen. Använd [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) för att skapa belastningsutjämnaren.|
@@ -160,7 +160,7 @@ Om du skapar en virtuell dator och vill migrera den till ett VNet är detta inte
 
 Den här tabellen anger de metoder som du kan använda för att skapa en virtuell dator i ett VNet.
 
-| Metod | Description |
+| Metod | Beskrivning |
 | ------ | ----------- |
 | [Azure Portal](../articles/virtual-machines/windows/quick-create-portal.md) | Använder standardinställningarna för nätverk som nämndes tidigare för att skapa en virtuell dator med ett enskilt NIC. Om du vill skapa en virtuell dator med flera NICs måste du använda en annan metod. |
 | [Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md) | Inkluderar användningen av [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) för att lägga till det nätverkskort som du skapade tidigare i VM-konfigurationen. |

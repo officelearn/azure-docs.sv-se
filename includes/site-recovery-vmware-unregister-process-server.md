@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187871"
 ---
 Följ anvisningarna för dina särskilda omständigheter.
@@ -26,7 +26,7 @@ Följ anvisningarna för dina särskilda omständigheter.
 Använd bara de här stegen om det inte finns något sätt att återskapa den dator där processervern är installerad.
 
 1. Logga in på konfigurations servern som administratör.
-2. Öppna en administrativ kommando tolk och bläddra till `%ProgramData%\ASR\home\svsystems\bin`.
+2. Öppna en administrativ kommando tolk och bläddra till `%ProgramData%\ASR\home\svsystems\bin` .
 3. Kör det här kommandot för att hämta en lista över en eller flera process servrar.
 
     ```

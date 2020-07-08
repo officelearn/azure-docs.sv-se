@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187802"
 ---
 Om du får problem med enheten kan du skapa ett support paket från system loggarna. Microsoft Support använder det här paketet för att felsöka problemen. Följ de här stegen för att skapa ett support paket:
@@ -34,7 +34,7 @@ Om du får problem med enheten kan du skapa ett support paket från system logga
     - `-Path`-Ange nätverket eller den lokala sökvägen för att kopiera support paketet till. kunna
     - `-Credential`– Ange autentiseringsuppgifterna för att få åtkomst till den skyddade sökvägen.
     - `-Zip`-Ange om du vill generera en zip-fil.
-    - `-Include`-Ange om du vill inkludera de komponenter som ska ingå i support paketet. Om inget anges antas `Default` detta.
+    - `-Include`-Ange om du vill inkludera de komponenter som ska ingå i support paketet. Om inget anges `Default` antas detta.
     - `-IncludeArchived`-Ange om du vill inkludera arkiverade loggar i support paketet.
     - `-IncludePeriodicStats`-Ange om du vill inkludera periodiska stat loggar i support paketet.
 

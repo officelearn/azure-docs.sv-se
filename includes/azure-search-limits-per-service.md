@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: search
 author: HeidiSteen
 ms.service: cognitive-search
@@ -9,21 +9,21 @@ ms.date: 05/11/2020
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: fe5c8129434ddb4eec2dd25a3f123f28b4db221b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682636"
 ---
 En Sök tjänst begränsas av disk utrymme eller av en hård gräns på det maximala antalet index eller indexerare, beroende på vilket som kommer först. I följande tabell dokumenteras lagrings gränser. För maximala objekt gränser, se [gränser per resurs](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Resurs | Kostnadsfri | Basic<sup>1</sup> | S1 | S2 | S3 | S3 &nbsp; HD | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Service nivå avtal (SLA)<sup>2</sup>  |Inga |Ja |Ja |Ja |Ja |Ja |Ja |Ja |
+| Service nivå avtal (SLA)<sup>2</sup>  |Nej |Ja |Ja |Ja |Ja |Ja |Ja |Ja |
 | Lagringsutrymme per partition |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
-| Partitioner per tjänst |Ej tillämpligt |1 |12 |12 |12 |3 |12 |12 |
-| Partitionsstorlek |Ej tillämpligt |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
-| Repliker |Ej tillämpligt |3 |12 |12 |12 |12 |12 |12 |
+| Partitioner per tjänst |E.t. |1 |12 |12 |12 |3 |12 |12 |
+| Partitionsstorlek |E.t. |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
+| Repliker |E.t. |3 |12 |12 |12 |12 |12 |12 |
 
 <sup>1</sup> Basic har en fast partition. Ytterligare Sök enheter kan användas för att lägga till repliker för större fråga-volymer.
 

@@ -12,10 +12,10 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e175a81efc1ab0950c1fda314efb206ff97a2b7f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385390"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiera anspråks omvandlingar för telefonnummer i Azure AD B2C
@@ -30,7 +30,7 @@ Den här artikeln innehåller en referens och exempel på hur du kan använda an
 
 Konverterar en datatyp `phoneNumber` till en `string` datatyp.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | phoneNumber |  ClaimType som ska konverteras till en sträng. |
 | OutputClaim | phoneNumberString | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
@@ -60,7 +60,7 @@ I det här exemplet konverteras cellPhoneNumber-anspråket med värde typen `pho
 
 Den här anspråks omvandlingen verifierar formatet för telefonnumret. Om det är i ett giltigt format ändrar du det till ett standardformat som används av Azure AD B2C. Om det angivna telefonnumret inte har ett giltigt format returneras ett fel meddelande.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumberString | sträng |  Sträng anspråket för telefonnumret. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och lands-/regions kod. Om indata `country` -anspråk anges, är telefonnumret i lokalt format (utan lands-/region kod). |
 | InputClaim | land | sträng | Valfritt Sträng anspråket för lands-/regionkoden för telefonnumret i ISO3166-format (ISO-3166 land/region-kod). |
@@ -115,7 +115,7 @@ Den självkontrollerade tekniska profilen som anropar den tekniska verifierings 
 
 Detta extraherar lands-/regionkoden och det nationella numret från det inskickade anspråket och returnerar ett undantag om det angivna telefonnumret inte är giltigt.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | sträng | Telefonnumrets sträng anspråk. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och lands-/regions kod. |
 | InputParameter | throwExceptionOnFailure | boolean | Valfritt En parameter som anger om ett undantag genereras när telefonnumret är ogiltigt. Standardvärdet är false. |

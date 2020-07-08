@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385730"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
@@ -53,7 +53,7 @@ Det första läget i den här tekniska profilen är att generera en kod. Nedan v
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| identifier | Yes | Identifieraren som identifierar den användare som behöver verifiera koden senare. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
+| identifier | Ja | Identifieraren som identifierar den användare som behöver verifiera koden senare. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till eng ång slö sen lösen ords protokollets Provider.
 
@@ -63,7 +63,7 @@ Det första läget i den här tekniska profilen är att generera en kod. Nedan v
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| otpGenerated | Yes | Den genererade koden vars session hanteras av Azure AD B2C. |
+| otpGenerated | Ja | Den genererade koden vars session hanteras av Azure AD B2C. |
 
 **OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
@@ -75,9 +75,9 @@ Följande inställningar kan användas för att konfigurera läget för kodgener
 | --------- | -------- | ----------- |
 | CodeExpirationInSeconds | No | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60` ; Max: `1200` ; Standard: `600` . |
 | CodeLength | No | Längden på koden. Standardvärdet är `6`. |
-| CharacterSet | No | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Exempelvis `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
+| CharacterSet | No | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
 | NumRetryAttempts | No | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
-| Åtgärd | Yes | Åtgärden som ska utföras. Möjligt värde: `GenerateCode` . |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `GenerateCode` . |
 | ReuseSameCode | No | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
 
 ### <a name="example"></a>Exempel
@@ -115,8 +115,8 @@ Det andra läget i den här tekniska profilen är att verifiera en kod. Nedan vi
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| identifier | Yes | Identifieraren som identifierar den användare som tidigare har genererat en kod. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
-| otpToVerify | Yes | Verifierings koden som anges av användaren. |
+| identifier | Ja | Identifieraren som identifierar den användare som tidigare har genererat en kod. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
+| otpToVerify | Ja | Verifierings koden som anges av användaren. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till eng ång slö sen lösen ords protokollets Provider.
 
@@ -132,7 +132,7 @@ Följande inställningar kan användas för kod verifierings läge:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Yes | Åtgärden som ska utföras. Möjligt värde: `VerifyCode` . |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `VerifyCode` . |
 
 
 ### <a name="ui-elements"></a>Element för användargränssnitt

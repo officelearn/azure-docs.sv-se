@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c4b40c284c8d034d92f29eb25d754d9294ac2e3d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386784"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering
@@ -305,11 +305,11 @@ Content-type: application/json
 
 | Parameter                                           | Krävs | Beskrivning                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Yes      | Kan genereras genom att ta emot `email_address` anspråket som skickas till API: et, ersätta det `@` med `_` och vänta det `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled                                      | Yes      | Måste anges till `true` .                                                                                                                                                 |
-| e-post                                                | Yes      | Motsvarar det `email_address` anspråk som skickas till API: et.                                                                                                               |
-| userType                                            | Yes      | Måste vara `Guest` . Utser den här användaren som gäst användare.                                                                                                                 |
-| identiteter                                          | Yes      | Federerad identitets information.                                                                                                                                    |
+| userPrincipalName                                   | Ja      | Kan genereras genom att ta emot `email_address` anspråket som skickas till API: et, ersätta det `@` med `_` och vänta det `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Ja      | Måste anges till `true` .                                                                                                                                                 |
+| e-post                                                | Ja      | Motsvarar det `email_address` anspråk som skickas till API: et.                                                                                                               |
+| userType                                            | Ja      | Måste vara `Guest` . Utser den här användaren som gäst användare.                                                                                                                 |
+| identiteter                                          | Ja      | Federerad identitets information.                                                                                                                                    |
 | \<otherBuiltInAttribute>                            | No       | Andra inbyggda attribut som `displayName` , `city` och andra. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                            |
 | \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Anpassade attribut för användaren. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                                                            |
 

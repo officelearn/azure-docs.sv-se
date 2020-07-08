@@ -11,10 +11,10 @@ ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386070"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Fakturerings modell för Azure Active Directory B2C
@@ -58,7 +58,7 @@ Så här gör du för att växla till MAU fakturering för en befintlig Azure AD
 
 MAU-baserad avläsning aktive ras så snart du, prenumerationen/resurs ägaren, bekräftar ändringen. Din månads faktura visar de enheter med autentisering som faktureras tills ändringen och nya enheter av MAU börjar med ändringen.
 
-Användarna är inte dubbelt räknade under över gångs månaden. Unika aktiva användare som autentiseras innan ändringen debiteras per autentisering under en kalender månad. Samma användare ingår inte i MAU-beräkningen för resten av prenumerationens fakturerings period. Till exempel:
+Användarna är inte dubbelt räknade under över gångs månaden. Unika aktiva användare som autentiseras innan ändringen debiteras per autentisering under en kalender månad. Samma användare ingår inte i MAU-beräkningen för resten av prenumerationens fakturerings period. Ett exempel:
 
 * Contoso B2C-klienten har 1 000 användare. 250 användare är aktiva under en månad. Prenumerations administratören ändras från per autentisering till månatliga aktiva användare (MAU) den 10: a i månaden.
 * Faktureringen för 1 – 10 – 10 faktureras med modellen per autentisering.
@@ -94,7 +94,7 @@ En prenumeration som är länkad till en Azure AD B2C-klient kan användas för 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller den Azure-prenumeration som du vill använda (*inte* den katalog som innehåller Azure AD B2C klienten).
 1. Välj **skapa en resurs**, ange `Active Directory B2C` i fältet **Sök i Marketplace** och välj sedan **Azure Active Directory B2C**.
-1. Välj **skapa**
+1. Välj **Skapa**
 1. Välj **Länka en befintlig Azure AD B2C-klient till min Azure-prenumeration**.
 1. Välj en **Azure AD B2C klient** i list rutan. Endast innehavare som du är global administratör för och som inte redan är länkade till en prenumeration visas. Fältet **Azure AD B2C resurs namn** fylls i med domän namnet för den Azure AD B2C klient som du väljer.
 1. Välj en aktiv Azure- **prenumeration** som du är administratör för.

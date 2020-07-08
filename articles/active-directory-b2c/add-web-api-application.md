@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385968"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Lägga till ett webb-API-program till din Azure Active Directory B2C-klient
@@ -49,7 +49,7 @@ Om du har ett program som implementerar det implicita tilldelnings flödet, till
 5. Ange ett namn på programmet. Till exempel *webapi1*.
 6. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
 7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I produktions programmet kan du ange svars-URL till ett värde som `https://localhost:44332` . I test syfte ställer du in svars-URL till `https://jwt.ms` .
-8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Exempelvis `https://contosotenant.onmicrosoft.com/api`.
+8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
 9. Klicka på **Skapa**.
 10. På egenskapssidan antecknar du program-ID:t du kommer att använda när du konfigurerar webbappen.
 

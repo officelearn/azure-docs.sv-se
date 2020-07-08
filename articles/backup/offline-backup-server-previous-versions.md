@@ -4,10 +4,10 @@ description: Med Azure Backup kan du skicka data från nätverket med Azure impo
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85374839"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (tidigare versioner)
@@ -96,7 +96,7 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 
 Följ dessa steg om du vill ladda upp offline backup-certifikatet manuellt till ett tidigare skapat Azure Active Directory program som är avsett för offline-säkerhetskopiering.
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 1. Gå till **Azure Active Directory**  >  **Appregistreringar**.
 1. På fliken **ägda program** letar du reda på ett program med formatet visnings namn `AzureOfflineBackup _<Azure User Id` .
 

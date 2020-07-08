@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386750"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Lägga till en API-anslutning till ett användar flöde
@@ -135,8 +135,8 @@ Content-type: application/json
 
 | Parameter                                          | Typ              | Obligatorisk | Beskrivning                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | Sträng            | Yes      | API-versionen.                                                                                                                                                                                                                                                                |
-| åtgärd                                             | Sträng            | Yes      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
+| version                                            | Sträng            | Ja      | API-versionen.                                                                                                                                                                                                                                                                |
+| åtgärd                                             | Sträng            | Ja      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Värden kan lagras i katalogen om de har valts som ett **anspråk att ta emot** i API-anslutningens konfiguration **och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | Det returnerade anspråket kan eventuellt inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
 
@@ -161,9 +161,9 @@ Content-type: application/json
 
 | Parameter   | Typ   | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | Sträng | Yes      | API-versionen.                                                    |
-| åtgärd      | Sträng | Yes      | Värdet måste vara`ShowBlockPage`                                              |
-| userMessage | Sträng | Yes      | Meddelande som ska visas för användaren.                                            |
+| version     | Sträng | Ja      | API-versionen.                                                    |
+| åtgärd      | Sträng | Ja      | Värdet måste vara`ShowBlockPage`                                              |
+| userMessage | Sträng | Ja      | Meddelande som ska visas för användaren.                                            |
 | kod        | Sträng | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Slut användar upplevelse med ett blockerande svar
@@ -191,10 +191,10 @@ Content-type: application/json
 
 | Parameter   | Typ    | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | Sträng  | Yes      | API-versionen.                                                    |
-| åtgärd      | Sträng  | Yes      | Värdet måste vara `ValidationError` .                                           |
-| status      | Integer | Yes      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
-| userMessage | Sträng  | Yes      | Meddelande som ska visas för användaren.                                            |
+| version     | Sträng  | Ja      | API-versionen.                                                    |
+| åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
+| status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
+| userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
 | kod        | Sträng  | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 #### <a name="end-user-experience-with-a-validation-error-response"></a>Slut användar upplevelse med ett verifierings fel svar

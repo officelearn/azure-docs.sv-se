@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386376"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
@@ -85,7 +85,7 @@ Dessutom kan du också lägga till användare med hjälp av kommando tolken:
 - Om klient användarna synkroniseras från lokala Active Directory använder du `net localgroup administrators /add "Contoso\username"` .
 - Om dina klient användare har skapats i Azure AD använder du`net localgroup administrators /add "AzureAD\UserUpn"`
 
-## <a name="considerations"></a>Överväganden 
+## <a name="considerations"></a>Att tänka på 
 
 Du kan inte tilldela grupper till enhets administratörs rollen, endast enskilda användare tillåts.
 

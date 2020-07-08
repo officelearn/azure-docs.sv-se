@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385951"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Azure MFA Technical-profil i en Azure AD B2C anpassad princip
@@ -59,8 +59,8 @@ Det första läget i den här tekniska profilen är att generera en kod och skic
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| userPrincipalName | Yes | Identifieraren för den användare som äger telefonnumret. |
-| phoneNumber | Yes | Telefonnumret som en SMS-kod ska skickas till. |
+| userPrincipalName | Ja | Identifieraren för den användare som äger telefonnumret. |
+| phoneNumber | Ja | Telefonnumret som en SMS-kod ska skickas till. |
 | companyName | No |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
 | locale | No | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
 
@@ -76,7 +76,7 @@ Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Yes | Måste vara **OneWaySMS**.  |
+| Åtgärd | Ja | Måste vara **OneWaySMS**.  |
 
 #### <a name="ui-elements"></a>Element för användargränssnitt
 
@@ -121,8 +121,8 @@ Det andra läget i den här tekniska profilen är att verifiera en kod. Följand
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- | ----------- |
-| phoneNumber| Yes | Samma telefonnummer som tidigare användes för att skicka en kod. Den används också för att hitta en fjärrstyrningssession. |
-| verificationCode  | Yes | Verifierings koden som anges av användaren som ska verifieras |
+| phoneNumber| Ja | Samma telefonnummer som tidigare användes för att skicka en kod. Den används också för att hitta en fjärrstyrningssession. |
+| verificationCode  | Ja | Verifierings koden som anges av användaren som ska verifieras |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan du anropar tjänsten Azure MFA.
 
@@ -136,7 +136,7 @@ Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Yes | Måste **Verifiera** |
+| Åtgärd | Ja | Måste **Verifiera** |
 
 #### <a name="ui-elements"></a>Element för användargränssnitt
 

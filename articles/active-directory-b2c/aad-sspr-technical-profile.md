@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85383605"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Azure AD SSPR-teknisk profil i en Azure AD B2C anpassad princip
@@ -59,7 +59,7 @@ Det första läget i den här tekniska profilen är att generera en kod och skic
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| emailAddress | Yes | ID för den användare som äger e-postadressen. `PartnerClaimType`Egenskapen för det angivna anspråket måste vara inställd på `emailAddress` . |
+| emailAddress | Ja | ID för den användare som äger e-postadressen. `PartnerClaimType`Egenskapen för det angivna anspråket måste vara inställd på `emailAddress` . |
 
 
 **InputClaimsTransformations** -elementet kan innehålla en samling **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till Azure AD SSPR-tjänsten.
@@ -74,7 +74,7 @@ Azure AD SSPR-providern returnerar inte några **OutputClaims**, därför behöv
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Yes | Måste vara **SendCode**.  |
+| Åtgärd | Ja | Måste vara **SendCode**.  |
 
 #### <a name="ui-elements"></a>Element för användargränssnitt
 
@@ -113,8 +113,8 @@ Det andra läget i den här tekniska profilen är att verifiera en kod. Följand
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- | ----------- |
-| emailAddress| Yes | Samma e-postadress som tidigare användes för att skicka en kod. Den används också för att hitta en e-postverifierings session. `PartnerClaimType`Egenskapen för det angivna anspråket måste vara inställd på `emailAddress` .|
-| verificationCode  | Yes | Verifierings koden som anges av användaren som ska verifieras. `PartnerClaimType`Egenskapen för det angivna anspråket måste vara inställd på `verificationCode` . |
+| emailAddress| Ja | Samma e-postadress som tidigare användes för att skicka en kod. Den används också för att hitta en e-postverifierings session. `PartnerClaimType`Egenskapen för det angivna anspråket måste vara inställd på `emailAddress` .|
+| verificationCode  | Ja | Verifierings koden som anges av användaren som ska verifieras. `PartnerClaimType`Egenskapen för det angivna anspråket måste vara inställd på `verificationCode` . |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan du anropar Azure AD SSPR-tjänsten.
 
@@ -128,7 +128,7 @@ Azure AD SSPR-providern returnerar inte några **OutputClaims**, därför behöv
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Yes | Måste vara **VerifyCode** |
+| Åtgärd | Ja | Måste vara **VerifyCode** |
 
 #### <a name="ui-elements"></a>Element för användargränssnitt
 

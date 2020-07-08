@@ -12,10 +12,10 @@ ms.date: 12/04/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4297ee64742b81e86eb8b85c0a6c405fac07d67f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386172"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigerings-URL: er till b2clogin.com för Azure Active Directory B2C
@@ -58,7 +58,7 @@ Det finns två format som du kan använda för dina b2clogin.com-omdirigerings-U
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com` . Till exempel:
+Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com` . Ett exempel:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp

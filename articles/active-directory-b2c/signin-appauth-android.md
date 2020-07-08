@@ -12,10 +12,10 @@ ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 79219d7a7b59818d54acc6a2b0b4c8093ead3a6a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385237"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Logga in med ett Android-program i Azure Active Directory B2C
@@ -41,7 +41,7 @@ Registrera sedan ett program i Azure AD B2C klient organisationen. Det ger Azure
 
 Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
-Registrera även en anpassad omdirigerings-URI för användning i ett senare steg. Exempelvis `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registrera även en anpassad omdirigerings-URI för användning i ett senare steg. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Skapa dina användar flöden
 
@@ -120,8 +120,8 @@ AuthorizationServiceConfiguration config =
 
 När du har konfigurerat eller hämtat en Authorization service-konfiguration kan en auktoriseringsbegäran konstrueras. Om du vill skapa begäran behöver du följande information:
 
-* Klient-ID (program-ID) som du registrerade tidigare. Exempelvis `00000000-0000-0000-0000-000000000000`.
-* Anpassad omdirigerings-URI som du registrerade tidigare. Exempelvis `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+* Klient-ID (program-ID) som du registrerade tidigare. Till exempel `00000000-0000-0000-0000-000000000000`.
+* Anpassad omdirigerings-URI som du registrerade tidigare. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Båda objekten bör ha sparats när du [registrerade appen](#create-an-application).
 

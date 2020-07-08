@@ -12,10 +12,10 @@ ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fad29c32731ee2470354a51acf32e350eb0c4cfc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85384880"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Samla in Azure Active Directory B2C loggar med Application Insights
@@ -61,7 +61,7 @@ Om du inte redan har en, skapar du en instans av Application Insights i din pren
     * `ClientEnabled="true"`skickar skript för ApplicationInsights på klient sidan för att spåra sid visning och fel på klient sidan. Du kan visa dessa i tabellen **browserTimings** i Application Insights-portalen. Genom att ställa in `ClientEnabled= "true"` lägger du till Application Insights i sid skriptet och du får tids inställningar för sid inläsningar och AJAX-anrop, antal, information om webb läsar undantag och AJAX-fel samt antal användare och sessioner. Det här fältet är **valfritt**och anges som `false` standard.
     * `ServerEnabled="true"`skickar den befintliga UserJourneyRecorder-JSON som en anpassad händelse till Application Insights.
 
-    Till exempel:
+    Ett exempel:
 
     ```xml
     <TrustFrameworkPolicy
